@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data DeleteInternetGateway = DeleteInternetGateway
     { _dig2DryRun            :: Maybe Bool
     , _dig2InternetGatewayId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteInternetGateway' constructor.
 --
@@ -83,7 +83,11 @@ deleteInternetGatewayResponse = DeleteInternetGatewayResponse
 instance ToPath DeleteInternetGateway where
     toPath = const "/"
 
-instance ToQuery DeleteInternetGateway
+instance ToQuery DeleteInternetGateway where
+    toQuery DeleteInternetGateway{..} = mconcat
+        [ "dryRun"            =? _dig2DryRun
+        , "internetGatewayId" =? _dig2InternetGatewayId
+        ]
 
 instance ToHeaders DeleteInternetGateway
 

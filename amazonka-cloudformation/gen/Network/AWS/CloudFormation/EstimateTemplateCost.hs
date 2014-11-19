@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,10 +50,10 @@ import Network.AWS.CloudFormation.Types
 import qualified GHC.Exts
 
 data EstimateTemplateCost = EstimateTemplateCost
-    { _etcParameters   :: [Parameter]
+    { _etcParameters   :: List "Parameters" Parameter
     , _etcTemplateBody :: Maybe Text
     , _etcTemplateURL  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'EstimateTemplateCost' constructor.
 --
@@ -73,7 +74,7 @@ estimateTemplateCost = EstimateTemplateCost
 
 -- | A list of Parameter structures that specify input parameters.
 etcParameters :: Lens' EstimateTemplateCost [Parameter]
-etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a })
+etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a }) . _List
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to
@@ -93,7 +94,7 @@ etcTemplateURL = lens _etcTemplateURL (\s a -> s { _etcTemplateURL = a })
 
 newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
     { _etcrUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'EstimateTemplateCostResponse' constructor.
 --
@@ -114,7 +115,12 @@ etcrUrl = lens _etcrUrl (\s a -> s { _etcrUrl = a })
 instance ToPath EstimateTemplateCost where
     toPath = const "/"
 
-instance ToQuery EstimateTemplateCost
+instance ToQuery EstimateTemplateCost where
+    toQuery EstimateTemplateCost{..} = mconcat
+        [ "Parameters"   =? _etcParameters
+        , "TemplateBody" =? _etcTemplateBody
+        , "TemplateURL"  =? _etcTemplateURL
+        ]
 
 instance ToHeaders EstimateTemplateCost
 
@@ -126,5 +132,5 @@ instance AWSRequest EstimateTemplateCost where
     response = xmlResponse
 
 instance FromXML EstimateTemplateCostResponse where
-    parseXML = withElement "EstimateTemplateCostResult" $ \x ->
-            <$> x .@? "Url"
+    parseXML = withElement "EstimateTemplateCostResult" $ \x -> EstimateTemplateCostResponse
+        <$> x .@? "Url"

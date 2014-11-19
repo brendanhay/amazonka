@@ -66,8 +66,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "job",
@@ -137,6 +136,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Job",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -213,8 +213,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -247,6 +246,7 @@
                 "contentPad": 0,
                 "name": "CancelJobResponse",
                 "resultWrapper": "CancelJobResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -301,7 +301,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -368,6 +367,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -397,8 +397,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -415,6 +414,7 @@
                 "contentPad": 0,
                 "name": "CreateJobResponse",
                 "resultWrapper": "CreateJobResult",
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -618,8 +618,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -713,6 +712,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -803,8 +803,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -821,6 +820,7 @@
                 "contentPad": 0,
                 "name": "GetStatusResponse",
                 "resultWrapper": "GetStatusResult",
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1325,7 +1325,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1392,6 +1391,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -1420,8 +1420,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -1438,13 +1437,14 @@
                 "contentPad": 0,
                 "name": "ListJobsResponse",
                 "resultWrapper": "ListJobsResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1454,7 +1454,7 @@
                         "locationName": "Jobs",
                         "documentation": null,
                         "typeExposed": "[Job]",
-                        "type": "[Job]"
+                        "type": "List \"Jobs\" Job"
                     },
                     {
                         "location": "querystring",
@@ -1490,8 +1490,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1501,7 +1501,7 @@
                         "locationName": "Jobs",
                         "documentation": null,
                         "typeExposed": "[Job]",
-                        "type": "[Job]"
+                        "type": "List \"Jobs\" Job"
                     }
                 ]
             },
@@ -1528,8 +1528,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1567,6 +1566,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 8,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1642,8 +1642,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -1660,6 +1659,7 @@
                 "contentPad": 0,
                 "name": "UpdateJobResponse",
                 "resultWrapper": "UpdateJobResult",
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1743,8 +1743,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1853,6 +1852,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,

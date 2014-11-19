@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
-    { _dtbasInstanceIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dtbasInstanceIds :: List "InstanceIds" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTimeBasedAutoScaling where
     type Item DescribeTimeBasedAutoScaling = Text
@@ -71,11 +72,11 @@ describeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
 
 -- | An array of instance IDs.
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
-dtbasInstanceIds = lens _dtbasInstanceIds (\s a -> s { _dtbasInstanceIds = a })
+dtbasInstanceIds = lens _dtbasInstanceIds (\s a -> s { _dtbasInstanceIds = a }) . _List
 
 newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
-    { _dtbasrTimeBasedAutoScalingConfigurations :: [TimeBasedAutoScalingConfiguration]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dtbasrTimeBasedAutoScalingConfigurations :: List "TimeBasedAutoScalingConfigurations" TimeBasedAutoScalingConfiguration
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTimeBasedAutoScalingResponse where
     type Item DescribeTimeBasedAutoScalingResponse = TimeBasedAutoScalingConfiguration
@@ -100,6 +101,7 @@ dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingRe
 dtbasrTimeBasedAutoScalingConfigurations =
     lens _dtbasrTimeBasedAutoScalingConfigurations
         (\s a -> s { _dtbasrTimeBasedAutoScalingConfigurations = a })
+            . _List
 
 instance ToPath DescribeTimeBasedAutoScaling where
     toPath = const "/"
@@ -123,4 +125,4 @@ instance AWSRequest DescribeTimeBasedAutoScaling where
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse where
     parseJSON = withObject "DescribeTimeBasedAutoScalingResponse" $ \o -> DescribeTimeBasedAutoScalingResponse
-        <$> o .: "TimeBasedAutoScalingConfigurations"
+        <$> o .:  "TimeBasedAutoScalingConfigurations"

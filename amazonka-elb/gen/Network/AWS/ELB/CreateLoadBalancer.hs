@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,14 +66,14 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data CreateLoadBalancer = CreateLoadBalancer
-    { _clbAvailabilityZones :: [Text]
-    , _clbListeners         :: [Listener]
+    { _clbAvailabilityZones :: List "AvailabilityZones" Text
+    , _clbListeners         :: List "Listeners" Listener
     , _clbLoadBalancerName  :: Text
     , _clbScheme            :: Maybe Text
-    , _clbSecurityGroups    :: [Text]
-    , _clbSubnets           :: [Text]
-    , _clbTags              :: List1 Tag
-    } deriving (Eq, Show, Generic)
+    , _clbSecurityGroups    :: List "SecurityGroups" Text
+    , _clbSubnets           :: List "Subnets" Text
+    , _clbTags              :: List1 "Tags" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateLoadBalancer' constructor.
 --
@@ -97,7 +98,7 @@ createLoadBalancer :: Text -- ^ 'clbLoadBalancerName'
                    -> CreateLoadBalancer
 createLoadBalancer p1 p2 = CreateLoadBalancer
     { _clbLoadBalancerName  = p1
-    , _clbTags              = p2
+    , _clbTags              = withIso _List1 (const id) p2
     , _clbListeners         = mempty
     , _clbAvailabilityZones = mempty
     , _clbSubnets           = mempty
@@ -113,11 +114,12 @@ createLoadBalancer p1 p2 = CreateLoadBalancer
 clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
 clbAvailabilityZones =
     lens _clbAvailabilityZones (\s a -> s { _clbAvailabilityZones = a })
+        . _List
 
 -- | A list of the following tuples: Protocol, LoadBalancerPort,
 -- InstanceProtocol, InstancePort, and SSLCertificateId.
 clbListeners :: Lens' CreateLoadBalancer [Listener]
-clbListeners = lens _clbListeners (\s a -> s { _clbListeners = a })
+clbListeners = lens _clbListeners (\s a -> s { _clbListeners = a }) . _List
 
 -- | The name associated with the load balancer. The name must be unique
 -- within your set of load balancers, must have a maximum of 32 characters,
@@ -141,20 +143,21 @@ clbScheme = lens _clbScheme (\s a -> s { _clbScheme = a })
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
 clbSecurityGroups =
     lens _clbSecurityGroups (\s a -> s { _clbSecurityGroups = a })
+        . _List
 
 -- | A list of subnet IDs in your VPC to attach to your load balancer. Specify
 -- one subnet per Availability Zone.
 clbSubnets :: Lens' CreateLoadBalancer [Text]
-clbSubnets = lens _clbSubnets (\s a -> s { _clbSubnets = a })
+clbSubnets = lens _clbSubnets (\s a -> s { _clbSubnets = a }) . _List
 
 -- | A list of tags to assign to the load balancer. For more information about
 -- setting tags for your load balancer, see Tagging.
 clbTags :: Lens' CreateLoadBalancer (NonEmpty Tag)
-clbTags = lens _clbTags (\s a -> s { _clbTags = a })
+clbTags = lens _clbTags (\s a -> s { _clbTags = a }) . _List1
 
 newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
     { _clbrDNSName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateLoadBalancerResponse' constructor.
 --
@@ -174,7 +177,16 @@ clbrDNSName = lens _clbrDNSName (\s a -> s { _clbrDNSName = a })
 instance ToPath CreateLoadBalancer where
     toPath = const "/"
 
-instance ToQuery CreateLoadBalancer
+instance ToQuery CreateLoadBalancer where
+    toQuery CreateLoadBalancer{..} = mconcat
+        [ "AvailabilityZones" =? _clbAvailabilityZones
+        , "Listeners"         =? _clbListeners
+        , "LoadBalancerName"  =? _clbLoadBalancerName
+        , "Scheme"            =? _clbScheme
+        , "SecurityGroups"    =? _clbSecurityGroups
+        , "Subnets"           =? _clbSubnets
+        , "Tags"              =? _clbTags
+        ]
 
 instance ToHeaders CreateLoadBalancer
 
@@ -186,5 +198,5 @@ instance AWSRequest CreateLoadBalancer where
     response = xmlResponse
 
 instance FromXML CreateLoadBalancerResponse where
-    parseXML = withElement "CreateLoadBalancerResult" $ \x ->
-            <$> x .@? "DNSName"
+    parseXML = withElement "CreateLoadBalancerResult" $ \x -> CreateLoadBalancerResponse
+        <$> x .@? "DNSName"

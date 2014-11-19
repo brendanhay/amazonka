@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: List "ExportTaskId" Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeExportTasks where
     type Item DescribeExportTasks = Text
@@ -68,12 +68,11 @@ describeExportTasks = DescribeExportTasks
 
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
-detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a })
-    . _List
+detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a }) . _List
 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: List "item" ExportTask
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeExportTasksResponse where
     type Item DescribeExportTasksResponse = ExportTask
@@ -93,13 +92,15 @@ describeExportTasksResponse = DescribeExportTasksResponse
     }
 
 detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
-    . _List
+detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a }) . _List
 
 instance ToPath DescribeExportTasks where
     toPath = const "/"
 
-instance ToQuery DescribeExportTasks
+instance ToQuery DescribeExportTasks where
+    toQuery DescribeExportTasks{..} = mconcat
+        [ "exportTaskId" =? _detExportTaskIds
+        ]
 
 instance ToHeaders DescribeExportTasks
 
@@ -112,4 +113,4 @@ instance AWSRequest DescribeExportTasks where
 
 instance FromXML DescribeExportTasksResponse where
     parseXML x = DescribeExportTasksResponse
-        <$> x .@ "exportTaskSet"
+        <$> x .@  "exportTaskSet"

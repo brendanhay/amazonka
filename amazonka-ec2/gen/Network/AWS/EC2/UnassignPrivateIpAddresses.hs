@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
     , _upiaPrivateIpAddresses :: List "PrivateIpAddress" Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UnassignPrivateIpAddresses' constructor.
 --
@@ -88,7 +88,11 @@ unassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 instance ToPath UnassignPrivateIpAddresses where
     toPath = const "/"
 
-instance ToQuery UnassignPrivateIpAddresses
+instance ToQuery UnassignPrivateIpAddresses where
+    toQuery UnassignPrivateIpAddresses{..} = mconcat
+        [ "networkInterfaceId" =? _upiaNetworkInterfaceId
+        , "privateIpAddress"   =? _upiaPrivateIpAddresses
+        ]
 
 instance ToHeaders UnassignPrivateIpAddresses
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 data DeleteStreamingDistribution = DeleteStreamingDistribution
     { _dsdId      :: Text
     , _dsdIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteStreamingDistribution' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteStack = DeleteStack
     { _dsStackName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteStack' constructor.
 --
@@ -74,7 +75,10 @@ deleteStackResponse = DeleteStackResponse
 instance ToPath DeleteStack where
     toPath = const "/"
 
-instance ToQuery DeleteStack
+instance ToQuery DeleteStack where
+    toQuery DeleteStack{..} = mconcat
+        [ "StackName" =? _dsStackName
+        ]
 
 instance ToHeaders DeleteStack
 

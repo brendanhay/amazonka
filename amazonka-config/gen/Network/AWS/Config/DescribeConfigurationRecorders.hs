@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import Network.AWS.Config.Types
 import qualified GHC.Exts
 
 newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders
-    { _dcrConfigurationRecorderNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dcrConfigurationRecorderNames :: List "ConfigurationRecorderNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConfigurationRecorders where
     type Item DescribeConfigurationRecorders = Text
@@ -72,10 +73,11 @@ dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
 dcrConfigurationRecorderNames =
     lens _dcrConfigurationRecorderNames
         (\s a -> s { _dcrConfigurationRecorderNames = a })
+            . _List
 
 newtype DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse
-    { _dcrrConfigurationRecorders :: [ConfigurationRecorder]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dcrrConfigurationRecorders :: List "ConfigurationRecorders" ConfigurationRecorder
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConfigurationRecordersResponse where
     type Item DescribeConfigurationRecordersResponse = ConfigurationRecorder
@@ -100,6 +102,7 @@ dcrrConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [Conf
 dcrrConfigurationRecorders =
     lens _dcrrConfigurationRecorders
         (\s a -> s { _dcrrConfigurationRecorders = a })
+            . _List
 
 instance ToPath DescribeConfigurationRecorders where
     toPath = const "/"
@@ -123,4 +126,4 @@ instance AWSRequest DescribeConfigurationRecorders where
 
 instance FromJSON DescribeConfigurationRecordersResponse where
     parseJSON = withObject "DescribeConfigurationRecordersResponse" $ \o -> DescribeConfigurationRecordersResponse
-        <$> o .: "ConfigurationRecorders"
+        <$> o .:  "ConfigurationRecorders"

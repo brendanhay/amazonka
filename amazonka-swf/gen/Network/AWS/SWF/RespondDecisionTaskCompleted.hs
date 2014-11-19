@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,10 +58,10 @@ import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
 data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted
-    { _rdtcDecisions        :: [Decision]
+    { _rdtcDecisions        :: List "decisions" Decision
     , _rdtcExecutionContext :: Maybe Text
     , _rdtcTaskToken        :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RespondDecisionTaskCompleted' constructor.
 --
@@ -84,7 +85,7 @@ respondDecisionTaskCompleted p1 = RespondDecisionTaskCompleted
 -- processing this decision task. See the docs for the Decision structure
 -- for details.
 rdtcDecisions :: Lens' RespondDecisionTaskCompleted [Decision]
-rdtcDecisions = lens _rdtcDecisions (\s a -> s { _rdtcDecisions = a })
+rdtcDecisions = lens _rdtcDecisions (\s a -> s { _rdtcDecisions = a }) . _List
 
 -- | User defined context to add to workflow execution.
 rdtcExecutionContext :: Lens' RespondDecisionTaskCompleted (Maybe Text)

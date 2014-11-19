@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DeleteLoginProfile = DeleteLoginProfile
     { _dlpUserName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteLoginProfile' constructor.
 --
@@ -78,7 +79,10 @@ deleteLoginProfileResponse = DeleteLoginProfileResponse
 instance ToPath DeleteLoginProfile where
     toPath = const "/"
 
-instance ToQuery DeleteLoginProfile
+instance ToQuery DeleteLoginProfile where
+    toQuery DeleteLoginProfile{..} = mconcat
+        [ "UserName" =? _dlpUserName
+        ]
 
 instance ToHeaders DeleteLoginProfile
 

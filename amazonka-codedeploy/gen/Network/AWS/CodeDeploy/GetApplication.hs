@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype GetApplication = GetApplication
     { _gaApplicationName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetApplication' constructor.
 --
@@ -68,7 +69,7 @@ gaApplicationName =
 
 newtype GetApplicationResponse = GetApplicationResponse
     { _garApplication :: Maybe ApplicationInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetApplicationResponse' constructor.
 --

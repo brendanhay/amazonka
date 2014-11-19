@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ import qualified GHC.Exts
 
 newtype DeleteGateway = DeleteGateway
     { _dgGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteGateway' constructor.
 --
@@ -78,7 +79,7 @@ dgGatewayARN = lens _dgGatewayARN (\s a -> s { _dgGatewayARN = a })
 
 newtype DeleteGatewayResponse = DeleteGatewayResponse
     { _dgrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DeleteGatewayResponse' constructor.
 --

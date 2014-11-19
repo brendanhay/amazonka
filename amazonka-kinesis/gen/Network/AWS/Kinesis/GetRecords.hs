@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -86,7 +87,7 @@ import qualified GHC.Exts
 data GetRecords = GetRecords
     { _grLimit         :: Maybe Nat
     , _grShardIterator :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetRecords' constructor.
 --
@@ -107,8 +108,7 @@ getRecords p1 = GetRecords
 -- If you specify a value that is greater than 10,000, GetRecords throws
 -- InvalidArgumentException.
 grLimit :: Lens' GetRecords (Maybe Natural)
-grLimit = lens _grLimit (\s a -> s { _grLimit = a })
-    . mapping _Nat
+grLimit = lens _grLimit (\s a -> s { _grLimit = a }) . mapping _Nat
 
 -- | The position in the shard from which you want to start sequentially
 -- reading data records. A shard iterator specifies this position using the
@@ -118,8 +118,8 @@ grShardIterator = lens _grShardIterator (\s a -> s { _grShardIterator = a })
 
 data GetRecordsResponse = GetRecordsResponse
     { _grrNextShardIterator :: Maybe Text
-    , _grrRecords           :: [Record]
-    } deriving (Eq, Show, Generic)
+    , _grrRecords           :: List "Records" Record
+    } deriving (Eq, Show)
 
 -- | 'GetRecordsResponse' constructor.
 --
@@ -144,7 +144,7 @@ grrNextShardIterator =
 
 -- | The data records retrieved from the shard.
 grrRecords :: Lens' GetRecordsResponse [Record]
-grrRecords = lens _grrRecords (\s a -> s { _grrRecords = a })
+grrRecords = lens _grrRecords (\s a -> s { _grrRecords = a }) . _List
 
 instance ToPath GetRecords where
     toPath = const "/"
@@ -170,4 +170,4 @@ instance AWSRequest GetRecords where
 instance FromJSON GetRecordsResponse where
     parseJSON = withObject "GetRecordsResponse" $ \o -> GetRecordsResponse
         <$> o .:? "NextShardIterator"
-        <*> o .: "Records"
+        <*> o .:  "Records"

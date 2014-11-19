@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,9 +62,9 @@ import qualified GHC.Exts
 data DescribeJobFlows = DescribeJobFlows
     { _djfCreatedAfter  :: Maybe RFC822
     , _djfCreatedBefore :: Maybe RFC822
-    , _djfJobFlowIds    :: [Text]
-    , _djfJobFlowStates :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _djfJobFlowIds    :: List "Args" Text
+    , _djfJobFlowStates :: List "JobFlowStates" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeJobFlows' constructor.
 --
@@ -87,25 +88,23 @@ describeJobFlows = DescribeJobFlows
 
 -- | Return only job flows created after this date and time.
 djfCreatedAfter :: Lens' DescribeJobFlows (Maybe UTCTime)
-djfCreatedAfter = lens _djfCreatedAfter (\s a -> s { _djfCreatedAfter = a })
-    . mapping _Time
+djfCreatedAfter = lens _djfCreatedAfter (\s a -> s { _djfCreatedAfter = a }) . mapping _Time
 
 -- | Return only job flows created before this date and time.
 djfCreatedBefore :: Lens' DescribeJobFlows (Maybe UTCTime)
-djfCreatedBefore = lens _djfCreatedBefore (\s a -> s { _djfCreatedBefore = a })
-    . mapping _Time
+djfCreatedBefore = lens _djfCreatedBefore (\s a -> s { _djfCreatedBefore = a }) . mapping _Time
 
 -- | Return only job flows whose job flow ID is contained in this list.
 djfJobFlowIds :: Lens' DescribeJobFlows [Text]
-djfJobFlowIds = lens _djfJobFlowIds (\s a -> s { _djfJobFlowIds = a })
+djfJobFlowIds = lens _djfJobFlowIds (\s a -> s { _djfJobFlowIds = a }) . _List
 
 -- | Return only job flows whose state is contained in this list.
 djfJobFlowStates :: Lens' DescribeJobFlows [Text]
-djfJobFlowStates = lens _djfJobFlowStates (\s a -> s { _djfJobFlowStates = a })
+djfJobFlowStates = lens _djfJobFlowStates (\s a -> s { _djfJobFlowStates = a }) . _List
 
 newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
-    { _djfrJobFlows :: [JobFlowDetail]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _djfrJobFlows :: List "JobFlows" JobFlowDetail
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeJobFlowsResponse where
     type Item DescribeJobFlowsResponse = JobFlowDetail
@@ -126,7 +125,7 @@ describeJobFlowsResponse = DescribeJobFlowsResponse
 
 -- | A list of job flows matching the parameters supplied.
 djfrJobFlows :: Lens' DescribeJobFlowsResponse [JobFlowDetail]
-djfrJobFlows = lens _djfrJobFlows (\s a -> s { _djfrJobFlows = a })
+djfrJobFlows = lens _djfrJobFlows (\s a -> s { _djfrJobFlows = a }) . _List
 
 instance ToPath DescribeJobFlows where
     toPath = const "/"
@@ -153,4 +152,4 @@ instance AWSRequest DescribeJobFlows where
 
 instance FromJSON DescribeJobFlowsResponse where
     parseJSON = withObject "DescribeJobFlowsResponse" $ \o -> DescribeJobFlowsResponse
-        <$> o .: "JobFlows"
+        <$> o .:  "JobFlows"

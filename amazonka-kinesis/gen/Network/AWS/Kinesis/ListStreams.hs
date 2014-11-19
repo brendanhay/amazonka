@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ import qualified GHC.Exts
 data ListStreams = ListStreams
     { _lsExclusiveStartStreamName :: Maybe Text
     , _lsLimit                    :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListStreams' constructor.
 --
@@ -84,13 +85,12 @@ lsExclusiveStartStreamName =
 
 -- | The maximum number of streams to list.
 lsLimit :: Lens' ListStreams (Maybe Natural)
-lsLimit = lens _lsLimit (\s a -> s { _lsLimit = a })
-    . mapping _Nat
+lsLimit = lens _lsLimit (\s a -> s { _lsLimit = a }) . mapping _Nat
 
 data ListStreamsResponse = ListStreamsResponse
     { _lsrHasMoreStreams :: Bool
-    , _lsrStreamNames    :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _lsrStreamNames    :: List "StreamNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListStreamsResponse' constructor.
 --
@@ -115,7 +115,7 @@ lsrHasMoreStreams =
 -- | The names of the streams that are associated with the AWS account making
 -- the ListStreams request.
 lsrStreamNames :: Lens' ListStreamsResponse [Text]
-lsrStreamNames = lens _lsrStreamNames (\s a -> s { _lsrStreamNames = a })
+lsrStreamNames = lens _lsrStreamNames (\s a -> s { _lsrStreamNames = a }) . _List
 
 instance ToPath ListStreams where
     toPath = const "/"
@@ -140,8 +140,8 @@ instance AWSRequest ListStreams where
 
 instance FromJSON ListStreamsResponse where
     parseJSON = withObject "ListStreamsResponse" $ \o -> ListStreamsResponse
-        <$> o .: "HasMoreStreams"
-        <*> o .: "StreamNames"
+        <$> o .:  "HasMoreStreams"
+        <*> o .:  "StreamNames"
 
 instance AWSPager ListStreams where
     next rq rs

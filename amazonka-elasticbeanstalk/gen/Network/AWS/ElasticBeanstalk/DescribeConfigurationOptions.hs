@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,10 +57,10 @@ import qualified GHC.Exts
 data DescribeConfigurationOptions = DescribeConfigurationOptions
     { _dcoApplicationName   :: Maybe Text
     , _dcoEnvironmentName   :: Maybe Text
-    , _dcoOptions           :: [OptionSpecification]
+    , _dcoOptions           :: List "OptionsToRemove" OptionSpecification
     , _dcoSolutionStackName :: Maybe Text
     , _dcoTemplateName      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeConfigurationOptions' constructor.
 --
@@ -99,7 +100,7 @@ dcoEnvironmentName =
 
 -- | If specified, restricts the descriptions to only the specified options.
 dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
-dcoOptions = lens _dcoOptions (\s a -> s { _dcoOptions = a })
+dcoOptions = lens _dcoOptions (\s a -> s { _dcoOptions = a }) . _List
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
@@ -113,9 +114,9 @@ dcoTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoTemplateName = lens _dcoTemplateName (\s a -> s { _dcoTemplateName = a })
 
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
-    { _dcorOptions           :: [ConfigurationOptionDescription]
+    { _dcorOptions           :: List "Options" ConfigurationOptionDescription
     , _dcorSolutionStackName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeConfigurationOptionsResponse' constructor.
 --
@@ -133,7 +134,7 @@ describeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
 
 -- | A list of ConfigurationOptionDescription.
 dcorOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
-dcorOptions = lens _dcorOptions (\s a -> s { _dcorOptions = a })
+dcorOptions = lens _dcorOptions (\s a -> s { _dcorOptions = a }) . _List
 
 -- | The name of the solution stack these configuration options belong to.
 dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
@@ -143,7 +144,14 @@ dcorSolutionStackName =
 instance ToPath DescribeConfigurationOptions where
     toPath = const "/"
 
-instance ToQuery DescribeConfigurationOptions
+instance ToQuery DescribeConfigurationOptions where
+    toQuery DescribeConfigurationOptions{..} = mconcat
+        [ "ApplicationName"   =? _dcoApplicationName
+        , "EnvironmentName"   =? _dcoEnvironmentName
+        , "Options"           =? _dcoOptions
+        , "SolutionStackName" =? _dcoSolutionStackName
+        , "TemplateName"      =? _dcoTemplateName
+        ]
 
 instance ToHeaders DescribeConfigurationOptions
 
@@ -155,6 +163,6 @@ instance AWSRequest DescribeConfigurationOptions where
     response = xmlResponse
 
 instance FromXML DescribeConfigurationOptionsResponse where
-    parseXML = withElement "DescribeConfigurationOptionsResult" $ \x ->
-            <$> x .@ "Options"
-            <*> x .@? "SolutionStackName"
+    parseXML = withElement "DescribeConfigurationOptionsResult" $ \x -> DescribeConfigurationOptionsResponse
+        <$> x .@  "Options"
+        <*> x .@? "SolutionStackName"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 data DeleteCacheCluster = DeleteCacheCluster
     { _dccCacheClusterId          :: Text
     , _dccFinalSnapshotIdentifier :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteCacheCluster' constructor.
 --
@@ -87,7 +88,7 @@ dccFinalSnapshotIdentifier =
 
 newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
     { _dccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteCacheClusterResponse' constructor.
 --
@@ -106,7 +107,11 @@ dccrCacheCluster = lens _dccrCacheCluster (\s a -> s { _dccrCacheCluster = a })
 instance ToPath DeleteCacheCluster where
     toPath = const "/"
 
-instance ToQuery DeleteCacheCluster
+instance ToQuery DeleteCacheCluster where
+    toQuery DeleteCacheCluster{..} = mconcat
+        [ "CacheClusterId"          =? _dccCacheClusterId
+        , "FinalSnapshotIdentifier" =? _dccFinalSnapshotIdentifier
+        ]
 
 instance ToHeaders DeleteCacheCluster
 
@@ -118,5 +123,5 @@ instance AWSRequest DeleteCacheCluster where
     response = xmlResponse
 
 instance FromXML DeleteCacheClusterResponse where
-    parseXML = withElement "DeleteCacheClusterResult" $ \x ->
-            <$> x .@? "CacheCluster"
+    parseXML = withElement "DeleteCacheClusterResult" $ \x -> DeleteCacheClusterResponse
+        <$> x .@? "CacheCluster"

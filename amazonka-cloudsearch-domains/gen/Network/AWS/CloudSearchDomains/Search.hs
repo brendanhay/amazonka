@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -87,7 +88,7 @@ data Search = Search
     , _s1Size         :: Maybe Integer
     , _s1Sort         :: Maybe Text
     , _s1Start        :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Search' constructor.
 --
@@ -381,10 +382,10 @@ s1Start :: Lens' Search (Maybe Integer)
 s1Start = lens _s1Start (\s a -> s { _s1Start = a })
 
 data SearchResponse = SearchResponse
-    { _sr1Facets :: Map Text BucketInfo
+    { _sr1Facets :: Map "entry" "key" "value" Text BucketInfo
     , _sr1Hits   :: Maybe Hits
     , _sr1Status :: Maybe SearchStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SearchResponse' constructor.
 --
@@ -405,8 +406,7 @@ searchResponse = SearchResponse
 
 -- | The requested facet information.
 sr1Facets :: Lens' SearchResponse (HashMap Text BucketInfo)
-sr1Facets = lens _sr1Facets (\s a -> s { _sr1Facets = a })
-    . _Map
+sr1Facets = lens _sr1Facets (\s a -> s { _sr1Facets = a }) . _Map
 
 -- | The documents that match the search criteria.
 sr1Hits :: Lens' SearchResponse (Maybe Hits)
@@ -419,7 +419,22 @@ sr1Status = lens _sr1Status (\s a -> s { _sr1Status = a })
 instance ToPath Search where
     toPath = const "/2013-01-01/search"
 
-instance ToQuery Search
+instance ToQuery Search where
+    toQuery Search{..} = mconcat
+        [ "cursor"    =? _s1Cursor
+        , "expr"      =? _s1Expr
+        , "facet"     =? _s1Facet
+        , "fq"        =? _s1FilterQuery
+        , "highlight" =? _s1Highlight
+        , "partial"   =? _s1Partial
+        , "q"         =? _s1Query
+        , "q.options" =? _s1QueryOptions
+        , "q.parser"  =? _s1QueryParser
+        , "return"    =? _s1Return
+        , "size"      =? _s1Size
+        , "sort"      =? _s1Sort
+        , "start"     =? _s1Start
+        ]
 
 instance ToHeaders Search
 
@@ -435,6 +450,6 @@ instance AWSRequest Search where
 
 instance FromJSON SearchResponse where
     parseJSON = withObject "SearchResponse" $ \o -> SearchResponse
-        <$> o .: "facets"
+        <$> o .:  "facets"
         <*> o .:? "hits"
         <*> o .:? "status"

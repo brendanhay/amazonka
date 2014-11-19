@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data UpdatePipeline = UpdatePipeline
     , _upNotifications   :: Maybe Notifications
     , _upRole            :: Maybe Text
     , _upThumbnailConfig :: Maybe PipelineOutputConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdatePipeline' constructor.
 --
@@ -205,7 +206,7 @@ upThumbnailConfig =
 
 newtype UpdatePipelineResponse = UpdatePipelineResponse
     { _uprPipeline :: Maybe Pipeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdatePipelineResponse' constructor.
 --

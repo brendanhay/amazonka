@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -44,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup
     { _ddbsg1DBSubnetGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteDBSubnetGroup' constructor.
 --
@@ -75,7 +76,10 @@ deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
 instance ToPath DeleteDBSubnetGroup where
     toPath = const "/"
 
-instance ToQuery DeleteDBSubnetGroup
+instance ToQuery DeleteDBSubnetGroup where
+    toQuery DeleteDBSubnetGroup{..} = mconcat
+        [ "DBSubnetGroupName" =? _ddbsg1DBSubnetGroupName
+        ]
 
 instance ToHeaders DeleteDBSubnetGroup
 

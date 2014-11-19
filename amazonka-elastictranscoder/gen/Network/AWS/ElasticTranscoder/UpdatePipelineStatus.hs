@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 data UpdatePipelineStatus = UpdatePipelineStatus
     { _upsId     :: Text
     , _upsStatus :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdatePipelineStatus' constructor.
 --
@@ -83,7 +84,7 @@ upsStatus = lens _upsStatus (\s a -> s { _upsStatus = a })
 
 newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upsrPipeline :: Maybe Pipeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdatePipelineStatusResponse' constructor.
 --

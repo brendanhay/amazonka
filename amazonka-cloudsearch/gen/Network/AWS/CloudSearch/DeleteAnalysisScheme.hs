@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data DeleteAnalysisScheme = DeleteAnalysisScheme
     { _dasAnalysisSchemeName :: Text
     , _dasDomainName         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteAnalysisScheme' constructor.
 --
@@ -77,7 +78,7 @@ dasDomainName = lens _dasDomainName (\s a -> s { _dasDomainName = a })
 
 newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
     { _dasrAnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteAnalysisSchemeResponse' constructor.
 --
@@ -99,7 +100,11 @@ dasrAnalysisScheme =
 instance ToPath DeleteAnalysisScheme where
     toPath = const "/"
 
-instance ToQuery DeleteAnalysisScheme
+instance ToQuery DeleteAnalysisScheme where
+    toQuery DeleteAnalysisScheme{..} = mconcat
+        [ "AnalysisSchemeName" =? _dasAnalysisSchemeName
+        , "DomainName"         =? _dasDomainName
+        ]
 
 instance ToHeaders DeleteAnalysisScheme
 
@@ -111,5 +116,5 @@ instance AWSRequest DeleteAnalysisScheme where
     response = xmlResponse
 
 instance FromXML DeleteAnalysisSchemeResponse where
-    parseXML = withElement "DeleteAnalysisSchemeResult" $ \x ->
-            <$> x .@ "AnalysisScheme"
+    parseXML = withElement "DeleteAnalysisSchemeResult" $ \x -> DeleteAnalysisSchemeResponse
+        <$> x .@  "AnalysisScheme"

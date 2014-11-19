@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ describeAccountLimits = DescribeAccountLimits
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
     { _dalrMaxNumberOfAutoScalingGroups    :: Maybe Int
     , _dalrMaxNumberOfLaunchConfigurations :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeAccountLimitsResponse' constructor.
 --
@@ -102,6 +103,6 @@ instance AWSRequest DescribeAccountLimits where
     response = xmlResponse
 
 instance FromXML DescribeAccountLimitsResponse where
-    parseXML = withElement "DescribeAccountLimitsResult" $ \x ->
-            <$> x .@? "MaxNumberOfAutoScalingGroups"
-            <*> x .@? "MaxNumberOfLaunchConfigurations"
+    parseXML = withElement "DescribeAccountLimitsResult" $ \x -> DescribeAccountLimitsResponse
+        <$> x .@? "MaxNumberOfAutoScalingGroups"
+        <*> x .@? "MaxNumberOfLaunchConfigurations"

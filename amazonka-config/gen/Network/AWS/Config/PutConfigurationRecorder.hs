@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype PutConfigurationRecorder = PutConfigurationRecorder
     { _pcrConfigurationRecorder :: ConfigurationRecorder
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PutConfigurationRecorder' constructor.
 --

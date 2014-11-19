@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeEventCategories = DescribeEventCategories
     { _decSourceType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DescribeEventCategories' constructor.
 --
@@ -68,8 +69,8 @@ decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _decrEventCategoriesMapList :: [EventCategoriesMap]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _decrEventCategoriesMapList :: List "EventCategoriesMap" EventCategoriesMap
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeEventCategoriesResponse where
     type Item DescribeEventCategoriesResponse = EventCategoriesMap
@@ -93,11 +94,15 @@ decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCatego
 decrEventCategoriesMapList =
     lens _decrEventCategoriesMapList
         (\s a -> s { _decrEventCategoriesMapList = a })
+            . _List
 
 instance ToPath DescribeEventCategories where
     toPath = const "/"
 
-instance ToQuery DescribeEventCategories
+instance ToQuery DescribeEventCategories where
+    toQuery DescribeEventCategories{..} = mconcat
+        [ "SourceType" =? _decSourceType
+        ]
 
 instance ToHeaders DescribeEventCategories
 
@@ -109,5 +114,5 @@ instance AWSRequest DescribeEventCategories where
     response = xmlResponse
 
 instance FromXML DescribeEventCategoriesResponse where
-    parseXML = withElement "DescribeEventCategoriesResult" $ \x ->
-            <$> x .@ "EventCategoriesMapList"
+    parseXML = withElement "DescribeEventCategoriesResult" $ \x -> DescribeEventCategoriesResponse
+        <$> x .@  "EventCategoriesMapList"

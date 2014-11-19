@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration
     { _gipcIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetIdentityPoolConfiguration' constructor.
 --
@@ -71,7 +72,7 @@ gipcIdentityPoolId =
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
     { _gipcrIdentityPoolId :: Maybe Text
     , _gipcrPushSync       :: Maybe PushSync
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetIdentityPoolConfigurationResponse' constructor.
 --

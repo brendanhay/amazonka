@@ -58,7 +58,7 @@ data CreateVpc = CreateVpc
     { _cvCidrBlock       :: Text
     , _cvDryRun          :: Maybe Bool
     , _cvInstanceTenancy :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateVpc' constructor.
 --
@@ -98,7 +98,7 @@ cvInstanceTenancy =
 
 newtype CreateVpcResponse = CreateVpcResponse
     { _cvrVpc :: Maybe Vpc
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateVpcResponse' constructor.
 --
@@ -118,7 +118,12 @@ cvrVpc = lens _cvrVpc (\s a -> s { _cvrVpc = a })
 instance ToPath CreateVpc where
     toPath = const "/"
 
-instance ToQuery CreateVpc
+instance ToQuery CreateVpc where
+    toQuery CreateVpc{..} = mconcat
+        [ "CidrBlock"       =? _cvCidrBlock
+        , "dryRun"          =? _cvDryRun
+        , "instanceTenancy" =? _cvInstanceTenancy
+        ]
 
 instance ToHeaders CreateVpc
 

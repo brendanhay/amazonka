@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ import qualified GHC.Exts
 data DefineIndexField = DefineIndexField
     { _dif2DomainName :: Text
     , _dif2IndexField :: IndexField
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DefineIndexField' constructor.
 --
@@ -82,7 +83,7 @@ dif2IndexField = lens _dif2IndexField (\s a -> s { _dif2IndexField = a })
 
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difr1IndexField :: IndexFieldStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DefineIndexFieldResponse' constructor.
 --
@@ -102,7 +103,11 @@ difr1IndexField = lens _difr1IndexField (\s a -> s { _difr1IndexField = a })
 instance ToPath DefineIndexField where
     toPath = const "/"
 
-instance ToQuery DefineIndexField
+instance ToQuery DefineIndexField where
+    toQuery DefineIndexField{..} = mconcat
+        [ "DomainName" =? _dif2DomainName
+        , "IndexField" =? _dif2IndexField
+        ]
 
 instance ToHeaders DefineIndexField
 
@@ -114,5 +119,5 @@ instance AWSRequest DefineIndexField where
     response = xmlResponse
 
 instance FromXML DefineIndexFieldResponse where
-    parseXML = withElement "DefineIndexFieldResult" $ \x ->
-            <$> x .@ "IndexField"
+    parseXML = withElement "DefineIndexFieldResult" $ \x -> DefineIndexFieldResponse
+        <$> x .@  "IndexField"

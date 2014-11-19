@@ -51,7 +51,7 @@ data AttachInternetGateway = AttachInternetGateway
     { _aigDryRun            :: Maybe Bool
     , _aigInternetGatewayId :: Text
     , _aigVpcId             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AttachInternetGateway' constructor.
 --
@@ -94,7 +94,12 @@ attachInternetGatewayResponse = AttachInternetGatewayResponse
 instance ToPath AttachInternetGateway where
     toPath = const "/"
 
-instance ToQuery AttachInternetGateway
+instance ToQuery AttachInternetGateway where
+    toQuery AttachInternetGateway{..} = mconcat
+        [ "dryRun"            =? _aigDryRun
+        , "internetGatewayId" =? _aigInternetGatewayId
+        , "vpcId"             =? _aigVpcId
+        ]
 
 instance ToHeaders AttachInternetGateway
 

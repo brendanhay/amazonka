@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     { _dvcrDestinationCidrBlock :: Text
     , _dvcrVpnConnectionId      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteVpnConnectionRoute' constructor.
 --
@@ -89,7 +89,11 @@ deleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 instance ToPath DeleteVpnConnectionRoute where
     toPath = const "/"
 
-instance ToQuery DeleteVpnConnectionRoute
+instance ToQuery DeleteVpnConnectionRoute where
+    toQuery DeleteVpnConnectionRoute{..} = mconcat
+        [ "DestinationCidrBlock" =? _dvcrDestinationCidrBlock
+        , "VpnConnectionId"      =? _dvcrVpnConnectionId
+        ]
 
 instance ToHeaders DeleteVpnConnectionRoute
 

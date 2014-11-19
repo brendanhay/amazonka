@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,11 +56,11 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeScalingActivities = DescribeScalingActivities
-    { _dsa2ActivityIds          :: [Text]
+    { _dsa2ActivityIds          :: List "ActivityIds" Text
     , _dsa2AutoScalingGroupName :: Maybe Text
     , _dsa2MaxRecords           :: Maybe Int
     , _dsa2NextToken            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeScalingActivities' constructor.
 --
@@ -87,7 +88,7 @@ describeScalingActivities = DescribeScalingActivities
 -- The list of requested activities cannot contain more than 50 items. If
 -- unknown activities are requested, they are ignored with no error.
 dsa2ActivityIds :: Lens' DescribeScalingActivities [Text]
-dsa2ActivityIds = lens _dsa2ActivityIds (\s a -> s { _dsa2ActivityIds = a })
+dsa2ActivityIds = lens _dsa2ActivityIds (\s a -> s { _dsa2ActivityIds = a }) . _List
 
 -- | The name of the AutoScalingGroup.
 dsa2AutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
@@ -105,9 +106,9 @@ dsa2NextToken :: Lens' DescribeScalingActivities (Maybe Text)
 dsa2NextToken = lens _dsa2NextToken (\s a -> s { _dsa2NextToken = a })
 
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
-    { _dsar1Activities :: [Activity]
+    { _dsar1Activities :: List "Activities" Activity
     , _dsar1NextToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeScalingActivitiesResponse' constructor.
 --
@@ -125,7 +126,7 @@ describeScalingActivitiesResponse = DescribeScalingActivitiesResponse
 
 -- | A list of the requested scaling activities.
 dsar1Activities :: Lens' DescribeScalingActivitiesResponse [Activity]
-dsar1Activities = lens _dsar1Activities (\s a -> s { _dsar1Activities = a })
+dsar1Activities = lens _dsar1Activities (\s a -> s { _dsar1Activities = a }) . _List
 
 -- | Acts as a paging mechanism for large result sets. Set to a non-empty
 -- string if there are additional results waiting to be returned. Pass this
@@ -136,7 +137,13 @@ dsar1NextToken = lens _dsar1NextToken (\s a -> s { _dsar1NextToken = a })
 instance ToPath DescribeScalingActivities where
     toPath = const "/"
 
-instance ToQuery DescribeScalingActivities
+instance ToQuery DescribeScalingActivities where
+    toQuery DescribeScalingActivities{..} = mconcat
+        [ "ActivityIds"          =? _dsa2ActivityIds
+        , "AutoScalingGroupName" =? _dsa2AutoScalingGroupName
+        , "MaxRecords"           =? _dsa2MaxRecords
+        , "NextToken"            =? _dsa2NextToken
+        ]
 
 instance ToHeaders DescribeScalingActivities
 
@@ -148,9 +155,9 @@ instance AWSRequest DescribeScalingActivities where
     response = xmlResponse
 
 instance FromXML DescribeScalingActivitiesResponse where
-    parseXML = withElement "DescribeScalingActivitiesResult" $ \x ->
-            <$> x .@ "Activities"
-            <*> x .@? "NextToken"
+    parseXML = withElement "DescribeScalingActivitiesResult" $ \x -> DescribeScalingActivitiesResponse
+        <$> x .@  "Activities"
+        <*> x .@? "NextToken"
 
 instance AWSPager DescribeScalingActivities where
     next rq rs = (\x -> rq & dsa2NextToken ?~ x)

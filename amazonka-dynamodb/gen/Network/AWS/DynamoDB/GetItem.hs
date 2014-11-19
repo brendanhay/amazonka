@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,14 +58,14 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data GetItem = GetItem
-    { _giAttributesToGet          :: List1 Text
+    { _giAttributesToGet          :: List1 "AttributesToGet" Text
     , _giConsistentRead           :: Maybe Bool
-    , _giExpressionAttributeNames :: Map Text Text
-    , _giKey                      :: Map Text AttributeValue
+    , _giExpressionAttributeNames :: Map "entry" "key" "value" Text Text
+    , _giKey                      :: Map "entry" "key" "value" Text AttributeValue
     , _giProjectionExpression     :: Maybe Text
     , _giReturnConsumedCapacity   :: Maybe Text
     , _giTableName                :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetItem' constructor.
 --
@@ -89,7 +90,7 @@ getItem :: Text -- ^ 'giTableName'
         -> GetItem
 getItem p1 p2 = GetItem
     { _giTableName                = p1
-    , _giAttributesToGet          = p2
+    , _giAttributesToGet          = withIso _List1 (const id) p2
     , _giKey                      = mempty
     , _giConsistentRead           = Nothing
     , _giReturnConsumedCapacity   = Nothing
@@ -111,6 +112,7 @@ getItem p1 p2 = GetItem
 giAttributesToGet :: Lens' GetItem (NonEmpty Text)
 giAttributesToGet =
     lens _giAttributesToGet (\s a -> s { _giAttributesToGet = a })
+        . _List1
 
 -- | A value that if set to true, then the operation uses strongly consistent
 -- reads; otherwise, eventually consistent reads are used.
@@ -142,8 +144,7 @@ giExpressionAttributeNames =
 -- primary key, you must specify both the hash attribute and the range
 -- attribute.
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
-giKey = lens _giKey (\s a -> s { _giKey = a })
-    . _Map
+giKey = lens _giKey (\s a -> s { _giKey = a }) . _Map
 
 -- | One or more attributes to retrieve from the table. These attributes can
 -- include scalars, sets, or elements of a JSON document. The attributes in
@@ -165,8 +166,8 @@ giTableName = lens _giTableName (\s a -> s { _giTableName = a })
 
 data GetItemResponse = GetItemResponse
     { _girConsumedCapacity :: Maybe ConsumedCapacity
-    , _girItem             :: Map Text AttributeValue
-    } deriving (Eq, Show, Generic)
+    , _girItem             :: Map "entry" "key" "value" Text AttributeValue
+    } deriving (Eq, Show)
 
 -- | 'GetItemResponse' constructor.
 --
@@ -189,8 +190,7 @@ girConsumedCapacity =
 -- | A map of attribute names to AttributeValue objects, as specified by
 -- AttributesToGet.
 girItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
-girItem = lens _girItem (\s a -> s { _girItem = a })
-    . _Map
+girItem = lens _girItem (\s a -> s { _girItem = a }) . _Map
 
 instance ToPath GetItem where
     toPath = const "/"
@@ -221,4 +221,4 @@ instance AWSRequest GetItem where
 instance FromJSON GetItemResponse where
     parseJSON = withObject "GetItemResponse" $ \o -> GetItemResponse
         <$> o .:? "ConsumedCapacity"
-        <*> o .: "Item"
+        <*> o .:  "Item"

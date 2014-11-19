@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,12 +57,12 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
     { _dodbioDBInstanceClass :: Maybe Text
     , _dodbioEngine          :: Text
     , _dodbioEngineVersion   :: Maybe Text
-    , _dodbioFilters         :: [Filter]
+    , _dodbioFilters         :: List "Filter" Filter
     , _dodbioLicenseModel    :: Maybe Text
     , _dodbioMarker          :: Maybe Text
     , _dodbioMaxRecords      :: Maybe Int
     , _dodbioVpc             :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeOrderableDBInstanceOptions' constructor.
 --
@@ -114,7 +115,7 @@ dodbioEngineVersion =
 
 -- | This parameter is not currently supported.
 dodbioFilters :: Lens' DescribeOrderableDBInstanceOptions [Filter]
-dodbioFilters = lens _dodbioFilters (\s a -> s { _dodbioFilters = a })
+dodbioFilters = lens _dodbioFilters (\s a -> s { _dodbioFilters = a }) . _List
 
 -- | The license model filter value. Specify this parameter to show only the
 -- available offerings matching the specified license model.
@@ -143,8 +144,8 @@ dodbioVpc = lens _dodbioVpc (\s a -> s { _dodbioVpc = a })
 
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
     { _dodbiorMarker                     :: Maybe Text
-    , _dodbiorOrderableDBInstanceOptions :: [OrderableDBInstanceOption]
-    } deriving (Eq, Show, Generic)
+    , _dodbiorOrderableDBInstanceOptions :: List "OrderableDBInstanceOption" OrderableDBInstanceOption
+    } deriving (Eq, Show)
 
 -- | 'DescribeOrderableDBInstanceOptionsResponse' constructor.
 --
@@ -173,11 +174,22 @@ dodbiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsRes
 dodbiorOrderableDBInstanceOptions =
     lens _dodbiorOrderableDBInstanceOptions
         (\s a -> s { _dodbiorOrderableDBInstanceOptions = a })
+            . _List
 
 instance ToPath DescribeOrderableDBInstanceOptions where
     toPath = const "/"
 
-instance ToQuery DescribeOrderableDBInstanceOptions
+instance ToQuery DescribeOrderableDBInstanceOptions where
+    toQuery DescribeOrderableDBInstanceOptions{..} = mconcat
+        [ "DBInstanceClass" =? _dodbioDBInstanceClass
+        , "Engine"          =? _dodbioEngine
+        , "EngineVersion"   =? _dodbioEngineVersion
+        , "Filters"         =? _dodbioFilters
+        , "LicenseModel"    =? _dodbioLicenseModel
+        , "Marker"          =? _dodbioMarker
+        , "MaxRecords"      =? _dodbioMaxRecords
+        , "Vpc"             =? _dodbioVpc
+        ]
 
 instance ToHeaders DescribeOrderableDBInstanceOptions
 
@@ -189,9 +201,9 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
     response = xmlResponse
 
 instance FromXML DescribeOrderableDBInstanceOptionsResponse where
-    parseXML = withElement "DescribeOrderableDBInstanceOptionsResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "OrderableDBInstanceOptions"
+    parseXML = withElement "DescribeOrderableDBInstanceOptionsResult" $ \x -> DescribeOrderableDBInstanceOptionsResponse
+        <$> x .@? "Marker"
+        <*> x .@  "OrderableDBInstanceOptions"
 
 instance AWSPager DescribeOrderableDBInstanceOptions where
     next rq rs = (\x -> rq & dodbioMarker ?~ x)

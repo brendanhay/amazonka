@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 
 newtype DescribeUploadBuffer = DescribeUploadBuffer
     { _dubGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeUploadBuffer' constructor.
 --
@@ -71,11 +72,11 @@ dubGatewayARN :: Lens' DescribeUploadBuffer Text
 dubGatewayARN = lens _dubGatewayARN (\s a -> s { _dubGatewayARN = a })
 
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse
-    { _dubrDiskIds                      :: [Text]
+    { _dubrDiskIds                      :: List "DiskIds" Text
     , _dubrGatewayARN                   :: Maybe Text
     , _dubrUploadBufferAllocatedInBytes :: Maybe Integer
     , _dubrUploadBufferUsedInBytes      :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeUploadBufferResponse' constructor.
 --
@@ -98,7 +99,7 @@ describeUploadBufferResponse = DescribeUploadBufferResponse
     }
 
 dubrDiskIds :: Lens' DescribeUploadBufferResponse [Text]
-dubrDiskIds = lens _dubrDiskIds (\s a -> s { _dubrDiskIds = a })
+dubrDiskIds = lens _dubrDiskIds (\s a -> s { _dubrDiskIds = a }) . _List
 
 dubrGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
 dubrGatewayARN = lens _dubrGatewayARN (\s a -> s { _dubrGatewayARN = a })
@@ -135,7 +136,7 @@ instance AWSRequest DescribeUploadBuffer where
 
 instance FromJSON DescribeUploadBufferResponse where
     parseJSON = withObject "DescribeUploadBufferResponse" $ \o -> DescribeUploadBufferResponse
-        <$> o .: "DiskIds"
+        <$> o .:  "DiskIds"
         <*> o .:? "GatewayARN"
         <*> o .:? "UploadBufferAllocatedInBytes"
         <*> o .:? "UploadBufferUsedInBytes"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
     { _ccpgDescription          :: Text
     , _ccpgParameterGroupFamily :: Text
     , _ccpgParameterGroupName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateClusterParameterGroup' constructor.
 --
@@ -107,7 +108,7 @@ ccpgParameterGroupName =
 
 newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateClusterParameterGroupResponse' constructor.
 --
@@ -128,7 +129,12 @@ ccpgrClusterParameterGroup =
 instance ToPath CreateClusterParameterGroup where
     toPath = const "/"
 
-instance ToQuery CreateClusterParameterGroup
+instance ToQuery CreateClusterParameterGroup where
+    toQuery CreateClusterParameterGroup{..} = mconcat
+        [ "Description"          =? _ccpgDescription
+        , "ParameterGroupFamily" =? _ccpgParameterGroupFamily
+        , "ParameterGroupName"   =? _ccpgParameterGroupName
+        ]
 
 instance ToHeaders CreateClusterParameterGroup
 
@@ -140,5 +146,5 @@ instance AWSRequest CreateClusterParameterGroup where
     response = xmlResponse
 
 instance FromXML CreateClusterParameterGroupResponse where
-    parseXML = withElement "CreateClusterParameterGroupResult" $ \x ->
-            <$> x .@? "ClusterParameterGroup"
+    parseXML = withElement "CreateClusterParameterGroupResult" $ \x -> CreateClusterParameterGroupResponse
+        <$> x .@? "ClusterParameterGroup"

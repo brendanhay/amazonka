@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,10 +52,10 @@ import qualified GHC.Exts
 
 data DescribeDBInstances = DescribeDBInstances
     { _ddbi1DBInstanceIdentifier :: Maybe Text
-    , _ddbi1Filters              :: [Filter]
+    , _ddbi1Filters              :: List "Filter" Filter
     , _ddbi1Marker               :: Maybe Text
     , _ddbi1MaxRecords           :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBInstances' constructor.
 --
@@ -88,7 +89,7 @@ ddbi1DBInstanceIdentifier =
 
 -- | This parameter is not currently supported.
 ddbi1Filters :: Lens' DescribeDBInstances [Filter]
-ddbi1Filters = lens _ddbi1Filters (\s a -> s { _ddbi1Filters = a })
+ddbi1Filters = lens _ddbi1Filters (\s a -> s { _ddbi1Filters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeDBInstances
 -- request. If this parameter is specified, the response includes only
@@ -104,9 +105,9 @@ ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Int)
 ddbi1MaxRecords = lens _ddbi1MaxRecords (\s a -> s { _ddbi1MaxRecords = a })
 
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse
-    { _ddbirDBInstances :: [DBInstance]
+    { _ddbirDBInstances :: List "DBInstance" DBInstance
     , _ddbirMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBInstancesResponse' constructor.
 --
@@ -124,7 +125,7 @@ describeDBInstancesResponse = DescribeDBInstancesResponse
 
 -- | A list of DBInstance instances.
 ddbirDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
-ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a })
+ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a }) . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -135,7 +136,13 @@ ddbirMarker = lens _ddbirMarker (\s a -> s { _ddbirMarker = a })
 instance ToPath DescribeDBInstances where
     toPath = const "/"
 
-instance ToQuery DescribeDBInstances
+instance ToQuery DescribeDBInstances where
+    toQuery DescribeDBInstances{..} = mconcat
+        [ "DBInstanceIdentifier" =? _ddbi1DBInstanceIdentifier
+        , "Filters"              =? _ddbi1Filters
+        , "Marker"               =? _ddbi1Marker
+        , "MaxRecords"           =? _ddbi1MaxRecords
+        ]
 
 instance ToHeaders DescribeDBInstances
 
@@ -147,9 +154,9 @@ instance AWSRequest DescribeDBInstances where
     response = xmlResponse
 
 instance FromXML DescribeDBInstancesResponse where
-    parseXML = withElement "DescribeDBInstancesResult" $ \x ->
-            <$> x .@ "DBInstances"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeDBInstancesResult" $ \x -> DescribeDBInstancesResponse
+        <$> x .@  "DBInstances"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeDBInstances where
     next rq rs = (\x -> rq & ddbi1Marker ?~ x)

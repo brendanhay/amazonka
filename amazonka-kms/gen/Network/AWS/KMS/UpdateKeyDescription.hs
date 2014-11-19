@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 data UpdateKeyDescription = UpdateKeyDescription
     { _ukdDescription :: Text
     , _ukdKeyId       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateKeyDescription' constructor.
 --

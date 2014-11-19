@@ -55,7 +55,7 @@ data CreateVpnGateway = CreateVpnGateway
     { _cvgAvailabilityZone :: Maybe Text
     , _cvgDryRun           :: Maybe Bool
     , _cvgType             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateVpnGateway' constructor.
 --
@@ -89,7 +89,7 @@ cvgType = lens _cvgType (\s a -> s { _cvgType = a })
 
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway :: Maybe VpnGateway
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateVpnGatewayResponse' constructor.
 --
@@ -109,7 +109,12 @@ cvgrVpnGateway = lens _cvgrVpnGateway (\s a -> s { _cvgrVpnGateway = a })
 instance ToPath CreateVpnGateway where
     toPath = const "/"
 
-instance ToQuery CreateVpnGateway
+instance ToQuery CreateVpnGateway where
+    toQuery CreateVpnGateway{..} = mconcat
+        [ "AvailabilityZone" =? _cvgAvailabilityZone
+        , "dryRun"           =? _cvgDryRun
+        , "Type"             =? _cvgType
+        ]
 
 instance ToHeaders CreateVpnGateway
 

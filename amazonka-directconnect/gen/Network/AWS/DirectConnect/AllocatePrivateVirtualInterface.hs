@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -70,7 +71,7 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface
     { _apviConnectionId                         :: Text
     , _apviNewPrivateVirtualInterfaceAllocation :: NewPrivateVirtualInterfaceAllocation
     , _apviOwnerAccount                         :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AllocatePrivateVirtualInterface' constructor.
 --
@@ -118,14 +119,14 @@ data AllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceRe
     , _apvirCustomerRouterConfig  :: Maybe Text
     , _apvirLocation              :: Maybe Text
     , _apvirOwnerAccount          :: Maybe Text
-    , _apvirRouteFilterPrefixes   :: [RouteFilterPrefix]
+    , _apvirRouteFilterPrefixes   :: List "routeFilterPrefixes" RouteFilterPrefix
     , _apvirVirtualGatewayId      :: Maybe Text
     , _apvirVirtualInterfaceId    :: Maybe Text
     , _apvirVirtualInterfaceName  :: Maybe Text
     , _apvirVirtualInterfaceState :: Maybe Text
     , _apvirVirtualInterfaceType  :: Maybe Text
     , _apvirVlan                  :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AllocatePrivateVirtualInterfaceResponse' constructor.
 --
@@ -215,6 +216,7 @@ apvirRouteFilterPrefixes :: Lens' AllocatePrivateVirtualInterfaceResponse [Route
 apvirRouteFilterPrefixes =
     lens _apvirRouteFilterPrefixes
         (\s a -> s { _apvirRouteFilterPrefixes = a })
+            . _List
 
 apvirVirtualGatewayId :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 apvirVirtualGatewayId =
@@ -274,7 +276,7 @@ instance FromJSON AllocatePrivateVirtualInterfaceResponse where
         <*> o .:? "customerRouterConfig"
         <*> o .:? "location"
         <*> o .:? "ownerAccount"
-        <*> o .: "routeFilterPrefixes"
+        <*> o .:  "routeFilterPrefixes"
         <*> o .:? "virtualGatewayId"
         <*> o .:? "virtualInterfaceId"
         <*> o .:? "virtualInterfaceName"

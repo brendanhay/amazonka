@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data DeleteNetworkAcl = DeleteNetworkAcl
     { _dnaDryRun       :: Maybe Bool
     , _dnaNetworkAclId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteNetworkAcl' constructor.
 --
@@ -82,7 +82,11 @@ deleteNetworkAclResponse = DeleteNetworkAclResponse
 instance ToPath DeleteNetworkAcl where
     toPath = const "/"
 
-instance ToQuery DeleteNetworkAcl
+instance ToQuery DeleteNetworkAcl where
+    toQuery DeleteNetworkAcl{..} = mconcat
+        [ "dryRun"       =? _dnaDryRun
+        , "networkAclId" =? _dnaNetworkAclId
+        ]
 
 instance ToHeaders DeleteNetworkAcl
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data ChangePassword = ChangePassword
     { _cpNewPassword :: Sensitive Text
     , _cpOldPassword :: Sensitive Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ChangePassword' constructor.
 --
@@ -70,13 +71,11 @@ changePassword p1 p2 = ChangePassword
 -- | The new password. The new password must conform to the AWS account's
 -- password policy, if one exists.
 cpNewPassword :: Lens' ChangePassword Text
-cpNewPassword = lens _cpNewPassword (\s a -> s { _cpNewPassword = a })
-    . _Sensitive
+cpNewPassword = lens _cpNewPassword (\s a -> s { _cpNewPassword = a }) . _Sensitive
 
 -- | The IAM user's current password.
 cpOldPassword :: Lens' ChangePassword Text
-cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a })
-    . _Sensitive
+cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a }) . _Sensitive
 
 data ChangePasswordResponse = ChangePasswordResponse
     deriving (Eq, Ord, Show, Generic)
@@ -88,7 +87,11 @@ changePasswordResponse = ChangePasswordResponse
 instance ToPath ChangePassword where
     toPath = const "/"
 
-instance ToQuery ChangePassword
+instance ToQuery ChangePassword where
+    toQuery ChangePassword{..} = mconcat
+        [ "NewPassword" =? _cpNewPassword
+        , "OldPassword" =? _cpOldPassword
+        ]
 
 instance ToHeaders ChangePassword
 

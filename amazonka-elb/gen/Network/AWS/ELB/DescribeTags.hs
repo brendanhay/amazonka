@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,8 +46,8 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 newtype DescribeTags = DescribeTags
-    { _dtLoadBalancerNames :: List1 Text
-    } deriving (Eq, Ord, Show, Generic, Semigroup)
+    { _dtLoadBalancerNames :: List1 "LoadBalancerNames" Text
+    } deriving (Eq, Ord, Show, Semigroup)
 
 -- | 'DescribeTags' constructor.
 --
@@ -57,17 +58,18 @@ newtype DescribeTags = DescribeTags
 describeTags :: NonEmpty Text -- ^ 'dtLoadBalancerNames'
              -> DescribeTags
 describeTags p1 = DescribeTags
-    { _dtLoadBalancerNames = p1
+    { _dtLoadBalancerNames = withIso _List1 (const id) p1
     }
 
 -- | The names of the load balancers.
 dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
 dtLoadBalancerNames =
     lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
+        . _List1
 
 newtype DescribeTagsResponse = DescribeTagsResponse
-    { _dtrTagDescriptions :: [TagDescription]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dtrTagDescriptions :: List "TagDescriptions" TagDescription
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTagsResponse where
     type Item DescribeTagsResponse = TagDescription
@@ -90,11 +92,15 @@ describeTagsResponse = DescribeTagsResponse
 dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrTagDescriptions =
     lens _dtrTagDescriptions (\s a -> s { _dtrTagDescriptions = a })
+        . _List
 
 instance ToPath DescribeTags where
     toPath = const "/"
 
-instance ToQuery DescribeTags
+instance ToQuery DescribeTags where
+    toQuery DescribeTags{..} = mconcat
+        [ "LoadBalancerNames" =? _dtLoadBalancerNames
+        ]
 
 instance ToHeaders DescribeTags
 
@@ -106,5 +112,5 @@ instance AWSRequest DescribeTags where
     response = xmlResponse
 
 instance FromXML DescribeTagsResponse where
-    parseXML = withElement "DescribeTagsResult" $ \x ->
-            <$> x .@ "TagDescriptions"
+    parseXML = withElement "DescribeTagsResult" $ \x -> DescribeTagsResponse
+        <$> x .@  "TagDescriptions"

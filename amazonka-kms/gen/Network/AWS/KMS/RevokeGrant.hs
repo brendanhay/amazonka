@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 data RevokeGrant = RevokeGrant
     { _rgGrantId :: Text
     , _rgKeyId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RevokeGrant' constructor.
 --

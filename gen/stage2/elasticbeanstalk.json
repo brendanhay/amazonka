@@ -97,8 +97,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "applicationDescription",
@@ -107,6 +106,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ApplicationDescription",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -171,8 +171,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -182,12 +182,12 @@
                         "locationName": "Versions",
                         "documentation": "\u003cp\u003eThe names of the versions for this application.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Versions\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -197,7 +197,7 @@
                         "locationName": "ConfigurationTemplates",
                         "documentation": "\u003cp\u003e The names of the configuration templates associated with this application. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ConfigurationTemplates\" Text"
                     }
                 ],
                 "fields": [
@@ -218,8 +218,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -229,7 +229,7 @@
                         "locationName": "ConfigurationTemplates",
                         "documentation": "\u003cp\u003e The names of the configuration templates associated with this application. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ConfigurationTemplates\" Text"
                     },
                     {
                         "location": "querystring",
@@ -278,8 +278,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -289,7 +289,7 @@
                         "locationName": "Versions",
                         "documentation": "\u003cp\u003eThe names of the versions for this application.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Versions\" Text"
                     }
                 ]
             },
@@ -318,8 +318,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
@@ -328,6 +327,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Tag",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -398,8 +398,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "eventDescription",
@@ -408,6 +407,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EventDescription",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -659,7 +659,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -685,6 +684,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LaunchConfiguration",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -724,8 +724,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -750,6 +749,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ApplicationVersionDescriptionMessage",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -791,7 +791,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -817,6 +816,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AutoScalingGroup",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -875,8 +875,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "configurationOptionSetting",
@@ -885,6 +884,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ConfigurationOptionSetting",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -1001,8 +1001,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "configurationSettingsDescription",
@@ -1011,6 +1010,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ConfigurationSettingsDescription",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -1135,8 +1135,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1146,7 +1146,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of the configuration options and their values in this configuration set. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -1242,8 +1242,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1253,7 +1253,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of the configuration options and their values in this configuration set. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -1290,8 +1290,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "applicationVersionDescription",
@@ -1300,6 +1299,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ApplicationVersionDescription",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -1490,8 +1490,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "optionSpecification",
@@ -1500,6 +1499,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "OptionSpecification",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -1569,8 +1569,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "environmentResourceDescription",
@@ -1579,6 +1578,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EnvironmentResourceDescription",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -1598,8 +1598,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1609,12 +1609,12 @@
                         "locationName": "AutoScalingGroups",
                         "documentation": "\u003cp\u003e The \u003ccode\u003eAutoScalingGroups\u003c/code\u003e used by this environment. \u003c/p\u003e",
                         "typeExposed": "[AutoScalingGroup]",
-                        "type": "[AutoScalingGroup]"
+                        "type": "List \"AutoScalingGroups\" AutoScalingGroup"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1624,12 +1624,12 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003eThe Amazon EC2 instances used by this environment.\u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1639,12 +1639,12 @@
                         "locationName": "LaunchConfigurations",
                         "documentation": "\u003cp\u003eThe Auto Scaling launch configurations in use by this environment.\u003c/p\u003e",
                         "typeExposed": "[LaunchConfiguration]",
-                        "type": "[LaunchConfiguration]"
+                        "type": "List \"LaunchConfigurations\" LaunchConfiguration"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1654,12 +1654,12 @@
                         "locationName": "LoadBalancers",
                         "documentation": "\u003cp\u003eThe LoadBalancers in use by this environment.\u003c/p\u003e",
                         "typeExposed": "[LoadBalancer]",
-                        "type": "[LoadBalancer]"
+                        "type": "List \"LoadBalancers\" LoadBalancer"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1669,12 +1669,12 @@
                         "locationName": "Triggers",
                         "documentation": "\u003cp\u003e The \u003ccode\u003eAutoScaling\u003c/code\u003e triggers in use by this environment. \u003c/p\u003e",
                         "typeExposed": "[Trigger]",
-                        "type": "[Trigger]"
+                        "type": "List \"Triggers\" Trigger"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1684,14 +1684,14 @@
                         "locationName": "Queues",
                         "documentation": "\u003cp\u003e The queues used by this environment. \u003c/p\u003e",
                         "typeExposed": "[Queue]",
-                        "type": "[Queue]"
+                        "type": "List \"Queues\" Queue"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1701,7 +1701,7 @@
                         "locationName": "AutoScalingGroups",
                         "documentation": "\u003cp\u003e The \u003ccode\u003eAutoScalingGroups\u003c/code\u003e used by this environment. \u003c/p\u003e",
                         "typeExposed": "[AutoScalingGroup]",
-                        "type": "[AutoScalingGroup]"
+                        "type": "List \"AutoScalingGroups\" AutoScalingGroup"
                     },
                     {
                         "location": "querystring",
@@ -1720,8 +1720,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1731,12 +1731,12 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003eThe Amazon EC2 instances used by this environment.\u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1746,12 +1746,12 @@
                         "locationName": "LaunchConfigurations",
                         "documentation": "\u003cp\u003eThe Auto Scaling launch configurations in use by this environment.\u003c/p\u003e",
                         "typeExposed": "[LaunchConfiguration]",
-                        "type": "[LaunchConfiguration]"
+                        "type": "List \"LaunchConfigurations\" LaunchConfiguration"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1761,12 +1761,12 @@
                         "locationName": "LoadBalancers",
                         "documentation": "\u003cp\u003eThe LoadBalancers in use by this environment.\u003c/p\u003e",
                         "typeExposed": "[LoadBalancer]",
-                        "type": "[LoadBalancer]"
+                        "type": "List \"LoadBalancers\" LoadBalancer"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1776,12 +1776,12 @@
                         "locationName": "Queues",
                         "documentation": "\u003cp\u003e The queues used by this environment. \u003c/p\u003e",
                         "typeExposed": "[Queue]",
-                        "type": "[Queue]"
+                        "type": "List \"Queues\" Queue"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1791,7 +1791,7 @@
                         "locationName": "Triggers",
                         "documentation": "\u003cp\u003e The \u003ccode\u003eAutoScaling\u003c/code\u003e triggers in use by this environment. \u003c/p\u003e",
                         "typeExposed": "[Trigger]",
-                        "type": "[Trigger]"
+                        "type": "List \"Triggers\" Trigger"
                     }
                 ]
             },
@@ -1799,8 +1799,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 6,
                 "ctor": "queue",
@@ -1809,6 +1808,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Queue",
+                "locationPad": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -1898,8 +1898,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "loadBalancerDescription",
@@ -1908,6 +1907,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LoadBalancerDescription",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1942,8 +1942,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1953,7 +1953,7 @@
                         "locationName": "Listeners",
                         "documentation": "\u003cp\u003eA list of Listeners used by the LoadBalancer.\u003c/p\u003e",
                         "typeExposed": "[Listener]",
-                        "type": "[Listener]"
+                        "type": "List \"Listeners\" Listener"
                     }
                 ],
                 "fields": [
@@ -1974,8 +1974,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1985,7 +1985,7 @@
                         "locationName": "Listeners",
                         "documentation": "\u003cp\u003eA list of Listeners used by the LoadBalancer.\u003c/p\u003e",
                         "typeExposed": "[Listener]",
-                        "type": "[Listener]"
+                        "type": "List \"Listeners\" Listener"
                     },
                     {
                         "location": "querystring",
@@ -2007,8 +2007,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -2033,6 +2032,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ApplicationDescriptionMessage",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2073,8 +2073,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "environmentTier",
@@ -2083,6 +2082,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EnvironmentTier",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -2184,7 +2184,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -2210,6 +2209,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LoadBalancer",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2249,8 +2249,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -2275,6 +2274,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EnvironmentResourcesDescription",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2315,8 +2315,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "optionRestrictionRegex",
@@ -2325,6 +2324,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "OptionRestrictionRegex",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -2394,8 +2394,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "configurationOptionDescription",
@@ -2404,6 +2403,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ConfigurationOptionDescription",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -2498,8 +2498,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2509,7 +2509,7 @@
                         "locationName": "ValueOptions",
                         "documentation": "\u003cp\u003e If specified, values for the configuration option are selected from this list. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ValueOptions\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2710,8 +2710,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2721,7 +2721,7 @@
                         "locationName": "ValueOptions",
                         "documentation": "\u003cp\u003e If specified, values for the configuration option are selected from this list. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ValueOptions\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2744,8 +2744,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "sourceConfiguration",
@@ -2754,6 +2753,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "SourceConfiguration",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -2824,8 +2824,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "environmentInfoDescription",
@@ -2834,6 +2833,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EnvironmentInfoDescription",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -2964,8 +2964,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "s3Location",
@@ -2974,6 +2973,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "S3Location",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -3044,8 +3044,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "validationMessage",
@@ -3054,6 +3053,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ValidationMessage",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -3202,7 +3202,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -3228,6 +3227,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Trigger",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -3283,8 +3283,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "environmentDescription",
@@ -3293,6 +3292,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EnvironmentDescription",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -3753,8 +3753,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "listener",
@@ -3763,6 +3762,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Listener",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -3853,7 +3853,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -3879,6 +3878,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Instance",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -3919,8 +3919,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "solutionStackDescription",
@@ -3929,6 +3928,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "SolutionStackDescription",
+                "locationPad": 19,
                 "type": "record",
                 "optional": [
                     {
@@ -3948,8 +3948,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3959,14 +3959,14 @@
                         "locationName": "PermittedFileTypes",
                         "documentation": "\u003cp\u003e The permitted file types allowed for a solution stack. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PermittedFileTypes\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3976,7 +3976,7 @@
                         "locationName": "PermittedFileTypes",
                         "documentation": "\u003cp\u003e The permitted file types allowed for a solution stack. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PermittedFileTypes\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4017,8 +4017,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -4035,6 +4034,7 @@
                 "contentPad": 0,
                 "name": "CheckDNSAvailabilityResponse",
                 "resultWrapper": "CheckDNSAvailabilityResult",
+                "locationPad": 20,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4119,7 +4119,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4182,6 +4181,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -4210,8 +4210,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4244,6 +4243,7 @@
                 "contentPad": 0,
                 "name": "CreateApplicationResponse",
                 "resultWrapper": "CreateApplicationResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4297,8 +4297,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4348,6 +4347,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4407,8 +4407,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4441,6 +4440,7 @@
                 "contentPad": 0,
                 "name": "CreateApplicationVersionResponse",
                 "resultWrapper": "CreateApplicationVersionResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4493,8 +4493,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4574,6 +4573,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4708,8 +4708,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -4726,6 +4725,7 @@
                 "contentPad": 0,
                 "name": "CreateConfigurationTemplateResponse",
                 "resultWrapper": "CreateConfigurationTemplateResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4851,8 +4851,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4862,7 +4862,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of the configuration options and their values in this configuration set. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -4958,8 +4958,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4969,7 +4969,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of the configuration options and their values in this configuration set. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -5018,8 +5018,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5109,6 +5108,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5175,8 +5175,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5186,7 +5186,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk sets the specified configuration option to the requested value. The new value overrides the value obtained from the solution stack or the source configuration template. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -5237,8 +5237,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5248,7 +5248,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk sets the specified configuration option to the requested value. The new value overrides the value obtained from the solution stack or the source configuration template. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -5303,8 +5303,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -5321,6 +5320,7 @@
                 "contentPad": 0,
                 "name": "CreateEnvironmentResponse",
                 "resultWrapper": "CreateEnvironmentResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -5793,8 +5793,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5904,6 +5903,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5955,8 +5955,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5966,7 +5966,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e This specifies the tags applied to resources in the environment. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -6015,8 +6015,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6026,12 +6026,12 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk sets the specified configuration options to the requested value in the configuration set for the new environment. These override the values obtained from the solution stack or the configuration template. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6041,7 +6041,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "\u003cp\u003e A list of custom user-defined configuration options to remove from the configuration set for this new environment. \u003c/p\u003e",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "[OptionSpecification]"
+                        "type": "List \"OptionsToRemove\" OptionSpecification"
                     }
                 ],
                 "fields": [
@@ -6107,8 +6107,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6118,12 +6118,12 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk sets the specified configuration options to the requested value in the configuration set for the new environment. These override the values obtained from the solution stack or the configuration template. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6133,7 +6133,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "\u003cp\u003e A list of custom user-defined configuration options to remove from the configuration set for this new environment. \u003c/p\u003e",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "[OptionSpecification]"
+                        "type": "List \"OptionsToRemove\" OptionSpecification"
                     },
                     {
                         "location": "querystring",
@@ -6152,8 +6152,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6163,7 +6163,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e This specifies the tags applied to resources in the environment. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -6220,7 +6220,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -6254,6 +6253,7 @@
                 "contentPad": 0,
                 "name": "CreateStorageLocationResponse",
                 "resultWrapper": "CreateStorageLocationResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -6377,8 +6377,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6428,6 +6427,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6524,8 +6524,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6595,6 +6594,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6706,8 +6706,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6772,6 +6771,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6852,8 +6852,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6918,6 +6917,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6962,7 +6962,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6974,8 +6973,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6985,7 +6984,7 @@
                     "locationName": "ApplicationVersions",
                     "documentation": "\u003cp\u003e A list of \u003ca\u003eApplicationVersionDescription\u003c/a\u003e . \u003c/p\u003e",
                     "typeExposed": "[ApplicationVersionDescription]",
-                    "type": "[ApplicationVersionDescription]"
+                    "type": "List \"ApplicationVersions\" ApplicationVersionDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -6997,13 +6996,14 @@
                 "contentPad": 0,
                 "name": "DescribeApplicationVersionsResponse",
                 "resultWrapper": "DescribeApplicationVersionsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7013,14 +7013,14 @@
                         "locationName": "ApplicationVersions",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eApplicationVersionDescription\u003c/a\u003e . \u003c/p\u003e",
                         "typeExposed": "[ApplicationVersionDescription]",
-                        "type": "[ApplicationVersionDescription]"
+                        "type": "List \"ApplicationVersions\" ApplicationVersionDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7030,7 +7030,7 @@
                         "locationName": "ApplicationVersions",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eApplicationVersionDescription\u003c/a\u003e . \u003c/p\u003e",
                         "typeExposed": "[ApplicationVersionDescription]",
-                        "type": "[ApplicationVersionDescription]"
+                        "type": "List \"ApplicationVersions\" ApplicationVersionDescription"
                     }
                 ]
             },
@@ -7050,8 +7050,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7085,6 +7084,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7106,8 +7106,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7117,7 +7117,7 @@
                         "locationName": "VersionLabels",
                         "documentation": "\u003cp\u003e If specified, restricts the returned descriptions to only include ones that have the specified version labels. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Versions\" Text"
                     }
                 ],
                 "fields": [
@@ -7138,8 +7138,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7149,7 +7149,7 @@
                         "locationName": "VersionLabels",
                         "documentation": "\u003cp\u003e If specified, restricts the returned descriptions to only include ones that have the specified version labels. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Versions\" Text"
                     }
                 ]
             }
@@ -7160,7 +7160,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7172,8 +7171,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7183,7 +7182,7 @@
                     "locationName": "Applications",
                     "documentation": "\u003cp\u003e This parameter contains a list of \u003ca\u003eApplicationDescription\u003c/a\u003e. \u003c/p\u003e",
                     "typeExposed": "[ApplicationDescription]",
-                    "type": "[ApplicationDescription]"
+                    "type": "List \"Applications\" ApplicationDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7195,13 +7194,14 @@
                 "contentPad": 0,
                 "name": "DescribeApplicationsResponse",
                 "resultWrapper": "DescribeApplicationsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7211,14 +7211,14 @@
                         "locationName": "Applications",
                         "documentation": "\u003cp\u003e This parameter contains a list of \u003ca\u003eApplicationDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[ApplicationDescription]",
-                        "type": "[ApplicationDescription]"
+                        "type": "List \"Applications\" ApplicationDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7228,7 +7228,7 @@
                         "locationName": "Applications",
                         "documentation": "\u003cp\u003e This parameter contains a list of \u003ca\u003eApplicationDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[ApplicationDescription]",
-                        "type": "[ApplicationDescription]"
+                        "type": "List \"Applications\" ApplicationDescription"
                     }
                 ]
             },
@@ -7249,7 +7249,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7261,8 +7260,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7272,7 +7271,7 @@
                     "locationName": "ApplicationNames",
                     "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"ApplicationNames\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -7296,14 +7295,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7313,14 +7313,14 @@
                         "locationName": "ApplicationNames",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ApplicationNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7330,7 +7330,7 @@
                         "locationName": "ApplicationNames",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ApplicationNames\" Text"
                     }
                 ]
             }
@@ -7340,8 +7340,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -7358,6 +7357,7 @@
                 "contentPad": 0,
                 "name": "DescribeConfigurationOptionsResponse",
                 "resultWrapper": "DescribeConfigurationOptionsResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -7378,8 +7378,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7389,14 +7389,14 @@
                         "locationName": "Options",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eConfigurationOptionDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionDescription]",
-                        "type": "[ConfigurationOptionDescription]"
+                        "type": "List \"Options\" ConfigurationOptionDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7406,7 +7406,7 @@
                         "locationName": "Options",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eConfigurationOptionDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionDescription]",
-                        "type": "[ConfigurationOptionDescription]"
+                        "type": "List \"Options\" ConfigurationOptionDescription"
                     },
                     {
                         "location": "querystring",
@@ -7440,8 +7440,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7490,6 +7489,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7556,8 +7556,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7567,7 +7567,7 @@
                         "locationName": "Options",
                         "documentation": "\u003cp\u003e If specified, restricts the descriptions to only the specified options. \u003c/p\u003e",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "[OptionSpecification]"
+                        "type": "List \"OptionsToRemove\" OptionSpecification"
                     }
                 ],
                 "fields": [
@@ -7603,8 +7603,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7614,7 +7614,7 @@
                         "locationName": "Options",
                         "documentation": "\u003cp\u003e If specified, restricts the descriptions to only the specified options. \u003c/p\u003e",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "[OptionSpecification]"
+                        "type": "List \"OptionsToRemove\" OptionSpecification"
                     },
                     {
                         "location": "querystring",
@@ -7655,7 +7655,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7667,8 +7666,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7678,7 +7677,7 @@
                     "locationName": "ConfigurationSettings",
                     "documentation": "\u003cp\u003e A list of \u003ca\u003eConfigurationSettingsDescription\u003c/a\u003e. \u003c/p\u003e",
                     "typeExposed": "[ConfigurationSettingsDescription]",
-                    "type": "[ConfigurationSettingsDescription]"
+                    "type": "List \"ConfigurationSettings\" ConfigurationSettingsDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7690,13 +7689,14 @@
                 "contentPad": 0,
                 "name": "DescribeConfigurationSettingsResponse",
                 "resultWrapper": "DescribeConfigurationSettingsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7706,14 +7706,14 @@
                         "locationName": "ConfigurationSettings",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eConfigurationSettingsDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationSettingsDescription]",
-                        "type": "[ConfigurationSettingsDescription]"
+                        "type": "List \"ConfigurationSettings\" ConfigurationSettingsDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7723,7 +7723,7 @@
                         "locationName": "ConfigurationSettings",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eConfigurationSettingsDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationSettingsDescription]",
-                        "type": "[ConfigurationSettingsDescription]"
+                        "type": "List \"ConfigurationSettings\" ConfigurationSettingsDescription"
                     }
                 ]
             },
@@ -7743,8 +7743,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7799,6 +7798,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7888,8 +7888,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -7922,6 +7921,7 @@
                 "contentPad": 0,
                 "name": "DescribeEnvironmentResourcesResponse",
                 "resultWrapper": "DescribeEnvironmentResourcesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -7975,8 +7975,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8010,6 +8009,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8085,7 +8085,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -8097,8 +8096,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -8108,7 +8107,7 @@
                     "locationName": "Environments",
                     "documentation": "\u003cp\u003e Returns an \u003ca\u003eEnvironmentDescription\u003c/a\u003e list. \u003c/p\u003e",
                     "typeExposed": "[EnvironmentDescription]",
-                    "type": "[EnvironmentDescription]"
+                    "type": "List \"Environments\" EnvironmentDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8120,13 +8119,14 @@
                 "contentPad": 0,
                 "name": "DescribeEnvironmentsResponse",
                 "resultWrapper": "DescribeEnvironmentsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8136,14 +8136,14 @@
                         "locationName": "Environments",
                         "documentation": "\u003cp\u003e Returns an \u003ca\u003eEnvironmentDescription\u003c/a\u003e list. \u003c/p\u003e",
                         "typeExposed": "[EnvironmentDescription]",
-                        "type": "[EnvironmentDescription]"
+                        "type": "List \"Environments\" EnvironmentDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8153,7 +8153,7 @@
                         "locationName": "Environments",
                         "documentation": "\u003cp\u003e Returns an \u003ca\u003eEnvironmentDescription\u003c/a\u003e list. \u003c/p\u003e",
                         "typeExposed": "[EnvironmentDescription]",
-                        "type": "[EnvironmentDescription]"
+                        "type": "List \"Environments\" EnvironmentDescription"
                     }
                 ]
             },
@@ -8173,8 +8173,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8228,6 +8227,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8264,8 +8264,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8275,12 +8275,12 @@
                         "locationName": "EnvironmentIds",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EnvironmentIds\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8290,7 +8290,7 @@
                         "locationName": "EnvironmentNames",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EnvironmentNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8341,8 +8341,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8352,12 +8352,12 @@
                         "locationName": "EnvironmentIds",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EnvironmentIds\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8367,7 +8367,7 @@
                         "locationName": "EnvironmentNames",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EnvironmentNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8422,8 +8422,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8440,13 +8439,14 @@
                 "contentPad": 0,
                 "name": "DescribeEventsResponse",
                 "resultWrapper": "DescribeEventsResult",
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8456,7 +8456,7 @@
                         "locationName": "Events",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eEventDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[EventDescription]",
-                        "type": "[EventDescription]"
+                        "type": "List \"Events\" EventDescription"
                     },
                     {
                         "location": "querystring",
@@ -8477,8 +8477,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8488,7 +8488,7 @@
                         "locationName": "Events",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eEventDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[EventDescription]",
-                        "type": "[EventDescription]"
+                        "type": "List \"Events\" EventDescription"
                     },
                     {
                         "location": "querystring",
@@ -8530,8 +8530,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8610,6 +8609,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8954,8 +8954,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8972,13 +8971,14 @@
                 "contentPad": 0,
                 "name": "ListAvailableSolutionStacksResponse",
                 "resultWrapper": "ListAvailableSolutionStacksResult",
+                "locationPad": 21,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8988,12 +8988,12 @@
                         "locationName": "SolutionStacks",
                         "documentation": "\u003cp\u003e A list of available solution stacks. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SolutionStacks\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9003,14 +9003,14 @@
                         "locationName": "SolutionStackDetails",
                         "documentation": "\u003cp\u003e A list of available solution stacks and their \u003ca\u003eSolutionStackDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[SolutionStackDescription]",
-                        "type": "[SolutionStackDescription]"
+                        "type": "List \"SolutionStackDetails\" SolutionStackDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9020,12 +9020,12 @@
                         "locationName": "SolutionStackDetails",
                         "documentation": "\u003cp\u003e A list of available solution stacks and their \u003ca\u003eSolutionStackDescription\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[SolutionStackDescription]",
-                        "type": "[SolutionStackDescription]"
+                        "type": "List \"SolutionStackDetails\" SolutionStackDescription"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9035,7 +9035,7 @@
                         "locationName": "SolutionStacks",
                         "documentation": "\u003cp\u003e A list of available solution stacks. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SolutionStacks\" Text"
                     }
                 ]
             },
@@ -9125,8 +9125,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9160,6 +9159,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9271,8 +9271,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9327,6 +9326,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9453,8 +9453,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9488,6 +9487,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9563,7 +9563,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -9575,8 +9574,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -9586,7 +9585,7 @@
                     "locationName": "EnvironmentInfo",
                     "documentation": "\u003cp\u003e The \u003ca\u003eEnvironmentInfoDescription\u003c/a\u003e of the environment. \u003c/p\u003e",
                     "typeExposed": "[EnvironmentInfoDescription]",
-                    "type": "[EnvironmentInfoDescription]"
+                    "type": "List \"EnvironmentInfo\" EnvironmentInfoDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -9598,13 +9597,14 @@
                 "contentPad": 0,
                 "name": "RetrieveEnvironmentInfoResponse",
                 "resultWrapper": "RetrieveEnvironmentInfoResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9614,14 +9614,14 @@
                         "locationName": "EnvironmentInfo",
                         "documentation": "\u003cp\u003e The \u003ca\u003eEnvironmentInfoDescription\u003c/a\u003e of the environment. \u003c/p\u003e",
                         "typeExposed": "[EnvironmentInfoDescription]",
-                        "type": "[EnvironmentInfoDescription]"
+                        "type": "List \"EnvironmentInfo\" EnvironmentInfoDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9631,7 +9631,7 @@
                         "locationName": "EnvironmentInfo",
                         "documentation": "\u003cp\u003e The \u003ca\u003eEnvironmentInfoDescription\u003c/a\u003e of the environment. \u003c/p\u003e",
                         "typeExposed": "[EnvironmentInfoDescription]",
-                        "type": "[EnvironmentInfoDescription]"
+                        "type": "List \"EnvironmentInfo\" EnvironmentInfoDescription"
                     }
                 ]
             },
@@ -9651,8 +9651,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9707,6 +9706,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9833,8 +9833,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9878,6 +9877,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 27,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -10012,8 +10012,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -10030,6 +10029,7 @@
                 "contentPad": 0,
                 "name": "TerminateEnvironmentResponse",
                 "resultWrapper": "TerminateEnvironmentResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -10503,8 +10503,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -10543,6 +10542,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -10647,8 +10647,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10681,6 +10680,7 @@
                 "contentPad": 0,
                 "name": "UpdateApplicationResponse",
                 "resultWrapper": "UpdateApplicationResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -10734,8 +10734,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -10785,6 +10784,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -10844,8 +10844,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10878,6 +10877,7 @@
                 "contentPad": 0,
                 "name": "UpdateApplicationVersionResponse",
                 "resultWrapper": "UpdateApplicationVersionResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -10931,8 +10931,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11002,6 +11001,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11076,8 +11076,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11094,6 +11093,7 @@
                 "contentPad": 0,
                 "name": "UpdateConfigurationTemplateResponse",
                 "resultWrapper": "UpdateConfigurationTemplateResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11219,8 +11219,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11230,7 +11230,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of the configuration options and their values in this configuration set. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -11326,8 +11326,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11337,7 +11337,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of the configuration options and their values in this configuration set. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -11386,8 +11386,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11467,6 +11466,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11488,8 +11488,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11499,12 +11499,12 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of configuration option settings to update with the new specified option value. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11514,7 +11514,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "\u003cp\u003e A list of configuration options to remove from the configuration set. \u003c/p\u003e \u003cp\u003e Constraint: You can remove only \u003ccode\u003eUserDefined\u003c/code\u003e configuration options. \u003c/p\u003e",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "[OptionSpecification]"
+                        "type": "List \"OptionsToRemove\" OptionSpecification"
                     }
                 ],
                 "fields": [
@@ -11550,8 +11550,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11561,12 +11561,12 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of configuration option settings to update with the new specified option value. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11576,7 +11576,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "\u003cp\u003e A list of configuration options to remove from the configuration set. \u003c/p\u003e \u003cp\u003e Constraint: You can remove only \u003ccode\u003eUserDefined\u003c/code\u003e configuration options. \u003c/p\u003e",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "[OptionSpecification]"
+                        "type": "List \"OptionsToRemove\" OptionSpecification"
                     },
                     {
                         "location": "querystring",
@@ -11601,8 +11601,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11619,6 +11618,7 @@
                 "contentPad": 0,
                 "name": "UpdateEnvironmentResponse",
                 "resultWrapper": "UpdateEnvironmentResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -12091,8 +12091,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12156,6 +12155,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12252,8 +12252,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12263,12 +12263,12 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12278,7 +12278,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "\u003cp\u003e A list of custom user-defined configuration options to remove from the configuration set for this environment. \u003c/p\u003e",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "[OptionSpecification]"
+                        "type": "List \"OptionsToRemove\" OptionSpecification"
                     }
                 ],
                 "fields": [
@@ -12329,8 +12329,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12340,12 +12340,12 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12355,7 +12355,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "\u003cp\u003e A list of custom user-defined configuration options to remove from the configuration set for this environment. \u003c/p\u003e",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "[OptionSpecification]"
+                        "type": "List \"OptionsToRemove\" OptionSpecification"
                     },
                     {
                         "location": "querystring",
@@ -12411,7 +12411,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -12423,8 +12422,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -12434,7 +12433,7 @@
                     "locationName": "Messages",
                     "documentation": "\u003cp\u003e A list of \u003ca\u003eValidationMessage\u003c/a\u003e. \u003c/p\u003e",
                     "typeExposed": "[ValidationMessage]",
-                    "type": "[ValidationMessage]"
+                    "type": "List \"Messages\" ValidationMessage"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -12446,13 +12445,14 @@
                 "contentPad": 0,
                 "name": "ValidateConfigurationSettingsResponse",
                 "resultWrapper": "ValidateConfigurationSettingsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12462,14 +12462,14 @@
                         "locationName": "Messages",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eValidationMessage\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[ValidationMessage]",
-                        "type": "[ValidationMessage]"
+                        "type": "List \"Messages\" ValidationMessage"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12479,7 +12479,7 @@
                         "locationName": "Messages",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eValidationMessage\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[ValidationMessage]",
-                        "type": "[ValidationMessage]"
+                        "type": "List \"Messages\" ValidationMessage"
                     }
                 ]
             },
@@ -12498,8 +12498,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12559,6 +12558,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12595,8 +12595,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12606,7 +12606,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of the options and desired values to evaluate. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -12642,8 +12642,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12653,7 +12653,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "\u003cp\u003e A list of the options and desired values to evaluate. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "[ConfigurationOptionSetting]"
+                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",

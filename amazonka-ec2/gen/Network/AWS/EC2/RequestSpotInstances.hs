@@ -69,7 +69,7 @@ data RequestSpotInstances = RequestSpotInstances
     , _rsiType                  :: Maybe Text
     , _rsiValidFrom             :: Maybe RFC822
     , _rsiValidUntil            :: Maybe RFC822
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RequestSpotInstances' constructor.
 --
@@ -162,8 +162,7 @@ rsiType = lens _rsiType (\s a -> s { _rsiType = a })
 -- and remains active until it expires or is canceled. Default: The request
 -- is effective indefinitely.
 rsiValidFrom :: Lens' RequestSpotInstances (Maybe UTCTime)
-rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a })
-    . mapping _Time
+rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a }) . mapping _Time
 
 -- | The end date of the request. If this is a one-time request, the request
 -- remains active until all instances launch, the request is canceled, or
@@ -171,12 +170,11 @@ rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a })
 -- until it is canceled or this date and time is reached. Default: The
 -- request is effective indefinitely.
 rsiValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
-rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a })
-    . mapping _Time
+rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a }) . mapping _Time
 
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: List "item" SpotInstanceRequest
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList RequestSpotInstancesResponse where
     type Item RequestSpotInstancesResponse = SpotInstanceRequest
@@ -205,7 +203,18 @@ rsirSpotInstanceRequests =
 instance ToPath RequestSpotInstances where
     toPath = const "/"
 
-instance ToQuery RequestSpotInstances
+instance ToQuery RequestSpotInstances where
+    toQuery RequestSpotInstances{..} = mconcat
+        [ "availabilityZoneGroup" =? _rsiAvailabilityZoneGroup
+        , "dryRun"                =? _rsiDryRun
+        , "instanceCount"         =? _rsiInstanceCount
+        , "launchGroup"           =? _rsiLaunchGroup
+        , "LaunchSpecification"   =? _rsiLaunchSpecification
+        , "spotPrice"             =? _rsiSpotPrice
+        , "type"                  =? _rsiType
+        , "validFrom"             =? _rsiValidFrom
+        , "validUntil"            =? _rsiValidUntil
+        ]
 
 instance ToHeaders RequestSpotInstances
 
@@ -218,4 +227,4 @@ instance AWSRequest RequestSpotInstances where
 
 instance FromXML RequestSpotInstancesResponse where
     parseXML x = RequestSpotInstancesResponse
-        <$> x .@ "spotInstanceRequestSet"
+        <$> x .@  "spotInstanceRequestSet"

@@ -46,7 +46,7 @@ import qualified GHC.Exts
 
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
     { _dsds1DryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteSpotDatafeedSubscription' constructor.
 --
@@ -72,7 +72,10 @@ deleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
 instance ToPath DeleteSpotDatafeedSubscription where
     toPath = const "/"
 
-instance ToQuery DeleteSpotDatafeedSubscription
+instance ToQuery DeleteSpotDatafeedSubscription where
+    toQuery DeleteSpotDatafeedSubscription{..} = mconcat
+        [ "dryRun" =? _dsds1DryRun
+        ]
 
 instance ToHeaders DeleteSpotDatafeedSubscription
 

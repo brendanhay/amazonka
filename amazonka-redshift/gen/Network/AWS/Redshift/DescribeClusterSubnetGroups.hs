@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsg1ClusterSubnetGroupName :: Maybe Text
     , _dcsg1Marker                 :: Maybe Text
     , _dcsg1MaxRecords             :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterSubnetGroups' constructor.
 --
@@ -97,9 +98,9 @@ dcsg1MaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
-    { _dcsgrClusterSubnetGroups :: [ClusterSubnetGroup]
+    { _dcsgrClusterSubnetGroups :: List "ClusterSubnetGroup" ClusterSubnetGroup
     , _dcsgrMarker              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeClusterSubnetGroupsResponse' constructor.
 --
@@ -120,6 +121,7 @@ dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSu
 dcsgrClusterSubnetGroups =
     lens _dcsgrClusterSubnetGroups
         (\s a -> s { _dcsgrClusterSubnetGroups = a })
+            . _List
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -133,7 +135,12 @@ dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 instance ToPath DescribeClusterSubnetGroups where
     toPath = const "/"
 
-instance ToQuery DescribeClusterSubnetGroups
+instance ToQuery DescribeClusterSubnetGroups where
+    toQuery DescribeClusterSubnetGroups{..} = mconcat
+        [ "ClusterSubnetGroupName" =? _dcsg1ClusterSubnetGroupName
+        , "Marker"                 =? _dcsg1Marker
+        , "MaxRecords"             =? _dcsg1MaxRecords
+        ]
 
 instance ToHeaders DescribeClusterSubnetGroups
 
@@ -145,9 +152,9 @@ instance AWSRequest DescribeClusterSubnetGroups where
     response = xmlResponse
 
 instance FromXML DescribeClusterSubnetGroupsResponse where
-    parseXML = withElement "DescribeClusterSubnetGroupsResult" $ \x ->
-            <$> x .@ "ClusterSubnetGroups"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeClusterSubnetGroupsResult" $ \x -> DescribeClusterSubnetGroupsResponse
+        <$> x .@  "ClusterSubnetGroups"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeClusterSubnetGroups where
     next rq rs = (\x -> rq & dcsg1Marker ?~ x)

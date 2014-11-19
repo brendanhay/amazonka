@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
     { _dcsg1ClusterSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteClusterSecurityGroup' constructor.
 --
@@ -76,7 +77,10 @@ deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
 instance ToPath DeleteClusterSecurityGroup where
     toPath = const "/"
 
-instance ToQuery DeleteClusterSecurityGroup
+instance ToQuery DeleteClusterSecurityGroup where
+    toQuery DeleteClusterSecurityGroup{..} = mconcat
+        [ "ClusterSecurityGroupName" =? _dcsg1ClusterSecurityGroupName
+        ]
 
 instance ToHeaders DeleteClusterSecurityGroup
 

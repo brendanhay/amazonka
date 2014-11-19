@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,11 +52,11 @@ import qualified GHC.Exts
 
 data DescribeDBParameters = DescribeDBParameters
     { _ddbpDBParameterGroupName :: Text
-    , _ddbpFilters              :: [Filter]
+    , _ddbpFilters              :: List "Filter" Filter
     , _ddbpMarker               :: Maybe Text
     , _ddbpMaxRecords           :: Maybe Int
     , _ddbpSource               :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBParameters' constructor.
 --
@@ -92,7 +93,7 @@ ddbpDBParameterGroupName =
 
 -- | This parameter is not currently supported.
 ddbpFilters :: Lens' DescribeDBParameters [Filter]
-ddbpFilters = lens _ddbpFilters (\s a -> s { _ddbpFilters = a })
+ddbpFilters = lens _ddbpFilters (\s a -> s { _ddbpFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeDBParameters
 -- request. If this parameter is specified, the response includes only
@@ -114,8 +115,8 @@ ddbpSource = lens _ddbpSource (\s a -> s { _ddbpSource = a })
 
 data DescribeDBParametersResponse = DescribeDBParametersResponse
     { _ddbprMarker     :: Maybe Text
-    , _ddbprParameters :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    , _ddbprParameters :: List "Parameter" Parameter
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBParametersResponse' constructor.
 --
@@ -139,12 +140,19 @@ ddbprMarker = lens _ddbprMarker (\s a -> s { _ddbprMarker = a })
 
 -- | A list of Parameter values.
 ddbprParameters :: Lens' DescribeDBParametersResponse [Parameter]
-ddbprParameters = lens _ddbprParameters (\s a -> s { _ddbprParameters = a })
+ddbprParameters = lens _ddbprParameters (\s a -> s { _ddbprParameters = a }) . _List
 
 instance ToPath DescribeDBParameters where
     toPath = const "/"
 
-instance ToQuery DescribeDBParameters
+instance ToQuery DescribeDBParameters where
+    toQuery DescribeDBParameters{..} = mconcat
+        [ "DBParameterGroupName" =? _ddbpDBParameterGroupName
+        , "Filters"              =? _ddbpFilters
+        , "Marker"               =? _ddbpMarker
+        , "MaxRecords"           =? _ddbpMaxRecords
+        , "Source"               =? _ddbpSource
+        ]
 
 instance ToHeaders DescribeDBParameters
 
@@ -156,9 +164,9 @@ instance AWSRequest DescribeDBParameters where
     response = xmlResponse
 
 instance FromXML DescribeDBParametersResponse where
-    parseXML = withElement "DescribeDBParametersResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "Parameters"
+    parseXML = withElement "DescribeDBParametersResult" $ \x -> DescribeDBParametersResponse
+        <$> x .@? "Marker"
+        <*> x .@  "Parameters"
 
 instance AWSPager DescribeDBParameters where
     next rq rs = (\x -> rq & ddbpMarker ?~ x)

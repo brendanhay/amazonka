@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -44,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
     { _dvmfadSerialNumber :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteVirtualMFADevice' constructor.
 --
@@ -74,7 +75,10 @@ deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
 instance ToPath DeleteVirtualMFADevice where
     toPath = const "/"
 
-instance ToQuery DeleteVirtualMFADevice
+instance ToQuery DeleteVirtualMFADevice where
+    toQuery DeleteVirtualMFADevice{..} = mconcat
+        [ "SerialNumber" =? _dvmfadSerialNumber
+        ]
 
 instance ToHeaders DeleteVirtualMFADevice
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -44,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
     { _dcsg1CacheSubnetGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteCacheSubnetGroup' constructor.
 --
@@ -75,7 +76,10 @@ deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
 instance ToPath DeleteCacheSubnetGroup where
     toPath = const "/"
 
-instance ToQuery DeleteCacheSubnetGroup
+instance ToQuery DeleteCacheSubnetGroup where
+    toQuery DeleteCacheSubnetGroup{..} = mconcat
+        [ "CacheSubnetGroupName" =? _dcsg1CacheSubnetGroupName
+        ]
 
 instance ToHeaders DeleteCacheSubnetGroup
 

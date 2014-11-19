@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import Network.AWS.Support.Types
 import qualified GHC.Exts
 
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
-    { _dtacrsCheckIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dtacrsCheckIds :: List "checkIds" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorCheckRefreshStatuses where
     type Item DescribeTrustedAdvisorCheckRefreshStatuses = Text
@@ -69,11 +70,11 @@ describeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshS
 
 -- | The IDs of the Trusted Advisor checks.
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
-dtacrsCheckIds = lens _dtacrsCheckIds (\s a -> s { _dtacrsCheckIds = a })
+dtacrsCheckIds = lens _dtacrsCheckIds (\s a -> s { _dtacrsCheckIds = a }) . _List
 
 newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse
-    { _dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dtacrsrStatuses :: List "statuses" TrustedAdvisorCheckRefreshStatus
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorCheckRefreshStatusesResponse where
     type Item DescribeTrustedAdvisorCheckRefreshStatusesResponse = TrustedAdvisorCheckRefreshStatus
@@ -94,7 +95,7 @@ describeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheck
 
 -- | The refresh status of the specified Trusted Advisor checks.
 dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
-dtacrsrStatuses = lens _dtacrsrStatuses (\s a -> s { _dtacrsrStatuses = a })
+dtacrsrStatuses = lens _dtacrsrStatuses (\s a -> s { _dtacrsrStatuses = a }) . _List
 
 instance ToPath DescribeTrustedAdvisorCheckRefreshStatuses where
     toPath = const "/"
@@ -118,4 +119,4 @@ instance AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
 
 instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse where
     parseJSON = withObject "DescribeTrustedAdvisorCheckRefreshStatusesResponse" $ \o -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
-        <$> o .: "statuses"
+        <$> o .:  "statuses"

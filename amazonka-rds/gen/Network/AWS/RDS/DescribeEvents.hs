@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,14 +61,14 @@ import qualified GHC.Exts
 data DescribeEvents = DescribeEvents
     { _deDuration         :: Maybe Int
     , _deEndTime          :: Maybe RFC822
-    , _deEventCategories  :: [Text]
-    , _deFilters          :: [Filter]
+    , _deEventCategories  :: List "EventCategory" Text
+    , _deFilters          :: List "Filter" Filter
     , _deMarker           :: Maybe Text
     , _deMaxRecords       :: Maybe Int
     , _deSourceIdentifier :: Maybe Text
     , _deSourceType       :: Maybe Text
     , _deStartTime        :: Maybe RFC822
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEvents' constructor.
 --
@@ -112,18 +113,18 @@ deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 -- ISO 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a })
-    . mapping _Time
+deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 
 -- | A list of event categories that trigger notifications for a event
 -- notification subscription.
 deEventCategories :: Lens' DescribeEvents [Text]
 deEventCategories =
     lens _deEventCategories (\s a -> s { _deEventCategories = a })
+        . _List
 
 -- | This parameter is not currently supported.
 deFilters :: Lens' DescribeEvents [Filter]
-deFilters = lens _deFilters (\s a -> s { _deFilters = a })
+deFilters = lens _deFilters (\s a -> s { _deFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeEvents
 -- request. If this parameter is specified, the response includes only
@@ -160,13 +161,12 @@ deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 -- ISO 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a })
-    . mapping _Time
+deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
 
 data DescribeEventsResponse = DescribeEventsResponse
-    { _derEvents :: [Event]
+    { _derEvents :: List "Event" Event
     , _derMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEventsResponse' constructor.
 --
@@ -184,7 +184,7 @@ describeEventsResponse = DescribeEventsResponse
 
 -- | A list of Event instances.
 derEvents :: Lens' DescribeEventsResponse [Event]
-derEvents = lens _derEvents (\s a -> s { _derEvents = a })
+derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 
 -- | An optional pagination token provided by a previous Events request. If
 -- this parameter is specified, the response includes only records beyond
@@ -195,7 +195,18 @@ derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 instance ToPath DescribeEvents where
     toPath = const "/"
 
-instance ToQuery DescribeEvents
+instance ToQuery DescribeEvents where
+    toQuery DescribeEvents{..} = mconcat
+        [ "Duration"         =? _deDuration
+        , "EndTime"          =? _deEndTime
+        , "EventCategories"  =? _deEventCategories
+        , "Filters"          =? _deFilters
+        , "Marker"           =? _deMarker
+        , "MaxRecords"       =? _deMaxRecords
+        , "SourceIdentifier" =? _deSourceIdentifier
+        , "SourceType"       =? _deSourceType
+        , "StartTime"        =? _deStartTime
+        ]
 
 instance ToHeaders DescribeEvents
 
@@ -207,9 +218,9 @@ instance AWSRequest DescribeEvents where
     response = xmlResponse
 
 instance FromXML DescribeEventsResponse where
-    parseXML = withElement "DescribeEventsResult" $ \x ->
-            <$> x .@ "Events"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeEventsResult" $ \x -> DescribeEventsResponse
+        <$> x .@  "Events"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeEvents where
     next rq rs = (\x -> rq & deMarker ?~ x)

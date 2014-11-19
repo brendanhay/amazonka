@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,10 +66,10 @@ import qualified GHC.Exts
 data SendEmail = SendEmail
     { _seDestination      :: Destination
     , _seMessage          :: Message
-    , _seReplyToAddresses :: [Text]
+    , _seReplyToAddresses :: List "ToAddresses" Text
     , _seReturnPath       :: Maybe Text
     , _seSource           :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SendEmail' constructor.
 --
@@ -109,6 +110,7 @@ seMessage = lens _seMessage (\s a -> s { _seMessage = a })
 seReplyToAddresses :: Lens' SendEmail [Text]
 seReplyToAddresses =
     lens _seReplyToAddresses (\s a -> s { _seReplyToAddresses = a })
+        . _List
 
 -- | The email address to which bounces and complaints are to be forwarded
 -- when feedback forwarding is enabled. If the message cannot be delivered
@@ -128,7 +130,7 @@ seSource = lens _seSource (\s a -> s { _seSource = a })
 
 newtype SendEmailResponse = SendEmailResponse
     { _serMessageId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'SendEmailResponse' constructor.
 --
@@ -149,7 +151,14 @@ serMessageId = lens _serMessageId (\s a -> s { _serMessageId = a })
 instance ToPath SendEmail where
     toPath = const "/"
 
-instance ToQuery SendEmail
+instance ToQuery SendEmail where
+    toQuery SendEmail{..} = mconcat
+        [ "Destination"      =? _seDestination
+        , "Message"          =? _seMessage
+        , "ReplyToAddresses" =? _seReplyToAddresses
+        , "ReturnPath"       =? _seReturnPath
+        , "Source"           =? _seSource
+        ]
 
 instance ToHeaders SendEmail
 
@@ -161,5 +170,5 @@ instance AWSRequest SendEmail where
     response = xmlResponse
 
 instance FromXML SendEmailResponse where
-    parseXML = withElement "SendEmailResult" $ \x ->
-            <$> x .@ "MessageId"
+    parseXML = withElement "SendEmailResult" $ \x -> SendEmailResponse
+        <$> x .@  "MessageId"

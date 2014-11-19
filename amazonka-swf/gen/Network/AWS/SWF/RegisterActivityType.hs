@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -75,7 +76,7 @@ data RegisterActivityType = RegisterActivityType
     , _ratDomain                            :: Text
     , _ratName                              :: Text
     , _ratVersion                           :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RegisterActivityType' constructor.
 --

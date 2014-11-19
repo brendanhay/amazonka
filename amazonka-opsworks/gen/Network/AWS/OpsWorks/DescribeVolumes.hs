@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,8 +56,8 @@ data DescribeVolumes = DescribeVolumes
     { _dvInstanceId  :: Maybe Text
     , _dvRaidArrayId :: Maybe Text
     , _dvStackId     :: Maybe Text
-    , _dvVolumeIds   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dvVolumeIds   :: List "InstanceIds" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeVolumes' constructor.
 --
@@ -97,11 +98,11 @@ dvStackId = lens _dvStackId (\s a -> s { _dvStackId = a })
 -- returns descriptions of the specified volumes. Otherwise, it returns a
 -- description of every volume.
 dvVolumeIds :: Lens' DescribeVolumes [Text]
-dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a })
+dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a }) . _List
 
 newtype DescribeVolumesResponse = DescribeVolumesResponse
-    { _dvrVolumes :: [Volume]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dvrVolumes :: List "Volumes" Volume
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVolumesResponse where
     type Item DescribeVolumesResponse = Volume
@@ -122,7 +123,7 @@ describeVolumesResponse = DescribeVolumesResponse
 
 -- | An array of volume IDs.
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
+dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a }) . _List
 
 instance ToPath DescribeVolumes where
     toPath = const "/"
@@ -149,4 +150,4 @@ instance AWSRequest DescribeVolumes where
 
 instance FromJSON DescribeVolumesResponse where
     parseJSON = withObject "DescribeVolumesResponse" $ \o -> DescribeVolumesResponse
-        <$> o .: "Volumes"
+        <$> o .:  "Volumes"

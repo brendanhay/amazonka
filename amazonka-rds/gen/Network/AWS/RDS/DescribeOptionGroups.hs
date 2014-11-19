@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,12 +53,12 @@ import qualified GHC.Exts
 
 data DescribeOptionGroups = DescribeOptionGroups
     { _dogEngineName         :: Maybe Text
-    , _dogFilters            :: [Filter]
+    , _dogFilters            :: List "Filter" Filter
     , _dogMajorEngineVersion :: Maybe Text
     , _dogMarker             :: Maybe Text
     , _dogMaxRecords         :: Maybe Int
     , _dogOptionGroupName    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeOptionGroups' constructor.
 --
@@ -92,7 +93,7 @@ dogEngineName = lens _dogEngineName (\s a -> s { _dogEngineName = a })
 
 -- | This parameter is not currently supported.
 dogFilters :: Lens' DescribeOptionGroups [Filter]
-dogFilters = lens _dogFilters (\s a -> s { _dogFilters = a })
+dogFilters = lens _dogFilters (\s a -> s { _dogFilters = a }) . _List
 
 -- | Filters the list of option groups to only include groups associated with
 -- a specific database engine version. If specified, then EngineName must
@@ -122,8 +123,8 @@ dogOptionGroupName =
 
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse
     { _dogrMarker           :: Maybe Text
-    , _dogrOptionGroupsList :: [OptionGroup]
-    } deriving (Eq, Show, Generic)
+    , _dogrOptionGroupsList :: List "OptionGroup" OptionGroup
+    } deriving (Eq, Show)
 
 -- | 'DescribeOptionGroupsResponse' constructor.
 --
@@ -149,11 +150,20 @@ dogrMarker = lens _dogrMarker (\s a -> s { _dogrMarker = a })
 dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrOptionGroupsList =
     lens _dogrOptionGroupsList (\s a -> s { _dogrOptionGroupsList = a })
+        . _List
 
 instance ToPath DescribeOptionGroups where
     toPath = const "/"
 
-instance ToQuery DescribeOptionGroups
+instance ToQuery DescribeOptionGroups where
+    toQuery DescribeOptionGroups{..} = mconcat
+        [ "EngineName"         =? _dogEngineName
+        , "Filters"            =? _dogFilters
+        , "MajorEngineVersion" =? _dogMajorEngineVersion
+        , "Marker"             =? _dogMarker
+        , "MaxRecords"         =? _dogMaxRecords
+        , "OptionGroupName"    =? _dogOptionGroupName
+        ]
 
 instance ToHeaders DescribeOptionGroups
 
@@ -165,9 +175,9 @@ instance AWSRequest DescribeOptionGroups where
     response = xmlResponse
 
 instance FromXML DescribeOptionGroupsResponse where
-    parseXML = withElement "DescribeOptionGroupsResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "OptionGroupsList"
+    parseXML = withElement "DescribeOptionGroupsResult" $ \x -> DescribeOptionGroupsResponse
+        <$> x .@? "Marker"
+        <*> x .@  "OptionGroupsList"
 
 instance AWSPager DescribeOptionGroups where
     next rq rs = (\x -> rq & dogMarker ?~ x)

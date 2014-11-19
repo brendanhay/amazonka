@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -459,7 +460,7 @@ data InstanceGroupConfig = InstanceGroupConfig
     , _igcInstanceType  :: Text
     , _igcMarket        :: Maybe Text
     , _igcName          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstanceGroupConfig' constructor.
 --
@@ -518,9 +519,9 @@ igcName = lens _igcName (\s a -> s { _igcName = a })
 instance FromJSON InstanceGroupConfig where
     parseJSON = withObject "InstanceGroupConfig" $ \o -> InstanceGroupConfig
         <$> o .:? "BidPrice"
-        <*> o .: "InstanceCount"
-        <*> o .: "InstanceRole"
-        <*> o .: "InstanceType"
+        <*> o .:  "InstanceCount"
+        <*> o .:  "InstanceRole"
+        <*> o .:  "InstanceType"
         <*> o .:? "Market"
         <*> o .:? "Name"
 
@@ -537,7 +538,7 @@ instance ToJSON InstanceGroupConfig where
 data InstanceStateChangeReason = InstanceStateChangeReason
     { _iscrCode    :: Maybe Text
     , _iscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstanceStateChangeReason' constructor.
 --
@@ -574,7 +575,7 @@ instance ToJSON InstanceStateChangeReason where
 
 data JobFlowDetail = JobFlowDetail
     { _jfdAmiVersion            :: Maybe Text
-    , _jfdBootstrapActions      :: [BootstrapActionDetail]
+    , _jfdBootstrapActions      :: List "BootstrapActions" BootstrapActionDetail
     , _jfdExecutionStatusDetail :: JobFlowExecutionStatusDetail
     , _jfdInstances             :: JobFlowInstancesDetail
     , _jfdJobFlowId             :: Text
@@ -582,10 +583,10 @@ data JobFlowDetail = JobFlowDetail
     , _jfdLogUri                :: Maybe Text
     , _jfdName                  :: Text
     , _jfdServiceRole           :: Maybe Text
-    , _jfdSteps                 :: [StepDetail]
-    , _jfdSupportedProducts     :: [Text]
+    , _jfdSteps                 :: List "Steps" StepDetail
+    , _jfdSupportedProducts     :: List "SupportedProducts" Text
     , _jfdVisibleToAllUsers     :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'JobFlowDetail' constructor.
 --
@@ -646,6 +647,7 @@ jfdAmiVersion = lens _jfdAmiVersion (\s a -> s { _jfdAmiVersion = a })
 jfdBootstrapActions :: Lens' JobFlowDetail [BootstrapActionDetail]
 jfdBootstrapActions =
     lens _jfdBootstrapActions (\s a -> s { _jfdBootstrapActions = a })
+        . _List
 
 -- | Describes the execution status of the job flow.
 jfdExecutionStatusDetail :: Lens' JobFlowDetail JobFlowExecutionStatusDetail
@@ -681,7 +683,7 @@ jfdServiceRole = lens _jfdServiceRole (\s a -> s { _jfdServiceRole = a })
 
 -- | A list of steps run by the job flow.
 jfdSteps :: Lens' JobFlowDetail [StepDetail]
-jfdSteps = lens _jfdSteps (\s a -> s { _jfdSteps = a })
+jfdSteps = lens _jfdSteps (\s a -> s { _jfdSteps = a }) . _List
 
 -- | A list of strings set by third party software when the job flow is
 -- launched. If you are not using third party software to manage the job
@@ -689,6 +691,7 @@ jfdSteps = lens _jfdSteps (\s a -> s { _jfdSteps = a })
 jfdSupportedProducts :: Lens' JobFlowDetail [Text]
 jfdSupportedProducts =
     lens _jfdSupportedProducts (\s a -> s { _jfdSupportedProducts = a })
+        . _List
 
 -- | Specifies whether the job flow is visible to all IAM users of the AWS
 -- account associated with the job flow. If this value is set to true, all
@@ -703,16 +706,16 @@ jfdVisibleToAllUsers =
 instance FromJSON JobFlowDetail where
     parseJSON = withObject "JobFlowDetail" $ \o -> JobFlowDetail
         <$> o .:? "AmiVersion"
-        <*> o .: "BootstrapActions"
-        <*> o .: "ExecutionStatusDetail"
-        <*> o .: "Instances"
-        <*> o .: "JobFlowId"
+        <*> o .:  "BootstrapActions"
+        <*> o .:  "ExecutionStatusDetail"
+        <*> o .:  "Instances"
+        <*> o .:  "JobFlowId"
         <*> o .:? "JobFlowRole"
         <*> o .:? "LogUri"
-        <*> o .: "Name"
+        <*> o .:  "Name"
         <*> o .:? "ServiceRole"
-        <*> o .: "Steps"
-        <*> o .: "SupportedProducts"
+        <*> o .:  "Steps"
+        <*> o .:  "SupportedProducts"
         <*> o .:? "VisibleToAllUsers"
 
 instance ToJSON JobFlowDetail where
@@ -734,7 +737,7 @@ instance ToJSON JobFlowDetail where
 data KeyValue = KeyValue
     { _kvKey   :: Maybe Text
     , _kvValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'KeyValue' constructor.
 --
@@ -770,9 +773,9 @@ instance ToJSON KeyValue where
         ]
 
 data SupportedProductConfig = SupportedProductConfig
-    { _spcArgs :: [Text]
+    { _spcArgs :: List "Args" Text
     , _spcName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SupportedProductConfig' constructor.
 --
@@ -790,7 +793,7 @@ supportedProductConfig = SupportedProductConfig
 
 -- | The list of user-supplied arguments.
 spcArgs :: Lens' SupportedProductConfig [Text]
-spcArgs = lens _spcArgs (\s a -> s { _spcArgs = a })
+spcArgs = lens _spcArgs (\s a -> s { _spcArgs = a }) . _List
 
 -- | The name of the product configuration.
 spcName :: Lens' SupportedProductConfig (Maybe Text)
@@ -798,7 +801,7 @@ spcName = lens _spcName (\s a -> s { _spcName = a })
 
 instance FromJSON SupportedProductConfig where
     parseJSON = withObject "SupportedProductConfig" $ \o -> SupportedProductConfig
-        <$> o .: "Args"
+        <$> o .:  "Args"
         <*> o .:? "Name"
 
 instance ToJSON SupportedProductConfig where
@@ -808,10 +811,10 @@ instance ToJSON SupportedProductConfig where
         ]
 
 data Command = Command
-    { _cArgs       :: [Text]
+    { _cArgs       :: List "Args" Text
     , _cName       :: Maybe Text
     , _cScriptPath :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Command' constructor.
 --
@@ -832,7 +835,7 @@ command = Command
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
 cArgs :: Lens' Command [Text]
-cArgs = lens _cArgs (\s a -> s { _cArgs = a })
+cArgs = lens _cArgs (\s a -> s { _cArgs = a }) . _List
 
 -- | The name of the command.
 cName :: Lens' Command (Maybe Text)
@@ -844,7 +847,7 @@ cScriptPath = lens _cScriptPath (\s a -> s { _cScriptPath = a })
 
 instance FromJSON Command where
     parseJSON = withObject "Command" $ \o -> Command
-        <$> o .: "Args"
+        <$> o .:  "Args"
         <*> o .:? "Name"
         <*> o .:? "ScriptPath"
 
@@ -923,7 +926,7 @@ instance ToJSON ActionOnFailure where
 data ClusterStateChangeReason = ClusterStateChangeReason
     { _cscrCode    :: Maybe Text
     , _cscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ClusterStateChangeReason' constructor.
 --
@@ -961,7 +964,7 @@ instance ToJSON ClusterStateChangeReason where
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Tag' constructor.
 --
@@ -999,11 +1002,11 @@ instance ToJSON Tag where
         ]
 
 data Application = Application
-    { _aAdditionalInfo :: Map Text Text
-    , _aArgs           :: [Text]
+    { _aAdditionalInfo :: Map "entry" "key" "value" Text Text
+    , _aArgs           :: List "Args" Text
     , _aName           :: Maybe Text
     , _aVersion        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Application' constructor.
 --
@@ -1029,12 +1032,11 @@ application = Application
 -- third-party applications that third-party vendors use for testing
 -- purposes.
 aAdditionalInfo :: Lens' Application (HashMap Text Text)
-aAdditionalInfo = lens _aAdditionalInfo (\s a -> s { _aAdditionalInfo = a })
-    . _Map
+aAdditionalInfo = lens _aAdditionalInfo (\s a -> s { _aAdditionalInfo = a }) . _Map
 
 -- | Arguments for Amazon EMR to pass to the application.
 aArgs :: Lens' Application [Text]
-aArgs = lens _aArgs (\s a -> s { _aArgs = a })
+aArgs = lens _aArgs (\s a -> s { _aArgs = a }) . _List
 
 -- | The name of the application.
 aName :: Lens' Application (Maybe Text)
@@ -1046,8 +1048,8 @@ aVersion = lens _aVersion (\s a -> s { _aVersion = a })
 
 instance FromJSON Application where
     parseJSON = withObject "Application" $ \o -> Application
-        <$> o .: "AdditionalInfo"
-        <*> o .: "Args"
+        <$> o .:  "AdditionalInfo"
+        <*> o .:  "Args"
         <*> o .:? "Name"
         <*> o .:? "Version"
 
@@ -1066,7 +1068,7 @@ data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
     , _jfesdReadyDateTime         :: Maybe RFC822
     , _jfesdStartDateTime         :: Maybe RFC822
     , _jfesdState                 :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'JobFlowExecutionStatusDetail' constructor.
 --
@@ -1104,8 +1106,7 @@ jfesdCreationDateTime =
 
 -- | The completion date and time of the job flow.
 jfesdEndDateTime :: Lens' JobFlowExecutionStatusDetail (Maybe UTCTime)
-jfesdEndDateTime = lens _jfesdEndDateTime (\s a -> s { _jfesdEndDateTime = a })
-    . mapping _Time
+jfesdEndDateTime = lens _jfesdEndDateTime (\s a -> s { _jfesdEndDateTime = a }) . mapping _Time
 
 -- | Description of the job flow last changed state.
 jfesdLastStateChangeReason :: Lens' JobFlowExecutionStatusDetail (Maybe Text)
@@ -1132,12 +1133,12 @@ jfesdState = lens _jfesdState (\s a -> s { _jfesdState = a })
 
 instance FromJSON JobFlowExecutionStatusDetail where
     parseJSON = withObject "JobFlowExecutionStatusDetail" $ \o -> JobFlowExecutionStatusDetail
-        <$> o .: "CreationDateTime"
+        <$> o .:  "CreationDateTime"
         <*> o .:? "EndDateTime"
         <*> o .:? "LastStateChangeReason"
         <*> o .:? "ReadyDateTime"
         <*> o .:? "StartDateTime"
-        <*> o .: "State"
+        <*> o .:  "State"
 
 instance ToJSON JobFlowExecutionStatusDetail where
     toJSON JobFlowExecutionStatusDetail{..} = object
@@ -1153,7 +1154,7 @@ data InstanceGroupStatus = InstanceGroupStatus
     { _igsState             :: Maybe Text
     , _igsStateChangeReason :: Maybe InstanceGroupStateChangeReason
     , _igsTimeline          :: Maybe InstanceGroupTimeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'InstanceGroupStatus' constructor.
 --
@@ -1199,7 +1200,7 @@ instance ToJSON InstanceGroupStatus where
         ]
 
 data Cluster = Cluster
-    { _c1Applications          :: [Application]
+    { _c1Applications          :: List "Applications" Application
     , _c1AutoTerminate         :: Maybe Bool
     , _c1Ec2InstanceAttributes :: Maybe Ec2InstanceAttributes
     , _c1Id                    :: Maybe Text
@@ -1209,10 +1210,10 @@ data Cluster = Cluster
     , _c1RunningAmiVersion     :: Maybe Text
     , _c1ServiceRole           :: Maybe Text
     , _c1Status                :: Maybe ClusterStatus
-    , _c1Tags                  :: [Tag]
+    , _c1Tags                  :: List "Tags" Tag
     , _c1TerminationProtected  :: Maybe Bool
     , _c1VisibleToAllUsers     :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Cluster' constructor.
 --
@@ -1263,7 +1264,7 @@ cluster = Cluster
 
 -- | The applications installed on this cluster.
 c1Applications :: Lens' Cluster [Application]
-c1Applications = lens _c1Applications (\s a -> s { _c1Applications = a })
+c1Applications = lens _c1Applications (\s a -> s { _c1Applications = a }) . _List
 
 -- | Specifies whether the cluster should terminate after completing all
 -- steps.
@@ -1310,7 +1311,7 @@ c1Status = lens _c1Status (\s a -> s { _c1Status = a })
 
 -- | A list of tags associated with a cluster.
 c1Tags :: Lens' Cluster [Tag]
-c1Tags = lens _c1Tags (\s a -> s { _c1Tags = a })
+c1Tags = lens _c1Tags (\s a -> s { _c1Tags = a }) . _List
 
 -- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
 -- instances from being terminated by an API call or user intervention, or
@@ -1331,7 +1332,7 @@ c1VisibleToAllUsers =
 
 instance FromJSON Cluster where
     parseJSON = withObject "Cluster" $ \o -> Cluster
-        <$> o .: "Applications"
+        <$> o .:  "Applications"
         <*> o .:? "AutoTerminate"
         <*> o .:? "Ec2InstanceAttributes"
         <*> o .:? "Id"
@@ -1341,7 +1342,7 @@ instance FromJSON Cluster where
         <*> o .:? "RunningAmiVersion"
         <*> o .:? "ServiceRole"
         <*> o .:? "Status"
-        <*> o .: "Tags"
+        <*> o .:  "Tags"
         <*> o .:? "TerminationProtected"
         <*> o .:? "VisibleToAllUsers"
 
@@ -1366,7 +1367,7 @@ data InstanceTimeline = InstanceTimeline
     { _itCreationDateTime :: Maybe RFC822
     , _itEndDateTime      :: Maybe RFC822
     , _itReadyDateTime    :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstanceTimeline' constructor.
 --
@@ -1393,13 +1394,11 @@ itCreationDateTime =
 
 -- | The date and time when the instance was terminated.
 itEndDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
-itEndDateTime = lens _itEndDateTime (\s a -> s { _itEndDateTime = a })
-    . mapping _Time
+itEndDateTime = lens _itEndDateTime (\s a -> s { _itEndDateTime = a }) . mapping _Time
 
 -- | The date and time when the instance was ready to perform tasks.
 itReadyDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
-itReadyDateTime = lens _itReadyDateTime (\s a -> s { _itReadyDateTime = a })
-    . mapping _Time
+itReadyDateTime = lens _itReadyDateTime (\s a -> s { _itReadyDateTime = a }) . mapping _Time
 
 instance FromJSON InstanceTimeline where
     parseJSON = withObject "InstanceTimeline" $ \o -> InstanceTimeline
@@ -1419,7 +1418,7 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes
     , _eiaEc2KeyName          :: Maybe Text
     , _eiaEc2SubnetId         :: Maybe Text
     , _eiaIamInstanceProfile  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Ec2InstanceAttributes' constructor.
 --
@@ -1538,11 +1537,11 @@ instance ToJSON ClusterState where
     toJSON = toJSONText
 
 data HadoopStepConfig = HadoopStepConfig
-    { _hscArgs       :: [Text]
+    { _hscArgs       :: List "Args" Text
     , _hscJar        :: Maybe Text
     , _hscMainClass  :: Maybe Text
-    , _hscProperties :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _hscProperties :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'HadoopStepConfig' constructor.
 --
@@ -1567,7 +1566,7 @@ hadoopStepConfig = HadoopStepConfig
 -- | The list of command line arguments to pass to the JAR file's main
 -- function for execution.
 hscArgs :: Lens' HadoopStepConfig [Text]
-hscArgs = lens _hscArgs (\s a -> s { _hscArgs = a })
+hscArgs = lens _hscArgs (\s a -> s { _hscArgs = a }) . _List
 
 -- | The path to the JAR file that runs during the step.
 hscJar :: Lens' HadoopStepConfig (Maybe Text)
@@ -1581,15 +1580,14 @@ hscMainClass = lens _hscMainClass (\s a -> s { _hscMainClass = a })
 -- | The list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
 hscProperties :: Lens' HadoopStepConfig (HashMap Text Text)
-hscProperties = lens _hscProperties (\s a -> s { _hscProperties = a })
-    . _Map
+hscProperties = lens _hscProperties (\s a -> s { _hscProperties = a }) . _Map
 
 instance FromJSON HadoopStepConfig where
     parseJSON = withObject "HadoopStepConfig" $ \o -> HadoopStepConfig
-        <$> o .: "Args"
+        <$> o .:  "Args"
         <*> o .:? "Jar"
         <*> o .:? "MainClass"
-        <*> o .: "Properties"
+        <*> o .:  "Properties"
 
 instance ToJSON HadoopStepConfig where
     toJSON HadoopStepConfig{..} = object
@@ -1642,7 +1640,7 @@ instance ToJSON JobFlowExecutionState where
 data StepDetail = StepDetail
     { _sdExecutionStatusDetail :: StepExecutionStatusDetail
     , _sdStepConfig            :: StepConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'StepDetail' constructor.
 --
@@ -1671,8 +1669,8 @@ sdStepConfig = lens _sdStepConfig (\s a -> s { _sdStepConfig = a })
 
 instance FromJSON StepDetail where
     parseJSON = withObject "StepDetail" $ \o -> StepDetail
-        <$> o .: "ExecutionStatusDetail"
-        <*> o .: "StepConfig"
+        <$> o .:  "ExecutionStatusDetail"
+        <*> o .:  "StepConfig"
 
 instance ToJSON StepDetail where
     toJSON StepDetail{..} = object
@@ -1683,7 +1681,7 @@ instance ToJSON StepDetail where
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
     { _igscrCode    :: Maybe Text
     , _igscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstanceGroupStateChangeReason' constructor.
 --
@@ -1775,7 +1773,7 @@ data StepStatus = StepStatus
     { _ssState             :: Maybe Text
     , _ssStateChangeReason :: Maybe StepStateChangeReason
     , _ssTimeline          :: Maybe StepTimeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'StepStatus' constructor.
 --
@@ -1824,7 +1822,7 @@ data StepSummary = StepSummary
     { _ssId     :: Maybe Text
     , _ssName   :: Maybe Text
     , _ssStatus :: Maybe StepStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'StepSummary' constructor.
 --
@@ -1918,7 +1916,7 @@ data StepTimeline = StepTimeline
     { _stCreationDateTime :: Maybe RFC822
     , _stEndDateTime      :: Maybe RFC822
     , _stStartDateTime    :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StepTimeline' constructor.
 --
@@ -1945,13 +1943,11 @@ stCreationDateTime =
 
 -- | The date and time when the cluster step execution completed or failed.
 stEndDateTime :: Lens' StepTimeline (Maybe UTCTime)
-stEndDateTime = lens _stEndDateTime (\s a -> s { _stEndDateTime = a })
-    . mapping _Time
+stEndDateTime = lens _stEndDateTime (\s a -> s { _stEndDateTime = a }) . mapping _Time
 
 -- | The date and time when the cluster step execution started.
 stStartDateTime :: Lens' StepTimeline (Maybe UTCTime)
-stStartDateTime = lens _stStartDateTime (\s a -> s { _stStartDateTime = a })
-    . mapping _Time
+stStartDateTime = lens _stStartDateTime (\s a -> s { _stStartDateTime = a }) . mapping _Time
 
 instance FromJSON StepTimeline where
     parseJSON = withObject "StepTimeline" $ \o -> StepTimeline
@@ -1968,7 +1964,7 @@ instance ToJSON StepTimeline where
 
 newtype PlacementType = PlacementType
     { _ptAvailabilityZone :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'PlacementType' constructor.
 --
@@ -1989,7 +1985,7 @@ ptAvailabilityZone =
 
 instance FromJSON PlacementType where
     parseJSON = withObject "PlacementType" $ \o -> PlacementType
-        <$> o .: "AvailabilityZone"
+        <$> o .:  "AvailabilityZone"
 
 instance ToJSON PlacementType where
     toJSON PlacementType{..} = object
@@ -1997,11 +1993,11 @@ instance ToJSON PlacementType where
         ]
 
 data HadoopJarStepConfig = HadoopJarStepConfig
-    { _hjscArgs       :: [Text]
+    { _hjscArgs       :: List "Args" Text
     , _hjscJar        :: Text
     , _hjscMainClass  :: Maybe Text
-    , _hjscProperties :: [KeyValue]
-    } deriving (Eq, Show, Generic)
+    , _hjscProperties :: List "Properties" KeyValue
+    } deriving (Eq, Show)
 
 -- | 'HadoopJarStepConfig' constructor.
 --
@@ -2027,7 +2023,7 @@ hadoopJarStepConfig p1 = HadoopJarStepConfig
 -- | A list of command line arguments passed to the JAR file's main function
 -- when executed.
 hjscArgs :: Lens' HadoopJarStepConfig [Text]
-hjscArgs = lens _hjscArgs (\s a -> s { _hjscArgs = a })
+hjscArgs = lens _hjscArgs (\s a -> s { _hjscArgs = a }) . _List
 
 -- | A path to a JAR file run during the step.
 hjscJar :: Lens' HadoopJarStepConfig Text
@@ -2041,14 +2037,14 @@ hjscMainClass = lens _hjscMainClass (\s a -> s { _hjscMainClass = a })
 -- | A list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
 hjscProperties :: Lens' HadoopJarStepConfig [KeyValue]
-hjscProperties = lens _hjscProperties (\s a -> s { _hjscProperties = a })
+hjscProperties = lens _hjscProperties (\s a -> s { _hjscProperties = a }) . _List
 
 instance FromJSON HadoopJarStepConfig where
     parseJSON = withObject "HadoopJarStepConfig" $ \o -> HadoopJarStepConfig
-        <$> o .: "Args"
-        <*> o .: "Jar"
+        <$> o .:  "Args"
+        <*> o .:  "Jar"
         <*> o .:? "MainClass"
-        <*> o .: "Properties"
+        <*> o .:  "Properties"
 
 instance ToJSON HadoopJarStepConfig where
     toJSON HadoopJarStepConfig{..} = object
@@ -2059,10 +2055,10 @@ instance ToJSON HadoopJarStepConfig where
         ]
 
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig
-    { _igmcEC2InstanceIdsToTerminate :: [Text]
+    { _igmcEC2InstanceIdsToTerminate :: List "EC2InstanceIdsToTerminate" Text
     , _igmcInstanceCount             :: Maybe Int
     , _igmcInstanceGroupId           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstanceGroupModifyConfig' constructor.
 --
@@ -2089,6 +2085,7 @@ igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig [Text]
 igmcEC2InstanceIdsToTerminate =
     lens _igmcEC2InstanceIdsToTerminate
         (\s a -> s { _igmcEC2InstanceIdsToTerminate = a })
+            . _List
 
 -- | Target size for the instance group.
 igmcInstanceCount :: Lens' InstanceGroupModifyConfig (Maybe Int)
@@ -2102,9 +2099,9 @@ igmcInstanceGroupId =
 
 instance FromJSON InstanceGroupModifyConfig where
     parseJSON = withObject "InstanceGroupModifyConfig" $ \o -> InstanceGroupModifyConfig
-        <$> o .: "EC2InstanceIdsToTerminate"
+        <$> o .:  "EC2InstanceIdsToTerminate"
         <*> o .:? "InstanceCount"
-        <*> o .: "InstanceGroupId"
+        <*> o .:  "InstanceGroupId"
 
 instance ToJSON InstanceGroupModifyConfig where
     toJSON InstanceGroupModifyConfig{..} = object
@@ -2128,7 +2125,7 @@ data InstanceGroupDetail = InstanceGroupDetail
     , _igdReadyDateTime         :: Maybe RFC822
     , _igdStartDateTime         :: Maybe RFC822
     , _igdState                 :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstanceGroupDetail' constructor.
 --
@@ -2200,8 +2197,7 @@ igdCreationDateTime =
 
 -- | The date/time the instance group was terminated.
 igdEndDateTime :: Lens' InstanceGroupDetail (Maybe UTCTime)
-igdEndDateTime = lens _igdEndDateTime (\s a -> s { _igdEndDateTime = a })
-    . mapping _Time
+igdEndDateTime = lens _igdEndDateTime (\s a -> s { _igdEndDateTime = a }) . mapping _Time
 
 -- | Unique identifier for the instance group.
 igdInstanceGroupId :: Lens' InstanceGroupDetail (Maybe Text)
@@ -2242,13 +2238,11 @@ igdName = lens _igdName (\s a -> s { _igdName = a })
 
 -- | The date/time the instance group was available to the cluster.
 igdReadyDateTime :: Lens' InstanceGroupDetail (Maybe UTCTime)
-igdReadyDateTime = lens _igdReadyDateTime (\s a -> s { _igdReadyDateTime = a })
-    . mapping _Time
+igdReadyDateTime = lens _igdReadyDateTime (\s a -> s { _igdReadyDateTime = a }) . mapping _Time
 
 -- | The date/time the instance group was started.
 igdStartDateTime :: Lens' InstanceGroupDetail (Maybe UTCTime)
-igdStartDateTime = lens _igdStartDateTime (\s a -> s { _igdStartDateTime = a })
-    . mapping _Time
+igdStartDateTime = lens _igdStartDateTime (\s a -> s { _igdStartDateTime = a }) . mapping _Time
 
 -- | State of instance group. The following values are deprecated: STARTING,
 -- TERMINATED, and FAILED.
@@ -2258,19 +2252,19 @@ igdState = lens _igdState (\s a -> s { _igdState = a })
 instance FromJSON InstanceGroupDetail where
     parseJSON = withObject "InstanceGroupDetail" $ \o -> InstanceGroupDetail
         <$> o .:? "BidPrice"
-        <*> o .: "CreationDateTime"
+        <*> o .:  "CreationDateTime"
         <*> o .:? "EndDateTime"
         <*> o .:? "InstanceGroupId"
-        <*> o .: "InstanceRequestCount"
-        <*> o .: "InstanceRole"
-        <*> o .: "InstanceRunningCount"
-        <*> o .: "InstanceType"
+        <*> o .:  "InstanceRequestCount"
+        <*> o .:  "InstanceRole"
+        <*> o .:  "InstanceRunningCount"
+        <*> o .:  "InstanceType"
         <*> o .:? "LastStateChangeReason"
-        <*> o .: "Market"
+        <*> o .:  "Market"
         <*> o .:? "Name"
         <*> o .:? "ReadyDateTime"
         <*> o .:? "StartDateTime"
-        <*> o .: "State"
+        <*> o .:  "State"
 
 instance ToJSON InstanceGroupDetail where
     toJSON InstanceGroupDetail{..} = object
@@ -2293,7 +2287,7 @@ instance ToJSON InstanceGroupDetail where
 data StepStateChangeReason = StepStateChangeReason
     { _sscrCode    :: Maybe Text
     , _sscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StepStateChangeReason' constructor.
 --
@@ -2371,7 +2365,7 @@ data Step = Step
     , _sId              :: Maybe Text
     , _sName            :: Maybe Text
     , _sStatus          :: Maybe StepStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Step' constructor.
 --
@@ -2472,7 +2466,7 @@ data InstanceGroupTimeline = InstanceGroupTimeline
     { _igtCreationDateTime :: Maybe RFC822
     , _igtEndDateTime      :: Maybe RFC822
     , _igtReadyDateTime    :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstanceGroupTimeline' constructor.
 --
@@ -2499,13 +2493,11 @@ igtCreationDateTime =
 
 -- | The date and time when the instance group terminated.
 igtEndDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
-igtEndDateTime = lens _igtEndDateTime (\s a -> s { _igtEndDateTime = a })
-    . mapping _Time
+igtEndDateTime = lens _igtEndDateTime (\s a -> s { _igtEndDateTime = a }) . mapping _Time
 
 -- | The date and time when the instance group became ready to perform tasks.
 igtReadyDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
-igtReadyDateTime = lens _igtReadyDateTime (\s a -> s { _igtReadyDateTime = a })
-    . mapping _Time
+igtReadyDateTime = lens _igtReadyDateTime (\s a -> s { _igtReadyDateTime = a }) . mapping _Time
 
 instance FromJSON InstanceGroupTimeline where
     parseJSON = withObject "InstanceGroupTimeline" $ \o -> InstanceGroupTimeline
@@ -2522,7 +2514,7 @@ instance ToJSON InstanceGroupTimeline where
 
 newtype BootstrapActionDetail = BootstrapActionDetail
     { _badBootstrapActionConfig :: Maybe BootstrapActionConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'BootstrapActionDetail' constructor.
 --
@@ -2556,7 +2548,7 @@ data StepExecutionStatusDetail = StepExecutionStatusDetail
     , _sesdLastStateChangeReason :: Maybe Text
     , _sesdStartDateTime         :: Maybe RFC822
     , _sesdState                 :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StepExecutionStatusDetail' constructor.
 --
@@ -2591,8 +2583,7 @@ sesdCreationDateTime =
 
 -- | The completion date and time of the step.
 sesdEndDateTime :: Lens' StepExecutionStatusDetail (Maybe UTCTime)
-sesdEndDateTime = lens _sesdEndDateTime (\s a -> s { _sesdEndDateTime = a })
-    . mapping _Time
+sesdEndDateTime = lens _sesdEndDateTime (\s a -> s { _sesdEndDateTime = a }) . mapping _Time
 
 -- | A description of the step's current state.
 sesdLastStateChangeReason :: Lens' StepExecutionStatusDetail (Maybe Text)
@@ -2612,11 +2603,11 @@ sesdState = lens _sesdState (\s a -> s { _sesdState = a })
 
 instance FromJSON StepExecutionStatusDetail where
     parseJSON = withObject "StepExecutionStatusDetail" $ \o -> StepExecutionStatusDetail
-        <$> o .: "CreationDateTime"
+        <$> o .:  "CreationDateTime"
         <*> o .:? "EndDateTime"
         <*> o .:? "LastStateChangeReason"
         <*> o .:? "StartDateTime"
-        <*> o .: "State"
+        <*> o .:  "State"
 
 instance ToJSON StepExecutionStatusDetail where
     toJSON StepExecutionStatusDetail{..} = object
@@ -2631,7 +2622,7 @@ data InstanceStatus = InstanceStatus
     { _isState             :: Maybe Text
     , _isStateChangeReason :: Maybe InstanceStateChangeReason
     , _isTimeline          :: Maybe InstanceTimeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'InstanceStatus' constructor.
 --
@@ -2706,13 +2697,13 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig
     , _jficEc2SubnetId                 :: Maybe Text
     , _jficHadoopVersion               :: Maybe Text
     , _jficInstanceCount               :: Maybe Int
-    , _jficInstanceGroups              :: [InstanceGroupConfig]
+    , _jficInstanceGroups              :: List "InstanceGroups" InstanceGroupConfig
     , _jficKeepJobFlowAliveWhenNoSteps :: Maybe Bool
     , _jficMasterInstanceType          :: Maybe Text
     , _jficPlacement                   :: Maybe PlacementType
     , _jficSlaveInstanceType           :: Maybe Text
     , _jficTerminationProtected        :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'JobFlowInstancesConfig' constructor.
 --
@@ -2785,6 +2776,7 @@ jficInstanceCount =
 jficInstanceGroups :: Lens' JobFlowInstancesConfig [InstanceGroupConfig]
 jficInstanceGroups =
     lens _jficInstanceGroups (\s a -> s { _jficInstanceGroups = a })
+        . _List
 
 -- | Specifies whether the job flow should terminate after completing all
 -- steps.
@@ -2821,7 +2813,7 @@ instance FromJSON JobFlowInstancesConfig where
         <*> o .:? "Ec2SubnetId"
         <*> o .:? "HadoopVersion"
         <*> o .:? "InstanceCount"
-        <*> o .: "InstanceGroups"
+        <*> o .:  "InstanceGroups"
         <*> o .:? "KeepJobFlowAliveWhenNoSteps"
         <*> o .:? "MasterInstanceType"
         <*> o .:? "Placement"
@@ -2846,7 +2838,7 @@ data StepConfig = StepConfig
     { _scActionOnFailure :: Maybe Text
     , _scHadoopJarStep   :: HadoopJarStepConfig
     , _scName            :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'StepConfig' constructor.
 --
@@ -2883,8 +2875,8 @@ scName = lens _scName (\s a -> s { _scName = a })
 instance FromJSON StepConfig where
     parseJSON = withObject "StepConfig" $ \o -> StepConfig
         <$> o .:? "ActionOnFailure"
-        <*> o .: "HadoopJarStep"
-        <*> o .: "Name"
+        <*> o .:  "HadoopJarStep"
+        <*> o .:  "Name"
 
 instance ToJSON StepConfig where
     toJSON StepConfig{..} = object
@@ -2903,7 +2895,7 @@ data InstanceGroup = InstanceGroup
     , _igRequestedInstanceCount :: Maybe Int
     , _igRunningInstanceCount   :: Maybe Int
     , _igStatus                 :: Maybe InstanceGroupStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'InstanceGroup' constructor.
 --
@@ -3010,7 +3002,7 @@ instance ToJSON InstanceGroup where
 data BootstrapActionConfig = BootstrapActionConfig
     { _bacName                  :: Text
     , _bacScriptBootstrapAction :: ScriptBootstrapActionConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'BootstrapActionConfig' constructor.
 --
@@ -3040,8 +3032,8 @@ bacScriptBootstrapAction =
 
 instance FromJSON BootstrapActionConfig where
     parseJSON = withObject "BootstrapActionConfig" $ \o -> BootstrapActionConfig
-        <$> o .: "Name"
-        <*> o .: "ScriptBootstrapAction"
+        <$> o .:  "Name"
+        <*> o .:  "ScriptBootstrapAction"
 
 instance ToJSON BootstrapActionConfig where
     toJSON BootstrapActionConfig{..} = object
@@ -3053,7 +3045,7 @@ data ClusterSummary = ClusterSummary
     { _csId     :: Maybe Text
     , _csName   :: Maybe Text
     , _csStatus :: Maybe ClusterStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ClusterSummary' constructor.
 --
@@ -3102,7 +3094,7 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
     , _jfidEc2SubnetId                 :: Maybe Text
     , _jfidHadoopVersion               :: Maybe Text
     , _jfidInstanceCount               :: Int
-    , _jfidInstanceGroups              :: [InstanceGroupDetail]
+    , _jfidInstanceGroups              :: List "InstanceGroups" InstanceGroupDetail
     , _jfidKeepJobFlowAliveWhenNoSteps :: Maybe Bool
     , _jfidMasterInstanceId            :: Maybe Text
     , _jfidMasterInstanceType          :: Text
@@ -3111,7 +3103,7 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
     , _jfidPlacement                   :: Maybe PlacementType
     , _jfidSlaveInstanceType           :: Text
     , _jfidTerminationProtected        :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'JobFlowInstancesDetail' constructor.
 --
@@ -3190,6 +3182,7 @@ jfidInstanceCount =
 jfidInstanceGroups :: Lens' JobFlowInstancesDetail [InstanceGroupDetail]
 jfidInstanceGroups =
     lens _jfidInstanceGroups (\s a -> s { _jfidInstanceGroups = a })
+        . _List
 
 -- | Specifies whether the job flow should terminate after completing all
 -- steps.
@@ -3246,15 +3239,15 @@ instance FromJSON JobFlowInstancesDetail where
         <$> o .:? "Ec2KeyName"
         <*> o .:? "Ec2SubnetId"
         <*> o .:? "HadoopVersion"
-        <*> o .: "InstanceCount"
-        <*> o .: "InstanceGroups"
+        <*> o .:  "InstanceCount"
+        <*> o .:  "InstanceGroups"
         <*> o .:? "KeepJobFlowAliveWhenNoSteps"
         <*> o .:? "MasterInstanceId"
-        <*> o .: "MasterInstanceType"
+        <*> o .:  "MasterInstanceType"
         <*> o .:? "MasterPublicDnsName"
         <*> o .:? "NormalizedInstanceHours"
         <*> o .:? "Placement"
-        <*> o .: "SlaveInstanceType"
+        <*> o .:  "SlaveInstanceType"
         <*> o .:? "TerminationProtected"
 
 instance ToJSON JobFlowInstancesDetail where
@@ -3278,7 +3271,7 @@ data ClusterStatus = ClusterStatus
     { _csState             :: Maybe Text
     , _csStateChangeReason :: Maybe ClusterStateChangeReason
     , _csTimeline          :: Maybe ClusterTimeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ClusterStatus' constructor.
 --
@@ -3359,7 +3352,7 @@ data ClusterTimeline = ClusterTimeline
     { _ctCreationDateTime :: Maybe RFC822
     , _ctEndDateTime      :: Maybe RFC822
     , _ctReadyDateTime    :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ClusterTimeline' constructor.
 --
@@ -3386,13 +3379,11 @@ ctCreationDateTime =
 
 -- | The date and time when the cluster was terminated.
 ctEndDateTime :: Lens' ClusterTimeline (Maybe UTCTime)
-ctEndDateTime = lens _ctEndDateTime (\s a -> s { _ctEndDateTime = a })
-    . mapping _Time
+ctEndDateTime = lens _ctEndDateTime (\s a -> s { _ctEndDateTime = a }) . mapping _Time
 
 -- | The date and time when the cluster was ready to execute steps.
 ctReadyDateTime :: Lens' ClusterTimeline (Maybe UTCTime)
-ctReadyDateTime = lens _ctReadyDateTime (\s a -> s { _ctReadyDateTime = a })
-    . mapping _Time
+ctReadyDateTime = lens _ctReadyDateTime (\s a -> s { _ctReadyDateTime = a }) . mapping _Time
 
 instance FromJSON ClusterTimeline where
     parseJSON = withObject "ClusterTimeline" $ \o -> ClusterTimeline
@@ -3446,7 +3437,7 @@ data Instance = Instance
     , _iPublicDnsName    :: Maybe Text
     , _iPublicIpAddress  :: Maybe Text
     , _iStatus           :: Maybe InstanceStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Instance' constructor.
 --
@@ -3528,9 +3519,9 @@ instance ToJSON Instance where
         ]
 
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
-    { _sbacArgs :: [Text]
+    { _sbacArgs :: List "Args" Text
     , _sbacPath :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ScriptBootstrapActionConfig' constructor.
 --
@@ -3549,7 +3540,7 @@ scriptBootstrapActionConfig p1 = ScriptBootstrapActionConfig
 
 -- | A list of command line arguments to pass to the bootstrap action script.
 sbacArgs :: Lens' ScriptBootstrapActionConfig [Text]
-sbacArgs = lens _sbacArgs (\s a -> s { _sbacArgs = a })
+sbacArgs = lens _sbacArgs (\s a -> s { _sbacArgs = a }) . _List
 
 -- | Location of the script to run during a bootstrap action. Can be either a
 -- location in Amazon S3 or on a local file system.
@@ -3558,8 +3549,8 @@ sbacPath = lens _sbacPath (\s a -> s { _sbacPath = a })
 
 instance FromJSON ScriptBootstrapActionConfig where
     parseJSON = withObject "ScriptBootstrapActionConfig" $ \o -> ScriptBootstrapActionConfig
-        <$> o .: "Args"
-        <*> o .: "Path"
+        <$> o .:  "Args"
+        <*> o .:  "Path"
 
 instance ToJSON ScriptBootstrapActionConfig where
     toJSON ScriptBootstrapActionConfig{..} = object

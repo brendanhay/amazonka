@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data TerminateEnvironment = TerminateEnvironment
     { _teEnvironmentId      :: Maybe Text
     , _teEnvironmentName    :: Maybe Text
     , _teTerminateResources :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TerminateEnvironment' constructor.
 --
@@ -126,7 +127,7 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
     , _terTemplateName      :: Maybe Text
     , _terTier              :: Maybe EnvironmentTier
     , _terVersionLabel      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TerminateEnvironmentResponse' constructor.
 --
@@ -192,13 +193,11 @@ terCNAME = lens _terCNAME (\s a -> s { _terCNAME = a })
 
 -- | The creation date for this environment.
 terDateCreated :: Lens' TerminateEnvironmentResponse (Maybe UTCTime)
-terDateCreated = lens _terDateCreated (\s a -> s { _terDateCreated = a })
-    . mapping _Time
+terDateCreated = lens _terDateCreated (\s a -> s { _terDateCreated = a }) . mapping _Time
 
 -- | The last modified date for this environment.
 terDateUpdated :: Lens' TerminateEnvironmentResponse (Maybe UTCTime)
-terDateUpdated = lens _terDateUpdated (\s a -> s { _terDateUpdated = a })
-    . mapping _Time
+terDateUpdated = lens _terDateUpdated (\s a -> s { _terDateUpdated = a }) . mapping _Time
 
 -- | Describes this environment.
 terDescription :: Lens' TerminateEnvironmentResponse (Maybe Text)
@@ -268,7 +267,12 @@ terVersionLabel = lens _terVersionLabel (\s a -> s { _terVersionLabel = a })
 instance ToPath TerminateEnvironment where
     toPath = const "/"
 
-instance ToQuery TerminateEnvironment
+instance ToQuery TerminateEnvironment where
+    toQuery TerminateEnvironment{..} = mconcat
+        [ "EnvironmentId"      =? _teEnvironmentId
+        , "EnvironmentName"    =? _teEnvironmentName
+        , "TerminateResources" =? _teTerminateResources
+        ]
 
 instance ToHeaders TerminateEnvironment
 
@@ -280,19 +284,19 @@ instance AWSRequest TerminateEnvironment where
     response = xmlResponse
 
 instance FromXML TerminateEnvironmentResponse where
-    parseXML = withElement "TerminateEnvironmentResult" $ \x ->
-            <$> x .@? "ApplicationName"
-            <*> x .@? "CNAME"
-            <*> x .@? "DateCreated"
-            <*> x .@? "DateUpdated"
-            <*> x .@? "Description"
-            <*> x .@? "EndpointURL"
-            <*> x .@? "EnvironmentId"
-            <*> x .@? "EnvironmentName"
-            <*> x .@? "Health"
-            <*> x .@? "Resources"
-            <*> x .@? "SolutionStackName"
-            <*> x .@? "Status"
-            <*> x .@? "TemplateName"
-            <*> x .@? "Tier"
-            <*> x .@? "VersionLabel"
+    parseXML = withElement "TerminateEnvironmentResult" $ \x -> TerminateEnvironmentResponse
+        <$> x .@? "ApplicationName"
+        <*> x .@? "CNAME"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "Description"
+        <*> x .@? "EndpointURL"
+        <*> x .@? "EnvironmentId"
+        <*> x .@? "EnvironmentName"
+        <*> x .@? "Health"
+        <*> x .@? "Resources"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "Status"
+        <*> x .@? "TemplateName"
+        <*> x .@? "Tier"
+        <*> x .@? "VersionLabel"

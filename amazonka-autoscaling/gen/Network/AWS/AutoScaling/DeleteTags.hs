@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -43,8 +44,8 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 newtype DeleteTags = DeleteTags
-    { _dtTags :: [Tag]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dtTags :: List "Tags" Tag
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeleteTags where
     type Item DeleteTags = Tag
@@ -68,7 +69,7 @@ deleteTags = DeleteTags
 -- auto-scaling-group, Resource ID = AutoScalingGroupName, key=value,
 -- value=value, propagate=true or false.
 dtTags :: Lens' DeleteTags [Tag]
-dtTags = lens _dtTags (\s a -> s { _dtTags = a })
+dtTags = lens _dtTags (\s a -> s { _dtTags = a }) . _List
 
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Ord, Show, Generic)
@@ -80,7 +81,10 @@ deleteTagsResponse = DeleteTagsResponse
 instance ToPath DeleteTags where
     toPath = const "/"
 
-instance ToQuery DeleteTags
+instance ToQuery DeleteTags where
+    toQuery DeleteTags{..} = mconcat
+        [ "Tags" =? _dtTags
+        ]
 
 instance ToHeaders DeleteTags
 

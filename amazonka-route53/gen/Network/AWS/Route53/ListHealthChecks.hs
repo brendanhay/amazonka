@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ import qualified GHC.Exts
 data ListHealthChecks = ListHealthChecks
     { _lhcMarker   :: Maybe Text
     , _lhcMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListHealthChecks' constructor.
 --
@@ -88,12 +89,12 @@ lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
 lhcMaxItems = lens _lhcMaxItems (\s a -> s { _lhcMaxItems = a })
 
 data ListHealthChecksResponse = ListHealthChecksResponse
-    { _lhcrHealthChecks :: [HealthCheck]
+    { _lhcrHealthChecks :: List "HealthCheck" HealthCheck
     , _lhcrIsTruncated  :: Bool
     , _lhcrMarker       :: Text
     , _lhcrMaxItems     :: Text
     , _lhcrNextMarker   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListHealthChecksResponse' constructor.
 --
@@ -124,7 +125,7 @@ listHealthChecksResponse p1 p2 p3 = ListHealthChecksResponse
 -- | A complex type that contains information about the health checks
 -- associated with the current AWS account.
 lhcrHealthChecks :: Lens' ListHealthChecksResponse [HealthCheck]
-lhcrHealthChecks = lens _lhcrHealthChecks (\s a -> s { _lhcrHealthChecks = a })
+lhcrHealthChecks = lens _lhcrHealthChecks (\s a -> s { _lhcrHealthChecks = a }) . _List
 
 -- | A flag indicating whether there are more health checks to be listed. If
 -- your results were truncated, you can make a follow-up request for the
@@ -158,7 +159,11 @@ lhcrNextMarker = lens _lhcrNextMarker (\s a -> s { _lhcrNextMarker = a })
 instance ToPath ListHealthChecks where
     toPath = const "/2013-04-01/healthcheck"
 
-instance ToQuery ListHealthChecks
+instance ToQuery ListHealthChecks where
+    toQuery ListHealthChecks{..} = mconcat
+        [ "marker"   =? _lhcMarker
+        , "maxitems" =? _lhcMaxItems
+        ]
 
 instance ToHeaders ListHealthChecks
 
@@ -176,11 +181,11 @@ instance AWSRequest ListHealthChecks where
 
 instance FromXML ListHealthChecksResponse where
     parseXML x = ListHealthChecksResponse
-            <$> x .@ "HealthChecks"
-            <*> x .@ "IsTruncated"
-            <*> x .@ "Marker"
-            <*> x .@ "MaxItems"
-            <*> x .@? "NextMarker"
+        <$> x .@  "HealthChecks"
+        <*> x .@  "IsTruncated"
+        <*> x .@  "Marker"
+        <*> x .@  "MaxItems"
+        <*> x .@? "NextMarker"
 
 instance AWSPager ListHealthChecks where
     next rq rs

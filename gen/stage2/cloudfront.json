@@ -80,8 +80,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "cloudFrontOriginAccessIdentityList",
@@ -163,8 +162,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -174,7 +173,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one CloudFrontOriginAccessIdentitySummary element for each origin access identity that was created by the current AWS account.",
                         "typeExposed": "[CloudFrontOriginAccessIdentitySummary]",
-                        "type": "[CloudFrontOriginAccessIdentitySummary]"
+                        "type": "List \"CloudFrontOriginAccessIdentitySummary\" CloudFrontOriginAccessIdentitySummary"
                     }
                 ],
                 "payload": null,
@@ -242,6 +241,7 @@
                 ],
                 "contentPad": 12,
                 "name": "CloudFrontOriginAccessIdentityList",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -261,8 +261,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -272,7 +272,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one CloudFrontOriginAccessIdentitySummary element for each origin access identity that was created by the current AWS account.",
                         "typeExposed": "[CloudFrontOriginAccessIdentitySummary]",
-                        "type": "[CloudFrontOriginAccessIdentitySummary]"
+                        "type": "List \"CloudFrontOriginAccessIdentitySummary\" CloudFrontOriginAccessIdentitySummary"
                     }
                 ],
                 "fields": [
@@ -293,8 +293,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -304,7 +304,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one CloudFrontOriginAccessIdentitySummary element for each origin access identity that was created by the current AWS account.",
                         "typeExposed": "[CloudFrontOriginAccessIdentitySummary]",
-                        "type": "[CloudFrontOriginAccessIdentitySummary]"
+                        "type": "List \"CloudFrontOriginAccessIdentitySummary\" CloudFrontOriginAccessIdentitySummary"
                     },
                     {
                         "location": null,
@@ -371,8 +371,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "invalidation",
@@ -503,6 +502,7 @@
                 ],
                 "contentPad": 18,
                 "name": "Invalidation",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -589,8 +589,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "allowedMethods",
@@ -612,8 +611,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -623,7 +622,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Method\" Text"
                     }
                 ],
                 "payload": null,
@@ -646,12 +645,13 @@
                 ],
                 "contentPad": 9,
                 "name": "AllowedMethods",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -661,14 +661,14 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Method\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -678,7 +678,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Method\" Text"
                     },
                     {
                         "location": null,
@@ -701,8 +701,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "cloudFrontOriginAccessIdentityConfig",
@@ -773,6 +772,7 @@
                 ],
                 "contentPad": 16,
                 "name": "CloudFrontOriginAccessIdentityConfig",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -811,8 +811,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "origin",
@@ -913,6 +912,7 @@
                 ],
                 "contentPad": 19,
                 "name": "Origin",
+                "locationPad": 19,
                 "type": "record",
                 "optional": [
                     {
@@ -1030,8 +1030,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "streamingDistributionList",
@@ -1113,8 +1112,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1124,7 +1123,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one StreamingDistributionSummary element for each distribution that was created by the current AWS account.",
                         "typeExposed": "[StreamingDistributionSummary]",
-                        "type": "[StreamingDistributionSummary]"
+                        "type": "List \"StreamingDistributionSummary\" StreamingDistributionSummary"
                     }
                 ],
                 "payload": null,
@@ -1192,6 +1191,7 @@
                 ],
                 "contentPad": 12,
                 "name": "StreamingDistributionList",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -1211,8 +1211,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1222,7 +1222,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one StreamingDistributionSummary element for each distribution that was created by the current AWS account.",
                         "typeExposed": "[StreamingDistributionSummary]",
-                        "type": "[StreamingDistributionSummary]"
+                        "type": "List \"StreamingDistributionSummary\" StreamingDistributionSummary"
                     }
                 ],
                 "fields": [
@@ -1243,8 +1243,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1254,7 +1254,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one StreamingDistributionSummary element for each distribution that was created by the current AWS account.",
                         "typeExposed": "[StreamingDistributionSummary]",
-                        "type": "[StreamingDistributionSummary]"
+                        "type": "List \"StreamingDistributionSummary\" StreamingDistributionSummary"
                     },
                     {
                         "location": null,
@@ -1321,8 +1321,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "streamingDistributionConfig",
@@ -1573,6 +1572,7 @@
                 ],
                 "contentPad": 16,
                 "name": "StreamingDistributionConfig",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1701,8 +1701,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "signer",
@@ -1742,6 +1741,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "Signer",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1811,8 +1811,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "cookiePreference",
@@ -1868,6 +1867,7 @@
                 ],
                 "contentPad": 17,
                 "name": "CookiePreference",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1939,8 +1939,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 31,
                 "ctor": "distribution",
@@ -2161,6 +2160,7 @@
                 ],
                 "contentPad": 30,
                 "name": "Distribution",
+                "locationPad": 30,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2275,8 +2275,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "cloudFrontOriginAccessIdentitySummary",
@@ -2377,6 +2376,7 @@
                 ],
                 "contentPad": 18,
                 "name": "CloudFrontOriginAccessIdentitySummary",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2430,8 +2430,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "streamingDistributionSummary",
@@ -2742,6 +2741,7 @@
                 ],
                 "contentPad": 17,
                 "name": "StreamingDistributionSummary",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2901,8 +2901,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "customOriginConfig",
@@ -3003,6 +3002,7 @@
                 ],
                 "contentPad": 21,
                 "name": "CustomOriginConfig",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3057,8 +3057,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "aliases",
@@ -3080,8 +3079,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3091,7 +3090,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains CNAME elements, if any, for this distribution. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"CNAME\" Text"
                     }
                 ],
                 "payload": null,
@@ -3114,12 +3113,13 @@
                 ],
                 "contentPad": 9,
                 "name": "Aliases",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3129,14 +3129,14 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains CNAME elements, if any, for this distribution. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"CNAME\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3146,7 +3146,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains CNAME elements, if any, for this distribution. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"CNAME\" Text"
                     },
                     {
                         "location": null,
@@ -3168,8 +3168,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "invalidationBatch",
@@ -3240,6 +3239,7 @@
                 ],
                 "contentPad": 16,
                 "name": "InvalidationBatch",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3279,8 +3279,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "invalidationSummary",
@@ -3381,6 +3380,7 @@
                 ],
                 "contentPad": 11,
                 "name": "InvalidationSummary",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3434,8 +3434,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "distributionConfig",
@@ -3791,6 +3790,7 @@
                 ],
                 "contentPad": 21,
                 "name": "DistributionConfig",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -4040,8 +4040,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "cacheBehavior",
@@ -4262,6 +4261,7 @@
                 ],
                 "contentPad": 21,
                 "name": "CacheBehavior",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -4421,8 +4421,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "distributionList",
@@ -4504,8 +4503,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4515,7 +4514,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one DistributionSummary element for each distribution that was created by the current AWS account.",
                         "typeExposed": "[DistributionSummary]",
-                        "type": "[DistributionSummary]"
+                        "type": "List \"DistributionSummary\" DistributionSummary"
                     }
                 ],
                 "payload": null,
@@ -4583,6 +4582,7 @@
                 ],
                 "contentPad": 12,
                 "name": "DistributionList",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -4602,8 +4602,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4613,7 +4613,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one DistributionSummary element for each distribution that was created by the current AWS account.",
                         "typeExposed": "[DistributionSummary]",
-                        "type": "[DistributionSummary]"
+                        "type": "List \"DistributionSummary\" DistributionSummary"
                     }
                 ],
                 "fields": [
@@ -4634,8 +4634,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4645,7 +4645,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one DistributionSummary element for each distribution that was created by the current AWS account.",
                         "typeExposed": "[DistributionSummary]",
-                        "type": "[DistributionSummary]"
+                        "type": "List \"DistributionSummary\" DistributionSummary"
                     },
                     {
                         "location": null,
@@ -4713,8 +4713,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "keyPairIds",
@@ -4736,8 +4735,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4747,7 +4746,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that lists the active CloudFront key pairs, if any, that are associated with AwsAccountNumber.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"KeyPairId\" Text"
                     }
                 ],
                 "payload": null,
@@ -4770,12 +4769,13 @@
                 ],
                 "contentPad": 9,
                 "name": "KeyPairIds",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4785,14 +4785,14 @@
                         "locationName": "Items",
                         "documentation": "A complex type that lists the active CloudFront key pairs, if any, that are associated with AwsAccountNumber.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"KeyPairId\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4802,7 +4802,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that lists the active CloudFront key pairs, if any, that are associated with AwsAccountNumber.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"KeyPairId\" Text"
                     },
                     {
                         "location": null,
@@ -4842,8 +4842,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "customErrorResponses",
@@ -4865,8 +4864,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4876,7 +4875,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains custom error responses for this distribution. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[CustomErrorResponse]",
-                        "type": "[CustomErrorResponse]"
+                        "type": "List \"CustomErrorResponse\" CustomErrorResponse"
                     }
                 ],
                 "payload": null,
@@ -4899,12 +4898,13 @@
                 ],
                 "contentPad": 9,
                 "name": "CustomErrorResponses",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4914,14 +4914,14 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains custom error responses for this distribution. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[CustomErrorResponse]",
-                        "type": "[CustomErrorResponse]"
+                        "type": "List \"CustomErrorResponse\" CustomErrorResponse"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4931,7 +4931,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains custom error responses for this distribution. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[CustomErrorResponse]",
-                        "type": "[CustomErrorResponse]"
+                        "type": "List \"CustomErrorResponse\" CustomErrorResponse"
                     },
                     {
                         "location": null,
@@ -4955,7 +4955,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5014,6 +5013,7 @@
                 ],
                 "contentPad": 0,
                 "name": "S3OriginConfig",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5038,8 +5038,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "geoRestriction",
@@ -5076,8 +5075,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5087,7 +5086,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains a Location element for each country in which you want CloudFront either to distribute your content (whitelist) or not distribute your content (blacklist). The Location element is a two-letter, uppercase country code for a country that you want to include in your blacklist or whitelist. Include one Location element for each country. CloudFront and MaxMind both use ISO 3166 country codes. For the current list of countries and the corresponding codes, see ISO 3166-1-alpha-2 code on the International Organization for Standardization website. You can also refer to the country list in the CloudFront console, which includes both country names and codes.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Location\" Text"
                     }
                 ],
                 "payload": null,
@@ -5125,12 +5124,13 @@
                 ],
                 "contentPad": 16,
                 "name": "GeoRestriction",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5140,14 +5140,14 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains a Location element for each country in which you want CloudFront either to distribute your content (whitelist) or not distribute your content (blacklist). The Location element is a two-letter, uppercase country code for a country that you want to include in your blacklist or whitelist. Include one Location element for each country. CloudFront and MaxMind both use ISO 3166 country codes. For the current list of countries and the corresponding codes, see ISO 3166-1-alpha-2 code on the International Organization for Standardization website. You can also refer to the country list in the CloudFront console, which includes both country names and codes.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Location\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5157,7 +5157,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains a Location element for each country in which you want CloudFront either to distribute your content (whitelist) or not distribute your content (blacklist). The Location element is a two-letter, uppercase country code for a country that you want to include in your blacklist or whitelist. Include one Location element for each country. CloudFront and MaxMind both use ISO 3166 country codes. For the current list of countries and the corresponding codes, see ISO 3166-1-alpha-2 code on the International Organization for Standardization website. You can also refer to the country list in the CloudFront console, which includes both country names and codes.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Location\" Text"
                     },
                     {
                         "location": null,
@@ -5195,8 +5195,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "s3Origin",
@@ -5267,6 +5266,7 @@
                 ],
                 "contentPad": 21,
                 "name": "S3Origin",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5306,8 +5306,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "headers",
@@ -5329,8 +5328,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5340,7 +5339,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains a Name element for each header that you want CloudFront to forward to the origin and to vary on for this cache behavior. If Quantity is 0, omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Name\" Text"
                     }
                 ],
                 "payload": null,
@@ -5363,12 +5362,13 @@
                 ],
                 "contentPad": 9,
                 "name": "Headers",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5378,14 +5378,14 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains a Name element for each header that you want CloudFront to forward to the origin and to vary on for this cache behavior. If Quantity is 0, omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Name\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5395,7 +5395,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains a Name element for each header that you want CloudFront to forward to the origin and to vary on for this cache behavior. If Quantity is 0, omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Name\" Text"
                     },
                     {
                         "location": null,
@@ -5418,8 +5418,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 31,
                 "ctor": "viewerCertificate",
@@ -5474,6 +5473,7 @@
                 "required": [],
                 "contentPad": 29,
                 "name": "ViewerCertificate",
+                "locationPad": 29,
                 "type": "record",
                 "optional": [
                     {
@@ -5573,8 +5573,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -5631,6 +5630,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Restrictions",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5654,8 +5654,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "origins",
@@ -5677,8 +5676,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -5688,7 +5687,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains origins for this distribution.",
                         "typeExposed": "NonEmpty Origin",
-                        "type": "List1 Origin"
+                        "type": "List1 \"Origin\" Origin"
                     }
                 ],
                 "payload": null,
@@ -5710,8 +5709,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -5721,18 +5720,19 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains origins for this distribution.",
                         "typeExposed": "NonEmpty Origin",
-                        "type": "List1 Origin"
+                        "type": "List1 \"Origin\" Origin"
                     }
                 ],
                 "contentPad": 9,
                 "name": "Origins",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -5742,7 +5742,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains origins for this distribution.",
                         "typeExposed": "NonEmpty Origin",
-                        "type": "List1 Origin"
+                        "type": "List1 \"Origin\" Origin"
                     },
                     {
                         "location": null,
@@ -5786,8 +5786,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "forwardedValues",
@@ -5873,6 +5872,7 @@
                 ],
                 "contentPad": 12,
                 "name": "ForwardedValues",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -5943,8 +5943,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "trustedSigners",
@@ -5981,8 +5980,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5992,7 +5991,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains trusted signers for this cache behavior. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AwsAccountNumber\" Text"
                     }
                 ],
                 "payload": null,
@@ -6030,12 +6029,13 @@
                 ],
                 "contentPad": 9,
                 "name": "TrustedSigners",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6045,7 +6045,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains trusted signers for this cache behavior. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AwsAccountNumber\" Text"
                     }
                 ],
                 "fields": [
@@ -6066,8 +6066,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6077,7 +6077,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains trusted signers for this cache behavior. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AwsAccountNumber\" Text"
                     },
                     {
                         "location": null,
@@ -6118,8 +6118,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "streamingLoggingConfig",
@@ -6220,6 +6219,7 @@
                 ],
                 "contentPad": 8,
                 "name": "StreamingLoggingConfig",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -6274,8 +6274,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "cookieNames",
@@ -6297,8 +6296,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6308,7 +6307,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains whitelisted cookies for this cache behavior. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Name\" Text"
                     }
                 ],
                 "payload": null,
@@ -6331,12 +6330,13 @@
                 ],
                 "contentPad": 9,
                 "name": "CookieNames",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6346,14 +6346,14 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains whitelisted cookies for this cache behavior. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Name\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6363,7 +6363,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains whitelisted cookies for this cache behavior. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Name\" Text"
                     },
                     {
                         "location": null,
@@ -6386,8 +6386,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "customErrorResponse",
@@ -6473,6 +6472,7 @@
                 ],
                 "contentPad": 19,
                 "name": "CustomErrorResponse",
+                "locationPad": 19,
                 "type": "record",
                 "optional": [
                     {
@@ -6587,8 +6587,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "cacheBehaviors",
@@ -6610,8 +6609,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6621,7 +6620,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains cache behaviors for this distribution. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[CacheBehavior]",
-                        "type": "[CacheBehavior]"
+                        "type": "List \"CacheBehavior\" CacheBehavior"
                     }
                 ],
                 "payload": null,
@@ -6644,12 +6643,13 @@
                 ],
                 "contentPad": 9,
                 "name": "CacheBehaviors",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6659,14 +6659,14 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains cache behaviors for this distribution. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[CacheBehavior]",
-                        "type": "[CacheBehavior]"
+                        "type": "List \"CacheBehavior\" CacheBehavior"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6676,7 +6676,7 @@
                         "locationName": "Items",
                         "documentation": "Optional: A complex type that contains cache behaviors for this distribution. If Quantity is 0, you can omit Items.",
                         "typeExposed": "[CacheBehavior]",
-                        "type": "[CacheBehavior]"
+                        "type": "List \"CacheBehavior\" CacheBehavior"
                     },
                     {
                         "location": null,
@@ -6698,8 +6698,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "defaultCacheBehavior",
@@ -6890,6 +6889,7 @@
                 ],
                 "contentPad": 21,
                 "name": "DefaultCacheBehavior",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -7034,8 +7034,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "invalidationList",
@@ -7117,8 +7116,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7128,7 +7127,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one InvalidationSummary element for each invalidation batch that was created by the current AWS account.",
                         "typeExposed": "[InvalidationSummary]",
-                        "type": "[InvalidationSummary]"
+                        "type": "List \"InvalidationSummary\" InvalidationSummary"
                     }
                 ],
                 "payload": null,
@@ -7196,6 +7195,7 @@
                 ],
                 "contentPad": 12,
                 "name": "InvalidationList",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -7215,8 +7215,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7226,7 +7226,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one InvalidationSummary element for each invalidation batch that was created by the current AWS account.",
                         "typeExposed": "[InvalidationSummary]",
-                        "type": "[InvalidationSummary]"
+                        "type": "List \"InvalidationSummary\" InvalidationSummary"
                     }
                 ],
                 "fields": [
@@ -7247,8 +7247,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7258,7 +7258,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one InvalidationSummary element for each invalidation batch that was created by the current AWS account.",
                         "typeExposed": "[InvalidationSummary]",
-                        "type": "[InvalidationSummary]"
+                        "type": "List \"InvalidationSummary\" InvalidationSummary"
                     },
                     {
                         "location": null,
@@ -7325,8 +7325,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 30,
                 "ctor": "streamingDistribution",
@@ -7502,6 +7501,7 @@
                 ],
                 "contentPad": 28,
                 "name": "StreamingDistribution",
+                "locationPad": 28,
                 "type": "record",
                 "optional": [
                     {
@@ -7617,8 +7617,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "paths",
@@ -7640,8 +7639,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7651,7 +7650,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains a list of the objects that you want to invalidate.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Path\" Text"
                     }
                 ],
                 "payload": null,
@@ -7674,12 +7673,13 @@
                 ],
                 "contentPad": 9,
                 "name": "Paths",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7689,14 +7689,14 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains a list of the objects that you want to invalidate.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Path\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7706,7 +7706,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains a list of the objects that you want to invalidate.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Path\" Text"
                     },
                     {
                         "location": null,
@@ -7728,8 +7728,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 42,
                 "ctor": "cloudFrontOriginAccessIdentity",
@@ -7815,6 +7814,7 @@
                 ],
                 "contentPad": 37,
                 "name": "CloudFrontOriginAccessIdentity",
+                "locationPad": 37,
                 "type": "record",
                 "optional": [
                     {
@@ -7884,8 +7884,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "activeTrustedSigners",
@@ -7922,8 +7921,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7933,7 +7932,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one Signer complex type for each unique trusted signer that is specified in the TrustedSigners complex type, including trusted signers in the default cache behavior and in all of the other cache behaviors.",
                         "typeExposed": "[Signer]",
-                        "type": "[Signer]"
+                        "type": "List \"Signer\" Signer"
                     }
                 ],
                 "payload": null,
@@ -7971,12 +7970,13 @@
                 ],
                 "contentPad": 9,
                 "name": "ActiveTrustedSigners",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7986,7 +7986,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one Signer complex type for each unique trusted signer that is specified in the TrustedSigners complex type, including trusted signers in the default cache behavior and in all of the other cache behaviors.",
                         "typeExposed": "[Signer]",
-                        "type": "[Signer]"
+                        "type": "List \"Signer\" Signer"
                     }
                 ],
                 "fields": [
@@ -8007,8 +8007,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8018,7 +8018,7 @@
                         "locationName": "Items",
                         "documentation": "A complex type that contains one Signer complex type for each unique trusted signer that is specified in the TrustedSigners complex type, including trusted signers in the default cache behavior and in all of the other cache behaviors.",
                         "typeExposed": "[Signer]",
-                        "type": "[Signer]"
+                        "type": "List \"Signer\" Signer"
                     },
                     {
                         "location": null,
@@ -8040,8 +8040,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "distributionSummary",
@@ -8472,6 +8471,7 @@
                 ],
                 "contentPad": 21,
                 "name": "DistributionSummary",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -8709,8 +8709,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "loggingConfig",
@@ -8841,6 +8840,7 @@
                 ],
                 "contentPad": 15,
                 "name": "LoggingConfig",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -8921,8 +8921,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -8980,6 +8979,7 @@
                 "contentPad": 31,
                 "name": "CreateCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
+                "locationPad": 31,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -9092,8 +9092,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9178,6 +9177,7 @@
                 "queryPad": 0,
                 "name": "CreateCloudFrontOriginAccessIdentity",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -9206,8 +9206,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -9265,6 +9264,7 @@
                 "contentPad": 13,
                 "name": "CreateDistributionResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -9377,8 +9377,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9463,6 +9462,7 @@
                 "queryPad": 0,
                 "name": "CreateDistribution",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -9491,8 +9491,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -9545,6 +9544,7 @@
                 "contentPad": 13,
                 "name": "CreateInvalidationResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -9627,8 +9627,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9720,6 +9719,7 @@
                 "queryPad": 0,
                 "name": "CreateInvalidation",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -9763,8 +9763,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -9822,6 +9821,7 @@
                 "contentPad": 22,
                 "name": "CreateStreamingDistributionResponse",
                 "resultWrapper": null,
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -9934,8 +9934,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10020,6 +10019,7 @@
                 "queryPad": 0,
                 "name": "CreateStreamingDistribution",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -10085,8 +10085,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -10135,6 +10134,7 @@
                 "queryPad": 0,
                 "name": "DeleteCloudFrontOriginAccessIdentity",
                 "query": [],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10231,8 +10231,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -10281,6 +10280,7 @@
                 "queryPad": 0,
                 "name": "DeleteDistribution",
                 "query": [],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10377,8 +10377,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -10427,6 +10426,7 @@
                 "queryPad": 0,
                 "name": "DeleteStreamingDistribution",
                 "query": [],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10486,8 +10486,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -10540,6 +10539,7 @@
                 "contentPad": 31,
                 "name": "GetCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
+                "locationPad": 31,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -10624,7 +10624,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10685,6 +10684,7 @@
                 "queryPad": 0,
                 "name": "GetCloudFrontOriginAccessIdentity",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -10713,8 +10713,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -10767,6 +10766,7 @@
                 "contentPad": 37,
                 "name": "GetCloudFrontOriginAccessIdentityConfigResponse",
                 "resultWrapper": null,
+                "locationPad": 37,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -10851,7 +10851,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10916,6 +10915,7 @@
                 "queryPad": 0,
                 "name": "GetCloudFrontOriginAccessIdentityConfig",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -10944,8 +10944,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -10998,6 +10997,7 @@
                 "contentPad": 13,
                 "name": "GetDistributionResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11082,7 +11082,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -11143,6 +11142,7 @@
                 "queryPad": 0,
                 "name": "GetDistribution",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -11171,8 +11171,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -11225,6 +11224,7 @@
                 "contentPad": 19,
                 "name": "GetDistributionConfigResponse",
                 "resultWrapper": null,
+                "locationPad": 19,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11309,7 +11309,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -11374,6 +11373,7 @@
                 "queryPad": 0,
                 "name": "GetDistributionConfig",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -11402,8 +11402,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -11466,6 +11465,7 @@
                 "contentPad": 0,
                 "name": "GetInvalidationResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -11519,8 +11519,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11586,6 +11585,7 @@
                 "queryPad": 0,
                 "name": "GetInvalidation",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -11629,8 +11629,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -11683,6 +11682,7 @@
                 "contentPad": 22,
                 "name": "GetStreamingDistributionResponse",
                 "resultWrapper": null,
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11767,7 +11767,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -11828,6 +11827,7 @@
                 "queryPad": 0,
                 "name": "GetStreamingDistribution",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -11856,8 +11856,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -11910,6 +11909,7 @@
                 "contentPad": 28,
                 "name": "GetStreamingDistributionConfigResponse",
                 "resultWrapper": null,
+                "locationPad": 28,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11994,7 +11994,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -12059,6 +12058,7 @@
                 "queryPad": 0,
                 "name": "GetStreamingDistributionConfig",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -12087,8 +12087,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -12167,6 +12166,7 @@
                 "contentPad": 0,
                 "name": "ListCloudFrontOriginAccessIdentitiesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -12211,8 +12211,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12246,6 +12245,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12320,8 +12320,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -12400,6 +12399,7 @@
                 "contentPad": 0,
                 "name": "ListDistributionsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -12444,8 +12444,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12479,6 +12478,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12553,8 +12553,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -12633,6 +12632,7 @@
                 "contentPad": 0,
                 "name": "ListInvalidationsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -12677,8 +12677,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12736,6 +12735,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -12825,8 +12825,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -12905,6 +12904,7 @@
                 "contentPad": 0,
                 "name": "ListStreamingDistributionsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -12949,8 +12949,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12984,6 +12983,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13058,8 +13058,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -13112,6 +13111,7 @@
                 "contentPad": 31,
                 "name": "UpdateCloudFrontOriginAccessIdentityResponse",
                 "resultWrapper": null,
+                "locationPad": 31,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -13194,8 +13194,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -13293,6 +13292,7 @@
                 "queryPad": 0,
                 "name": "UpdateCloudFrontOriginAccessIdentity",
                 "query": [],
+                "locationPad": 37,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -13367,8 +13367,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -13421,6 +13420,7 @@
                 "contentPad": 13,
                 "name": "UpdateDistributionResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -13503,8 +13503,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -13602,6 +13601,7 @@
                 "queryPad": 0,
                 "name": "UpdateDistribution",
                 "query": [],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -13676,8 +13676,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -13730,6 +13729,7 @@
                 "contentPad": 22,
                 "name": "UpdateStreamingDistributionResponse",
                 "resultWrapper": null,
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -13812,8 +13812,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -13911,6 +13910,7 @@
                 "queryPad": 0,
                 "name": "UpdateStreamingDistribution",
                 "query": [],
+                "locationPad": 28,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

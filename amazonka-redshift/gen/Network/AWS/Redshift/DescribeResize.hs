@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ import qualified GHC.Exts
 
 newtype DescribeResize = DescribeResize
     { _drClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeResize' constructor.
 --
@@ -87,16 +88,16 @@ data DescribeResizeResponse = DescribeResizeResponse
     { _drrAvgResizeRateInMegaBytesPerSecond  :: Maybe Double
     , _drrElapsedTimeInSeconds               :: Maybe Integer
     , _drrEstimatedTimeToCompletionInSeconds :: Maybe Integer
-    , _drrImportTablesCompleted              :: [Text]
-    , _drrImportTablesInProgress             :: [Text]
-    , _drrImportTablesNotStarted             :: [Text]
+    , _drrImportTablesCompleted              :: List "ImportTablesCompleted" Text
+    , _drrImportTablesInProgress             :: List "ImportTablesInProgress" Text
+    , _drrImportTablesNotStarted             :: List "ImportTablesNotStarted" Text
     , _drrProgressInMegaBytes                :: Maybe Integer
     , _drrStatus                             :: Maybe Text
     , _drrTargetClusterType                  :: Maybe Text
     , _drrTargetNodeType                     :: Maybe Text
     , _drrTargetNumberOfNodes                :: Maybe Int
     , _drrTotalResizeDataInMegaBytes         :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeResizeResponse' constructor.
 --
@@ -172,6 +173,7 @@ drrImportTablesCompleted :: Lens' DescribeResizeResponse [Text]
 drrImportTablesCompleted =
     lens _drrImportTablesCompleted
         (\s a -> s { _drrImportTablesCompleted = a })
+            . _List
 
 -- | The names of tables that are being currently imported. Valid Values: List
 -- of table names.
@@ -179,6 +181,7 @@ drrImportTablesInProgress :: Lens' DescribeResizeResponse [Text]
 drrImportTablesInProgress =
     lens _drrImportTablesInProgress
         (\s a -> s { _drrImportTablesInProgress = a })
+            . _List
 
 -- | The names of tables that have not been yet imported. Valid Values: List
 -- of table names.
@@ -186,6 +189,7 @@ drrImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
 drrImportTablesNotStarted =
     lens _drrImportTablesNotStarted
         (\s a -> s { _drrImportTablesNotStarted = a })
+            . _List
 
 -- | While the resize operation is in progress, this value shows the current
 -- amount of data, in megabytes, that has been processed so far. When the
@@ -230,7 +234,10 @@ drrTotalResizeDataInMegaBytes =
 instance ToPath DescribeResize where
     toPath = const "/"
 
-instance ToQuery DescribeResize
+instance ToQuery DescribeResize where
+    toQuery DescribeResize{..} = mconcat
+        [ "ClusterIdentifier" =? _drClusterIdentifier
+        ]
 
 instance ToHeaders DescribeResize
 
@@ -242,16 +249,16 @@ instance AWSRequest DescribeResize where
     response = xmlResponse
 
 instance FromXML DescribeResizeResponse where
-    parseXML = withElement "DescribeResizeResult" $ \x ->
-            <$> x .@? "AvgResizeRateInMegaBytesPerSecond"
-            <*> x .@? "ElapsedTimeInSeconds"
-            <*> x .@? "EstimatedTimeToCompletionInSeconds"
-            <*> x .@ "ImportTablesCompleted"
-            <*> x .@ "ImportTablesInProgress"
-            <*> x .@ "ImportTablesNotStarted"
-            <*> x .@? "ProgressInMegaBytes"
-            <*> x .@? "Status"
-            <*> x .@? "TargetClusterType"
-            <*> x .@? "TargetNodeType"
-            <*> x .@? "TargetNumberOfNodes"
-            <*> x .@? "TotalResizeDataInMegaBytes"
+    parseXML = withElement "DescribeResizeResult" $ \x -> DescribeResizeResponse
+        <$> x .@? "AvgResizeRateInMegaBytesPerSecond"
+        <*> x .@? "ElapsedTimeInSeconds"
+        <*> x .@? "EstimatedTimeToCompletionInSeconds"
+        <*> x .@  "ImportTablesCompleted"
+        <*> x .@  "ImportTablesInProgress"
+        <*> x .@  "ImportTablesNotStarted"
+        <*> x .@? "ProgressInMegaBytes"
+        <*> x .@? "Status"
+        <*> x .@? "TargetClusterType"
+        <*> x .@? "TargetNodeType"
+        <*> x .@? "TargetNumberOfNodes"
+        <*> x .@? "TotalResizeDataInMegaBytes"

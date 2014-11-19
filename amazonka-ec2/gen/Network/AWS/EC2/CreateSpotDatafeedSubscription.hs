@@ -54,7 +54,7 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsBucket :: Text
     , _csdsDryRun :: Maybe Bool
     , _csdsPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateSpotDatafeedSubscription' constructor.
 --
@@ -88,7 +88,7 @@ csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
 
 newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateSpotDatafeedSubscriptionResponse' constructor.
 --
@@ -110,7 +110,12 @@ csdsrSpotDatafeedSubscription =
 instance ToPath CreateSpotDatafeedSubscription where
     toPath = const "/"
 
-instance ToQuery CreateSpotDatafeedSubscription
+instance ToQuery CreateSpotDatafeedSubscription where
+    toQuery CreateSpotDatafeedSubscription{..} = mconcat
+        [ "bucket" =? _csdsBucket
+        , "dryRun" =? _csdsDryRun
+        , "prefix" =? _csdsPrefix
+        ]
 
 instance ToHeaders CreateSpotDatafeedSubscription
 

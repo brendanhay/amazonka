@@ -223,8 +223,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "passwordPolicy",
@@ -233,6 +232,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "PasswordPolicy",
+                "locationPad": 27,
                 "type": "record",
                 "optional": [
                     {
@@ -543,8 +543,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "group",
@@ -629,6 +628,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Group",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -713,8 +713,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "mfadevice",
@@ -769,6 +768,7 @@
                 ],
                 "contentPad": 0,
                 "name": "MFADevice",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -822,8 +822,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "instanceProfile",
@@ -908,12 +907,13 @@
                 ],
                 "contentPad": 0,
                 "name": "InstanceProfile",
+                "locationPad": 20,
                 "type": "record",
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -923,7 +923,7 @@
                         "locationName": "Roles",
                         "documentation": "\u003cp\u003eThe role associated with the instance profile.\u003c/p\u003e",
                         "typeExposed": "[Role]",
-                        "type": "[Role]"
+                        "type": "List \"Roles\" Role"
                     }
                 ],
                 "fields": [
@@ -1004,8 +1004,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1015,7 +1015,7 @@
                         "locationName": "Roles",
                         "documentation": "\u003cp\u003eThe role associated with the instance profile.\u003c/p\u003e",
                         "typeExposed": "[Role]",
-                        "type": "[Role]"
+                        "type": "List \"Roles\" Role"
                     }
                 ]
             },
@@ -1039,8 +1039,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "serverCertificateMetadata",
@@ -1110,6 +1109,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ServerCertificateMetadata",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -1241,7 +1241,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -1267,6 +1266,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "OpenIDConnectProviderListEntry",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -1307,8 +1307,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "loginProfile",
@@ -1348,6 +1347,7 @@
                 ],
                 "contentPad": 0,
                 "name": "LoginProfile",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -1465,8 +1465,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "user",
@@ -1551,6 +1550,7 @@
                 ],
                 "contentPad": 0,
                 "name": "User",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1683,8 +1683,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "samlproviderListEntry",
@@ -1693,6 +1692,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "SAMLProviderListEntry",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -1793,8 +1793,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "role",
@@ -1879,6 +1878,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Role",
+                "locationPad": 25,
                 "type": "record",
                 "optional": [
                     {
@@ -1993,8 +1993,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "serverCertificate",
@@ -2034,6 +2033,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ServerCertificate",
+                "locationPad": 26,
                 "type": "record",
                 "optional": [
                     {
@@ -2104,8 +2104,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "accessKey",
@@ -2175,6 +2174,7 @@
                 ],
                 "contentPad": 0,
                 "name": "AccessKey",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -2274,8 +2274,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "virtualMFADevice",
@@ -2300,6 +2299,7 @@
                 ],
                 "contentPad": 0,
                 "name": "VirtualMFADevice",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -2445,8 +2445,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "signingCertificate",
@@ -2516,6 +2515,7 @@
                 ],
                 "contentPad": 0,
                 "name": "SigningCertificate",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -2616,8 +2616,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "accessKeyMetadata",
@@ -2626,6 +2625,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AccessKeyMetadata",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -2804,8 +2804,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2870,6 +2869,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2950,8 +2950,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3016,6 +3015,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3096,8 +3096,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3162,6 +3161,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3242,8 +3242,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3308,6 +3307,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3351,8 +3351,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3401,6 +3400,7 @@
                 "contentPad": 0,
                 "name": "CreateAccessKeyResponse",
                 "resultWrapper": "CreateAccessKeyResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3439,7 +3439,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3485,6 +3484,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3567,7 +3567,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3630,6 +3629,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3658,8 +3658,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3708,6 +3707,7 @@
                 "contentPad": 0,
                 "name": "CreateGroupResponse",
                 "resultWrapper": "CreateGroupResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3745,8 +3745,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3796,6 +3795,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3855,8 +3855,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3905,6 +3904,7 @@
                 "contentPad": 0,
                 "name": "CreateInstanceProfileResponse",
                 "resultWrapper": "CreateInstanceProfileResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3942,8 +3942,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3993,6 +3992,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4052,8 +4052,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4102,6 +4101,7 @@
                 "contentPad": 0,
                 "name": "CreateLoginProfileResponse",
                 "resultWrapper": "CreateLoginProfileResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -4139,8 +4139,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4210,6 +4209,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4286,7 +4286,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4320,6 +4319,7 @@
                 "contentPad": 0,
                 "name": "CreateOpenIDConnectProviderResponse",
                 "resultWrapper": "CreateOpenIDConnectProviderResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4373,8 +4373,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4429,14 +4428,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4446,12 +4446,12 @@
                         "locationName": "ClientIDList",
                         "documentation": "\u003cp\u003eA list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the \u003ccode\u003eclient_id\u003c/code\u003e parameter on OAuth requests.) \u003c/p\u003e \u003cp\u003eYou can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider. \u003c/p\u003e \u003cp\u003eThere is no defined format for a client ID. The \u003ccode\u003eCreateOpenIDConnectProviderRequest\u003c/code\u003e action accepts client IDs up to 255 characters long. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClientIDList\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4461,14 +4461,14 @@
                         "locationName": "ThumbprintList",
                         "documentation": "\u003cp\u003eA list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.\u003c/p\u003e \u003cp\u003eThe server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string. \u003c/p\u003e \u003cp\u003eYou must provide at least one thumbprint when creating an IAM OIDC provider. For example, if the OIDC provider is \u003ccode\u003eserver.example.com\u003c/code\u003e and the provider stores its keys at \"https://keys.server.example.com/openid-connect\", the thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used by https://keys.server.example.com. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ThumbprintList\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4478,12 +4478,12 @@
                         "locationName": "ClientIDList",
                         "documentation": "\u003cp\u003eA list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the \u003ccode\u003eclient_id\u003c/code\u003e parameter on OAuth requests.) \u003c/p\u003e \u003cp\u003eYou can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider. \u003c/p\u003e \u003cp\u003eThere is no defined format for a client ID. The \u003ccode\u003eCreateOpenIDConnectProviderRequest\u003c/code\u003e action accepts client IDs up to 255 characters long. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClientIDList\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4493,7 +4493,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "\u003cp\u003eA list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.\u003c/p\u003e \u003cp\u003eThe server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string. \u003c/p\u003e \u003cp\u003eYou must provide at least one thumbprint when creating an IAM OIDC provider. For example, if the OIDC provider is \u003ccode\u003eserver.example.com\u003c/code\u003e and the provider stores its keys at \"https://keys.server.example.com/openid-connect\", the thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used by https://keys.server.example.com. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ThumbprintList\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4518,8 +4518,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4568,6 +4567,7 @@
                 "contentPad": 0,
                 "name": "CreateRoleResponse",
                 "resultWrapper": "CreateRoleResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -4605,8 +4605,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4676,6 +4675,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4752,7 +4752,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4786,6 +4785,7 @@
                 "contentPad": 0,
                 "name": "CreateSAMLProviderResponse",
                 "resultWrapper": "CreateSAMLProviderResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4839,8 +4839,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4905,6 +4904,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4948,8 +4948,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4982,6 +4981,7 @@
                 "contentPad": 0,
                 "name": "CreateUserResponse",
                 "resultWrapper": "CreateUserResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -5035,8 +5035,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5086,6 +5085,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5145,8 +5145,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5195,6 +5194,7 @@
                 "contentPad": 0,
                 "name": "CreateVirtualMFADeviceResponse",
                 "resultWrapper": "CreateVirtualMFADeviceResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5232,8 +5232,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5283,6 +5282,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5379,8 +5379,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5445,6 +5444,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5525,8 +5525,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5576,6 +5575,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5673,7 +5673,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5736,6 +5735,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -5872,7 +5872,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5935,6 +5934,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -6000,8 +6000,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6066,6 +6065,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6147,7 +6147,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6210,6 +6209,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -6276,7 +6276,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6339,6 +6338,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -6405,7 +6405,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6468,6 +6467,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -6534,7 +6534,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6597,6 +6596,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -6662,8 +6662,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6728,6 +6727,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6809,7 +6809,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6872,6 +6871,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -6938,7 +6938,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7001,6 +7000,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -7066,8 +7066,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7117,6 +7116,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7214,7 +7214,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7277,6 +7276,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -7342,8 +7342,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7408,6 +7407,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7489,7 +7489,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7552,6 +7551,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -7617,8 +7617,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7723,6 +7722,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7797,8 +7797,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -7815,6 +7814,7 @@
                 "contentPad": 0,
                 "name": "GenerateCredentialReportResponse",
                 "resultWrapper": "GenerateCredentialReportResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -7931,8 +7931,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -7981,6 +7980,7 @@
                 "contentPad": 0,
                 "name": "GetAccountPasswordPolicyResponse",
                 "resultWrapper": "GetAccountPasswordPolicyResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -8052,7 +8052,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -8075,7 +8074,7 @@
                     "locationName": "SummaryMap",
                     "documentation": "\u003cp\u003eA set of key value pairs containing account-level information.\u003c/p\u003e \u003cp\u003e \u003ccode\u003eSummaryMap\u003c/code\u003e contains the following keys: \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccessKeysPerUserQuota\u003c/code\u003e - Maximum number of access keys that can be created per user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccountMFAEnabled\u003c/code\u003e - 1 if the root account has an MFA device assigned to it, 0 otherwise\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAssumeRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for assume role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupPolicySizeQuota\u003c/code\u003e - Maximum allowed size for Group policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroups\u003c/code\u003e - Number of Groups for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsPerUserQuota\u003c/code\u003e - Maximum number of groups an IAM user can belong to\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsQuota\u003c/code\u003e - Maximum groups allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfiles\u003c/code\u003e - Number of instance profiles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfilesQuota\u003c/code\u003e - Maximum instance profiles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevices\u003c/code\u003e - Number of MFA devices, either assigned or unassigned\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevicesInUse\u003c/code\u003e - Number of MFA devices that have been assigned to an IAM user or to the root account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRoles\u003c/code\u003e - Number of roles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolesQuota\u003c/code\u003e - Maximum roles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificates\u003c/code\u003e - Number of server certificates for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificatesQuota\u003c/code\u003e - Maximum server certificates allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eSigningCertificatesPerUserQuota\u003c/code\u003e - Maximum number of X509 certificates allowed for a user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUserPolicySizeQuota\u003c/code\u003e - Maximum allowed size for user policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsers\u003c/code\u003e - Number of users for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsersQuota\u003c/code\u003e - Maximum users allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                     "typeExposed": "HashMap Text Int",
-                    "type": "Map Text Int"
+                    "type": "Map \"entry\" \"key\" \"value\" Text Int"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8087,6 +8086,7 @@
                 "contentPad": 0,
                 "name": "GetAccountSummaryResponse",
                 "resultWrapper": "GetAccountSummaryResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8103,7 +8103,7 @@
                         "locationName": "SummaryMap",
                         "documentation": "\u003cp\u003eA set of key value pairs containing account-level information.\u003c/p\u003e \u003cp\u003e \u003ccode\u003eSummaryMap\u003c/code\u003e contains the following keys: \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccessKeysPerUserQuota\u003c/code\u003e - Maximum number of access keys that can be created per user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccountMFAEnabled\u003c/code\u003e - 1 if the root account has an MFA device assigned to it, 0 otherwise\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAssumeRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for assume role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupPolicySizeQuota\u003c/code\u003e - Maximum allowed size for Group policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroups\u003c/code\u003e - Number of Groups for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsPerUserQuota\u003c/code\u003e - Maximum number of groups an IAM user can belong to\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsQuota\u003c/code\u003e - Maximum groups allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfiles\u003c/code\u003e - Number of instance profiles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfilesQuota\u003c/code\u003e - Maximum instance profiles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevices\u003c/code\u003e - Number of MFA devices, either assigned or unassigned\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevicesInUse\u003c/code\u003e - Number of MFA devices that have been assigned to an IAM user or to the root account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRoles\u003c/code\u003e - Number of roles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolesQuota\u003c/code\u003e - Maximum roles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificates\u003c/code\u003e - Number of server certificates for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificatesQuota\u003c/code\u003e - Maximum server certificates allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eSigningCertificatesPerUserQuota\u003c/code\u003e - Maximum number of X509 certificates allowed for a user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUserPolicySizeQuota\u003c/code\u003e - Maximum allowed size for user policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsers\u003c/code\u003e - Number of users for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsersQuota\u003c/code\u003e - Maximum users allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "HashMap Text Int",
-                        "type": "Map Text Int"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Int"
                     }
                 ],
                 "fields": [
@@ -8120,7 +8120,7 @@
                         "locationName": "SummaryMap",
                         "documentation": "\u003cp\u003eA set of key value pairs containing account-level information.\u003c/p\u003e \u003cp\u003e \u003ccode\u003eSummaryMap\u003c/code\u003e contains the following keys: \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccessKeysPerUserQuota\u003c/code\u003e - Maximum number of access keys that can be created per user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccountMFAEnabled\u003c/code\u003e - 1 if the root account has an MFA device assigned to it, 0 otherwise\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAssumeRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for assume role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupPolicySizeQuota\u003c/code\u003e - Maximum allowed size for Group policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroups\u003c/code\u003e - Number of Groups for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsPerUserQuota\u003c/code\u003e - Maximum number of groups an IAM user can belong to\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsQuota\u003c/code\u003e - Maximum groups allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfiles\u003c/code\u003e - Number of instance profiles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfilesQuota\u003c/code\u003e - Maximum instance profiles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevices\u003c/code\u003e - Number of MFA devices, either assigned or unassigned\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevicesInUse\u003c/code\u003e - Number of MFA devices that have been assigned to an IAM user or to the root account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRoles\u003c/code\u003e - Number of roles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolesQuota\u003c/code\u003e - Maximum roles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificates\u003c/code\u003e - Number of server certificates for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificatesQuota\u003c/code\u003e - Maximum server certificates allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eSigningCertificatesPerUserQuota\u003c/code\u003e - Maximum number of X509 certificates allowed for a user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUserPolicySizeQuota\u003c/code\u003e - Maximum allowed size for user policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsers\u003c/code\u003e - Number of users for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsersQuota\u003c/code\u003e - Maximum users allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "HashMap Text Int",
-                        "type": "Map Text Int"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Int"
                     }
                 ]
             },
@@ -8173,8 +8173,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8191,6 +8190,7 @@
                 "contentPad": 0,
                 "name": "GetCredentialReportResponse",
                 "resultWrapper": "GetCredentialReportResult",
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -8337,8 +8337,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8371,13 +8370,14 @@
                 "contentPad": 0,
                 "name": "GetGroupResponse",
                 "resultWrapper": "GetGroupResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8387,7 +8387,7 @@
                         "locationName": "Users",
                         "documentation": "\u003cp\u003eA list of users in the group.\u003c/p\u003e",
                         "typeExposed": "[User]",
-                        "type": "[User]"
+                        "type": "List \"Users\" User"
                     },
                     {
                         "location": "querystring",
@@ -8468,8 +8468,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8479,7 +8479,7 @@
                         "locationName": "Users",
                         "documentation": "\u003cp\u003eA list of users in the group.\u003c/p\u003e",
                         "typeExposed": "[User]",
-                        "type": "[User]"
+                        "type": "List \"Users\" User"
                     }
                 ]
             },
@@ -8506,8 +8506,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8562,6 +8561,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8652,8 +8652,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8716,6 +8715,7 @@
                 "contentPad": 0,
                 "name": "GetGroupPolicyResponse",
                 "resultWrapper": "GetGroupPolicyResult",
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -8783,8 +8783,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8849,6 +8848,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8892,8 +8892,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -8942,6 +8941,7 @@
                 "contentPad": 0,
                 "name": "GetInstanceProfileResponse",
                 "resultWrapper": "GetInstanceProfileResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -8980,7 +8980,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9043,6 +9042,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -9071,8 +9071,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9121,6 +9120,7 @@
                 "contentPad": 0,
                 "name": "GetLoginProfileResponse",
                 "resultWrapper": "GetLoginProfileResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -9159,7 +9159,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9222,6 +9221,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -9251,8 +9251,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9269,6 +9268,7 @@
                 "contentPad": 0,
                 "name": "GetOpenIDConnectProviderResponse",
                 "resultWrapper": "GetOpenIDConnectProviderResult",
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -9289,8 +9289,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9300,12 +9300,12 @@
                         "locationName": "ClientIDList",
                         "documentation": "\u003cp\u003eA list of client IDs (also known as audiences) that are associated with the specified IAM OpenID Connect provider. For more information, see \u003ca\u003eCreateOpenIDConnectProvider\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClientIDList\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9315,7 +9315,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "\u003cp\u003eA list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see \u003ca\u003eCreateOpenIDConnectProvider\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ThumbprintList\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9336,8 +9336,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9347,7 +9347,7 @@
                         "locationName": "ClientIDList",
                         "documentation": "\u003cp\u003eA list of client IDs (also known as audiences) that are associated with the specified IAM OpenID Connect provider. For more information, see \u003ca\u003eCreateOpenIDConnectProvider\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClientIDList\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9366,8 +9366,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9377,7 +9377,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "\u003cp\u003eA list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see \u003ca\u003eCreateOpenIDConnectProvider\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ThumbprintList\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9413,7 +9413,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9476,6 +9475,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -9504,8 +9504,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9554,6 +9553,7 @@
                 "contentPad": 0,
                 "name": "GetRoleResponse",
                 "resultWrapper": "GetRoleResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -9592,7 +9592,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9655,6 +9654,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -9684,8 +9684,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9748,6 +9747,7 @@
                 "contentPad": 0,
                 "name": "GetRolePolicyResponse",
                 "resultWrapper": "GetRolePolicyResult",
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -9815,8 +9815,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9881,6 +9880,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9925,8 +9925,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9943,6 +9942,7 @@
                 "contentPad": 0,
                 "name": "GetSAMLProviderResponse",
                 "resultWrapper": "GetSAMLProviderResult",
+                "locationPad": 21,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -10057,7 +10057,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10120,6 +10119,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -10148,8 +10148,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10198,6 +10197,7 @@
                 "contentPad": 0,
                 "name": "GetServerCertificateResponse",
                 "resultWrapper": "GetServerCertificateResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -10236,7 +10236,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10299,6 +10298,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -10327,8 +10327,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10377,6 +10376,7 @@
                 "contentPad": 0,
                 "name": "GetUserResponse",
                 "resultWrapper": "GetUserResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -10415,7 +10415,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -10461,6 +10460,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -10506,8 +10506,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -10570,6 +10569,7 @@
                 "contentPad": 0,
                 "name": "GetUserPolicyResponse",
                 "resultWrapper": "GetUserPolicyResult",
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -10637,8 +10637,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -10703,6 +10702,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -10746,8 +10746,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -10764,13 +10763,14 @@
                 "contentPad": 0,
                 "name": "ListAccessKeysResponse",
                 "resultWrapper": "ListAccessKeysResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10780,7 +10780,7 @@
                         "locationName": "AccessKeyMetadata",
                         "documentation": "\u003cp\u003eA list of access key metadata.\u003c/p\u003e",
                         "typeExposed": "[AccessKeyMetadata]",
-                        "type": "[AccessKeyMetadata]"
+                        "type": "List \"AccessKeyMetadata\" AccessKeyMetadata"
                     },
                     {
                         "location": "querystring",
@@ -10816,8 +10816,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10827,7 +10827,7 @@
                         "locationName": "AccessKeyMetadata",
                         "documentation": "\u003cp\u003eA list of access key metadata.\u003c/p\u003e",
                         "typeExposed": "[AccessKeyMetadata]",
-                        "type": "[AccessKeyMetadata]"
+                        "type": "List \"AccessKeyMetadata\" AccessKeyMetadata"
                     },
                     {
                         "location": "querystring",
@@ -10884,8 +10884,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -10924,6 +10923,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11029,8 +11029,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11047,13 +11046,14 @@
                 "contentPad": 0,
                 "name": "ListAccountAliasesResponse",
                 "resultWrapper": "ListAccountAliasesResult",
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11063,7 +11063,7 @@
                         "locationName": "AccountAliases",
                         "documentation": "\u003cp\u003eA list of aliases associated with the account.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AccountAliases\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11099,8 +11099,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11110,7 +11110,7 @@
                         "locationName": "AccountAliases",
                         "documentation": "\u003cp\u003eA list of aliases associated with the account.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AccountAliases\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11167,8 +11167,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11202,6 +11201,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11277,8 +11277,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11295,13 +11294,14 @@
                 "contentPad": 0,
                 "name": "ListGroupPoliciesResponse",
                 "resultWrapper": "ListGroupPoliciesResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11311,7 +11311,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003eA list of policy names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11377,8 +11377,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11388,7 +11388,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003eA list of policy names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             },
@@ -11415,8 +11415,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11471,6 +11470,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11560,8 +11560,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11578,13 +11577,14 @@
                 "contentPad": 0,
                 "name": "ListGroupsResponse",
                 "resultWrapper": "ListGroupsResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11594,7 +11594,7 @@
                         "locationName": "Groups",
                         "documentation": "\u003cp\u003eA list of groups.\u003c/p\u003e",
                         "typeExposed": "[Group]",
-                        "type": "[Group]"
+                        "type": "List \"Groups\" Group"
                     },
                     {
                         "location": "querystring",
@@ -11630,8 +11630,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11641,7 +11641,7 @@
                         "locationName": "Groups",
                         "documentation": "\u003cp\u003eA list of groups.\u003c/p\u003e",
                         "typeExposed": "[Group]",
-                        "type": "[Group]"
+                        "type": "List \"Groups\" Group"
                     },
                     {
                         "location": "querystring",
@@ -11698,8 +11698,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11738,6 +11737,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11842,8 +11842,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11860,13 +11859,14 @@
                 "contentPad": 0,
                 "name": "ListGroupsForUserResponse",
                 "resultWrapper": "ListGroupsForUserResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11876,7 +11876,7 @@
                         "locationName": "Groups",
                         "documentation": "\u003cp\u003eA list of groups.\u003c/p\u003e",
                         "typeExposed": "[Group]",
-                        "type": "[Group]"
+                        "type": "List \"Groups\" Group"
                     },
                     {
                         "location": "querystring",
@@ -11912,8 +11912,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11923,7 +11923,7 @@
                         "locationName": "Groups",
                         "documentation": "\u003cp\u003eA list of groups.\u003c/p\u003e",
                         "typeExposed": "[Group]",
-                        "type": "[Group]"
+                        "type": "List \"Groups\" Group"
                     },
                     {
                         "location": "querystring",
@@ -11980,8 +11980,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12036,6 +12035,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12125,8 +12125,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12143,13 +12142,14 @@
                 "contentPad": 0,
                 "name": "ListInstanceProfilesResponse",
                 "resultWrapper": "ListInstanceProfilesResult",
+                "locationPad": 17,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12159,7 +12159,7 @@
                         "locationName": "InstanceProfiles",
                         "documentation": "\u003cp\u003eA list of instance profiles.\u003c/p\u003e",
                         "typeExposed": "[InstanceProfile]",
-                        "type": "[InstanceProfile]"
+                        "type": "List \"InstanceProfiles\" InstanceProfile"
                     },
                     {
                         "location": "querystring",
@@ -12195,8 +12195,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12206,7 +12206,7 @@
                         "locationName": "InstanceProfiles",
                         "documentation": "\u003cp\u003eA list of instance profiles.\u003c/p\u003e",
                         "typeExposed": "[InstanceProfile]",
-                        "type": "[InstanceProfile]"
+                        "type": "List \"InstanceProfiles\" InstanceProfile"
                     },
                     {
                         "location": "querystring",
@@ -12263,8 +12263,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12303,6 +12302,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12407,8 +12407,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12425,13 +12424,14 @@
                 "contentPad": 0,
                 "name": "ListInstanceProfilesForRoleResponse",
                 "resultWrapper": "ListInstanceProfilesForRoleResult",
+                "locationPad": 17,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12441,7 +12441,7 @@
                         "locationName": "InstanceProfiles",
                         "documentation": "\u003cp\u003eA list of instance profiles.\u003c/p\u003e",
                         "typeExposed": "[InstanceProfile]",
-                        "type": "[InstanceProfile]"
+                        "type": "List \"InstanceProfiles\" InstanceProfile"
                     },
                     {
                         "location": "querystring",
@@ -12477,8 +12477,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12488,7 +12488,7 @@
                         "locationName": "InstanceProfiles",
                         "documentation": "\u003cp\u003eA list of instance profiles.\u003c/p\u003e",
                         "typeExposed": "[InstanceProfile]",
-                        "type": "[InstanceProfile]"
+                        "type": "List \"InstanceProfiles\" InstanceProfile"
                     },
                     {
                         "location": "querystring",
@@ -12545,8 +12545,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12601,6 +12600,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12690,8 +12690,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12708,13 +12707,14 @@
                 "contentPad": 0,
                 "name": "ListMFADevicesResponse",
                 "resultWrapper": "ListMFADevicesResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12724,7 +12724,7 @@
                         "locationName": "MFADevices",
                         "documentation": "\u003cp\u003eA list of MFA devices.\u003c/p\u003e",
                         "typeExposed": "[MFADevice]",
-                        "type": "[MFADevice]"
+                        "type": "List \"MFADevices\" MFADevice"
                     },
                     {
                         "location": "querystring",
@@ -12775,8 +12775,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12786,7 +12786,7 @@
                         "locationName": "MFADevices",
                         "documentation": "\u003cp\u003eA list of MFA devices.\u003c/p\u003e",
                         "typeExposed": "[MFADevice]",
-                        "type": "[MFADevice]"
+                        "type": "List \"MFADevices\" MFADevice"
                     },
                     {
                         "location": "querystring",
@@ -12828,8 +12828,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12868,6 +12867,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12973,7 +12973,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -12985,8 +12984,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -12996,7 +12995,7 @@
                     "locationName": "OpenIDConnectProviderList",
                     "documentation": "\u003cp\u003eThe list of IAM OpenID Connect providers in the AWS account.\u003c/p\u003e",
                     "typeExposed": "[OpenIDConnectProviderListEntry]",
-                    "type": "[OpenIDConnectProviderListEntry]"
+                    "type": "List \"OpenIDConnectProviderList\" OpenIDConnectProviderListEntry"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -13008,13 +13007,14 @@
                 "contentPad": 0,
                 "name": "ListOpenIDConnectProvidersResponse",
                 "resultWrapper": "ListOpenIDConnectProvidersResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13024,14 +13024,14 @@
                         "locationName": "OpenIDConnectProviderList",
                         "documentation": "\u003cp\u003eThe list of IAM OpenID Connect providers in the AWS account.\u003c/p\u003e",
                         "typeExposed": "[OpenIDConnectProviderListEntry]",
-                        "type": "[OpenIDConnectProviderListEntry]"
+                        "type": "List \"OpenIDConnectProviderList\" OpenIDConnectProviderListEntry"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13041,7 +13041,7 @@
                         "locationName": "OpenIDConnectProviderList",
                         "documentation": "\u003cp\u003eThe list of IAM OpenID Connect providers in the AWS account.\u003c/p\u003e",
                         "typeExposed": "[OpenIDConnectProviderListEntry]",
-                        "type": "[OpenIDConnectProviderListEntry]"
+                        "type": "List \"OpenIDConnectProviderList\" OpenIDConnectProviderListEntry"
                     }
                 ]
             },
@@ -13095,8 +13095,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -13113,13 +13112,14 @@
                 "contentPad": 0,
                 "name": "ListRolePoliciesResponse",
                 "resultWrapper": "ListRolePoliciesResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13129,7 +13129,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003eA list of policy names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13195,8 +13195,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13206,7 +13206,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003eA list of policy names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             },
@@ -13233,8 +13233,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13289,6 +13288,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13378,8 +13378,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -13396,13 +13395,14 @@
                 "contentPad": 0,
                 "name": "ListRolesResponse",
                 "resultWrapper": "ListRolesResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13412,7 +13412,7 @@
                         "locationName": "Roles",
                         "documentation": "\u003cp\u003eA list of roles.\u003c/p\u003e",
                         "typeExposed": "[Role]",
-                        "type": "[Role]"
+                        "type": "List \"Roles\" Role"
                     },
                     {
                         "location": "querystring",
@@ -13478,8 +13478,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13489,7 +13489,7 @@
                         "locationName": "Roles",
                         "documentation": "\u003cp\u003eA list of roles.\u003c/p\u003e",
                         "typeExposed": "[Role]",
-                        "type": "[Role]"
+                        "type": "List \"Roles\" Role"
                     }
                 ]
             },
@@ -13516,8 +13516,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13556,6 +13555,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13661,7 +13661,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -13673,8 +13672,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -13684,7 +13683,7 @@
                     "locationName": "SAMLProviderList",
                     "documentation": "\u003cp\u003eThe list of SAML providers for this account.\u003c/p\u003e",
                     "typeExposed": "[SAMLProviderListEntry]",
-                    "type": "[SAMLProviderListEntry]"
+                    "type": "List \"SAMLProviderList\" SAMLProviderListEntry"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -13696,13 +13695,14 @@
                 "contentPad": 0,
                 "name": "ListSAMLProvidersResponse",
                 "resultWrapper": "ListSAMLProvidersResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13712,14 +13712,14 @@
                         "locationName": "SAMLProviderList",
                         "documentation": "\u003cp\u003eThe list of SAML providers for this account.\u003c/p\u003e",
                         "typeExposed": "[SAMLProviderListEntry]",
-                        "type": "[SAMLProviderListEntry]"
+                        "type": "List \"SAMLProviderList\" SAMLProviderListEntry"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13729,7 +13729,7 @@
                         "locationName": "SAMLProviderList",
                         "documentation": "\u003cp\u003eThe list of SAML providers for this account.\u003c/p\u003e",
                         "typeExposed": "[SAMLProviderListEntry]",
-                        "type": "[SAMLProviderListEntry]"
+                        "type": "List \"SAMLProviderList\" SAMLProviderListEntry"
                     }
                 ]
             },
@@ -13782,8 +13782,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -13800,13 +13799,14 @@
                 "contentPad": 0,
                 "name": "ListServerCertificatesResponse",
                 "resultWrapper": "ListServerCertificatesResult",
+                "locationPad": 30,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13816,7 +13816,7 @@
                         "locationName": "ServerCertificateMetadataList",
                         "documentation": "\u003cp\u003eA list of server certificates.\u003c/p\u003e",
                         "typeExposed": "[ServerCertificateMetadata]",
-                        "type": "[ServerCertificateMetadata]"
+                        "type": "List \"ServerCertificateMetadataList\" ServerCertificateMetadata"
                     },
                     {
                         "location": "querystring",
@@ -13882,8 +13882,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13893,7 +13893,7 @@
                         "locationName": "ServerCertificateMetadataList",
                         "documentation": "\u003cp\u003eA list of server certificates.\u003c/p\u003e",
                         "typeExposed": "[ServerCertificateMetadata]",
-                        "type": "[ServerCertificateMetadata]"
+                        "type": "List \"ServerCertificateMetadataList\" ServerCertificateMetadata"
                     }
                 ]
             },
@@ -13920,8 +13920,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13960,6 +13959,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -14064,8 +14064,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14082,13 +14081,14 @@
                 "contentPad": 0,
                 "name": "ListSigningCertificatesResponse",
                 "resultWrapper": "ListSigningCertificatesResult",
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14098,7 +14098,7 @@
                         "locationName": "Certificates",
                         "documentation": "\u003cp\u003eA list of the user's signing certificate information.\u003c/p\u003e",
                         "typeExposed": "[SigningCertificate]",
-                        "type": "[SigningCertificate]"
+                        "type": "List \"Certificates\" SigningCertificate"
                     },
                     {
                         "location": "querystring",
@@ -14134,8 +14134,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14145,7 +14145,7 @@
                         "locationName": "Certificates",
                         "documentation": "\u003cp\u003eA list of the user's signing certificate information.\u003c/p\u003e",
                         "typeExposed": "[SigningCertificate]",
-                        "type": "[SigningCertificate]"
+                        "type": "List \"Certificates\" SigningCertificate"
                     },
                     {
                         "location": "querystring",
@@ -14202,8 +14202,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -14242,6 +14241,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -14347,8 +14347,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14365,13 +14364,14 @@
                 "contentPad": 0,
                 "name": "ListUserPoliciesResponse",
                 "resultWrapper": "ListUserPoliciesResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14381,7 +14381,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003eA list of policy names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14447,8 +14447,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14458,7 +14458,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003eA list of policy names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             },
@@ -14485,8 +14485,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -14541,6 +14540,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -14630,8 +14630,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14648,13 +14647,14 @@
                 "contentPad": 0,
                 "name": "ListUsersResponse",
                 "resultWrapper": "ListUsersResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14664,7 +14664,7 @@
                         "locationName": "Users",
                         "documentation": "\u003cp\u003eA list of users.\u003c/p\u003e",
                         "typeExposed": "[User]",
-                        "type": "[User]"
+                        "type": "List \"Users\" User"
                     },
                     {
                         "location": "querystring",
@@ -14730,8 +14730,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14741,7 +14741,7 @@
                         "locationName": "Users",
                         "documentation": "\u003cp\u003eA list of users.\u003c/p\u003e",
                         "typeExposed": "[User]",
-                        "type": "[User]"
+                        "type": "List \"Users\" User"
                     }
                 ]
             },
@@ -14768,8 +14768,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -14808,6 +14807,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -14912,8 +14912,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14930,13 +14929,14 @@
                 "contentPad": 0,
                 "name": "ListVirtualMFADevicesResponse",
                 "resultWrapper": "ListVirtualMFADevicesResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14946,7 +14946,7 @@
                         "locationName": "VirtualMFADevices",
                         "documentation": "\u003cp\u003e The list of virtual MFA devices in the current account that match the \u003ccode\u003eAssignmentStatus\u003c/code\u003e value that was passed in the request. \u003c/p\u003e",
                         "typeExposed": "[VirtualMFADevice]",
-                        "type": "[VirtualMFADevice]"
+                        "type": "List \"VirtualMFADevices\" VirtualMFADevice"
                     },
                     {
                         "location": "querystring",
@@ -15012,8 +15012,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15023,7 +15023,7 @@
                         "locationName": "VirtualMFADevices",
                         "documentation": "\u003cp\u003e The list of virtual MFA devices in the current account that match the \u003ccode\u003eAssignmentStatus\u003c/code\u003e value that was passed in the request. \u003c/p\u003e",
                         "typeExposed": "[VirtualMFADevice]",
-                        "type": "[VirtualMFADevice]"
+                        "type": "List \"VirtualMFADevices\" VirtualMFADevice"
                     }
                 ]
             },
@@ -15050,8 +15050,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -15090,6 +15089,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -15231,8 +15231,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -15317,6 +15316,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -15412,8 +15412,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -15498,6 +15497,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -15593,8 +15593,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -15679,6 +15678,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -15774,8 +15774,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -15840,6 +15839,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -15920,8 +15920,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -15986,6 +15985,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -16066,8 +16066,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -16132,6 +16131,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -16212,8 +16212,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -16318,6 +16317,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -16428,8 +16428,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -16499,6 +16498,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -16610,8 +16610,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -16680,6 +16679,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 27,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -17001,8 +17001,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -17067,6 +17066,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -17147,8 +17147,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -17203,6 +17202,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -17329,8 +17329,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -17385,6 +17384,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -17511,8 +17511,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -17562,14 +17561,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -17579,7 +17579,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "\u003cp\u003eA list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see \u003ca\u003eCreateOpenIDConnectProvider\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ThumbprintList\" Text"
                     }
                 ],
                 "fields": [
@@ -17600,8 +17600,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -17611,7 +17611,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "\u003cp\u003eA list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see \u003ca\u003eCreateOpenIDConnectProvider\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ThumbprintList\" Text"
                     }
                 ]
             }
@@ -17623,7 +17623,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -17657,6 +17656,7 @@
                 "contentPad": 0,
                 "name": "UpdateSAMLProviderResponse",
                 "resultWrapper": "UpdateSAMLProviderResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -17710,8 +17710,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -17776,6 +17775,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -17856,8 +17856,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -17912,6 +17911,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -18038,8 +18038,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -18109,6 +18108,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -18220,8 +18220,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -18276,6 +18275,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -18365,8 +18365,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -18399,6 +18398,7 @@
                 "contentPad": 0,
                 "name": "UploadServerCertificateResponse",
                 "resultWrapper": "UploadServerCertificateResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -18452,8 +18452,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -18548,6 +18547,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -18667,8 +18667,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -18717,6 +18716,7 @@
                 "contentPad": 0,
                 "name": "UploadSigningCertificateResponse",
                 "resultWrapper": "UploadSigningCertificateResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -18754,8 +18754,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -18805,6 +18804,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data PutGroupPolicy = PutGroupPolicy
     { _pgpGroupName      :: Text
     , _pgpPolicyDocument :: Text
     , _pgpPolicyName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PutGroupPolicy' constructor.
 --
@@ -97,7 +98,12 @@ putGroupPolicyResponse = PutGroupPolicyResponse
 instance ToPath PutGroupPolicy where
     toPath = const "/"
 
-instance ToQuery PutGroupPolicy
+instance ToQuery PutGroupPolicy where
+    toQuery PutGroupPolicy{..} = mconcat
+        [ "GroupName"      =? _pgpGroupName
+        , "PolicyDocument" =? _pgpPolicyDocument
+        , "PolicyName"     =? _pgpPolicyName
+        ]
 
 instance ToHeaders PutGroupPolicy
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -152,7 +153,7 @@ data StatisticSet = StatisticSet
     , _ssMinimum     :: Double
     , _ssSampleCount :: Double
     , _ssSum         :: Double
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StatisticSet' constructor.
 --
@@ -196,27 +197,33 @@ ssSum = lens _ssSum (\s a -> s { _ssSum = a })
 
 instance FromXML StatisticSet where
     parseXML x = StatisticSet
-            <$> x .@ "Maximum"
-            <*> x .@ "Minimum"
-            <*> x .@ "SampleCount"
-            <*> x .@ "Sum"
+        <$> x .@  "Maximum"
+        <*> x .@  "Minimum"
+        <*> x .@  "SampleCount"
+        <*> x .@  "Sum"
 
-instance ToQuery StatisticSet
+instance ToQuery StatisticSet where
+    toQuery StatisticSet{..} = mconcat
+        [ "Maximum"     =? _ssMaximum
+        , "Minimum"     =? _ssMinimum
+        , "SampleCount" =? _ssSampleCount
+        , "Sum"         =? _ssSum
+        ]
 
 data MetricAlarm = MetricAlarm
     { _maActionsEnabled                     :: Maybe Bool
-    , _maAlarmActions                       :: [Text]
+    , _maAlarmActions                       :: List "OKActions" Text
     , _maAlarmArn                           :: Maybe Text
     , _maAlarmConfigurationUpdatedTimestamp :: Maybe RFC822
     , _maAlarmDescription                   :: Maybe Text
     , _maAlarmName                          :: Maybe Text
     , _maComparisonOperator                 :: Maybe Text
-    , _maDimensions                         :: [Dimension]
+    , _maDimensions                         :: List "Dimensions" Dimension
     , _maEvaluationPeriods                  :: Maybe Nat
-    , _maInsufficientDataActions            :: [Text]
+    , _maInsufficientDataActions            :: List "OKActions" Text
     , _maMetricName                         :: Maybe Text
     , _maNamespace                          :: Maybe Text
-    , _maOKActions                          :: [Text]
+    , _maOKActions                          :: List "OKActions" Text
     , _maPeriod                             :: Maybe Nat
     , _maStateReason                        :: Maybe Text
     , _maStateReasonData                    :: Maybe Text
@@ -225,7 +232,7 @@ data MetricAlarm = MetricAlarm
     , _maStatistic                          :: Maybe Text
     , _maThreshold                          :: Maybe Double
     , _maUnit                               :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'MetricAlarm' constructor.
 --
@@ -308,7 +315,7 @@ maActionsEnabled = lens _maActionsEnabled (\s a -> s { _maActionsEnabled = a })
 -- Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
 maAlarmActions :: Lens' MetricAlarm [Text]
-maAlarmActions = lens _maAlarmActions (\s a -> s { _maAlarmActions = a })
+maAlarmActions = lens _maAlarmActions (\s a -> s { _maAlarmActions = a }) . _List
 
 -- | The Amazon Resource Name (ARN) of the alarm.
 maAlarmArn :: Lens' MetricAlarm (Maybe Text)
@@ -343,7 +350,7 @@ maComparisonOperator =
 
 -- | The list of dimensions associated with the alarm's associated metric.
 maDimensions :: Lens' MetricAlarm [Dimension]
-maDimensions = lens _maDimensions (\s a -> s { _maDimensions = a })
+maDimensions = lens _maDimensions (\s a -> s { _maDimensions = a }) . _List
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
@@ -361,6 +368,7 @@ maInsufficientDataActions :: Lens' MetricAlarm [Text]
 maInsufficientDataActions =
     lens _maInsufficientDataActions
         (\s a -> s { _maInsufficientDataActions = a })
+            . _List
 
 -- | The name of the alarm's metric.
 maMetricName :: Lens' MetricAlarm (Maybe Text)
@@ -375,12 +383,11 @@ maNamespace = lens _maNamespace (\s a -> s { _maNamespace = a })
 -- Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
 maOKActions :: Lens' MetricAlarm [Text]
-maOKActions = lens _maOKActions (\s a -> s { _maOKActions = a })
+maOKActions = lens _maOKActions (\s a -> s { _maOKActions = a }) . _List
 
 -- | The period in seconds over which the statistic is applied.
 maPeriod :: Lens' MetricAlarm (Maybe Natural)
-maPeriod = lens _maPeriod (\s a -> s { _maPeriod = a })
-    . mapping _Nat
+maPeriod = lens _maPeriod (\s a -> s { _maPeriod = a }) . mapping _Nat
 
 -- | A human-readable explanation for the alarm's state.
 maStateReason :: Lens' MetricAlarm (Maybe Text)
@@ -419,29 +426,52 @@ maUnit = lens _maUnit (\s a -> s { _maUnit = a })
 
 instance FromXML MetricAlarm where
     parseXML x = MetricAlarm
-            <$> x .@? "ActionsEnabled"
-            <*> x .@ "AlarmActions"
-            <*> x .@? "AlarmArn"
-            <*> x .@? "AlarmConfigurationUpdatedTimestamp"
-            <*> x .@? "AlarmDescription"
-            <*> x .@? "AlarmName"
-            <*> x .@? "ComparisonOperator"
-            <*> x .@ "Dimensions"
-            <*> x .@? "EvaluationPeriods"
-            <*> x .@ "InsufficientDataActions"
-            <*> x .@? "MetricName"
-            <*> x .@? "Namespace"
-            <*> x .@ "OKActions"
-            <*> x .@? "Period"
-            <*> x .@? "StateReason"
-            <*> x .@? "StateReasonData"
-            <*> x .@? "StateUpdatedTimestamp"
-            <*> x .@? "StateValue"
-            <*> x .@? "Statistic"
-            <*> x .@? "Threshold"
-            <*> x .@? "Unit"
+        <$> x .@? "ActionsEnabled"
+        <*> x .@  "AlarmActions"
+        <*> x .@? "AlarmArn"
+        <*> x .@? "AlarmConfigurationUpdatedTimestamp"
+        <*> x .@? "AlarmDescription"
+        <*> x .@? "AlarmName"
+        <*> x .@? "ComparisonOperator"
+        <*> x .@  "Dimensions"
+        <*> x .@? "EvaluationPeriods"
+        <*> x .@  "InsufficientDataActions"
+        <*> x .@? "MetricName"
+        <*> x .@? "Namespace"
+        <*> x .@  "OKActions"
+        <*> x .@? "Period"
+        <*> x .@? "StateReason"
+        <*> x .@? "StateReasonData"
+        <*> x .@? "StateUpdatedTimestamp"
+        <*> x .@? "StateValue"
+        <*> x .@? "Statistic"
+        <*> x .@? "Threshold"
+        <*> x .@? "Unit"
 
-instance ToQuery MetricAlarm
+instance ToQuery MetricAlarm where
+    toQuery MetricAlarm{..} = mconcat
+        [ "ActionsEnabled"                     =? _maActionsEnabled
+        , "AlarmActions"                       =? _maAlarmActions
+        , "AlarmArn"                           =? _maAlarmArn
+        , "AlarmConfigurationUpdatedTimestamp" =? _maAlarmConfigurationUpdatedTimestamp
+        , "AlarmDescription"                   =? _maAlarmDescription
+        , "AlarmName"                          =? _maAlarmName
+        , "ComparisonOperator"                 =? _maComparisonOperator
+        , "Dimensions"                         =? _maDimensions
+        , "EvaluationPeriods"                  =? _maEvaluationPeriods
+        , "InsufficientDataActions"            =? _maInsufficientDataActions
+        , "MetricName"                         =? _maMetricName
+        , "Namespace"                          =? _maNamespace
+        , "OKActions"                          =? _maOKActions
+        , "Period"                             =? _maPeriod
+        , "StateReason"                        =? _maStateReason
+        , "StateReasonData"                    =? _maStateReasonData
+        , "StateUpdatedTimestamp"              =? _maStateUpdatedTimestamp
+        , "StateValue"                         =? _maStateValue
+        , "Statistic"                          =? _maStatistic
+        , "Threshold"                          =? _maThreshold
+        , "Unit"                               =? _maUnit
+        ]
 
 data HistoryItemType
     = Action              -- ^ Action
@@ -465,16 +495,17 @@ instance ToText HistoryItemType where
 instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
 
-instance ToQuery HistoryItemType
+instance ToQuery HistoryItemType where
+    toQuery HistoryItemType = toQuery . toText
 
 data MetricDatum = MetricDatum
-    { _mdDimensions      :: [Dimension]
+    { _mdDimensions      :: List "Dimensions" Dimension
     , _mdMetricName      :: Text
     , _mdStatisticValues :: Maybe StatisticSet
     , _mdTimestamp       :: Maybe RFC822
     , _mdUnit            :: Maybe Text
     , _mdValue           :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'MetricDatum' constructor.
 --
@@ -507,7 +538,7 @@ metricDatum p1 = MetricDatum
 -- Dimensions value in a query, you need to append .member.N to it (e.g.,
 -- Dimensions.member.N).
 mdDimensions :: Lens' MetricDatum [Dimension]
-mdDimensions = lens _mdDimensions (\s a -> s { _mdDimensions = a })
+mdDimensions = lens _mdDimensions (\s a -> s { _mdDimensions = a }) . _List
 
 -- | The name of the metric.
 mdMetricName :: Lens' MetricDatum Text
@@ -524,8 +555,7 @@ mdStatisticValues =
 -- accommodate seasonal adjustments such as daylight savings time. For more
 -- information, see Time stamps in the Amazon CloudWatch Developer Guide.
 mdTimestamp :: Lens' MetricDatum (Maybe UTCTime)
-mdTimestamp = lens _mdTimestamp (\s a -> s { _mdTimestamp = a })
-    . mapping _Time
+mdTimestamp = lens _mdTimestamp (\s a -> s { _mdTimestamp = a }) . mapping _Time
 
 -- | The unit of the metric.
 mdUnit :: Lens' MetricDatum (Maybe Text)
@@ -541,14 +571,22 @@ mdValue = lens _mdValue (\s a -> s { _mdValue = a })
 
 instance FromXML MetricDatum where
     parseXML x = MetricDatum
-            <$> x .@ "Dimensions"
-            <*> x .@ "MetricName"
-            <*> x .@? "StatisticValues"
-            <*> x .@? "Timestamp"
-            <*> x .@? "Unit"
-            <*> x .@? "Value"
+        <$> x .@  "Dimensions"
+        <*> x .@  "MetricName"
+        <*> x .@? "StatisticValues"
+        <*> x .@? "Timestamp"
+        <*> x .@? "Unit"
+        <*> x .@? "Value"
 
-instance ToQuery MetricDatum
+instance ToQuery MetricDatum where
+    toQuery MetricDatum{..} = mconcat
+        [ "Dimensions"      =? _mdDimensions
+        , "MetricName"      =? _mdMetricName
+        , "StatisticValues" =? _mdStatisticValues
+        , "Timestamp"       =? _mdTimestamp
+        , "Unit"            =? _mdUnit
+        , "Value"           =? _mdValue
+        ]
 
 data StandardUnit
     = Bits            -- ^ Bits
@@ -644,12 +682,13 @@ instance ToText StandardUnit where
 instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
 
-instance ToQuery StandardUnit
+instance ToQuery StandardUnit where
+    toQuery StandardUnit = toQuery . toText
 
 data Dimension = Dimension
     { _dName  :: Text
     , _dValue :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Dimension' constructor.
 --
@@ -677,10 +716,14 @@ dValue = lens _dValue (\s a -> s { _dValue = a })
 
 instance FromXML Dimension where
     parseXML x = Dimension
-            <$> x .@ "Name"
-            <*> x .@ "Value"
+        <$> x .@  "Name"
+        <*> x .@  "Value"
 
-instance ToQuery Dimension
+instance ToQuery Dimension where
+    toQuery Dimension{..} = mconcat
+        [ "Name"  =? _dName
+        , "Value" =? _dValue
+        ]
 
 data ComparisonOperator
     = GreaterThanOrEqualToThreshold -- ^ GreaterThanOrEqualToThreshold
@@ -707,7 +750,8 @@ instance ToText ComparisonOperator where
 instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
 
-instance ToQuery ComparisonOperator
+instance ToQuery ComparisonOperator where
+    toQuery ComparisonOperator = toQuery . toText
 
 data AlarmHistoryItem = AlarmHistoryItem
     { _ahiAlarmName       :: Maybe Text
@@ -715,7 +759,7 @@ data AlarmHistoryItem = AlarmHistoryItem
     , _ahiHistoryItemType :: Maybe Text
     , _ahiHistorySummary  :: Maybe Text
     , _ahiTimestamp       :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AlarmHistoryItem' constructor.
 --
@@ -763,24 +807,30 @@ ahiHistorySummary =
 -- accommodate seasonal adjustments such as daylight savings time. For more
 -- information, see Time stamps in the Amazon CloudWatch Developer Guide.
 ahiTimestamp :: Lens' AlarmHistoryItem (Maybe UTCTime)
-ahiTimestamp = lens _ahiTimestamp (\s a -> s { _ahiTimestamp = a })
-    . mapping _Time
+ahiTimestamp = lens _ahiTimestamp (\s a -> s { _ahiTimestamp = a }) . mapping _Time
 
 instance FromXML AlarmHistoryItem where
     parseXML x = AlarmHistoryItem
-            <$> x .@? "AlarmName"
-            <*> x .@? "HistoryData"
-            <*> x .@? "HistoryItemType"
-            <*> x .@? "HistorySummary"
-            <*> x .@? "Timestamp"
+        <$> x .@? "AlarmName"
+        <*> x .@? "HistoryData"
+        <*> x .@? "HistoryItemType"
+        <*> x .@? "HistorySummary"
+        <*> x .@? "Timestamp"
 
-instance ToQuery AlarmHistoryItem
+instance ToQuery AlarmHistoryItem where
+    toQuery AlarmHistoryItem{..} = mconcat
+        [ "AlarmName"       =? _ahiAlarmName
+        , "HistoryData"     =? _ahiHistoryData
+        , "HistoryItemType" =? _ahiHistoryItemType
+        , "HistorySummary"  =? _ahiHistorySummary
+        , "Timestamp"       =? _ahiTimestamp
+        ]
 
 data Metric = Metric
-    { _mDimensions :: [Dimension]
+    { _mDimensions :: List "Dimensions" Dimension
     , _mMetricName :: Maybe Text
     , _mNamespace  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Metric' constructor.
 --
@@ -801,7 +851,7 @@ metric = Metric
 
 -- | A list of dimensions associated with the metric.
 mDimensions :: Lens' Metric [Dimension]
-mDimensions = lens _mDimensions (\s a -> s { _mDimensions = a })
+mDimensions = lens _mDimensions (\s a -> s { _mDimensions = a }) . _List
 
 -- | The name of the metric.
 mMetricName :: Lens' Metric (Maybe Text)
@@ -813,11 +863,16 @@ mNamespace = lens _mNamespace (\s a -> s { _mNamespace = a })
 
 instance FromXML Metric where
     parseXML x = Metric
-            <$> x .@ "Dimensions"
-            <*> x .@? "MetricName"
-            <*> x .@? "Namespace"
+        <$> x .@  "Dimensions"
+        <*> x .@? "MetricName"
+        <*> x .@? "Namespace"
 
-instance ToQuery Metric
+instance ToQuery Metric where
+    toQuery Metric{..} = mconcat
+        [ "Dimensions" =? _mDimensions
+        , "MetricName" =? _mMetricName
+        , "Namespace"  =? _mNamespace
+        ]
 
 data StateValue
     = Alarm            -- ^ ALARM
@@ -841,7 +896,8 @@ instance ToText StateValue where
 instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
 
-instance ToQuery StateValue
+instance ToQuery StateValue where
+    toQuery StateValue = toQuery . toText
 
 data Datapoint = Datapoint
     { _dAverage     :: Maybe Double
@@ -851,7 +907,7 @@ data Datapoint = Datapoint
     , _dSum         :: Maybe Double
     , _dTimestamp   :: Maybe RFC822
     , _dUnit        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Datapoint' constructor.
 --
@@ -908,8 +964,7 @@ dSum = lens _dSum (\s a -> s { _dSum = a })
 -- seasonal adjustments such as daylight savings time. For more information,
 -- see Time stamps in the Amazon CloudWatch Developer Guide.
 dTimestamp :: Lens' Datapoint (Maybe UTCTime)
-dTimestamp = lens _dTimestamp (\s a -> s { _dTimestamp = a })
-    . mapping _Time
+dTimestamp = lens _dTimestamp (\s a -> s { _dTimestamp = a }) . mapping _Time
 
 -- | The standard unit used for the datapoint.
 dUnit :: Lens' Datapoint (Maybe Text)
@@ -917,20 +972,29 @@ dUnit = lens _dUnit (\s a -> s { _dUnit = a })
 
 instance FromXML Datapoint where
     parseXML x = Datapoint
-            <$> x .@? "Average"
-            <*> x .@? "Maximum"
-            <*> x .@? "Minimum"
-            <*> x .@? "SampleCount"
-            <*> x .@? "Sum"
-            <*> x .@? "Timestamp"
-            <*> x .@? "Unit"
+        <$> x .@? "Average"
+        <*> x .@? "Maximum"
+        <*> x .@? "Minimum"
+        <*> x .@? "SampleCount"
+        <*> x .@? "Sum"
+        <*> x .@? "Timestamp"
+        <*> x .@? "Unit"
 
-instance ToQuery Datapoint
+instance ToQuery Datapoint where
+    toQuery Datapoint{..} = mconcat
+        [ "Average"     =? _dAverage
+        , "Maximum"     =? _dMaximum
+        , "Minimum"     =? _dMinimum
+        , "SampleCount" =? _dSampleCount
+        , "Sum"         =? _dSum
+        , "Timestamp"   =? _dTimestamp
+        , "Unit"        =? _dUnit
+        ]
 
 data DimensionFilter = DimensionFilter
     { _dfName  :: Text
     , _dfValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DimensionFilter' constructor.
 --
@@ -957,10 +1021,14 @@ dfValue = lens _dfValue (\s a -> s { _dfValue = a })
 
 instance FromXML DimensionFilter where
     parseXML x = DimensionFilter
-            <$> x .@ "Name"
-            <*> x .@? "Value"
+        <$> x .@  "Name"
+        <*> x .@? "Value"
 
-instance ToQuery DimensionFilter
+instance ToQuery DimensionFilter where
+    toQuery DimensionFilter{..} = mconcat
+        [ "Name"  =? _dfName
+        , "Value" =? _dfValue
+        ]
 
 data Statistic
     = Average     -- ^ Average
@@ -990,4 +1058,5 @@ instance ToText Statistic where
 instance FromXML Statistic where
     parseXML = parseXMLText "Statistic"
 
-instance ToQuery Statistic
+instance ToQuery Statistic where
+    toQuery Statistic = toQuery . toText

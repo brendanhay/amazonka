@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import Network.AWS.Config.Types
 import qualified GHC.Exts
 
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus
-    { _dcrsConfigurationRecorderNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dcrsConfigurationRecorderNames :: List "ConfigurationRecorderNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConfigurationRecorderStatus where
     type Item DescribeConfigurationRecorderStatus = Text
@@ -74,10 +75,11 @@ dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Tex
 dcrsConfigurationRecorderNames =
     lens _dcrsConfigurationRecorderNames
         (\s a -> s { _dcrsConfigurationRecorderNames = a })
+            . _List
 
 newtype DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse
-    { _dcrsrConfigurationRecordersStatus :: [ConfigurationRecorderStatus]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dcrsrConfigurationRecordersStatus :: List "ConfigurationRecordersStatus" ConfigurationRecorderStatus
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConfigurationRecorderStatusResponse where
     type Item DescribeConfigurationRecorderStatusResponse = ConfigurationRecorderStatus
@@ -101,6 +103,7 @@ dcrsrConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusRe
 dcrsrConfigurationRecordersStatus =
     lens _dcrsrConfigurationRecordersStatus
         (\s a -> s { _dcrsrConfigurationRecordersStatus = a })
+            . _List
 
 instance ToPath DescribeConfigurationRecorderStatus where
     toPath = const "/"
@@ -124,4 +127,4 @@ instance AWSRequest DescribeConfigurationRecorderStatus where
 
 instance FromJSON DescribeConfigurationRecorderStatusResponse where
     parseJSON = withObject "DescribeConfigurationRecorderStatusResponse" $ \o -> DescribeConfigurationRecorderStatusResponse
-        <$> o .: "ConfigurationRecordersStatus"
+        <$> o .:  "ConfigurationRecordersStatus"

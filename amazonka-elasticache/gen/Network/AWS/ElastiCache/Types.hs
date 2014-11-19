@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -350,7 +351,7 @@ data NodeSnapshot = NodeSnapshot
     , _nsCacheNodeId         :: Maybe Text
     , _nsCacheSize           :: Maybe Text
     , _nsSnapshotCreateTime  :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'NodeSnapshot' constructor.
 --
@@ -396,12 +397,18 @@ nsSnapshotCreateTime =
 
 instance FromXML NodeSnapshot where
     parseXML x = NodeSnapshot
-            <$> x .@? "CacheNodeCreateTime"
-            <*> x .@? "CacheNodeId"
-            <*> x .@? "CacheSize"
-            <*> x .@? "SnapshotCreateTime"
+        <$> x .@? "CacheNodeCreateTime"
+        <*> x .@? "CacheNodeId"
+        <*> x .@? "CacheSize"
+        <*> x .@? "SnapshotCreateTime"
 
-instance ToQuery NodeSnapshot
+instance ToQuery NodeSnapshot where
+    toQuery NodeSnapshot{..} = mconcat
+        [ "CacheNodeCreateTime" =? _nsCacheNodeCreateTime
+        , "CacheNodeId"         =? _nsCacheNodeId
+        , "CacheSize"           =? _nsCacheSize
+        , "SnapshotCreateTime"  =? _nsSnapshotCreateTime
+        ]
 
 data Snapshot = Snapshot
     { _sAutoMinorVersionUpgrade    :: Maybe Bool
@@ -412,7 +419,7 @@ data Snapshot = Snapshot
     , _sCacheSubnetGroupName       :: Maybe Text
     , _sEngine                     :: Maybe Text
     , _sEngineVersion              :: Maybe Text
-    , _sNodeSnapshots              :: [NodeSnapshot]
+    , _sNodeSnapshots              :: List "NodeSnapshot" NodeSnapshot
     , _sNumCacheNodes              :: Maybe Int
     , _sPort                       :: Maybe Int
     , _sPreferredAvailabilityZone  :: Maybe Text
@@ -424,7 +431,7 @@ data Snapshot = Snapshot
     , _sSnapshotWindow             :: Maybe Text
     , _sTopicArn                   :: Maybe Text
     , _sVpcId                      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Snapshot' constructor.
 --
@@ -541,7 +548,7 @@ sEngineVersion = lens _sEngineVersion (\s a -> s { _sEngineVersion = a })
 
 -- | A list of the cache nodes in the source cache cluster.
 sNodeSnapshots :: Lens' Snapshot [NodeSnapshot]
-sNodeSnapshots = lens _sNodeSnapshots (\s a -> s { _sNodeSnapshots = a })
+sNodeSnapshots = lens _sNodeSnapshots (\s a -> s { _sNodeSnapshots = a }) . _List
 
 -- | The number of cache nodes in the source cache cluster.
 sNumCacheNodes :: Lens' Snapshot (Maybe Int)
@@ -608,35 +615,57 @@ sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 
 instance FromXML Snapshot where
     parseXML x = Snapshot
-            <$> x .@? "AutoMinorVersionUpgrade"
-            <*> x .@? "CacheClusterCreateTime"
-            <*> x .@? "CacheClusterId"
-            <*> x .@? "CacheNodeType"
-            <*> x .@? "CacheParameterGroupName"
-            <*> x .@? "CacheSubnetGroupName"
-            <*> x .@? "Engine"
-            <*> x .@? "EngineVersion"
-            <*> x .@ "NodeSnapshots"
-            <*> x .@? "NumCacheNodes"
-            <*> x .@? "Port"
-            <*> x .@? "PreferredAvailabilityZone"
-            <*> x .@? "PreferredMaintenanceWindow"
-            <*> x .@? "SnapshotName"
-            <*> x .@? "SnapshotRetentionLimit"
-            <*> x .@? "SnapshotSource"
-            <*> x .@? "SnapshotStatus"
-            <*> x .@? "SnapshotWindow"
-            <*> x .@? "TopicArn"
-            <*> x .@? "VpcId"
+        <$> x .@? "AutoMinorVersionUpgrade"
+        <*> x .@? "CacheClusterCreateTime"
+        <*> x .@? "CacheClusterId"
+        <*> x .@? "CacheNodeType"
+        <*> x .@? "CacheParameterGroupName"
+        <*> x .@? "CacheSubnetGroupName"
+        <*> x .@? "Engine"
+        <*> x .@? "EngineVersion"
+        <*> x .@  "NodeSnapshots"
+        <*> x .@? "NumCacheNodes"
+        <*> x .@? "Port"
+        <*> x .@? "PreferredAvailabilityZone"
+        <*> x .@? "PreferredMaintenanceWindow"
+        <*> x .@? "SnapshotName"
+        <*> x .@? "SnapshotRetentionLimit"
+        <*> x .@? "SnapshotSource"
+        <*> x .@? "SnapshotStatus"
+        <*> x .@? "SnapshotWindow"
+        <*> x .@? "TopicArn"
+        <*> x .@? "VpcId"
 
-instance ToQuery Snapshot
+instance ToQuery Snapshot where
+    toQuery Snapshot{..} = mconcat
+        [ "AutoMinorVersionUpgrade"    =? _sAutoMinorVersionUpgrade
+        , "CacheClusterCreateTime"     =? _sCacheClusterCreateTime
+        , "CacheClusterId"             =? _sCacheClusterId
+        , "CacheNodeType"              =? _sCacheNodeType
+        , "CacheParameterGroupName"    =? _sCacheParameterGroupName
+        , "CacheSubnetGroupName"       =? _sCacheSubnetGroupName
+        , "Engine"                     =? _sEngine
+        , "EngineVersion"              =? _sEngineVersion
+        , "NodeSnapshots"              =? _sNodeSnapshots
+        , "NumCacheNodes"              =? _sNumCacheNodes
+        , "Port"                       =? _sPort
+        , "PreferredAvailabilityZone"  =? _sPreferredAvailabilityZone
+        , "PreferredMaintenanceWindow" =? _sPreferredMaintenanceWindow
+        , "SnapshotName"               =? _sSnapshotName
+        , "SnapshotRetentionLimit"     =? _sSnapshotRetentionLimit
+        , "SnapshotSource"             =? _sSnapshotSource
+        , "SnapshotStatus"             =? _sSnapshotStatus
+        , "SnapshotWindow"             =? _sSnapshotWindow
+        , "TopicArn"                   =? _sTopicArn
+        , "VpcId"                      =? _sVpcId
+        ]
 
 data Event = Event
     { _eDate             :: Maybe RFC822
     , _eMessage          :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
     , _eSourceType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Event' constructor.
 --
@@ -660,8 +689,7 @@ event = Event
 
 -- | The date and time when the event occurred.
 eDate :: Lens' Event (Maybe UTCTime)
-eDate = lens _eDate (\s a -> s { _eDate = a })
-    . mapping _Time
+eDate = lens _eDate (\s a -> s { _eDate = a }) . mapping _Time
 
 -- | The text of the event.
 eMessage :: Lens' Event (Maybe Text)
@@ -681,19 +709,25 @@ eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where
     parseXML x = Event
-            <$> x .@? "Date"
-            <*> x .@? "Message"
-            <*> x .@? "SourceIdentifier"
-            <*> x .@? "SourceType"
+        <$> x .@? "Date"
+        <*> x .@? "Message"
+        <*> x .@? "SourceIdentifier"
+        <*> x .@? "SourceType"
 
-instance ToQuery Event
+instance ToQuery Event where
+    toQuery Event{..} = mconcat
+        [ "Date"             =? _eDate
+        , "Message"          =? _eMessage
+        , "SourceIdentifier" =? _eSourceIdentifier
+        , "SourceType"       =? _eSourceType
+        ]
 
 data NodeGroup = NodeGroup
     { _ngNodeGroupId      :: Maybe Text
-    , _ngNodeGroupMembers :: [NodeGroupMember]
+    , _ngNodeGroupMembers :: List "NodeGroupMember" NodeGroupMember
     , _ngPrimaryEndpoint  :: Maybe Endpoint
     , _ngStatus           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'NodeGroup' constructor.
 --
@@ -725,6 +759,7 @@ ngNodeGroupId = lens _ngNodeGroupId (\s a -> s { _ngNodeGroupId = a })
 ngNodeGroupMembers :: Lens' NodeGroup [NodeGroupMember]
 ngNodeGroupMembers =
     lens _ngNodeGroupMembers (\s a -> s { _ngNodeGroupMembers = a })
+        . _List
 
 ngPrimaryEndpoint :: Lens' NodeGroup (Maybe Endpoint)
 ngPrimaryEndpoint =
@@ -736,17 +771,23 @@ ngStatus = lens _ngStatus (\s a -> s { _ngStatus = a })
 
 instance FromXML NodeGroup where
     parseXML x = NodeGroup
-            <$> x .@? "NodeGroupId"
-            <*> x .@ "NodeGroupMembers"
-            <*> x .@? "PrimaryEndpoint"
-            <*> x .@? "Status"
+        <$> x .@? "NodeGroupId"
+        <*> x .@  "NodeGroupMembers"
+        <*> x .@? "PrimaryEndpoint"
+        <*> x .@? "Status"
 
-instance ToQuery NodeGroup
+instance ToQuery NodeGroup where
+    toQuery NodeGroup{..} = mconcat
+        [ "NodeGroupId"      =? _ngNodeGroupId
+        , "NodeGroupMembers" =? _ngNodeGroupMembers
+        , "PrimaryEndpoint"  =? _ngPrimaryEndpoint
+        , "Status"           =? _ngStatus
+        ]
 
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
     { _cntsvCacheNodeType :: Maybe Text
     , _cntsvValue         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CacheNodeTypeSpecificValue' constructor.
 --
@@ -773,10 +814,14 @@ cntsvValue = lens _cntsvValue (\s a -> s { _cntsvValue = a })
 
 instance FromXML CacheNodeTypeSpecificValue where
     parseXML x = CacheNodeTypeSpecificValue
-            <$> x .@? "CacheNodeType"
-            <*> x .@? "Value"
+        <$> x .@? "CacheNodeType"
+        <*> x .@? "Value"
 
-instance ToQuery CacheNodeTypeSpecificValue
+instance ToQuery CacheNodeTypeSpecificValue where
+    toQuery CacheNodeTypeSpecificValue{..} = mconcat
+        [ "CacheNodeType" =? _cntsvCacheNodeType
+        , "Value"         =? _cntsvValue
+        ]
 
 data PendingAutomaticFailoverStatus
     = Disabled -- ^ disabled
@@ -797,12 +842,13 @@ instance ToText PendingAutomaticFailoverStatus where
 instance FromXML PendingAutomaticFailoverStatus where
     parseXML = parseXMLText "PendingAutomaticFailoverStatus"
 
-instance ToQuery PendingAutomaticFailoverStatus
+instance ToQuery PendingAutomaticFailoverStatus where
+    toQuery PendingAutomaticFailoverStatus = toQuery . toText
 
 data NotificationConfiguration = NotificationConfiguration
     { _ncTopicArn    :: Maybe Text
     , _ncTopicStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -828,15 +874,19 @@ ncTopicStatus = lens _ncTopicStatus (\s a -> s { _ncTopicStatus = a })
 
 instance FromXML NotificationConfiguration where
     parseXML x = NotificationConfiguration
-            <$> x .@? "TopicArn"
-            <*> x .@? "TopicStatus"
+        <$> x .@? "TopicArn"
+        <*> x .@? "TopicStatus"
 
-instance ToQuery NotificationConfiguration
+instance ToQuery NotificationConfiguration where
+    toQuery NotificationConfiguration{..} = mconcat
+        [ "TopicArn"    =? _ncTopicArn
+        , "TopicStatus" =? _ncTopicStatus
+        ]
 
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
     { _rgpmvAutomaticFailoverStatus :: Maybe Text
     , _rgpmvPrimaryClusterId        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ReplicationGroupPendingModifiedValues' constructor.
 --
@@ -867,16 +917,20 @@ rgpmvPrimaryClusterId =
 
 instance FromXML ReplicationGroupPendingModifiedValues where
     parseXML x = ReplicationGroupPendingModifiedValues
-            <$> x .@? "AutomaticFailoverStatus"
-            <*> x .@? "PrimaryClusterId"
+        <$> x .@? "AutomaticFailoverStatus"
+        <*> x .@? "PrimaryClusterId"
 
-instance ToQuery ReplicationGroupPendingModifiedValues
+instance ToQuery ReplicationGroupPendingModifiedValues where
+    toQuery ReplicationGroupPendingModifiedValues{..} = mconcat
+        [ "AutomaticFailoverStatus" =? _rgpmvAutomaticFailoverStatus
+        , "PrimaryClusterId"        =? _rgpmvPrimaryClusterId
+        ]
 
 data EC2SecurityGroup = EC2SecurityGroup
     { _ecsgEC2SecurityGroupName    :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
     , _ecsgStatus                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EC2SecurityGroup' constructor.
 --
@@ -913,16 +967,21 @@ ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
 instance FromXML EC2SecurityGroup where
     parseXML x = EC2SecurityGroup
-            <$> x .@? "EC2SecurityGroupName"
-            <*> x .@? "EC2SecurityGroupOwnerId"
-            <*> x .@? "Status"
+        <$> x .@? "EC2SecurityGroupName"
+        <*> x .@? "EC2SecurityGroupOwnerId"
+        <*> x .@? "Status"
 
-instance ToQuery EC2SecurityGroup
+instance ToQuery EC2SecurityGroup where
+    toQuery EC2SecurityGroup{..} = mconcat
+        [ "EC2SecurityGroupName"    =? _ecsgEC2SecurityGroupName
+        , "EC2SecurityGroupOwnerId" =? _ecsgEC2SecurityGroupOwnerId
+        , "Status"                  =? _ecsgStatus
+        ]
 
 data ParameterNameValue = ParameterNameValue
     { _pnvParameterName  :: Maybe Text
     , _pnvParameterValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ParameterNameValue' constructor.
 --
@@ -949,10 +1008,14 @@ pnvParameterValue =
 
 instance FromXML ParameterNameValue where
     parseXML x = ParameterNameValue
-            <$> x .@? "ParameterName"
-            <*> x .@? "ParameterValue"
+        <$> x .@? "ParameterName"
+        <*> x .@? "ParameterValue"
 
-instance ToQuery ParameterNameValue
+instance ToQuery ParameterNameValue where
+    toQuery ParameterNameValue{..} = mconcat
+        [ "ParameterName"  =? _pnvParameterName
+        , "ParameterValue" =? _pnvParameterValue
+        ]
 
 data SourceType
     = STCacheCluster        -- ^ cache-cluster
@@ -979,14 +1042,15 @@ instance ToText SourceType where
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
 
-instance ToQuery SourceType
+instance ToQuery SourceType where
+    toQuery SourceType = toQuery . toText
 
 data CacheSubnetGroup = CacheSubnetGroup
     { _csgCacheSubnetGroupDescription :: Maybe Text
     , _csgCacheSubnetGroupName        :: Maybe Text
-    , _csgSubnets                     :: [Subnet]
+    , _csgSubnets                     :: List "Subnet" Subnet
     , _csgVpcId                       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CacheSubnetGroup' constructor.
 --
@@ -1021,7 +1085,7 @@ csgCacheSubnetGroupName =
 
 -- | A list of subnets associated with the cache subnet group.
 csgSubnets :: Lens' CacheSubnetGroup [Subnet]
-csgSubnets = lens _csgSubnets (\s a -> s { _csgSubnets = a })
+csgSubnets = lens _csgSubnets (\s a -> s { _csgSubnets = a }) . _List
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
@@ -1030,12 +1094,18 @@ csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 
 instance FromXML CacheSubnetGroup where
     parseXML x = CacheSubnetGroup
-            <$> x .@? "CacheSubnetGroupDescription"
-            <*> x .@? "CacheSubnetGroupName"
-            <*> x .@ "Subnets"
-            <*> x .@? "VpcId"
+        <$> x .@? "CacheSubnetGroupDescription"
+        <*> x .@? "CacheSubnetGroupName"
+        <*> x .@  "Subnets"
+        <*> x .@? "VpcId"
 
-instance ToQuery CacheSubnetGroup
+instance ToQuery CacheSubnetGroup where
+    toQuery CacheSubnetGroup{..} = mconcat
+        [ "CacheSubnetGroupDescription" =? _csgCacheSubnetGroupDescription
+        , "CacheSubnetGroupName"        =? _csgCacheSubnetGroupName
+        , "Subnets"                     =? _csgSubnets
+        , "VpcId"                       =? _csgVpcId
+        ]
 
 data ReservedCacheNode = ReservedCacheNode
     { _rcnCacheNodeCount               :: Maybe Int
@@ -1044,13 +1114,13 @@ data ReservedCacheNode = ReservedCacheNode
     , _rcnFixedPrice                   :: Maybe Double
     , _rcnOfferingType                 :: Maybe Text
     , _rcnProductDescription           :: Maybe Text
-    , _rcnRecurringCharges             :: [RecurringCharge]
+    , _rcnRecurringCharges             :: List "RecurringCharge" RecurringCharge
     , _rcnReservedCacheNodeId          :: Maybe Text
     , _rcnReservedCacheNodesOfferingId :: Maybe Text
     , _rcnStartTime                    :: Maybe RFC822
     , _rcnState                        :: Maybe Text
     , _rcnUsagePrice                   :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReservedCacheNode' constructor.
 --
@@ -1126,6 +1196,7 @@ rcnProductDescription =
 rcnRecurringCharges :: Lens' ReservedCacheNode [RecurringCharge]
 rcnRecurringCharges =
     lens _rcnRecurringCharges (\s a -> s { _rcnRecurringCharges = a })
+        . _List
 
 -- | The unique identifier for the reservation.
 rcnReservedCacheNodeId :: Lens' ReservedCacheNode (Maybe Text)
@@ -1140,8 +1211,7 @@ rcnReservedCacheNodesOfferingId =
 
 -- | The time the reservation started.
 rcnStartTime :: Lens' ReservedCacheNode (Maybe UTCTime)
-rcnStartTime = lens _rcnStartTime (\s a -> s { _rcnStartTime = a })
-    . mapping _Time
+rcnStartTime = lens _rcnStartTime (\s a -> s { _rcnStartTime = a }) . mapping _Time
 
 -- | The state of the reserved cache node.
 rcnState :: Lens' ReservedCacheNode (Maybe Text)
@@ -1153,25 +1223,39 @@ rcnUsagePrice = lens _rcnUsagePrice (\s a -> s { _rcnUsagePrice = a })
 
 instance FromXML ReservedCacheNode where
     parseXML x = ReservedCacheNode
-            <$> x .@? "CacheNodeCount"
-            <*> x .@? "CacheNodeType"
-            <*> x .@? "Duration"
-            <*> x .@? "FixedPrice"
-            <*> x .@? "OfferingType"
-            <*> x .@? "ProductDescription"
-            <*> x .@ "RecurringCharges"
-            <*> x .@? "ReservedCacheNodeId"
-            <*> x .@? "ReservedCacheNodesOfferingId"
-            <*> x .@? "StartTime"
-            <*> x .@? "State"
-            <*> x .@? "UsagePrice"
+        <$> x .@? "CacheNodeCount"
+        <*> x .@? "CacheNodeType"
+        <*> x .@? "Duration"
+        <*> x .@? "FixedPrice"
+        <*> x .@? "OfferingType"
+        <*> x .@? "ProductDescription"
+        <*> x .@  "RecurringCharges"
+        <*> x .@? "ReservedCacheNodeId"
+        <*> x .@? "ReservedCacheNodesOfferingId"
+        <*> x .@? "StartTime"
+        <*> x .@? "State"
+        <*> x .@? "UsagePrice"
 
-instance ToQuery ReservedCacheNode
+instance ToQuery ReservedCacheNode where
+    toQuery ReservedCacheNode{..} = mconcat
+        [ "CacheNodeCount"               =? _rcnCacheNodeCount
+        , "CacheNodeType"                =? _rcnCacheNodeType
+        , "Duration"                     =? _rcnDuration
+        , "FixedPrice"                   =? _rcnFixedPrice
+        , "OfferingType"                 =? _rcnOfferingType
+        , "ProductDescription"           =? _rcnProductDescription
+        , "RecurringCharges"             =? _rcnRecurringCharges
+        , "ReservedCacheNodeId"          =? _rcnReservedCacheNodeId
+        , "ReservedCacheNodesOfferingId" =? _rcnReservedCacheNodesOfferingId
+        , "StartTime"                    =? _rcnStartTime
+        , "State"                        =? _rcnState
+        , "UsagePrice"                   =? _rcnUsagePrice
+        ]
 
 data Subnet = Subnet
     { _sSubnetAvailabilityZone :: Maybe AvailabilityZone
     , _sSubnetIdentifier       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Subnet' constructor.
 --
@@ -1199,15 +1283,19 @@ sSubnetIdentifier =
 
 instance FromXML Subnet where
     parseXML x = Subnet
-            <$> x .@? "SubnetAvailabilityZone"
-            <*> x .@? "SubnetIdentifier"
+        <$> x .@? "SubnetAvailabilityZone"
+        <*> x .@? "SubnetIdentifier"
 
-instance ToQuery Subnet
+instance ToQuery Subnet where
+    toQuery Subnet{..} = mconcat
+        [ "SubnetAvailabilityZone" =? _sSubnetAvailabilityZone
+        , "SubnetIdentifier"       =? _sSubnetIdentifier
+        ]
 
 data SecurityGroupMembership = SecurityGroupMembership
     { _sgmSecurityGroupId :: Maybe Text
     , _sgmStatus          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SecurityGroupMembership' constructor.
 --
@@ -1236,10 +1324,14 @@ sgmStatus = lens _sgmStatus (\s a -> s { _sgmStatus = a })
 
 instance FromXML SecurityGroupMembership where
     parseXML x = SecurityGroupMembership
-            <$> x .@? "SecurityGroupId"
-            <*> x .@? "Status"
+        <$> x .@? "SecurityGroupId"
+        <*> x .@? "Status"
 
-instance ToQuery SecurityGroupMembership
+instance ToQuery SecurityGroupMembership where
+    toQuery SecurityGroupMembership{..} = mconcat
+        [ "SecurityGroupId" =? _sgmSecurityGroupId
+        , "Status"          =? _sgmStatus
+        ]
 
 data CacheCluster = CacheCluster
     { _ccAutoMinorVersionUpgrade    :: Maybe Bool
@@ -1247,9 +1339,9 @@ data CacheCluster = CacheCluster
     , _ccCacheClusterId             :: Maybe Text
     , _ccCacheClusterStatus         :: Maybe Text
     , _ccCacheNodeType              :: Maybe Text
-    , _ccCacheNodes                 :: [CacheNode]
+    , _ccCacheNodes                 :: List "CacheNode" CacheNode
     , _ccCacheParameterGroup        :: Maybe CacheParameterGroupStatus
-    , _ccCacheSecurityGroups        :: [CacheSecurityGroupMembership]
+    , _ccCacheSecurityGroups        :: List "CacheSecurityGroup" CacheSecurityGroupMembership
     , _ccCacheSubnetGroupName       :: Maybe Text
     , _ccClientDownloadLandingPage  :: Maybe Text
     , _ccConfigurationEndpoint      :: Maybe Endpoint
@@ -1261,10 +1353,10 @@ data CacheCluster = CacheCluster
     , _ccPreferredAvailabilityZone  :: Maybe Text
     , _ccPreferredMaintenanceWindow :: Maybe Text
     , _ccReplicationGroupId         :: Maybe Text
-    , _ccSecurityGroups             :: [SecurityGroupMembership]
+    , _ccSecurityGroups             :: List "SecurityGroups" SecurityGroupMembership
     , _ccSnapshotRetentionLimit     :: Maybe Int
     , _ccSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CacheCluster' constructor.
 --
@@ -1373,7 +1465,7 @@ ccCacheNodeType = lens _ccCacheNodeType (\s a -> s { _ccCacheNodeType = a })
 
 -- | A list of cache nodes that are members of the cache cluster.
 ccCacheNodes :: Lens' CacheCluster [CacheNode]
-ccCacheNodes = lens _ccCacheNodes (\s a -> s { _ccCacheNodes = a })
+ccCacheNodes = lens _ccCacheNodes (\s a -> s { _ccCacheNodes = a }) . _List
 
 ccCacheParameterGroup :: Lens' CacheCluster (Maybe CacheParameterGroupStatus)
 ccCacheParameterGroup =
@@ -1384,6 +1476,7 @@ ccCacheParameterGroup =
 ccCacheSecurityGroups :: Lens' CacheCluster [CacheSecurityGroupMembership]
 ccCacheSecurityGroups =
     lens _ccCacheSecurityGroups (\s a -> s { _ccCacheSecurityGroups = a })
+        . _List
 
 -- | The name of the cache subnet group associated with the cache cluster.
 ccCacheSubnetGroupName :: Lens' CacheCluster (Maybe Text)
@@ -1446,7 +1539,7 @@ ccReplicationGroupId =
 
 -- | A list of VPC Security Groups associated with the cache cluster.
 ccSecurityGroups :: Lens' CacheCluster [SecurityGroupMembership]
-ccSecurityGroups = lens _ccSecurityGroups (\s a -> s { _ccSecurityGroups = a })
+ccSecurityGroups = lens _ccSecurityGroups (\s a -> s { _ccSecurityGroups = a }) . _List
 
 -- | The number of days for which ElastiCache will retain automatic cache
 -- cluster snapshots before deleting them. For example, if you set
@@ -1465,37 +1558,61 @@ ccSnapshotWindow = lens _ccSnapshotWindow (\s a -> s { _ccSnapshotWindow = a })
 
 instance FromXML CacheCluster where
     parseXML x = CacheCluster
-            <$> x .@? "AutoMinorVersionUpgrade"
-            <*> x .@? "CacheClusterCreateTime"
-            <*> x .@? "CacheClusterId"
-            <*> x .@? "CacheClusterStatus"
-            <*> x .@? "CacheNodeType"
-            <*> x .@ "CacheNodes"
-            <*> x .@? "CacheParameterGroup"
-            <*> x .@ "CacheSecurityGroups"
-            <*> x .@? "CacheSubnetGroupName"
-            <*> x .@? "ClientDownloadLandingPage"
-            <*> x .@? "ConfigurationEndpoint"
-            <*> x .@? "Engine"
-            <*> x .@? "EngineVersion"
-            <*> x .@? "NotificationConfiguration"
-            <*> x .@? "NumCacheNodes"
-            <*> x .@? "PendingModifiedValues"
-            <*> x .@? "PreferredAvailabilityZone"
-            <*> x .@? "PreferredMaintenanceWindow"
-            <*> x .@? "ReplicationGroupId"
-            <*> x .@ "SecurityGroups"
-            <*> x .@? "SnapshotRetentionLimit"
-            <*> x .@? "SnapshotWindow"
+        <$> x .@? "AutoMinorVersionUpgrade"
+        <*> x .@? "CacheClusterCreateTime"
+        <*> x .@? "CacheClusterId"
+        <*> x .@? "CacheClusterStatus"
+        <*> x .@? "CacheNodeType"
+        <*> x .@  "CacheNodes"
+        <*> x .@? "CacheParameterGroup"
+        <*> x .@  "CacheSecurityGroups"
+        <*> x .@? "CacheSubnetGroupName"
+        <*> x .@? "ClientDownloadLandingPage"
+        <*> x .@? "ConfigurationEndpoint"
+        <*> x .@? "Engine"
+        <*> x .@? "EngineVersion"
+        <*> x .@? "NotificationConfiguration"
+        <*> x .@? "NumCacheNodes"
+        <*> x .@? "PendingModifiedValues"
+        <*> x .@? "PreferredAvailabilityZone"
+        <*> x .@? "PreferredMaintenanceWindow"
+        <*> x .@? "ReplicationGroupId"
+        <*> x .@  "SecurityGroups"
+        <*> x .@? "SnapshotRetentionLimit"
+        <*> x .@? "SnapshotWindow"
 
-instance ToQuery CacheCluster
+instance ToQuery CacheCluster where
+    toQuery CacheCluster{..} = mconcat
+        [ "AutoMinorVersionUpgrade"    =? _ccAutoMinorVersionUpgrade
+        , "CacheClusterCreateTime"     =? _ccCacheClusterCreateTime
+        , "CacheClusterId"             =? _ccCacheClusterId
+        , "CacheClusterStatus"         =? _ccCacheClusterStatus
+        , "CacheNodeType"              =? _ccCacheNodeType
+        , "CacheNodes"                 =? _ccCacheNodes
+        , "CacheParameterGroup"        =? _ccCacheParameterGroup
+        , "CacheSecurityGroups"        =? _ccCacheSecurityGroups
+        , "CacheSubnetGroupName"       =? _ccCacheSubnetGroupName
+        , "ClientDownloadLandingPage"  =? _ccClientDownloadLandingPage
+        , "ConfigurationEndpoint"      =? _ccConfigurationEndpoint
+        , "Engine"                     =? _ccEngine
+        , "EngineVersion"              =? _ccEngineVersion
+        , "NotificationConfiguration"  =? _ccNotificationConfiguration
+        , "NumCacheNodes"              =? _ccNumCacheNodes
+        , "PendingModifiedValues"      =? _ccPendingModifiedValues
+        , "PreferredAvailabilityZone"  =? _ccPreferredAvailabilityZone
+        , "PreferredMaintenanceWindow" =? _ccPreferredMaintenanceWindow
+        , "ReplicationGroupId"         =? _ccReplicationGroupId
+        , "SecurityGroups"             =? _ccSecurityGroups
+        , "SnapshotRetentionLimit"     =? _ccSnapshotRetentionLimit
+        , "SnapshotWindow"             =? _ccSnapshotWindow
+        ]
 
 data EngineDefaults = EngineDefaults
-    { _edCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
+    { _edCacheNodeTypeSpecificParameters :: List "CacheNodeTypeSpecificParameter" CacheNodeTypeSpecificParameter
     , _edCacheParameterGroupFamily       :: Maybe Text
     , _edMarker                          :: Maybe Text
-    , _edParameters                      :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    , _edParameters                      :: List "Parameter" Parameter
+    } deriving (Eq, Show)
 
 -- | 'EngineDefaults' constructor.
 --
@@ -1523,6 +1640,7 @@ edCacheNodeTypeSpecificParameters :: Lens' EngineDefaults [CacheNodeTypeSpecific
 edCacheNodeTypeSpecificParameters =
     lens _edCacheNodeTypeSpecificParameters
         (\s a -> s { _edCacheNodeTypeSpecificParameters = a })
+            . _List
 
 -- | Specifies the name of the cache parameter group family to which the
 -- engine default parameters apply.
@@ -1537,22 +1655,28 @@ edMarker = lens _edMarker (\s a -> s { _edMarker = a })
 
 -- | Contains a list of engine default parameters.
 edParameters :: Lens' EngineDefaults [Parameter]
-edParameters = lens _edParameters (\s a -> s { _edParameters = a })
+edParameters = lens _edParameters (\s a -> s { _edParameters = a }) . _List
 
 instance FromXML EngineDefaults where
     parseXML x = EngineDefaults
-            <$> x .@ "CacheNodeTypeSpecificParameters"
-            <*> x .@? "CacheParameterGroupFamily"
-            <*> x .@? "Marker"
-            <*> x .@ "Parameters"
+        <$> x .@  "CacheNodeTypeSpecificParameters"
+        <*> x .@? "CacheParameterGroupFamily"
+        <*> x .@? "Marker"
+        <*> x .@  "Parameters"
 
-instance ToQuery EngineDefaults
+instance ToQuery EngineDefaults where
+    toQuery EngineDefaults{..} = mconcat
+        [ "CacheNodeTypeSpecificParameters" =? _edCacheNodeTypeSpecificParameters
+        , "CacheParameterGroupFamily"       =? _edCacheParameterGroupFamily
+        , "Marker"                          =? _edMarker
+        , "Parameters"                      =? _edParameters
+        ]
 
 data CacheParameterGroupStatus = CacheParameterGroupStatus
-    { _cpgsCacheNodeIdsToReboot    :: [Text]
+    { _cpgsCacheNodeIdsToReboot    :: List "CacheNodeId" Text
     , _cpgsCacheParameterGroupName :: Maybe Text
     , _cpgsParameterApplyStatus    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CacheParameterGroupStatus' constructor.
 --
@@ -1578,6 +1702,7 @@ cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus [Text]
 cpgsCacheNodeIdsToReboot =
     lens _cpgsCacheNodeIdsToReboot
         (\s a -> s { _cpgsCacheNodeIdsToReboot = a })
+            . _List
 
 -- | The name of the cache parameter group.
 cpgsCacheParameterGroupName :: Lens' CacheParameterGroupStatus (Maybe Text)
@@ -1593,11 +1718,16 @@ cpgsParameterApplyStatus =
 
 instance FromXML CacheParameterGroupStatus where
     parseXML x = CacheParameterGroupStatus
-            <$> x .@ "CacheNodeIdsToReboot"
-            <*> x .@? "CacheParameterGroupName"
-            <*> x .@? "ParameterApplyStatus"
+        <$> x .@  "CacheNodeIdsToReboot"
+        <*> x .@? "CacheParameterGroupName"
+        <*> x .@? "ParameterApplyStatus"
 
-instance ToQuery CacheParameterGroupStatus
+instance ToQuery CacheParameterGroupStatus where
+    toQuery CacheParameterGroupStatus{..} = mconcat
+        [ "CacheNodeIdsToReboot"    =? _cpgsCacheNodeIdsToReboot
+        , "CacheParameterGroupName" =? _cpgsCacheParameterGroupName
+        , "ParameterApplyStatus"    =? _cpgsParameterApplyStatus
+        ]
 
 data CacheNode = CacheNode
     { _cnCacheNodeCreateTime      :: Maybe RFC822
@@ -1607,7 +1737,7 @@ data CacheNode = CacheNode
     , _cnEndpoint                 :: Maybe Endpoint
     , _cnParameterGroupStatus     :: Maybe Text
     , _cnSourceCacheNodeId        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CacheNode' constructor.
 --
@@ -1679,20 +1809,29 @@ cnSourceCacheNodeId =
 
 instance FromXML CacheNode where
     parseXML x = CacheNode
-            <$> x .@? "CacheNodeCreateTime"
-            <*> x .@? "CacheNodeId"
-            <*> x .@? "CacheNodeStatus"
-            <*> x .@? "CustomerAvailabilityZone"
-            <*> x .@? "Endpoint"
-            <*> x .@? "ParameterGroupStatus"
-            <*> x .@? "SourceCacheNodeId"
+        <$> x .@? "CacheNodeCreateTime"
+        <*> x .@? "CacheNodeId"
+        <*> x .@? "CacheNodeStatus"
+        <*> x .@? "CustomerAvailabilityZone"
+        <*> x .@? "Endpoint"
+        <*> x .@? "ParameterGroupStatus"
+        <*> x .@? "SourceCacheNodeId"
 
-instance ToQuery CacheNode
+instance ToQuery CacheNode where
+    toQuery CacheNode{..} = mconcat
+        [ "CacheNodeCreateTime"      =? _cnCacheNodeCreateTime
+        , "CacheNodeId"              =? _cnCacheNodeId
+        , "CacheNodeStatus"          =? _cnCacheNodeStatus
+        , "CustomerAvailabilityZone" =? _cnCustomerAvailabilityZone
+        , "Endpoint"                 =? _cnEndpoint
+        , "ParameterGroupStatus"     =? _cnParameterGroupStatus
+        , "SourceCacheNodeId"        =? _cnSourceCacheNodeId
+        ]
 
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership
     { _csgmCacheSecurityGroupName :: Maybe Text
     , _csgmStatus                 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CacheSecurityGroupMembership' constructor.
 --
@@ -1722,14 +1861,18 @@ csgmStatus = lens _csgmStatus (\s a -> s { _csgmStatus = a })
 
 instance FromXML CacheSecurityGroupMembership where
     parseXML x = CacheSecurityGroupMembership
-            <$> x .@? "CacheSecurityGroupName"
-            <*> x .@? "Status"
+        <$> x .@? "CacheSecurityGroupName"
+        <*> x .@? "Status"
 
-instance ToQuery CacheSecurityGroupMembership
+instance ToQuery CacheSecurityGroupMembership where
+    toQuery CacheSecurityGroupMembership{..} = mconcat
+        [ "CacheSecurityGroupName" =? _csgmCacheSecurityGroupName
+        , "Status"                 =? _csgmStatus
+        ]
 
 newtype AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AvailabilityZone' constructor.
 --
@@ -1748,9 +1891,12 @@ azName = lens _azName (\s a -> s { _azName = a })
 
 instance FromXML AvailabilityZone where
     parseXML x = AvailabilityZone
-            <$> x .@? "Name"
+        <$> x .@? "Name"
 
-instance ToQuery AvailabilityZone
+instance ToQuery AvailabilityZone where
+    toQuery AvailabilityZone{..} = mconcat
+        [ "Name" =? _azName
+        ]
 
 data NodeGroupMember = NodeGroupMember
     { _ngmCacheClusterId            :: Maybe Text
@@ -1758,7 +1904,7 @@ data NodeGroupMember = NodeGroupMember
     , _ngmCurrentRole               :: Maybe Text
     , _ngmPreferredAvailabilityZone :: Maybe Text
     , _ngmReadEndpoint              :: Maybe Endpoint
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'NodeGroupMember' constructor.
 --
@@ -1808,19 +1954,26 @@ ngmReadEndpoint = lens _ngmReadEndpoint (\s a -> s { _ngmReadEndpoint = a })
 
 instance FromXML NodeGroupMember where
     parseXML x = NodeGroupMember
-            <$> x .@? "CacheClusterId"
-            <*> x .@? "CacheNodeId"
-            <*> x .@? "CurrentRole"
-            <*> x .@? "PreferredAvailabilityZone"
-            <*> x .@? "ReadEndpoint"
+        <$> x .@? "CacheClusterId"
+        <*> x .@? "CacheNodeId"
+        <*> x .@? "CurrentRole"
+        <*> x .@? "PreferredAvailabilityZone"
+        <*> x .@? "ReadEndpoint"
 
-instance ToQuery NodeGroupMember
+instance ToQuery NodeGroupMember where
+    toQuery NodeGroupMember{..} = mconcat
+        [ "CacheClusterId"            =? _ngmCacheClusterId
+        , "CacheNodeId"               =? _ngmCacheNodeId
+        , "CurrentRole"               =? _ngmCurrentRole
+        , "PreferredAvailabilityZone" =? _ngmPreferredAvailabilityZone
+        , "ReadEndpoint"              =? _ngmReadEndpoint
+        ]
 
 data CacheParameterGroup = CacheParameterGroup
     { _cpgCacheParameterGroupFamily :: Maybe Text
     , _cpgCacheParameterGroupName   :: Maybe Text
     , _cpgDescription               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CacheParameterGroup' constructor.
 --
@@ -1858,11 +2011,16 @@ cpgDescription = lens _cpgDescription (\s a -> s { _cpgDescription = a })
 
 instance FromXML CacheParameterGroup where
     parseXML x = CacheParameterGroup
-            <$> x .@? "CacheParameterGroupFamily"
-            <*> x .@? "CacheParameterGroupName"
-            <*> x .@? "Description"
+        <$> x .@? "CacheParameterGroupFamily"
+        <*> x .@? "CacheParameterGroupName"
+        <*> x .@? "Description"
 
-instance ToQuery CacheParameterGroup
+instance ToQuery CacheParameterGroup where
+    toQuery CacheParameterGroup{..} = mconcat
+        [ "CacheParameterGroupFamily" =? _cpgCacheParameterGroupFamily
+        , "CacheParameterGroupName"   =? _cpgCacheParameterGroupName
+        , "Description"               =? _cpgDescription
+        ]
 
 data AutomaticFailoverStatus
     = AFSDisabled  -- ^ disabled
@@ -1889,14 +2047,15 @@ instance ToText AutomaticFailoverStatus where
 instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
 
-instance ToQuery AutomaticFailoverStatus
+instance ToQuery AutomaticFailoverStatus where
+    toQuery AutomaticFailoverStatus = toQuery . toText
 
 data CacheSecurityGroup = CacheSecurityGroup
     { _csgCacheSecurityGroupName :: Maybe Text
     , _csgDescription            :: Maybe Text
-    , _csgEC2SecurityGroups      :: [EC2SecurityGroup]
+    , _csgEC2SecurityGroups      :: List "EC2SecurityGroup" EC2SecurityGroup
     , _csgOwnerId                :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CacheSecurityGroup' constructor.
 --
@@ -1933,6 +2092,7 @@ csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 csgEC2SecurityGroups :: Lens' CacheSecurityGroup [EC2SecurityGroup]
 csgEC2SecurityGroups =
     lens _csgEC2SecurityGroups (\s a -> s { _csgEC2SecurityGroups = a })
+        . _List
 
 -- | The AWS account ID of the cache security group owner.
 csgOwnerId :: Lens' CacheSecurityGroup (Maybe Text)
@@ -1940,23 +2100,29 @@ csgOwnerId = lens _csgOwnerId (\s a -> s { _csgOwnerId = a })
 
 instance FromXML CacheSecurityGroup where
     parseXML x = CacheSecurityGroup
-            <$> x .@? "CacheSecurityGroupName"
-            <*> x .@? "Description"
-            <*> x .@ "EC2SecurityGroups"
-            <*> x .@? "OwnerId"
+        <$> x .@? "CacheSecurityGroupName"
+        <*> x .@? "Description"
+        <*> x .@  "EC2SecurityGroups"
+        <*> x .@? "OwnerId"
 
-instance ToQuery CacheSecurityGroup
+instance ToQuery CacheSecurityGroup where
+    toQuery CacheSecurityGroup{..} = mconcat
+        [ "CacheSecurityGroupName" =? _csgCacheSecurityGroupName
+        , "Description"            =? _csgDescription
+        , "EC2SecurityGroups"      =? _csgEC2SecurityGroups
+        , "OwnerId"                =? _csgOwnerId
+        ]
 
 data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     { _cntspAllowedValues               :: Maybe Text
-    , _cntspCacheNodeTypeSpecificValues :: [CacheNodeTypeSpecificValue]
+    , _cntspCacheNodeTypeSpecificValues :: List "CacheNodeTypeSpecificValue" CacheNodeTypeSpecificValue
     , _cntspDataType                    :: Maybe Text
     , _cntspDescription                 :: Maybe Text
     , _cntspIsModifiable                :: Maybe Bool
     , _cntspMinimumEngineVersion        :: Maybe Text
     , _cntspParameterName               :: Maybe Text
     , _cntspSource                      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CacheNodeTypeSpecificParameter' constructor.
 --
@@ -2001,6 +2167,7 @@ cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter [CacheN
 cntspCacheNodeTypeSpecificValues =
     lens _cntspCacheNodeTypeSpecificValues
         (\s a -> s { _cntspCacheNodeTypeSpecificValues = a })
+            . _List
 
 -- | The valid data type for the parameter.
 cntspDataType :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
@@ -2034,16 +2201,26 @@ cntspSource = lens _cntspSource (\s a -> s { _cntspSource = a })
 
 instance FromXML CacheNodeTypeSpecificParameter where
     parseXML x = CacheNodeTypeSpecificParameter
-            <$> x .@? "AllowedValues"
-            <*> x .@ "CacheNodeTypeSpecificValues"
-            <*> x .@? "DataType"
-            <*> x .@? "Description"
-            <*> x .@? "IsModifiable"
-            <*> x .@? "MinimumEngineVersion"
-            <*> x .@? "ParameterName"
-            <*> x .@? "Source"
+        <$> x .@? "AllowedValues"
+        <*> x .@  "CacheNodeTypeSpecificValues"
+        <*> x .@? "DataType"
+        <*> x .@? "Description"
+        <*> x .@? "IsModifiable"
+        <*> x .@? "MinimumEngineVersion"
+        <*> x .@? "ParameterName"
+        <*> x .@? "Source"
 
-instance ToQuery CacheNodeTypeSpecificParameter
+instance ToQuery CacheNodeTypeSpecificParameter where
+    toQuery CacheNodeTypeSpecificParameter{..} = mconcat
+        [ "AllowedValues"               =? _cntspAllowedValues
+        , "CacheNodeTypeSpecificValues" =? _cntspCacheNodeTypeSpecificValues
+        , "DataType"                    =? _cntspDataType
+        , "Description"                 =? _cntspDescription
+        , "IsModifiable"                =? _cntspIsModifiable
+        , "MinimumEngineVersion"        =? _cntspMinimumEngineVersion
+        , "ParameterName"               =? _cntspParameterName
+        , "Source"                      =? _cntspSource
+        ]
 
 data AZMode
     = CrossAz  -- ^ cross-az
@@ -2064,7 +2241,8 @@ instance ToText AZMode where
 instance FromXML AZMode where
     parseXML = parseXMLText "AZMode"
 
-instance ToQuery AZMode
+instance ToQuery AZMode where
+    toQuery AZMode = toQuery . toText
 
 data CacheEngineVersion = CacheEngineVersion
     { _cevCacheEngineDescription        :: Maybe Text
@@ -2072,7 +2250,7 @@ data CacheEngineVersion = CacheEngineVersion
     , _cevCacheParameterGroupFamily     :: Maybe Text
     , _cevEngine                        :: Maybe Text
     , _cevEngineVersion                 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CacheEngineVersion' constructor.
 --
@@ -2126,24 +2304,31 @@ cevEngineVersion = lens _cevEngineVersion (\s a -> s { _cevEngineVersion = a })
 
 instance FromXML CacheEngineVersion where
     parseXML x = CacheEngineVersion
-            <$> x .@? "CacheEngineDescription"
-            <*> x .@? "CacheEngineVersionDescription"
-            <*> x .@? "CacheParameterGroupFamily"
-            <*> x .@? "Engine"
-            <*> x .@? "EngineVersion"
+        <$> x .@? "CacheEngineDescription"
+        <*> x .@? "CacheEngineVersionDescription"
+        <*> x .@? "CacheParameterGroupFamily"
+        <*> x .@? "Engine"
+        <*> x .@? "EngineVersion"
 
-instance ToQuery CacheEngineVersion
+instance ToQuery CacheEngineVersion where
+    toQuery CacheEngineVersion{..} = mconcat
+        [ "CacheEngineDescription"        =? _cevCacheEngineDescription
+        , "CacheEngineVersionDescription" =? _cevCacheEngineVersionDescription
+        , "CacheParameterGroupFamily"     =? _cevCacheParameterGroupFamily
+        , "Engine"                        =? _cevEngine
+        , "EngineVersion"                 =? _cevEngineVersion
+        ]
 
 data ReplicationGroup = ReplicationGroup
     { _rgAutomaticFailover     :: Maybe Text
     , _rgDescription           :: Maybe Text
-    , _rgMemberClusters        :: [Text]
-    , _rgNodeGroups            :: [NodeGroup]
+    , _rgMemberClusters        :: List "ClusterId" Text
+    , _rgNodeGroups            :: List "NodeGroup" NodeGroup
     , _rgPendingModifiedValues :: Maybe ReplicationGroupPendingModifiedValues
     , _rgReplicationGroupId    :: Maybe Text
     , _rgSnapshottingClusterId :: Maybe Text
     , _rgStatus                :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReplicationGroup' constructor.
 --
@@ -2189,12 +2374,12 @@ rgDescription = lens _rgDescription (\s a -> s { _rgDescription = a })
 -- | The names of all the cache clusters that are part of this replication
 -- group.
 rgMemberClusters :: Lens' ReplicationGroup [Text]
-rgMemberClusters = lens _rgMemberClusters (\s a -> s { _rgMemberClusters = a })
+rgMemberClusters = lens _rgMemberClusters (\s a -> s { _rgMemberClusters = a }) . _List
 
 -- | A single element list with information about the nodes in the replication
 -- group.
 rgNodeGroups :: Lens' ReplicationGroup [NodeGroup]
-rgNodeGroups = lens _rgNodeGroups (\s a -> s { _rgNodeGroups = a })
+rgNodeGroups = lens _rgNodeGroups (\s a -> s { _rgNodeGroups = a }) . _List
 
 -- | A group of settings to be applied to the replication group, either
 -- immediately or during the next maintenance window.
@@ -2219,21 +2404,31 @@ rgStatus = lens _rgStatus (\s a -> s { _rgStatus = a })
 
 instance FromXML ReplicationGroup where
     parseXML x = ReplicationGroup
-            <$> x .@? "AutomaticFailover"
-            <*> x .@? "Description"
-            <*> x .@ "MemberClusters"
-            <*> x .@ "NodeGroups"
-            <*> x .@? "PendingModifiedValues"
-            <*> x .@? "ReplicationGroupId"
-            <*> x .@? "SnapshottingClusterId"
-            <*> x .@? "Status"
+        <$> x .@? "AutomaticFailover"
+        <*> x .@? "Description"
+        <*> x .@  "MemberClusters"
+        <*> x .@  "NodeGroups"
+        <*> x .@? "PendingModifiedValues"
+        <*> x .@? "ReplicationGroupId"
+        <*> x .@? "SnapshottingClusterId"
+        <*> x .@? "Status"
 
-instance ToQuery ReplicationGroup
+instance ToQuery ReplicationGroup where
+    toQuery ReplicationGroup{..} = mconcat
+        [ "AutomaticFailover"     =? _rgAutomaticFailover
+        , "Description"           =? _rgDescription
+        , "MemberClusters"        =? _rgMemberClusters
+        , "NodeGroups"            =? _rgNodeGroups
+        , "PendingModifiedValues" =? _rgPendingModifiedValues
+        , "ReplicationGroupId"    =? _rgReplicationGroupId
+        , "SnapshottingClusterId" =? _rgSnapshottingClusterId
+        , "Status"                =? _rgStatus
+        ]
 
 data RecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount    :: Maybe Double
     , _rcRecurringChargeFrequency :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RecurringCharge' constructor.
 --
@@ -2262,10 +2457,14 @@ rcRecurringChargeFrequency =
 
 instance FromXML RecurringCharge where
     parseXML x = RecurringCharge
-            <$> x .@? "RecurringChargeAmount"
-            <*> x .@? "RecurringChargeFrequency"
+        <$> x .@? "RecurringChargeAmount"
+        <*> x .@? "RecurringChargeFrequency"
 
-instance ToQuery RecurringCharge
+instance ToQuery RecurringCharge where
+    toQuery RecurringCharge{..} = mconcat
+        [ "RecurringChargeAmount"    =? _rcRecurringChargeAmount
+        , "RecurringChargeFrequency" =? _rcRecurringChargeFrequency
+        ]
 
 data ReservedCacheNodesOffering = ReservedCacheNodesOffering
     { _rcnoCacheNodeType                :: Maybe Text
@@ -2273,10 +2472,10 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering
     , _rcnoFixedPrice                   :: Maybe Double
     , _rcnoOfferingType                 :: Maybe Text
     , _rcnoProductDescription           :: Maybe Text
-    , _rcnoRecurringCharges             :: [RecurringCharge]
+    , _rcnoRecurringCharges             :: List "RecurringCharge" RecurringCharge
     , _rcnoReservedCacheNodesOfferingId :: Maybe Text
     , _rcnoUsagePrice                   :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReservedCacheNodesOffering' constructor.
 --
@@ -2336,6 +2535,7 @@ rcnoProductDescription =
 rcnoRecurringCharges :: Lens' ReservedCacheNodesOffering [RecurringCharge]
 rcnoRecurringCharges =
     lens _rcnoRecurringCharges (\s a -> s { _rcnoRecurringCharges = a })
+        . _List
 
 -- | A unique identifier for the reserved cache node offering.
 rcnoReservedCacheNodesOfferingId :: Lens' ReservedCacheNodesOffering (Maybe Text)
@@ -2349,21 +2549,31 @@ rcnoUsagePrice = lens _rcnoUsagePrice (\s a -> s { _rcnoUsagePrice = a })
 
 instance FromXML ReservedCacheNodesOffering where
     parseXML x = ReservedCacheNodesOffering
-            <$> x .@? "CacheNodeType"
-            <*> x .@? "Duration"
-            <*> x .@? "FixedPrice"
-            <*> x .@? "OfferingType"
-            <*> x .@? "ProductDescription"
-            <*> x .@ "RecurringCharges"
-            <*> x .@? "ReservedCacheNodesOfferingId"
-            <*> x .@? "UsagePrice"
+        <$> x .@? "CacheNodeType"
+        <*> x .@? "Duration"
+        <*> x .@? "FixedPrice"
+        <*> x .@? "OfferingType"
+        <*> x .@? "ProductDescription"
+        <*> x .@  "RecurringCharges"
+        <*> x .@? "ReservedCacheNodesOfferingId"
+        <*> x .@? "UsagePrice"
 
-instance ToQuery ReservedCacheNodesOffering
+instance ToQuery ReservedCacheNodesOffering where
+    toQuery ReservedCacheNodesOffering{..} = mconcat
+        [ "CacheNodeType"                =? _rcnoCacheNodeType
+        , "Duration"                     =? _rcnoDuration
+        , "FixedPrice"                   =? _rcnoFixedPrice
+        , "OfferingType"                 =? _rcnoOfferingType
+        , "ProductDescription"           =? _rcnoProductDescription
+        , "RecurringCharges"             =? _rcnoRecurringCharges
+        , "ReservedCacheNodesOfferingId" =? _rcnoReservedCacheNodesOfferingId
+        , "UsagePrice"                   =? _rcnoUsagePrice
+        ]
 
 data Endpoint = Endpoint
     { _eAddress :: Maybe Text
     , _ePort    :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Endpoint' constructor.
 --
@@ -2389,16 +2599,20 @@ ePort = lens _ePort (\s a -> s { _ePort = a })
 
 instance FromXML Endpoint where
     parseXML x = Endpoint
-            <$> x .@? "Address"
-            <*> x .@? "Port"
+        <$> x .@? "Address"
+        <*> x .@? "Port"
 
-instance ToQuery Endpoint
+instance ToQuery Endpoint where
+    toQuery Endpoint{..} = mconcat
+        [ "Address" =? _eAddress
+        , "Port"    =? _ePort
+        ]
 
 data PendingModifiedValues = PendingModifiedValues
-    { _pmvCacheNodeIdsToRemove :: [Text]
+    { _pmvCacheNodeIdsToRemove :: List "CacheNodeId" Text
     , _pmvEngineVersion        :: Maybe Text
     , _pmvNumCacheNodes        :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PendingModifiedValues' constructor.
 --
@@ -2422,6 +2636,7 @@ pendingModifiedValues = PendingModifiedValues
 pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues [Text]
 pmvCacheNodeIdsToRemove =
     lens _pmvCacheNodeIdsToRemove (\s a -> s { _pmvCacheNodeIdsToRemove = a })
+        . _List
 
 -- | The new cache engine version that the cache cluster will run.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
@@ -2433,15 +2648,20 @@ pmvNumCacheNodes = lens _pmvNumCacheNodes (\s a -> s { _pmvNumCacheNodes = a })
 
 instance FromXML PendingModifiedValues where
     parseXML x = PendingModifiedValues
-            <$> x .@ "CacheNodeIdsToRemove"
-            <*> x .@? "EngineVersion"
-            <*> x .@? "NumCacheNodes"
+        <$> x .@  "CacheNodeIdsToRemove"
+        <*> x .@? "EngineVersion"
+        <*> x .@? "NumCacheNodes"
 
-instance ToQuery PendingModifiedValues
+instance ToQuery PendingModifiedValues where
+    toQuery PendingModifiedValues{..} = mconcat
+        [ "CacheNodeIdsToRemove" =? _pmvCacheNodeIdsToRemove
+        , "EngineVersion"        =? _pmvEngineVersion
+        , "NumCacheNodes"        =? _pmvNumCacheNodes
+        ]
 
 newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage
     { _cpgnmCacheParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CacheParameterGroupNameMessage' constructor.
 --
@@ -2462,9 +2682,12 @@ cpgnmCacheParameterGroupName =
 
 instance FromXML CacheParameterGroupNameMessage where
     parseXML x = CacheParameterGroupNameMessage
-            <$> x .@? "CacheParameterGroupName"
+        <$> x .@? "CacheParameterGroupName"
 
-instance ToQuery CacheParameterGroupNameMessage
+instance ToQuery CacheParameterGroupNameMessage where
+    toQuery CacheParameterGroupNameMessage{..} = mconcat
+        [ "CacheParameterGroupName" =? _cpgnmCacheParameterGroupName
+        ]
 
 data Parameter = Parameter
     { _pAllowedValues        :: Maybe Text
@@ -2475,7 +2698,7 @@ data Parameter = Parameter
     , _pParameterName        :: Maybe Text
     , _pParameterValue       :: Maybe Text
     , _pSource               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Parameter' constructor.
 --
@@ -2546,13 +2769,23 @@ pSource = lens _pSource (\s a -> s { _pSource = a })
 
 instance FromXML Parameter where
     parseXML x = Parameter
-            <$> x .@? "AllowedValues"
-            <*> x .@? "DataType"
-            <*> x .@? "Description"
-            <*> x .@? "IsModifiable"
-            <*> x .@? "MinimumEngineVersion"
-            <*> x .@? "ParameterName"
-            <*> x .@? "ParameterValue"
-            <*> x .@? "Source"
+        <$> x .@? "AllowedValues"
+        <*> x .@? "DataType"
+        <*> x .@? "Description"
+        <*> x .@? "IsModifiable"
+        <*> x .@? "MinimumEngineVersion"
+        <*> x .@? "ParameterName"
+        <*> x .@? "ParameterValue"
+        <*> x .@? "Source"
 
-instance ToQuery Parameter
+instance ToQuery Parameter where
+    toQuery Parameter{..} = mconcat
+        [ "AllowedValues"        =? _pAllowedValues
+        , "DataType"             =? _pDataType
+        , "Description"          =? _pDescription
+        , "IsModifiable"         =? _pIsModifiable
+        , "MinimumEngineVersion" =? _pMinimumEngineVersion
+        , "ParameterName"        =? _pParameterName
+        , "ParameterValue"       =? _pParameterValue
+        , "Source"               =? _pSource
+        ]

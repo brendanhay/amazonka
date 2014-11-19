@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,8 +55,8 @@ describeVirtualGateways :: DescribeVirtualGateways
 describeVirtualGateways = DescribeVirtualGateways
 
 newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
-    { _dvgrVirtualGateways :: [VirtualGateway]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dvgrVirtualGateways :: List "virtualGateways" VirtualGateway
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVirtualGatewaysResponse where
     type Item DescribeVirtualGatewaysResponse = VirtualGateway
@@ -78,6 +79,7 @@ describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
 dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrVirtualGateways =
     lens _dvgrVirtualGateways (\s a -> s { _dvgrVirtualGateways = a })
+        . _List
 
 instance ToPath DescribeVirtualGateways where
     toPath = const "/"
@@ -99,4 +101,4 @@ instance AWSRequest DescribeVirtualGateways where
 
 instance FromJSON DescribeVirtualGatewaysResponse where
     parseJSON = withObject "DescribeVirtualGatewaysResponse" $ \o -> DescribeVirtualGatewaysResponse
-        <$> o .: "virtualGateways"
+        <$> o .:  "virtualGateways"

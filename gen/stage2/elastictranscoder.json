@@ -72,8 +72,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "pipelineOutputConfig",
@@ -110,8 +109,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -121,13 +120,14 @@
                         "locationName": "Permissions",
                         "documentation": "\u003cp\u003eOptional. The \u003ccode\u003ePermissions\u003c/code\u003e object specifies which users and/or predefined Amazon S3 groups you want to have access to transcoded files and playlists, and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.\u003c/p\u003e \u003cp\u003eIf you include \u003ccode\u003ePermissions\u003c/code\u003e, Elastic Transcoder grants only the permissions that you specify. It does not grant full permissions to the owner of the role specified by \u003ccode\u003eRole\u003c/code\u003e. If you want that user to have full control, you must explicitly grant full control to the user.\u003c/p\u003e \u003cp\u003e If you omit \u003ccode\u003ePermissions\u003c/code\u003e, Elastic Transcoder grants full control over the transcoded files and playlists to the owner of the role specified by \u003ccode\u003eRole\u003c/code\u003e, and grants no other permissions to any other user or group.\u003c/p\u003e",
                         "typeExposed": "[Permission]",
-                        "type": "[Permission]"
+                        "type": "List \"Permissions\" Permission"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 13,
                 "name": "PipelineOutputConfig",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -162,8 +162,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -173,7 +173,7 @@
                         "locationName": "Permissions",
                         "documentation": "\u003cp\u003eOptional. The \u003ccode\u003ePermissions\u003c/code\u003e object specifies which users and/or predefined Amazon S3 groups you want to have access to transcoded files and playlists, and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.\u003c/p\u003e \u003cp\u003eIf you include \u003ccode\u003ePermissions\u003c/code\u003e, Elastic Transcoder grants only the permissions that you specify. It does not grant full permissions to the owner of the role specified by \u003ccode\u003eRole\u003c/code\u003e. If you want that user to have full control, you must explicitly grant full control to the user.\u003c/p\u003e \u003cp\u003e If you omit \u003ccode\u003ePermissions\u003c/code\u003e, Elastic Transcoder grants full control over the transcoded files and playlists to the owner of the role specified by \u003ccode\u003eRole\u003c/code\u003e, and grants no other permissions to any other user or group.\u003c/p\u003e",
                         "typeExposed": "[Permission]",
-                        "type": "[Permission]"
+                        "type": "List \"Permissions\" Permission"
                     }
                 ],
                 "fields": [
@@ -194,8 +194,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -205,7 +205,7 @@
                         "locationName": "Permissions",
                         "documentation": "\u003cp\u003eOptional. The \u003ccode\u003ePermissions\u003c/code\u003e object specifies which users and/or predefined Amazon S3 groups you want to have access to transcoded files and playlists, and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.\u003c/p\u003e \u003cp\u003eIf you include \u003ccode\u003ePermissions\u003c/code\u003e, Elastic Transcoder grants only the permissions that you specify. It does not grant full permissions to the owner of the role specified by \u003ccode\u003eRole\u003c/code\u003e. If you want that user to have full control, you must explicitly grant full control to the user.\u003c/p\u003e \u003cp\u003e If you omit \u003ccode\u003ePermissions\u003c/code\u003e, Elastic Transcoder grants full control over the transcoded files and playlists to the owner of the role specified by \u003ccode\u003eRole\u003c/code\u003e, and grants no other permissions to any other user or group.\u003c/p\u003e",
                         "typeExposed": "[Permission]",
-                        "type": "[Permission]"
+                        "type": "List \"Permissions\" Permission"
                     },
                     {
                         "location": null,
@@ -228,8 +228,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "createJobPlaylist",
@@ -266,8 +265,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -277,13 +276,14 @@
                         "locationName": "OutputKeys",
                         "documentation": "\u003cp\u003eFor each output in this job that you want to include in a master playlist, the value of the \u003ccode\u003eOutputs:Key\u003c/code\u003e object. \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eIf your output is not \u003ccode\u003eHLS\u003c/code\u003e or does not have a segment duration set, the name of the output file is a concatenation of \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e and \u003ccode\u003eOutputs:Key\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv3\u003c/code\u003e and has a segment duration set, or is not included in a playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e.m3u8\u003c/code\u003e, and a series of \u003ccode\u003e.ts\u003c/code\u003e files that include a five-digit sequential counter beginning with 00000:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e00000.ts\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv4\u003c/code\u003e, has a segment duration set, and is included in an \u003ccode\u003eHLSv4\u003c/code\u003e playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e_v4.m3u8\u003c/code\u003e. If the output is video, Elastic Transcoder also creates an output file with an extension of \u003ccode\u003e_iframe.m3u8\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_v4.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_iframe.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.ts\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eElastic Transcoder automatically appends the relevant file extension to the file name. If you include a file extension in Output Key, the file name will have two extensions.\u003c/p\u003e \u003cp\u003eIf you include more than one output in a playlist, any segment duration settings, clip settings, or caption settings must be the same for all outputs in the playlist. For \u003ccode\u003eSmooth\u003c/code\u003e playlists, the \u003ccode\u003eAudio:Profile\u003c/code\u003e, \u003ccode\u003eVideo:Profile\u003c/code\u003e, and \u003ccode\u003eVideo:FrameRate\u003c/code\u003e to \u003ccode\u003eVideo:KeyframesMaxDist\u003c/code\u003e ratio must be the same for all outputs.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OutputKeys\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 11,
                 "name": "CreateJobPlaylist",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -318,8 +318,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -329,7 +329,7 @@
                         "locationName": "OutputKeys",
                         "documentation": "\u003cp\u003eFor each output in this job that you want to include in a master playlist, the value of the \u003ccode\u003eOutputs:Key\u003c/code\u003e object. \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eIf your output is not \u003ccode\u003eHLS\u003c/code\u003e or does not have a segment duration set, the name of the output file is a concatenation of \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e and \u003ccode\u003eOutputs:Key\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv3\u003c/code\u003e and has a segment duration set, or is not included in a playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e.m3u8\u003c/code\u003e, and a series of \u003ccode\u003e.ts\u003c/code\u003e files that include a five-digit sequential counter beginning with 00000:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e00000.ts\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv4\u003c/code\u003e, has a segment duration set, and is included in an \u003ccode\u003eHLSv4\u003c/code\u003e playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e_v4.m3u8\u003c/code\u003e. If the output is video, Elastic Transcoder also creates an output file with an extension of \u003ccode\u003e_iframe.m3u8\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_v4.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_iframe.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.ts\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eElastic Transcoder automatically appends the relevant file extension to the file name. If you include a file extension in Output Key, the file name will have two extensions.\u003c/p\u003e \u003cp\u003eIf you include more than one output in a playlist, any segment duration settings, clip settings, or caption settings must be the same for all outputs in the playlist. For \u003ccode\u003eSmooth\u003c/code\u003e playlists, the \u003ccode\u003eAudio:Profile\u003c/code\u003e, \u003ccode\u003eVideo:Profile\u003c/code\u003e, and \u003ccode\u003eVideo:FrameRate\u003c/code\u003e to \u003ccode\u003eVideo:KeyframesMaxDist\u003c/code\u003e ratio must be the same for all outputs.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OutputKeys\" Text"
                     }
                 ],
                 "fields": [
@@ -365,8 +365,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -376,15 +376,14 @@
                         "locationName": "OutputKeys",
                         "documentation": "\u003cp\u003eFor each output in this job that you want to include in a master playlist, the value of the \u003ccode\u003eOutputs:Key\u003c/code\u003e object. \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eIf your output is not \u003ccode\u003eHLS\u003c/code\u003e or does not have a segment duration set, the name of the output file is a concatenation of \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e and \u003ccode\u003eOutputs:Key\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv3\u003c/code\u003e and has a segment duration set, or is not included in a playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e.m3u8\u003c/code\u003e, and a series of \u003ccode\u003e.ts\u003c/code\u003e files that include a five-digit sequential counter beginning with 00000:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e00000.ts\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv4\u003c/code\u003e, has a segment duration set, and is included in an \u003ccode\u003eHLSv4\u003c/code\u003e playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e_v4.m3u8\u003c/code\u003e. If the output is video, Elastic Transcoder also creates an output file with an extension of \u003ccode\u003e_iframe.m3u8\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_v4.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_iframe.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.ts\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eElastic Transcoder automatically appends the relevant file extension to the file name. If you include a file extension in Output Key, the file name will have two extensions.\u003c/p\u003e \u003cp\u003eIf you include more than one output in a playlist, any segment duration settings, clip settings, or caption settings must be the same for all outputs in the playlist. For \u003ccode\u003eSmooth\u003c/code\u003e playlists, the \u003ccode\u003eAudio:Profile\u003c/code\u003e, \u003ccode\u003eVideo:Profile\u003c/code\u003e, and \u003ccode\u003eVideo:FrameRate\u003c/code\u003e to \u003ccode\u003eVideo:KeyframesMaxDist\u003c/code\u003e ratio must be the same for all outputs.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OutputKeys\" Text"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "captions",
@@ -406,8 +405,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -417,12 +416,12 @@
                         "locationName": "CaptionSources",
                         "documentation": "\u003cp\u003eSource files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave \u003ccode\u003eCaptionSources\u003c/code\u003e blank.\u003c/p\u003e",
                         "typeExposed": "[CaptionSource]",
-                        "type": "[CaptionSource]"
+                        "type": "List \"CaptionSources\" CaptionSource"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -432,13 +431,14 @@
                         "locationName": "CaptionFormats",
                         "documentation": "\u003cp\u003eThe array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.\u003c/p\u003e",
                         "typeExposed": "[CaptionFormat]",
-                        "type": "[CaptionFormat]"
+                        "type": "List \"CaptionFormats\" CaptionFormat"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 15,
                 "name": "Captions",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -458,8 +458,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -469,12 +469,12 @@
                         "locationName": "CaptionSources",
                         "documentation": "\u003cp\u003eSource files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave \u003ccode\u003eCaptionSources\u003c/code\u003e blank.\u003c/p\u003e",
                         "typeExposed": "[CaptionSource]",
-                        "type": "[CaptionSource]"
+                        "type": "List \"CaptionSources\" CaptionSource"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -484,14 +484,14 @@
                         "locationName": "CaptionFormats",
                         "documentation": "\u003cp\u003eThe array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.\u003c/p\u003e",
                         "typeExposed": "[CaptionFormat]",
-                        "type": "[CaptionFormat]"
+                        "type": "List \"CaptionFormats\" CaptionFormat"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -501,12 +501,12 @@
                         "locationName": "CaptionFormats",
                         "documentation": "\u003cp\u003eThe array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.\u003c/p\u003e",
                         "typeExposed": "[CaptionFormat]",
-                        "type": "[CaptionFormat]"
+                        "type": "List \"CaptionFormats\" CaptionFormat"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -516,7 +516,7 @@
                         "locationName": "CaptionSources",
                         "documentation": "\u003cp\u003eSource files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave \u003ccode\u003eCaptionSources\u003c/code\u003e blank.\u003c/p\u003e",
                         "typeExposed": "[CaptionSource]",
-                        "type": "[CaptionSource]"
+                        "type": "List \"CaptionSources\" CaptionSource"
                     },
                     {
                         "location": null,
@@ -540,7 +540,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -582,6 +581,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AudioCodecOptions",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -621,8 +621,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "jobOutput",
@@ -794,8 +793,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -805,7 +804,7 @@
                         "locationName": "Watermarks",
                         "documentation": "\u003cp\u003eInformation about the watermarks that you want Elastic Transcoder to add to the video during transcoding. You can specify up to four watermarks for each output. Settings for each watermark must be defined in the preset that you specify in \u003ccode\u003ePreset\u003c/code\u003e for the current output.\u003c/p\u003e \u003cp\u003eWatermarks are added to the output video in the sequence in which you list them in the job output&#x2014;the first watermark in the list is added to the output video first, the second watermark in the list is added next, and so on. As a result, if the settings in a preset cause Elastic Transcoder to place all watermarks in the same location, the second watermark that you add will cover the first one, the third one will cover the second, and the fourth one will cover the third.\u003c/p\u003e",
                         "typeExposed": "[JobWatermark]",
-                        "type": "[JobWatermark]"
+                        "type": "List \"Watermarks\" JobWatermark"
                     },
                     {
                         "location": null,
@@ -824,8 +823,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -835,7 +834,7 @@
                         "locationName": "Composition",
                         "documentation": "\u003cp\u003eYou can create an output file that contains an excerpt from the input file. This excerpt, called a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings for the clips that make up an output file. For the current release, you can only specify settings for a single clip per output file. The Composition object cannot be null.\u003c/p\u003e",
                         "typeExposed": "[Clip]",
-                        "type": "[Clip]"
+                        "type": "List \"Composition\" Clip"
                     },
                     {
                         "location": null,
@@ -857,6 +856,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "JobOutput",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1026,8 +1026,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1037,7 +1037,7 @@
                         "locationName": "Watermarks",
                         "documentation": "\u003cp\u003eInformation about the watermarks that you want Elastic Transcoder to add to the video during transcoding. You can specify up to four watermarks for each output. Settings for each watermark must be defined in the preset that you specify in \u003ccode\u003ePreset\u003c/code\u003e for the current output.\u003c/p\u003e \u003cp\u003eWatermarks are added to the output video in the sequence in which you list them in the job output&#x2014;the first watermark in the list is added to the output video first, the second watermark in the list is added next, and so on. As a result, if the settings in a preset cause Elastic Transcoder to place all watermarks in the same location, the second watermark that you add will cover the first one, the third one will cover the second, and the fourth one will cover the third.\u003c/p\u003e",
                         "typeExposed": "[JobWatermark]",
-                        "type": "[JobWatermark]"
+                        "type": "List \"Watermarks\" JobWatermark"
                     },
                     {
                         "location": null,
@@ -1056,8 +1056,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1067,7 +1067,7 @@
                         "locationName": "Composition",
                         "documentation": "\u003cp\u003eYou can create an output file that contains an excerpt from the input file. This excerpt, called a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings for the clips that make up an output file. For the current release, you can only specify settings for a single clip per output file. The Composition object cannot be null.\u003c/p\u003e",
                         "typeExposed": "[Clip]",
-                        "type": "[Clip]"
+                        "type": "List \"Composition\" Clip"
                     },
                     {
                         "location": null,
@@ -1118,8 +1118,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1129,7 +1129,7 @@
                         "locationName": "Composition",
                         "documentation": "\u003cp\u003eYou can create an output file that contains an excerpt from the input file. This excerpt, called a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings for the clips that make up an output file. For the current release, you can only specify settings for a single clip per output file. The Composition object cannot be null.\u003c/p\u003e",
                         "typeExposed": "[Clip]",
-                        "type": "[Clip]"
+                        "type": "List \"Composition\" Clip"
                     },
                     {
                         "location": null,
@@ -1283,8 +1283,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1294,7 +1294,7 @@
                         "locationName": "Watermarks",
                         "documentation": "\u003cp\u003eInformation about the watermarks that you want Elastic Transcoder to add to the video during transcoding. You can specify up to four watermarks for each output. Settings for each watermark must be defined in the preset that you specify in \u003ccode\u003ePreset\u003c/code\u003e for the current output.\u003c/p\u003e \u003cp\u003eWatermarks are added to the output video in the sequence in which you list them in the job output&#x2014;the first watermark in the list is added to the output video first, the second watermark in the list is added next, and so on. As a result, if the settings in a preset cause Elastic Transcoder to place all watermarks in the same location, the second watermark that you add will cover the first one, the third one will cover the second, and the fourth one will cover the third.\u003c/p\u003e",
                         "typeExposed": "[JobWatermark]",
-                        "type": "[JobWatermark]"
+                        "type": "List \"Watermarks\" JobWatermark"
                     },
                     {
                         "location": null,
@@ -1316,8 +1316,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "job",
@@ -1399,8 +1398,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1410,7 +1409,7 @@
                         "locationName": "Outputs",
                         "documentation": "\u003cp\u003eInformation about the output files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only one format. Do not use both the \u003ccode\u003eOutputs\u003c/code\u003e and \u003ccode\u003eOutput\u003c/code\u003e syntaxes in the same request. You can create a maximum of 30 outputs per job. \u003c/p\u003e \u003cp\u003e If you specify more than one output for a job, Elastic Transcoder creates the files for each output in the order in which you specify them in the job.\u003c/p\u003e",
                         "typeExposed": "[JobOutput]",
-                        "type": "[JobOutput]"
+                        "type": "List \"Outputs\" JobOutput"
                     },
                     {
                         "location": null,
@@ -1429,8 +1428,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1440,7 +1439,7 @@
                         "locationName": "Playlists",
                         "documentation": "\u003cp\u003e\u003cimportant\u003eOutputs in Fragmented MP4 or MPEG-TS format only.\u003c/important\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), \u003ccode\u003ePlaylists\u003c/code\u003e contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30. \u003c/p\u003e",
                         "typeExposed": "[Playlist]",
-                        "type": "[Playlist]"
+                        "type": "List \"Playlists\" Playlist"
                     },
                     {
                         "location": null,
@@ -1462,6 +1461,7 @@
                 "required": [],
                 "contentPad": 16,
                 "name": "Job'",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -1541,8 +1541,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1552,7 +1552,7 @@
                         "locationName": "Outputs",
                         "documentation": "\u003cp\u003eInformation about the output files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only one format. Do not use both the \u003ccode\u003eOutputs\u003c/code\u003e and \u003ccode\u003eOutput\u003c/code\u003e syntaxes in the same request. You can create a maximum of 30 outputs per job. \u003c/p\u003e \u003cp\u003e If you specify more than one output for a job, Elastic Transcoder creates the files for each output in the order in which you specify them in the job.\u003c/p\u003e",
                         "typeExposed": "[JobOutput]",
-                        "type": "[JobOutput]"
+                        "type": "List \"Outputs\" JobOutput"
                     },
                     {
                         "location": null,
@@ -1571,8 +1571,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1582,7 +1582,7 @@
                         "locationName": "Playlists",
                         "documentation": "\u003cp\u003e\u003cimportant\u003eOutputs in Fragmented MP4 or MPEG-TS format only.\u003c/important\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), \u003ccode\u003ePlaylists\u003c/code\u003e contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30. \u003c/p\u003e",
                         "typeExposed": "[Playlist]",
-                        "type": "[Playlist]"
+                        "type": "List \"Playlists\" Playlist"
                     },
                     {
                         "location": null,
@@ -1678,8 +1678,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1689,7 +1689,7 @@
                         "locationName": "Outputs",
                         "documentation": "\u003cp\u003eInformation about the output files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only one format. Do not use both the \u003ccode\u003eOutputs\u003c/code\u003e and \u003ccode\u003eOutput\u003c/code\u003e syntaxes in the same request. You can create a maximum of 30 outputs per job. \u003c/p\u003e \u003cp\u003e If you specify more than one output for a job, Elastic Transcoder creates the files for each output in the order in which you specify them in the job.\u003c/p\u003e",
                         "typeExposed": "[JobOutput]",
-                        "type": "[JobOutput]"
+                        "type": "List \"Outputs\" JobOutput"
                     },
                     {
                         "location": null,
@@ -1708,8 +1708,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1719,7 +1719,7 @@
                         "locationName": "Playlists",
                         "documentation": "\u003cp\u003e\u003cimportant\u003eOutputs in Fragmented MP4 or MPEG-TS format only.\u003c/important\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), \u003ccode\u003ePlaylists\u003c/code\u003e contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30. \u003c/p\u003e",
                         "typeExposed": "[Playlist]",
-                        "type": "[Playlist]"
+                        "type": "List \"Playlists\" Playlist"
                     },
                     {
                         "location": null,
@@ -1742,8 +1742,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "captionSource",
@@ -1813,6 +1812,7 @@
                 "required": [],
                 "contentPad": 11,
                 "name": "CaptionSource",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -1943,8 +1943,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "artwork",
@@ -2044,6 +2043,7 @@
                 "required": [],
                 "contentPad": 15,
                 "name": "Artwork",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -2234,8 +2234,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "timeSpan",
@@ -2275,6 +2274,7 @@
                 "required": [],
                 "contentPad": 10,
                 "name": "TimeSpan",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -2344,8 +2344,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "createJobOutput",
@@ -2427,8 +2426,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2438,7 +2437,7 @@
                         "locationName": "Watermarks",
                         "documentation": "\u003cp\u003eInformation about the watermarks that you want Elastic Transcoder to add to the video during transcoding. You can specify up to four watermarks for each output. Settings for each watermark must be defined in the preset for the current output.\u003c/p\u003e",
                         "typeExposed": "[JobWatermark]",
-                        "type": "[JobWatermark]"
+                        "type": "List \"Watermarks\" JobWatermark"
                     },
                     {
                         "location": null,
@@ -2457,8 +2456,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2468,7 +2467,7 @@
                         "locationName": "Composition",
                         "documentation": "\u003cp\u003eYou can create an output file that contains an excerpt from the input file. This excerpt, called a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings for the clips that make up an output file. For the current release, you can only specify settings for a single clip per output file. The Composition object cannot be null.\u003c/p\u003e",
                         "typeExposed": "[Clip]",
-                        "type": "[Clip]"
+                        "type": "List \"Composition\" Clip"
                     },
                     {
                         "location": null,
@@ -2490,6 +2489,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "CreateJobOutput",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -2569,8 +2569,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2580,7 +2580,7 @@
                         "locationName": "Watermarks",
                         "documentation": "\u003cp\u003eInformation about the watermarks that you want Elastic Transcoder to add to the video during transcoding. You can specify up to four watermarks for each output. Settings for each watermark must be defined in the preset for the current output.\u003c/p\u003e",
                         "typeExposed": "[JobWatermark]",
-                        "type": "[JobWatermark]"
+                        "type": "List \"Watermarks\" JobWatermark"
                     },
                     {
                         "location": null,
@@ -2599,8 +2599,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2610,7 +2610,7 @@
                         "locationName": "Composition",
                         "documentation": "\u003cp\u003eYou can create an output file that contains an excerpt from the input file. This excerpt, called a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings for the clips that make up an output file. For the current release, you can only specify settings for a single clip per output file. The Composition object cannot be null.\u003c/p\u003e",
                         "typeExposed": "[Clip]",
-                        "type": "[Clip]"
+                        "type": "List \"Composition\" Clip"
                     },
                     {
                         "location": null,
@@ -2661,8 +2661,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2672,7 +2672,7 @@
                         "locationName": "Composition",
                         "documentation": "\u003cp\u003eYou can create an output file that contains an excerpt from the input file. This excerpt, called a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings for the clips that make up an output file. For the current release, you can only specify settings for a single clip per output file. The Composition object cannot be null.\u003c/p\u003e",
                         "typeExposed": "[Clip]",
-                        "type": "[Clip]"
+                        "type": "List \"Composition\" Clip"
                     },
                     {
                         "location": null,
@@ -2751,8 +2751,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2762,15 +2762,14 @@
                         "locationName": "Watermarks",
                         "documentation": "\u003cp\u003eInformation about the watermarks that you want Elastic Transcoder to add to the video during transcoding. You can specify up to four watermarks for each output. Settings for each watermark must be defined in the preset for the current output.\u003c/p\u003e",
                         "typeExposed": "[JobWatermark]",
-                        "type": "[JobWatermark]"
+                        "type": "List \"Watermarks\" JobWatermark"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "audioParameters",
@@ -2855,6 +2854,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "AudioParameters",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -3015,8 +3015,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "thumbnails",
@@ -3146,6 +3145,7 @@
                 "required": [],
                 "contentPad": 14,
                 "name": "Thumbnails",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -3395,8 +3395,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "jobAlbumArt",
@@ -3418,8 +3417,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3429,13 +3428,14 @@
                         "locationName": "Artwork",
                         "documentation": "\u003cp\u003eThe file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are \u003ccode\u003e.jpg\u003c/code\u003e and \u003ccode\u003e.png\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[Artwork]",
-                        "type": "[Artwork]"
+                        "type": "List \"Artwork\" Artwork"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 12,
                 "name": "JobAlbumArt",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -3455,8 +3455,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3466,14 +3466,14 @@
                         "locationName": "Artwork",
                         "documentation": "\u003cp\u003eThe file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are \u003ccode\u003e.jpg\u003c/code\u003e and \u003ccode\u003e.png\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[Artwork]",
-                        "type": "[Artwork]"
+                        "type": "List \"Artwork\" Artwork"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3483,7 +3483,7 @@
                         "locationName": "Artwork",
                         "documentation": "\u003cp\u003eThe file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are \u003ccode\u003e.jpg\u003c/code\u003e and \u003ccode\u003e.png\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[Artwork]",
-                        "type": "[Artwork]"
+                        "type": "List \"Artwork\" Artwork"
                     },
                     {
                         "location": null,
@@ -3506,8 +3506,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "jobWatermark",
@@ -3547,6 +3546,7 @@
                 "required": [],
                 "contentPad": 18,
                 "name": "JobWatermark",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -3616,8 +3616,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "pipeline",
@@ -3777,6 +3776,7 @@
                 "required": [],
                 "contentPad": 16,
                 "name": "Pipeline",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -4086,8 +4086,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "preset",
@@ -4232,6 +4231,7 @@
                 "required": [],
                 "contentPad": 12,
                 "name": "Preset",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -4512,8 +4512,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "captionFormat",
@@ -4553,6 +4552,7 @@
                 "required": [],
                 "contentPad": 8,
                 "name": "CaptionFormat",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -4623,8 +4623,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "presetWatermark",
@@ -4784,6 +4783,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "PresetWatermark",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -5094,8 +5094,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "permission",
@@ -5132,8 +5131,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5143,13 +5142,14 @@
                         "locationName": "Access",
                         "documentation": "\u003cp\u003e The permission that you want to give to the AWS user that is listed in Grantee. Valid values include: \u003cul\u003e \u003cli\u003e \u003ccode\u003eREAD\u003c/code\u003e: The grantee can read the thumbnails and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eREAD_ACP\u003c/code\u003e: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eWRITE_ACP\u003c/code\u003e: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eFULL_CONTROL\u003c/code\u003e: The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Access\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 12,
                 "name": "Permission",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -5184,8 +5184,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5195,14 +5195,14 @@
                         "locationName": "Access",
                         "documentation": "\u003cp\u003e The permission that you want to give to the AWS user that is listed in Grantee. Valid values include: \u003cul\u003e \u003cli\u003e \u003ccode\u003eREAD\u003c/code\u003e: The grantee can read the thumbnails and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eREAD_ACP\u003c/code\u003e: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eWRITE_ACP\u003c/code\u003e: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eFULL_CONTROL\u003c/code\u003e: The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Access\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5212,7 +5212,7 @@
                         "locationName": "Access",
                         "documentation": "\u003cp\u003e The permission that you want to give to the AWS user that is listed in Grantee. Valid values include: \u003cul\u003e \u003cli\u003e \u003ccode\u003eREAD\u003c/code\u003e: The grantee can read the thumbnails and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eREAD_ACP\u003c/code\u003e: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eWRITE_ACP\u003c/code\u003e: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eFULL_CONTROL\u003c/code\u003e: The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Access\" Text"
                     },
                     {
                         "location": null,
@@ -5249,8 +5249,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "videoParameters",
@@ -5283,7 +5282,7 @@
                         "locationName": "CodecOptions",
                         "documentation": "\u003cp\u003e \u003cb\u003eProfile\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe H.264 profile that you want to use for the output file. Elastic Transcoder supports the following profiles:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003ebaseline\u003c/code\u003e: The profile most commonly used for videoconferencing and for mobile applications.\u003c/li\u003e \u003cli\u003e \u003ccode\u003emain\u003c/code\u003e: The profile used for standard-definition digital TV broadcasts.\u003c/li\u003e \u003cli\u003e \u003ccode\u003ehigh\u003c/code\u003e: The profile used for high-definition digital TV broadcasts and for Blu-ray discs.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e \u003cb\u003eLevel (H.264 Only)\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe H.264 level that you want to use for the output file. Elastic Transcoder supports the following levels:\u003c/p\u003e \u003cp\u003e\u003ccode\u003e1\u003c/code\u003e, \u003ccode\u003e1b\u003c/code\u003e, \u003ccode\u003e1.1\u003c/code\u003e, \u003ccode\u003e1.2\u003c/code\u003e, \u003ccode\u003e1.3\u003c/code\u003e, \u003ccode\u003e2\u003c/code\u003e, \u003ccode\u003e2.1\u003c/code\u003e, \u003ccode\u003e2.2\u003c/code\u003e, \u003ccode\u003e3\u003c/code\u003e, \u003ccode\u003e3.1\u003c/code\u003e, \u003ccode\u003e3.2\u003c/code\u003e, \u003ccode\u003e4\u003c/code\u003e, \u003ccode\u003e4.1\u003c/code\u003e\u003c/p\u003e \u003cp\u003e \u003cb\u003eMaxReferenceFrames (H.264 Only)\u003c/b\u003e \u003c/p\u003e \u003cp\u003eApplicable only when the value of Video:Codec is H.264. The maximum number of previously decoded frames to use as a reference for decoding future frames. Valid values are integers 0 through 16, but we recommend that you not use a value greater than the following:\u003c/p\u003e \u003cp\u003e \u003ccode\u003eMin(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width in pixels * Height in pixels)), 16)\u003c/code\u003e \u003c/p\u003e \u003cp\u003ewhere \u003ci\u003eWidth in pixels\u003c/i\u003e and \u003ci\u003eHeight in pixels\u003c/i\u003e represent either MaxWidth and MaxHeight, or Resolution. \u003ci\u003eMaximum decoded picture buffer in macroblocks\u003c/i\u003e depends on the value of the \u003ccode\u003eLevel\u003c/code\u003e object. See the list below. (A macroblock is a block of pixels measuring 16x16.) \u003c/p\u003e \u003cul\u003e \u003cli\u003e1 - 396\u003c/li\u003e \u003cli\u003e1b - 396\u003c/li\u003e \u003cli\u003e1.1 - 900\u003c/li\u003e \u003cli\u003e1.2 - 2376\u003c/li\u003e \u003cli\u003e1.3 - 2376\u003c/li\u003e \u003cli\u003e2 - 2376\u003c/li\u003e \u003cli\u003e2.1 - 4752\u003c/li\u003e \u003cli\u003e2.2 - 8100\u003c/li\u003e \u003cli\u003e3 - 8100\u003c/li\u003e \u003cli\u003e3.1 - 18000\u003c/li\u003e \u003cli\u003e3.2 - 20480\u003c/li\u003e \u003cli\u003e4 - 32768\u003c/li\u003e \u003cli\u003e4.1 - 32768\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e \u003cb\u003eMaxBitRate\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe maximum number of bits per second in a video buffer; the size of the buffer is specified by \u003ccode\u003eBufferSize\u003c/code\u003e. Specify a value between 16 and 62,500. You can reduce the bandwidth required to stream a video by reducing the maximum bit rate, but this also reduces the quality of the video.\u003c/p\u003e \u003cp\u003e \u003cb\u003eBufferSize\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe maximum number of bits in any x seconds of the output video. This window is commonly 10 seconds, the standard segment duration when you're using FMP4 or MPEG-TS for the container type of the output video. Specify an integer greater than 0. If you specify \u003ccode\u003eMaxBitRate\u003c/code\u003e and omit \u003ccode\u003eBufferSize\u003c/code\u003e, Elastic Transcoder sets \u003ccode\u003eBufferSize\u003c/code\u003e to 10 times the value of \u003ccode\u003eMaxBitRate\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -5467,8 +5466,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5478,13 +5477,14 @@
                         "locationName": "Watermarks",
                         "documentation": "\u003cp\u003eSettings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.\u003c/p\u003e \u003cp\u003eWatermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.\u003c/p\u003e \u003cp\u003eWhen you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.\u003c/p\u003e",
                         "typeExposed": "[PresetWatermark]",
-                        "type": "[PresetWatermark]"
+                        "type": "List \"Watermarks\" PresetWatermark"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 19,
                 "name": "VideoParameters",
+                "locationPad": 19,
                 "type": "record",
                 "optional": [
                     {
@@ -5515,7 +5515,7 @@
                         "locationName": "CodecOptions",
                         "documentation": "\u003cp\u003e \u003cb\u003eProfile\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe H.264 profile that you want to use for the output file. Elastic Transcoder supports the following profiles:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003ebaseline\u003c/code\u003e: The profile most commonly used for videoconferencing and for mobile applications.\u003c/li\u003e \u003cli\u003e \u003ccode\u003emain\u003c/code\u003e: The profile used for standard-definition digital TV broadcasts.\u003c/li\u003e \u003cli\u003e \u003ccode\u003ehigh\u003c/code\u003e: The profile used for high-definition digital TV broadcasts and for Blu-ray discs.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e \u003cb\u003eLevel (H.264 Only)\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe H.264 level that you want to use for the output file. Elastic Transcoder supports the following levels:\u003c/p\u003e \u003cp\u003e\u003ccode\u003e1\u003c/code\u003e, \u003ccode\u003e1b\u003c/code\u003e, \u003ccode\u003e1.1\u003c/code\u003e, \u003ccode\u003e1.2\u003c/code\u003e, \u003ccode\u003e1.3\u003c/code\u003e, \u003ccode\u003e2\u003c/code\u003e, \u003ccode\u003e2.1\u003c/code\u003e, \u003ccode\u003e2.2\u003c/code\u003e, \u003ccode\u003e3\u003c/code\u003e, \u003ccode\u003e3.1\u003c/code\u003e, \u003ccode\u003e3.2\u003c/code\u003e, \u003ccode\u003e4\u003c/code\u003e, \u003ccode\u003e4.1\u003c/code\u003e\u003c/p\u003e \u003cp\u003e \u003cb\u003eMaxReferenceFrames (H.264 Only)\u003c/b\u003e \u003c/p\u003e \u003cp\u003eApplicable only when the value of Video:Codec is H.264. The maximum number of previously decoded frames to use as a reference for decoding future frames. Valid values are integers 0 through 16, but we recommend that you not use a value greater than the following:\u003c/p\u003e \u003cp\u003e \u003ccode\u003eMin(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width in pixels * Height in pixels)), 16)\u003c/code\u003e \u003c/p\u003e \u003cp\u003ewhere \u003ci\u003eWidth in pixels\u003c/i\u003e and \u003ci\u003eHeight in pixels\u003c/i\u003e represent either MaxWidth and MaxHeight, or Resolution. \u003ci\u003eMaximum decoded picture buffer in macroblocks\u003c/i\u003e depends on the value of the \u003ccode\u003eLevel\u003c/code\u003e object. See the list below. (A macroblock is a block of pixels measuring 16x16.) \u003c/p\u003e \u003cul\u003e \u003cli\u003e1 - 396\u003c/li\u003e \u003cli\u003e1b - 396\u003c/li\u003e \u003cli\u003e1.1 - 900\u003c/li\u003e \u003cli\u003e1.2 - 2376\u003c/li\u003e \u003cli\u003e1.3 - 2376\u003c/li\u003e \u003cli\u003e2 - 2376\u003c/li\u003e \u003cli\u003e2.1 - 4752\u003c/li\u003e \u003cli\u003e2.2 - 8100\u003c/li\u003e \u003cli\u003e3 - 8100\u003c/li\u003e \u003cli\u003e3.1 - 18000\u003c/li\u003e \u003cli\u003e3.2 - 20480\u003c/li\u003e \u003cli\u003e4 - 32768\u003c/li\u003e \u003cli\u003e4.1 - 32768\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e \u003cb\u003eMaxBitRate\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe maximum number of bits per second in a video buffer; the size of the buffer is specified by \u003ccode\u003eBufferSize\u003c/code\u003e. Specify a value between 16 and 62,500. You can reduce the bandwidth required to stream a video by reducing the maximum bit rate, but this also reduces the quality of the video.\u003c/p\u003e \u003cp\u003e \u003cb\u003eBufferSize\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe maximum number of bits in any x seconds of the output video. This window is commonly 10 seconds, the standard segment duration when you're using FMP4 or MPEG-TS for the container type of the output video. Specify an integer greater than 0. If you specify \u003ccode\u003eMaxBitRate\u003c/code\u003e and omit \u003ccode\u003eBufferSize\u003c/code\u003e, Elastic Transcoder sets \u003ccode\u003eBufferSize\u003c/code\u003e to 10 times the value of \u003ccode\u003eMaxBitRate\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -5699,8 +5699,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5710,7 +5710,7 @@
                         "locationName": "Watermarks",
                         "documentation": "\u003cp\u003eSettings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.\u003c/p\u003e \u003cp\u003eWatermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.\u003c/p\u003e \u003cp\u003eWhen you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.\u003c/p\u003e",
                         "typeExposed": "[PresetWatermark]",
-                        "type": "[PresetWatermark]"
+                        "type": "List \"Watermarks\" PresetWatermark"
                     }
                 ],
                 "fields": [
@@ -5772,7 +5772,7 @@
                         "locationName": "CodecOptions",
                         "documentation": "\u003cp\u003e \u003cb\u003eProfile\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe H.264 profile that you want to use for the output file. Elastic Transcoder supports the following profiles:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003ebaseline\u003c/code\u003e: The profile most commonly used for videoconferencing and for mobile applications.\u003c/li\u003e \u003cli\u003e \u003ccode\u003emain\u003c/code\u003e: The profile used for standard-definition digital TV broadcasts.\u003c/li\u003e \u003cli\u003e \u003ccode\u003ehigh\u003c/code\u003e: The profile used for high-definition digital TV broadcasts and for Blu-ray discs.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e \u003cb\u003eLevel (H.264 Only)\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe H.264 level that you want to use for the output file. Elastic Transcoder supports the following levels:\u003c/p\u003e \u003cp\u003e\u003ccode\u003e1\u003c/code\u003e, \u003ccode\u003e1b\u003c/code\u003e, \u003ccode\u003e1.1\u003c/code\u003e, \u003ccode\u003e1.2\u003c/code\u003e, \u003ccode\u003e1.3\u003c/code\u003e, \u003ccode\u003e2\u003c/code\u003e, \u003ccode\u003e2.1\u003c/code\u003e, \u003ccode\u003e2.2\u003c/code\u003e, \u003ccode\u003e3\u003c/code\u003e, \u003ccode\u003e3.1\u003c/code\u003e, \u003ccode\u003e3.2\u003c/code\u003e, \u003ccode\u003e4\u003c/code\u003e, \u003ccode\u003e4.1\u003c/code\u003e\u003c/p\u003e \u003cp\u003e \u003cb\u003eMaxReferenceFrames (H.264 Only)\u003c/b\u003e \u003c/p\u003e \u003cp\u003eApplicable only when the value of Video:Codec is H.264. The maximum number of previously decoded frames to use as a reference for decoding future frames. Valid values are integers 0 through 16, but we recommend that you not use a value greater than the following:\u003c/p\u003e \u003cp\u003e \u003ccode\u003eMin(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width in pixels * Height in pixels)), 16)\u003c/code\u003e \u003c/p\u003e \u003cp\u003ewhere \u003ci\u003eWidth in pixels\u003c/i\u003e and \u003ci\u003eHeight in pixels\u003c/i\u003e represent either MaxWidth and MaxHeight, or Resolution. \u003ci\u003eMaximum decoded picture buffer in macroblocks\u003c/i\u003e depends on the value of the \u003ccode\u003eLevel\u003c/code\u003e object. See the list below. (A macroblock is a block of pixels measuring 16x16.) \u003c/p\u003e \u003cul\u003e \u003cli\u003e1 - 396\u003c/li\u003e \u003cli\u003e1b - 396\u003c/li\u003e \u003cli\u003e1.1 - 900\u003c/li\u003e \u003cli\u003e1.2 - 2376\u003c/li\u003e \u003cli\u003e1.3 - 2376\u003c/li\u003e \u003cli\u003e2 - 2376\u003c/li\u003e \u003cli\u003e2.1 - 4752\u003c/li\u003e \u003cli\u003e2.2 - 8100\u003c/li\u003e \u003cli\u003e3 - 8100\u003c/li\u003e \u003cli\u003e3.1 - 18000\u003c/li\u003e \u003cli\u003e3.2 - 20480\u003c/li\u003e \u003cli\u003e4 - 32768\u003c/li\u003e \u003cli\u003e4.1 - 32768\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e \u003cb\u003eMaxBitRate\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe maximum number of bits per second in a video buffer; the size of the buffer is specified by \u003ccode\u003eBufferSize\u003c/code\u003e. Specify a value between 16 and 62,500. You can reduce the bandwidth required to stream a video by reducing the maximum bit rate, but this also reduces the quality of the video.\u003c/p\u003e \u003cp\u003e \u003cb\u003eBufferSize\u003c/b\u003e \u003c/p\u003e \u003cp\u003eThe maximum number of bits in any x seconds of the output video. This window is commonly 10 seconds, the standard segment duration when you're using FMP4 or MPEG-TS for the container type of the output video. Specify an integer greater than 0. If you specify \u003ccode\u003eMaxBitRate\u003c/code\u003e and omit \u003ccode\u003eBufferSize\u003c/code\u003e, Elastic Transcoder sets \u003ccode\u003eBufferSize\u003c/code\u003e to 10 times the value of \u003ccode\u003eMaxBitRate\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -5926,8 +5926,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5937,7 +5937,7 @@
                         "locationName": "Watermarks",
                         "documentation": "\u003cp\u003eSettings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.\u003c/p\u003e \u003cp\u003eWatermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.\u003c/p\u003e \u003cp\u003eWhen you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.\u003c/p\u003e",
                         "typeExposed": "[PresetWatermark]",
-                        "type": "[PresetWatermark]"
+                        "type": "List \"Watermarks\" PresetWatermark"
                     }
                 ]
             },
@@ -5945,8 +5945,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "playlist",
@@ -5983,8 +5982,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5994,7 +5993,7 @@
                         "locationName": "OutputKeys",
                         "documentation": "\u003cp\u003eFor each output in this job that you want to include in a master playlist, the value of the Outputs:Key object.\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eIf your output is not \u003ccode\u003eHLS\u003c/code\u003e or does not have a segment duration set, the name of the output file is a concatenation of \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e and \u003ccode\u003eOutputs:Key\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv3\u003c/code\u003e and has a segment duration set, or is not included in a playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e.m3u8\u003c/code\u003e, and a series of \u003ccode\u003e.ts\u003c/code\u003e files that include a five-digit sequential counter beginning with 00000:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e00000.ts\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv4\u003c/code\u003e, has a segment duration set, and is included in an \u003ccode\u003eHLSv4\u003c/code\u003e playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e_v4.m3u8\u003c/code\u003e. If the output is video, Elastic Transcoder also creates an output file with an extension of \u003ccode\u003e_iframe.m3u8\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_v4.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_iframe.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.ts\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eElastic Transcoder automatically appends the relevant file extension to the file name. If you include a file extension in Output Key, the file name will have two extensions.\u003c/p\u003e \u003cp\u003eIf you include more than one output in a playlist, any segment duration settings, clip settings, or caption settings must be the same for all outputs in the playlist. For \u003ccode\u003eSmooth\u003c/code\u003e playlists, the \u003ccode\u003eAudio:Profile\u003c/code\u003e, \u003ccode\u003eVideo:Profile\u003c/code\u003e, and \u003ccode\u003eVideo:FrameRate\u003c/code\u003e to \u003ccode\u003eVideo:KeyframesMaxDist\u003c/code\u003e ratio must be the same for all outputs.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OutputKeys\" Text"
                     },
                     {
                         "location": null,
@@ -6031,6 +6030,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "Playlist",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -6065,8 +6065,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6076,7 +6076,7 @@
                         "locationName": "OutputKeys",
                         "documentation": "\u003cp\u003eFor each output in this job that you want to include in a master playlist, the value of the Outputs:Key object.\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eIf your output is not \u003ccode\u003eHLS\u003c/code\u003e or does not have a segment duration set, the name of the output file is a concatenation of \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e and \u003ccode\u003eOutputs:Key\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv3\u003c/code\u003e and has a segment duration set, or is not included in a playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e.m3u8\u003c/code\u003e, and a series of \u003ccode\u003e.ts\u003c/code\u003e files that include a five-digit sequential counter beginning with 00000:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e00000.ts\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv4\u003c/code\u003e, has a segment duration set, and is included in an \u003ccode\u003eHLSv4\u003c/code\u003e playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e_v4.m3u8\u003c/code\u003e. If the output is video, Elastic Transcoder also creates an output file with an extension of \u003ccode\u003e_iframe.m3u8\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_v4.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_iframe.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.ts\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eElastic Transcoder automatically appends the relevant file extension to the file name. If you include a file extension in Output Key, the file name will have two extensions.\u003c/p\u003e \u003cp\u003eIf you include more than one output in a playlist, any segment duration settings, clip settings, or caption settings must be the same for all outputs in the playlist. For \u003ccode\u003eSmooth\u003c/code\u003e playlists, the \u003ccode\u003eAudio:Profile\u003c/code\u003e, \u003ccode\u003eVideo:Profile\u003c/code\u003e, and \u003ccode\u003eVideo:FrameRate\u003c/code\u003e to \u003ccode\u003eVideo:KeyframesMaxDist\u003c/code\u003e ratio must be the same for all outputs.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OutputKeys\" Text"
                     },
                     {
                         "location": null,
@@ -6142,8 +6142,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6153,7 +6153,7 @@
                         "locationName": "OutputKeys",
                         "documentation": "\u003cp\u003eFor each output in this job that you want to include in a master playlist, the value of the Outputs:Key object.\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003eIf your output is not \u003ccode\u003eHLS\u003c/code\u003e or does not have a segment duration set, the name of the output file is a concatenation of \u003ccode\u003eOutputKeyPrefix\u003c/code\u003e and \u003ccode\u003eOutputs:Key\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv3\u003c/code\u003e and has a segment duration set, or is not included in a playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e.m3u8\u003c/code\u003e, and a series of \u003ccode\u003e.ts\u003c/code\u003e files that include a five-digit sequential counter beginning with 00000:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e00000.ts\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003eIf your output is \u003ccode\u003eHLSv4\u003c/code\u003e, has a segment duration set, and is included in an \u003ccode\u003eHLSv4\u003c/code\u003e playlist, Elastic Transcoder creates an output playlist file with a file extension of \u003ccode\u003e_v4.m3u8\u003c/code\u003e. If the output is video, Elastic Transcoder also creates an output file with an extension of \u003ccode\u003e_iframe.m3u8\u003c/code\u003e:\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_v4.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e_iframe.m3u8\u003c/p\u003e \u003cp\u003eOutputKeyPrefix\u003ccode\u003eOutputs:Key\u003c/code\u003e.ts\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eElastic Transcoder automatically appends the relevant file extension to the file name. If you include a file extension in Output Key, the file name will have two extensions.\u003c/p\u003e \u003cp\u003eIf you include more than one output in a playlist, any segment duration settings, clip settings, or caption settings must be the same for all outputs in the playlist. For \u003ccode\u003eSmooth\u003c/code\u003e playlists, the \u003ccode\u003eAudio:Profile\u003c/code\u003e, \u003ccode\u003eVideo:Profile\u003c/code\u003e, and \u003ccode\u003eVideo:FrameRate\u003c/code\u003e to \u003ccode\u003eVideo:KeyframesMaxDist\u003c/code\u003e ratio must be the same for all outputs.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OutputKeys\" Text"
                     },
                     {
                         "location": null,
@@ -6191,8 +6191,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "notifications",
@@ -6262,6 +6261,7 @@
                 "required": [],
                 "contentPad": 12,
                 "name": "Notifications",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -6391,8 +6391,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -6433,6 +6432,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Clip",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -6473,8 +6473,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "jobInput",
@@ -6574,6 +6573,7 @@
                 "required": [],
                 "contentPad": 12,
                 "name": "JobInput",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -6815,7 +6815,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6876,6 +6875,7 @@
                 "queryPad": 0,
                 "name": "CancelJob",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -6904,8 +6904,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6954,6 +6953,7 @@
                 "contentPad": 0,
                 "name": "CreateJobResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -7006,8 +7006,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7062,8 +7061,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7073,7 +7072,7 @@
                         "locationName": "Outputs",
                         "documentation": "\u003cp\u003e A section of the request body that provides information about the transcoded (target) files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax instead of the \u003ccode\u003eOutput\u003c/code\u003e syntax. \u003c/p\u003e",
                         "typeExposed": "[CreateJobOutput]",
-                        "type": "[CreateJobOutput]"
+                        "type": "List \"Outputs\" CreateJobOutput"
                     },
                     {
                         "location": null,
@@ -7092,8 +7091,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7103,7 +7102,7 @@
                         "locationName": "Playlists",
                         "documentation": "\u003cp\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30.\u003c/p\u003e",
                         "typeExposed": "[CreateJobPlaylist]",
-                        "type": "[CreateJobPlaylist]"
+                        "type": "List \"Playlists\" CreateJobPlaylist"
                     }
                 ],
                 "path": [
@@ -7152,6 +7151,7 @@
                 "queryPad": 0,
                 "name": "CreateJob",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -7173,8 +7173,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7184,7 +7184,7 @@
                         "locationName": "Outputs",
                         "documentation": "\u003cp\u003e A section of the request body that provides information about the transcoded (target) files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax instead of the \u003ccode\u003eOutput\u003c/code\u003e syntax. \u003c/p\u003e",
                         "typeExposed": "[CreateJobOutput]",
-                        "type": "[CreateJobOutput]"
+                        "type": "List \"Outputs\" CreateJobOutput"
                     },
                     {
                         "location": null,
@@ -7203,8 +7203,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7214,7 +7214,7 @@
                         "locationName": "Playlists",
                         "documentation": "\u003cp\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30.\u003c/p\u003e",
                         "typeExposed": "[CreateJobPlaylist]",
-                        "type": "[CreateJobPlaylist]"
+                        "type": "List \"Playlists\" CreateJobPlaylist"
                     }
                 ],
                 "fields": [
@@ -7265,8 +7265,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7276,7 +7276,7 @@
                         "locationName": "Outputs",
                         "documentation": "\u003cp\u003e A section of the request body that provides information about the transcoded (target) files. We recommend that you use the \u003ccode\u003eOutputs\u003c/code\u003e syntax instead of the \u003ccode\u003eOutput\u003c/code\u003e syntax. \u003c/p\u003e",
                         "typeExposed": "[CreateJobOutput]",
-                        "type": "[CreateJobOutput]"
+                        "type": "List \"Outputs\" CreateJobOutput"
                     },
                     {
                         "location": null,
@@ -7295,8 +7295,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7306,7 +7306,7 @@
                         "locationName": "Playlists",
                         "documentation": "\u003cp\u003eIf you specify a preset in \u003ccode\u003ePresetId\u003c/code\u003e for which the value of \u003ccode\u003eContainer\u003c/code\u003e is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.\u003c/p\u003e \u003cp\u003eThe maximum number of master playlists in a job is 30.\u003c/p\u003e",
                         "typeExposed": "[CreateJobPlaylist]",
-                        "type": "[CreateJobPlaylist]"
+                        "type": "List \"Playlists\" CreateJobPlaylist"
                     }
                 ]
             }
@@ -7316,8 +7316,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -7366,6 +7365,7 @@
                 "contentPad": 0,
                 "name": "CreatePipelineResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -7418,8 +7418,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7594,6 +7593,7 @@
                 "queryPad": 0,
                 "name": "CreatePipeline",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -7773,8 +7773,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7822,6 +7821,7 @@
                 "contentPad": 8,
                 "name": "CreatePresetResponse",
                 "resultWrapper": null,
+                "locationPad": 8,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -7904,8 +7904,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -8050,6 +8049,7 @@
                 "queryPad": 0,
                 "name": "CreatePreset",
                 "query": [],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -8252,7 +8252,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -8313,6 +8312,7 @@
                 "queryPad": 0,
                 "name": "DeletePipeline",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -8379,7 +8379,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -8440,6 +8439,7 @@
                 "queryPad": 0,
                 "name": "DeletePreset",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -8468,8 +8468,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -8479,8 +8478,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8490,7 +8489,7 @@
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that are in the specified pipeline.\u003c/p\u003e",
                         "typeExposed": "[Job']",
-                        "type": "[Job']"
+                        "type": "List \"Jobs\" Job'"
                     },
                     {
                         "location": null,
@@ -8517,13 +8516,14 @@
                 "contentPad": 14,
                 "name": "ListJobsByPipelineResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8533,7 +8533,7 @@
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that are in the specified pipeline.\u003c/p\u003e",
                         "typeExposed": "[Job']",
-                        "type": "[Job']"
+                        "type": "List \"Jobs\" Job'"
                     },
                     {
                         "location": null,
@@ -8554,8 +8554,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8565,7 +8565,7 @@
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that are in the specified pipeline.\u003c/p\u003e",
                         "typeExposed": "[Job']",
-                        "type": "[Job']"
+                        "type": "List \"Jobs\" Job'"
                     },
                     {
                         "location": null,
@@ -8607,8 +8607,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -8662,6 +8661,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -8751,8 +8751,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -8762,8 +8761,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8773,7 +8772,7 @@
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that have the specified status.\u003c/p\u003e",
                         "typeExposed": "[Job']",
-                        "type": "[Job']"
+                        "type": "List \"Jobs\" Job'"
                     },
                     {
                         "location": null,
@@ -8800,13 +8799,14 @@
                 "contentPad": 14,
                 "name": "ListJobsByStatusResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8816,7 +8816,7 @@
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that have the specified status.\u003c/p\u003e",
                         "typeExposed": "[Job']",
-                        "type": "[Job']"
+                        "type": "List \"Jobs\" Job'"
                     },
                     {
                         "location": null,
@@ -8837,8 +8837,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8848,7 +8848,7 @@
                         "locationName": "Jobs",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003eJob\u003c/code\u003e objects that have the specified status.\u003c/p\u003e",
                         "typeExposed": "[Job']",
-                        "type": "[Job']"
+                        "type": "List \"Jobs\" Job'"
                     },
                     {
                         "location": null,
@@ -8890,8 +8890,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -8945,6 +8944,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -9034,8 +9034,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -9045,8 +9044,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9056,7 +9055,7 @@
                         "locationName": "Pipelines",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003ePipeline\u003c/code\u003e objects.\u003c/p\u003e",
                         "typeExposed": "[Pipeline]",
-                        "type": "[Pipeline]"
+                        "type": "List \"Pipelines\" Pipeline"
                     },
                     {
                         "location": null,
@@ -9083,13 +9082,14 @@
                 "contentPad": 14,
                 "name": "ListPipelinesResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9099,7 +9099,7 @@
                         "locationName": "Pipelines",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003ePipeline\u003c/code\u003e objects.\u003c/p\u003e",
                         "typeExposed": "[Pipeline]",
-                        "type": "[Pipeline]"
+                        "type": "List \"Pipelines\" Pipeline"
                     },
                     {
                         "location": null,
@@ -9135,8 +9135,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9146,7 +9146,7 @@
                         "locationName": "Pipelines",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003ePipeline\u003c/code\u003e objects.\u003c/p\u003e",
                         "typeExposed": "[Pipeline]",
-                        "type": "[Pipeline]"
+                        "type": "List \"Pipelines\" Pipeline"
                     }
                 ]
             },
@@ -9173,8 +9173,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -9208,6 +9207,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9282,8 +9282,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -9293,8 +9292,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9304,7 +9303,7 @@
                         "locationName": "Presets",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003ePreset\u003c/code\u003e objects.\u003c/p\u003e",
                         "typeExposed": "[Preset]",
-                        "type": "[Preset]"
+                        "type": "List \"Presets\" Preset"
                     },
                     {
                         "location": null,
@@ -9331,13 +9330,14 @@
                 "contentPad": 14,
                 "name": "ListPresetsResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9347,7 +9347,7 @@
                         "locationName": "Presets",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003ePreset\u003c/code\u003e objects.\u003c/p\u003e",
                         "typeExposed": "[Preset]",
-                        "type": "[Preset]"
+                        "type": "List \"Presets\" Preset"
                     },
                     {
                         "location": null,
@@ -9383,8 +9383,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9394,7 +9394,7 @@
                         "locationName": "Presets",
                         "documentation": "\u003cp\u003eAn array of \u003ccode\u003ePreset\u003c/code\u003e objects.\u003c/p\u003e",
                         "typeExposed": "[Preset]",
-                        "type": "[Preset]"
+                        "type": "List \"Presets\" Preset"
                     }
                 ]
             },
@@ -9421,8 +9421,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -9456,6 +9455,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9530,8 +9530,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9580,6 +9579,7 @@
                 "contentPad": 0,
                 "name": "ReadJobResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -9634,7 +9634,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9695,6 +9694,7 @@
                 "queryPad": 0,
                 "name": "ReadJob",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -9723,8 +9723,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9773,6 +9772,7 @@
                 "contentPad": 0,
                 "name": "ReadPipelineResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -9827,7 +9827,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9888,6 +9887,7 @@
                 "queryPad": 0,
                 "name": "ReadPipeline",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -9916,8 +9916,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9966,6 +9965,7 @@
                 "contentPad": 0,
                 "name": "ReadPresetResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -10020,7 +10020,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10081,6 +10080,7 @@
                 "queryPad": 0,
                 "name": "ReadPreset",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -10110,8 +10110,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10136,8 +10135,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10147,7 +10146,7 @@
                         "locationName": "Messages",
                         "documentation": "\u003cp\u003eIf the \u003ccode\u003eSuccess\u003c/code\u003e element contains \u003ccode\u003efalse\u003c/code\u003e, this value is an array of one or more error messages that were generated during the test process.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Messages\" Text"
                     }
                 ],
                 "wrapper": false,
@@ -10159,6 +10158,7 @@
                 "contentPad": 9,
                 "name": "TestRoleResponse",
                 "resultWrapper": null,
+                "locationPad": 9,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -10179,8 +10179,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10190,14 +10190,14 @@
                         "locationName": "Messages",
                         "documentation": "\u003cp\u003eIf the \u003ccode\u003eSuccess\u003c/code\u003e element contains \u003ccode\u003efalse\u003c/code\u003e, this value is an array of one or more error messages that were generated during the test process.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Messages\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10207,7 +10207,7 @@
                         "locationName": "Messages",
                         "documentation": "\u003cp\u003eIf the \u003ccode\u003eSuccess\u003c/code\u003e element contains \u003ccode\u003efalse\u003c/code\u003e, this value is an array of one or more error messages that were generated during the test process.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Messages\" Text"
                     },
                     {
                         "location": null,
@@ -10242,8 +10242,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10298,8 +10297,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10309,7 +10308,7 @@
                         "locationName": "Topics",
                         "documentation": "\u003cp\u003eThe ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that you want the action to send a test notification to.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Topics\" Text"
                     }
                 ],
                 "path": [
@@ -10373,14 +10372,15 @@
                 "queryPad": 0,
                 "name": "TestRole",
                 "query": [],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10390,7 +10390,7 @@
                         "locationName": "Topics",
                         "documentation": "\u003cp\u003eThe ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that you want the action to send a test notification to.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Topics\" Text"
                     }
                 ],
                 "fields": [
@@ -10441,8 +10441,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10452,7 +10452,7 @@
                         "locationName": "Topics",
                         "documentation": "\u003cp\u003eThe ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that you want the action to send a test notification to.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Topics\" Text"
                     }
                 ]
             }
@@ -10462,8 +10462,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10512,6 +10511,7 @@
                 "contentPad": 0,
                 "name": "UpdatePipelineResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -10564,8 +10564,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10699,6 +10698,7 @@
                 "queryPad": 0,
                 "name": "UpdatePipeline",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10908,8 +10908,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10958,6 +10957,7 @@
                 "contentPad": 0,
                 "name": "UpdatePipelineNotificationsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -11010,8 +11010,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11089,6 +11088,7 @@
                 "queryPad": 0,
                 "name": "UpdatePipelineNotifications",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -11132,8 +11132,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -11182,6 +11181,7 @@
                 "contentPad": 0,
                 "name": "UpdatePipelineStatusResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -11235,8 +11235,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11314,6 +11313,7 @@
                 "queryPad": 0,
                 "name": "UpdatePipelineStatus",
                 "query": [],
+                "locationPad": 7,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
     { _dcsApplicationName :: Text
     , _dcsEnvironmentName :: Maybe Text
     , _dcsTemplateName    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeConfigurationSettings' constructor.
 --
@@ -100,8 +101,8 @@ dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsTemplateName = lens _dcsTemplateName (\s a -> s { _dcsTemplateName = a })
 
 newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
-    { _dcsrConfigurationSettings :: [ConfigurationSettingsDescription]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dcsrConfigurationSettings :: List "ConfigurationSettings" ConfigurationSettingsDescription
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConfigurationSettingsResponse where
     type Item DescribeConfigurationSettingsResponse = ConfigurationSettingsDescription
@@ -125,11 +126,17 @@ dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [Config
 dcsrConfigurationSettings =
     lens _dcsrConfigurationSettings
         (\s a -> s { _dcsrConfigurationSettings = a })
+            . _List
 
 instance ToPath DescribeConfigurationSettings where
     toPath = const "/"
 
-instance ToQuery DescribeConfigurationSettings
+instance ToQuery DescribeConfigurationSettings where
+    toQuery DescribeConfigurationSettings{..} = mconcat
+        [ "ApplicationName" =? _dcsApplicationName
+        , "EnvironmentName" =? _dcsEnvironmentName
+        , "TemplateName"    =? _dcsTemplateName
+        ]
 
 instance ToHeaders DescribeConfigurationSettings
 
@@ -141,5 +148,5 @@ instance AWSRequest DescribeConfigurationSettings where
     response = xmlResponse
 
 instance FromXML DescribeConfigurationSettingsResponse where
-    parseXML = withElement "DescribeConfigurationSettingsResult" $ \x ->
-            <$> x .@ "ConfigurationSettings"
+    parseXML = withElement "DescribeConfigurationSettingsResult" $ \x -> DescribeConfigurationSettingsResponse
+        <$> x .@  "ConfigurationSettings"

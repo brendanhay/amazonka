@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,9 +51,9 @@ import qualified GHC.Exts
 
 data ListDeploymentInstances = ListDeploymentInstances
     { _ldiDeploymentId         :: Text
-    , _ldiInstanceStatusFilter :: [Text]
+    , _ldiInstanceStatusFilter :: List "instanceStatusFilter" Text
     , _ldiNextToken            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDeploymentInstances' constructor.
 --
@@ -87,6 +88,7 @@ ldiDeploymentId = lens _ldiDeploymentId (\s a -> s { _ldiDeploymentId = a })
 ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [Text]
 ldiInstanceStatusFilter =
     lens _ldiInstanceStatusFilter (\s a -> s { _ldiInstanceStatusFilter = a })
+        . _List
 
 -- | An identifier that was returned from the previous list deployment
 -- instances call, which can be used to return the next set of deployment
@@ -95,9 +97,9 @@ ldiNextToken :: Lens' ListDeploymentInstances (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\s a -> s { _ldiNextToken = a })
 
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse
-    { _ldirInstancesList :: [Text]
+    { _ldirInstancesList :: List "instancesList" Text
     , _ldirNextToken     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDeploymentInstancesResponse' constructor.
 --
@@ -117,6 +119,7 @@ listDeploymentInstancesResponse = ListDeploymentInstancesResponse
 ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirInstancesList =
     lens _ldirInstancesList (\s a -> s { _ldirInstancesList = a })
+        . _List
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -149,5 +152,5 @@ instance AWSRequest ListDeploymentInstances where
 
 instance FromJSON ListDeploymentInstancesResponse where
     parseJSON = withObject "ListDeploymentInstancesResponse" $ \o -> ListDeploymentInstancesResponse
-        <$> o .: "instancesList"
+        <$> o .:  "instancesList"
         <*> o .:? "nextToken"

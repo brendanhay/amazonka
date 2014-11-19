@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,10 +53,10 @@ import qualified GHC.Exts
 
 data DescribeDBParameterGroups = DescribeDBParameterGroups
     { _ddbpgDBParameterGroupName :: Maybe Text
-    , _ddbpgFilters              :: [Filter]
+    , _ddbpgFilters              :: List "Filter" Filter
     , _ddbpgMarker               :: Maybe Text
     , _ddbpgMaxRecords           :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBParameterGroups' constructor.
 --
@@ -88,7 +89,7 @@ ddbpgDBParameterGroupName =
 
 -- | This parameter is not currently supported.
 ddbpgFilters :: Lens' DescribeDBParameterGroups [Filter]
-ddbpgFilters = lens _ddbpgFilters (\s a -> s { _ddbpgFilters = a })
+ddbpgFilters = lens _ddbpgFilters (\s a -> s { _ddbpgFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBParameterGroups request. If this parameter is specified, the
@@ -105,9 +106,9 @@ ddbpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
 ddbpgMaxRecords = lens _ddbpgMaxRecords (\s a -> s { _ddbpgMaxRecords = a })
 
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
-    { _ddbpgrDBParameterGroups :: [DBParameterGroup]
+    { _ddbpgrDBParameterGroups :: List "DBParameterGroup" DBParameterGroup
     , _ddbpgrMarker            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBParameterGroupsResponse' constructor.
 --
@@ -127,6 +128,7 @@ describeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
 ddbpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
 ddbpgrDBParameterGroups =
     lens _ddbpgrDBParameterGroups (\s a -> s { _ddbpgrDBParameterGroups = a })
+        . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -137,7 +139,13 @@ ddbpgrMarker = lens _ddbpgrMarker (\s a -> s { _ddbpgrMarker = a })
 instance ToPath DescribeDBParameterGroups where
     toPath = const "/"
 
-instance ToQuery DescribeDBParameterGroups
+instance ToQuery DescribeDBParameterGroups where
+    toQuery DescribeDBParameterGroups{..} = mconcat
+        [ "DBParameterGroupName" =? _ddbpgDBParameterGroupName
+        , "Filters"              =? _ddbpgFilters
+        , "Marker"               =? _ddbpgMarker
+        , "MaxRecords"           =? _ddbpgMaxRecords
+        ]
 
 instance ToHeaders DescribeDBParameterGroups
 
@@ -149,9 +157,9 @@ instance AWSRequest DescribeDBParameterGroups where
     response = xmlResponse
 
 instance FromXML DescribeDBParameterGroupsResponse where
-    parseXML = withElement "DescribeDBParameterGroupsResult" $ \x ->
-            <$> x .@ "DBParameterGroups"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeDBParameterGroupsResult" $ \x -> DescribeDBParameterGroupsResponse
+        <$> x .@  "DBParameterGroups"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeDBParameterGroups where
     next rq rs = (\x -> rq & ddbpgMarker ?~ x)

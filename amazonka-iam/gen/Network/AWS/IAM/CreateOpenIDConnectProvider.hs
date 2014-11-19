@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,10 +57,10 @@ import Network.AWS.IAM.Types
 import qualified GHC.Exts
 
 data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider
-    { _coidcpClientIDList   :: [Text]
-    , _coidcpThumbprintList :: [Text]
+    { _coidcpClientIDList   :: List "ClientIDList" Text
+    , _coidcpThumbprintList :: List "ThumbprintList" Text
     , _coidcpUrl            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateOpenIDConnectProvider' constructor.
 --
@@ -91,6 +92,7 @@ createOpenIDConnectProvider p1 = CreateOpenIDConnectProvider
 coidcpClientIDList :: Lens' CreateOpenIDConnectProvider [Text]
 coidcpClientIDList =
     lens _coidcpClientIDList (\s a -> s { _coidcpClientIDList = a })
+        . _List
 
 -- | A list of server certificate thumbprints for the OpenID Connect (OIDC)
 -- identity provider's server certificate(s). Typically this list includes
@@ -108,6 +110,7 @@ coidcpClientIDList =
 coidcpThumbprintList :: Lens' CreateOpenIDConnectProvider [Text]
 coidcpThumbprintList =
     lens _coidcpThumbprintList (\s a -> s { _coidcpThumbprintList = a })
+        . _List
 
 -- | The URL of the identity provider. The URL must begin with "https://" and
 -- should correspond to the iss claim in the provider's OpenID Connect ID
@@ -122,7 +125,7 @@ coidcpUrl = lens _coidcpUrl (\s a -> s { _coidcpUrl = a })
 
 newtype CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse
     { _coidcprOpenIDConnectProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateOpenIDConnectProviderResponse' constructor.
 --
@@ -145,7 +148,12 @@ coidcprOpenIDConnectProviderArn =
 instance ToPath CreateOpenIDConnectProvider where
     toPath = const "/"
 
-instance ToQuery CreateOpenIDConnectProvider
+instance ToQuery CreateOpenIDConnectProvider where
+    toQuery CreateOpenIDConnectProvider{..} = mconcat
+        [ "ClientIDList"   =? _coidcpClientIDList
+        , "ThumbprintList" =? _coidcpThumbprintList
+        , "Url"            =? _coidcpUrl
+        ]
 
 instance ToHeaders CreateOpenIDConnectProvider
 
@@ -157,5 +165,5 @@ instance AWSRequest CreateOpenIDConnectProvider where
     response = xmlResponse
 
 instance FromXML CreateOpenIDConnectProviderResponse where
-    parseXML = withElement "CreateOpenIDConnectProviderResult" $ \x ->
-            <$> x .@? "OpenIDConnectProviderArn"
+    parseXML = withElement "CreateOpenIDConnectProviderResult" $ \x -> CreateOpenIDConnectProviderResponse
+        <$> x .@? "OpenIDConnectProviderArn"

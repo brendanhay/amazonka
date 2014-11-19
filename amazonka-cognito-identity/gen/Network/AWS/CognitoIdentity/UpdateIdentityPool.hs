@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,9 +60,9 @@ data UpdateIdentityPool = UpdateIdentityPool
     , _uipDeveloperProviderName          :: Maybe Text
     , _uipIdentityPoolId                 :: Text
     , _uipIdentityPoolName               :: Text
-    , _uipOpenIdConnectProviderARNs      :: [Text]
-    , _uipSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _uipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
+    , _uipSupportedLoginProviders        :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'UpdateIdentityPool' constructor.
 --
@@ -118,6 +119,7 @@ uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
 uipOpenIdConnectProviderARNs =
     lens _uipOpenIdConnectProviderARNs
         (\s a -> s { _uipOpenIdConnectProviderARNs = a })
+            . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)
@@ -131,9 +133,9 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
     , _uiprDeveloperProviderName          :: Maybe Text
     , _uiprIdentityPoolId                 :: Text
     , _uiprIdentityPoolName               :: Text
-    , _uiprOpenIdConnectProviderARNs      :: [Text]
-    , _uiprSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _uiprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
+    , _uiprSupportedLoginProviders        :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'UpdateIdentityPoolResponse' constructor.
 --
@@ -190,6 +192,7 @@ uiprOpenIdConnectProviderARNs :: Lens' UpdateIdentityPoolResponse [Text]
 uiprOpenIdConnectProviderARNs =
     lens _uiprOpenIdConnectProviderARNs
         (\s a -> s { _uiprOpenIdConnectProviderARNs = a })
+            . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 uiprSupportedLoginProviders :: Lens' UpdateIdentityPoolResponse (HashMap Text Text)
@@ -225,9 +228,9 @@ instance AWSRequest UpdateIdentityPool where
 
 instance FromJSON UpdateIdentityPoolResponse where
     parseJSON = withObject "UpdateIdentityPoolResponse" $ \o -> UpdateIdentityPoolResponse
-        <$> o .: "AllowUnauthenticatedIdentities"
+        <$> o .:  "AllowUnauthenticatedIdentities"
         <*> o .:? "DeveloperProviderName"
-        <*> o .: "IdentityPoolId"
-        <*> o .: "IdentityPoolName"
-        <*> o .: "OpenIdConnectProviderARNs"
-        <*> o .: "SupportedLoginProviders"
+        <*> o .:  "IdentityPoolId"
+        <*> o .:  "IdentityPoolName"
+        <*> o .:  "OpenIdConnectProviderARNs"
+        <*> o .:  "SupportedLoginProviders"

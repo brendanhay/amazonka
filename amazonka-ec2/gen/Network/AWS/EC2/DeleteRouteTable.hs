@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteRouteTable = DeleteRouteTable
     { _drt1DryRun       :: Maybe Bool
     , _drt1RouteTableId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteRouteTable' constructor.
 --
@@ -83,7 +83,11 @@ deleteRouteTableResponse = DeleteRouteTableResponse
 instance ToPath DeleteRouteTable where
     toPath = const "/"
 
-instance ToQuery DeleteRouteTable
+instance ToQuery DeleteRouteTable where
+    toQuery DeleteRouteTable{..} = mconcat
+        [ "dryRun"       =? _drt1DryRun
+        , "routeTableId" =? _drt1RouteTableId
+        ]
 
 instance ToHeaders DeleteRouteTable
 

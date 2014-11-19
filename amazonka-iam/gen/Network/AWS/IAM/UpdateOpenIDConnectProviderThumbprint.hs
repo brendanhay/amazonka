@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ import qualified GHC.Exts
 
 data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprint
     { _uoidcptOpenIDConnectProviderArn :: Text
-    , _uoidcptThumbprintList           :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _uoidcptThumbprintList           :: List "ThumbprintList" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateOpenIDConnectProviderThumbprint' constructor.
 --
@@ -83,6 +84,7 @@ uoidcptOpenIDConnectProviderArn =
 uoidcptThumbprintList :: Lens' UpdateOpenIDConnectProviderThumbprint [Text]
 uoidcptThumbprintList =
     lens _uoidcptThumbprintList (\s a -> s { _uoidcptThumbprintList = a })
+        . _List
 
 data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse
     deriving (Eq, Ord, Show, Generic)
@@ -94,7 +96,11 @@ updateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumb
 instance ToPath UpdateOpenIDConnectProviderThumbprint where
     toPath = const "/"
 
-instance ToQuery UpdateOpenIDConnectProviderThumbprint
+instance ToQuery UpdateOpenIDConnectProviderThumbprint where
+    toQuery UpdateOpenIDConnectProviderThumbprint{..} = mconcat
+        [ "OpenIDConnectProviderArn" =? _uoidcptOpenIDConnectProviderArn
+        , "ThumbprintList"           =? _uoidcptThumbprintList
+        ]
 
 instance ToHeaders UpdateOpenIDConnectProviderThumbprint
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ listSAMLProviders :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders
 
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
-    { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _lsamlprSAMLProviderList :: List "SAMLProviderList" SAMLProviderListEntry
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListSAMLProvidersResponse where
     type Item ListSAMLProvidersResponse = SAMLProviderListEntry
@@ -74,6 +75,7 @@ listSAMLProvidersResponse = ListSAMLProvidersResponse
 lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprSAMLProviderList =
     lens _lsamlprSAMLProviderList (\s a -> s { _lsamlprSAMLProviderList = a })
+        . _List
 
 instance ToPath ListSAMLProviders where
     toPath = const "/"
@@ -91,5 +93,5 @@ instance AWSRequest ListSAMLProviders where
     response = xmlResponse
 
 instance FromXML ListSAMLProvidersResponse where
-    parseXML = withElement "ListSAMLProvidersResult" $ \x ->
-            <$> x .@ "SAMLProviderList"
+    parseXML = withElement "ListSAMLProvidersResult" $ \x -> ListSAMLProvidersResponse
+        <$> x .@  "SAMLProviderList"

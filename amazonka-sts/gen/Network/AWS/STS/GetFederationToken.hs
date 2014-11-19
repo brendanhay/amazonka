@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -101,7 +102,7 @@ data GetFederationToken = GetFederationToken
     { _gftDurationSeconds :: Maybe Nat
     , _gftName            :: Text
     , _gftPolicy          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetFederationToken' constructor.
 --
@@ -163,7 +164,7 @@ data GetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials      :: Maybe Credentials
     , _gftrFederatedUser    :: Maybe FederatedUser
     , _gftrPackedPolicySize :: Maybe Nat
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetFederationTokenResponse' constructor.
 --
@@ -205,7 +206,12 @@ gftrPackedPolicySize =
 instance ToPath GetFederationToken where
     toPath = const "/"
 
-instance ToQuery GetFederationToken
+instance ToQuery GetFederationToken where
+    toQuery GetFederationToken{..} = mconcat
+        [ "DurationSeconds" =? _gftDurationSeconds
+        , "Name"            =? _gftName
+        , "Policy"          =? _gftPolicy
+        ]
 
 instance ToHeaders GetFederationToken
 
@@ -217,7 +223,7 @@ instance AWSRequest GetFederationToken where
     response = xmlResponse
 
 instance FromXML GetFederationTokenResponse where
-    parseXML = withElement "GetFederationTokenResult" $ \x ->
-            <$> x .@? "Credentials"
-            <*> x .@? "FederatedUser"
-            <*> x .@? "PackedPolicySize"
+    parseXML = withElement "GetFederationTokenResult" $ \x -> GetFederationTokenResponse
+        <$> x .@? "Credentials"
+        <*> x .@? "FederatedUser"
+        <*> x .@? "PackedPolicySize"

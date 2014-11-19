@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
     { _cvcrDestinationCidrBlock :: Text
     , _cvcrVpnConnectionId      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateVpnConnectionRoute' constructor.
 --
@@ -91,7 +91,11 @@ createVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
 instance ToPath CreateVpnConnectionRoute where
     toPath = const "/"
 
-instance ToQuery CreateVpnConnectionRoute
+instance ToQuery CreateVpnConnectionRoute where
+    toQuery CreateVpnConnectionRoute{..} = mconcat
+        [ "DestinationCidrBlock" =? _cvcrDestinationCidrBlock
+        , "VpnConnectionId"      =? _cvcrVpnConnectionId
+        ]
 
 instance ToHeaders CreateVpnConnectionRoute
 

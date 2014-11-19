@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data EnableSnapshotCopy = EnableSnapshotCopy
     { _escClusterIdentifier :: Text
     , _escDestinationRegion :: Text
     , _escRetentionPeriod   :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnableSnapshotCopy' constructor.
 --
@@ -95,7 +96,7 @@ escRetentionPeriod =
 
 newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
     { _escrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'EnableSnapshotCopyResponse' constructor.
 --
@@ -114,7 +115,12 @@ escrCluster = lens _escrCluster (\s a -> s { _escrCluster = a })
 instance ToPath EnableSnapshotCopy where
     toPath = const "/"
 
-instance ToQuery EnableSnapshotCopy
+instance ToQuery EnableSnapshotCopy where
+    toQuery EnableSnapshotCopy{..} = mconcat
+        [ "ClusterIdentifier" =? _escClusterIdentifier
+        , "DestinationRegion" =? _escDestinationRegion
+        , "RetentionPeriod"   =? _escRetentionPeriod
+        ]
 
 instance ToHeaders EnableSnapshotCopy
 
@@ -126,5 +132,5 @@ instance AWSRequest EnableSnapshotCopy where
     response = xmlResponse
 
 instance FromXML EnableSnapshotCopyResponse where
-    parseXML = withElement "EnableSnapshotCopyResult" $ \x ->
-            <$> x .@? "Cluster"
+    parseXML = withElement "EnableSnapshotCopyResult" $ \x -> EnableSnapshotCopyResponse
+        <$> x .@? "Cluster"

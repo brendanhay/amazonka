@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ import qualified GHC.Exts
 
 newtype GetTrailStatus = GetTrailStatus
     { _gtsName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetTrailStatus' constructor.
 --
@@ -84,7 +85,7 @@ data GetTrailStatusResponse = GetTrailStatusResponse
     , _gtsrLatestNotificationTime            :: Maybe RFC822
     , _gtsrStartLoggingTime                  :: Maybe RFC822
     , _gtsrStopLoggingTime                   :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetTrailStatusResponse' constructor.
 --

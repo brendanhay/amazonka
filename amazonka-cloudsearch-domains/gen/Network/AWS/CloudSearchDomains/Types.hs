@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -117,7 +118,7 @@ instance AWSService CloudSearchDomains where
 data SearchStatus = SearchStatus
     { _ssRid    :: Maybe Text
     , _ssTimems :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SearchStatus' constructor.
 --
@@ -181,10 +182,10 @@ instance ToJSON QueryParser where
     toJSON = toJSONText
 
 data Hit = Hit
-    { _hitFields     :: Map Text [Text]
-    , _hitHighlights :: Map Text Text
+    { _hitFields     :: Map "entry" "key" "value" Text (List "fields" Text)
+    , _hitHighlights :: Map "entry" "key" "value" Text Text
     , _hitId         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Hit' constructor.
 --
@@ -205,13 +206,11 @@ hit = Hit
 
 -- | The fields returned from a document that matches the search request.
 hitFields :: Lens' Hit (HashMap Text [Text])
-hitFields = lens _hitFields (\s a -> s { _hitFields = a })
-    . _Map
+hitFields = lens _hitFields (\s a -> s { _hitFields = a }) . _Map
 
 -- | The highlights returned from a document that matches the search request.
 hitHighlights :: Lens' Hit (HashMap Text Text)
-hitHighlights = lens _hitHighlights (\s a -> s { _hitHighlights = a })
-    . _Map
+hitHighlights = lens _hitHighlights (\s a -> s { _hitHighlights = a }) . _Map
 
 -- | The document ID of a document that matches the search request.
 hitId :: Lens' Hit (Maybe Text)
@@ -219,8 +218,8 @@ hitId = lens _hitId (\s a -> s { _hitId = a })
 
 instance FromJSON Hit where
     parseJSON = withObject "Hit" $ \o -> Hit
-        <$> o .: "fields"
-        <*> o .: "highlights"
+        <$> o .:  "fields"
+        <*> o .:  "highlights"
         <*> o .:? "id"
 
 instance ToJSON Hit where
@@ -233,7 +232,7 @@ instance ToJSON Hit where
 data SuggestStatus = SuggestStatus
     { _ss1Rid    :: Maybe Text
     , _ss1Timems :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SuggestStatus' constructor.
 --
@@ -271,7 +270,7 @@ instance ToJSON SuggestStatus where
 data Bucket = Bucket
     { _bCount :: Maybe Integer
     , _bValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Bucket' constructor.
 --
@@ -311,7 +310,7 @@ data SuggestionMatch = SuggestionMatch
     { _smId         :: Maybe Text
     , _smScore      :: Maybe Integer
     , _smSuggestion :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SuggestionMatch' constructor.
 --
@@ -356,8 +355,8 @@ instance ToJSON SuggestionMatch where
         ]
 
 newtype BucketInfo = BucketInfo
-    { _biBuckets :: [Bucket]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _biBuckets :: List "buckets" Bucket
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BucketInfo where
     type Item BucketInfo = Bucket
@@ -378,11 +377,11 @@ bucketInfo = BucketInfo
 
 -- | A list of the calculated facet values and counts.
 biBuckets :: Lens' BucketInfo [Bucket]
-biBuckets = lens _biBuckets (\s a -> s { _biBuckets = a })
+biBuckets = lens _biBuckets (\s a -> s { _biBuckets = a }) . _List
 
 instance FromJSON BucketInfo where
     parseJSON = withObject "BucketInfo" $ \o -> BucketInfo
-        <$> o .: "buckets"
+        <$> o .:  "buckets"
 
 instance ToJSON BucketInfo where
     toJSON BucketInfo{..} = object
@@ -391,7 +390,7 @@ instance ToJSON BucketInfo where
 
 newtype DocumentServiceWarning = DocumentServiceWarning
     { _dswMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DocumentServiceWarning' constructor.
 --
@@ -420,8 +419,8 @@ instance ToJSON DocumentServiceWarning where
 data SuggestModel = SuggestModel
     { _smFound       :: Maybe Integer
     , _smQuery       :: Maybe Text
-    , _smSuggestions :: [SuggestionMatch]
-    } deriving (Eq, Show, Generic)
+    , _smSuggestions :: List "suggestions" SuggestionMatch
+    } deriving (Eq, Show)
 
 -- | 'SuggestModel' constructor.
 --
@@ -450,13 +449,13 @@ smQuery = lens _smQuery (\s a -> s { _smQuery = a })
 
 -- | The documents that match the query string.
 smSuggestions :: Lens' SuggestModel [SuggestionMatch]
-smSuggestions = lens _smSuggestions (\s a -> s { _smSuggestions = a })
+smSuggestions = lens _smSuggestions (\s a -> s { _smSuggestions = a }) . _List
 
 instance FromJSON SuggestModel where
     parseJSON = withObject "SuggestModel" $ \o -> SuggestModel
         <$> o .:? "found"
         <*> o .:? "query"
-        <*> o .: "suggestions"
+        <*> o .:  "suggestions"
 
 instance ToJSON SuggestModel where
     toJSON SuggestModel{..} = object
@@ -468,9 +467,9 @@ instance ToJSON SuggestModel where
 data Hits = Hits
     { _hCursor :: Maybe Text
     , _hFound  :: Maybe Integer
-    , _hHit    :: [Hit]
+    , _hHit    :: List "hit" Hit
     , _hStart  :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Hits' constructor.
 --
@@ -503,7 +502,7 @@ hFound = lens _hFound (\s a -> s { _hFound = a })
 
 -- | A document that matches the search request.
 hHit :: Lens' Hits [Hit]
-hHit = lens _hHit (\s a -> s { _hHit = a })
+hHit = lens _hHit (\s a -> s { _hHit = a }) . _List
 
 -- | The index of the first matching document.
 hStart :: Lens' Hits (Maybe Integer)
@@ -513,7 +512,7 @@ instance FromJSON Hits where
     parseJSON = withObject "Hits" $ \o -> Hits
         <$> o .:? "cursor"
         <*> o .:? "found"
-        <*> o .: "hit"
+        <*> o .:  "hit"
         <*> o .:? "start"
 
 instance ToJSON Hits where

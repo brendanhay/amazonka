@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -81,7 +82,7 @@ data SplitShard = SplitShard
     { _ssNewStartingHashKey :: Text
     , _ssShardToSplit       :: Text
     , _ssStreamName         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SplitShard' constructor.
 --

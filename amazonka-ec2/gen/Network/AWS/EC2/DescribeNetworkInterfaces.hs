@@ -51,7 +51,7 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dni1DryRun              :: Maybe Bool
     , _dni1Filters             :: List "Filter" Filter
     , _dni1NetworkInterfaceIds :: List "item" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeNetworkInterfaces' constructor.
 --
@@ -128,8 +128,7 @@ dni1DryRun = lens _dni1DryRun (\s a -> s { _dni1DryRun = a })
 -- resource. This filter is independent of the tag-key filter. vpc-id - The
 -- ID of the VPC for the network interface.
 dni1Filters :: Lens' DescribeNetworkInterfaces [Filter]
-dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a })
-    . _List
+dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a }) . _List
 
 -- | One or more network interface IDs. Default: Describes all your network
 -- interfaces.
@@ -140,7 +139,7 @@ dni1NetworkInterfaceIds =
 
 newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces :: List "item" NetworkInterface
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeNetworkInterfacesResponse where
     type Item DescribeNetworkInterfacesResponse = NetworkInterface
@@ -168,7 +167,12 @@ dnirNetworkInterfaces =
 instance ToPath DescribeNetworkInterfaces where
     toPath = const "/"
 
-instance ToQuery DescribeNetworkInterfaces
+instance ToQuery DescribeNetworkInterfaces where
+    toQuery DescribeNetworkInterfaces{..} = mconcat
+        [ "dryRun"             =? _dni1DryRun
+        , "filter"             =? _dni1Filters
+        , "NetworkInterfaceId" =? _dni1NetworkInterfaceIds
+        ]
 
 instance ToHeaders DescribeNetworkInterfaces
 
@@ -181,4 +185,4 @@ instance AWSRequest DescribeNetworkInterfaces where
 
 instance FromXML DescribeNetworkInterfacesResponse where
     parseXML x = DescribeNetworkInterfacesResponse
-        <$> x .@ "networkInterfaceSet"
+        <$> x .@  "networkInterfaceSet"

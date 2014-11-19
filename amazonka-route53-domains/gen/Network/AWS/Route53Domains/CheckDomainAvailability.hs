@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data CheckDomainAvailability = CheckDomainAvailability
     { _cdaDomainName  :: Text
     , _cdaIdnLangCode :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CheckDomainAvailability' constructor.
 --
@@ -81,7 +82,7 @@ cdaIdnLangCode = lens _cdaIdnLangCode (\s a -> s { _cdaIdnLangCode = a })
 
 newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
     { _cdarAvailability :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CheckDomainAvailabilityResponse' constructor.
 --
@@ -129,4 +130,4 @@ instance AWSRequest CheckDomainAvailability where
 
 instance FromJSON CheckDomainAvailabilityResponse where
     parseJSON = withObject "CheckDomainAvailabilityResponse" $ \o -> CheckDomainAvailabilityResponse
-        <$> o .: "Availability"
+        <$> o .:  "Availability"

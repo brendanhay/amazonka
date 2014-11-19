@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume
     , _ccscsivSnapshotId         :: Maybe Text
     , _ccscsivTargetName         :: Text
     , _ccscsivVolumeSizeInBytes  :: Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateCachediSCSIVolume' constructor.
 --
@@ -126,7 +127,7 @@ ccscsivVolumeSizeInBytes =
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     { _ccscsivrTargetARN :: Maybe Text
     , _ccscsivrVolumeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateCachediSCSIVolumeResponse' constructor.
 --

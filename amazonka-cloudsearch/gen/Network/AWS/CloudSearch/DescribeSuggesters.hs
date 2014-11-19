@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,8 +56,8 @@ import qualified GHC.Exts
 data DescribeSuggesters = DescribeSuggesters
     { _ds1Deployed       :: Maybe Bool
     , _ds1DomainName     :: Text
-    , _ds1SuggesterNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _ds1SuggesterNames :: List "SuggesterNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeSuggesters' constructor.
 --
@@ -89,10 +90,11 @@ ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
 ds1SuggesterNames :: Lens' DescribeSuggesters [Text]
 ds1SuggesterNames =
     lens _ds1SuggesterNames (\s a -> s { _ds1SuggesterNames = a })
+        . _List
 
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
-    { _dsrSuggesters :: [SuggesterStatus]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dsrSuggesters :: List "Suggesters" SuggesterStatus
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSuggestersResponse where
     type Item DescribeSuggestersResponse = SuggesterStatus
@@ -113,12 +115,17 @@ describeSuggestersResponse = DescribeSuggestersResponse
 
 -- | The suggesters configured for the domain specified in the request.
 dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dsrSuggesters = lens _dsrSuggesters (\s a -> s { _dsrSuggesters = a })
+dsrSuggesters = lens _dsrSuggesters (\s a -> s { _dsrSuggesters = a }) . _List
 
 instance ToPath DescribeSuggesters where
     toPath = const "/"
 
-instance ToQuery DescribeSuggesters
+instance ToQuery DescribeSuggesters where
+    toQuery DescribeSuggesters{..} = mconcat
+        [ "Deployed"       =? _ds1Deployed
+        , "DomainName"     =? _ds1DomainName
+        , "SuggesterNames" =? _ds1SuggesterNames
+        ]
 
 instance ToHeaders DescribeSuggesters
 
@@ -130,5 +137,5 @@ instance AWSRequest DescribeSuggesters where
     response = xmlResponse
 
 instance FromXML DescribeSuggestersResponse where
-    parseXML = withElement "DescribeSuggestersResult" $ \x ->
-            <$> x .@ "Suggesters"
+    parseXML = withElement "DescribeSuggestersResult" $ \x -> DescribeSuggestersResponse
+        <$> x .@  "Suggesters"

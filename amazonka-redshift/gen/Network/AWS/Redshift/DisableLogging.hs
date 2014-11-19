@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DisableLogging = DisableLogging
     { _dlClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DisableLogging' constructor.
 --
@@ -79,7 +80,7 @@ data DisableLoggingResponse = DisableLoggingResponse
     , _dlrLastSuccessfulDeliveryTime :: Maybe RFC822
     , _dlrLoggingEnabled             :: Maybe Bool
     , _dlrS3KeyPrefix                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DisableLoggingResponse' constructor.
 --
@@ -141,7 +142,10 @@ dlrS3KeyPrefix = lens _dlrS3KeyPrefix (\s a -> s { _dlrS3KeyPrefix = a })
 instance ToPath DisableLogging where
     toPath = const "/"
 
-instance ToQuery DisableLogging
+instance ToQuery DisableLogging where
+    toQuery DisableLogging{..} = mconcat
+        [ "ClusterIdentifier" =? _dlClusterIdentifier
+        ]
 
 instance ToHeaders DisableLogging
 
@@ -153,10 +157,10 @@ instance AWSRequest DisableLogging where
     response = xmlResponse
 
 instance FromXML DisableLoggingResponse where
-    parseXML = withElement "DisableLoggingResult" $ \x ->
-            <$> x .@? "BucketName"
-            <*> x .@? "LastFailureMessage"
-            <*> x .@? "LastFailureTime"
-            <*> x .@? "LastSuccessfulDeliveryTime"
-            <*> x .@? "LoggingEnabled"
-            <*> x .@? "S3KeyPrefix"
+    parseXML = withElement "DisableLoggingResult" $ \x -> DisableLoggingResponse
+        <$> x .@? "BucketName"
+        <*> x .@? "LastFailureMessage"
+        <*> x .@? "LastFailureTime"
+        <*> x .@? "LastSuccessfulDeliveryTime"
+        <*> x .@? "LoggingEnabled"
+        <*> x .@? "S3KeyPrefix"

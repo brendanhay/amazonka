@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
     { _dcsg1CacheSecurityGroupName :: Maybe Text
     , _dcsg1Marker                 :: Maybe Text
     , _dcsg1MaxRecords             :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCacheSecurityGroups' constructor.
 --
@@ -93,9 +94,9 @@ dcsg1MaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
-    { _dcsgr1CacheSecurityGroups :: [CacheSecurityGroup]
+    { _dcsgr1CacheSecurityGroups :: List "CacheSecurityGroup" CacheSecurityGroup
     , _dcsgr1Marker              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeCacheSecurityGroupsResponse' constructor.
 --
@@ -117,6 +118,7 @@ dcsgr1CacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSec
 dcsgr1CacheSecurityGroups =
     lens _dcsgr1CacheSecurityGroups
         (\s a -> s { _dcsgr1CacheSecurityGroups = a })
+            . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgr1Marker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
@@ -125,7 +127,12 @@ dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 instance ToPath DescribeCacheSecurityGroups where
     toPath = const "/"
 
-instance ToQuery DescribeCacheSecurityGroups
+instance ToQuery DescribeCacheSecurityGroups where
+    toQuery DescribeCacheSecurityGroups{..} = mconcat
+        [ "CacheSecurityGroupName" =? _dcsg1CacheSecurityGroupName
+        , "Marker"                 =? _dcsg1Marker
+        , "MaxRecords"             =? _dcsg1MaxRecords
+        ]
 
 instance ToHeaders DescribeCacheSecurityGroups
 
@@ -137,9 +144,9 @@ instance AWSRequest DescribeCacheSecurityGroups where
     response = xmlResponse
 
 instance FromXML DescribeCacheSecurityGroupsResponse where
-    parseXML = withElement "DescribeCacheSecurityGroupsResult" $ \x ->
-            <$> x .@ "CacheSecurityGroups"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeCacheSecurityGroupsResult" $ \x -> DescribeCacheSecurityGroupsResponse
+        <$> x .@  "CacheSecurityGroups"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheSecurityGroups where
     next rq rs = (\x -> rq & dcsg1Marker ?~ x)

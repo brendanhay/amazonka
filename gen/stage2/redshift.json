@@ -144,8 +144,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 40,
                 "ctor": "snapshot",
@@ -154,6 +153,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Snapshot",
+                "locationPad": 39,
                 "type": "record",
                 "optional": [
                     {
@@ -398,8 +398,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -409,7 +409,7 @@
                         "locationName": "AccountsWithRestoreAccess",
                         "documentation": "\u003cp\u003e A list of the AWS customer accounts authorized to restore the snapshot. Returns \u003ccode\u003enull\u003c/code\u003e if no accounts are authorized. Visible only to the snapshot owner. \u003c/p\u003e",
                         "typeExposed": "[AccountWithRestoreAccess]",
-                        "type": "[AccountWithRestoreAccess]"
+                        "type": "List \"AccountWithRestoreAccess\" AccountWithRestoreAccess"
                     },
                     {
                         "location": "querystring",
@@ -535,8 +535,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -546,7 +546,7 @@
                         "locationName": "AccountsWithRestoreAccess",
                         "documentation": "\u003cp\u003e A list of the AWS customer accounts authorized to restore the snapshot. Returns \u003ccode\u003enull\u003c/code\u003e if no accounts are authorized. Visible only to the snapshot owner. \u003c/p\u003e",
                         "typeExposed": "[AccountWithRestoreAccess]",
-                        "type": "[AccountWithRestoreAccess]"
+                        "type": "List \"AccountWithRestoreAccess\" AccountWithRestoreAccess"
                     },
                     {
                         "location": "querystring",
@@ -914,8 +914,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "clusterParameterGroup",
@@ -924,6 +923,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ClusterParameterGroup",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -1024,8 +1024,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 41,
                 "ctor": "restoreStatus",
@@ -1034,6 +1033,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "RestoreStatus",
+                "locationPad": 39,
                 "type": "record",
                 "optional": [
                     {
@@ -1224,8 +1224,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "event",
@@ -1234,6 +1233,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Event",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1283,8 +1283,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1294,7 +1294,7 @@
                         "locationName": "EventCategories",
                         "documentation": "\u003cp\u003e A list of the event categories. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1360,8 +1360,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1371,7 +1371,7 @@
                         "locationName": "EventCategories",
                         "documentation": "\u003cp\u003e A list of the event categories. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1454,8 +1454,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "clusterSnapshotCopyStatus",
@@ -1464,6 +1463,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ClusterSnapshotCopyStatus",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -1534,8 +1534,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 34,
                 "ctor": "hsmClientCertificate",
@@ -1544,6 +1543,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "HsmClientCertificate",
+                "locationPad": 31,
                 "type": "record",
                 "optional": [
                     {
@@ -1613,8 +1613,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 34,
                 "ctor": "cluster",
@@ -1623,6 +1622,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Cluster",
+                "locationPad": 33,
                 "type": "record",
                 "optional": [
                     {
@@ -1762,8 +1762,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1773,12 +1773,12 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains \u003ccode\u003eClusterSecurityGroup.Name\u003c/code\u003e and \u003ccode\u003eClusterSecurityGroup.Status\u003c/code\u003e subelements. \u003c/p\u003e \u003cp\u003eCluster security groups are used when the cluster is not created in a VPC. Clusters that are created in a VPC use VPC security groups, which are listed by the \u003cb\u003eVpcSecurityGroups\u003c/b\u003e parameter. \u003c/p\u003e",
                         "typeExposed": "[ClusterSecurityGroupMembership]",
-                        "type": "[ClusterSecurityGroupMembership]"
+                        "type": "List \"ClusterSecurityGroup\" ClusterSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1788,12 +1788,12 @@
                         "locationName": "VpcSecurityGroups",
                         "documentation": "\u003cp\u003e A list of Virtual Private Cloud (VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC. \u003c/p\u003e",
                         "typeExposed": "[VpcSecurityGroupMembership]",
-                        "type": "[VpcSecurityGroupMembership]"
+                        "type": "List \"VpcSecurityGroup\" VpcSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1803,7 +1803,7 @@
                         "locationName": "ClusterParameterGroups",
                         "documentation": "\u003cp\u003e The list of cluster parameter groups that are associated with this cluster. \u003c/p\u003e",
                         "typeExposed": "[ClusterParameterGroupStatus]",
-                        "type": "[ClusterParameterGroupStatus]"
+                        "type": "List \"ClusterParameterGroup\" ClusterParameterGroupStatus"
                     },
                     {
                         "location": "querystring",
@@ -2017,8 +2017,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2028,7 +2028,7 @@
                         "locationName": "ClusterNodes",
                         "documentation": "\u003cp\u003eThe nodes in a cluster.\u003c/p\u003e",
                         "typeExposed": "[ClusterNode]",
-                        "type": "[ClusterNode]"
+                        "type": "List \"ClusterNodes\" ClusterNode"
                     },
                     {
                         "location": "querystring",
@@ -2139,8 +2139,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2150,12 +2150,12 @@
                         "locationName": "ClusterNodes",
                         "documentation": "\u003cp\u003eThe nodes in a cluster.\u003c/p\u003e",
                         "typeExposed": "[ClusterNode]",
-                        "type": "[ClusterNode]"
+                        "type": "List \"ClusterNodes\" ClusterNode"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2165,7 +2165,7 @@
                         "locationName": "ClusterParameterGroups",
                         "documentation": "\u003cp\u003e The list of cluster parameter groups that are associated with this cluster. \u003c/p\u003e",
                         "typeExposed": "[ClusterParameterGroupStatus]",
-                        "type": "[ClusterParameterGroupStatus]"
+                        "type": "List \"ClusterParameterGroup\" ClusterParameterGroupStatus"
                     },
                     {
                         "location": "querystring",
@@ -2199,8 +2199,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2210,7 +2210,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains \u003ccode\u003eClusterSecurityGroup.Name\u003c/code\u003e and \u003ccode\u003eClusterSecurityGroup.Status\u003c/code\u003e subelements. \u003c/p\u003e \u003cp\u003eCluster security groups are used when the cluster is not created in a VPC. Clusters that are created in a VPC use VPC security groups, which are listed by the \u003cb\u003eVpcSecurityGroups\u003c/b\u003e parameter. \u003c/p\u003e",
                         "typeExposed": "[ClusterSecurityGroupMembership]",
-                        "type": "[ClusterSecurityGroupMembership]"
+                        "type": "List \"ClusterSecurityGroup\" ClusterSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -2484,8 +2484,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2495,7 +2495,7 @@
                         "locationName": "VpcSecurityGroups",
                         "documentation": "\u003cp\u003e A list of Virtual Private Cloud (VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC. \u003c/p\u003e",
                         "typeExposed": "[VpcSecurityGroupMembership]",
-                        "type": "[VpcSecurityGroupMembership]"
+                        "type": "List \"VpcSecurityGroup\" VpcSecurityGroupMembership"
                     }
                 ]
             },
@@ -2503,8 +2503,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "clusterNode",
@@ -2513,6 +2512,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ClusterNode",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -2613,8 +2613,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "ec2SecurityGroup",
@@ -2623,6 +2622,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EC2SecurityGroup",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -2722,8 +2722,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "orderableClusterOption",
@@ -2732,6 +2731,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "OrderableClusterOption",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -2781,8 +2781,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2792,14 +2792,14 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of availability zones for the orderable cluster. \u003c/p\u003e",
                         "typeExposed": "[AvailabilityZone]",
-                        "type": "[AvailabilityZone]"
+                        "type": "List \"AvailabilityZone\" AvailabilityZone"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2809,7 +2809,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of availability zones for the orderable cluster. \u003c/p\u003e",
                         "typeExposed": "[AvailabilityZone]",
-                        "type": "[AvailabilityZone]"
+                        "type": "List \"AvailabilityZone\" AvailabilityZone"
                     },
                     {
                         "location": "querystring",
@@ -2881,8 +2881,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "clusterParameterGroupStatus",
@@ -2891,6 +2890,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ClusterParameterGroupStatus",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -2960,8 +2960,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "subnet",
@@ -2970,6 +2969,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Subnet",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -3069,8 +3069,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "clusterSecurityGroup",
@@ -3079,6 +3078,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ClusterSecurityGroup",
+                "locationPad": 25,
                 "type": "record",
                 "optional": [
                     {
@@ -3113,8 +3113,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3124,12 +3124,12 @@
                         "locationName": "EC2SecurityGroups",
                         "documentation": "\u003cp\u003e A list of EC2 security groups that are permitted to access clusters associated with this cluster security group. \u003c/p\u003e",
                         "typeExposed": "[EC2SecurityGroup]",
-                        "type": "[EC2SecurityGroup]"
+                        "type": "List \"EC2SecurityGroup\" EC2SecurityGroup"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3139,7 +3139,7 @@
                         "locationName": "IPRanges",
                         "documentation": "\u003cp\u003e A list of IP ranges (CIDR blocks) that are permitted to access clusters associated with this cluster security group. \u003c/p\u003e",
                         "typeExposed": "[IPRange]",
-                        "type": "[IPRange]"
+                        "type": "List \"IPRange\" IPRange"
                     }
                 ],
                 "fields": [
@@ -3175,8 +3175,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3186,12 +3186,12 @@
                         "locationName": "EC2SecurityGroups",
                         "documentation": "\u003cp\u003e A list of EC2 security groups that are permitted to access clusters associated with this cluster security group. \u003c/p\u003e",
                         "typeExposed": "[EC2SecurityGroup]",
-                        "type": "[EC2SecurityGroup]"
+                        "type": "List \"EC2SecurityGroup\" EC2SecurityGroup"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3201,15 +3201,14 @@
                         "locationName": "IPRanges",
                         "documentation": "\u003cp\u003e A list of IP ranges (CIDR blocks) that are permitted to access clusters associated with this cluster security group. \u003c/p\u003e",
                         "typeExposed": "[IPRange]",
-                        "type": "[IPRange]"
+                        "type": "List \"IPRange\" IPRange"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "defaultClusterParameters",
@@ -3218,6 +3217,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "DefaultClusterParameters",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -3252,8 +3252,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3263,7 +3263,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003e The list of cluster default parameters. \u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameter\" Parameter"
                     }
                 ],
                 "fields": [
@@ -3299,8 +3299,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3310,15 +3310,14 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003e The list of cluster default parameters. \u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameter\" Parameter"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 27,
                 "ctor": "clusterSubnetGroup",
@@ -3327,6 +3326,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ClusterSubnetGroup",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -3391,8 +3391,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3402,7 +3402,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of the VPC \u003ca\u003eSubnet\u003c/a\u003e elements. \u003c/p\u003e",
                         "typeExposed": "[Subnet]",
-                        "type": "[Subnet]"
+                        "type": "List \"Subnet\" Subnet"
                     }
                 ],
                 "fields": [
@@ -3453,8 +3453,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3464,7 +3464,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of the VPC \u003ca\u003eSubnet\u003c/a\u003e elements. \u003c/p\u003e",
                         "typeExposed": "[Subnet]",
-                        "type": "[Subnet]"
+                        "type": "List \"Subnet\" Subnet"
                     },
                     {
                         "location": "querystring",
@@ -3487,8 +3487,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "eventInfoMap",
@@ -3497,6 +3496,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EventInfoMap",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -3516,8 +3516,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3527,7 +3527,7 @@
                         "locationName": "EventCategories",
                         "documentation": "\u003cp\u003eThe category of an Amazon Redshift event.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3563,8 +3563,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3574,7 +3574,7 @@
                         "locationName": "EventCategories",
                         "documentation": "\u003cp\u003eThe category of an Amazon Redshift event.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3627,8 +3627,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "clusterSecurityGroupMembership",
@@ -3637,6 +3636,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ClusterSecurityGroupMembership",
+                "locationPad": 25,
                 "type": "record",
                 "optional": [
                     {
@@ -3706,8 +3706,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "reservedNodeOffering",
@@ -3716,6 +3715,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ReservedNodeOffering",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -3825,8 +3825,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3836,7 +3836,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "\u003cp\u003eThe charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes. \u003c/p\u003e",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "[RecurringCharge]"
+                        "type": "List \"RecurringCharge\" RecurringCharge"
                     }
                 ],
                 "fields": [
@@ -3917,8 +3917,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3928,7 +3928,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "\u003cp\u003eThe charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes. \u003c/p\u003e",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "[RecurringCharge]"
+                        "type": "List \"RecurringCharge\" RecurringCharge"
                     },
                     {
                         "location": "querystring",
@@ -3965,8 +3965,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "reservedNode",
@@ -3975,6 +3974,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ReservedNode",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -4144,8 +4144,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4155,7 +4155,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "\u003cp\u003eThe recurring charges for the reserved node.\u003c/p\u003e",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "[RecurringCharge]"
+                        "type": "List \"RecurringCharge\" RecurringCharge"
                     }
                 ],
                 "fields": [
@@ -4251,8 +4251,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4262,7 +4262,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "\u003cp\u003eThe recurring charges for the reserved node.\u003c/p\u003e",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "[RecurringCharge]"
+                        "type": "List \"RecurringCharge\" RecurringCharge"
                     },
                     {
                         "location": "querystring",
@@ -4345,8 +4345,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "loggingStatus",
@@ -4355,6 +4354,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LoggingStatus",
+                "locationPad": 27,
                 "type": "record",
                 "optional": [
                     {
@@ -4546,7 +4546,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -4572,6 +4571,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AccountWithRestoreAccess",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -4613,7 +4613,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -4639,6 +4638,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AvailabilityZone",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -4679,8 +4679,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 27,
                 "ctor": "eventSubscription",
@@ -4689,6 +4688,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EventSubscription",
+                "locationPad": 25,
                 "type": "record",
                 "optional": [
                     {
@@ -4783,8 +4783,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4794,12 +4794,12 @@
                         "locationName": "SourceIdsList",
                         "documentation": "\u003cp\u003eA list of the sources that publish events to the Amazon Redshift event notification subscription.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SourceId\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4809,7 +4809,7 @@
                         "locationName": "EventCategoriesList",
                         "documentation": "\u003cp\u003eThe list of Amazon Redshift event categories specified in the event notification subscription.\u003c/p\u003e \u003cp\u003eValues: Configuration, Management, Monitoring, Security\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4890,8 +4890,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4901,7 +4901,7 @@
                         "locationName": "EventCategoriesList",
                         "documentation": "\u003cp\u003eThe list of Amazon Redshift event categories specified in the event notification subscription.\u003c/p\u003e \u003cp\u003eValues: Configuration, Management, Monitoring, Security\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4935,8 +4935,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4946,7 +4946,7 @@
                         "locationName": "SourceIdsList",
                         "documentation": "\u003cp\u003eA list of the sources that publish events to the Amazon Redshift event notification subscription.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SourceId\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4999,8 +4999,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 33,
                 "ctor": "hsmStatus",
@@ -5009,6 +5008,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "HsmStatus",
+                "locationPad": 31,
                 "type": "record",
                 "optional": [
                     {
@@ -5109,8 +5109,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "clusterParameterGroupNameMessage",
@@ -5119,6 +5118,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ClusterParameterGroupNameMessage",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -5189,8 +5189,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "elasticIpStatus",
@@ -5199,6 +5198,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ElasticIpStatus",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -5269,8 +5269,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 30,
                 "ctor": "clusterVersion",
@@ -5279,6 +5278,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ClusterVersion",
+                "locationPad": 28,
                 "type": "record",
                 "optional": [
                     {
@@ -5379,8 +5379,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 27,
                 "ctor": "recurringCharge",
@@ -5389,6 +5388,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "RecurringCharge",
+                "locationPad": 25,
                 "type": "record",
                 "optional": [
                     {
@@ -5459,8 +5459,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "endpoint",
@@ -5469,6 +5468,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Endpoint",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -5539,8 +5539,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "iprange",
@@ -5549,6 +5548,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "IPRange",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -5618,8 +5618,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "eventCategoriesMap",
@@ -5628,6 +5627,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EventCategoriesMap",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -5647,8 +5647,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5658,14 +5658,14 @@
                         "locationName": "Events",
                         "documentation": "\u003cp\u003eThe events in the event category.\u003c/p\u003e",
                         "typeExposed": "[EventInfoMap]",
-                        "type": "[EventInfoMap]"
+                        "type": "List \"EventInfoMap\" EventInfoMap"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5675,7 +5675,7 @@
                         "locationName": "Events",
                         "documentation": "\u003cp\u003eThe events in the event category.\u003c/p\u003e",
                         "typeExposed": "[EventInfoMap]",
-                        "type": "[EventInfoMap]"
+                        "type": "List \"EventInfoMap\" EventInfoMap"
                     },
                     {
                         "location": "querystring",
@@ -5698,8 +5698,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "hsmConfiguration",
@@ -5708,6 +5707,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "HsmConfiguration",
+                "locationPad": 27,
                 "type": "record",
                 "optional": [
                     {
@@ -5838,8 +5838,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 36,
                 "ctor": "pendingModifiedValues",
@@ -5848,6 +5847,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "PendingModifiedValues",
+                "locationPad": 33,
                 "type": "record",
                 "optional": [
                     {
@@ -6068,8 +6068,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "vpcSecurityGroupMembership",
@@ -6078,6 +6077,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "VpcSecurityGroupMembership",
+                "locationPad": 19,
                 "type": "record",
                 "optional": [
                     {
@@ -6148,8 +6148,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "parameter",
@@ -6158,6 +6157,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Parameter",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -6427,8 +6427,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6461,6 +6460,7 @@
                 "contentPad": 0,
                 "name": "AuthorizeClusterSecurityGroupIngressResponse",
                 "resultWrapper": "AuthorizeClusterSecurityGroupIngressResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -6514,8 +6514,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6575,6 +6574,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6694,8 +6694,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6728,6 +6727,7 @@
                 "contentPad": 0,
                 "name": "AuthorizeSnapshotAccessResponse",
                 "resultWrapper": "AuthorizeSnapshotAccessResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -6781,8 +6781,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6852,6 +6851,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 26,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6926,8 +6926,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6960,6 +6959,7 @@
                 "contentPad": 0,
                 "name": "CopyClusterSnapshotResponse",
                 "resultWrapper": "CopyClusterSnapshotResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -7013,8 +7013,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7084,6 +7083,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 32,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7158,8 +7158,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -7192,6 +7191,7 @@
                 "contentPad": 0,
                 "name": "CreateClusterResponse",
                 "resultWrapper": "CreateClusterResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -7245,8 +7245,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7441,6 +7440,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 33,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7477,8 +7477,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7488,12 +7488,12 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of security groups to be associated with this cluster. \u003c/p\u003e \u003cp\u003e Default: The default cluster security group for Amazon Redshift. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClusterSecurityGroupName\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7503,7 +7503,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "\u003cp\u003eA list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.\u003c/p\u003e \u003cp\u003eDefault: The default VPC security group is associated with the cluster.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VpcSecurityGroupId\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7794,8 +7794,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7805,7 +7805,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of security groups to be associated with this cluster. \u003c/p\u003e \u003cp\u003e Default: The default cluster security group for Amazon Redshift. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClusterSecurityGroupName\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8034,8 +8034,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8045,7 +8045,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "\u003cp\u003eA list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.\u003c/p\u003e \u003cp\u003eDefault: The default VPC security group is associated with the cluster.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VpcSecurityGroupId\" Text"
                     }
                 ]
             }
@@ -8055,8 +8055,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -8089,6 +8088,7 @@
                 "contentPad": 0,
                 "name": "CreateClusterParameterGroupResponse",
                 "resultWrapper": "CreateClusterParameterGroupResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8142,8 +8142,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8228,6 +8227,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8286,8 +8286,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -8320,6 +8319,7 @@
                 "contentPad": 0,
                 "name": "CreateClusterSecurityGroupResponse",
                 "resultWrapper": "CreateClusterSecurityGroupResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8373,8 +8373,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8439,6 +8438,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8482,8 +8482,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -8516,6 +8515,7 @@
                 "contentPad": 0,
                 "name": "CreateClusterSnapshotResponse",
                 "resultWrapper": "CreateClusterSnapshotResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8569,8 +8569,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8635,6 +8634,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8678,8 +8678,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -8712,6 +8711,7 @@
                 "contentPad": 0,
                 "name": "CreateClusterSubnetGroupResponse",
                 "resultWrapper": "CreateClusterSubnetGroupResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8765,8 +8765,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8836,14 +8835,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8853,7 +8853,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "\u003cp\u003e An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SubnetIdentifier\" Text"
                     }
                 ],
                 "fields": [
@@ -8889,8 +8889,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8900,7 +8900,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "\u003cp\u003e An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SubnetIdentifier\" Text"
                     }
                 ]
             }
@@ -8910,8 +8910,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -8944,6 +8943,7 @@
                 "contentPad": 0,
                 "name": "CreateEventSubscriptionResponse",
                 "resultWrapper": "CreateEventSubscriptionResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8997,8 +8997,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9088,6 +9087,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9109,8 +9109,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9120,12 +9120,12 @@
                         "locationName": "SourceIds",
                         "documentation": "\u003cp\u003e A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified. \u003c/p\u003e \u003cp\u003eExample: my-cluster-1, my-cluster-2\u003c/p\u003e \u003cp\u003eExample: my-snapshot-20131010\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SourceId\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9135,7 +9135,7 @@
                         "locationName": "EventCategories",
                         "documentation": "\u003cp\u003eSpecifies the Amazon Redshift event categories to be published by the event notification subscription.\u003c/p\u003e \u003cp\u003eValues: Configuration, Management, Monitoring, Security\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9186,8 +9186,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9197,7 +9197,7 @@
                         "locationName": "EventCategories",
                         "documentation": "\u003cp\u003eSpecifies the Amazon Redshift event categories to be published by the event notification subscription.\u003c/p\u003e \u003cp\u003eValues: Configuration, Management, Monitoring, Security\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9231,8 +9231,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9242,7 +9242,7 @@
                         "locationName": "SourceIds",
                         "documentation": "\u003cp\u003e A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified. \u003c/p\u003e \u003cp\u003eExample: my-cluster-1, my-cluster-2\u003c/p\u003e \u003cp\u003eExample: my-snapshot-20131010\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SourceId\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9282,8 +9282,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9316,6 +9315,7 @@
                 "contentPad": 0,
                 "name": "CreateHsmClientCertificateResponse",
                 "resultWrapper": "CreateHsmClientCertificateResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -9370,7 +9370,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9433,6 +9432,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -9461,8 +9461,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9495,6 +9494,7 @@
                 "contentPad": 0,
                 "name": "CreateHsmConfigurationResponse",
                 "resultWrapper": "CreateHsmConfigurationResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -9548,8 +9548,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9694,6 +9693,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 27,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9797,8 +9797,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9831,6 +9830,7 @@
                 "contentPad": 0,
                 "name": "DeleteClusterResponse",
                 "resultWrapper": "DeleteClusterResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -9884,8 +9884,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9940,6 +9939,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 31,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -10067,7 +10067,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10130,6 +10129,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -10196,7 +10196,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10259,6 +10258,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -10287,8 +10287,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10321,6 +10320,7 @@
                 "contentPad": 0,
                 "name": "DeleteClusterSnapshotResponse",
                 "resultWrapper": "DeleteClusterSnapshotResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -10374,8 +10374,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -10425,6 +10424,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 26,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -10522,7 +10522,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10585,6 +10584,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -10651,7 +10651,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10714,6 +10713,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -10780,7 +10780,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10843,6 +10842,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -10909,7 +10909,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10972,6 +10971,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -11000,8 +11000,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11018,6 +11017,7 @@
                 "contentPad": 0,
                 "name": "DescribeClusterParameterGroupsResponse",
                 "resultWrapper": "DescribeClusterParameterGroupsResult",
+                "locationPad": 16,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11038,8 +11038,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11049,7 +11049,7 @@
                         "locationName": "ParameterGroups",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eClusterParameterGroup\u003c/a\u003e instances. Each instance describes one cluster parameter group. \u003c/p\u003e",
                         "typeExposed": "[ClusterParameterGroup]",
-                        "type": "[ClusterParameterGroup]"
+                        "type": "List \"ClusterParameterGroup\" ClusterParameterGroup"
                     }
                 ],
                 "fields": [
@@ -11070,8 +11070,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11081,7 +11081,7 @@
                         "locationName": "ParameterGroups",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eClusterParameterGroup\u003c/a\u003e instances. Each instance describes one cluster parameter group. \u003c/p\u003e",
                         "typeExposed": "[ClusterParameterGroup]",
-                        "type": "[ClusterParameterGroup]"
+                        "type": "List \"ClusterParameterGroup\" ClusterParameterGroup"
                     }
                 ]
             },
@@ -11108,8 +11108,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11148,6 +11147,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11252,8 +11252,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11270,13 +11269,14 @@
                 "contentPad": 0,
                 "name": "DescribeClusterParametersResponse",
                 "resultWrapper": "DescribeClusterParametersResult",
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11286,7 +11286,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eParameter\u003c/a\u003e instances. Each instance lists the parameters of one cluster parameter group. \u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameter\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -11322,8 +11322,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11333,7 +11333,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eParameter\u003c/a\u003e instances. Each instance lists the parameters of one cluster parameter group. \u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameter\" Parameter"
                     }
                 ]
             },
@@ -11360,8 +11360,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11421,6 +11420,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11540,8 +11540,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11558,6 +11557,7 @@
                 "contentPad": 0,
                 "name": "DescribeClusterSecurityGroupsResponse",
                 "resultWrapper": "DescribeClusterSecurityGroupsResult",
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11578,8 +11578,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11589,14 +11589,14 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eClusterSecurityGroup\u003c/a\u003e instances. \u003c/p\u003e",
                         "typeExposed": "[ClusterSecurityGroup]",
-                        "type": "[ClusterSecurityGroup]"
+                        "type": "List \"ClusterSecurityGroup\" ClusterSecurityGroup"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11606,7 +11606,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eClusterSecurityGroup\u003c/a\u003e instances. \u003c/p\u003e",
                         "typeExposed": "[ClusterSecurityGroup]",
-                        "type": "[ClusterSecurityGroup]"
+                        "type": "List \"ClusterSecurityGroup\" ClusterSecurityGroup"
                     },
                     {
                         "location": "querystring",
@@ -11648,8 +11648,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11688,6 +11687,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11792,8 +11792,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -11810,6 +11809,7 @@
                 "contentPad": 0,
                 "name": "DescribeClusterSnapshotsResponse",
                 "resultWrapper": "DescribeClusterSnapshotsResult",
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11830,8 +11830,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11841,7 +11841,7 @@
                         "locationName": "Snapshots",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eSnapshot\u003c/a\u003e instances. \u003c/p\u003e",
                         "typeExposed": "[Snapshot]",
-                        "type": "[Snapshot]"
+                        "type": "List \"Snapshot\" Snapshot"
                     }
                 ],
                 "fields": [
@@ -11862,8 +11862,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11873,7 +11873,7 @@
                         "locationName": "Snapshots",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eSnapshot\u003c/a\u003e instances. \u003c/p\u003e",
                         "typeExposed": "[Snapshot]",
-                        "type": "[Snapshot]"
+                        "type": "List \"Snapshot\" Snapshot"
                     }
                 ]
             },
@@ -11900,8 +11900,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11965,6 +11964,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12219,8 +12219,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12237,6 +12236,7 @@
                 "contentPad": 0,
                 "name": "DescribeClusterSubnetGroupsResponse",
                 "resultWrapper": "DescribeClusterSubnetGroupsResult",
+                "locationPad": 20,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -12257,8 +12257,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12268,14 +12268,14 @@
                         "locationName": "ClusterSubnetGroups",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eClusterSubnetGroup\u003c/a\u003e instances. \u003c/p\u003e",
                         "typeExposed": "[ClusterSubnetGroup]",
-                        "type": "[ClusterSubnetGroup]"
+                        "type": "List \"ClusterSubnetGroup\" ClusterSubnetGroup"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12285,7 +12285,7 @@
                         "locationName": "ClusterSubnetGroups",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eClusterSubnetGroup\u003c/a\u003e instances. \u003c/p\u003e",
                         "typeExposed": "[ClusterSubnetGroup]",
-                        "type": "[ClusterSubnetGroup]"
+                        "type": "List \"ClusterSubnetGroup\" ClusterSubnetGroup"
                     },
                     {
                         "location": "querystring",
@@ -12327,8 +12327,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12367,6 +12366,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12471,8 +12471,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12489,6 +12488,7 @@
                 "contentPad": 0,
                 "name": "DescribeClusterVersionsResponse",
                 "resultWrapper": "DescribeClusterVersionsResult",
+                "locationPad": 16,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -12509,8 +12509,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12520,14 +12520,14 @@
                         "locationName": "ClusterVersions",
                         "documentation": "\u003cp\u003e A list of \u003ccode\u003eVersion\u003c/code\u003e elements. \u003c/p\u003e",
                         "typeExposed": "[ClusterVersion]",
-                        "type": "[ClusterVersion]"
+                        "type": "List \"ClusterVersion\" ClusterVersion"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12537,7 +12537,7 @@
                         "locationName": "ClusterVersions",
                         "documentation": "\u003cp\u003e A list of \u003ccode\u003eVersion\u003c/code\u003e elements. \u003c/p\u003e",
                         "typeExposed": "[ClusterVersion]",
-                        "type": "[ClusterVersion]"
+                        "type": "List \"ClusterVersion\" ClusterVersion"
                     },
                     {
                         "location": "querystring",
@@ -12579,8 +12579,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12624,6 +12623,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 28,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12758,8 +12758,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12776,6 +12775,7 @@
                 "contentPad": 0,
                 "name": "DescribeClustersResponse",
                 "resultWrapper": "DescribeClustersResult",
+                "locationPad": 9,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -12796,8 +12796,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12807,14 +12807,14 @@
                         "locationName": "Clusters",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eCluster\u003c/a\u003e objects, where each object describes one cluster. \u003c/p\u003e",
                         "typeExposed": "[Cluster]",
-                        "type": "[Cluster]"
+                        "type": "List \"Cluster\" Cluster"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12824,7 +12824,7 @@
                         "locationName": "Clusters",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eCluster\u003c/a\u003e objects, where each object describes one cluster. \u003c/p\u003e",
                         "typeExposed": "[Cluster]",
-                        "type": "[Cluster]"
+                        "type": "List \"Cluster\" Cluster"
                     },
                     {
                         "location": "querystring",
@@ -12866,8 +12866,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12906,6 +12905,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13010,8 +13010,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -13044,6 +13043,7 @@
                 "contentPad": 0,
                 "name": "DescribeDefaultClusterParametersResponse",
                 "resultWrapper": "DescribeDefaultClusterParametersResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -13104,8 +13104,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13160,6 +13159,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13250,7 +13250,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -13262,8 +13261,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -13273,7 +13272,7 @@
                     "locationName": "EventCategoriesMapList",
                     "documentation": "\u003cp\u003e A list of event categories descriptions. \u003c/p\u003e",
                     "typeExposed": "[EventCategoriesMap]",
-                    "type": "[EventCategoriesMap]"
+                    "type": "List \"EventCategoriesMap\" EventCategoriesMap"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -13285,13 +13284,14 @@
                 "contentPad": 0,
                 "name": "DescribeEventCategoriesResponse",
                 "resultWrapper": "DescribeEventCategoriesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13301,14 +13301,14 @@
                         "locationName": "EventCategoriesMapList",
                         "documentation": "\u003cp\u003e A list of event categories descriptions. \u003c/p\u003e",
                         "typeExposed": "[EventCategoriesMap]",
-                        "type": "[EventCategoriesMap]"
+                        "type": "List \"EventCategoriesMap\" EventCategoriesMap"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13318,7 +13318,7 @@
                         "locationName": "EventCategoriesMapList",
                         "documentation": "\u003cp\u003e A list of event categories descriptions. \u003c/p\u003e",
                         "typeExposed": "[EventCategoriesMap]",
-                        "type": "[EventCategoriesMap]"
+                        "type": "List \"EventCategoriesMap\" EventCategoriesMap"
                     }
                 ]
             },
@@ -13339,7 +13339,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -13385,6 +13384,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -13429,8 +13429,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -13447,6 +13446,7 @@
                 "contentPad": 0,
                 "name": "DescribeEventSubscriptionsResponse",
                 "resultWrapper": "DescribeEventSubscriptionsResult",
+                "locationPad": 23,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -13467,8 +13467,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13478,14 +13478,14 @@
                         "locationName": "EventSubscriptionsList",
                         "documentation": "\u003cp\u003eA list of event subscriptions.\u003c/p\u003e",
                         "typeExposed": "[EventSubscription]",
-                        "type": "[EventSubscription]"
+                        "type": "List \"EventSubscription\" EventSubscription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13495,7 +13495,7 @@
                         "locationName": "EventSubscriptionsList",
                         "documentation": "\u003cp\u003eA list of event subscriptions.\u003c/p\u003e",
                         "typeExposed": "[EventSubscription]",
-                        "type": "[EventSubscription]"
+                        "type": "List \"EventSubscription\" EventSubscription"
                     },
                     {
                         "location": "querystring",
@@ -13537,8 +13537,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13577,6 +13576,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13681,8 +13681,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -13699,6 +13698,7 @@
                 "contentPad": 0,
                 "name": "DescribeEventsResponse",
                 "resultWrapper": "DescribeEventsResult",
+                "locationPad": 7,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -13719,8 +13719,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13730,14 +13730,14 @@
                         "locationName": "Events",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eEvent\u003c/a\u003e instances. \u003c/p\u003e",
                         "typeExposed": "[Event]",
-                        "type": "[Event]"
+                        "type": "List \"Event\" Event"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13747,7 +13747,7 @@
                         "locationName": "Events",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eEvent\u003c/a\u003e instances. \u003c/p\u003e",
                         "typeExposed": "[Event]",
-                        "type": "[Event]"
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": "querystring",
@@ -13789,8 +13789,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13849,6 +13848,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -14073,8 +14073,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14091,6 +14090,7 @@
                 "contentPad": 0,
                 "name": "DescribeHsmClientCertificatesResponse",
                 "resultWrapper": "DescribeHsmClientCertificatesResult",
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -14111,8 +14111,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14122,14 +14122,14 @@
                         "locationName": "HsmClientCertificates",
                         "documentation": "\u003cp\u003eA list of the identifiers for one or more HSM client certificates used by Amazon Redshift clusters to store and retrieve database encryption keys in an HSM.\u003c/p\u003e",
                         "typeExposed": "[HsmClientCertificate]",
-                        "type": "[HsmClientCertificate]"
+                        "type": "List \"HsmClientCertificate\" HsmClientCertificate"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14139,7 +14139,7 @@
                         "locationName": "HsmClientCertificates",
                         "documentation": "\u003cp\u003eA list of the identifiers for one or more HSM client certificates used by Amazon Redshift clusters to store and retrieve database encryption keys in an HSM.\u003c/p\u003e",
                         "typeExposed": "[HsmClientCertificate]",
-                        "type": "[HsmClientCertificate]"
+                        "type": "List \"HsmClientCertificate\" HsmClientCertificate"
                     },
                     {
                         "location": "querystring",
@@ -14181,8 +14181,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -14221,6 +14220,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 31,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -14325,8 +14325,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14343,6 +14342,7 @@
                 "contentPad": 0,
                 "name": "DescribeHsmConfigurationsResponse",
                 "resultWrapper": "DescribeHsmConfigurationsResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -14363,8 +14363,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14374,14 +14374,14 @@
                         "locationName": "HsmConfigurations",
                         "documentation": "\u003cp\u003eA list of Amazon Redshift HSM configurations.\u003c/p\u003e",
                         "typeExposed": "[HsmConfiguration]",
-                        "type": "[HsmConfiguration]"
+                        "type": "List \"HsmConfiguration\" HsmConfiguration"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14391,7 +14391,7 @@
                         "locationName": "HsmConfigurations",
                         "documentation": "\u003cp\u003eA list of Amazon Redshift HSM configurations.\u003c/p\u003e",
                         "typeExposed": "[HsmConfiguration]",
-                        "type": "[HsmConfiguration]"
+                        "type": "List \"HsmConfiguration\" HsmConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -14433,8 +14433,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -14473,6 +14472,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 27,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -14578,8 +14578,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14596,6 +14595,7 @@
                 "contentPad": 0,
                 "name": "DescribeLoggingStatusResponse",
                 "resultWrapper": "DescribeLoggingStatusResult",
+                "locationPad": 27,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -14800,7 +14800,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -14863,6 +14862,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -14891,8 +14891,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14909,13 +14908,14 @@
                 "contentPad": 0,
                 "name": "DescribeOrderableClusterOptionsResponse",
                 "resultWrapper": "DescribeOrderableClusterOptionsResult",
+                "locationPad": 24,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14925,7 +14925,7 @@
                         "locationName": "OrderableClusterOptions",
                         "documentation": "\u003cp\u003eAn \u003ca\u003eOrderableClusterOption\u003c/a\u003e structure containing information about orderable options for the Cluster.\u003c/p\u003e",
                         "typeExposed": "[OrderableClusterOption]",
-                        "type": "[OrderableClusterOption]"
+                        "type": "List \"OrderableClusterOption\" OrderableClusterOption"
                     },
                     {
                         "location": "querystring",
@@ -14961,8 +14961,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14972,7 +14972,7 @@
                         "locationName": "OrderableClusterOptions",
                         "documentation": "\u003cp\u003eAn \u003ca\u003eOrderableClusterOption\u003c/a\u003e structure containing information about orderable options for the Cluster.\u003c/p\u003e",
                         "typeExposed": "[OrderableClusterOption]",
-                        "type": "[OrderableClusterOption]"
+                        "type": "List \"OrderableClusterOption\" OrderableClusterOption"
                     }
                 ]
             },
@@ -14999,8 +14999,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -15044,6 +15043,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -15178,8 +15178,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -15196,6 +15195,7 @@
                 "contentPad": 0,
                 "name": "DescribeReservedNodeOfferingsResponse",
                 "resultWrapper": "DescribeReservedNodeOfferingsResult",
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -15216,8 +15216,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15227,7 +15227,7 @@
                         "locationName": "ReservedNodeOfferings",
                         "documentation": "\u003cp\u003eA list of reserved node offerings.\u003c/p\u003e",
                         "typeExposed": "[ReservedNodeOffering]",
-                        "type": "[ReservedNodeOffering]"
+                        "type": "List \"ReservedNodeOffering\" ReservedNodeOffering"
                     }
                 ],
                 "fields": [
@@ -15248,8 +15248,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15259,7 +15259,7 @@
                         "locationName": "ReservedNodeOfferings",
                         "documentation": "\u003cp\u003eA list of reserved node offerings.\u003c/p\u003e",
                         "typeExposed": "[ReservedNodeOffering]",
-                        "type": "[ReservedNodeOffering]"
+                        "type": "List \"ReservedNodeOffering\" ReservedNodeOffering"
                     }
                 ]
             },
@@ -15286,8 +15286,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -15326,6 +15325,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -15430,8 +15430,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -15448,6 +15447,7 @@
                 "contentPad": 0,
                 "name": "DescribeReservedNodesResponse",
                 "resultWrapper": "DescribeReservedNodesResult",
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -15468,8 +15468,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15479,7 +15479,7 @@
                         "locationName": "ReservedNodes",
                         "documentation": "\u003cp\u003eThe list of reserved nodes.\u003c/p\u003e",
                         "typeExposed": "[ReservedNode]",
-                        "type": "[ReservedNode]"
+                        "type": "List \"ReservedNode\" ReservedNode"
                     }
                 ],
                 "fields": [
@@ -15500,8 +15500,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15511,7 +15511,7 @@
                         "locationName": "ReservedNodes",
                         "documentation": "\u003cp\u003eThe list of reserved nodes.\u003c/p\u003e",
                         "typeExposed": "[ReservedNode]",
-                        "type": "[ReservedNode]"
+                        "type": "List \"ReservedNode\" ReservedNode"
                     }
                 ]
             },
@@ -15538,8 +15538,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -15578,6 +15577,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -15683,8 +15683,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -15701,6 +15700,7 @@
                 "contentPad": 0,
                 "name": "DescribeResizeResponse",
                 "resultWrapper": "DescribeResizeResult",
+                "locationPad": 35,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -15766,8 +15766,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15777,12 +15777,12 @@
                         "locationName": "ImportTablesCompleted",
                         "documentation": "\u003cp\u003eThe names of tables that have been completely imported .\u003c/p\u003e \u003cp\u003eValid Values: List of table names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ImportTablesCompleted\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15792,12 +15792,12 @@
                         "locationName": "ImportTablesInProgress",
                         "documentation": "\u003cp\u003eThe names of tables that are being currently imported.\u003c/p\u003e \u003cp\u003eValid Values: List of table names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ImportTablesInProgress\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15807,7 +15807,7 @@
                         "locationName": "ImportTablesNotStarted",
                         "documentation": "\u003cp\u003eThe names of tables that have not been yet imported.\u003c/p\u003e \u003cp\u003eValid Values: List of table names\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ImportTablesNotStarted\" Text"
                     },
                     {
                         "location": "querystring",
@@ -15933,8 +15933,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15944,12 +15944,12 @@
                         "locationName": "ImportTablesCompleted",
                         "documentation": "\u003cp\u003eThe names of tables that have been completely imported .\u003c/p\u003e \u003cp\u003eValid Values: List of table names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ImportTablesCompleted\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15959,12 +15959,12 @@
                         "locationName": "ImportTablesInProgress",
                         "documentation": "\u003cp\u003eThe names of tables that are being currently imported.\u003c/p\u003e \u003cp\u003eValid Values: List of table names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ImportTablesInProgress\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15974,7 +15974,7 @@
                         "locationName": "ImportTablesNotStarted",
                         "documentation": "\u003cp\u003eThe names of tables that have not been yet imported.\u003c/p\u003e \u003cp\u003eValid Values: List of table names\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ImportTablesNotStarted\" Text"
                     },
                     {
                         "location": "querystring",
@@ -16085,7 +16085,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -16148,6 +16147,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -16177,8 +16177,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -16195,6 +16194,7 @@
                 "contentPad": 0,
                 "name": "DisableLoggingResponse",
                 "resultWrapper": "DisableLoggingResult",
+                "locationPad": 27,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -16399,7 +16399,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -16462,6 +16461,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -16490,8 +16490,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -16524,6 +16523,7 @@
                 "contentPad": 0,
                 "name": "DisableSnapshotCopyResponse",
                 "resultWrapper": "DisableSnapshotCopyResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -16578,7 +16578,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -16641,6 +16640,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -16670,8 +16670,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -16688,6 +16687,7 @@
                 "contentPad": 0,
                 "name": "EnableLoggingResponse",
                 "resultWrapper": "EnableLoggingResult",
+                "locationPad": 27,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -16891,8 +16891,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -16962,6 +16961,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -17036,8 +17036,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -17070,6 +17069,7 @@
                 "contentPad": 0,
                 "name": "EnableSnapshotCopyResponse",
                 "resultWrapper": "EnableSnapshotCopyResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -17123,8 +17123,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -17194,6 +17193,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -17268,8 +17268,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -17302,6 +17301,7 @@
                 "contentPad": 0,
                 "name": "ModifyClusterResponse",
                 "resultWrapper": "ModifyClusterResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -17355,8 +17355,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -17471,6 +17470,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 33,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -17522,8 +17522,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -17533,12 +17533,12 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of cluster security groups to be authorized on this cluster. This change is asynchronously applied as soon as possible. \u003c/p\u003e \u003cp\u003eSecurity groups currently associated with the cluster, and not in the list of groups to apply, will be revoked from the cluster.\u003c/p\u003e \u003cp\u003eConstraints:\u003c/p\u003e \u003cul\u003e \u003cli\u003eMust be 1 to 255 alphanumeric characters or hyphens\u003c/li\u003e \u003cli\u003eFirst character must be a letter\u003c/li\u003e \u003cli\u003eCannot end with a hyphen or contain two consecutive hyphens\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClusterSecurityGroupName\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -17548,7 +17548,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "\u003cp\u003e A list of virtual private cloud (VPC) security groups to be associated with the cluster. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VpcSecurityGroupId\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17749,8 +17749,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -17760,7 +17760,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of cluster security groups to be authorized on this cluster. This change is asynchronously applied as soon as possible. \u003c/p\u003e \u003cp\u003eSecurity groups currently associated with the cluster, and not in the list of groups to apply, will be revoked from the cluster.\u003c/p\u003e \u003cp\u003eConstraints:\u003c/p\u003e \u003cul\u003e \u003cli\u003eMust be 1 to 255 alphanumeric characters or hyphens\u003c/li\u003e \u003cli\u003eFirst character must be a letter\u003c/li\u003e \u003cli\u003eCannot end with a hyphen or contain two consecutive hyphens\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClusterSecurityGroupName\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17899,8 +17899,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -17910,7 +17910,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "\u003cp\u003e A list of virtual private cloud (VPC) security groups to be associated with the cluster. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VpcSecurityGroupId\" Text"
                     }
                 ]
             }
@@ -17921,8 +17921,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -17939,6 +17938,7 @@
                 "contentPad": 0,
                 "name": "ModifyClusterParameterGroupResponse",
                 "resultWrapper": "ModifyClusterParameterGroupResult",
+                "locationPad": 21,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -18021,8 +18021,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -18072,14 +18071,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18089,7 +18089,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003e An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request. \u003c/p\u003e \u003cp\u003e For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional. \u003c/p\u003e \u003cp\u003e For the workload management (WLM) configuration, you must supply all the name-value pairs in the wlm_json_configuration parameter. \u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameter\" Parameter"
                     }
                 ],
                 "fields": [
@@ -18110,8 +18110,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18121,7 +18121,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003e An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request. \u003c/p\u003e \u003cp\u003e For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional. \u003c/p\u003e \u003cp\u003e For the workload management (WLM) configuration, you must supply all the name-value pairs in the wlm_json_configuration parameter. \u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameter\" Parameter"
                     }
                 ]
             }
@@ -18131,8 +18131,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -18165,6 +18164,7 @@
                 "contentPad": 0,
                 "name": "ModifyClusterSubnetGroupResponse",
                 "resultWrapper": "ModifyClusterSubnetGroupResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -18218,8 +18218,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -18274,6 +18273,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -18295,8 +18295,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18306,7 +18306,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "\u003cp\u003e An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SubnetIdentifier\" Text"
                     }
                 ],
                 "fields": [
@@ -18342,8 +18342,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18353,7 +18353,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "\u003cp\u003e An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SubnetIdentifier\" Text"
                     }
                 ]
             }
@@ -18363,8 +18363,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -18397,6 +18396,7 @@
                 "contentPad": 0,
                 "name": "ModifyEventSubscriptionResponse",
                 "resultWrapper": "ModifyEventSubscriptionResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -18450,8 +18450,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -18526,6 +18525,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -18562,8 +18562,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18573,12 +18573,12 @@
                         "locationName": "SourceIds",
                         "documentation": "\u003cp\u003e A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified. \u003c/p\u003e \u003cp\u003eExample: my-cluster-1, my-cluster-2\u003c/p\u003e \u003cp\u003eExample: my-snapshot-20131010\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SourceId\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18588,7 +18588,7 @@
                         "locationName": "EventCategories",
                         "documentation": "\u003cp\u003eSpecifies the Amazon Redshift event categories to be published by the event notification subscription.\u003c/p\u003e \u003cp\u003eValues: Configuration, Management, Monitoring, Security\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -18639,8 +18639,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18650,7 +18650,7 @@
                         "locationName": "EventCategories",
                         "documentation": "\u003cp\u003eSpecifies the Amazon Redshift event categories to be published by the event notification subscription.\u003c/p\u003e \u003cp\u003eValues: Configuration, Management, Monitoring, Security\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EventCategory\" Text"
                     },
                     {
                         "location": "querystring",
@@ -18684,8 +18684,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18695,7 +18695,7 @@
                         "locationName": "SourceIds",
                         "documentation": "\u003cp\u003e A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified. \u003c/p\u003e \u003cp\u003eExample: my-cluster-1, my-cluster-2\u003c/p\u003e \u003cp\u003eExample: my-snapshot-20131010\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SourceId\" Text"
                     },
                     {
                         "location": "querystring",
@@ -18735,8 +18735,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -18769,6 +18768,7 @@
                 "contentPad": 0,
                 "name": "ModifySnapshotCopyRetentionPeriodResponse",
                 "resultWrapper": "ModifySnapshotCopyRetentionPeriodResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -18822,8 +18822,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -18888,6 +18887,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -18931,8 +18931,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -18965,6 +18964,7 @@
                 "contentPad": 0,
                 "name": "PurchaseReservedNodeOfferingResponse",
                 "resultWrapper": "PurchaseReservedNodeOfferingResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -19018,8 +19018,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -19069,6 +19068,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -19128,8 +19128,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -19162,6 +19161,7 @@
                 "contentPad": 0,
                 "name": "RebootClusterResponse",
                 "resultWrapper": "RebootClusterResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -19216,7 +19216,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -19279,6 +19278,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -19308,8 +19308,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -19326,6 +19325,7 @@
                 "contentPad": 0,
                 "name": "ResetClusterParameterGroupResponse",
                 "resultWrapper": "ResetClusterParameterGroupResult",
+                "locationPad": 21,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -19408,8 +19408,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -19464,6 +19463,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -19485,8 +19485,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -19496,7 +19496,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003e An array of names of parameters to be reset. If \u003ci\u003eResetAllParameters\u003c/i\u003e option is not used, then at least one parameter name must be supplied. \u003c/p\u003e \u003cp\u003eConstraints: A maximum of 20 parameters can be reset in a single request.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameter\" Parameter"
                     }
                 ],
                 "fields": [
@@ -19517,8 +19517,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -19528,7 +19528,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003e An array of names of parameters to be reset. If \u003ci\u003eResetAllParameters\u003c/i\u003e option is not used, then at least one parameter name must be supplied. \u003c/p\u003e \u003cp\u003eConstraints: A maximum of 20 parameters can be reset in a single request.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameter\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -19553,8 +19553,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -19587,6 +19586,7 @@
                 "contentPad": 0,
                 "name": "RestoreFromClusterSnapshotResponse",
                 "resultWrapper": "RestoreFromClusterSnapshotResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -19640,8 +19640,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -19781,6 +19780,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 33,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -19952,8 +19952,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -19963,12 +19963,12 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of security groups to be associated with this cluster. \u003c/p\u003e \u003cp\u003e Default: The default cluster security group for Amazon Redshift. \u003c/p\u003e \u003cp\u003eCluster security groups only apply to clusters outside of VPCs.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClusterSecurityGroupName\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -19978,7 +19978,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "\u003cp\u003e A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. \u003c/p\u003e \u003cp\u003e Default: The default VPC security group is associated with the cluster. \u003c/p\u003e \u003cp\u003e VPC security groups only apply to clusters in VPCs. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VpcSecurityGroupId\" Text"
                     },
                     {
                         "location": "querystring",
@@ -20089,8 +20089,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -20100,7 +20100,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "\u003cp\u003e A list of security groups to be associated with this cluster. \u003c/p\u003e \u003cp\u003e Default: The default cluster security group for Amazon Redshift. \u003c/p\u003e \u003cp\u003eCluster security groups only apply to clusters outside of VPCs.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClusterSecurityGroupName\" Text"
                     },
                     {
                         "location": "querystring",
@@ -20254,8 +20254,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -20265,7 +20265,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "\u003cp\u003e A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. \u003c/p\u003e \u003cp\u003e Default: The default VPC security group is associated with the cluster. \u003c/p\u003e \u003cp\u003e VPC security groups only apply to clusters in VPCs. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VpcSecurityGroupId\" Text"
                     }
                 ]
             }
@@ -20275,8 +20275,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -20309,6 +20308,7 @@
                 "contentPad": 0,
                 "name": "RevokeClusterSecurityGroupIngressResponse",
                 "resultWrapper": "RevokeClusterSecurityGroupIngressResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -20362,8 +20362,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -20423,6 +20422,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -20542,8 +20542,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -20576,6 +20575,7 @@
                 "contentPad": 0,
                 "name": "RevokeSnapshotAccessResponse",
                 "resultWrapper": "RevokeSnapshotAccessResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -20629,8 +20629,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -20700,6 +20699,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 26,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -20774,8 +20774,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -20808,6 +20807,7 @@
                 "contentPad": 0,
                 "name": "RotateEncryptionKeyResponse",
                 "resultWrapper": "RotateEncryptionKeyResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -20862,7 +20862,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -20925,6 +20924,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,

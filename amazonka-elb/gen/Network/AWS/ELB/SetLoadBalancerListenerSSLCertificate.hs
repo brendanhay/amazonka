@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
     { _slblsslcLoadBalancerName :: Text
     , _slblsslcLoadBalancerPort :: Int
     , _slblsslcSSLCertificateId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetLoadBalancerListenerSSLCertificate' constructor.
 --
@@ -104,7 +105,12 @@ setLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertif
 instance ToPath SetLoadBalancerListenerSSLCertificate where
     toPath = const "/"
 
-instance ToQuery SetLoadBalancerListenerSSLCertificate
+instance ToQuery SetLoadBalancerListenerSSLCertificate where
+    toQuery SetLoadBalancerListenerSSLCertificate{..} = mconcat
+        [ "LoadBalancerName" =? _slblsslcLoadBalancerName
+        , "LoadBalancerPort" =? _slblsslcLoadBalancerPort
+        , "SSLCertificateId" =? _slblsslcSSLCertificateId
+        ]
 
 instance ToHeaders SetLoadBalancerListenerSSLCertificate
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 
 newtype GetRole = GetRole
     { _grRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetRole' constructor.
 --
@@ -71,7 +72,7 @@ grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
 
 newtype GetRoleResponse = GetRoleResponse
     { _grrRole :: Role
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetRoleResponse' constructor.
 --
@@ -92,7 +93,10 @@ grrRole = lens _grrRole (\s a -> s { _grrRole = a })
 instance ToPath GetRole where
     toPath = const "/"
 
-instance ToQuery GetRole
+instance ToQuery GetRole where
+    toQuery GetRole{..} = mconcat
+        [ "RoleName" =? _grRoleName
+        ]
 
 instance ToHeaders GetRole
 
@@ -104,5 +108,5 @@ instance AWSRequest GetRole where
     response = xmlResponse
 
 instance FromXML GetRoleResponse where
-    parseXML = withElement "GetRoleResult" $ \x ->
-            <$> x .@ "Role"
+    parseXML = withElement "GetRoleResult" $ \x -> GetRoleResponse
+        <$> x .@  "Role"

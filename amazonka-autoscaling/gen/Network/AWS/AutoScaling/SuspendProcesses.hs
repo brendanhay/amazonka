@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,8 +53,8 @@ import qualified GHC.Exts
 
 data SuspendProcesses = SuspendProcesses
     { _spAutoScalingGroupName :: Text
-    , _spScalingProcesses     :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _spScalingProcesses     :: List "ScalingProcesses" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'SuspendProcesses' constructor.
 --
@@ -82,6 +83,7 @@ spAutoScalingGroupName =
 spScalingProcesses :: Lens' SuspendProcesses [Text]
 spScalingProcesses =
     lens _spScalingProcesses (\s a -> s { _spScalingProcesses = a })
+        . _List
 
 data SuspendProcessesResponse = SuspendProcessesResponse
     deriving (Eq, Ord, Show, Generic)
@@ -93,7 +95,11 @@ suspendProcessesResponse = SuspendProcessesResponse
 instance ToPath SuspendProcesses where
     toPath = const "/"
 
-instance ToQuery SuspendProcesses
+instance ToQuery SuspendProcesses where
+    toQuery SuspendProcesses{..} = mconcat
+        [ "AutoScalingGroupName" =? _spAutoScalingGroupName
+        , "ScalingProcesses"     =? _spScalingProcesses
+        ]
 
 instance ToHeaders SuspendProcesses
 

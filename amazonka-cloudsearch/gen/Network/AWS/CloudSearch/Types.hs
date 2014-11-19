@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -325,7 +326,7 @@ data DomainStatus = DomainStatus
     , _dsSearchInstanceType     :: Maybe Text
     , _dsSearchPartitionCount   :: Maybe Nat
     , _dsSearchService          :: Maybe ServiceEndpoint
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DomainStatus' constructor.
 --
@@ -444,27 +445,42 @@ dsSearchService = lens _dsSearchService (\s a -> s { _dsSearchService = a })
 
 instance FromXML DomainStatus where
     parseXML x = DomainStatus
-            <$> x .@? "ARN"
-            <*> x .@? "Created"
-            <*> x .@? "Deleted"
-            <*> x .@? "DocService"
-            <*> x .@ "DomainId"
-            <*> x .@ "DomainName"
-            <*> x .@? "Limits"
-            <*> x .@? "Processing"
-            <*> x .@ "RequiresIndexDocuments"
-            <*> x .@? "SearchInstanceCount"
-            <*> x .@? "SearchInstanceType"
-            <*> x .@? "SearchPartitionCount"
-            <*> x .@? "SearchService"
+        <$> x .@? "ARN"
+        <*> x .@? "Created"
+        <*> x .@? "Deleted"
+        <*> x .@? "DocService"
+        <*> x .@  "DomainId"
+        <*> x .@  "DomainName"
+        <*> x .@? "Limits"
+        <*> x .@? "Processing"
+        <*> x .@  "RequiresIndexDocuments"
+        <*> x .@? "SearchInstanceCount"
+        <*> x .@? "SearchInstanceType"
+        <*> x .@? "SearchPartitionCount"
+        <*> x .@? "SearchService"
 
-instance ToQuery DomainStatus
+instance ToQuery DomainStatus where
+    toQuery DomainStatus{..} = mconcat
+        [ "ARN"                    =? _dsARN
+        , "Created"                =? _dsCreated
+        , "Deleted"                =? _dsDeleted
+        , "DocService"             =? _dsDocService
+        , "DomainId"               =? _dsDomainId
+        , "DomainName"             =? _dsDomainName
+        , "Limits"                 =? _dsLimits
+        , "Processing"             =? _dsProcessing
+        , "RequiresIndexDocuments" =? _dsRequiresIndexDocuments
+        , "SearchInstanceCount"    =? _dsSearchInstanceCount
+        , "SearchInstanceType"     =? _dsSearchInstanceType
+        , "SearchPartitionCount"   =? _dsSearchPartitionCount
+        , "SearchService"          =? _dsSearchService
+        ]
 
 data DocumentSuggesterOptions = DocumentSuggesterOptions
     { _dsoFuzzyMatching  :: Maybe Text
     , _dsoSortExpression :: Maybe Text
     , _dsoSourceField    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DocumentSuggesterOptions' constructor.
 --
@@ -510,11 +526,16 @@ dsoSourceField = lens _dsoSourceField (\s a -> s { _dsoSourceField = a })
 
 instance FromXML DocumentSuggesterOptions where
     parseXML x = DocumentSuggesterOptions
-            <$> x .@? "FuzzyMatching"
-            <*> x .@? "SortExpression"
-            <*> x .@ "SourceField"
+        <$> x .@? "FuzzyMatching"
+        <*> x .@? "SortExpression"
+        <*> x .@  "SourceField"
 
-instance ToQuery DocumentSuggesterOptions
+instance ToQuery DocumentSuggesterOptions where
+    toQuery DocumentSuggesterOptions{..} = mconcat
+        [ "FuzzyMatching"  =? _dsoFuzzyMatching
+        , "SortExpression" =? _dsoSortExpression
+        , "SourceField"    =? _dsoSourceField
+        ]
 
 data DoubleArrayOptions = DoubleArrayOptions
     { _daoDefaultValue  :: Maybe Double
@@ -522,7 +543,7 @@ data DoubleArrayOptions = DoubleArrayOptions
     , _daoReturnEnabled :: Maybe Bool
     , _daoSearchEnabled :: Maybe Bool
     , _daoSourceFields  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DoubleArrayOptions' constructor.
 --
@@ -569,13 +590,20 @@ daoSourceFields = lens _daoSourceFields (\s a -> s { _daoSourceFields = a })
 
 instance FromXML DoubleArrayOptions where
     parseXML x = DoubleArrayOptions
-            <$> x .@? "DefaultValue"
-            <*> x .@? "FacetEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SearchEnabled"
-            <*> x .@? "SourceFields"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "FacetEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SearchEnabled"
+        <*> x .@? "SourceFields"
 
-instance ToQuery DoubleArrayOptions
+instance ToQuery DoubleArrayOptions where
+    toQuery DoubleArrayOptions{..} = mconcat
+        [ "DefaultValue"  =? _daoDefaultValue
+        , "FacetEnabled"  =? _daoFacetEnabled
+        , "ReturnEnabled" =? _daoReturnEnabled
+        , "SearchEnabled" =? _daoSearchEnabled
+        , "SourceFields"  =? _daoSourceFields
+        ]
 
 data IndexField = IndexField
     { _ifDateArrayOptions    :: Maybe DateArrayOptions
@@ -591,7 +619,7 @@ data IndexField = IndexField
     , _ifLiteralOptions      :: Maybe LiteralOptions
     , _ifTextArrayOptions    :: Maybe TextArrayOptions
     , _ifTextOptions         :: Maybe TextOptions
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'IndexField' constructor.
 --
@@ -693,21 +721,36 @@ ifTextOptions = lens _ifTextOptions (\s a -> s { _ifTextOptions = a })
 
 instance FromXML IndexField where
     parseXML x = IndexField
-            <$> x .@? "DateArrayOptions"
-            <*> x .@? "DateOptions"
-            <*> x .@? "DoubleArrayOptions"
-            <*> x .@? "DoubleOptions"
-            <*> x .@ "IndexFieldName"
-            <*> x .@ "IndexFieldType"
-            <*> x .@? "IntArrayOptions"
-            <*> x .@? "IntOptions"
-            <*> x .@? "LatLonOptions"
-            <*> x .@? "LiteralArrayOptions"
-            <*> x .@? "LiteralOptions"
-            <*> x .@? "TextArrayOptions"
-            <*> x .@? "TextOptions"
+        <$> x .@? "DateArrayOptions"
+        <*> x .@? "DateOptions"
+        <*> x .@? "DoubleArrayOptions"
+        <*> x .@? "DoubleOptions"
+        <*> x .@  "IndexFieldName"
+        <*> x .@  "IndexFieldType"
+        <*> x .@? "IntArrayOptions"
+        <*> x .@? "IntOptions"
+        <*> x .@? "LatLonOptions"
+        <*> x .@? "LiteralArrayOptions"
+        <*> x .@? "LiteralOptions"
+        <*> x .@? "TextArrayOptions"
+        <*> x .@? "TextOptions"
 
-instance ToQuery IndexField
+instance ToQuery IndexField where
+    toQuery IndexField{..} = mconcat
+        [ "DateArrayOptions"    =? _ifDateArrayOptions
+        , "DateOptions"         =? _ifDateOptions
+        , "DoubleArrayOptions"  =? _ifDoubleArrayOptions
+        , "DoubleOptions"       =? _ifDoubleOptions
+        , "IndexFieldName"      =? _ifIndexFieldName
+        , "IndexFieldType"      =? _ifIndexFieldType
+        , "IntArrayOptions"     =? _ifIntArrayOptions
+        , "IntOptions"          =? _ifIntOptions
+        , "LatLonOptions"       =? _ifLatLonOptions
+        , "LiteralArrayOptions" =? _ifLiteralArrayOptions
+        , "LiteralOptions"      =? _ifLiteralOptions
+        , "TextArrayOptions"    =? _ifTextArrayOptions
+        , "TextOptions"         =? _ifTextOptions
+        ]
 
 data DateOptions = DateOptions
     { _doDefaultValue  :: Maybe Text
@@ -716,7 +759,7 @@ data DateOptions = DateOptions
     , _doSearchEnabled :: Maybe Bool
     , _doSortEnabled   :: Maybe Bool
     , _doSourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DateOptions' constructor.
 --
@@ -769,14 +812,22 @@ doSourceField = lens _doSourceField (\s a -> s { _doSourceField = a })
 
 instance FromXML DateOptions where
     parseXML x = DateOptions
-            <$> x .@? "DefaultValue"
-            <*> x .@? "FacetEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SearchEnabled"
-            <*> x .@? "SortEnabled"
-            <*> x .@? "SourceField"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "FacetEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SearchEnabled"
+        <*> x .@? "SortEnabled"
+        <*> x .@? "SourceField"
 
-instance ToQuery DateOptions
+instance ToQuery DateOptions where
+    toQuery DateOptions{..} = mconcat
+        [ "DefaultValue"  =? _doDefaultValue
+        , "FacetEnabled"  =? _doFacetEnabled
+        , "ReturnEnabled" =? _doReturnEnabled
+        , "SearchEnabled" =? _doSearchEnabled
+        , "SortEnabled"   =? _doSortEnabled
+        , "SourceField"   =? _doSourceField
+        ]
 
 data OptionState
     = Active                 -- ^ Active
@@ -803,7 +854,8 @@ instance ToText OptionState where
 instance FromXML OptionState where
     parseXML = parseXMLText "OptionState"
 
-instance ToQuery OptionState
+instance ToQuery OptionState where
+    toQuery OptionState = toQuery . toText
 
 data TextArrayOptions = TextArrayOptions
     { _taoAnalysisScheme   :: Maybe Text
@@ -811,7 +863,7 @@ data TextArrayOptions = TextArrayOptions
     , _taoHighlightEnabled :: Maybe Bool
     , _taoReturnEnabled    :: Maybe Bool
     , _taoSourceFields     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TextArrayOptions' constructor.
 --
@@ -860,13 +912,20 @@ taoSourceFields = lens _taoSourceFields (\s a -> s { _taoSourceFields = a })
 
 instance FromXML TextArrayOptions where
     parseXML x = TextArrayOptions
-            <$> x .@? "AnalysisScheme"
-            <*> x .@? "DefaultValue"
-            <*> x .@? "HighlightEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SourceFields"
+        <$> x .@? "AnalysisScheme"
+        <*> x .@? "DefaultValue"
+        <*> x .@? "HighlightEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SourceFields"
 
-instance ToQuery TextArrayOptions
+instance ToQuery TextArrayOptions where
+    toQuery TextArrayOptions{..} = mconcat
+        [ "AnalysisScheme"   =? _taoAnalysisScheme
+        , "DefaultValue"     =? _taoDefaultValue
+        , "HighlightEnabled" =? _taoHighlightEnabled
+        , "ReturnEnabled"    =? _taoReturnEnabled
+        , "SourceFields"     =? _taoSourceFields
+        ]
 
 data AlgorithmicStemming
     = Full    -- ^ full
@@ -893,13 +952,14 @@ instance ToText AlgorithmicStemming where
 instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
 
-instance ToQuery AlgorithmicStemming
+instance ToQuery AlgorithmicStemming where
+    toQuery AlgorithmicStemming = toQuery . toText
 
 data AnalysisScheme = AnalysisScheme
     { _asAnalysisOptions        :: Maybe AnalysisOptions
     , _asAnalysisSchemeLanguage :: Text
     , _asAnalysisSchemeName     :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AnalysisScheme' constructor.
 --
@@ -935,17 +995,22 @@ asAnalysisSchemeName =
 
 instance FromXML AnalysisScheme where
     parseXML x = AnalysisScheme
-            <$> x .@? "AnalysisOptions"
-            <*> x .@ "AnalysisSchemeLanguage"
-            <*> x .@ "AnalysisSchemeName"
+        <$> x .@? "AnalysisOptions"
+        <*> x .@  "AnalysisSchemeLanguage"
+        <*> x .@  "AnalysisSchemeName"
 
-instance ToQuery AnalysisScheme
+instance ToQuery AnalysisScheme where
+    toQuery AnalysisScheme{..} = mconcat
+        [ "AnalysisOptions"        =? _asAnalysisOptions
+        , "AnalysisSchemeLanguage" =? _asAnalysisSchemeLanguage
+        , "AnalysisSchemeName"     =? _asAnalysisSchemeName
+        ]
 
 data ScalingParameters = ScalingParameters
     { _spDesiredInstanceType     :: Maybe Text
     , _spDesiredPartitionCount   :: Maybe Nat
     , _spDesiredReplicationCount :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ScalingParameters' constructor.
 --
@@ -986,11 +1051,16 @@ spDesiredReplicationCount =
 
 instance FromXML ScalingParameters where
     parseXML x = ScalingParameters
-            <$> x .@? "DesiredInstanceType"
-            <*> x .@? "DesiredPartitionCount"
-            <*> x .@? "DesiredReplicationCount"
+        <$> x .@? "DesiredInstanceType"
+        <*> x .@? "DesiredPartitionCount"
+        <*> x .@? "DesiredReplicationCount"
 
-instance ToQuery ScalingParameters
+instance ToQuery ScalingParameters where
+    toQuery ScalingParameters{..} = mconcat
+        [ "DesiredInstanceType"     =? _spDesiredInstanceType
+        , "DesiredPartitionCount"   =? _spDesiredPartitionCount
+        , "DesiredReplicationCount" =? _spDesiredReplicationCount
+        ]
 
 data AnalysisOptions = AnalysisOptions
     { _aoAlgorithmicStemming            :: Maybe Text
@@ -998,7 +1068,7 @@ data AnalysisOptions = AnalysisOptions
     , _aoStemmingDictionary             :: Maybe Text
     , _aoStopwords                      :: Maybe Text
     , _aoSynonyms                       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AnalysisOptions' constructor.
 --
@@ -1071,13 +1141,20 @@ aoSynonyms = lens _aoSynonyms (\s a -> s { _aoSynonyms = a })
 
 instance FromXML AnalysisOptions where
     parseXML x = AnalysisOptions
-            <$> x .@? "AlgorithmicStemming"
-            <*> x .@? "JapaneseTokenizationDictionary"
-            <*> x .@? "StemmingDictionary"
-            <*> x .@? "Stopwords"
-            <*> x .@? "Synonyms"
+        <$> x .@? "AlgorithmicStemming"
+        <*> x .@? "JapaneseTokenizationDictionary"
+        <*> x .@? "StemmingDictionary"
+        <*> x .@? "Stopwords"
+        <*> x .@? "Synonyms"
 
-instance ToQuery AnalysisOptions
+instance ToQuery AnalysisOptions where
+    toQuery AnalysisOptions{..} = mconcat
+        [ "AlgorithmicStemming"            =? _aoAlgorithmicStemming
+        , "JapaneseTokenizationDictionary" =? _aoJapaneseTokenizationDictionary
+        , "StemmingDictionary"             =? _aoStemmingDictionary
+        , "Stopwords"                      =? _aoStopwords
+        , "Synonyms"                       =? _aoSynonyms
+        ]
 
 data DoubleOptions = DoubleOptions
     { _do1DefaultValue  :: Maybe Double
@@ -1086,7 +1163,7 @@ data DoubleOptions = DoubleOptions
     , _do1SearchEnabled :: Maybe Bool
     , _do1SortEnabled   :: Maybe Bool
     , _do1SourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DoubleOptions' constructor.
 --
@@ -1142,14 +1219,22 @@ do1SourceField = lens _do1SourceField (\s a -> s { _do1SourceField = a })
 
 instance FromXML DoubleOptions where
     parseXML x = DoubleOptions
-            <$> x .@? "DefaultValue"
-            <*> x .@? "FacetEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SearchEnabled"
-            <*> x .@? "SortEnabled"
-            <*> x .@? "SourceField"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "FacetEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SearchEnabled"
+        <*> x .@? "SortEnabled"
+        <*> x .@? "SourceField"
 
-instance ToQuery DoubleOptions
+instance ToQuery DoubleOptions where
+    toQuery DoubleOptions{..} = mconcat
+        [ "DefaultValue"  =? _do1DefaultValue
+        , "FacetEnabled"  =? _do1FacetEnabled
+        , "ReturnEnabled" =? _do1ReturnEnabled
+        , "SearchEnabled" =? _do1SearchEnabled
+        , "SortEnabled"   =? _do1SortEnabled
+        , "SourceField"   =? _do1SourceField
+        ]
 
 data TextOptions = TextOptions
     { _toAnalysisScheme   :: Maybe Text
@@ -1158,7 +1243,7 @@ data TextOptions = TextOptions
     , _toReturnEnabled    :: Maybe Bool
     , _toSortEnabled      :: Maybe Bool
     , _toSourceField      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TextOptions' constructor.
 --
@@ -1212,19 +1297,27 @@ toSourceField = lens _toSourceField (\s a -> s { _toSourceField = a })
 
 instance FromXML TextOptions where
     parseXML x = TextOptions
-            <$> x .@? "AnalysisScheme"
-            <*> x .@? "DefaultValue"
-            <*> x .@? "HighlightEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SortEnabled"
-            <*> x .@? "SourceField"
+        <$> x .@? "AnalysisScheme"
+        <*> x .@? "DefaultValue"
+        <*> x .@? "HighlightEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SortEnabled"
+        <*> x .@? "SourceField"
 
-instance ToQuery TextOptions
+instance ToQuery TextOptions where
+    toQuery TextOptions{..} = mconcat
+        [ "AnalysisScheme"   =? _toAnalysisScheme
+        , "DefaultValue"     =? _toDefaultValue
+        , "HighlightEnabled" =? _toHighlightEnabled
+        , "ReturnEnabled"    =? _toReturnEnabled
+        , "SortEnabled"      =? _toSortEnabled
+        , "SourceField"      =? _toSourceField
+        ]
 
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus
     { _aosOptions :: Bool
     , _aosStatus  :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AvailabilityOptionsStatus' constructor.
 --
@@ -1251,15 +1344,19 @@ aosStatus = lens _aosStatus (\s a -> s { _aosStatus = a })
 
 instance FromXML AvailabilityOptionsStatus where
     parseXML x = AvailabilityOptionsStatus
-            <$> x .@ "Options"
-            <*> x .@ "Status"
+        <$> x .@  "Options"
+        <*> x .@  "Status"
 
-instance ToQuery AvailabilityOptionsStatus
+instance ToQuery AvailabilityOptionsStatus where
+    toQuery AvailabilityOptionsStatus{..} = mconcat
+        [ "Options" =? _aosOptions
+        , "Status"  =? _aosStatus
+        ]
 
 data IndexFieldStatus = IndexFieldStatus
     { _ifsOptions :: IndexField
     , _ifsStatus  :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'IndexFieldStatus' constructor.
 --
@@ -1285,15 +1382,19 @@ ifsStatus = lens _ifsStatus (\s a -> s { _ifsStatus = a })
 
 instance FromXML IndexFieldStatus where
     parseXML x = IndexFieldStatus
-            <$> x .@ "Options"
-            <*> x .@ "Status"
+        <$> x .@  "Options"
+        <*> x .@  "Status"
 
-instance ToQuery IndexFieldStatus
+instance ToQuery IndexFieldStatus where
+    toQuery IndexFieldStatus{..} = mconcat
+        [ "Options" =? _ifsOptions
+        , "Status"  =? _ifsStatus
+        ]
 
 data ScalingParametersStatus = ScalingParametersStatus
     { _spsOptions :: ScalingParameters
     , _spsStatus  :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ScalingParametersStatus' constructor.
 --
@@ -1319,15 +1420,19 @@ spsStatus = lens _spsStatus (\s a -> s { _spsStatus = a })
 
 instance FromXML ScalingParametersStatus where
     parseXML x = ScalingParametersStatus
-            <$> x .@ "Options"
-            <*> x .@ "Status"
+        <$> x .@  "Options"
+        <*> x .@  "Status"
 
-instance ToQuery ScalingParametersStatus
+instance ToQuery ScalingParametersStatus where
+    toQuery ScalingParametersStatus{..} = mconcat
+        [ "Options" =? _spsOptions
+        , "Status"  =? _spsStatus
+        ]
 
 data AnalysisSchemeStatus = AnalysisSchemeStatus
     { _assOptions :: AnalysisScheme
     , _assStatus  :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AnalysisSchemeStatus' constructor.
 --
@@ -1353,14 +1458,18 @@ assStatus = lens _assStatus (\s a -> s { _assStatus = a })
 
 instance FromXML AnalysisSchemeStatus where
     parseXML x = AnalysisSchemeStatus
-            <$> x .@ "Options"
-            <*> x .@ "Status"
+        <$> x .@  "Options"
+        <*> x .@  "Status"
 
-instance ToQuery AnalysisSchemeStatus
+instance ToQuery AnalysisSchemeStatus where
+    toQuery AnalysisSchemeStatus{..} = mconcat
+        [ "Options" =? _assOptions
+        , "Status"  =? _assStatus
+        ]
 
 newtype ServiceEndpoint = ServiceEndpoint
     { _seEndpoint :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ServiceEndpoint' constructor.
 --
@@ -1378,14 +1487,17 @@ seEndpoint = lens _seEndpoint (\s a -> s { _seEndpoint = a })
 
 instance FromXML ServiceEndpoint where
     parseXML x = ServiceEndpoint
-            <$> x .@? "Endpoint"
+        <$> x .@? "Endpoint"
 
-instance ToQuery ServiceEndpoint
+instance ToQuery ServiceEndpoint where
+    toQuery ServiceEndpoint{..} = mconcat
+        [ "Endpoint" =? _seEndpoint
+        ]
 
 data Limits = Limits
     { _lMaximumPartitionCount   :: Nat
     , _lMaximumReplicationCount :: Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Limits' constructor.
 --
@@ -1416,15 +1528,19 @@ lMaximumReplicationCount =
 
 instance FromXML Limits where
     parseXML x = Limits
-            <$> x .@ "MaximumPartitionCount"
-            <*> x .@ "MaximumReplicationCount"
+        <$> x .@  "MaximumPartitionCount"
+        <*> x .@  "MaximumReplicationCount"
 
-instance ToQuery Limits
+instance ToQuery Limits where
+    toQuery Limits{..} = mconcat
+        [ "MaximumPartitionCount"   =? _lMaximumPartitionCount
+        , "MaximumReplicationCount" =? _lMaximumReplicationCount
+        ]
 
 data ExpressionStatus = ExpressionStatus
     { _esOptions :: Expression
     , _esStatus  :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ExpressionStatus' constructor.
 --
@@ -1452,10 +1568,14 @@ esStatus = lens _esStatus (\s a -> s { _esStatus = a })
 
 instance FromXML ExpressionStatus where
     parseXML x = ExpressionStatus
-            <$> x .@ "Options"
-            <*> x .@ "Status"
+        <$> x .@  "Options"
+        <*> x .@  "Status"
 
-instance ToQuery ExpressionStatus
+instance ToQuery ExpressionStatus where
+    toQuery ExpressionStatus{..} = mconcat
+        [ "Options" =? _esOptions
+        , "Status"  =? _esStatus
+        ]
 
 data IndexFieldType
     = IFTDate         -- ^ date
@@ -1503,7 +1623,8 @@ instance ToText IndexFieldType where
 instance FromXML IndexFieldType where
     parseXML = parseXMLText "IndexFieldType"
 
-instance ToQuery IndexFieldType
+instance ToQuery IndexFieldType where
+    toQuery IndexFieldType = toQuery . toText
 
 data LatLonOptions = LatLonOptions
     { _lloDefaultValue  :: Maybe Text
@@ -1512,7 +1633,7 @@ data LatLonOptions = LatLonOptions
     , _lloSearchEnabled :: Maybe Bool
     , _lloSortEnabled   :: Maybe Bool
     , _lloSourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LatLonOptions' constructor.
 --
@@ -1565,19 +1686,27 @@ lloSourceField = lens _lloSourceField (\s a -> s { _lloSourceField = a })
 
 instance FromXML LatLonOptions where
     parseXML x = LatLonOptions
-            <$> x .@? "DefaultValue"
-            <*> x .@? "FacetEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SearchEnabled"
-            <*> x .@? "SortEnabled"
-            <*> x .@? "SourceField"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "FacetEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SearchEnabled"
+        <*> x .@? "SortEnabled"
+        <*> x .@? "SourceField"
 
-instance ToQuery LatLonOptions
+instance ToQuery LatLonOptions where
+    toQuery LatLonOptions{..} = mconcat
+        [ "DefaultValue"  =? _lloDefaultValue
+        , "FacetEnabled"  =? _lloFacetEnabled
+        , "ReturnEnabled" =? _lloReturnEnabled
+        , "SearchEnabled" =? _lloSearchEnabled
+        , "SortEnabled"   =? _lloSortEnabled
+        , "SourceField"   =? _lloSourceField
+        ]
 
 data SuggesterStatus = SuggesterStatus
     { _ssOptions :: Suggester
     , _ssStatus  :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SuggesterStatus' constructor.
 --
@@ -1603,10 +1732,14 @@ ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 
 instance FromXML SuggesterStatus where
     parseXML x = SuggesterStatus
-            <$> x .@ "Options"
-            <*> x .@ "Status"
+        <$> x .@  "Options"
+        <*> x .@  "Status"
 
-instance ToQuery SuggesterStatus
+instance ToQuery SuggesterStatus where
+    toQuery SuggesterStatus{..} = mconcat
+        [ "Options" =? _ssOptions
+        , "Status"  =? _ssStatus
+        ]
 
 data OptionStatus = OptionStatus
     { _osCreationDate    :: RFC822
@@ -1614,7 +1747,7 @@ data OptionStatus = OptionStatus
     , _osState           :: Text
     , _osUpdateDate      :: RFC822
     , _osUpdateVersion   :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'OptionStatus' constructor.
 --
@@ -1644,8 +1777,7 @@ optionStatus p1 p2 p3 = OptionStatus
 
 -- | A timestamp for when this option was created.
 osCreationDate :: Lens' OptionStatus UTCTime
-osCreationDate = lens _osCreationDate (\s a -> s { _osCreationDate = a })
-    . _Time
+osCreationDate = lens _osCreationDate (\s a -> s { _osCreationDate = a }) . _Time
 
 -- | Indicates that the option will be deleted once processing is complete.
 osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
@@ -1665,23 +1797,28 @@ osState = lens _osState (\s a -> s { _osState = a })
 
 -- | A timestamp for when this option was last updated.
 osUpdateDate :: Lens' OptionStatus UTCTime
-osUpdateDate = lens _osUpdateDate (\s a -> s { _osUpdateDate = a })
-    . _Time
+osUpdateDate = lens _osUpdateDate (\s a -> s { _osUpdateDate = a }) . _Time
 
 -- | A unique integer that indicates when this option was last updated.
 osUpdateVersion :: Lens' OptionStatus (Maybe Natural)
-osUpdateVersion = lens _osUpdateVersion (\s a -> s { _osUpdateVersion = a })
-    . mapping _Nat
+osUpdateVersion = lens _osUpdateVersion (\s a -> s { _osUpdateVersion = a }) . mapping _Nat
 
 instance FromXML OptionStatus where
     parseXML x = OptionStatus
-            <$> x .@ "CreationDate"
-            <*> x .@? "PendingDeletion"
-            <*> x .@ "State"
-            <*> x .@ "UpdateDate"
-            <*> x .@? "UpdateVersion"
+        <$> x .@  "CreationDate"
+        <*> x .@? "PendingDeletion"
+        <*> x .@  "State"
+        <*> x .@  "UpdateDate"
+        <*> x .@? "UpdateVersion"
 
-instance ToQuery OptionStatus
+instance ToQuery OptionStatus where
+    toQuery OptionStatus{..} = mconcat
+        [ "CreationDate"    =? _osCreationDate
+        , "PendingDeletion" =? _osPendingDeletion
+        , "State"           =? _osState
+        , "UpdateDate"      =? _osUpdateDate
+        , "UpdateVersion"   =? _osUpdateVersion
+        ]
 
 data LiteralArrayOptions = LiteralArrayOptions
     { _laoDefaultValue  :: Maybe Text
@@ -1689,7 +1826,7 @@ data LiteralArrayOptions = LiteralArrayOptions
     , _laoReturnEnabled :: Maybe Bool
     , _laoSearchEnabled :: Maybe Bool
     , _laoSourceFields  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LiteralArrayOptions' constructor.
 --
@@ -1736,13 +1873,20 @@ laoSourceFields = lens _laoSourceFields (\s a -> s { _laoSourceFields = a })
 
 instance FromXML LiteralArrayOptions where
     parseXML x = LiteralArrayOptions
-            <$> x .@? "DefaultValue"
-            <*> x .@? "FacetEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SearchEnabled"
-            <*> x .@? "SourceFields"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "FacetEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SearchEnabled"
+        <*> x .@? "SourceFields"
 
-instance ToQuery LiteralArrayOptions
+instance ToQuery LiteralArrayOptions where
+    toQuery LiteralArrayOptions{..} = mconcat
+        [ "DefaultValue"  =? _laoDefaultValue
+        , "FacetEnabled"  =? _laoFacetEnabled
+        , "ReturnEnabled" =? _laoReturnEnabled
+        , "SearchEnabled" =? _laoSearchEnabled
+        , "SourceFields"  =? _laoSourceFields
+        ]
 
 data IntArrayOptions = IntArrayOptions
     { _iaoDefaultValue  :: Maybe Integer
@@ -1750,7 +1894,7 @@ data IntArrayOptions = IntArrayOptions
     , _iaoReturnEnabled :: Maybe Bool
     , _iaoSearchEnabled :: Maybe Bool
     , _iaoSourceFields  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IntArrayOptions' constructor.
 --
@@ -1797,18 +1941,25 @@ iaoSourceFields = lens _iaoSourceFields (\s a -> s { _iaoSourceFields = a })
 
 instance FromXML IntArrayOptions where
     parseXML x = IntArrayOptions
-            <$> x .@? "DefaultValue"
-            <*> x .@? "FacetEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SearchEnabled"
-            <*> x .@? "SourceFields"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "FacetEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SearchEnabled"
+        <*> x .@? "SourceFields"
 
-instance ToQuery IntArrayOptions
+instance ToQuery IntArrayOptions where
+    toQuery IntArrayOptions{..} = mconcat
+        [ "DefaultValue"  =? _iaoDefaultValue
+        , "FacetEnabled"  =? _iaoFacetEnabled
+        , "ReturnEnabled" =? _iaoReturnEnabled
+        , "SearchEnabled" =? _iaoSearchEnabled
+        , "SourceFields"  =? _iaoSourceFields
+        ]
 
 data Expression = Expression
     { _eExpressionName  :: Text
     , _eExpressionValue :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Expression' constructor.
 --
@@ -1834,10 +1985,14 @@ eExpressionValue = lens _eExpressionValue (\s a -> s { _eExpressionValue = a })
 
 instance FromXML Expression where
     parseXML x = Expression
-            <$> x .@ "ExpressionName"
-            <*> x .@ "ExpressionValue"
+        <$> x .@  "ExpressionName"
+        <*> x .@  "ExpressionValue"
 
-instance ToQuery Expression
+instance ToQuery Expression where
+    toQuery Expression{..} = mconcat
+        [ "ExpressionName"  =? _eExpressionName
+        , "ExpressionValue" =? _eExpressionValue
+        ]
 
 data SuggesterFuzzyMatching
     = SFMHigh -- ^ high
@@ -1861,7 +2016,8 @@ instance ToText SuggesterFuzzyMatching where
 instance FromXML SuggesterFuzzyMatching where
     parseXML = parseXMLText "SuggesterFuzzyMatching"
 
-instance ToQuery SuggesterFuzzyMatching
+instance ToQuery SuggesterFuzzyMatching where
+    toQuery SuggesterFuzzyMatching = toQuery . toText
 
 data DateArrayOptions = DateArrayOptions
     { _dao1DefaultValue  :: Maybe Text
@@ -1869,7 +2025,7 @@ data DateArrayOptions = DateArrayOptions
     , _dao1ReturnEnabled :: Maybe Bool
     , _dao1SearchEnabled :: Maybe Bool
     , _dao1SourceFields  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DateArrayOptions' constructor.
 --
@@ -1918,13 +2074,20 @@ dao1SourceFields = lens _dao1SourceFields (\s a -> s { _dao1SourceFields = a })
 
 instance FromXML DateArrayOptions where
     parseXML x = DateArrayOptions
-            <$> x .@? "DefaultValue"
-            <*> x .@? "FacetEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SearchEnabled"
-            <*> x .@? "SourceFields"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "FacetEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SearchEnabled"
+        <*> x .@? "SourceFields"
 
-instance ToQuery DateArrayOptions
+instance ToQuery DateArrayOptions where
+    toQuery DateArrayOptions{..} = mconcat
+        [ "DefaultValue"  =? _dao1DefaultValue
+        , "FacetEnabled"  =? _dao1FacetEnabled
+        , "ReturnEnabled" =? _dao1ReturnEnabled
+        , "SearchEnabled" =? _dao1SearchEnabled
+        , "SourceFields"  =? _dao1SourceFields
+        ]
 
 data AnalysisSchemeLanguage
     = Ar     -- ^ ar
@@ -2044,7 +2207,8 @@ instance ToText AnalysisSchemeLanguage where
 instance FromXML AnalysisSchemeLanguage where
     parseXML = parseXMLText "AnalysisSchemeLanguage"
 
-instance ToQuery AnalysisSchemeLanguage
+instance ToQuery AnalysisSchemeLanguage where
+    toQuery AnalysisSchemeLanguage = toQuery . toText
 
 data PartitionInstanceType
     = SearchM1Large   -- ^ search.m1.large
@@ -2071,12 +2235,13 @@ instance ToText PartitionInstanceType where
 instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"
 
-instance ToQuery PartitionInstanceType
+instance ToQuery PartitionInstanceType where
+    toQuery PartitionInstanceType = toQuery . toText
 
 data Suggester = Suggester
     { _sDocumentSuggesterOptions :: DocumentSuggesterOptions
     , _sSuggesterName            :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Suggester' constructor.
 --
@@ -2104,10 +2269,14 @@ sSuggesterName = lens _sSuggesterName (\s a -> s { _sSuggesterName = a })
 
 instance FromXML Suggester where
     parseXML x = Suggester
-            <$> x .@ "DocumentSuggesterOptions"
-            <*> x .@ "SuggesterName"
+        <$> x .@  "DocumentSuggesterOptions"
+        <*> x .@  "SuggesterName"
 
-instance ToQuery Suggester
+instance ToQuery Suggester where
+    toQuery Suggester{..} = mconcat
+        [ "DocumentSuggesterOptions" =? _sDocumentSuggesterOptions
+        , "SuggesterName"            =? _sSuggesterName
+        ]
 
 data IntOptions = IntOptions
     { _ioDefaultValue  :: Maybe Integer
@@ -2116,7 +2285,7 @@ data IntOptions = IntOptions
     , _ioSearchEnabled :: Maybe Bool
     , _ioSortEnabled   :: Maybe Bool
     , _ioSourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IntOptions' constructor.
 --
@@ -2172,14 +2341,22 @@ ioSourceField = lens _ioSourceField (\s a -> s { _ioSourceField = a })
 
 instance FromXML IntOptions where
     parseXML x = IntOptions
-            <$> x .@? "DefaultValue"
-            <*> x .@? "FacetEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SearchEnabled"
-            <*> x .@? "SortEnabled"
-            <*> x .@? "SourceField"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "FacetEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SearchEnabled"
+        <*> x .@? "SortEnabled"
+        <*> x .@? "SourceField"
 
-instance ToQuery IntOptions
+instance ToQuery IntOptions where
+    toQuery IntOptions{..} = mconcat
+        [ "DefaultValue"  =? _ioDefaultValue
+        , "FacetEnabled"  =? _ioFacetEnabled
+        , "ReturnEnabled" =? _ioReturnEnabled
+        , "SearchEnabled" =? _ioSearchEnabled
+        , "SortEnabled"   =? _ioSortEnabled
+        , "SourceField"   =? _ioSourceField
+        ]
 
 data LiteralOptions = LiteralOptions
     { _loDefaultValue  :: Maybe Text
@@ -2188,7 +2365,7 @@ data LiteralOptions = LiteralOptions
     , _loSearchEnabled :: Maybe Bool
     , _loSortEnabled   :: Maybe Bool
     , _loSourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LiteralOptions' constructor.
 --
@@ -2241,19 +2418,27 @@ loSourceField = lens _loSourceField (\s a -> s { _loSourceField = a })
 
 instance FromXML LiteralOptions where
     parseXML x = LiteralOptions
-            <$> x .@? "DefaultValue"
-            <*> x .@? "FacetEnabled"
-            <*> x .@? "ReturnEnabled"
-            <*> x .@? "SearchEnabled"
-            <*> x .@? "SortEnabled"
-            <*> x .@? "SourceField"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "FacetEnabled"
+        <*> x .@? "ReturnEnabled"
+        <*> x .@? "SearchEnabled"
+        <*> x .@? "SortEnabled"
+        <*> x .@? "SourceField"
 
-instance ToQuery LiteralOptions
+instance ToQuery LiteralOptions where
+    toQuery LiteralOptions{..} = mconcat
+        [ "DefaultValue"  =? _loDefaultValue
+        , "FacetEnabled"  =? _loFacetEnabled
+        , "ReturnEnabled" =? _loReturnEnabled
+        , "SearchEnabled" =? _loSearchEnabled
+        , "SortEnabled"   =? _loSortEnabled
+        , "SourceField"   =? _loSourceField
+        ]
 
 data AccessPoliciesStatus = AccessPoliciesStatus
     { _apsOptions :: Text
     , _apsStatus  :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AccessPoliciesStatus' constructor.
 --
@@ -2279,7 +2464,11 @@ apsStatus = lens _apsStatus (\s a -> s { _apsStatus = a })
 
 instance FromXML AccessPoliciesStatus where
     parseXML x = AccessPoliciesStatus
-            <$> x .@ "Options"
-            <*> x .@ "Status"
+        <$> x .@  "Options"
+        <*> x .@  "Status"
 
-instance ToQuery AccessPoliciesStatus
+instance ToQuery AccessPoliciesStatus where
+    toQuery AccessPoliciesStatus{..} = mconcat
+        [ "Options" =? _apsOptions
+        , "Status"  =? _apsStatus
+        ]

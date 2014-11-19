@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data RegisterDomain = RegisterDomain
     { _rdDescription                            :: Maybe Text
     , _rdName                                   :: Text
     , _rdWorkflowExecutionRetentionPeriodInDays :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RegisterDomain' constructor.
 --

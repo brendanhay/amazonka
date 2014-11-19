@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data CreateTapes = CreateTapes
     , _ctNumTapesToCreate  :: Nat
     , _ctTapeBarcodePrefix :: Text
     , _ctTapeSizeInBytes   :: Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateTapes' constructor.
 --
@@ -115,8 +116,8 @@ ctTapeSizeInBytes =
         . _Nat
 
 newtype CreateTapesResponse = CreateTapesResponse
-    { _ctrTapeARNs :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _ctrTapeARNs :: List "TapeARNs" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CreateTapesResponse where
     type Item CreateTapesResponse = Text
@@ -138,7 +139,7 @@ createTapesResponse = CreateTapesResponse
 -- | A list of unique Amazon Resource Named (ARN) the represents the virtual
 -- tapes that were created.
 ctrTapeARNs :: Lens' CreateTapesResponse [Text]
-ctrTapeARNs = lens _ctrTapeARNs (\s a -> s { _ctrTapeARNs = a })
+ctrTapeARNs = lens _ctrTapeARNs (\s a -> s { _ctrTapeARNs = a }) . _List
 
 instance ToPath CreateTapes where
     toPath = const "/"
@@ -166,4 +167,4 @@ instance AWSRequest CreateTapes where
 
 instance FromJSON CreateTapesResponse where
     parseJSON = withObject "CreateTapesResponse" $ \o -> CreateTapesResponse
-        <$> o .: "TapeARNs"
+        <$> o .:  "TapeARNs"

@@ -58,7 +58,7 @@ data DescribeImages = DescribeImages
     , _di2Filters         :: List "Filter" Filter
     , _di2ImageIds        :: List "ImageId" Text
     , _di2Owners          :: List "Owner" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeImages' constructor.
 --
@@ -128,24 +128,21 @@ di2ExecutableUsers =
 -- resource. This filter is independent of the tag-key filter.
 -- virtualization-type - The virtualization type (paravirtual | hvm).
 di2Filters :: Lens' DescribeImages [Filter]
-di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a })
-    . _List
+di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a }) . _List
 
 -- | One or more image IDs. Default: Describes all images available to you.
 di2ImageIds :: Lens' DescribeImages [Text]
-di2ImageIds = lens _di2ImageIds (\s a -> s { _di2ImageIds = a })
-    . _List
+di2ImageIds = lens _di2ImageIds (\s a -> s { _di2ImageIds = a }) . _List
 
 -- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
 -- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is
 -- the sender of the request), or all (all owners).
 di2Owners :: Lens' DescribeImages [Text]
-di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a })
-    . _List
+di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a }) . _List
 
 newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: List "item" Image
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeImagesResponse where
     type Item DescribeImagesResponse = Image
@@ -166,13 +163,19 @@ describeImagesResponse = DescribeImagesResponse
 
 -- | Information about one or more images.
 dirImages :: Lens' DescribeImagesResponse [Image]
-dirImages = lens _dirImages (\s a -> s { _dirImages = a })
-    . _List
+dirImages = lens _dirImages (\s a -> s { _dirImages = a }) . _List
 
 instance ToPath DescribeImages where
     toPath = const "/"
 
-instance ToQuery DescribeImages
+instance ToQuery DescribeImages where
+    toQuery DescribeImages{..} = mconcat
+        [ "dryRun"       =? _di2DryRun
+        , "ExecutableBy" =? _di2ExecutableUsers
+        , "Filter"       =? _di2Filters
+        , "ImageId"      =? _di2ImageIds
+        , "Owner"        =? _di2Owners
+        ]
 
 instance ToHeaders DescribeImages
 
@@ -185,4 +188,4 @@ instance AWSRequest DescribeImages where
 
 instance FromXML DescribeImagesResponse where
     parseXML x = DescribeImagesResponse
-        <$> x .@ "imagesSet"
+        <$> x .@  "imagesSet"

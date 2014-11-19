@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,9 +51,9 @@ import qualified GHC.Exts
 data ModifyOptionGroup = ModifyOptionGroup
     { _mogApplyImmediately :: Maybe Bool
     , _mogOptionGroupName  :: Text
-    , _mogOptionsToInclude :: [OptionConfiguration]
-    , _mogOptionsToRemove  :: [Text]
-    } deriving (Eq, Show, Generic)
+    , _mogOptionsToInclude :: List "OptionConfiguration" OptionConfiguration
+    , _mogOptionsToRemove  :: List "OptionsToRemove" Text
+    } deriving (Eq, Show)
 
 -- | 'ModifyOptionGroup' constructor.
 --
@@ -96,15 +97,17 @@ mogOptionGroupName =
 mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
 mogOptionsToInclude =
     lens _mogOptionsToInclude (\s a -> s { _mogOptionsToInclude = a })
+        . _List
 
 -- | Options in this list are removed from the option group.
 mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
 mogOptionsToRemove =
     lens _mogOptionsToRemove (\s a -> s { _mogOptionsToRemove = a })
+        . _List
 
 newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
     { _mogrOptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyOptionGroupResponse' constructor.
 --
@@ -123,7 +126,13 @@ mogrOptionGroup = lens _mogrOptionGroup (\s a -> s { _mogrOptionGroup = a })
 instance ToPath ModifyOptionGroup where
     toPath = const "/"
 
-instance ToQuery ModifyOptionGroup
+instance ToQuery ModifyOptionGroup where
+    toQuery ModifyOptionGroup{..} = mconcat
+        [ "ApplyImmediately" =? _mogApplyImmediately
+        , "OptionGroupName"  =? _mogOptionGroupName
+        , "OptionsToInclude" =? _mogOptionsToInclude
+        , "OptionsToRemove"  =? _mogOptionsToRemove
+        ]
 
 instance ToHeaders ModifyOptionGroup
 
@@ -135,5 +144,5 @@ instance AWSRequest ModifyOptionGroup where
     response = xmlResponse
 
 instance FromXML ModifyOptionGroupResponse where
-    parseXML = withElement "ModifyOptionGroupResult" $ \x ->
-            <$> x .@? "OptionGroup"
+    parseXML = withElement "ModifyOptionGroupResult" $ \x -> ModifyOptionGroupResponse
+        <$> x .@? "OptionGroup"

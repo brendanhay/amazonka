@@ -69,7 +69,7 @@ data DetachVolume = DetachVolume
     , _dvForce      :: Maybe Bool
     , _dvInstanceId :: Maybe Text
     , _dvVolumeId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DetachVolume' constructor.
 --
@@ -127,7 +127,7 @@ data DetachVolumeResponse = DetachVolumeResponse
     , _dvrInstanceId          :: Maybe Text
     , _dvrState               :: Maybe Text
     , _dvrVolumeId            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DetachVolumeResponse' constructor.
 --
@@ -157,8 +157,7 @@ detachVolumeResponse = DetachVolumeResponse
 
 -- | The time stamp when the attachment initiated.
 dvrAttachTime :: Lens' DetachVolumeResponse (Maybe UTCTime)
-dvrAttachTime = lens _dvrAttachTime (\s a -> s { _dvrAttachTime = a })
-    . mapping _Time
+dvrAttachTime = lens _dvrAttachTime (\s a -> s { _dvrAttachTime = a }) . mapping _Time
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance
 -- termination.
@@ -185,7 +184,14 @@ dvrVolumeId = lens _dvrVolumeId (\s a -> s { _dvrVolumeId = a })
 instance ToPath DetachVolume where
     toPath = const "/"
 
-instance ToQuery DetachVolume
+instance ToQuery DetachVolume where
+    toQuery DetachVolume{..} = mconcat
+        [ "Device"     =? _dvDevice
+        , "dryRun"     =? _dvDryRun
+        , "Force"      =? _dvForce
+        , "InstanceId" =? _dvInstanceId
+        , "VolumeId"   =? _dvVolumeId
+        ]
 
 instance ToHeaders DetachVolume
 

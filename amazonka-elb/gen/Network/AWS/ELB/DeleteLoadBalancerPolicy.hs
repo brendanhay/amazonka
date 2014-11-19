@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
     { _dlbp1LoadBalancerName :: Text
     , _dlbp1PolicyName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteLoadBalancerPolicy' constructor.
 --
@@ -84,7 +85,11 @@ deleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
 instance ToPath DeleteLoadBalancerPolicy where
     toPath = const "/"
 
-instance ToQuery DeleteLoadBalancerPolicy
+instance ToQuery DeleteLoadBalancerPolicy where
+    toQuery DeleteLoadBalancerPolicy{..} = mconcat
+        [ "LoadBalancerName" =? _dlbp1LoadBalancerName
+        , "PolicyName"       =? _dlbp1PolicyName
+        ]
 
 instance ToHeaders DeleteLoadBalancerPolicy
 

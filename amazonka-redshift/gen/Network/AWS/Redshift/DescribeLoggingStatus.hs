@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DescribeLoggingStatus = DescribeLoggingStatus
     { _dlsClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeLoggingStatus' constructor.
 --
@@ -79,7 +80,7 @@ data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
     , _dlsrLastSuccessfulDeliveryTime :: Maybe RFC822
     , _dlsrLoggingEnabled             :: Maybe Bool
     , _dlsrS3KeyPrefix                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeLoggingStatusResponse' constructor.
 --
@@ -141,7 +142,10 @@ dlsrS3KeyPrefix = lens _dlsrS3KeyPrefix (\s a -> s { _dlsrS3KeyPrefix = a })
 instance ToPath DescribeLoggingStatus where
     toPath = const "/"
 
-instance ToQuery DescribeLoggingStatus
+instance ToQuery DescribeLoggingStatus where
+    toQuery DescribeLoggingStatus{..} = mconcat
+        [ "ClusterIdentifier" =? _dlsClusterIdentifier
+        ]
 
 instance ToHeaders DescribeLoggingStatus
 
@@ -153,10 +157,10 @@ instance AWSRequest DescribeLoggingStatus where
     response = xmlResponse
 
 instance FromXML DescribeLoggingStatusResponse where
-    parseXML = withElement "DescribeLoggingStatusResult" $ \x ->
-            <$> x .@? "BucketName"
-            <*> x .@? "LastFailureMessage"
-            <*> x .@? "LastFailureTime"
-            <*> x .@? "LastSuccessfulDeliveryTime"
-            <*> x .@? "LoggingEnabled"
-            <*> x .@? "S3KeyPrefix"
+    parseXML = withElement "DescribeLoggingStatusResult" $ \x -> DescribeLoggingStatusResponse
+        <$> x .@? "BucketName"
+        <*> x .@? "LastFailureMessage"
+        <*> x .@? "LastFailureTime"
+        <*> x .@? "LastSuccessfulDeliveryTime"
+        <*> x .@? "LoggingEnabled"
+        <*> x .@? "S3KeyPrefix"

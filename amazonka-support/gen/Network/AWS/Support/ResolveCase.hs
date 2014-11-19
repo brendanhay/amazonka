@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype ResolveCase = ResolveCase
     { _rcCaseId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ResolveCase' constructor.
 --
@@ -70,7 +71,7 @@ rcCaseId = lens _rcCaseId (\s a -> s { _rcCaseId = a })
 data ResolveCaseResponse = ResolveCaseResponse
     { _rcrFinalCaseStatus   :: Maybe Text
     , _rcrInitialCaseStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ResolveCaseResponse' constructor.
 --

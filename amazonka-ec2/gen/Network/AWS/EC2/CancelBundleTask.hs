@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data CancelBundleTask = CancelBundleTask
     { _cbtBundleId :: Text
     , _cbtDryRun   :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CancelBundleTask' constructor.
 --
@@ -75,7 +75,7 @@ cbtDryRun = lens _cbtDryRun (\s a -> s { _cbtDryRun = a })
 
 newtype CancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtrBundleTask :: Maybe BundleTask
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CancelBundleTaskResponse' constructor.
 --
@@ -95,7 +95,11 @@ cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
 instance ToPath CancelBundleTask where
     toPath = const "/"
 
-instance ToQuery CancelBundleTask
+instance ToQuery CancelBundleTask where
+    toQuery CancelBundleTask{..} = mconcat
+        [ "BundleId" =? _cbtBundleId
+        , "dryRun"   =? _cbtDryRun
+        ]
 
 instance ToHeaders CancelBundleTask
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data ListDistributions = ListDistributions
     { _ldMarker   :: Maybe Text
     , _ldMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDistributions' constructor.
 --
@@ -78,7 +79,7 @@ ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 
 newtype ListDistributionsResponse = ListDistributionsResponse
     { _ldrDistributionList :: DistributionList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListDistributionsResponse' constructor.
 --
@@ -100,7 +101,11 @@ ldrDistributionList =
 instance ToPath ListDistributions where
     toPath = const "/2014-05-31/distribution"
 
-instance ToQuery ListDistributions
+instance ToQuery ListDistributions where
+    toQuery ListDistributions{..} = mconcat
+        [ "Marker"   =? _ldMarker
+        , "MaxItems" =? _ldMaxItems
+        ]
 
 instance ToHeaders ListDistributions
 
@@ -118,7 +123,7 @@ instance AWSRequest ListDistributions where
 
 instance FromXML ListDistributionsResponse where
     parseXML x = ListDistributionsResponse
-            <$> x .@ "DistributionList"
+        <$> x .@  "DistributionList"
 
 instance AWSPager ListDistributions where
     next rq rs

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,9 +47,9 @@ import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
 data ListTagsForResources = ListTagsForResources
-    { _ltfr1ResourceIds  :: List1 Text
+    { _ltfr1ResourceIds  :: List1 "ResourceId" Text
     , _ltfr1ResourceType :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListTagsForResources' constructor.
 --
@@ -63,13 +64,13 @@ listTagsForResources :: Text -- ^ 'ltfr1ResourceType'
                      -> ListTagsForResources
 listTagsForResources p1 p2 = ListTagsForResources
     { _ltfr1ResourceType = p1
-    , _ltfr1ResourceIds  = p2
+    , _ltfr1ResourceIds  = withIso _List1 (const id) p2
     }
 
 -- | A complex type that contains the ResourceId element for each resource for
 -- which you want to get a list of tags.
 ltfr1ResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
-ltfr1ResourceIds = lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a })
+ltfr1ResourceIds = lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a }) . _List1
 
 -- | The type of the resources. The resource type for health checks is
 -- healthcheck.
@@ -78,8 +79,8 @@ ltfr1ResourceType =
     lens _ltfr1ResourceType (\s a -> s { _ltfr1ResourceType = a })
 
 newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
-    { _ltfrrResourceTagSets :: [ResourceTagSet]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ltfrrResourceTagSets :: List "ResourceTagSet" ResourceTagSet
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListTagsForResourcesResponse where
     type Item ListTagsForResourcesResponse = ResourceTagSet
@@ -103,6 +104,7 @@ listTagsForResourcesResponse = ListTagsForResourcesResponse
 ltfrrResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
 ltfrrResourceTagSets =
     lens _ltfrrResourceTagSets (\s a -> s { _ltfrrResourceTagSets = a })
+        . _List
 
 instance ToPath ListTagsForResources where
     toPath ListTagsForResources{..} = mconcat
@@ -131,4 +133,4 @@ instance AWSRequest ListTagsForResources where
 
 instance FromXML ListTagsForResourcesResponse where
     parseXML x = ListTagsForResourcesResponse
-            <$> x .@ "ResourceTagSets"
+        <$> x .@  "ResourceTagSets"

@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DisassociateRouteTable = DisassociateRouteTable
     { _drtAssociationId :: Text
     , _drtDryRun        :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DisassociateRouteTable' constructor.
 --
@@ -85,7 +85,11 @@ disassociateRouteTableResponse = DisassociateRouteTableResponse
 instance ToPath DisassociateRouteTable where
     toPath = const "/"
 
-instance ToQuery DisassociateRouteTable
+instance ToQuery DisassociateRouteTable where
+    toQuery DisassociateRouteTable{..} = mconcat
+        [ "associationId" =? _drtAssociationId
+        , "dryRun"        =? _drtDryRun
+        ]
 
 instance ToHeaders DisassociateRouteTable
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
     , _acsgiClusterSecurityGroupName :: Text
     , _acsgiEC2SecurityGroupName     :: Maybe Text
     , _acsgiEC2SecurityGroupOwnerId  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngress' constructor.
 --
@@ -111,7 +112,7 @@ acsgiEC2SecurityGroupOwnerId =
 
 newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
     { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResponse' constructor.
 --
@@ -132,7 +133,13 @@ acsgirClusterSecurityGroup =
 instance ToPath AuthorizeClusterSecurityGroupIngress where
     toPath = const "/"
 
-instance ToQuery AuthorizeClusterSecurityGroupIngress
+instance ToQuery AuthorizeClusterSecurityGroupIngress where
+    toQuery AuthorizeClusterSecurityGroupIngress{..} = mconcat
+        [ "CIDRIP"                   =? _acsgiCIDRIP
+        , "ClusterSecurityGroupName" =? _acsgiClusterSecurityGroupName
+        , "EC2SecurityGroupName"     =? _acsgiEC2SecurityGroupName
+        , "EC2SecurityGroupOwnerId"  =? _acsgiEC2SecurityGroupOwnerId
+        ]
 
 instance ToHeaders AuthorizeClusterSecurityGroupIngress
 
@@ -144,5 +151,5 @@ instance AWSRequest AuthorizeClusterSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML AuthorizeClusterSecurityGroupIngressResponse where
-    parseXML = withElement "AuthorizeClusterSecurityGroupIngressResult" $ \x ->
-            <$> x .@? "ClusterSecurityGroup"
+    parseXML = withElement "AuthorizeClusterSecurityGroupIngressResult" $ \x -> AuthorizeClusterSecurityGroupIngressResponse
+        <$> x .@? "ClusterSecurityGroup"

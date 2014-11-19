@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 data CreateHealthCheck = CreateHealthCheck
     { _chcCallerReference   :: Text
     , _chcHealthCheckConfig :: HealthCheckConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateHealthCheck' constructor.
 --
@@ -90,7 +91,7 @@ chcHealthCheckConfig =
 data CreateHealthCheckResponse = CreateHealthCheckResponse
     { _chcrHealthCheck :: HealthCheck
     , _chcrLocation    :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateHealthCheckResponse' constructor.
 --
@@ -139,5 +140,5 @@ instance AWSRequest CreateHealthCheck where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateHealthCheckResponse
-        <$> x .@ "HealthCheck"
+        <$> x .@  "HealthCheck"
         <*> h ~: "Location"

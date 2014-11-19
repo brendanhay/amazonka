@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data DeregisterImage = DeregisterImage
     { _diDryRun  :: Maybe Bool
     , _diImageId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeregisterImage' constructor.
 --
@@ -82,7 +82,11 @@ deregisterImageResponse = DeregisterImageResponse
 instance ToPath DeregisterImage where
     toPath = const "/"
 
-instance ToQuery DeregisterImage
+instance ToQuery DeregisterImage where
+    toQuery DeregisterImage{..} = mconcat
+        [ "dryRun"  =? _diDryRun
+        , "ImageId" =? _diImageId
+        ]
 
 instance ToHeaders DeregisterImage
 

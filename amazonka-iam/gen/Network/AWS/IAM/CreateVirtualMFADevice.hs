@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ import qualified GHC.Exts
 data CreateVirtualMFADevice = CreateVirtualMFADevice
     { _cvmfadPath                 :: Maybe Text
     , _cvmfadVirtualMFADeviceName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateVirtualMFADevice' constructor.
 --
@@ -89,7 +90,7 @@ cvmfadVirtualMFADeviceName =
 
 newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { _cvmfadrVirtualMFADevice :: VirtualMFADevice
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateVirtualMFADeviceResponse' constructor.
 --
@@ -111,7 +112,11 @@ cvmfadrVirtualMFADevice =
 instance ToPath CreateVirtualMFADevice where
     toPath = const "/"
 
-instance ToQuery CreateVirtualMFADevice
+instance ToQuery CreateVirtualMFADevice where
+    toQuery CreateVirtualMFADevice{..} = mconcat
+        [ "Path"                 =? _cvmfadPath
+        , "VirtualMFADeviceName" =? _cvmfadVirtualMFADeviceName
+        ]
 
 instance ToHeaders CreateVirtualMFADevice
 
@@ -123,5 +128,5 @@ instance AWSRequest CreateVirtualMFADevice where
     response = xmlResponse
 
 instance FromXML CreateVirtualMFADeviceResponse where
-    parseXML = withElement "CreateVirtualMFADeviceResult" $ \x ->
-            <$> x .@ "VirtualMFADevice"
+    parseXML = withElement "CreateVirtualMFADeviceResult" $ \x -> CreateVirtualMFADeviceResponse
+        <$> x .@  "VirtualMFADevice"

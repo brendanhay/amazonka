@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data DescribeEnvironmentResources = DescribeEnvironmentResources
     { _derEnvironmentId   :: Maybe Text
     , _derEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeEnvironmentResources' constructor.
 --
@@ -81,7 +82,7 @@ derEnvironmentName =
 
 newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEnvironmentResourcesResponse' constructor.
 --
@@ -103,7 +104,11 @@ derrEnvironmentResources =
 instance ToPath DescribeEnvironmentResources where
     toPath = const "/"
 
-instance ToQuery DescribeEnvironmentResources
+instance ToQuery DescribeEnvironmentResources where
+    toQuery DescribeEnvironmentResources{..} = mconcat
+        [ "EnvironmentId"   =? _derEnvironmentId
+        , "EnvironmentName" =? _derEnvironmentName
+        ]
 
 instance ToHeaders DescribeEnvironmentResources
 
@@ -115,5 +120,5 @@ instance AWSRequest DescribeEnvironmentResources where
     response = xmlResponse
 
 instance FromXML DescribeEnvironmentResourcesResponse where
-    parseXML = withElement "DescribeEnvironmentResourcesResult" $ \x ->
-            <$> x .@? "EnvironmentResources"
+    parseXML = withElement "DescribeEnvironmentResourcesResult" $ \x -> DescribeEnvironmentResourcesResponse
+        <$> x .@? "EnvironmentResources"

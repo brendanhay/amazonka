@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -78,7 +79,7 @@ data UploadFunction = UploadFunction
     , _ufRole         :: Text
     , _ufRuntime      :: Text
     , _ufTimeout      :: Maybe Nat
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UploadFunction' constructor.
 --
@@ -151,8 +152,7 @@ ufHandler = lens _ufHandler (\s a -> s { _ufHandler = a })
 -- processing function. The default value is 128 MB. The value must be a
 -- multiple of 64 MB.
 ufMemorySize :: Lens' UploadFunction (Maybe Natural)
-ufMemorySize = lens _ufMemorySize (\s a -> s { _ufMemorySize = a })
-    . mapping _Nat
+ufMemorySize = lens _ufMemorySize (\s a -> s { _ufMemorySize = a }) . mapping _Nat
 
 -- | How the Lambda function will be invoked. Lambda supports only the "event"
 -- mode.
@@ -175,8 +175,7 @@ ufRuntime = lens _ufRuntime (\s a -> s { _ufRuntime = a })
 -- you set this value based on your expected execution time. The default is
 -- 3 seconds.
 ufTimeout :: Lens' UploadFunction (Maybe Natural)
-ufTimeout = lens _ufTimeout (\s a -> s { _ufTimeout = a })
-    . mapping _Nat
+ufTimeout = lens _ufTimeout (\s a -> s { _ufTimeout = a }) . mapping _Nat
 
 data UploadFunctionResponse = UploadFunctionResponse
     { _ufrCodeSize        :: Maybe Integer
@@ -191,7 +190,7 @@ data UploadFunctionResponse = UploadFunctionResponse
     , _ufrRole            :: Maybe Text
     , _ufrRuntime         :: Maybe Text
     , _ufrTimeout         :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UploadFunctionResponse' constructor.
 --
@@ -265,14 +264,12 @@ ufrHandler = lens _ufrHandler (\s a -> s { _ufrHandler = a })
 
 -- | The timestamp of the last time you updated the function.
 ufrLastModified :: Lens' UploadFunctionResponse (Maybe UTCTime)
-ufrLastModified = lens _ufrLastModified (\s a -> s { _ufrLastModified = a })
-    . mapping _Time
+ufrLastModified = lens _ufrLastModified (\s a -> s { _ufrLastModified = a }) . mapping _Time
 
 -- | The memory size, in MB, you configured for the function. Must be a
 -- multiple of 64 MB.
 ufrMemorySize :: Lens' UploadFunctionResponse (Maybe Natural)
-ufrMemorySize = lens _ufrMemorySize (\s a -> s { _ufrMemorySize = a })
-    . mapping _Nat
+ufrMemorySize = lens _ufrMemorySize (\s a -> s { _ufrMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
 ufrMode :: Lens' UploadFunctionResponse (Maybe Text)
@@ -293,8 +290,7 @@ ufrRuntime = lens _ufrRuntime (\s a -> s { _ufrRuntime = a })
 -- you set this value based on your expected execution time. The default is
 -- 3 seconds.
 ufrTimeout :: Lens' UploadFunctionResponse (Maybe Natural)
-ufrTimeout = lens _ufrTimeout (\s a -> s { _ufrTimeout = a })
-    . mapping _Nat
+ufrTimeout = lens _ufrTimeout (\s a -> s { _ufrTimeout = a }) . mapping _Nat
 
 instance ToPath UploadFunction where
     toPath UploadFunction{..} = mconcat

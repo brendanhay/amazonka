@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     { _daoDeployed   :: Maybe Bool
     , _daoDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeAvailabilityOptions' constructor.
 --
@@ -80,7 +81,7 @@ daoDomainName = lens _daoDomainName (\s a -> s { _daoDomainName = a })
 
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAvailabilityOptionsResponse' constructor.
 --
@@ -102,7 +103,11 @@ daorAvailabilityOptions =
 instance ToPath DescribeAvailabilityOptions where
     toPath = const "/"
 
-instance ToQuery DescribeAvailabilityOptions
+instance ToQuery DescribeAvailabilityOptions where
+    toQuery DescribeAvailabilityOptions{..} = mconcat
+        [ "Deployed"   =? _daoDeployed
+        , "DomainName" =? _daoDomainName
+        ]
 
 instance ToHeaders DescribeAvailabilityOptions
 
@@ -114,5 +119,5 @@ instance AWSRequest DescribeAvailabilityOptions where
     response = xmlResponse
 
 instance FromXML DescribeAvailabilityOptionsResponse where
-    parseXML = withElement "DescribeAvailabilityOptionsResult" $ \x ->
-            <$> x .@? "AvailabilityOptions"
+    parseXML = withElement "DescribeAvailabilityOptionsResult" $ \x -> DescribeAvailabilityOptionsResponse
+        <$> x .@? "AvailabilityOptions"

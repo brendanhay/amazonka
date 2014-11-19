@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -71,7 +72,7 @@ data ListRecords = ListRecords
     , _lrMaxResults       :: Maybe Int
     , _lrNextToken        :: Maybe Text
     , _lrSyncSessionToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListRecords' constructor.
 --
@@ -145,11 +146,11 @@ data ListRecordsResponse = ListRecordsResponse
     , _lrrDatasetExists                         :: Maybe Bool
     , _lrrDatasetSyncCount                      :: Maybe Integer
     , _lrrLastModifiedBy                        :: Maybe Text
-    , _lrrMergedDatasetNames                    :: [Text]
+    , _lrrMergedDatasetNames                    :: List "MergedDatasetNames" Text
     , _lrrNextToken                             :: Maybe Text
-    , _lrrRecords                               :: [Record]
+    , _lrrRecords                               :: List "Records" Record
     , _lrrSyncSessionToken                      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListRecordsResponse' constructor.
 --
@@ -214,6 +215,7 @@ lrrLastModifiedBy =
 lrrMergedDatasetNames :: Lens' ListRecordsResponse [Text]
 lrrMergedDatasetNames =
     lens _lrrMergedDatasetNames (\s a -> s { _lrrMergedDatasetNames = a })
+        . _List
 
 -- | A pagination token for obtaining the next page of results.
 lrrNextToken :: Lens' ListRecordsResponse (Maybe Text)
@@ -221,7 +223,7 @@ lrrNextToken = lens _lrrNextToken (\s a -> s { _lrrNextToken = a })
 
 -- | A list of all records.
 lrrRecords :: Lens' ListRecordsResponse [Record]
-lrrRecords = lens _lrrRecords (\s a -> s { _lrrRecords = a })
+lrrRecords = lens _lrrRecords (\s a -> s { _lrrRecords = a }) . _List
 
 -- | A token containing a session ID, identity ID, and expiration.
 lrrSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
@@ -266,7 +268,7 @@ instance FromJSON ListRecordsResponse where
         <*> o .:? "DatasetExists"
         <*> o .:? "DatasetSyncCount"
         <*> o .:? "LastModifiedBy"
-        <*> o .: "MergedDatasetNames"
+        <*> o .:  "MergedDatasetNames"
         <*> o .:? "NextToken"
-        <*> o .: "Records"
+        <*> o .:  "Records"
         <*> o .:? "SyncSessionToken"

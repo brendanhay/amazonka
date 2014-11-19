@@ -70,7 +70,7 @@ data CreateSecurityGroup = CreateSecurityGroup
     , _csgDryRun      :: Maybe Bool
     , _csgGroupName   :: Text
     , _csgVpcId       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateSecurityGroup' constructor.
 --
@@ -116,7 +116,7 @@ csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateSecurityGroupResponse' constructor.
 --
@@ -136,7 +136,13 @@ csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
 instance ToPath CreateSecurityGroup where
     toPath = const "/"
 
-instance ToQuery CreateSecurityGroup
+instance ToQuery CreateSecurityGroup where
+    toQuery CreateSecurityGroup{..} = mconcat
+        [ "GroupDescription" =? _csgDescription
+        , "dryRun"           =? _csgDryRun
+        , "GroupName"        =? _csgGroupName
+        , "VpcId"            =? _csgVpcId
+        ]
 
 instance ToHeaders CreateSecurityGroup
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype ListPipelines = ListPipelines
     { _lpMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ListPipelines' constructor.
 --
@@ -72,8 +73,8 @@ lpMarker = lens _lpMarker (\s a -> s { _lpMarker = a })
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprHasMoreResults :: Maybe Bool
     , _lprMarker         :: Maybe Text
-    , _lprPipelineIdList :: [PipelineIdName]
-    } deriving (Eq, Show, Generic)
+    , _lprPipelineIdList :: List "pipelineIdList" PipelineIdName
+    } deriving (Eq, Show)
 
 -- | 'ListPipelinesResponse' constructor.
 --
@@ -111,6 +112,7 @@ lprMarker = lens _lprMarker (\s a -> s { _lprMarker = a })
 lprPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprPipelineIdList =
     lens _lprPipelineIdList (\s a -> s { _lprPipelineIdList = a })
+        . _List
 
 instance ToPath ListPipelines where
     toPath = const "/"
@@ -136,7 +138,7 @@ instance FromJSON ListPipelinesResponse where
     parseJSON = withObject "ListPipelinesResponse" $ \o -> ListPipelinesResponse
         <$> o .:? "hasMoreResults"
         <*> o .:? "marker"
-        <*> o .: "pipelineIdList"
+        <*> o .:  "pipelineIdList"
 
 instance AWSPager ListPipelines where
     next rq rs

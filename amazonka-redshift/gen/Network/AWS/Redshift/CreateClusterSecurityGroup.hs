@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup
     { _ccsg1ClusterSecurityGroupName :: Text
     , _ccsg1Description              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateClusterSecurityGroup' constructor.
 --
@@ -85,7 +86,7 @@ ccsg1Description = lens _ccsg1Description (\s a -> s { _ccsg1Description = a })
 
 newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateClusterSecurityGroupResponse' constructor.
 --
@@ -106,7 +107,11 @@ ccsgrClusterSecurityGroup =
 instance ToPath CreateClusterSecurityGroup where
     toPath = const "/"
 
-instance ToQuery CreateClusterSecurityGroup
+instance ToQuery CreateClusterSecurityGroup where
+    toQuery CreateClusterSecurityGroup{..} = mconcat
+        [ "ClusterSecurityGroupName" =? _ccsg1ClusterSecurityGroupName
+        , "Description"              =? _ccsg1Description
+        ]
 
 instance ToHeaders CreateClusterSecurityGroup
 
@@ -118,5 +123,5 @@ instance AWSRequest CreateClusterSecurityGroup where
     response = xmlResponse
 
 instance FromXML CreateClusterSecurityGroupResponse where
-    parseXML = withElement "CreateClusterSecurityGroupResult" $ \x ->
-            <$> x .@? "ClusterSecurityGroup"
+    parseXML = withElement "CreateClusterSecurityGroupResult" $ \x -> CreateClusterSecurityGroupResponse
+        <$> x .@? "ClusterSecurityGroup"

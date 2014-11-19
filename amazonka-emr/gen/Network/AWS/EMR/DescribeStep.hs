@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data DescribeStep = DescribeStep
     { _dsClusterId :: Text
     , _dsStepId    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeStep' constructor.
 --
@@ -76,7 +77,7 @@ dsStepId = lens _dsStepId (\s a -> s { _dsStepId = a })
 
 newtype DescribeStepResponse = DescribeStepResponse
     { _dsrStep :: Maybe Step
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeStepResponse' constructor.
 --

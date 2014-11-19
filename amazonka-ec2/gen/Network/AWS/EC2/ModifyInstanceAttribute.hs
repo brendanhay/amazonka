@@ -76,7 +76,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
     , _mia1SriovNetSupport                   :: Maybe AttributeValue
     , _mia1UserData                          :: Maybe BlobAttributeValue
     , _mia1Value                             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyInstanceAttribute' constructor.
 --
@@ -173,8 +173,7 @@ mia1EbsOptimized = lens _mia1EbsOptimized (\s a -> s { _mia1EbsOptimized = a })
 -- group name. For example, if you want the instance to be in sg-1a1a1a1a
 -- and sg-9b9b9b9b, specify GroupId.1=sg-1a1a1a1a and GroupId.2=sg-9b9b9b9b.
 mia1Groups :: Lens' ModifyInstanceAttribute [Text]
-mia1Groups = lens _mia1Groups (\s a -> s { _mia1Groups = a })
-    . _List
+mia1Groups = lens _mia1Groups (\s a -> s { _mia1Groups = a }) . _List
 
 -- | The ID of the instance.
 mia1InstanceId :: Lens' ModifyInstanceAttribute Text
@@ -241,7 +240,24 @@ modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 instance ToPath ModifyInstanceAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyInstanceAttribute
+instance ToQuery ModifyInstanceAttribute where
+    toQuery ModifyInstanceAttribute{..} = mconcat
+        [ "attribute"                         =? _mia1Attribute
+        , "blockDeviceMapping"                =? _mia1BlockDeviceMappings
+        , "disableApiTermination"             =? _mia1DisableApiTermination
+        , "dryRun"                            =? _mia1DryRun
+        , "ebsOptimized"                      =? _mia1EbsOptimized
+        , "GroupId"                           =? _mia1Groups
+        , "instanceId"                        =? _mia1InstanceId
+        , "instanceInitiatedShutdownBehavior" =? _mia1InstanceInitiatedShutdownBehavior
+        , "instanceType"                      =? _mia1InstanceType
+        , "kernel"                            =? _mia1Kernel
+        , "ramdisk"                           =? _mia1Ramdisk
+        , "SourceDestCheck"                   =? _mia1SourceDestCheck
+        , "sriovNetSupport"                   =? _mia1SriovNetSupport
+        , "userData"                          =? _mia1UserData
+        , "value"                             =? _mia1Value
+        ]
 
 instance ToHeaders ModifyInstanceAttribute
 

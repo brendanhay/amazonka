@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -107,7 +108,7 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
     , _arwwiRoleArn          :: Text
     , _arwwiRoleSessionName  :: Text
     , _arwwiWebIdentityToken :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AssumeRoleWithWebIdentity' constructor.
 --
@@ -196,7 +197,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     , _arwwirPackedPolicySize            :: Maybe Nat
     , _arwwirProvider                    :: Maybe Text
     , _arwwirSubjectFromWebIdentityToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AssumeRoleWithWebIdentityResponse' constructor.
 --
@@ -276,7 +277,15 @@ arwwirSubjectFromWebIdentityToken =
 instance ToPath AssumeRoleWithWebIdentity where
     toPath = const "/"
 
-instance ToQuery AssumeRoleWithWebIdentity
+instance ToQuery AssumeRoleWithWebIdentity where
+    toQuery AssumeRoleWithWebIdentity{..} = mconcat
+        [ "DurationSeconds"  =? _arwwiDurationSeconds
+        , "Policy"           =? _arwwiPolicy
+        , "ProviderId"       =? _arwwiProviderId
+        , "RoleArn"          =? _arwwiRoleArn
+        , "RoleSessionName"  =? _arwwiRoleSessionName
+        , "WebIdentityToken" =? _arwwiWebIdentityToken
+        ]
 
 instance ToHeaders AssumeRoleWithWebIdentity
 
@@ -288,10 +297,10 @@ instance AWSRequest AssumeRoleWithWebIdentity where
     response = xmlResponse
 
 instance FromXML AssumeRoleWithWebIdentityResponse where
-    parseXML = withElement "AssumeRoleWithWebIdentityResult" $ \x ->
-            <$> x .@? "AssumedRoleUser"
-            <*> x .@? "Audience"
-            <*> x .@? "Credentials"
-            <*> x .@? "PackedPolicySize"
-            <*> x .@? "Provider"
-            <*> x .@? "SubjectFromWebIdentityToken"
+    parseXML = withElement "AssumeRoleWithWebIdentityResult" $ \x -> AssumeRoleWithWebIdentityResponse
+        <$> x .@? "AssumedRoleUser"
+        <*> x .@? "Audience"
+        <*> x .@? "Credentials"
+        <*> x .@? "PackedPolicySize"
+        <*> x .@? "Provider"
+        <*> x .@? "SubjectFromWebIdentityToken"

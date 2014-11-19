@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data CreateSnapshot = CreateSnapshot
     { _csCacheClusterId :: Text
     , _csSnapshotName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateSnapshot' constructor.
 --
@@ -78,7 +79,7 @@ csSnapshotName = lens _csSnapshotName (\s a -> s { _csSnapshotName = a })
 
 newtype CreateSnapshotResponse = CreateSnapshotResponse
     { _csr1Snapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateSnapshotResponse' constructor.
 --
@@ -97,7 +98,11 @@ csr1Snapshot = lens _csr1Snapshot (\s a -> s { _csr1Snapshot = a })
 instance ToPath CreateSnapshot where
     toPath = const "/"
 
-instance ToQuery CreateSnapshot
+instance ToQuery CreateSnapshot where
+    toQuery CreateSnapshot{..} = mconcat
+        [ "CacheClusterId" =? _csCacheClusterId
+        , "SnapshotName"   =? _csSnapshotName
+        ]
 
 instance ToHeaders CreateSnapshot
 
@@ -109,5 +114,5 @@ instance AWSRequest CreateSnapshot where
     response = xmlResponse
 
 instance FromXML CreateSnapshotResponse where
-    parseXML = withElement "CreateSnapshotResult" $ \x ->
-            <$> x .@? "Snapshot"
+    parseXML = withElement "CreateSnapshotResult" $ \x -> CreateSnapshotResponse
+        <$> x .@? "Snapshot"

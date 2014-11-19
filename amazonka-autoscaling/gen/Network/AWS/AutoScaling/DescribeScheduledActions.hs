@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,9 +58,9 @@ data DescribeScheduledActions = DescribeScheduledActions
     , _dsa1EndTime              :: Maybe RFC822
     , _dsa1MaxRecords           :: Maybe Int
     , _dsa1NextToken            :: Maybe Text
-    , _dsa1ScheduledActionNames :: [Text]
+    , _dsa1ScheduledActionNames :: List "ScheduledActionNames" Text
     , _dsa1StartTime            :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeScheduledActions' constructor.
 --
@@ -96,8 +97,7 @@ dsa1AutoScalingGroupName =
 -- | The latest scheduled start time to return. If scheduled action names are
 -- provided, this field is ignored.
 dsa1EndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
-dsa1EndTime = lens _dsa1EndTime (\s a -> s { _dsa1EndTime = a })
-    . mapping _Time
+dsa1EndTime = lens _dsa1EndTime (\s a -> s { _dsa1EndTime = a }) . mapping _Time
 
 -- | The maximum number of scheduled actions to return.
 dsa1MaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
@@ -116,17 +116,17 @@ dsa1ScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 dsa1ScheduledActionNames =
     lens _dsa1ScheduledActionNames
         (\s a -> s { _dsa1ScheduledActionNames = a })
+            . _List
 
 -- | The earliest scheduled start time to return. If scheduled action names
 -- are provided, this field will be ignored.
 dsa1StartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
-dsa1StartTime = lens _dsa1StartTime (\s a -> s { _dsa1StartTime = a })
-    . mapping _Time
+dsa1StartTime = lens _dsa1StartTime (\s a -> s { _dsa1StartTime = a }) . mapping _Time
 
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     { _dsarNextToken                   :: Maybe Text
-    , _dsarScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
-    } deriving (Eq, Show, Generic)
+    , _dsarScheduledUpdateGroupActions :: List "ScheduledUpdateGroupActions" ScheduledUpdateGroupAction
+    } deriving (Eq, Show)
 
 -- | 'DescribeScheduledActionsResponse' constructor.
 --
@@ -151,11 +151,20 @@ dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [Sched
 dsarScheduledUpdateGroupActions =
     lens _dsarScheduledUpdateGroupActions
         (\s a -> s { _dsarScheduledUpdateGroupActions = a })
+            . _List
 
 instance ToPath DescribeScheduledActions where
     toPath = const "/"
 
-instance ToQuery DescribeScheduledActions
+instance ToQuery DescribeScheduledActions where
+    toQuery DescribeScheduledActions{..} = mconcat
+        [ "AutoScalingGroupName" =? _dsa1AutoScalingGroupName
+        , "EndTime"              =? _dsa1EndTime
+        , "MaxRecords"           =? _dsa1MaxRecords
+        , "NextToken"            =? _dsa1NextToken
+        , "ScheduledActionNames" =? _dsa1ScheduledActionNames
+        , "StartTime"            =? _dsa1StartTime
+        ]
 
 instance ToHeaders DescribeScheduledActions
 
@@ -167,9 +176,9 @@ instance AWSRequest DescribeScheduledActions where
     response = xmlResponse
 
 instance FromXML DescribeScheduledActionsResponse where
-    parseXML = withElement "DescribeScheduledActionsResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "ScheduledUpdateGroupActions"
+    parseXML = withElement "DescribeScheduledActionsResult" $ \x -> DescribeScheduledActionsResponse
+        <$> x .@? "NextToken"
+        <*> x .@  "ScheduledUpdateGroupActions"
 
 instance AWSPager DescribeScheduledActions where
     next rq rs = (\x -> rq & dsa1NextToken ?~ x)

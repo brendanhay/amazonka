@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DeleteLoadBalancer = DeleteLoadBalancer
     { _dlbLoadBalancerName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteLoadBalancer' constructor.
 --
@@ -81,7 +82,10 @@ deleteLoadBalancerResponse = DeleteLoadBalancerResponse
 instance ToPath DeleteLoadBalancer where
     toPath = const "/"
 
-instance ToQuery DeleteLoadBalancer
+instance ToQuery DeleteLoadBalancer where
+    toQuery DeleteLoadBalancer{..} = mconcat
+        [ "LoadBalancerName" =? _dlbLoadBalancerName
+        ]
 
 instance ToHeaders DeleteLoadBalancer
 

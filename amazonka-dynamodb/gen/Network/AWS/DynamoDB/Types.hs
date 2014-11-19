@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -262,7 +263,7 @@ instance AWSService DynamoDB where
 data WriteRequest = WriteRequest
     { _wDeleteRequest :: Maybe DeleteRequest
     , _wPutRequest    :: Maybe PutRequest
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'WriteRequest' constructor.
 --
@@ -303,7 +304,7 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription
     , _ptdNumberOfDecreasesToday :: Maybe Nat
     , _ptdReadCapacityUnits      :: Maybe Nat
     , _ptdWriteCapacityUnits     :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ProvisionedThroughputDescription' constructor.
 --
@@ -410,15 +411,15 @@ instance ToJSON KeyType where
 data AttributeValue = AttributeValue
     { _avB    :: Maybe Base64
     , _avBOOL :: Maybe Bool
-    , _avBS   :: [Base64]
-    , _avL    :: [AttributeValue]
-    , _avM    :: Map Text AttributeValue
+    , _avBS   :: List "BS" Base64
+    , _avL    :: List "L" AttributeValue
+    , _avM    :: Map "entry" "key" "value" Text AttributeValue
     , _avN    :: Maybe Text
-    , _avNS   :: [Text]
+    , _avNS   :: List "NS" Text
     , _avNULL :: Maybe Bool
     , _avS    :: Maybe Text
-    , _avSS   :: [Text]
-    } deriving (Eq, Show, Generic)
+    , _avSS   :: List "SS" Text
+    } deriving (Eq, Show)
 
 -- | 'AttributeValue' constructor.
 --
@@ -468,16 +469,15 @@ avBOOL = lens _avBOOL (\s a -> s { _avBOOL = a })
 
 -- | A Binary Set data type.
 avBS :: Lens' AttributeValue [Base64]
-avBS = lens _avBS (\s a -> s { _avBS = a })
+avBS = lens _avBS (\s a -> s { _avBS = a }) . _List
 
 -- | A List of attribute values.
 avL :: Lens' AttributeValue [AttributeValue]
-avL = lens _avL (\s a -> s { _avL = a })
+avL = lens _avL (\s a -> s { _avL = a }) . _List
 
 -- | A Map of attribute values.
 avM :: Lens' AttributeValue (HashMap Text AttributeValue)
-avM = lens _avM (\s a -> s { _avM = a })
-    . _Map
+avM = lens _avM (\s a -> s { _avM = a }) . _Map
 
 -- | A Number data type.
 avN :: Lens' AttributeValue (Maybe Text)
@@ -485,7 +485,7 @@ avN = lens _avN (\s a -> s { _avN = a })
 
 -- | A Number Set data type.
 avNS :: Lens' AttributeValue [Text]
-avNS = lens _avNS (\s a -> s { _avNS = a })
+avNS = lens _avNS (\s a -> s { _avNS = a }) . _List
 
 -- | A Null data type.
 avNULL :: Lens' AttributeValue (Maybe Bool)
@@ -497,20 +497,20 @@ avS = lens _avS (\s a -> s { _avS = a })
 
 -- | A String Set data type.
 avSS :: Lens' AttributeValue [Text]
-avSS = lens _avSS (\s a -> s { _avSS = a })
+avSS = lens _avSS (\s a -> s { _avSS = a }) . _List
 
 instance FromJSON AttributeValue where
     parseJSON = withObject "AttributeValue" $ \o -> AttributeValue
         <$> o .:? "B"
         <*> o .:? "BOOL"
-        <*> o .: "BS"
-        <*> o .: "L"
-        <*> o .: "M"
+        <*> o .:  "BS"
+        <*> o .:  "L"
+        <*> o .:  "M"
         <*> o .:? "N"
-        <*> o .: "NS"
+        <*> o .:  "NS"
         <*> o .:? "NULL"
         <*> o .:? "S"
-        <*> o .: "SS"
+        <*> o .:  "SS"
 
 instance ToJSON AttributeValue where
     toJSON AttributeValue{..} = object
@@ -557,7 +557,7 @@ instance ToJSON IndexStatus where
 data ProvisionedThroughput = ProvisionedThroughput
     { _ptReadCapacityUnits  :: Nat
     , _ptWriteCapacityUnits :: Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ProvisionedThroughput' constructor.
 --
@@ -594,8 +594,8 @@ ptWriteCapacityUnits =
 
 instance FromJSON ProvisionedThroughput where
     parseJSON = withObject "ProvisionedThroughput" $ \o -> ProvisionedThroughput
-        <$> o .: "ReadCapacityUnits"
-        <*> o .: "WriteCapacityUnits"
+        <$> o .:  "ReadCapacityUnits"
+        <*> o .:  "WriteCapacityUnits"
 
 instance ToJSON ProvisionedThroughput where
     toJSON ProvisionedThroughput{..} = object
@@ -657,17 +657,17 @@ instance ToJSON ProjectionType where
     toJSON = toJSONText
 
 data TableDescription = TableDescription
-    { _tdAttributeDefinitions   :: [AttributeDefinition]
+    { _tdAttributeDefinitions   :: List "AttributeDefinitions" AttributeDefinition
     , _tdCreationDateTime       :: Maybe RFC822
-    , _tdGlobalSecondaryIndexes :: [GlobalSecondaryIndexDescription]
+    , _tdGlobalSecondaryIndexes :: List "GlobalSecondaryIndexes" GlobalSecondaryIndexDescription
     , _tdItemCount              :: Maybe Integer
-    , _tdKeySchema              :: List1 KeySchemaElement
-    , _tdLocalSecondaryIndexes  :: [LocalSecondaryIndexDescription]
+    , _tdKeySchema              :: List1 "KeySchema" KeySchemaElement
+    , _tdLocalSecondaryIndexes  :: List "LocalSecondaryIndexes" LocalSecondaryIndexDescription
     , _tdProvisionedThroughput  :: Maybe ProvisionedThroughputDescription
     , _tdTableName              :: Maybe Text
     , _tdTableSizeBytes         :: Maybe Integer
     , _tdTableStatus            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TableDescription' constructor.
 --
@@ -696,7 +696,7 @@ data TableDescription = TableDescription
 tableDescription :: NonEmpty KeySchemaElement -- ^ 'tdKeySchema'
                  -> TableDescription
 tableDescription p1 = TableDescription
-    { _tdKeySchema              = p1
+    { _tdKeySchema              = withIso _List1 (const id) p1
     , _tdAttributeDefinitions   = mempty
     , _tdTableName              = Nothing
     , _tdTableStatus            = Nothing
@@ -715,6 +715,7 @@ tableDescription p1 = TableDescription
 tdAttributeDefinitions :: Lens' TableDescription [AttributeDefinition]
 tdAttributeDefinitions =
     lens _tdAttributeDefinitions (\s a -> s { _tdAttributeDefinitions = a })
+        . _List
 
 -- | The date and time when the table was created, in UNIX epoch time format.
 tdCreationDateTime :: Lens' TableDescription (Maybe UTCTime)
@@ -758,6 +759,7 @@ tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescript
 tdGlobalSecondaryIndexes =
     lens _tdGlobalSecondaryIndexes
         (\s a -> s { _tdGlobalSecondaryIndexes = a })
+            . _List
 
 -- | The number of items in the specified table. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
@@ -770,7 +772,7 @@ tdItemCount = lens _tdItemCount (\s a -> s { _tdItemCount = a })
 -- the attribute. Can be either HASH or RANGE. For more information about
 -- primary keys, see Primary Key in the Amazon DynamoDB Developer Guide.
 tdKeySchema :: Lens' TableDescription (NonEmpty KeySchemaElement)
-tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a })
+tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a }) . _List1
 
 -- | Represents one or more local secondary indexes on the table. Each index
 -- is scoped to a given hash key value. Tables with one or more local
@@ -803,6 +805,7 @@ tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a })
 tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescription]
 tdLocalSecondaryIndexes =
     lens _tdLocalSecondaryIndexes (\s a -> s { _tdLocalSecondaryIndexes = a })
+        . _List
 
 -- | The provisioned throughput settings for the table, consisting of read and
 -- write capacity units, along with data about increases and decreases.
@@ -830,12 +833,12 @@ tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 
 instance FromJSON TableDescription where
     parseJSON = withObject "TableDescription" $ \o -> TableDescription
-        <$> o .: "AttributeDefinitions"
+        <$> o .:  "AttributeDefinitions"
         <*> o .:? "CreationDateTime"
-        <*> o .: "GlobalSecondaryIndexes"
+        <*> o .:  "GlobalSecondaryIndexes"
         <*> o .:? "ItemCount"
-        <*> o .: "KeySchema"
-        <*> o .: "LocalSecondaryIndexes"
+        <*> o .:  "KeySchema"
+        <*> o .:  "LocalSecondaryIndexes"
         <*> o .:? "ProvisionedThroughput"
         <*> o .:? "TableName"
         <*> o .:? "TableSizeBytes"
@@ -856,12 +859,12 @@ instance ToJSON TableDescription where
         ]
 
 data KeysAndAttributes = KeysAndAttributes
-    { _kaaAttributesToGet          :: List1 Text
+    { _kaaAttributesToGet          :: List1 "AttributesToGet" Text
     , _kaaConsistentRead           :: Maybe Bool
-    , _kaaExpressionAttributeNames :: Map Text Text
-    , _kaaKeys                     :: List1 (Map Text AttributeValue)
+    , _kaaExpressionAttributeNames :: Map "entry" "key" "value" Text Text
+    , _kaaKeys                     :: List1 "Keys" (Map "entry" "key" "value" Text AttributeValue)
     , _kaaProjectionExpression     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'KeysAndAttributes' constructor.
 --
@@ -881,8 +884,8 @@ keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -- ^ 'kaaKeys'
                   -> NonEmpty Text -- ^ 'kaaAttributesToGet'
                   -> KeysAndAttributes
 keysAndAttributes p1 p2 = KeysAndAttributes
-    { _kaaKeys                     = p1
-    , _kaaAttributesToGet          = p2
+    { _kaaKeys                     = withIso _List1 (const id) p1
+    , _kaaAttributesToGet          = withIso _List1 (const id) p2
     , _kaaConsistentRead           = Nothing
     , _kaaProjectionExpression     = Nothing
     , _kaaExpressionAttributeNames = mempty
@@ -895,6 +898,7 @@ keysAndAttributes p1 p2 = KeysAndAttributes
 kaaAttributesToGet :: Lens' KeysAndAttributes (NonEmpty Text)
 kaaAttributesToGet =
     lens _kaaAttributesToGet (\s a -> s { _kaaAttributesToGet = a })
+        . _List1
 
 -- | The consistency of a read operation. If set to true, then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is
@@ -924,7 +928,7 @@ kaaExpressionAttributeNames =
 -- | The primary key attribute values that define the items and the attributes
 -- associated with the items.
 kaaKeys :: Lens' KeysAndAttributes (NonEmpty (HashMap Text AttributeValue))
-kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a })
+kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a }) . _List1
 
 -- | One or more attributes to retrieve from the table. These attributes can
 -- include scalars, sets, or elements of a JSON document. The attributes in
@@ -937,10 +941,10 @@ kaaProjectionExpression =
 
 instance FromJSON KeysAndAttributes where
     parseJSON = withObject "KeysAndAttributes" $ \o -> KeysAndAttributes
-        <$> o .: "AttributesToGet"
+        <$> o .:  "AttributesToGet"
         <*> o .:? "ConsistentRead"
-        <*> o .: "ExpressionAttributeNames"
-        <*> o .: "Keys"
+        <*> o .:  "ExpressionAttributeNames"
+        <*> o .:  "Keys"
         <*> o .:? "ProjectionExpression"
 
 instance ToJSON KeysAndAttributes where
@@ -1002,7 +1006,7 @@ instance ToJSON ReturnItemCollectionMetrics where
 data AttributeValueUpdate = AttributeValueUpdate
     { _avuAction :: Maybe Text
     , _avuValue  :: Maybe AttributeValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AttributeValueUpdate' constructor.
 --
@@ -1070,11 +1074,11 @@ instance ToJSON AttributeValueUpdate where
         ]
 
 data ExpectedAttributeValue = ExpectedAttributeValue
-    { _eavAttributeValueList :: [AttributeValue]
+    { _eavAttributeValueList :: List "AttributeValueList" AttributeValue
     , _eavComparisonOperator :: Maybe Text
     , _eavExists             :: Maybe Bool
     , _eavValue              :: Maybe AttributeValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ExpectedAttributeValue' constructor.
 --
@@ -1110,6 +1114,7 @@ expectedAttributeValue = ExpectedAttributeValue
 eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
 eavAttributeValueList =
     lens _eavAttributeValueList (\s a -> s { _eavAttributeValueList = a })
+        . _List
 
 -- | A comparator for evaluating attributes in the AttributeValueList. For
 -- example, equals, greater than, less than, etc. The following comparison
@@ -1219,7 +1224,7 @@ eavValue = lens _eavValue (\s a -> s { _eavValue = a })
 
 instance FromJSON ExpectedAttributeValue where
     parseJSON = withObject "ExpectedAttributeValue" $ \o -> ExpectedAttributeValue
-        <$> o .: "AttributeValueList"
+        <$> o .:  "AttributeValueList"
         <*> o .:? "ComparisonOperator"
         <*> o .:? "Exists"
         <*> o .:? "Value"
@@ -1235,7 +1240,7 @@ instance ToJSON ExpectedAttributeValue where
 data AttributeDefinition = AttributeDefinition
     { _adAttributeName :: Text
     , _adAttributeType :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AttributeDefinition' constructor.
 --
@@ -1263,8 +1268,8 @@ adAttributeType = lens _adAttributeType (\s a -> s { _adAttributeType = a })
 
 instance FromJSON AttributeDefinition where
     parseJSON = withObject "AttributeDefinition" $ \o -> AttributeDefinition
-        <$> o .: "AttributeName"
-        <*> o .: "AttributeType"
+        <$> o .:  "AttributeName"
+        <*> o .:  "AttributeType"
 
 instance ToJSON AttributeDefinition where
     toJSON AttributeDefinition{..} = object
@@ -1360,9 +1365,9 @@ instance ToJSON ReturnValue where
 
 data LocalSecondaryIndex = LocalSecondaryIndex
     { _lsiIndexName  :: Text
-    , _lsiKeySchema  :: List1 KeySchemaElement
+    , _lsiKeySchema  :: List1 "KeySchema" KeySchemaElement
     , _lsiProjection :: Projection
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'LocalSecondaryIndex' constructor.
 --
@@ -1380,7 +1385,7 @@ localSecondaryIndex :: Text -- ^ 'lsiIndexName'
                     -> LocalSecondaryIndex
 localSecondaryIndex p1 p2 p3 = LocalSecondaryIndex
     { _lsiIndexName  = p1
-    , _lsiKeySchema  = p2
+    , _lsiKeySchema  = withIso _List1 (const id) p2
     , _lsiProjection = p3
     }
 
@@ -1392,16 +1397,16 @@ lsiIndexName = lens _lsiIndexName (\s a -> s { _lsiIndexName = a })
 -- | The complete key schema for the local secondary index, consisting of one
 -- or more pairs of attribute names and key types (HASH or RANGE).
 lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
-lsiKeySchema = lens _lsiKeySchema (\s a -> s { _lsiKeySchema = a })
+lsiKeySchema = lens _lsiKeySchema (\s a -> s { _lsiKeySchema = a }) . _List1
 
 lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\s a -> s { _lsiProjection = a })
 
 instance FromJSON LocalSecondaryIndex where
     parseJSON = withObject "LocalSecondaryIndex" $ \o -> LocalSecondaryIndex
-        <$> o .: "IndexName"
-        <*> o .: "KeySchema"
-        <*> o .: "Projection"
+        <$> o .:  "IndexName"
+        <*> o .:  "KeySchema"
+        <*> o .:  "Projection"
 
 instance ToJSON LocalSecondaryIndex where
     toJSON LocalSecondaryIndex{..} = object
@@ -1415,10 +1420,10 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     , _gsidIndexSizeBytes        :: Maybe Integer
     , _gsidIndexStatus           :: Maybe Text
     , _gsidItemCount             :: Maybe Integer
-    , _gsidKeySchema             :: List1 KeySchemaElement
+    , _gsidKeySchema             :: List1 "KeySchema" KeySchemaElement
     , _gsidProjection            :: Maybe Projection
     , _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GlobalSecondaryIndexDescription' constructor.
 --
@@ -1441,7 +1446,7 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
 globalSecondaryIndexDescription :: NonEmpty KeySchemaElement -- ^ 'gsidKeySchema'
                                 -> GlobalSecondaryIndexDescription
 globalSecondaryIndexDescription p1 = GlobalSecondaryIndexDescription
-    { _gsidKeySchema             = p1
+    { _gsidKeySchema             = withIso _List1 (const id) p1
     , _gsidIndexName             = Nothing
     , _gsidProjection            = Nothing
     , _gsidIndexStatus           = Nothing
@@ -1478,7 +1483,7 @@ gsidItemCount = lens _gsidItemCount (\s a -> s { _gsidItemCount = a })
 -- | The complete key schema for the global secondary index, consisting of one
 -- or more pairs of attribute names and key types (HASH or RANGE).
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (NonEmpty KeySchemaElement)
-gsidKeySchema = lens _gsidKeySchema (\s a -> s { _gsidKeySchema = a })
+gsidKeySchema = lens _gsidKeySchema (\s a -> s { _gsidKeySchema = a }) . _List1
 
 gsidProjection :: Lens' GlobalSecondaryIndexDescription (Maybe Projection)
 gsidProjection = lens _gsidProjection (\s a -> s { _gsidProjection = a })
@@ -1494,7 +1499,7 @@ instance FromJSON GlobalSecondaryIndexDescription where
         <*> o .:? "IndexSizeBytes"
         <*> o .:? "IndexStatus"
         <*> o .:? "ItemCount"
-        <*> o .: "KeySchema"
+        <*> o .:  "KeySchema"
         <*> o .:? "Projection"
         <*> o .:? "ProvisionedThroughput"
 
@@ -1510,9 +1515,9 @@ instance ToJSON GlobalSecondaryIndexDescription where
         ]
 
 data ItemCollectionMetrics = ItemCollectionMetrics
-    { _icmItemCollectionKey   :: Map Text AttributeValue
-    , _icmSizeEstimateRangeGB :: [Double]
-    } deriving (Eq, Show, Generic)
+    { _icmItemCollectionKey   :: Map "entry" "key" "value" Text AttributeValue
+    , _icmSizeEstimateRangeGB :: List "SizeEstimateRangeGB" Double
+    } deriving (Eq, Show)
 
 -- | 'ItemCollectionMetrics' constructor.
 --
@@ -1546,11 +1551,12 @@ icmItemCollectionKey =
 icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
 icmSizeEstimateRangeGB =
     lens _icmSizeEstimateRangeGB (\s a -> s { _icmSizeEstimateRangeGB = a })
+        . _List
 
 instance FromJSON ItemCollectionMetrics where
     parseJSON = withObject "ItemCollectionMetrics" $ \o -> ItemCollectionMetrics
-        <$> o .: "ItemCollectionKey"
-        <*> o .: "SizeEstimateRangeGB"
+        <$> o .:  "ItemCollectionKey"
+        <*> o .:  "SizeEstimateRangeGB"
 
 instance ToJSON ItemCollectionMetrics where
     toJSON ItemCollectionMetrics{..} = object
@@ -1560,7 +1566,7 @@ instance ToJSON ItemCollectionMetrics where
 
 newtype Capacity = Capacity
     { _cCapacityUnits :: Maybe Double
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Capacity' constructor.
 --
@@ -1588,11 +1594,11 @@ instance ToJSON Capacity where
 
 data ConsumedCapacity = ConsumedCapacity
     { _ccCapacityUnits          :: Maybe Double
-    , _ccGlobalSecondaryIndexes :: Map Text Capacity
-    , _ccLocalSecondaryIndexes  :: Map Text Capacity
+    , _ccGlobalSecondaryIndexes :: Map "entry" "key" "value" Text Capacity
+    , _ccLocalSecondaryIndexes  :: Map "entry" "key" "value" Text Capacity
     , _ccTable                  :: Maybe Capacity
     , _ccTableName              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ConsumedCapacity' constructor.
 --
@@ -1647,8 +1653,8 @@ ccTableName = lens _ccTableName (\s a -> s { _ccTableName = a })
 instance FromJSON ConsumedCapacity where
     parseJSON = withObject "ConsumedCapacity" $ \o -> ConsumedCapacity
         <$> o .:? "CapacityUnits"
-        <*> o .: "GlobalSecondaryIndexes"
-        <*> o .: "LocalSecondaryIndexes"
+        <*> o .:  "GlobalSecondaryIndexes"
+        <*> o .:  "LocalSecondaryIndexes"
         <*> o .:? "Table"
         <*> o .:? "TableName"
 
@@ -1663,10 +1669,10 @@ instance ToJSON ConsumedCapacity where
 
 data GlobalSecondaryIndex = GlobalSecondaryIndex
     { _gsiIndexName             :: Text
-    , _gsiKeySchema             :: List1 KeySchemaElement
+    , _gsiKeySchema             :: List1 "KeySchema" KeySchemaElement
     , _gsiProjection            :: Projection
     , _gsiProvisionedThroughput :: ProvisionedThroughput
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GlobalSecondaryIndex' constructor.
 --
@@ -1687,7 +1693,7 @@ globalSecondaryIndex :: Text -- ^ 'gsiIndexName'
                      -> GlobalSecondaryIndex
 globalSecondaryIndex p1 p2 p3 p4 = GlobalSecondaryIndex
     { _gsiIndexName             = p1
-    , _gsiKeySchema             = p2
+    , _gsiKeySchema             = withIso _List1 (const id) p2
     , _gsiProjection            = p3
     , _gsiProvisionedThroughput = p4
     }
@@ -1700,7 +1706,7 @@ gsiIndexName = lens _gsiIndexName (\s a -> s { _gsiIndexName = a })
 -- | The complete key schema for a global secondary index, which consists of
 -- one or more pairs of attribute names and key types (HASH or RANGE).
 gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
-gsiKeySchema = lens _gsiKeySchema (\s a -> s { _gsiKeySchema = a })
+gsiKeySchema = lens _gsiKeySchema (\s a -> s { _gsiKeySchema = a }) . _List1
 
 gsiProjection :: Lens' GlobalSecondaryIndex Projection
 gsiProjection = lens _gsiProjection (\s a -> s { _gsiProjection = a })
@@ -1712,10 +1718,10 @@ gsiProvisionedThroughput =
 
 instance FromJSON GlobalSecondaryIndex where
     parseJSON = withObject "GlobalSecondaryIndex" $ \o -> GlobalSecondaryIndex
-        <$> o .: "IndexName"
-        <*> o .: "KeySchema"
-        <*> o .: "Projection"
-        <*> o .: "ProvisionedThroughput"
+        <$> o .:  "IndexName"
+        <*> o .:  "KeySchema"
+        <*> o .:  "Projection"
+        <*> o .:  "ProvisionedThroughput"
 
 instance ToJSON GlobalSecondaryIndex where
     toJSON GlobalSecondaryIndex{..} = object
@@ -1729,9 +1735,9 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     { _lsidIndexName      :: Maybe Text
     , _lsidIndexSizeBytes :: Maybe Integer
     , _lsidItemCount      :: Maybe Integer
-    , _lsidKeySchema      :: List1 KeySchemaElement
+    , _lsidKeySchema      :: List1 "KeySchema" KeySchemaElement
     , _lsidProjection     :: Maybe Projection
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'LocalSecondaryIndexDescription' constructor.
 --
@@ -1750,7 +1756,7 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
 localSecondaryIndexDescription :: NonEmpty KeySchemaElement -- ^ 'lsidKeySchema'
                                -> LocalSecondaryIndexDescription
 localSecondaryIndexDescription p1 = LocalSecondaryIndexDescription
-    { _lsidKeySchema      = p1
+    { _lsidKeySchema      = withIso _List1 (const id) p1
     , _lsidIndexName      = Nothing
     , _lsidProjection     = Nothing
     , _lsidIndexSizeBytes = Nothing
@@ -1777,7 +1783,7 @@ lsidItemCount = lens _lsidItemCount (\s a -> s { _lsidItemCount = a })
 -- | The complete index key schema, which consists of one or more pairs of
 -- attribute names and key types (HASH or RANGE).
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (NonEmpty KeySchemaElement)
-lsidKeySchema = lens _lsidKeySchema (\s a -> s { _lsidKeySchema = a })
+lsidKeySchema = lens _lsidKeySchema (\s a -> s { _lsidKeySchema = a }) . _List1
 
 lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
 lsidProjection = lens _lsidProjection (\s a -> s { _lsidProjection = a })
@@ -1787,7 +1793,7 @@ instance FromJSON LocalSecondaryIndexDescription where
         <$> o .:? "IndexName"
         <*> o .:? "IndexSizeBytes"
         <*> o .:? "ItemCount"
-        <*> o .: "KeySchema"
+        <*> o .:  "KeySchema"
         <*> o .:? "Projection"
 
 instance ToJSON LocalSecondaryIndexDescription where
@@ -1850,9 +1856,9 @@ instance ToJSON ScalarAttributeType where
     toJSON = toJSONText
 
 data Projection = Projection
-    { _pNonKeyAttributes :: List1 Text
+    { _pNonKeyAttributes :: List1 "NonKeyAttributes" Text
     , _pProjectionType   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Projection' constructor.
 --
@@ -1865,7 +1871,7 @@ data Projection = Projection
 projection :: NonEmpty Text -- ^ 'pNonKeyAttributes'
            -> Projection
 projection p1 = Projection
-    { _pNonKeyAttributes = p1
+    { _pNonKeyAttributes = withIso _List1 (const id) p1
     , _pProjectionType   = Nothing
     }
 
@@ -1877,6 +1883,7 @@ projection p1 = Projection
 pNonKeyAttributes :: Lens' Projection (NonEmpty Text)
 pNonKeyAttributes =
     lens _pNonKeyAttributes (\s a -> s { _pNonKeyAttributes = a })
+        . _List1
 
 -- | The set of attributes that are projected into the index: KEYS_ONLY - Only
 -- the index and primary keys are projected into the index. INCLUDE - Only
@@ -1888,7 +1895,7 @@ pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
 
 instance FromJSON Projection where
     parseJSON = withObject "Projection" $ \o -> Projection
-        <$> o .: "NonKeyAttributes"
+        <$> o .:  "NonKeyAttributes"
         <*> o .:? "ProjectionType"
 
 instance ToJSON Projection where
@@ -1928,7 +1935,7 @@ instance ToJSON Select where
 data KeySchemaElement = KeySchemaElement
     { _kseAttributeName :: Text
     , _kseKeyType       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'KeySchemaElement' constructor.
 --
@@ -1957,8 +1964,8 @@ kseKeyType = lens _kseKeyType (\s a -> s { _kseKeyType = a })
 
 instance FromJSON KeySchemaElement where
     parseJSON = withObject "KeySchemaElement" $ \o -> KeySchemaElement
-        <$> o .: "AttributeName"
-        <*> o .: "KeyType"
+        <$> o .:  "AttributeName"
+        <*> o .:  "KeyType"
 
 instance ToJSON KeySchemaElement where
     toJSON KeySchemaElement{..} = object
@@ -1967,8 +1974,8 @@ instance ToJSON KeySchemaElement where
         ]
 
 newtype DeleteRequest = DeleteRequest
-    { _dKey :: Map Text AttributeValue
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dKey :: Map "entry" "key" "value" Text AttributeValue
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'DeleteRequest' constructor.
 --
@@ -1986,12 +1993,11 @@ deleteRequest = DeleteRequest
 -- specified, and their data types must match those of the table's key
 -- schema.
 dKey :: Lens' DeleteRequest (HashMap Text AttributeValue)
-dKey = lens _dKey (\s a -> s { _dKey = a })
-    . _Map
+dKey = lens _dKey (\s a -> s { _dKey = a }) . _Map
 
 instance FromJSON DeleteRequest where
     parseJSON = withObject "DeleteRequest" $ \o -> DeleteRequest
-        <$> o .: "Key"
+        <$> o .:  "Key"
 
 instance ToJSON DeleteRequest where
     toJSON DeleteRequest{..} = object
@@ -2001,7 +2007,7 @@ instance ToJSON DeleteRequest where
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
     { _ugsiaIndexName             :: Text
     , _ugsiaProvisionedThroughput :: ProvisionedThroughput
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateGlobalSecondaryIndexAction' constructor.
 --
@@ -2030,8 +2036,8 @@ ugsiaProvisionedThroughput =
 
 instance FromJSON UpdateGlobalSecondaryIndexAction where
     parseJSON = withObject "UpdateGlobalSecondaryIndexAction" $ \o -> UpdateGlobalSecondaryIndexAction
-        <$> o .: "IndexName"
-        <*> o .: "ProvisionedThroughput"
+        <$> o .:  "IndexName"
+        <*> o .:  "ProvisionedThroughput"
 
 instance ToJSON UpdateGlobalSecondaryIndexAction where
     toJSON UpdateGlobalSecondaryIndexAction{..} = object
@@ -2040,8 +2046,8 @@ instance ToJSON UpdateGlobalSecondaryIndexAction where
         ]
 
 newtype PutRequest = PutRequest
-    { _pItem :: Map Text AttributeValue
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _pItem :: Map "entry" "key" "value" Text AttributeValue
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'PutRequest' constructor.
 --
@@ -2061,12 +2067,11 @@ putRequest = PutRequest
 -- are part of an index key schema for the table, their types must match the
 -- index key schema.
 pItem :: Lens' PutRequest (HashMap Text AttributeValue)
-pItem = lens _pItem (\s a -> s { _pItem = a })
-    . _Map
+pItem = lens _pItem (\s a -> s { _pItem = a }) . _Map
 
 instance FromJSON PutRequest where
     parseJSON = withObject "PutRequest" $ \o -> PutRequest
-        <$> o .: "Item"
+        <$> o .:  "Item"
 
 instance ToJSON PutRequest where
     toJSON PutRequest{..} = object
@@ -2074,9 +2079,9 @@ instance ToJSON PutRequest where
         ]
 
 data Condition = Condition
-    { _cAttributeValueList :: [AttributeValue]
+    { _cAttributeValueList :: List "AttributeValueList" AttributeValue
     , _cComparisonOperator :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Condition' constructor.
 --
@@ -2105,6 +2110,7 @@ condition p1 = Condition
 cAttributeValueList :: Lens' Condition [AttributeValue]
 cAttributeValueList =
     lens _cAttributeValueList (\s a -> s { _cAttributeValueList = a })
+        . _List
 
 -- | A comparator for evaluating attributes. For example, equals, greater
 -- than, less than, etc. The following comparison operators are available:
@@ -2194,8 +2200,8 @@ cComparisonOperator =
 
 instance FromJSON Condition where
     parseJSON = withObject "Condition" $ \o -> Condition
-        <$> o .: "AttributeValueList"
-        <*> o .: "ComparisonOperator"
+        <$> o .:  "AttributeValueList"
+        <*> o .:  "ComparisonOperator"
 
 instance ToJSON Condition where
     toJSON Condition{..} = object
@@ -2227,7 +2233,7 @@ instance ToJSON ConditionalOperator where
 
 newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GlobalSecondaryIndexUpdate' constructor.
 --

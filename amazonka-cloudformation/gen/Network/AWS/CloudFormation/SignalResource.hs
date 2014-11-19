@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data SignalResource = SignalResource
     , _srStackName         :: Text
     , _srStatus            :: Text
     , _srUniqueId          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SignalResource' constructor.
 --
@@ -114,7 +115,13 @@ signalResourceResponse = SignalResourceResponse
 instance ToPath SignalResource where
     toPath = const "/"
 
-instance ToQuery SignalResource
+instance ToQuery SignalResource where
+    toQuery SignalResource{..} = mconcat
+        [ "LogicalResourceId" =? _srLogicalResourceId
+        , "StackName"         =? _srStackName
+        , "Status"            =? _srStatus
+        , "UniqueId"          =? _srUniqueId
+        ]
 
 instance ToHeaders SignalResource
 

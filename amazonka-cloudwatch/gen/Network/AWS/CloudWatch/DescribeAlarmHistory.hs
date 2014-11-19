@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ data DescribeAlarmHistory = DescribeAlarmHistory
     , _dahMaxRecords      :: Maybe Nat
     , _dahNextToken       :: Maybe Text
     , _dahStartDate       :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeAlarmHistory' constructor.
 --
@@ -93,8 +94,7 @@ dahAlarmName = lens _dahAlarmName (\s a -> s { _dahAlarmName = a })
 
 -- | The ending date to retrieve alarm history.
 dahEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a })
-    . mapping _Time
+dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a }) . mapping _Time
 
 -- | The type of alarm histories to retrieve.
 dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe Text)
@@ -103,8 +103,7 @@ dahHistoryItemType =
 
 -- | The maximum number of alarm history records to retrieve.
 dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
-dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a })
-    . mapping _Nat
+dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a }) . mapping _Nat
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
@@ -113,13 +112,12 @@ dahNextToken = lens _dahNextToken (\s a -> s { _dahNextToken = a })
 
 -- | The starting date to retrieve alarm history.
 dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a })
-    . mapping _Time
+dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a }) . mapping _Time
 
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
-    { _dahrAlarmHistoryItems :: [AlarmHistoryItem]
+    { _dahrAlarmHistoryItems :: List "AlarmHistoryItems" AlarmHistoryItem
     , _dahrNextToken         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAlarmHistoryResponse' constructor.
 --
@@ -139,6 +137,7 @@ describeAlarmHistoryResponse = DescribeAlarmHistoryResponse
 dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
 dahrAlarmHistoryItems =
     lens _dahrAlarmHistoryItems (\s a -> s { _dahrAlarmHistoryItems = a })
+        . _List
 
 -- | A string that marks the start of the next batch of returned results.
 dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
@@ -147,7 +146,15 @@ dahrNextToken = lens _dahrNextToken (\s a -> s { _dahrNextToken = a })
 instance ToPath DescribeAlarmHistory where
     toPath = const "/"
 
-instance ToQuery DescribeAlarmHistory
+instance ToQuery DescribeAlarmHistory where
+    toQuery DescribeAlarmHistory{..} = mconcat
+        [ "AlarmName"       =? _dahAlarmName
+        , "EndDate"         =? _dahEndDate
+        , "HistoryItemType" =? _dahHistoryItemType
+        , "MaxRecords"      =? _dahMaxRecords
+        , "NextToken"       =? _dahNextToken
+        , "StartDate"       =? _dahStartDate
+        ]
 
 instance ToHeaders DescribeAlarmHistory
 
@@ -159,9 +166,9 @@ instance AWSRequest DescribeAlarmHistory where
     response = xmlResponse
 
 instance FromXML DescribeAlarmHistoryResponse where
-    parseXML = withElement "DescribeAlarmHistoryResult" $ \x ->
-            <$> x .@ "AlarmHistoryItems"
-            <*> x .@? "NextToken"
+    parseXML = withElement "DescribeAlarmHistoryResult" $ \x -> DescribeAlarmHistoryResponse
+        <$> x .@  "AlarmHistoryItems"
+        <*> x .@? "NextToken"
 
 instance AWSPager DescribeAlarmHistory where
     next rq rs = (\x -> rq & dahNextToken ?~ x)

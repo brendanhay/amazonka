@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 
 newtype CreateHsmClientCertificate = CreateHsmClientCertificate
     { _chccHsmClientCertificateIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CreateHsmClientCertificate' constructor.
 --
@@ -77,7 +78,7 @@ chccHsmClientCertificateIdentifier =
 
 newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateHsmClientCertificateResponse' constructor.
 --
@@ -98,7 +99,10 @@ chccrHsmClientCertificate =
 instance ToPath CreateHsmClientCertificate where
     toPath = const "/"
 
-instance ToQuery CreateHsmClientCertificate
+instance ToQuery CreateHsmClientCertificate where
+    toQuery CreateHsmClientCertificate{..} = mconcat
+        [ "HsmClientCertificateIdentifier" =? _chccHsmClientCertificateIdentifier
+        ]
 
 instance ToHeaders CreateHsmClientCertificate
 
@@ -110,5 +114,5 @@ instance AWSRequest CreateHsmClientCertificate where
     response = xmlResponse
 
 instance FromXML CreateHsmClientCertificateResponse where
-    parseXML = withElement "CreateHsmClientCertificateResult" $ \x ->
-            <$> x .@? "HsmClientCertificate"
+    parseXML = withElement "CreateHsmClientCertificateResult" $ \x -> CreateHsmClientCertificateResponse
+        <$> x .@? "HsmClientCertificate"

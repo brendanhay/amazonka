@@ -76,7 +76,7 @@ data RegisterImage = RegisterImage
     , _ri1RootDeviceName      :: Maybe Text
     , _ri1SriovNetSupport     :: Maybe Text
     , _ri1VirtualizationType  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RegisterImage' constructor.
 --
@@ -178,7 +178,7 @@ ri1VirtualizationType =
 
 newtype RegisterImageResponse = RegisterImageResponse
     { _rirImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'RegisterImageResponse' constructor.
 --
@@ -198,7 +198,20 @@ rirImageId = lens _rirImageId (\s a -> s { _rirImageId = a })
 instance ToPath RegisterImage where
     toPath = const "/"
 
-instance ToQuery RegisterImage
+instance ToQuery RegisterImage where
+    toQuery RegisterImage{..} = mconcat
+        [ "architecture"       =? _ri1Architecture
+        , "BlockDeviceMapping" =? _ri1BlockDeviceMappings
+        , "description"        =? _ri1Description
+        , "dryRun"             =? _ri1DryRun
+        , "ImageLocation"      =? _ri1ImageLocation
+        , "kernelId"           =? _ri1KernelId
+        , "name"               =? _ri1Name
+        , "ramdiskId"          =? _ri1RamdiskId
+        , "rootDeviceName"     =? _ri1RootDeviceName
+        , "sriovNetSupport"    =? _ri1SriovNetSupport
+        , "virtualizationType" =? _ri1VirtualizationType
+        ]
 
 instance ToHeaders RegisterImage
 

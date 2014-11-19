@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -68,7 +69,7 @@ data DescribeEvents = DescribeEvents
     , _deStartTime       :: Maybe RFC822
     , _deTemplateName    :: Maybe Text
     , _deVersionLabel    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeEvents' constructor.
 --
@@ -120,8 +121,7 @@ deApplicationName =
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur up to, but not including, the EndTime.
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a })
-    . mapping _Time
+deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this environment.
@@ -137,8 +137,7 @@ deEnvironmentName =
 -- | Specifies the maximum number of events that can be returned, beginning
 -- with the most recent event.
 deMaxRecords :: Lens' DescribeEvents (Maybe Natural)
-deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
-    . mapping _Nat
+deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a }) . mapping _Nat
 
 -- | Pagination token. If specified, the events return the next batch of
 -- results.
@@ -158,8 +157,7 @@ deSeverity = lens _deSeverity (\s a -> s { _deSeverity = a })
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur on or after this time.
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a })
-    . mapping _Time
+deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that are associated with this environment configuration.
@@ -172,9 +170,9 @@ deVersionLabel :: Lens' DescribeEvents (Maybe Text)
 deVersionLabel = lens _deVersionLabel (\s a -> s { _deVersionLabel = a })
 
 data DescribeEventsResponse = DescribeEventsResponse
-    { _derEvents    :: [EventDescription]
+    { _derEvents    :: List "Events" EventDescription
     , _derNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEventsResponse' constructor.
 --
@@ -192,7 +190,7 @@ describeEventsResponse = DescribeEventsResponse
 
 -- | A list of EventDescription.
 derEvents :: Lens' DescribeEventsResponse [EventDescription]
-derEvents = lens _derEvents (\s a -> s { _derEvents = a })
+derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 
 -- | If returned, this indicates that there are more results to obtain. Use
 -- this token in the next DescribeEvents call to get the next batch of
@@ -203,7 +201,20 @@ derNextToken = lens _derNextToken (\s a -> s { _derNextToken = a })
 instance ToPath DescribeEvents where
     toPath = const "/"
 
-instance ToQuery DescribeEvents
+instance ToQuery DescribeEvents where
+    toQuery DescribeEvents{..} = mconcat
+        [ "ApplicationName" =? _deApplicationName
+        , "EndTime"         =? _deEndTime
+        , "EnvironmentId"   =? _deEnvironmentId
+        , "EnvironmentName" =? _deEnvironmentName
+        , "MaxRecords"      =? _deMaxRecords
+        , "NextToken"       =? _deNextToken
+        , "RequestId"       =? _deRequestId
+        , "Severity"        =? _deSeverity
+        , "StartTime"       =? _deStartTime
+        , "TemplateName"    =? _deTemplateName
+        , "VersionLabel"    =? _deVersionLabel
+        ]
 
 instance ToHeaders DescribeEvents
 
@@ -215,9 +226,9 @@ instance AWSRequest DescribeEvents where
     response = xmlResponse
 
 instance FromXML DescribeEventsResponse where
-    parseXML = withElement "DescribeEventsResult" $ \x ->
-            <$> x .@ "Events"
-            <*> x .@? "NextToken"
+    parseXML = withElement "DescribeEventsResult" $ \x -> DescribeEventsResponse
+        <$> x .@  "Events"
+        <*> x .@? "NextToken"
 
 instance AWSPager DescribeEvents where
     next rq rs = (\x -> rq & deNextToken ?~ x)

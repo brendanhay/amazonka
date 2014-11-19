@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -75,8 +76,8 @@ instance AWSService CognitoIdentity where
 
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text
-    , _idLogins     :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _idLogins     :: List "Logins" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'IdentityDescription' constructor.
 --
@@ -99,12 +100,12 @@ idIdentityId = lens _idIdentityId (\s a -> s { _idIdentityId = a })
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
 idLogins :: Lens' IdentityDescription [Text]
-idLogins = lens _idLogins (\s a -> s { _idLogins = a })
+idLogins = lens _idLogins (\s a -> s { _idLogins = a }) . _List
 
 instance FromJSON IdentityDescription where
     parseJSON = withObject "IdentityDescription" $ \o -> IdentityDescription
         <$> o .:? "IdentityId"
-        <*> o .: "Logins"
+        <*> o .:  "Logins"
 
 instance ToJSON IdentityDescription where
     toJSON IdentityDescription{..} = object
@@ -117,9 +118,9 @@ data IdentityPool = IdentityPool
     , _ipDeveloperProviderName          :: Maybe Text
     , _ipIdentityPoolId                 :: Text
     , _ipIdentityPoolName               :: Text
-    , _ipOpenIdConnectProviderARNs      :: [Text]
-    , _ipSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _ipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
+    , _ipSupportedLoginProviders        :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'IdentityPool' constructor.
 --
@@ -174,6 +175,7 @@ ipOpenIdConnectProviderARNs :: Lens' IdentityPool [Text]
 ipOpenIdConnectProviderARNs =
     lens _ipOpenIdConnectProviderARNs
         (\s a -> s { _ipOpenIdConnectProviderARNs = a })
+            . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
@@ -184,12 +186,12 @@ ipSupportedLoginProviders =
 
 instance FromJSON IdentityPool where
     parseJSON = withObject "IdentityPool" $ \o -> IdentityPool
-        <$> o .: "AllowUnauthenticatedIdentities"
+        <$> o .:  "AllowUnauthenticatedIdentities"
         <*> o .:? "DeveloperProviderName"
-        <*> o .: "IdentityPoolId"
-        <*> o .: "IdentityPoolName"
-        <*> o .: "OpenIdConnectProviderARNs"
-        <*> o .: "SupportedLoginProviders"
+        <*> o .:  "IdentityPoolId"
+        <*> o .:  "IdentityPoolName"
+        <*> o .:  "OpenIdConnectProviderARNs"
+        <*> o .:  "SupportedLoginProviders"
 
 instance ToJSON IdentityPool where
     toJSON IdentityPool{..} = object
@@ -204,7 +206,7 @@ instance ToJSON IdentityPool where
 data IdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId   :: Maybe Text
     , _ipsdIdentityPoolName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IdentityPoolShortDescription' constructor.
 --

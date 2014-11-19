@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -378,7 +379,7 @@ instance AWSService Redshift where
     handle = restError alwaysFail
 
 data Snapshot = Snapshot
-    { _sAccountsWithRestoreAccess              :: [AccountWithRestoreAccess]
+    { _sAccountsWithRestoreAccess              :: List "AccountWithRestoreAccess" AccountWithRestoreAccess
     , _sActualIncrementalBackupSizeInMegaBytes :: Maybe Double
     , _sAvailabilityZone                       :: Maybe Text
     , _sBackupProgressInMegaBytes              :: Maybe Double
@@ -403,7 +404,7 @@ data Snapshot = Snapshot
     , _sStatus                                 :: Maybe Text
     , _sTotalBackupSizeInMegaBytes             :: Maybe Double
     , _sVpcId                                  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Snapshot' constructor.
 --
@@ -495,6 +496,7 @@ sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
 sAccountsWithRestoreAccess =
     lens _sAccountsWithRestoreAccess
         (\s a -> s { _sAccountsWithRestoreAccess = a })
+            . _List
 
 -- | The size of the incremental backup.
 sActualIncrementalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
@@ -630,39 +632,66 @@ sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 
 instance FromXML Snapshot where
     parseXML x = Snapshot
-            <$> x .@ "AccountsWithRestoreAccess"
-            <*> x .@? "ActualIncrementalBackupSizeInMegaBytes"
-            <*> x .@? "AvailabilityZone"
-            <*> x .@? "BackupProgressInMegaBytes"
-            <*> x .@? "ClusterCreateTime"
-            <*> x .@? "ClusterIdentifier"
-            <*> x .@? "ClusterVersion"
-            <*> x .@? "CurrentBackupRateInMegaBytesPerSecond"
-            <*> x .@? "DBName"
-            <*> x .@? "ElapsedTimeInSeconds"
-            <*> x .@? "Encrypted"
-            <*> x .@? "EncryptedWithHSM"
-            <*> x .@? "EstimatedSecondsToCompletion"
-            <*> x .@? "MasterUsername"
-            <*> x .@? "NodeType"
-            <*> x .@? "NumberOfNodes"
-            <*> x .@? "OwnerAccount"
-            <*> x .@? "Port"
-            <*> x .@? "SnapshotCreateTime"
-            <*> x .@? "SnapshotIdentifier"
-            <*> x .@? "SnapshotType"
-            <*> x .@? "SourceRegion"
-            <*> x .@? "Status"
-            <*> x .@? "TotalBackupSizeInMegaBytes"
-            <*> x .@? "VpcId"
+        <$> x .@  "AccountsWithRestoreAccess"
+        <*> x .@? "ActualIncrementalBackupSizeInMegaBytes"
+        <*> x .@? "AvailabilityZone"
+        <*> x .@? "BackupProgressInMegaBytes"
+        <*> x .@? "ClusterCreateTime"
+        <*> x .@? "ClusterIdentifier"
+        <*> x .@? "ClusterVersion"
+        <*> x .@? "CurrentBackupRateInMegaBytesPerSecond"
+        <*> x .@? "DBName"
+        <*> x .@? "ElapsedTimeInSeconds"
+        <*> x .@? "Encrypted"
+        <*> x .@? "EncryptedWithHSM"
+        <*> x .@? "EstimatedSecondsToCompletion"
+        <*> x .@? "MasterUsername"
+        <*> x .@? "NodeType"
+        <*> x .@? "NumberOfNodes"
+        <*> x .@? "OwnerAccount"
+        <*> x .@? "Port"
+        <*> x .@? "SnapshotCreateTime"
+        <*> x .@? "SnapshotIdentifier"
+        <*> x .@? "SnapshotType"
+        <*> x .@? "SourceRegion"
+        <*> x .@? "Status"
+        <*> x .@? "TotalBackupSizeInMegaBytes"
+        <*> x .@? "VpcId"
 
-instance ToQuery Snapshot
+instance ToQuery Snapshot where
+    toQuery Snapshot{..} = mconcat
+        [ "AccountsWithRestoreAccess"              =? _sAccountsWithRestoreAccess
+        , "ActualIncrementalBackupSizeInMegaBytes" =? _sActualIncrementalBackupSizeInMegaBytes
+        , "AvailabilityZone"                       =? _sAvailabilityZone
+        , "BackupProgressInMegaBytes"              =? _sBackupProgressInMegaBytes
+        , "ClusterCreateTime"                      =? _sClusterCreateTime
+        , "ClusterIdentifier"                      =? _sClusterIdentifier
+        , "ClusterVersion"                         =? _sClusterVersion
+        , "CurrentBackupRateInMegaBytesPerSecond"  =? _sCurrentBackupRateInMegaBytesPerSecond
+        , "DBName"                                 =? _sDBName
+        , "ElapsedTimeInSeconds"                   =? _sElapsedTimeInSeconds
+        , "Encrypted"                              =? _sEncrypted
+        , "EncryptedWithHSM"                       =? _sEncryptedWithHSM
+        , "EstimatedSecondsToCompletion"           =? _sEstimatedSecondsToCompletion
+        , "MasterUsername"                         =? _sMasterUsername
+        , "NodeType"                               =? _sNodeType
+        , "NumberOfNodes"                          =? _sNumberOfNodes
+        , "OwnerAccount"                           =? _sOwnerAccount
+        , "Port"                                   =? _sPort
+        , "SnapshotCreateTime"                     =? _sSnapshotCreateTime
+        , "SnapshotIdentifier"                     =? _sSnapshotIdentifier
+        , "SnapshotType"                           =? _sSnapshotType
+        , "SourceRegion"                           =? _sSourceRegion
+        , "Status"                                 =? _sStatus
+        , "TotalBackupSizeInMegaBytes"             =? _sTotalBackupSizeInMegaBytes
+        , "VpcId"                                  =? _sVpcId
+        ]
 
 data ClusterParameterGroup = ClusterParameterGroup
     { _cpgDescription          :: Maybe Text
     , _cpgParameterGroupFamily :: Maybe Text
     , _cpgParameterGroupName   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ClusterParameterGroup' constructor.
 --
@@ -698,11 +727,16 @@ cpgParameterGroupName =
 
 instance FromXML ClusterParameterGroup where
     parseXML x = ClusterParameterGroup
-            <$> x .@? "Description"
-            <*> x .@? "ParameterGroupFamily"
-            <*> x .@? "ParameterGroupName"
+        <$> x .@? "Description"
+        <*> x .@? "ParameterGroupFamily"
+        <*> x .@? "ParameterGroupName"
 
-instance ToQuery ClusterParameterGroup
+instance ToQuery ClusterParameterGroup where
+    toQuery ClusterParameterGroup{..} = mconcat
+        [ "Description"          =? _cpgDescription
+        , "ParameterGroupFamily" =? _cpgParameterGroupFamily
+        , "ParameterGroupName"   =? _cpgParameterGroupName
+        ]
 
 data RestoreStatus = RestoreStatus
     { _rsCurrentRestoreRateInMegaBytesPerSecond :: Maybe Double
@@ -711,7 +745,7 @@ data RestoreStatus = RestoreStatus
     , _rsProgressInMegaBytes                    :: Maybe Integer
     , _rsSnapshotSizeInMegaBytes                :: Maybe Integer
     , _rsStatus                                 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RestoreStatus' constructor.
 --
@@ -777,24 +811,32 @@ rsStatus = lens _rsStatus (\s a -> s { _rsStatus = a })
 
 instance FromXML RestoreStatus where
     parseXML x = RestoreStatus
-            <$> x .@? "CurrentRestoreRateInMegaBytesPerSecond"
-            <*> x .@? "ElapsedTimeInSeconds"
-            <*> x .@? "EstimatedTimeToCompletionInSeconds"
-            <*> x .@? "ProgressInMegaBytes"
-            <*> x .@? "SnapshotSizeInMegaBytes"
-            <*> x .@? "Status"
+        <$> x .@? "CurrentRestoreRateInMegaBytesPerSecond"
+        <*> x .@? "ElapsedTimeInSeconds"
+        <*> x .@? "EstimatedTimeToCompletionInSeconds"
+        <*> x .@? "ProgressInMegaBytes"
+        <*> x .@? "SnapshotSizeInMegaBytes"
+        <*> x .@? "Status"
 
-instance ToQuery RestoreStatus
+instance ToQuery RestoreStatus where
+    toQuery RestoreStatus{..} = mconcat
+        [ "CurrentRestoreRateInMegaBytesPerSecond" =? _rsCurrentRestoreRateInMegaBytesPerSecond
+        , "ElapsedTimeInSeconds"                   =? _rsElapsedTimeInSeconds
+        , "EstimatedTimeToCompletionInSeconds"     =? _rsEstimatedTimeToCompletionInSeconds
+        , "ProgressInMegaBytes"                    =? _rsProgressInMegaBytes
+        , "SnapshotSizeInMegaBytes"                =? _rsSnapshotSizeInMegaBytes
+        , "Status"                                 =? _rsStatus
+        ]
 
 data Event = Event
     { _eDate             :: Maybe RFC822
-    , _eEventCategories  :: [Text]
+    , _eEventCategories  :: List "EventCategory" Text
     , _eEventId          :: Maybe Text
     , _eMessage          :: Maybe Text
     , _eSeverity         :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
     , _eSourceType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Event' constructor.
 --
@@ -827,12 +869,11 @@ event = Event
 
 -- | The date and time of the event.
 eDate :: Lens' Event (Maybe UTCTime)
-eDate = lens _eDate (\s a -> s { _eDate = a })
-    . mapping _Time
+eDate = lens _eDate (\s a -> s { _eDate = a }) . mapping _Time
 
 -- | A list of the event categories.
 eEventCategories :: Lens' Event [Text]
-eEventCategories = lens _eEventCategories (\s a -> s { _eEventCategories = a })
+eEventCategories = lens _eEventCategories (\s a -> s { _eEventCategories = a }) . _List
 
 -- | The identifier of the event.
 eEventId :: Lens' Event (Maybe Text)
@@ -857,20 +898,29 @@ eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where
     parseXML x = Event
-            <$> x .@? "Date"
-            <*> x .@ "EventCategories"
-            <*> x .@? "EventId"
-            <*> x .@? "Message"
-            <*> x .@? "Severity"
-            <*> x .@? "SourceIdentifier"
-            <*> x .@? "SourceType"
+        <$> x .@? "Date"
+        <*> x .@  "EventCategories"
+        <*> x .@? "EventId"
+        <*> x .@? "Message"
+        <*> x .@? "Severity"
+        <*> x .@? "SourceIdentifier"
+        <*> x .@? "SourceType"
 
-instance ToQuery Event
+instance ToQuery Event where
+    toQuery Event{..} = mconcat
+        [ "Date"             =? _eDate
+        , "EventCategories"  =? _eEventCategories
+        , "EventId"          =? _eEventId
+        , "Message"          =? _eMessage
+        , "Severity"         =? _eSeverity
+        , "SourceIdentifier" =? _eSourceIdentifier
+        , "SourceType"       =? _eSourceType
+        ]
 
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
     { _cscsDestinationRegion :: Maybe Text
     , _cscsRetentionPeriod   :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ClusterSnapshotCopyStatus' constructor.
 --
@@ -900,15 +950,19 @@ cscsRetentionPeriod =
 
 instance FromXML ClusterSnapshotCopyStatus where
     parseXML x = ClusterSnapshotCopyStatus
-            <$> x .@? "DestinationRegion"
-            <*> x .@? "RetentionPeriod"
+        <$> x .@? "DestinationRegion"
+        <*> x .@? "RetentionPeriod"
 
-instance ToQuery ClusterSnapshotCopyStatus
+instance ToQuery ClusterSnapshotCopyStatus where
+    toQuery ClusterSnapshotCopyStatus{..} = mconcat
+        [ "DestinationRegion" =? _cscsDestinationRegion
+        , "RetentionPeriod"   =? _cscsRetentionPeriod
+        ]
 
 data HsmClientCertificate = HsmClientCertificate
     { _hccHsmClientCertificateIdentifier :: Maybe Text
     , _hccHsmClientCertificatePublicKey  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'HsmClientCertificate' constructor.
 --
@@ -939,10 +993,14 @@ hccHsmClientCertificatePublicKey =
 
 instance FromXML HsmClientCertificate where
     parseXML x = HsmClientCertificate
-            <$> x .@? "HsmClientCertificateIdentifier"
-            <*> x .@? "HsmClientCertificatePublicKey"
+        <$> x .@? "HsmClientCertificateIdentifier"
+        <*> x .@? "HsmClientCertificatePublicKey"
 
-instance ToQuery HsmClientCertificate
+instance ToQuery HsmClientCertificate where
+    toQuery HsmClientCertificate{..} = mconcat
+        [ "HsmClientCertificateIdentifier" =? _hccHsmClientCertificateIdentifier
+        , "HsmClientCertificatePublicKey"  =? _hccHsmClientCertificatePublicKey
+        ]
 
 data Cluster = Cluster
     { _cAllowVersionUpgrade              :: Maybe Bool
@@ -950,11 +1008,11 @@ data Cluster = Cluster
     , _cAvailabilityZone                 :: Maybe Text
     , _cClusterCreateTime                :: Maybe RFC822
     , _cClusterIdentifier                :: Maybe Text
-    , _cClusterNodes                     :: [ClusterNode]
-    , _cClusterParameterGroups           :: [ClusterParameterGroupStatus]
+    , _cClusterNodes                     :: List "ClusterNodes" ClusterNode
+    , _cClusterParameterGroups           :: List "ClusterParameterGroup" ClusterParameterGroupStatus
     , _cClusterPublicKey                 :: Maybe Text
     , _cClusterRevisionNumber            :: Maybe Text
-    , _cClusterSecurityGroups            :: [ClusterSecurityGroupMembership]
+    , _cClusterSecurityGroups            :: List "ClusterSecurityGroup" ClusterSecurityGroupMembership
     , _cClusterSnapshotCopyStatus        :: Maybe ClusterSnapshotCopyStatus
     , _cClusterStatus                    :: Maybe Text
     , _cClusterSubnetGroupName           :: Maybe Text
@@ -973,8 +1031,8 @@ data Cluster = Cluster
     , _cPubliclyAccessible               :: Maybe Bool
     , _cRestoreStatus                    :: Maybe RestoreStatus
     , _cVpcId                            :: Maybe Text
-    , _cVpcSecurityGroups                :: [VpcSecurityGroupMembership]
-    } deriving (Eq, Show, Generic)
+    , _cVpcSecurityGroups                :: List "VpcSecurityGroup" VpcSecurityGroupMembership
+    } deriving (Eq, Show)
 
 -- | 'Cluster' constructor.
 --
@@ -1101,13 +1159,14 @@ cClusterIdentifier =
 
 -- | The nodes in a cluster.
 cClusterNodes :: Lens' Cluster [ClusterNode]
-cClusterNodes = lens _cClusterNodes (\s a -> s { _cClusterNodes = a })
+cClusterNodes = lens _cClusterNodes (\s a -> s { _cClusterNodes = a }) . _List
 
 -- | The list of cluster parameter groups that are associated with this
 -- cluster.
 cClusterParameterGroups :: Lens' Cluster [ClusterParameterGroupStatus]
 cClusterParameterGroups =
     lens _cClusterParameterGroups (\s a -> s { _cClusterParameterGroups = a })
+        . _List
 
 -- | The public key for the cluster.
 cClusterPublicKey :: Lens' Cluster (Maybe Text)
@@ -1128,6 +1187,7 @@ cClusterRevisionNumber =
 cClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
 cClusterSecurityGroups =
     lens _cClusterSecurityGroups (\s a -> s { _cClusterSecurityGroups = a })
+        . _List
 
 -- | Returns the destination region and retention period that are configured
 -- for cross-region snapshot copy.
@@ -1226,46 +1286,78 @@ cVpcId = lens _cVpcId (\s a -> s { _cVpcId = a })
 cVpcSecurityGroups :: Lens' Cluster [VpcSecurityGroupMembership]
 cVpcSecurityGroups =
     lens _cVpcSecurityGroups (\s a -> s { _cVpcSecurityGroups = a })
+        . _List
 
 instance FromXML Cluster where
     parseXML x = Cluster
-            <$> x .@? "AllowVersionUpgrade"
-            <*> x .@? "AutomatedSnapshotRetentionPeriod"
-            <*> x .@? "AvailabilityZone"
-            <*> x .@? "ClusterCreateTime"
-            <*> x .@? "ClusterIdentifier"
-            <*> x .@ "ClusterNodes"
-            <*> x .@ "ClusterParameterGroups"
-            <*> x .@? "ClusterPublicKey"
-            <*> x .@? "ClusterRevisionNumber"
-            <*> x .@ "ClusterSecurityGroups"
-            <*> x .@? "ClusterSnapshotCopyStatus"
-            <*> x .@? "ClusterStatus"
-            <*> x .@? "ClusterSubnetGroupName"
-            <*> x .@? "ClusterVersion"
-            <*> x .@? "DBName"
-            <*> x .@? "ElasticIpStatus"
-            <*> x .@? "Encrypted"
-            <*> x .@? "Endpoint"
-            <*> x .@? "HsmStatus"
-            <*> x .@? "MasterUsername"
-            <*> x .@? "ModifyStatus"
-            <*> x .@? "NodeType"
-            <*> x .@? "NumberOfNodes"
-            <*> x .@? "PendingModifiedValues"
-            <*> x .@? "PreferredMaintenanceWindow"
-            <*> x .@? "PubliclyAccessible"
-            <*> x .@? "RestoreStatus"
-            <*> x .@? "VpcId"
-            <*> x .@ "VpcSecurityGroups"
+        <$> x .@? "AllowVersionUpgrade"
+        <*> x .@? "AutomatedSnapshotRetentionPeriod"
+        <*> x .@? "AvailabilityZone"
+        <*> x .@? "ClusterCreateTime"
+        <*> x .@? "ClusterIdentifier"
+        <*> x .@  "ClusterNodes"
+        <*> x .@  "ClusterParameterGroups"
+        <*> x .@? "ClusterPublicKey"
+        <*> x .@? "ClusterRevisionNumber"
+        <*> x .@  "ClusterSecurityGroups"
+        <*> x .@? "ClusterSnapshotCopyStatus"
+        <*> x .@? "ClusterStatus"
+        <*> x .@? "ClusterSubnetGroupName"
+        <*> x .@? "ClusterVersion"
+        <*> x .@? "DBName"
+        <*> x .@? "ElasticIpStatus"
+        <*> x .@? "Encrypted"
+        <*> x .@? "Endpoint"
+        <*> x .@? "HsmStatus"
+        <*> x .@? "MasterUsername"
+        <*> x .@? "ModifyStatus"
+        <*> x .@? "NodeType"
+        <*> x .@? "NumberOfNodes"
+        <*> x .@? "PendingModifiedValues"
+        <*> x .@? "PreferredMaintenanceWindow"
+        <*> x .@? "PubliclyAccessible"
+        <*> x .@? "RestoreStatus"
+        <*> x .@? "VpcId"
+        <*> x .@  "VpcSecurityGroups"
 
-instance ToQuery Cluster
+instance ToQuery Cluster where
+    toQuery Cluster{..} = mconcat
+        [ "AllowVersionUpgrade"              =? _cAllowVersionUpgrade
+        , "AutomatedSnapshotRetentionPeriod" =? _cAutomatedSnapshotRetentionPeriod
+        , "AvailabilityZone"                 =? _cAvailabilityZone
+        , "ClusterCreateTime"                =? _cClusterCreateTime
+        , "ClusterIdentifier"                =? _cClusterIdentifier
+        , "ClusterNodes"                     =? _cClusterNodes
+        , "ClusterParameterGroups"           =? _cClusterParameterGroups
+        , "ClusterPublicKey"                 =? _cClusterPublicKey
+        , "ClusterRevisionNumber"            =? _cClusterRevisionNumber
+        , "ClusterSecurityGroups"            =? _cClusterSecurityGroups
+        , "ClusterSnapshotCopyStatus"        =? _cClusterSnapshotCopyStatus
+        , "ClusterStatus"                    =? _cClusterStatus
+        , "ClusterSubnetGroupName"           =? _cClusterSubnetGroupName
+        , "ClusterVersion"                   =? _cClusterVersion
+        , "DBName"                           =? _cDBName
+        , "ElasticIpStatus"                  =? _cElasticIpStatus
+        , "Encrypted"                        =? _cEncrypted
+        , "Endpoint"                         =? _cEndpoint
+        , "HsmStatus"                        =? _cHsmStatus
+        , "MasterUsername"                   =? _cMasterUsername
+        , "ModifyStatus"                     =? _cModifyStatus
+        , "NodeType"                         =? _cNodeType
+        , "NumberOfNodes"                    =? _cNumberOfNodes
+        , "PendingModifiedValues"            =? _cPendingModifiedValues
+        , "PreferredMaintenanceWindow"       =? _cPreferredMaintenanceWindow
+        , "PubliclyAccessible"               =? _cPubliclyAccessible
+        , "RestoreStatus"                    =? _cRestoreStatus
+        , "VpcId"                            =? _cVpcId
+        , "VpcSecurityGroups"                =? _cVpcSecurityGroups
+        ]
 
 data ClusterNode = ClusterNode
     { _cnNodeRole         :: Maybe Text
     , _cnPrivateIPAddress :: Maybe Text
     , _cnPublicIPAddress  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ClusterNode' constructor.
 --
@@ -1300,17 +1392,22 @@ cnPublicIPAddress =
 
 instance FromXML ClusterNode where
     parseXML x = ClusterNode
-            <$> x .@? "NodeRole"
-            <*> x .@? "PrivateIPAddress"
-            <*> x .@? "PublicIPAddress"
+        <$> x .@? "NodeRole"
+        <*> x .@? "PrivateIPAddress"
+        <*> x .@? "PublicIPAddress"
 
-instance ToQuery ClusterNode
+instance ToQuery ClusterNode where
+    toQuery ClusterNode{..} = mconcat
+        [ "NodeRole"         =? _cnNodeRole
+        , "PrivateIPAddress" =? _cnPrivateIPAddress
+        , "PublicIPAddress"  =? _cnPublicIPAddress
+        ]
 
 data EC2SecurityGroup = EC2SecurityGroup
     { _ecsgEC2SecurityGroupName    :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
     , _ecsgStatus                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EC2SecurityGroup' constructor.
 --
@@ -1348,18 +1445,23 @@ ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
 instance FromXML EC2SecurityGroup where
     parseXML x = EC2SecurityGroup
-            <$> x .@? "EC2SecurityGroupName"
-            <*> x .@? "EC2SecurityGroupOwnerId"
-            <*> x .@? "Status"
+        <$> x .@? "EC2SecurityGroupName"
+        <*> x .@? "EC2SecurityGroupOwnerId"
+        <*> x .@? "Status"
 
-instance ToQuery EC2SecurityGroup
+instance ToQuery EC2SecurityGroup where
+    toQuery EC2SecurityGroup{..} = mconcat
+        [ "EC2SecurityGroupName"    =? _ecsgEC2SecurityGroupName
+        , "EC2SecurityGroupOwnerId" =? _ecsgEC2SecurityGroupOwnerId
+        , "Status"                  =? _ecsgStatus
+        ]
 
 data OrderableClusterOption = OrderableClusterOption
-    { _ocoAvailabilityZones :: [AvailabilityZone]
+    { _ocoAvailabilityZones :: List "AvailabilityZone" AvailabilityZone
     , _ocoClusterType       :: Maybe Text
     , _ocoClusterVersion    :: Maybe Text
     , _ocoNodeType          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'OrderableClusterOption' constructor.
 --
@@ -1385,6 +1487,7 @@ orderableClusterOption = OrderableClusterOption
 ocoAvailabilityZones :: Lens' OrderableClusterOption [AvailabilityZone]
 ocoAvailabilityZones =
     lens _ocoAvailabilityZones (\s a -> s { _ocoAvailabilityZones = a })
+        . _List
 
 -- | The cluster type, for example multi-node.
 ocoClusterType :: Lens' OrderableClusterOption (Maybe Text)
@@ -1401,12 +1504,18 @@ ocoNodeType = lens _ocoNodeType (\s a -> s { _ocoNodeType = a })
 
 instance FromXML OrderableClusterOption where
     parseXML x = OrderableClusterOption
-            <$> x .@ "AvailabilityZones"
-            <*> x .@? "ClusterType"
-            <*> x .@? "ClusterVersion"
-            <*> x .@? "NodeType"
+        <$> x .@  "AvailabilityZones"
+        <*> x .@? "ClusterType"
+        <*> x .@? "ClusterVersion"
+        <*> x .@? "NodeType"
 
-instance ToQuery OrderableClusterOption
+instance ToQuery OrderableClusterOption where
+    toQuery OrderableClusterOption{..} = mconcat
+        [ "AvailabilityZones" =? _ocoAvailabilityZones
+        , "ClusterType"       =? _ocoClusterType
+        , "ClusterVersion"    =? _ocoClusterVersion
+        , "NodeType"          =? _ocoNodeType
+        ]
 
 data SourceType
     = STCluster               -- ^ cluster
@@ -1433,12 +1542,13 @@ instance ToText SourceType where
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
 
-instance ToQuery SourceType
+instance ToQuery SourceType where
+    toQuery SourceType = toQuery . toText
 
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus
     { _cpgsParameterApplyStatus :: Maybe Text
     , _cpgsParameterGroupName   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ClusterParameterGroupStatus' constructor.
 --
@@ -1467,16 +1577,20 @@ cpgsParameterGroupName =
 
 instance FromXML ClusterParameterGroupStatus where
     parseXML x = ClusterParameterGroupStatus
-            <$> x .@? "ParameterApplyStatus"
-            <*> x .@? "ParameterGroupName"
+        <$> x .@? "ParameterApplyStatus"
+        <*> x .@? "ParameterGroupName"
 
-instance ToQuery ClusterParameterGroupStatus
+instance ToQuery ClusterParameterGroupStatus where
+    toQuery ClusterParameterGroupStatus{..} = mconcat
+        [ "ParameterApplyStatus" =? _cpgsParameterApplyStatus
+        , "ParameterGroupName"   =? _cpgsParameterGroupName
+        ]
 
 data Subnet = Subnet
     { _sSubnetAvailabilityZone :: Maybe AvailabilityZone
     , _sSubnetIdentifier       :: Maybe Text
     , _sSubnetStatus           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Subnet' constructor.
 --
@@ -1510,18 +1624,23 @@ sSubnetStatus = lens _sSubnetStatus (\s a -> s { _sSubnetStatus = a })
 
 instance FromXML Subnet where
     parseXML x = Subnet
-            <$> x .@? "SubnetAvailabilityZone"
-            <*> x .@? "SubnetIdentifier"
-            <*> x .@? "SubnetStatus"
+        <$> x .@? "SubnetAvailabilityZone"
+        <*> x .@? "SubnetIdentifier"
+        <*> x .@? "SubnetStatus"
 
-instance ToQuery Subnet
+instance ToQuery Subnet where
+    toQuery Subnet{..} = mconcat
+        [ "SubnetAvailabilityZone" =? _sSubnetAvailabilityZone
+        , "SubnetIdentifier"       =? _sSubnetIdentifier
+        , "SubnetStatus"           =? _sSubnetStatus
+        ]
 
 data ClusterSecurityGroup = ClusterSecurityGroup
     { _csgClusterSecurityGroupName :: Maybe Text
     , _csgDescription              :: Maybe Text
-    , _csgEC2SecurityGroups        :: [EC2SecurityGroup]
-    , _csgIPRanges                 :: [IPRange]
-    } deriving (Eq, Show, Generic)
+    , _csgEC2SecurityGroups        :: List "EC2SecurityGroup" EC2SecurityGroup
+    , _csgIPRanges                 :: List "IPRange" IPRange
+    } deriving (Eq, Show)
 
 -- | 'ClusterSecurityGroup' constructor.
 --
@@ -1559,26 +1678,33 @@ csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 csgEC2SecurityGroups :: Lens' ClusterSecurityGroup [EC2SecurityGroup]
 csgEC2SecurityGroups =
     lens _csgEC2SecurityGroups (\s a -> s { _csgEC2SecurityGroups = a })
+        . _List
 
 -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters
 -- associated with this cluster security group.
 csgIPRanges :: Lens' ClusterSecurityGroup [IPRange]
-csgIPRanges = lens _csgIPRanges (\s a -> s { _csgIPRanges = a })
+csgIPRanges = lens _csgIPRanges (\s a -> s { _csgIPRanges = a }) . _List
 
 instance FromXML ClusterSecurityGroup where
     parseXML x = ClusterSecurityGroup
-            <$> x .@? "ClusterSecurityGroupName"
-            <*> x .@? "Description"
-            <*> x .@ "EC2SecurityGroups"
-            <*> x .@ "IPRanges"
+        <$> x .@? "ClusterSecurityGroupName"
+        <*> x .@? "Description"
+        <*> x .@  "EC2SecurityGroups"
+        <*> x .@  "IPRanges"
 
-instance ToQuery ClusterSecurityGroup
+instance ToQuery ClusterSecurityGroup where
+    toQuery ClusterSecurityGroup{..} = mconcat
+        [ "ClusterSecurityGroupName" =? _csgClusterSecurityGroupName
+        , "Description"              =? _csgDescription
+        , "EC2SecurityGroups"        =? _csgEC2SecurityGroups
+        , "IPRanges"                 =? _csgIPRanges
+        ]
 
 data DefaultClusterParameters = DefaultClusterParameters
     { _dcpMarker               :: Maybe Text
     , _dcpParameterGroupFamily :: Maybe Text
-    , _dcpParameters           :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    , _dcpParameters           :: List "Parameter" Parameter
+    } deriving (Eq, Show)
 
 -- | 'DefaultClusterParameters' constructor.
 --
@@ -1614,23 +1740,28 @@ dcpParameterGroupFamily =
 
 -- | The list of cluster default parameters.
 dcpParameters :: Lens' DefaultClusterParameters [Parameter]
-dcpParameters = lens _dcpParameters (\s a -> s { _dcpParameters = a })
+dcpParameters = lens _dcpParameters (\s a -> s { _dcpParameters = a }) . _List
 
 instance FromXML DefaultClusterParameters where
     parseXML x = DefaultClusterParameters
-            <$> x .@? "Marker"
-            <*> x .@? "ParameterGroupFamily"
-            <*> x .@ "Parameters"
+        <$> x .@? "Marker"
+        <*> x .@? "ParameterGroupFamily"
+        <*> x .@  "Parameters"
 
-instance ToQuery DefaultClusterParameters
+instance ToQuery DefaultClusterParameters where
+    toQuery DefaultClusterParameters{..} = mconcat
+        [ "Marker"               =? _dcpMarker
+        , "ParameterGroupFamily" =? _dcpParameterGroupFamily
+        , "Parameters"           =? _dcpParameters
+        ]
 
 data ClusterSubnetGroup = ClusterSubnetGroup
     { _csg1ClusterSubnetGroupName :: Maybe Text
     , _csg1Description            :: Maybe Text
     , _csg1SubnetGroupStatus      :: Maybe Text
-    , _csg1Subnets                :: [Subnet]
+    , _csg1Subnets                :: List "Subnet" Subnet
     , _csg1VpcId                  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ClusterSubnetGroup' constructor.
 --
@@ -1673,7 +1804,7 @@ csg1SubnetGroupStatus =
 
 -- | A list of the VPC Subnet elements.
 csg1Subnets :: Lens' ClusterSubnetGroup [Subnet]
-csg1Subnets = lens _csg1Subnets (\s a -> s { _csg1Subnets = a })
+csg1Subnets = lens _csg1Subnets (\s a -> s { _csg1Subnets = a }) . _List
 
 -- | The VPC ID of the cluster subnet group.
 csg1VpcId :: Lens' ClusterSubnetGroup (Maybe Text)
@@ -1681,20 +1812,27 @@ csg1VpcId = lens _csg1VpcId (\s a -> s { _csg1VpcId = a })
 
 instance FromXML ClusterSubnetGroup where
     parseXML x = ClusterSubnetGroup
-            <$> x .@? "ClusterSubnetGroupName"
-            <*> x .@? "Description"
-            <*> x .@? "SubnetGroupStatus"
-            <*> x .@ "Subnets"
-            <*> x .@? "VpcId"
+        <$> x .@? "ClusterSubnetGroupName"
+        <*> x .@? "Description"
+        <*> x .@? "SubnetGroupStatus"
+        <*> x .@  "Subnets"
+        <*> x .@? "VpcId"
 
-instance ToQuery ClusterSubnetGroup
+instance ToQuery ClusterSubnetGroup where
+    toQuery ClusterSubnetGroup{..} = mconcat
+        [ "ClusterSubnetGroupName" =? _csg1ClusterSubnetGroupName
+        , "Description"            =? _csg1Description
+        , "SubnetGroupStatus"      =? _csg1SubnetGroupStatus
+        , "Subnets"                =? _csg1Subnets
+        , "VpcId"                  =? _csg1VpcId
+        ]
 
 data EventInfoMap = EventInfoMap
-    { _eimEventCategories  :: [Text]
+    { _eimEventCategories  :: List "EventCategory" Text
     , _eimEventDescription :: Maybe Text
     , _eimEventId          :: Maybe Text
     , _eimSeverity         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EventInfoMap' constructor.
 --
@@ -1720,6 +1858,7 @@ eventInfoMap = EventInfoMap
 eimEventCategories :: Lens' EventInfoMap [Text]
 eimEventCategories =
     lens _eimEventCategories (\s a -> s { _eimEventCategories = a })
+        . _List
 
 -- | The description of an Amazon Redshift event.
 eimEventDescription :: Lens' EventInfoMap (Maybe Text)
@@ -1736,17 +1875,23 @@ eimSeverity = lens _eimSeverity (\s a -> s { _eimSeverity = a })
 
 instance FromXML EventInfoMap where
     parseXML x = EventInfoMap
-            <$> x .@ "EventCategories"
-            <*> x .@? "EventDescription"
-            <*> x .@? "EventId"
-            <*> x .@? "Severity"
+        <$> x .@  "EventCategories"
+        <*> x .@? "EventDescription"
+        <*> x .@? "EventId"
+        <*> x .@? "Severity"
 
-instance ToQuery EventInfoMap
+instance ToQuery EventInfoMap where
+    toQuery EventInfoMap{..} = mconcat
+        [ "EventCategories"  =? _eimEventCategories
+        , "EventDescription" =? _eimEventDescription
+        , "EventId"          =? _eimEventId
+        , "Severity"         =? _eimSeverity
+        ]
 
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership
     { _csgmClusterSecurityGroupName :: Maybe Text
     , _csgmStatus                   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ClusterSecurityGroupMembership' constructor.
 --
@@ -1774,10 +1919,14 @@ csgmStatus = lens _csgmStatus (\s a -> s { _csgmStatus = a })
 
 instance FromXML ClusterSecurityGroupMembership where
     parseXML x = ClusterSecurityGroupMembership
-            <$> x .@? "ClusterSecurityGroupName"
-            <*> x .@? "Status"
+        <$> x .@? "ClusterSecurityGroupName"
+        <*> x .@? "Status"
 
-instance ToQuery ClusterSecurityGroupMembership
+instance ToQuery ClusterSecurityGroupMembership where
+    toQuery ClusterSecurityGroupMembership{..} = mconcat
+        [ "ClusterSecurityGroupName" =? _csgmClusterSecurityGroupName
+        , "Status"                   =? _csgmStatus
+        ]
 
 data ReservedNodeOffering = ReservedNodeOffering
     { _rnoCurrencyCode           :: Maybe Text
@@ -1785,10 +1934,10 @@ data ReservedNodeOffering = ReservedNodeOffering
     , _rnoFixedPrice             :: Maybe Double
     , _rnoNodeType               :: Maybe Text
     , _rnoOfferingType           :: Maybe Text
-    , _rnoRecurringCharges       :: [RecurringCharge]
+    , _rnoRecurringCharges       :: List "RecurringCharge" RecurringCharge
     , _rnoReservedNodeOfferingId :: Maybe Text
     , _rnoUsagePrice             :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReservedNodeOffering' constructor.
 --
@@ -1850,6 +1999,7 @@ rnoOfferingType = lens _rnoOfferingType (\s a -> s { _rnoOfferingType = a })
 rnoRecurringCharges :: Lens' ReservedNodeOffering [RecurringCharge]
 rnoRecurringCharges =
     lens _rnoRecurringCharges (\s a -> s { _rnoRecurringCharges = a })
+        . _List
 
 -- | The offering identifier.
 rnoReservedNodeOfferingId :: Lens' ReservedNodeOffering (Maybe Text)
@@ -1864,16 +2014,26 @@ rnoUsagePrice = lens _rnoUsagePrice (\s a -> s { _rnoUsagePrice = a })
 
 instance FromXML ReservedNodeOffering where
     parseXML x = ReservedNodeOffering
-            <$> x .@? "CurrencyCode"
-            <*> x .@? "Duration"
-            <*> x .@? "FixedPrice"
-            <*> x .@? "NodeType"
-            <*> x .@? "OfferingType"
-            <*> x .@ "RecurringCharges"
-            <*> x .@? "ReservedNodeOfferingId"
-            <*> x .@? "UsagePrice"
+        <$> x .@? "CurrencyCode"
+        <*> x .@? "Duration"
+        <*> x .@? "FixedPrice"
+        <*> x .@? "NodeType"
+        <*> x .@? "OfferingType"
+        <*> x .@  "RecurringCharges"
+        <*> x .@? "ReservedNodeOfferingId"
+        <*> x .@? "UsagePrice"
 
-instance ToQuery ReservedNodeOffering
+instance ToQuery ReservedNodeOffering where
+    toQuery ReservedNodeOffering{..} = mconcat
+        [ "CurrencyCode"           =? _rnoCurrencyCode
+        , "Duration"               =? _rnoDuration
+        , "FixedPrice"             =? _rnoFixedPrice
+        , "NodeType"               =? _rnoNodeType
+        , "OfferingType"           =? _rnoOfferingType
+        , "RecurringCharges"       =? _rnoRecurringCharges
+        , "ReservedNodeOfferingId" =? _rnoReservedNodeOfferingId
+        , "UsagePrice"             =? _rnoUsagePrice
+        ]
 
 data ReservedNode = ReservedNode
     { _rnCurrencyCode           :: Maybe Text
@@ -1882,13 +2042,13 @@ data ReservedNode = ReservedNode
     , _rnNodeCount              :: Maybe Int
     , _rnNodeType               :: Maybe Text
     , _rnOfferingType           :: Maybe Text
-    , _rnRecurringCharges       :: [RecurringCharge]
+    , _rnRecurringCharges       :: List "RecurringCharge" RecurringCharge
     , _rnReservedNodeId         :: Maybe Text
     , _rnReservedNodeOfferingId :: Maybe Text
     , _rnStartTime              :: Maybe RFC822
     , _rnState                  :: Maybe Text
     , _rnUsagePrice             :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReservedNode' constructor.
 --
@@ -1963,6 +2123,7 @@ rnOfferingType = lens _rnOfferingType (\s a -> s { _rnOfferingType = a })
 rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
 rnRecurringCharges =
     lens _rnRecurringCharges (\s a -> s { _rnRecurringCharges = a })
+        . _List
 
 -- | The unique identifier for the reservation.
 rnReservedNodeId :: Lens' ReservedNode (Maybe Text)
@@ -1977,8 +2138,7 @@ rnReservedNodeOfferingId =
 -- | The time the reservation started. You purchase a reserved node offering
 -- for a duration. This is the start time of that duration.
 rnStartTime :: Lens' ReservedNode (Maybe UTCTime)
-rnStartTime = lens _rnStartTime (\s a -> s { _rnStartTime = a })
-    . mapping _Time
+rnStartTime = lens _rnStartTime (\s a -> s { _rnStartTime = a }) . mapping _Time
 
 -- | The state of the reserved Compute Node. Possible Values:
 -- pending-payment-This reserved node has recently been purchased, and the
@@ -1994,20 +2154,34 @@ rnUsagePrice = lens _rnUsagePrice (\s a -> s { _rnUsagePrice = a })
 
 instance FromXML ReservedNode where
     parseXML x = ReservedNode
-            <$> x .@? "CurrencyCode"
-            <*> x .@? "Duration"
-            <*> x .@? "FixedPrice"
-            <*> x .@? "NodeCount"
-            <*> x .@? "NodeType"
-            <*> x .@? "OfferingType"
-            <*> x .@ "RecurringCharges"
-            <*> x .@? "ReservedNodeId"
-            <*> x .@? "ReservedNodeOfferingId"
-            <*> x .@? "StartTime"
-            <*> x .@? "State"
-            <*> x .@? "UsagePrice"
+        <$> x .@? "CurrencyCode"
+        <*> x .@? "Duration"
+        <*> x .@? "FixedPrice"
+        <*> x .@? "NodeCount"
+        <*> x .@? "NodeType"
+        <*> x .@? "OfferingType"
+        <*> x .@  "RecurringCharges"
+        <*> x .@? "ReservedNodeId"
+        <*> x .@? "ReservedNodeOfferingId"
+        <*> x .@? "StartTime"
+        <*> x .@? "State"
+        <*> x .@? "UsagePrice"
 
-instance ToQuery ReservedNode
+instance ToQuery ReservedNode where
+    toQuery ReservedNode{..} = mconcat
+        [ "CurrencyCode"           =? _rnCurrencyCode
+        , "Duration"               =? _rnDuration
+        , "FixedPrice"             =? _rnFixedPrice
+        , "NodeCount"              =? _rnNodeCount
+        , "NodeType"               =? _rnNodeType
+        , "OfferingType"           =? _rnOfferingType
+        , "RecurringCharges"       =? _rnRecurringCharges
+        , "ReservedNodeId"         =? _rnReservedNodeId
+        , "ReservedNodeOfferingId" =? _rnReservedNodeOfferingId
+        , "StartTime"              =? _rnStartTime
+        , "State"                  =? _rnState
+        , "UsagePrice"             =? _rnUsagePrice
+        ]
 
 data LoggingStatus = LoggingStatus
     { _lsBucketName                 :: Maybe Text
@@ -2016,7 +2190,7 @@ data LoggingStatus = LoggingStatus
     , _lsLastSuccessfulDeliveryTime :: Maybe RFC822
     , _lsLoggingEnabled             :: Maybe Bool
     , _lsS3KeyPrefix                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LoggingStatus' constructor.
 --
@@ -2076,18 +2250,26 @@ lsS3KeyPrefix = lens _lsS3KeyPrefix (\s a -> s { _lsS3KeyPrefix = a })
 
 instance FromXML LoggingStatus where
     parseXML x = LoggingStatus
-            <$> x .@? "BucketName"
-            <*> x .@? "LastFailureMessage"
-            <*> x .@? "LastFailureTime"
-            <*> x .@? "LastSuccessfulDeliveryTime"
-            <*> x .@? "LoggingEnabled"
-            <*> x .@? "S3KeyPrefix"
+        <$> x .@? "BucketName"
+        <*> x .@? "LastFailureMessage"
+        <*> x .@? "LastFailureTime"
+        <*> x .@? "LastSuccessfulDeliveryTime"
+        <*> x .@? "LoggingEnabled"
+        <*> x .@? "S3KeyPrefix"
 
-instance ToQuery LoggingStatus
+instance ToQuery LoggingStatus where
+    toQuery LoggingStatus{..} = mconcat
+        [ "BucketName"                 =? _lsBucketName
+        , "LastFailureMessage"         =? _lsLastFailureMessage
+        , "LastFailureTime"            =? _lsLastFailureTime
+        , "LastSuccessfulDeliveryTime" =? _lsLastSuccessfulDeliveryTime
+        , "LoggingEnabled"             =? _lsLoggingEnabled
+        , "S3KeyPrefix"                =? _lsS3KeyPrefix
+        ]
 
 newtype AccountWithRestoreAccess = AccountWithRestoreAccess
     { _awraAccountId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AccountWithRestoreAccess' constructor.
 --
@@ -2107,13 +2289,16 @@ awraAccountId = lens _awraAccountId (\s a -> s { _awraAccountId = a })
 
 instance FromXML AccountWithRestoreAccess where
     parseXML x = AccountWithRestoreAccess
-            <$> x .@? "AccountId"
+        <$> x .@? "AccountId"
 
-instance ToQuery AccountWithRestoreAccess
+instance ToQuery AccountWithRestoreAccess where
+    toQuery AccountWithRestoreAccess{..} = mconcat
+        [ "AccountId" =? _awraAccountId
+        ]
 
 newtype AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AvailabilityZone' constructor.
 --
@@ -2132,22 +2317,25 @@ azName = lens _azName (\s a -> s { _azName = a })
 
 instance FromXML AvailabilityZone where
     parseXML x = AvailabilityZone
-            <$> x .@? "Name"
+        <$> x .@? "Name"
 
-instance ToQuery AvailabilityZone
+instance ToQuery AvailabilityZone where
+    toQuery AvailabilityZone{..} = mconcat
+        [ "Name" =? _azName
+        ]
 
 data EventSubscription = EventSubscription
     { _esCustSubscriptionId       :: Maybe Text
     , _esCustomerAwsId            :: Maybe Text
     , _esEnabled                  :: Maybe Bool
-    , _esEventCategoriesList      :: [Text]
+    , _esEventCategoriesList      :: List "EventCategory" Text
     , _esSeverity                 :: Maybe Text
     , _esSnsTopicArn              :: Maybe Text
-    , _esSourceIdsList            :: [Text]
+    , _esSourceIdsList            :: List "SourceId" Text
     , _esSourceType               :: Maybe Text
     , _esStatus                   :: Maybe Text
     , _esSubscriptionCreationTime :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EventSubscription' constructor.
 --
@@ -2208,6 +2396,7 @@ esEnabled = lens _esEnabled (\s a -> s { _esEnabled = a })
 esEventCategoriesList :: Lens' EventSubscription [Text]
 esEventCategoriesList =
     lens _esEventCategoriesList (\s a -> s { _esEventCategoriesList = a })
+        . _List
 
 -- | The event severity specified in the Amazon Redshift event notification
 -- subscription. Values: ERROR, INFO.
@@ -2222,7 +2411,7 @@ esSnsTopicArn = lens _esSnsTopicArn (\s a -> s { _esSnsTopicArn = a })
 -- | A list of the sources that publish events to the Amazon Redshift event
 -- notification subscription.
 esSourceIdsList :: Lens' EventSubscription [Text]
-esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a })
+esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a }) . _List
 
 -- | The source type of the events returned the Amazon Redshift event
 -- notification, such as cluster, or cluster-snapshot.
@@ -2248,24 +2437,36 @@ esSubscriptionCreationTime =
 
 instance FromXML EventSubscription where
     parseXML x = EventSubscription
-            <$> x .@? "CustSubscriptionId"
-            <*> x .@? "CustomerAwsId"
-            <*> x .@? "Enabled"
-            <*> x .@ "EventCategoriesList"
-            <*> x .@? "Severity"
-            <*> x .@? "SnsTopicArn"
-            <*> x .@ "SourceIdsList"
-            <*> x .@? "SourceType"
-            <*> x .@? "Status"
-            <*> x .@? "SubscriptionCreationTime"
+        <$> x .@? "CustSubscriptionId"
+        <*> x .@? "CustomerAwsId"
+        <*> x .@? "Enabled"
+        <*> x .@  "EventCategoriesList"
+        <*> x .@? "Severity"
+        <*> x .@? "SnsTopicArn"
+        <*> x .@  "SourceIdsList"
+        <*> x .@? "SourceType"
+        <*> x .@? "Status"
+        <*> x .@? "SubscriptionCreationTime"
 
-instance ToQuery EventSubscription
+instance ToQuery EventSubscription where
+    toQuery EventSubscription{..} = mconcat
+        [ "CustSubscriptionId"       =? _esCustSubscriptionId
+        , "CustomerAwsId"            =? _esCustomerAwsId
+        , "Enabled"                  =? _esEnabled
+        , "EventCategoriesList"      =? _esEventCategoriesList
+        , "Severity"                 =? _esSeverity
+        , "SnsTopicArn"              =? _esSnsTopicArn
+        , "SourceIdsList"            =? _esSourceIdsList
+        , "SourceType"               =? _esSourceType
+        , "Status"                   =? _esStatus
+        , "SubscriptionCreationTime" =? _esSubscriptionCreationTime
+        ]
 
 data HsmStatus = HsmStatus
     { _hsHsmClientCertificateIdentifier :: Maybe Text
     , _hsHsmConfigurationIdentifier     :: Maybe Text
     , _hsStatus                         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'HsmStatus' constructor.
 --
@@ -2306,16 +2507,21 @@ hsStatus = lens _hsStatus (\s a -> s { _hsStatus = a })
 
 instance FromXML HsmStatus where
     parseXML x = HsmStatus
-            <$> x .@? "HsmClientCertificateIdentifier"
-            <*> x .@? "HsmConfigurationIdentifier"
-            <*> x .@? "Status"
+        <$> x .@? "HsmClientCertificateIdentifier"
+        <*> x .@? "HsmConfigurationIdentifier"
+        <*> x .@? "Status"
 
-instance ToQuery HsmStatus
+instance ToQuery HsmStatus where
+    toQuery HsmStatus{..} = mconcat
+        [ "HsmClientCertificateIdentifier" =? _hsHsmClientCertificateIdentifier
+        , "HsmConfigurationIdentifier"     =? _hsHsmConfigurationIdentifier
+        , "Status"                         =? _hsStatus
+        ]
 
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage
     { _cpgnmParameterGroupName   :: Maybe Text
     , _cpgnmParameterGroupStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ClusterParameterGroupNameMessage' constructor.
 --
@@ -2346,15 +2552,19 @@ cpgnmParameterGroupStatus =
 
 instance FromXML ClusterParameterGroupNameMessage where
     parseXML x = ClusterParameterGroupNameMessage
-            <$> x .@? "ParameterGroupName"
-            <*> x .@? "ParameterGroupStatus"
+        <$> x .@? "ParameterGroupName"
+        <*> x .@? "ParameterGroupStatus"
 
-instance ToQuery ClusterParameterGroupNameMessage
+instance ToQuery ClusterParameterGroupNameMessage where
+    toQuery ClusterParameterGroupNameMessage{..} = mconcat
+        [ "ParameterGroupName"   =? _cpgnmParameterGroupName
+        , "ParameterGroupStatus" =? _cpgnmParameterGroupStatus
+        ]
 
 data ElasticIpStatus = ElasticIpStatus
     { _eisElasticIp :: Maybe Text
     , _eisStatus    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ElasticIpStatus' constructor.
 --
@@ -2380,16 +2590,20 @@ eisStatus = lens _eisStatus (\s a -> s { _eisStatus = a })
 
 instance FromXML ElasticIpStatus where
     parseXML x = ElasticIpStatus
-            <$> x .@? "ElasticIp"
-            <*> x .@? "Status"
+        <$> x .@? "ElasticIp"
+        <*> x .@? "Status"
 
-instance ToQuery ElasticIpStatus
+instance ToQuery ElasticIpStatus where
+    toQuery ElasticIpStatus{..} = mconcat
+        [ "ElasticIp" =? _eisElasticIp
+        , "Status"    =? _eisStatus
+        ]
 
 data ClusterVersion = ClusterVersion
     { _cvClusterParameterGroupFamily :: Maybe Text
     , _cvClusterVersion              :: Maybe Text
     , _cvDescription                 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ClusterVersion' constructor.
 --
@@ -2424,16 +2638,21 @@ cvDescription = lens _cvDescription (\s a -> s { _cvDescription = a })
 
 instance FromXML ClusterVersion where
     parseXML x = ClusterVersion
-            <$> x .@? "ClusterParameterGroupFamily"
-            <*> x .@? "ClusterVersion"
-            <*> x .@? "Description"
+        <$> x .@? "ClusterParameterGroupFamily"
+        <*> x .@? "ClusterVersion"
+        <*> x .@? "Description"
 
-instance ToQuery ClusterVersion
+instance ToQuery ClusterVersion where
+    toQuery ClusterVersion{..} = mconcat
+        [ "ClusterParameterGroupFamily" =? _cvClusterParameterGroupFamily
+        , "ClusterVersion"              =? _cvClusterVersion
+        , "Description"                 =? _cvDescription
+        ]
 
 data RecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount    :: Maybe Double
     , _rcRecurringChargeFrequency :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RecurringCharge' constructor.
 --
@@ -2463,15 +2682,19 @@ rcRecurringChargeFrequency =
 
 instance FromXML RecurringCharge where
     parseXML x = RecurringCharge
-            <$> x .@? "RecurringChargeAmount"
-            <*> x .@? "RecurringChargeFrequency"
+        <$> x .@? "RecurringChargeAmount"
+        <*> x .@? "RecurringChargeFrequency"
 
-instance ToQuery RecurringCharge
+instance ToQuery RecurringCharge where
+    toQuery RecurringCharge{..} = mconcat
+        [ "RecurringChargeAmount"    =? _rcRecurringChargeAmount
+        , "RecurringChargeFrequency" =? _rcRecurringChargeFrequency
+        ]
 
 data Endpoint = Endpoint
     { _eAddress :: Maybe Text
     , _ePort    :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Endpoint' constructor.
 --
@@ -2497,15 +2720,19 @@ ePort = lens _ePort (\s a -> s { _ePort = a })
 
 instance FromXML Endpoint where
     parseXML x = Endpoint
-            <$> x .@? "Address"
-            <*> x .@? "Port"
+        <$> x .@? "Address"
+        <*> x .@? "Port"
 
-instance ToQuery Endpoint
+instance ToQuery Endpoint where
+    toQuery Endpoint{..} = mconcat
+        [ "Address" =? _eAddress
+        , "Port"    =? _ePort
+        ]
 
 data IPRange = IPRange
     { _iprCIDRIP :: Maybe Text
     , _iprStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IPRange' constructor.
 --
@@ -2531,15 +2758,19 @@ iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
 
 instance FromXML IPRange where
     parseXML x = IPRange
-            <$> x .@? "CIDRIP"
-            <*> x .@? "Status"
+        <$> x .@? "CIDRIP"
+        <*> x .@? "Status"
 
-instance ToQuery IPRange
+instance ToQuery IPRange where
+    toQuery IPRange{..} = mconcat
+        [ "CIDRIP" =? _iprCIDRIP
+        , "Status" =? _iprStatus
+        ]
 
 data EventCategoriesMap = EventCategoriesMap
-    { _ecmEvents     :: [EventInfoMap]
+    { _ecmEvents     :: List "EventInfoMap" EventInfoMap
     , _ecmSourceType :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'EventCategoriesMap' constructor.
 --
@@ -2557,7 +2788,7 @@ eventCategoriesMap = EventCategoriesMap
 
 -- | The events in the event category.
 ecmEvents :: Lens' EventCategoriesMap [EventInfoMap]
-ecmEvents = lens _ecmEvents (\s a -> s { _ecmEvents = a })
+ecmEvents = lens _ecmEvents (\s a -> s { _ecmEvents = a }) . _List
 
 -- | The Amazon Redshift source type, such as cluster or cluster-snapshot,
 -- that the returned categories belong to.
@@ -2566,17 +2797,21 @@ ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
 
 instance FromXML EventCategoriesMap where
     parseXML x = EventCategoriesMap
-            <$> x .@ "Events"
-            <*> x .@? "SourceType"
+        <$> x .@  "Events"
+        <*> x .@? "SourceType"
 
-instance ToQuery EventCategoriesMap
+instance ToQuery EventCategoriesMap where
+    toQuery EventCategoriesMap{..} = mconcat
+        [ "Events"     =? _ecmEvents
+        , "SourceType" =? _ecmSourceType
+        ]
 
 data HsmConfiguration = HsmConfiguration
     { _hcDescription                :: Maybe Text
     , _hcHsmConfigurationIdentifier :: Maybe Text
     , _hcHsmIpAddress               :: Maybe Text
     , _hcHsmPartitionName           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'HsmConfiguration' constructor.
 --
@@ -2621,12 +2856,18 @@ hcHsmPartitionName =
 
 instance FromXML HsmConfiguration where
     parseXML x = HsmConfiguration
-            <$> x .@? "Description"
-            <*> x .@? "HsmConfigurationIdentifier"
-            <*> x .@? "HsmIpAddress"
-            <*> x .@? "HsmPartitionName"
+        <$> x .@? "Description"
+        <*> x .@? "HsmConfigurationIdentifier"
+        <*> x .@? "HsmIpAddress"
+        <*> x .@? "HsmPartitionName"
 
-instance ToQuery HsmConfiguration
+instance ToQuery HsmConfiguration where
+    toQuery HsmConfiguration{..} = mconcat
+        [ "Description"                =? _hcDescription
+        , "HsmConfigurationIdentifier" =? _hcHsmConfigurationIdentifier
+        , "HsmIpAddress"               =? _hcHsmIpAddress
+        , "HsmPartitionName"           =? _hcHsmPartitionName
+        ]
 
 data PendingModifiedValues = PendingModifiedValues
     { _pmvAutomatedSnapshotRetentionPeriod :: Maybe Int
@@ -2636,7 +2877,7 @@ data PendingModifiedValues = PendingModifiedValues
     , _pmvMasterUserPassword               :: Maybe Text
     , _pmvNodeType                         :: Maybe Text
     , _pmvNumberOfNodes                    :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PendingModifiedValues' constructor.
 --
@@ -2704,20 +2945,29 @@ pmvNumberOfNodes = lens _pmvNumberOfNodes (\s a -> s { _pmvNumberOfNodes = a })
 
 instance FromXML PendingModifiedValues where
     parseXML x = PendingModifiedValues
-            <$> x .@? "AutomatedSnapshotRetentionPeriod"
-            <*> x .@? "ClusterIdentifier"
-            <*> x .@? "ClusterType"
-            <*> x .@? "ClusterVersion"
-            <*> x .@? "MasterUserPassword"
-            <*> x .@? "NodeType"
-            <*> x .@? "NumberOfNodes"
+        <$> x .@? "AutomatedSnapshotRetentionPeriod"
+        <*> x .@? "ClusterIdentifier"
+        <*> x .@? "ClusterType"
+        <*> x .@? "ClusterVersion"
+        <*> x .@? "MasterUserPassword"
+        <*> x .@? "NodeType"
+        <*> x .@? "NumberOfNodes"
 
-instance ToQuery PendingModifiedValues
+instance ToQuery PendingModifiedValues where
+    toQuery PendingModifiedValues{..} = mconcat
+        [ "AutomatedSnapshotRetentionPeriod" =? _pmvAutomatedSnapshotRetentionPeriod
+        , "ClusterIdentifier"                =? _pmvClusterIdentifier
+        , "ClusterType"                      =? _pmvClusterType
+        , "ClusterVersion"                   =? _pmvClusterVersion
+        , "MasterUserPassword"               =? _pmvMasterUserPassword
+        , "NodeType"                         =? _pmvNodeType
+        , "NumberOfNodes"                    =? _pmvNumberOfNodes
+        ]
 
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmStatus             :: Maybe Text
     , _vsgmVpcSecurityGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'VpcSecurityGroupMembership' constructor.
 --
@@ -2742,10 +2992,14 @@ vsgmVpcSecurityGroupId =
 
 instance FromXML VpcSecurityGroupMembership where
     parseXML x = VpcSecurityGroupMembership
-            <$> x .@? "Status"
-            <*> x .@? "VpcSecurityGroupId"
+        <$> x .@? "Status"
+        <*> x .@? "VpcSecurityGroupId"
 
-instance ToQuery VpcSecurityGroupMembership
+instance ToQuery VpcSecurityGroupMembership where
+    toQuery VpcSecurityGroupMembership{..} = mconcat
+        [ "Status"             =? _vsgmStatus
+        , "VpcSecurityGroupId" =? _vsgmVpcSecurityGroupId
+        ]
 
 data Parameter = Parameter
     { _pAllowedValues        :: Maybe Text
@@ -2756,7 +3010,7 @@ data Parameter = Parameter
     , _pParameterName        :: Maybe Text
     , _pParameterValue       :: Maybe Text
     , _pSource               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Parameter' constructor.
 --
@@ -2826,13 +3080,23 @@ pSource = lens _pSource (\s a -> s { _pSource = a })
 
 instance FromXML Parameter where
     parseXML x = Parameter
-            <$> x .@? "AllowedValues"
-            <*> x .@? "DataType"
-            <*> x .@? "Description"
-            <*> x .@? "IsModifiable"
-            <*> x .@? "MinimumEngineVersion"
-            <*> x .@? "ParameterName"
-            <*> x .@? "ParameterValue"
-            <*> x .@? "Source"
+        <$> x .@? "AllowedValues"
+        <*> x .@? "DataType"
+        <*> x .@? "Description"
+        <*> x .@? "IsModifiable"
+        <*> x .@? "MinimumEngineVersion"
+        <*> x .@? "ParameterName"
+        <*> x .@? "ParameterValue"
+        <*> x .@? "Source"
 
-instance ToQuery Parameter
+instance ToQuery Parameter where
+    toQuery Parameter{..} = mconcat
+        [ "AllowedValues"        =? _pAllowedValues
+        , "DataType"             =? _pDataType
+        , "Description"          =? _pDescription
+        , "IsModifiable"         =? _pIsModifiable
+        , "MinimumEngineVersion" =? _pMinimumEngineVersion
+        , "ParameterName"        =? _pParameterName
+        , "ParameterValue"       =? _pParameterValue
+        , "Source"               =? _pSource
+        ]

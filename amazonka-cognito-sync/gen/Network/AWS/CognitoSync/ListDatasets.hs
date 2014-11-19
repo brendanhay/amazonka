@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ data ListDatasets = ListDatasets
     , _ldIdentityPoolId :: Text
     , _ldMaxResults     :: Maybe Int
     , _ldNextToken      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDatasets' constructor.
 --
@@ -104,9 +105,9 @@ ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
 data ListDatasetsResponse = ListDatasetsResponse
     { _ldrCount     :: Maybe Int
-    , _ldrDatasets  :: [Dataset]
+    , _ldrDatasets  :: List "Datasets" Dataset
     , _ldrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListDatasetsResponse' constructor.
 --
@@ -131,7 +132,7 @@ ldrCount = lens _ldrCount (\s a -> s { _ldrCount = a })
 
 -- | A set of datasets.
 ldrDatasets :: Lens' ListDatasetsResponse [Dataset]
-ldrDatasets = lens _ldrDatasets (\s a -> s { _ldrDatasets = a })
+ldrDatasets = lens _ldrDatasets (\s a -> s { _ldrDatasets = a }) . _List
 
 -- | A pagination token for obtaining the next page of results.
 ldrNextToken :: Lens' ListDatasetsResponse (Maybe Text)
@@ -167,5 +168,5 @@ instance AWSRequest ListDatasets where
 instance FromJSON ListDatasetsResponse where
     parseJSON = withObject "ListDatasetsResponse" $ \o -> ListDatasetsResponse
         <$> o .:? "Count"
-        <*> o .: "Datasets"
+        <*> o .:  "Datasets"
         <*> o .:? "NextToken"

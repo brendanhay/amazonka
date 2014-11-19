@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -286,9 +287,9 @@ instance AWSService ElasticTranscoder where
 
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text
-    , _pocPermissions  :: [Permission]
+    , _pocPermissions  :: List "Permissions" Permission
     , _pocStorageClass :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PipelineOutputConfig' constructor.
 --
@@ -335,7 +336,7 @@ pocBucket = lens _pocBucket (\s a -> s { _pocBucket = a })
 -- files and playlists to the owner of the role specified by Role, and
 -- grants no other permissions to any other user or group.
 pocPermissions :: Lens' PipelineOutputConfig [Permission]
-pocPermissions = lens _pocPermissions (\s a -> s { _pocPermissions = a })
+pocPermissions = lens _pocPermissions (\s a -> s { _pocPermissions = a }) . _List
 
 -- | The Amazon S3 storage class, Standard or ReducedRedundancy, that you want
 -- Elastic Transcoder to assign to the video files and playlists that it
@@ -346,7 +347,7 @@ pocStorageClass = lens _pocStorageClass (\s a -> s { _pocStorageClass = a })
 instance FromJSON PipelineOutputConfig where
     parseJSON = withObject "PipelineOutputConfig" $ \o -> PipelineOutputConfig
         <$> o .:? "Bucket"
-        <*> o .: "Permissions"
+        <*> o .:  "Permissions"
         <*> o .:? "StorageClass"
 
 instance ToJSON PipelineOutputConfig where
@@ -359,8 +360,8 @@ instance ToJSON PipelineOutputConfig where
 data CreateJobPlaylist = CreateJobPlaylist
     { _cjpFormat     :: Maybe Text
     , _cjpName       :: Maybe Text
-    , _cjpOutputKeys :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _cjpOutputKeys :: List "OutputKeys" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateJobPlaylist' constructor.
 --
@@ -419,13 +420,13 @@ cjpName = lens _cjpName (\s a -> s { _cjpName = a })
 -- playlists, the Audio:Profile, Video:Profile, and Video:FrameRate to
 -- Video:KeyframesMaxDist ratio must be the same for all outputs.
 cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
-cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a })
+cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a }) . _List
 
 instance FromJSON CreateJobPlaylist where
     parseJSON = withObject "CreateJobPlaylist" $ \o -> CreateJobPlaylist
         <$> o .:? "Format"
         <*> o .:? "Name"
-        <*> o .: "OutputKeys"
+        <*> o .:  "OutputKeys"
 
 instance ToJSON CreateJobPlaylist where
     toJSON CreateJobPlaylist{..} = object
@@ -435,10 +436,10 @@ instance ToJSON CreateJobPlaylist where
         ]
 
 data Captions = Captions
-    { _cCaptionFormats :: [CaptionFormat]
-    , _cCaptionSources :: [CaptionSource]
+    { _cCaptionFormats :: List "CaptionFormats" CaptionFormat
+    , _cCaptionSources :: List "CaptionSources" CaptionSource
     , _cMergePolicy    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Captions' constructor.
 --
@@ -460,12 +461,12 @@ captions = Captions
 -- | The array of file formats for the output captions. If you leave this
 -- value blank, Elastic Transcoder returns an error.
 cCaptionFormats :: Lens' Captions [CaptionFormat]
-cCaptionFormats = lens _cCaptionFormats (\s a -> s { _cCaptionFormats = a })
+cCaptionFormats = lens _cCaptionFormats (\s a -> s { _cCaptionFormats = a }) . _List
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave CaptionSources blank.
 cCaptionSources :: Lens' Captions [CaptionSource]
-cCaptionSources = lens _cCaptionSources (\s a -> s { _cCaptionSources = a })
+cCaptionSources = lens _cCaptionSources (\s a -> s { _cCaptionSources = a }) . _List
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions. MergeOverride: Elastic Transcoder transcodes both
@@ -485,8 +486,8 @@ cMergePolicy = lens _cMergePolicy (\s a -> s { _cMergePolicy = a })
 
 instance FromJSON Captions where
     parseJSON = withObject "Captions" $ \o -> Captions
-        <$> o .: "CaptionFormats"
-        <*> o .: "CaptionSources"
+        <$> o .:  "CaptionFormats"
+        <*> o .:  "CaptionSources"
         <*> o .:? "MergePolicy"
 
 instance ToJSON Captions where
@@ -498,7 +499,7 @@ instance ToJSON Captions where
 
 newtype AudioCodecOptions = AudioCodecOptions
     { _acoProfile :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AudioCodecOptions' constructor.
 --
@@ -536,7 +537,7 @@ instance ToJSON AudioCodecOptions where
 data JobOutput = JobOutput
     { _joAlbumArt         :: Maybe JobAlbumArt
     , _joCaptions         :: Maybe Captions
-    , _joComposition      :: [Clip]
+    , _joComposition      :: List "Composition" Clip
     , _joDuration         :: Maybe Integer
     , _joHeight           :: Maybe Int
     , _joId               :: Maybe Text
@@ -547,9 +548,9 @@ data JobOutput = JobOutput
     , _joStatus           :: Maybe Text
     , _joStatusDetail     :: Maybe Text
     , _joThumbnailPattern :: Maybe Text
-    , _joWatermarks       :: [JobWatermark]
+    , _joWatermarks       :: List "Watermarks" JobWatermark
     , _joWidth            :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'JobOutput' constructor.
 --
@@ -645,7 +646,7 @@ joCaptions = lens _joCaptions (\s a -> s { _joCaptions = a })
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
 joComposition :: Lens' JobOutput [Clip]
-joComposition = lens _joComposition (\s a -> s { _joComposition = a })
+joComposition = lens _joComposition (\s a -> s { _joComposition = a }) . _List
 
 -- | Duration of the output file, in seconds.
 joDuration :: Lens' JobOutput (Maybe Integer)
@@ -761,7 +762,7 @@ joThumbnailPattern =
 -- add will cover the first one, the third one will cover the second, and
 -- the fourth one will cover the third.
 joWatermarks :: Lens' JobOutput [JobWatermark]
-joWatermarks = lens _joWatermarks (\s a -> s { _joWatermarks = a })
+joWatermarks = lens _joWatermarks (\s a -> s { _joWatermarks = a }) . _List
 
 -- | Specifies the width of the output file in pixels.
 joWidth :: Lens' JobOutput (Maybe Int)
@@ -771,7 +772,7 @@ instance FromJSON JobOutput where
     parseJSON = withObject "JobOutput" $ \o -> JobOutput
         <$> o .:? "AlbumArt"
         <*> o .:? "Captions"
-        <*> o .: "Composition"
+        <*> o .:  "Composition"
         <*> o .:? "Duration"
         <*> o .:? "Height"
         <*> o .:? "Id"
@@ -782,7 +783,7 @@ instance FromJSON JobOutput where
         <*> o .:? "Status"
         <*> o .:? "StatusDetail"
         <*> o .:? "ThumbnailPattern"
-        <*> o .: "Watermarks"
+        <*> o .:  "Watermarks"
         <*> o .:? "Width"
 
 instance ToJSON JobOutput where
@@ -810,11 +811,11 @@ data Job' = Job'
     , _jInput           :: Maybe JobInput
     , _jOutput          :: Maybe JobOutput
     , _jOutputKeyPrefix :: Maybe Text
-    , _jOutputs         :: [JobOutput]
+    , _jOutputs         :: List "Outputs" JobOutput
     , _jPipelineId      :: Maybe Text
-    , _jPlaylists       :: [Playlist]
+    , _jPlaylists       :: List "Playlists" Playlist
     , _jStatus          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Job'' constructor.
 --
@@ -889,7 +890,7 @@ jOutputKeyPrefix = lens _jOutputKeyPrefix (\s a -> s { _jOutputKeyPrefix = a })
 -- creates the files for each output in the order in which you specify them
 -- in the job.
 jOutputs :: Lens' Job' [JobOutput]
-jOutputs = lens _jOutputs (\s a -> s { _jOutputs = a })
+jOutputs = lens _jOutputs (\s a -> s { _jOutputs = a }) . _List
 
 -- | The Id of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
@@ -905,7 +906,7 @@ jPipelineId = lens _jPipelineId (\s a -> s { _jPipelineId = a })
 -- that you want Elastic Transcoder to create. The maximum number of master
 -- playlists in a job is 30.
 jPlaylists :: Lens' Job' [Playlist]
-jPlaylists = lens _jPlaylists (\s a -> s { _jPlaylists = a })
+jPlaylists = lens _jPlaylists (\s a -> s { _jPlaylists = a }) . _List
 
 -- | The status of the job: Submitted, Progressing, Complete, Canceled, or
 -- Error.
@@ -919,9 +920,9 @@ instance FromJSON Job' where
         <*> o .:? "Input"
         <*> o .:? "Output"
         <*> o .:? "OutputKeyPrefix"
-        <*> o .: "Outputs"
+        <*> o .:  "Outputs"
         <*> o .:? "PipelineId"
-        <*> o .: "Playlists"
+        <*> o .:  "Playlists"
         <*> o .:? "Status"
 
 instance ToJSON Job' where
@@ -942,7 +943,7 @@ data CaptionSource = CaptionSource
     , _csLabel      :: Maybe Text
     , _csLanguage   :: Maybe Text
     , _csTimeOffset :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CaptionSource' constructor.
 --
@@ -1011,7 +1012,7 @@ data Artwork = Artwork
     , _aMaxWidth       :: Maybe Text
     , _aPaddingPolicy  :: Maybe Text
     , _aSizingPolicy   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Artwork' constructor.
 --
@@ -1118,7 +1119,7 @@ instance ToJSON Artwork where
 data TimeSpan = TimeSpan
     { _tsDuration  :: Maybe Text
     , _tsStartTime :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TimeSpan' constructor.
 --
@@ -1165,14 +1166,14 @@ instance ToJSON TimeSpan where
 data CreateJobOutput = CreateJobOutput
     { _cjoAlbumArt         :: Maybe JobAlbumArt
     , _cjoCaptions         :: Maybe Captions
-    , _cjoComposition      :: [Clip]
+    , _cjoComposition      :: List "Composition" Clip
     , _cjoKey              :: Maybe Text
     , _cjoPresetId         :: Maybe Text
     , _cjoRotate           :: Maybe Text
     , _cjoSegmentDuration  :: Maybe Text
     , _cjoThumbnailPattern :: Maybe Text
-    , _cjoWatermarks       :: [JobWatermark]
-    } deriving (Eq, Show, Generic)
+    , _cjoWatermarks       :: List "Watermarks" JobWatermark
+    } deriving (Eq, Show)
 
 -- | 'CreateJobOutput' constructor.
 --
@@ -1253,7 +1254,7 @@ cjoCaptions = lens _cjoCaptions (\s a -> s { _cjoCaptions = a })
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
 cjoComposition :: Lens' CreateJobOutput [Clip]
-cjoComposition = lens _cjoComposition (\s a -> s { _cjoComposition = a })
+cjoComposition = lens _cjoComposition (\s a -> s { _cjoComposition = a }) . _List
 
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the
 -- file in the Amazon S3 bucket specified by the OutputBucket object in the
@@ -1324,19 +1325,19 @@ cjoThumbnailPattern =
 -- for each output. Settings for each watermark must be defined in the
 -- preset for the current output.
 cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
-cjoWatermarks = lens _cjoWatermarks (\s a -> s { _cjoWatermarks = a })
+cjoWatermarks = lens _cjoWatermarks (\s a -> s { _cjoWatermarks = a }) . _List
 
 instance FromJSON CreateJobOutput where
     parseJSON = withObject "CreateJobOutput" $ \o -> CreateJobOutput
         <$> o .:? "AlbumArt"
         <*> o .:? "Captions"
-        <*> o .: "Composition"
+        <*> o .:  "Composition"
         <*> o .:? "Key"
         <*> o .:? "PresetId"
         <*> o .:? "Rotate"
         <*> o .:? "SegmentDuration"
         <*> o .:? "ThumbnailPattern"
-        <*> o .: "Watermarks"
+        <*> o .:  "Watermarks"
 
 instance ToJSON CreateJobOutput where
     toJSON CreateJobOutput{..} = object
@@ -1357,7 +1358,7 @@ data AudioParameters = AudioParameters
     , _apCodec        :: Maybe Text
     , _apCodecOptions :: Maybe AudioCodecOptions
     , _apSampleRate   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AudioParameters' constructor.
 --
@@ -1437,7 +1438,7 @@ data Thumbnails = Thumbnails
     , _tPaddingPolicy :: Maybe Text
     , _tResolution    :: Maybe Text
     , _tSizingPolicy  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Thumbnails' constructor.
 --
@@ -1570,9 +1571,9 @@ instance ToJSON Thumbnails where
         ]
 
 data JobAlbumArt = JobAlbumArt
-    { _jaaArtwork     :: [Artwork]
+    { _jaaArtwork     :: List "Artwork" Artwork
     , _jaaMergePolicy :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'JobAlbumArt' constructor.
 --
@@ -1592,7 +1593,7 @@ jobAlbumArt = JobAlbumArt
 -- associated with an audio file, to a maximum of 20. Valid formats are .jpg
 -- and .png.
 jaaArtwork :: Lens' JobAlbumArt [Artwork]
-jaaArtwork = lens _jaaArtwork (\s a -> s { _jaaArtwork = a })
+jaaArtwork = lens _jaaArtwork (\s a -> s { _jaaArtwork = a }) . _List
 
 -- | A policy that determines how Elastic Transcoder will handle the existence
 -- of multiple album artwork files. Replace: The specified album art will
@@ -1607,7 +1608,7 @@ jaaMergePolicy = lens _jaaMergePolicy (\s a -> s { _jaaMergePolicy = a })
 
 instance FromJSON JobAlbumArt where
     parseJSON = withObject "JobAlbumArt" $ \o -> JobAlbumArt
-        <$> o .: "Artwork"
+        <$> o .:  "Artwork"
         <*> o .:? "MergePolicy"
 
 instance ToJSON JobAlbumArt where
@@ -1619,7 +1620,7 @@ instance ToJSON JobAlbumArt where
 data JobWatermark = JobWatermark
     { _jwInputKey          :: Maybe Text
     , _jwPresetWatermarkId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'JobWatermark' constructor.
 --
@@ -1675,7 +1676,7 @@ data Pipeline = Pipeline
     , _pRole            :: Maybe Text
     , _pStatus          :: Maybe Text
     , _pThumbnailConfig :: Maybe PipelineOutputConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Pipeline' constructor.
 --
@@ -1860,7 +1861,7 @@ data Preset = Preset
     , _p1Thumbnails  :: Maybe Thumbnails
     , _p1Type        :: Maybe Text
     , _p1Video       :: Maybe VideoParameters
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Preset' constructor.
 --
@@ -1967,7 +1968,7 @@ instance ToJSON Preset where
 data CaptionFormat = CaptionFormat
     { _cfFormat  :: Maybe Text
     , _cfPattern :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CaptionFormat' constructor.
 --
@@ -2030,7 +2031,7 @@ data PresetWatermark = PresetWatermark
     , _pwTarget           :: Maybe Text
     , _pwVerticalAlign    :: Maybe Text
     , _pwVerticalOffset   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PresetWatermark' constructor.
 --
@@ -2216,10 +2217,10 @@ instance ToJSON PresetWatermark where
         ]
 
 data Permission = Permission
-    { _pAccess      :: [Text]
+    { _pAccess      :: List "Access" Text
     , _pGrantee     :: Maybe Text
     , _pGranteeType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Permission' constructor.
 --
@@ -2248,7 +2249,7 @@ permission = Permission
 -- WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to
 -- the Amazon S3 bucket.
 pAccess :: Lens' Permission [Text]
-pAccess = lens _pAccess (\s a -> s { _pAccess = a })
+pAccess = lens _pAccess (\s a -> s { _pAccess = a }) . _List
 
 -- | The AWS user or group that you want to have access to transcoded files
 -- and playlists. To identify the user or group, you can specify the
@@ -2269,7 +2270,7 @@ pGranteeType = lens _pGranteeType (\s a -> s { _pGranteeType = a })
 
 instance FromJSON Permission where
     parseJSON = withObject "Permission" $ \o -> Permission
-        <$> o .: "Access"
+        <$> o .:  "Access"
         <*> o .:? "Grantee"
         <*> o .:? "GranteeType"
 
@@ -2284,7 +2285,7 @@ data VideoParameters = VideoParameters
     { _vpAspectRatio        :: Maybe Text
     , _vpBitRate            :: Maybe Text
     , _vpCodec              :: Maybe Text
-    , _vpCodecOptions       :: Map Text Text
+    , _vpCodecOptions       :: Map "entry" "key" "value" Text Text
     , _vpDisplayAspectRatio :: Maybe Text
     , _vpFixedGOP           :: Maybe Text
     , _vpFrameRate          :: Maybe Text
@@ -2295,8 +2296,8 @@ data VideoParameters = VideoParameters
     , _vpPaddingPolicy      :: Maybe Text
     , _vpResolution         :: Maybe Text
     , _vpSizingPolicy       :: Maybe Text
-    , _vpWatermarks         :: [PresetWatermark]
-    } deriving (Eq, Show, Generic)
+    , _vpWatermarks         :: List "Watermarks" PresetWatermark
+    } deriving (Eq, Show)
 
 -- | 'VideoParameters' constructor.
 --
@@ -2413,8 +2414,7 @@ vpCodec = lens _vpCodec (\s a -> s { _vpCodec = a })
 -- MaxBitRate and omit BufferSize, Elastic Transcoder sets BufferSize to 10
 -- times the value of MaxBitRate.
 vpCodecOptions :: Lens' VideoParameters (HashMap Text Text)
-vpCodecOptions = lens _vpCodecOptions (\s a -> s { _vpCodecOptions = a })
-    . _Map
+vpCodecOptions = lens _vpCodecOptions (\s a -> s { _vpCodecOptions = a }) . _Map
 
 -- | The value that Elastic Transcoder adds to the metadata in the output
 -- file.
@@ -2555,14 +2555,14 @@ vpSizingPolicy = lens _vpSizingPolicy (\s a -> s { _vpSizingPolicy = a })
 -- the preset, which allows you to use the same preset for up to four
 -- watermarks that have different dimensions.
 vpWatermarks :: Lens' VideoParameters [PresetWatermark]
-vpWatermarks = lens _vpWatermarks (\s a -> s { _vpWatermarks = a })
+vpWatermarks = lens _vpWatermarks (\s a -> s { _vpWatermarks = a }) . _List
 
 instance FromJSON VideoParameters where
     parseJSON = withObject "VideoParameters" $ \o -> VideoParameters
         <$> o .:? "AspectRatio"
         <*> o .:? "BitRate"
         <*> o .:? "Codec"
-        <*> o .: "CodecOptions"
+        <*> o .:  "CodecOptions"
         <*> o .:? "DisplayAspectRatio"
         <*> o .:? "FixedGOP"
         <*> o .:? "FrameRate"
@@ -2573,7 +2573,7 @@ instance FromJSON VideoParameters where
         <*> o .:? "PaddingPolicy"
         <*> o .:? "Resolution"
         <*> o .:? "SizingPolicy"
-        <*> o .: "Watermarks"
+        <*> o .:  "Watermarks"
 
 instance ToJSON VideoParameters where
     toJSON VideoParameters{..} = object
@@ -2597,10 +2597,10 @@ instance ToJSON VideoParameters where
 data Playlist = Playlist
     { _p2Format       :: Maybe Text
     , _p2Name         :: Maybe Text
-    , _p2OutputKeys   :: [Text]
+    , _p2OutputKeys   :: List "OutputKeys" Text
     , _p2Status       :: Maybe Text
     , _p2StatusDetail :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Playlist' constructor.
 --
@@ -2665,7 +2665,7 @@ p2Name = lens _p2Name (\s a -> s { _p2Name = a })
 -- playlists, the Audio:Profile, Video:Profile, and Video:FrameRate to
 -- Video:KeyframesMaxDist ratio must be the same for all outputs.
 p2OutputKeys :: Lens' Playlist [Text]
-p2OutputKeys = lens _p2OutputKeys (\s a -> s { _p2OutputKeys = a })
+p2OutputKeys = lens _p2OutputKeys (\s a -> s { _p2OutputKeys = a }) . _List
 
 -- | The status of the job with which the playlist is associated.
 p2Status :: Lens' Playlist (Maybe Text)
@@ -2679,7 +2679,7 @@ instance FromJSON Playlist where
     parseJSON = withObject "Playlist" $ \o -> Playlist
         <$> o .:? "Format"
         <*> o .:? "Name"
-        <*> o .: "OutputKeys"
+        <*> o .:  "OutputKeys"
         <*> o .:? "Status"
         <*> o .:? "StatusDetail"
 
@@ -2697,7 +2697,7 @@ data Notifications = Notifications
     , _nError       :: Maybe Text
     , _nProgressing :: Maybe Text
     , _nWarning     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Notifications' constructor.
 --
@@ -2756,7 +2756,7 @@ instance ToJSON Notifications where
 
 newtype Clip = Clip
     { _cTimeSpan :: Maybe TimeSpan
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Clip' constructor.
 --
@@ -2789,7 +2789,7 @@ data JobInput = JobInput
     , _jiInterlaced  :: Maybe Text
     , _jiKey         :: Maybe Text
     , _jiResolution  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'JobInput' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetReusableDelegationSet = GetReusableDelegationSet
     { _grdsId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetReusableDelegationSet' constructor.
 --
@@ -68,7 +69,7 @@ grdsId = lens _grdsId (\s a -> s { _grdsId = a })
 
 newtype GetReusableDelegationSetResponse = GetReusableDelegationSetResponse
     { _grdsrDelegationSet :: DelegationSet
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetReusableDelegationSetResponse' constructor.
 --
@@ -113,4 +114,4 @@ instance AWSRequest GetReusableDelegationSet where
 
 instance FromXML GetReusableDelegationSetResponse where
     parseXML x = GetReusableDelegationSetResponse
-            <$> x .@ "DelegationSet"
+        <$> x .@  "DelegationSet"

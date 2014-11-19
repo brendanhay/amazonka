@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,10 +49,10 @@ import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
 data SetStatus = SetStatus
-    { _ssObjectIds  :: [Text]
+    { _ssObjectIds  :: List "pipelineIds" Text
     , _ssPipelineId :: Text
     , _ssStatus     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetStatus' constructor.
 --
@@ -75,7 +76,7 @@ setStatus p1 p2 = SetStatus
 -- | Identifies an array of objects. The corresponding objects can be either
 -- physical or components, but not a mix of both types.
 ssObjectIds :: Lens' SetStatus [Text]
-ssObjectIds = lens _ssObjectIds (\s a -> s { _ssObjectIds = a })
+ssObjectIds = lens _ssObjectIds (\s a -> s { _ssObjectIds = a }) . _List
 
 -- | Identifies the pipeline that contains the objects.
 ssPipelineId :: Lens' SetStatus Text

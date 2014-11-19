@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ import qualified GHC.Exts
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface
     { _cpviConnectionId              :: Text
     , _cpviNewPublicVirtualInterface :: NewPublicVirtualInterface
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePublicVirtualInterface' constructor.
 --
@@ -102,14 +103,14 @@ data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
     , _cpvirCustomerRouterConfig  :: Maybe Text
     , _cpvirLocation              :: Maybe Text
     , _cpvirOwnerAccount          :: Maybe Text
-    , _cpvirRouteFilterPrefixes   :: [RouteFilterPrefix]
+    , _cpvirRouteFilterPrefixes   :: List "routeFilterPrefixes" RouteFilterPrefix
     , _cpvirVirtualGatewayId      :: Maybe Text
     , _cpvirVirtualInterfaceId    :: Maybe Text
     , _cpvirVirtualInterfaceName  :: Maybe Text
     , _cpvirVirtualInterfaceState :: Maybe Text
     , _cpvirVirtualInterfaceType  :: Maybe Text
     , _cpvirVlan                  :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePublicVirtualInterfaceResponse' constructor.
 --
@@ -199,6 +200,7 @@ cpvirRouteFilterPrefixes :: Lens' CreatePublicVirtualInterfaceResponse [RouteFil
 cpvirRouteFilterPrefixes =
     lens _cpvirRouteFilterPrefixes
         (\s a -> s { _cpvirRouteFilterPrefixes = a })
+            . _List
 
 cpvirVirtualGatewayId :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
 cpvirVirtualGatewayId =
@@ -257,7 +259,7 @@ instance FromJSON CreatePublicVirtualInterfaceResponse where
         <*> o .:? "customerRouterConfig"
         <*> o .:? "location"
         <*> o .:? "ownerAccount"
-        <*> o .: "routeFilterPrefixes"
+        <*> o .:  "routeFilterPrefixes"
         <*> o .:? "virtualGatewayId"
         <*> o .:? "virtualInterfaceId"
         <*> o .:? "virtualInterfaceName"

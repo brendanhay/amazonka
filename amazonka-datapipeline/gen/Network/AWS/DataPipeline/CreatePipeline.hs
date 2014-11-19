@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data CreatePipeline = CreatePipeline
     { _cpDescription :: Maybe Text
     , _cpName        :: Text
     , _cpUniqueId    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreatePipeline' constructor.
 --
@@ -99,7 +100,7 @@ cpUniqueId = lens _cpUniqueId (\s a -> s { _cpUniqueId = a })
 
 newtype CreatePipelineResponse = CreatePipelineResponse
     { _cprPipelineId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CreatePipelineResponse' constructor.
 --
@@ -142,4 +143,4 @@ instance AWSRequest CreatePipeline where
 
 instance FromJSON CreatePipelineResponse where
     parseJSON = withObject "CreatePipelineResponse" $ \o -> CreatePipelineResponse
-        <$> o .: "pipelineId"
+        <$> o .:  "pipelineId"

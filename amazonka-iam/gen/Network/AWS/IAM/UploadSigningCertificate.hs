@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ import qualified GHC.Exts
 data UploadSigningCertificate = UploadSigningCertificate
     { _usc1CertificateBody :: Text
     , _usc1UserName        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UploadSigningCertificate' constructor.
 --
@@ -83,7 +84,7 @@ usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
 
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
     { _uscrCertificate :: SigningCertificate
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UploadSigningCertificateResponse' constructor.
 --
@@ -104,7 +105,11 @@ uscrCertificate = lens _uscrCertificate (\s a -> s { _uscrCertificate = a })
 instance ToPath UploadSigningCertificate where
     toPath = const "/"
 
-instance ToQuery UploadSigningCertificate
+instance ToQuery UploadSigningCertificate where
+    toQuery UploadSigningCertificate{..} = mconcat
+        [ "CertificateBody" =? _usc1CertificateBody
+        , "UserName"        =? _usc1UserName
+        ]
 
 instance ToHeaders UploadSigningCertificate
 
@@ -116,5 +121,5 @@ instance AWSRequest UploadSigningCertificate where
     response = xmlResponse
 
 instance FromXML UploadSigningCertificateResponse where
-    parseXML = withElement "UploadSigningCertificateResult" $ \x ->
-            <$> x .@ "Certificate"
+    parseXML = withElement "UploadSigningCertificateResult" $ \x -> UploadSigningCertificateResponse
+        <$> x .@  "Certificate"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,10 +51,10 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations
-    { _dlcLaunchConfigurationNames :: [Text]
+    { _dlcLaunchConfigurationNames :: List "LaunchConfigurationNames" Text
     , _dlcMaxRecords               :: Maybe Int
     , _dlcNextToken                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeLaunchConfigurations' constructor.
 --
@@ -77,6 +78,7 @@ dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
 dlcLaunchConfigurationNames =
     lens _dlcLaunchConfigurationNames
         (\s a -> s { _dlcLaunchConfigurationNames = a })
+            . _List
 
 -- | The maximum number of launch configurations. The default is 100.
 dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
@@ -87,9 +89,9 @@ dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
 dlcNextToken = lens _dlcNextToken (\s a -> s { _dlcNextToken = a })
 
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
-    { _dlcrLaunchConfigurations :: [LaunchConfiguration]
+    { _dlcrLaunchConfigurations :: List "LaunchConfigurations" LaunchConfiguration
     , _dlcrNextToken            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeLaunchConfigurationsResponse' constructor.
 --
@@ -110,6 +112,7 @@ dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchCo
 dlcrLaunchConfigurations =
     lens _dlcrLaunchConfigurations
         (\s a -> s { _dlcrLaunchConfigurations = a })
+            . _List
 
 -- | A string that marks the start of the next batch of returned results.
 dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
@@ -118,7 +121,12 @@ dlcrNextToken = lens _dlcrNextToken (\s a -> s { _dlcrNextToken = a })
 instance ToPath DescribeLaunchConfigurations where
     toPath = const "/"
 
-instance ToQuery DescribeLaunchConfigurations
+instance ToQuery DescribeLaunchConfigurations where
+    toQuery DescribeLaunchConfigurations{..} = mconcat
+        [ "LaunchConfigurationNames" =? _dlcLaunchConfigurationNames
+        , "MaxRecords"               =? _dlcMaxRecords
+        , "NextToken"                =? _dlcNextToken
+        ]
 
 instance ToHeaders DescribeLaunchConfigurations
 
@@ -130,9 +138,9 @@ instance AWSRequest DescribeLaunchConfigurations where
     response = xmlResponse
 
 instance FromXML DescribeLaunchConfigurationsResponse where
-    parseXML = withElement "DescribeLaunchConfigurationsResult" $ \x ->
-            <$> x .@ "LaunchConfigurations"
-            <*> x .@? "NextToken"
+    parseXML = withElement "DescribeLaunchConfigurationsResult" $ \x -> DescribeLaunchConfigurationsResponse
+        <$> x .@  "LaunchConfigurations"
+        <*> x .@? "NextToken"
 
 instance AWSPager DescribeLaunchConfigurations where
     next rq rs = (\x -> rq & dlcNextToken ?~ x)

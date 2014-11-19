@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
     , _slbasEnable      :: Maybe Bool
     , _slbasLayerId     :: Text
     , _slbasUpScaling   :: Maybe AutoScalingThresholds
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SetLoadBasedAutoScaling' constructor.
 --

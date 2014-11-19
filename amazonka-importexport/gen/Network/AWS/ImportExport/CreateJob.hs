@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ data CreateJob = CreateJob
     , _cjManifest         :: Text
     , _cjManifestAddendum :: Maybe Text
     , _cjValidateOnly     :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateJob' constructor.
 --
@@ -106,7 +107,7 @@ data CreateJobResponse = CreateJobResponse
     , _cjrSignature             :: Maybe Text
     , _cjrSignatureFileContents :: Maybe Text
     , _cjrWarningMessage        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateJobResponse' constructor.
 --
@@ -159,7 +160,13 @@ cjrWarningMessage =
 instance ToPath CreateJob where
     toPath = const "/"
 
-instance ToQuery CreateJob
+instance ToQuery CreateJob where
+    toQuery CreateJob{..} = mconcat
+        [ "JobType"          =? _cjJobType
+        , "Manifest"         =? _cjManifest
+        , "ManifestAddendum" =? _cjManifestAddendum
+        , "ValidateOnly"     =? _cjValidateOnly
+        ]
 
 instance ToHeaders CreateJob
 
@@ -171,10 +178,10 @@ instance AWSRequest CreateJob where
     response = xmlResponse
 
 instance FromXML CreateJobResponse where
-    parseXML = withElement "CreateJobResult" $ \x ->
-            <$> x .@? "AwsShippingAddress"
-            <*> x .@? "JobId"
-            <*> x .@? "JobType"
-            <*> x .@? "Signature"
-            <*> x .@? "SignatureFileContents"
-            <*> x .@? "WarningMessage"
+    parseXML = withElement "CreateJobResult" $ \x -> CreateJobResponse
+        <$> x .@? "AwsShippingAddress"
+        <*> x .@? "JobId"
+        <*> x .@? "JobType"
+        <*> x .@? "Signature"
+        <*> x .@? "SignatureFileContents"
+        <*> x .@? "WarningMessage"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype CancelJob = CancelJob
     { _cjJobId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CancelJob' constructor.
 --
@@ -66,7 +67,7 @@ cjJobId = lens _cjJobId (\s a -> s { _cjJobId = a })
 
 newtype CancelJobResponse = CancelJobResponse
     { _cjrSuccess :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CancelJobResponse' constructor.
 --
@@ -85,7 +86,10 @@ cjrSuccess = lens _cjrSuccess (\s a -> s { _cjrSuccess = a })
 instance ToPath CancelJob where
     toPath = const "/"
 
-instance ToQuery CancelJob
+instance ToQuery CancelJob where
+    toQuery CancelJob{..} = mconcat
+        [ "JobId" =? _cjJobId
+        ]
 
 instance ToHeaders CancelJob
 
@@ -97,5 +101,5 @@ instance AWSRequest CancelJob where
     response = xmlResponse
 
 instance FromXML CancelJobResponse where
-    parseXML = withElement "CancelJobResult" $ \x ->
-            <$> x .@? "Success"
+    parseXML = withElement "CancelJobResult" $ \x -> CancelJobResponse
+        <$> x .@? "Success"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data ListGrants = ListGrants
     { _lgKeyId  :: Text
     , _lgLimit  :: Maybe Nat
     , _lgMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListGrants' constructor.
 --
@@ -82,8 +83,7 @@ lgKeyId = lens _lgKeyId (\s a -> s { _lgKeyId = a })
 -- additional grants beyond the maximum you specify, the Truncated response
 -- element will be set to true.
 lgLimit :: Lens' ListGrants (Maybe Natural)
-lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a })
-    . mapping _Nat
+lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a }) . mapping _Nat
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -92,10 +92,10 @@ lgMarker :: Lens' ListGrants (Maybe Text)
 lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 
 data ListGrantsResponse = ListGrantsResponse
-    { _lgrGrants     :: [GrantListEntry]
+    { _lgrGrants     :: List "Grants" GrantListEntry
     , _lgrNextMarker :: Maybe Text
     , _lgrTruncated  :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListGrantsResponse' constructor.
 --
@@ -116,7 +116,7 @@ listGrantsResponse = ListGrantsResponse
 
 -- | A list of grants.
 lgrGrants :: Lens' ListGrantsResponse [GrantListEntry]
-lgrGrants = lens _lgrGrants (\s a -> s { _lgrGrants = a })
+lgrGrants = lens _lgrGrants (\s a -> s { _lgrGrants = a }) . _List
 
 -- | If Truncated is true, this value is present and contains the value to use
 -- for the Marker request parameter in a subsequent pagination request.
@@ -153,6 +153,6 @@ instance AWSRequest ListGrants where
 
 instance FromJSON ListGrantsResponse where
     parseJSON = withObject "ListGrantsResponse" $ \o -> ListGrantsResponse
-        <$> o .: "Grants"
+        <$> o .:  "Grants"
         <*> o .:? "NextMarker"
         <*> o .:? "Truncated"

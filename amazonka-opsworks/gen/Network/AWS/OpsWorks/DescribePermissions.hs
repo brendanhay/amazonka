@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data DescribePermissions = DescribePermissions
     { _dpIamUserArn :: Maybe Text
     , _dpStackId    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribePermissions' constructor.
 --
@@ -77,8 +78,8 @@ dpStackId :: Lens' DescribePermissions (Maybe Text)
 dpStackId = lens _dpStackId (\s a -> s { _dpStackId = a })
 
 newtype DescribePermissionsResponse = DescribePermissionsResponse
-    { _dprPermissions :: [Permission]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dprPermissions :: List "Permissions" Permission
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribePermissionsResponse where
     type Item DescribePermissionsResponse = Permission
@@ -105,7 +106,7 @@ describePermissionsResponse = DescribePermissionsResponse
 -- contains a stack ID and an IAM ARN, the array contains a single
 -- Permission object with permissions for the specified stack and IAM ARN.
 dprPermissions :: Lens' DescribePermissionsResponse [Permission]
-dprPermissions = lens _dprPermissions (\s a -> s { _dprPermissions = a })
+dprPermissions = lens _dprPermissions (\s a -> s { _dprPermissions = a }) . _List
 
 instance ToPath DescribePermissions where
     toPath = const "/"
@@ -130,4 +131,4 @@ instance AWSRequest DescribePermissions where
 
 instance FromJSON DescribePermissionsResponse where
     parseJSON = withObject "DescribePermissionsResponse" $ \o -> DescribePermissionsResponse
-        <$> o .: "Permissions"
+        <$> o .:  "Permissions"

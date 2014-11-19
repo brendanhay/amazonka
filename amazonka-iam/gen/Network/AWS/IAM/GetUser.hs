@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetUser = GetUser
     { _guUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'GetUser' constructor.
 --
@@ -70,7 +71,7 @@ guUserName = lens _guUserName (\s a -> s { _guUserName = a })
 
 newtype GetUserResponse = GetUserResponse
     { _gurUser :: User
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetUserResponse' constructor.
 --
@@ -91,7 +92,10 @@ gurUser = lens _gurUser (\s a -> s { _gurUser = a })
 instance ToPath GetUser where
     toPath = const "/"
 
-instance ToQuery GetUser
+instance ToQuery GetUser where
+    toQuery GetUser{..} = mconcat
+        [ "UserName" =? _guUserName
+        ]
 
 instance ToHeaders GetUser
 
@@ -103,5 +107,5 @@ instance AWSRequest GetUser where
     response = xmlResponse
 
 instance FromXML GetUserResponse where
-    parseXML = withElement "GetUserResult" $ \x ->
-            <$> x .@ "User"
+    parseXML = withElement "GetUserResult" $ \x -> GetUserResponse
+        <$> x .@  "User"

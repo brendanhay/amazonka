@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeChapCredentials = DescribeChapCredentials
     { _dccTargetARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeChapCredentials' constructor.
 --
@@ -69,8 +70,8 @@ dccTargetARN :: Lens' DescribeChapCredentials Text
 dccTargetARN = lens _dccTargetARN (\s a -> s { _dccTargetARN = a })
 
 newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
-    { _dccrChapCredentials :: [ChapInfo]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dccrChapCredentials :: List "ChapCredentials" ChapInfo
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeChapCredentialsResponse where
     type Item DescribeChapCredentialsResponse = ChapInfo
@@ -103,6 +104,7 @@ describeChapCredentialsResponse = DescribeChapCredentialsResponse
 dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrChapCredentials =
     lens _dccrChapCredentials (\s a -> s { _dccrChapCredentials = a })
+        . _List
 
 instance ToPath DescribeChapCredentials where
     toPath = const "/"
@@ -126,4 +128,4 @@ instance AWSRequest DescribeChapCredentials where
 
 instance FromJSON DescribeChapCredentialsResponse where
     parseJSON = withObject "DescribeChapCredentialsResponse" $ \o -> DescribeChapCredentialsResponse
-        <$> o .: "ChapCredentials"
+        <$> o .:  "ChapCredentials"

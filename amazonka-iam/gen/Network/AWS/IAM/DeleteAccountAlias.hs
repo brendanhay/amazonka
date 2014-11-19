@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteAccountAlias = DeleteAccountAlias
     { _daaAccountAlias :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteAccountAlias' constructor.
 --
@@ -74,7 +75,10 @@ deleteAccountAliasResponse = DeleteAccountAliasResponse
 instance ToPath DeleteAccountAlias where
     toPath = const "/"
 
-instance ToQuery DeleteAccountAlias
+instance ToQuery DeleteAccountAlias where
+    toQuery DeleteAccountAlias{..} = mconcat
+        [ "AccountAlias" =? _daaAccountAlias
+        ]
 
 instance ToHeaders DeleteAccountAlias
 

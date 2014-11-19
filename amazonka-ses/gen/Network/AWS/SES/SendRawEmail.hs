@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -66,10 +67,10 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 data SendRawEmail = SendRawEmail
-    { _sreDestinations :: [Text]
+    { _sreDestinations :: List "ToAddresses" Text
     , _sreRawMessage   :: RawMessage
     , _sreSource       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SendRawEmail' constructor.
 --
@@ -92,7 +93,7 @@ sendRawEmail p1 = SendRawEmail
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
 sreDestinations :: Lens' SendRawEmail [Text]
-sreDestinations = lens _sreDestinations (\s a -> s { _sreDestinations = a })
+sreDestinations = lens _sreDestinations (\s a -> s { _sreDestinations = a }) . _List
 
 -- | The raw text of the message. The client is responsible for ensuring the
 -- following: Message must contain a header and a body, separated by a blank
@@ -114,7 +115,7 @@ sreSource = lens _sreSource (\s a -> s { _sreSource = a })
 
 newtype SendRawEmailResponse = SendRawEmailResponse
     { _srerMessageId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'SendRawEmailResponse' constructor.
 --
@@ -135,7 +136,12 @@ srerMessageId = lens _srerMessageId (\s a -> s { _srerMessageId = a })
 instance ToPath SendRawEmail where
     toPath = const "/"
 
-instance ToQuery SendRawEmail
+instance ToQuery SendRawEmail where
+    toQuery SendRawEmail{..} = mconcat
+        [ "Destinations" =? _sreDestinations
+        , "RawMessage"   =? _sreRawMessage
+        , "Source"       =? _sreSource
+        ]
 
 instance ToHeaders SendRawEmail
 
@@ -147,5 +153,5 @@ instance AWSRequest SendRawEmail where
     response = xmlResponse
 
 instance FromXML SendRawEmailResponse where
-    parseXML = withElement "SendRawEmailResult" $ \x ->
-            <$> x .@ "MessageId"
+    parseXML = withElement "SendRawEmailResult" $ \x -> SendRawEmailResponse
+        <$> x .@  "MessageId"

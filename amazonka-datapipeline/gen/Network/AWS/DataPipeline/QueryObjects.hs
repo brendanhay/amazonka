@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ data QueryObjects = QueryObjects
     , _qoPipelineId :: Text
     , _qoQuery      :: Maybe Query
     , _qoSphere     :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'QueryObjects' constructor.
 --
@@ -118,9 +119,9 @@ qoSphere = lens _qoSphere (\s a -> s { _qoSphere = a })
 
 data QueryObjectsResponse = QueryObjectsResponse
     { _qorHasMoreResults :: Maybe Bool
-    , _qorIds            :: [Text]
+    , _qorIds            :: List "pipelineIds" Text
     , _qorMarker         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'QueryObjectsResponse' constructor.
 --
@@ -147,7 +148,7 @@ qorHasMoreResults =
 
 -- | A list of identifiers that match the query selectors.
 qorIds :: Lens' QueryObjectsResponse [Text]
-qorIds = lens _qorIds (\s a -> s { _qorIds = a })
+qorIds = lens _qorIds (\s a -> s { _qorIds = a }) . _List
 
 -- | The starting point for the results to be returned. As long as the action
 -- returns HasMoreResults as True, you can call QueryObjects again and pass
@@ -182,7 +183,7 @@ instance AWSRequest QueryObjects where
 instance FromJSON QueryObjectsResponse where
     parseJSON = withObject "QueryObjectsResponse" $ \o -> QueryObjectsResponse
         <$> o .:? "hasMoreResults"
-        <*> o .: "ids"
+        <*> o .:  "ids"
         <*> o .:? "marker"
 
 instance AWSPager QueryObjects where

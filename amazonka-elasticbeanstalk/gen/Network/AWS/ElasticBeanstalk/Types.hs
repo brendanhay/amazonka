@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -288,12 +289,12 @@ instance AWSService ElasticBeanstalk where
 
 data ApplicationDescription = ApplicationDescription
     { _adApplicationName        :: Maybe Text
-    , _adConfigurationTemplates :: [Text]
+    , _adConfigurationTemplates :: List "ConfigurationTemplates" Text
     , _adDateCreated            :: Maybe RFC822
     , _adDateUpdated            :: Maybe RFC822
     , _adDescription            :: Maybe Text
-    , _adVersions               :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _adVersions               :: List "Versions" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ApplicationDescription' constructor.
 --
@@ -332,16 +333,15 @@ adConfigurationTemplates :: Lens' ApplicationDescription [Text]
 adConfigurationTemplates =
     lens _adConfigurationTemplates
         (\s a -> s { _adConfigurationTemplates = a })
+            . _List
 
 -- | The date when the application was created.
 adDateCreated :: Lens' ApplicationDescription (Maybe UTCTime)
-adDateCreated = lens _adDateCreated (\s a -> s { _adDateCreated = a })
-    . mapping _Time
+adDateCreated = lens _adDateCreated (\s a -> s { _adDateCreated = a }) . mapping _Time
 
 -- | The date when the application was last modified.
 adDateUpdated :: Lens' ApplicationDescription (Maybe UTCTime)
-adDateUpdated = lens _adDateUpdated (\s a -> s { _adDateUpdated = a })
-    . mapping _Time
+adDateUpdated = lens _adDateUpdated (\s a -> s { _adDateUpdated = a }) . mapping _Time
 
 -- | User-defined description of the application.
 adDescription :: Lens' ApplicationDescription (Maybe Text)
@@ -349,18 +349,26 @@ adDescription = lens _adDescription (\s a -> s { _adDescription = a })
 
 -- | The names of the versions for this application.
 adVersions :: Lens' ApplicationDescription [Text]
-adVersions = lens _adVersions (\s a -> s { _adVersions = a })
+adVersions = lens _adVersions (\s a -> s { _adVersions = a }) . _List
 
 instance FromXML ApplicationDescription where
     parseXML x = ApplicationDescription
-            <$> x .@? "ApplicationName"
-            <*> x .@ "ConfigurationTemplates"
-            <*> x .@? "DateCreated"
-            <*> x .@? "DateUpdated"
-            <*> x .@? "Description"
-            <*> x .@ "Versions"
+        <$> x .@? "ApplicationName"
+        <*> x .@  "ConfigurationTemplates"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "Description"
+        <*> x .@  "Versions"
 
-instance ToQuery ApplicationDescription
+instance ToQuery ApplicationDescription where
+    toQuery ApplicationDescription{..} = mconcat
+        [ "ApplicationName"        =? _adApplicationName
+        , "ConfigurationTemplates" =? _adConfigurationTemplates
+        , "DateCreated"            =? _adDateCreated
+        , "DateUpdated"            =? _adDateUpdated
+        , "Description"            =? _adDescription
+        , "Versions"               =? _adVersions
+        ]
 
 data EventSeverity
     = Debug -- ^ DEBUG
@@ -393,12 +401,13 @@ instance ToText EventSeverity where
 instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
 
-instance ToQuery EventSeverity
+instance ToQuery EventSeverity where
+    toQuery EventSeverity = toQuery . toText
 
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Tag' constructor.
 --
@@ -424,10 +433,14 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-            <$> x .@? "Key"
-            <*> x .@? "Value"
+        <$> x .@? "Key"
+        <*> x .@? "Value"
 
-instance ToQuery Tag
+instance ToQuery Tag where
+    toQuery Tag{..} = mconcat
+        [ "Key"   =? _tagKey
+        , "Value" =? _tagValue
+        ]
 
 data EventDescription = EventDescription
     { _edApplicationName :: Maybe Text
@@ -438,7 +451,7 @@ data EventDescription = EventDescription
     , _edSeverity        :: Maybe Text
     , _edTemplateName    :: Maybe Text
     , _edVersionLabel    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EventDescription' constructor.
 --
@@ -484,8 +497,7 @@ edEnvironmentName =
 
 -- | The date when the event occurred.
 edEventDate :: Lens' EventDescription (Maybe UTCTime)
-edEventDate = lens _edEventDate (\s a -> s { _edEventDate = a })
-    . mapping _Time
+edEventDate = lens _edEventDate (\s a -> s { _edEventDate = a }) . mapping _Time
 
 -- | The event message.
 edMessage :: Lens' EventDescription (Maybe Text)
@@ -509,20 +521,30 @@ edVersionLabel = lens _edVersionLabel (\s a -> s { _edVersionLabel = a })
 
 instance FromXML EventDescription where
     parseXML x = EventDescription
-            <$> x .@? "ApplicationName"
-            <*> x .@? "EnvironmentName"
-            <*> x .@? "EventDate"
-            <*> x .@? "Message"
-            <*> x .@? "RequestId"
-            <*> x .@? "Severity"
-            <*> x .@? "TemplateName"
-            <*> x .@? "VersionLabel"
+        <$> x .@? "ApplicationName"
+        <*> x .@? "EnvironmentName"
+        <*> x .@? "EventDate"
+        <*> x .@? "Message"
+        <*> x .@? "RequestId"
+        <*> x .@? "Severity"
+        <*> x .@? "TemplateName"
+        <*> x .@? "VersionLabel"
 
-instance ToQuery EventDescription
+instance ToQuery EventDescription where
+    toQuery EventDescription{..} = mconcat
+        [ "ApplicationName" =? _edApplicationName
+        , "EnvironmentName" =? _edEnvironmentName
+        , "EventDate"       =? _edEventDate
+        , "Message"         =? _edMessage
+        , "RequestId"       =? _edRequestId
+        , "Severity"        =? _edSeverity
+        , "TemplateName"    =? _edTemplateName
+        , "VersionLabel"    =? _edVersionLabel
+        ]
 
 newtype LaunchConfiguration = LaunchConfiguration
     { _lcName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'LaunchConfiguration' constructor.
 --
@@ -541,13 +563,16 @@ lcName = lens _lcName (\s a -> s { _lcName = a })
 
 instance FromXML LaunchConfiguration where
     parseXML x = LaunchConfiguration
-            <$> x .@? "Name"
+        <$> x .@? "Name"
 
-instance ToQuery LaunchConfiguration
+instance ToQuery LaunchConfiguration where
+    toQuery LaunchConfiguration{..} = mconcat
+        [ "Name" =? _lcName
+        ]
 
 newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage
     { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ApplicationVersionDescriptionMessage' constructor.
 --
@@ -567,13 +592,16 @@ avdmApplicationVersion =
 
 instance FromXML ApplicationVersionDescriptionMessage where
     parseXML x = ApplicationVersionDescriptionMessage
-            <$> x .@? "ApplicationVersion"
+        <$> x .@? "ApplicationVersion"
 
-instance ToQuery ApplicationVersionDescriptionMessage
+instance ToQuery ApplicationVersionDescriptionMessage where
+    toQuery ApplicationVersionDescriptionMessage{..} = mconcat
+        [ "ApplicationVersion" =? _avdmApplicationVersion
+        ]
 
 newtype AutoScalingGroup = AutoScalingGroup
     { _asgName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AutoScalingGroup' constructor.
 --
@@ -592,9 +620,12 @@ asgName = lens _asgName (\s a -> s { _asgName = a })
 
 instance FromXML AutoScalingGroup where
     parseXML x = AutoScalingGroup
-            <$> x .@? "Name"
+        <$> x .@? "Name"
 
-instance ToQuery AutoScalingGroup
+instance ToQuery AutoScalingGroup where
+    toQuery AutoScalingGroup{..} = mconcat
+        [ "Name" =? _asgName
+        ]
 
 data ConfigurationDeploymentStatus
     = Deployed -- ^ deployed
@@ -618,13 +649,14 @@ instance ToText ConfigurationDeploymentStatus where
 instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
 
-instance ToQuery ConfigurationDeploymentStatus
+instance ToQuery ConfigurationDeploymentStatus where
+    toQuery ConfigurationDeploymentStatus = toQuery . toText
 
 data ConfigurationOptionSetting = ConfigurationOptionSetting
     { _cosNamespace  :: Maybe Text
     , _cosOptionName :: Maybe Text
     , _cosValue      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ConfigurationOptionSetting' constructor.
 --
@@ -657,11 +689,16 @@ cosValue = lens _cosValue (\s a -> s { _cosValue = a })
 
 instance FromXML ConfigurationOptionSetting where
     parseXML x = ConfigurationOptionSetting
-            <$> x .@? "Namespace"
-            <*> x .@? "OptionName"
-            <*> x .@? "Value"
+        <$> x .@? "Namespace"
+        <*> x .@? "OptionName"
+        <*> x .@? "Value"
 
-instance ToQuery ConfigurationOptionSetting
+instance ToQuery ConfigurationOptionSetting where
+    toQuery ConfigurationOptionSetting{..} = mconcat
+        [ "Namespace"  =? _cosNamespace
+        , "OptionName" =? _cosOptionName
+        , "Value"      =? _cosValue
+        ]
 
 data ConfigurationOptionValueType
     = List   -- ^ List
@@ -682,7 +719,8 @@ instance ToText ConfigurationOptionValueType where
 instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
 
-instance ToQuery ConfigurationOptionValueType
+instance ToQuery ConfigurationOptionValueType where
+    toQuery ConfigurationOptionValueType = toQuery . toText
 
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     { _csdApplicationName   :: Maybe Text
@@ -691,10 +729,10 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     , _csdDeploymentStatus  :: Maybe Text
     , _csdDescription       :: Maybe Text
     , _csdEnvironmentName   :: Maybe Text
-    , _csdOptionSettings    :: [ConfigurationOptionSetting]
+    , _csdOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
     , _csdSolutionStackName :: Maybe Text
     , _csdTemplateName      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ConfigurationSettingsDescription' constructor.
 --
@@ -738,13 +776,11 @@ csdApplicationName =
 
 -- | The date (in UTC time) when this configuration set was created.
 csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
-csdDateCreated = lens _csdDateCreated (\s a -> s { _csdDateCreated = a })
-    . mapping _Time
+csdDateCreated = lens _csdDateCreated (\s a -> s { _csdDateCreated = a }) . mapping _Time
 
 -- | The date (in UTC time) when this configuration set was last modified.
 csdDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
-csdDateUpdated = lens _csdDateUpdated (\s a -> s { _csdDateUpdated = a })
-    . mapping _Time
+csdDateUpdated = lens _csdDateUpdated (\s a -> s { _csdDateUpdated = a }) . mapping _Time
 
 -- | If this configuration set is associated with an environment, the
 -- DeploymentStatus parameter indicates the deployment status of this
@@ -778,6 +814,7 @@ csdEnvironmentName =
 csdOptionSettings :: Lens' ConfigurationSettingsDescription [ConfigurationOptionSetting]
 csdOptionSettings =
     lens _csdOptionSettings (\s a -> s { _csdOptionSettings = a })
+        . _List
 
 -- | The name of the solution stack this configuration set uses.
 csdSolutionStackName :: Lens' ConfigurationSettingsDescription (Maybe Text)
@@ -791,17 +828,28 @@ csdTemplateName = lens _csdTemplateName (\s a -> s { _csdTemplateName = a })
 
 instance FromXML ConfigurationSettingsDescription where
     parseXML x = ConfigurationSettingsDescription
-            <$> x .@? "ApplicationName"
-            <*> x .@? "DateCreated"
-            <*> x .@? "DateUpdated"
-            <*> x .@? "DeploymentStatus"
-            <*> x .@? "Description"
-            <*> x .@? "EnvironmentName"
-            <*> x .@ "OptionSettings"
-            <*> x .@? "SolutionStackName"
-            <*> x .@? "TemplateName"
+        <$> x .@? "ApplicationName"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "DeploymentStatus"
+        <*> x .@? "Description"
+        <*> x .@? "EnvironmentName"
+        <*> x .@  "OptionSettings"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "TemplateName"
 
-instance ToQuery ConfigurationSettingsDescription
+instance ToQuery ConfigurationSettingsDescription where
+    toQuery ConfigurationSettingsDescription{..} = mconcat
+        [ "ApplicationName"   =? _csdApplicationName
+        , "DateCreated"       =? _csdDateCreated
+        , "DateUpdated"       =? _csdDateUpdated
+        , "DeploymentStatus"  =? _csdDeploymentStatus
+        , "Description"       =? _csdDescription
+        , "EnvironmentName"   =? _csdEnvironmentName
+        , "OptionSettings"    =? _csdOptionSettings
+        , "SolutionStackName" =? _csdSolutionStackName
+        , "TemplateName"      =? _csdTemplateName
+        ]
 
 data ApplicationVersionDescription = ApplicationVersionDescription
     { _avdApplicationName :: Maybe Text
@@ -810,7 +858,7 @@ data ApplicationVersionDescription = ApplicationVersionDescription
     , _avdDescription     :: Maybe Text
     , _avdSourceBundle    :: Maybe S3Location
     , _avdVersionLabel    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ApplicationVersionDescription' constructor.
 --
@@ -845,13 +893,11 @@ avdApplicationName =
 
 -- | The creation date of the application version.
 avdDateCreated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
-avdDateCreated = lens _avdDateCreated (\s a -> s { _avdDateCreated = a })
-    . mapping _Time
+avdDateCreated = lens _avdDateCreated (\s a -> s { _avdDateCreated = a }) . mapping _Time
 
 -- | The last modified date of the application version.
 avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
-avdDateUpdated = lens _avdDateUpdated (\s a -> s { _avdDateUpdated = a })
-    . mapping _Time
+avdDateUpdated = lens _avdDateUpdated (\s a -> s { _avdDateUpdated = a }) . mapping _Time
 
 -- | The description of this application version.
 avdDescription :: Lens' ApplicationVersionDescription (Maybe Text)
@@ -867,19 +913,27 @@ avdVersionLabel = lens _avdVersionLabel (\s a -> s { _avdVersionLabel = a })
 
 instance FromXML ApplicationVersionDescription where
     parseXML x = ApplicationVersionDescription
-            <$> x .@? "ApplicationName"
-            <*> x .@? "DateCreated"
-            <*> x .@? "DateUpdated"
-            <*> x .@? "Description"
-            <*> x .@? "SourceBundle"
-            <*> x .@? "VersionLabel"
+        <$> x .@? "ApplicationName"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "Description"
+        <*> x .@? "SourceBundle"
+        <*> x .@? "VersionLabel"
 
-instance ToQuery ApplicationVersionDescription
+instance ToQuery ApplicationVersionDescription where
+    toQuery ApplicationVersionDescription{..} = mconcat
+        [ "ApplicationName" =? _avdApplicationName
+        , "DateCreated"     =? _avdDateCreated
+        , "DateUpdated"     =? _avdDateUpdated
+        , "Description"     =? _avdDescription
+        , "SourceBundle"    =? _avdSourceBundle
+        , "VersionLabel"    =? _avdVersionLabel
+        ]
 
 data OptionSpecification = OptionSpecification
     { _osNamespace  :: Maybe Text
     , _osOptionName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'OptionSpecification' constructor.
 --
@@ -905,20 +959,24 @@ osOptionName = lens _osOptionName (\s a -> s { _osOptionName = a })
 
 instance FromXML OptionSpecification where
     parseXML x = OptionSpecification
-            <$> x .@? "Namespace"
-            <*> x .@? "OptionName"
+        <$> x .@? "Namespace"
+        <*> x .@? "OptionName"
 
-instance ToQuery OptionSpecification
+instance ToQuery OptionSpecification where
+    toQuery OptionSpecification{..} = mconcat
+        [ "Namespace"  =? _osNamespace
+        , "OptionName" =? _osOptionName
+        ]
 
 data EnvironmentResourceDescription = EnvironmentResourceDescription
-    { _erdAutoScalingGroups    :: [AutoScalingGroup]
+    { _erdAutoScalingGroups    :: List "AutoScalingGroups" AutoScalingGroup
     , _erdEnvironmentName      :: Maybe Text
-    , _erdInstances            :: [Instance]
-    , _erdLaunchConfigurations :: [LaunchConfiguration]
-    , _erdLoadBalancers        :: [LoadBalancer]
-    , _erdQueues               :: [Queue]
-    , _erdTriggers             :: [Trigger]
-    } deriving (Eq, Show, Generic)
+    , _erdInstances            :: List "Instances" Instance
+    , _erdLaunchConfigurations :: List "LaunchConfigurations" LaunchConfiguration
+    , _erdLoadBalancers        :: List "LoadBalancers" LoadBalancer
+    , _erdQueues               :: List "Queues" Queue
+    , _erdTriggers             :: List "Triggers" Trigger
+    } deriving (Eq, Show)
 
 -- | 'EnvironmentResourceDescription' constructor.
 --
@@ -953,6 +1011,7 @@ environmentResourceDescription = EnvironmentResourceDescription
 erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
 erdAutoScalingGroups =
     lens _erdAutoScalingGroups (\s a -> s { _erdAutoScalingGroups = a })
+        . _List
 
 -- | The name of the environment.
 erdEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
@@ -961,41 +1020,51 @@ erdEnvironmentName =
 
 -- | The Amazon EC2 instances used by this environment.
 erdInstances :: Lens' EnvironmentResourceDescription [Instance]
-erdInstances = lens _erdInstances (\s a -> s { _erdInstances = a })
+erdInstances = lens _erdInstances (\s a -> s { _erdInstances = a }) . _List
 
 -- | The Auto Scaling launch configurations in use by this environment.
 erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
 erdLaunchConfigurations =
     lens _erdLaunchConfigurations (\s a -> s { _erdLaunchConfigurations = a })
+        . _List
 
 -- | The LoadBalancers in use by this environment.
 erdLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
-erdLoadBalancers = lens _erdLoadBalancers (\s a -> s { _erdLoadBalancers = a })
+erdLoadBalancers = lens _erdLoadBalancers (\s a -> s { _erdLoadBalancers = a }) . _List
 
 -- | The queues used by this environment.
 erdQueues :: Lens' EnvironmentResourceDescription [Queue]
-erdQueues = lens _erdQueues (\s a -> s { _erdQueues = a })
+erdQueues = lens _erdQueues (\s a -> s { _erdQueues = a }) . _List
 
 -- | The AutoScaling triggers in use by this environment.
 erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
-erdTriggers = lens _erdTriggers (\s a -> s { _erdTriggers = a })
+erdTriggers = lens _erdTriggers (\s a -> s { _erdTriggers = a }) . _List
 
 instance FromXML EnvironmentResourceDescription where
     parseXML x = EnvironmentResourceDescription
-            <$> x .@ "AutoScalingGroups"
-            <*> x .@? "EnvironmentName"
-            <*> x .@ "Instances"
-            <*> x .@ "LaunchConfigurations"
-            <*> x .@ "LoadBalancers"
-            <*> x .@ "Queues"
-            <*> x .@ "Triggers"
+        <$> x .@  "AutoScalingGroups"
+        <*> x .@? "EnvironmentName"
+        <*> x .@  "Instances"
+        <*> x .@  "LaunchConfigurations"
+        <*> x .@  "LoadBalancers"
+        <*> x .@  "Queues"
+        <*> x .@  "Triggers"
 
-instance ToQuery EnvironmentResourceDescription
+instance ToQuery EnvironmentResourceDescription where
+    toQuery EnvironmentResourceDescription{..} = mconcat
+        [ "AutoScalingGroups"    =? _erdAutoScalingGroups
+        , "EnvironmentName"      =? _erdEnvironmentName
+        , "Instances"            =? _erdInstances
+        , "LaunchConfigurations" =? _erdLaunchConfigurations
+        , "LoadBalancers"        =? _erdLoadBalancers
+        , "Queues"               =? _erdQueues
+        , "Triggers"             =? _erdTriggers
+        ]
 
 data Queue = Queue
     { _qName :: Maybe Text
     , _qURL  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Queue' constructor.
 --
@@ -1021,10 +1090,14 @@ qURL = lens _qURL (\s a -> s { _qURL = a })
 
 instance FromXML Queue where
     parseXML x = Queue
-            <$> x .@? "Name"
-            <*> x .@? "URL"
+        <$> x .@? "Name"
+        <*> x .@? "URL"
 
-instance ToQuery Queue
+instance ToQuery Queue where
+    toQuery Queue{..} = mconcat
+        [ "Name" =? _qName
+        , "URL"  =? _qURL
+        ]
 
 data EnvironmentStatus
     = Launching   -- ^ Launching
@@ -1054,13 +1127,14 @@ instance ToText EnvironmentStatus where
 instance FromXML EnvironmentStatus where
     parseXML = parseXMLText "EnvironmentStatus"
 
-instance ToQuery EnvironmentStatus
+instance ToQuery EnvironmentStatus where
+    toQuery EnvironmentStatus = toQuery . toText
 
 data LoadBalancerDescription = LoadBalancerDescription
     { _lbdDomain           :: Maybe Text
-    , _lbdListeners        :: [Listener]
+    , _lbdListeners        :: List "Listeners" Listener
     , _lbdLoadBalancerName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'LoadBalancerDescription' constructor.
 --
@@ -1085,7 +1159,7 @@ lbdDomain = lens _lbdDomain (\s a -> s { _lbdDomain = a })
 
 -- | A list of Listeners used by the LoadBalancer.
 lbdListeners :: Lens' LoadBalancerDescription [Listener]
-lbdListeners = lens _lbdListeners (\s a -> s { _lbdListeners = a })
+lbdListeners = lens _lbdListeners (\s a -> s { _lbdListeners = a }) . _List
 
 -- | The name of the LoadBalancer.
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
@@ -1094,15 +1168,20 @@ lbdLoadBalancerName =
 
 instance FromXML LoadBalancerDescription where
     parseXML x = LoadBalancerDescription
-            <$> x .@? "Domain"
-            <*> x .@ "Listeners"
-            <*> x .@? "LoadBalancerName"
+        <$> x .@? "Domain"
+        <*> x .@  "Listeners"
+        <*> x .@? "LoadBalancerName"
 
-instance ToQuery LoadBalancerDescription
+instance ToQuery LoadBalancerDescription where
+    toQuery LoadBalancerDescription{..} = mconcat
+        [ "Domain"           =? _lbdDomain
+        , "Listeners"        =? _lbdListeners
+        , "LoadBalancerName" =? _lbdLoadBalancerName
+        ]
 
 newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage
     { _admApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ApplicationDescriptionMessage' constructor.
 --
@@ -1121,15 +1200,18 @@ admApplication = lens _admApplication (\s a -> s { _admApplication = a })
 
 instance FromXML ApplicationDescriptionMessage where
     parseXML x = ApplicationDescriptionMessage
-            <$> x .@? "Application"
+        <$> x .@? "Application"
 
-instance ToQuery ApplicationDescriptionMessage
+instance ToQuery ApplicationDescriptionMessage where
+    toQuery ApplicationDescriptionMessage{..} = mconcat
+        [ "Application" =? _admApplication
+        ]
 
 data EnvironmentTier = EnvironmentTier
     { _etName    :: Maybe Text
     , _etType    :: Maybe Text
     , _etVersion :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnvironmentTier' constructor.
 --
@@ -1162,15 +1244,20 @@ etVersion = lens _etVersion (\s a -> s { _etVersion = a })
 
 instance FromXML EnvironmentTier where
     parseXML x = EnvironmentTier
-            <$> x .@? "Name"
-            <*> x .@? "Type"
-            <*> x .@? "Version"
+        <$> x .@? "Name"
+        <*> x .@? "Type"
+        <*> x .@? "Version"
 
-instance ToQuery EnvironmentTier
+instance ToQuery EnvironmentTier where
+    toQuery EnvironmentTier{..} = mconcat
+        [ "Name"    =? _etName
+        , "Type"    =? _etType
+        , "Version" =? _etVersion
+        ]
 
 newtype LoadBalancer = LoadBalancer
     { _lbName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'LoadBalancer' constructor.
 --
@@ -1189,13 +1276,16 @@ lbName = lens _lbName (\s a -> s { _lbName = a })
 
 instance FromXML LoadBalancer where
     parseXML x = LoadBalancer
-            <$> x .@? "Name"
+        <$> x .@? "Name"
 
-instance ToQuery LoadBalancer
+instance ToQuery LoadBalancer where
+    toQuery LoadBalancer{..} = mconcat
+        [ "Name" =? _lbName
+        ]
 
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
     { _erdLoadBalancer :: Maybe LoadBalancerDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'EnvironmentResourcesDescription' constructor.
 --
@@ -1214,14 +1304,17 @@ erdLoadBalancer = lens _erdLoadBalancer (\s a -> s { _erdLoadBalancer = a })
 
 instance FromXML EnvironmentResourcesDescription where
     parseXML x = EnvironmentResourcesDescription
-            <$> x .@? "LoadBalancer"
+        <$> x .@? "LoadBalancer"
 
-instance ToQuery EnvironmentResourcesDescription
+instance ToQuery EnvironmentResourcesDescription where
+    toQuery EnvironmentResourcesDescription{..} = mconcat
+        [ "LoadBalancer" =? _erdLoadBalancer
+        ]
 
 data OptionRestrictionRegex = OptionRestrictionRegex
     { _orrLabel   :: Maybe Text
     , _orrPattern :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'OptionRestrictionRegex' constructor.
 --
@@ -1248,10 +1341,14 @@ orrPattern = lens _orrPattern (\s a -> s { _orrPattern = a })
 
 instance FromXML OptionRestrictionRegex where
     parseXML x = OptionRestrictionRegex
-            <$> x .@? "Label"
-            <*> x .@? "Pattern"
+        <$> x .@? "Label"
+        <*> x .@? "Pattern"
 
-instance ToQuery OptionRestrictionRegex
+instance ToQuery OptionRestrictionRegex where
+    toQuery OptionRestrictionRegex{..} = mconcat
+        [ "Label"   =? _orrLabel
+        , "Pattern" =? _orrPattern
+        ]
 
 data ConfigurationOptionDescription = ConfigurationOptionDescription
     { _codChangeSeverity :: Maybe Text
@@ -1263,9 +1360,9 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
     , _codNamespace      :: Maybe Text
     , _codRegex          :: Maybe OptionRestrictionRegex
     , _codUserDefined    :: Maybe Bool
-    , _codValueOptions   :: [Text]
+    , _codValueOptions   :: List "ValueOptions" Text
     , _codValueType      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ConfigurationOptionDescription' constructor.
 --
@@ -1374,7 +1471,7 @@ codUserDefined = lens _codUserDefined (\s a -> s { _codUserDefined = a })
 -- | If specified, values for the configuration option are selected from this
 -- list.
 codValueOptions :: Lens' ConfigurationOptionDescription [Text]
-codValueOptions = lens _codValueOptions (\s a -> s { _codValueOptions = a })
+codValueOptions = lens _codValueOptions (\s a -> s { _codValueOptions = a }) . _List
 
 -- | An indication of which type of values this option has and whether it is
 -- allowable to select one or more than one of the possible values: Scalar :
@@ -1392,24 +1489,37 @@ codValueType = lens _codValueType (\s a -> s { _codValueType = a })
 
 instance FromXML ConfigurationOptionDescription where
     parseXML x = ConfigurationOptionDescription
-            <$> x .@? "ChangeSeverity"
-            <*> x .@? "DefaultValue"
-            <*> x .@? "MaxLength"
-            <*> x .@? "MaxValue"
-            <*> x .@? "MinValue"
-            <*> x .@? "Name"
-            <*> x .@? "Namespace"
-            <*> x .@? "Regex"
-            <*> x .@? "UserDefined"
-            <*> x .@ "ValueOptions"
-            <*> x .@? "ValueType"
+        <$> x .@? "ChangeSeverity"
+        <*> x .@? "DefaultValue"
+        <*> x .@? "MaxLength"
+        <*> x .@? "MaxValue"
+        <*> x .@? "MinValue"
+        <*> x .@? "Name"
+        <*> x .@? "Namespace"
+        <*> x .@? "Regex"
+        <*> x .@? "UserDefined"
+        <*> x .@  "ValueOptions"
+        <*> x .@? "ValueType"
 
-instance ToQuery ConfigurationOptionDescription
+instance ToQuery ConfigurationOptionDescription where
+    toQuery ConfigurationOptionDescription{..} = mconcat
+        [ "ChangeSeverity" =? _codChangeSeverity
+        , "DefaultValue"   =? _codDefaultValue
+        , "MaxLength"      =? _codMaxLength
+        , "MaxValue"       =? _codMaxValue
+        , "MinValue"       =? _codMinValue
+        , "Name"           =? _codName
+        , "Namespace"      =? _codNamespace
+        , "Regex"          =? _codRegex
+        , "UserDefined"    =? _codUserDefined
+        , "ValueOptions"   =? _codValueOptions
+        , "ValueType"      =? _codValueType
+        ]
 
 data SourceConfiguration = SourceConfiguration
     { _scApplicationName :: Maybe Text
     , _scTemplateName    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SourceConfiguration' constructor.
 --
@@ -1436,17 +1546,21 @@ scTemplateName = lens _scTemplateName (\s a -> s { _scTemplateName = a })
 
 instance FromXML SourceConfiguration where
     parseXML x = SourceConfiguration
-            <$> x .@? "ApplicationName"
-            <*> x .@? "TemplateName"
+        <$> x .@? "ApplicationName"
+        <*> x .@? "TemplateName"
 
-instance ToQuery SourceConfiguration
+instance ToQuery SourceConfiguration where
+    toQuery SourceConfiguration{..} = mconcat
+        [ "ApplicationName" =? _scApplicationName
+        , "TemplateName"    =? _scTemplateName
+        ]
 
 data EnvironmentInfoDescription = EnvironmentInfoDescription
     { _eidEc2InstanceId   :: Maybe Text
     , _eidInfoType        :: Maybe Text
     , _eidMessage         :: Maybe Text
     , _eidSampleTimestamp :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnvironmentInfoDescription' constructor.
 --
@@ -1488,17 +1602,23 @@ eidSampleTimestamp =
 
 instance FromXML EnvironmentInfoDescription where
     parseXML x = EnvironmentInfoDescription
-            <$> x .@? "Ec2InstanceId"
-            <*> x .@? "InfoType"
-            <*> x .@? "Message"
-            <*> x .@? "SampleTimestamp"
+        <$> x .@? "Ec2InstanceId"
+        <*> x .@? "InfoType"
+        <*> x .@? "Message"
+        <*> x .@? "SampleTimestamp"
 
-instance ToQuery EnvironmentInfoDescription
+instance ToQuery EnvironmentInfoDescription where
+    toQuery EnvironmentInfoDescription{..} = mconcat
+        [ "Ec2InstanceId"   =? _eidEc2InstanceId
+        , "InfoType"        =? _eidInfoType
+        , "Message"         =? _eidMessage
+        , "SampleTimestamp" =? _eidSampleTimestamp
+        ]
 
 data S3Location = S3Location
     { _slS3Bucket :: Maybe Text
     , _slS3Key    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'S3Location' constructor.
 --
@@ -1524,17 +1644,21 @@ slS3Key = lens _slS3Key (\s a -> s { _slS3Key = a })
 
 instance FromXML S3Location where
     parseXML x = S3Location
-            <$> x .@? "S3Bucket"
-            <*> x .@? "S3Key"
+        <$> x .@? "S3Bucket"
+        <*> x .@? "S3Key"
 
-instance ToQuery S3Location
+instance ToQuery S3Location where
+    toQuery S3Location{..} = mconcat
+        [ "S3Bucket" =? _slS3Bucket
+        , "S3Key"    =? _slS3Key
+        ]
 
 data ValidationMessage = ValidationMessage
     { _vmMessage    :: Maybe Text
     , _vmNamespace  :: Maybe Text
     , _vmOptionName :: Maybe Text
     , _vmSeverity   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ValidationMessage' constructor.
 --
@@ -1579,12 +1703,18 @@ vmSeverity = lens _vmSeverity (\s a -> s { _vmSeverity = a })
 
 instance FromXML ValidationMessage where
     parseXML x = ValidationMessage
-            <$> x .@? "Message"
-            <*> x .@? "Namespace"
-            <*> x .@? "OptionName"
-            <*> x .@? "Severity"
+        <$> x .@? "Message"
+        <*> x .@? "Namespace"
+        <*> x .@? "OptionName"
+        <*> x .@? "Severity"
 
-instance ToQuery ValidationMessage
+instance ToQuery ValidationMessage where
+    toQuery ValidationMessage{..} = mconcat
+        [ "Message"    =? _vmMessage
+        , "Namespace"  =? _vmNamespace
+        , "OptionName" =? _vmOptionName
+        , "Severity"   =? _vmSeverity
+        ]
 
 data ValidationSeverity
     = VSError   -- ^ error
@@ -1605,11 +1735,12 @@ instance ToText ValidationSeverity where
 instance FromXML ValidationSeverity where
     parseXML = parseXMLText "ValidationSeverity"
 
-instance ToQuery ValidationSeverity
+instance ToQuery ValidationSeverity where
+    toQuery ValidationSeverity = toQuery . toText
 
 newtype Trigger = Trigger
     { _tName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'Trigger' constructor.
 --
@@ -1628,9 +1759,12 @@ tName = lens _tName (\s a -> s { _tName = a })
 
 instance FromXML Trigger where
     parseXML x = Trigger
-            <$> x .@? "Name"
+        <$> x .@? "Name"
 
-instance ToQuery Trigger
+instance ToQuery Trigger where
+    toQuery Trigger{..} = mconcat
+        [ "Name" =? _tName
+        ]
 
 data EnvironmentInfoType
     = Tail' -- ^ tail
@@ -1647,7 +1781,8 @@ instance ToText EnvironmentInfoType where
 instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
 
-instance ToQuery EnvironmentInfoType
+instance ToQuery EnvironmentInfoType where
+    toQuery EnvironmentInfoType = toQuery . toText
 
 data EnvironmentDescription = EnvironmentDescription
     { _ed1ApplicationName   :: Maybe Text
@@ -1665,7 +1800,7 @@ data EnvironmentDescription = EnvironmentDescription
     , _ed1TemplateName      :: Maybe Text
     , _ed1Tier              :: Maybe EnvironmentTier
     , _ed1VersionLabel      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'EnvironmentDescription' constructor.
 --
@@ -1731,13 +1866,11 @@ ed1CNAME = lens _ed1CNAME (\s a -> s { _ed1CNAME = a })
 
 -- | The creation date for this environment.
 ed1DateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
-ed1DateCreated = lens _ed1DateCreated (\s a -> s { _ed1DateCreated = a })
-    . mapping _Time
+ed1DateCreated = lens _ed1DateCreated (\s a -> s { _ed1DateCreated = a }) . mapping _Time
 
 -- | The last modified date for this environment.
 ed1DateUpdated :: Lens' EnvironmentDescription (Maybe UTCTime)
-ed1DateUpdated = lens _ed1DateUpdated (\s a -> s { _ed1DateUpdated = a })
-    . mapping _Time
+ed1DateUpdated = lens _ed1DateUpdated (\s a -> s { _ed1DateUpdated = a }) . mapping _Time
 
 -- | Describes this environment.
 ed1Description :: Lens' EnvironmentDescription (Maybe Text)
@@ -1806,28 +1939,45 @@ ed1VersionLabel = lens _ed1VersionLabel (\s a -> s { _ed1VersionLabel = a })
 
 instance FromXML EnvironmentDescription where
     parseXML x = EnvironmentDescription
-            <$> x .@? "ApplicationName"
-            <*> x .@? "CNAME"
-            <*> x .@? "DateCreated"
-            <*> x .@? "DateUpdated"
-            <*> x .@? "Description"
-            <*> x .@? "EndpointURL"
-            <*> x .@? "EnvironmentId"
-            <*> x .@? "EnvironmentName"
-            <*> x .@? "Health"
-            <*> x .@? "Resources"
-            <*> x .@? "SolutionStackName"
-            <*> x .@? "Status"
-            <*> x .@? "TemplateName"
-            <*> x .@? "Tier"
-            <*> x .@? "VersionLabel"
+        <$> x .@? "ApplicationName"
+        <*> x .@? "CNAME"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "Description"
+        <*> x .@? "EndpointURL"
+        <*> x .@? "EnvironmentId"
+        <*> x .@? "EnvironmentName"
+        <*> x .@? "Health"
+        <*> x .@? "Resources"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "Status"
+        <*> x .@? "TemplateName"
+        <*> x .@? "Tier"
+        <*> x .@? "VersionLabel"
 
-instance ToQuery EnvironmentDescription
+instance ToQuery EnvironmentDescription where
+    toQuery EnvironmentDescription{..} = mconcat
+        [ "ApplicationName"   =? _ed1ApplicationName
+        , "CNAME"             =? _ed1CNAME
+        , "DateCreated"       =? _ed1DateCreated
+        , "DateUpdated"       =? _ed1DateUpdated
+        , "Description"       =? _ed1Description
+        , "EndpointURL"       =? _ed1EndpointURL
+        , "EnvironmentId"     =? _ed1EnvironmentId
+        , "EnvironmentName"   =? _ed1EnvironmentName
+        , "Health"            =? _ed1Health
+        , "Resources"         =? _ed1Resources
+        , "SolutionStackName" =? _ed1SolutionStackName
+        , "Status"            =? _ed1Status
+        , "TemplateName"      =? _ed1TemplateName
+        , "Tier"              =? _ed1Tier
+        , "VersionLabel"      =? _ed1VersionLabel
+        ]
 
 data Listener = Listener
     { _lPort     :: Maybe Int
     , _lProtocol :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Listener' constructor.
 --
@@ -1853,10 +2003,14 @@ lProtocol = lens _lProtocol (\s a -> s { _lProtocol = a })
 
 instance FromXML Listener where
     parseXML x = Listener
-            <$> x .@? "Port"
-            <*> x .@? "Protocol"
+        <$> x .@? "Port"
+        <*> x .@? "Protocol"
 
-instance ToQuery Listener
+instance ToQuery Listener where
+    toQuery Listener{..} = mconcat
+        [ "Port"     =? _lPort
+        , "Protocol" =? _lProtocol
+        ]
 
 data EnvironmentHealth
     = Green  -- ^ Green
@@ -1883,11 +2037,12 @@ instance ToText EnvironmentHealth where
 instance FromXML EnvironmentHealth where
     parseXML = parseXMLText "EnvironmentHealth"
 
-instance ToQuery EnvironmentHealth
+instance ToQuery EnvironmentHealth where
+    toQuery EnvironmentHealth = toQuery . toText
 
 newtype Instance = Instance
     { _iId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'Instance' constructor.
 --
@@ -1906,14 +2061,17 @@ iId = lens _iId (\s a -> s { _iId = a })
 
 instance FromXML Instance where
     parseXML x = Instance
-            <$> x .@? "Id"
+        <$> x .@? "Id"
 
-instance ToQuery Instance
+instance ToQuery Instance where
+    toQuery Instance{..} = mconcat
+        [ "Id" =? _iId
+        ]
 
 data SolutionStackDescription = SolutionStackDescription
-    { _ssdPermittedFileTypes :: [Text]
+    { _ssdPermittedFileTypes :: List "PermittedFileTypes" Text
     , _ssdSolutionStackName  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SolutionStackDescription' constructor.
 --
@@ -1933,6 +2091,7 @@ solutionStackDescription = SolutionStackDescription
 ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
 ssdPermittedFileTypes =
     lens _ssdPermittedFileTypes (\s a -> s { _ssdPermittedFileTypes = a })
+        . _List
 
 -- | The name of the solution stack.
 ssdSolutionStackName :: Lens' SolutionStackDescription (Maybe Text)
@@ -1941,7 +2100,11 @@ ssdSolutionStackName =
 
 instance FromXML SolutionStackDescription where
     parseXML x = SolutionStackDescription
-            <$> x .@ "PermittedFileTypes"
-            <*> x .@? "SolutionStackName"
+        <$> x .@  "PermittedFileTypes"
+        <*> x .@? "SolutionStackName"
 
-instance ToQuery SolutionStackDescription
+instance ToQuery SolutionStackDescription where
+    toQuery SolutionStackDescription{..} = mconcat
+        [ "PermittedFileTypes" =? _ssdPermittedFileTypes
+        , "SolutionStackName"  =? _ssdSolutionStackName
+        ]

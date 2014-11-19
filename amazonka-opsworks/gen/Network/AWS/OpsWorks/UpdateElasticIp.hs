@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data UpdateElasticIp = UpdateElasticIp
     { _ueiElasticIp :: Text
     , _ueiName      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateElasticIp' constructor.
 --

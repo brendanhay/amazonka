@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -131,7 +132,7 @@ instance ToJSON Mode where
 data FunctionCodeLocation = FunctionCodeLocation
     { _fclLocation       :: Maybe Text
     , _fclRepositoryType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'FunctionCodeLocation' constructor.
 --
@@ -181,7 +182,7 @@ data FunctionConfiguration = FunctionConfiguration
     , _fcRole            :: Maybe Text
     , _fcRuntime         :: Maybe Text
     , _fcTimeout         :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'FunctionConfiguration' constructor.
 --
@@ -255,14 +256,12 @@ fcHandler = lens _fcHandler (\s a -> s { _fcHandler = a })
 
 -- | The timestamp of the last time you updated the function.
 fcLastModified :: Lens' FunctionConfiguration (Maybe UTCTime)
-fcLastModified = lens _fcLastModified (\s a -> s { _fcLastModified = a })
-    . mapping _Time
+fcLastModified = lens _fcLastModified (\s a -> s { _fcLastModified = a }) . mapping _Time
 
 -- | The memory size, in MB, you configured for the function. Must be a
 -- multiple of 64 MB.
 fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
-fcMemorySize = lens _fcMemorySize (\s a -> s { _fcMemorySize = a })
-    . mapping _Nat
+fcMemorySize = lens _fcMemorySize (\s a -> s { _fcMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
 fcMode :: Lens' FunctionConfiguration (Maybe Text)
@@ -283,8 +282,7 @@ fcRuntime = lens _fcRuntime (\s a -> s { _fcRuntime = a })
 -- you set this value based on your expected execution time. The default is
 -- 3 seconds.
 fcTimeout :: Lens' FunctionConfiguration (Maybe Natural)
-fcTimeout = lens _fcTimeout (\s a -> s { _fcTimeout = a })
-    . mapping _Nat
+fcTimeout = lens _fcTimeout (\s a -> s { _fcTimeout = a }) . mapping _Nat
 
 instance FromJSON FunctionConfiguration where
     parseJSON = withObject "FunctionConfiguration" $ \o -> FunctionConfiguration
@@ -323,11 +321,11 @@ data EventSourceConfiguration = EventSourceConfiguration
     , _escFunctionName :: Maybe Text
     , _escIsActive     :: Maybe Bool
     , _escLastModified :: Maybe RFC822
-    , _escParameters   :: Map Text Text
+    , _escParameters   :: Map "entry" "key" "value" Text Text
     , _escRole         :: Maybe Text
     , _escStatus       :: Maybe Text
     , _escUUID         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'EventSourceConfiguration' constructor.
 --
@@ -387,14 +385,12 @@ escIsActive = lens _escIsActive (\s a -> s { _escIsActive = a })
 -- | The UTC time string indicating the last time the event mapping was
 -- updated.
 escLastModified :: Lens' EventSourceConfiguration (Maybe UTCTime)
-escLastModified = lens _escLastModified (\s a -> s { _escLastModified = a })
-    . mapping _Time
+escLastModified = lens _escLastModified (\s a -> s { _escLastModified = a }) . mapping _Time
 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to
 -- use when reading the event source.
 escParameters :: Lens' EventSourceConfiguration (HashMap Text Text)
-escParameters = lens _escParameters (\s a -> s { _escParameters = a })
-    . _Map
+escParameters = lens _escParameters (\s a -> s { _escParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to
 -- read from the stream and invoke the function.
@@ -419,7 +415,7 @@ instance FromJSON EventSourceConfiguration where
         <*> o .:? "FunctionName"
         <*> o .:? "IsActive"
         <*> o .:? "LastModified"
-        <*> o .: "Parameters"
+        <*> o .:  "Parameters"
         <*> o .:? "Role"
         <*> o .:? "Status"
         <*> o .:? "UUID"

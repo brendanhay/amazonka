@@ -56,7 +56,7 @@ data ResetInstanceAttribute = ResetInstanceAttribute
     { _riaAttribute  :: Text
     , _riaDryRun     :: Maybe Bool
     , _riaInstanceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ResetInstanceAttribute' constructor.
 --
@@ -98,7 +98,12 @@ resetInstanceAttributeResponse = ResetInstanceAttributeResponse
 instance ToPath ResetInstanceAttribute where
     toPath = const "/"
 
-instance ToQuery ResetInstanceAttribute
+instance ToQuery ResetInstanceAttribute where
+    toQuery ResetInstanceAttribute{..} = mconcat
+        [ "attribute"  =? _riaAttribute
+        , "dryRun"     =? _riaDryRun
+        , "instanceId" =? _riaInstanceId
+        ]
 
 instance ToHeaders ResetInstanceAttribute
 

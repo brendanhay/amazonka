@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,8 +55,8 @@ data DescribeTapes = DescribeTapes
     { _dtGatewayARN :: Text
     , _dtLimit      :: Maybe Nat
     , _dtMarker     :: Maybe Text
-    , _dtTapeARNs   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dtTapeARNs   :: List "TapeARNs" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeTapes' constructor.
 --
@@ -84,8 +85,7 @@ dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
 -- | Specifies that the number of virtual tapes described be limited to the
 -- specified number.
 dtLimit :: Lens' DescribeTapes (Maybe Natural)
-dtLimit = lens _dtLimit (\s a -> s { _dtLimit = a })
-    . mapping _Nat
+dtLimit = lens _dtLimit (\s a -> s { _dtLimit = a }) . mapping _Nat
 
 -- | A marker value, obtained in a previous call to DescribeTapes. This marker
 -- indicates which page of results to retrieve. If not specified, the first
@@ -98,12 +98,12 @@ dtMarker = lens _dtMarker (\s a -> s { _dtMarker = a })
 -- specified, AWS Storage Gateway returns a description of all virtual tapes
 -- associated with the specified gateway.
 dtTapeARNs :: Lens' DescribeTapes [Text]
-dtTapeARNs = lens _dtTapeARNs (\s a -> s { _dtTapeARNs = a })
+dtTapeARNs = lens _dtTapeARNs (\s a -> s { _dtTapeARNs = a }) . _List
 
 data DescribeTapesResponse = DescribeTapesResponse
     { _dtrMarker :: Maybe Text
-    , _dtrTapes  :: [Tape]
-    } deriving (Eq, Show, Generic)
+    , _dtrTapes  :: List "Tapes" Tape
+    } deriving (Eq, Show)
 
 -- | 'DescribeTapesResponse' constructor.
 --
@@ -127,7 +127,7 @@ dtrMarker = lens _dtrMarker (\s a -> s { _dtrMarker = a })
 
 -- | An array of virtual tape descriptions.
 dtrTapes :: Lens' DescribeTapesResponse [Tape]
-dtrTapes = lens _dtrTapes (\s a -> s { _dtrTapes = a })
+dtrTapes = lens _dtrTapes (\s a -> s { _dtrTapes = a }) . _List
 
 instance ToPath DescribeTapes where
     toPath = const "/"
@@ -155,7 +155,7 @@ instance AWSRequest DescribeTapes where
 instance FromJSON DescribeTapesResponse where
     parseJSON = withObject "DescribeTapesResponse" $ \o -> DescribeTapesResponse
         <$> o .:? "Marker"
-        <*> o .: "Tapes"
+        <*> o .:  "Tapes"
 
 instance AWSPager DescribeTapes where
     next rq rs = (\x -> rq & dtMarker ?~ x)

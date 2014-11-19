@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,8 +53,8 @@ describeLocations :: DescribeLocations
 describeLocations = DescribeLocations
 
 newtype DescribeLocationsResponse = DescribeLocationsResponse
-    { _dlrLocations :: [Location]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dlrLocations :: List "locations" Location
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLocationsResponse where
     type Item DescribeLocationsResponse = Location
@@ -73,7 +74,7 @@ describeLocationsResponse = DescribeLocationsResponse
     }
 
 dlrLocations :: Lens' DescribeLocationsResponse [Location]
-dlrLocations = lens _dlrLocations (\s a -> s { _dlrLocations = a })
+dlrLocations = lens _dlrLocations (\s a -> s { _dlrLocations = a }) . _List
 
 instance ToPath DescribeLocations where
     toPath = const "/"
@@ -95,4 +96,4 @@ instance AWSRequest DescribeLocations where
 
 instance FromJSON DescribeLocationsResponse where
     parseJSON = withObject "DescribeLocationsResponse" $ \o -> DescribeLocationsResponse
-        <$> o .: "locations"
+        <$> o .:  "locations"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,11 +58,11 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
     , _ddbevDefaultOnly                :: Maybe Bool
     , _ddbevEngine                     :: Maybe Text
     , _ddbevEngineVersion              :: Maybe Text
-    , _ddbevFilters                    :: [Filter]
+    , _ddbevFilters                    :: List "Filter" Filter
     , _ddbevListSupportedCharacterSets :: Maybe Bool
     , _ddbevMarker                     :: Maybe Text
     , _ddbevMaxRecords                 :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBEngineVersions' constructor.
 --
@@ -120,7 +121,7 @@ ddbevEngineVersion =
 
 -- | Not currently supported.
 ddbevFilters :: Lens' DescribeDBEngineVersions [Filter]
-ddbevFilters = lens _ddbevFilters (\s a -> s { _ddbevFilters = a })
+ddbevFilters = lens _ddbevFilters (\s a -> s { _ddbevFilters = a }) . _List
 
 -- | If this parameter is specified, and if the requested engine supports the
 -- CharacterSetName parameter for CreateDBInstance, the response includes a
@@ -144,9 +145,9 @@ ddbevMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Int)
 ddbevMaxRecords = lens _ddbevMaxRecords (\s a -> s { _ddbevMaxRecords = a })
 
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
-    { _ddbevrDBEngineVersions :: [DBEngineVersion]
+    { _ddbevrDBEngineVersions :: List "DBEngineVersion" DBEngineVersion
     , _ddbevrMarker           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBEngineVersionsResponse' constructor.
 --
@@ -166,6 +167,7 @@ describeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
 ddbevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
 ddbevrDBEngineVersions =
     lens _ddbevrDBEngineVersions (\s a -> s { _ddbevrDBEngineVersions = a })
+        . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -176,7 +178,17 @@ ddbevrMarker = lens _ddbevrMarker (\s a -> s { _ddbevrMarker = a })
 instance ToPath DescribeDBEngineVersions where
     toPath = const "/"
 
-instance ToQuery DescribeDBEngineVersions
+instance ToQuery DescribeDBEngineVersions where
+    toQuery DescribeDBEngineVersions{..} = mconcat
+        [ "DBParameterGroupFamily"     =? _ddbevDBParameterGroupFamily
+        , "DefaultOnly"                =? _ddbevDefaultOnly
+        , "Engine"                     =? _ddbevEngine
+        , "EngineVersion"              =? _ddbevEngineVersion
+        , "Filters"                    =? _ddbevFilters
+        , "ListSupportedCharacterSets" =? _ddbevListSupportedCharacterSets
+        , "Marker"                     =? _ddbevMarker
+        , "MaxRecords"                 =? _ddbevMaxRecords
+        ]
 
 instance ToHeaders DescribeDBEngineVersions
 
@@ -188,9 +200,9 @@ instance AWSRequest DescribeDBEngineVersions where
     response = xmlResponse
 
 instance FromXML DescribeDBEngineVersionsResponse where
-    parseXML = withElement "DescribeDBEngineVersionsResult" $ \x ->
-            <$> x .@ "DBEngineVersions"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeDBEngineVersionsResult" $ \x -> DescribeDBEngineVersionsResponse
+        <$> x .@  "DBEngineVersions"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeDBEngineVersions where
     next rq rs = (\x -> rq & ddbevMarker ?~ x)

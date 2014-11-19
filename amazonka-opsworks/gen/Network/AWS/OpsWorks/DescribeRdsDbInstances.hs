@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,9 +47,9 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeRdsDbInstances = DescribeRdsDbInstances
-    { _drdiRdsDbInstanceArns :: [Text]
+    { _drdiRdsDbInstanceArns :: List "InstanceIds" Text
     , _drdiStackId           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeRdsDbInstances' constructor.
 --
@@ -69,6 +70,7 @@ describeRdsDbInstances p1 = DescribeRdsDbInstances
 drdiRdsDbInstanceArns :: Lens' DescribeRdsDbInstances [Text]
 drdiRdsDbInstanceArns =
     lens _drdiRdsDbInstanceArns (\s a -> s { _drdiRdsDbInstanceArns = a })
+        . _List
 
 -- | The stack ID that the instances are registered with. The operation
 -- returns descriptions of all registered Amazon RDS instances.
@@ -76,8 +78,8 @@ drdiStackId :: Lens' DescribeRdsDbInstances Text
 drdiStackId = lens _drdiStackId (\s a -> s { _drdiStackId = a })
 
 newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
-    { _drdirRdsDbInstances :: [RdsDbInstance]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _drdirRdsDbInstances :: List "RdsDbInstances" RdsDbInstance
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeRdsDbInstancesResponse where
     type Item DescribeRdsDbInstancesResponse = RdsDbInstance
@@ -100,6 +102,7 @@ describeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
 drdirRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]
 drdirRdsDbInstances =
     lens _drdirRdsDbInstances (\s a -> s { _drdirRdsDbInstances = a })
+        . _List
 
 instance ToPath DescribeRdsDbInstances where
     toPath = const "/"
@@ -124,4 +127,4 @@ instance AWSRequest DescribeRdsDbInstances where
 
 instance FromJSON DescribeRdsDbInstancesResponse where
     parseJSON = withObject "DescribeRdsDbInstancesResponse" $ \o -> DescribeRdsDbInstancesResponse
-        <$> o .: "RdsDbInstances"
+        <$> o .:  "RdsDbInstances"

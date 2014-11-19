@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,8 +46,8 @@ import Network.AWS.ElasticBeanstalk.Types
 import qualified GHC.Exts
 
 newtype DescribeApplications = DescribeApplications
-    { _daApplicationNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _daApplicationNames :: List "ApplicationNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeApplications where
     type Item DescribeApplications = Text
@@ -70,10 +71,11 @@ describeApplications = DescribeApplications
 daApplicationNames :: Lens' DescribeApplications [Text]
 daApplicationNames =
     lens _daApplicationNames (\s a -> s { _daApplicationNames = a })
+        . _List
 
 newtype DescribeApplicationsResponse = DescribeApplicationsResponse
-    { _darApplications :: [ApplicationDescription]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _darApplications :: List "Applications" ApplicationDescription
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeApplicationsResponse where
     type Item DescribeApplicationsResponse = ApplicationDescription
@@ -94,12 +96,15 @@ describeApplicationsResponse = DescribeApplicationsResponse
 
 -- | This parameter contains a list of ApplicationDescription.
 darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
-darApplications = lens _darApplications (\s a -> s { _darApplications = a })
+darApplications = lens _darApplications (\s a -> s { _darApplications = a }) . _List
 
 instance ToPath DescribeApplications where
     toPath = const "/"
 
-instance ToQuery DescribeApplications
+instance ToQuery DescribeApplications where
+    toQuery DescribeApplications{..} = mconcat
+        [ "ApplicationNames" =? _daApplicationNames
+        ]
 
 instance ToHeaders DescribeApplications
 
@@ -111,5 +116,5 @@ instance AWSRequest DescribeApplications where
     response = xmlResponse
 
 instance FromXML DescribeApplicationsResponse where
-    parseXML = withElement "DescribeApplicationsResult" $ \x ->
-            <$> x .@ "Applications"
+    parseXML = withElement "DescribeApplicationsResult" $ \x -> DescribeApplicationsResponse
+        <$> x .@  "Applications"

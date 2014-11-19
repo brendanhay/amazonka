@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     , _psugaScheduledActionName  :: Text
     , _psugaStartTime            :: Maybe RFC822
     , _psugaTime                 :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PutScheduledUpdateGroupAction' constructor.
 --
@@ -116,8 +117,7 @@ psugaDesiredCapacity =
 
 -- | The time for this action to end.
 psugaEndTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaEndTime = lens _psugaEndTime (\s a -> s { _psugaEndTime = a })
-    . mapping _Time
+psugaEndTime = lens _psugaEndTime (\s a -> s { _psugaEndTime = a }) . mapping _Time
 
 -- | The maximum size for the Auto Scaling group.
 psugaMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
@@ -147,16 +147,14 @@ psugaScheduledActionName =
 -- specified with Recurrence, they form the boundaries of when the recurring
 -- action will start and stop.
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaStartTime = lens _psugaStartTime (\s a -> s { _psugaStartTime = a })
-    . mapping _Time
+psugaStartTime = lens _psugaStartTime (\s a -> s { _psugaStartTime = a }) . mapping _Time
 
 -- | Time is deprecated. The time for this action to start. Time is an alias
 -- for StartTime and can be specified instead of StartTime, or vice versa.
 -- If both Time and StartTime are specified, their values should be
 -- identical. Otherwise, PutScheduledUpdateGroupAction will return an error.
 psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaTime = lens _psugaTime (\s a -> s { _psugaTime = a })
-    . mapping _Time
+psugaTime = lens _psugaTime (\s a -> s { _psugaTime = a }) . mapping _Time
 
 data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
     deriving (Eq, Ord, Show, Generic)
@@ -168,7 +166,18 @@ putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
 instance ToPath PutScheduledUpdateGroupAction where
     toPath = const "/"
 
-instance ToQuery PutScheduledUpdateGroupAction
+instance ToQuery PutScheduledUpdateGroupAction where
+    toQuery PutScheduledUpdateGroupAction{..} = mconcat
+        [ "AutoScalingGroupName" =? _psugaAutoScalingGroupName
+        , "DesiredCapacity"      =? _psugaDesiredCapacity
+        , "EndTime"              =? _psugaEndTime
+        , "MaxSize"              =? _psugaMaxSize
+        , "MinSize"              =? _psugaMinSize
+        , "Recurrence"           =? _psugaRecurrence
+        , "ScheduledActionName"  =? _psugaScheduledActionName
+        , "StartTime"            =? _psugaStartTime
+        , "Time"                 =? _psugaTime
+        ]
 
 instance ToHeaders PutScheduledUpdateGroupAction
 

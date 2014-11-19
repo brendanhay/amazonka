@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
     { _rei1EnvironmentId   :: Maybe Text
     , _rei1EnvironmentName :: Maybe Text
     , _rei1InfoType        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RetrieveEnvironmentInfo' constructor.
 --
@@ -92,8 +93,8 @@ rei1InfoType :: Lens' RetrieveEnvironmentInfo Text
 rei1InfoType = lens _rei1InfoType (\s a -> s { _rei1InfoType = a })
 
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
-    { _reirEnvironmentInfo :: [EnvironmentInfoDescription]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _reirEnvironmentInfo :: List "EnvironmentInfo" EnvironmentInfoDescription
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList RetrieveEnvironmentInfoResponse where
     type Item RetrieveEnvironmentInfoResponse = EnvironmentInfoDescription
@@ -116,11 +117,17 @@ retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
 reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
 reirEnvironmentInfo =
     lens _reirEnvironmentInfo (\s a -> s { _reirEnvironmentInfo = a })
+        . _List
 
 instance ToPath RetrieveEnvironmentInfo where
     toPath = const "/"
 
-instance ToQuery RetrieveEnvironmentInfo
+instance ToQuery RetrieveEnvironmentInfo where
+    toQuery RetrieveEnvironmentInfo{..} = mconcat
+        [ "EnvironmentId"   =? _rei1EnvironmentId
+        , "EnvironmentName" =? _rei1EnvironmentName
+        , "InfoType"        =? _rei1InfoType
+        ]
 
 instance ToHeaders RetrieveEnvironmentInfo
 
@@ -132,5 +139,5 @@ instance AWSRequest RetrieveEnvironmentInfo where
     response = xmlResponse
 
 instance FromXML RetrieveEnvironmentInfoResponse where
-    parseXML = withElement "RetrieveEnvironmentInfoResult" $ \x ->
-            <$> x .@ "EnvironmentInfo"
+    parseXML = withElement "RetrieveEnvironmentInfoResult" $ \x -> RetrieveEnvironmentInfoResponse
+        <$> x .@  "EnvironmentInfo"

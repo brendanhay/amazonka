@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion
     , _ddblfpLogFileName          :: Text
     , _ddblfpMarker               :: Maybe Text
     , _ddblfpNumberOfLines        :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DownloadDBLogFilePortion' constructor.
 --
@@ -119,7 +120,7 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
     { _ddblfprAdditionalDataPending :: Maybe Bool
     , _ddblfprLogFileData           :: Maybe Text
     , _ddblfprMarker                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DownloadDBLogFilePortionResponse' constructor.
 --
@@ -158,7 +159,13 @@ ddblfprMarker = lens _ddblfprMarker (\s a -> s { _ddblfprMarker = a })
 instance ToPath DownloadDBLogFilePortion where
     toPath = const "/"
 
-instance ToQuery DownloadDBLogFilePortion
+instance ToQuery DownloadDBLogFilePortion where
+    toQuery DownloadDBLogFilePortion{..} = mconcat
+        [ "DBInstanceIdentifier" =? _ddblfpDBInstanceIdentifier
+        , "LogFileName"          =? _ddblfpLogFileName
+        , "Marker"               =? _ddblfpMarker
+        , "NumberOfLines"        =? _ddblfpNumberOfLines
+        ]
 
 instance ToHeaders DownloadDBLogFilePortion
 
@@ -170,10 +177,10 @@ instance AWSRequest DownloadDBLogFilePortion where
     response = xmlResponse
 
 instance FromXML DownloadDBLogFilePortionResponse where
-    parseXML = withElement "DownloadDBLogFilePortionResult" $ \x ->
-            <$> x .@? "AdditionalDataPending"
-            <*> x .@? "LogFileData"
-            <*> x .@? "Marker"
+    parseXML = withElement "DownloadDBLogFilePortionResult" $ \x -> DownloadDBLogFilePortionResponse
+        <$> x .@? "AdditionalDataPending"
+        <*> x .@? "LogFileData"
+        <*> x .@? "Marker"
 
 instance AWSPager DownloadDBLogFilePortion where
     next rq rs

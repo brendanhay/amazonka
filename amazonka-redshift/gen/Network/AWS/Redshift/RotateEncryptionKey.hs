@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype RotateEncryptionKey = RotateEncryptionKey
     { _rekClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'RotateEncryptionKey' constructor.
 --
@@ -69,7 +70,7 @@ rekClusterIdentifier =
 
 newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RotateEncryptionKeyResponse' constructor.
 --
@@ -88,7 +89,10 @@ rekrCluster = lens _rekrCluster (\s a -> s { _rekrCluster = a })
 instance ToPath RotateEncryptionKey where
     toPath = const "/"
 
-instance ToQuery RotateEncryptionKey
+instance ToQuery RotateEncryptionKey where
+    toQuery RotateEncryptionKey{..} = mconcat
+        [ "ClusterIdentifier" =? _rekClusterIdentifier
+        ]
 
 instance ToHeaders RotateEncryptionKey
 
@@ -100,5 +104,5 @@ instance AWSRequest RotateEncryptionKey where
     response = xmlResponse
 
 instance FromXML RotateEncryptionKeyResponse where
-    parseXML = withElement "RotateEncryptionKeyResult" $ \x ->
-            <$> x .@? "Cluster"
+    parseXML = withElement "RotateEncryptionKeyResult" $ \x -> RotateEncryptionKeyResponse
+        <$> x .@? "Cluster"

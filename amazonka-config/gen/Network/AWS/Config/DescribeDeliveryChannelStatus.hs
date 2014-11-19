@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import Network.AWS.Config.Types
 import qualified GHC.Exts
 
 newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus
-    { _ddcsDeliveryChannelNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _ddcsDeliveryChannelNames :: List "DeliveryChannelNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDeliveryChannelStatus where
     type Item DescribeDeliveryChannelStatus = Text
@@ -72,10 +73,11 @@ ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
 ddcsDeliveryChannelNames =
     lens _ddcsDeliveryChannelNames
         (\s a -> s { _ddcsDeliveryChannelNames = a })
+            . _List
 
 newtype DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse
-    { _ddcsrDeliveryChannelsStatus :: [DeliveryChannelStatus]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ddcsrDeliveryChannelsStatus :: List "DeliveryChannelsStatus" DeliveryChannelStatus
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDeliveryChannelStatusResponse where
     type Item DescribeDeliveryChannelStatusResponse = DeliveryChannelStatus
@@ -99,6 +101,7 @@ ddcsrDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [Deli
 ddcsrDeliveryChannelsStatus =
     lens _ddcsrDeliveryChannelsStatus
         (\s a -> s { _ddcsrDeliveryChannelsStatus = a })
+            . _List
 
 instance ToPath DescribeDeliveryChannelStatus where
     toPath = const "/"
@@ -122,4 +125,4 @@ instance AWSRequest DescribeDeliveryChannelStatus where
 
 instance FromJSON DescribeDeliveryChannelStatusResponse where
     parseJSON = withObject "DescribeDeliveryChannelStatusResponse" $ \o -> DescribeDeliveryChannelStatusResponse
-        <$> o .: "DeliveryChannelsStatus"
+        <$> o .:  "DeliveryChannelsStatus"

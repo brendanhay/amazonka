@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ import qualified GHC.Exts
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface
     { _cpvi1ConnectionId               :: Text
     , _cpvi1NewPrivateVirtualInterface :: NewPrivateVirtualInterface
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePrivateVirtualInterface' constructor.
 --
@@ -102,14 +103,14 @@ data CreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceRespon
     , _cpvir2CustomerRouterConfig  :: Maybe Text
     , _cpvir2Location              :: Maybe Text
     , _cpvir2OwnerAccount          :: Maybe Text
-    , _cpvir2RouteFilterPrefixes   :: [RouteFilterPrefix]
+    , _cpvir2RouteFilterPrefixes   :: List "routeFilterPrefixes" RouteFilterPrefix
     , _cpvir2VirtualGatewayId      :: Maybe Text
     , _cpvir2VirtualInterfaceId    :: Maybe Text
     , _cpvir2VirtualInterfaceName  :: Maybe Text
     , _cpvir2VirtualInterfaceState :: Maybe Text
     , _cpvir2VirtualInterfaceType  :: Maybe Text
     , _cpvir2Vlan                  :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePrivateVirtualInterfaceResponse' constructor.
 --
@@ -199,6 +200,7 @@ cpvir2RouteFilterPrefixes :: Lens' CreatePrivateVirtualInterfaceResponse [RouteF
 cpvir2RouteFilterPrefixes =
     lens _cpvir2RouteFilterPrefixes
         (\s a -> s { _cpvir2RouteFilterPrefixes = a })
+            . _List
 
 cpvir2VirtualGatewayId :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 cpvir2VirtualGatewayId =
@@ -258,7 +260,7 @@ instance FromJSON CreatePrivateVirtualInterfaceResponse where
         <*> o .:? "customerRouterConfig"
         <*> o .:? "location"
         <*> o .:? "ownerAccount"
-        <*> o .: "routeFilterPrefixes"
+        <*> o .:  "routeFilterPrefixes"
         <*> o .:? "virtualGatewayId"
         <*> o .:? "virtualInterfaceId"
         <*> o .:? "virtualInterfaceName"

@@ -70,7 +70,7 @@ data CreateSubnet = CreateSubnet
     , _cs1CidrBlock        :: Text
     , _cs1DryRun           :: Maybe Bool
     , _cs1VpcId            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateSubnet' constructor.
 --
@@ -114,7 +114,7 @@ cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
 
 newtype CreateSubnetResponse = CreateSubnetResponse
     { _csrSubnet :: Maybe Subnet
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateSubnetResponse' constructor.
 --
@@ -134,7 +134,13 @@ csrSubnet = lens _csrSubnet (\s a -> s { _csrSubnet = a })
 instance ToPath CreateSubnet where
     toPath = const "/"
 
-instance ToQuery CreateSubnet
+instance ToQuery CreateSubnet where
+    toQuery CreateSubnet{..} = mconcat
+        [ "AvailabilityZone" =? _cs1AvailabilityZone
+        , "CidrBlock"        =? _cs1CidrBlock
+        , "dryRun"           =? _cs1DryRun
+        , "VpcId"            =? _cs1VpcId
+        ]
 
 instance ToHeaders CreateSubnet
 

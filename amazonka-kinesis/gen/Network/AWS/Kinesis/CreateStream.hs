@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -72,7 +73,7 @@ import qualified GHC.Exts
 data CreateStream = CreateStream
     { _csShardCount :: Nat
     , _csStreamName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateStream' constructor.
 --
@@ -97,8 +98,7 @@ createStream p1 p2 = CreateStream
 -- than 10 shards, contact AWS Support to increase the limit on your
 -- account.
 csShardCount :: Lens' CreateStream Natural
-csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a })
-    . _Nat
+csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a }) . _Nat
 
 -- | A name to identify the stream. The stream name is scoped to the AWS
 -- account used by the application that creates the stream. It is also

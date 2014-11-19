@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ data CreatePipeline = CreatePipeline
     , _cp1OutputBucket    :: Maybe Text
     , _cp1Role            :: Text
     , _cp1ThumbnailConfig :: Maybe PipelineOutputConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePipeline' constructor.
 --
@@ -237,7 +238,7 @@ cp1ThumbnailConfig =
 
 newtype CreatePipelineResponse = CreatePipelineResponse
     { _cprPipeline :: Maybe Pipeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePipelineResponse' constructor.
 --

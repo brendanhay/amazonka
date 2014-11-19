@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,9 +53,9 @@ describeMetricCollectionTypes :: DescribeMetricCollectionTypes
 describeMetricCollectionTypes = DescribeMetricCollectionTypes
 
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
-    { _dmctrGranularities :: [MetricGranularityType]
-    , _dmctrMetrics       :: [MetricCollectionType]
-    } deriving (Eq, Show, Generic)
+    { _dmctrGranularities :: List "Granularities" MetricGranularityType
+    , _dmctrMetrics       :: List "Metrics" MetricCollectionType
+    } deriving (Eq, Show)
 
 -- | 'DescribeMetricCollectionTypesResponse' constructor.
 --
@@ -74,13 +75,14 @@ describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
 dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
 dmctrGranularities =
     lens _dmctrGranularities (\s a -> s { _dmctrGranularities = a })
+        . _List
 
 -- | The list of Metrics collected. The following metrics are supported:
 -- GroupMinSize GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
 -- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
 -- GroupTotalInstances.
 dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
-dmctrMetrics = lens _dmctrMetrics (\s a -> s { _dmctrMetrics = a })
+dmctrMetrics = lens _dmctrMetrics (\s a -> s { _dmctrMetrics = a }) . _List
 
 instance ToPath DescribeMetricCollectionTypes where
     toPath = const "/"
@@ -98,6 +100,6 @@ instance AWSRequest DescribeMetricCollectionTypes where
     response = xmlResponse
 
 instance FromXML DescribeMetricCollectionTypesResponse where
-    parseXML = withElement "DescribeMetricCollectionTypesResult" $ \x ->
-            <$> x .@ "Granularities"
-            <*> x .@ "Metrics"
+    parseXML = withElement "DescribeMetricCollectionTypesResult" $ \x -> DescribeMetricCollectionTypesResponse
+        <$> x .@  "Granularities"
+        <*> x .@  "Metrics"

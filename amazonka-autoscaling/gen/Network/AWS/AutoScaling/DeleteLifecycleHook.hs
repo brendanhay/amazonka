@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data DeleteLifecycleHook = DeleteLifecycleHook
     { _dlh1AutoScalingGroupName :: Text
     , _dlh1LifecycleHookName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteLifecycleHook' constructor.
 --
@@ -87,7 +88,11 @@ deleteLifecycleHookResponse = DeleteLifecycleHookResponse
 instance ToPath DeleteLifecycleHook where
     toPath = const "/"
 
-instance ToQuery DeleteLifecycleHook
+instance ToQuery DeleteLifecycleHook where
+    toQuery DeleteLifecycleHook{..} = mconcat
+        [ "AutoScalingGroupName" =? _dlh1AutoScalingGroupName
+        , "LifecycleHookName"    =? _dlh1LifecycleHookName
+        ]
 
 instance ToHeaders DeleteLifecycleHook
 

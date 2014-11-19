@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data RebuildEnvironment = RebuildEnvironment
     { _reEnvironmentId   :: Maybe Text
     , _reEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RebuildEnvironment' constructor.
 --
@@ -87,7 +88,11 @@ rebuildEnvironmentResponse = RebuildEnvironmentResponse
 instance ToPath RebuildEnvironment where
     toPath = const "/"
 
-instance ToQuery RebuildEnvironment
+instance ToQuery RebuildEnvironment where
+    toQuery RebuildEnvironment{..} = mconcat
+        [ "EnvironmentId"   =? _reEnvironmentId
+        , "EnvironmentName" =? _reEnvironmentName
+        ]
 
 instance ToHeaders RebuildEnvironment
 

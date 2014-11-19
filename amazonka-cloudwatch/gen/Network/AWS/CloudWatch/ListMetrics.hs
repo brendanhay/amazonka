@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,11 +52,11 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 data ListMetrics = ListMetrics
-    { _lmDimensions :: [DimensionFilter]
+    { _lmDimensions :: List "Dimensions" DimensionFilter
     , _lmMetricName :: Maybe Text
     , _lmNamespace  :: Maybe Text
     , _lmNextToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListMetrics' constructor.
 --
@@ -79,7 +80,7 @@ listMetrics = ListMetrics
 
 -- | A list of dimensions to filter against.
 lmDimensions :: Lens' ListMetrics [DimensionFilter]
-lmDimensions = lens _lmDimensions (\s a -> s { _lmDimensions = a })
+lmDimensions = lens _lmDimensions (\s a -> s { _lmDimensions = a }) . _List
 
 -- | The name of the metric to filter against.
 lmMetricName :: Lens' ListMetrics (Maybe Text)
@@ -95,9 +96,9 @@ lmNextToken :: Lens' ListMetrics (Maybe Text)
 lmNextToken = lens _lmNextToken (\s a -> s { _lmNextToken = a })
 
 data ListMetricsResponse = ListMetricsResponse
-    { _lmrMetrics   :: [Metric]
+    { _lmrMetrics   :: List "Metrics" Metric
     , _lmrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListMetricsResponse' constructor.
 --
@@ -115,7 +116,7 @@ listMetricsResponse = ListMetricsResponse
 
 -- | A list of metrics used to generate statistics for an AWS account.
 lmrMetrics :: Lens' ListMetricsResponse [Metric]
-lmrMetrics = lens _lmrMetrics (\s a -> s { _lmrMetrics = a })
+lmrMetrics = lens _lmrMetrics (\s a -> s { _lmrMetrics = a }) . _List
 
 -- | A string that marks the start of the next batch of returned results.
 lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
@@ -124,7 +125,13 @@ lmrNextToken = lens _lmrNextToken (\s a -> s { _lmrNextToken = a })
 instance ToPath ListMetrics where
     toPath = const "/"
 
-instance ToQuery ListMetrics
+instance ToQuery ListMetrics where
+    toQuery ListMetrics{..} = mconcat
+        [ "Dimensions" =? _lmDimensions
+        , "MetricName" =? _lmMetricName
+        , "Namespace"  =? _lmNamespace
+        , "NextToken"  =? _lmNextToken
+        ]
 
 instance ToHeaders ListMetrics
 
@@ -136,9 +143,9 @@ instance AWSRequest ListMetrics where
     response = xmlResponse
 
 instance FromXML ListMetricsResponse where
-    parseXML = withElement "ListMetricsResult" $ \x ->
-            <$> x .@ "Metrics"
-            <*> x .@? "NextToken"
+    parseXML = withElement "ListMetricsResult" $ \x -> ListMetricsResponse
+        <$> x .@  "Metrics"
+        <*> x .@? "NextToken"
 
 instance AWSPager ListMetrics where
     next rq rs = (\x -> rq & lmNextToken ?~ x)

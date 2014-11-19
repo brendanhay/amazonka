@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 data AddUserToGroup = AddUserToGroup
     { _autgGroupName :: Text
     , _autgUserName  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddUserToGroup' constructor.
 --
@@ -82,7 +83,11 @@ addUserToGroupResponse = AddUserToGroupResponse
 instance ToPath AddUserToGroup where
     toPath = const "/"
 
-instance ToQuery AddUserToGroup
+instance ToQuery AddUserToGroup where
+    toQuery AddUserToGroup{..} = mconcat
+        [ "GroupName" =? _autgGroupName
+        , "UserName"  =? _autgUserName
+        ]
 
 instance ToHeaders AddUserToGroup
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype GetOperationDetail = GetOperationDetail
     { _godOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetOperationDetail' constructor.
 --
@@ -79,7 +80,7 @@ data GetOperationDetailResponse = GetOperationDetailResponse
     , _godrStatus        :: Maybe Text
     , _godrSubmittedDate :: Maybe RFC822
     , _godrType          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetOperationDetailResponse' constructor.
 --

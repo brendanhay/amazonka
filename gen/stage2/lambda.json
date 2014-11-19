@@ -93,8 +93,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "functionCodeLocation",
@@ -134,6 +133,7 @@
                 "required": [],
                 "contentPad": 15,
                 "name": "FunctionCodeLocation",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -204,8 +204,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "functionConfiguration",
@@ -395,6 +394,7 @@
                 "required": [],
                 "contentPad": 16,
                 "name": "FunctionConfiguration",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -764,8 +764,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "eventSourceConfiguration",
@@ -843,7 +842,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -910,6 +909,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "EventSourceConfiguration",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -985,7 +985,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1137,7 +1137,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1199,8 +1199,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1281,7 +1280,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1353,6 +1352,7 @@
                 "contentPad": 13,
                 "name": "AddEventSourceResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1429,7 +1429,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1581,7 +1581,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1645,8 +1645,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1727,7 +1726,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source. Currently, AWS Lambda supports only the \u003ccode\u003eInitialPositionInStream\u003c/code\u003e key. The valid values are: \"TRIM_HORIZON\" and \"LATEST\". The default value is \"TRIM_HORIZON\". For more information, go to \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\"\u003eShardIteratorType\u003c/a\u003e in the Amazon Kinesis Service API Reference. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "path": [
@@ -1791,6 +1790,7 @@
                 "queryPad": 0,
                 "name": "AddEventSource",
                 "query": [],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1823,7 +1823,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source. Currently, AWS Lambda supports only the \u003ccode\u003eInitialPositionInStream\u003c/code\u003e key. The valid values are: \"TRIM_HORIZON\" and \"LATEST\". The default value is \"TRIM_HORIZON\". For more information, go to \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\"\u003eShardIteratorType\u003c/a\u003e in the Amazon Kinesis Service API Reference. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -1885,7 +1885,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source. Currently, AWS Lambda supports only the \u003ccode\u003eInitialPositionInStream\u003c/code\u003e key. The valid values are: \"TRIM_HORIZON\" and \"LATEST\". The default value is \"TRIM_HORIZON\". For more information, go to \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\"\u003eShardIteratorType\u003c/a\u003e in the Amazon Kinesis Service API Reference. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1948,7 +1948,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2009,6 +2008,7 @@
                 "queryPad": 0,
                 "name": "DeleteFunction",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2037,8 +2037,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2119,7 +2118,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -2191,6 +2190,7 @@
                 "contentPad": 13,
                 "name": "GetEventSourceResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2267,7 +2267,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -2419,7 +2419,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -2485,7 +2485,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2546,6 +2545,7 @@
                 "queryPad": 0,
                 "name": "GetEventSource",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2574,8 +2574,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2623,6 +2622,7 @@
                 "contentPad": 14,
                 "name": "GetFunctionResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2707,7 +2707,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2768,6 +2767,7 @@
                 "queryPad": 0,
                 "name": "GetFunction",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2797,8 +2797,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2996,6 +2995,7 @@
                 "contentPad": 16,
                 "name": "GetFunctionConfigurationResponse",
                 "resultWrapper": null,
+                "locationPad": 16,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3380,7 +3380,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3445,6 +3444,7 @@
                 "queryPad": 0,
                 "name": "GetFunctionConfiguration",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -3475,7 +3475,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Enum",
                     "Num",
                     "Integral",
@@ -3528,6 +3527,7 @@
                 "contentPad": 0,
                 "name": "InvokeAsyncResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3564,8 +3564,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3657,6 +3656,7 @@
                 "queryPad": 0,
                 "name": "InvokeAsync",
                 "query": [],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3700,8 +3700,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3726,8 +3725,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3737,7 +3736,7 @@
                         "locationName": "EventSources",
                         "documentation": "\u003cp\u003eAn arrary of \u003ccode\u003eEventSourceConfiguration\u003c/code\u003e objects.\u003c/p\u003e",
                         "typeExposed": "[EventSourceConfiguration]",
-                        "type": "[EventSourceConfiguration]"
+                        "type": "List \"EventSources\" EventSourceConfiguration"
                     }
                 ],
                 "wrapper": false,
@@ -3749,6 +3748,7 @@
                 "contentPad": 13,
                 "name": "ListEventSourcesResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3769,8 +3769,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3780,14 +3780,14 @@
                         "locationName": "EventSources",
                         "documentation": "\u003cp\u003eAn arrary of \u003ccode\u003eEventSourceConfiguration\u003c/code\u003e objects.\u003c/p\u003e",
                         "typeExposed": "[EventSourceConfiguration]",
-                        "type": "[EventSourceConfiguration]"
+                        "type": "List \"EventSources\" EventSourceConfiguration"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3797,7 +3797,7 @@
                         "locationName": "EventSources",
                         "documentation": "\u003cp\u003eAn arrary of \u003ccode\u003eEventSourceConfiguration\u003c/code\u003e objects.\u003c/p\u003e",
                         "typeExposed": "[EventSourceConfiguration]",
-                        "type": "[EventSourceConfiguration]"
+                        "type": "List \"EventSources\" EventSourceConfiguration"
                     },
                     {
                         "location": null,
@@ -3832,8 +3832,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3877,6 +3876,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4011,8 +4011,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4037,8 +4036,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4048,7 +4047,7 @@
                         "locationName": "Functions",
                         "documentation": "\u003cp\u003eA list of Lambda functions.\u003c/p\u003e",
                         "typeExposed": "[FunctionConfiguration]",
-                        "type": "[FunctionConfiguration]"
+                        "type": "List \"Functions\" FunctionConfiguration"
                     }
                 ],
                 "wrapper": false,
@@ -4060,6 +4059,7 @@
                 "contentPad": 11,
                 "name": "ListFunctionsResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4080,8 +4080,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4091,14 +4091,14 @@
                         "locationName": "Functions",
                         "documentation": "\u003cp\u003eA list of Lambda functions.\u003c/p\u003e",
                         "typeExposed": "[FunctionConfiguration]",
-                        "type": "[FunctionConfiguration]"
+                        "type": "List \"Functions\" FunctionConfiguration"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4108,7 +4108,7 @@
                         "locationName": "Functions",
                         "documentation": "\u003cp\u003eA list of Lambda functions.\u003c/p\u003e",
                         "typeExposed": "[FunctionConfiguration]",
-                        "type": "[FunctionConfiguration]"
+                        "type": "List \"Functions\" FunctionConfiguration"
                     },
                     {
                         "location": null,
@@ -4143,8 +4143,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4178,6 +4177,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4290,7 +4290,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4351,6 +4350,7 @@
                 "queryPad": 0,
                 "name": "RemoveEventSource",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -4380,8 +4380,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4579,6 +4578,7 @@
                 "contentPad": 16,
                 "name": "UpdateFunctionConfigurationResponse",
                 "resultWrapper": null,
+                "locationPad": 16,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4962,8 +4962,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5036,6 +5035,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5216,8 +5216,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5415,6 +5414,7 @@
                 "contentPad": 16,
                 "name": "UploadFunctionResponse",
                 "resultWrapper": null,
+                "locationPad": 16,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -5797,8 +5797,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5982,6 +5981,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

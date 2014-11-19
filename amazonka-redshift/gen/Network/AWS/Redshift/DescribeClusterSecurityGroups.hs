@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsgClusterSecurityGroupName :: Maybe Text
     , _dcsgMarker                   :: Maybe Text
     , _dcsgMaxRecords               :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterSecurityGroups' constructor.
 --
@@ -103,9 +104,9 @@ dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
-    { _dcsgr1ClusterSecurityGroups :: [ClusterSecurityGroup]
+    { _dcsgr1ClusterSecurityGroups :: List "ClusterSecurityGroup" ClusterSecurityGroup
     , _dcsgr1Marker                :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeClusterSecurityGroupsResponse' constructor.
 --
@@ -126,6 +127,7 @@ dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [Clus
 dcsgr1ClusterSecurityGroups =
     lens _dcsgr1ClusterSecurityGroups
         (\s a -> s { _dcsgr1ClusterSecurityGroups = a })
+            . _List
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -139,7 +141,12 @@ dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 instance ToPath DescribeClusterSecurityGroups where
     toPath = const "/"
 
-instance ToQuery DescribeClusterSecurityGroups
+instance ToQuery DescribeClusterSecurityGroups where
+    toQuery DescribeClusterSecurityGroups{..} = mconcat
+        [ "ClusterSecurityGroupName" =? _dcsgClusterSecurityGroupName
+        , "Marker"                   =? _dcsgMarker
+        , "MaxRecords"               =? _dcsgMaxRecords
+        ]
 
 instance ToHeaders DescribeClusterSecurityGroups
 
@@ -151,9 +158,9 @@ instance AWSRequest DescribeClusterSecurityGroups where
     response = xmlResponse
 
 instance FromXML DescribeClusterSecurityGroupsResponse where
-    parseXML = withElement "DescribeClusterSecurityGroupsResult" $ \x ->
-            <$> x .@ "ClusterSecurityGroups"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeClusterSecurityGroupsResult" $ \x -> DescribeClusterSecurityGroupsResponse
+        <$> x .@  "ClusterSecurityGroups"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeClusterSecurityGroups where
     next rq rs = (\x -> rq & dcsgMarker ?~ x)

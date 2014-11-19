@@ -55,7 +55,7 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
     { _mvaAutoEnableIO :: Maybe AttributeBooleanValue
     , _mvaDryRun       :: Maybe Bool
     , _mvaVolumeId     :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyVolumeAttribute' constructor.
 --
@@ -96,7 +96,12 @@ modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 instance ToPath ModifyVolumeAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyVolumeAttribute
+instance ToQuery ModifyVolumeAttribute where
+    toQuery ModifyVolumeAttribute{..} = mconcat
+        [ "AutoEnableIO" =? _mvaAutoEnableIO
+        , "dryRun"       =? _mvaDryRun
+        , "VolumeId"     =? _mvaVolumeId
+        ]
 
 instance ToHeaders ModifyVolumeAttribute
 

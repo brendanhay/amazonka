@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -218,7 +219,8 @@ instance ToText AssignmentStatusType where
 instance FromXML AssignmentStatusType where
     parseXML = parseXMLText "AssignmentStatusType"
 
-instance ToQuery AssignmentStatusType
+instance ToQuery AssignmentStatusType where
+    toQuery AssignmentStatusType = toQuery . toText
 
 data PasswordPolicy = PasswordPolicy
     { _ppAllowUsersToChangePassword :: Maybe Bool
@@ -231,7 +233,7 @@ data PasswordPolicy = PasswordPolicy
     , _ppRequireNumbers             :: Maybe Bool
     , _ppRequireSymbols             :: Maybe Bool
     , _ppRequireUppercaseCharacters :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PasswordPolicy' constructor.
 --
@@ -290,8 +292,7 @@ ppHardExpiry = lens _ppHardExpiry (\s a -> s { _ppHardExpiry = a })
 
 -- | The number of days that an IAM user password is valid.
 ppMaxPasswordAge :: Lens' PasswordPolicy (Maybe Natural)
-ppMaxPasswordAge = lens _ppMaxPasswordAge (\s a -> s { _ppMaxPasswordAge = a })
-    . mapping _Nat
+ppMaxPasswordAge = lens _ppMaxPasswordAge (\s a -> s { _ppMaxPasswordAge = a }) . mapping _Nat
 
 -- | Minimum length to require for IAM user passwords.
 ppMinimumPasswordLength :: Lens' PasswordPolicy (Maybe Natural)
@@ -329,18 +330,30 @@ ppRequireUppercaseCharacters =
 
 instance FromXML PasswordPolicy where
     parseXML x = PasswordPolicy
-            <$> x .@? "AllowUsersToChangePassword"
-            <*> x .@? "ExpirePasswords"
-            <*> x .@? "HardExpiry"
-            <*> x .@? "MaxPasswordAge"
-            <*> x .@? "MinimumPasswordLength"
-            <*> x .@? "PasswordReusePrevention"
-            <*> x .@? "RequireLowercaseCharacters"
-            <*> x .@? "RequireNumbers"
-            <*> x .@? "RequireSymbols"
-            <*> x .@? "RequireUppercaseCharacters"
+        <$> x .@? "AllowUsersToChangePassword"
+        <*> x .@? "ExpirePasswords"
+        <*> x .@? "HardExpiry"
+        <*> x .@? "MaxPasswordAge"
+        <*> x .@? "MinimumPasswordLength"
+        <*> x .@? "PasswordReusePrevention"
+        <*> x .@? "RequireLowercaseCharacters"
+        <*> x .@? "RequireNumbers"
+        <*> x .@? "RequireSymbols"
+        <*> x .@? "RequireUppercaseCharacters"
 
-instance ToQuery PasswordPolicy
+instance ToQuery PasswordPolicy where
+    toQuery PasswordPolicy{..} = mconcat
+        [ "AllowUsersToChangePassword" =? _ppAllowUsersToChangePassword
+        , "ExpirePasswords"            =? _ppExpirePasswords
+        , "HardExpiry"                 =? _ppHardExpiry
+        , "MaxPasswordAge"             =? _ppMaxPasswordAge
+        , "MinimumPasswordLength"      =? _ppMinimumPasswordLength
+        , "PasswordReusePrevention"    =? _ppPasswordReusePrevention
+        , "RequireLowercaseCharacters" =? _ppRequireLowercaseCharacters
+        , "RequireNumbers"             =? _ppRequireNumbers
+        , "RequireSymbols"             =? _ppRequireSymbols
+        , "RequireUppercaseCharacters" =? _ppRequireUppercaseCharacters
+        ]
 
 data Group = Group
     { _gArn        :: Text
@@ -348,7 +361,7 @@ data Group = Group
     , _gGroupId    :: Text
     , _gGroupName  :: Text
     , _gPath       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Group' constructor.
 --
@@ -386,8 +399,7 @@ gArn = lens _gArn (\s a -> s { _gArn = a })
 
 -- | The date when the group was created.
 gCreateDate :: Lens' Group UTCTime
-gCreateDate = lens _gCreateDate (\s a -> s { _gCreateDate = a })
-    . _Time
+gCreateDate = lens _gCreateDate (\s a -> s { _gCreateDate = a }) . _Time
 
 -- | The stable and unique string identifying the group. For more information
 -- about IDs, see IAM Identifiers in the Using IAM guide.
@@ -405,19 +417,26 @@ gPath = lens _gPath (\s a -> s { _gPath = a })
 
 instance FromXML Group where
     parseXML x = Group
-            <$> x .@ "Arn"
-            <*> x .@ "CreateDate"
-            <*> x .@ "GroupId"
-            <*> x .@ "GroupName"
-            <*> x .@ "Path"
+        <$> x .@  "Arn"
+        <*> x .@  "CreateDate"
+        <*> x .@  "GroupId"
+        <*> x .@  "GroupName"
+        <*> x .@  "Path"
 
-instance ToQuery Group
+instance ToQuery Group where
+    toQuery Group{..} = mconcat
+        [ "Arn"        =? _gArn
+        , "CreateDate" =? _gCreateDate
+        , "GroupId"    =? _gGroupId
+        , "GroupName"  =? _gGroupName
+        , "Path"       =? _gPath
+        ]
 
 data MFADevice = MFADevice
     { _mfadEnableDate   :: RFC822
     , _mfadSerialNumber :: Text
     , _mfadUserName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'MFADevice' constructor.
 --
@@ -441,8 +460,7 @@ mfadevice p1 p2 p3 = MFADevice
 
 -- | The date when the MFA device was enabled for the user.
 mfadEnableDate :: Lens' MFADevice UTCTime
-mfadEnableDate = lens _mfadEnableDate (\s a -> s { _mfadEnableDate = a })
-    . _Time
+mfadEnableDate = lens _mfadEnableDate (\s a -> s { _mfadEnableDate = a }) . _Time
 
 -- | The serial number that uniquely identifies the MFA device. For virtual
 -- MFA devices, the serial number is the device ARN.
@@ -455,11 +473,16 @@ mfadUserName = lens _mfadUserName (\s a -> s { _mfadUserName = a })
 
 instance FromXML MFADevice where
     parseXML x = MFADevice
-            <$> x .@ "EnableDate"
-            <*> x .@ "SerialNumber"
-            <*> x .@ "UserName"
+        <$> x .@  "EnableDate"
+        <*> x .@  "SerialNumber"
+        <*> x .@  "UserName"
 
-instance ToQuery MFADevice
+instance ToQuery MFADevice where
+    toQuery MFADevice{..} = mconcat
+        [ "EnableDate"   =? _mfadEnableDate
+        , "SerialNumber" =? _mfadSerialNumber
+        , "UserName"     =? _mfadUserName
+        ]
 
 data InstanceProfile = InstanceProfile
     { _ipArn                 :: Text
@@ -467,8 +490,8 @@ data InstanceProfile = InstanceProfile
     , _ipInstanceProfileId   :: Text
     , _ipInstanceProfileName :: Text
     , _ipPath                :: Text
-    , _ipRoles               :: [Role]
-    } deriving (Eq, Show, Generic)
+    , _ipRoles               :: List "Roles" Role
+    } deriving (Eq, Show)
 
 -- | 'InstanceProfile' constructor.
 --
@@ -509,8 +532,7 @@ ipArn = lens _ipArn (\s a -> s { _ipArn = a })
 
 -- | The date when the instance profile was created.
 ipCreateDate :: Lens' InstanceProfile UTCTime
-ipCreateDate = lens _ipCreateDate (\s a -> s { _ipCreateDate = a })
-    . _Time
+ipCreateDate = lens _ipCreateDate (\s a -> s { _ipCreateDate = a }) . _Time
 
 -- | The stable and unique string identifying the instance profile. For more
 -- information about IDs, see IAM Identifiers in the Using IAM guide.
@@ -530,18 +552,26 @@ ipPath = lens _ipPath (\s a -> s { _ipPath = a })
 
 -- | The role associated with the instance profile.
 ipRoles :: Lens' InstanceProfile [Role]
-ipRoles = lens _ipRoles (\s a -> s { _ipRoles = a })
+ipRoles = lens _ipRoles (\s a -> s { _ipRoles = a }) . _List
 
 instance FromXML InstanceProfile where
     parseXML x = InstanceProfile
-            <$> x .@ "Arn"
-            <*> x .@ "CreateDate"
-            <*> x .@ "InstanceProfileId"
-            <*> x .@ "InstanceProfileName"
-            <*> x .@ "Path"
-            <*> x .@ "Roles"
+        <$> x .@  "Arn"
+        <*> x .@  "CreateDate"
+        <*> x .@  "InstanceProfileId"
+        <*> x .@  "InstanceProfileName"
+        <*> x .@  "Path"
+        <*> x .@  "Roles"
 
-instance ToQuery InstanceProfile
+instance ToQuery InstanceProfile where
+    toQuery InstanceProfile{..} = mconcat
+        [ "Arn"                 =? _ipArn
+        , "CreateDate"          =? _ipCreateDate
+        , "InstanceProfileId"   =? _ipInstanceProfileId
+        , "InstanceProfileName" =? _ipInstanceProfileName
+        , "Path"                =? _ipPath
+        , "Roles"               =? _ipRoles
+        ]
 
 data ReportFormatType
     = TextCsv -- ^ text/csv
@@ -558,7 +588,8 @@ instance ToText ReportFormatType where
 instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
 
-instance ToQuery ReportFormatType
+instance ToQuery ReportFormatType where
+    toQuery ReportFormatType = toQuery . toText
 
 data ServerCertificateMetadata = ServerCertificateMetadata
     { _scmArn                   :: Text
@@ -567,7 +598,7 @@ data ServerCertificateMetadata = ServerCertificateMetadata
     , _scmServerCertificateId   :: Text
     , _scmServerCertificateName :: Text
     , _scmUploadDate            :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ServerCertificateMetadata' constructor.
 --
@@ -607,8 +638,7 @@ scmArn = lens _scmArn (\s a -> s { _scmArn = a })
 
 -- | The date on which the certificate is set to expire.
 scmExpiration :: Lens' ServerCertificateMetadata (Maybe UTCTime)
-scmExpiration = lens _scmExpiration (\s a -> s { _scmExpiration = a })
-    . mapping _Time
+scmExpiration = lens _scmExpiration (\s a -> s { _scmExpiration = a }) . mapping _Time
 
 -- | The path to the server certificate. For more information about paths, see
 -- IAM Identifiers in the Using IAM guide.
@@ -629,23 +659,30 @@ scmServerCertificateName =
 
 -- | The date when the server certificate was uploaded.
 scmUploadDate :: Lens' ServerCertificateMetadata (Maybe UTCTime)
-scmUploadDate = lens _scmUploadDate (\s a -> s { _scmUploadDate = a })
-    . mapping _Time
+scmUploadDate = lens _scmUploadDate (\s a -> s { _scmUploadDate = a }) . mapping _Time
 
 instance FromXML ServerCertificateMetadata where
     parseXML x = ServerCertificateMetadata
-            <$> x .@ "Arn"
-            <*> x .@? "Expiration"
-            <*> x .@ "Path"
-            <*> x .@ "ServerCertificateId"
-            <*> x .@ "ServerCertificateName"
-            <*> x .@? "UploadDate"
+        <$> x .@  "Arn"
+        <*> x .@? "Expiration"
+        <*> x .@  "Path"
+        <*> x .@  "ServerCertificateId"
+        <*> x .@  "ServerCertificateName"
+        <*> x .@? "UploadDate"
 
-instance ToQuery ServerCertificateMetadata
+instance ToQuery ServerCertificateMetadata where
+    toQuery ServerCertificateMetadata{..} = mconcat
+        [ "Arn"                   =? _scmArn
+        , "Expiration"            =? _scmExpiration
+        , "Path"                  =? _scmPath
+        , "ServerCertificateId"   =? _scmServerCertificateId
+        , "ServerCertificateName" =? _scmServerCertificateName
+        , "UploadDate"            =? _scmUploadDate
+        ]
 
 newtype OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry
     { _oidcpleArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'OpenIDConnectProviderListEntry' constructor.
 --
@@ -663,15 +700,18 @@ oidcpleArn = lens _oidcpleArn (\s a -> s { _oidcpleArn = a })
 
 instance FromXML OpenIDConnectProviderListEntry where
     parseXML x = OpenIDConnectProviderListEntry
-            <$> x .@? "Arn"
+        <$> x .@? "Arn"
 
-instance ToQuery OpenIDConnectProviderListEntry
+instance ToQuery OpenIDConnectProviderListEntry where
+    toQuery OpenIDConnectProviderListEntry{..} = mconcat
+        [ "Arn" =? _oidcpleArn
+        ]
 
 data LoginProfile = LoginProfile
     { _lpCreateDate            :: RFC822
     , _lpPasswordResetRequired :: Maybe Bool
     , _lpUserName              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LoginProfile' constructor.
 --
@@ -694,8 +734,7 @@ loginProfile p1 p2 = LoginProfile
 
 -- | The date when the password for the user was created.
 lpCreateDate :: Lens' LoginProfile UTCTime
-lpCreateDate = lens _lpCreateDate (\s a -> s { _lpCreateDate = a })
-    . _Time
+lpCreateDate = lens _lpCreateDate (\s a -> s { _lpCreateDate = a }) . _Time
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
@@ -710,11 +749,16 @@ lpUserName = lens _lpUserName (\s a -> s { _lpUserName = a })
 
 instance FromXML LoginProfile where
     parseXML x = LoginProfile
-            <$> x .@ "CreateDate"
-            <*> x .@? "PasswordResetRequired"
-            <*> x .@ "UserName"
+        <$> x .@  "CreateDate"
+        <*> x .@? "PasswordResetRequired"
+        <*> x .@  "UserName"
 
-instance ToQuery LoginProfile
+instance ToQuery LoginProfile where
+    toQuery LoginProfile{..} = mconcat
+        [ "CreateDate"            =? _lpCreateDate
+        , "PasswordResetRequired" =? _lpPasswordResetRequired
+        , "UserName"              =? _lpUserName
+        ]
 
 data SummaryKeyType
     = AccessKeysPerUserQuota          -- ^ AccessKeysPerUserQuota
@@ -771,7 +815,8 @@ instance ToText SummaryKeyType where
 instance FromXML SummaryKeyType where
     parseXML = parseXMLText "SummaryKeyType"
 
-instance ToQuery SummaryKeyType
+instance ToQuery SummaryKeyType where
+    toQuery SummaryKeyType = toQuery . toText
 
 data ReportStateType
     = Complete   -- ^ COMPLETE
@@ -795,7 +840,8 @@ instance ToText ReportStateType where
 instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
 
-instance ToQuery ReportStateType
+instance ToQuery ReportStateType where
+    toQuery ReportStateType = toQuery . toText
 
 data User = User
     { _uArn              :: Text
@@ -804,7 +850,7 @@ data User = User
     , _uPath             :: Text
     , _uUserId           :: Text
     , _uUserName         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'User' constructor.
 --
@@ -846,8 +892,7 @@ uArn = lens _uArn (\s a -> s { _uArn = a })
 -- | The date and time, in ISO 8601 date-time format, when the user was
 -- created.
 uCreateDate :: Lens' User UTCTime
-uCreateDate = lens _uCreateDate (\s a -> s { _uCreateDate = a })
-    . _Time
+uCreateDate = lens _uCreateDate (\s a -> s { _uCreateDate = a }) . _Time
 
 -- | The date and time, in ISO 8601 date-time format, when the user's password
 -- was last used to sign in to an AWS website. For a list of AWS websites
@@ -879,14 +924,22 @@ uUserName = lens _uUserName (\s a -> s { _uUserName = a })
 
 instance FromXML User where
     parseXML x = User
-            <$> x .@ "Arn"
-            <*> x .@ "CreateDate"
-            <*> x .@? "PasswordLastUsed"
-            <*> x .@ "Path"
-            <*> x .@ "UserId"
-            <*> x .@ "UserName"
+        <$> x .@  "Arn"
+        <*> x .@  "CreateDate"
+        <*> x .@? "PasswordLastUsed"
+        <*> x .@  "Path"
+        <*> x .@  "UserId"
+        <*> x .@  "UserName"
 
-instance ToQuery User
+instance ToQuery User where
+    toQuery User{..} = mconcat
+        [ "Arn"              =? _uArn
+        , "CreateDate"       =? _uCreateDate
+        , "PasswordLastUsed" =? _uPasswordLastUsed
+        , "Path"             =? _uPath
+        , "UserId"           =? _uUserId
+        , "UserName"         =? _uUserName
+        ]
 
 data StatusType
     = Active   -- ^ Active
@@ -907,13 +960,14 @@ instance ToText StatusType where
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
-instance ToQuery StatusType
+instance ToQuery StatusType where
+    toQuery StatusType = toQuery . toText
 
 data SAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn        :: Maybe Text
     , _samlpleCreateDate :: Maybe RFC822
     , _samlpleValidUntil :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SAMLProviderListEntry' constructor.
 --
@@ -950,11 +1004,16 @@ samlpleValidUntil =
 
 instance FromXML SAMLProviderListEntry where
     parseXML x = SAMLProviderListEntry
-            <$> x .@? "Arn"
-            <*> x .@? "CreateDate"
-            <*> x .@? "ValidUntil"
+        <$> x .@? "Arn"
+        <*> x .@? "CreateDate"
+        <*> x .@? "ValidUntil"
 
-instance ToQuery SAMLProviderListEntry
+instance ToQuery SAMLProviderListEntry where
+    toQuery SAMLProviderListEntry{..} = mconcat
+        [ "Arn"        =? _samlpleArn
+        , "CreateDate" =? _samlpleCreateDate
+        , "ValidUntil" =? _samlpleValidUntil
+        ]
 
 data Role = Role
     { _rArn                      :: Text
@@ -963,7 +1022,7 @@ data Role = Role
     , _rPath                     :: Text
     , _rRoleId                   :: Text
     , _rRoleName                 :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Role' constructor.
 --
@@ -1012,8 +1071,7 @@ rAssumeRolePolicyDocument =
 
 -- | The date when the role was created.
 rCreateDate :: Lens' Role UTCTime
-rCreateDate = lens _rCreateDate (\s a -> s { _rCreateDate = a })
-    . _Time
+rCreateDate = lens _rCreateDate (\s a -> s { _rCreateDate = a }) . _Time
 
 -- | The path to the role. For more information about paths, see IAM
 -- Identifiers in the Using IAM guide.
@@ -1031,20 +1089,28 @@ rRoleName = lens _rRoleName (\s a -> s { _rRoleName = a })
 
 instance FromXML Role where
     parseXML x = Role
-            <$> x .@ "Arn"
-            <*> x .@? "AssumeRolePolicyDocument"
-            <*> x .@ "CreateDate"
-            <*> x .@ "Path"
-            <*> x .@ "RoleId"
-            <*> x .@ "RoleName"
+        <$> x .@  "Arn"
+        <*> x .@? "AssumeRolePolicyDocument"
+        <*> x .@  "CreateDate"
+        <*> x .@  "Path"
+        <*> x .@  "RoleId"
+        <*> x .@  "RoleName"
 
-instance ToQuery Role
+instance ToQuery Role where
+    toQuery Role{..} = mconcat
+        [ "Arn"                      =? _rArn
+        , "AssumeRolePolicyDocument" =? _rAssumeRolePolicyDocument
+        , "CreateDate"               =? _rCreateDate
+        , "Path"                     =? _rPath
+        , "RoleId"                   =? _rRoleId
+        , "RoleName"                 =? _rRoleName
+        ]
 
 data ServerCertificate = ServerCertificate
     { _scCertificateBody           :: Text
     , _scCertificateChain          :: Maybe Text
     , _scServerCertificateMetadata :: ServerCertificateMetadata
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ServerCertificate' constructor.
 --
@@ -1084,11 +1150,16 @@ scServerCertificateMetadata =
 
 instance FromXML ServerCertificate where
     parseXML x = ServerCertificate
-            <$> x .@ "CertificateBody"
-            <*> x .@? "CertificateChain"
-            <*> x .@ "ServerCertificateMetadata"
+        <$> x .@  "CertificateBody"
+        <*> x .@? "CertificateChain"
+        <*> x .@  "ServerCertificateMetadata"
 
-instance ToQuery ServerCertificate
+instance ToQuery ServerCertificate where
+    toQuery ServerCertificate{..} = mconcat
+        [ "CertificateBody"           =? _scCertificateBody
+        , "CertificateChain"          =? _scCertificateChain
+        , "ServerCertificateMetadata" =? _scServerCertificateMetadata
+        ]
 
 data AccessKey = AccessKey
     { _akAccessKeyId     :: Text
@@ -1096,7 +1167,7 @@ data AccessKey = AccessKey
     , _akSecretAccessKey :: Sensitive Text
     , _akStatus          :: Text
     , _akUserName        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AccessKey' constructor.
 --
@@ -1131,8 +1202,7 @@ akAccessKeyId = lens _akAccessKeyId (\s a -> s { _akAccessKeyId = a })
 
 -- | The date when the access key was created.
 akCreateDate :: Lens' AccessKey (Maybe UTCTime)
-akCreateDate = lens _akCreateDate (\s a -> s { _akCreateDate = a })
-    . mapping _Time
+akCreateDate = lens _akCreateDate (\s a -> s { _akCreateDate = a }) . mapping _Time
 
 -- | The secret key used to sign requests.
 akSecretAccessKey :: Lens' AccessKey Text
@@ -1151,13 +1221,20 @@ akUserName = lens _akUserName (\s a -> s { _akUserName = a })
 
 instance FromXML AccessKey where
     parseXML x = AccessKey
-            <$> x .@ "AccessKeyId"
-            <*> x .@? "CreateDate"
-            <*> x .@ "SecretAccessKey"
-            <*> x .@ "Status"
-            <*> x .@ "UserName"
+        <$> x .@  "AccessKeyId"
+        <*> x .@? "CreateDate"
+        <*> x .@  "SecretAccessKey"
+        <*> x .@  "Status"
+        <*> x .@  "UserName"
 
-instance ToQuery AccessKey
+instance ToQuery AccessKey where
+    toQuery AccessKey{..} = mconcat
+        [ "AccessKeyId"     =? _akAccessKeyId
+        , "CreateDate"      =? _akCreateDate
+        , "SecretAccessKey" =? _akSecretAccessKey
+        , "Status"          =? _akStatus
+        , "UserName"        =? _akUserName
+        ]
 
 data VirtualMFADevice = VirtualMFADevice
     { _vmfadBase32StringSeed :: Maybe Base64
@@ -1165,7 +1242,7 @@ data VirtualMFADevice = VirtualMFADevice
     , _vmfadQRCodePNG        :: Maybe Base64
     , _vmfadSerialNumber     :: Text
     , _vmfadUser             :: Maybe User
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'VirtualMFADevice' constructor.
 --
@@ -1199,8 +1276,7 @@ vmfadBase32StringSeed =
 
 -- | The date and time on which the virtual MFA device was enabled.
 vmfadEnableDate :: Lens' VirtualMFADevice (Maybe UTCTime)
-vmfadEnableDate = lens _vmfadEnableDate (\s a -> s { _vmfadEnableDate = a })
-    . mapping _Time
+vmfadEnableDate = lens _vmfadEnableDate (\s a -> s { _vmfadEnableDate = a }) . mapping _Time
 
 -- | A QR code PNG image that encodes
 -- otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String
@@ -1221,13 +1297,20 @@ vmfadUser = lens _vmfadUser (\s a -> s { _vmfadUser = a })
 
 instance FromXML VirtualMFADevice where
     parseXML x = VirtualMFADevice
-            <$> x .@? "Base32StringSeed"
-            <*> x .@? "EnableDate"
-            <*> x .@? "QRCodePNG"
-            <*> x .@ "SerialNumber"
-            <*> x .@? "User"
+        <$> x .@? "Base32StringSeed"
+        <*> x .@? "EnableDate"
+        <*> x .@? "QRCodePNG"
+        <*> x .@  "SerialNumber"
+        <*> x .@? "User"
 
-instance ToQuery VirtualMFADevice
+instance ToQuery VirtualMFADevice where
+    toQuery VirtualMFADevice{..} = mconcat
+        [ "Base32StringSeed" =? _vmfadBase32StringSeed
+        , "EnableDate"       =? _vmfadEnableDate
+        , "QRCodePNG"        =? _vmfadQRCodePNG
+        , "SerialNumber"     =? _vmfadSerialNumber
+        , "User"             =? _vmfadUser
+        ]
 
 data SigningCertificate = SigningCertificate
     { _sc1CertificateBody :: Text
@@ -1235,7 +1318,7 @@ data SigningCertificate = SigningCertificate
     , _sc1Status          :: Text
     , _sc1UploadDate      :: Maybe RFC822
     , _sc1UserName        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SigningCertificate' constructor.
 --
@@ -1280,8 +1363,7 @@ sc1Status = lens _sc1Status (\s a -> s { _sc1Status = a })
 
 -- | The date when the signing certificate was uploaded.
 sc1UploadDate :: Lens' SigningCertificate (Maybe UTCTime)
-sc1UploadDate = lens _sc1UploadDate (\s a -> s { _sc1UploadDate = a })
-    . mapping _Time
+sc1UploadDate = lens _sc1UploadDate (\s a -> s { _sc1UploadDate = a }) . mapping _Time
 
 -- | The name of the user the signing certificate is associated with.
 sc1UserName :: Lens' SigningCertificate Text
@@ -1289,20 +1371,27 @@ sc1UserName = lens _sc1UserName (\s a -> s { _sc1UserName = a })
 
 instance FromXML SigningCertificate where
     parseXML x = SigningCertificate
-            <$> x .@ "CertificateBody"
-            <*> x .@ "CertificateId"
-            <*> x .@ "Status"
-            <*> x .@? "UploadDate"
-            <*> x .@ "UserName"
+        <$> x .@  "CertificateBody"
+        <*> x .@  "CertificateId"
+        <*> x .@  "Status"
+        <*> x .@? "UploadDate"
+        <*> x .@  "UserName"
 
-instance ToQuery SigningCertificate
+instance ToQuery SigningCertificate where
+    toQuery SigningCertificate{..} = mconcat
+        [ "CertificateBody" =? _sc1CertificateBody
+        , "CertificateId"   =? _sc1CertificateId
+        , "Status"          =? _sc1Status
+        , "UploadDate"      =? _sc1UploadDate
+        , "UserName"        =? _sc1UserName
+        ]
 
 data AccessKeyMetadata = AccessKeyMetadata
     { _akmAccessKeyId :: Maybe Text
     , _akmCreateDate  :: Maybe RFC822
     , _akmStatus      :: Maybe Text
     , _akmUserName    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AccessKeyMetadata' constructor.
 --
@@ -1330,8 +1419,7 @@ akmAccessKeyId = lens _akmAccessKeyId (\s a -> s { _akmAccessKeyId = a })
 
 -- | The date when the access key was created.
 akmCreateDate :: Lens' AccessKeyMetadata (Maybe UTCTime)
-akmCreateDate = lens _akmCreateDate (\s a -> s { _akmCreateDate = a })
-    . mapping _Time
+akmCreateDate = lens _akmCreateDate (\s a -> s { _akmCreateDate = a }) . mapping _Time
 
 -- | The status of the access key. Active means the key is valid for API
 -- calls; Inactive means it is not.
@@ -1344,9 +1432,15 @@ akmUserName = lens _akmUserName (\s a -> s { _akmUserName = a })
 
 instance FromXML AccessKeyMetadata where
     parseXML x = AccessKeyMetadata
-            <$> x .@? "AccessKeyId"
-            <*> x .@? "CreateDate"
-            <*> x .@? "Status"
-            <*> x .@? "UserName"
+        <$> x .@? "AccessKeyId"
+        <*> x .@? "CreateDate"
+        <*> x .@? "Status"
+        <*> x .@? "UserName"
 
-instance ToQuery AccessKeyMetadata
+instance ToQuery AccessKeyMetadata where
+    toQuery AccessKeyMetadata{..} = mconcat
+        [ "AccessKeyId" =? _akmAccessKeyId
+        , "CreateDate"  =? _akmCreateDate
+        , "Status"      =? _akmStatus
+        , "UserName"    =? _akmUserName
+        ]

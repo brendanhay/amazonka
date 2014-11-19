@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -176,14 +177,14 @@ data VirtualInterface = VirtualInterface
     , _viCustomerRouterConfig  :: Maybe Text
     , _viLocation              :: Maybe Text
     , _viOwnerAccount          :: Maybe Text
-    , _viRouteFilterPrefixes   :: [RouteFilterPrefix]
+    , _viRouteFilterPrefixes   :: List "routeFilterPrefixes" RouteFilterPrefix
     , _viVirtualGatewayId      :: Maybe Text
     , _viVirtualInterfaceId    :: Maybe Text
     , _viVirtualInterfaceName  :: Maybe Text
     , _viVirtualInterfaceState :: Maybe Text
     , _viVirtualInterfaceType  :: Maybe Text
     , _viVlan                  :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'VirtualInterface' constructor.
 --
@@ -268,6 +269,7 @@ viOwnerAccount = lens _viOwnerAccount (\s a -> s { _viOwnerAccount = a })
 viRouteFilterPrefixes :: Lens' VirtualInterface [RouteFilterPrefix]
 viRouteFilterPrefixes =
     lens _viRouteFilterPrefixes (\s a -> s { _viRouteFilterPrefixes = a })
+        . _List
 
 viVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)
 viVirtualGatewayId =
@@ -302,7 +304,7 @@ instance FromJSON VirtualInterface where
         <*> o .:? "customerRouterConfig"
         <*> o .:? "location"
         <*> o .:? "ownerAccount"
-        <*> o .: "routeFilterPrefixes"
+        <*> o .:  "routeFilterPrefixes"
         <*> o .:? "virtualGatewayId"
         <*> o .:? "virtualInterfaceId"
         <*> o .:? "virtualInterfaceName"
@@ -332,7 +334,7 @@ instance ToJSON VirtualInterface where
 data Location = Location
     { _lLocationCode :: Maybe Text
     , _lLocationName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Location' constructor.
 --
@@ -369,8 +371,8 @@ instance ToJSON Location where
         ]
 
 newtype Connections = Connections
-    { _cConnections :: [Connection]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _cConnections :: List "connections" Connection
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList Connections where
     type Item Connections = Connection
@@ -391,11 +393,11 @@ connections = Connections
 
 -- | A list of connections.
 cConnections :: Lens' Connections [Connection]
-cConnections = lens _cConnections (\s a -> s { _cConnections = a })
+cConnections = lens _cConnections (\s a -> s { _cConnections = a }) . _List
 
 instance FromJSON Connections where
     parseJSON = withObject "Connections" $ \o -> Connections
-        <$> o .: "connections"
+        <$> o .:  "connections"
 
 instance ToJSON Connections where
     toJSON Connections{..} = object
@@ -409,7 +411,7 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
     , _npviaCustomerAddress      :: Maybe Text
     , _npviaVirtualInterfaceName :: Text
     , _npviaVlan                 :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'NewPrivateVirtualInterfaceAllocation' constructor.
 --
@@ -465,11 +467,11 @@ npviaVlan = lens _npviaVlan (\s a -> s { _npviaVlan = a })
 instance FromJSON NewPrivateVirtualInterfaceAllocation where
     parseJSON = withObject "NewPrivateVirtualInterfaceAllocation" $ \o -> NewPrivateVirtualInterfaceAllocation
         <$> o .:? "amazonAddress"
-        <*> o .: "asn"
+        <*> o .:  "asn"
         <*> o .:? "authKey"
         <*> o .:? "customerAddress"
-        <*> o .: "virtualInterfaceName"
-        <*> o .: "vlan"
+        <*> o .:  "virtualInterfaceName"
+        <*> o .:  "vlan"
 
 instance ToJSON NewPrivateVirtualInterfaceAllocation where
     toJSON NewPrivateVirtualInterfaceAllocation{..} = object
@@ -528,7 +530,7 @@ data Connection = Connection
     , _cPartnerName     :: Maybe Text
     , _cRegion          :: Maybe Text
     , _cVlan            :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Connection' constructor.
 --
@@ -624,10 +626,10 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface
     , _npviAsn                  :: Int
     , _npviAuthKey              :: Maybe Text
     , _npviCustomerAddress      :: Text
-    , _npviRouteFilterPrefixes  :: [RouteFilterPrefix]
+    , _npviRouteFilterPrefixes  :: List "routeFilterPrefixes" RouteFilterPrefix
     , _npviVirtualInterfaceName :: Text
     , _npviVlan                 :: Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'NewPublicVirtualInterface' constructor.
 --
@@ -680,6 +682,7 @@ npviCustomerAddress =
 npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
 npviRouteFilterPrefixes =
     lens _npviRouteFilterPrefixes (\s a -> s { _npviRouteFilterPrefixes = a })
+        . _List
 
 npviVirtualInterfaceName :: Lens' NewPublicVirtualInterface Text
 npviVirtualInterfaceName =
@@ -691,13 +694,13 @@ npviVlan = lens _npviVlan (\s a -> s { _npviVlan = a })
 
 instance FromJSON NewPublicVirtualInterface where
     parseJSON = withObject "NewPublicVirtualInterface" $ \o -> NewPublicVirtualInterface
-        <$> o .: "amazonAddress"
-        <*> o .: "asn"
+        <$> o .:  "amazonAddress"
+        <*> o .:  "asn"
         <*> o .:? "authKey"
-        <*> o .: "customerAddress"
-        <*> o .: "routeFilterPrefixes"
-        <*> o .: "virtualInterfaceName"
-        <*> o .: "vlan"
+        <*> o .:  "customerAddress"
+        <*> o .:  "routeFilterPrefixes"
+        <*> o .:  "virtualInterfaceName"
+        <*> o .:  "vlan"
 
 instance ToJSON NewPublicVirtualInterface where
     toJSON NewPublicVirtualInterface{..} = object
@@ -717,7 +720,7 @@ data Interconnect = Interconnect
     , _iInterconnectState :: Maybe Text
     , _iLocation          :: Maybe Text
     , _iRegion            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Interconnect' constructor.
 --
@@ -826,7 +829,7 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface
     , _npvi1VirtualGatewayId     :: Text
     , _npvi1VirtualInterfaceName :: Text
     , _npvi1Vlan                 :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'NewPrivateVirtualInterface' constructor.
 --
@@ -890,12 +893,12 @@ npvi1Vlan = lens _npvi1Vlan (\s a -> s { _npvi1Vlan = a })
 instance FromJSON NewPrivateVirtualInterface where
     parseJSON = withObject "NewPrivateVirtualInterface" $ \o -> NewPrivateVirtualInterface
         <$> o .:? "amazonAddress"
-        <*> o .: "asn"
+        <*> o .:  "asn"
         <*> o .:? "authKey"
         <*> o .:? "customerAddress"
-        <*> o .: "virtualGatewayId"
-        <*> o .: "virtualInterfaceName"
-        <*> o .: "vlan"
+        <*> o .:  "virtualGatewayId"
+        <*> o .:  "virtualInterfaceName"
+        <*> o .:  "vlan"
 
 instance ToJSON NewPrivateVirtualInterface where
     toJSON NewPrivateVirtualInterface{..} = object
@@ -913,10 +916,10 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
     , _npvia1Asn                  :: Int
     , _npvia1AuthKey              :: Maybe Text
     , _npvia1CustomerAddress      :: Text
-    , _npvia1RouteFilterPrefixes  :: [RouteFilterPrefix]
+    , _npvia1RouteFilterPrefixes  :: List "routeFilterPrefixes" RouteFilterPrefix
     , _npvia1VirtualInterfaceName :: Text
     , _npvia1Vlan                 :: Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'NewPublicVirtualInterfaceAllocation' constructor.
 --
@@ -970,6 +973,7 @@ npvia1RouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFil
 npvia1RouteFilterPrefixes =
     lens _npvia1RouteFilterPrefixes
         (\s a -> s { _npvia1RouteFilterPrefixes = a })
+            . _List
 
 npvia1VirtualInterfaceName :: Lens' NewPublicVirtualInterfaceAllocation Text
 npvia1VirtualInterfaceName =
@@ -981,13 +985,13 @@ npvia1Vlan = lens _npvia1Vlan (\s a -> s { _npvia1Vlan = a })
 
 instance FromJSON NewPublicVirtualInterfaceAllocation where
     parseJSON = withObject "NewPublicVirtualInterfaceAllocation" $ \o -> NewPublicVirtualInterfaceAllocation
-        <$> o .: "amazonAddress"
-        <*> o .: "asn"
+        <$> o .:  "amazonAddress"
+        <*> o .:  "asn"
         <*> o .:? "authKey"
-        <*> o .: "customerAddress"
-        <*> o .: "routeFilterPrefixes"
-        <*> o .: "virtualInterfaceName"
-        <*> o .: "vlan"
+        <*> o .:  "customerAddress"
+        <*> o .:  "routeFilterPrefixes"
+        <*> o .:  "virtualInterfaceName"
+        <*> o .:  "vlan"
 
 instance ToJSON NewPublicVirtualInterfaceAllocation where
     toJSON NewPublicVirtualInterfaceAllocation{..} = object
@@ -1043,7 +1047,7 @@ instance ToJSON ConnectionState where
 data VirtualGateway = VirtualGateway
     { _vgVirtualGatewayId    :: Maybe Text
     , _vgVirtualGatewayState :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'VirtualGateway' constructor.
 --
@@ -1080,7 +1084,7 @@ instance ToJSON VirtualGateway where
 
 newtype RouteFilterPrefix = RouteFilterPrefix
     { _rfpCidr :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'RouteFilterPrefix' constructor.
 --

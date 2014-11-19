@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import qualified GHC.Exts
 data CreateDBSnapshot = CreateDBSnapshot
     { _cdbs1DBInstanceIdentifier :: Text
     , _cdbs1DBSnapshotIdentifier :: Text
-    , _cdbs1Tags                 :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _cdbs1Tags                 :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateDBSnapshot' constructor.
 --
@@ -90,11 +91,11 @@ cdbs1DBSnapshotIdentifier =
         (\s a -> s { _cdbs1DBSnapshotIdentifier = a })
 
 cdbs1Tags :: Lens' CreateDBSnapshot [Tag]
-cdbs1Tags = lens _cdbs1Tags (\s a -> s { _cdbs1Tags = a })
+cdbs1Tags = lens _cdbs1Tags (\s a -> s { _cdbs1Tags = a }) . _List
 
 newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
     { _cdbsr1DBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDBSnapshotResponse' constructor.
 --
@@ -113,7 +114,12 @@ cdbsr1DBSnapshot = lens _cdbsr1DBSnapshot (\s a -> s { _cdbsr1DBSnapshot = a })
 instance ToPath CreateDBSnapshot where
     toPath = const "/"
 
-instance ToQuery CreateDBSnapshot
+instance ToQuery CreateDBSnapshot where
+    toQuery CreateDBSnapshot{..} = mconcat
+        [ "DBInstanceIdentifier" =? _cdbs1DBInstanceIdentifier
+        , "DBSnapshotIdentifier" =? _cdbs1DBSnapshotIdentifier
+        , "Tags"                 =? _cdbs1Tags
+        ]
 
 instance ToHeaders CreateDBSnapshot
 
@@ -125,5 +131,5 @@ instance AWSRequest CreateDBSnapshot where
     response = xmlResponse
 
 instance FromXML CreateDBSnapshotResponse where
-    parseXML = withElement "CreateDBSnapshotResult" $ \x ->
-            <$> x .@? "DBSnapshot"
+    parseXML = withElement "CreateDBSnapshotResult" $ \x -> CreateDBSnapshotResponse
+        <$> x .@? "DBSnapshot"

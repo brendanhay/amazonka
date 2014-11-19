@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -44,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
     { _dcpg1ParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteClusterParameterGroup' constructor.
 --
@@ -75,7 +76,10 @@ deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
 instance ToPath DeleteClusterParameterGroup where
     toPath = const "/"
 
-instance ToQuery DeleteClusterParameterGroup
+instance ToQuery DeleteClusterParameterGroup where
+    toQuery DeleteClusterParameterGroup{..} = mconcat
+        [ "ParameterGroupName" =? _dcpg1ParameterGroupName
+        ]
 
 instance ToHeaders DeleteClusterParameterGroup
 

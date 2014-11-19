@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -80,7 +81,7 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
     , _lcweStartTimeFilter   :: Maybe ExecutionTimeFilter
     , _lcweTagFilter         :: Maybe TagFilter
     , _lcweTypeFilter        :: Maybe WorkflowTypeFilter
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListClosedWorkflowExecutions' constructor.
 --
@@ -188,9 +189,9 @@ lcweTypeFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
 lcweTypeFilter = lens _lcweTypeFilter (\s a -> s { _lcweTypeFilter = a })
 
 data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
-    { _lcwerExecutionInfos :: [WorkflowExecutionInfo]
+    { _lcwerExecutionInfos :: List "executionInfos" WorkflowExecutionInfo
     , _lcwerNextPageToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListClosedWorkflowExecutionsResponse' constructor.
 --
@@ -210,6 +211,7 @@ listClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
 lcwerExecutionInfos :: Lens' ListClosedWorkflowExecutionsResponse [WorkflowExecutionInfo]
 lcwerExecutionInfos =
     lens _lcwerExecutionInfos (\s a -> s { _lcwerExecutionInfos = a })
+        . _List
 
 -- | The token of the next page in the result. If set, the results have more
 -- than one page. The next page can be retrieved by repeating the request
@@ -249,7 +251,7 @@ instance AWSRequest ListClosedWorkflowExecutions where
 
 instance FromJSON ListClosedWorkflowExecutionsResponse where
     parseJSON = withObject "ListClosedWorkflowExecutionsResponse" $ \o -> ListClosedWorkflowExecutionsResponse
-        <$> o .: "executionInfos"
+        <$> o .:  "executionInfos"
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListClosedWorkflowExecutions where

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 data ListAccountAliases = ListAccountAliases
     { _laaMarker   :: Maybe Text
     , _laaMaxItems :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListAccountAliases' constructor.
 --
@@ -81,14 +82,13 @@ laaMarker = lens _laaMarker (\s a -> s { _laaMarker = a })
 -- is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
-laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a })
-    . mapping _Nat
+laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a }) . mapping _Nat
 
 data ListAccountAliasesResponse = ListAccountAliasesResponse
-    { _laarAccountAliases :: [Text]
+    { _laarAccountAliases :: List "AccountAliases" Text
     , _laarIsTruncated    :: Maybe Bool
     , _laarMarker         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListAccountAliasesResponse' constructor.
 --
@@ -111,6 +111,7 @@ listAccountAliasesResponse = ListAccountAliasesResponse
 laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]
 laarAccountAliases =
     lens _laarAccountAliases (\s a -> s { _laarAccountAliases = a })
+        . _List
 
 -- | A flag that indicates whether there are more account aliases to list. If
 -- your results were truncated, you can make a subsequent pagination request
@@ -128,7 +129,11 @@ laarMarker = lens _laarMarker (\s a -> s { _laarMarker = a })
 instance ToPath ListAccountAliases where
     toPath = const "/"
 
-instance ToQuery ListAccountAliases
+instance ToQuery ListAccountAliases where
+    toQuery ListAccountAliases{..} = mconcat
+        [ "Marker"   =? _laaMarker
+        , "MaxItems" =? _laaMaxItems
+        ]
 
 instance ToHeaders ListAccountAliases
 
@@ -140,10 +145,10 @@ instance AWSRequest ListAccountAliases where
     response = xmlResponse
 
 instance FromXML ListAccountAliasesResponse where
-    parseXML = withElement "ListAccountAliasesResult" $ \x ->
-            <$> x .@ "AccountAliases"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Marker"
+    parseXML = withElement "ListAccountAliasesResult" $ \x -> ListAccountAliasesResponse
+        <$> x .@  "AccountAliases"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
 
 instance AWSPager ListAccountAliases where
     next rq rs

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
     { _dlbaLoadBalancerName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeLoadBalancerAttributes' constructor.
 --
@@ -68,7 +69,7 @@ dlbaLoadBalancerName =
 
 newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeLoadBalancerAttributesResponse' constructor.
 --
@@ -90,7 +91,10 @@ dlbarLoadBalancerAttributes =
 instance ToPath DescribeLoadBalancerAttributes where
     toPath = const "/"
 
-instance ToQuery DescribeLoadBalancerAttributes
+instance ToQuery DescribeLoadBalancerAttributes where
+    toQuery DescribeLoadBalancerAttributes{..} = mconcat
+        [ "LoadBalancerName" =? _dlbaLoadBalancerName
+        ]
 
 instance ToHeaders DescribeLoadBalancerAttributes
 
@@ -102,5 +106,5 @@ instance AWSRequest DescribeLoadBalancerAttributes where
     response = xmlResponse
 
 instance FromXML DescribeLoadBalancerAttributesResponse where
-    parseXML = withElement "DescribeLoadBalancerAttributesResult" $ \x ->
-            <$> x .@? "LoadBalancerAttributes"
+    parseXML = withElement "DescribeLoadBalancerAttributesResult" $ \x -> DescribeLoadBalancerAttributesResponse
+        <$> x .@? "LoadBalancerAttributes"

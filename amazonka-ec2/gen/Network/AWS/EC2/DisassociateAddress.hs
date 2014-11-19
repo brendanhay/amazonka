@@ -54,7 +54,7 @@ data DisassociateAddress = DisassociateAddress
     { _da1AssociationId :: Maybe Text
     , _da1DryRun        :: Maybe Bool
     , _da1PublicIp      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DisassociateAddress' constructor.
 --
@@ -94,7 +94,12 @@ disassociateAddressResponse = DisassociateAddressResponse
 instance ToPath DisassociateAddress where
     toPath = const "/"
 
-instance ToQuery DisassociateAddress
+instance ToQuery DisassociateAddress where
+    toQuery DisassociateAddress{..} = mconcat
+        [ "AssociationId" =? _da1AssociationId
+        , "dryRun"        =? _da1DryRun
+        , "PublicIp"      =? _da1PublicIp
+        ]
 
 instance ToHeaders DisassociateAddress
 

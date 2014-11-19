@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
     , _rcsgiClusterSecurityGroupName :: Text
     , _rcsgiEC2SecurityGroupName     :: Maybe Text
     , _rcsgiEC2SecurityGroupOwnerId  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RevokeClusterSecurityGroupIngress' constructor.
 --
@@ -112,7 +113,7 @@ rcsgiEC2SecurityGroupOwnerId =
 
 newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RevokeClusterSecurityGroupIngressResponse' constructor.
 --
@@ -133,7 +134,13 @@ rcsgirClusterSecurityGroup =
 instance ToPath RevokeClusterSecurityGroupIngress where
     toPath = const "/"
 
-instance ToQuery RevokeClusterSecurityGroupIngress
+instance ToQuery RevokeClusterSecurityGroupIngress where
+    toQuery RevokeClusterSecurityGroupIngress{..} = mconcat
+        [ "CIDRIP"                   =? _rcsgiCIDRIP
+        , "ClusterSecurityGroupName" =? _rcsgiClusterSecurityGroupName
+        , "EC2SecurityGroupName"     =? _rcsgiEC2SecurityGroupName
+        , "EC2SecurityGroupOwnerId"  =? _rcsgiEC2SecurityGroupOwnerId
+        ]
 
 instance ToHeaders RevokeClusterSecurityGroupIngress
 
@@ -145,5 +152,5 @@ instance AWSRequest RevokeClusterSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML RevokeClusterSecurityGroupIngressResponse where
-    parseXML = withElement "RevokeClusterSecurityGroupIngressResult" $ \x ->
-            <$> x .@? "ClusterSecurityGroup"
+    parseXML = withElement "RevokeClusterSecurityGroupIngressResult" $ \x -> RevokeClusterSecurityGroupIngressResponse
+        <$> x .@? "ClusterSecurityGroup"

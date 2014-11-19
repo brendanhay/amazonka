@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DeleteVpc = DeleteVpc
     { _dv3DryRun :: Maybe Bool
     , _dv3VpcId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteVpc' constructor.
 --
@@ -86,7 +86,11 @@ deleteVpcResponse = DeleteVpcResponse
 instance ToPath DeleteVpc where
     toPath = const "/"
 
-instance ToQuery DeleteVpc
+instance ToQuery DeleteVpc where
+    toQuery DeleteVpc{..} = mconcat
+        [ "dryRun" =? _dv3DryRun
+        , "VpcId"  =? _dv3VpcId
+        ]
 
 instance ToHeaders DeleteVpc
 

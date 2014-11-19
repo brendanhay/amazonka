@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteRole = DeleteRole
     { _drRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteRole' constructor.
 --
@@ -76,7 +77,10 @@ deleteRoleResponse = DeleteRoleResponse
 instance ToPath DeleteRole where
     toPath = const "/"
 
-instance ToQuery DeleteRole
+instance ToQuery DeleteRole where
+    toQuery DeleteRole{..} = mconcat
+        [ "RoleName" =? _drRoleName
+        ]
 
 instance ToHeaders DeleteRole
 

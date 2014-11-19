@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ import qualified GHC.Exts
 data CreateSAMLProvider = CreateSAMLProvider
     { _csamlpName                 :: Text
     , _csamlpSAMLMetadataDocument :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateSAMLProvider' constructor.
 --
@@ -98,7 +99,7 @@ csamlpSAMLMetadataDocument =
 
 newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlprSAMLProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateSAMLProviderResponse' constructor.
 --
@@ -119,7 +120,11 @@ csamlprSAMLProviderArn =
 instance ToPath CreateSAMLProvider where
     toPath = const "/"
 
-instance ToQuery CreateSAMLProvider
+instance ToQuery CreateSAMLProvider where
+    toQuery CreateSAMLProvider{..} = mconcat
+        [ "Name"                 =? _csamlpName
+        , "SAMLMetadataDocument" =? _csamlpSAMLMetadataDocument
+        ]
 
 instance ToHeaders CreateSAMLProvider
 
@@ -131,5 +136,5 @@ instance AWSRequest CreateSAMLProvider where
     response = xmlResponse
 
 instance FromXML CreateSAMLProviderResponse where
-    parseXML = withElement "CreateSAMLProviderResult" $ \x ->
-            <$> x .@? "SAMLProviderArn"
+    parseXML = withElement "CreateSAMLProviderResult" $ \x -> CreateSAMLProviderResponse
+        <$> x .@? "SAMLProviderArn"

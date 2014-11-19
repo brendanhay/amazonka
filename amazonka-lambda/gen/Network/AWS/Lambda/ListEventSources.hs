@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data ListEventSources = ListEventSources
     , _lesFunctionName   :: Maybe Text
     , _lesMarker         :: Maybe Text
     , _lesMaxItems       :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListEventSources' constructor.
 --
@@ -96,13 +97,12 @@ lesMarker = lens _lesMarker (\s a -> s { _lesMarker = a })
 -- | Optional integer. Specifies the maximum number of event sources to return
 -- in response. This value must be greater than 0.
 lesMaxItems :: Lens' ListEventSources (Maybe Natural)
-lesMaxItems = lens _lesMaxItems (\s a -> s { _lesMaxItems = a })
-    . mapping _Nat
+lesMaxItems = lens _lesMaxItems (\s a -> s { _lesMaxItems = a }) . mapping _Nat
 
 data ListEventSourcesResponse = ListEventSourcesResponse
-    { _lesrEventSources :: [EventSourceConfiguration]
+    { _lesrEventSources :: List "EventSources" EventSourceConfiguration
     , _lesrNextMarker   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListEventSourcesResponse' constructor.
 --
@@ -120,7 +120,7 @@ listEventSourcesResponse = ListEventSourcesResponse
 
 -- | An arrary of EventSourceConfiguration objects.
 lesrEventSources :: Lens' ListEventSourcesResponse [EventSourceConfiguration]
-lesrEventSources = lens _lesrEventSources (\s a -> s { _lesrEventSources = a })
+lesrEventSources = lens _lesrEventSources (\s a -> s { _lesrEventSources = a }) . _List
 
 -- | A string, present if there are more event source mappings.
 lesrNextMarker :: Lens' ListEventSourcesResponse (Maybe Text)
@@ -129,7 +129,13 @@ lesrNextMarker = lens _lesrNextMarker (\s a -> s { _lesrNextMarker = a })
 instance ToPath ListEventSources where
     toPath = const "/2014-11-13/event-source-mappings/"
 
-instance ToQuery ListEventSources
+instance ToQuery ListEventSources where
+    toQuery ListEventSources{..} = mconcat
+        [ "EventSource"  =? _lesEventSourceArn
+        , "FunctionName" =? _lesFunctionName
+        , "Marker"       =? _lesMarker
+        , "MaxItems"     =? _lesMaxItems
+        ]
 
 instance ToHeaders ListEventSources
 
@@ -145,5 +151,5 @@ instance AWSRequest ListEventSources where
 
 instance FromJSON ListEventSourcesResponse where
     parseJSON = withObject "ListEventSourcesResponse" $ \o -> ListEventSourcesResponse
-        <$> o .: "EventSources"
+        <$> o .:  "EventSources"
         <*> o .:? "NextMarker"

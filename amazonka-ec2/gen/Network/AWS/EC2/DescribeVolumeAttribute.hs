@@ -56,7 +56,7 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute
     { _dvaAttribute :: Maybe Text
     , _dvaDryRun    :: Maybe Bool
     , _dvaVolumeId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeVolumeAttribute' constructor.
 --
@@ -91,7 +91,7 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarAutoEnableIO :: Maybe AttributeBooleanValue
     , _dvarProductCodes :: List "item" ProductCode
     , _dvarVolumeId     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVolumeAttributeResponse' constructor.
 --
@@ -116,8 +116,7 @@ dvarAutoEnableIO = lens _dvarAutoEnableIO (\s a -> s { _dvarAutoEnableIO = a })
 
 -- | A list of product codes.
 dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
-dvarProductCodes = lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
-    . _List
+dvarProductCodes = lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a }) . _List
 
 -- | The ID of the volume.
 dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
@@ -126,7 +125,12 @@ dvarVolumeId = lens _dvarVolumeId (\s a -> s { _dvarVolumeId = a })
 instance ToPath DescribeVolumeAttribute where
     toPath = const "/"
 
-instance ToQuery DescribeVolumeAttribute
+instance ToQuery DescribeVolumeAttribute where
+    toQuery DescribeVolumeAttribute{..} = mconcat
+        [ "Attribute" =? _dvaAttribute
+        , "dryRun"    =? _dvaDryRun
+        , "VolumeId"  =? _dvaVolumeId
+        ]
 
 instance ToHeaders DescribeVolumeAttribute
 
@@ -140,5 +144,5 @@ instance AWSRequest DescribeVolumeAttribute where
 instance FromXML DescribeVolumeAttributeResponse where
     parseXML x = DescribeVolumeAttributeResponse
         <$> x .@? "autoEnableIO"
-        <*> x .@ "productCodes"
+        <*> x .@  "productCodes"
         <*> x .@? "volumeId"

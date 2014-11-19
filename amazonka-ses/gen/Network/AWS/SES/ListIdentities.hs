@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data ListIdentities = ListIdentities
     { _liIdentityType :: Maybe Text
     , _liMaxItems     :: Maybe Int
     , _liNextToken    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListIdentities' constructor.
 --
@@ -88,9 +89,9 @@ liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
 
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentities :: [Text]
+    { _lirIdentities :: List "Identities" Text
     , _lirNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListIdentitiesResponse' constructor.
 --
@@ -108,7 +109,7 @@ listIdentitiesResponse = ListIdentitiesResponse
 
 -- | A list of identities.
 lirIdentities :: Lens' ListIdentitiesResponse [Text]
-lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
+lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a }) . _List
 
 -- | The token used for pagination.
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
@@ -117,7 +118,12 @@ lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
 instance ToPath ListIdentities where
     toPath = const "/"
 
-instance ToQuery ListIdentities
+instance ToQuery ListIdentities where
+    toQuery ListIdentities{..} = mconcat
+        [ "IdentityType" =? _liIdentityType
+        , "MaxItems"     =? _liMaxItems
+        , "NextToken"    =? _liNextToken
+        ]
 
 instance ToHeaders ListIdentities
 
@@ -129,9 +135,9 @@ instance AWSRequest ListIdentities where
     response = xmlResponse
 
 instance FromXML ListIdentitiesResponse where
-    parseXML = withElement "ListIdentitiesResult" $ \x ->
-            <$> x .@ "Identities"
-            <*> x .@? "NextToken"
+    parseXML = withElement "ListIdentitiesResult" $ \x -> ListIdentitiesResponse
+        <$> x .@  "Identities"
+        <*> x .@? "NextToken"
 
 instance AWSPager ListIdentities where
     next rq rs = (\x -> rq & liNextToken ?~ x)

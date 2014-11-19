@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 
 newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
-    { _dasntrAutoScalingNotificationTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dasntrAutoScalingNotificationTypes :: List "LifecycleHookTypes" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAutoScalingNotificationTypesResponse where
     type Item DescribeAutoScalingNotificationTypesResponse = Text
@@ -79,6 +80,7 @@ dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypes
 dasntrAutoScalingNotificationTypes =
     lens _dasntrAutoScalingNotificationTypes
         (\s a -> s { _dasntrAutoScalingNotificationTypes = a })
+            . _List
 
 instance ToPath DescribeAutoScalingNotificationTypes where
     toPath = const "/"
@@ -96,5 +98,5 @@ instance AWSRequest DescribeAutoScalingNotificationTypes where
     response = xmlResponse
 
 instance FromXML DescribeAutoScalingNotificationTypesResponse where
-    parseXML = withElement "DescribeAutoScalingNotificationTypesResult" $ \x ->
-            <$> x .@ "AutoScalingNotificationTypes"
+    parseXML = withElement "DescribeAutoScalingNotificationTypesResult" $ \x -> DescribeAutoScalingNotificationTypesResponse
+        <$> x .@  "AutoScalingNotificationTypes"

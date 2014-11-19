@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data DescribeReservedNodes = DescribeReservedNodes
     { _drnMarker         :: Maybe Text
     , _drnMaxRecords     :: Maybe Int
     , _drnReservedNodeId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeReservedNodes' constructor.
 --
@@ -94,8 +95,8 @@ drnReservedNodeId =
 
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse
     { _drnrMarker        :: Maybe Text
-    , _drnrReservedNodes :: [ReservedNode]
-    } deriving (Eq, Show, Generic)
+    , _drnrReservedNodes :: List "ReservedNode" ReservedNode
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedNodesResponse' constructor.
 --
@@ -124,11 +125,17 @@ drnrMarker = lens _drnrMarker (\s a -> s { _drnrMarker = a })
 drnrReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
 drnrReservedNodes =
     lens _drnrReservedNodes (\s a -> s { _drnrReservedNodes = a })
+        . _List
 
 instance ToPath DescribeReservedNodes where
     toPath = const "/"
 
-instance ToQuery DescribeReservedNodes
+instance ToQuery DescribeReservedNodes where
+    toQuery DescribeReservedNodes{..} = mconcat
+        [ "Marker"         =? _drnMarker
+        , "MaxRecords"     =? _drnMaxRecords
+        , "ReservedNodeId" =? _drnReservedNodeId
+        ]
 
 instance ToHeaders DescribeReservedNodes
 
@@ -140,9 +147,9 @@ instance AWSRequest DescribeReservedNodes where
     response = xmlResponse
 
 instance FromXML DescribeReservedNodesResponse where
-    parseXML = withElement "DescribeReservedNodesResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "ReservedNodes"
+    parseXML = withElement "DescribeReservedNodesResult" $ \x -> DescribeReservedNodesResponse
+        <$> x .@? "Marker"
+        <*> x .@  "ReservedNodes"
 
 instance AWSPager DescribeReservedNodes where
     next rq rs = (\x -> rq & drnMarker ?~ x)

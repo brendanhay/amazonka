@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ import qualified GHC.Exts
 
 data GetOpenIdToken = GetOpenIdToken
     { _goitIdentityId :: Text
-    , _goitLogins     :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _goitLogins     :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'GetOpenIdToken' constructor.
 --
@@ -76,13 +77,12 @@ goitIdentityId = lens _goitIdentityId (\s a -> s { _goitIdentityId = a })
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
 goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
-goitLogins = lens _goitLogins (\s a -> s { _goitLogins = a })
-    . _Map
+goitLogins = lens _goitLogins (\s a -> s { _goitLogins = a }) . _Map
 
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse
     { _goitrIdentityId :: Maybe Text
     , _goitrToken      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetOpenIdTokenResponse' constructor.
 --

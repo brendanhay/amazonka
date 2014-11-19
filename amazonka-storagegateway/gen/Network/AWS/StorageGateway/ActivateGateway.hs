@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data ActivateGateway = ActivateGateway
     , _agGatewayType       :: Maybe Text
     , _agMediumChangerType :: Maybe Text
     , _agTapeDriveType     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ActivateGateway' constructor.
 --
@@ -149,7 +150,7 @@ agTapeDriveType = lens _agTapeDriveType (\s a -> s { _agTapeDriveType = a })
 
 newtype ActivateGatewayResponse = ActivateGatewayResponse
     { _agrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ActivateGatewayResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -70,7 +71,7 @@ data ListActivityTypes = ListActivityTypes
     , _latNextPageToken      :: Maybe Text
     , _latRegistrationStatus :: Text
     , _latReverseOrder       :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListActivityTypes' constructor.
 --
@@ -138,8 +139,8 @@ latReverseOrder = lens _latReverseOrder (\s a -> s { _latReverseOrder = a })
 
 data ListActivityTypesResponse = ListActivityTypesResponse
     { _latrNextPageToken :: Maybe Text
-    , _latrTypeInfos     :: [ActivityTypeInfo]
-    } deriving (Eq, Show, Generic)
+    , _latrTypeInfos     :: List "typeInfos" ActivityTypeInfo
+    } deriving (Eq, Show)
 
 -- | 'ListActivityTypesResponse' constructor.
 --
@@ -164,7 +165,7 @@ latrNextPageToken =
 
 -- | List of activity type information.
 latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
-latrTypeInfos = lens _latrTypeInfos (\s a -> s { _latrTypeInfos = a })
+latrTypeInfos = lens _latrTypeInfos (\s a -> s { _latrTypeInfos = a }) . _List
 
 instance ToPath ListActivityTypes where
     toPath = const "/"
@@ -194,7 +195,7 @@ instance AWSRequest ListActivityTypes where
 instance FromJSON ListActivityTypesResponse where
     parseJSON = withObject "ListActivityTypesResponse" $ \o -> ListActivityTypesResponse
         <$> o .:? "nextPageToken"
-        <*> o .: "typeInfos"
+        <*> o .:  "typeInfos"
 
 instance AWSPager ListActivityTypes where
     next rq rs = (\x -> rq & latNextPageToken ?~ x)

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 newtype DescribeStacks = DescribeStacks
-    { _dsStackIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dsStackIds :: List "InstanceIds" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeStacks where
     type Item DescribeStacks = Text
@@ -72,11 +73,11 @@ describeStacks = DescribeStacks
 -- | An array of stack IDs that specify the stacks to be described. If you
 -- omit this parameter, DescribeStacks returns a description of every stack.
 dsStackIds :: Lens' DescribeStacks [Text]
-dsStackIds = lens _dsStackIds (\s a -> s { _dsStackIds = a })
+dsStackIds = lens _dsStackIds (\s a -> s { _dsStackIds = a }) . _List
 
 newtype DescribeStacksResponse = DescribeStacksResponse
-    { _dsrStacks :: [Stack]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dsrStacks :: List "Stacks" Stack
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeStacksResponse where
     type Item DescribeStacksResponse = Stack
@@ -97,7 +98,7 @@ describeStacksResponse = DescribeStacksResponse
 
 -- | An array of Stack objects that describe the stacks.
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
-dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
+dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a }) . _List
 
 instance ToPath DescribeStacks where
     toPath = const "/"
@@ -121,4 +122,4 @@ instance AWSRequest DescribeStacks where
 
 instance FromJSON DescribeStacksResponse where
     parseJSON = withObject "DescribeStacksResponse" $ \o -> DescribeStacksResponse
-        <$> o .: "Stacks"
+        <$> o .:  "Stacks"

@@ -51,7 +51,7 @@ data DetachInternetGateway = DetachInternetGateway
     { _digDryRun            :: Maybe Bool
     , _digInternetGatewayId :: Text
     , _digVpcId             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DetachInternetGateway' constructor.
 --
@@ -94,7 +94,12 @@ detachInternetGatewayResponse = DetachInternetGatewayResponse
 instance ToPath DetachInternetGateway where
     toPath = const "/"
 
-instance ToQuery DetachInternetGateway
+instance ToQuery DetachInternetGateway where
+    toQuery DetachInternetGateway{..} = mconcat
+        [ "dryRun"            =? _digDryRun
+        , "internetGatewayId" =? _digInternetGatewayId
+        , "vpcId"             =? _digVpcId
+        ]
 
 instance ToHeaders DetachInternetGateway
 

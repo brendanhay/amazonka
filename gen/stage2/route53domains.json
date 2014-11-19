@@ -69,8 +69,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "domainSummary",
@@ -156,6 +155,7 @@
                 ],
                 "contentPad": 13,
                 "name": "DomainSummary",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -303,8 +303,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "nameserver",
@@ -326,8 +325,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -337,7 +336,7 @@
                         "locationName": "GlueIps",
                         "documentation": "\u003cp\u003eGlue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.\u003c/p\u003e \u003cp\u003eType: List of IP addresses.\u003c/p\u003e \u003cp\u003eConstraints: The list can contain only one IPv4 and one IPv6 address.\u003c/p\u003e \u003cp\u003eParent: \u003ccode\u003eNameservers\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GlueIps\" Text"
                     }
                 ],
                 "payload": null,
@@ -360,12 +359,13 @@
                 ],
                 "contentPad": 8,
                 "name": "Nameserver",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -375,14 +375,14 @@
                         "locationName": "GlueIps",
                         "documentation": "\u003cp\u003eGlue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.\u003c/p\u003e \u003cp\u003eType: List of IP addresses.\u003c/p\u003e \u003cp\u003eConstraints: The list can contain only one IPv4 and one IPv6 address.\u003c/p\u003e \u003cp\u003eParent: \u003ccode\u003eNameservers\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GlueIps\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -392,7 +392,7 @@
                         "locationName": "GlueIps",
                         "documentation": "\u003cp\u003eGlue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.\u003c/p\u003e \u003cp\u003eType: List of IP addresses.\u003c/p\u003e \u003cp\u003eConstraints: The list can contain only one IPv4 and one IPv6 address.\u003c/p\u003e \u003cp\u003eParent: \u003ccode\u003eNameservers\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GlueIps\" Text"
                     },
                     {
                         "location": null,
@@ -723,8 +723,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 8,
                 "ctor": "extraParam",
@@ -795,6 +794,7 @@
                 ],
                 "contentPad": 6,
                 "name": "ExtraParam",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -853,8 +853,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "contactDetail",
@@ -1056,8 +1055,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1067,13 +1066,14 @@
                         "locationName": "ExtraParams",
                         "documentation": "\u003cp\u003eA list of name-value pairs for parameters required by certain top-level domains.\u003c/p\u003e \u003cp\u003eType: Complex\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eName\u003c/code\u003e, \u003ccode\u003eValue\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: No\u003c/p\u003e",
                         "typeExposed": "[ExtraParam]",
-                        "type": "[ExtraParam]"
+                        "type": "List \"ExtraParams\" ExtraParam"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 17,
                 "name": "ContactDetail",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1273,8 +1273,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1284,7 +1284,7 @@
                         "locationName": "ExtraParams",
                         "documentation": "\u003cp\u003eA list of name-value pairs for parameters required by certain top-level domains.\u003c/p\u003e \u003cp\u003eType: Complex\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eName\u003c/code\u003e, \u003ccode\u003eValue\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: No\u003c/p\u003e",
                         "typeExposed": "[ExtraParam]",
-                        "type": "[ExtraParam]"
+                        "type": "List \"ExtraParams\" ExtraParam"
                     }
                 ],
                 "fields": [
@@ -1380,8 +1380,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1391,7 +1391,7 @@
                         "locationName": "ExtraParams",
                         "documentation": "\u003cp\u003eA list of name-value pairs for parameters required by certain top-level domains.\u003c/p\u003e \u003cp\u003eType: Complex\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eName\u003c/code\u003e, \u003ccode\u003eValue\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: No\u003c/p\u003e",
                         "typeExposed": "[ExtraParam]",
-                        "type": "[ExtraParam]"
+                        "type": "List \"ExtraParams\" ExtraParam"
                     },
                     {
                         "location": null,
@@ -1504,8 +1504,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "operationSummary",
@@ -1636,6 +1635,7 @@
                 ],
                 "contentPad": 14,
                 "name": "OperationSummary",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1716,7 +1716,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1783,6 +1782,7 @@
                 "contentPad": 0,
                 "name": "CheckDomainAvailabilityResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -1820,8 +1820,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1891,6 +1890,7 @@
                 "queryPad": 0,
                 "name": "CheckDomainAvailability",
                 "query": [],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1988,7 +1988,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2061,6 +2060,7 @@
                 "queryPad": 0,
                 "name": "DisableDomainAutoRenew",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2091,7 +2091,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2158,6 +2157,7 @@
                 "contentPad": 0,
                 "name": "DisableDomainTransferLockResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -2196,7 +2196,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2269,6 +2268,7 @@
                 "queryPad": 0,
                 "name": "DisableDomainTransferLock",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2335,7 +2335,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2408,6 +2407,7 @@
                 "queryPad": 0,
                 "name": "EnableDomainAutoRenew",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2438,7 +2438,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2505,6 +2504,7 @@
                 "contentPad": 0,
                 "name": "EnableDomainTransferLockResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -2543,7 +2543,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2616,6 +2615,7 @@
                 "queryPad": 0,
                 "name": "EnableDomainTransferLock",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2644,8 +2644,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2670,8 +2669,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2681,7 +2680,7 @@
                         "locationName": "Nameservers",
                         "documentation": "\u003cp\u003eThe name of the domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
                         "typeExposed": "[Nameserver]",
-                        "type": "[Nameserver]"
+                        "type": "List \"Nameservers\" Nameserver"
                     },
                     {
                         "location": null,
@@ -2955,8 +2954,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2966,7 +2965,7 @@
                         "locationName": "StatusList",
                         "documentation": "\u003cp\u003eAn array of domain name status codes, also known as Extensible Provisioning Protocol (EPP) status codes.\u003c/p\u003e \u003cp\u003eICANN, the organization that maintains a central database of domain names, has developed a set of domain name status codes that tell you the status of a variety of operations on a domain name, for example, registering a domain name, transferring a domain name to another registrar, renewing the registration for a domain name, and so on. All registrars use this same set of status codes.\u003c/p\u003e \u003cp\u003eFor a current list of domain name status codes and an explanation of what each code means, go to the \u003ca href=\"https://www.icann.org/\"\u003eICANN website\u003c/a\u003e and search for \u003ccode\u003eepp status codes\u003c/code\u003e. (Search on the ICANN website; web searches sometimes return an old version of the document.)\u003c/p\u003e \u003cp\u003eType: Array of String\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StatusList\" Text"
                     }
                 ],
                 "wrapper": false,
@@ -3039,13 +3038,14 @@
                 "contentPad": 18,
                 "name": "GetDomainDetailResponse",
                 "resultWrapper": null,
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3055,7 +3055,7 @@
                         "locationName": "Nameservers",
                         "documentation": "\u003cp\u003eThe name of the domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
                         "typeExposed": "[Nameserver]",
-                        "type": "[Nameserver]"
+                        "type": "List \"Nameservers\" Nameserver"
                     },
                     {
                         "location": null,
@@ -3284,8 +3284,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3295,7 +3295,7 @@
                         "locationName": "StatusList",
                         "documentation": "\u003cp\u003eAn array of domain name status codes, also known as Extensible Provisioning Protocol (EPP) status codes.\u003c/p\u003e \u003cp\u003eICANN, the organization that maintains a central database of domain names, has developed a set of domain name status codes that tell you the status of a variety of operations on a domain name, for example, registering a domain name, transferring a domain name to another registrar, renewing the registration for a domain name, and so on. All registrars use this same set of status codes.\u003c/p\u003e \u003cp\u003eFor a current list of domain name status codes and an explanation of what each code means, go to the \u003ca href=\"https://www.icann.org/\"\u003eICANN website\u003c/a\u003e and search for \u003ccode\u003eepp status codes\u003c/code\u003e. (Search on the ICANN website; web searches sometimes return an old version of the document.)\u003c/p\u003e \u003cp\u003eType: Array of String\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StatusList\" Text"
                     }
                 ],
                 "fields": [
@@ -3436,8 +3436,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3447,7 +3447,7 @@
                         "locationName": "Nameservers",
                         "documentation": "\u003cp\u003eThe name of the domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
                         "typeExposed": "[Nameserver]",
-                        "type": "[Nameserver]"
+                        "type": "List \"Nameservers\" Nameserver"
                     },
                     {
                         "location": null,
@@ -3541,8 +3541,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3552,7 +3552,7 @@
                         "locationName": "StatusList",
                         "documentation": "\u003cp\u003eAn array of domain name status codes, also known as Extensible Provisioning Protocol (EPP) status codes.\u003c/p\u003e \u003cp\u003eICANN, the organization that maintains a central database of domain names, has developed a set of domain name status codes that tell you the status of a variety of operations on a domain name, for example, registering a domain name, transferring a domain name to another registrar, renewing the registration for a domain name, and so on. All registrars use this same set of status codes.\u003c/p\u003e \u003cp\u003eFor a current list of domain name status codes and an explanation of what each code means, go to the \u003ca href=\"https://www.icann.org/\"\u003eICANN website\u003c/a\u003e and search for \u003ccode\u003eepp status codes\u003c/code\u003e. (Search on the ICANN website; web searches sometimes return an old version of the document.)\u003c/p\u003e \u003cp\u003eType: Array of String\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StatusList\" Text"
                     },
                     {
                         "location": null,
@@ -3633,7 +3633,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3706,6 +3705,7 @@
                 "queryPad": 0,
                 "name": "GetDomainDetail",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -3735,8 +3735,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3844,6 +3843,7 @@
                 "contentPad": 14,
                 "name": "GetOperationDetailResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4048,7 +4048,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4121,6 +4120,7 @@
                 "queryPad": 0,
                 "name": "GetOperationDetail",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -4149,8 +4149,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4160,8 +4159,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4171,7 +4170,7 @@
                         "locationName": "Domains",
                         "documentation": "\u003cp\u003eA summary of domains.\u003c/p\u003e \u003cp\u003eType: Complex type containing a list of domain summaries.\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eAutoRenew\u003c/code\u003e, \u003ccode\u003eDomainName\u003c/code\u003e, \u003ccode\u003eExpiry\u003c/code\u003e, \u003ccode\u003eTransferLock\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[DomainSummary]",
-                        "type": "[DomainSummary]"
+                        "type": "List \"Domains\" DomainSummary"
                     },
                     {
                         "location": null,
@@ -4198,13 +4197,14 @@
                 "contentPad": 15,
                 "name": "ListDomainsResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4214,7 +4214,7 @@
                         "locationName": "Domains",
                         "documentation": "\u003cp\u003eA summary of domains.\u003c/p\u003e \u003cp\u003eType: Complex type containing a list of domain summaries.\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eAutoRenew\u003c/code\u003e, \u003ccode\u003eDomainName\u003c/code\u003e, \u003ccode\u003eExpiry\u003c/code\u003e, \u003ccode\u003eTransferLock\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[DomainSummary]",
-                        "type": "[DomainSummary]"
+                        "type": "List \"Domains\" DomainSummary"
                     },
                     {
                         "location": null,
@@ -4235,8 +4235,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4246,7 +4246,7 @@
                         "locationName": "Domains",
                         "documentation": "\u003cp\u003eA summary of domains.\u003c/p\u003e \u003cp\u003eType: Complex type containing a list of domain summaries.\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eAutoRenew\u003c/code\u003e, \u003ccode\u003eDomainName\u003c/code\u003e, \u003ccode\u003eExpiry\u003c/code\u003e, \u003ccode\u003eTransferLock\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[DomainSummary]",
-                        "type": "[DomainSummary]"
+                        "type": "List \"Domains\" DomainSummary"
                     },
                     {
                         "location": null,
@@ -4281,8 +4281,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4336,6 +4335,7 @@
                 "queryPad": 0,
                 "name": "ListDomains",
                 "query": [],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4410,8 +4410,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4421,8 +4420,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4432,7 +4431,7 @@
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eLists summaries of the operations.\u003c/p\u003e \u003cp\u003eType: Complex type containing a list of operation summaries\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eOperationId\u003c/code\u003e, \u003ccode\u003eStatus\u003c/code\u003e, \u003ccode\u003eSubmittedDate\u003c/code\u003e, \u003ccode\u003eType\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[OperationSummary]",
-                        "type": "[OperationSummary]"
+                        "type": "List \"Operations\" OperationSummary"
                     },
                     {
                         "location": null,
@@ -4459,13 +4458,14 @@
                 "contentPad": 15,
                 "name": "ListOperationsResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4475,7 +4475,7 @@
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eLists summaries of the operations.\u003c/p\u003e \u003cp\u003eType: Complex type containing a list of operation summaries\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eOperationId\u003c/code\u003e, \u003ccode\u003eStatus\u003c/code\u003e, \u003ccode\u003eSubmittedDate\u003c/code\u003e, \u003ccode\u003eType\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[OperationSummary]",
-                        "type": "[OperationSummary]"
+                        "type": "List \"Operations\" OperationSummary"
                     },
                     {
                         "location": null,
@@ -4511,8 +4511,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4522,7 +4522,7 @@
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eLists summaries of the operations.\u003c/p\u003e \u003cp\u003eType: Complex type containing a list of operation summaries\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eOperationId\u003c/code\u003e, \u003ccode\u003eStatus\u003c/code\u003e, \u003ccode\u003eSubmittedDate\u003c/code\u003e, \u003ccode\u003eType\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[OperationSummary]",
-                        "type": "[OperationSummary]"
+                        "type": "List \"Operations\" OperationSummary"
                     }
                 ]
             },
@@ -4542,8 +4542,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4597,6 +4596,7 @@
                 "queryPad": 0,
                 "name": "ListOperations",
                 "query": [],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4673,7 +4673,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4740,6 +4739,7 @@
                 "contentPad": 0,
                 "name": "RegisterDomainResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -4776,8 +4776,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5027,6 +5026,7 @@
                 "queryPad": 0,
                 "name": "RegisterDomain",
                 "query": [],
+                "locationPad": 32,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5268,7 +5268,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5335,6 +5334,7 @@
                 "contentPad": 0,
                 "name": "RetrieveDomainAuthCodeResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5373,7 +5373,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5446,6 +5445,7 @@
                 "queryPad": 0,
                 "name": "RetrieveDomainAuthCode",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -5476,7 +5476,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5543,6 +5542,7 @@
                 "contentPad": 0,
                 "name": "TransferDomainResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5579,8 +5579,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5635,8 +5634,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5646,7 +5645,7 @@
                         "locationName": "Nameservers",
                         "documentation": "\u003cp\u003eContains details for the host and glue IP addresses.\u003c/p\u003e \u003cp\u003eType: Complex\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eGlueIps\u003c/code\u003e, \u003ccode\u003eName\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[Nameserver]",
-                        "type": "[Nameserver]"
+                        "type": "List \"Nameservers\" Nameserver"
                     },
                     {
                         "location": null,
@@ -5860,6 +5859,7 @@
                 "queryPad": 0,
                 "name": "TransferDomain",
                 "query": [],
+                "locationPad": 32,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5881,8 +5881,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5892,7 +5892,7 @@
                         "locationName": "Nameservers",
                         "documentation": "\u003cp\u003eContains details for the host and glue IP addresses.\u003c/p\u003e \u003cp\u003eType: Complex\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eGlueIps\u003c/code\u003e, \u003ccode\u003eName\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[Nameserver]",
-                        "type": "[Nameserver]"
+                        "type": "List \"Nameservers\" Nameserver"
                     },
                     {
                         "location": null,
@@ -6063,8 +6063,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6074,7 +6074,7 @@
                         "locationName": "Nameservers",
                         "documentation": "\u003cp\u003eContains details for the host and glue IP addresses.\u003c/p\u003e \u003cp\u003eType: Complex\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eGlueIps\u003c/code\u003e, \u003ccode\u003eName\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "[Nameserver]",
-                        "type": "[Nameserver]"
+                        "type": "List \"Nameservers\" Nameserver"
                     },
                     {
                         "location": null,
@@ -6161,7 +6161,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6228,6 +6227,7 @@
                 "contentPad": 0,
                 "name": "UpdateDomainContactResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6264,8 +6264,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6365,6 +6364,7 @@
                 "queryPad": 0,
                 "name": "UpdateDomainContact",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6486,7 +6486,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6553,6 +6552,7 @@
                 "contentPad": 0,
                 "name": "UpdateDomainContactPrivacyResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6590,8 +6590,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6691,6 +6690,7 @@
                 "queryPad": 0,
                 "name": "UpdateDomainContactPrivacy",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6812,7 +6812,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6879,6 +6878,7 @@
                 "contentPad": 0,
                 "name": "UpdateDomainNameserversResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6915,8 +6915,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6941,8 +6940,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6952,7 +6951,7 @@
                         "locationName": "Nameservers",
                         "documentation": "\u003cp\u003eA list of new name servers for the domain.\u003c/p\u003e \u003cp\u003eType: Complex\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eName\u003c/code\u003e, \u003ccode\u003eGlueIps\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
                         "typeExposed": "[Nameserver]",
-                        "type": "[Nameserver]"
+                        "type": "List \"Nameservers\" Nameserver"
                     }
                 ],
                 "path": [
@@ -6986,14 +6985,15 @@
                 "queryPad": 0,
                 "name": "UpdateDomainNameservers",
                 "query": [],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7003,7 +7003,7 @@
                         "locationName": "Nameservers",
                         "documentation": "\u003cp\u003eA list of new name servers for the domain.\u003c/p\u003e \u003cp\u003eType: Complex\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eName\u003c/code\u003e, \u003ccode\u003eGlueIps\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
                         "typeExposed": "[Nameserver]",
-                        "type": "[Nameserver]"
+                        "type": "List \"Nameservers\" Nameserver"
                     }
                 ],
                 "fields": [
@@ -7024,8 +7024,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7035,7 +7035,7 @@
                         "locationName": "Nameservers",
                         "documentation": "\u003cp\u003eA list of new name servers for the domain.\u003c/p\u003e \u003cp\u003eType: Complex\u003c/p\u003e \u003cp\u003eChildren: \u003ccode\u003eName\u003c/code\u003e, \u003ccode\u003eGlueIps\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
                         "typeExposed": "[Nameserver]",
-                        "type": "[Nameserver]"
+                        "type": "List \"Nameservers\" Nameserver"
                     }
                 ]
             }

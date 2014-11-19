@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,8 +55,8 @@ import qualified GHC.Exts
 data DescribeExpressions = DescribeExpressions
     { _deDeployed        :: Maybe Bool
     , _deDomainName      :: Text
-    , _deExpressionNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _deExpressionNames :: List "SuggesterNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeExpressions' constructor.
 --
@@ -89,10 +90,11 @@ deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
 deExpressionNames :: Lens' DescribeExpressions [Text]
 deExpressionNames =
     lens _deExpressionNames (\s a -> s { _deExpressionNames = a })
+        . _List
 
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
-    { _derExpressions :: [ExpressionStatus]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _derExpressions :: List "Expressions" ExpressionStatus
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeExpressionsResponse where
     type Item DescribeExpressionsResponse = ExpressionStatus
@@ -113,12 +115,17 @@ describeExpressionsResponse = DescribeExpressionsResponse
 
 -- | The expressions configured for the domain.
 derExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-derExpressions = lens _derExpressions (\s a -> s { _derExpressions = a })
+derExpressions = lens _derExpressions (\s a -> s { _derExpressions = a }) . _List
 
 instance ToPath DescribeExpressions where
     toPath = const "/"
 
-instance ToQuery DescribeExpressions
+instance ToQuery DescribeExpressions where
+    toQuery DescribeExpressions{..} = mconcat
+        [ "Deployed"        =? _deDeployed
+        , "DomainName"      =? _deDomainName
+        , "ExpressionNames" =? _deExpressionNames
+        ]
 
 instance ToHeaders DescribeExpressions
 
@@ -130,5 +137,5 @@ instance AWSRequest DescribeExpressions where
     response = xmlResponse
 
 instance FromXML DescribeExpressionsResponse where
-    parseXML = withElement "DescribeExpressionsResult" $ \x ->
-            <$> x .@ "Expressions"
+    parseXML = withElement "DescribeExpressionsResult" $ \x -> DescribeExpressionsResponse
+        <$> x .@  "Expressions"

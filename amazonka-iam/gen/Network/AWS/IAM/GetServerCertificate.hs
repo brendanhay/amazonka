@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype GetServerCertificate = GetServerCertificate
     { _gscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetServerCertificate' constructor.
 --
@@ -69,7 +70,7 @@ gscServerCertificateName =
 
 newtype GetServerCertificateResponse = GetServerCertificateResponse
     { _gscrServerCertificate :: ServerCertificate
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetServerCertificateResponse' constructor.
 --
@@ -91,7 +92,10 @@ gscrServerCertificate =
 instance ToPath GetServerCertificate where
     toPath = const "/"
 
-instance ToQuery GetServerCertificate
+instance ToQuery GetServerCertificate where
+    toQuery GetServerCertificate{..} = mconcat
+        [ "ServerCertificateName" =? _gscServerCertificateName
+        ]
 
 instance ToHeaders GetServerCertificate
 
@@ -103,5 +107,5 @@ instance AWSRequest GetServerCertificate where
     response = xmlResponse
 
 instance FromXML GetServerCertificateResponse where
-    parseXML = withElement "GetServerCertificateResult" $ \x ->
-            <$> x .@ "ServerCertificate"
+    parseXML = withElement "GetServerCertificateResult" $ \x -> GetServerCertificateResponse
+        <$> x .@  "ServerCertificate"

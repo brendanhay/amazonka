@@ -81,7 +81,7 @@ data CreateSnapshot = CreateSnapshot
     { _cs2Description :: Maybe Text
     , _cs2DryRun      :: Maybe Bool
     , _cs2VolumeId    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateSnapshot' constructor.
 --
@@ -124,7 +124,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse
     , _csr1Tags        :: List "item" Tag
     , _csr1VolumeId    :: Maybe Text
     , _csr1VolumeSize  :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateSnapshotResponse' constructor.
 --
@@ -194,8 +194,7 @@ csr1SnapshotId = lens _csr1SnapshotId (\s a -> s { _csr1SnapshotId = a })
 
 -- | The time stamp when the snapshot was initiated.
 csr1StartTime :: Lens' CreateSnapshotResponse (Maybe UTCTime)
-csr1StartTime = lens _csr1StartTime (\s a -> s { _csr1StartTime = a })
-    . mapping _Time
+csr1StartTime = lens _csr1StartTime (\s a -> s { _csr1StartTime = a }) . mapping _Time
 
 -- | The snapshot state.
 csr1State :: Lens' CreateSnapshotResponse (Maybe Text)
@@ -203,8 +202,7 @@ csr1State = lens _csr1State (\s a -> s { _csr1State = a })
 
 -- | Any tags assigned to the snapshot.
 csr1Tags :: Lens' CreateSnapshotResponse [Tag]
-csr1Tags = lens _csr1Tags (\s a -> s { _csr1Tags = a })
-    . _List
+csr1Tags = lens _csr1Tags (\s a -> s { _csr1Tags = a }) . _List
 
 -- | The ID of the volume.
 csr1VolumeId :: Lens' CreateSnapshotResponse (Maybe Text)
@@ -217,7 +215,12 @@ csr1VolumeSize = lens _csr1VolumeSize (\s a -> s { _csr1VolumeSize = a })
 instance ToPath CreateSnapshot where
     toPath = const "/"
 
-instance ToQuery CreateSnapshot
+instance ToQuery CreateSnapshot where
+    toQuery CreateSnapshot{..} = mconcat
+        [ "Description" =? _cs2Description
+        , "dryRun"      =? _cs2DryRun
+        , "VolumeId"    =? _cs2VolumeId
+        ]
 
 instance ToHeaders CreateSnapshot
 
@@ -238,6 +241,6 @@ instance FromXML CreateSnapshotResponse where
         <*> x .@? "snapshotId"
         <*> x .@? "startTime"
         <*> x .@? "status"
-        <*> x .@ "tagSet"
+        <*> x .@  "tagSet"
         <*> x .@? "volumeId"
         <*> x .@? "volumeSize"

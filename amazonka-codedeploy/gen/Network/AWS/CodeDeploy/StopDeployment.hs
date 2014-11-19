@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype StopDeployment = StopDeployment
     { _sdDeploymentId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'StopDeployment' constructor.
 --
@@ -68,7 +69,7 @@ sdDeploymentId = lens _sdDeploymentId (\s a -> s { _sdDeploymentId = a })
 data StopDeploymentResponse = StopDeploymentResponse
     { _sdrStatus        :: Maybe Text
     , _sdrStatusMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StopDeploymentResponse' constructor.
 --

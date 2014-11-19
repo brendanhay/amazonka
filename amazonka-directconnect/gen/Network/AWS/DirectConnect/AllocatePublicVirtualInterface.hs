@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -70,7 +71,7 @@ data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface
     { _apvi1ConnectionId                        :: Text
     , _apvi1NewPublicVirtualInterfaceAllocation :: NewPublicVirtualInterfaceAllocation
     , _apvi1OwnerAccount                        :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AllocatePublicVirtualInterface' constructor.
 --
@@ -120,14 +121,14 @@ data AllocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResp
     , _apvir1CustomerRouterConfig  :: Maybe Text
     , _apvir1Location              :: Maybe Text
     , _apvir1OwnerAccount          :: Maybe Text
-    , _apvir1RouteFilterPrefixes   :: [RouteFilterPrefix]
+    , _apvir1RouteFilterPrefixes   :: List "routeFilterPrefixes" RouteFilterPrefix
     , _apvir1VirtualGatewayId      :: Maybe Text
     , _apvir1VirtualInterfaceId    :: Maybe Text
     , _apvir1VirtualInterfaceName  :: Maybe Text
     , _apvir1VirtualInterfaceState :: Maybe Text
     , _apvir1VirtualInterfaceType  :: Maybe Text
     , _apvir1Vlan                  :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AllocatePublicVirtualInterfaceResponse' constructor.
 --
@@ -217,6 +218,7 @@ apvir1RouteFilterPrefixes :: Lens' AllocatePublicVirtualInterfaceResponse [Route
 apvir1RouteFilterPrefixes =
     lens _apvir1RouteFilterPrefixes
         (\s a -> s { _apvir1RouteFilterPrefixes = a })
+            . _List
 
 apvir1VirtualGatewayId :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
 apvir1VirtualGatewayId =
@@ -277,7 +279,7 @@ instance FromJSON AllocatePublicVirtualInterfaceResponse where
         <*> o .:? "customerRouterConfig"
         <*> o .:? "location"
         <*> o .:? "ownerAccount"
-        <*> o .: "routeFilterPrefixes"
+        <*> o .:  "routeFilterPrefixes"
         <*> o .:? "virtualGatewayId"
         <*> o .:? "virtualInterfaceId"
         <*> o .:? "virtualInterfaceName"

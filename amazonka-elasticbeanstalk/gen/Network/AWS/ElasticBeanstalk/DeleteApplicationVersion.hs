@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ data DeleteApplicationVersion = DeleteApplicationVersion
     { _davApplicationName    :: Text
     , _davDeleteSourceBundle :: Maybe Bool
     , _davVersionLabel       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteApplicationVersion' constructor.
 --
@@ -96,7 +97,12 @@ deleteApplicationVersionResponse = DeleteApplicationVersionResponse
 instance ToPath DeleteApplicationVersion where
     toPath = const "/"
 
-instance ToQuery DeleteApplicationVersion
+instance ToQuery DeleteApplicationVersion where
+    toQuery DeleteApplicationVersion{..} = mconcat
+        [ "ApplicationName"    =? _davApplicationName
+        , "DeleteSourceBundle" =? _davDeleteSourceBundle
+        , "VersionLabel"       =? _davVersionLabel
+        ]
 
 instance ToHeaders DeleteApplicationVersion
 

@@ -64,7 +64,7 @@ data CreateCustomerGateway = CreateCustomerGateway
     , _ccgDryRun   :: Maybe Bool
     , _ccgPublicIp :: Text
     , _ccgType     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateCustomerGateway' constructor.
 --
@@ -108,7 +108,7 @@ ccgType = lens _ccgType (\s a -> s { _ccgType = a })
 
 newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway :: Maybe CustomerGateway
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateCustomerGatewayResponse' constructor.
 --
@@ -129,7 +129,13 @@ ccgrCustomerGateway =
 instance ToPath CreateCustomerGateway where
     toPath = const "/"
 
-instance ToQuery CreateCustomerGateway
+instance ToQuery CreateCustomerGateway where
+    toQuery CreateCustomerGateway{..} = mconcat
+        [ "BgpAsn"    =? _ccgBgpAsn
+        , "dryRun"    =? _ccgDryRun
+        , "IpAddress" =? _ccgPublicIp
+        , "Type"      =? _ccgType
+        ]
 
 instance ToHeaders CreateCustomerGateway
 

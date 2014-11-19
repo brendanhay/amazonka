@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,8 +54,8 @@ data CreateOptionGroup = CreateOptionGroup
     , _cogMajorEngineVersion     :: Text
     , _cogOptionGroupDescription :: Text
     , _cogOptionGroupName        :: Text
-    , _cogTags                   :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _cogTags                   :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateOptionGroup' constructor.
 --
@@ -109,11 +110,11 @@ cogOptionGroupName =
     lens _cogOptionGroupName (\s a -> s { _cogOptionGroupName = a })
 
 cogTags :: Lens' CreateOptionGroup [Tag]
-cogTags = lens _cogTags (\s a -> s { _cogTags = a })
+cogTags = lens _cogTags (\s a -> s { _cogTags = a }) . _List
 
 newtype CreateOptionGroupResponse = CreateOptionGroupResponse
     { _cogr1OptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateOptionGroupResponse' constructor.
 --
@@ -132,7 +133,14 @@ cogr1OptionGroup = lens _cogr1OptionGroup (\s a -> s { _cogr1OptionGroup = a })
 instance ToPath CreateOptionGroup where
     toPath = const "/"
 
-instance ToQuery CreateOptionGroup
+instance ToQuery CreateOptionGroup where
+    toQuery CreateOptionGroup{..} = mconcat
+        [ "EngineName"             =? _cogEngineName
+        , "MajorEngineVersion"     =? _cogMajorEngineVersion
+        , "OptionGroupDescription" =? _cogOptionGroupDescription
+        , "OptionGroupName"        =? _cogOptionGroupName
+        , "Tags"                   =? _cogTags
+        ]
 
 instance ToHeaders CreateOptionGroup
 
@@ -144,5 +152,5 @@ instance AWSRequest CreateOptionGroup where
     response = xmlResponse
 
 instance FromXML CreateOptionGroupResponse where
-    parseXML = withElement "CreateOptionGroupResult" $ \x ->
-            <$> x .@? "OptionGroup"
+    parseXML = withElement "CreateOptionGroupResult" $ \x -> CreateOptionGroupResponse
+        <$> x .@? "OptionGroup"

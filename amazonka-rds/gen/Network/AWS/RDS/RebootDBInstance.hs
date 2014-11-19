@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ import qualified GHC.Exts
 data RebootDBInstance = RebootDBInstance
     { _rdbiDBInstanceIdentifier :: Text
     , _rdbiForceFailover        :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RebootDBInstance' constructor.
 --
@@ -97,7 +98,7 @@ rdbiForceFailover =
 
 newtype RebootDBInstanceResponse = RebootDBInstanceResponse
     { _rdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RebootDBInstanceResponse' constructor.
 --
@@ -116,7 +117,11 @@ rdbirDBInstance = lens _rdbirDBInstance (\s a -> s { _rdbirDBInstance = a })
 instance ToPath RebootDBInstance where
     toPath = const "/"
 
-instance ToQuery RebootDBInstance
+instance ToQuery RebootDBInstance where
+    toQuery RebootDBInstance{..} = mconcat
+        [ "DBInstanceIdentifier" =? _rdbiDBInstanceIdentifier
+        , "ForceFailover"        =? _rdbiForceFailover
+        ]
 
 instance ToHeaders RebootDBInstance
 
@@ -128,5 +133,5 @@ instance AWSRequest RebootDBInstance where
     response = xmlResponse
 
 instance FromXML RebootDBInstanceResponse where
-    parseXML = withElement "RebootDBInstanceResult" $ \x ->
-            <$> x .@? "DBInstance"
+    parseXML = withElement "RebootDBInstanceResult" $ \x -> RebootDBInstanceResponse
+        <$> x .@? "DBInstance"

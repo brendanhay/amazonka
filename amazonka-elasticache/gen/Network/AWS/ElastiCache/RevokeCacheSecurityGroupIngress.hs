@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
     { _rcsgiCacheSecurityGroupName  :: Text
     , _rcsgiEC2SecurityGroupName    :: Text
     , _rcsgiEC2SecurityGroupOwnerId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RevokeCacheSecurityGroupIngress' constructor.
 --
@@ -96,7 +97,7 @@ rcsgiEC2SecurityGroupOwnerId =
 
 newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
     { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' constructor.
 --
@@ -117,7 +118,12 @@ rcsgirCacheSecurityGroup =
 instance ToPath RevokeCacheSecurityGroupIngress where
     toPath = const "/"
 
-instance ToQuery RevokeCacheSecurityGroupIngress
+instance ToQuery RevokeCacheSecurityGroupIngress where
+    toQuery RevokeCacheSecurityGroupIngress{..} = mconcat
+        [ "CacheSecurityGroupName"  =? _rcsgiCacheSecurityGroupName
+        , "EC2SecurityGroupName"    =? _rcsgiEC2SecurityGroupName
+        , "EC2SecurityGroupOwnerId" =? _rcsgiEC2SecurityGroupOwnerId
+        ]
 
 instance ToHeaders RevokeCacheSecurityGroupIngress
 
@@ -129,5 +135,5 @@ instance AWSRequest RevokeCacheSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML RevokeCacheSecurityGroupIngressResponse where
-    parseXML = withElement "RevokeCacheSecurityGroupIngressResult" $ \x ->
-            <$> x .@? "CacheSecurityGroup"
+    parseXML = withElement "RevokeCacheSecurityGroupIngressResult" $ \x -> RevokeCacheSecurityGroupIngressResponse
+        <$> x .@? "CacheSecurityGroup"

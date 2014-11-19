@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data DeleteChapCredentials = DeleteChapCredentials
     { _dcc1InitiatorName :: Text
     , _dcc1TargetARN     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteChapCredentials' constructor.
 --
@@ -82,7 +83,7 @@ dcc1TargetARN = lens _dcc1TargetARN (\s a -> s { _dcc1TargetARN = a })
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse
     { _dccrInitiatorName :: Maybe Text
     , _dccrTargetARN     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteChapCredentialsResponse' constructor.
 --

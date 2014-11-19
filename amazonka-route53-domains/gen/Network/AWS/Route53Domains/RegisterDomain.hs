@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -80,7 +81,7 @@ data RegisterDomain = RegisterDomain
     , _rdPrivacyProtectTechContact       :: Maybe Bool
     , _rdRegistrantContact               :: ContactDetail
     , _rdTechContact                     :: ContactDetail
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RegisterDomain' constructor.
 --
@@ -205,7 +206,7 @@ rdTechContact = lens _rdTechContact (\s a -> s { _rdTechContact = a })
 
 newtype RegisterDomainResponse = RegisterDomainResponse
     { _rdrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'RegisterDomainResponse' constructor.
 --
@@ -256,4 +257,4 @@ instance AWSRequest RegisterDomain where
 
 instance FromJSON RegisterDomainResponse where
     parseJSON = withObject "RegisterDomainResponse" $ \o -> RegisterDomainResponse
-        <$> o .: "OperationId"
+        <$> o .:  "OperationId"

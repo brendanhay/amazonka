@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
-    { _dlbasLayerIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dlbasLayerIds :: List "InstanceIds" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBasedAutoScaling where
     type Item DescribeLoadBasedAutoScaling = Text
@@ -71,11 +72,11 @@ describeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
 
 -- | An array of layer IDs.
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
-dlbasLayerIds = lens _dlbasLayerIds (\s a -> s { _dlbasLayerIds = a })
+dlbasLayerIds = lens _dlbasLayerIds (\s a -> s { _dlbasLayerIds = a }) . _List
 
 newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
-    { _dlbasrLoadBasedAutoScalingConfigurations :: [LoadBasedAutoScalingConfiguration]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dlbasrLoadBasedAutoScalingConfigurations :: List "LoadBasedAutoScalingConfigurations" LoadBasedAutoScalingConfiguration
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBasedAutoScalingResponse where
     type Item DescribeLoadBasedAutoScalingResponse = LoadBasedAutoScalingConfiguration
@@ -100,6 +101,7 @@ dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingRe
 dlbasrLoadBasedAutoScalingConfigurations =
     lens _dlbasrLoadBasedAutoScalingConfigurations
         (\s a -> s { _dlbasrLoadBasedAutoScalingConfigurations = a })
+            . _List
 
 instance ToPath DescribeLoadBasedAutoScaling where
     toPath = const "/"
@@ -123,4 +125,4 @@ instance AWSRequest DescribeLoadBasedAutoScaling where
 
 instance FromJSON DescribeLoadBasedAutoScalingResponse where
     parseJSON = withObject "DescribeLoadBasedAutoScalingResponse" $ \o -> DescribeLoadBasedAutoScalingResponse
-        <$> o .: "LoadBasedAutoScalingConfigurations"
+        <$> o .:  "LoadBasedAutoScalingConfigurations"

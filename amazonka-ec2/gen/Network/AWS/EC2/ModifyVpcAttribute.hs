@@ -49,7 +49,7 @@ data ModifyVpcAttribute = ModifyVpcAttribute
     { _mvaEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _mvaEnableDnsSupport   :: Maybe AttributeBooleanValue
     , _mvaVpcId              :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyVpcAttribute' constructor.
 --
@@ -100,7 +100,12 @@ modifyVpcAttributeResponse = ModifyVpcAttributeResponse
 instance ToPath ModifyVpcAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyVpcAttribute
+instance ToQuery ModifyVpcAttribute where
+    toQuery ModifyVpcAttribute{..} = mconcat
+        [ "EnableDnsHostnames" =? _mvaEnableDnsHostnames
+        , "EnableDnsSupport"   =? _mvaEnableDnsSupport
+        , "vpcId"              =? _mvaVpcId
+        ]
 
 instance ToHeaders ModifyVpcAttribute
 

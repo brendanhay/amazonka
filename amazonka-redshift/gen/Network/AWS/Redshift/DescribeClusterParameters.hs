@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ data DescribeClusterParameters = DescribeClusterParameters
     , _dcp1MaxRecords         :: Maybe Int
     , _dcp1ParameterGroupName :: Text
     , _dcp1Source             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterParameters' constructor.
 --
@@ -115,8 +116,8 @@ dcp1Source = lens _dcp1Source (\s a -> s { _dcp1Source = a })
 
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse
     { _dcprMarker     :: Maybe Text
-    , _dcprParameters :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    , _dcprParameters :: List "Parameter" Parameter
+    } deriving (Eq, Show)
 
 -- | 'DescribeClusterParametersResponse' constructor.
 --
@@ -144,12 +145,18 @@ dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
 dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
-dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a })
+dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a }) . _List
 
 instance ToPath DescribeClusterParameters where
     toPath = const "/"
 
-instance ToQuery DescribeClusterParameters
+instance ToQuery DescribeClusterParameters where
+    toQuery DescribeClusterParameters{..} = mconcat
+        [ "Marker"             =? _dcp1Marker
+        , "MaxRecords"         =? _dcp1MaxRecords
+        , "ParameterGroupName" =? _dcp1ParameterGroupName
+        , "Source"             =? _dcp1Source
+        ]
 
 instance ToHeaders DescribeClusterParameters
 
@@ -161,9 +168,9 @@ instance AWSRequest DescribeClusterParameters where
     response = xmlResponse
 
 instance FromXML DescribeClusterParametersResponse where
-    parseXML = withElement "DescribeClusterParametersResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "Parameters"
+    parseXML = withElement "DescribeClusterParametersResult" $ \x -> DescribeClusterParametersResponse
+        <$> x .@? "Marker"
+        <*> x .@  "Parameters"
 
 instance AWSPager DescribeClusterParameters where
     next rq rs = (\x -> rq & dcp1Marker ?~ x)

@@ -52,7 +52,7 @@ data DeleteSecurityGroup = DeleteSecurityGroup
     { _dsgDryRun    :: Maybe Bool
     , _dsgGroupId   :: Maybe Text
     , _dsgGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteSecurityGroup' constructor.
 --
@@ -93,7 +93,12 @@ deleteSecurityGroupResponse = DeleteSecurityGroupResponse
 instance ToPath DeleteSecurityGroup where
     toPath = const "/"
 
-instance ToQuery DeleteSecurityGroup
+instance ToQuery DeleteSecurityGroup where
+    toQuery DeleteSecurityGroup{..} = mconcat
+        [ "dryRun"    =? _dsgDryRun
+        , "GroupId"   =? _dsgGroupId
+        , "GroupName" =? _dsgGroupName
+        ]
 
 instance ToHeaders DeleteSecurityGroup
 

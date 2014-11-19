@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgGroupName :: Text
     , _rufgUserName  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RemoveUserFromGroup' constructor.
 --
@@ -82,7 +83,11 @@ removeUserFromGroupResponse = RemoveUserFromGroupResponse
 instance ToPath RemoveUserFromGroup where
     toPath = const "/"
 
-instance ToQuery RemoveUserFromGroup
+instance ToQuery RemoveUserFromGroup where
+    toQuery RemoveUserFromGroup{..} = mconcat
+        [ "GroupName" =? _rufgGroupName
+        , "UserName"  =? _rufgUserName
+        ]
 
 instance ToHeaders RemoveUserFromGroup
 

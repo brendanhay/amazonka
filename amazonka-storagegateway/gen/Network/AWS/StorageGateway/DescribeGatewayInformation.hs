@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ import qualified GHC.Exts
 
 newtype DescribeGatewayInformation = DescribeGatewayInformation
     { _dgiGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeGatewayInformation' constructor.
 --
@@ -75,12 +76,12 @@ dgiGatewayARN = lens _dgiGatewayARN (\s a -> s { _dgiGatewayARN = a })
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
     { _dgirGatewayARN                 :: Maybe Text
     , _dgirGatewayId                  :: Maybe Text
-    , _dgirGatewayNetworkInterfaces   :: [NetworkInterface]
+    , _dgirGatewayNetworkInterfaces   :: List "GatewayNetworkInterfaces" NetworkInterface
     , _dgirGatewayState               :: Maybe Text
     , _dgirGatewayTimezone            :: Maybe Text
     , _dgirGatewayType                :: Maybe Text
     , _dgirNextUpdateAvailabilityDate :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeGatewayInformationResponse' constructor.
 --
@@ -124,6 +125,7 @@ dgirGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [Networ
 dgirGatewayNetworkInterfaces =
     lens _dgirGatewayNetworkInterfaces
         (\s a -> s { _dgirGatewayNetworkInterfaces = a })
+            . _List
 
 -- | One of the values that indicates the operating state of the gateway.
 dgirGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
@@ -171,7 +173,7 @@ instance FromJSON DescribeGatewayInformationResponse where
     parseJSON = withObject "DescribeGatewayInformationResponse" $ \o -> DescribeGatewayInformationResponse
         <$> o .:? "GatewayARN"
         <*> o .:? "GatewayId"
-        <*> o .: "GatewayNetworkInterfaces"
+        <*> o .:  "GatewayNetworkInterfaces"
         <*> o .:? "GatewayState"
         <*> o .:? "GatewayTimezone"
         <*> o .:? "GatewayType"

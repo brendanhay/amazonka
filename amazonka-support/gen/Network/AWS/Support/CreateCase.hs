@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -79,14 +80,14 @@ import qualified GHC.Exts
 data CreateCase = CreateCase
     { _ccAttachmentSetId   :: Maybe Text
     , _ccCategoryCode      :: Maybe Text
-    , _ccCcEmailAddresses  :: [Text]
+    , _ccCcEmailAddresses  :: List "ccEmailAddresses" Text
     , _ccCommunicationBody :: Text
     , _ccIssueType         :: Maybe Text
     , _ccLanguage          :: Maybe Text
     , _ccServiceCode       :: Maybe Text
     , _ccSeverityCode      :: Maybe Text
     , _ccSubject           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateCase' constructor.
 --
@@ -139,6 +140,7 @@ ccCategoryCode = lens _ccCategoryCode (\s a -> s { _ccCategoryCode = a })
 ccCcEmailAddresses :: Lens' CreateCase [Text]
 ccCcEmailAddresses =
     lens _ccCcEmailAddresses (\s a -> s { _ccCcEmailAddresses = a })
+        . _List
 
 -- | The communication body text when you create an AWS Support case by
 -- calling CreateCase.
@@ -173,7 +175,7 @@ ccSubject = lens _ccSubject (\s a -> s { _ccSubject = a })
 
 newtype CreateCaseResponse = CreateCaseResponse
     { _ccrCaseId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateCaseResponse' constructor.
 --

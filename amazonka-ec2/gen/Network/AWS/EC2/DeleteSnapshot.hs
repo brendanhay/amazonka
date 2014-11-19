@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data DeleteSnapshot = DeleteSnapshot
     { _ds3DryRun     :: Maybe Bool
     , _ds3SnapshotId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteSnapshot' constructor.
 --
@@ -90,7 +90,11 @@ deleteSnapshotResponse = DeleteSnapshotResponse
 instance ToPath DeleteSnapshot where
     toPath = const "/"
 
-instance ToQuery DeleteSnapshot
+instance ToQuery DeleteSnapshot where
+    toQuery DeleteSnapshot{..} = mconcat
+        [ "dryRun"     =? _ds3DryRun
+        , "SnapshotId" =? _ds3SnapshotId
+        ]
 
 instance ToHeaders DeleteSnapshot
 

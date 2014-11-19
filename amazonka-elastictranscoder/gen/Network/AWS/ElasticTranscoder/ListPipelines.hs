@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data ListPipelines = ListPipelines
     { _lpAscending :: Maybe Text
     , _lpPageToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListPipelines' constructor.
 --
@@ -80,8 +81,8 @@ lpPageToken = lens _lpPageToken (\s a -> s { _lpPageToken = a })
 
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprNextPageToken :: Maybe Text
-    , _lprPipelines     :: [Pipeline]
-    } deriving (Eq, Show, Generic)
+    , _lprPipelines     :: List "Pipelines" Pipeline
+    } deriving (Eq, Show)
 
 -- | 'ListPipelinesResponse' constructor.
 --
@@ -105,12 +106,16 @@ lprNextPageToken = lens _lprNextPageToken (\s a -> s { _lprNextPageToken = a })
 
 -- | An array of Pipeline objects.
 lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
-lprPipelines = lens _lprPipelines (\s a -> s { _lprPipelines = a })
+lprPipelines = lens _lprPipelines (\s a -> s { _lprPipelines = a }) . _List
 
 instance ToPath ListPipelines where
     toPath = const "/2012-09-25/pipelines"
 
-instance ToQuery ListPipelines
+instance ToQuery ListPipelines where
+    toQuery ListPipelines{..} = mconcat
+        [ "Ascending" =? _lpAscending
+        , "PageToken" =? _lpPageToken
+        ]
 
 instance ToHeaders ListPipelines
 
@@ -127,7 +132,7 @@ instance AWSRequest ListPipelines where
 instance FromJSON ListPipelinesResponse where
     parseJSON = withObject "ListPipelinesResponse" $ \o -> ListPipelinesResponse
         <$> o .:? "NextPageToken"
-        <*> o .: "Pipelines"
+        <*> o .:  "Pipelines"
 
 instance AWSPager ListPipelines where
     next rq rs = (\x -> rq & lpPageToken ?~ x)

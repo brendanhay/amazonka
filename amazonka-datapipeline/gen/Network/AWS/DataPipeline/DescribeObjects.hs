@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,9 +55,9 @@ import qualified GHC.Exts
 data DescribeObjects = DescribeObjects
     { _doEvaluateExpressions :: Maybe Bool
     , _doMarker              :: Maybe Text
-    , _doObjectIds           :: [Text]
+    , _doObjectIds           :: List "pipelineIds" Text
     , _doPipelineId          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeObjects' constructor.
 --
@@ -97,7 +98,7 @@ doMarker = lens _doMarker (\s a -> s { _doMarker = a })
 -- described. You can pass as many as 25 identifiers in a single call to
 -- DescribeObjects.
 doObjectIds :: Lens' DescribeObjects [Text]
-doObjectIds = lens _doObjectIds (\s a -> s { _doObjectIds = a })
+doObjectIds = lens _doObjectIds (\s a -> s { _doObjectIds = a }) . _List
 
 -- | Identifier of the pipeline that contains the object definitions.
 doPipelineId :: Lens' DescribeObjects Text
@@ -106,8 +107,8 @@ doPipelineId = lens _doPipelineId (\s a -> s { _doPipelineId = a })
 data DescribeObjectsResponse = DescribeObjectsResponse
     { _dorHasMoreResults  :: Maybe Bool
     , _dorMarker          :: Maybe Text
-    , _dorPipelineObjects :: [PipelineObject]
-    } deriving (Eq, Show, Generic)
+    , _dorPipelineObjects :: List "pipelineObjects" PipelineObject
+    } deriving (Eq, Show)
 
 -- | 'DescribeObjectsResponse' constructor.
 --
@@ -141,6 +142,7 @@ dorMarker = lens _dorMarker (\s a -> s { _dorMarker = a })
 dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorPipelineObjects =
     lens _dorPipelineObjects (\s a -> s { _dorPipelineObjects = a })
+        . _List
 
 instance ToPath DescribeObjects where
     toPath = const "/"
@@ -169,7 +171,7 @@ instance FromJSON DescribeObjectsResponse where
     parseJSON = withObject "DescribeObjectsResponse" $ \o -> DescribeObjectsResponse
         <$> o .:? "hasMoreResults"
         <*> o .:? "marker"
-        <*> o .: "pipelineObjects"
+        <*> o .:  "pipelineObjects"
 
 instance AWSPager DescribeObjects where
     next rq rs

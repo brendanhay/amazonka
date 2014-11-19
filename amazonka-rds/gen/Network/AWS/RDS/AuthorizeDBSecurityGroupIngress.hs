@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
     , _adbsgiEC2SecurityGroupId      :: Maybe Text
     , _adbsgiEC2SecurityGroupName    :: Maybe Text
     , _adbsgiEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AuthorizeDBSecurityGroupIngress' constructor.
 --
@@ -126,7 +127,7 @@ adbsgiEC2SecurityGroupOwnerId =
 
 newtype AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
     { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AuthorizeDBSecurityGroupIngressResponse' constructor.
 --
@@ -146,7 +147,14 @@ adbsgirDBSecurityGroup =
 instance ToPath AuthorizeDBSecurityGroupIngress where
     toPath = const "/"
 
-instance ToQuery AuthorizeDBSecurityGroupIngress
+instance ToQuery AuthorizeDBSecurityGroupIngress where
+    toQuery AuthorizeDBSecurityGroupIngress{..} = mconcat
+        [ "CIDRIP"                  =? _adbsgiCIDRIP
+        , "DBSecurityGroupName"     =? _adbsgiDBSecurityGroupName
+        , "EC2SecurityGroupId"      =? _adbsgiEC2SecurityGroupId
+        , "EC2SecurityGroupName"    =? _adbsgiEC2SecurityGroupName
+        , "EC2SecurityGroupOwnerId" =? _adbsgiEC2SecurityGroupOwnerId
+        ]
 
 instance ToHeaders AuthorizeDBSecurityGroupIngress
 
@@ -158,5 +166,5 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML AuthorizeDBSecurityGroupIngressResponse where
-    parseXML = withElement "AuthorizeDBSecurityGroupIngressResult" $ \x ->
-            <$> x .@? "DBSecurityGroup"
+    parseXML = withElement "AuthorizeDBSecurityGroupIngressResult" $ \x -> AuthorizeDBSecurityGroupIngressResponse
+        <$> x .@? "DBSecurityGroup"

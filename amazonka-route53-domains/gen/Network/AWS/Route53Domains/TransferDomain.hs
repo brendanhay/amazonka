@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -77,13 +78,13 @@ data TransferDomain = TransferDomain
     , _tdDomainName                      :: Text
     , _tdDurationInYears                 :: Nat
     , _tdIdnLangCode                     :: Maybe Text
-    , _tdNameservers                     :: [Nameserver]
+    , _tdNameservers                     :: List "Nameservers" Nameserver
     , _tdPrivacyProtectAdminContact      :: Maybe Bool
     , _tdPrivacyProtectRegistrantContact :: Maybe Bool
     , _tdPrivacyProtectTechContact       :: Maybe Bool
     , _tdRegistrantContact               :: ContactDetail
     , _tdTechContact                     :: ContactDetail
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TransferDomain' constructor.
 --
@@ -144,8 +145,7 @@ tdAdminContact = lens _tdAdminContact (\s a -> s { _tdAdminContact = a })
 -- | The authorization code for the domain. You get this value from the
 -- current registrar. Type: String Required: Yes.
 tdAuthCode :: Lens' TransferDomain (Maybe Text)
-tdAuthCode = lens _tdAuthCode (\s a -> s { _tdAuthCode = a })
-    . mapping _Sensitive
+tdAuthCode = lens _tdAuthCode (\s a -> s { _tdAuthCode = a }) . mapping _Sensitive
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
 -- (false). Autorenewal only takes effect after the account is charged.
@@ -176,7 +176,7 @@ tdIdnLangCode = lens _tdIdnLangCode (\s a -> s { _tdIdnLangCode = a })
 -- | Contains details for the host and glue IP addresses. Type: Complex
 -- Children: GlueIps, Name.
 tdNameservers :: Lens' TransferDomain [Nameserver]
-tdNameservers = lens _tdNameservers (\s a -> s { _tdNameservers = a })
+tdNameservers = lens _tdNameservers (\s a -> s { _tdNameservers = a }) . _List
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS ("who is") queries will return contact
@@ -225,7 +225,7 @@ tdTechContact = lens _tdTechContact (\s a -> s { _tdTechContact = a })
 
 newtype TransferDomainResponse = TransferDomainResponse
     { _tdrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'TransferDomainResponse' constructor.
 --
@@ -278,4 +278,4 @@ instance AWSRequest TransferDomain where
 
 instance FromJSON TransferDomainResponse where
     parseJSON = withObject "TransferDomainResponse" $ \o -> TransferDomainResponse
-        <$> o .: "OperationId"
+        <$> o .:  "OperationId"

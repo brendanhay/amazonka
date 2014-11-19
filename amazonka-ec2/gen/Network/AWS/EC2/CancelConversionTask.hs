@@ -55,7 +55,7 @@ data CancelConversionTask = CancelConversionTask
     { _cctConversionTaskId :: Text
     , _cctDryRun           :: Maybe Bool
     , _cctReasonMessage    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CancelConversionTask' constructor.
 --
@@ -96,7 +96,12 @@ cancelConversionTaskResponse = CancelConversionTaskResponse
 instance ToPath CancelConversionTask where
     toPath = const "/"
 
-instance ToQuery CancelConversionTask
+instance ToQuery CancelConversionTask where
+    toQuery CancelConversionTask{..} = mconcat
+        [ "conversionTaskId" =? _cctConversionTaskId
+        , "dryRun"           =? _cctDryRun
+        , "reasonMessage"    =? _cctReasonMessage
+        ]
 
 instance ToHeaders CancelConversionTask
 

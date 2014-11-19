@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -80,7 +81,7 @@ data PutRecord = PutRecord
     , _prPartitionKey              :: Text
     , _prSequenceNumberForOrdering :: Maybe Text
     , _prStreamName                :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PutRecord' constructor.
 --
@@ -149,7 +150,7 @@ prStreamName = lens _prStreamName (\s a -> s { _prStreamName = a })
 data PutRecordResponse = PutRecordResponse
     { _prrSequenceNumber :: Text
     , _prrShardId        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PutRecordResponse' constructor.
 --
@@ -205,5 +206,5 @@ instance AWSRequest PutRecord where
 
 instance FromJSON PutRecordResponse where
     parseJSON = withObject "PutRecordResponse" $ \o -> PutRecordResponse
-        <$> o .: "SequenceNumber"
-        <*> o .: "ShardId"
+        <$> o .:  "SequenceNumber"
+        <*> o .:  "ShardId"

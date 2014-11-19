@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
     { _cacspCookieName       :: Text
     , _cacspLoadBalancerName :: Text
     , _cacspPolicyName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateAppCookieStickinessPolicy' constructor.
 --
@@ -107,7 +108,12 @@ createAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyRespons
 instance ToPath CreateAppCookieStickinessPolicy where
     toPath = const "/"
 
-instance ToQuery CreateAppCookieStickinessPolicy
+instance ToQuery CreateAppCookieStickinessPolicy where
+    toQuery CreateAppCookieStickinessPolicy{..} = mconcat
+        [ "CookieName"       =? _cacspCookieName
+        , "LoadBalancerName" =? _cacspLoadBalancerName
+        , "PolicyName"       =? _cacspPolicyName
+        ]
 
 instance ToHeaders CreateAppCookieStickinessPolicy
 

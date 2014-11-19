@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artipInstanceProfileName :: Text
     , _artipRoleName            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddRoleToInstanceProfile' constructor.
 --
@@ -86,7 +87,11 @@ addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
 instance ToPath AddRoleToInstanceProfile where
     toPath = const "/"
 
-instance ToQuery AddRoleToInstanceProfile
+instance ToQuery AddRoleToInstanceProfile where
+    toQuery AddRoleToInstanceProfile{..} = mconcat
+        [ "InstanceProfileName" =? _artipInstanceProfileName
+        , "RoleName"            =? _artipRoleName
+        ]
 
 instance ToHeaders AddRoleToInstanceProfile
 

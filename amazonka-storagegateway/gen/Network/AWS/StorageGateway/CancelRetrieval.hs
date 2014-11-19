@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data CancelRetrieval = CancelRetrieval
     { _crGatewayARN :: Text
     , _crTapeARN    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CancelRetrieval' constructor.
 --
@@ -78,7 +79,7 @@ crTapeARN = lens _crTapeARN (\s a -> s { _crTapeARN = a })
 
 newtype CancelRetrievalResponse = CancelRetrievalResponse
     { _crrTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CancelRetrievalResponse' constructor.
 --

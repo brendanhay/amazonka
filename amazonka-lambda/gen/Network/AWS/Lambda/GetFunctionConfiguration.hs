@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ import qualified GHC.Exts
 
 newtype GetFunctionConfiguration = GetFunctionConfiguration
     { _gfcFunctionName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetFunctionConfiguration' constructor.
 --
@@ -92,7 +93,7 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
     , _gfcrRole            :: Maybe Text
     , _gfcrRuntime         :: Maybe Text
     , _gfcrTimeout         :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetFunctionConfigurationResponse' constructor.
 --
@@ -166,14 +167,12 @@ gfcrHandler = lens _gfcrHandler (\s a -> s { _gfcrHandler = a })
 
 -- | The timestamp of the last time you updated the function.
 gfcrLastModified :: Lens' GetFunctionConfigurationResponse (Maybe UTCTime)
-gfcrLastModified = lens _gfcrLastModified (\s a -> s { _gfcrLastModified = a })
-    . mapping _Time
+gfcrLastModified = lens _gfcrLastModified (\s a -> s { _gfcrLastModified = a }) . mapping _Time
 
 -- | The memory size, in MB, you configured for the function. Must be a
 -- multiple of 64 MB.
 gfcrMemorySize :: Lens' GetFunctionConfigurationResponse (Maybe Natural)
-gfcrMemorySize = lens _gfcrMemorySize (\s a -> s { _gfcrMemorySize = a })
-    . mapping _Nat
+gfcrMemorySize = lens _gfcrMemorySize (\s a -> s { _gfcrMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
 gfcrMode :: Lens' GetFunctionConfigurationResponse (Maybe Text)
@@ -194,8 +193,7 @@ gfcrRuntime = lens _gfcrRuntime (\s a -> s { _gfcrRuntime = a })
 -- you set this value based on your expected execution time. The default is
 -- 3 seconds.
 gfcrTimeout :: Lens' GetFunctionConfigurationResponse (Maybe Natural)
-gfcrTimeout = lens _gfcrTimeout (\s a -> s { _gfcrTimeout = a })
-    . mapping _Nat
+gfcrTimeout = lens _gfcrTimeout (\s a -> s { _gfcrTimeout = a }) . mapping _Nat
 
 instance ToPath GetFunctionConfiguration where
     toPath GetFunctionConfiguration{..} = mconcat

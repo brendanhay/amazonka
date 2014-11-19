@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,9 +51,9 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data DescribeInstanceHealth = DescribeInstanceHealth
-    { _dihInstances        :: [Instance]
+    { _dihInstances        :: List "Instances" Instance
     , _dihLoadBalancerName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeInstanceHealth' constructor.
 --
@@ -71,7 +72,7 @@ describeInstanceHealth p1 = DescribeInstanceHealth
 
 -- | A list of instance IDs whose states are being queried.
 dihInstances :: Lens' DescribeInstanceHealth [Instance]
-dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a })
+dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a }) . _List
 
 -- | The name of the load balancer.
 dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
@@ -79,8 +80,8 @@ dihLoadBalancerName =
     lens _dihLoadBalancerName (\s a -> s { _dihLoadBalancerName = a })
 
 newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
-    { _dihrInstanceStates :: [InstanceState]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dihrInstanceStates :: List "InstanceStates" InstanceState
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeInstanceHealthResponse where
     type Item DescribeInstanceHealthResponse = InstanceState
@@ -103,11 +104,16 @@ describeInstanceHealthResponse = DescribeInstanceHealthResponse
 dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrInstanceStates =
     lens _dihrInstanceStates (\s a -> s { _dihrInstanceStates = a })
+        . _List
 
 instance ToPath DescribeInstanceHealth where
     toPath = const "/"
 
-instance ToQuery DescribeInstanceHealth
+instance ToQuery DescribeInstanceHealth where
+    toQuery DescribeInstanceHealth{..} = mconcat
+        [ "Instances"        =? _dihInstances
+        , "LoadBalancerName" =? _dihLoadBalancerName
+        ]
 
 instance ToHeaders DescribeInstanceHealth
 
@@ -119,5 +125,5 @@ instance AWSRequest DescribeInstanceHealth where
     response = xmlResponse
 
 instance FromXML DescribeInstanceHealthResponse where
-    parseXML = withElement "DescribeInstanceHealthResult" $ \x ->
-            <$> x .@ "InstanceStates"
+    parseXML = withElement "DescribeInstanceHealthResult" $ \x -> DescribeInstanceHealthResponse
+        <$> x .@  "InstanceStates"

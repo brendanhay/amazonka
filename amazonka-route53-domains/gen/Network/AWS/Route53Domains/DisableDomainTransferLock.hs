@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DisableDomainTransferLock = DisableDomainTransferLock
     { _ddtlDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DisableDomainTransferLock' constructor.
 --
@@ -75,7 +76,7 @@ ddtlDomainName = lens _ddtlDomainName (\s a -> s { _ddtlDomainName = a })
 
 newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
     { _ddtlrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DisableDomainTransferLockResponse' constructor.
 --
@@ -117,4 +118,4 @@ instance AWSRequest DisableDomainTransferLock where
 
 instance FromJSON DisableDomainTransferLockResponse where
     parseJSON = withObject "DisableDomainTransferLockResponse" $ \o -> DisableDomainTransferLockResponse
-        <$> o .: "OperationId"
+        <$> o .:  "OperationId"

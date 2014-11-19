@@ -51,7 +51,7 @@ data DescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds :: List "BundleId" Text
     , _dbtDryRun    :: Maybe Bool
     , _dbtFilters   :: List "Filter" Filter
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeBundleTasks' constructor.
 --
@@ -72,8 +72,7 @@ describeBundleTasks = DescribeBundleTasks
 
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
 dbtBundleIds :: Lens' DescribeBundleTasks [Text]
-dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a })
-    . _List
+dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a }) . _List
 
 dbtDryRun :: Lens' DescribeBundleTasks (Maybe Bool)
 dbtDryRun = lens _dbtDryRun (\s a -> s { _dbtDryRun = a })
@@ -89,12 +88,11 @@ dbtDryRun = lens _dbtDryRun (\s a -> s { _dbtDryRun = a })
 -- complete | failed). update-time - The time of the most recent update for
 -- the task.
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
-dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
-    . _List
+dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a }) . _List
 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: List "item" BundleTask
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeBundleTasksResponse where
     type Item DescribeBundleTasksResponse = BundleTask
@@ -115,13 +113,17 @@ describeBundleTasksResponse = DescribeBundleTasksResponse
 
 -- | Information about one or more bundle tasks.
 dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
-dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
-    . _List
+dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a }) . _List
 
 instance ToPath DescribeBundleTasks where
     toPath = const "/"
 
-instance ToQuery DescribeBundleTasks
+instance ToQuery DescribeBundleTasks where
+    toQuery DescribeBundleTasks{..} = mconcat
+        [ "BundleId" =? _dbtBundleIds
+        , "dryRun"   =? _dbtDryRun
+        , "Filter"   =? _dbtFilters
+        ]
 
 instance ToHeaders DescribeBundleTasks
 
@@ -134,4 +136,4 @@ instance AWSRequest DescribeBundleTasks where
 
 instance FromXML DescribeBundleTasksResponse where
     parseXML x = DescribeBundleTasksResponse
-        <$> x .@ "bundleInstanceTasksSet"
+        <$> x .@  "bundleInstanceTasksSet"

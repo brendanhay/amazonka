@@ -73,8 +73,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
@@ -83,6 +82,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Tag",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -184,8 +184,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "stackEvent",
@@ -255,6 +254,7 @@
                 ],
                 "contentPad": 0,
                 "name": "StackEvent",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -505,8 +505,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "stackSummary",
@@ -561,6 +560,7 @@
                 ],
                 "contentPad": 0,
                 "name": "StackSummary",
+                "locationPad": 20,
                 "type": "record",
                 "optional": [
                     {
@@ -766,8 +766,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "stackResourceDetail",
@@ -837,6 +836,7 @@
                 ],
                 "contentPad": 0,
                 "name": "StackResourceDetail",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -1112,8 +1112,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "templateParameter",
@@ -1122,6 +1121,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "TemplateParameter",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -1252,8 +1252,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "parameterDeclaration",
@@ -1262,6 +1261,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ParameterDeclaration",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -1422,8 +1422,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "stackResource",
@@ -1493,6 +1492,7 @@
                 ],
                 "contentPad": 0,
                 "name": "StackResource",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -1713,8 +1713,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "output",
@@ -1723,6 +1722,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Output",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -1823,8 +1823,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "stackResourceSummary",
@@ -1894,6 +1893,7 @@
                 ],
                 "contentPad": 0,
                 "name": "StackResourceSummary",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -2056,8 +2056,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "stack",
@@ -2112,6 +2111,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Stack",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -2146,8 +2146,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2157,7 +2157,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eParameter\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameters\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -2206,8 +2206,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2217,7 +2217,7 @@
                         "locationName": "NotificationARNs",
                         "documentation": "\u003cp\u003eSNS topic ARNs to which stack related events are published.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"NotificationARNs\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2236,8 +2236,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2247,12 +2247,12 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities allowed in the stack.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2262,12 +2262,12 @@
                         "locationName": "Outputs",
                         "documentation": "\u003cp\u003eA list of output structures.\u003c/p\u003e",
                         "typeExposed": "[Output]",
-                        "type": "[Output]"
+                        "type": "List \"Outputs\" Output"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2277,14 +2277,14 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eTag\u003c/code\u003es that specify cost allocation information for the stack.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2294,7 +2294,7 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities allowed in the stack.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2358,8 +2358,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2369,12 +2369,12 @@
                         "locationName": "NotificationARNs",
                         "documentation": "\u003cp\u003eSNS topic ARNs to which stack related events are published.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"NotificationARNs\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2384,12 +2384,12 @@
                         "locationName": "Outputs",
                         "documentation": "\u003cp\u003eA list of output structures.\u003c/p\u003e",
                         "typeExposed": "[Output]",
-                        "type": "[Output]"
+                        "type": "List \"Outputs\" Output"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2399,7 +2399,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eParameter\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameters\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -2463,8 +2463,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2474,7 +2474,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eTag\u003c/code\u003es that specify cost allocation information for the stack.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -2515,8 +2515,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "parameter",
@@ -2525,6 +2524,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Parameter",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -2671,7 +2671,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2734,6 +2733,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -2764,7 +2764,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -2798,6 +2797,7 @@
                 "contentPad": 0,
                 "name": "CreateStackResponse",
                 "resultWrapper": "CreateStackResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2850,8 +2850,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2951,6 +2950,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2987,8 +2987,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2998,7 +2998,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eParameter\u003c/code\u003e structures that specify input parameters for the stack.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameters\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -3032,8 +3032,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3043,12 +3043,12 @@
                         "locationName": "NotificationARNs",
                         "documentation": "\u003cp\u003eThe Simple Notification Service (SNS) topic ARNs to publish stack related events. You can find your SNS topic ARNs using the \u003ca href=\"http://console.aws.amazon.com/sns\"\u003eSNS console\u003c/a\u003e or your Command Line Interface (CLI).\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"NotificationARNs\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3058,7 +3058,7 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.\u003c/p\u003e \u003cp\u003eCurrently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an \u003ccode\u003eInsufficientCapabilities\u003c/code\u003e error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3107,8 +3107,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3118,14 +3118,14 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA set of user-defined \u003ccode\u003eTags\u003c/code\u003e to associate with this stack, represented by key/value pairs. Tags defined for the stack are propagated to EC2 resources that are created as part of the stack. A maximum number of 10 tags can be specified.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3135,7 +3135,7 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.\u003c/p\u003e \u003cp\u003eCurrently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an \u003ccode\u003eInsufficientCapabilities\u003c/code\u003e error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3154,8 +3154,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3165,7 +3165,7 @@
                         "locationName": "NotificationARNs",
                         "documentation": "\u003cp\u003eThe Simple Notification Service (SNS) topic ARNs to publish stack related events. You can find your SNS topic ARNs using the \u003ca href=\"http://console.aws.amazon.com/sns\"\u003eSNS console\u003c/a\u003e or your Command Line Interface (CLI).\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"NotificationARNs\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3184,8 +3184,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3195,7 +3195,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eParameter\u003c/code\u003e structures that specify input parameters for the stack.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameters\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -3244,8 +3244,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3255,7 +3255,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA set of user-defined \u003ccode\u003eTags\u003c/code\u003e to associate with this stack, represented by key/value pairs. Tags defined for the stack are propagated to EC2 resources that are created as part of the stack. A maximum number of 10 tags can be specified.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -3348,7 +3348,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3411,6 +3410,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3439,8 +3439,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3457,13 +3456,14 @@
                 "contentPad": 0,
                 "name": "DescribeStackEventsResponse",
                 "resultWrapper": "DescribeStackEventsResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3473,7 +3473,7 @@
                         "locationName": "StackEvents",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eStackEvents\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[StackEvent]",
-                        "type": "[StackEvent]"
+                        "type": "List \"StackEvents\" StackEvent"
                     },
                     {
                         "location": "querystring",
@@ -3509,8 +3509,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3520,7 +3520,7 @@
                         "locationName": "StackEvents",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eStackEvents\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[StackEvent]",
-                        "type": "[StackEvent]"
+                        "type": "List \"StackEvents\" StackEvent"
                     }
                 ]
             },
@@ -3547,8 +3547,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3582,6 +3581,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3656,8 +3656,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3690,6 +3689,7 @@
                 "contentPad": 0,
                 "name": "DescribeStackResourceResponse",
                 "resultWrapper": "DescribeStackResourceResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -3743,8 +3743,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3809,6 +3808,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3853,7 +3853,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3865,8 +3864,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3876,7 +3875,7 @@
                     "locationName": "StackResources",
                     "documentation": "\u003cp\u003eA list of \u003ccode\u003eStackResource\u003c/code\u003e structures.\u003c/p\u003e",
                     "typeExposed": "[StackResource]",
-                    "type": "[StackResource]"
+                    "type": "List \"StackResources\" StackResource"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -3888,13 +3887,14 @@
                 "contentPad": 0,
                 "name": "DescribeStackResourcesResponse",
                 "resultWrapper": "DescribeStackResourcesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3904,14 +3904,14 @@
                         "locationName": "StackResources",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eStackResource\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[StackResource]",
-                        "type": "[StackResource]"
+                        "type": "List \"StackResources\" StackResource"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3921,7 +3921,7 @@
                         "locationName": "StackResources",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eStackResource\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[StackResource]",
-                        "type": "[StackResource]"
+                        "type": "List \"StackResources\" StackResource"
                     }
                 ]
             },
@@ -3941,8 +3941,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3981,6 +3980,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4085,8 +4085,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -4103,13 +4102,14 @@
                 "contentPad": 0,
                 "name": "DescribeStacksResponse",
                 "resultWrapper": "DescribeStacksResult",
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4119,7 +4119,7 @@
                         "locationName": "Stacks",
                         "documentation": "\u003cp\u003eA list of stack structures.\u003c/p\u003e",
                         "typeExposed": "[Stack]",
-                        "type": "[Stack]"
+                        "type": "List \"Stacks\" Stack"
                     },
                     {
                         "location": "querystring",
@@ -4155,8 +4155,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4166,7 +4166,7 @@
                         "locationName": "Stacks",
                         "documentation": "\u003cp\u003eA list of stack structures.\u003c/p\u003e",
                         "typeExposed": "[Stack]",
-                        "type": "[Stack]"
+                        "type": "List \"Stacks\" Stack"
                     }
                 ]
             },
@@ -4193,8 +4193,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4228,6 +4227,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4304,7 +4304,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4338,6 +4337,7 @@
                 "contentPad": 0,
                 "name": "EstimateTemplateCostResponse",
                 "resultWrapper": "EstimateTemplateCostResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4390,8 +4390,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4430,6 +4429,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4466,8 +4466,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4477,14 +4477,14 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eParameter\u003c/code\u003e structures that specify input parameters.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameters\" Parameter"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4494,7 +4494,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eParameter\u003c/code\u003e structures that specify input parameters.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameters\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -4536,7 +4536,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4570,6 +4569,7 @@
                 "contentPad": 0,
                 "name": "GetStackPolicyResponse",
                 "resultWrapper": "GetStackPolicyResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4624,7 +4624,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4687,6 +4686,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -4717,7 +4717,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4751,6 +4750,7 @@
                 "contentPad": 0,
                 "name": "GetTemplateResponse",
                 "resultWrapper": "GetTemplateResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4805,7 +4805,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4868,6 +4867,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -4896,8 +4896,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -4914,13 +4913,14 @@
                 "contentPad": 0,
                 "name": "GetTemplateSummaryResponse",
                 "resultWrapper": "GetTemplateSummaryResult",
+                "locationPad": 19,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4930,7 +4930,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of parameter declarations that describe various properties for each parameter.\u003c/p\u003e",
                         "typeExposed": "[ParameterDeclaration]",
-                        "type": "[ParameterDeclaration]"
+                        "type": "List \"Parameters\" ParameterDeclaration"
                     },
                     {
                         "location": "querystring",
@@ -4949,8 +4949,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4960,7 +4960,7 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4996,8 +4996,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5007,7 +5007,7 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5041,8 +5041,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5052,7 +5052,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of parameter declarations that describe various properties for each parameter.\u003c/p\u003e",
                         "typeExposed": "[ParameterDeclaration]",
-                        "type": "[ParameterDeclaration]"
+                        "type": "List \"Parameters\" ParameterDeclaration"
                     },
                     {
                         "location": "querystring",
@@ -5087,8 +5087,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5127,6 +5126,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5231,8 +5231,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -5249,13 +5248,14 @@
                 "contentPad": 0,
                 "name": "ListStackResourcesResponse",
                 "resultWrapper": "ListStackResourcesResult",
+                "locationPad": 23,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5265,7 +5265,7 @@
                         "locationName": "StackResourceSummaries",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eStackResourceSummary\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[StackResourceSummary]",
-                        "type": "[StackResourceSummary]"
+                        "type": "List \"StackResourceSummaries\" StackResourceSummary"
                     },
                     {
                         "location": "querystring",
@@ -5301,8 +5301,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5312,7 +5312,7 @@
                         "locationName": "StackResourceSummaries",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eStackResourceSummary\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[StackResourceSummary]",
-                        "type": "[StackResourceSummary]"
+                        "type": "List \"StackResourceSummaries\" StackResourceSummary"
                     }
                 ]
             },
@@ -5339,8 +5339,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5390,6 +5389,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5449,8 +5449,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -5467,13 +5466,14 @@
                 "contentPad": 0,
                 "name": "ListStacksResponse",
                 "resultWrapper": "ListStacksResult",
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5483,7 +5483,7 @@
                         "locationName": "StackSummaries",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eStackSummary\u003c/code\u003e structures containing information about the specified stacks.\u003c/p\u003e",
                         "typeExposed": "[StackSummary]",
-                        "type": "[StackSummary]"
+                        "type": "List \"StackSummaries\" StackSummary"
                     },
                     {
                         "location": "querystring",
@@ -5519,8 +5519,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5530,7 +5530,7 @@
                         "locationName": "StackSummaries",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eStackSummary\u003c/code\u003e structures containing information about the specified stacks.\u003c/p\u003e",
                         "typeExposed": "[StackSummary]",
-                        "type": "[StackSummary]"
+                        "type": "List \"StackSummaries\" StackSummary"
                     }
                 ]
             },
@@ -5557,8 +5557,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5592,6 +5591,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5613,8 +5613,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5624,7 +5624,7 @@
                         "locationName": "StackStatusFilter",
                         "documentation": "\u003cp\u003eStack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the \u003ccode\u003eStackStatus\u003c/code\u003e parameter of the \u003ca\u003eStack\u003c/a\u003e data type.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StackStatusFilter\" Text"
                     }
                 ],
                 "fields": [
@@ -5645,8 +5645,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5656,7 +5656,7 @@
                         "locationName": "StackStatusFilter",
                         "documentation": "\u003cp\u003eStack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the \u003ccode\u003eStackStatus\u003c/code\u003e parameter of the \u003ca\u003eStack\u003c/a\u003e data type.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StackStatusFilter\" Text"
                     }
                 ]
             }
@@ -5703,8 +5703,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5759,6 +5758,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5885,8 +5885,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5991,6 +5990,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6066,7 +6066,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -6100,6 +6099,7 @@
                 "contentPad": 0,
                 "name": "UpdateStackResponse",
                 "resultWrapper": "UpdateStackResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -6152,8 +6152,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6248,6 +6247,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 28,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6329,8 +6329,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6340,12 +6340,12 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eParameter\u003c/code\u003e structures that specify input parameters for the stack.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameters\" Parameter"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6355,7 +6355,7 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter. Currently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6389,8 +6389,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6400,14 +6400,14 @@
                         "locationName": "NotificationARNs",
                         "documentation": "\u003cp\u003eUpdate the ARNs for the Amazon SNS topics that are associated with the stack.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"NotificationARNs\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6417,12 +6417,12 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter. Currently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6432,12 +6432,12 @@
                         "locationName": "NotificationARNs",
                         "documentation": "\u003cp\u003eUpdate the ARNs for the Amazon SNS topics that are associated with the stack.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"NotificationARNs\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6447,7 +6447,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eParameter\u003c/code\u003e structures that specify input parameters for the stack.\u003c/p\u003e",
                         "typeExposed": "[Parameter]",
-                        "type": "[Parameter]"
+                        "type": "List \"Parameters\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -6577,8 +6577,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -6595,13 +6594,14 @@
                 "contentPad": 0,
                 "name": "ValidateTemplateResponse",
                 "resultWrapper": "ValidateTemplateResult",
+                "locationPad": 19,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6611,7 +6611,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eTemplateParameter\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[TemplateParameter]",
-                        "type": "[TemplateParameter]"
+                        "type": "List \"Parameters\" TemplateParameter"
                     },
                     {
                         "location": "querystring",
@@ -6630,8 +6630,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6641,7 +6641,7 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6662,8 +6662,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6673,7 +6673,7 @@
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Capabilities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6707,8 +6707,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6718,7 +6718,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eTemplateParameter\u003c/code\u003e structures.\u003c/p\u003e",
                         "typeExposed": "[TemplateParameter]",
-                        "type": "[TemplateParameter]"
+                        "type": "List \"Parameters\" TemplateParameter"
                     }
                 ]
             },
@@ -6738,8 +6738,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6773,6 +6772,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot
     { _dcsDeliveryChannelName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeliverConfigSnapshot' constructor.
 --
@@ -72,7 +73,7 @@ dcsDeliveryChannelName =
 
 newtype DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse
     { _dcsrConfigSnapshotId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DeliverConfigSnapshotResponse' constructor.
 --

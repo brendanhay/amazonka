@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetSAMLProvider = GetSAMLProvider
     { _gsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetSAMLProvider' constructor.
 --
@@ -73,7 +74,7 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprCreateDate           :: Maybe RFC822
     , _gsamlprSAMLMetadataDocument :: Maybe Text
     , _gsamlprValidUntil           :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetSAMLProviderResponse' constructor.
 --
@@ -114,7 +115,10 @@ gsamlprValidUntil =
 instance ToPath GetSAMLProvider where
     toPath = const "/"
 
-instance ToQuery GetSAMLProvider
+instance ToQuery GetSAMLProvider where
+    toQuery GetSAMLProvider{..} = mconcat
+        [ "SAMLProviderArn" =? _gsamlpSAMLProviderArn
+        ]
 
 instance ToHeaders GetSAMLProvider
 
@@ -126,7 +130,7 @@ instance AWSRequest GetSAMLProvider where
     response = xmlResponse
 
 instance FromXML GetSAMLProviderResponse where
-    parseXML = withElement "GetSAMLProviderResult" $ \x ->
-            <$> x .@? "CreateDate"
-            <*> x .@? "SAMLMetadataDocument"
-            <*> x .@? "ValidUntil"
+    parseXML = withElement "GetSAMLProviderResult" $ \x -> GetSAMLProviderResponse
+        <$> x .@? "CreateDate"
+        <*> x .@? "SAMLMetadataDocument"
+        <*> x .@? "ValidUntil"

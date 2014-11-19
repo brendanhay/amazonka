@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data LookupDeveloperIdentity = LookupDeveloperIdentity
     , _ldiIdentityPoolId          :: Text
     , _ldiMaxResults              :: Maybe Nat
     , _ldiNextToken               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LookupDeveloperIdentity' constructor.
 --
@@ -109,8 +110,7 @@ ldiIdentityPoolId =
 
 -- | The maximum number of identities to return.
 ldiMaxResults :: Lens' LookupDeveloperIdentity (Maybe Natural)
-ldiMaxResults = lens _ldiMaxResults (\s a -> s { _ldiMaxResults = a })
-    . mapping _Nat
+ldiMaxResults = lens _ldiMaxResults (\s a -> s { _ldiMaxResults = a }) . mapping _Nat
 
 -- | A pagination token. The first call you make will have NextToken set to
 -- null. After that the service will return NextToken values as needed. For
@@ -122,10 +122,10 @@ ldiNextToken :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\s a -> s { _ldiNextToken = a })
 
 data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse
-    { _ldirDeveloperUserIdentifierList :: [Text]
+    { _ldirDeveloperUserIdentifierList :: List "DeveloperUserIdentifierList" Text
     , _ldirIdentityId                  :: Maybe Text
     , _ldirNextToken                   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LookupDeveloperIdentityResponse' constructor.
 --
@@ -151,6 +151,7 @@ ldirDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
 ldirDeveloperUserIdentifierList =
     lens _ldirDeveloperUserIdentifierList
         (\s a -> s { _ldirDeveloperUserIdentifierList = a })
+            . _List
 
 -- | A unique identifier in the format REGION:GUID.
 ldirIdentityId :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
@@ -191,6 +192,6 @@ instance AWSRequest LookupDeveloperIdentity where
 
 instance FromJSON LookupDeveloperIdentityResponse where
     parseJSON = withObject "LookupDeveloperIdentityResponse" $ \o -> LookupDeveloperIdentityResponse
-        <$> o .: "DeveloperUserIdentifierList"
+        <$> o .:  "DeveloperUserIdentifierList"
         <*> o .:? "IdentityId"
         <*> o .:? "NextToken"

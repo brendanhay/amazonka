@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data ListGroups = ListGroups
     { _lgMarker     :: Maybe Text
     , _lgMaxItems   :: Maybe Nat
     , _lgPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListGroups' constructor.
 --
@@ -83,8 +84,7 @@ lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 -- the maximum you specify, the IsTruncated response element is true. This
 -- parameter is optional. If you do not include it, it defaults to 100.
 lgMaxItems :: Lens' ListGroups (Maybe Natural)
-lgMaxItems = lens _lgMaxItems (\s a -> s { _lgMaxItems = a })
-    . mapping _Nat
+lgMaxItems = lens _lgMaxItems (\s a -> s { _lgMaxItems = a }) . mapping _Nat
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- /division_abc/subdivision_xyz/ gets all groups whose path starts with
@@ -94,10 +94,10 @@ lgPathPrefix :: Lens' ListGroups (Maybe Text)
 lgPathPrefix = lens _lgPathPrefix (\s a -> s { _lgPathPrefix = a })
 
 data ListGroupsResponse = ListGroupsResponse
-    { _lgrGroups      :: [Group]
+    { _lgrGroups      :: List "Groups" Group
     , _lgrIsTruncated :: Maybe Bool
     , _lgrMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListGroupsResponse' constructor.
 --
@@ -118,7 +118,7 @@ listGroupsResponse = ListGroupsResponse
 
 -- | A list of groups.
 lgrGroups :: Lens' ListGroupsResponse [Group]
-lgrGroups = lens _lgrGroups (\s a -> s { _lgrGroups = a })
+lgrGroups = lens _lgrGroups (\s a -> s { _lgrGroups = a }) . _List
 
 -- | A flag that indicates whether there are more groups to list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -134,7 +134,12 @@ lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
 instance ToPath ListGroups where
     toPath = const "/"
 
-instance ToQuery ListGroups
+instance ToQuery ListGroups where
+    toQuery ListGroups{..} = mconcat
+        [ "Marker"     =? _lgMarker
+        , "MaxItems"   =? _lgMaxItems
+        , "PathPrefix" =? _lgPathPrefix
+        ]
 
 instance ToHeaders ListGroups
 
@@ -146,10 +151,10 @@ instance AWSRequest ListGroups where
     response = xmlResponse
 
 instance FromXML ListGroupsResponse where
-    parseXML = withElement "ListGroupsResult" $ \x ->
-            <$> x .@ "Groups"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Marker"
+    parseXML = withElement "ListGroupsResult" $ \x -> ListGroupsResponse
+        <$> x .@  "Groups"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
 
 instance AWSPager ListGroups where
     next rq rs

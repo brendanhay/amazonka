@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,8 +55,8 @@ getCheckerIpRanges :: GetCheckerIpRanges
 getCheckerIpRanges = GetCheckerIpRanges
 
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
-    { _gcirrCheckerIpRanges :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _gcirrCheckerIpRanges :: List "CheckerIpRanges" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetCheckerIpRangesResponse where
     type Item GetCheckerIpRangesResponse = Text
@@ -79,6 +80,7 @@ getCheckerIpRangesResponse = GetCheckerIpRangesResponse
 gcirrCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
 gcirrCheckerIpRanges =
     lens _gcirrCheckerIpRanges (\s a -> s { _gcirrCheckerIpRanges = a })
+        . _List
 
 instance ToPath GetCheckerIpRanges where
     toPath = const "/2013-04-01/checkeripranges"
@@ -102,4 +104,4 @@ instance AWSRequest GetCheckerIpRanges where
 
 instance FromXML GetCheckerIpRangesResponse where
     parseXML x = GetCheckerIpRangesResponse
-            <$> x .@ "CheckerIpRanges"
+        <$> x .@  "CheckerIpRanges"

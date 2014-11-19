@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpCacheParameterGroupFamily :: Text
     , _dedpMarker                    :: Maybe Text
     , _dedpMaxRecords                :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeEngineDefaultParameters' constructor.
 --
@@ -94,7 +95,7 @@ dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults :: EngineDefaults
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEngineDefaultParametersResponse' constructor.
 --
@@ -115,7 +116,12 @@ dedprEngineDefaults =
 instance ToPath DescribeEngineDefaultParameters where
     toPath = const "/"
 
-instance ToQuery DescribeEngineDefaultParameters
+instance ToQuery DescribeEngineDefaultParameters where
+    toQuery DescribeEngineDefaultParameters{..} = mconcat
+        [ "CacheParameterGroupFamily" =? _dedpCacheParameterGroupFamily
+        , "Marker"                    =? _dedpMarker
+        , "MaxRecords"                =? _dedpMaxRecords
+        ]
 
 instance ToHeaders DescribeEngineDefaultParameters
 
@@ -127,8 +133,8 @@ instance AWSRequest DescribeEngineDefaultParameters where
     response = xmlResponse
 
 instance FromXML DescribeEngineDefaultParametersResponse where
-    parseXML = withElement "DescribeEngineDefaultParametersResult" $ \x ->
-            <$> x .@ "EngineDefaults"
+    parseXML = withElement "DescribeEngineDefaultParametersResult" $ \x -> DescribeEngineDefaultParametersResponse
+        <$> x .@  "EngineDefaults"
 
 instance AWSPager DescribeEngineDefaultParameters where
     next rq rs = (\x -> rq & dedpMarker ?~ x)

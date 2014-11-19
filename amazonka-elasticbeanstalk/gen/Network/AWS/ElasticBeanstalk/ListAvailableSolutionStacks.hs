@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,9 +52,9 @@ listAvailableSolutionStacks :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks
 
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
-    { _lassrSolutionStackDetails :: [SolutionStackDescription]
-    , _lassrSolutionStacks       :: [Text]
-    } deriving (Eq, Show, Generic)
+    { _lassrSolutionStackDetails :: List "SolutionStackDetails" SolutionStackDescription
+    , _lassrSolutionStacks       :: List "SolutionStacks" Text
+    } deriving (Eq, Show)
 
 -- | 'ListAvailableSolutionStacksResponse' constructor.
 --
@@ -74,11 +75,13 @@ lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [Solution
 lassrSolutionStackDetails =
     lens _lassrSolutionStackDetails
         (\s a -> s { _lassrSolutionStackDetails = a })
+            . _List
 
 -- | A list of available solution stacks.
 lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
 lassrSolutionStacks =
     lens _lassrSolutionStacks (\s a -> s { _lassrSolutionStacks = a })
+        . _List
 
 instance ToPath ListAvailableSolutionStacks where
     toPath = const "/"
@@ -96,6 +99,6 @@ instance AWSRequest ListAvailableSolutionStacks where
     response = xmlResponse
 
 instance FromXML ListAvailableSolutionStacksResponse where
-    parseXML = withElement "ListAvailableSolutionStacksResult" $ \x ->
-            <$> x .@ "SolutionStackDetails"
-            <*> x .@ "SolutionStacks"
+    parseXML = withElement "ListAvailableSolutionStacksResult" $ \x -> ListAvailableSolutionStacksResponse
+        <$> x .@  "SolutionStackDetails"
+        <*> x .@  "SolutionStacks"

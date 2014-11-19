@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -70,7 +71,7 @@ data PutLifecycleHook = PutLifecycleHook
     , _plhNotificationMetadata  :: Maybe Text
     , _plhNotificationTargetARN :: Maybe Text
     , _plhRoleARN               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PutLifecycleHook' constructor.
 --
@@ -181,7 +182,17 @@ putLifecycleHookResponse = PutLifecycleHookResponse
 instance ToPath PutLifecycleHook where
     toPath = const "/"
 
-instance ToQuery PutLifecycleHook
+instance ToQuery PutLifecycleHook where
+    toQuery PutLifecycleHook{..} = mconcat
+        [ "AutoScalingGroupName"  =? _plhAutoScalingGroupName
+        , "DefaultResult"         =? _plhDefaultResult
+        , "HeartbeatTimeout"      =? _plhHeartbeatTimeout
+        , "LifecycleHookName"     =? _plhLifecycleHookName
+        , "LifecycleTransition"   =? _plhLifecycleTransition
+        , "NotificationMetadata"  =? _plhNotificationMetadata
+        , "NotificationTargetARN" =? _plhNotificationTargetARN
+        , "RoleARN"               =? _plhRoleARN
+        ]
 
 instance ToHeaders PutLifecycleHook
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data CreateApplicationVersion = CreateApplicationVersion
     , _cavDescription           :: Maybe Text
     , _cavSourceBundle          :: Maybe S3Location
     , _cavVersionLabel          :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateApplicationVersion' constructor.
 --
@@ -125,7 +126,7 @@ cavVersionLabel = lens _cavVersionLabel (\s a -> s { _cavVersionLabel = a })
 
 newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
     { _cavrApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateApplicationVersionResponse' constructor.
 --
@@ -146,7 +147,14 @@ cavrApplicationVersion =
 instance ToPath CreateApplicationVersion where
     toPath = const "/"
 
-instance ToQuery CreateApplicationVersion
+instance ToQuery CreateApplicationVersion where
+    toQuery CreateApplicationVersion{..} = mconcat
+        [ "ApplicationName"       =? _cavApplicationName
+        , "AutoCreateApplication" =? _cavAutoCreateApplication
+        , "Description"           =? _cavDescription
+        , "SourceBundle"          =? _cavSourceBundle
+        , "VersionLabel"          =? _cavVersionLabel
+        ]
 
 instance ToHeaders CreateApplicationVersion
 
@@ -158,5 +166,5 @@ instance AWSRequest CreateApplicationVersion where
     response = xmlResponse
 
 instance FromXML CreateApplicationVersionResponse where
-    parseXML = withElement "CreateApplicationVersionResult" $ \x ->
-            <$> x .@? "ApplicationVersion"
+    parseXML = withElement "CreateApplicationVersionResult" $ \x -> CreateApplicationVersionResponse
+        <$> x .@? "ApplicationVersion"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -73,7 +74,7 @@ data CreateHostedZone = CreateHostedZone
     , _chzHostedZoneConfig :: Maybe HostedZoneConfig
     , _chzName             :: Text
     , _chzVPC              :: Maybe VPC
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateHostedZone' constructor.
 --
@@ -146,7 +147,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     , _chzrHostedZone    :: HostedZone
     , _chzrLocation      :: Text
     , _chzrVPC           :: Maybe VPC
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateHostedZoneResponse' constructor.
 --
@@ -223,8 +224,8 @@ instance AWSRequest CreateHostedZone where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateHostedZoneResponse
-        <$> x .@ "ChangeInfo"
-        <*> x .@ "DelegationSet"
-        <*> x .@ "HostedZone"
+        <$> x .@  "ChangeInfo"
+        <*> x .@  "DelegationSet"
+        <*> x .@  "HostedZone"
         <*> h ~: "Location"
         <*> x .@? "VPC"

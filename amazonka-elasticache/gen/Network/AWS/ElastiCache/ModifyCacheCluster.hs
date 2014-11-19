@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -66,19 +67,19 @@ data ModifyCacheCluster = ModifyCacheCluster
     , _mccApplyImmediately           :: Maybe Bool
     , _mccAutoMinorVersionUpgrade    :: Maybe Bool
     , _mccCacheClusterId             :: Text
-    , _mccCacheNodeIdsToRemove       :: [Text]
+    , _mccCacheNodeIdsToRemove       :: List "CacheNodeId" Text
     , _mccCacheParameterGroupName    :: Maybe Text
-    , _mccCacheSecurityGroupNames    :: [Text]
+    , _mccCacheSecurityGroupNames    :: List "CacheSecurityGroupName" Text
     , _mccEngineVersion              :: Maybe Text
-    , _mccNewAvailabilityZones       :: [Text]
+    , _mccNewAvailabilityZones       :: List "PreferredAvailabilityZone" Text
     , _mccNotificationTopicArn       :: Maybe Text
     , _mccNotificationTopicStatus    :: Maybe Text
     , _mccNumCacheNodes              :: Maybe Int
     , _mccPreferredMaintenanceWindow :: Maybe Text
-    , _mccSecurityGroupIds           :: [Text]
+    , _mccSecurityGroupIds           :: List "SecurityGroupId" Text
     , _mccSnapshotRetentionLimit     :: Maybe Int
     , _mccSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ModifyCacheCluster' constructor.
 --
@@ -181,6 +182,7 @@ mccCacheClusterId =
 mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
 mccCacheNodeIdsToRemove =
     lens _mccCacheNodeIdsToRemove (\s a -> s { _mccCacheNodeIdsToRemove = a })
+        . _List
 
 -- | The name of the cache parameter group to apply to this cache cluster.
 -- This change is asynchronously applied as soon as possible for parameters
@@ -200,6 +202,7 @@ mccCacheSecurityGroupNames :: Lens' ModifyCacheCluster [Text]
 mccCacheSecurityGroupNames =
     lens _mccCacheSecurityGroupNames
         (\s a -> s { _mccCacheSecurityGroupNames = a })
+            . _List
 
 -- | The upgraded version of the cache engine to be run on the cache nodes.
 mccEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
@@ -241,6 +244,7 @@ mccEngineVersion = lens _mccEngineVersion (\s a -> s { _mccEngineVersion = a })
 mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
 mccNewAvailabilityZones =
     lens _mccNewAvailabilityZones (\s a -> s { _mccNewAvailabilityZones = a })
+        . _List
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
 -- notifications will be sent.
@@ -301,6 +305,7 @@ mccPreferredMaintenanceWindow =
 mccSecurityGroupIds :: Lens' ModifyCacheCluster [Text]
 mccSecurityGroupIds =
     lens _mccSecurityGroupIds (\s a -> s { _mccSecurityGroupIds = a })
+        . _List
 
 -- | The number of days for which ElastiCache will retain automatic cache
 -- cluster snapshots before deleting them. For example, if you set
@@ -320,7 +325,7 @@ mccSnapshotWindow =
 
 newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyCacheClusterResponse' constructor.
 --
@@ -339,7 +344,25 @@ mccrCacheCluster = lens _mccrCacheCluster (\s a -> s { _mccrCacheCluster = a })
 instance ToPath ModifyCacheCluster where
     toPath = const "/"
 
-instance ToQuery ModifyCacheCluster
+instance ToQuery ModifyCacheCluster where
+    toQuery ModifyCacheCluster{..} = mconcat
+        [ "AZMode"                     =? _mccAZMode
+        , "ApplyImmediately"           =? _mccApplyImmediately
+        , "AutoMinorVersionUpgrade"    =? _mccAutoMinorVersionUpgrade
+        , "CacheClusterId"             =? _mccCacheClusterId
+        , "CacheNodeIdsToRemove"       =? _mccCacheNodeIdsToRemove
+        , "CacheParameterGroupName"    =? _mccCacheParameterGroupName
+        , "CacheSecurityGroupNames"    =? _mccCacheSecurityGroupNames
+        , "EngineVersion"              =? _mccEngineVersion
+        , "NewAvailabilityZones"       =? _mccNewAvailabilityZones
+        , "NotificationTopicArn"       =? _mccNotificationTopicArn
+        , "NotificationTopicStatus"    =? _mccNotificationTopicStatus
+        , "NumCacheNodes"              =? _mccNumCacheNodes
+        , "PreferredMaintenanceWindow" =? _mccPreferredMaintenanceWindow
+        , "SecurityGroupIds"           =? _mccSecurityGroupIds
+        , "SnapshotRetentionLimit"     =? _mccSnapshotRetentionLimit
+        , "SnapshotWindow"             =? _mccSnapshotWindow
+        ]
 
 instance ToHeaders ModifyCacheCluster
 
@@ -351,5 +374,5 @@ instance AWSRequest ModifyCacheCluster where
     response = xmlResponse
 
 instance FromXML ModifyCacheClusterResponse where
-    parseXML = withElement "ModifyCacheClusterResult" $ \x ->
-            <$> x .@? "CacheCluster"
+    parseXML = withElement "ModifyCacheClusterResult" $ \x -> ModifyCacheClusterResponse
+        <$> x .@? "CacheCluster"

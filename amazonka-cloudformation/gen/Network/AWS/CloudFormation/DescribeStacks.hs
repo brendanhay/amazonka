@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data DescribeStacks = DescribeStacks
     { _ds1NextToken :: Maybe Text
     , _ds1StackName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeStacks' constructor.
 --
@@ -80,8 +81,8 @@ ds1StackName = lens _ds1StackName (\s a -> s { _ds1StackName = a })
 
 data DescribeStacksResponse = DescribeStacksResponse
     { _dsrNextToken :: Maybe Text
-    , _dsrStacks    :: [Stack]
-    } deriving (Eq, Show, Generic)
+    , _dsrStacks    :: List "Stacks" Stack
+    } deriving (Eq, Show)
 
 -- | 'DescribeStacksResponse' constructor.
 --
@@ -104,12 +105,16 @@ dsrNextToken = lens _dsrNextToken (\s a -> s { _dsrNextToken = a })
 
 -- | A list of stack structures.
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
-dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
+dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a }) . _List
 
 instance ToPath DescribeStacks where
     toPath = const "/"
 
-instance ToQuery DescribeStacks
+instance ToQuery DescribeStacks where
+    toQuery DescribeStacks{..} = mconcat
+        [ "NextToken" =? _ds1NextToken
+        , "StackName" =? _ds1StackName
+        ]
 
 instance ToHeaders DescribeStacks
 
@@ -121,9 +126,9 @@ instance AWSRequest DescribeStacks where
     response = xmlResponse
 
 instance FromXML DescribeStacksResponse where
-    parseXML = withElement "DescribeStacksResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "Stacks"
+    parseXML = withElement "DescribeStacksResult" $ \x -> DescribeStacksResponse
+        <$> x .@? "NextToken"
+        <*> x .@  "Stacks"
 
 instance AWSPager DescribeStacks where
     next rq rs = (\x -> rq & ds1NextToken ?~ x)

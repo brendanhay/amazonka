@@ -65,8 +65,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "identityDescription",
@@ -88,8 +87,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -99,13 +98,14 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Logins\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 11,
                 "name": "IdentityDescription",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -125,8 +125,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -136,7 +136,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Logins\" Text"
                     }
                 ],
                 "fields": [
@@ -157,8 +157,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -168,15 +168,14 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Logins\" Text"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 33,
                 "ctor": "identityPool",
@@ -239,7 +238,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -258,8 +257,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -269,7 +268,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "payload": null,
@@ -322,6 +321,7 @@
                 ],
                 "contentPad": 31,
                 "name": "IdentityPool",
+                "locationPad": 31,
                 "type": "record",
                 "optional": [
                     {
@@ -337,7 +337,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -356,8 +356,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -367,7 +367,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "fields": [
@@ -433,8 +433,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -444,7 +444,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
                     {
                         "location": null,
@@ -459,7 +459,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -467,8 +467,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "identityPoolShortDescription",
@@ -508,6 +507,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "IdentityPoolShortDescription",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -586,8 +586,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -653,7 +652,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -672,8 +671,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -683,7 +682,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "wrapper": false,
@@ -741,6 +740,7 @@
                 "contentPad": 31,
                 "name": "CreateIdentityPoolResponse",
                 "resultWrapper": null,
+                "locationPad": 31,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -757,7 +757,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -776,8 +776,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -787,7 +787,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "fields": [
@@ -853,8 +853,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -864,7 +864,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
                     {
                         "location": null,
@@ -879,7 +879,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -898,8 +898,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -950,7 +949,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -969,8 +968,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -980,7 +979,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "path": [
@@ -1029,6 +1028,7 @@
                 "queryPad": 0,
                 "name": "CreateIdentityPool",
                 "query": [],
+                "locationPad": 31,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1046,7 +1046,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1065,8 +1065,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1076,7 +1076,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "fields": [
@@ -1127,8 +1127,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1138,7 +1138,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
                     {
                         "location": null,
@@ -1153,7 +1153,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             }
@@ -1201,7 +1201,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1274,6 +1273,7 @@
                 "queryPad": 0,
                 "name": "DeleteIdentityPool",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -1302,8 +1302,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1369,7 +1368,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1388,8 +1387,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1399,7 +1398,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "wrapper": false,
@@ -1457,6 +1456,7 @@
                 "contentPad": 31,
                 "name": "DescribeIdentityPoolResponse",
                 "resultWrapper": null,
+                "locationPad": 31,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1473,7 +1473,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1492,8 +1492,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1503,7 +1503,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "fields": [
@@ -1569,8 +1569,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1580,7 +1580,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
                     {
                         "location": null,
@@ -1595,7 +1595,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -1616,7 +1616,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1689,6 +1688,7 @@
                 "queryPad": 0,
                 "name": "DescribeIdentityPool",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -1719,7 +1719,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -1769,6 +1768,7 @@
                 "contentPad": 0,
                 "name": "GetIdResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1821,8 +1821,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1873,7 +1872,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens.\u003c/p\u003e \u003cp\u003eThe available provider names for \u003ccode\u003eLogins\u003c/code\u003e are as follows: \u003cul\u003e \u003cli\u003eFacebook: \u003ccode\u003egraph.facebook.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eGoogle: \u003ccode\u003eaccounts.google.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eAmazon: \u003ccode\u003ewww.amazon.com\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "path": [
@@ -1922,6 +1921,7 @@
                 "queryPad": 0,
                 "name": "GetId",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1939,7 +1939,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens.\u003c/p\u003e \u003cp\u003eThe available provider names for \u003ccode\u003eLogins\u003c/code\u003e are as follows: \u003cul\u003e \u003cli\u003eFacebook: \u003ccode\u003egraph.facebook.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eGoogle: \u003ccode\u003eaccounts.google.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eAmazon: \u003ccode\u003ewww.amazon.com\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -1986,7 +1986,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens.\u003c/p\u003e \u003cp\u003eThe available provider names for \u003ccode\u003eLogins\u003c/code\u003e are as follows: \u003cul\u003e \u003cli\u003eFacebook: \u003ccode\u003egraph.facebook.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eGoogle: \u003ccode\u003eaccounts.google.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eAmazon: \u003ccode\u003ewww.amazon.com\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             }
@@ -1997,8 +1997,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2046,6 +2045,7 @@
                 "contentPad": 11,
                 "name": "GetOpenIdTokenResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2128,8 +2128,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2165,7 +2164,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "path": [
@@ -2199,6 +2198,7 @@
                 "queryPad": 0,
                 "name": "GetOpenIdToken",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2216,7 +2216,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -2248,7 +2248,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             }
@@ -2259,8 +2259,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2308,6 +2307,7 @@
                 "contentPad": 11,
                 "name": "GetOpenIdTokenForDeveloperIdentityResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2390,8 +2390,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2442,7 +2441,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax \u003ccode\u003e\"developer_provider_name\": \"developer_user_identifier\"\u003c/code\u003e. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -2491,6 +2490,7 @@
                 "queryPad": 0,
                 "name": "GetOpenIdTokenForDeveloperIdentity",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2523,7 +2523,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax \u003ccode\u003e\"developer_provider_name\": \"developer_user_identifier\"\u003c/code\u003e. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -2585,7 +2585,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax \u003ccode\u003e\"developer_provider_name\": \"developer_user_identifier\"\u003c/code\u003e. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -2610,8 +2610,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2636,8 +2635,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2647,7 +2646,7 @@
                         "locationName": "Identities",
                         "documentation": "An object containing a set of identities and associated mappings.",
                         "typeExposed": "[IdentityDescription]",
-                        "type": "[IdentityDescription]"
+                        "type": "List \"Identities\" IdentityDescription"
                     },
                     {
                         "location": null,
@@ -2674,6 +2673,7 @@
                 "contentPad": 15,
                 "name": "ListIdentitiesResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2694,8 +2694,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2705,7 +2705,7 @@
                         "locationName": "Identities",
                         "documentation": "An object containing a set of identities and associated mappings.",
                         "typeExposed": "[IdentityDescription]",
-                        "type": "[IdentityDescription]"
+                        "type": "List \"Identities\" IdentityDescription"
                     },
                     {
                         "location": null,
@@ -2726,8 +2726,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2737,7 +2737,7 @@
                         "locationName": "Identities",
                         "documentation": "An object containing a set of identities and associated mappings.",
                         "typeExposed": "[IdentityDescription]",
-                        "type": "[IdentityDescription]"
+                        "type": "List \"Identities\" IdentityDescription"
                     },
                     {
                         "location": null,
@@ -2787,8 +2787,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2888,6 +2887,7 @@
                 "queryPad": 0,
                 "name": "ListIdentities",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2962,8 +2962,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2973,8 +2972,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2984,7 +2983,7 @@
                         "locationName": "IdentityPools",
                         "documentation": "The identity pools returned by the ListIdentityPools action.",
                         "typeExposed": "[IdentityPoolShortDescription]",
-                        "type": "[IdentityPoolShortDescription]"
+                        "type": "List \"IdentityPools\" IdentityPoolShortDescription"
                     },
                     {
                         "location": null,
@@ -3011,13 +3010,14 @@
                 "contentPad": 14,
                 "name": "ListIdentityPoolsResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3027,7 +3027,7 @@
                         "locationName": "IdentityPools",
                         "documentation": "The identity pools returned by the ListIdentityPools action.",
                         "typeExposed": "[IdentityPoolShortDescription]",
-                        "type": "[IdentityPoolShortDescription]"
+                        "type": "List \"IdentityPools\" IdentityPoolShortDescription"
                     },
                     {
                         "location": null,
@@ -3048,8 +3048,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3059,7 +3059,7 @@
                         "locationName": "IdentityPools",
                         "documentation": "The identity pools returned by the ListIdentityPools action.",
                         "typeExposed": "[IdentityPoolShortDescription]",
-                        "type": "[IdentityPoolShortDescription]"
+                        "type": "List \"IdentityPools\" IdentityPoolShortDescription"
                     },
                     {
                         "location": null,
@@ -3094,8 +3094,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3165,6 +3164,7 @@
                 "queryPad": 0,
                 "name": "ListIdentityPools",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3225,8 +3225,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3251,8 +3250,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3262,7 +3261,7 @@
                         "locationName": "DeveloperUserIdentifierList",
                         "documentation": "\u003cp\u003eThis is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DeveloperUserIdentifierList\" Text"
                     },
                     {
                         "location": null,
@@ -3289,6 +3288,7 @@
                 "contentPad": 28,
                 "name": "LookupDeveloperIdentityResponse",
                 "resultWrapper": null,
+                "locationPad": 28,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3309,8 +3309,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3320,7 +3320,7 @@
                         "locationName": "DeveloperUserIdentifierList",
                         "documentation": "\u003cp\u003eThis is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DeveloperUserIdentifierList\" Text"
                     },
                     {
                         "location": null,
@@ -3341,8 +3341,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3352,7 +3352,7 @@
                         "locationName": "DeveloperUserIdentifierList",
                         "documentation": "\u003cp\u003eThis is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DeveloperUserIdentifierList\" Text"
                     },
                     {
                         "location": null,
@@ -3402,8 +3402,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3518,6 +3517,7 @@
                 "queryPad": 0,
                 "name": "LookupDeveloperIdentity",
                 "query": [],
+                "locationPad": 24,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3669,7 +3669,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3719,6 +3718,7 @@
                 "contentPad": 0,
                 "name": "MergeDeveloperIdentitiesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -3772,8 +3772,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3918,6 +3917,7 @@
                 "queryPad": 0,
                 "name": "MergeDeveloperIdentities",
                 "query": [],
+                "locationPad": 26,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4028,8 +4028,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4174,6 +4173,7 @@
                 "queryPad": 0,
                 "name": "UnlinkDeveloperIdentity",
                 "query": [],
+                "locationPad": 24,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4283,8 +4283,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4320,12 +4319,12 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4335,7 +4334,7 @@
                         "locationName": "LoginsToRemove",
                         "documentation": "Provider names to unlink from this identity.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Logins\" Text"
                     }
                 ],
                 "path": [
@@ -4369,6 +4368,7 @@
                 "queryPad": 0,
                 "name": "UnlinkIdentity",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4386,12 +4386,12 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4401,7 +4401,7 @@
                         "locationName": "LoginsToRemove",
                         "documentation": "Provider names to unlink from this identity.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Logins\" Text"
                     }
                 ],
                 "fields": [
@@ -4433,12 +4433,12 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4448,7 +4448,7 @@
                         "locationName": "LoginsToRemove",
                         "documentation": "Provider names to unlink from this identity.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Logins\" Text"
                     }
                 ]
             }
@@ -4458,8 +4458,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4525,7 +4524,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -4544,8 +4543,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4555,7 +4554,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "wrapper": false,
@@ -4613,6 +4612,7 @@
                 "contentPad": 31,
                 "name": "UpdateIdentityPoolResponse",
                 "resultWrapper": null,
+                "locationPad": 31,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4629,7 +4629,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -4648,8 +4648,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4659,7 +4659,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "fields": [
@@ -4725,8 +4725,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4736,7 +4736,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
                     {
                         "location": null,
@@ -4751,7 +4751,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -4770,8 +4770,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4837,7 +4836,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -4856,8 +4855,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4867,7 +4866,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "path": [
@@ -4931,6 +4930,7 @@
                 "queryPad": 0,
                 "name": "UpdateIdentityPool",
                 "query": [],
+                "locationPad": 31,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4948,7 +4948,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -4967,8 +4967,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4978,7 +4978,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
                 ],
                 "fields": [
@@ -5044,8 +5044,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5055,7 +5055,7 @@
                         "locationName": "OpenIdConnectProviderARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
                     {
                         "location": null,
@@ -5070,7 +5070,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             }

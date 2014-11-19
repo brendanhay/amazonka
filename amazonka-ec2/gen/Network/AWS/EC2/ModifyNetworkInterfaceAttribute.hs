@@ -56,7 +56,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     , _mniaGroups             :: List "SecurityGroupId" Text
     , _mniaNetworkInterfaceId :: Text
     , _mniaSourceDestCheck    :: Maybe AttributeBooleanValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyNetworkInterfaceAttribute' constructor.
 --
@@ -103,8 +103,7 @@ mniaDryRun = lens _mniaDryRun (\s a -> s { _mniaDryRun = a })
 -- one group, even if it's just the default security group in the VPC. You
 -- must specify the ID of the security group, not the name.
 mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
-mniaGroups = lens _mniaGroups (\s a -> s { _mniaGroups = a })
-    . _List
+mniaGroups = lens _mniaGroups (\s a -> s { _mniaGroups = a }) . _List
 
 -- | The ID of the network interface.
 mniaNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
@@ -130,7 +129,15 @@ modifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeRespons
 instance ToPath ModifyNetworkInterfaceAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyNetworkInterfaceAttribute
+instance ToQuery ModifyNetworkInterfaceAttribute where
+    toQuery ModifyNetworkInterfaceAttribute{..} = mconcat
+        [ "attachment"         =? _mniaAttachment
+        , "description"        =? _mniaDescription
+        , "dryRun"             =? _mniaDryRun
+        , "SecurityGroupId"    =? _mniaGroups
+        , "networkInterfaceId" =? _mniaNetworkInterfaceId
+        , "sourceDestCheck"    =? _mniaSourceDestCheck
+        ]
 
 instance ToHeaders ModifyNetworkInterfaceAttribute
 

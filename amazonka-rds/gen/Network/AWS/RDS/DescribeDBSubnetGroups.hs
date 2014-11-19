@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,10 +54,10 @@ import qualified GHC.Exts
 
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups
     { _ddbsgDBSubnetGroupName :: Maybe Text
-    , _ddbsgFilters           :: [Filter]
+    , _ddbsgFilters           :: List "Filter" Filter
     , _ddbsgMarker            :: Maybe Text
     , _ddbsgMaxRecords        :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBSubnetGroups' constructor.
 --
@@ -85,7 +86,7 @@ ddbsgDBSubnetGroupName =
 
 -- | This parameter is not currently supported.
 ddbsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
-ddbsgFilters = lens _ddbsgFilters (\s a -> s { _ddbsgFilters = a })
+ddbsgFilters = lens _ddbsgFilters (\s a -> s { _ddbsgFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBSubnetGroups request. If this parameter is specified, the
@@ -102,9 +103,9 @@ ddbsgMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Int)
 ddbsgMaxRecords = lens _ddbsgMaxRecords (\s a -> s { _ddbsgMaxRecords = a })
 
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
-    { _ddbsgrDBSubnetGroups :: [DBSubnetGroup]
+    { _ddbsgrDBSubnetGroups :: List "DBSubnetGroup" DBSubnetGroup
     , _ddbsgrMarker         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBSubnetGroupsResponse' constructor.
 --
@@ -124,6 +125,7 @@ describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
 ddbsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
 ddbsgrDBSubnetGroups =
     lens _ddbsgrDBSubnetGroups (\s a -> s { _ddbsgrDBSubnetGroups = a })
+        . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -134,7 +136,13 @@ ddbsgrMarker = lens _ddbsgrMarker (\s a -> s { _ddbsgrMarker = a })
 instance ToPath DescribeDBSubnetGroups where
     toPath = const "/"
 
-instance ToQuery DescribeDBSubnetGroups
+instance ToQuery DescribeDBSubnetGroups where
+    toQuery DescribeDBSubnetGroups{..} = mconcat
+        [ "DBSubnetGroupName" =? _ddbsgDBSubnetGroupName
+        , "Filters"           =? _ddbsgFilters
+        , "Marker"            =? _ddbsgMarker
+        , "MaxRecords"        =? _ddbsgMaxRecords
+        ]
 
 instance ToHeaders DescribeDBSubnetGroups
 
@@ -146,9 +154,9 @@ instance AWSRequest DescribeDBSubnetGroups where
     response = xmlResponse
 
 instance FromXML DescribeDBSubnetGroupsResponse where
-    parseXML = withElement "DescribeDBSubnetGroupsResult" $ \x ->
-            <$> x .@ "DBSubnetGroups"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeDBSubnetGroupsResult" $ \x -> DescribeDBSubnetGroupsResponse
+        <$> x .@  "DBSubnetGroups"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeDBSubnetGroups where
     next rq rs = (\x -> rq & ddbsgMarker ?~ x)

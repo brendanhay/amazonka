@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetHealthCheckStatus = GetHealthCheckStatus
     { _ghcsHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetHealthCheckStatus' constructor.
 --
@@ -69,8 +70,8 @@ ghcsHealthCheckId =
     lens _ghcsHealthCheckId (\s a -> s { _ghcsHealthCheckId = a })
 
 newtype GetHealthCheckStatusResponse = GetHealthCheckStatusResponse
-    { _ghcsrHealthCheckObservations :: [HealthCheckObservation]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ghcsrHealthCheckObservations :: List "HealthCheckObservation" HealthCheckObservation
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetHealthCheckStatusResponse where
     type Item GetHealthCheckStatusResponse = HealthCheckObservation
@@ -95,6 +96,7 @@ ghcsrHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckO
 ghcsrHealthCheckObservations =
     lens _ghcsrHealthCheckObservations
         (\s a -> s { _ghcsrHealthCheckObservations = a })
+            . _List
 
 instance ToPath GetHealthCheckStatus where
     toPath GetHealthCheckStatus{..} = mconcat
@@ -122,4 +124,4 @@ instance AWSRequest GetHealthCheckStatus where
 
 instance FromXML GetHealthCheckStatusResponse where
     parseXML x = GetHealthCheckStatusResponse
-            <$> x .@ "HealthCheckObservations"
+        <$> x .@  "HealthCheckObservations"

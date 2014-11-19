@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 
 newtype GetHostnameSuggestion = GetHostnameSuggestion
     { _ghsLayerId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetHostnameSuggestion' constructor.
 --
@@ -72,7 +73,7 @@ ghsLayerId = lens _ghsLayerId (\s a -> s { _ghsLayerId = a })
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
     { _ghsrHostname :: Maybe Text
     , _ghsrLayerId  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetHostnameSuggestionResponse' constructor.
 --

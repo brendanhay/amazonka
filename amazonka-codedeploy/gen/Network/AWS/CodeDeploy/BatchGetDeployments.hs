@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,8 +46,8 @@ import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
 newtype BatchGetDeployments = BatchGetDeployments
-    { _bgdDeploymentIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _bgdDeploymentIds :: List "deployments" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetDeployments where
     type Item BatchGetDeployments = Text
@@ -68,11 +69,11 @@ batchGetDeployments = BatchGetDeployments
 -- | A list of deployment IDs, with multiple deployment IDs separated by
 -- spaces.
 bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
-bgdDeploymentIds = lens _bgdDeploymentIds (\s a -> s { _bgdDeploymentIds = a })
+bgdDeploymentIds = lens _bgdDeploymentIds (\s a -> s { _bgdDeploymentIds = a }) . _List
 
 newtype BatchGetDeploymentsResponse = BatchGetDeploymentsResponse
-    { _bgdrDeploymentsInfo :: [DeploymentInfo]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _bgdrDeploymentsInfo :: List "deploymentsInfo" DeploymentInfo
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetDeploymentsResponse where
     type Item BatchGetDeploymentsResponse = DeploymentInfo
@@ -95,6 +96,7 @@ batchGetDeploymentsResponse = BatchGetDeploymentsResponse
 bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrDeploymentsInfo =
     lens _bgdrDeploymentsInfo (\s a -> s { _bgdrDeploymentsInfo = a })
+        . _List
 
 instance ToPath BatchGetDeployments where
     toPath = const "/"
@@ -118,4 +120,4 @@ instance AWSRequest BatchGetDeployments where
 
 instance FromJSON BatchGetDeploymentsResponse where
     parseJSON = withObject "BatchGetDeploymentsResponse" $ \o -> BatchGetDeploymentsResponse
-        <$> o .: "deploymentsInfo"
+        <$> o .:  "deploymentsInfo"

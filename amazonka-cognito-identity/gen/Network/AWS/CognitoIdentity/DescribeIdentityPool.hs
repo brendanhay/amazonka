@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DescribeIdentityPool = DescribeIdentityPool
     { _dipIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeIdentityPool' constructor.
 --
@@ -76,9 +77,9 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
     , _diprDeveloperProviderName          :: Maybe Text
     , _diprIdentityPoolId                 :: Text
     , _diprIdentityPoolName               :: Text
-    , _diprOpenIdConnectProviderARNs      :: [Text]
-    , _diprSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _diprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
+    , _diprSupportedLoginProviders        :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'DescribeIdentityPoolResponse' constructor.
 --
@@ -135,6 +136,7 @@ diprOpenIdConnectProviderARNs :: Lens' DescribeIdentityPoolResponse [Text]
 diprOpenIdConnectProviderARNs =
     lens _diprOpenIdConnectProviderARNs
         (\s a -> s { _diprOpenIdConnectProviderARNs = a })
+            . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 diprSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (HashMap Text Text)
@@ -165,9 +167,9 @@ instance AWSRequest DescribeIdentityPool where
 
 instance FromJSON DescribeIdentityPoolResponse where
     parseJSON = withObject "DescribeIdentityPoolResponse" $ \o -> DescribeIdentityPoolResponse
-        <$> o .: "AllowUnauthenticatedIdentities"
+        <$> o .:  "AllowUnauthenticatedIdentities"
         <*> o .:? "DeveloperProviderName"
-        <*> o .: "IdentityPoolId"
-        <*> o .: "IdentityPoolName"
-        <*> o .: "OpenIdConnectProviderARNs"
-        <*> o .: "SupportedLoginProviders"
+        <*> o .:  "IdentityPoolId"
+        <*> o .:  "IdentityPoolName"
+        <*> o .:  "OpenIdConnectProviderARNs"
+        <*> o .:  "SupportedLoginProviders"

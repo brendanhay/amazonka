@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,10 +50,10 @@ import qualified GHC.Exts
 
 data CopyDBParameterGroup = CopyDBParameterGroup
     { _cdbpgSourceDBParameterGroupIdentifier  :: Text
-    , _cdbpgTags                              :: [Tag]
+    , _cdbpgTags                              :: List "Tag" Tag
     , _cdbpgTargetDBParameterGroupDescription :: Text
     , _cdbpgTargetDBParameterGroupIdentifier  :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopyDBParameterGroup' constructor.
 --
@@ -90,7 +91,7 @@ cdbpgSourceDBParameterGroupIdentifier =
         (\s a -> s { _cdbpgSourceDBParameterGroupIdentifier = a })
 
 cdbpgTags :: Lens' CopyDBParameterGroup [Tag]
-cdbpgTags = lens _cdbpgTags (\s a -> s { _cdbpgTags = a })
+cdbpgTags = lens _cdbpgTags (\s a -> s { _cdbpgTags = a }) . _List
 
 -- | The description for the copied DB Parameter Group.
 cdbpgTargetDBParameterGroupDescription :: Lens' CopyDBParameterGroup Text
@@ -109,7 +110,7 @@ cdbpgTargetDBParameterGroupIdentifier =
 
 newtype CopyDBParameterGroupResponse = CopyDBParameterGroupResponse
     { _cdbpgr1DBParameterGroup :: Maybe DBParameterGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopyDBParameterGroupResponse' constructor.
 --
@@ -129,7 +130,13 @@ cdbpgr1DBParameterGroup =
 instance ToPath CopyDBParameterGroup where
     toPath = const "/"
 
-instance ToQuery CopyDBParameterGroup
+instance ToQuery CopyDBParameterGroup where
+    toQuery CopyDBParameterGroup{..} = mconcat
+        [ "SourceDBParameterGroupIdentifier"  =? _cdbpgSourceDBParameterGroupIdentifier
+        , "Tags"                              =? _cdbpgTags
+        , "TargetDBParameterGroupDescription" =? _cdbpgTargetDBParameterGroupDescription
+        , "TargetDBParameterGroupIdentifier"  =? _cdbpgTargetDBParameterGroupIdentifier
+        ]
 
 instance ToHeaders CopyDBParameterGroup
 
@@ -141,5 +148,5 @@ instance AWSRequest CopyDBParameterGroup where
     response = xmlResponse
 
 instance FromXML CopyDBParameterGroupResponse where
-    parseXML = withElement "CopyDBParameterGroupResult" $ \x ->
-            <$> x .@? "DBParameterGroup"
+    parseXML = withElement "CopyDBParameterGroupResult" $ \x -> CopyDBParameterGroupResponse
+        <$> x .@? "DBParameterGroup"

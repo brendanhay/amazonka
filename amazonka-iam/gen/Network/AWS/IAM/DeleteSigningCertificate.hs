@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data DeleteSigningCertificate = DeleteSigningCertificate
     { _dscCertificateId :: Text
     , _dscUserName      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteSigningCertificate' constructor.
 --
@@ -85,7 +86,11 @@ deleteSigningCertificateResponse = DeleteSigningCertificateResponse
 instance ToPath DeleteSigningCertificate where
     toPath = const "/"
 
-instance ToQuery DeleteSigningCertificate
+instance ToQuery DeleteSigningCertificate where
+    toQuery DeleteSigningCertificate{..} = mconcat
+        [ "CertificateId" =? _dscCertificateId
+        , "UserName"      =? _dscUserName
+        ]
 
 instance ToHeaders DeleteSigningCertificate
 

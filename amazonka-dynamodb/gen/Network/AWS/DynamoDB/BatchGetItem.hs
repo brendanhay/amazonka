@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -84,9 +85,9 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data BatchGetItem = BatchGetItem
-    { _bgiRequestItems           :: Map Text KeysAndAttributes
+    { _bgiRequestItems           :: Map "entry" "key" "value" Text KeysAndAttributes
     , _bgiReturnConsumedCapacity :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'BatchGetItem' constructor.
 --
@@ -118,8 +119,7 @@ batchGetItem = BatchGetItem
 -- to an application. ConsistentRead - If true, a strongly consistent read
 -- is used; if false (the default), an eventually consistent read is used.
 bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
-bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a })
-    . _Map
+bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a }) . _Map
 
 bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe Text)
 bgiReturnConsumedCapacity =
@@ -127,10 +127,10 @@ bgiReturnConsumedCapacity =
         (\s a -> s { _bgiReturnConsumedCapacity = a })
 
 data BatchGetItemResponse = BatchGetItemResponse
-    { _bgirConsumedCapacity :: [ConsumedCapacity]
-    , _bgirResponses        :: Map Text ([(Map Text AttributeValue)])
-    , _bgirUnprocessedKeys  :: Map Text KeysAndAttributes
-    } deriving (Eq, Show, Generic)
+    { _bgirConsumedCapacity :: List "ConsumedCapacity" ConsumedCapacity
+    , _bgirResponses        :: Map "entry" "key" "value" Text (List "Items" (Map "entry" "key" "value" Text AttributeValue))
+    , _bgirUnprocessedKeys  :: Map "entry" "key" "value" Text KeysAndAttributes
+    } deriving (Eq, Show)
 
 -- | 'BatchGetItemResponse' constructor.
 --
@@ -155,13 +155,13 @@ batchGetItemResponse = BatchGetItemResponse
 bgirConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
 bgirConsumedCapacity =
     lens _bgirConsumedCapacity (\s a -> s { _bgirConsumedCapacity = a })
+        . _List
 
 -- | A map of table name to a list of items. Each object in Responses consists
 -- of a table name, along with a map of attribute data consisting of the
 -- data type and attribute value.
 bgirResponses :: Lens' BatchGetItemResponse (HashMap Text ([(HashMap Text AttributeValue)]))
-bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a })
-    . _Map
+bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a }) . _Map
 
 -- | A map of tables and their respective keys that were not processed with
 -- the current response. The UnprocessedKeys value is in the same form as
@@ -204,6 +204,6 @@ instance AWSRequest BatchGetItem where
 
 instance FromJSON BatchGetItemResponse where
     parseJSON = withObject "BatchGetItemResponse" $ \o -> BatchGetItemResponse
-        <$> o .: "ConsumedCapacity"
-        <*> o .: "Responses"
-        <*> o .: "UnprocessedKeys"
+        <$> o .:  "ConsumedCapacity"
+        <*> o .:  "Responses"
+        <*> o .:  "UnprocessedKeys"

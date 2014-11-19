@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -44,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
     { _dcsgCacheSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteCacheSecurityGroup' constructor.
 --
@@ -74,7 +75,10 @@ deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
 instance ToPath DeleteCacheSecurityGroup where
     toPath = const "/"
 
-instance ToQuery DeleteCacheSecurityGroup
+instance ToQuery DeleteCacheSecurityGroup where
+    toQuery DeleteCacheSecurityGroup{..} = mconcat
+        [ "CacheSecurityGroupName" =? _dcsgCacheSecurityGroupName
+        ]
 
 instance ToHeaders DeleteCacheSecurityGroup
 

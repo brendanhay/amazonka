@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ data SetDesiredCapacity = SetDesiredCapacity
     { _sdcAutoScalingGroupName :: Text
     , _sdcDesiredCapacity      :: Int
     , _sdcHonorCooldown        :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetDesiredCapacity' constructor.
 --
@@ -97,7 +98,12 @@ setDesiredCapacityResponse = SetDesiredCapacityResponse
 instance ToPath SetDesiredCapacity where
     toPath = const "/"
 
-instance ToQuery SetDesiredCapacity
+instance ToQuery SetDesiredCapacity where
+    toQuery SetDesiredCapacity{..} = mconcat
+        [ "AutoScalingGroupName" =? _sdcAutoScalingGroupName
+        , "DesiredCapacity"      =? _sdcDesiredCapacity
+        , "HonorCooldown"        =? _sdcHonorCooldown
+        ]
 
 instance ToHeaders SetDesiredCapacity
 

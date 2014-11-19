@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ data ExecutePolicy = ExecutePolicy
     { _epAutoScalingGroupName :: Maybe Text
     , _epHonorCooldown        :: Maybe Bool
     , _epPolicyName           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ExecutePolicy' constructor.
 --
@@ -96,7 +97,12 @@ executePolicyResponse = ExecutePolicyResponse
 instance ToPath ExecutePolicy where
     toPath = const "/"
 
-instance ToQuery ExecutePolicy
+instance ToQuery ExecutePolicy where
+    toQuery ExecutePolicy{..} = mconcat
+        [ "AutoScalingGroupName" =? _epAutoScalingGroupName
+        , "HonorCooldown"        =? _epHonorCooldown
+        , "PolicyName"           =? _epPolicyName
+        ]
 
 instance ToHeaders ExecutePolicy
 

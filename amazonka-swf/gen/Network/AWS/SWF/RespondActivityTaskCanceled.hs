@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ import qualified GHC.Exts
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled
     { _ratc1Details   :: Maybe Text
     , _ratc1TaskToken :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RespondActivityTaskCanceled' constructor.
 --

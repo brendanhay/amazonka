@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,9 +53,9 @@ import qualified GHC.Exts
 
 data DescribeDeployments = DescribeDeployments
     { _ddAppId         :: Maybe Text
-    , _ddDeploymentIds :: [Text]
+    , _ddDeploymentIds :: List "InstanceIds" Text
     , _ddStackId       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeDeployments' constructor.
 --
@@ -82,7 +83,7 @@ ddAppId = lens _ddAppId (\s a -> s { _ddAppId = a })
 -- parameter, DescribeDeployments returns a description of the specified
 -- deployments. Otherwise, it returns a description of every deployment.
 ddDeploymentIds :: Lens' DescribeDeployments [Text]
-ddDeploymentIds = lens _ddDeploymentIds (\s a -> s { _ddDeploymentIds = a })
+ddDeploymentIds = lens _ddDeploymentIds (\s a -> s { _ddDeploymentIds = a }) . _List
 
 -- | The stack ID. If you include this parameter, DescribeDeployments returns
 -- a description of the commands associated with the specified stack.
@@ -90,8 +91,8 @@ ddStackId :: Lens' DescribeDeployments (Maybe Text)
 ddStackId = lens _ddStackId (\s a -> s { _ddStackId = a })
 
 newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
-    { _ddrDeployments :: [Deployment]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ddrDeployments :: List "Deployments" Deployment
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDeploymentsResponse where
     type Item DescribeDeploymentsResponse = Deployment
@@ -112,7 +113,7 @@ describeDeploymentsResponse = DescribeDeploymentsResponse
 
 -- | An array of Deployment objects that describe the deployments.
 ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
-ddrDeployments = lens _ddrDeployments (\s a -> s { _ddrDeployments = a })
+ddrDeployments = lens _ddrDeployments (\s a -> s { _ddrDeployments = a }) . _List
 
 instance ToPath DescribeDeployments where
     toPath = const "/"
@@ -138,4 +139,4 @@ instance AWSRequest DescribeDeployments where
 
 instance FromJSON DescribeDeploymentsResponse where
     parseJSON = withObject "DescribeDeploymentsResponse" $ \o -> DescribeDeploymentsResponse
-        <$> o .: "Deployments"
+        <$> o .:  "Deployments"

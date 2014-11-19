@@ -53,7 +53,7 @@ data DescribeNetworkAcls = DescribeNetworkAcls
     { _dna1DryRun        :: Maybe Bool
     , _dna1Filters       :: List "Filter" Filter
     , _dna1NetworkAclIds :: List "item" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeNetworkAcls' constructor.
 --
@@ -100,8 +100,7 @@ dna1DryRun = lens _dna1DryRun (\s a -> s { _dna1DryRun = a })
 -- of a tag assigned to the resource. This filter is independent of the
 -- tag-key filter. vpc-id - The ID of the VPC for the network ACL.
 dna1Filters :: Lens' DescribeNetworkAcls [Filter]
-dna1Filters = lens _dna1Filters (\s a -> s { _dna1Filters = a })
-    . _List
+dna1Filters = lens _dna1Filters (\s a -> s { _dna1Filters = a }) . _List
 
 -- | One or more network ACL IDs. Default: Describes all your network ACLs.
 dna1NetworkAclIds :: Lens' DescribeNetworkAcls [Text]
@@ -111,7 +110,7 @@ dna1NetworkAclIds =
 
 newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls :: List "item" NetworkAcl
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeNetworkAclsResponse where
     type Item DescribeNetworkAclsResponse = NetworkAcl
@@ -132,13 +131,17 @@ describeNetworkAclsResponse = DescribeNetworkAclsResponse
 
 -- | Information about one or more network ACLs.
 dnarNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
-dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a })
-    . _List
+dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a }) . _List
 
 instance ToPath DescribeNetworkAcls where
     toPath = const "/"
 
-instance ToQuery DescribeNetworkAcls
+instance ToQuery DescribeNetworkAcls where
+    toQuery DescribeNetworkAcls{..} = mconcat
+        [ "dryRun"       =? _dna1DryRun
+        , "Filter"       =? _dna1Filters
+        , "NetworkAclId" =? _dna1NetworkAclIds
+        ]
 
 instance ToHeaders DescribeNetworkAcls
 
@@ -151,4 +154,4 @@ instance AWSRequest DescribeNetworkAcls where
 
 instance FromXML DescribeNetworkAclsResponse where
     parseXML x = DescribeNetworkAclsResponse
-        <$> x .@ "networkAclSet"
+        <$> x .@  "networkAclSet"

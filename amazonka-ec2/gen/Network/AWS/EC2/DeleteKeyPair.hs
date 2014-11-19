@@ -47,7 +47,7 @@ import qualified GHC.Exts
 data DeleteKeyPair = DeleteKeyPair
     { _dkpDryRun  :: Maybe Bool
     , _dkpKeyName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteKeyPair' constructor.
 --
@@ -81,7 +81,11 @@ deleteKeyPairResponse = DeleteKeyPairResponse
 instance ToPath DeleteKeyPair where
     toPath = const "/"
 
-instance ToQuery DeleteKeyPair
+instance ToQuery DeleteKeyPair where
+    toQuery DeleteKeyPair{..} = mconcat
+        [ "dryRun"  =? _dkpDryRun
+        , "KeyName" =? _dkpKeyName
+        ]
 
 instance ToHeaders DeleteKeyPair
 

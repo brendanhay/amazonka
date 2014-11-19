@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 data DeleteRolePolicy = DeleteRolePolicy
     { _drpPolicyName :: Text
     , _drpRoleName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteRolePolicy' constructor.
 --
@@ -82,7 +83,11 @@ deleteRolePolicyResponse = DeleteRolePolicyResponse
 instance ToPath DeleteRolePolicy where
     toPath = const "/"
 
-instance ToQuery DeleteRolePolicy
+instance ToQuery DeleteRolePolicy where
+    toQuery DeleteRolePolicy{..} = mconcat
+        [ "PolicyName" =? _drpPolicyName
+        , "RoleName"   =? _drpRoleName
+        ]
 
 instance ToHeaders DeleteRolePolicy
 

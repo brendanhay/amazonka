@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ data Select = Select
     { _sConsistentRead   :: Maybe Bool
     , _sNextToken        :: Maybe Text
     , _sSelectExpression :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Select' constructor.
 --
@@ -98,9 +99,9 @@ sSelectExpression =
     lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
 
 data SelectResponse = SelectResponse
-    { _srItems     :: Flatten [Item]
+    { _srItems     :: List "Item" Item
     , _srNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SelectResponse' constructor.
 --
@@ -113,14 +114,13 @@ data SelectResponse = SelectResponse
 selectResponse :: [Item] -- ^ 'srItems'
                -> SelectResponse
 selectResponse p1 = SelectResponse
-    { _srItems     = withIso _Flatten (const id) p1
+    { _srItems     = withIso _List (const id) p1
     , _srNextToken = Nothing
     }
 
 -- | A list of items that match the select expression.
 srItems :: Lens' SelectResponse [Item]
-srItems = lens _srItems (\s a -> s { _srItems = a })
-    . _Flatten
+srItems = lens _srItems (\s a -> s { _srItems = a }) . _List
 
 -- | An opaque token indicating that more items than MaxNumberOfItems were
 -- matched, the response size exceeded 1 megabyte, or the execution time
@@ -131,7 +131,12 @@ srNextToken = lens _srNextToken (\s a -> s { _srNextToken = a })
 instance ToPath Select where
     toPath = const "/"
 
-instance ToQuery Select
+instance ToQuery Select where
+    toQuery Select{..} = mconcat
+        [ "ConsistentRead"   =? _sConsistentRead
+        , "NextToken"        =? _sNextToken
+        , "SelectExpression" =? _sSelectExpression
+        ]
 
 instance ToHeaders Select
 
@@ -143,9 +148,9 @@ instance AWSRequest Select where
     response = xmlResponse
 
 instance FromXML SelectResponse where
-    parseXML = withElement "SelectResult" $ \x ->
-            <$> parseXML x
-            <*> x .@? "NextToken"
+    parseXML = withElement "SelectResult" $ \x -> SelectResponse
+        <$> parseXML x
+        <*> x .@? "NextToken"
 
 instance AWSPager Select where
     next rq rs = (\x -> rq & sNextToken ?~ x)

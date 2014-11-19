@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ data ListVolumes = ListVolumes
     { _lvGatewayARN :: Text
     , _lvLimit      :: Maybe Nat
     , _lvMarker     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListVolumes' constructor.
 --
@@ -86,8 +87,7 @@ lvGatewayARN = lens _lvGatewayARN (\s a -> s { _lvGatewayARN = a })
 -- | Specifies that the list of volumes returned be limited to the specified
 -- number of items.
 lvLimit :: Lens' ListVolumes (Maybe Natural)
-lvLimit = lens _lvLimit (\s a -> s { _lvLimit = a })
-    . mapping _Nat
+lvLimit = lens _lvLimit (\s a -> s { _lvLimit = a }) . mapping _Nat
 
 -- | A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI
@@ -98,8 +98,8 @@ lvMarker = lens _lvMarker (\s a -> s { _lvMarker = a })
 data ListVolumesResponse = ListVolumesResponse
     { _lvrGatewayARN  :: Maybe Text
     , _lvrMarker      :: Maybe Text
-    , _lvrVolumeInfos :: [VolumeInfo]
-    } deriving (Eq, Show, Generic)
+    , _lvrVolumeInfos :: List "VolumeInfos" VolumeInfo
+    } deriving (Eq, Show)
 
 -- | 'ListVolumesResponse' constructor.
 --
@@ -125,7 +125,7 @@ lvrMarker :: Lens' ListVolumesResponse (Maybe Text)
 lvrMarker = lens _lvrMarker (\s a -> s { _lvrMarker = a })
 
 lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
-lvrVolumeInfos = lens _lvrVolumeInfos (\s a -> s { _lvrVolumeInfos = a })
+lvrVolumeInfos = lens _lvrVolumeInfos (\s a -> s { _lvrVolumeInfos = a }) . _List
 
 instance ToPath ListVolumes where
     toPath = const "/"
@@ -153,7 +153,7 @@ instance FromJSON ListVolumesResponse where
     parseJSON = withObject "ListVolumesResponse" $ \o -> ListVolumesResponse
         <$> o .:? "GatewayARN"
         <*> o .:? "Marker"
-        <*> o .: "VolumeInfos"
+        <*> o .:  "VolumeInfos"
 
 instance AWSPager ListVolumes where
     next rq rs = (\x -> rq & lvMarker ?~ x)

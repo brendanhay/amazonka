@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,21 +61,21 @@ import qualified GHC.Exts
 
 data CreateAutoScalingGroup = CreateAutoScalingGroup
     { _casgAutoScalingGroupName    :: Text
-    , _casgAvailabilityZones       :: List1 Text
+    , _casgAvailabilityZones       :: List1 "AvailabilityZones" Text
     , _casgDefaultCooldown         :: Maybe Int
     , _casgDesiredCapacity         :: Maybe Int
     , _casgHealthCheckGracePeriod  :: Maybe Int
     , _casgHealthCheckType         :: Maybe Text
     , _casgInstanceId              :: Maybe Text
     , _casgLaunchConfigurationName :: Maybe Text
-    , _casgLoadBalancerNames       :: [Text]
+    , _casgLoadBalancerNames       :: List "LoadBalancerNames" Text
     , _casgMaxSize                 :: Int
     , _casgMinSize                 :: Int
     , _casgPlacementGroup          :: Maybe Text
-    , _casgTags                    :: [Tag]
-    , _casgTerminationPolicies     :: [Text]
+    , _casgTags                    :: List "Tags" Tag
+    , _casgTerminationPolicies     :: List "TerminationPolicies" Text
     , _casgVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateAutoScalingGroup' constructor.
 --
@@ -119,7 +120,7 @@ createAutoScalingGroup p1 p2 p3 p4 = CreateAutoScalingGroup
     { _casgAutoScalingGroupName    = p1
     , _casgMinSize                 = p2
     , _casgMaxSize                 = p3
-    , _casgAvailabilityZones       = p4
+    , _casgAvailabilityZones       = withIso _List1 (const id) p4
     , _casgLaunchConfigurationName = Nothing
     , _casgInstanceId              = Nothing
     , _casgDesiredCapacity         = Nothing
@@ -144,6 +145,7 @@ casgAutoScalingGroupName =
 casgAvailabilityZones :: Lens' CreateAutoScalingGroup (NonEmpty Text)
 casgAvailabilityZones =
     lens _casgAvailabilityZones (\s a -> s { _casgAvailabilityZones = a })
+        . _List1
 
 -- | The amount of time, in seconds, between a successful scaling activity and
 -- the succeeding scaling activity. If a DefaultCooldown period is not
@@ -211,6 +213,7 @@ casgLaunchConfigurationName =
 casgLoadBalancerNames :: Lens' CreateAutoScalingGroup [Text]
 casgLoadBalancerNames =
     lens _casgLoadBalancerNames (\s a -> s { _casgLoadBalancerNames = a })
+        . _List
 
 -- | The maximum size of the Auto Scaling group.
 casgMaxSize :: Lens' CreateAutoScalingGroup Int
@@ -234,7 +237,7 @@ casgPlacementGroup =
 -- Tag Your Auto Scaling Groups and Amazon EC2 Instances in the Auto Scaling
 -- Developer Guide.
 casgTags :: Lens' CreateAutoScalingGroup [Tag]
-casgTags = lens _casgTags (\s a -> s { _casgTags = a })
+casgTags = lens _casgTags (\s a -> s { _casgTags = a }) . _List
 
 -- | A standalone termination policy or a list of termination policies used to
 -- select the instance to terminate. The policies are executed in the order
@@ -244,6 +247,7 @@ casgTags = lens _casgTags (\s a -> s { _casgTags = a })
 casgTerminationPolicies :: Lens' CreateAutoScalingGroup [Text]
 casgTerminationPolicies =
     lens _casgTerminationPolicies (\s a -> s { _casgTerminationPolicies = a })
+        . _List
 
 -- | A comma-separated list of subnet identifiers of Amazon Virtual Private
 -- Clouds (Amazon VPCs). If you specify subnets and Availability Zones with
@@ -265,7 +269,24 @@ createAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 instance ToPath CreateAutoScalingGroup where
     toPath = const "/"
 
-instance ToQuery CreateAutoScalingGroup
+instance ToQuery CreateAutoScalingGroup where
+    toQuery CreateAutoScalingGroup{..} = mconcat
+        [ "AutoScalingGroupName"    =? _casgAutoScalingGroupName
+        , "AvailabilityZones"       =? _casgAvailabilityZones
+        , "DefaultCooldown"         =? _casgDefaultCooldown
+        , "DesiredCapacity"         =? _casgDesiredCapacity
+        , "HealthCheckGracePeriod"  =? _casgHealthCheckGracePeriod
+        , "HealthCheckType"         =? _casgHealthCheckType
+        , "InstanceId"              =? _casgInstanceId
+        , "LaunchConfigurationName" =? _casgLaunchConfigurationName
+        , "LoadBalancerNames"       =? _casgLoadBalancerNames
+        , "MaxSize"                 =? _casgMaxSize
+        , "MinSize"                 =? _casgMinSize
+        , "PlacementGroup"          =? _casgPlacementGroup
+        , "Tags"                    =? _casgTags
+        , "TerminationPolicies"     =? _casgTerminationPolicies
+        , "VPCZoneIdentifier"       =? _casgVPCZoneIdentifier
+        ]
 
 instance ToHeaders CreateAutoScalingGroup
 

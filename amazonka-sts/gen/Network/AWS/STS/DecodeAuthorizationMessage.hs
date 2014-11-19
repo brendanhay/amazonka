@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ import qualified GHC.Exts
 
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
     { _damEncodedMessage :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DecodeAuthorizationMessage' constructor.
 --
@@ -83,7 +84,7 @@ damEncodedMessage =
 
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damrDecodedMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DecodeAuthorizationMessageResponse' constructor.
 --
@@ -105,7 +106,10 @@ damrDecodedMessage =
 instance ToPath DecodeAuthorizationMessage where
     toPath = const "/"
 
-instance ToQuery DecodeAuthorizationMessage
+instance ToQuery DecodeAuthorizationMessage where
+    toQuery DecodeAuthorizationMessage{..} = mconcat
+        [ "EncodedMessage" =? _damEncodedMessage
+        ]
 
 instance ToHeaders DecodeAuthorizationMessage
 
@@ -117,5 +121,5 @@ instance AWSRequest DecodeAuthorizationMessage where
     response = xmlResponse
 
 instance FromXML DecodeAuthorizationMessageResponse where
-    parseXML = withElement "DecodeAuthorizationMessageResult" $ \x ->
-            <$> x .@? "DecodedMessage"
+    parseXML = withElement "DecodeAuthorizationMessageResult" $ \x -> DecodeAuthorizationMessageResponse
+        <$> x .@? "DecodedMessage"

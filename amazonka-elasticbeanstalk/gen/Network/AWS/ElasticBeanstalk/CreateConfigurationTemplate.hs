@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -66,11 +67,11 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
     { _cctApplicationName     :: Text
     , _cctDescription         :: Maybe Text
     , _cctEnvironmentId       :: Maybe Text
-    , _cctOptionSettings      :: [ConfigurationOptionSetting]
+    , _cctOptionSettings      :: List "OptionSettings" ConfigurationOptionSetting
     , _cctSolutionStackName   :: Maybe Text
     , _cctSourceConfiguration :: Maybe SourceConfiguration
     , _cctTemplateName        :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateConfigurationTemplate' constructor.
 --
@@ -124,6 +125,7 @@ cctEnvironmentId = lens _cctEnvironmentId (\s a -> s { _cctEnvironmentId = a })
 cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
 cctOptionSettings =
     lens _cctOptionSettings (\s a -> s { _cctOptionSettings = a })
+        . _List
 
 -- | The name of the solution stack used by this configuration. The solution
 -- stack specifies the operating system, architecture, and application
@@ -167,10 +169,10 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     , _cctrDeploymentStatus  :: Maybe Text
     , _cctrDescription       :: Maybe Text
     , _cctrEnvironmentName   :: Maybe Text
-    , _cctrOptionSettings    :: [ConfigurationOptionSetting]
+    , _cctrOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
     , _cctrSolutionStackName :: Maybe Text
     , _cctrTemplateName      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateConfigurationTemplateResponse' constructor.
 --
@@ -214,13 +216,11 @@ cctrApplicationName =
 
 -- | The date (in UTC time) when this configuration set was created.
 cctrDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe UTCTime)
-cctrDateCreated = lens _cctrDateCreated (\s a -> s { _cctrDateCreated = a })
-    . mapping _Time
+cctrDateCreated = lens _cctrDateCreated (\s a -> s { _cctrDateCreated = a }) . mapping _Time
 
 -- | The date (in UTC time) when this configuration set was last modified.
 cctrDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe UTCTime)
-cctrDateUpdated = lens _cctrDateUpdated (\s a -> s { _cctrDateUpdated = a })
-    . mapping _Time
+cctrDateUpdated = lens _cctrDateUpdated (\s a -> s { _cctrDateUpdated = a }) . mapping _Time
 
 -- | If this configuration set is associated with an environment, the
 -- DeploymentStatus parameter indicates the deployment status of this
@@ -254,6 +254,7 @@ cctrEnvironmentName =
 cctrOptionSettings :: Lens' CreateConfigurationTemplateResponse [ConfigurationOptionSetting]
 cctrOptionSettings =
     lens _cctrOptionSettings (\s a -> s { _cctrOptionSettings = a })
+        . _List
 
 -- | The name of the solution stack this configuration set uses.
 cctrSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
@@ -268,7 +269,16 @@ cctrTemplateName = lens _cctrTemplateName (\s a -> s { _cctrTemplateName = a })
 instance ToPath CreateConfigurationTemplate where
     toPath = const "/"
 
-instance ToQuery CreateConfigurationTemplate
+instance ToQuery CreateConfigurationTemplate where
+    toQuery CreateConfigurationTemplate{..} = mconcat
+        [ "ApplicationName"     =? _cctApplicationName
+        , "Description"         =? _cctDescription
+        , "EnvironmentId"       =? _cctEnvironmentId
+        , "OptionSettings"      =? _cctOptionSettings
+        , "SolutionStackName"   =? _cctSolutionStackName
+        , "SourceConfiguration" =? _cctSourceConfiguration
+        , "TemplateName"        =? _cctTemplateName
+        ]
 
 instance ToHeaders CreateConfigurationTemplate
 
@@ -280,13 +290,13 @@ instance AWSRequest CreateConfigurationTemplate where
     response = xmlResponse
 
 instance FromXML CreateConfigurationTemplateResponse where
-    parseXML = withElement "CreateConfigurationTemplateResult" $ \x ->
-            <$> x .@? "ApplicationName"
-            <*> x .@? "DateCreated"
-            <*> x .@? "DateUpdated"
-            <*> x .@? "DeploymentStatus"
-            <*> x .@? "Description"
-            <*> x .@? "EnvironmentName"
-            <*> x .@ "OptionSettings"
-            <*> x .@? "SolutionStackName"
-            <*> x .@? "TemplateName"
+    parseXML = withElement "CreateConfigurationTemplateResult" $ \x -> CreateConfigurationTemplateResponse
+        <$> x .@? "ApplicationName"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "DeploymentStatus"
+        <*> x .@? "Description"
+        <*> x .@? "EnvironmentName"
+        <*> x .@  "OptionSettings"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "TemplateName"

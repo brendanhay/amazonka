@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data PollForTask = PollForTask
     { _pftHostname         :: Maybe Text
     , _pftInstanceIdentity :: Maybe InstanceIdentity
     , _pftWorkerGroup      :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PollForTask' constructor.
 --
@@ -108,7 +109,7 @@ pftWorkerGroup = lens _pftWorkerGroup (\s a -> s { _pftWorkerGroup = a })
 
 newtype PollForTaskResponse = PollForTaskResponse
     { _pftrTaskObject :: Maybe TaskObject
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PollForTaskResponse' constructor.
 --

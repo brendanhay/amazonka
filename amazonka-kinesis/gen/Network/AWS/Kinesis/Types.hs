@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -106,7 +107,7 @@ data Shard = Shard
     , _sParentShardId         :: Maybe Text
     , _sSequenceNumberRange   :: SequenceNumberRange
     , _sShardId               :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Shard' constructor.
 --
@@ -160,10 +161,10 @@ sShardId = lens _sShardId (\s a -> s { _sShardId = a })
 instance FromJSON Shard where
     parseJSON = withObject "Shard" $ \o -> Shard
         <$> o .:? "AdjacentParentShardId"
-        <*> o .: "HashKeyRange"
+        <*> o .:  "HashKeyRange"
         <*> o .:? "ParentShardId"
-        <*> o .: "SequenceNumberRange"
-        <*> o .: "ShardId"
+        <*> o .:  "SequenceNumberRange"
+        <*> o .:  "ShardId"
 
 instance ToJSON Shard where
     toJSON Shard{..} = object
@@ -177,7 +178,7 @@ instance ToJSON Shard where
 data Tag = Tag
     { _tagKey   :: Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Tag' constructor.
 --
@@ -207,7 +208,7 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromJSON Tag where
     parseJSON = withObject "Tag" $ \o -> Tag
-        <$> o .: "Key"
+        <$> o .:  "Key"
         <*> o .:? "Value"
 
 instance ToJSON Tag where
@@ -218,11 +219,11 @@ instance ToJSON Tag where
 
 data StreamDescription = StreamDescription
     { _sdHasMoreShards :: Bool
-    , _sdShards        :: [Shard]
+    , _sdShards        :: List "Shards" Shard
     , _sdStreamARN     :: Text
     , _sdStreamName    :: Text
     , _sdStreamStatus  :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'StreamDescription' constructor.
 --
@@ -257,7 +258,7 @@ sdHasMoreShards = lens _sdHasMoreShards (\s a -> s { _sdHasMoreShards = a })
 
 -- | The shards that comprise the stream.
 sdShards :: Lens' StreamDescription [Shard]
-sdShards = lens _sdShards (\s a -> s { _sdShards = a })
+sdShards = lens _sdShards (\s a -> s { _sdShards = a }) . _List
 
 -- | The Amazon Resource Name (ARN) for the stream being described.
 sdStreamARN :: Lens' StreamDescription Text
@@ -281,11 +282,11 @@ sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 
 instance FromJSON StreamDescription where
     parseJSON = withObject "StreamDescription" $ \o -> StreamDescription
-        <$> o .: "HasMoreShards"
-        <*> o .: "Shards"
-        <*> o .: "StreamARN"
-        <*> o .: "StreamName"
-        <*> o .: "StreamStatus"
+        <$> o .:  "HasMoreShards"
+        <*> o .:  "Shards"
+        <*> o .:  "StreamARN"
+        <*> o .:  "StreamName"
+        <*> o .:  "StreamStatus"
 
 instance ToJSON StreamDescription where
     toJSON StreamDescription{..} = object
@@ -327,7 +328,7 @@ instance ToJSON StreamStatus where
 data HashKeyRange = HashKeyRange
     { _hkrEndingHashKey   :: Text
     , _hkrStartingHashKey :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'HashKeyRange' constructor.
 --
@@ -356,8 +357,8 @@ hkrStartingHashKey =
 
 instance FromJSON HashKeyRange where
     parseJSON = withObject "HashKeyRange" $ \o -> HashKeyRange
-        <$> o .: "EndingHashKey"
-        <*> o .: "StartingHashKey"
+        <$> o .:  "EndingHashKey"
+        <*> o .:  "StartingHashKey"
 
 instance ToJSON HashKeyRange where
     toJSON HashKeyRange{..} = object
@@ -369,7 +370,7 @@ data Record = Record
     { _rData           :: Base64
     , _rPartitionKey   :: Text
     , _rSequenceNumber :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Record' constructor.
 --
@@ -408,9 +409,9 @@ rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
 
 instance FromJSON Record where
     parseJSON = withObject "Record" $ \o -> Record
-        <$> o .: "Data"
-        <*> o .: "PartitionKey"
-        <*> o .: "SequenceNumber"
+        <$> o .:  "Data"
+        <*> o .:  "PartitionKey"
+        <*> o .:  "SequenceNumber"
 
 instance ToJSON Record where
     toJSON Record{..} = object
@@ -422,7 +423,7 @@ instance ToJSON Record where
 data SequenceNumberRange = SequenceNumberRange
     { _snrEndingSequenceNumber   :: Maybe Text
     , _snrStartingSequenceNumber :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SequenceNumberRange' constructor.
 --
@@ -454,7 +455,7 @@ snrStartingSequenceNumber =
 instance FromJSON SequenceNumberRange where
     parseJSON = withObject "SequenceNumberRange" $ \o -> SequenceNumberRange
         <$> o .:? "EndingSequenceNumber"
-        <*> o .: "StartingSequenceNumber"
+        <*> o .:  "StartingSequenceNumber"
 
 instance ToJSON SequenceNumberRange where
     toJSON SequenceNumberRange{..} = object

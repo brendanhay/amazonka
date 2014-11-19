@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,15 +58,15 @@ import qualified GHC.Exts
 data UpdateApp = UpdateApp
     { _uaAppId            :: Text
     , _uaAppSource        :: Maybe Source
-    , _uaAttributes       :: Map Text Text
-    , _uaDataSources      :: [DataSource]
+    , _uaAttributes       :: Map "entry" "key" "value" Text Text
+    , _uaDataSources      :: List "DataSources" DataSource
     , _uaDescription      :: Maybe Text
-    , _uaDomains          :: [Text]
+    , _uaDomains          :: List "InstanceIds" Text
     , _uaEnableSsl        :: Maybe Bool
     , _uaName             :: Maybe Text
     , _uaSslConfiguration :: Maybe SslConfiguration
     , _uaType             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateApp' constructor.
 --
@@ -117,12 +118,11 @@ uaAppSource = lens _uaAppSource (\s a -> s { _uaAppSource = a })
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 uaAttributes :: Lens' UpdateApp (HashMap Text Text)
-uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a })
-    . _Map
+uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a }) . _Map
 
 -- | The app's data sources.
 uaDataSources :: Lens' UpdateApp [DataSource]
-uaDataSources = lens _uaDataSources (\s a -> s { _uaDataSources = a })
+uaDataSources = lens _uaDataSources (\s a -> s { _uaDataSources = a }) . _List
 
 -- | A description of the app.
 uaDescription :: Lens' UpdateApp (Maybe Text)
@@ -131,7 +131,7 @@ uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
 -- | The app's virtual host settings, with multiple domains separated by
 -- commas. For example: 'www.example.com, example.com'.
 uaDomains :: Lens' UpdateApp [Text]
-uaDomains = lens _uaDomains (\s a -> s { _uaDomains = a })
+uaDomains = lens _uaDomains (\s a -> s { _uaDomains = a }) . _List
 
 -- | Whether SSL is enabled for the app.
 uaEnableSsl :: Lens' UpdateApp (Maybe Bool)

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
     { _lcfoaiMarker   :: Maybe Text
     , _lcfoaiMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListCloudFrontOriginAccessIdentities' constructor.
 --
@@ -79,7 +80,7 @@ lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s { _lcfoaiMaxItems = a })
 
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
     { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' constructor.
 --
@@ -102,7 +103,11 @@ lcfoairCloudFrontOriginAccessIdentityList =
 instance ToPath ListCloudFrontOriginAccessIdentities where
     toPath = const "/2014-05-31/origin-access-identity/cloudfront"
 
-instance ToQuery ListCloudFrontOriginAccessIdentities
+instance ToQuery ListCloudFrontOriginAccessIdentities where
+    toQuery ListCloudFrontOriginAccessIdentities{..} = mconcat
+        [ "Marker"   =? _lcfoaiMarker
+        , "MaxItems" =? _lcfoaiMaxItems
+        ]
 
 instance ToHeaders ListCloudFrontOriginAccessIdentities
 
@@ -120,7 +125,7 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     parseXML x = ListCloudFrontOriginAccessIdentitiesResponse
-            <$> x .@ "CloudFrontOriginAccessIdentityList"
+        <$> x .@  "CloudFrontOriginAccessIdentityList"
 
 instance AWSPager ListCloudFrontOriginAccessIdentities where
     next rq rs

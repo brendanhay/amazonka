@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,8 +49,8 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
-    { _ginaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _ginaIdentities :: List "Identities" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetIdentityNotificationAttributes where
     type Item GetIdentityNotificationAttributes = Text
@@ -70,11 +71,11 @@ getIdentityNotificationAttributes = GetIdentityNotificationAttributes
 
 -- | A list of one or more identities.
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
-ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a })
+ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a }) . _List
 
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
-    { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ginarNotificationAttributes :: Map "entry" "key" "value" Text IdentityNotificationAttributes
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetIdentityNotificationAttributesResponse' constructor.
 --
@@ -97,7 +98,10 @@ ginarNotificationAttributes =
 instance ToPath GetIdentityNotificationAttributes where
     toPath = const "/"
 
-instance ToQuery GetIdentityNotificationAttributes
+instance ToQuery GetIdentityNotificationAttributes where
+    toQuery GetIdentityNotificationAttributes{..} = mconcat
+        [ "Identities" =? _ginaIdentities
+        ]
 
 instance ToHeaders GetIdentityNotificationAttributes
 
@@ -109,5 +113,5 @@ instance AWSRequest GetIdentityNotificationAttributes where
     response = xmlResponse
 
 instance FromXML GetIdentityNotificationAttributesResponse where
-    parseXML = withElement "GetIdentityNotificationAttributesResult" $ \x ->
-            <$> x .@ "NotificationAttributes"
+    parseXML = withElement "GetIdentityNotificationAttributesResult" $ \x -> GetIdentityNotificationAttributesResponse
+        <$> x .@  "NotificationAttributes"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DeleteDBSnapshot = DeleteDBSnapshot
     { _ddbs1DBSnapshotIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteDBSnapshot' constructor.
 --
@@ -70,7 +71,7 @@ ddbs1DBSnapshotIdentifier =
 
 newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteDBSnapshotResponse' constructor.
 --
@@ -89,7 +90,10 @@ ddbsrDBSnapshot = lens _ddbsrDBSnapshot (\s a -> s { _ddbsrDBSnapshot = a })
 instance ToPath DeleteDBSnapshot where
     toPath = const "/"
 
-instance ToQuery DeleteDBSnapshot
+instance ToQuery DeleteDBSnapshot where
+    toQuery DeleteDBSnapshot{..} = mconcat
+        [ "DBSnapshotIdentifier" =? _ddbs1DBSnapshotIdentifier
+        ]
 
 instance ToHeaders DeleteDBSnapshot
 
@@ -101,5 +105,5 @@ instance AWSRequest DeleteDBSnapshot where
     response = xmlResponse
 
 instance FromXML DeleteDBSnapshotResponse where
-    parseXML = withElement "DeleteDBSnapshotResult" $ \x ->
-            <$> x .@? "DBSnapshot"
+    parseXML = withElement "DeleteDBSnapshotResult" $ \x -> DeleteDBSnapshotResponse
+        <$> x .@? "DBSnapshot"

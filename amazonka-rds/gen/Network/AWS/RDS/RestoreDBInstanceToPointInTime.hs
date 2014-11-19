@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -83,12 +84,12 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
     , _rdbitpitRestoreTime                :: Maybe RFC822
     , _rdbitpitSourceDBInstanceIdentifier :: Text
     , _rdbitpitStorageType                :: Maybe Text
-    , _rdbitpitTags                       :: [Tag]
+    , _rdbitpitTags                       :: List "Tag" Tag
     , _rdbitpitTargetDBInstanceIdentifier :: Text
     , _rdbitpitTdeCredentialArn           :: Maybe Text
     , _rdbitpitTdeCredentialPassword      :: Maybe Text
     , _rdbitpitUseLatestRestorableTime    :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RestoreDBInstanceToPointInTime' constructor.
 --
@@ -281,7 +282,7 @@ rdbitpitStorageType =
     lens _rdbitpitStorageType (\s a -> s { _rdbitpitStorageType = a })
 
 rdbitpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
-rdbitpitTags = lens _rdbitpitTags (\s a -> s { _rdbitpitTags = a })
+rdbitpitTags = lens _rdbitpitTags (\s a -> s { _rdbitpitTags = a }) . _List
 
 -- | The name of the new database instance to be created. Constraints: Must
 -- contain from 1 to 63 alphanumeric characters or hyphens First character
@@ -316,7 +317,7 @@ rdbitpitUseLatestRestorableTime =
 
 newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
     { _rdbitpitrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RestoreDBInstanceToPointInTimeResponse' constructor.
 --
@@ -336,7 +337,29 @@ rdbitpitrDBInstance =
 instance ToPath RestoreDBInstanceToPointInTime where
     toPath = const "/"
 
-instance ToQuery RestoreDBInstanceToPointInTime
+instance ToQuery RestoreDBInstanceToPointInTime where
+    toQuery RestoreDBInstanceToPointInTime{..} = mconcat
+        [ "AutoMinorVersionUpgrade"    =? _rdbitpitAutoMinorVersionUpgrade
+        , "AvailabilityZone"           =? _rdbitpitAvailabilityZone
+        , "DBInstanceClass"            =? _rdbitpitDBInstanceClass
+        , "DBName"                     =? _rdbitpitDBName
+        , "DBSubnetGroupName"          =? _rdbitpitDBSubnetGroupName
+        , "Engine"                     =? _rdbitpitEngine
+        , "Iops"                       =? _rdbitpitIops
+        , "LicenseModel"               =? _rdbitpitLicenseModel
+        , "MultiAZ"                    =? _rdbitpitMultiAZ
+        , "OptionGroupName"            =? _rdbitpitOptionGroupName
+        , "Port"                       =? _rdbitpitPort
+        , "PubliclyAccessible"         =? _rdbitpitPubliclyAccessible
+        , "RestoreTime"                =? _rdbitpitRestoreTime
+        , "SourceDBInstanceIdentifier" =? _rdbitpitSourceDBInstanceIdentifier
+        , "StorageType"                =? _rdbitpitStorageType
+        , "Tags"                       =? _rdbitpitTags
+        , "TargetDBInstanceIdentifier" =? _rdbitpitTargetDBInstanceIdentifier
+        , "TdeCredentialArn"           =? _rdbitpitTdeCredentialArn
+        , "TdeCredentialPassword"      =? _rdbitpitTdeCredentialPassword
+        , "UseLatestRestorableTime"    =? _rdbitpitUseLatestRestorableTime
+        ]
 
 instance ToHeaders RestoreDBInstanceToPointInTime
 
@@ -348,5 +371,5 @@ instance AWSRequest RestoreDBInstanceToPointInTime where
     response = xmlResponse
 
 instance FromXML RestoreDBInstanceToPointInTimeResponse where
-    parseXML = withElement "RestoreDBInstanceToPointInTimeResult" $ \x ->
-            <$> x .@? "DBInstance"
+    parseXML = withElement "RestoreDBInstanceToPointInTimeResult" $ \x -> RestoreDBInstanceToPointInTimeResponse
+        <$> x .@? "DBInstance"

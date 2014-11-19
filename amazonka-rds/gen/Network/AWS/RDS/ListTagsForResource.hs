@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,9 +48,9 @@ import Network.AWS.RDS.Types
 import qualified GHC.Exts
 
 data ListTagsForResource = ListTagsForResource
-    { _ltfrFilters      :: [Filter]
+    { _ltfrFilters      :: List "Filter" Filter
     , _ltfrResourceName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListTagsForResource' constructor.
 --
@@ -68,7 +69,7 @@ listTagsForResource p1 = ListTagsForResource
 
 -- | This parameter is not currently supported.
 ltfrFilters :: Lens' ListTagsForResource [Filter]
-ltfrFilters = lens _ltfrFilters (\s a -> s { _ltfrFilters = a })
+ltfrFilters = lens _ltfrFilters (\s a -> s { _ltfrFilters = a }) . _List
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
@@ -77,8 +78,8 @@ ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
-    { _ltfrrTagList :: [Tag]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ltfrrTagList :: List "Tag" Tag
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListTagsForResourceResponse where
     type Item ListTagsForResourceResponse = Tag
@@ -99,12 +100,16 @@ listTagsForResourceResponse = ListTagsForResourceResponse
 
 -- | List of tags returned by the ListTagsForResource operation.
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a })
+ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a }) . _List
 
 instance ToPath ListTagsForResource where
     toPath = const "/"
 
-instance ToQuery ListTagsForResource
+instance ToQuery ListTagsForResource where
+    toQuery ListTagsForResource{..} = mconcat
+        [ "Filters"      =? _ltfrFilters
+        , "ResourceName" =? _ltfrResourceName
+        ]
 
 instance ToHeaders ListTagsForResource
 
@@ -116,5 +121,5 @@ instance AWSRequest ListTagsForResource where
     response = xmlResponse
 
 instance FromXML ListTagsForResourceResponse where
-    parseXML = withElement "ListTagsForResourceResult" $ \x ->
-            <$> x .@ "TagList"
+    parseXML = withElement "ListTagsForResourceResult" $ \x -> ListTagsForResourceResponse
+        <$> x .@  "TagList"

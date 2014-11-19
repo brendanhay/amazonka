@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ import qualified GHC.Exts
 data DescribeWorkflowExecution = DescribeWorkflowExecution
     { _dweDomain    :: Text
     , _dweExecution :: WorkflowExecution
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeWorkflowExecution' constructor.
 --
@@ -93,7 +94,7 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
     , _dwerLatestActivityTaskTimestamp :: Maybe RFC822
     , _dwerLatestExecutionContext      :: Maybe Text
     , _dwerOpenCounts                  :: WorkflowExecutionOpenCounts
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeWorkflowExecutionResponse' constructor.
 --
@@ -180,8 +181,8 @@ instance AWSRequest DescribeWorkflowExecution where
 
 instance FromJSON DescribeWorkflowExecutionResponse where
     parseJSON = withObject "DescribeWorkflowExecutionResponse" $ \o -> DescribeWorkflowExecutionResponse
-        <$> o .: "executionConfiguration"
-        <*> o .: "executionInfo"
+        <$> o .:  "executionConfiguration"
+        <*> o .:  "executionInfo"
         <*> o .:? "latestActivityTaskTimestamp"
         <*> o .:? "latestExecutionContext"
-        <*> o .: "openCounts"
+        <*> o .:  "openCounts"

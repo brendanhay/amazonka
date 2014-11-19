@@ -61,8 +61,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "statisticSet",
@@ -132,6 +131,7 @@
                 ],
                 "contentPad": 0,
                 "name": "StatisticSet",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -200,8 +200,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 37,
                 "ctor": "metricAlarm",
@@ -210,6 +209,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "MetricAlarm",
+                "locationPad": 35,
                 "type": "record",
                 "optional": [
                     {
@@ -289,8 +289,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -300,12 +300,12 @@
                         "locationName": "OKActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eOK\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only actions supported are publishing to an Amazon SNS topic and triggering an Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -315,12 +315,12 @@
                         "locationName": "AlarmActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eALARM\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only actions supported are publishing to an Amazon SNS topic and triggering an Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -330,7 +330,7 @@
                         "locationName": "InsufficientDataActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eINSUFFICIENT_DATA\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only actions supported are publishing to an Amazon SNS topic or triggering an Auto Scaling policy. \u003c/p\u003e \u003cimportant\u003eThe current WSDL lists this attribute as \u003ccode\u003eUnknownActions\u003c/code\u003e.\u003c/important\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
@@ -439,8 +439,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -450,7 +450,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e The list of dimensions associated with the alarm's associated metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -546,8 +546,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -557,7 +557,7 @@
                         "locationName": "AlarmActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eALARM\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only actions supported are publishing to an Amazon SNS topic and triggering an Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
@@ -636,8 +636,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -647,7 +647,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e The list of dimensions associated with the alarm's associated metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -666,8 +666,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -677,7 +677,7 @@
                         "locationName": "InsufficientDataActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eINSUFFICIENT_DATA\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only actions supported are publishing to an Amazon SNS topic or triggering an Auto Scaling policy. \u003c/p\u003e \u003cimportant\u003eThe current WSDL lists this attribute as \u003ccode\u003eUnknownActions\u003c/code\u003e.\u003c/important\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
@@ -711,8 +711,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -722,7 +722,7 @@
                         "locationName": "OKActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eOK\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only actions supported are publishing to an Amazon SNS topic and triggering an Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
@@ -867,8 +867,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "metricDatum",
@@ -893,12 +892,13 @@
                 ],
                 "contentPad": 0,
                 "name": "MetricDatum",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -908,7 +908,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e A list of dimensions associated with the metric. Note, when using the Dimensions value in a query, you need to append .member.N to it (e.g., Dimensions.member.N). \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -974,8 +974,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -985,7 +985,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e A list of dimensions associated with the metric. Note, when using the Dimensions value in a query, you need to append .member.N to it (e.g., Dimensions.member.N). \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -1110,8 +1110,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 7,
                 "ctor": "dimension",
@@ -1151,6 +1150,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Dimension",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1209,8 +1209,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "alarmHistoryItem",
@@ -1219,6 +1218,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AlarmHistoryItem",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -1378,8 +1378,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "metric",
@@ -1388,6 +1387,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Metric",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -1422,8 +1422,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1433,14 +1433,14 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e A list of dimensions associated with the metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1450,7 +1450,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e A list of dimensions associated with the metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -1506,8 +1506,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "datapoint",
@@ -1516,6 +1515,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Datapoint",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -1736,8 +1736,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 8,
                 "ctor": "dimensionFilter",
@@ -1762,6 +1761,7 @@
                 ],
                 "contentPad": 0,
                 "name": "DimensionFilter",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -1884,7 +1884,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1896,8 +1895,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1907,7 +1906,7 @@
                     "locationName": "AlarmNames",
                     "documentation": "\u003cp\u003e A list of alarms to be deleted. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"AlarmNames\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -1931,14 +1930,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1948,14 +1948,14 @@
                         "locationName": "AlarmNames",
                         "documentation": "\u003cp\u003e A list of alarms to be deleted. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AlarmNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1965,7 +1965,7 @@
                         "locationName": "AlarmNames",
                         "documentation": "\u003cp\u003e A list of alarms to be deleted. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AlarmNames\" Text"
                     }
                 ]
             }
@@ -1975,8 +1975,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -1993,13 +1992,14 @@
                 "contentPad": 0,
                 "name": "DescribeAlarmHistoryResponse",
                 "resultWrapper": "DescribeAlarmHistoryResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2009,7 +2009,7 @@
                         "locationName": "AlarmHistoryItems",
                         "documentation": "\u003cp\u003e A list of alarm histories in JSON format. \u003c/p\u003e",
                         "typeExposed": "[AlarmHistoryItem]",
-                        "type": "[AlarmHistoryItem]"
+                        "type": "List \"AlarmHistoryItems\" AlarmHistoryItem"
                     },
                     {
                         "location": "querystring",
@@ -2030,8 +2030,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2041,7 +2041,7 @@
                         "locationName": "AlarmHistoryItems",
                         "documentation": "\u003cp\u003e A list of alarm histories in JSON format. \u003c/p\u003e",
                         "typeExposed": "[AlarmHistoryItem]",
-                        "type": "[AlarmHistoryItem]"
+                        "type": "List \"AlarmHistoryItems\" AlarmHistoryItem"
                     },
                     {
                         "location": "querystring",
@@ -2083,8 +2083,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2138,6 +2137,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2332,8 +2332,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -2350,13 +2349,14 @@
                 "contentPad": 0,
                 "name": "DescribeAlarmsResponse",
                 "resultWrapper": "DescribeAlarmsResult",
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2366,7 +2366,7 @@
                         "locationName": "MetricAlarms",
                         "documentation": "\u003cp\u003e A list of information for the specified alarms. \u003c/p\u003e",
                         "typeExposed": "[MetricAlarm]",
-                        "type": "[MetricAlarm]"
+                        "type": "List \"MetricAlarms\" MetricAlarm"
                     },
                     {
                         "location": "querystring",
@@ -2387,8 +2387,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2398,7 +2398,7 @@
                         "locationName": "MetricAlarms",
                         "documentation": "\u003cp\u003e A list of information for the specified alarms. \u003c/p\u003e",
                         "typeExposed": "[MetricAlarm]",
-                        "type": "[MetricAlarm]"
+                        "type": "List \"MetricAlarms\" MetricAlarm"
                     },
                     {
                         "location": "querystring",
@@ -2440,8 +2440,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2495,14 +2494,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2512,7 +2512,7 @@
                         "locationName": "AlarmNames",
                         "documentation": "\u003cp\u003e A list of alarm names to retrieve information for. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AlarmNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2623,8 +2623,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2634,7 +2634,7 @@
                         "locationName": "AlarmNames",
                         "documentation": "\u003cp\u003e A list of alarm names to retrieve information for. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AlarmNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2690,7 +2690,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2702,8 +2701,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -2713,7 +2712,7 @@
                     "locationName": "MetricAlarms",
                     "documentation": "\u003cp\u003e A list of information for each alarm with the specified metric. \u003c/p\u003e",
                     "typeExposed": "[MetricAlarm]",
-                    "type": "[MetricAlarm]"
+                    "type": "List \"MetricAlarms\" MetricAlarm"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2725,13 +2724,14 @@
                 "contentPad": 0,
                 "name": "DescribeAlarmsForMetricResponse",
                 "resultWrapper": "DescribeAlarmsForMetricResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2741,14 +2741,14 @@
                         "locationName": "MetricAlarms",
                         "documentation": "\u003cp\u003e A list of information for each alarm with the specified metric. \u003c/p\u003e",
                         "typeExposed": "[MetricAlarm]",
-                        "type": "[MetricAlarm]"
+                        "type": "List \"MetricAlarms\" MetricAlarm"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2758,7 +2758,7 @@
                         "locationName": "MetricAlarms",
                         "documentation": "\u003cp\u003e A list of information for each alarm with the specified metric. \u003c/p\u003e",
                         "typeExposed": "[MetricAlarm]",
-                        "type": "[MetricAlarm]"
+                        "type": "List \"MetricAlarms\" MetricAlarm"
                     }
                 ]
             },
@@ -2777,8 +2777,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2863,6 +2862,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2884,8 +2884,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2895,7 +2895,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e The list of dimensions associated with the metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -2931,8 +2931,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2942,7 +2942,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e The list of dimensions associated with the metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -3065,7 +3065,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3077,8 +3076,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3088,7 +3087,7 @@
                     "locationName": "AlarmNames",
                     "documentation": "\u003cp\u003e The names of the alarms to disable actions for. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"AlarmNames\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -3112,14 +3111,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3129,14 +3129,14 @@
                         "locationName": "AlarmNames",
                         "documentation": "\u003cp\u003e The names of the alarms to disable actions for. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AlarmNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3146,7 +3146,7 @@
                         "locationName": "AlarmNames",
                         "documentation": "\u003cp\u003e The names of the alarms to disable actions for. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AlarmNames\" Text"
                     }
                 ]
             }
@@ -3194,7 +3194,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3206,8 +3205,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3217,7 +3216,7 @@
                     "locationName": "AlarmNames",
                     "documentation": "\u003cp\u003e The names of the alarms to enable actions for. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"AlarmNames\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -3241,14 +3240,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3258,14 +3258,14 @@
                         "locationName": "AlarmNames",
                         "documentation": "\u003cp\u003e The names of the alarms to enable actions for. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AlarmNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3275,7 +3275,7 @@
                         "locationName": "AlarmNames",
                         "documentation": "\u003cp\u003e The names of the alarms to enable actions for. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AlarmNames\" Text"
                     }
                 ]
             }
@@ -3285,8 +3285,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3303,6 +3302,7 @@
                 "contentPad": 0,
                 "name": "GetMetricStatisticsResponse",
                 "resultWrapper": "GetMetricStatisticsResult",
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3323,8 +3323,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3334,14 +3334,14 @@
                         "locationName": "Datapoints",
                         "documentation": "\u003cp\u003e The datapoints for the specified metric. \u003c/p\u003e",
                         "typeExposed": "[Datapoint]",
-                        "type": "[Datapoint]"
+                        "type": "List \"Datapoints\" Datapoint"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3351,7 +3351,7 @@
                         "locationName": "Datapoints",
                         "documentation": "\u003cp\u003e The datapoints for the specified metric. \u003c/p\u003e",
                         "typeExposed": "[Datapoint]",
-                        "type": "[Datapoint]"
+                        "type": "List \"Datapoints\" Datapoint"
                     },
                     {
                         "location": "querystring",
@@ -3385,8 +3385,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3480,8 +3479,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3491,7 +3490,7 @@
                         "locationName": "Statistics",
                         "documentation": "\u003cp\u003e The metric statistics to return. For information about specific statistics returned by GetMetricStatistics, go to \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic\"\u003eStatistics\u003c/a\u003e in the \u003ci\u003eAmazon CloudWatch Developer Guide\u003c/i\u003e. \u003c/p\u003e \u003cp\u003e Valid Values: \u003ccode\u003eAverage | Sum | SampleCount | Maximum | Minimum\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"Statistics\" Text"
                     }
                 ],
                 "shared": false,
@@ -3541,14 +3540,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3558,7 +3558,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e A list of dimensions describing qualities of the metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -3579,8 +3579,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3590,7 +3590,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e A list of dimensions describing qualities of the metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -3669,8 +3669,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3680,7 +3680,7 @@
                         "locationName": "Statistics",
                         "documentation": "\u003cp\u003e The metric statistics to return. For information about specific statistics returned by GetMetricStatistics, go to \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic\"\u003eStatistics\u003c/a\u003e in the \u003ci\u003eAmazon CloudWatch Developer Guide\u003c/i\u003e. \u003c/p\u003e \u003cp\u003e Valid Values: \u003ccode\u003eAverage | Sum | SampleCount | Maximum | Minimum\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"Statistics\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3705,8 +3705,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3723,13 +3722,14 @@
                 "contentPad": 0,
                 "name": "ListMetricsResponse",
                 "resultWrapper": "ListMetricsResult",
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3739,7 +3739,7 @@
                         "locationName": "Metrics",
                         "documentation": "\u003cp\u003e A list of metrics used to generate statistics for an AWS account. \u003c/p\u003e",
                         "typeExposed": "[Metric]",
-                        "type": "[Metric]"
+                        "type": "List \"Metrics\" Metric"
                     },
                     {
                         "location": "querystring",
@@ -3760,8 +3760,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3771,7 +3771,7 @@
                         "locationName": "Metrics",
                         "documentation": "\u003cp\u003e A list of metrics used to generate statistics for an AWS account. \u003c/p\u003e",
                         "typeExposed": "[Metric]",
-                        "type": "[Metric]"
+                        "type": "List \"Metrics\" Metric"
                     },
                     {
                         "location": "querystring",
@@ -3812,8 +3812,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3857,6 +3856,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3893,8 +3893,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3904,7 +3904,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e A list of dimensions to filter against. \u003c/p\u003e",
                         "typeExposed": "[DimensionFilter]",
-                        "type": "[DimensionFilter]"
+                        "type": "List \"Dimensions\" DimensionFilter"
                     },
                     {
                         "location": "querystring",
@@ -3925,8 +3925,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3936,7 +3936,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e A list of dimensions to filter against. \u003c/p\u003e",
                         "typeExposed": "[DimensionFilter]",
-                        "type": "[DimensionFilter]"
+                        "type": "List \"Dimensions\" DimensionFilter"
                     },
                     {
                         "location": "querystring",
@@ -4027,8 +4027,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4248,6 +4247,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 24,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4284,8 +4284,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4295,12 +4295,12 @@
                         "locationName": "OKActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eOK\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4310,12 +4310,12 @@
                         "locationName": "AlarmActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eALARM\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4325,12 +4325,12 @@
                         "locationName": "InsufficientDataActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eINSUFFICIENT_DATA\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4340,7 +4340,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e The dimensions for the alarm's associated metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -4376,8 +4376,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4387,7 +4387,7 @@
                         "locationName": "AlarmActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eALARM\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4436,8 +4436,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4447,7 +4447,7 @@
                         "locationName": "Dimensions",
                         "documentation": "\u003cp\u003e The dimensions for the alarm's associated metric. \u003c/p\u003e",
                         "typeExposed": "[Dimension]",
-                        "type": "[Dimension]"
+                        "type": "List \"Dimensions\" Dimension"
                     },
                     {
                         "location": "querystring",
@@ -4466,8 +4466,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4477,7 +4477,7 @@
                         "locationName": "InsufficientDataActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eINSUFFICIENT_DATA\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4511,8 +4511,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4522,7 +4522,7 @@
                         "locationName": "OKActions",
                         "documentation": "\u003cp\u003e The list of actions to execute when this alarm transitions into an \u003ccode\u003eOK\u003c/code\u003e state from any other state. Each action is specified as an Amazon Resource Number (ARN). Currently the only action supported is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"OKActions\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4628,8 +4628,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4679,14 +4678,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4696,14 +4696,14 @@
                         "locationName": "MetricData",
                         "documentation": "\u003cp\u003e A list of data describing the metric. \u003c/p\u003e",
                         "typeExposed": "[MetricDatum]",
-                        "type": "[MetricDatum]"
+                        "type": "List \"MetricData\" MetricDatum"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4713,7 +4713,7 @@
                         "locationName": "MetricData",
                         "documentation": "\u003cp\u003e A list of data describing the metric. \u003c/p\u003e",
                         "typeExposed": "[MetricDatum]",
-                        "type": "[MetricDatum]"
+                        "type": "List \"MetricData\" MetricDatum"
                     },
                     {
                         "location": "querystring",
@@ -4775,8 +4775,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4866,6 +4865,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,

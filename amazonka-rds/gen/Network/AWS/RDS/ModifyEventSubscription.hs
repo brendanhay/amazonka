@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,11 +56,11 @@ import qualified GHC.Exts
 
 data ModifyEventSubscription = ModifyEventSubscription
     { _mesEnabled          :: Maybe Bool
-    , _mesEventCategories  :: [Text]
+    , _mesEventCategories  :: List "EventCategory" Text
     , _mesSnsTopicArn      :: Maybe Text
     , _mesSourceType       :: Maybe Text
     , _mesSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ModifyEventSubscription' constructor.
 --
@@ -96,6 +97,7 @@ mesEnabled = lens _mesEnabled (\s a -> s { _mesEnabled = a })
 mesEventCategories :: Lens' ModifyEventSubscription [Text]
 mesEventCategories =
     lens _mesEventCategories (\s a -> s { _mesEventCategories = a })
+        . _List
 
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
 -- notification. The ARN is created by Amazon SNS when you create a topic
@@ -118,7 +120,7 @@ mesSubscriptionName =
 
 newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     { _mesrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyEventSubscriptionResponse' constructor.
 --
@@ -138,7 +140,14 @@ mesrEventSubscription =
 instance ToPath ModifyEventSubscription where
     toPath = const "/"
 
-instance ToQuery ModifyEventSubscription
+instance ToQuery ModifyEventSubscription where
+    toQuery ModifyEventSubscription{..} = mconcat
+        [ "Enabled"          =? _mesEnabled
+        , "EventCategories"  =? _mesEventCategories
+        , "SnsTopicArn"      =? _mesSnsTopicArn
+        , "SourceType"       =? _mesSourceType
+        , "SubscriptionName" =? _mesSubscriptionName
+        ]
 
 instance ToHeaders ModifyEventSubscription
 
@@ -150,5 +159,5 @@ instance AWSRequest ModifyEventSubscription where
     response = xmlResponse
 
 instance FromXML ModifyEventSubscriptionResponse where
-    parseXML = withElement "ModifyEventSubscriptionResult" $ \x ->
-            <$> x .@? "EventSubscription"
+    parseXML = withElement "ModifyEventSubscriptionResult" $ \x -> ModifyEventSubscriptionResponse
+        <$> x .@? "EventSubscription"

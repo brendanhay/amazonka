@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data CreateDeployment = CreateDeployment
     , _cdDescription                   :: Maybe Text
     , _cdIgnoreApplicationStopFailures :: Maybe Bool
     , _cdRevision                      :: Maybe RevisionLocation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDeployment' constructor.
 --
@@ -129,7 +130,7 @@ cdRevision = lens _cdRevision (\s a -> s { _cdRevision = a })
 
 newtype CreateDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateDeploymentResponse' constructor.
 --

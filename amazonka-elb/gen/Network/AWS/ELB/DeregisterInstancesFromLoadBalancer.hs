@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,9 +53,9 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
-    { _diflbInstances        :: [Instance]
+    { _diflbInstances        :: List "Instances" Instance
     , _diflbLoadBalancerName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeregisterInstancesFromLoadBalancer' constructor.
 --
@@ -74,7 +75,7 @@ deregisterInstancesFromLoadBalancer p1 = DeregisterInstancesFromLoadBalancer
 -- | A list of EC2 instance IDs consisting of all instances to be
 -- deregistered.
 diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
-diflbInstances = lens _diflbInstances (\s a -> s { _diflbInstances = a })
+diflbInstances = lens _diflbInstances (\s a -> s { _diflbInstances = a }) . _List
 
 -- | The name associated with the load balancer.
 diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
@@ -82,8 +83,8 @@ diflbLoadBalancerName =
     lens _diflbLoadBalancerName (\s a -> s { _diflbLoadBalancerName = a })
 
 newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
-    { _diflbrInstances :: [Instance]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _diflbrInstances :: List "Instances" Instance
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeregisterInstancesFromLoadBalancerResponse where
     type Item DeregisterInstancesFromLoadBalancerResponse = Instance
@@ -104,12 +105,16 @@ deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalance
 
 -- | An updated list of remaining instances registered with the load balancer.
 diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
-diflbrInstances = lens _diflbrInstances (\s a -> s { _diflbrInstances = a })
+diflbrInstances = lens _diflbrInstances (\s a -> s { _diflbrInstances = a }) . _List
 
 instance ToPath DeregisterInstancesFromLoadBalancer where
     toPath = const "/"
 
-instance ToQuery DeregisterInstancesFromLoadBalancer
+instance ToQuery DeregisterInstancesFromLoadBalancer where
+    toQuery DeregisterInstancesFromLoadBalancer{..} = mconcat
+        [ "Instances"        =? _diflbInstances
+        , "LoadBalancerName" =? _diflbLoadBalancerName
+        ]
 
 instance ToHeaders DeregisterInstancesFromLoadBalancer
 
@@ -121,5 +126,5 @@ instance AWSRequest DeregisterInstancesFromLoadBalancer where
     response = xmlResponse
 
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where
-    parseXML = withElement "DeregisterInstancesFromLoadBalancerResult" $ \x ->
-            <$> x .@ "Instances"
+    parseXML = withElement "DeregisterInstancesFromLoadBalancerResult" $ \x -> DeregisterInstancesFromLoadBalancerResponse
+        <$> x .@  "Instances"

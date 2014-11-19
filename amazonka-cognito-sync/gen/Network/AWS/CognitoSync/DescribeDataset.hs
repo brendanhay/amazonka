@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data DescribeDataset = DescribeDataset
     { _ddDatasetName    :: Text
     , _ddIdentityId     :: Text
     , _ddIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeDataset' constructor.
 --
@@ -95,7 +96,7 @@ ddIdentityPoolId = lens _ddIdentityPoolId (\s a -> s { _ddIdentityPoolId = a })
 
 newtype DescribeDatasetResponse = DescribeDatasetResponse
     { _ddrDataset :: Maybe Dataset
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDatasetResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -67,7 +68,7 @@ data ListWorkflowTypes = ListWorkflowTypes
     , _lwtNextPageToken      :: Maybe Text
     , _lwtRegistrationStatus :: Text
     , _lwtReverseOrder       :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListWorkflowTypes' constructor.
 --
@@ -135,8 +136,8 @@ lwtReverseOrder = lens _lwtReverseOrder (\s a -> s { _lwtReverseOrder = a })
 
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse
     { _lwtrNextPageToken :: Maybe Text
-    , _lwtrTypeInfos     :: [WorkflowTypeInfo]
-    } deriving (Eq, Show, Generic)
+    , _lwtrTypeInfos     :: List "typeInfos" WorkflowTypeInfo
+    } deriving (Eq, Show)
 
 -- | 'ListWorkflowTypesResponse' constructor.
 --
@@ -162,7 +163,7 @@ lwtrNextPageToken =
 
 -- | The list of workflow type information.
 lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
-lwtrTypeInfos = lens _lwtrTypeInfos (\s a -> s { _lwtrTypeInfos = a })
+lwtrTypeInfos = lens _lwtrTypeInfos (\s a -> s { _lwtrTypeInfos = a }) . _List
 
 instance ToPath ListWorkflowTypes where
     toPath = const "/"
@@ -192,7 +193,7 @@ instance AWSRequest ListWorkflowTypes where
 instance FromJSON ListWorkflowTypesResponse where
     parseJSON = withObject "ListWorkflowTypesResponse" $ \o -> ListWorkflowTypesResponse
         <$> o .:? "nextPageToken"
-        <*> o .: "typeInfos"
+        <*> o .:  "typeInfos"
 
 instance AWSPager ListWorkflowTypes where
     next rq rs = (\x -> rq & lwtNextPageToken ?~ x)

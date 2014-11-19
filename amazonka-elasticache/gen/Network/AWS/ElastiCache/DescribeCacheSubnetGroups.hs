@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
     { _dcsgCacheSubnetGroupName :: Maybe Text
     , _dcsgMarker               :: Maybe Text
     , _dcsgMaxRecords           :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCacheSubnetGroups' constructor.
 --
@@ -93,9 +94,9 @@ dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
-    { _dcsgrCacheSubnetGroups :: [CacheSubnetGroup]
+    { _dcsgrCacheSubnetGroups :: List "CacheSubnetGroup" CacheSubnetGroup
     , _dcsgrMarker            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeCacheSubnetGroupsResponse' constructor.
 --
@@ -116,6 +117,7 @@ describeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
 dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
 dcsgrCacheSubnetGroups =
     lens _dcsgrCacheSubnetGroups (\s a -> s { _dcsgrCacheSubnetGroups = a })
+        . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgrMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
@@ -124,7 +126,12 @@ dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 instance ToPath DescribeCacheSubnetGroups where
     toPath = const "/"
 
-instance ToQuery DescribeCacheSubnetGroups
+instance ToQuery DescribeCacheSubnetGroups where
+    toQuery DescribeCacheSubnetGroups{..} = mconcat
+        [ "CacheSubnetGroupName" =? _dcsgCacheSubnetGroupName
+        , "Marker"               =? _dcsgMarker
+        , "MaxRecords"           =? _dcsgMaxRecords
+        ]
 
 instance ToHeaders DescribeCacheSubnetGroups
 
@@ -136,9 +143,9 @@ instance AWSRequest DescribeCacheSubnetGroups where
     response = xmlResponse
 
 instance FromXML DescribeCacheSubnetGroupsResponse where
-    parseXML = withElement "DescribeCacheSubnetGroupsResult" $ \x ->
-            <$> x .@ "CacheSubnetGroups"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeCacheSubnetGroupsResult" $ \x -> DescribeCacheSubnetGroupsResponse
+        <$> x .@  "CacheSubnetGroups"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheSubnetGroups where
     next rq rs = (\x -> rq & dcsgMarker ?~ x)

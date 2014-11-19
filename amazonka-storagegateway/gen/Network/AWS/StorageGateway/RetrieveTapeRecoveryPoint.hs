@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
     { _rtrpGatewayARN :: Text
     , _rtrpTapeARN    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RetrieveTapeRecoveryPoint' constructor.
 --
@@ -79,7 +80,7 @@ rtrpTapeARN = lens _rtrpTapeARN (\s a -> s { _rtrpTapeARN = a })
 
 newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrprTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'RetrieveTapeRecoveryPointResponse' constructor.
 --

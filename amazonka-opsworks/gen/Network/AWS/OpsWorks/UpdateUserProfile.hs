@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data UpdateUserProfile = UpdateUserProfile
     , _uupIamUserArn          :: Text
     , _uupSshPublicKey        :: Maybe Text
     , _uupSshUsername         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateUserProfile' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data ListBootstrapActions = ListBootstrapActions
     { _lbaClusterId :: Text
     , _lbaMarker    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListBootstrapActions' constructor.
 --
@@ -75,9 +76,9 @@ lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
 lbaMarker = lens _lbaMarker (\s a -> s { _lbaMarker = a })
 
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse
-    { _lbarBootstrapActions :: [Command]
+    { _lbarBootstrapActions :: List "BootstrapActions" Command
     , _lbarMarker           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListBootstrapActionsResponse' constructor.
 --
@@ -97,6 +98,7 @@ listBootstrapActionsResponse = ListBootstrapActionsResponse
 lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
 lbarBootstrapActions =
     lens _lbarBootstrapActions (\s a -> s { _lbarBootstrapActions = a })
+        . _List
 
 -- | The pagination token that indicates the next set of results to retrieve .
 lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
@@ -125,7 +127,7 @@ instance AWSRequest ListBootstrapActions where
 
 instance FromJSON ListBootstrapActionsResponse where
     parseJSON = withObject "ListBootstrapActionsResponse" $ \o -> ListBootstrapActionsResponse
-        <$> o .: "BootstrapActions"
+        <$> o .:  "BootstrapActions"
         <*> o .:? "Marker"
 
 instance AWSPager ListBootstrapActions where

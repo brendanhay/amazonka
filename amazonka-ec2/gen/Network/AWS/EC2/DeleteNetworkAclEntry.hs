@@ -52,7 +52,7 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
     , _dnaeEgress       :: Bool
     , _dnaeNetworkAclId :: Text
     , _dnaeRuleNumber   :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteNetworkAclEntry' constructor.
 --
@@ -102,7 +102,13 @@ deleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
 instance ToPath DeleteNetworkAclEntry where
     toPath = const "/"
 
-instance ToQuery DeleteNetworkAclEntry
+instance ToQuery DeleteNetworkAclEntry where
+    toQuery DeleteNetworkAclEntry{..} = mconcat
+        [ "dryRun"       =? _dnaeDryRun
+        , "egress"       =? _dnaeEgress
+        , "networkAclId" =? _dnaeNetworkAclId
+        , "ruleNumber"   =? _dnaeRuleNumber
+        ]
 
 instance ToHeaders DeleteNetworkAclEntry
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,8 +58,8 @@ import qualified GHC.Exts
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
     { _slbpfbsInstancePort     :: Int
     , _slbpfbsLoadBalancerName :: Text
-    , _slbpfbsPolicyNames      :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _slbpfbsPolicyNames      :: List "PolicyNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetLoadBalancerPoliciesForBackendServer' constructor.
 --
@@ -95,6 +96,7 @@ slbpfbsLoadBalancerName =
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
 slbpfbsPolicyNames =
     lens _slbpfbsPolicyNames (\s a -> s { _slbpfbsPolicyNames = a })
+        . _List
 
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
     deriving (Eq, Ord, Show, Generic)
@@ -106,7 +108,12 @@ setLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBack
 instance ToPath SetLoadBalancerPoliciesForBackendServer where
     toPath = const "/"
 
-instance ToQuery SetLoadBalancerPoliciesForBackendServer
+instance ToQuery SetLoadBalancerPoliciesForBackendServer where
+    toQuery SetLoadBalancerPoliciesForBackendServer{..} = mconcat
+        [ "InstancePort"     =? _slbpfbsInstancePort
+        , "LoadBalancerName" =? _slbpfbsLoadBalancerName
+        , "PolicyNames"      =? _slbpfbsPolicyNames
+        ]
 
 instance ToHeaders SetLoadBalancerPoliciesForBackendServer
 

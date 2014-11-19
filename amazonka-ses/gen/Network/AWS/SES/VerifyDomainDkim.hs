@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ import qualified GHC.Exts
 
 newtype VerifyDomainDkim = VerifyDomainDkim
     { _vddDomain :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'VerifyDomainDkim' constructor.
 --
@@ -74,8 +75,8 @@ vddDomain :: Lens' VerifyDomainDkim Text
 vddDomain = lens _vddDomain (\s a -> s { _vddDomain = a })
 
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
-    { _vddrDkimTokens :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _vddrDkimTokens :: List "DkimTokens" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList VerifyDomainDkimResponse where
     type Item VerifyDomainDkimResponse = Text
@@ -104,12 +105,15 @@ verifyDomainDkimResponse = VerifyDomainDkimResponse
 -- For more information about creating DNS records using DKIM tokens, go to
 -- the Amazon SES Developer Guide.
 vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
-vddrDkimTokens = lens _vddrDkimTokens (\s a -> s { _vddrDkimTokens = a })
+vddrDkimTokens = lens _vddrDkimTokens (\s a -> s { _vddrDkimTokens = a }) . _List
 
 instance ToPath VerifyDomainDkim where
     toPath = const "/"
 
-instance ToQuery VerifyDomainDkim
+instance ToQuery VerifyDomainDkim where
+    toQuery VerifyDomainDkim{..} = mconcat
+        [ "Domain" =? _vddDomain
+        ]
 
 instance ToHeaders VerifyDomainDkim
 
@@ -121,5 +125,5 @@ instance AWSRequest VerifyDomainDkim where
     response = xmlResponse
 
 instance FromXML VerifyDomainDkimResponse where
-    parseXML = withElement "VerifyDomainDkimResult" $ \x ->
-            <$> x .@ "DkimTokens"
+    parseXML = withElement "VerifyDomainDkimResult" $ \x -> VerifyDomainDkimResponse
+        <$> x .@  "DkimTokens"

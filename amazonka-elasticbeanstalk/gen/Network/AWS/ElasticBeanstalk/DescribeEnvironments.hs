@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,12 +52,12 @@ import qualified GHC.Exts
 
 data DescribeEnvironments = DescribeEnvironments
     { _de1ApplicationName       :: Maybe Text
-    , _de1EnvironmentIds        :: [Text]
-    , _de1EnvironmentNames      :: [Text]
+    , _de1EnvironmentIds        :: List "EnvironmentIds" Text
+    , _de1EnvironmentNames      :: List "EnvironmentNames" Text
     , _de1IncludeDeleted        :: Maybe Bool
     , _de1IncludedDeletedBackTo :: Maybe RFC822
     , _de1VersionLabel          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeEnvironments' constructor.
 --
@@ -95,12 +96,14 @@ de1ApplicationName =
 de1EnvironmentIds :: Lens' DescribeEnvironments [Text]
 de1EnvironmentIds =
     lens _de1EnvironmentIds (\s a -> s { _de1EnvironmentIds = a })
+        . _List
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified names.
 de1EnvironmentNames :: Lens' DescribeEnvironments [Text]
 de1EnvironmentNames =
     lens _de1EnvironmentNames (\s a -> s { _de1EnvironmentNames = a })
+        . _List
 
 -- | Indicates whether to include deleted environments: true: Environments
 -- that have been deleted after IncludedDeletedBackTo are displayed. false:
@@ -123,8 +126,8 @@ de1VersionLabel :: Lens' DescribeEnvironments (Maybe Text)
 de1VersionLabel = lens _de1VersionLabel (\s a -> s { _de1VersionLabel = a })
 
 newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
-    { _derEnvironments :: [EnvironmentDescription]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _derEnvironments :: List "Environments" EnvironmentDescription
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeEnvironmentsResponse where
     type Item DescribeEnvironmentsResponse = EnvironmentDescription
@@ -145,12 +148,20 @@ describeEnvironmentsResponse = DescribeEnvironmentsResponse
 
 -- | Returns an EnvironmentDescription list.
 derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
-derEnvironments = lens _derEnvironments (\s a -> s { _derEnvironments = a })
+derEnvironments = lens _derEnvironments (\s a -> s { _derEnvironments = a }) . _List
 
 instance ToPath DescribeEnvironments where
     toPath = const "/"
 
-instance ToQuery DescribeEnvironments
+instance ToQuery DescribeEnvironments where
+    toQuery DescribeEnvironments{..} = mconcat
+        [ "ApplicationName"       =? _de1ApplicationName
+        , "EnvironmentIds"        =? _de1EnvironmentIds
+        , "EnvironmentNames"      =? _de1EnvironmentNames
+        , "IncludeDeleted"        =? _de1IncludeDeleted
+        , "IncludedDeletedBackTo" =? _de1IncludedDeletedBackTo
+        , "VersionLabel"          =? _de1VersionLabel
+        ]
 
 instance ToHeaders DescribeEnvironments
 
@@ -162,5 +173,5 @@ instance AWSRequest DescribeEnvironments where
     response = xmlResponse
 
 instance FromXML DescribeEnvironmentsResponse where
-    parseXML = withElement "DescribeEnvironmentsResult" $ \x ->
-            <$> x .@ "Environments"
+    parseXML = withElement "DescribeEnvironmentsResult" $ \x -> DescribeEnvironmentsResponse
+        <$> x .@  "Environments"

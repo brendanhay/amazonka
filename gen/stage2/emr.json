@@ -90,8 +90,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "instanceGroupConfig",
@@ -237,6 +236,7 @@
                 ],
                 "contentPad": 14,
                 "name": "InstanceGroupConfig",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -382,8 +382,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "instanceStateChangeReason",
@@ -423,6 +422,7 @@
                 "required": [],
                 "contentPad": 8,
                 "name": "InstanceStateChangeReason",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -492,8 +492,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "jobFlowDetail",
@@ -590,8 +589,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -601,12 +600,12 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003eA list of steps run by the job flow.\u003c/p\u003e",
                         "typeExposed": "[StepDetail]",
-                        "type": "[StepDetail]"
+                        "type": "List \"Steps\" StepDetail"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -616,12 +615,12 @@
                         "locationName": "BootstrapActions",
                         "documentation": "\u003cp\u003eA list of the bootstrap actions run by the job flow.\u003c/p\u003e",
                         "typeExposed": "[BootstrapActionDetail]",
-                        "type": "[BootstrapActionDetail]"
+                        "type": "List \"BootstrapActions\" BootstrapActionDetail"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -631,7 +630,7 @@
                         "locationName": "SupportedProducts",
                         "documentation": "\u003cp\u003eA list of strings set by third party software when the job flow is launched. If you are not using third party software to manage the job flow this value is empty.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SupportedProducts\" Text"
                     },
                     {
                         "location": null,
@@ -744,6 +743,7 @@
                 ],
                 "contentPad": 22,
                 "name": "JobFlowDetail",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -778,8 +778,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -789,12 +789,12 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003eA list of steps run by the job flow.\u003c/p\u003e",
                         "typeExposed": "[StepDetail]",
-                        "type": "[StepDetail]"
+                        "type": "List \"Steps\" StepDetail"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -804,12 +804,12 @@
                         "locationName": "BootstrapActions",
                         "documentation": "\u003cp\u003eA list of the bootstrap actions run by the job flow.\u003c/p\u003e",
                         "typeExposed": "[BootstrapActionDetail]",
-                        "type": "[BootstrapActionDetail]"
+                        "type": "List \"BootstrapActions\" BootstrapActionDetail"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -819,7 +819,7 @@
                         "locationName": "SupportedProducts",
                         "documentation": "\u003cp\u003eA list of strings set by third party software when the job flow is launched. If you are not using third party software to manage the job flow this value is empty.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SupportedProducts\" Text"
                     },
                     {
                         "location": null,
@@ -885,8 +885,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -896,7 +896,7 @@
                         "locationName": "BootstrapActions",
                         "documentation": "\u003cp\u003eA list of the bootstrap actions run by the job flow.\u003c/p\u003e",
                         "typeExposed": "[BootstrapActionDetail]",
-                        "type": "[BootstrapActionDetail]"
+                        "type": "List \"BootstrapActions\" BootstrapActionDetail"
                     },
                     {
                         "location": null,
@@ -1005,8 +1005,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1016,12 +1016,12 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003eA list of steps run by the job flow.\u003c/p\u003e",
                         "typeExposed": "[StepDetail]",
-                        "type": "[StepDetail]"
+                        "type": "List \"Steps\" StepDetail"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1031,7 +1031,7 @@
                         "locationName": "SupportedProducts",
                         "documentation": "\u003cp\u003eA list of strings set by third party software when the job flow is launched. If you are not using third party software to manage the job flow this value is empty.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SupportedProducts\" Text"
                     },
                     {
                         "location": null,
@@ -1054,8 +1054,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 8,
                 "ctor": "keyValue",
@@ -1095,6 +1094,7 @@
                 "required": [],
                 "contentPad": 6,
                 "name": "KeyValue",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -1165,8 +1165,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 8,
                 "ctor": "supportedProductConfig",
@@ -1188,8 +1187,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1199,13 +1198,14 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eThe list of user-supplied arguments.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 5,
                 "name": "SupportedProductConfig",
+                "locationPad": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -1225,8 +1225,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1236,14 +1236,14 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eThe list of user-supplied arguments.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1253,7 +1253,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eThe list of user-supplied arguments.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -1276,8 +1276,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "command",
@@ -1314,8 +1313,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1325,13 +1324,14 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eArguments for Amazon EMR to pass to the command for execution.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 11,
                 "name": "Command",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -1366,8 +1366,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1377,14 +1377,14 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eArguments for Amazon EMR to pass to the command for execution.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1394,7 +1394,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eArguments for Amazon EMR to pass to the command for execution.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -1473,8 +1473,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "clusterStateChangeReason",
@@ -1514,6 +1513,7 @@
                 "required": [],
                 "contentPad": 8,
                 "name": "ClusterStateChangeReason",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -1584,8 +1584,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
@@ -1625,6 +1624,7 @@
                 "required": [],
                 "contentPad": 6,
                 "name": "Tag",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -1694,8 +1694,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "application",
@@ -1732,8 +1731,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1743,7 +1742,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eArguments for Amazon EMR to pass to the application.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -1758,13 +1757,14 @@
                         "locationName": "AdditionalInfo",
                         "documentation": "\u003cp\u003eThis option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 15,
                 "name": "Application",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -1799,8 +1799,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1810,7 +1810,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eArguments for Amazon EMR to pass to the application.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -1825,7 +1825,7 @@
                         "locationName": "AdditionalInfo",
                         "documentation": "\u003cp\u003eThis option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -1842,12 +1842,12 @@
                         "locationName": "AdditionalInfo",
                         "documentation": "\u003cp\u003eThis option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1857,7 +1857,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eArguments for Amazon EMR to pass to the application.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -1895,8 +1895,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 27,
                 "ctor": "jobFlowExecutionStatusDetail",
@@ -2027,6 +2026,7 @@
                 ],
                 "contentPad": 22,
                 "name": "JobFlowExecutionStatusDetail",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -2186,8 +2186,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "instanceGroupStatus",
@@ -2242,6 +2241,7 @@
                 "required": [],
                 "contentPad": 18,
                 "name": "InstanceGroupStatus",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -2341,8 +2341,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "cluster",
@@ -2499,8 +2498,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2510,12 +2509,12 @@
                         "locationName": "Applications",
                         "documentation": "\u003cp\u003eThe applications installed on this cluster.\u003c/p\u003e",
                         "typeExposed": "[Application]",
-                        "type": "[Application]"
+                        "type": "List \"Applications\" Application"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2525,7 +2524,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags associated with a cluster.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": null,
@@ -2547,6 +2546,7 @@
                 "required": [],
                 "contentPad": 22,
                 "name": "Cluster",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -2701,8 +2701,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2712,12 +2712,12 @@
                         "locationName": "Applications",
                         "documentation": "\u003cp\u003eThe applications installed on this cluster.\u003c/p\u003e",
                         "typeExposed": "[Application]",
-                        "type": "[Application]"
+                        "type": "List \"Applications\" Application"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2727,7 +2727,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags associated with a cluster.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": null,
@@ -2748,8 +2748,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2759,7 +2759,7 @@
                         "locationName": "Applications",
                         "documentation": "\u003cp\u003eThe applications installed on this cluster.\u003c/p\u003e",
                         "typeExposed": "[Application]",
-                        "type": "[Application]"
+                        "type": "List \"Applications\" Application"
                     },
                     {
                         "location": null,
@@ -2898,8 +2898,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2909,7 +2909,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags associated with a cluster.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": null,
@@ -2947,8 +2947,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "instanceTimeline",
@@ -3003,6 +3002,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "InstanceTimeline",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -3103,8 +3103,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "ec2InstanceAttributes",
@@ -3174,6 +3173,7 @@
                 "required": [],
                 "contentPad": 20,
                 "name": "Ec2InstanceAttributes",
+                "locationPad": 20,
                 "type": "record",
                 "optional": [
                     {
@@ -3341,8 +3341,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "hadoopStepConfig",
@@ -3375,7 +3374,7 @@
                         "locationName": "Properties",
                         "documentation": "\u003cp\u003eThe list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -3394,8 +3393,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3405,13 +3404,14 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eThe list of command line arguments to pass to the JAR file's main function for execution.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 11,
                 "name": "HadoopStepConfig",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -3442,7 +3442,7 @@
                         "locationName": "Properties",
                         "documentation": "\u003cp\u003eThe list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -3461,8 +3461,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3472,14 +3472,14 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eThe list of command line arguments to pass to the JAR file's main function for execution.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3489,7 +3489,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eThe list of command line arguments to pass to the JAR file's main function for execution.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -3534,7 +3534,7 @@
                         "locationName": "Properties",
                         "documentation": "\u003cp\u003eThe list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -3564,8 +3564,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "stepDetail",
@@ -3636,6 +3635,7 @@
                 ],
                 "contentPad": 22,
                 "name": "StepDetail",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3675,8 +3675,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "instanceGroupStateChangeReason",
@@ -3716,6 +3715,7 @@
                 "required": [],
                 "contentPad": 8,
                 "name": "InstanceGroupStateChangeReason",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -3822,8 +3822,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "stepStatus",
@@ -3878,6 +3877,7 @@
                 "required": [],
                 "contentPad": 18,
                 "name": "StepStatus",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -3977,8 +3977,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "stepSummary",
@@ -4033,6 +4032,7 @@
                 "required": [],
                 "contentPad": 7,
                 "name": "StepSummary",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -4158,8 +4158,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "stepTimeline",
@@ -4214,6 +4213,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "StepTimeline",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -4315,7 +4315,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4374,6 +4373,7 @@
                 ],
                 "contentPad": 0,
                 "name": "PlacementType",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4397,16 +4397,15 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "hadoopJarStepConfig",
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4416,7 +4415,7 @@
                         "locationName": "Properties",
                         "documentation": "\u003cp\u003eA list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.\u003c/p\u003e",
                         "typeExposed": "[KeyValue]",
-                        "type": "[KeyValue]"
+                        "type": "List \"Properties\" KeyValue"
                     },
                     {
                         "location": null,
@@ -4450,8 +4449,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4461,7 +4460,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eA list of command line arguments passed to the JAR file's main function when executed.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "payload": null,
@@ -4484,12 +4483,13 @@
                 ],
                 "contentPad": 11,
                 "name": "HadoopJarStepConfig",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4499,7 +4499,7 @@
                         "locationName": "Properties",
                         "documentation": "\u003cp\u003eA list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.\u003c/p\u003e",
                         "typeExposed": "[KeyValue]",
-                        "type": "[KeyValue]"
+                        "type": "List \"Properties\" KeyValue"
                     },
                     {
                         "location": null,
@@ -4518,8 +4518,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4529,14 +4529,14 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eA list of command line arguments passed to the JAR file's main function when executed.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4546,7 +4546,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eA list of command line arguments passed to the JAR file's main function when executed.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -4580,8 +4580,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4591,7 +4591,7 @@
                         "locationName": "Properties",
                         "documentation": "\u003cp\u003eA list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.\u003c/p\u003e",
                         "typeExposed": "[KeyValue]",
-                        "type": "[KeyValue]"
+                        "type": "List \"Properties\" KeyValue"
                     }
                 ]
             },
@@ -4599,8 +4599,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 30,
                 "ctor": "instanceGroupModifyConfig",
@@ -4637,8 +4636,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4648,7 +4647,7 @@
                         "locationName": "EC2InstanceIdsToTerminate",
                         "documentation": "\u003cp\u003eThe EC2 InstanceIds to terminate. For advanced users only. Once you terminate the instances, the instance group will not return to its original requested size.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EC2InstanceIdsToTerminate\" Text"
                     }
                 ],
                 "payload": null,
@@ -4671,6 +4670,7 @@
                 ],
                 "contentPad": 26,
                 "name": "InstanceGroupModifyConfig",
+                "locationPad": 26,
                 "type": "record",
                 "optional": [
                     {
@@ -4690,8 +4690,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4701,14 +4701,14 @@
                         "locationName": "EC2InstanceIdsToTerminate",
                         "documentation": "\u003cp\u003eThe EC2 InstanceIds to terminate. For advanced users only. Once you terminate the instances, the instance group will not return to its original requested size.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EC2InstanceIdsToTerminate\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4718,7 +4718,7 @@
                         "locationName": "EC2InstanceIdsToTerminate",
                         "documentation": "\u003cp\u003eThe EC2 InstanceIds to terminate. For advanced users only. Once you terminate the instances, the instance group will not return to its original requested size.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"EC2InstanceIdsToTerminate\" Text"
                     },
                     {
                         "location": null,
@@ -4756,8 +4756,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "instanceGroupDetail",
@@ -5083,6 +5082,7 @@
                 ],
                 "contentPad": 22,
                 "name": "InstanceGroupDetail",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -5408,8 +5408,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "stepStateChangeReason",
@@ -5449,6 +5448,7 @@
                 "required": [],
                 "contentPad": 8,
                 "name": "StepStateChangeReason",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -5540,8 +5540,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "step",
@@ -5626,6 +5625,7 @@
                 "required": [],
                 "contentPad": 16,
                 "name": "Step",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -5807,8 +5807,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "instanceGroupTimeline",
@@ -5863,6 +5862,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "InstanceGroupTimeline",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -5962,8 +5962,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -6004,6 +6003,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "BootstrapActionDetail",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -6044,8 +6044,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "stepExecutionStatusDetail",
@@ -6161,6 +6160,7 @@
                 ],
                 "contentPad": 22,
                 "name": "StepExecutionStatusDetail",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -6290,8 +6290,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "instanceStatus",
@@ -6346,6 +6345,7 @@
                 "required": [],
                 "contentPad": 18,
                 "name": "InstanceStatus",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -6463,8 +6463,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 32,
                 "ctor": "jobFlowInstancesConfig",
@@ -6516,8 +6515,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6527,7 +6526,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eConfiguration for the job flow's instance groups.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroupConfig]",
-                        "type": "[InstanceGroupConfig]"
+                        "type": "List \"InstanceGroups\" InstanceGroupConfig"
                     },
                     {
                         "location": null,
@@ -6624,6 +6623,7 @@
                 "required": [],
                 "contentPad": 28,
                 "name": "JobFlowInstancesConfig",
+                "locationPad": 28,
                 "type": "record",
                 "optional": [
                     {
@@ -6673,8 +6673,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6684,7 +6684,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eConfiguration for the job flow's instance groups.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroupConfig]",
-                        "type": "[InstanceGroupConfig]"
+                        "type": "List \"InstanceGroups\" InstanceGroupConfig"
                     },
                     {
                         "location": null,
@@ -6840,8 +6840,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6851,7 +6851,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eConfiguration for the job flow's instance groups.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroupConfig]",
-                        "type": "[InstanceGroupConfig]"
+                        "type": "List \"InstanceGroups\" InstanceGroupConfig"
                     },
                     {
                         "location": null,
@@ -6933,8 +6933,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "stepConfig",
@@ -7020,6 +7019,7 @@
                 ],
                 "contentPad": 16,
                 "name": "StepConfig",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -7089,8 +7089,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "instanceGroup",
@@ -7235,6 +7234,7 @@
                 "required": [],
                 "contentPad": 23,
                 "name": "InstanceGroup",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -7514,8 +7514,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "bootstrapActionConfig",
@@ -7586,6 +7585,7 @@
                 ],
                 "contentPad": 22,
                 "name": "BootstrapActionConfig",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -7624,8 +7624,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "clusterSummary",
@@ -7680,6 +7679,7 @@
                 "required": [],
                 "contentPad": 7,
                 "name": "ClusterSummary",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -7779,8 +7779,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 32,
                 "ctor": "jobFlowInstancesDetail",
@@ -7862,8 +7861,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7873,7 +7872,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eDetails about the job flow's instance groups. \u003c/p\u003e",
                         "typeExposed": "[InstanceGroupDetail]",
-                        "type": "[InstanceGroupDetail]"
+                        "type": "List \"InstanceGroups\" InstanceGroupDetail"
                     },
                     {
                         "location": null,
@@ -8031,6 +8030,7 @@
                 ],
                 "contentPad": 28,
                 "name": "JobFlowInstancesDetail",
+                "locationPad": 28,
                 "type": "record",
                 "optional": [
                     {
@@ -8065,8 +8065,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8076,7 +8076,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eDetails about the job flow's instance groups. \u003c/p\u003e",
                         "typeExposed": "[InstanceGroupDetail]",
-                        "type": "[InstanceGroupDetail]"
+                        "type": "List \"InstanceGroups\" InstanceGroupDetail"
                     },
                     {
                         "location": null,
@@ -8247,8 +8247,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8258,7 +8258,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eDetails about the job flow's instance groups. \u003c/p\u003e",
                         "typeExposed": "[InstanceGroupDetail]",
-                        "type": "[InstanceGroupDetail]"
+                        "type": "List \"InstanceGroups\" InstanceGroupDetail"
                     },
                     {
                         "location": null,
@@ -8385,8 +8385,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "clusterStatus",
@@ -8441,6 +8440,7 @@
                 "required": [],
                 "contentPad": 18,
                 "name": "ClusterStatus",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -8561,8 +8561,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "clusterTimeline",
@@ -8617,6 +8616,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "ClusterTimeline",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -8736,8 +8736,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "instance'",
@@ -8852,6 +8851,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "Instance",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -9072,8 +9072,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "scriptBootstrapActionConfig",
@@ -9095,8 +9094,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9106,7 +9105,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eA list of command line arguments to pass to the bootstrap action script.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "payload": null,
@@ -9129,12 +9128,13 @@
                 ],
                 "contentPad": 5,
                 "name": "ScriptBootstrapActionConfig",
+                "locationPad": 5,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9144,14 +9144,14 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eA list of command line arguments to pass to the bootstrap action script.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9161,7 +9161,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eA list of command line arguments to pass to the bootstrap action script.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -9194,8 +9194,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -9220,8 +9219,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9231,7 +9230,7 @@
                         "locationName": "InstanceGroupIds",
                         "documentation": "\u003cp\u003eInstance group IDs of the newly created instance groups.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceGroupIds\" Text"
                     }
                 ],
                 "wrapper": false,
@@ -9243,6 +9242,7 @@
                 "contentPad": 17,
                 "name": "AddInstanceGroupsResponse",
                 "resultWrapper": null,
+                "locationPad": 17,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -9263,8 +9263,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9274,14 +9274,14 @@
                         "locationName": "InstanceGroupIds",
                         "documentation": "\u003cp\u003eInstance group IDs of the newly created instance groups.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceGroupIds\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9291,7 +9291,7 @@
                         "locationName": "InstanceGroupIds",
                         "documentation": "\u003cp\u003eInstance group IDs of the newly created instance groups.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceGroupIds\" Text"
                     },
                     {
                         "location": null,
@@ -9325,8 +9325,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -9336,8 +9335,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9347,7 +9346,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eInstance Groups to add.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroupConfig]",
-                        "type": "[InstanceGroupConfig]"
+                        "type": "List \"InstanceGroups\" InstanceGroupConfig"
                     },
                     {
                         "location": null,
@@ -9396,14 +9395,15 @@
                 "queryPad": 0,
                 "name": "AddInstanceGroups",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9413,14 +9413,14 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eInstance Groups to add.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroupConfig]",
-                        "type": "[InstanceGroupConfig]"
+                        "type": "List \"InstanceGroups\" InstanceGroupConfig"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9430,7 +9430,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eInstance Groups to add.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroupConfig]",
-                        "type": "[InstanceGroupConfig]"
+                        "type": "List \"InstanceGroups\" InstanceGroupConfig"
                     },
                     {
                         "location": null,
@@ -9457,7 +9457,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -9469,8 +9468,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -9480,13 +9479,13 @@
                     "locationName": "StepIds",
                     "documentation": "\u003cp\u003eThe identifiers of the list of steps added to the job flow.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"StepIds\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9496,7 +9495,7 @@
                         "locationName": "StepIds",
                         "documentation": "\u003cp\u003eThe identifiers of the list of steps added to the job flow.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StepIds\" Text"
                     }
                 ],
                 "wrapper": false,
@@ -9508,13 +9507,14 @@
                 "contentPad": 0,
                 "name": "AddJobFlowStepsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9524,14 +9524,14 @@
                         "locationName": "StepIds",
                         "documentation": "\u003cp\u003eThe identifiers of the list of steps added to the job flow.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StepIds\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9541,7 +9541,7 @@
                         "locationName": "StepIds",
                         "documentation": "\u003cp\u003eThe identifiers of the list of steps added to the job flow.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StepIds\" Text"
                     }
                 ]
             },
@@ -9560,8 +9560,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -9586,8 +9585,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9597,7 +9596,7 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eStepConfig\u003c/a\u003e to be executed by the job flow. \u003c/p\u003e",
                         "typeExposed": "[StepConfig]",
-                        "type": "[StepConfig]"
+                        "type": "List \"Steps\" StepConfig"
                     }
                 ],
                 "path": [
@@ -9631,14 +9630,15 @@
                 "queryPad": 0,
                 "name": "AddJobFlowSteps",
                 "query": [],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9648,7 +9648,7 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eStepConfig\u003c/a\u003e to be executed by the job flow. \u003c/p\u003e",
                         "typeExposed": "[StepConfig]",
-                        "type": "[StepConfig]"
+                        "type": "List \"Steps\" StepConfig"
                     }
                 ],
                 "fields": [
@@ -9669,8 +9669,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9680,7 +9680,7 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eStepConfig\u003c/a\u003e to be executed by the job flow. \u003c/p\u003e",
                         "typeExposed": "[StepConfig]",
-                        "type": "[StepConfig]"
+                        "type": "List \"Steps\" StepConfig"
                     }
                 ]
             }
@@ -9726,8 +9726,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -9752,8 +9751,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9763,7 +9762,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags to associate with a cluster and propagate to Amazon EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "path": [
@@ -9797,14 +9796,15 @@
                 "queryPad": 0,
                 "name": "AddTags",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9814,7 +9814,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags to associate with a cluster and propagate to Amazon EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "fields": [
@@ -9835,8 +9835,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9846,7 +9846,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags to associate with a cluster and propagate to Amazon EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ]
             }
@@ -9856,8 +9856,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9906,6 +9905,7 @@
                 "contentPad": 0,
                 "name": "DescribeClusterResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -9960,7 +9960,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10033,6 +10032,7 @@
                 "queryPad": 0,
                 "name": "DescribeCluster",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -10062,7 +10062,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -10074,8 +10073,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -10085,13 +10084,13 @@
                     "locationName": "JobFlows",
                     "documentation": "\u003cp\u003eA list of job flows matching the parameters supplied.\u003c/p\u003e",
                     "typeExposed": "[JobFlowDetail]",
-                    "type": "[JobFlowDetail]"
+                    "type": "List \"JobFlows\" JobFlowDetail"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10101,7 +10100,7 @@
                         "locationName": "JobFlows",
                         "documentation": "\u003cp\u003eA list of job flows matching the parameters supplied.\u003c/p\u003e",
                         "typeExposed": "[JobFlowDetail]",
-                        "type": "[JobFlowDetail]"
+                        "type": "List \"JobFlows\" JobFlowDetail"
                     }
                 ],
                 "wrapper": false,
@@ -10113,13 +10112,14 @@
                 "contentPad": 0,
                 "name": "DescribeJobFlowsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10129,14 +10129,14 @@
                         "locationName": "JobFlows",
                         "documentation": "\u003cp\u003eA list of job flows matching the parameters supplied.\u003c/p\u003e",
                         "typeExposed": "[JobFlowDetail]",
-                        "type": "[JobFlowDetail]"
+                        "type": "List \"JobFlows\" JobFlowDetail"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10146,7 +10146,7 @@
                         "locationName": "JobFlows",
                         "documentation": "\u003cp\u003eA list of job flows matching the parameters supplied.\u003c/p\u003e",
                         "typeExposed": "[JobFlowDetail]",
-                        "type": "[JobFlowDetail]"
+                        "type": "List \"JobFlows\" JobFlowDetail"
                     }
                 ]
             },
@@ -10166,8 +10166,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10207,8 +10206,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10218,12 +10217,12 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003eReturn only job flows whose job flow ID is contained in this list. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10233,7 +10232,7 @@
                         "locationName": "JobFlowStates",
                         "documentation": "\u003cp\u003eReturn only job flows whose state is contained in this list.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"JobFlowStates\" Text"
                     }
                 ],
                 "path": [
@@ -10251,6 +10250,7 @@
                 "queryPad": 0,
                 "name": "DescribeJobFlows",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10287,8 +10287,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10298,12 +10298,12 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003eReturn only job flows whose job flow ID is contained in this list. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10313,7 +10313,7 @@
                         "locationName": "JobFlowStates",
                         "documentation": "\u003cp\u003eReturn only job flows whose state is contained in this list.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"JobFlowStates\" Text"
                     }
                 ],
                 "fields": [
@@ -10349,8 +10349,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10360,12 +10360,12 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003eReturn only job flows whose job flow ID is contained in this list. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10375,7 +10375,7 @@
                         "locationName": "JobFlowStates",
                         "documentation": "\u003cp\u003eReturn only job flows whose state is contained in this list.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"JobFlowStates\" Text"
                     }
                 ]
             }
@@ -10385,8 +10385,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10435,6 +10434,7 @@
                 "contentPad": 0,
                 "name": "DescribeStepResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -10488,8 +10488,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10574,6 +10573,7 @@
                 "queryPad": 0,
                 "name": "DescribeStep",
                 "query": [],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10617,8 +10617,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10628,8 +10627,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10639,7 +10638,7 @@
                         "locationName": "BootstrapActions",
                         "documentation": "\u003cp\u003eThe bootstrap actions associated with the cluster .\u003c/p\u003e",
                         "typeExposed": "[Command]",
-                        "type": "[Command]"
+                        "type": "List \"BootstrapActions\" Command"
                     },
                     {
                         "location": null,
@@ -10666,13 +10665,14 @@
                 "contentPad": 17,
                 "name": "ListBootstrapActionsResponse",
                 "resultWrapper": null,
+                "locationPad": 17,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10682,7 +10682,7 @@
                         "locationName": "BootstrapActions",
                         "documentation": "\u003cp\u003eThe bootstrap actions associated with the cluster .\u003c/p\u003e",
                         "typeExposed": "[Command]",
-                        "type": "[Command]"
+                        "type": "List \"BootstrapActions\" Command"
                     },
                     {
                         "location": null,
@@ -10703,8 +10703,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10714,7 +10714,7 @@
                         "locationName": "BootstrapActions",
                         "documentation": "\u003cp\u003eThe bootstrap actions associated with the cluster .\u003c/p\u003e",
                         "typeExposed": "[Command]",
-                        "type": "[Command]"
+                        "type": "List \"BootstrapActions\" Command"
                     },
                     {
                         "location": null,
@@ -10756,8 +10756,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10827,6 +10826,7 @@
                 "queryPad": 0,
                 "name": "ListBootstrapActions",
                 "query": [],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10886,8 +10886,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10897,8 +10896,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10908,7 +10907,7 @@
                         "locationName": "Clusters",
                         "documentation": "\u003cp\u003eThe list of clusters for the account based on the given filters. \u003c/p\u003e",
                         "typeExposed": "[ClusterSummary]",
-                        "type": "[ClusterSummary]"
+                        "type": "List \"Clusters\" ClusterSummary"
                     },
                     {
                         "location": null,
@@ -10935,13 +10934,14 @@
                 "contentPad": 9,
                 "name": "ListClustersResponse",
                 "resultWrapper": null,
+                "locationPad": 9,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10951,7 +10951,7 @@
                         "locationName": "Clusters",
                         "documentation": "\u003cp\u003eThe list of clusters for the account based on the given filters. \u003c/p\u003e",
                         "typeExposed": "[ClusterSummary]",
-                        "type": "[ClusterSummary]"
+                        "type": "List \"Clusters\" ClusterSummary"
                     },
                     {
                         "location": null,
@@ -10972,8 +10972,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10983,7 +10983,7 @@
                         "locationName": "Clusters",
                         "documentation": "\u003cp\u003eThe list of clusters for the account based on the given filters. \u003c/p\u003e",
                         "typeExposed": "[ClusterSummary]",
-                        "type": "[ClusterSummary]"
+                        "type": "List \"Clusters\" ClusterSummary"
                     },
                     {
                         "location": null,
@@ -11025,8 +11025,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11066,8 +11065,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11077,7 +11076,7 @@
                         "locationName": "ClusterStates",
                         "documentation": "\u003cp\u003eThe cluster state filters to apply when listing clusters. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClusterStates\" Text"
                     },
                     {
                         "location": null,
@@ -11110,6 +11109,7 @@
                 "queryPad": 0,
                 "name": "ListClusters",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -11146,8 +11146,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11157,7 +11157,7 @@
                         "locationName": "ClusterStates",
                         "documentation": "\u003cp\u003eThe cluster state filters to apply when listing clusters. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClusterStates\" Text"
                     },
                     {
                         "location": null,
@@ -11178,8 +11178,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11189,7 +11189,7 @@
                         "locationName": "ClusterStates",
                         "documentation": "\u003cp\u003eThe cluster state filters to apply when listing clusters. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ClusterStates\" Text"
                     },
                     {
                         "location": null,
@@ -11244,8 +11244,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11255,8 +11254,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11266,7 +11265,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eThe list of instance groups for the cluster and given filters.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroup]",
-                        "type": "[InstanceGroup]"
+                        "type": "List \"InstanceGroups\" InstanceGroup"
                     },
                     {
                         "location": null,
@@ -11293,13 +11292,14 @@
                 "contentPad": 15,
                 "name": "ListInstanceGroupsResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11309,7 +11309,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eThe list of instance groups for the cluster and given filters.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroup]",
-                        "type": "[InstanceGroup]"
+                        "type": "List \"InstanceGroups\" InstanceGroup"
                     },
                     {
                         "location": null,
@@ -11330,8 +11330,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11341,7 +11341,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eThe list of instance groups for the cluster and given filters.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroup]",
-                        "type": "[InstanceGroup]"
+                        "type": "List \"InstanceGroups\" InstanceGroup"
                     },
                     {
                         "location": null,
@@ -11383,8 +11383,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11454,6 +11453,7 @@
                 "queryPad": 0,
                 "name": "ListInstanceGroups",
                 "query": [],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -11513,8 +11513,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11524,8 +11523,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11535,7 +11534,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003eThe list of instances for the cluster and given filters.\u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": null,
@@ -11562,13 +11561,14 @@
                 "contentPad": 10,
                 "name": "ListInstancesResponse",
                 "resultWrapper": null,
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11578,7 +11578,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003eThe list of instances for the cluster and given filters.\u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": null,
@@ -11599,8 +11599,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11610,7 +11610,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003eThe list of instances for the cluster and given filters.\u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": null,
@@ -11652,8 +11652,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11693,8 +11692,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11704,7 +11703,7 @@
                         "locationName": "InstanceGroupTypes",
                         "documentation": "\u003cp\u003eThe type of instance group for which to list the instances.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceGroupTypes\" Text"
                     },
                     {
                         "location": null,
@@ -11753,6 +11752,7 @@
                 "queryPad": 0,
                 "name": "ListInstances",
                 "query": [],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -11774,8 +11774,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11785,7 +11785,7 @@
                         "locationName": "InstanceGroupTypes",
                         "documentation": "\u003cp\u003eThe type of instance group for which to list the instances.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceGroupTypes\" Text"
                     },
                     {
                         "location": null,
@@ -11836,8 +11836,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11847,7 +11847,7 @@
                         "locationName": "InstanceGroupTypes",
                         "documentation": "\u003cp\u003eThe type of instance group for which to list the instances.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceGroupTypes\" Text"
                     },
                     {
                         "location": null,
@@ -11872,8 +11872,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11883,8 +11882,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11894,7 +11893,7 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003eThe filtered list of steps for the cluster.\u003c/p\u003e",
                         "typeExposed": "[StepSummary]",
-                        "type": "[StepSummary]"
+                        "type": "List \"Steps\" StepSummary"
                     },
                     {
                         "location": null,
@@ -11921,13 +11920,14 @@
                 "contentPad": 7,
                 "name": "ListStepsResponse",
                 "resultWrapper": null,
+                "locationPad": 7,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11937,7 +11937,7 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003eThe filtered list of steps for the cluster.\u003c/p\u003e",
                         "typeExposed": "[StepSummary]",
-                        "type": "[StepSummary]"
+                        "type": "List \"Steps\" StepSummary"
                     },
                     {
                         "location": null,
@@ -11973,8 +11973,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11984,7 +11984,7 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003eThe filtered list of steps for the cluster.\u003c/p\u003e",
                         "typeExposed": "[StepSummary]",
-                        "type": "[StepSummary]"
+                        "type": "List \"Steps\" StepSummary"
                     }
                 ]
             },
@@ -12011,8 +12011,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -12037,8 +12036,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12048,7 +12047,7 @@
                         "locationName": "StepStates",
                         "documentation": "\u003cp\u003eThe filter to limit the step list based on certain states.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StepStates\" Text"
                     },
                     {
                         "location": null,
@@ -12097,14 +12096,15 @@
                 "queryPad": 0,
                 "name": "ListSteps",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12114,7 +12114,7 @@
                         "locationName": "StepStates",
                         "documentation": "\u003cp\u003eThe filter to limit the step list based on certain states.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StepStates\" Text"
                     },
                     {
                         "location": null,
@@ -12165,8 +12165,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12176,7 +12176,7 @@
                         "locationName": "StepStates",
                         "documentation": "\u003cp\u003eThe filter to limit the step list based on certain states.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StepStates\" Text"
                     }
                 ]
             }
@@ -12223,7 +12223,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -12235,8 +12234,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -12246,13 +12245,13 @@
                     "locationName": "InstanceGroups",
                     "documentation": "\u003cp\u003eInstance groups to change.\u003c/p\u003e",
                     "typeExposed": "[InstanceGroupModifyConfig]",
-                    "type": "[InstanceGroupModifyConfig]"
+                    "type": "List \"InstanceGroups\" InstanceGroupModifyConfig"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12262,7 +12261,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eInstance groups to change.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroupModifyConfig]",
-                        "type": "[InstanceGroupModifyConfig]"
+                        "type": "List \"InstanceGroups\" InstanceGroupModifyConfig"
                     }
                 ],
                 "path": [
@@ -12280,14 +12279,15 @@
                 "queryPad": 0,
                 "name": "ModifyInstanceGroups",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12297,14 +12297,14 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eInstance groups to change.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroupModifyConfig]",
-                        "type": "[InstanceGroupModifyConfig]"
+                        "type": "List \"InstanceGroups\" InstanceGroupModifyConfig"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12314,7 +12314,7 @@
                         "locationName": "InstanceGroups",
                         "documentation": "\u003cp\u003eInstance groups to change.\u003c/p\u003e",
                         "typeExposed": "[InstanceGroupModifyConfig]",
-                        "type": "[InstanceGroupModifyConfig]"
+                        "type": "List \"InstanceGroups\" InstanceGroupModifyConfig"
                     }
                 ]
             }
@@ -12361,8 +12361,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -12387,8 +12386,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12398,7 +12397,7 @@
                         "locationName": "TagKeys",
                         "documentation": "\u003cp\u003eA list of tag keys to remove from a resource.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "path": [
@@ -12432,14 +12431,15 @@
                 "queryPad": 0,
                 "name": "RemoveTags",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12449,7 +12449,7 @@
                         "locationName": "TagKeys",
                         "documentation": "\u003cp\u003eA list of tag keys to remove from a resource.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "fields": [
@@ -12470,8 +12470,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12481,7 +12481,7 @@
                         "locationName": "TagKeys",
                         "documentation": "\u003cp\u003eA list of tag keys to remove from a resource.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ]
             }
@@ -12493,7 +12493,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -12543,6 +12542,7 @@
                 "contentPad": 0,
                 "name": "RunJobFlowResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -12595,8 +12595,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -12681,8 +12680,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12692,12 +12691,12 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003eA list of steps to be executed by the job flow.\u003c/p\u003e",
                         "typeExposed": "[StepConfig]",
-                        "type": "[StepConfig]"
+                        "type": "List \"Steps\" StepConfig"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12707,12 +12706,12 @@
                         "locationName": "BootstrapActions",
                         "documentation": "\u003cp\u003e A list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. \u003c/p\u003e",
                         "typeExposed": "[BootstrapActionConfig]",
-                        "type": "[BootstrapActionConfig]"
+                        "type": "List \"BootstrapActions\" BootstrapActionConfig"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12722,12 +12721,12 @@
                         "locationName": "SupportedProducts",
                         "documentation": "\u003cp\u003eA list of strings that indicates third-party software to use with the job flow. For more information, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html\"\u003eUse Third Party Applications with Amazon EMR\u003c/a\u003e. Currently supported values are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\"mapr-m3\" - launch the job flow using MapR M3 Edition.\u003c/li\u003e \u003cli\u003e\"mapr-m5\" - launch the job flow using MapR M5 Edition.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SupportedProducts\" Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12737,7 +12736,7 @@
                         "locationName": "NewSupportedProducts",
                         "documentation": "\u003cp\u003eA list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html\"\u003eLaunch a Job Flow on the MapR Distribution for Hadoop\u003c/a\u003e. Currently supported values are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\"mapr-m3\" - launch the job flow using MapR M3 Edition.\u003c/li\u003e \u003cli\u003e\"mapr-m5\" - launch the job flow using MapR M5 Edition.\u003c/li\u003e \u003cli\u003e\"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition respectively.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[SupportedProductConfig]",
-                        "type": "[SupportedProductConfig]"
+                        "type": "List \"NewSupportedProducts\" SupportedProductConfig"
                     },
                     {
                         "location": null,
@@ -12786,8 +12785,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12797,7 +12796,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags to associate with a cluster and propagate to Amazon EC2 instances.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "path": [
@@ -12846,6 +12845,7 @@
                 "queryPad": 0,
                 "name": "RunJobFlow",
                 "query": [],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -12897,8 +12897,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12908,12 +12908,12 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003eA list of steps to be executed by the job flow.\u003c/p\u003e",
                         "typeExposed": "[StepConfig]",
-                        "type": "[StepConfig]"
+                        "type": "List \"Steps\" StepConfig"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12923,12 +12923,12 @@
                         "locationName": "BootstrapActions",
                         "documentation": "\u003cp\u003e A list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. \u003c/p\u003e",
                         "typeExposed": "[BootstrapActionConfig]",
-                        "type": "[BootstrapActionConfig]"
+                        "type": "List \"BootstrapActions\" BootstrapActionConfig"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12938,12 +12938,12 @@
                         "locationName": "SupportedProducts",
                         "documentation": "\u003cp\u003eA list of strings that indicates third-party software to use with the job flow. For more information, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html\"\u003eUse Third Party Applications with Amazon EMR\u003c/a\u003e. Currently supported values are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\"mapr-m3\" - launch the job flow using MapR M3 Edition.\u003c/li\u003e \u003cli\u003e\"mapr-m5\" - launch the job flow using MapR M5 Edition.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SupportedProducts\" Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12953,7 +12953,7 @@
                         "locationName": "NewSupportedProducts",
                         "documentation": "\u003cp\u003eA list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html\"\u003eLaunch a Job Flow on the MapR Distribution for Hadoop\u003c/a\u003e. Currently supported values are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\"mapr-m3\" - launch the job flow using MapR M3 Edition.\u003c/li\u003e \u003cli\u003e\"mapr-m5\" - launch the job flow using MapR M5 Edition.\u003c/li\u003e \u003cli\u003e\"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition respectively.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[SupportedProductConfig]",
-                        "type": "[SupportedProductConfig]"
+                        "type": "List \"NewSupportedProducts\" SupportedProductConfig"
                     },
                     {
                         "location": null,
@@ -13002,8 +13002,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13013,7 +13013,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags to associate with a cluster and propagate to Amazon EC2 instances.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "fields": [
@@ -13049,8 +13049,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13060,7 +13060,7 @@
                         "locationName": "BootstrapActions",
                         "documentation": "\u003cp\u003e A list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. \u003c/p\u003e",
                         "typeExposed": "[BootstrapActionConfig]",
-                        "type": "[BootstrapActionConfig]"
+                        "type": "List \"BootstrapActions\" BootstrapActionConfig"
                     },
                     {
                         "location": null,
@@ -13124,8 +13124,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13135,7 +13135,7 @@
                         "locationName": "NewSupportedProducts",
                         "documentation": "\u003cp\u003eA list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html\"\u003eLaunch a Job Flow on the MapR Distribution for Hadoop\u003c/a\u003e. Currently supported values are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\"mapr-m3\" - launch the job flow using MapR M3 Edition.\u003c/li\u003e \u003cli\u003e\"mapr-m5\" - launch the job flow using MapR M5 Edition.\u003c/li\u003e \u003cli\u003e\"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition respectively.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[SupportedProductConfig]",
-                        "type": "[SupportedProductConfig]"
+                        "type": "List \"NewSupportedProducts\" SupportedProductConfig"
                     },
                     {
                         "location": null,
@@ -13154,8 +13154,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13165,12 +13165,12 @@
                         "locationName": "Steps",
                         "documentation": "\u003cp\u003eA list of steps to be executed by the job flow.\u003c/p\u003e",
                         "typeExposed": "[StepConfig]",
-                        "type": "[StepConfig]"
+                        "type": "List \"Steps\" StepConfig"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13180,12 +13180,12 @@
                         "locationName": "SupportedProducts",
                         "documentation": "\u003cp\u003eA list of strings that indicates third-party software to use with the job flow. For more information, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html\"\u003eUse Third Party Applications with Amazon EMR\u003c/a\u003e. Currently supported values are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\"mapr-m3\" - launch the job flow using MapR M3 Edition.\u003c/li\u003e \u003cli\u003e\"mapr-m5\" - launch the job flow using MapR M5 Edition.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SupportedProducts\" Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13195,7 +13195,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags to associate with a cluster and propagate to Amazon EC2 instances.\u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": null,
@@ -13257,8 +13257,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -13268,8 +13267,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13279,7 +13278,7 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003e A list of strings that uniquely identify the job flows to protect. This identifier is returned by \u003ca\u003eRunJobFlow\u003c/a\u003e and can also be obtained from \u003ca\u003eDescribeJobFlows\u003c/a\u003e . \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -13328,14 +13327,15 @@
                 "queryPad": 0,
                 "name": "SetTerminationProtection",
                 "query": [],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13345,14 +13345,14 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003e A list of strings that uniquely identify the job flows to protect. This identifier is returned by \u003ca\u003eRunJobFlow\u003c/a\u003e and can also be obtained from \u003ca\u003eDescribeJobFlows\u003c/a\u003e . \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13362,7 +13362,7 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003e A list of strings that uniquely identify the job flows to protect. This identifier is returned by \u003ca\u003eRunJobFlow\u003c/a\u003e and can also be obtained from \u003ca\u003eDescribeJobFlows\u003c/a\u003e . \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -13424,8 +13424,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -13435,8 +13434,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13446,7 +13445,7 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003eIdentifiers of the job flows to receive the new visibility setting.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -13495,14 +13494,15 @@
                 "queryPad": 0,
                 "name": "SetVisibleToAllUsers",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13512,14 +13512,14 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003eIdentifiers of the job flows to receive the new visibility setting.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13529,7 +13529,7 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003eIdentifiers of the job flows to receive the new visibility setting.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -13592,7 +13592,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -13604,8 +13603,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -13615,13 +13614,13 @@
                     "locationName": "JobFlowIds",
                     "documentation": "\u003cp\u003eA list of job flows to be shutdown.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"Args\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13631,7 +13630,7 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003eA list of job flows to be shutdown.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "path": [
@@ -13649,14 +13648,15 @@
                 "queryPad": 0,
                 "name": "TerminateJobFlows",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13666,14 +13666,14 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003eA list of job flows to be shutdown.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13683,7 +13683,7 @@
                         "locationName": "JobFlowIds",
                         "documentation": "\u003cp\u003eA list of job flows to be shutdown.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Args\" Text"
                     }
                 ]
             }

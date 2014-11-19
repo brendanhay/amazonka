@@ -59,7 +59,7 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     , _apiaNetworkInterfaceId             :: Text
     , _apiaPrivateIpAddresses             :: List "PrivateIpAddress" Text
     , _apiaSecondaryPrivateIpAddressCount :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AssignPrivateIpAddresses' constructor.
 --
@@ -122,7 +122,13 @@ assignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
 instance ToPath AssignPrivateIpAddresses where
     toPath = const "/"
 
-instance ToQuery AssignPrivateIpAddresses
+instance ToQuery AssignPrivateIpAddresses where
+    toQuery AssignPrivateIpAddresses{..} = mconcat
+        [ "allowReassignment"              =? _apiaAllowReassignment
+        , "networkInterfaceId"             =? _apiaNetworkInterfaceId
+        , "privateIpAddress"               =? _apiaPrivateIpAddresses
+        , "secondaryPrivateIpAddressCount" =? _apiaSecondaryPrivateIpAddressCount
+        ]
 
 instance ToHeaders AssignPrivateIpAddresses
 

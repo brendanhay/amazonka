@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider
     { _acidtoidcpClientID                 :: Text
     , _acidtoidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddClientIDToOpenIDConnectProvider' constructor.
 --
@@ -91,7 +92,11 @@ addClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderR
 instance ToPath AddClientIDToOpenIDConnectProvider where
     toPath = const "/"
 
-instance ToQuery AddClientIDToOpenIDConnectProvider
+instance ToQuery AddClientIDToOpenIDConnectProvider where
+    toQuery AddClientIDToOpenIDConnectProvider{..} = mconcat
+        [ "ClientID"                 =? _acidtoidcpClientID
+        , "OpenIDConnectProviderArn" =? _acidtoidcpOpenIDConnectProviderArn
+        ]
 
 instance ToHeaders AddClientIDToOpenIDConnectProvider
 

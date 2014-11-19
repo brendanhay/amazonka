@@ -59,7 +59,7 @@ data ImportVolume = ImportVolume
     , _ivDryRun           :: Maybe Bool
     , _ivImage            :: DiskImageDetail
     , _ivVolume           :: VolumeDetail
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ImportVolume' constructor.
 --
@@ -107,7 +107,7 @@ ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
 
 newtype ImportVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ImportVolumeResponse' constructor.
 --
@@ -127,7 +127,14 @@ ivrConversionTask =
 instance ToPath ImportVolume where
     toPath = const "/"
 
-instance ToQuery ImportVolume
+instance ToQuery ImportVolume where
+    toQuery ImportVolume{..} = mconcat
+        [ "availabilityZone" =? _ivAvailabilityZone
+        , "description"      =? _ivDescription
+        , "dryRun"           =? _ivDryRun
+        , "image"            =? _ivImage
+        , "volume"           =? _ivVolume
+        ]
 
 instance ToHeaders ImportVolume
 

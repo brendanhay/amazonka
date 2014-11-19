@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -68,7 +69,7 @@ data ListGeoLocations = ListGeoLocations
     , _lglStartContinentCode   :: Maybe Text
     , _lglStartCountryCode     :: Maybe Text
     , _lglStartSubdivisionCode :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListGeoLocations' constructor.
 --
@@ -120,13 +121,13 @@ lglStartSubdivisionCode =
     lens _lglStartSubdivisionCode (\s a -> s { _lglStartSubdivisionCode = a })
 
 data ListGeoLocationsResponse = ListGeoLocationsResponse
-    { _lglrGeoLocationDetailsList :: [GeoLocationDetails]
+    { _lglrGeoLocationDetailsList :: List "GeoLocationDetails" GeoLocationDetails
     , _lglrIsTruncated            :: Bool
     , _lglrMaxItems               :: Text
     , _lglrNextContinentCode      :: Maybe Text
     , _lglrNextCountryCode        :: Maybe Text
     , _lglrNextSubdivisionCode    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListGeoLocationsResponse' constructor.
 --
@@ -162,6 +163,7 @@ lglrGeoLocationDetailsList :: Lens' ListGeoLocationsResponse [GeoLocationDetails
 lglrGeoLocationDetailsList =
     lens _lglrGeoLocationDetailsList
         (\s a -> s { _lglrGeoLocationDetailsList = a })
+            . _List
 
 -- | A flag that indicates whether there are more geo locations to be listed.
 -- If your results were truncated, you can make a follow-up request for the
@@ -205,7 +207,13 @@ lglrNextSubdivisionCode =
 instance ToPath ListGeoLocations where
     toPath = const "/2013-04-01/geolocations"
 
-instance ToQuery ListGeoLocations
+instance ToQuery ListGeoLocations where
+    toQuery ListGeoLocations{..} = mconcat
+        [ "maxitems"             =? _lglMaxItems
+        , "startcontinentcode"   =? _lglStartContinentCode
+        , "startcountrycode"     =? _lglStartCountryCode
+        , "startsubdivisioncode" =? _lglStartSubdivisionCode
+        ]
 
 instance ToHeaders ListGeoLocations
 
@@ -223,9 +231,9 @@ instance AWSRequest ListGeoLocations where
 
 instance FromXML ListGeoLocationsResponse where
     parseXML x = ListGeoLocationsResponse
-            <$> x .@ "GeoLocationDetailsList"
-            <*> x .@ "IsTruncated"
-            <*> x .@ "MaxItems"
-            <*> x .@? "NextContinentCode"
-            <*> x .@? "NextCountryCode"
-            <*> x .@? "NextSubdivisionCode"
+        <$> x .@  "GeoLocationDetailsList"
+        <*> x .@  "IsTruncated"
+        <*> x .@  "MaxItems"
+        <*> x .@? "NextContinentCode"
+        <*> x .@? "NextCountryCode"
+        <*> x .@? "NextSubdivisionCode"

@@ -63,7 +63,7 @@ data ReportInstanceStatus = ReportInstanceStatus
     , _risReasonCodes :: List "item" Text
     , _risStartTime   :: Maybe RFC822
     , _risStatus      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ReportInstanceStatus' constructor.
 --
@@ -104,13 +104,11 @@ risDryRun = lens _risDryRun (\s a -> s { _risDryRun = a })
 
 -- | The time at which the reported instance health state ended.
 risEndTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
-risEndTime = lens _risEndTime (\s a -> s { _risEndTime = a })
-    . mapping _Time
+risEndTime = lens _risEndTime (\s a -> s { _risEndTime = a }) . mapping _Time
 
 -- | One or more instances.
 risInstances :: Lens' ReportInstanceStatus [Text]
-risInstances = lens _risInstances (\s a -> s { _risInstances = a })
-    . _List
+risInstances = lens _risInstances (\s a -> s { _risInstances = a }) . _List
 
 -- | One or more reason codes that describes the health state of your
 -- instance. instance-stuck-in-state: My instance is stuck in a state.
@@ -125,13 +123,11 @@ risInstances = lens _risInstances (\s a -> s { _risInstances = a })
 -- instance is experiencing performance problems. other: [explain using the
 -- description parameter].
 risReasonCodes :: Lens' ReportInstanceStatus [Text]
-risReasonCodes = lens _risReasonCodes (\s a -> s { _risReasonCodes = a })
-    . _List
+risReasonCodes = lens _risReasonCodes (\s a -> s { _risReasonCodes = a }) . _List
 
 -- | The time at which the reported instance health state began.
 risStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
-risStartTime = lens _risStartTime (\s a -> s { _risStartTime = a })
-    . mapping _Time
+risStartTime = lens _risStartTime (\s a -> s { _risStartTime = a }) . mapping _Time
 
 -- | The status of all instances listed.
 risStatus :: Lens' ReportInstanceStatus Text
@@ -147,7 +143,16 @@ reportInstanceStatusResponse = ReportInstanceStatusResponse
 instance ToPath ReportInstanceStatus where
     toPath = const "/"
 
-instance ToQuery ReportInstanceStatus
+instance ToQuery ReportInstanceStatus where
+    toQuery ReportInstanceStatus{..} = mconcat
+        [ "description" =? _risDescription
+        , "dryRun"      =? _risDryRun
+        , "endTime"     =? _risEndTime
+        , "instanceId"  =? _risInstances
+        , "reasonCode"  =? _risReasonCodes
+        , "startTime"   =? _risStartTime
+        , "status"      =? _risStatus
+        ]
 
 instance ToHeaders ReportInstanceStatus
 

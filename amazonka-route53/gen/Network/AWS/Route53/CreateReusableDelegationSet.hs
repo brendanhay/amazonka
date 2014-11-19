@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ import qualified GHC.Exts
 data CreateReusableDelegationSet = CreateReusableDelegationSet
     { _crdsCallerReference :: Text
     , _crdsHostedZoneId    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateReusableDelegationSet' constructor.
 --
@@ -93,7 +94,7 @@ crdsHostedZoneId = lens _crdsHostedZoneId (\s a -> s { _crdsHostedZoneId = a })
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse
     { _crdsrDelegationSet :: DelegationSet
     , _crdsrLocation      :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateReusableDelegationSetResponse' constructor.
 --
@@ -142,5 +143,5 @@ instance AWSRequest CreateReusableDelegationSet where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateReusableDelegationSetResponse
-        <$> x .@ "DelegationSet"
+        <$> x .@  "DelegationSet"
         <*> h ~: "Location"

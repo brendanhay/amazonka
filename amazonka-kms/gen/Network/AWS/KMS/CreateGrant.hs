@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,12 +60,12 @@ import qualified GHC.Exts
 
 data CreateGrant = CreateGrant
     { _cgConstraints       :: Maybe GrantConstraints
-    , _cgGrantTokens       :: [Text]
+    , _cgGrantTokens       :: List "GrantTokens" Text
     , _cgGranteePrincipal  :: Text
     , _cgKeyId             :: Text
-    , _cgOperations        :: [Text]
+    , _cgOperations        :: List "Operations" Text
     , _cgRetiringPrincipal :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateGrant' constructor.
 --
@@ -101,7 +102,7 @@ cgConstraints = lens _cgConstraints (\s a -> s { _cgConstraints = a })
 
 -- | List of grant tokens.
 cgGrantTokens :: Lens' CreateGrant [Text]
-cgGrantTokens = lens _cgGrantTokens (\s a -> s { _cgGrantTokens = a })
+cgGrantTokens = lens _cgGrantTokens (\s a -> s { _cgGrantTokens = a }) . _List
 
 -- | Principal given permission by the grant to use the key identified by the
 -- keyId parameter.
@@ -118,7 +119,7 @@ cgKeyId = lens _cgKeyId (\s a -> s { _cgKeyId = a })
 -- one or more of the following values: Decrypt Encrypt GenerateDataKey
 -- GenerateDataKeyWithoutPlaintext ReEncryptFrom ReEncryptTo CreateGrant.
 cgOperations :: Lens' CreateGrant [Text]
-cgOperations = lens _cgOperations (\s a -> s { _cgOperations = a })
+cgOperations = lens _cgOperations (\s a -> s { _cgOperations = a }) . _List
 
 -- | Principal given permission to retire the grant. For more information, see
 -- RetireGrant.
@@ -129,7 +130,7 @@ cgRetiringPrincipal =
 data CreateGrantResponse = CreateGrantResponse
     { _cgrGrantId    :: Maybe Text
     , _cgrGrantToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateGrantResponse' constructor.
 --

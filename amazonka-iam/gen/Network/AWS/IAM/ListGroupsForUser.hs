@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data ListGroupsForUser = ListGroupsForUser
     { _lgfuMarker   :: Maybe Text
     , _lgfuMaxItems :: Maybe Nat
     , _lgfuUserName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListGroupsForUser' constructor.
 --
@@ -84,18 +85,17 @@ lgfuMarker = lens _lgfuMarker (\s a -> s { _lgfuMarker = a })
 -- the maximum you specify, the IsTruncated response element is true. This
 -- parameter is optional. If you do not include it, it defaults to 100.
 lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
-lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a })
-    . mapping _Nat
+lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a }) . mapping _Nat
 
 -- | The name of the user to list groups for.
 lgfuUserName :: Lens' ListGroupsForUser Text
 lgfuUserName = lens _lgfuUserName (\s a -> s { _lgfuUserName = a })
 
 data ListGroupsForUserResponse = ListGroupsForUserResponse
-    { _lgfurGroups      :: [Group]
+    { _lgfurGroups      :: List "Groups" Group
     , _lgfurIsTruncated :: Maybe Bool
     , _lgfurMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListGroupsForUserResponse' constructor.
 --
@@ -116,7 +116,7 @@ listGroupsForUserResponse = ListGroupsForUserResponse
 
 -- | A list of groups.
 lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
-lgfurGroups = lens _lgfurGroups (\s a -> s { _lgfurGroups = a })
+lgfurGroups = lens _lgfurGroups (\s a -> s { _lgfurGroups = a }) . _List
 
 -- | A flag that indicates whether there are more groups to list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -132,7 +132,12 @@ lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
 instance ToPath ListGroupsForUser where
     toPath = const "/"
 
-instance ToQuery ListGroupsForUser
+instance ToQuery ListGroupsForUser where
+    toQuery ListGroupsForUser{..} = mconcat
+        [ "Marker"   =? _lgfuMarker
+        , "MaxItems" =? _lgfuMaxItems
+        , "UserName" =? _lgfuUserName
+        ]
 
 instance ToHeaders ListGroupsForUser
 
@@ -144,10 +149,10 @@ instance AWSRequest ListGroupsForUser where
     response = xmlResponse
 
 instance FromXML ListGroupsForUserResponse where
-    parseXML = withElement "ListGroupsForUserResult" $ \x ->
-            <$> x .@ "Groups"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Marker"
+    parseXML = withElement "ListGroupsForUserResult" $ \x -> ListGroupsForUserResponse
+        <$> x .@  "Groups"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
 
 instance AWSPager ListGroupsForUser where
     next rq rs

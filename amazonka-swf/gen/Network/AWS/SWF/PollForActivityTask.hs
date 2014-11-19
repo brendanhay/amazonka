@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -74,7 +75,7 @@ data PollForActivityTask = PollForActivityTask
     { _pfatDomain   :: Text
     , _pfatIdentity :: Maybe Text
     , _pfatTaskList :: TaskList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PollForActivityTask' constructor.
 --
@@ -121,7 +122,7 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse
     , _pfatrStartedEventId    :: Integer
     , _pfatrTaskToken         :: Text
     , _pfatrWorkflowExecution :: WorkflowExecution
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PollForActivityTaskResponse' constructor.
 --
@@ -209,9 +210,9 @@ instance AWSRequest PollForActivityTask where
 
 instance FromJSON PollForActivityTaskResponse where
     parseJSON = withObject "PollForActivityTaskResponse" $ \o -> PollForActivityTaskResponse
-        <$> o .: "activityId"
-        <*> o .: "activityType"
+        <$> o .:  "activityId"
+        <*> o .:  "activityType"
         <*> o .:? "input"
-        <*> o .: "startedEventId"
-        <*> o .: "taskToken"
-        <*> o .: "workflowExecution"
+        <*> o .:  "startedEventId"
+        <*> o .:  "taskToken"
+        <*> o .:  "workflowExecution"

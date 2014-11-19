@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -81,23 +82,23 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data Query = Query
-    { _qAttributesToGet           :: List1 Text
+    { _qAttributesToGet           :: List1 "AttributesToGet" Text
     , _qConditionalOperator       :: Maybe Text
     , _qConsistentRead            :: Maybe Bool
-    , _qExclusiveStartKey         :: Map Text AttributeValue
-    , _qExpressionAttributeNames  :: Map Text Text
-    , _qExpressionAttributeValues :: Map Text AttributeValue
+    , _qExclusiveStartKey         :: Map "entry" "key" "value" Text AttributeValue
+    , _qExpressionAttributeNames  :: Map "entry" "key" "value" Text Text
+    , _qExpressionAttributeValues :: Map "entry" "key" "value" Text AttributeValue
     , _qFilterExpression          :: Maybe Text
     , _qIndexName                 :: Maybe Text
-    , _qKeyConditions             :: Map Text Condition
+    , _qKeyConditions             :: Map "entry" "key" "value" Text Condition
     , _qLimit                     :: Maybe Nat
     , _qProjectionExpression      :: Maybe Text
-    , _qQueryFilter               :: Map Text Condition
+    , _qQueryFilter               :: Map "entry" "key" "value" Text Condition
     , _qReturnConsumedCapacity    :: Maybe Text
     , _qScanIndexForward          :: Maybe Bool
     , _qSelect                    :: Maybe Text
     , _qTableName                 :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Query' constructor.
 --
@@ -140,7 +141,7 @@ query :: Text -- ^ 'qTableName'
       -> Query
 query p1 p2 = Query
     { _qTableName                 = p1
-    , _qAttributesToGet           = p2
+    , _qAttributesToGet           = withIso _List1 (const id) p2
     , _qIndexName                 = Nothing
     , _qSelect                    = Nothing
     , _qLimit                     = Nothing
@@ -180,7 +181,7 @@ query p1 p2 = Query
 -- that are projected into the index. Global secondary index queries cannot
 -- fetch attributes from the parent table.
 qAttributesToGet :: Lens' Query (NonEmpty Text)
-qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a })
+qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a }) . _List1
 
 -- | There is a newer parameter available. Use ConditionExpression instead.
 -- Note that if you use ConditionalOperator and ConditionExpression at the
@@ -319,8 +320,7 @@ qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 -- of AttributeValueList and ComparisonOperator, see Legacy Conditional
 -- Parameters in the Amazon DynamoDB Developer Guide.
 qKeyConditions :: Lens' Query (HashMap Text Condition)
-qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a })
-    . _Map
+qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a }) . _Map
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the
@@ -333,8 +333,7 @@ qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a })
 -- subsequent operation to continue the operation. For more information, see
 -- Query and Scan in the Amazon DynamoDB Developer Guide.
 qLimit :: Lens' Query (Maybe Natural)
-qLimit = lens _qLimit (\s a -> s { _qLimit = a })
-    . mapping _Nat
+qLimit = lens _qLimit (\s a -> s { _qLimit = a }) . mapping _Nat
 
 -- | One or more attributes to retrieve from the table. These attributes can
 -- include scalars, sets, or elements of a JSON document. The attributes in
@@ -373,8 +372,7 @@ qProjectionExpression =
 -- | BETWEEN For complete descriptions of all comparison operators, see
 -- API_Condition.html.
 qQueryFilter :: Lens' Query (HashMap Text Condition)
-qQueryFilter = lens _qQueryFilter (\s a -> s { _qQueryFilter = a })
-    . _Map
+qQueryFilter = lens _qQueryFilter (\s a -> s { _qQueryFilter = a }) . _Map
 
 qReturnConsumedCapacity :: Lens' Query (Maybe Text)
 qReturnConsumedCapacity =
@@ -432,10 +430,10 @@ qTableName = lens _qTableName (\s a -> s { _qTableName = a })
 data QueryResponse = QueryResponse
     { _qrConsumedCapacity :: Maybe ConsumedCapacity
     , _qrCount            :: Maybe Int
-    , _qrItems            :: [(Map Text AttributeValue)]
-    , _qrLastEvaluatedKey :: Map Text AttributeValue
+    , _qrItems            :: List "Items" (Map "entry" "key" "value" Text AttributeValue)
+    , _qrLastEvaluatedKey :: Map "entry" "key" "value" Text AttributeValue
     , _qrScannedCount     :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'QueryResponse' constructor.
 --
@@ -476,8 +474,7 @@ qrCount = lens _qrCount (\s a -> s { _qrCount = a })
 -- in this array consists of an attribute name and the value for that
 -- attribute.
 qrItems :: Lens' QueryResponse ([(HashMap Text AttributeValue)])
-qrItems = lens _qrItems (\s a -> s { _qrItems = a })
-    . mapping _Map
+qrItems = lens _qrItems (\s a -> s { _qrItems = a }) . _List
 
 -- | The primary key of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding
@@ -538,8 +535,8 @@ instance FromJSON QueryResponse where
     parseJSON = withObject "QueryResponse" $ \o -> QueryResponse
         <$> o .:? "ConsumedCapacity"
         <*> o .:? "Count"
-        <*> o .: "Items"
-        <*> o .: "LastEvaluatedKey"
+        <*> o .:  "Items"
+        <*> o .:  "LastEvaluatedKey"
         <*> o .:? "ScannedCount"
 
 instance AWSPager Query where

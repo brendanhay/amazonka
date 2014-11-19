@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule
     , _ussRecurrenceInHours :: Nat
     , _ussStartAt           :: Nat
     , _ussVolumeARN         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateSnapshotSchedule' constructor.
 --
@@ -98,8 +99,7 @@ ussRecurrenceInHours =
 -- hh, where hh is the hour (0 to 23). The hour of the day is in the time
 -- zone of the gateway.
 ussStartAt :: Lens' UpdateSnapshotSchedule Natural
-ussStartAt = lens _ussStartAt (\s a -> s { _ussStartAt = a })
-    . _Nat
+ussStartAt = lens _ussStartAt (\s a -> s { _ussStartAt = a }) . _Nat
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
@@ -108,7 +108,7 @@ ussVolumeARN = lens _ussVolumeARN (\s a -> s { _ussVolumeARN = a })
 
 newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
     { _ussrVolumeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'UpdateSnapshotScheduleResponse' constructor.
 --

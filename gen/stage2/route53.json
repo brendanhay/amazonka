@@ -93,8 +93,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "aliasTarget",
@@ -195,6 +194,7 @@
                 ],
                 "contentPad": 21,
                 "name": "AliasTarget",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -250,7 +250,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -309,6 +308,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ResourceRecord",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -333,8 +333,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
@@ -374,6 +373,7 @@
                 "required": [],
                 "contentPad": 6,
                 "name": "Tag",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -444,8 +444,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "geoLocationDetails",
@@ -545,6 +544,7 @@
                 "required": [],
                 "contentPad": 16,
                 "name": "GeoLocationDetails",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -734,8 +734,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "healthCheck",
@@ -866,6 +865,7 @@
                 ],
                 "contentPad": 19,
                 "name": "HealthCheck",
+                "locationPad": 19,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -994,8 +994,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "healthCheckConfig",
@@ -1141,6 +1140,7 @@
                 ],
                 "contentPad": 25,
                 "name": "HealthCheckConfig",
+                "locationPad": 25,
                 "type": "record",
                 "optional": [
                     {
@@ -1375,8 +1375,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "change",
@@ -1447,6 +1446,7 @@
                 ],
                 "contentPad": 18,
                 "name": "Change",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1502,8 +1502,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "hostedZone",
@@ -1634,6 +1633,7 @@
                 ],
                 "contentPad": 23,
                 "name": "HostedZone",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -1748,8 +1748,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "resourceTagSet",
@@ -1786,8 +1785,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -1797,15 +1796,15 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eThe tags associated with the specified resource.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tag\" Tag"
                     }
                 ],
                 "payload": null,
                 "required": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -1815,11 +1814,12 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eThe tags associated with the specified resource.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tag\" Tag"
                     }
                 ],
                 "contentPad": 13,
                 "name": "ResourceTagSet",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -1886,8 +1886,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -1897,7 +1897,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eThe tags associated with the specified resource.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tag\" Tag"
                     }
                 ]
             },
@@ -1921,8 +1921,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "changeBatch",
@@ -1944,8 +1943,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -1955,15 +1954,15 @@
                         "locationName": "Changes",
                         "documentation": "\u003cp\u003eA complex type that contains one \u003ccode\u003eChange\u003c/code\u003e element for each resource record set that you want to create or delete.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Change",
-                        "type": "List1 Change"
+                        "type": "List1 \"Change\" Change"
                     }
                 ],
                 "payload": null,
                 "required": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -1973,11 +1972,12 @@
                         "locationName": "Changes",
                         "documentation": "\u003cp\u003eA complex type that contains one \u003ccode\u003eChange\u003c/code\u003e element for each resource record set that you want to create or delete.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Change",
-                        "type": "List1 Change"
+                        "type": "List1 \"Change\" Change"
                     }
                 ],
                 "contentPad": 8,
                 "name": "ChangeBatch",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -1999,8 +1999,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -2010,7 +2010,7 @@
                         "locationName": "Changes",
                         "documentation": "\u003cp\u003eA complex type that contains one \u003ccode\u003eChange\u003c/code\u003e element for each resource record set that you want to create or delete.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Change",
-                        "type": "List1 Change"
+                        "type": "List1 \"Change\" Change"
                     },
                     {
                         "location": null,
@@ -2033,8 +2033,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "statusReport",
@@ -2074,6 +2073,7 @@
                 "required": [],
                 "contentPad": 12,
                 "name": "StatusReport",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -2164,8 +2164,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "vpc",
@@ -2205,6 +2204,7 @@
                 "required": [],
                 "contentPad": 10,
                 "name": "VPC",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -2275,8 +2275,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "hostedZoneConfig",
@@ -2316,6 +2315,7 @@
                 "required": [],
                 "contentPad": 12,
                 "name": "HostedZoneConfig",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -2385,8 +2385,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "resourceRecordSet",
@@ -2513,8 +2512,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -2524,7 +2523,7 @@
                         "locationName": "ResourceRecords",
                         "documentation": "\u003cp\u003eA complex type that contains the resource records for the current resource record set.\u003c/p\u003e",
                         "typeExposed": "NonEmpty ResourceRecord",
-                        "type": "List1 ResourceRecord"
+                        "type": "List1 \"ResourceRecord\" ResourceRecord"
                     },
                     {
                         "location": null,
@@ -2591,8 +2590,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -2602,11 +2601,12 @@
                         "locationName": "ResourceRecords",
                         "documentation": "\u003cp\u003eA complex type that contains the resource records for the current resource record set.\u003c/p\u003e",
                         "typeExposed": "NonEmpty ResourceRecord",
-                        "type": "List1 ResourceRecord"
+                        "type": "List1 \"ResourceRecord\" ResourceRecord"
                     }
                 ],
                 "contentPad": 16,
                 "name": "ResourceRecordSet",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -2823,8 +2823,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -2834,7 +2834,7 @@
                         "locationName": "ResourceRecords",
                         "documentation": "\u003cp\u003eA complex type that contains the resource records for the current resource record set.\u003c/p\u003e",
                         "typeExposed": "NonEmpty ResourceRecord",
-                        "type": "List1 ResourceRecord"
+                        "type": "List1 \"ResourceRecord\" ResourceRecord"
                     },
                     {
                         "location": null,
@@ -2902,8 +2902,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "delegationSet",
@@ -2940,8 +2939,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -2951,15 +2950,15 @@
                         "locationName": "NameServers",
                         "documentation": "\u003cp\u003eA complex type that contains the authoritative name servers for the hosted zone. Use the method provided by your domain registrar to add an NS record to your domain for each \u003ccode\u003eNameServer\u003c/code\u003e that is assigned to your hosted zone.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"NameServer\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -2969,11 +2968,12 @@
                         "locationName": "NameServers",
                         "documentation": "\u003cp\u003eA complex type that contains the authoritative name servers for the hosted zone. Use the method provided by your domain registrar to add an NS record to your domain for each \u003ccode\u003eNameServer\u003c/code\u003e that is assigned to your hosted zone.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"NameServer\" Text"
                     }
                 ],
                 "contentPad": 16,
                 "name": "DelegationSet",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -3040,8 +3040,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3051,7 +3051,7 @@
                         "locationName": "NameServers",
                         "documentation": "\u003cp\u003eA complex type that contains the authoritative name servers for the hosted zone. Use the method provided by your domain registrar to add an NS record to your domain for each \u003ccode\u003eNameServer\u003c/code\u003e that is assigned to your hosted zone.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"NameServer\" Text"
                     }
                 ]
             },
@@ -3059,8 +3059,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "changeInfo",
@@ -3176,6 +3175,7 @@
                 ],
                 "contentPad": 12,
                 "name": "ChangeInfo",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -3261,8 +3261,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "geoLocation",
@@ -3317,6 +3316,7 @@
                 "required": [],
                 "contentPad": 16,
                 "name": "GeoLocation",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -3416,8 +3416,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "healthCheckObservation",
@@ -3457,6 +3456,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "HealthCheckObservation",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -3537,8 +3537,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3603,6 +3602,7 @@
                 "contentPad": 0,
                 "name": "AssociateVPCWithHostedZoneResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3639,8 +3639,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3733,6 +3732,7 @@
                 "queryPad": 0,
                 "name": "AssociateVPCWithHostedZone",
                 "query": [],
+                "locationPad": 8,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3807,8 +3807,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3873,6 +3872,7 @@
                 "contentPad": 0,
                 "name": "ChangeResourceRecordSetsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3909,8 +3909,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3988,6 +3987,7 @@
                 "queryPad": 0,
                 "name": "ChangeResourceRecordSets",
                 "query": [],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4067,8 +4067,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -4078,8 +4077,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4089,12 +4088,12 @@
                         "locationName": "AddTags",
                         "documentation": "\u003cp\u003eA complex type that contains a list of \u003ccode\u003eTag\u003c/code\u003e elements. Each \u003ccode\u003eTag\u003c/code\u003e element identifies a tag that you want to add or update for the specified resource.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tag\" Tag"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4104,7 +4103,7 @@
                         "locationName": "RemoveTagKeys",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eTag\u003c/code\u003e keys that you want to remove from the specified resource.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"Key\" Text"
                     }
                 ],
                 "path": [
@@ -4160,8 +4159,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4171,12 +4170,12 @@
                         "locationName": "AddTags",
                         "documentation": "\u003cp\u003eA complex type that contains a list of \u003ccode\u003eTag\u003c/code\u003e elements. Each \u003ccode\u003eTag\u003c/code\u003e element identifies a tag that you want to add or update for the specified resource.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tag\" Tag"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4186,7 +4185,7 @@
                         "locationName": "RemoveTagKeys",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eTag\u003c/code\u003e keys that you want to remove from the specified resource.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"Key\" Text"
                     }
                 ],
                 "shared": false,
@@ -4195,6 +4194,7 @@
                 "queryPad": 0,
                 "name": "ChangeTagsForResource",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4202,8 +4202,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4213,12 +4213,12 @@
                         "locationName": "AddTags",
                         "documentation": "\u003cp\u003eA complex type that contains a list of \u003ccode\u003eTag\u003c/code\u003e elements. Each \u003ccode\u003eTag\u003c/code\u003e element identifies a tag that you want to add or update for the specified resource.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tag\" Tag"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4228,7 +4228,7 @@
                         "locationName": "RemoveTagKeys",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eTag\u003c/code\u003e keys that you want to remove from the specified resource.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"Key\" Text"
                     },
                     {
                         "location": "uri",
@@ -4268,8 +4268,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -4339,6 +4338,7 @@
                 "contentPad": 12,
                 "name": "CreateHealthCheckResponse",
                 "resultWrapper": null,
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -4390,8 +4390,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -4476,6 +4475,7 @@
                 "queryPad": 0,
                 "name": "CreateHealthCheck",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4519,8 +4519,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -4665,6 +4664,7 @@
                 "contentPad": 14,
                 "name": "CreateHostedZoneResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4777,8 +4777,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -4908,6 +4907,7 @@
                 "queryPad": 0,
                 "name": "CreateHostedZone",
                 "query": [],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5042,8 +5042,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -5113,6 +5112,7 @@
                 "contentPad": 14,
                 "name": "CreateReusableDelegationSetResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -5165,8 +5165,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -5236,6 +5235,7 @@
                 "queryPad": 0,
                 "name": "CreateReusableDelegationSet",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5333,7 +5333,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5394,6 +5393,7 @@
                 "queryPad": 0,
                 "name": "DeleteHealthCheck",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -5422,8 +5422,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5488,6 +5487,7 @@
                 "contentPad": 0,
                 "name": "DeleteHostedZoneResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5526,7 +5526,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5587,6 +5586,7 @@
                 "queryPad": 0,
                 "name": "DeleteHostedZone",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -5653,7 +5653,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5714,6 +5713,7 @@
                 "queryPad": 0,
                 "name": "DeleteReusableDelegationSet",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -5742,8 +5742,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5808,6 +5807,7 @@
                 "contentPad": 0,
                 "name": "DisassociateVPCFromHostedZoneResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5844,8 +5844,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -5938,6 +5937,7 @@
                 "queryPad": 0,
                 "name": "DisassociateVPCFromHostedZone",
                 "query": [],
+                "locationPad": 8,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6012,8 +6012,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6078,6 +6077,7 @@
                 "contentPad": 0,
                 "name": "GetChangeResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6116,7 +6116,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6177,6 +6176,7 @@
                 "queryPad": 0,
                 "name": "GetChange",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -6207,7 +6207,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6219,8 +6218,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6230,13 +6229,13 @@
                     "locationName": "CheckerIpRanges",
                     "documentation": "\u003cp\u003eA complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"CheckerIpRanges\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6246,7 +6245,7 @@
                         "locationName": "CheckerIpRanges",
                         "documentation": "\u003cp\u003eA complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"CheckerIpRanges\" Text"
                     }
                 ],
                 "wrapper": false,
@@ -6258,13 +6257,14 @@
                 "contentPad": 0,
                 "name": "GetCheckerIpRangesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6274,14 +6274,14 @@
                         "locationName": "CheckerIpRanges",
                         "documentation": "\u003cp\u003eA complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"CheckerIpRanges\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6291,7 +6291,7 @@
                         "locationName": "CheckerIpRanges",
                         "documentation": "\u003cp\u003eA complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"CheckerIpRanges\" Text"
                     }
                 ]
             },
@@ -6344,8 +6344,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6410,6 +6409,7 @@
                 "contentPad": 0,
                 "name": "GetGeoLocationResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6447,8 +6447,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -6487,6 +6486,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6591,8 +6591,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6657,6 +6656,7 @@
                 "contentPad": 0,
                 "name": "GetHealthCheckResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6695,7 +6695,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6756,6 +6755,7 @@
                 "queryPad": 0,
                 "name": "GetHealthCheck",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -6786,7 +6786,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Enum",
                     "Num",
                     "Integral",
@@ -6855,6 +6854,7 @@
                 "contentPad": 0,
                 "name": "GetHealthCheckCountResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6926,7 +6926,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6938,8 +6937,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6949,13 +6948,13 @@
                     "locationName": "HealthCheckObservations",
                     "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
                     "typeExposed": "[HealthCheckObservation]",
-                    "type": "[HealthCheckObservation]"
+                    "type": "List \"HealthCheckObservation\" HealthCheckObservation"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6965,7 +6964,7 @@
                         "locationName": "HealthCheckObservations",
                         "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
                         "typeExposed": "[HealthCheckObservation]",
-                        "type": "[HealthCheckObservation]"
+                        "type": "List \"HealthCheckObservation\" HealthCheckObservation"
                     }
                 ],
                 "wrapper": false,
@@ -6977,13 +6976,14 @@
                 "contentPad": 0,
                 "name": "GetHealthCheckLastFailureReasonResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6993,14 +6993,14 @@
                         "locationName": "HealthCheckObservations",
                         "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
                         "typeExposed": "[HealthCheckObservation]",
-                        "type": "[HealthCheckObservation]"
+                        "type": "List \"HealthCheckObservation\" HealthCheckObservation"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7010,7 +7010,7 @@
                         "locationName": "HealthCheckObservations",
                         "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
                         "typeExposed": "[HealthCheckObservation]",
-                        "type": "[HealthCheckObservation]"
+                        "type": "List \"HealthCheckObservation\" HealthCheckObservation"
                     }
                 ]
             },
@@ -7031,7 +7031,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7096,6 +7095,7 @@
                 "queryPad": 0,
                 "name": "GetHealthCheckLastFailureReason",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -7125,7 +7125,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7137,8 +7136,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7148,13 +7147,13 @@
                     "locationName": "HealthCheckObservations",
                     "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
                     "typeExposed": "[HealthCheckObservation]",
-                    "type": "[HealthCheckObservation]"
+                    "type": "List \"HealthCheckObservation\" HealthCheckObservation"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7164,7 +7163,7 @@
                         "locationName": "HealthCheckObservations",
                         "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
                         "typeExposed": "[HealthCheckObservation]",
-                        "type": "[HealthCheckObservation]"
+                        "type": "List \"HealthCheckObservation\" HealthCheckObservation"
                     }
                 ],
                 "wrapper": false,
@@ -7176,13 +7175,14 @@
                 "contentPad": 0,
                 "name": "GetHealthCheckStatusResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7192,14 +7192,14 @@
                         "locationName": "HealthCheckObservations",
                         "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
                         "typeExposed": "[HealthCheckObservation]",
-                        "type": "[HealthCheckObservation]"
+                        "type": "List \"HealthCheckObservation\" HealthCheckObservation"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7209,7 +7209,7 @@
                         "locationName": "HealthCheckObservations",
                         "documentation": "\u003cp\u003eA list that contains one \u003ccode\u003eHealthCheckObservation\u003c/code\u003e element for each Route 53 health checker.\u003c/p\u003e",
                         "typeExposed": "[HealthCheckObservation]",
-                        "type": "[HealthCheckObservation]"
+                        "type": "List \"HealthCheckObservation\" HealthCheckObservation"
                     }
                 ]
             },
@@ -7230,7 +7230,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7295,6 +7294,7 @@
                 "queryPad": 0,
                 "name": "GetHealthCheckStatus",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -7323,8 +7323,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -7364,8 +7363,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -7375,7 +7374,7 @@
                         "locationName": "VPCs",
                         "documentation": "\u003cp\u003eA complex type that contains information about VPCs associated with the specified hosted zone.\u003c/p\u003e",
                         "typeExposed": "NonEmpty VPC",
-                        "type": "List1 VPC"
+                        "type": "List1 \"VPC\" VPC"
                     }
                 ],
                 "wrapper": false,
@@ -7399,8 +7398,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -7410,7 +7409,7 @@
                         "locationName": "VPCs",
                         "documentation": "\u003cp\u003eA complex type that contains information about VPCs associated with the specified hosted zone.\u003c/p\u003e",
                         "typeExposed": "NonEmpty VPC",
-                        "type": "List1 VPC"
+                        "type": "List1 \"VPC\" VPC"
                     }
                 ],
                 "shared": false,
@@ -7418,6 +7417,7 @@
                 "contentPad": 14,
                 "name": "GetHostedZoneResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -7470,8 +7470,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -7481,7 +7481,7 @@
                         "locationName": "VPCs",
                         "documentation": "\u003cp\u003eA complex type that contains information about VPCs associated with the specified hosted zone.\u003c/p\u003e",
                         "typeExposed": "NonEmpty VPC",
-                        "type": "List1 VPC"
+                        "type": "List1 \"VPC\" VPC"
                     }
                 ]
             },
@@ -7502,7 +7502,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7563,6 +7562,7 @@
                 "queryPad": 0,
                 "name": "GetHostedZone",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -7591,8 +7591,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -7657,6 +7656,7 @@
                 "contentPad": 0,
                 "name": "GetReusableDelegationSetResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -7695,7 +7695,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7756,6 +7755,7 @@
                 "queryPad": 0,
                 "name": "GetReusableDelegationSet",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -7784,8 +7784,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -7795,8 +7794,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7806,7 +7805,7 @@
                         "locationName": "GeoLocationDetailsList",
                         "documentation": "\u003cp\u003eA complex type that contains information about the geo locations that are returned by the request.\u003c/p\u003e",
                         "typeExposed": "[GeoLocationDetails]",
-                        "type": "[GeoLocationDetails]"
+                        "type": "List \"GeoLocationDetails\" GeoLocationDetails"
                     },
                     {
                         "location": null,
@@ -7924,13 +7923,14 @@
                 "contentPad": 23,
                 "name": "ListGeoLocationsResponse",
                 "resultWrapper": null,
+                "locationPad": 23,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7940,7 +7940,7 @@
                         "locationName": "GeoLocationDetailsList",
                         "documentation": "\u003cp\u003eA complex type that contains information about the geo locations that are returned by the request.\u003c/p\u003e",
                         "typeExposed": "[GeoLocationDetails]",
-                        "type": "[GeoLocationDetails]"
+                        "type": "List \"GeoLocationDetails\" GeoLocationDetails"
                     },
                     {
                         "location": null,
@@ -7991,8 +7991,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8002,7 +8002,7 @@
                         "locationName": "GeoLocationDetailsList",
                         "documentation": "\u003cp\u003eA complex type that contains information about the geo locations that are returned by the request.\u003c/p\u003e",
                         "typeExposed": "[GeoLocationDetails]",
-                        "type": "[GeoLocationDetails]"
+                        "type": "List \"GeoLocationDetails\" GeoLocationDetails"
                     },
                     {
                         "location": null,
@@ -8097,8 +8097,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8142,6 +8141,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8276,8 +8276,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8287,8 +8286,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8298,7 +8297,7 @@
                         "locationName": "HealthChecks",
                         "documentation": "\u003cp\u003eA complex type that contains information about the health checks associated with the current AWS account.\u003c/p\u003e",
                         "typeExposed": "[HealthCheck]",
-                        "type": "[HealthCheck]"
+                        "type": "List \"HealthCheck\" HealthCheck"
                     },
                     {
                         "location": null,
@@ -8416,13 +8415,14 @@
                 "contentPad": 13,
                 "name": "ListHealthChecksResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8432,7 +8432,7 @@
                         "locationName": "HealthChecks",
                         "documentation": "\u003cp\u003eA complex type that contains information about the health checks associated with the current AWS account.\u003c/p\u003e",
                         "typeExposed": "[HealthCheck]",
-                        "type": "[HealthCheck]"
+                        "type": "List \"HealthCheck\" HealthCheck"
                     },
                     {
                         "location": null,
@@ -8453,8 +8453,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8464,7 +8464,7 @@
                         "locationName": "HealthChecks",
                         "documentation": "\u003cp\u003eA complex type that contains information about the health checks associated with the current AWS account.\u003c/p\u003e",
                         "typeExposed": "[HealthCheck]",
-                        "type": "[HealthCheck]"
+                        "type": "List \"HealthCheck\" HealthCheck"
                     },
                     {
                         "location": null,
@@ -8551,8 +8551,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8586,6 +8585,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8660,8 +8660,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8671,8 +8670,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8682,7 +8681,7 @@
                         "locationName": "HostedZones",
                         "documentation": "\u003cp\u003eA complex type that contains information about the hosted zones associated with the current AWS account.\u003c/p\u003e",
                         "typeExposed": "[HostedZone]",
-                        "type": "[HostedZone]"
+                        "type": "List \"HostedZone\" HostedZone"
                     },
                     {
                         "location": null,
@@ -8800,13 +8799,14 @@
                 "contentPad": 12,
                 "name": "ListHostedZonesResponse",
                 "resultWrapper": null,
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8816,7 +8816,7 @@
                         "locationName": "HostedZones",
                         "documentation": "\u003cp\u003eA complex type that contains information about the hosted zones associated with the current AWS account.\u003c/p\u003e",
                         "typeExposed": "[HostedZone]",
-                        "type": "[HostedZone]"
+                        "type": "List \"HostedZone\" HostedZone"
                     },
                     {
                         "location": null,
@@ -8837,8 +8837,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8848,7 +8848,7 @@
                         "locationName": "HostedZones",
                         "documentation": "\u003cp\u003eA complex type that contains information about the hosted zones associated with the current AWS account.\u003c/p\u003e",
                         "typeExposed": "[HostedZone]",
-                        "type": "[HostedZone]"
+                        "type": "List \"HostedZone\" HostedZone"
                     },
                     {
                         "location": null,
@@ -8935,8 +8935,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8975,6 +8974,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9079,8 +9079,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9090,8 +9089,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9101,7 +9100,7 @@
                         "locationName": "ResourceRecordSets",
                         "documentation": "\u003cp\u003eA complex type that contains information about the resource record sets that are returned by the request.\u003c/p\u003e",
                         "typeExposed": "[ResourceRecordSet]",
-                        "type": "[ResourceRecordSet]"
+                        "type": "List \"ResourceRecordSet\" ResourceRecordSet"
                     },
                     {
                         "location": null,
@@ -9219,13 +9218,14 @@
                 "contentPad": 21,
                 "name": "ListResourceRecordSetsResponse",
                 "resultWrapper": null,
+                "locationPad": 21,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9235,7 +9235,7 @@
                         "locationName": "ResourceRecordSets",
                         "documentation": "\u003cp\u003eA complex type that contains information about the resource record sets that are returned by the request.\u003c/p\u003e",
                         "typeExposed": "[ResourceRecordSet]",
-                        "type": "[ResourceRecordSet]"
+                        "type": "List \"ResourceRecordSet\" ResourceRecordSet"
                     },
                     {
                         "location": null,
@@ -9361,8 +9361,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9372,7 +9372,7 @@
                         "locationName": "ResourceRecordSets",
                         "documentation": "\u003cp\u003eA complex type that contains information about the resource record sets that are returned by the request.\u003c/p\u003e",
                         "typeExposed": "[ResourceRecordSet]",
-                        "type": "[ResourceRecordSet]"
+                        "type": "List \"ResourceRecordSet\" ResourceRecordSet"
                     }
                 ]
             },
@@ -9410,8 +9410,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9479,6 +9478,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -9628,8 +9628,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9639,8 +9638,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9650,7 +9649,7 @@
                         "locationName": "DelegationSets",
                         "documentation": "\u003cp\u003eA complex type that contains information about the reusable delegation sets associated with the current AWS account.\u003c/p\u003e",
                         "typeExposed": "[DelegationSet]",
-                        "type": "[DelegationSet]"
+                        "type": "List \"DelegationSet\" DelegationSet"
                     },
                     {
                         "location": null,
@@ -9768,13 +9767,14 @@
                 "contentPad": 15,
                 "name": "ListReusableDelegationSetsResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9784,7 +9784,7 @@
                         "locationName": "DelegationSets",
                         "documentation": "\u003cp\u003eA complex type that contains information about the reusable delegation sets associated with the current AWS account.\u003c/p\u003e",
                         "typeExposed": "[DelegationSet]",
-                        "type": "[DelegationSet]"
+                        "type": "List \"DelegationSet\" DelegationSet"
                     },
                     {
                         "location": null,
@@ -9805,8 +9805,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9816,7 +9816,7 @@
                         "locationName": "DelegationSets",
                         "documentation": "\u003cp\u003eA complex type that contains information about the reusable delegation sets associated with the current AWS account.\u003c/p\u003e",
                         "typeExposed": "[DelegationSet]",
-                        "type": "[DelegationSet]"
+                        "type": "List \"DelegationSet\" DelegationSet"
                     },
                     {
                         "location": null,
@@ -9896,8 +9896,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9931,6 +9930,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -10005,8 +10005,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10071,6 +10070,7 @@
                 "contentPad": 0,
                 "name": "ListTagsForResourceResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -10108,8 +10108,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -10175,6 +10174,7 @@
                 "queryPad": 0,
                 "name": "ListTagsForResource",
                 "query": [],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10219,7 +10219,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -10231,8 +10230,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -10242,13 +10241,13 @@
                     "locationName": "ResourceTagSets",
                     "documentation": "\u003cp\u003eA list of \u003ccode\u003eResourceTagSet\u003c/code\u003es containing tags associated with the specified resources.\u003c/p\u003e",
                     "typeExposed": "[ResourceTagSet]",
-                    "type": "[ResourceTagSet]"
+                    "type": "List \"ResourceTagSet\" ResourceTagSet"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10258,7 +10257,7 @@
                         "locationName": "ResourceTagSets",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eResourceTagSet\u003c/code\u003es containing tags associated with the specified resources.\u003c/p\u003e",
                         "typeExposed": "[ResourceTagSet]",
-                        "type": "[ResourceTagSet]"
+                        "type": "List \"ResourceTagSet\" ResourceTagSet"
                     }
                 ],
                 "wrapper": false,
@@ -10270,13 +10269,14 @@
                 "contentPad": 0,
                 "name": "ListTagsForResourcesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10286,14 +10286,14 @@
                         "locationName": "ResourceTagSets",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eResourceTagSet\u003c/code\u003es containing tags associated with the specified resources.\u003c/p\u003e",
                         "typeExposed": "[ResourceTagSet]",
-                        "type": "[ResourceTagSet]"
+                        "type": "List \"ResourceTagSet\" ResourceTagSet"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10303,7 +10303,7 @@
                         "locationName": "ResourceTagSets",
                         "documentation": "\u003cp\u003eA list of \u003ccode\u003eResourceTagSet\u003c/code\u003es containing tags associated with the specified resources.\u003c/p\u003e",
                         "typeExposed": "[ResourceTagSet]",
-                        "type": "[ResourceTagSet]"
+                        "type": "List \"ResourceTagSet\" ResourceTagSet"
                     }
                 ]
             },
@@ -10323,8 +10323,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -10334,8 +10333,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -10345,7 +10344,7 @@
                         "locationName": "ResourceIds",
                         "documentation": "\u003cp\u003eA complex type that contains the ResourceId element for each resource for which you want to get a list of tags.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"ResourceId\" Text"
                     }
                 ],
                 "path": [
@@ -10378,8 +10377,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -10389,7 +10388,7 @@
                         "locationName": "ResourceIds",
                         "documentation": "\u003cp\u003eA complex type that contains the ResourceId element for each resource for which you want to get a list of tags.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"ResourceId\" Text"
                     }
                 ],
                 "shared": false,
@@ -10398,6 +10397,7 @@
                 "queryPad": 0,
                 "name": "ListTagsForResources",
                 "query": [],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10405,8 +10405,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -10416,7 +10416,7 @@
                         "locationName": "ResourceIds",
                         "documentation": "\u003cp\u003eA complex type that contains the ResourceId element for each resource for which you want to get a list of tags.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"ResourceId\" Text"
                     },
                     {
                         "location": "uri",
@@ -10441,8 +10441,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -10507,6 +10506,7 @@
                 "contentPad": 0,
                 "name": "UpdateHealthCheckResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -10544,8 +10544,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -10694,6 +10693,7 @@
                 "queryPad": 0,
                 "name": "UpdateHealthCheck",
                 "query": [],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

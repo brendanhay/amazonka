@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data ListDeploymentGroups = ListDeploymentGroups
     { _ldgApplicationName :: Text
     , _ldgNextToken       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDeploymentGroups' constructor.
 --
@@ -82,9 +83,9 @@ ldgNextToken = lens _ldgNextToken (\s a -> s { _ldgNextToken = a })
 
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse
     { _ldgrApplicationName  :: Maybe Text
-    , _ldgrDeploymentGroups :: [Text]
+    , _ldgrDeploymentGroups :: List "deploymentGroups" Text
     , _ldgrNextToken        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDeploymentGroupsResponse' constructor.
 --
@@ -112,6 +113,7 @@ ldgrApplicationName =
 ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
 ldgrDeploymentGroups =
     lens _ldgrDeploymentGroups (\s a -> s { _ldgrDeploymentGroups = a })
+        . _List
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -144,5 +146,5 @@ instance AWSRequest ListDeploymentGroups where
 instance FromJSON ListDeploymentGroupsResponse where
     parseJSON = withObject "ListDeploymentGroupsResponse" $ \o -> ListDeploymentGroupsResponse
         <$> o .:? "applicationName"
-        <*> o .: "deploymentGroups"
+        <*> o .:  "deploymentGroups"
         <*> o .:? "nextToken"

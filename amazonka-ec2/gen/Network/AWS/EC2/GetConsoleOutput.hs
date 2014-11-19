@@ -63,7 +63,7 @@ import qualified GHC.Exts
 data GetConsoleOutput = GetConsoleOutput
     { _gcoDryRun     :: Maybe Bool
     , _gcoInstanceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetConsoleOutput' constructor.
 --
@@ -91,7 +91,7 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId :: Maybe Text
     , _gcorOutput     :: Maybe Text
     , _gcorTimestamp  :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetConsoleOutputResponse' constructor.
 --
@@ -120,13 +120,16 @@ gcorOutput = lens _gcorOutput (\s a -> s { _gcorOutput = a })
 
 -- | The time the output was last updated.
 gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
-gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a })
-    . mapping _Time
+gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a }) . mapping _Time
 
 instance ToPath GetConsoleOutput where
     toPath = const "/"
 
-instance ToQuery GetConsoleOutput
+instance ToQuery GetConsoleOutput where
+    toQuery GetConsoleOutput{..} = mconcat
+        [ "dryRun"     =? _gcoDryRun
+        , "InstanceId" =? _gcoInstanceId
+        ]
 
 instance ToHeaders GetConsoleOutput
 

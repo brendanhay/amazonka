@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,8 +46,8 @@ import qualified GHC.Exts
 
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
     { _dlblLoadBalancerName  :: Text
-    , _dlblLoadBalancerPorts :: [Int]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dlblLoadBalancerPorts :: List "LoadBalancerPorts" Int
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteLoadBalancerListeners' constructor.
 --
@@ -72,6 +73,7 @@ dlblLoadBalancerName =
 dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
 dlblLoadBalancerPorts =
     lens _dlblLoadBalancerPorts (\s a -> s { _dlblLoadBalancerPorts = a })
+        . _List
 
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
     deriving (Eq, Ord, Show, Generic)
@@ -83,7 +85,11 @@ deleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
 instance ToPath DeleteLoadBalancerListeners where
     toPath = const "/"
 
-instance ToQuery DeleteLoadBalancerListeners
+instance ToQuery DeleteLoadBalancerListeners where
+    toQuery DeleteLoadBalancerListeners{..} = mconcat
+        [ "LoadBalancerName"  =? _dlblLoadBalancerName
+        , "LoadBalancerPorts" =? _dlblLoadBalancerPorts
+        ]
 
 instance ToHeaders DeleteLoadBalancerListeners
 

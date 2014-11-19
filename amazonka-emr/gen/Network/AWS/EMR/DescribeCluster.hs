@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeCluster = DescribeCluster
     { _dcClusterId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeCluster' constructor.
 --
@@ -68,7 +69,7 @@ dcClusterId = lens _dcClusterId (\s a -> s { _dcClusterId = a })
 
 newtype DescribeClusterResponse = DescribeClusterResponse
     { _dcrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeClusterResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 
 newtype EnableDomainTransferLock = EnableDomainTransferLock
     { _edtlDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'EnableDomainTransferLock' constructor.
 --
@@ -73,7 +74,7 @@ edtlDomainName = lens _edtlDomainName (\s a -> s { _edtlDomainName = a })
 
 newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
     { _edtlrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'EnableDomainTransferLockResponse' constructor.
 --
@@ -115,4 +116,4 @@ instance AWSRequest EnableDomainTransferLock where
 
 instance FromJSON EnableDomainTransferLockResponse where
     parseJSON = withObject "EnableDomainTransferLockResponse" $ \o -> EnableDomainTransferLockResponse
-        <$> o .: "OperationId"
+        <$> o .:  "OperationId"

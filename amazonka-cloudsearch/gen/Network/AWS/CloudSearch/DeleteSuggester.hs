@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data DeleteSuggester = DeleteSuggester
     { _ds3DomainName    :: Text
     , _ds3SuggesterName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteSuggester' constructor.
 --
@@ -76,7 +77,7 @@ ds3SuggesterName = lens _ds3SuggesterName (\s a -> s { _ds3SuggesterName = a })
 
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
     { _dsr1Suggester :: SuggesterStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteSuggesterResponse' constructor.
 --
@@ -97,7 +98,11 @@ dsr1Suggester = lens _dsr1Suggester (\s a -> s { _dsr1Suggester = a })
 instance ToPath DeleteSuggester where
     toPath = const "/"
 
-instance ToQuery DeleteSuggester
+instance ToQuery DeleteSuggester where
+    toQuery DeleteSuggester{..} = mconcat
+        [ "DomainName"    =? _ds3DomainName
+        , "SuggesterName" =? _ds3SuggesterName
+        ]
 
 instance ToHeaders DeleteSuggester
 
@@ -109,5 +114,5 @@ instance AWSRequest DeleteSuggester where
     response = xmlResponse
 
 instance FromXML DeleteSuggesterResponse where
-    parseXML = withElement "DeleteSuggesterResult" $ \x ->
-            <$> x .@ "Suggester"
+    parseXML = withElement "DeleteSuggesterResult" $ \x -> DeleteSuggesterResponse
+        <$> x .@  "Suggester"

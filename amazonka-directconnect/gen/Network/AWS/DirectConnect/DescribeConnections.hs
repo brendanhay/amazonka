@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DescribeConnections = DescribeConnections
     { _dc1ConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DescribeConnections' constructor.
 --
@@ -64,8 +65,8 @@ dc1ConnectionId :: Lens' DescribeConnections (Maybe Text)
 dc1ConnectionId = lens _dc1ConnectionId (\s a -> s { _dc1ConnectionId = a })
 
 newtype DescribeConnectionsResponse = DescribeConnectionsResponse
-    { _dcrConnections :: [Connection]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dcrConnections :: List "connections" Connection
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConnectionsResponse where
     type Item DescribeConnectionsResponse = Connection
@@ -86,7 +87,7 @@ describeConnectionsResponse = DescribeConnectionsResponse
 
 -- | A list of connections.
 dcrConnections :: Lens' DescribeConnectionsResponse [Connection]
-dcrConnections = lens _dcrConnections (\s a -> s { _dcrConnections = a })
+dcrConnections = lens _dcrConnections (\s a -> s { _dcrConnections = a }) . _List
 
 instance ToPath DescribeConnections where
     toPath = const "/"
@@ -110,4 +111,4 @@ instance AWSRequest DescribeConnections where
 
 instance FromJSON DescribeConnectionsResponse where
     parseJSON = withObject "DescribeConnectionsResponse" $ \o -> DescribeConnectionsResponse
-        <$> o .: "connections"
+        <$> o .:  "connections"

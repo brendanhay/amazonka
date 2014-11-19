@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,8 +53,8 @@ import qualified GHC.Exts
 
 data ListStacks = ListStacks
     { _lsNextToken         :: Maybe Text
-    , _lsStackStatusFilter :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _lsStackStatusFilter :: List "StackStatusFilter" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListStacks' constructor.
 --
@@ -81,11 +82,12 @@ lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 lsStackStatusFilter :: Lens' ListStacks [Text]
 lsStackStatusFilter =
     lens _lsStackStatusFilter (\s a -> s { _lsStackStatusFilter = a })
+        . _List
 
 data ListStacksResponse = ListStacksResponse
     { _lsr1NextToken      :: Maybe Text
-    , _lsr1StackSummaries :: [StackSummary]
-    } deriving (Eq, Show, Generic)
+    , _lsr1StackSummaries :: List "StackSummaries" StackSummary
+    } deriving (Eq, Show)
 
 -- | 'ListStacksResponse' constructor.
 --
@@ -111,11 +113,16 @@ lsr1NextToken = lens _lsr1NextToken (\s a -> s { _lsr1NextToken = a })
 lsr1StackSummaries :: Lens' ListStacksResponse [StackSummary]
 lsr1StackSummaries =
     lens _lsr1StackSummaries (\s a -> s { _lsr1StackSummaries = a })
+        . _List
 
 instance ToPath ListStacks where
     toPath = const "/"
 
-instance ToQuery ListStacks
+instance ToQuery ListStacks where
+    toQuery ListStacks{..} = mconcat
+        [ "NextToken"         =? _lsNextToken
+        , "StackStatusFilter" =? _lsStackStatusFilter
+        ]
 
 instance ToHeaders ListStacks
 
@@ -127,9 +134,9 @@ instance AWSRequest ListStacks where
     response = xmlResponse
 
 instance FromXML ListStacksResponse where
-    parseXML = withElement "ListStacksResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "StackSummaries"
+    parseXML = withElement "ListStacksResult" $ \x -> ListStacksResponse
+        <$> x .@? "NextToken"
+        <*> x .@  "StackSummaries"
 
 instance AWSPager ListStacks where
     next rq rs = (\x -> rq & lsNextToken ?~ x)

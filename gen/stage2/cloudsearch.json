@@ -86,8 +86,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "domainStatus",
@@ -142,6 +141,7 @@
                 ],
                 "contentPad": 0,
                 "name": "DomainStatus",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -497,8 +497,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "documentSuggesterOptions",
@@ -523,6 +522,7 @@
                 ],
                 "contentPad": 0,
                 "name": "DocumentSuggesterOptions",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -608,8 +608,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "doubleArrayOptions",
@@ -618,6 +617,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "DoubleArrayOptions",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -777,8 +777,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "indexField",
@@ -818,6 +817,7 @@
                 ],
                 "contentPad": 0,
                 "name": "IndexField",
+                "locationPad": 20,
                 "type": "record",
                 "optional": [
                     {
@@ -1188,8 +1188,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "dateOptions",
@@ -1198,6 +1197,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "DateOptions",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -1407,8 +1407,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "textArrayOptions",
@@ -1417,6 +1416,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "TextArrayOptions",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1595,8 +1595,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "analysisScheme",
@@ -1636,6 +1635,7 @@
                 ],
                 "contentPad": 0,
                 "name": "AnalysisScheme",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -1706,8 +1706,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "scalingParameters",
@@ -1716,6 +1715,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ScalingParameters",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -1816,8 +1816,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 33,
                 "ctor": "analysisOptions",
@@ -1826,6 +1825,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AnalysisOptions",
+                "locationPad": 31,
                 "type": "record",
                 "optional": [
                     {
@@ -1986,8 +1986,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "doubleOptions",
@@ -1996,6 +1995,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "DoubleOptions",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -2186,8 +2186,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "textOptions",
@@ -2196,6 +2195,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "TextOptions",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -2385,8 +2385,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "availabilityOptionsStatus",
@@ -2426,6 +2425,7 @@
                 ],
                 "contentPad": 0,
                 "name": "AvailabilityOptionsStatus",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2464,8 +2464,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "indexFieldStatus",
@@ -2505,6 +2504,7 @@
                 ],
                 "contentPad": 0,
                 "name": "IndexFieldStatus",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2543,8 +2543,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "scalingParametersStatus",
@@ -2584,6 +2583,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ScalingParametersStatus",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2622,8 +2622,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "analysisSchemeStatus",
@@ -2663,6 +2662,7 @@
                 ],
                 "contentPad": 0,
                 "name": "AnalysisSchemeStatus",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2703,7 +2703,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -2729,6 +2728,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ServiceEndpoint",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2769,8 +2769,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "limits",
@@ -2810,6 +2809,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Limits",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2848,8 +2848,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "expressionStatus",
@@ -2889,6 +2888,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ExpressionStatus",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2954,8 +2954,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "latLonOptions",
@@ -2964,6 +2963,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LatLonOptions",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -3153,8 +3153,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "suggesterStatus",
@@ -3194,6 +3193,7 @@
                 ],
                 "contentPad": 0,
                 "name": "SuggesterStatus",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3233,8 +3233,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "optionStatus",
@@ -3289,6 +3288,7 @@
                 ],
                 "contentPad": 0,
                 "name": "OptionStatus",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -3404,8 +3404,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "literalArrayOptions",
@@ -3414,6 +3413,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LiteralArrayOptions",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -3574,8 +3574,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "intArrayOptions",
@@ -3584,6 +3583,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "IntArrayOptions",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -3744,8 +3744,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "expression",
@@ -3785,6 +3784,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Expression",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3842,8 +3842,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "dateArrayOptions",
@@ -3852,6 +3851,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "DateArrayOptions",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -4080,8 +4080,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "suggester",
@@ -4121,6 +4120,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Suggester",
+                "locationPad": 25,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4160,8 +4160,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "intOptions",
@@ -4170,6 +4169,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "IntOptions",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -4360,8 +4360,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "literalOptions",
@@ -4370,6 +4369,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LiteralOptions",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -4559,8 +4559,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "accessPoliciesStatus",
@@ -4600,6 +4599,7 @@
                 ],
                 "contentPad": 0,
                 "name": "AccessPoliciesStatus",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4650,7 +4650,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -4662,8 +4661,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -4673,7 +4672,7 @@
                     "locationName": "FieldNames",
                     "documentation": null,
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"SuggesterNames\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -4685,13 +4684,14 @@
                 "contentPad": 0,
                 "name": "BuildSuggestersResponse",
                 "resultWrapper": "BuildSuggestersResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4701,14 +4701,14 @@
                         "locationName": "FieldNames",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4718,7 +4718,7 @@
                         "locationName": "FieldNames",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     }
                 ]
             },
@@ -4739,7 +4739,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4802,6 +4801,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -4830,8 +4830,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4864,6 +4863,7 @@
                 "contentPad": 0,
                 "name": "CreateDomainResponse",
                 "resultWrapper": "CreateDomainResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4918,7 +4918,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4981,6 +4980,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -5009,8 +5009,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5059,6 +5058,7 @@
                 "contentPad": 0,
                 "name": "DefineAnalysisSchemeResponse",
                 "resultWrapper": "DefineAnalysisSchemeResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5095,8 +5095,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5161,6 +5160,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5204,8 +5204,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5254,6 +5253,7 @@
                 "contentPad": 0,
                 "name": "DefineExpressionResponse",
                 "resultWrapper": "DefineExpressionResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5290,8 +5290,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5356,6 +5355,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5399,8 +5399,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5449,6 +5448,7 @@
                 "contentPad": 0,
                 "name": "DefineIndexFieldResponse",
                 "resultWrapper": "DefineIndexFieldResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5485,8 +5485,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5551,6 +5550,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5594,8 +5594,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5644,6 +5643,7 @@
                 "contentPad": 0,
                 "name": "DefineSuggesterResponse",
                 "resultWrapper": "DefineSuggesterResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5680,8 +5680,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5746,6 +5745,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5789,8 +5789,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5839,6 +5838,7 @@
                 "contentPad": 0,
                 "name": "DeleteAnalysisSchemeResponse",
                 "resultWrapper": "DeleteAnalysisSchemeResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -5876,8 +5876,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5942,6 +5941,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5985,8 +5985,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6019,6 +6018,7 @@
                 "contentPad": 0,
                 "name": "DeleteDomainResponse",
                 "resultWrapper": "DeleteDomainResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -6073,7 +6073,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6136,6 +6135,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -6164,8 +6164,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6214,6 +6213,7 @@
                 "contentPad": 0,
                 "name": "DeleteExpressionResponse",
                 "resultWrapper": "DeleteExpressionResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6251,8 +6251,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6317,6 +6316,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6360,8 +6360,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6410,6 +6409,7 @@
                 "contentPad": 0,
                 "name": "DeleteIndexFieldResponse",
                 "resultWrapper": "DeleteIndexFieldResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6447,8 +6447,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6513,6 +6512,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6556,8 +6556,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6606,6 +6605,7 @@
                 "contentPad": 0,
                 "name": "DeleteSuggesterResponse",
                 "resultWrapper": "DeleteSuggesterResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6643,8 +6643,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6709,6 +6708,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6753,7 +6753,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6765,8 +6764,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6776,7 +6775,7 @@
                     "locationName": "AnalysisSchemes",
                     "documentation": "\u003cp\u003eThe analysis scheme descriptions.\u003c/p\u003e",
                     "typeExposed": "[AnalysisSchemeStatus]",
-                    "type": "[AnalysisSchemeStatus]"
+                    "type": "List \"AnalysisSchemes\" AnalysisSchemeStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -6788,13 +6787,14 @@
                 "contentPad": 0,
                 "name": "DescribeAnalysisSchemesResponse",
                 "resultWrapper": "DescribeAnalysisSchemesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6804,14 +6804,14 @@
                         "locationName": "AnalysisSchemes",
                         "documentation": "\u003cp\u003eThe analysis scheme descriptions.\u003c/p\u003e",
                         "typeExposed": "[AnalysisSchemeStatus]",
-                        "type": "[AnalysisSchemeStatus]"
+                        "type": "List \"AnalysisSchemes\" AnalysisSchemeStatus"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6821,7 +6821,7 @@
                         "locationName": "AnalysisSchemes",
                         "documentation": "\u003cp\u003eThe analysis scheme descriptions.\u003c/p\u003e",
                         "typeExposed": "[AnalysisSchemeStatus]",
-                        "type": "[AnalysisSchemeStatus]"
+                        "type": "List \"AnalysisSchemes\" AnalysisSchemeStatus"
                     }
                 ]
             },
@@ -6841,8 +6841,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6897,14 +6896,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6914,7 +6914,7 @@
                         "locationName": "AnalysisSchemeNames",
                         "documentation": "\u003cp\u003eThe analysis schemes you want to describe.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6935,8 +6935,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6946,7 +6946,7 @@
                         "locationName": "AnalysisSchemeNames",
                         "documentation": "\u003cp\u003eThe analysis schemes you want to describe.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6986,8 +6986,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -7020,6 +7019,7 @@
                 "contentPad": 0,
                 "name": "DescribeAvailabilityOptionsResponse",
                 "resultWrapper": "DescribeAvailabilityOptionsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -7073,8 +7073,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7124,6 +7123,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7184,7 +7184,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7196,8 +7195,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7207,7 +7206,7 @@
                     "locationName": "DomainStatusList",
                     "documentation": null,
                     "typeExposed": "[DomainStatus]",
-                    "type": "[DomainStatus]"
+                    "type": "List \"DomainStatusList\" DomainStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7219,13 +7218,14 @@
                 "contentPad": 0,
                 "name": "DescribeDomainsResponse",
                 "resultWrapper": "DescribeDomainsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7235,14 +7235,14 @@
                         "locationName": "DomainStatusList",
                         "documentation": null,
                         "typeExposed": "[DomainStatus]",
-                        "type": "[DomainStatus]"
+                        "type": "List \"DomainStatusList\" DomainStatus"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7252,7 +7252,7 @@
                         "locationName": "DomainStatusList",
                         "documentation": null,
                         "typeExposed": "[DomainStatus]",
-                        "type": "[DomainStatus]"
+                        "type": "List \"DomainStatusList\" DomainStatus"
                     }
                 ]
             },
@@ -7273,7 +7273,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7285,8 +7284,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7296,7 +7295,7 @@
                     "locationName": "DomainNames",
                     "documentation": "\u003cp\u003eThe names of the domains you want to include in the response.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"DomainNames\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -7320,14 +7319,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7337,14 +7337,14 @@
                         "locationName": "DomainNames",
                         "documentation": "\u003cp\u003eThe names of the domains you want to include in the response.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DomainNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7354,7 +7354,7 @@
                         "locationName": "DomainNames",
                         "documentation": "\u003cp\u003eThe names of the domains you want to include in the response.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DomainNames\" Text"
                     }
                 ]
             }
@@ -7365,7 +7365,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7377,8 +7376,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7388,7 +7387,7 @@
                     "locationName": "Expressions",
                     "documentation": "\u003cp\u003eThe expressions configured for the domain.\u003c/p\u003e",
                     "typeExposed": "[ExpressionStatus]",
-                    "type": "[ExpressionStatus]"
+                    "type": "List \"Expressions\" ExpressionStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7400,13 +7399,14 @@
                 "contentPad": 0,
                 "name": "DescribeExpressionsResponse",
                 "resultWrapper": "DescribeExpressionsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7416,14 +7416,14 @@
                         "locationName": "Expressions",
                         "documentation": "\u003cp\u003eThe expressions configured for the domain.\u003c/p\u003e",
                         "typeExposed": "[ExpressionStatus]",
-                        "type": "[ExpressionStatus]"
+                        "type": "List \"Expressions\" ExpressionStatus"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7433,7 +7433,7 @@
                         "locationName": "Expressions",
                         "documentation": "\u003cp\u003eThe expressions configured for the domain.\u003c/p\u003e",
                         "typeExposed": "[ExpressionStatus]",
-                        "type": "[ExpressionStatus]"
+                        "type": "List \"Expressions\" ExpressionStatus"
                     }
                 ]
             },
@@ -7453,8 +7453,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7509,14 +7508,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7526,7 +7526,7 @@
                         "locationName": "ExpressionNames",
                         "documentation": "\u003cp\u003eLimits the \u003ccode\u003e\u003ca\u003eDescribeExpressions\u003c/a\u003e\u003c/code\u003e response to the specified expressions. If not specified, all expressions are shown.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7577,8 +7577,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7588,7 +7588,7 @@
                         "locationName": "ExpressionNames",
                         "documentation": "\u003cp\u003eLimits the \u003ccode\u003e\u003ca\u003eDescribeExpressions\u003c/a\u003e\u003c/code\u003e response to the specified expressions. If not specified, all expressions are shown.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     }
                 ]
             }
@@ -7599,7 +7599,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7611,8 +7610,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7622,7 +7621,7 @@
                     "locationName": "IndexFields",
                     "documentation": "\u003cp\u003eThe index fields configured for the domain.\u003c/p\u003e",
                     "typeExposed": "[IndexFieldStatus]",
-                    "type": "[IndexFieldStatus]"
+                    "type": "List \"IndexFields\" IndexFieldStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7634,13 +7633,14 @@
                 "contentPad": 0,
                 "name": "DescribeIndexFieldsResponse",
                 "resultWrapper": "DescribeIndexFieldsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7650,14 +7650,14 @@
                         "locationName": "IndexFields",
                         "documentation": "\u003cp\u003eThe index fields configured for the domain.\u003c/p\u003e",
                         "typeExposed": "[IndexFieldStatus]",
-                        "type": "[IndexFieldStatus]"
+                        "type": "List \"IndexFields\" IndexFieldStatus"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7667,7 +7667,7 @@
                         "locationName": "IndexFields",
                         "documentation": "\u003cp\u003eThe index fields configured for the domain.\u003c/p\u003e",
                         "typeExposed": "[IndexFieldStatus]",
-                        "type": "[IndexFieldStatus]"
+                        "type": "List \"IndexFields\" IndexFieldStatus"
                     }
                 ]
             },
@@ -7687,8 +7687,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7743,14 +7742,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7760,7 +7760,7 @@
                         "locationName": "FieldNames",
                         "documentation": "\u003cp\u003eA list of the index fields you want to describe. If not specified, information is returned for all configured index fields.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7811,8 +7811,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7822,7 +7822,7 @@
                         "locationName": "FieldNames",
                         "documentation": "\u003cp\u003eA list of the index fields you want to describe. If not specified, information is returned for all configured index fields.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     }
                 ]
             }
@@ -7832,8 +7832,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -7882,6 +7881,7 @@
                 "contentPad": 0,
                 "name": "DescribeScalingParametersResponse",
                 "resultWrapper": "DescribeScalingParametersResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -7920,7 +7920,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7983,6 +7982,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -8011,8 +8011,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -8061,6 +8060,7 @@
                 "contentPad": 0,
                 "name": "DescribeServiceAccessPoliciesResponse",
                 "resultWrapper": "DescribeServiceAccessPoliciesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -8098,8 +8098,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8149,6 +8148,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8209,7 +8209,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -8221,8 +8220,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -8232,7 +8231,7 @@
                     "locationName": "Suggesters",
                     "documentation": "\u003cp\u003eThe suggesters configured for the domain specified in the request.\u003c/p\u003e",
                     "typeExposed": "[SuggesterStatus]",
-                    "type": "[SuggesterStatus]"
+                    "type": "List \"Suggesters\" SuggesterStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8244,13 +8243,14 @@
                 "contentPad": 0,
                 "name": "DescribeSuggestersResponse",
                 "resultWrapper": "DescribeSuggestersResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8260,14 +8260,14 @@
                         "locationName": "Suggesters",
                         "documentation": "\u003cp\u003eThe suggesters configured for the domain specified in the request.\u003c/p\u003e",
                         "typeExposed": "[SuggesterStatus]",
-                        "type": "[SuggesterStatus]"
+                        "type": "List \"Suggesters\" SuggesterStatus"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8277,7 +8277,7 @@
                         "locationName": "Suggesters",
                         "documentation": "\u003cp\u003eThe suggesters configured for the domain specified in the request.\u003c/p\u003e",
                         "typeExposed": "[SuggesterStatus]",
-                        "type": "[SuggesterStatus]"
+                        "type": "List \"Suggesters\" SuggesterStatus"
                     }
                 ]
             },
@@ -8297,8 +8297,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8353,14 +8352,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8370,7 +8370,7 @@
                         "locationName": "SuggesterNames",
                         "documentation": "\u003cp\u003eThe suggesters you want to describe.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8421,8 +8421,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8432,7 +8432,7 @@
                         "locationName": "SuggesterNames",
                         "documentation": "\u003cp\u003eThe suggesters you want to describe.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     }
                 ]
             }
@@ -8444,7 +8444,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -8456,8 +8455,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -8467,7 +8466,7 @@
                     "locationName": "FieldNames",
                     "documentation": "\u003cp\u003eThe names of the fields that are currently being indexed.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"SuggesterNames\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8479,13 +8478,14 @@
                 "contentPad": 0,
                 "name": "IndexDocumentsResponse",
                 "resultWrapper": "IndexDocumentsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8495,14 +8495,14 @@
                         "locationName": "FieldNames",
                         "documentation": "\u003cp\u003eThe names of the fields that are currently being indexed.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8512,7 +8512,7 @@
                         "locationName": "FieldNames",
                         "documentation": "\u003cp\u003eThe names of the fields that are currently being indexed.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SuggesterNames\" Text"
                     }
                 ]
             },
@@ -8533,7 +8533,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -8596,6 +8595,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -8625,7 +8625,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -8648,7 +8647,7 @@
                     "locationName": "DomainNames",
                     "documentation": "\u003cp\u003eThe names of the search domains owned by an account.\u003c/p\u003e",
                     "typeExposed": "HashMap Text Text",
-                    "type": "Map Text Text"
+                    "type": "Map \"entry\" \"key\" \"value\" Text Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8660,6 +8659,7 @@
                 "contentPad": 0,
                 "name": "ListDomainNamesResponse",
                 "resultWrapper": "ListDomainNamesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8676,7 +8676,7 @@
                         "locationName": "DomainNames",
                         "documentation": "\u003cp\u003eThe names of the search domains owned by an account.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -8693,7 +8693,7 @@
                         "locationName": "DomainNames",
                         "documentation": "\u003cp\u003eThe names of the search domains owned by an account.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -8746,8 +8746,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -8780,6 +8779,7 @@
                 "contentPad": 0,
                 "name": "UpdateAvailabilityOptionsResponse",
                 "resultWrapper": "UpdateAvailabilityOptionsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8833,8 +8833,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8899,6 +8898,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8942,8 +8942,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -8992,6 +8991,7 @@
                 "contentPad": 0,
                 "name": "UpdateScalingParametersResponse",
                 "resultWrapper": "UpdateScalingParametersResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -9028,8 +9028,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9094,6 +9093,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9137,8 +9137,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9187,6 +9186,7 @@
                 "contentPad": 0,
                 "name": "UpdateServiceAccessPoliciesResponse",
                 "resultWrapper": "UpdateServiceAccessPoliciesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -9224,8 +9224,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9290,6 +9289,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpgMarker             :: Maybe Text
     , _dcpgMaxRecords         :: Maybe Int
     , _dcpgParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterParameterGroups' constructor.
 --
@@ -102,8 +103,8 @@ dcpgParameterGroupName =
 
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
     { _dcpgrMarker          :: Maybe Text
-    , _dcpgrParameterGroups :: [ClusterParameterGroup]
-    } deriving (Eq, Show, Generic)
+    , _dcpgrParameterGroups :: List "ClusterParameterGroup" ClusterParameterGroup
+    } deriving (Eq, Show)
 
 -- | 'DescribeClusterParameterGroupsResponse' constructor.
 --
@@ -133,11 +134,17 @@ dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrParameterGroups =
     lens _dcpgrParameterGroups (\s a -> s { _dcpgrParameterGroups = a })
+        . _List
 
 instance ToPath DescribeClusterParameterGroups where
     toPath = const "/"
 
-instance ToQuery DescribeClusterParameterGroups
+instance ToQuery DescribeClusterParameterGroups where
+    toQuery DescribeClusterParameterGroups{..} = mconcat
+        [ "Marker"             =? _dcpgMarker
+        , "MaxRecords"         =? _dcpgMaxRecords
+        , "ParameterGroupName" =? _dcpgParameterGroupName
+        ]
 
 instance ToHeaders DescribeClusterParameterGroups
 
@@ -149,9 +156,9 @@ instance AWSRequest DescribeClusterParameterGroups where
     response = xmlResponse
 
 instance FromXML DescribeClusterParameterGroupsResponse where
-    parseXML = withElement "DescribeClusterParameterGroupsResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "ParameterGroups"
+    parseXML = withElement "DescribeClusterParameterGroupsResult" $ \x -> DescribeClusterParameterGroupsResponse
+        <$> x .@? "Marker"
+        <*> x .@  "ParameterGroups"
 
 instance AWSPager DescribeClusterParameterGroups where
     next rq rs = (\x -> rq & dcpgMarker ?~ x)

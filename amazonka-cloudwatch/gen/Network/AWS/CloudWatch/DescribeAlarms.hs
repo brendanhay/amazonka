@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,11 +56,11 @@ import qualified GHC.Exts
 data DescribeAlarms = DescribeAlarms
     { _daActionPrefix    :: Maybe Text
     , _daAlarmNamePrefix :: Maybe Text
-    , _daAlarmNames      :: [Text]
+    , _daAlarmNames      :: List "AlarmNames" Text
     , _daMaxRecords      :: Maybe Nat
     , _daNextToken       :: Maybe Text
     , _daStateValue      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeAlarms' constructor.
 --
@@ -99,12 +100,11 @@ daAlarmNamePrefix =
 
 -- | A list of alarm names to retrieve information for.
 daAlarmNames :: Lens' DescribeAlarms [Text]
-daAlarmNames = lens _daAlarmNames (\s a -> s { _daAlarmNames = a })
+daAlarmNames = lens _daAlarmNames (\s a -> s { _daAlarmNames = a }) . _List
 
 -- | The maximum number of alarm descriptions to retrieve.
 daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
-daMaxRecords = lens _daMaxRecords (\s a -> s { _daMaxRecords = a })
-    . mapping _Nat
+daMaxRecords = lens _daMaxRecords (\s a -> s { _daMaxRecords = a }) . mapping _Nat
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
@@ -116,9 +116,9 @@ daStateValue :: Lens' DescribeAlarms (Maybe Text)
 daStateValue = lens _daStateValue (\s a -> s { _daStateValue = a })
 
 data DescribeAlarmsResponse = DescribeAlarmsResponse
-    { _darMetricAlarms :: [MetricAlarm]
+    { _darMetricAlarms :: List "MetricAlarms" MetricAlarm
     , _darNextToken    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAlarmsResponse' constructor.
 --
@@ -136,7 +136,7 @@ describeAlarmsResponse = DescribeAlarmsResponse
 
 -- | A list of information for the specified alarms.
 darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
-darMetricAlarms = lens _darMetricAlarms (\s a -> s { _darMetricAlarms = a })
+darMetricAlarms = lens _darMetricAlarms (\s a -> s { _darMetricAlarms = a }) . _List
 
 -- | A string that marks the start of the next batch of returned results.
 darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
@@ -145,7 +145,15 @@ darNextToken = lens _darNextToken (\s a -> s { _darNextToken = a })
 instance ToPath DescribeAlarms where
     toPath = const "/"
 
-instance ToQuery DescribeAlarms
+instance ToQuery DescribeAlarms where
+    toQuery DescribeAlarms{..} = mconcat
+        [ "ActionPrefix"    =? _daActionPrefix
+        , "AlarmNamePrefix" =? _daAlarmNamePrefix
+        , "AlarmNames"      =? _daAlarmNames
+        , "MaxRecords"      =? _daMaxRecords
+        , "NextToken"       =? _daNextToken
+        , "StateValue"      =? _daStateValue
+        ]
 
 instance ToHeaders DescribeAlarms
 
@@ -157,9 +165,9 @@ instance AWSRequest DescribeAlarms where
     response = xmlResponse
 
 instance FromXML DescribeAlarmsResponse where
-    parseXML = withElement "DescribeAlarmsResult" $ \x ->
-            <$> x .@ "MetricAlarms"
-            <*> x .@? "NextToken"
+    parseXML = withElement "DescribeAlarmsResult" $ \x -> DescribeAlarmsResponse
+        <$> x .@  "MetricAlarms"
+        <*> x .@? "NextToken"
 
 instance AWSPager DescribeAlarms where
     next rq rs = (\x -> rq & daNextToken ?~ x)

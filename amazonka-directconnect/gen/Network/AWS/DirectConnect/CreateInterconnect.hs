@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -67,7 +68,7 @@ data CreateInterconnect = CreateInterconnect
     { _ciBandwidth        :: Text
     , _ciInterconnectName :: Text
     , _ciLocation         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateInterconnect' constructor.
 --
@@ -111,7 +112,7 @@ data CreateInterconnectResponse = CreateInterconnectResponse
     , _cirInterconnectState :: Maybe Text
     , _cirLocation          :: Maybe Text
     , _cirRegion            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateInterconnectResponse' constructor.
 --

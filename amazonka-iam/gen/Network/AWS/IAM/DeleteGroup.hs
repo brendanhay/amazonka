@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,7 +46,7 @@ import qualified GHC.Exts
 
 newtype DeleteGroup = DeleteGroup
     { _dgGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteGroup' constructor.
 --
@@ -73,7 +74,10 @@ deleteGroupResponse = DeleteGroupResponse
 instance ToPath DeleteGroup where
     toPath = const "/"
 
-instance ToQuery DeleteGroup
+instance ToQuery DeleteGroup where
+    toQuery DeleteGroup{..} = mconcat
+        [ "GroupName" =? _dgGroupName
+        ]
 
 instance ToHeaders DeleteGroup
 

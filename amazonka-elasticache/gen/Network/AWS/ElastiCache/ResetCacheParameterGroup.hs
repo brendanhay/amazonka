@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,9 +53,9 @@ import qualified GHC.Exts
 
 data ResetCacheParameterGroup = ResetCacheParameterGroup
     { _rcpgCacheParameterGroupName :: Text
-    , _rcpgParameterNameValues     :: [ParameterNameValue]
+    , _rcpgParameterNameValues     :: List "ParameterNameValue" ParameterNameValue
     , _rcpgResetAllParameters      :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ResetCacheParameterGroup' constructor.
 --
@@ -86,6 +87,7 @@ rcpgCacheParameterGroupName =
 rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
 rcpgParameterNameValues =
     lens _rcpgParameterNameValues (\s a -> s { _rcpgParameterNameValues = a })
+        . _List
 
 -- | If true, all parameters in the cache parameter group will be reset to
 -- default values. If false, no such action occurs. Valid values: true |
@@ -96,7 +98,7 @@ rcpgResetAllParameters =
 
 newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     { _rcpgrCacheParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ResetCacheParameterGroupResponse' constructor.
 --
@@ -118,7 +120,12 @@ rcpgrCacheParameterGroupName =
 instance ToPath ResetCacheParameterGroup where
     toPath = const "/"
 
-instance ToQuery ResetCacheParameterGroup
+instance ToQuery ResetCacheParameterGroup where
+    toQuery ResetCacheParameterGroup{..} = mconcat
+        [ "CacheParameterGroupName" =? _rcpgCacheParameterGroupName
+        , "ParameterNameValues"     =? _rcpgParameterNameValues
+        , "ResetAllParameters"      =? _rcpgResetAllParameters
+        ]
 
 instance ToHeaders ResetCacheParameterGroup
 
@@ -130,5 +137,5 @@ instance AWSRequest ResetCacheParameterGroup where
     response = xmlResponse
 
 instance FromXML ResetCacheParameterGroupResponse where
-    parseXML = withElement "ResetCacheParameterGroupResult" $ \x ->
-            <$> x .@? "CacheParameterGroupName"
+    parseXML = withElement "ResetCacheParameterGroupResult" $ \x -> ResetCacheParameterGroupResponse
+        <$> x .@? "CacheParameterGroupName"

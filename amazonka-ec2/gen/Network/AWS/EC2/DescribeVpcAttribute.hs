@@ -54,7 +54,7 @@ data DescribeVpcAttribute = DescribeVpcAttribute
     { _dva1Attribute :: Maybe Text
     , _dva1DryRun    :: Maybe Bool
     , _dva1VpcId     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeVpcAttribute' constructor.
 --
@@ -89,7 +89,7 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     { _dvarEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _dvarEnableDnsSupport   :: Maybe AttributeBooleanValue
     , _dvarVpcId              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVpcAttributeResponse' constructor.
 --
@@ -129,7 +129,12 @@ dvarVpcId = lens _dvarVpcId (\s a -> s { _dvarVpcId = a })
 instance ToPath DescribeVpcAttribute where
     toPath = const "/"
 
-instance ToQuery DescribeVpcAttribute
+instance ToQuery DescribeVpcAttribute where
+    toQuery DescribeVpcAttribute{..} = mconcat
+        [ "Attribute" =? _dva1Attribute
+        , "dryRun"    =? _dva1DryRun
+        , "VpcId"     =? _dva1VpcId
+        ]
 
 instance ToHeaders DescribeVpcAttribute
 

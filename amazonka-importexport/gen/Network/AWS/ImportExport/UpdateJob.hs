@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data UpdateJob = UpdateJob
     , _ujJobType      :: Text
     , _ujManifest     :: Text
     , _ujValidateOnly :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateJob' constructor.
 --
@@ -98,7 +99,7 @@ ujValidateOnly = lens _ujValidateOnly (\s a -> s { _ujValidateOnly = a })
 data UpdateJobResponse = UpdateJobResponse
     { _ujrSuccess        :: Maybe Bool
     , _ujrWarningMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateJobResponse' constructor.
 --
@@ -124,7 +125,13 @@ ujrWarningMessage =
 instance ToPath UpdateJob where
     toPath = const "/"
 
-instance ToQuery UpdateJob
+instance ToQuery UpdateJob where
+    toQuery UpdateJob{..} = mconcat
+        [ "JobId"        =? _ujJobId
+        , "JobType"      =? _ujJobType
+        , "Manifest"     =? _ujManifest
+        , "ValidateOnly" =? _ujValidateOnly
+        ]
 
 instance ToHeaders UpdateJob
 
@@ -136,6 +143,6 @@ instance AWSRequest UpdateJob where
     response = xmlResponse
 
 instance FromXML UpdateJobResponse where
-    parseXML = withElement "UpdateJobResult" $ \x ->
-            <$> x .@? "Success"
-            <*> x .@? "WarningMessage"
+    parseXML = withElement "UpdateJobResult" $ \x -> UpdateJobResponse
+        <$> x .@? "Success"
+        <*> x .@? "WarningMessage"

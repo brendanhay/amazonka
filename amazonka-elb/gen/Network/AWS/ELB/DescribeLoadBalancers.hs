@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,10 +53,10 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data DescribeLoadBalancers = DescribeLoadBalancers
-    { _dlbLoadBalancerNames :: [Text]
+    { _dlbLoadBalancerNames :: List "LoadBalancerNames" Text
     , _dlbMarker            :: Maybe Text
     , _dlbPageSize          :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeLoadBalancers' constructor.
 --
@@ -78,6 +79,7 @@ describeLoadBalancers = DescribeLoadBalancers
 dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
 dlbLoadBalancerNames =
     lens _dlbLoadBalancerNames (\s a -> s { _dlbLoadBalancerNames = a })
+        . _List
 
 -- | An optional parameter used for pagination of results from this call. If
 -- specified, the response includes only records beyond the marker.
@@ -87,13 +89,12 @@ dlbMarker = lens _dlbMarker (\s a -> s { _dlbMarker = a })
 -- | The number of results returned in each page. The default is 400. You
 -- cannot specify a page size greater than 400 or less than 1.
 dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
-dlbPageSize = lens _dlbPageSize (\s a -> s { _dlbPageSize = a })
-    . mapping _Nat
+dlbPageSize = lens _dlbPageSize (\s a -> s { _dlbPageSize = a }) . mapping _Nat
 
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
-    { _dlbrLoadBalancerDescriptions :: [LoadBalancerDescription]
+    { _dlbrLoadBalancerDescriptions :: List "LoadBalancerDescriptions" LoadBalancerDescription
     , _dlbrNextMarker               :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeLoadBalancersResponse' constructor.
 --
@@ -114,6 +115,7 @@ dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalance
 dlbrLoadBalancerDescriptions =
     lens _dlbrLoadBalancerDescriptions
         (\s a -> s { _dlbrLoadBalancerDescriptions = a })
+            . _List
 
 -- | Specifies the value of next marker if the request returned more than one
 -- page of results.
@@ -123,7 +125,12 @@ dlbrNextMarker = lens _dlbrNextMarker (\s a -> s { _dlbrNextMarker = a })
 instance ToPath DescribeLoadBalancers where
     toPath = const "/"
 
-instance ToQuery DescribeLoadBalancers
+instance ToQuery DescribeLoadBalancers where
+    toQuery DescribeLoadBalancers{..} = mconcat
+        [ "LoadBalancerNames" =? _dlbLoadBalancerNames
+        , "Marker"            =? _dlbMarker
+        , "PageSize"          =? _dlbPageSize
+        ]
 
 instance ToHeaders DescribeLoadBalancers
 
@@ -135,9 +142,9 @@ instance AWSRequest DescribeLoadBalancers where
     response = xmlResponse
 
 instance FromXML DescribeLoadBalancersResponse where
-    parseXML = withElement "DescribeLoadBalancersResult" $ \x ->
-            <$> x .@ "LoadBalancerDescriptions"
-            <*> x .@? "NextMarker"
+    parseXML = withElement "DescribeLoadBalancersResult" $ \x -> DescribeLoadBalancersResponse
+        <$> x .@  "LoadBalancerDescriptions"
+        <*> x .@? "NextMarker"
 
 instance AWSPager DescribeLoadBalancers where
     next rq rs = (\x -> rq & dlbMarker ?~ x)

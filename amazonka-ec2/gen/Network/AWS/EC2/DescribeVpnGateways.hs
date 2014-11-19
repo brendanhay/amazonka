@@ -53,7 +53,7 @@ data DescribeVpnGateways = DescribeVpnGateways
     { _dvg2DryRun        :: Maybe Bool
     , _dvg2Filters       :: List "Filter" Filter
     , _dvg2VpnGatewayIds :: List "VpnGatewayId" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVpnGateways' constructor.
 --
@@ -93,8 +93,7 @@ dvg2DryRun = lens _dvg2DryRun (\s a -> s { _dvg2DryRun = a })
 -- only supported type is ipsec.1. vpn-gateway-id - The ID of the virtual
 -- private gateway.
 dvg2Filters :: Lens' DescribeVpnGateways [Filter]
-dvg2Filters = lens _dvg2Filters (\s a -> s { _dvg2Filters = a })
-    . _List
+dvg2Filters = lens _dvg2Filters (\s a -> s { _dvg2Filters = a }) . _List
 
 -- | One or more virtual private gateway IDs. Default: Describes all your
 -- virtual private gateways.
@@ -105,7 +104,7 @@ dvg2VpnGatewayIds =
 
 newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways :: List "item" VpnGateway
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVpnGatewaysResponse where
     type Item DescribeVpnGatewaysResponse = VpnGateway
@@ -126,13 +125,17 @@ describeVpnGatewaysResponse = DescribeVpnGatewaysResponse
 
 -- | Information about one or more virtual private gateways.
 dvgrVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
-dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a })
-    . _List
+dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a }) . _List
 
 instance ToPath DescribeVpnGateways where
     toPath = const "/"
 
-instance ToQuery DescribeVpnGateways
+instance ToQuery DescribeVpnGateways where
+    toQuery DescribeVpnGateways{..} = mconcat
+        [ "dryRun"       =? _dvg2DryRun
+        , "Filter"       =? _dvg2Filters
+        , "VpnGatewayId" =? _dvg2VpnGatewayIds
+        ]
 
 instance ToHeaders DescribeVpnGateways
 
@@ -145,4 +148,4 @@ instance AWSRequest DescribeVpnGateways where
 
 instance FromXML DescribeVpnGatewaysResponse where
     parseXML x = DescribeVpnGatewaysResponse
-        <$> x .@ "vpnGatewaySet"
+        <$> x .@  "vpnGatewaySet"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -74,7 +75,7 @@ data RegisterWorkflowType = RegisterWorkflowType
     , _rwtDomain                              :: Text
     , _rwtName                                :: Text
     , _rwtVersion                             :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RegisterWorkflowType' constructor.
 --

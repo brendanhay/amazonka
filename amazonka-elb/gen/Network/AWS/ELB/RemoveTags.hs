@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -44,9 +45,9 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data RemoveTags = RemoveTags
-    { _rtLoadBalancerNames :: [Text]
-    , _rtTags              :: List1 TagKeyOnly
-    } deriving (Eq, Show, Generic)
+    { _rtLoadBalancerNames :: List "LoadBalancerNames" Text
+    , _rtTags              :: List1 "Tags" TagKeyOnly
+    } deriving (Eq, Show)
 
 -- | 'RemoveTags' constructor.
 --
@@ -59,7 +60,7 @@ data RemoveTags = RemoveTags
 removeTags :: NonEmpty TagKeyOnly -- ^ 'rtTags'
            -> RemoveTags
 removeTags p1 = RemoveTags
-    { _rtTags              = p1
+    { _rtTags              = withIso _List1 (const id) p1
     , _rtLoadBalancerNames = mempty
     }
 
@@ -68,10 +69,11 @@ removeTags p1 = RemoveTags
 rtLoadBalancerNames :: Lens' RemoveTags [Text]
 rtLoadBalancerNames =
     lens _rtLoadBalancerNames (\s a -> s { _rtLoadBalancerNames = a })
+        . _List
 
 -- | A list of tag keys to remove.
 rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
-rtTags = lens _rtTags (\s a -> s { _rtTags = a })
+rtTags = lens _rtTags (\s a -> s { _rtTags = a }) . _List1
 
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Ord, Show, Generic)
@@ -83,7 +85,11 @@ removeTagsResponse = RemoveTagsResponse
 instance ToPath RemoveTags where
     toPath = const "/"
 
-instance ToQuery RemoveTags
+instance ToQuery RemoveTags where
+    toQuery RemoveTags{..} = mconcat
+        [ "LoadBalancerNames" =? _rtLoadBalancerNames
+        , "Tags"              =? _rtTags
+        ]
 
 instance ToHeaders RemoveTags
 

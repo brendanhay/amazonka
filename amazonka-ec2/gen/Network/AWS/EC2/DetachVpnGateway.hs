@@ -55,7 +55,7 @@ data DetachVpnGateway = DetachVpnGateway
     { _dvg1DryRun       :: Maybe Bool
     , _dvg1VpcId        :: Text
     , _dvg1VpnGatewayId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DetachVpnGateway' constructor.
 --
@@ -97,7 +97,12 @@ detachVpnGatewayResponse = DetachVpnGatewayResponse
 instance ToPath DetachVpnGateway where
     toPath = const "/"
 
-instance ToQuery DetachVpnGateway
+instance ToQuery DetachVpnGateway where
+    toQuery DetachVpnGateway{..} = mconcat
+        [ "dryRun"       =? _dvg1DryRun
+        , "VpcId"        =? _dvg1VpcId
+        , "VpnGatewayId" =? _dvg1VpnGatewayId
+        ]
 
 instance ToHeaders DetachVpnGateway
 

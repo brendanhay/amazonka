@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
     { _rsifsSourceIdentifier :: Text
     , _rsifsSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RemoveSourceIdentifierFromSubscription' constructor.
 --
@@ -81,7 +82,7 @@ rsifsSubscriptionName =
 
 newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResponse' constructor.
 --
@@ -101,7 +102,11 @@ rsifsrEventSubscription =
 instance ToPath RemoveSourceIdentifierFromSubscription where
     toPath = const "/"
 
-instance ToQuery RemoveSourceIdentifierFromSubscription
+instance ToQuery RemoveSourceIdentifierFromSubscription where
+    toQuery RemoveSourceIdentifierFromSubscription{..} = mconcat
+        [ "SourceIdentifier" =? _rsifsSourceIdentifier
+        , "SubscriptionName" =? _rsifsSubscriptionName
+        ]
 
 instance ToHeaders RemoveSourceIdentifierFromSubscription
 
@@ -113,5 +118,5 @@ instance AWSRequest RemoveSourceIdentifierFromSubscription where
     response = xmlResponse
 
 instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
-    parseXML = withElement "RemoveSourceIdentifierFromSubscriptionResult" $ \x ->
-            <$> x .@? "EventSubscription"
+    parseXML = withElement "RemoveSourceIdentifierFromSubscriptionResult" $ \x -> RemoveSourceIdentifierFromSubscriptionResponse
+        <$> x .@? "EventSubscription"

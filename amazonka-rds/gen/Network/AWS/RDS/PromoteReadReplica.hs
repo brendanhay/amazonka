@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ data PromoteReadReplica = PromoteReadReplica
     { _prrBackupRetentionPeriod :: Maybe Int
     , _prrDBInstanceIdentifier  :: Text
     , _prrPreferredBackupWindow :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PromoteReadReplica' constructor.
 --
@@ -102,7 +103,7 @@ prrPreferredBackupWindow =
 
 newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
     { _prrrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PromoteReadReplicaResponse' constructor.
 --
@@ -121,7 +122,12 @@ prrrDBInstance = lens _prrrDBInstance (\s a -> s { _prrrDBInstance = a })
 instance ToPath PromoteReadReplica where
     toPath = const "/"
 
-instance ToQuery PromoteReadReplica
+instance ToQuery PromoteReadReplica where
+    toQuery PromoteReadReplica{..} = mconcat
+        [ "BackupRetentionPeriod" =? _prrBackupRetentionPeriod
+        , "DBInstanceIdentifier"  =? _prrDBInstanceIdentifier
+        , "PreferredBackupWindow" =? _prrPreferredBackupWindow
+        ]
 
 instance ToHeaders PromoteReadReplica
 
@@ -133,5 +139,5 @@ instance AWSRequest PromoteReadReplica where
     response = xmlResponse
 
 instance FromXML PromoteReadReplicaResponse where
-    parseXML = withElement "PromoteReadReplicaResult" $ \x ->
-            <$> x .@? "DBInstance"
+    parseXML = withElement "PromoteReadReplicaResult" $ \x -> PromoteReadReplicaResponse
+        <$> x .@? "DBInstance"

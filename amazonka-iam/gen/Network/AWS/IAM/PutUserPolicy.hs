@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data PutUserPolicy = PutUserPolicy
     { _pupPolicyDocument :: Text
     , _pupPolicyName     :: Text
     , _pupUserName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PutUserPolicy' constructor.
 --
@@ -97,7 +98,12 @@ putUserPolicyResponse = PutUserPolicyResponse
 instance ToPath PutUserPolicy where
     toPath = const "/"
 
-instance ToQuery PutUserPolicy
+instance ToQuery PutUserPolicy where
+    toQuery PutUserPolicy{..} = mconcat
+        [ "PolicyDocument" =? _pupPolicyDocument
+        , "PolicyName"     =? _pupPolicyName
+        , "UserName"       =? _pupUserName
+        ]
 
 instance ToHeaders PutUserPolicy
 

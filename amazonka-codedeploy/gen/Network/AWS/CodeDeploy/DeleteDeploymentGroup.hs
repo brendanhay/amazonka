@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data DeleteDeploymentGroup = DeleteDeploymentGroup
     { _ddgApplicationName     :: Text
     , _ddgDeploymentGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteDeploymentGroup' constructor.
 --
@@ -78,8 +79,8 @@ ddgDeploymentGroupName =
     lens _ddgDeploymentGroupName (\s a -> s { _ddgDeploymentGroupName = a })
 
 newtype DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse
-    { _ddgrHooksNotCleanedUp :: [AutoScalingGroup]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ddgrHooksNotCleanedUp :: List "autoScalingGroups" AutoScalingGroup
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeleteDeploymentGroupResponse where
     type Item DeleteDeploymentGroupResponse = AutoScalingGroup
@@ -107,6 +108,7 @@ deleteDeploymentGroupResponse = DeleteDeploymentGroupResponse
 ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrHooksNotCleanedUp =
     lens _ddgrHooksNotCleanedUp (\s a -> s { _ddgrHooksNotCleanedUp = a })
+        . _List
 
 instance ToPath DeleteDeploymentGroup where
     toPath = const "/"
@@ -131,4 +133,4 @@ instance AWSRequest DeleteDeploymentGroup where
 
 instance FromJSON DeleteDeploymentGroupResponse where
     parseJSON = withObject "DeleteDeploymentGroupResponse" $ \o -> DeleteDeploymentGroupResponse
-        <$> o .: "hooksNotCleanedUp"
+        <$> o .:  "hooksNotCleanedUp"

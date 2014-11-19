@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ import qualified GHC.Exts
 
 newtype DeleteHostedZone = DeleteHostedZone
     { _dhzId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteHostedZone' constructor.
 --
@@ -75,7 +76,7 @@ dhzId = lens _dhzId (\s a -> s { _dhzId = a })
 
 newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { _dhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteHostedZoneResponse' constructor.
 --
@@ -119,4 +120,4 @@ instance AWSRequest DeleteHostedZone where
 
 instance FromXML DeleteHostedZoneResponse where
     parseXML x = DeleteHostedZoneResponse
-            <$> x .@ "ChangeInfo"
+        <$> x .@  "ChangeInfo"

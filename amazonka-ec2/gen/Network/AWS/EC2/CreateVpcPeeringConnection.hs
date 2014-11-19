@@ -61,7 +61,7 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     , _cvpcPeerOwnerId :: Maybe Text
     , _cvpcPeerVpcId   :: Maybe Text
     , _cvpcVpcId       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateVpcPeeringConnection' constructor.
 --
@@ -101,7 +101,7 @@ cvpcVpcId = lens _cvpcVpcId (\s a -> s { _cvpcVpcId = a })
 
 newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateVpcPeeringConnectionResponse' constructor.
 --
@@ -123,7 +123,13 @@ cvpcrVpcPeeringConnection =
 instance ToPath CreateVpcPeeringConnection where
     toPath = const "/"
 
-instance ToQuery CreateVpcPeeringConnection
+instance ToQuery CreateVpcPeeringConnection where
+    toQuery CreateVpcPeeringConnection{..} = mconcat
+        [ "dryRun"      =? _cvpcDryRun
+        , "peerOwnerId" =? _cvpcPeerOwnerId
+        , "peerVpcId"   =? _cvpcPeerVpcId
+        , "vpcId"       =? _cvpcVpcId
+        ]
 
 instance ToHeaders CreateVpcPeeringConnection
 

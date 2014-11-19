@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 data ListDomains = ListDomains
     { _ldMaxNumberOfDomains :: Maybe Int
     , _ldNextToken          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDomains' constructor.
 --
@@ -82,9 +83,9 @@ ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
 data ListDomainsResponse = ListDomainsResponse
-    { _ldrDomainNames :: Flatten [Text]
+    { _ldrDomainNames :: List "DomainName" Text
     , _ldrNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDomainsResponse' constructor.
 --
@@ -97,14 +98,13 @@ data ListDomainsResponse = ListDomainsResponse
 listDomainsResponse :: [Text] -- ^ 'ldrDomainNames'
                     -> ListDomainsResponse
 listDomainsResponse p1 = ListDomainsResponse
-    { _ldrDomainNames = withIso _Flatten (const id) p1
+    { _ldrDomainNames = withIso _List (const id) p1
     , _ldrNextToken   = Nothing
     }
 
 -- | A list of domain names that match the expression.
 ldrDomainNames :: Lens' ListDomainsResponse [Text]
-ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
-    . _Flatten
+ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a }) . _List
 
 -- | An opaque token indicating that there are more domains than the specified
 -- MaxNumberOfDomains still available.
@@ -114,7 +114,11 @@ ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 instance ToPath ListDomains where
     toPath = const "/"
 
-instance ToQuery ListDomains
+instance ToQuery ListDomains where
+    toQuery ListDomains{..} = mconcat
+        [ "MaxNumberOfDomains" =? _ldMaxNumberOfDomains
+        , "NextToken"          =? _ldNextToken
+        ]
 
 instance ToHeaders ListDomains
 
@@ -126,9 +130,9 @@ instance AWSRequest ListDomains where
     response = xmlResponse
 
 instance FromXML ListDomainsResponse where
-    parseXML = withElement "ListDomainsResult" $ \x ->
-            <$> parseXML x
-            <*> x .@? "NextToken"
+    parseXML = withElement "ListDomainsResult" $ \x -> ListDomainsResponse
+        <$> parseXML x
+        <*> x .@? "NextToken"
 
 instance AWSPager ListDomains where
     next rq rs = (\x -> rq & ldNextToken ?~ x)

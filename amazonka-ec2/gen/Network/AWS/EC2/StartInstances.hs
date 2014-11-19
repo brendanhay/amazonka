@@ -64,7 +64,7 @@ data StartInstances = StartInstances
     { _si1AdditionalInfo :: Maybe Text
     , _si1DryRun         :: Maybe Bool
     , _si1InstanceIds    :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StartInstances' constructor.
 --
@@ -93,12 +93,11 @@ si1DryRun = lens _si1DryRun (\s a -> s { _si1DryRun = a })
 
 -- | One or more instance IDs.
 si1InstanceIds :: Lens' StartInstances [Text]
-si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
-    . _List
+si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a }) . _List
 
 newtype StartInstancesResponse = StartInstancesResponse
     { _sirStartingInstances :: List "item" InstanceStateChange
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList StartInstancesResponse where
     type Item StartInstancesResponse = InstanceStateChange
@@ -126,7 +125,12 @@ sirStartingInstances =
 instance ToPath StartInstances where
     toPath = const "/"
 
-instance ToQuery StartInstances
+instance ToQuery StartInstances where
+    toQuery StartInstances{..} = mconcat
+        [ "additionalInfo" =? _si1AdditionalInfo
+        , "dryRun"         =? _si1DryRun
+        , "InstanceId"     =? _si1InstanceIds
+        ]
 
 instance ToHeaders StartInstances
 
@@ -139,4 +143,4 @@ instance AWSRequest StartInstances where
 
 instance FromXML StartInstancesResponse where
     parseXML x = StartInstancesResponse
-        <$> x .@ "instancesSet"
+        <$> x .@  "instancesSet"

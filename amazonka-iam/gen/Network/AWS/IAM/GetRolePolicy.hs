@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 data GetRolePolicy = GetRolePolicy
     { _grpPolicyName :: Text
     , _grpRoleName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetRolePolicy' constructor.
 --
@@ -83,7 +84,7 @@ data GetRolePolicyResponse = GetRolePolicyResponse
     { _grprPolicyDocument :: Text
     , _grprPolicyName     :: Text
     , _grprRoleName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetRolePolicyResponse' constructor.
 --
@@ -121,7 +122,11 @@ grprRoleName = lens _grprRoleName (\s a -> s { _grprRoleName = a })
 instance ToPath GetRolePolicy where
     toPath = const "/"
 
-instance ToQuery GetRolePolicy
+instance ToQuery GetRolePolicy where
+    toQuery GetRolePolicy{..} = mconcat
+        [ "PolicyName" =? _grpPolicyName
+        , "RoleName"   =? _grpRoleName
+        ]
 
 instance ToHeaders GetRolePolicy
 
@@ -133,7 +138,7 @@ instance AWSRequest GetRolePolicy where
     response = xmlResponse
 
 instance FromXML GetRolePolicyResponse where
-    parseXML = withElement "GetRolePolicyResult" $ \x ->
-            <$> x .@ "PolicyDocument"
-            <*> x .@ "PolicyName"
-            <*> x .@ "RoleName"
+    parseXML = withElement "GetRolePolicyResult" $ \x -> GetRolePolicyResponse
+        <$> x .@  "PolicyDocument"
+        <*> x .@  "PolicyName"
+        <*> x .@  "RoleName"

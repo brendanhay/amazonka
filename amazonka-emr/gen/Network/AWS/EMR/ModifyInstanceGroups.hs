@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,8 +47,8 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 newtype ModifyInstanceGroups = ModifyInstanceGroups
-    { _migInstanceGroups :: [InstanceGroupModifyConfig]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _migInstanceGroups :: List "InstanceGroups" InstanceGroupModifyConfig
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ModifyInstanceGroups where
     type Item ModifyInstanceGroups = InstanceGroupModifyConfig
@@ -70,6 +71,7 @@ modifyInstanceGroups = ModifyInstanceGroups
 migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
 migInstanceGroups =
     lens _migInstanceGroups (\s a -> s { _migInstanceGroups = a })
+        . _List
 
 data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
     deriving (Eq, Ord, Show, Generic)

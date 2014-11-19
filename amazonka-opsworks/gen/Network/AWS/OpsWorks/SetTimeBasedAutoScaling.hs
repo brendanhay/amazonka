@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
     { _stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
     , _stbasInstanceId          :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SetTimeBasedAutoScaling' constructor.
 --

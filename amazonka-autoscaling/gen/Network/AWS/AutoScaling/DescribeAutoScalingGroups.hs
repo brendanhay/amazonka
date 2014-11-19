@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,10 +54,10 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups
-    { _dasgAutoScalingGroupNames :: [Text]
+    { _dasgAutoScalingGroupNames :: List "AutoScalingGroupNames" Text
     , _dasgMaxRecords            :: Maybe Int
     , _dasgNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeAutoScalingGroups' constructor.
 --
@@ -80,6 +81,7 @@ dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
 dasgAutoScalingGroupNames =
     lens _dasgAutoScalingGroupNames
         (\s a -> s { _dasgAutoScalingGroupNames = a })
+            . _List
 
 -- | The maximum number of records to return.
 dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
@@ -90,9 +92,9 @@ dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
 dasgNextToken = lens _dasgNextToken (\s a -> s { _dasgNextToken = a })
 
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
-    { _dasgrAutoScalingGroups :: [AutoScalingGroup]
+    { _dasgrAutoScalingGroups :: List "AutoScalingGroups" AutoScalingGroup
     , _dasgrNextToken         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAutoScalingGroupsResponse' constructor.
 --
@@ -112,6 +114,7 @@ describeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
 dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
 dasgrAutoScalingGroups =
     lens _dasgrAutoScalingGroups (\s a -> s { _dasgrAutoScalingGroups = a })
+        . _List
 
 -- | A string that marks the start of the next batch of returned results.
 dasgrNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
@@ -120,7 +123,12 @@ dasgrNextToken = lens _dasgrNextToken (\s a -> s { _dasgrNextToken = a })
 instance ToPath DescribeAutoScalingGroups where
     toPath = const "/"
 
-instance ToQuery DescribeAutoScalingGroups
+instance ToQuery DescribeAutoScalingGroups where
+    toQuery DescribeAutoScalingGroups{..} = mconcat
+        [ "AutoScalingGroupNames" =? _dasgAutoScalingGroupNames
+        , "MaxRecords"            =? _dasgMaxRecords
+        , "NextToken"             =? _dasgNextToken
+        ]
 
 instance ToHeaders DescribeAutoScalingGroups
 
@@ -132,9 +140,9 @@ instance AWSRequest DescribeAutoScalingGroups where
     response = xmlResponse
 
 instance FromXML DescribeAutoScalingGroupsResponse where
-    parseXML = withElement "DescribeAutoScalingGroupsResult" $ \x ->
-            <$> x .@ "AutoScalingGroups"
-            <*> x .@? "NextToken"
+    parseXML = withElement "DescribeAutoScalingGroupsResult" $ \x -> DescribeAutoScalingGroupsResponse
+        <$> x .@  "AutoScalingGroups"
+        <*> x .@? "NextToken"
 
 instance AWSPager DescribeAutoScalingGroups where
     next rq rs = (\x -> rq & dasgNextToken ?~ x)

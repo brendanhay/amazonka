@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ import qualified GHC.Exts
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     { _mcsgClusterSubnetGroupName :: Text
     , _mcsgDescription            :: Maybe Text
-    , _mcsgSubnetIds              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _mcsgSubnetIds              :: List "SubnetIdentifier" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ModifyClusterSubnetGroup' constructor.
 --
@@ -85,11 +86,11 @@ mcsgDescription = lens _mcsgDescription (\s a -> s { _mcsgDescription = a })
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
 mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
-mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a })
+mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a }) . _List
 
 newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     { _mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyClusterSubnetGroupResponse' constructor.
 --
@@ -109,7 +110,12 @@ mcsgrClusterSubnetGroup =
 instance ToPath ModifyClusterSubnetGroup where
     toPath = const "/"
 
-instance ToQuery ModifyClusterSubnetGroup
+instance ToQuery ModifyClusterSubnetGroup where
+    toQuery ModifyClusterSubnetGroup{..} = mconcat
+        [ "ClusterSubnetGroupName" =? _mcsgClusterSubnetGroupName
+        , "Description"            =? _mcsgDescription
+        , "SubnetIds"              =? _mcsgSubnetIds
+        ]
 
 instance ToHeaders ModifyClusterSubnetGroup
 
@@ -121,5 +127,5 @@ instance AWSRequest ModifyClusterSubnetGroup where
     response = xmlResponse
 
 instance FromXML ModifyClusterSubnetGroupResponse where
-    parseXML = withElement "ModifyClusterSubnetGroupResult" $ \x ->
-            <$> x .@? "ClusterSubnetGroup"
+    parseXML = withElement "ModifyClusterSubnetGroupResult" $ \x -> ModifyClusterSubnetGroupResponse
+        <$> x .@? "ClusterSubnetGroup"

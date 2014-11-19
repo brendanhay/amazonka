@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -70,7 +71,7 @@ data CreatePreset = CreatePreset
     , _cpName        :: Text
     , _cpThumbnails  :: Maybe Thumbnails
     , _cpVideo       :: Maybe VideoParameters
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePreset' constructor.
 --
@@ -130,7 +131,7 @@ cpVideo = lens _cpVideo (\s a -> s { _cpVideo = a })
 data CreatePresetResponse = CreatePresetResponse
     { _cprPreset  :: Maybe Preset
     , _cprWarning :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePresetResponse' constructor.
 --

@@ -59,7 +59,7 @@ import qualified GHC.Exts
 data CreateKeyPair = CreateKeyPair
     { _ckpDryRun  :: Maybe Bool
     , _ckpKeyName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateKeyPair' constructor.
 --
@@ -87,7 +87,7 @@ data CreateKeyPairResponse = CreateKeyPairResponse
     { _ckprKeyFingerprint :: Maybe Text
     , _ckprKeyMaterial    :: Maybe Text
     , _ckprKeyName        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateKeyPairResponse' constructor.
 --
@@ -122,7 +122,11 @@ ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
 instance ToPath CreateKeyPair where
     toPath = const "/"
 
-instance ToQuery CreateKeyPair
+instance ToQuery CreateKeyPair where
+    toQuery CreateKeyPair{..} = mconcat
+        [ "dryRun"  =? _ckpDryRun
+        , "KeyName" =? _ckpKeyName
+        ]
 
 instance ToHeaders CreateKeyPair
 

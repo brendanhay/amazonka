@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -120,10 +121,10 @@ instance AWSService SES where
     handle = restError alwaysFail
 
 data Destination = Destination
-    { _dBccAddresses :: [Text]
-    , _dCcAddresses  :: [Text]
-    , _dToAddresses  :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    { _dBccAddresses :: List "ToAddresses" Text
+    , _dCcAddresses  :: List "ToAddresses" Text
+    , _dToAddresses  :: List "ToAddresses" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'Destination' constructor.
 --
@@ -144,29 +145,34 @@ destination = Destination
 
 -- | The BCC: field(s) of the message.
 dBccAddresses :: Lens' Destination [Text]
-dBccAddresses = lens _dBccAddresses (\s a -> s { _dBccAddresses = a })
+dBccAddresses = lens _dBccAddresses (\s a -> s { _dBccAddresses = a }) . _List
 
 -- | The CC: field(s) of the message.
 dCcAddresses :: Lens' Destination [Text]
-dCcAddresses = lens _dCcAddresses (\s a -> s { _dCcAddresses = a })
+dCcAddresses = lens _dCcAddresses (\s a -> s { _dCcAddresses = a }) . _List
 
 -- | The To: field(s) of the message.
 dToAddresses :: Lens' Destination [Text]
-dToAddresses = lens _dToAddresses (\s a -> s { _dToAddresses = a })
+dToAddresses = lens _dToAddresses (\s a -> s { _dToAddresses = a }) . _List
 
 instance FromXML Destination where
     parseXML x = Destination
-            <$> x .@ "BccAddresses"
-            <*> x .@ "CcAddresses"
-            <*> x .@ "ToAddresses"
+        <$> x .@  "BccAddresses"
+        <*> x .@  "CcAddresses"
+        <*> x .@  "ToAddresses"
 
-instance ToQuery Destination
+instance ToQuery Destination where
+    toQuery Destination{..} = mconcat
+        [ "BccAddresses" =? _dBccAddresses
+        , "CcAddresses"  =? _dCcAddresses
+        , "ToAddresses"  =? _dToAddresses
+        ]
 
 data IdentityDkimAttributes = IdentityDkimAttributes
     { _idaDkimEnabled            :: Bool
-    , _idaDkimTokens             :: [Text]
+    , _idaDkimTokens             :: List "DkimTokens" Text
     , _idaDkimVerificationStatus :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IdentityDkimAttributes' constructor.
 --
@@ -202,7 +208,7 @@ idaDkimEnabled = lens _idaDkimEnabled (\s a -> s { _idaDkimEnabled = a })
 -- information about creating DNS records using DKIM tokens, go to the
 -- Amazon SES Developer Guide.
 idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
-idaDkimTokens = lens _idaDkimTokens (\s a -> s { _idaDkimTokens = a })
+idaDkimTokens = lens _idaDkimTokens (\s a -> s { _idaDkimTokens = a }) . _List
 
 -- | Describes whether Amazon SES has successfully verified the DKIM DNS
 -- records (tokens) published in the domain name's DNS. (This only applies
@@ -214,16 +220,21 @@ idaDkimVerificationStatus =
 
 instance FromXML IdentityDkimAttributes where
     parseXML x = IdentityDkimAttributes
-            <$> x .@ "DkimEnabled"
-            <*> x .@ "DkimTokens"
-            <*> x .@ "DkimVerificationStatus"
+        <$> x .@  "DkimEnabled"
+        <*> x .@  "DkimTokens"
+        <*> x .@  "DkimVerificationStatus"
 
-instance ToQuery IdentityDkimAttributes
+instance ToQuery IdentityDkimAttributes where
+    toQuery IdentityDkimAttributes{..} = mconcat
+        [ "DkimEnabled"            =? _idaDkimEnabled
+        , "DkimTokens"             =? _idaDkimTokens
+        , "DkimVerificationStatus" =? _idaDkimVerificationStatus
+        ]
 
 data Body = Body
     { _bHtml :: Maybe Content
     , _bText :: Maybe Content
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Body' constructor.
 --
@@ -252,15 +263,19 @@ bText = lens _bText (\s a -> s { _bText = a })
 
 instance FromXML Body where
     parseXML x = Body
-            <$> x .@? "Html"
-            <*> x .@? "Text"
+        <$> x .@? "Html"
+        <*> x .@? "Text"
 
-instance ToQuery Body
+instance ToQuery Body where
+    toQuery Body{..} = mconcat
+        [ "Html" =? _bHtml
+        , "Text" =? _bText
+        ]
 
 data IdentityVerificationAttributes = IdentityVerificationAttributes
     { _ivaVerificationStatus :: Text
     , _ivaVerificationToken  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IdentityVerificationAttributes' constructor.
 --
@@ -291,10 +306,14 @@ ivaVerificationToken =
 
 instance FromXML IdentityVerificationAttributes where
     parseXML x = IdentityVerificationAttributes
-            <$> x .@ "VerificationStatus"
-            <*> x .@? "VerificationToken"
+        <$> x .@  "VerificationStatus"
+        <*> x .@? "VerificationToken"
 
-instance ToQuery IdentityVerificationAttributes
+instance ToQuery IdentityVerificationAttributes where
+    toQuery IdentityVerificationAttributes{..} = mconcat
+        [ "VerificationStatus" =? _ivaVerificationStatus
+        , "VerificationToken"  =? _ivaVerificationToken
+        ]
 
 data SendDataPoint = SendDataPoint
     { _sdpBounces          :: Maybe Integer
@@ -302,7 +321,7 @@ data SendDataPoint = SendDataPoint
     , _sdpDeliveryAttempts :: Maybe Integer
     , _sdpRejects          :: Maybe Integer
     , _sdpTimestamp        :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SendDataPoint' constructor.
 --
@@ -346,18 +365,24 @@ sdpRejects = lens _sdpRejects (\s a -> s { _sdpRejects = a })
 
 -- | Time of the data point.
 sdpTimestamp :: Lens' SendDataPoint (Maybe UTCTime)
-sdpTimestamp = lens _sdpTimestamp (\s a -> s { _sdpTimestamp = a })
-    . mapping _Time
+sdpTimestamp = lens _sdpTimestamp (\s a -> s { _sdpTimestamp = a }) . mapping _Time
 
 instance FromXML SendDataPoint where
     parseXML x = SendDataPoint
-            <$> x .@? "Bounces"
-            <*> x .@? "Complaints"
-            <*> x .@? "DeliveryAttempts"
-            <*> x .@? "Rejects"
-            <*> x .@? "Timestamp"
+        <$> x .@? "Bounces"
+        <*> x .@? "Complaints"
+        <*> x .@? "DeliveryAttempts"
+        <*> x .@? "Rejects"
+        <*> x .@? "Timestamp"
 
-instance ToQuery SendDataPoint
+instance ToQuery SendDataPoint where
+    toQuery SendDataPoint{..} = mconcat
+        [ "Bounces"          =? _sdpBounces
+        , "Complaints"       =? _sdpComplaints
+        , "DeliveryAttempts" =? _sdpDeliveryAttempts
+        , "Rejects"          =? _sdpRejects
+        , "Timestamp"        =? _sdpTimestamp
+        ]
 
 data IdentityType
     = ITDomain       -- ^ Domain
@@ -378,12 +403,13 @@ instance ToText IdentityType where
 instance FromXML IdentityType where
     parseXML = parseXMLText "IdentityType"
 
-instance ToQuery IdentityType
+instance ToQuery IdentityType where
+    toQuery IdentityType = toQuery . toText
 
 data Content = Content
     { _cCharset :: Maybe Text
     , _cData    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Content' constructor.
 --
@@ -410,17 +436,21 @@ cData = lens _cData (\s a -> s { _cData = a })
 
 instance FromXML Content where
     parseXML x = Content
-            <$> x .@? "Charset"
-            <*> x .@ "Data"
+        <$> x .@? "Charset"
+        <*> x .@  "Data"
 
-instance ToQuery Content
+instance ToQuery Content where
+    toQuery Content{..} = mconcat
+        [ "Charset" =? _cCharset
+        , "Data"    =? _cData
+        ]
 
 data IdentityNotificationAttributes = IdentityNotificationAttributes
     { _inaBounceTopic       :: Text
     , _inaComplaintTopic    :: Text
     , _inaDeliveryTopic     :: Text
     , _inaForwardingEnabled :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IdentityNotificationAttributes' constructor.
 --
@@ -473,16 +503,22 @@ inaForwardingEnabled =
 
 instance FromXML IdentityNotificationAttributes where
     parseXML x = IdentityNotificationAttributes
-            <$> x .@ "BounceTopic"
-            <*> x .@ "ComplaintTopic"
-            <*> x .@ "DeliveryTopic"
-            <*> x .@ "ForwardingEnabled"
+        <$> x .@  "BounceTopic"
+        <*> x .@  "ComplaintTopic"
+        <*> x .@  "DeliveryTopic"
+        <*> x .@  "ForwardingEnabled"
 
-instance ToQuery IdentityNotificationAttributes
+instance ToQuery IdentityNotificationAttributes where
+    toQuery IdentityNotificationAttributes{..} = mconcat
+        [ "BounceTopic"       =? _inaBounceTopic
+        , "ComplaintTopic"    =? _inaComplaintTopic
+        , "DeliveryTopic"     =? _inaDeliveryTopic
+        , "ForwardingEnabled" =? _inaForwardingEnabled
+        ]
 
 newtype RawMessage = RawMessage
     { _rmData :: Base64
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RawMessage' constructor.
 --
@@ -506,9 +542,12 @@ rmData = lens _rmData (\s a -> s { _rmData = a })
 
 instance FromXML RawMessage where
     parseXML x = RawMessage
-            <$> x .@ "Data"
+        <$> x .@  "Data"
 
-instance ToQuery RawMessage
+instance ToQuery RawMessage where
+    toQuery RawMessage{..} = mconcat
+        [ "Data" =? _rmData
+        ]
 
 data NotificationType
     = Bounce    -- ^ Bounce
@@ -532,7 +571,8 @@ instance ToText NotificationType where
 instance FromXML NotificationType where
     parseXML = parseXMLText "NotificationType"
 
-instance ToQuery NotificationType
+instance ToQuery NotificationType where
+    toQuery NotificationType = toQuery . toText
 
 data VerificationStatus
     = Failed           -- ^ Failed
@@ -562,12 +602,13 @@ instance ToText VerificationStatus where
 instance FromXML VerificationStatus where
     parseXML = parseXMLText "VerificationStatus"
 
-instance ToQuery VerificationStatus
+instance ToQuery VerificationStatus where
+    toQuery VerificationStatus = toQuery . toText
 
 data Message = Message
     { _mBody    :: Body
     , _mSubject :: Content
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Message' constructor.
 --
@@ -596,7 +637,11 @@ mSubject = lens _mSubject (\s a -> s { _mSubject = a })
 
 instance FromXML Message where
     parseXML x = Message
-            <$> x .@ "Body"
-            <*> x .@ "Subject"
+        <$> x .@  "Body"
+        <*> x .@  "Subject"
 
-instance ToQuery Message
+instance ToQuery Message where
+    toQuery Message{..} = mconcat
+        [ "Body"    =? _mBody
+        , "Subject" =? _mSubject
+        ]

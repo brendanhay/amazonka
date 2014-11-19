@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data DeleteTape = DeleteTape
     { _dt1GatewayARN :: Text
     , _dt1TapeARN    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteTape' constructor.
 --
@@ -78,7 +79,7 @@ dt1TapeARN = lens _dt1TapeARN (\s a -> s { _dt1TapeARN = a })
 
 newtype DeleteTapeResponse = DeleteTapeResponse
     { _dtrTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DeleteTapeResponse' constructor.
 --

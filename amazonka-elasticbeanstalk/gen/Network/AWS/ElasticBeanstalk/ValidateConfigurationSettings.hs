@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,9 +54,9 @@ import qualified GHC.Exts
 data ValidateConfigurationSettings = ValidateConfigurationSettings
     { _vcsApplicationName :: Text
     , _vcsEnvironmentName :: Maybe Text
-    , _vcsOptionSettings  :: [ConfigurationOptionSetting]
+    , _vcsOptionSettings  :: List "OptionSettings" ConfigurationOptionSetting
     , _vcsTemplateName    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ValidateConfigurationSettings' constructor.
 --
@@ -94,6 +95,7 @@ vcsEnvironmentName =
 vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
 vcsOptionSettings =
     lens _vcsOptionSettings (\s a -> s { _vcsOptionSettings = a })
+        . _List
 
 -- | The name of the configuration template to validate the settings against.
 -- Condition: You cannot specify both this and an environment name.
@@ -101,8 +103,8 @@ vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
 
 newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
-    { _vcsrMessages :: [ValidationMessage]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _vcsrMessages :: List "Messages" ValidationMessage
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ValidateConfigurationSettingsResponse where
     type Item ValidateConfigurationSettingsResponse = ValidationMessage
@@ -123,12 +125,18 @@ validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
 
 -- | A list of ValidationMessage.
 vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
-vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a })
+vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a }) . _List
 
 instance ToPath ValidateConfigurationSettings where
     toPath = const "/"
 
-instance ToQuery ValidateConfigurationSettings
+instance ToQuery ValidateConfigurationSettings where
+    toQuery ValidateConfigurationSettings{..} = mconcat
+        [ "ApplicationName" =? _vcsApplicationName
+        , "EnvironmentName" =? _vcsEnvironmentName
+        , "OptionSettings"  =? _vcsOptionSettings
+        , "TemplateName"    =? _vcsTemplateName
+        ]
 
 instance ToHeaders ValidateConfigurationSettings
 
@@ -140,5 +148,5 @@ instance AWSRequest ValidateConfigurationSettings where
     response = xmlResponse
 
 instance FromXML ValidateConfigurationSettingsResponse where
-    parseXML = withElement "ValidateConfigurationSettingsResult" $ \x ->
-            <$> x .@ "Messages"
+    parseXML = withElement "ValidateConfigurationSettingsResult" $ \x -> ValidateConfigurationSettingsResponse
+        <$> x .@  "Messages"

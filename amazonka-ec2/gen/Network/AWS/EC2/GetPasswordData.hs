@@ -60,7 +60,7 @@ import qualified GHC.Exts
 data GetPasswordData = GetPasswordData
     { _gpdDryRun     :: Maybe Bool
     , _gpdInstanceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetPasswordData' constructor.
 --
@@ -88,7 +88,7 @@ data GetPasswordDataResponse = GetPasswordDataResponse
     { _gpdrInstanceId   :: Maybe Text
     , _gpdrPasswordData :: Maybe Text
     , _gpdrTimestamp    :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetPasswordDataResponse' constructor.
 --
@@ -117,13 +117,16 @@ gpdrPasswordData = lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
 
 -- | The time the data was last updated.
 gpdrTimestamp :: Lens' GetPasswordDataResponse (Maybe UTCTime)
-gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a })
-    . mapping _Time
+gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a }) . mapping _Time
 
 instance ToPath GetPasswordData where
     toPath = const "/"
 
-instance ToQuery GetPasswordData
+instance ToQuery GetPasswordData where
+    toQuery GetPasswordData{..} = mconcat
+        [ "dryRun"     =? _gpdDryRun
+        , "InstanceId" =? _gpdInstanceId
+        ]
 
 instance ToHeaders GetPasswordData
 

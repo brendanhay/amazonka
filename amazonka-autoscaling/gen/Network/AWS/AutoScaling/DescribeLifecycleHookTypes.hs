@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ describeLifecycleHookTypes :: DescribeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes
 
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
-    { _dlhtrLifecycleHookTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dlhtrLifecycleHookTypes :: List "LifecycleHookTypes" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLifecycleHookTypesResponse where
     type Item DescribeLifecycleHookTypesResponse = Text
@@ -76,6 +77,7 @@ describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
 dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrLifecycleHookTypes =
     lens _dlhtrLifecycleHookTypes (\s a -> s { _dlhtrLifecycleHookTypes = a })
+        . _List
 
 instance ToPath DescribeLifecycleHookTypes where
     toPath = const "/"
@@ -93,5 +95,5 @@ instance AWSRequest DescribeLifecycleHookTypes where
     response = xmlResponse
 
 instance FromXML DescribeLifecycleHookTypesResponse where
-    parseXML = withElement "DescribeLifecycleHookTypesResult" $ \x ->
-            <$> x .@ "LifecycleHookTypes"
+    parseXML = withElement "DescribeLifecycleHookTypesResult" $ \x -> DescribeLifecycleHookTypesResponse
+        <$> x .@  "LifecycleHookTypes"

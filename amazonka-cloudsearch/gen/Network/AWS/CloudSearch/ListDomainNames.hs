@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ listDomainNames :: ListDomainNames
 listDomainNames = ListDomainNames
 
 newtype ListDomainNamesResponse = ListDomainNamesResponse
-    { _ldnrDomainNames :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ldnrDomainNames :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'ListDomainNamesResponse' constructor.
 --
@@ -66,8 +67,7 @@ listDomainNamesResponse = ListDomainNamesResponse
 
 -- | The names of the search domains owned by an account.
 ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
-ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a })
-    . _Map
+ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a }) . _Map
 
 instance ToPath ListDomainNames where
     toPath = const "/"
@@ -85,5 +85,5 @@ instance AWSRequest ListDomainNames where
     response = xmlResponse
 
 instance FromXML ListDomainNamesResponse where
-    parseXML = withElement "ListDomainNamesResult" $ \x ->
-            <$> x .@ "DomainNames"
+    parseXML = withElement "ListDomainNamesResult" $ \x -> ListDomainNamesResponse
+        <$> x .@  "DomainNames"

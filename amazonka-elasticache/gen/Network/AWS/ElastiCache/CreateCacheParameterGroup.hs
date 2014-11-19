@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup
     { _ccpgCacheParameterGroupFamily :: Text
     , _ccpgCacheParameterGroupName   :: Text
     , _ccpgDescription               :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateCacheParameterGroup' constructor.
 --
@@ -93,7 +94,7 @@ ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 
 newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateCacheParameterGroupResponse' constructor.
 --
@@ -114,7 +115,12 @@ ccpgrCacheParameterGroup =
 instance ToPath CreateCacheParameterGroup where
     toPath = const "/"
 
-instance ToQuery CreateCacheParameterGroup
+instance ToQuery CreateCacheParameterGroup where
+    toQuery CreateCacheParameterGroup{..} = mconcat
+        [ "CacheParameterGroupFamily" =? _ccpgCacheParameterGroupFamily
+        , "CacheParameterGroupName"   =? _ccpgCacheParameterGroupName
+        , "Description"               =? _ccpgDescription
+        ]
 
 instance ToHeaders CreateCacheParameterGroup
 
@@ -126,5 +132,5 @@ instance AWSRequest CreateCacheParameterGroup where
     response = xmlResponse
 
 instance FromXML CreateCacheParameterGroupResponse where
-    parseXML = withElement "CreateCacheParameterGroupResult" $ \x ->
-            <$> x .@? "CacheParameterGroup"
+    parseXML = withElement "CreateCacheParameterGroupResult" $ \x -> CreateCacheParameterGroupResponse
+        <$> x .@? "CacheParameterGroup"

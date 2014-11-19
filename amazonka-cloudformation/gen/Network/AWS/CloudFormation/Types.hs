@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -186,7 +187,7 @@ instance AWSService CloudFormation where
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Tag' constructor.
 --
@@ -215,10 +216,14 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-            <$> x .@? "Key"
-            <*> x .@? "Value"
+        <$> x .@? "Key"
+        <*> x .@? "Value"
 
-instance ToQuery Tag
+instance ToQuery Tag where
+    toQuery Tag{..} = mconcat
+        [ "Key"   =? _tagKey
+        , "Value" =? _tagValue
+        ]
 
 data StackStatus
     = CreateComplete                          -- ^ CREATE_COMPLETE
@@ -281,7 +286,8 @@ instance ToText StackStatus where
 instance FromXML StackStatus where
     parseXML = parseXMLText "StackStatus"
 
-instance ToQuery StackStatus
+instance ToQuery StackStatus where
+    toQuery StackStatus = toQuery . toText
 
 data StackEvent = StackEvent
     { _seEventId              :: Text
@@ -294,7 +300,7 @@ data StackEvent = StackEvent
     , _seStackId              :: Text
     , _seStackName            :: Text
     , _seTimestamp            :: RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StackEvent' constructor.
 --
@@ -382,23 +388,34 @@ seStackName = lens _seStackName (\s a -> s { _seStackName = a })
 
 -- | Time the status was updated.
 seTimestamp :: Lens' StackEvent UTCTime
-seTimestamp = lens _seTimestamp (\s a -> s { _seTimestamp = a })
-    . _Time
+seTimestamp = lens _seTimestamp (\s a -> s { _seTimestamp = a }) . _Time
 
 instance FromXML StackEvent where
     parseXML x = StackEvent
-            <$> x .@ "EventId"
-            <*> x .@? "LogicalResourceId"
-            <*> x .@? "PhysicalResourceId"
-            <*> x .@? "ResourceProperties"
-            <*> x .@? "ResourceStatus"
-            <*> x .@? "ResourceStatusReason"
-            <*> x .@? "ResourceType"
-            <*> x .@ "StackId"
-            <*> x .@ "StackName"
-            <*> x .@ "Timestamp"
+        <$> x .@  "EventId"
+        <*> x .@? "LogicalResourceId"
+        <*> x .@? "PhysicalResourceId"
+        <*> x .@? "ResourceProperties"
+        <*> x .@? "ResourceStatus"
+        <*> x .@? "ResourceStatusReason"
+        <*> x .@? "ResourceType"
+        <*> x .@  "StackId"
+        <*> x .@  "StackName"
+        <*> x .@  "Timestamp"
 
-instance ToQuery StackEvent
+instance ToQuery StackEvent where
+    toQuery StackEvent{..} = mconcat
+        [ "EventId"              =? _seEventId
+        , "LogicalResourceId"    =? _seLogicalResourceId
+        , "PhysicalResourceId"   =? _sePhysicalResourceId
+        , "ResourceProperties"   =? _seResourceProperties
+        , "ResourceStatus"       =? _seResourceStatus
+        , "ResourceStatusReason" =? _seResourceStatusReason
+        , "ResourceType"         =? _seResourceType
+        , "StackId"              =? _seStackId
+        , "StackName"            =? _seStackName
+        , "Timestamp"            =? _seTimestamp
+        ]
 
 data StackSummary = StackSummary
     { _ssCreationTime        :: RFC822
@@ -409,7 +426,7 @@ data StackSummary = StackSummary
     , _ssStackStatus         :: Text
     , _ssStackStatusReason   :: Maybe Text
     , _ssTemplateDescription :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StackSummary' constructor.
 --
@@ -448,13 +465,11 @@ stackSummary p1 p2 p3 = StackSummary
 
 -- | The time the stack was created.
 ssCreationTime :: Lens' StackSummary UTCTime
-ssCreationTime = lens _ssCreationTime (\s a -> s { _ssCreationTime = a })
-    . _Time
+ssCreationTime = lens _ssCreationTime (\s a -> s { _ssCreationTime = a }) . _Time
 
 -- | The time the stack was deleted.
 ssDeletionTime :: Lens' StackSummary (Maybe UTCTime)
-ssDeletionTime = lens _ssDeletionTime (\s a -> s { _ssDeletionTime = a })
-    . mapping _Time
+ssDeletionTime = lens _ssDeletionTime (\s a -> s { _ssDeletionTime = a }) . mapping _Time
 
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
@@ -487,16 +502,26 @@ ssTemplateDescription =
 
 instance FromXML StackSummary where
     parseXML x = StackSummary
-            <$> x .@ "CreationTime"
-            <*> x .@? "DeletionTime"
-            <*> x .@? "LastUpdatedTime"
-            <*> x .@? "StackId"
-            <*> x .@ "StackName"
-            <*> x .@ "StackStatus"
-            <*> x .@? "StackStatusReason"
-            <*> x .@? "TemplateDescription"
+        <$> x .@  "CreationTime"
+        <*> x .@? "DeletionTime"
+        <*> x .@? "LastUpdatedTime"
+        <*> x .@? "StackId"
+        <*> x .@  "StackName"
+        <*> x .@  "StackStatus"
+        <*> x .@? "StackStatusReason"
+        <*> x .@? "TemplateDescription"
 
-instance ToQuery StackSummary
+instance ToQuery StackSummary where
+    toQuery StackSummary{..} = mconcat
+        [ "CreationTime"        =? _ssCreationTime
+        , "DeletionTime"        =? _ssDeletionTime
+        , "LastUpdatedTime"     =? _ssLastUpdatedTime
+        , "StackId"             =? _ssStackId
+        , "StackName"           =? _ssStackName
+        , "StackStatus"         =? _ssStackStatus
+        , "StackStatusReason"   =? _ssStackStatusReason
+        , "TemplateDescription" =? _ssTemplateDescription
+        ]
 
 data StackResourceDetail = StackResourceDetail
     { _srdDescription          :: Maybe Text
@@ -509,7 +534,7 @@ data StackResourceDetail = StackResourceDetail
     , _srdResourceType         :: Text
     , _srdStackId              :: Maybe Text
     , _srdStackName            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StackResourceDetail' constructor.
 --
@@ -605,18 +630,30 @@ srdStackName = lens _srdStackName (\s a -> s { _srdStackName = a })
 
 instance FromXML StackResourceDetail where
     parseXML x = StackResourceDetail
-            <$> x .@? "Description"
-            <*> x .@ "LastUpdatedTimestamp"
-            <*> x .@ "LogicalResourceId"
-            <*> x .@? "Metadata"
-            <*> x .@? "PhysicalResourceId"
-            <*> x .@ "ResourceStatus"
-            <*> x .@? "ResourceStatusReason"
-            <*> x .@ "ResourceType"
-            <*> x .@? "StackId"
-            <*> x .@? "StackName"
+        <$> x .@? "Description"
+        <*> x .@  "LastUpdatedTimestamp"
+        <*> x .@  "LogicalResourceId"
+        <*> x .@? "Metadata"
+        <*> x .@? "PhysicalResourceId"
+        <*> x .@  "ResourceStatus"
+        <*> x .@? "ResourceStatusReason"
+        <*> x .@  "ResourceType"
+        <*> x .@? "StackId"
+        <*> x .@? "StackName"
 
-instance ToQuery StackResourceDetail
+instance ToQuery StackResourceDetail where
+    toQuery StackResourceDetail{..} = mconcat
+        [ "Description"          =? _srdDescription
+        , "LastUpdatedTimestamp" =? _srdLastUpdatedTimestamp
+        , "LogicalResourceId"    =? _srdLogicalResourceId
+        , "Metadata"             =? _srdMetadata
+        , "PhysicalResourceId"   =? _srdPhysicalResourceId
+        , "ResourceStatus"       =? _srdResourceStatus
+        , "ResourceStatusReason" =? _srdResourceStatusReason
+        , "ResourceType"         =? _srdResourceType
+        , "StackId"              =? _srdStackId
+        , "StackName"            =? _srdStackName
+        ]
 
 data ResourceStatus
     = RSCreateComplete   -- ^ CREATE_COMPLETE
@@ -661,14 +698,15 @@ instance ToText ResourceStatus where
 instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
-instance ToQuery ResourceStatus
+instance ToQuery ResourceStatus where
+    toQuery ResourceStatus = toQuery . toText
 
 data TemplateParameter = TemplateParameter
     { _tpDefaultValue :: Maybe Text
     , _tpDescription  :: Maybe Text
     , _tpNoEcho       :: Maybe Bool
     , _tpParameterKey :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TemplateParameter' constructor.
 --
@@ -709,12 +747,18 @@ tpParameterKey = lens _tpParameterKey (\s a -> s { _tpParameterKey = a })
 
 instance FromXML TemplateParameter where
     parseXML x = TemplateParameter
-            <$> x .@? "DefaultValue"
-            <*> x .@? "Description"
-            <*> x .@? "NoEcho"
-            <*> x .@? "ParameterKey"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "Description"
+        <*> x .@? "NoEcho"
+        <*> x .@? "ParameterKey"
 
-instance ToQuery TemplateParameter
+instance ToQuery TemplateParameter where
+    toQuery TemplateParameter{..} = mconcat
+        [ "DefaultValue" =? _tpDefaultValue
+        , "Description"  =? _tpDescription
+        , "NoEcho"       =? _tpNoEcho
+        , "ParameterKey" =? _tpParameterKey
+        ]
 
 data ParameterDeclaration = ParameterDeclaration
     { _pdDefaultValue  :: Maybe Text
@@ -722,7 +766,7 @@ data ParameterDeclaration = ParameterDeclaration
     , _pdNoEcho        :: Maybe Bool
     , _pdParameterKey  :: Maybe Text
     , _pdParameterType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ParameterDeclaration' constructor.
 --
@@ -770,13 +814,20 @@ pdParameterType = lens _pdParameterType (\s a -> s { _pdParameterType = a })
 
 instance FromXML ParameterDeclaration where
     parseXML x = ParameterDeclaration
-            <$> x .@? "DefaultValue"
-            <*> x .@? "Description"
-            <*> x .@? "NoEcho"
-            <*> x .@? "ParameterKey"
-            <*> x .@? "ParameterType"
+        <$> x .@? "DefaultValue"
+        <*> x .@? "Description"
+        <*> x .@? "NoEcho"
+        <*> x .@? "ParameterKey"
+        <*> x .@? "ParameterType"
 
-instance ToQuery ParameterDeclaration
+instance ToQuery ParameterDeclaration where
+    toQuery ParameterDeclaration{..} = mconcat
+        [ "DefaultValue"  =? _pdDefaultValue
+        , "Description"   =? _pdDescription
+        , "NoEcho"        =? _pdNoEcho
+        , "ParameterKey"  =? _pdParameterKey
+        , "ParameterType" =? _pdParameterType
+        ]
 
 data StackResource = StackResource
     { _sr1Description          :: Maybe Text
@@ -788,7 +839,7 @@ data StackResource = StackResource
     , _sr1StackId              :: Maybe Text
     , _sr1StackName            :: Maybe Text
     , _sr1Timestamp            :: RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StackResource' constructor.
 --
@@ -869,28 +920,38 @@ sr1StackName = lens _sr1StackName (\s a -> s { _sr1StackName = a })
 
 -- | Time the status was updated.
 sr1Timestamp :: Lens' StackResource UTCTime
-sr1Timestamp = lens _sr1Timestamp (\s a -> s { _sr1Timestamp = a })
-    . _Time
+sr1Timestamp = lens _sr1Timestamp (\s a -> s { _sr1Timestamp = a }) . _Time
 
 instance FromXML StackResource where
     parseXML x = StackResource
-            <$> x .@? "Description"
-            <*> x .@ "LogicalResourceId"
-            <*> x .@? "PhysicalResourceId"
-            <*> x .@ "ResourceStatus"
-            <*> x .@? "ResourceStatusReason"
-            <*> x .@ "ResourceType"
-            <*> x .@? "StackId"
-            <*> x .@? "StackName"
-            <*> x .@ "Timestamp"
+        <$> x .@? "Description"
+        <*> x .@  "LogicalResourceId"
+        <*> x .@? "PhysicalResourceId"
+        <*> x .@  "ResourceStatus"
+        <*> x .@? "ResourceStatusReason"
+        <*> x .@  "ResourceType"
+        <*> x .@? "StackId"
+        <*> x .@? "StackName"
+        <*> x .@  "Timestamp"
 
-instance ToQuery StackResource
+instance ToQuery StackResource where
+    toQuery StackResource{..} = mconcat
+        [ "Description"          =? _sr1Description
+        , "LogicalResourceId"    =? _sr1LogicalResourceId
+        , "PhysicalResourceId"   =? _sr1PhysicalResourceId
+        , "ResourceStatus"       =? _sr1ResourceStatus
+        , "ResourceStatusReason" =? _sr1ResourceStatusReason
+        , "ResourceType"         =? _sr1ResourceType
+        , "StackId"              =? _sr1StackId
+        , "StackName"            =? _sr1StackName
+        , "Timestamp"            =? _sr1Timestamp
+        ]
 
 data Output = Output
     { _oDescription :: Maybe Text
     , _oOutputKey   :: Maybe Text
     , _oOutputValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Output' constructor.
 --
@@ -923,11 +984,16 @@ oOutputValue = lens _oOutputValue (\s a -> s { _oOutputValue = a })
 
 instance FromXML Output where
     parseXML x = Output
-            <$> x .@? "Description"
-            <*> x .@? "OutputKey"
-            <*> x .@? "OutputValue"
+        <$> x .@? "Description"
+        <*> x .@? "OutputKey"
+        <*> x .@? "OutputValue"
 
-instance ToQuery Output
+instance ToQuery Output where
+    toQuery Output{..} = mconcat
+        [ "Description" =? _oDescription
+        , "OutputKey"   =? _oOutputKey
+        , "OutputValue" =? _oOutputValue
+        ]
 
 data StackResourceSummary = StackResourceSummary
     { _srsLastUpdatedTimestamp :: RFC822
@@ -936,7 +1002,7 @@ data StackResourceSummary = StackResourceSummary
     , _srsResourceStatus       :: Text
     , _srsResourceStatusReason :: Maybe Text
     , _srsResourceType         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StackResourceSummary' constructor.
 --
@@ -1002,14 +1068,22 @@ srsResourceType = lens _srsResourceType (\s a -> s { _srsResourceType = a })
 
 instance FromXML StackResourceSummary where
     parseXML x = StackResourceSummary
-            <$> x .@ "LastUpdatedTimestamp"
-            <*> x .@ "LogicalResourceId"
-            <*> x .@? "PhysicalResourceId"
-            <*> x .@ "ResourceStatus"
-            <*> x .@? "ResourceStatusReason"
-            <*> x .@ "ResourceType"
+        <$> x .@  "LastUpdatedTimestamp"
+        <*> x .@  "LogicalResourceId"
+        <*> x .@? "PhysicalResourceId"
+        <*> x .@  "ResourceStatus"
+        <*> x .@? "ResourceStatusReason"
+        <*> x .@  "ResourceType"
 
-instance ToQuery StackResourceSummary
+instance ToQuery StackResourceSummary where
+    toQuery StackResourceSummary{..} = mconcat
+        [ "LastUpdatedTimestamp" =? _srsLastUpdatedTimestamp
+        , "LogicalResourceId"    =? _srsLogicalResourceId
+        , "PhysicalResourceId"   =? _srsPhysicalResourceId
+        , "ResourceStatus"       =? _srsResourceStatus
+        , "ResourceStatusReason" =? _srsResourceStatusReason
+        , "ResourceType"         =? _srsResourceType
+        ]
 
 data Capability
     = CapabilityIam -- ^ CAPABILITY_IAM
@@ -1026,7 +1100,8 @@ instance ToText Capability where
 instance FromXML Capability where
     parseXML = parseXMLText "Capability"
 
-instance ToQuery Capability
+instance ToQuery Capability where
+    toQuery Capability = toQuery . toText
 
 data ResourceSignalStatus
     = Failure -- ^ FAILURE
@@ -1047,24 +1122,25 @@ instance ToText ResourceSignalStatus where
 instance FromXML ResourceSignalStatus where
     parseXML = parseXMLText "ResourceSignalStatus"
 
-instance ToQuery ResourceSignalStatus
+instance ToQuery ResourceSignalStatus where
+    toQuery ResourceSignalStatus = toQuery . toText
 
 data Stack = Stack
-    { _sCapabilities      :: [Text]
+    { _sCapabilities      :: List "Capabilities" Text
     , _sCreationTime      :: RFC822
     , _sDescription       :: Maybe Text
     , _sDisableRollback   :: Maybe Bool
     , _sLastUpdatedTime   :: Maybe RFC822
-    , _sNotificationARNs  :: [Text]
-    , _sOutputs           :: [Output]
-    , _sParameters        :: [Parameter]
+    , _sNotificationARNs  :: List "NotificationARNs" Text
+    , _sOutputs           :: List "Outputs" Output
+    , _sParameters        :: List "Parameters" Parameter
     , _sStackId           :: Maybe Text
     , _sStackName         :: Text
     , _sStackStatus       :: Text
     , _sStackStatusReason :: Maybe Text
-    , _sTags              :: [Tag]
+    , _sTags              :: List "Tags" Tag
     , _sTimeoutInMinutes  :: Maybe Nat
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Stack' constructor.
 --
@@ -1121,12 +1197,11 @@ stack p1 p2 p3 = Stack
 
 -- | The capabilities allowed in the stack.
 sCapabilities :: Lens' Stack [Text]
-sCapabilities = lens _sCapabilities (\s a -> s { _sCapabilities = a })
+sCapabilities = lens _sCapabilities (\s a -> s { _sCapabilities = a }) . _List
 
 -- | Time at which the stack was created.
 sCreationTime :: Lens' Stack UTCTime
-sCreationTime = lens _sCreationTime (\s a -> s { _sCreationTime = a })
-    . _Time
+sCreationTime = lens _sCreationTime (\s a -> s { _sCreationTime = a }) . _Time
 
 -- | User defined description associated with the stack.
 sDescription :: Lens' Stack (Maybe Text)
@@ -1140,21 +1215,21 @@ sDisableRollback = lens _sDisableRollback (\s a -> s { _sDisableRollback = a })
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
 sLastUpdatedTime :: Lens' Stack (Maybe UTCTime)
-sLastUpdatedTime = lens _sLastUpdatedTime (\s a -> s { _sLastUpdatedTime = a })
-    . mapping _Time
+sLastUpdatedTime = lens _sLastUpdatedTime (\s a -> s { _sLastUpdatedTime = a }) . mapping _Time
 
 -- | SNS topic ARNs to which stack related events are published.
 sNotificationARNs :: Lens' Stack [Text]
 sNotificationARNs =
     lens _sNotificationARNs (\s a -> s { _sNotificationARNs = a })
+        . _List
 
 -- | A list of output structures.
 sOutputs :: Lens' Stack [Output]
-sOutputs = lens _sOutputs (\s a -> s { _sOutputs = a })
+sOutputs = lens _sOutputs (\s a -> s { _sOutputs = a }) . _List
 
 -- | A list of Parameter structures.
 sParameters :: Lens' Stack [Parameter]
-sParameters = lens _sParameters (\s a -> s { _sParameters = a })
+sParameters = lens _sParameters (\s a -> s { _sParameters = a }) . _List
 
 -- | Unique identifier of the stack.
 sStackId :: Lens' Stack (Maybe Text)
@@ -1175,7 +1250,7 @@ sStackStatusReason =
 
 -- | A list of Tags that specify cost allocation information for the stack.
 sTags :: Lens' Stack [Tag]
-sTags = lens _sTags (\s a -> s { _sTags = a })
+sTags = lens _sTags (\s a -> s { _sTags = a }) . _List
 
 -- | The amount of time within which stack creation should complete.
 sTimeoutInMinutes :: Lens' Stack (Maybe Natural)
@@ -1185,22 +1260,38 @@ sTimeoutInMinutes =
 
 instance FromXML Stack where
     parseXML x = Stack
-            <$> x .@ "Capabilities"
-            <*> x .@ "CreationTime"
-            <*> x .@? "Description"
-            <*> x .@? "DisableRollback"
-            <*> x .@? "LastUpdatedTime"
-            <*> x .@ "NotificationARNs"
-            <*> x .@ "Outputs"
-            <*> x .@ "Parameters"
-            <*> x .@? "StackId"
-            <*> x .@ "StackName"
-            <*> x .@ "StackStatus"
-            <*> x .@? "StackStatusReason"
-            <*> x .@ "Tags"
-            <*> x .@? "TimeoutInMinutes"
+        <$> x .@  "Capabilities"
+        <*> x .@  "CreationTime"
+        <*> x .@? "Description"
+        <*> x .@? "DisableRollback"
+        <*> x .@? "LastUpdatedTime"
+        <*> x .@  "NotificationARNs"
+        <*> x .@  "Outputs"
+        <*> x .@  "Parameters"
+        <*> x .@? "StackId"
+        <*> x .@  "StackName"
+        <*> x .@  "StackStatus"
+        <*> x .@? "StackStatusReason"
+        <*> x .@  "Tags"
+        <*> x .@? "TimeoutInMinutes"
 
-instance ToQuery Stack
+instance ToQuery Stack where
+    toQuery Stack{..} = mconcat
+        [ "Capabilities"      =? _sCapabilities
+        , "CreationTime"      =? _sCreationTime
+        , "Description"       =? _sDescription
+        , "DisableRollback"   =? _sDisableRollback
+        , "LastUpdatedTime"   =? _sLastUpdatedTime
+        , "NotificationARNs"  =? _sNotificationARNs
+        , "Outputs"           =? _sOutputs
+        , "Parameters"        =? _sParameters
+        , "StackId"           =? _sStackId
+        , "StackName"         =? _sStackName
+        , "StackStatus"       =? _sStackStatus
+        , "StackStatusReason" =? _sStackStatusReason
+        , "Tags"              =? _sTags
+        , "TimeoutInMinutes"  =? _sTimeoutInMinutes
+        ]
 
 data OnFailure
     = Delete'   -- ^ DELETE
@@ -1224,13 +1315,14 @@ instance ToText OnFailure where
 instance FromXML OnFailure where
     parseXML = parseXMLText "OnFailure"
 
-instance ToQuery OnFailure
+instance ToQuery OnFailure where
+    toQuery OnFailure = toQuery . toText
 
 data Parameter = Parameter
     { _pParameterKey     :: Maybe Text
     , _pParameterValue   :: Maybe Text
     , _pUsePreviousValue :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Parameter' constructor.
 --
@@ -1265,8 +1357,13 @@ pUsePreviousValue =
 
 instance FromXML Parameter where
     parseXML x = Parameter
-            <$> x .@? "ParameterKey"
-            <*> x .@? "ParameterValue"
-            <*> x .@? "UsePreviousValue"
+        <$> x .@? "ParameterKey"
+        <*> x .@? "ParameterValue"
+        <*> x .@? "UsePreviousValue"
 
-instance ToQuery Parameter
+instance ToQuery Parameter where
+    toQuery Parameter{..} = mconcat
+        [ "ParameterKey"     =? _pParameterKey
+        , "ParameterValue"   =? _pParameterValue
+        , "UsePreviousValue" =? _pUsePreviousValue
+        ]

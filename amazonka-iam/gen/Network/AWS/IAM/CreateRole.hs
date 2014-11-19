@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data CreateRole = CreateRole
     { _crAssumeRolePolicyDocument :: Text
     , _crPath                     :: Maybe Text
     , _crRoleName                 :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateRole' constructor.
 --
@@ -95,7 +96,7 @@ crRoleName = lens _crRoleName (\s a -> s { _crRoleName = a })
 
 newtype CreateRoleResponse = CreateRoleResponse
     { _crrRole :: Role
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateRoleResponse' constructor.
 --
@@ -116,7 +117,12 @@ crrRole = lens _crrRole (\s a -> s { _crrRole = a })
 instance ToPath CreateRole where
     toPath = const "/"
 
-instance ToQuery CreateRole
+instance ToQuery CreateRole where
+    toQuery CreateRole{..} = mconcat
+        [ "AssumeRolePolicyDocument" =? _crAssumeRolePolicyDocument
+        , "Path"                     =? _crPath
+        , "RoleName"                 =? _crRoleName
+        ]
 
 instance ToHeaders CreateRole
 
@@ -128,5 +134,5 @@ instance AWSRequest CreateRole where
     response = xmlResponse
 
 instance FromXML CreateRoleResponse where
-    parseXML = withElement "CreateRoleResult" $ \x ->
-            <$> x .@ "Role"
+    parseXML = withElement "CreateRoleResult" $ \x -> CreateRoleResponse
+        <$> x .@  "Role"

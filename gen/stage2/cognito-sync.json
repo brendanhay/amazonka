@@ -65,8 +65,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "identityPoolUsage",
@@ -136,6 +135,7 @@
                 "required": [],
                 "contentPad": 18,
                 "name": "IdentityPoolUsage",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -285,8 +285,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "dataset",
@@ -401,6 +400,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "Dataset",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -638,8 +638,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "record",
@@ -739,6 +738,7 @@
                 "required": [],
                 "contentPad": 23,
                 "name": "Record",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -929,8 +929,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "identityUsage",
@@ -1015,6 +1014,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "IdentityUsage",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1175,8 +1175,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "recordPatch",
@@ -1307,6 +1306,7 @@
                 ],
                 "contentPad": 23,
                 "name": "RecordPatch",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -1422,16 +1422,15 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "pushSync",
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1441,7 +1440,7 @@
                         "locationName": "ApplicationArns",
                         "documentation": "\u003cp\u003eList of SNS platform application ARNs that could be used by clients.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ApplicationArns\" Text"
                     },
                     {
                         "location": null,
@@ -1463,12 +1462,13 @@
                 "required": [],
                 "contentPad": 16,
                 "name": "PushSync",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1478,7 +1478,7 @@
                         "locationName": "ApplicationArns",
                         "documentation": "\u003cp\u003eList of SNS platform application ARNs that could be used by clients.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ApplicationArns\" Text"
                     },
                     {
                         "location": null,
@@ -1499,8 +1499,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1510,7 +1510,7 @@
                         "locationName": "ApplicationArns",
                         "documentation": "\u003cp\u003eList of SNS platform application ARNs that could be used by clients.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ApplicationArns\" Text"
                     },
                     {
                         "location": null,
@@ -1544,8 +1544,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -1594,6 +1593,7 @@
                 "contentPad": 0,
                 "name": "DeleteDatasetResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1647,8 +1647,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1737,6 +1736,7 @@
                 "queryPad": 0,
                 "name": "DeleteDataset",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1795,8 +1795,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -1845,6 +1844,7 @@
                 "contentPad": 0,
                 "name": "DescribeDatasetResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1898,8 +1898,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1988,6 +1987,7 @@
                 "queryPad": 0,
                 "name": "DescribeDataset",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2046,8 +2046,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -2096,6 +2095,7 @@
                 "contentPad": 0,
                 "name": "DescribeIdentityPoolUsageResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2150,7 +2150,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2211,6 +2210,7 @@
                 "queryPad": 0,
                 "name": "DescribeIdentityPoolUsage",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2239,8 +2239,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -2289,6 +2288,7 @@
                 "contentPad": 0,
                 "name": "DescribeIdentityUsageResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2342,8 +2342,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2409,6 +2408,7 @@
                 "queryPad": 0,
                 "name": "DescribeIdentityUsage",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2452,8 +2452,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2501,6 +2500,7 @@
                 "contentPad": 15,
                 "name": "GetIdentityPoolConfigurationResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2585,7 +2585,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2650,6 +2649,7 @@
                 "queryPad": 0,
                 "name": "GetIdentityPoolConfiguration",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2678,8 +2678,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2689,8 +2688,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2700,7 +2699,7 @@
                         "locationName": "Datasets",
                         "documentation": "A set of datasets.",
                         "typeExposed": "[Dataset]",
-                        "type": "[Dataset]"
+                        "type": "List \"Datasets\" Dataset"
                     },
                     {
                         "location": null,
@@ -2742,13 +2741,14 @@
                 "contentPad": 10,
                 "name": "ListDatasetsResponse",
                 "resultWrapper": null,
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2758,7 +2758,7 @@
                         "locationName": "Datasets",
                         "documentation": "A set of datasets.",
                         "typeExposed": "[Dataset]",
-                        "type": "[Dataset]"
+                        "type": "List \"Datasets\" Dataset"
                     },
                     {
                         "location": null,
@@ -2809,8 +2809,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2820,7 +2820,7 @@
                         "locationName": "Datasets",
                         "documentation": "A set of datasets.",
                         "typeExposed": "[Dataset]",
-                        "type": "[Dataset]"
+                        "type": "List \"Datasets\" Dataset"
                     },
                     {
                         "location": null,
@@ -2855,8 +2855,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2937,6 +2936,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3041,8 +3041,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3052,8 +3051,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3063,7 +3062,7 @@
                         "locationName": "IdentityPoolUsages",
                         "documentation": "Usage information for the identity pools.",
                         "typeExposed": "[IdentityPoolUsage]",
-                        "type": "[IdentityPoolUsage]"
+                        "type": "List \"IdentityPoolUsages\" IdentityPoolUsage"
                     },
                     {
                         "location": null,
@@ -3120,13 +3119,14 @@
                 "contentPad": 19,
                 "name": "ListIdentityPoolUsageResponse",
                 "resultWrapper": null,
+                "locationPad": 19,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3136,7 +3136,7 @@
                         "locationName": "IdentityPoolUsages",
                         "documentation": "Usage information for the identity pools.",
                         "typeExposed": "[IdentityPoolUsage]",
-                        "type": "[IdentityPoolUsage]"
+                        "type": "List \"IdentityPoolUsages\" IdentityPoolUsage"
                     },
                     {
                         "location": null,
@@ -3202,8 +3202,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3213,7 +3213,7 @@
                         "locationName": "IdentityPoolUsages",
                         "documentation": "Usage information for the identity pools.",
                         "typeExposed": "[IdentityPoolUsage]",
-                        "type": "[IdentityPoolUsage]"
+                        "type": "List \"IdentityPoolUsages\" IdentityPoolUsage"
                     },
                     {
                         "location": null,
@@ -3263,8 +3263,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3298,6 +3297,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3372,8 +3372,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3383,8 +3382,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3394,7 +3393,7 @@
                         "locationName": "Records",
                         "documentation": "A list of all records.",
                         "typeExposed": "[Record]",
-                        "type": "[Record]"
+                        "type": "List \"Records\" Record"
                     },
                     {
                         "location": null,
@@ -3458,8 +3457,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3469,7 +3468,7 @@
                         "locationName": "MergedDatasetNames",
                         "documentation": "Names of merged datasets.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"MergedDatasetNames\" Text"
                     },
                     {
                         "location": null,
@@ -3526,13 +3525,14 @@
                 "contentPad": 38,
                 "name": "ListRecordsResponse",
                 "resultWrapper": null,
+                "locationPad": 38,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3542,7 +3542,7 @@
                         "locationName": "Records",
                         "documentation": "A list of all records.",
                         "typeExposed": "[Record]",
-                        "type": "[Record]"
+                        "type": "List \"Records\" Record"
                     },
                     {
                         "location": null,
@@ -3606,8 +3606,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3617,7 +3617,7 @@
                         "locationName": "MergedDatasetNames",
                         "documentation": "Names of merged datasets.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"MergedDatasetNames\" Text"
                     },
                     {
                         "location": null,
@@ -3743,8 +3743,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3754,7 +3754,7 @@
                         "locationName": "MergedDatasetNames",
                         "documentation": "Names of merged datasets.",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"MergedDatasetNames\" Text"
                     },
                     {
                         "location": null,
@@ -3773,8 +3773,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3784,7 +3784,7 @@
                         "locationName": "Records",
                         "documentation": "A list of all records.",
                         "typeExposed": "[Record]",
-                        "type": "[Record]"
+                        "type": "List \"Records\" Record"
                     },
                     {
                         "location": null,
@@ -3819,8 +3819,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3934,6 +3933,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4115,7 +4115,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4165,6 +4164,7 @@
                 "contentPad": 0,
                 "name": "RegisterDeviceResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4218,8 +4218,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4350,6 +4349,7 @@
                 "queryPad": 0,
                 "name": "RegisterDevice",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4423,8 +4423,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4472,6 +4471,7 @@
                 "contentPad": 15,
                 "name": "SetIdentityPoolConfigurationResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4554,8 +4554,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4618,6 +4617,7 @@
                 "queryPad": 0,
                 "name": "SetIdentityPoolConfiguration",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4714,8 +4714,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4827,6 +4826,7 @@
                 "queryPad": 0,
                 "name": "SubscribeToDataset",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4937,8 +4937,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5050,6 +5049,7 @@
                 "queryPad": 0,
                 "name": "UnsubscribeFromDataset",
                 "query": [],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5124,7 +5124,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -5136,8 +5135,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -5147,13 +5146,13 @@
                     "locationName": "Records",
                     "documentation": "A list of records that have been updated.",
                     "typeExposed": "[Record]",
-                    "type": "[Record]"
+                    "type": "List \"Records\" Record"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5163,7 +5162,7 @@
                         "locationName": "Records",
                         "documentation": "A list of records that have been updated.",
                         "typeExposed": "[Record]",
-                        "type": "[Record]"
+                        "type": "List \"Records\" Record"
                     }
                 ],
                 "wrapper": false,
@@ -5175,13 +5174,14 @@
                 "contentPad": 0,
                 "name": "UpdateRecordsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5191,14 +5191,14 @@
                         "locationName": "Records",
                         "documentation": "A list of records that have been updated.",
                         "typeExposed": "[Record]",
-                        "type": "[Record]"
+                        "type": "List \"Records\" Record"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5208,7 +5208,7 @@
                         "locationName": "Records",
                         "documentation": "A list of records that have been updated.",
                         "typeExposed": "[Record]",
-                        "type": "[Record]"
+                        "type": "List \"Records\" Record"
                     }
                 ]
             },
@@ -5227,8 +5227,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json-headers",
@@ -5253,8 +5252,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5264,7 +5263,7 @@
                         "locationName": "RecordPatches",
                         "documentation": "A list of patch operations.",
                         "typeExposed": "[RecordPatch]",
-                        "type": "[RecordPatch]"
+                        "type": "List \"RecordPatches\" RecordPatch"
                     },
                     {
                         "location": null,
@@ -5384,6 +5383,7 @@
                 "queryPad": 0,
                 "name": "UpdateRecords",
                 "query": [],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5405,8 +5405,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5416,7 +5416,7 @@
                         "locationName": "RecordPatches",
                         "documentation": "A list of patch operations.",
                         "typeExposed": "[RecordPatch]",
-                        "type": "[RecordPatch]"
+                        "type": "List \"RecordPatches\" RecordPatch"
                     },
                     {
                         "location": "header",
@@ -5512,8 +5512,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5523,7 +5523,7 @@
                         "locationName": "RecordPatches",
                         "documentation": "A list of patch operations.",
                         "typeExposed": "[RecordPatch]",
-                        "type": "[RecordPatch]"
+                        "type": "List \"RecordPatches\" RecordPatch"
                     },
                     {
                         "location": null,

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,9 +60,9 @@ data CreateIdentityPool = CreateIdentityPool
     { _cipAllowUnauthenticatedIdentities :: Bool
     , _cipDeveloperProviderName          :: Maybe Text
     , _cipIdentityPoolName               :: Text
-    , _cipOpenIdConnectProviderARNs      :: [Text]
-    , _cipSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _cipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
+    , _cipSupportedLoginProviders        :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'CreateIdentityPool' constructor.
 --
@@ -114,6 +115,7 @@ cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
 cipOpenIdConnectProviderARNs =
     lens _cipOpenIdConnectProviderARNs
         (\s a -> s { _cipOpenIdConnectProviderARNs = a })
+            . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
@@ -127,9 +129,9 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
     , _ciprDeveloperProviderName          :: Maybe Text
     , _ciprIdentityPoolId                 :: Text
     , _ciprIdentityPoolName               :: Text
-    , _ciprOpenIdConnectProviderARNs      :: [Text]
-    , _ciprSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _ciprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
+    , _ciprSupportedLoginProviders        :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'CreateIdentityPoolResponse' constructor.
 --
@@ -186,6 +188,7 @@ ciprOpenIdConnectProviderARNs :: Lens' CreateIdentityPoolResponse [Text]
 ciprOpenIdConnectProviderARNs =
     lens _ciprOpenIdConnectProviderARNs
         (\s a -> s { _ciprOpenIdConnectProviderARNs = a })
+            . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
 ciprSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (HashMap Text Text)
@@ -220,9 +223,9 @@ instance AWSRequest CreateIdentityPool where
 
 instance FromJSON CreateIdentityPoolResponse where
     parseJSON = withObject "CreateIdentityPoolResponse" $ \o -> CreateIdentityPoolResponse
-        <$> o .: "AllowUnauthenticatedIdentities"
+        <$> o .:  "AllowUnauthenticatedIdentities"
         <*> o .:? "DeveloperProviderName"
-        <*> o .: "IdentityPoolId"
-        <*> o .: "IdentityPoolName"
-        <*> o .: "OpenIdConnectProviderARNs"
-        <*> o .: "SupportedLoginProviders"
+        <*> o .:  "IdentityPoolId"
+        <*> o .:  "IdentityPoolName"
+        <*> o .:  "OpenIdConnectProviderARNs"
+        <*> o .:  "SupportedLoginProviders"

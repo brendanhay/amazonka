@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype CancelUpdateStack = CancelUpdateStack
     { _cusStackName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CancelUpdateStack' constructor.
 --
@@ -75,7 +76,10 @@ cancelUpdateStackResponse = CancelUpdateStackResponse
 instance ToPath CancelUpdateStack where
     toPath = const "/"
 
-instance ToQuery CancelUpdateStack
+instance ToQuery CancelUpdateStack where
+    toQuery CancelUpdateStack{..} = mconcat
+        [ "StackName" =? _cusStackName
+        ]
 
 instance ToHeaders CancelUpdateStack
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,8 +47,8 @@ import qualified GHC.Exts
 
 data RemoveTagsFromResource = RemoveTagsFromResource
     { _rtfrResourceName :: Text
-    , _rtfrTagKeys      :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _rtfrTagKeys      :: List "TagKeys" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'RemoveTagsFromResource' constructor.
 --
@@ -72,7 +73,7 @@ rtfrResourceName = lens _rtfrResourceName (\s a -> s { _rtfrResourceName = a })
 
 -- | The tag key (name) of the tag to be removed.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\s a -> s { _rtfrTagKeys = a })
+rtfrTagKeys = lens _rtfrTagKeys (\s a -> s { _rtfrTagKeys = a }) . _List
 
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
     deriving (Eq, Ord, Show, Generic)
@@ -84,7 +85,11 @@ removeTagsFromResourceResponse = RemoveTagsFromResourceResponse
 instance ToPath RemoveTagsFromResource where
     toPath = const "/"
 
-instance ToQuery RemoveTagsFromResource
+instance ToQuery RemoveTagsFromResource where
+    toQuery RemoveTagsFromResource{..} = mconcat
+        [ "ResourceName" =? _rtfrResourceName
+        , "TagKeys"      =? _rtfrTagKeys
+        ]
 
 instance ToHeaders RemoveTagsFromResource
 

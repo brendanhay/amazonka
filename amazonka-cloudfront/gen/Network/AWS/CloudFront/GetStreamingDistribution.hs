@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetStreamingDistribution = GetStreamingDistribution
     { _gsdId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetStreamingDistribution' constructor.
 --
@@ -68,7 +69,7 @@ gsdId = lens _gsdId (\s a -> s { _gsdId = a })
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse
     { _gsdrETag                  :: Maybe Text
     , _gsdrStreamingDistribution :: Maybe StreamingDistribution
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetStreamingDistributionResponse' constructor.
 --

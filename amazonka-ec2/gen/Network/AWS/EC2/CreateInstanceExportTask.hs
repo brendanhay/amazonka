@@ -56,7 +56,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
     , _cietExportToS3Task    :: Maybe ExportToS3TaskSpecification
     , _cietInstanceId        :: Text
     , _cietTargetEnvironment :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateInstanceExportTask' constructor.
 --
@@ -99,7 +99,7 @@ cietTargetEnvironment =
 
 newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask :: Maybe ExportTask
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateInstanceExportTaskResponse' constructor.
 --
@@ -118,7 +118,13 @@ cietrExportTask = lens _cietrExportTask (\s a -> s { _cietrExportTask = a })
 instance ToPath CreateInstanceExportTask where
     toPath = const "/"
 
-instance ToQuery CreateInstanceExportTask
+instance ToQuery CreateInstanceExportTask where
+    toQuery CreateInstanceExportTask{..} = mconcat
+        [ "description"       =? _cietDescription
+        , "exportToS3"        =? _cietExportToS3Task
+        , "instanceId"        =? _cietInstanceId
+        , "targetEnvironment" =? _cietTargetEnvironment
+        ]
 
 instance ToHeaders CreateInstanceExportTask
 

@@ -133,8 +133,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 32,
                 "ctor": "chapInfo",
@@ -204,6 +203,7 @@
                 "required": [],
                 "contentPad": 30,
                 "name": "ChapInfo",
+                "locationPad": 30,
                 "type": "record",
                 "optional": [
                     {
@@ -334,8 +334,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 27,
                 "ctor": "volumeiSCSIAttributes",
@@ -420,6 +419,7 @@
                 "required": [],
                 "contentPad": 21,
                 "name": "VolumeiSCSIAttributes",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -580,8 +580,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 27,
                 "ctor": "deviceiSCSIAttributes",
@@ -651,6 +650,7 @@
                 "required": [],
                 "contentPad": 21,
                 "name": "DeviceiSCSIAttributes",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -780,8 +780,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "error",
@@ -814,13 +813,14 @@
                         "locationName": "errorDetails",
                         "documentation": "\u003cp\u003eHuman-readable text that provides detail about the error that occurred.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 13,
                 "name": "Error'",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -851,7 +851,7 @@
                         "locationName": "errorDetails",
                         "documentation": "\u003cp\u003eHuman-readable text that provides detail about the error that occurred.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -883,7 +883,7 @@
                         "locationName": "errorDetails",
                         "documentation": "\u003cp\u003eHuman-readable text that provides detail about the error that occurred.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -891,8 +891,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "disk",
@@ -992,6 +991,7 @@
                 "required": [],
                 "contentPad": 23,
                 "name": "Disk",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -1182,8 +1182,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "tape",
@@ -1283,6 +1282,7 @@
                 "required": [],
                 "contentPad": 16,
                 "name": "Tape",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -1473,8 +1473,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "networkInterface",
@@ -1529,6 +1528,7 @@
                 "required": [],
                 "contentPad": 12,
                 "name": "NetworkInterface",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -1628,8 +1628,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 31,
                 "ctor": "vtldevice",
@@ -1714,6 +1713,7 @@
                 "required": [],
                 "contentPad": 27,
                 "name": "VTLDevice",
+                "locationPad": 27,
                 "type": "record",
                 "optional": [
                     {
@@ -1874,8 +1874,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "tapeRecoveryPointInfo",
@@ -1945,6 +1944,7 @@
                 "required": [],
                 "contentPad": 22,
                 "name": "TapeRecoveryPointInfo",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -2075,8 +2075,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "volumeRecoveryPointInfo",
@@ -2146,6 +2145,7 @@
                 "required": [],
                 "contentPad": 24,
                 "name": "VolumeRecoveryPointInfo",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -2276,8 +2276,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "tapeArchive",
@@ -2377,6 +2376,7 @@
                 "required": [],
                 "contentPad": 16,
                 "name": "TapeArchive",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -2642,8 +2642,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "storediSCSIVolume",
@@ -2803,6 +2802,7 @@
                 "required": [],
                 "contentPad": 22,
                 "name": "StorediSCSIVolume",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -3112,8 +3112,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "cachediSCSIVolume",
@@ -3243,6 +3242,7 @@
                 "required": [],
                 "contentPad": 22,
                 "name": "CachediSCSIVolume",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -3493,8 +3493,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "volumeInfo",
@@ -3534,6 +3533,7 @@
                 "required": [],
                 "contentPad": 11,
                 "name": "VolumeInfo",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -3604,8 +3604,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "gatewayInfo",
@@ -3660,6 +3659,7 @@
                 "required": [],
                 "contentPad": 24,
                 "name": "GatewayInfo",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -3768,7 +3768,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3818,6 +3817,7 @@
                 "contentPad": 0,
                 "name": "ActivateGatewayResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -3871,8 +3871,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4062,6 +4061,7 @@
                 "queryPad": 0,
                 "name": "ActivateGateway",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4228,7 +4228,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4278,6 +4277,7 @@
                 "contentPad": 0,
                 "name": "AddCacheResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4331,8 +4331,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4357,8 +4356,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4368,7 +4367,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     }
                 ],
                 "path": [
@@ -4402,14 +4401,15 @@
                 "queryPad": 0,
                 "name": "AddCache",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4419,14 +4419,14 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4436,7 +4436,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -4463,7 +4463,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4513,6 +4512,7 @@
                 "contentPad": 0,
                 "name": "AddUploadBufferResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4566,8 +4566,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4592,8 +4591,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4603,7 +4602,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     }
                 ],
                 "path": [
@@ -4637,14 +4636,15 @@
                 "queryPad": 0,
                 "name": "AddUploadBuffer",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4654,14 +4654,14 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4671,7 +4671,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -4698,7 +4698,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4748,6 +4747,7 @@
                 "contentPad": 0,
                 "name": "AddWorkingStorageResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4801,8 +4801,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4827,8 +4826,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4838,7 +4837,7 @@
                         "locationName": "DiskIds",
                         "documentation": "\u003cp\u003eAn array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the \u003ca\u003eListLocalDisks\u003c/a\u003e API.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     }
                 ],
                 "path": [
@@ -4872,14 +4871,15 @@
                 "queryPad": 0,
                 "name": "AddWorkingStorage",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4889,14 +4889,14 @@
                         "locationName": "DiskIds",
                         "documentation": "\u003cp\u003eAn array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the \u003ca\u003eListLocalDisks\u003c/a\u003e API.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4906,7 +4906,7 @@
                         "locationName": "DiskIds",
                         "documentation": "\u003cp\u003eAn array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the \u003ca\u003eListLocalDisks\u003c/a\u003e API.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -4933,7 +4933,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4983,6 +4982,7 @@
                 "contentPad": 0,
                 "name": "CancelArchivalResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -5036,8 +5036,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5122,6 +5121,7 @@
                 "queryPad": 0,
                 "name": "CancelArchival",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5167,7 +5167,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -5217,6 +5216,7 @@
                 "contentPad": 0,
                 "name": "CancelRetrievalResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -5270,8 +5270,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5356,6 +5355,7 @@
                 "queryPad": 0,
                 "name": "CancelRetrieval",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5400,8 +5400,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5449,6 +5448,7 @@
                 "contentPad": 10,
                 "name": "CreateCachediSCSIVolumeResponse",
                 "resultWrapper": null,
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -5532,8 +5532,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5723,6 +5722,7 @@
                 "queryPad": 0,
                 "name": "CreateCachediSCSIVolume",
                 "query": [],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5843,8 +5843,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5892,6 +5891,7 @@
                 "contentPad": 11,
                 "name": "CreateSnapshotResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -5975,8 +5975,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6061,6 +6060,7 @@
                 "queryPad": 0,
                 "name": "CreateSnapshot",
                 "query": [],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6105,8 +6105,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6169,6 +6168,7 @@
                 "contentPad": 24,
                 "name": "CreateSnapshotFromVolumeRecoveryPointResponse",
                 "resultWrapper": null,
+                "locationPad": 24,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -6282,8 +6282,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6368,6 +6367,7 @@
                 "queryPad": 0,
                 "name": "CreateSnapshotFromVolumeRecoveryPoint",
                 "query": [],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6412,8 +6412,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6476,6 +6475,7 @@
                 "contentPad": 18,
                 "name": "CreateStorediSCSIVolumeResponse",
                 "resultWrapper": null,
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -6589,8 +6589,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6780,6 +6779,7 @@
                 "queryPad": 0,
                 "name": "CreateStorediSCSIVolume",
                 "query": [],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6901,7 +6901,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6913,8 +6912,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6924,13 +6923,13 @@
                     "locationName": "TapeARNs",
                     "documentation": "\u003cp\u003eA list of unique Amazon Resource Named (ARN) the represents the virtual tapes that were created.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"TapeARNs\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6940,7 +6939,7 @@
                         "locationName": "TapeARNs",
                         "documentation": "\u003cp\u003eA list of unique Amazon Resource Named (ARN) the represents the virtual tapes that were created.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TapeARNs\" Text"
                     }
                 ],
                 "wrapper": false,
@@ -6952,13 +6951,14 @@
                 "contentPad": 0,
                 "name": "CreateTapesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6968,14 +6968,14 @@
                         "locationName": "TapeARNs",
                         "documentation": "\u003cp\u003eA list of unique Amazon Resource Named (ARN) the represents the virtual tapes that were created.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TapeARNs\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6985,7 +6985,7 @@
                         "locationName": "TapeARNs",
                         "documentation": "\u003cp\u003eA list of unique Amazon Resource Named (ARN) the represents the virtual tapes that were created.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TapeARNs\" Text"
                     }
                 ]
             },
@@ -7005,8 +7005,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7181,6 +7180,7 @@
                 "queryPad": 0,
                 "name": "CreateTapes",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -7271,7 +7271,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -7321,6 +7320,7 @@
                 "contentPad": 0,
                 "name": "DeleteBandwidthRateLimitResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -7374,8 +7374,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7460,6 +7459,7 @@
                 "queryPad": 0,
                 "name": "DeleteBandwidthRateLimit",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -7504,8 +7504,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7553,6 +7552,7 @@
                 "contentPad": 14,
                 "name": "DeleteChapCredentialsResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -7636,8 +7636,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7722,6 +7721,7 @@
                 "queryPad": 0,
                 "name": "DeleteChapCredentials",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -7767,7 +7767,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -7817,6 +7816,7 @@
                 "contentPad": 0,
                 "name": "DeleteGatewayResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -7871,7 +7871,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7944,6 +7943,7 @@
                 "queryPad": 0,
                 "name": "DeleteGateway",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -7974,7 +7974,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -8024,6 +8023,7 @@
                 "contentPad": 0,
                 "name": "DeleteSnapshotScheduleResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8078,7 +8078,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -8151,6 +8150,7 @@
                 "queryPad": 0,
                 "name": "DeleteSnapshotSchedule",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -8181,7 +8181,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -8231,6 +8230,7 @@
                 "contentPad": 0,
                 "name": "DeleteTapeResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8284,8 +8284,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -8370,6 +8369,7 @@
                 "queryPad": 0,
                 "name": "DeleteTape",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -8415,7 +8415,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -8465,6 +8464,7 @@
                 "contentPad": 0,
                 "name": "DeleteTapeArchiveResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8519,7 +8519,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -8592,6 +8591,7 @@
                 "queryPad": 0,
                 "name": "DeleteTapeArchive",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -8622,7 +8622,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -8672,6 +8671,7 @@
                 "contentPad": 0,
                 "name": "DeleteVolumeResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -8726,7 +8726,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -8799,6 +8798,7 @@
                 "queryPad": 0,
                 "name": "DeleteVolume",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -8828,8 +8828,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -8892,6 +8891,7 @@
                 "contentPad": 37,
                 "name": "DescribeBandwidthRateLimitResponse",
                 "resultWrapper": null,
+                "locationPad": 37,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -9006,7 +9006,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9079,6 +9078,7 @@
                 "queryPad": 0,
                 "name": "DescribeBandwidthRateLimit",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -9108,8 +9108,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -9134,8 +9133,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9145,7 +9144,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -9232,6 +9231,7 @@
                 "contentPad": 22,
                 "name": "DescribeCacheResponse",
                 "resultWrapper": null,
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -9252,8 +9252,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9263,7 +9263,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -9419,8 +9419,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9430,7 +9430,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -9466,7 +9466,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9539,6 +9538,7 @@
                 "queryPad": 0,
                 "name": "DescribeCache",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -9568,7 +9568,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -9580,8 +9579,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -9591,13 +9590,13 @@
                     "locationName": "CachediSCSIVolumes",
                     "documentation": "\u003cp\u003eAn array of objects where each object contains metadata about one cached volume.\u003c/p\u003e",
                     "typeExposed": "[CachediSCSIVolume]",
-                    "type": "[CachediSCSIVolume]"
+                    "type": "List \"CachediSCSIVolumes\" CachediSCSIVolume"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9607,7 +9606,7 @@
                         "locationName": "CachediSCSIVolumes",
                         "documentation": "\u003cp\u003eAn array of objects where each object contains metadata about one cached volume.\u003c/p\u003e",
                         "typeExposed": "[CachediSCSIVolume]",
-                        "type": "[CachediSCSIVolume]"
+                        "type": "List \"CachediSCSIVolumes\" CachediSCSIVolume"
                     }
                 ],
                 "wrapper": false,
@@ -9619,13 +9618,14 @@
                 "contentPad": 0,
                 "name": "DescribeCachediSCSIVolumesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9635,14 +9635,14 @@
                         "locationName": "CachediSCSIVolumes",
                         "documentation": "\u003cp\u003eAn array of objects where each object contains metadata about one cached volume.\u003c/p\u003e",
                         "typeExposed": "[CachediSCSIVolume]",
-                        "type": "[CachediSCSIVolume]"
+                        "type": "List \"CachediSCSIVolumes\" CachediSCSIVolume"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9652,7 +9652,7 @@
                         "locationName": "CachediSCSIVolumes",
                         "documentation": "\u003cp\u003eAn array of objects where each object contains metadata about one cached volume.\u003c/p\u003e",
                         "typeExposed": "[CachediSCSIVolume]",
-                        "type": "[CachediSCSIVolume]"
+                        "type": "List \"CachediSCSIVolumes\" CachediSCSIVolume"
                     }
                 ]
             },
@@ -9673,7 +9673,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -9685,8 +9684,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -9696,13 +9695,13 @@
                     "locationName": "VolumeARNs",
                     "documentation": null,
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"VolumeARNs\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9712,7 +9711,7 @@
                         "locationName": "VolumeARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VolumeARNs\" Text"
                     }
                 ],
                 "path": [
@@ -9730,14 +9729,15 @@
                 "queryPad": 0,
                 "name": "DescribeCachediSCSIVolumes",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9747,14 +9747,14 @@
                         "locationName": "VolumeARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VolumeARNs\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9764,7 +9764,7 @@
                         "locationName": "VolumeARNs",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VolumeARNs\" Text"
                     }
                 ]
             }
@@ -9775,7 +9775,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -9787,8 +9786,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -9798,13 +9797,13 @@
                     "locationName": "ChapCredentials",
                     "documentation": "\u003cp\u003eAn array of \u003ca\u003eChapInfo\u003c/a\u003e objects that represent CHAP credentials. Each object in the array contains CHAP credential information for one target-initiator pair. If no CHAP credentials are set, an empty array is returned. CHAP credential information is provided in a JSON object with the following fields:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eInitiatorName\u003c/b\u003e: The iSCSI initiator that connects to the target.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eSecretToAuthenticateInitiator\u003c/b\u003e: The secret key that the initiator (e.g. Windows client) must provide to participate in mutual CHAP with the target.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eSecretToAuthenticateTarget\u003c/b\u003e: The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eTargetARN\u003c/b\u003e: The Amazon Resource Name (ARN) of the storage volume.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e",
                     "typeExposed": "[ChapInfo]",
-                    "type": "[ChapInfo]"
+                    "type": "List \"ChapCredentials\" ChapInfo"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9814,7 +9813,7 @@
                         "locationName": "ChapCredentials",
                         "documentation": "\u003cp\u003eAn array of \u003ca\u003eChapInfo\u003c/a\u003e objects that represent CHAP credentials. Each object in the array contains CHAP credential information for one target-initiator pair. If no CHAP credentials are set, an empty array is returned. CHAP credential information is provided in a JSON object with the following fields:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eInitiatorName\u003c/b\u003e: The iSCSI initiator that connects to the target.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eSecretToAuthenticateInitiator\u003c/b\u003e: The secret key that the initiator (e.g. Windows client) must provide to participate in mutual CHAP with the target.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eSecretToAuthenticateTarget\u003c/b\u003e: The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eTargetARN\u003c/b\u003e: The Amazon Resource Name (ARN) of the storage volume.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[ChapInfo]",
-                        "type": "[ChapInfo]"
+                        "type": "List \"ChapCredentials\" ChapInfo"
                     }
                 ],
                 "wrapper": false,
@@ -9826,13 +9825,14 @@
                 "contentPad": 0,
                 "name": "DescribeChapCredentialsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9842,14 +9842,14 @@
                         "locationName": "ChapCredentials",
                         "documentation": "\u003cp\u003eAn array of \u003ca\u003eChapInfo\u003c/a\u003e objects that represent CHAP credentials. Each object in the array contains CHAP credential information for one target-initiator pair. If no CHAP credentials are set, an empty array is returned. CHAP credential information is provided in a JSON object with the following fields:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eInitiatorName\u003c/b\u003e: The iSCSI initiator that connects to the target.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eSecretToAuthenticateInitiator\u003c/b\u003e: The secret key that the initiator (e.g. Windows client) must provide to participate in mutual CHAP with the target.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eSecretToAuthenticateTarget\u003c/b\u003e: The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eTargetARN\u003c/b\u003e: The Amazon Resource Name (ARN) of the storage volume.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[ChapInfo]",
-                        "type": "[ChapInfo]"
+                        "type": "List \"ChapCredentials\" ChapInfo"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9859,7 +9859,7 @@
                         "locationName": "ChapCredentials",
                         "documentation": "\u003cp\u003eAn array of \u003ca\u003eChapInfo\u003c/a\u003e objects that represent CHAP credentials. Each object in the array contains CHAP credential information for one target-initiator pair. If no CHAP credentials are set, an empty array is returned. CHAP credential information is provided in a JSON object with the following fields:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eInitiatorName\u003c/b\u003e: The iSCSI initiator that connects to the target.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eSecretToAuthenticateInitiator\u003c/b\u003e: The secret key that the initiator (e.g. Windows client) must provide to participate in mutual CHAP with the target.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eSecretToAuthenticateTarget\u003c/b\u003e: The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003cb\u003eTargetARN\u003c/b\u003e: The Amazon Resource Name (ARN) of the storage volume.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[ChapInfo]",
-                        "type": "[ChapInfo]"
+                        "type": "List \"ChapCredentials\" ChapInfo"
                     }
                 ]
             },
@@ -9880,7 +9880,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -9953,6 +9952,7 @@
                 "queryPad": 0,
                 "name": "DescribeChapCredentials",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -9981,8 +9981,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10052,8 +10051,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10063,7 +10062,7 @@
                         "locationName": "GatewayNetworkInterfaces",
                         "documentation": "\u003cp\u003eA \u003ca\u003eNetworkInterface\u003c/a\u003e array that contains descriptions of the gateway network interfaces.\u003c/p\u003e",
                         "typeExposed": "[NetworkInterface]",
-                        "type": "[NetworkInterface]"
+                        "type": "List \"GatewayNetworkInterfaces\" NetworkInterface"
                     },
                     {
                         "location": null,
@@ -10105,6 +10104,7 @@
                 "contentPad": 27,
                 "name": "DescribeGatewayInformationResponse",
                 "resultWrapper": null,
+                "locationPad": 27,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -10170,8 +10170,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10181,7 +10181,7 @@
                         "locationName": "GatewayNetworkInterfaces",
                         "documentation": "\u003cp\u003eA \u003ca\u003eNetworkInterface\u003c/a\u003e array that contains descriptions of the gateway network interfaces.\u003c/p\u003e",
                         "typeExposed": "[NetworkInterface]",
-                        "type": "[NetworkInterface]"
+                        "type": "List \"GatewayNetworkInterfaces\" NetworkInterface"
                     },
                     {
                         "location": null,
@@ -10247,8 +10247,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10258,7 +10258,7 @@
                         "locationName": "GatewayNetworkInterfaces",
                         "documentation": "\u003cp\u003eA \u003ca\u003eNetworkInterface\u003c/a\u003e array that contains descriptions of the gateway network interfaces.\u003c/p\u003e",
                         "typeExposed": "[NetworkInterface]",
-                        "type": "[NetworkInterface]"
+                        "type": "List \"GatewayNetworkInterfaces\" NetworkInterface"
                     },
                     {
                         "location": null,
@@ -10339,7 +10339,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10412,6 +10411,7 @@
                 "queryPad": 0,
                 "name": "DescribeGatewayInformation",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -10441,8 +10441,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10535,6 +10534,7 @@
                 "contentPad": 13,
                 "name": "DescribeMaintenanceStartTimeResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -10709,7 +10709,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -10782,6 +10781,7 @@
                 "queryPad": 0,
                 "name": "DescribeMaintenanceStartTime",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -10811,8 +10811,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -10905,6 +10904,7 @@
                 "contentPad": 18,
                 "name": "DescribeSnapshotScheduleResponse",
                 "resultWrapper": null,
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11079,7 +11079,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -11152,6 +11151,7 @@
                 "queryPad": 0,
                 "name": "DescribeSnapshotSchedule",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -11181,7 +11181,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -11193,8 +11192,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -11204,13 +11203,13 @@
                     "locationName": "StorediSCSIVolumes",
                     "documentation": null,
                     "typeExposed": "[StorediSCSIVolume]",
-                    "type": "[StorediSCSIVolume]"
+                    "type": "List \"StorediSCSIVolumes\" StorediSCSIVolume"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11220,7 +11219,7 @@
                         "locationName": "StorediSCSIVolumes",
                         "documentation": null,
                         "typeExposed": "[StorediSCSIVolume]",
-                        "type": "[StorediSCSIVolume]"
+                        "type": "List \"StorediSCSIVolumes\" StorediSCSIVolume"
                     }
                 ],
                 "wrapper": false,
@@ -11232,13 +11231,14 @@
                 "contentPad": 0,
                 "name": "DescribeStorediSCSIVolumesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11248,14 +11248,14 @@
                         "locationName": "StorediSCSIVolumes",
                         "documentation": null,
                         "typeExposed": "[StorediSCSIVolume]",
-                        "type": "[StorediSCSIVolume]"
+                        "type": "List \"StorediSCSIVolumes\" StorediSCSIVolume"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11265,7 +11265,7 @@
                         "locationName": "StorediSCSIVolumes",
                         "documentation": null,
                         "typeExposed": "[StorediSCSIVolume]",
-                        "type": "[StorediSCSIVolume]"
+                        "type": "List \"StorediSCSIVolumes\" StorediSCSIVolume"
                     }
                 ]
             },
@@ -11286,7 +11286,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -11298,8 +11297,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -11309,13 +11308,13 @@
                     "locationName": "VolumeARNs",
                     "documentation": "\u003cp\u003eAn array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use \u003ca\u003eListVolumes\u003c/a\u003e to get volume ARNs for a gateway.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"VolumeARNs\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11325,7 +11324,7 @@
                         "locationName": "VolumeARNs",
                         "documentation": "\u003cp\u003eAn array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use \u003ca\u003eListVolumes\u003c/a\u003e to get volume ARNs for a gateway.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VolumeARNs\" Text"
                     }
                 ],
                 "path": [
@@ -11343,14 +11342,15 @@
                 "queryPad": 0,
                 "name": "DescribeStorediSCSIVolumes",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11360,14 +11360,14 @@
                         "locationName": "VolumeARNs",
                         "documentation": "\u003cp\u003eAn array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use \u003ca\u003eListVolumes\u003c/a\u003e to get volume ARNs for a gateway.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VolumeARNs\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11377,7 +11377,7 @@
                         "locationName": "VolumeARNs",
                         "documentation": "\u003cp\u003eAn array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use \u003ca\u003eListVolumes\u003c/a\u003e to get volume ARNs for a gateway.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VolumeARNs\" Text"
                     }
                 ]
             }
@@ -11387,8 +11387,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11398,8 +11397,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11409,7 +11408,7 @@
                         "locationName": "TapeArchives",
                         "documentation": "\u003cp\u003eAn array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name(ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description and tape barcode.\u003c/p\u003e",
                         "typeExposed": "[TapeArchive]",
-                        "type": "[TapeArchive]"
+                        "type": "List \"TapeArchives\" TapeArchive"
                     },
                     {
                         "location": null,
@@ -11436,13 +11435,14 @@
                 "contentPad": 13,
                 "name": "DescribeTapeArchivesResponse",
                 "resultWrapper": null,
+                "locationPad": 13,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11452,7 +11452,7 @@
                         "locationName": "TapeArchives",
                         "documentation": "\u003cp\u003eAn array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name(ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description and tape barcode.\u003c/p\u003e",
                         "typeExposed": "[TapeArchive]",
-                        "type": "[TapeArchive]"
+                        "type": "List \"TapeArchives\" TapeArchive"
                     },
                     {
                         "location": null,
@@ -11488,8 +11488,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11499,7 +11499,7 @@
                         "locationName": "TapeArchives",
                         "documentation": "\u003cp\u003eAn array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name(ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description and tape barcode.\u003c/p\u003e",
                         "typeExposed": "[TapeArchive]",
-                        "type": "[TapeArchive]"
+                        "type": "List \"TapeArchives\" TapeArchive"
                     }
                 ]
             },
@@ -11526,8 +11526,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11537,8 +11536,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11548,7 +11547,7 @@
                         "locationName": "TapeARNs",
                         "documentation": "\u003cp\u003eSpecifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TapeARNs\" Text"
                     },
                     {
                         "location": null,
@@ -11596,14 +11595,15 @@
                 "queryPad": 0,
                 "name": "DescribeTapeArchives",
                 "query": [],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11613,7 +11613,7 @@
                         "locationName": "TapeARNs",
                         "documentation": "\u003cp\u003eSpecifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TapeARNs\" Text"
                     },
                     {
                         "location": null,
@@ -11679,8 +11679,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11690,7 +11690,7 @@
                         "locationName": "TapeARNs",
                         "documentation": "\u003cp\u003eSpecifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TapeARNs\" Text"
                     }
                 ]
             }
@@ -11700,8 +11700,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11726,8 +11725,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11737,7 +11736,7 @@
                         "locationName": "TapeRecoveryPointInfos",
                         "documentation": "\u003cp\u003eAn array of TapeRecoveryPointInfos that are available for the specified gateway.\u003c/p\u003e",
                         "typeExposed": "[TapeRecoveryPointInfo]",
-                        "type": "[TapeRecoveryPointInfo]"
+                        "type": "List \"TapeRecoveryPointInfos\" TapeRecoveryPointInfo"
                     },
                     {
                         "location": null,
@@ -11764,6 +11763,7 @@
                 "contentPad": 23,
                 "name": "DescribeTapeRecoveryPointsResponse",
                 "resultWrapper": null,
+                "locationPad": 23,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11784,8 +11784,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11795,7 +11795,7 @@
                         "locationName": "TapeRecoveryPointInfos",
                         "documentation": "\u003cp\u003eAn array of TapeRecoveryPointInfos that are available for the specified gateway.\u003c/p\u003e",
                         "typeExposed": "[TapeRecoveryPointInfo]",
-                        "type": "[TapeRecoveryPointInfo]"
+                        "type": "List \"TapeRecoveryPointInfos\" TapeRecoveryPointInfo"
                     },
                     {
                         "location": null,
@@ -11846,8 +11846,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11857,7 +11857,7 @@
                         "locationName": "TapeRecoveryPointInfos",
                         "documentation": "\u003cp\u003eAn array of TapeRecoveryPointInfos that are available for the specified gateway.\u003c/p\u003e",
                         "typeExposed": "[TapeRecoveryPointInfo]",
-                        "type": "[TapeRecoveryPointInfo]"
+                        "type": "List \"TapeRecoveryPointInfos\" TapeRecoveryPointInfo"
                     }
                 ]
             },
@@ -11884,8 +11884,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -11970,6 +11969,7 @@
                 "queryPad": 0,
                 "name": "DescribeTapeRecoveryPoints",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -12059,8 +12059,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -12070,8 +12069,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12081,7 +12080,7 @@
                         "locationName": "Tapes",
                         "documentation": "\u003cp\u003eAn array of virtual tape descriptions.\u003c/p\u003e",
                         "typeExposed": "[Tape]",
-                        "type": "[Tape]"
+                        "type": "List \"Tapes\" Tape"
                     },
                     {
                         "location": null,
@@ -12108,13 +12107,14 @@
                 "contentPad": 7,
                 "name": "DescribeTapesResponse",
                 "resultWrapper": null,
+                "locationPad": 7,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12124,7 +12124,7 @@
                         "locationName": "Tapes",
                         "documentation": "\u003cp\u003eAn array of virtual tape descriptions.\u003c/p\u003e",
                         "typeExposed": "[Tape]",
-                        "type": "[Tape]"
+                        "type": "List \"Tapes\" Tape"
                     },
                     {
                         "location": null,
@@ -12160,8 +12160,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12171,7 +12171,7 @@
                         "locationName": "Tapes",
                         "documentation": "\u003cp\u003eAn array of virtual tape descriptions.\u003c/p\u003e",
                         "typeExposed": "[Tape]",
-                        "type": "[Tape]"
+                        "type": "List \"Tapes\" Tape"
                     }
                 ]
             },
@@ -12198,8 +12198,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -12224,8 +12223,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12235,7 +12234,7 @@
                         "locationName": "TapeARNs",
                         "documentation": "\u003cp\u003eSpecifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, AWS Storage Gateway returns a description of all virtual tapes associated with the specified gateway.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TapeARNs\" Text"
                     },
                     {
                         "location": null,
@@ -12299,14 +12298,15 @@
                 "queryPad": 0,
                 "name": "DescribeTapes",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12316,7 +12316,7 @@
                         "locationName": "TapeARNs",
                         "documentation": "\u003cp\u003eSpecifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, AWS Storage Gateway returns a description of all virtual tapes associated with the specified gateway.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TapeARNs\" Text"
                     },
                     {
                         "location": null,
@@ -12397,8 +12397,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12408,7 +12408,7 @@
                         "locationName": "TapeARNs",
                         "documentation": "\u003cp\u003eSpecifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, AWS Storage Gateway returns a description of all virtual tapes associated with the specified gateway.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TapeARNs\" Text"
                     }
                 ]
             }
@@ -12419,8 +12419,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -12445,8 +12444,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12456,7 +12455,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -12498,6 +12497,7 @@
                 "contentPad": 29,
                 "name": "DescribeUploadBufferResponse",
                 "resultWrapper": null,
+                "locationPad": 29,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -12518,8 +12518,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12529,7 +12529,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -12565,8 +12565,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12576,7 +12576,7 @@
                         "locationName": "DiskIds",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -12642,7 +12642,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -12715,6 +12714,7 @@
                 "queryPad": 0,
                 "name": "DescribeUploadBuffer",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -12743,8 +12743,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -12769,8 +12768,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12780,7 +12779,7 @@
                         "locationName": "VTLDevices",
                         "documentation": "\u003cp\u003eAn array of VTL device objects composed of the Amazon Resource Name(ARN) of the VTL devices.\u003c/p\u003e",
                         "typeExposed": "[VTLDevice]",
-                        "type": "[VTLDevice]"
+                        "type": "List \"VTLDevices\" VTLDevice"
                     },
                     {
                         "location": null,
@@ -12807,6 +12806,7 @@
                 "contentPad": 11,
                 "name": "DescribeVTLDevicesResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -12827,8 +12827,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12838,7 +12838,7 @@
                         "locationName": "VTLDevices",
                         "documentation": "\u003cp\u003eAn array of VTL device objects composed of the Amazon Resource Name(ARN) of the VTL devices.\u003c/p\u003e",
                         "typeExposed": "[VTLDevice]",
-                        "type": "[VTLDevice]"
+                        "type": "List \"VTLDevices\" VTLDevice"
                     },
                     {
                         "location": null,
@@ -12889,8 +12889,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12900,7 +12900,7 @@
                         "locationName": "VTLDevices",
                         "documentation": "\u003cp\u003eAn array of VTL device objects composed of the Amazon Resource Name(ARN) of the VTL devices.\u003c/p\u003e",
                         "typeExposed": "[VTLDevice]",
-                        "type": "[VTLDevice]"
+                        "type": "List \"VTLDevices\" VTLDevice"
                     }
                 ]
             },
@@ -12927,8 +12927,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -12953,8 +12952,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12964,7 +12963,7 @@
                         "locationName": "VTLDeviceARNs",
                         "documentation": "\u003cp\u003eAn array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VTLDeviceARNs\" Text"
                     },
                     {
                         "location": null,
@@ -13028,14 +13027,15 @@
                 "queryPad": 0,
                 "name": "DescribeVTLDevices",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13045,7 +13045,7 @@
                         "locationName": "VTLDeviceARNs",
                         "documentation": "\u003cp\u003eAn array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VTLDeviceARNs\" Text"
                     },
                     {
                         "location": null,
@@ -13126,8 +13126,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13137,7 +13137,7 @@
                         "locationName": "VTLDeviceARNs",
                         "documentation": "\u003cp\u003eAn array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"VTLDeviceARNs\" Text"
                     }
                 ]
             }
@@ -13148,8 +13148,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -13174,8 +13173,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13185,7 +13184,7 @@
                         "locationName": "DiskIds",
                         "documentation": "\u003cp\u003eAn array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -13227,6 +13226,7 @@
                 "contentPad": 31,
                 "name": "DescribeWorkingStorageResponse",
                 "resultWrapper": null,
+                "locationPad": 31,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -13247,8 +13247,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13258,7 +13258,7 @@
                         "locationName": "DiskIds",
                         "documentation": "\u003cp\u003eAn array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -13294,8 +13294,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13305,7 +13305,7 @@
                         "locationName": "DiskIds",
                         "documentation": "\u003cp\u003eAn array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DiskIds\" Text"
                     },
                     {
                         "location": null,
@@ -13371,7 +13371,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -13444,6 +13443,7 @@
                 "queryPad": 0,
                 "name": "DescribeWorkingStorage",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -13474,7 +13474,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -13524,6 +13523,7 @@
                 "contentPad": 0,
                 "name": "DisableGatewayResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -13578,7 +13578,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -13651,6 +13650,7 @@
                 "queryPad": 0,
                 "name": "DisableGateway",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -13679,8 +13679,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -13690,8 +13689,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13701,7 +13700,7 @@
                         "locationName": "Gateways",
                         "documentation": null,
                         "typeExposed": "[GatewayInfo]",
-                        "type": "[GatewayInfo]"
+                        "type": "List \"Gateways\" GatewayInfo"
                     },
                     {
                         "location": null,
@@ -13728,13 +13727,14 @@
                 "contentPad": 9,
                 "name": "ListGatewaysResponse",
                 "resultWrapper": null,
+                "locationPad": 9,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13744,7 +13744,7 @@
                         "locationName": "Gateways",
                         "documentation": null,
                         "typeExposed": "[GatewayInfo]",
-                        "type": "[GatewayInfo]"
+                        "type": "List \"Gateways\" GatewayInfo"
                     },
                     {
                         "location": null,
@@ -13765,8 +13765,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13776,7 +13776,7 @@
                         "locationName": "Gateways",
                         "documentation": null,
                         "typeExposed": "[GatewayInfo]",
-                        "type": "[GatewayInfo]"
+                        "type": "List \"Gateways\" GatewayInfo"
                     },
                     {
                         "location": null,
@@ -13818,8 +13818,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -13873,6 +13872,7 @@
                 "queryPad": 0,
                 "name": "ListGateways",
                 "query": [],
+                "locationPad": 7,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -13947,8 +13947,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -13973,8 +13972,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13984,7 +13983,7 @@
                         "locationName": "Disks",
                         "documentation": null,
                         "typeExposed": "[Disk]",
-                        "type": "[Disk]"
+                        "type": "List \"Disks\" Disk"
                     }
                 ],
                 "wrapper": false,
@@ -13996,6 +13995,7 @@
                 "contentPad": 11,
                 "name": "ListLocalDisksResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -14016,8 +14016,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14027,14 +14027,14 @@
                         "locationName": "Disks",
                         "documentation": null,
                         "typeExposed": "[Disk]",
-                        "type": "[Disk]"
+                        "type": "List \"Disks\" Disk"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14044,7 +14044,7 @@
                         "locationName": "Disks",
                         "documentation": null,
                         "typeExposed": "[Disk]",
-                        "type": "[Disk]"
+                        "type": "List \"Disks\" Disk"
                     },
                     {
                         "location": null,
@@ -14080,7 +14080,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -14153,6 +14152,7 @@
                 "queryPad": 0,
                 "name": "ListLocalDisks",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -14181,8 +14181,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -14207,8 +14206,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14218,7 +14217,7 @@
                         "locationName": "VolumeRecoveryPointInfos",
                         "documentation": null,
                         "typeExposed": "[VolumeRecoveryPointInfo]",
-                        "type": "[VolumeRecoveryPointInfo]"
+                        "type": "List \"VolumeRecoveryPointInfos\" VolumeRecoveryPointInfo"
                     }
                 ],
                 "wrapper": false,
@@ -14230,6 +14229,7 @@
                 "contentPad": 25,
                 "name": "ListVolumeRecoveryPointsResponse",
                 "resultWrapper": null,
+                "locationPad": 25,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -14250,8 +14250,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14261,7 +14261,7 @@
                         "locationName": "VolumeRecoveryPointInfos",
                         "documentation": null,
                         "typeExposed": "[VolumeRecoveryPointInfo]",
-                        "type": "[VolumeRecoveryPointInfo]"
+                        "type": "List \"VolumeRecoveryPointInfos\" VolumeRecoveryPointInfo"
                     }
                 ],
                 "fields": [
@@ -14282,8 +14282,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14293,7 +14293,7 @@
                         "locationName": "VolumeRecoveryPointInfos",
                         "documentation": null,
                         "typeExposed": "[VolumeRecoveryPointInfo]",
-                        "type": "[VolumeRecoveryPointInfo]"
+                        "type": "List \"VolumeRecoveryPointInfos\" VolumeRecoveryPointInfo"
                     }
                 ]
             },
@@ -14314,7 +14314,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -14387,6 +14386,7 @@
                 "queryPad": 0,
                 "name": "ListVolumeRecoveryPoints",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -14415,8 +14415,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -14456,8 +14455,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14467,7 +14466,7 @@
                         "locationName": "VolumeInfos",
                         "documentation": null,
                         "typeExposed": "[VolumeInfo]",
-                        "type": "[VolumeInfo]"
+                        "type": "List \"VolumeInfos\" VolumeInfo"
                     }
                 ],
                 "wrapper": false,
@@ -14479,6 +14478,7 @@
                 "contentPad": 12,
                 "name": "ListVolumesResponse",
                 "resultWrapper": null,
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -14514,8 +14514,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14525,7 +14525,7 @@
                         "locationName": "VolumeInfos",
                         "documentation": null,
                         "typeExposed": "[VolumeInfo]",
-                        "type": "[VolumeInfo]"
+                        "type": "List \"VolumeInfos\" VolumeInfo"
                     }
                 ],
                 "fields": [
@@ -14561,8 +14561,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14572,7 +14572,7 @@
                         "locationName": "VolumeInfos",
                         "documentation": null,
                         "typeExposed": "[VolumeInfo]",
-                        "type": "[VolumeInfo]"
+                        "type": "List \"VolumeInfos\" VolumeInfo"
                     }
                 ]
             },
@@ -14599,8 +14599,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -14685,6 +14684,7 @@
                 "queryPad": 0,
                 "name": "ListVolumes",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -14776,7 +14776,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -14826,6 +14825,7 @@
                 "contentPad": 0,
                 "name": "RetrieveTapeArchiveResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -14879,8 +14879,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -14965,6 +14964,7 @@
                 "queryPad": 0,
                 "name": "RetrieveTapeArchive",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -15010,7 +15010,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -15060,6 +15059,7 @@
                 "contentPad": 0,
                 "name": "RetrieveTapeRecoveryPointResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -15113,8 +15113,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -15199,6 +15198,7 @@
                 "queryPad": 0,
                 "name": "RetrieveTapeRecoveryPoint",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -15244,7 +15244,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -15294,6 +15293,7 @@
                 "contentPad": 0,
                 "name": "ShutdownGatewayResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -15348,7 +15348,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -15421,6 +15420,7 @@
                 "queryPad": 0,
                 "name": "ShutdownGateway",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -15451,7 +15451,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -15501,6 +15500,7 @@
                 "contentPad": 0,
                 "name": "StartGatewayResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -15555,7 +15555,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -15628,6 +15627,7 @@
                 "queryPad": 0,
                 "name": "StartGateway",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -15658,7 +15658,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -15708,6 +15707,7 @@
                 "contentPad": 0,
                 "name": "UpdateBandwidthRateLimitResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -15761,8 +15761,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -15847,6 +15846,7 @@
                 "queryPad": 0,
                 "name": "UpdateBandwidthRateLimit",
                 "query": [],
+                "locationPad": 37,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -15937,8 +15937,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -15986,6 +15985,7 @@
                 "contentPad": 14,
                 "name": "UpdateChapCredentialsResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -16069,8 +16069,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -16200,6 +16199,7 @@
                 "queryPad": 0,
                 "name": "UpdateChapCredentials",
                 "query": [],
+                "locationPad": 30,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -16291,7 +16291,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -16341,6 +16340,7 @@
                 "contentPad": 0,
                 "name": "UpdateGatewayInformationResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -16394,8 +16394,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -16480,6 +16479,7 @@
                 "queryPad": 0,
                 "name": "UpdateGatewayInformation",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -16571,7 +16571,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -16621,6 +16620,7 @@
                 "contentPad": 0,
                 "name": "UpdateGatewaySoftwareNowResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -16675,7 +16675,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -16748,6 +16747,7 @@
                 "queryPad": 0,
                 "name": "UpdateGatewaySoftwareNow",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -16778,7 +16778,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -16828,6 +16827,7 @@
                 "contentPad": 0,
                 "name": "UpdateMaintenanceStartTimeResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -16881,8 +16881,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -17027,6 +17026,7 @@
                 "queryPad": 0,
                 "name": "UpdateMaintenanceStartTime",
                 "query": [],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -17102,7 +17102,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -17152,6 +17151,7 @@
                 "contentPad": 0,
                 "name": "UpdateSnapshotScheduleResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -17205,8 +17205,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -17336,6 +17335,7 @@
                 "queryPad": 0,
                 "name": "UpdateSnapshotSchedule",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

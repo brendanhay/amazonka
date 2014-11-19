@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ data ListAccessKeys = ListAccessKeys
     { _lakMarker   :: Maybe Text
     , _lakMaxItems :: Maybe Nat
     , _lakUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListAccessKeys' constructor.
 --
@@ -90,18 +91,17 @@ lakMarker = lens _lakMarker (\s a -> s { _lakMarker = a })
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
 lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
-lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a })
-    . mapping _Nat
+lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a }) . mapping _Nat
 
 -- | The name of the user.
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
 lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
 
 data ListAccessKeysResponse = ListAccessKeysResponse
-    { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
+    { _lakrAccessKeyMetadata :: List "AccessKeyMetadata" AccessKeyMetadata
     , _lakrIsTruncated       :: Maybe Bool
     , _lakrMarker            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListAccessKeysResponse' constructor.
 --
@@ -124,6 +124,7 @@ listAccessKeysResponse = ListAccessKeysResponse
 lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrAccessKeyMetadata =
     lens _lakrAccessKeyMetadata (\s a -> s { _lakrAccessKeyMetadata = a })
+        . _List
 
 -- | A flag that indicates whether there are more keys to list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -139,7 +140,12 @@ lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
 instance ToPath ListAccessKeys where
     toPath = const "/"
 
-instance ToQuery ListAccessKeys
+instance ToQuery ListAccessKeys where
+    toQuery ListAccessKeys{..} = mconcat
+        [ "Marker"   =? _lakMarker
+        , "MaxItems" =? _lakMaxItems
+        , "UserName" =? _lakUserName
+        ]
 
 instance ToHeaders ListAccessKeys
 
@@ -151,10 +157,10 @@ instance AWSRequest ListAccessKeys where
     response = xmlResponse
 
 instance FromXML ListAccessKeysResponse where
-    parseXML = withElement "ListAccessKeysResult" $ \x ->
-            <$> x .@ "AccessKeyMetadata"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Marker"
+    parseXML = withElement "ListAccessKeysResult" $ \x -> ListAccessKeysResponse
+        <$> x .@  "AccessKeyMetadata"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
 
 instance AWSPager ListAccessKeys where
     next rq rs

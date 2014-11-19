@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,10 +50,10 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations
-    { _dncAutoScalingGroupNames :: [Text]
+    { _dncAutoScalingGroupNames :: List "AutoScalingGroupNames" Text
     , _dncMaxRecords            :: Maybe Int
     , _dncNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeNotificationConfigurations' constructor.
 --
@@ -76,6 +77,7 @@ dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
 dncAutoScalingGroupNames =
     lens _dncAutoScalingGroupNames
         (\s a -> s { _dncAutoScalingGroupNames = a })
+            . _List
 
 -- | Maximum number of records to be returned.
 dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
@@ -88,8 +90,8 @@ dncNextToken = lens _dncNextToken (\s a -> s { _dncNextToken = a })
 
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
     { _dncrNextToken                  :: Maybe Text
-    , _dncrNotificationConfigurations :: [NotificationConfiguration]
-    } deriving (Eq, Show, Generic)
+    , _dncrNotificationConfigurations :: List "NotificationConfigurations" NotificationConfiguration
+    } deriving (Eq, Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' constructor.
 --
@@ -115,11 +117,17 @@ dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsRespon
 dncrNotificationConfigurations =
     lens _dncrNotificationConfigurations
         (\s a -> s { _dncrNotificationConfigurations = a })
+            . _List
 
 instance ToPath DescribeNotificationConfigurations where
     toPath = const "/"
 
-instance ToQuery DescribeNotificationConfigurations
+instance ToQuery DescribeNotificationConfigurations where
+    toQuery DescribeNotificationConfigurations{..} = mconcat
+        [ "AutoScalingGroupNames" =? _dncAutoScalingGroupNames
+        , "MaxRecords"            =? _dncMaxRecords
+        , "NextToken"             =? _dncNextToken
+        ]
 
 instance ToHeaders DescribeNotificationConfigurations
 
@@ -131,9 +139,9 @@ instance AWSRequest DescribeNotificationConfigurations where
     response = xmlResponse
 
 instance FromXML DescribeNotificationConfigurationsResponse where
-    parseXML = withElement "DescribeNotificationConfigurationsResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "NotificationConfigurations"
+    parseXML = withElement "DescribeNotificationConfigurationsResult" $ \x -> DescribeNotificationConfigurationsResponse
+        <$> x .@? "NextToken"
+        <*> x .@  "NotificationConfigurations"
 
 instance AWSPager DescribeNotificationConfigurations where
     next rq rs = (\x -> rq & dncNextToken ?~ x)

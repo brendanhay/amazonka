@@ -63,7 +63,7 @@ data DescribeInstances = DescribeInstances
     , _di1InstanceIds :: List "InstanceId" Text
     , _di1MaxResults  :: Maybe Int
     , _di1NextToken   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeInstances' constructor.
 --
@@ -218,13 +218,11 @@ di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 -- association.association-id - The association ID returned when the network
 -- interface was associated with an IP address.
 di1Filters :: Lens' DescribeInstances [Filter]
-di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a })
-    . _List
+di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a }) . _List
 
 -- | One or more instance IDs. Default: Describes all your instances.
 di1InstanceIds :: Lens' DescribeInstances [Text]
-di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a })
-    . _List
+di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a }) . _List
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the next
@@ -241,7 +239,7 @@ di1NextToken = lens _di1NextToken (\s a -> s { _di1NextToken = a })
 data DescribeInstancesResponse = DescribeInstancesResponse
     { _dirNextToken    :: Maybe Text
     , _dirReservations :: List "item" Reservation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeInstancesResponse' constructor.
 --
@@ -264,13 +262,19 @@ dirNextToken = lens _dirNextToken (\s a -> s { _dirNextToken = a })
 
 -- | One or more reservations.
 dirReservations :: Lens' DescribeInstancesResponse [Reservation]
-dirReservations = lens _dirReservations (\s a -> s { _dirReservations = a })
-    . _List
+dirReservations = lens _dirReservations (\s a -> s { _dirReservations = a }) . _List
 
 instance ToPath DescribeInstances where
     toPath = const "/"
 
-instance ToQuery DescribeInstances
+instance ToQuery DescribeInstances where
+    toQuery DescribeInstances{..} = mconcat
+        [ "dryRun"     =? _di1DryRun
+        , "Filter"     =? _di1Filters
+        , "InstanceId" =? _di1InstanceIds
+        , "maxResults" =? _di1MaxResults
+        , "nextToken"  =? _di1NextToken
+        ]
 
 instance ToHeaders DescribeInstances
 
@@ -284,7 +288,7 @@ instance AWSRequest DescribeInstances where
 instance FromXML DescribeInstancesResponse where
     parseXML x = DescribeInstancesResponse
         <$> x .@? "nextToken"
-        <*> x .@ "reservationSet"
+        <*> x .@  "reservationSet"
 
 instance AWSPager DescribeInstances where
     next rq rs = (\x -> rq & di1NextToken ?~ x)

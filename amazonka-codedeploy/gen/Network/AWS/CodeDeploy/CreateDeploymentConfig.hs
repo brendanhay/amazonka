@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data CreateDeploymentConfig = CreateDeploymentConfig
     { _cdcDeploymentConfigName :: Text
     , _cdcMinimumHealthyHosts  :: Maybe MinimumHealthyHosts
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDeploymentConfig' constructor.
 --
@@ -88,7 +89,7 @@ cdcMinimumHealthyHosts =
 
 newtype CreateDeploymentConfigResponse = CreateDeploymentConfigResponse
     { _cdcrDeploymentConfigId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateDeploymentConfigResponse' constructor.
 --

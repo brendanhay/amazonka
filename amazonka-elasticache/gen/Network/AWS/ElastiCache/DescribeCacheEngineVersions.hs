@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions
     , _dcevEngineVersion             :: Maybe Text
     , _dcevMarker                    :: Maybe Text
     , _dcevMaxRecords                :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCacheEngineVersions' constructor.
 --
@@ -124,9 +125,9 @@ dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Int)
 dcevMaxRecords = lens _dcevMaxRecords (\s a -> s { _dcevMaxRecords = a })
 
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
-    { _dcevrCacheEngineVersions :: [CacheEngineVersion]
+    { _dcevrCacheEngineVersions :: List "CacheEngineVersion" CacheEngineVersion
     , _dcevrMarker              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeCacheEngineVersionsResponse' constructor.
 --
@@ -148,6 +149,7 @@ dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngi
 dcevrCacheEngineVersions =
     lens _dcevrCacheEngineVersions
         (\s a -> s { _dcevrCacheEngineVersions = a })
+            . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
@@ -156,7 +158,15 @@ dcevrMarker = lens _dcevrMarker (\s a -> s { _dcevrMarker = a })
 instance ToPath DescribeCacheEngineVersions where
     toPath = const "/"
 
-instance ToQuery DescribeCacheEngineVersions
+instance ToQuery DescribeCacheEngineVersions where
+    toQuery DescribeCacheEngineVersions{..} = mconcat
+        [ "CacheParameterGroupFamily" =? _dcevCacheParameterGroupFamily
+        , "DefaultOnly"               =? _dcevDefaultOnly
+        , "Engine"                    =? _dcevEngine
+        , "EngineVersion"             =? _dcevEngineVersion
+        , "Marker"                    =? _dcevMarker
+        , "MaxRecords"                =? _dcevMaxRecords
+        ]
 
 instance ToHeaders DescribeCacheEngineVersions
 
@@ -168,9 +178,9 @@ instance AWSRequest DescribeCacheEngineVersions where
     response = xmlResponse
 
 instance FromXML DescribeCacheEngineVersionsResponse where
-    parseXML = withElement "DescribeCacheEngineVersionsResult" $ \x ->
-            <$> x .@ "CacheEngineVersions"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeCacheEngineVersionsResult" $ \x -> DescribeCacheEngineVersionsResponse
+        <$> x .@  "CacheEngineVersions"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheEngineVersions where
     next rq rs = (\x -> rq & dcevMarker ?~ x)

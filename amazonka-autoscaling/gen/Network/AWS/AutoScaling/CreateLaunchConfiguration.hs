@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -63,7 +64,7 @@ import qualified GHC.Exts
 
 data CreateLaunchConfiguration = CreateLaunchConfiguration
     { _clcAssociatePublicIpAddress :: Maybe Bool
-    , _clcBlockDeviceMappings      :: [BlockDeviceMapping]
+    , _clcBlockDeviceMappings      :: List "BlockDeviceMappings" BlockDeviceMapping
     , _clcEbsOptimized             :: Maybe Bool
     , _clcIamInstanceProfile       :: Maybe Text
     , _clcImageId                  :: Maybe Text
@@ -75,10 +76,10 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
     , _clcLaunchConfigurationName  :: Text
     , _clcPlacementTenancy         :: Maybe Text
     , _clcRamdiskId                :: Maybe Text
-    , _clcSecurityGroups           :: [Text]
+    , _clcSecurityGroups           :: List "SecurityGroups" Text
     , _clcSpotPrice                :: Maybe Text
     , _clcUserData                 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateLaunchConfiguration' constructor.
 --
@@ -159,6 +160,7 @@ clcAssociatePublicIpAddress =
 clcBlockDeviceMappings :: Lens' CreateLaunchConfiguration [BlockDeviceMapping]
 clcBlockDeviceMappings =
     lens _clcBlockDeviceMappings (\s a -> s { _clcBlockDeviceMappings = a })
+        . _List
 
 -- | Whether the instance is optimized for EBS I/O. The optimization provides
 -- dedicated throughput to Amazon EBS and an optimized configuration stack
@@ -262,6 +264,7 @@ clcRamdiskId = lens _clcRamdiskId (\s a -> s { _clcRamdiskId = a })
 clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
 clcSecurityGroups =
     lens _clcSecurityGroups (\s a -> s { _clcSecurityGroups = a })
+        . _List
 
 -- | The maximum hourly price to be paid for any Spot Instance launched to
 -- fulfill the request. Spot Instances are launched when the price you
@@ -287,7 +290,25 @@ createLaunchConfigurationResponse = CreateLaunchConfigurationResponse
 instance ToPath CreateLaunchConfiguration where
     toPath = const "/"
 
-instance ToQuery CreateLaunchConfiguration
+instance ToQuery CreateLaunchConfiguration where
+    toQuery CreateLaunchConfiguration{..} = mconcat
+        [ "AssociatePublicIpAddress" =? _clcAssociatePublicIpAddress
+        , "BlockDeviceMappings"      =? _clcBlockDeviceMappings
+        , "EbsOptimized"             =? _clcEbsOptimized
+        , "IamInstanceProfile"       =? _clcIamInstanceProfile
+        , "ImageId"                  =? _clcImageId
+        , "InstanceId"               =? _clcInstanceId
+        , "InstanceMonitoring"       =? _clcInstanceMonitoring
+        , "InstanceType"             =? _clcInstanceType
+        , "KernelId"                 =? _clcKernelId
+        , "KeyName"                  =? _clcKeyName
+        , "LaunchConfigurationName"  =? _clcLaunchConfigurationName
+        , "PlacementTenancy"         =? _clcPlacementTenancy
+        , "RamdiskId"                =? _clcRamdiskId
+        , "SecurityGroups"           =? _clcSecurityGroups
+        , "SpotPrice"                =? _clcSpotPrice
+        , "UserData"                 =? _clcUserData
+        ]
 
 instance ToHeaders CreateLaunchConfiguration
 

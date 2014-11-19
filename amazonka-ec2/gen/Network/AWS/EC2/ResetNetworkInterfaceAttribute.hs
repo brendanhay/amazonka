@@ -50,7 +50,7 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniaDryRun             :: Maybe Bool
     , _rniaNetworkInterfaceId :: Text
     , _rniaSourceDestCheck    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ResetNetworkInterfaceAttribute' constructor.
 --
@@ -93,7 +93,12 @@ resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
 instance ToPath ResetNetworkInterfaceAttribute where
     toPath = const "/"
 
-instance ToQuery ResetNetworkInterfaceAttribute
+instance ToQuery ResetNetworkInterfaceAttribute where
+    toQuery ResetNetworkInterfaceAttribute{..} = mconcat
+        [ "dryRun"             =? _rniaDryRun
+        , "networkInterfaceId" =? _rniaNetworkInterfaceId
+        , "sourceDestCheck"    =? _rniaSourceDestCheck
+        ]
 
 instance ToHeaders ResetNetworkInterfaceAttribute
 

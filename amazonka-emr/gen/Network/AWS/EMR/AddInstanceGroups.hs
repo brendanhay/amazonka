@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,9 +48,9 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 data AddInstanceGroups = AddInstanceGroups
-    { _aigInstanceGroups :: [InstanceGroupConfig]
+    { _aigInstanceGroups :: List "InstanceGroups" InstanceGroupConfig
     , _aigJobFlowId      :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AddInstanceGroups' constructor.
 --
@@ -70,15 +71,16 @@ addInstanceGroups p1 = AddInstanceGroups
 aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
 aigInstanceGroups =
     lens _aigInstanceGroups (\s a -> s { _aigInstanceGroups = a })
+        . _List
 
 -- | Job flow in which to add the instance groups.
 aigJobFlowId :: Lens' AddInstanceGroups Text
 aigJobFlowId = lens _aigJobFlowId (\s a -> s { _aigJobFlowId = a })
 
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse
-    { _aigrInstanceGroupIds :: [Text]
+    { _aigrInstanceGroupIds :: List "InstanceGroupIds" Text
     , _aigrJobFlowId        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddInstanceGroupsResponse' constructor.
 --
@@ -98,6 +100,7 @@ addInstanceGroupsResponse = AddInstanceGroupsResponse
 aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrInstanceGroupIds =
     lens _aigrInstanceGroupIds (\s a -> s { _aigrInstanceGroupIds = a })
+        . _List
 
 -- | The job flow ID in which the instance groups are added.
 aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
@@ -126,5 +129,5 @@ instance AWSRequest AddInstanceGroups where
 
 instance FromJSON AddInstanceGroupsResponse where
     parseJSON = withObject "AddInstanceGroupsResponse" $ \o -> AddInstanceGroupsResponse
-        <$> o .: "InstanceGroupIds"
+        <$> o .:  "InstanceGroupIds"
         <*> o .:? "JobFlowId"

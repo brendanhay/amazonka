@@ -78,8 +78,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _drioNextToken                    :: Maybe Text
     , _drioOfferingType                 :: Maybe Text
     , _drioProductDescription           :: Maybe Text
-    , _drioReservedInstancesOfferingIds :: List "String" Text
-    } deriving (Eq, Show, Generic)
+    , _drioReservedInstancesOfferingIds :: List "ReservedInstancesOfferingId" Text
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedInstancesOfferings' constructor.
 --
@@ -153,8 +153,7 @@ drioDryRun = lens _drioDryRun (\s a -> s { _drioDryRun = a })
 -- Instances offering ID. usage-price - The usage price of the Reserved
 -- Instance, per hour (for example, 0.84).
 drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
-drioFilters = lens _drioFilters (\s a -> s { _drioFilters = a })
-    . _List
+drioFilters = lens _drioFilters (\s a -> s { _drioFilters = a }) . _List
 
 -- | Include Marketplace offerings in the response.
 drioIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
@@ -221,7 +220,7 @@ drioReservedInstancesOfferingIds =
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorNextToken                  :: Maybe Text
     , _driorReservedInstancesOfferings :: List "item" ReservedInstancesOffering
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' constructor.
 --
@@ -251,7 +250,23 @@ driorReservedInstancesOfferings =
 instance ToPath DescribeReservedInstancesOfferings where
     toPath = const "/"
 
-instance ToQuery DescribeReservedInstancesOfferings
+instance ToQuery DescribeReservedInstancesOfferings where
+    toQuery DescribeReservedInstancesOfferings{..} = mconcat
+        [ "AvailabilityZone"            =? _drioAvailabilityZone
+        , "dryRun"                      =? _drioDryRun
+        , "Filter"                      =? _drioFilters
+        , "IncludeMarketplace"          =? _drioIncludeMarketplace
+        , "instanceTenancy"             =? _drioInstanceTenancy
+        , "InstanceType"                =? _drioInstanceType
+        , "MaxDuration"                 =? _drioMaxDuration
+        , "MaxInstanceCount"            =? _drioMaxInstanceCount
+        , "maxResults"                  =? _drioMaxResults
+        , "MinDuration"                 =? _drioMinDuration
+        , "nextToken"                   =? _drioNextToken
+        , "offeringType"                =? _drioOfferingType
+        , "ProductDescription"          =? _drioProductDescription
+        , "ReservedInstancesOfferingId" =? _drioReservedInstancesOfferingIds
+        ]
 
 instance ToHeaders DescribeReservedInstancesOfferings
 
@@ -265,7 +280,7 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 instance FromXML DescribeReservedInstancesOfferingsResponse where
     parseXML x = DescribeReservedInstancesOfferingsResponse
         <$> x .@? "nextToken"
-        <*> x .@ "reservedInstancesOfferingsSet"
+        <*> x .@  "reservedInstancesOfferingsSet"
 
 instance AWSPager DescribeReservedInstancesOfferings where
     next rq rs = (\x -> rq & drioNextToken ?~ x)

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data GetInvalidation = GetInvalidation
     { _giDistributionId :: Text
     , _giId             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetInvalidation' constructor.
 --
@@ -76,7 +77,7 @@ giId = lens _giId (\s a -> s { _giId = a })
 
 newtype GetInvalidationResponse = GetInvalidationResponse
     { _girInvalidation :: Maybe Invalidation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetInvalidationResponse' constructor.
 --
@@ -120,4 +121,4 @@ instance AWSRequest GetInvalidation where
 
 instance FromXML GetInvalidationResponse where
     parseXML x = GetInvalidationResponse
-            <$> x .@? "Invalidation"
+        <$> x .@? "Invalidation"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data ListJobsByPipeline = ListJobsByPipeline
     { _ljbpAscending  :: Maybe Text
     , _ljbpPageToken  :: Maybe Text
     , _ljbpPipelineId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListJobsByPipeline' constructor.
 --
@@ -91,9 +92,9 @@ ljbpPipelineId :: Lens' ListJobsByPipeline Text
 ljbpPipelineId = lens _ljbpPipelineId (\s a -> s { _ljbpPipelineId = a })
 
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse
-    { _ljbprJobs          :: [Job']
+    { _ljbprJobs          :: List "Jobs" Job'
     , _ljbprNextPageToken :: Maybe Job'
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListJobsByPipelineResponse' constructor.
 --
@@ -111,7 +112,7 @@ listJobsByPipelineResponse = ListJobsByPipelineResponse
 
 -- | An array of Job objects that are in the specified pipeline.
 ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
-ljbprJobs = lens _ljbprJobs (\s a -> s { _ljbprJobs = a })
+ljbprJobs = lens _ljbprJobs (\s a -> s { _ljbprJobs = a }) . _List
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
@@ -147,7 +148,7 @@ instance AWSRequest ListJobsByPipeline where
 
 instance FromJSON ListJobsByPipelineResponse where
     parseJSON = withObject "ListJobsByPipelineResponse" $ \o -> ListJobsByPipelineResponse
-        <$> o .: "Jobs"
+        <$> o .:  "Jobs"
         <*> o .:? "NextPageToken"
 
 instance AWSPager ListJobsByPipeline where

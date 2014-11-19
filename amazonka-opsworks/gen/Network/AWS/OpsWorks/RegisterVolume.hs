@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 data RegisterVolume = RegisterVolume
     { _rvEc2VolumeId :: Maybe Text
     , _rvStackId     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RegisterVolume' constructor.
 --
@@ -81,7 +82,7 @@ rvStackId = lens _rvStackId (\s a -> s { _rvStackId = a })
 
 newtype RegisterVolumeResponse = RegisterVolumeResponse
     { _rvrVolumeId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'RegisterVolumeResponse' constructor.
 --

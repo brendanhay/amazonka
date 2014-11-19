@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -67,15 +68,15 @@ import qualified GHC.Exts
 data DeleteItem = DeleteItem
     { _diConditionExpression         :: Maybe Text
     , _diConditionalOperator         :: Maybe Text
-    , _diExpected                    :: Map Text ExpectedAttributeValue
-    , _diExpressionAttributeNames    :: Map Text Text
-    , _diExpressionAttributeValues   :: Map Text AttributeValue
-    , _diKey                         :: Map Text AttributeValue
+    , _diExpected                    :: Map "entry" "key" "value" Text ExpectedAttributeValue
+    , _diExpressionAttributeNames    :: Map "entry" "key" "value" Text Text
+    , _diExpressionAttributeValues   :: Map "entry" "key" "value" Text AttributeValue
+    , _diKey                         :: Map "entry" "key" "value" Text AttributeValue
     , _diReturnConsumedCapacity      :: Maybe Text
     , _diReturnItemCollectionMetrics :: Maybe Text
     , _diReturnValues                :: Maybe Text
     , _diTableName                   :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteItem' constructor.
 --
@@ -262,8 +263,7 @@ diConditionalOperator =
 -- of parameters at once, DynamoDB will return a ValidationException
 -- exception.
 diExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
-diExpected = lens _diExpected (\s a -> s { _diExpected = a })
-    . _Map
+diExpected = lens _diExpected (\s a -> s { _diExpected = a }) . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
 -- following are some use cases for an ExpressionAttributeNames value: To
@@ -303,8 +303,7 @@ diExpressionAttributeValues =
 -- primary key, you must specify both the hash attribute and the range
 -- attribute.
 diKey :: Lens' DeleteItem (HashMap Text AttributeValue)
-diKey = lens _diKey (\s a -> s { _diKey = a })
-    . _Map
+diKey = lens _diKey (\s a -> s { _diKey = a }) . _Map
 
 diReturnConsumedCapacity :: Lens' DeleteItem (Maybe Text)
 diReturnConsumedCapacity =
@@ -333,10 +332,10 @@ diTableName :: Lens' DeleteItem Text
 diTableName = lens _diTableName (\s a -> s { _diTableName = a })
 
 data DeleteItemResponse = DeleteItemResponse
-    { _dirAttributes            :: Map Text AttributeValue
+    { _dirAttributes            :: Map "entry" "key" "value" Text AttributeValue
     , _dirConsumedCapacity      :: Maybe ConsumedCapacity
     , _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteItemResponse' constructor.
 --
@@ -359,8 +358,7 @@ deleteItemResponse = DeleteItemResponse
 -- as it appeared before the DeleteItem operation. This map appears in the
 -- response only if ReturnValues was specified as ALL_OLD in the request.
 dirAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
-dirAttributes = lens _dirAttributes (\s a -> s { _dirAttributes = a })
-    . _Map
+dirAttributes = lens _dirAttributes (\s a -> s { _dirAttributes = a }) . _Map
 
 dirConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
 dirConsumedCapacity =
@@ -416,6 +414,6 @@ instance AWSRequest DeleteItem where
 
 instance FromJSON DeleteItemResponse where
     parseJSON = withObject "DeleteItemResponse" $ \o -> DeleteItemResponse
-        <$> o .: "Attributes"
+        <$> o .:  "Attributes"
         <*> o .:? "ConsumedCapacity"
         <*> o .:? "ItemCollectionMetrics"

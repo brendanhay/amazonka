@@ -52,7 +52,7 @@ data DescribeSubnets = DescribeSubnets
     { _dsDryRun    :: Maybe Bool
     , _dsFilters   :: List "Filter" Filter
     , _dsSubnetIds :: List "SubnetId" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeSubnets' constructor.
 --
@@ -95,17 +95,15 @@ dsDryRun = lens _dsDryRun (\s a -> s { _dsDryRun = a })
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC
 -- for the subnet.
 dsFilters :: Lens' DescribeSubnets [Filter]
-dsFilters = lens _dsFilters (\s a -> s { _dsFilters = a })
-    . _List
+dsFilters = lens _dsFilters (\s a -> s { _dsFilters = a }) . _List
 
 -- | One or more subnet IDs. Default: Describes all your subnets.
 dsSubnetIds :: Lens' DescribeSubnets [Text]
-dsSubnetIds = lens _dsSubnetIds (\s a -> s { _dsSubnetIds = a })
-    . _List
+dsSubnetIds = lens _dsSubnetIds (\s a -> s { _dsSubnetIds = a }) . _List
 
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrSubnets :: List "item" Subnet
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSubnetsResponse where
     type Item DescribeSubnetsResponse = Subnet
@@ -126,13 +124,17 @@ describeSubnetsResponse = DescribeSubnetsResponse
 
 -- | Information about one or more subnets.
 dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
-dsrSubnets = lens _dsrSubnets (\s a -> s { _dsrSubnets = a })
-    . _List
+dsrSubnets = lens _dsrSubnets (\s a -> s { _dsrSubnets = a }) . _List
 
 instance ToPath DescribeSubnets where
     toPath = const "/"
 
-instance ToQuery DescribeSubnets
+instance ToQuery DescribeSubnets where
+    toQuery DescribeSubnets{..} = mconcat
+        [ "dryRun"   =? _dsDryRun
+        , "Filter"   =? _dsFilters
+        , "SubnetId" =? _dsSubnetIds
+        ]
 
 instance ToHeaders DescribeSubnets
 
@@ -145,4 +147,4 @@ instance AWSRequest DescribeSubnets where
 
 instance FromXML DescribeSubnetsResponse where
     parseXML x = DescribeSubnetsResponse
-        <$> x .@ "subnetSet"
+        <$> x .@  "subnetSet"

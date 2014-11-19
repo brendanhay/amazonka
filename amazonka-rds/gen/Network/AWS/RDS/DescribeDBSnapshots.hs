@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,11 +54,11 @@ import qualified GHC.Exts
 data DescribeDBSnapshots = DescribeDBSnapshots
     { _ddbsDBInstanceIdentifier :: Maybe Text
     , _ddbsDBSnapshotIdentifier :: Maybe Text
-    , _ddbsFilters              :: [Filter]
+    , _ddbsFilters              :: List "Filter" Filter
     , _ddbsMarker               :: Maybe Text
     , _ddbsMaxRecords           :: Maybe Int
     , _ddbsSnapshotType         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBSnapshots' constructor.
 --
@@ -108,7 +109,7 @@ ddbsDBSnapshotIdentifier =
 
 -- | This parameter is not currently supported.
 ddbsFilters :: Lens' DescribeDBSnapshots [Filter]
-ddbsFilters = lens _ddbsFilters (\s a -> s { _ddbsFilters = a })
+ddbsFilters = lens _ddbsFilters (\s a -> s { _ddbsFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeDBSnapshots
 -- request. If this parameter is specified, the response includes only
@@ -130,9 +131,9 @@ ddbsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbsSnapshotType = lens _ddbsSnapshotType (\s a -> s { _ddbsSnapshotType = a })
 
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
-    { _ddbsrDBSnapshots :: [DBSnapshot]
+    { _ddbsrDBSnapshots :: List "DBSnapshot" DBSnapshot
     , _ddbsrMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBSnapshotsResponse' constructor.
 --
@@ -150,7 +151,7 @@ describeDBSnapshotsResponse = DescribeDBSnapshotsResponse
 
 -- | A list of DBSnapshot instances.
 ddbsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
-ddbsrDBSnapshots = lens _ddbsrDBSnapshots (\s a -> s { _ddbsrDBSnapshots = a })
+ddbsrDBSnapshots = lens _ddbsrDBSnapshots (\s a -> s { _ddbsrDBSnapshots = a }) . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -161,7 +162,15 @@ ddbsrMarker = lens _ddbsrMarker (\s a -> s { _ddbsrMarker = a })
 instance ToPath DescribeDBSnapshots where
     toPath = const "/"
 
-instance ToQuery DescribeDBSnapshots
+instance ToQuery DescribeDBSnapshots where
+    toQuery DescribeDBSnapshots{..} = mconcat
+        [ "DBInstanceIdentifier" =? _ddbsDBInstanceIdentifier
+        , "DBSnapshotIdentifier" =? _ddbsDBSnapshotIdentifier
+        , "Filters"              =? _ddbsFilters
+        , "Marker"               =? _ddbsMarker
+        , "MaxRecords"           =? _ddbsMaxRecords
+        , "SnapshotType"         =? _ddbsSnapshotType
+        ]
 
 instance ToHeaders DescribeDBSnapshots
 
@@ -173,9 +182,9 @@ instance AWSRequest DescribeDBSnapshots where
     response = xmlResponse
 
 instance FromXML DescribeDBSnapshotsResponse where
-    parseXML = withElement "DescribeDBSnapshotsResult" $ \x ->
-            <$> x .@ "DBSnapshots"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeDBSnapshotsResult" $ \x -> DescribeDBSnapshotsResponse
+        <$> x .@  "DBSnapshots"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeDBSnapshots where
     next rq rs = (\x -> rq & ddbsMarker ?~ x)

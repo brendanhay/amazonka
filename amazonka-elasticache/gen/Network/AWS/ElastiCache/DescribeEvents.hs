@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data DescribeEvents = DescribeEvents
     , _deSourceIdentifier :: Maybe Text
     , _deSourceType       :: Maybe Text
     , _deStartTime        :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeEvents' constructor.
 --
@@ -102,8 +103,7 @@ deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format.
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a })
-    . mapping _Time
+deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
@@ -134,13 +134,12 @@ deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format.
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a })
-    . mapping _Time
+deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
 
 data DescribeEventsResponse = DescribeEventsResponse
-    { _derEvents :: [Event]
+    { _derEvents :: List "Event" Event
     , _derMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEventsResponse' constructor.
 --
@@ -159,7 +158,7 @@ describeEventsResponse = DescribeEventsResponse
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
 derEvents :: Lens' DescribeEventsResponse [Event]
-derEvents = lens _derEvents (\s a -> s { _derEvents = a })
+derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
 derMarker :: Lens' DescribeEventsResponse (Maybe Text)
@@ -168,7 +167,16 @@ derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 instance ToPath DescribeEvents where
     toPath = const "/"
 
-instance ToQuery DescribeEvents
+instance ToQuery DescribeEvents where
+    toQuery DescribeEvents{..} = mconcat
+        [ "Duration"         =? _deDuration
+        , "EndTime"          =? _deEndTime
+        , "Marker"           =? _deMarker
+        , "MaxRecords"       =? _deMaxRecords
+        , "SourceIdentifier" =? _deSourceIdentifier
+        , "SourceType"       =? _deSourceType
+        , "StartTime"        =? _deStartTime
+        ]
 
 instance ToHeaders DescribeEvents
 
@@ -180,9 +188,9 @@ instance AWSRequest DescribeEvents where
     response = xmlResponse
 
 instance FromXML DescribeEventsResponse where
-    parseXML = withElement "DescribeEventsResult" $ \x ->
-            <$> x .@ "Events"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeEventsResult" $ \x -> DescribeEventsResponse
+        <$> x .@  "Events"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeEvents where
     next rq rs = (\x -> rq & deMarker ?~ x)

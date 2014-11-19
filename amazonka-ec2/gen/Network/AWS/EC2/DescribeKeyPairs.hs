@@ -52,7 +52,7 @@ data DescribeKeyPairs = DescribeKeyPairs
     { _dkp1DryRun   :: Maybe Bool
     , _dkp1Filters  :: List "Filter" Filter
     , _dkp1KeyNames :: List "KeyName" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeKeyPairs' constructor.
 --
@@ -77,17 +77,15 @@ dkp1DryRun = lens _dkp1DryRun (\s a -> s { _dkp1DryRun = a })
 -- | One or more filters. fingerprint - The fingerprint of the key pair.
 -- key-name - The name of the key pair.
 dkp1Filters :: Lens' DescribeKeyPairs [Filter]
-dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a })
-    . _List
+dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a }) . _List
 
 -- | One or more key pair names. Default: Describes all your key pairs.
 dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
-dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a })
-    . _List
+dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a }) . _List
 
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: List "item" KeyPairInfo
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeKeyPairsResponse where
     type Item DescribeKeyPairsResponse = KeyPairInfo
@@ -108,13 +106,17 @@ describeKeyPairsResponse = DescribeKeyPairsResponse
 
 -- | Information about one or more key pairs.
 dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
-dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a })
-    . _List
+dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a }) . _List
 
 instance ToPath DescribeKeyPairs where
     toPath = const "/"
 
-instance ToQuery DescribeKeyPairs
+instance ToQuery DescribeKeyPairs where
+    toQuery DescribeKeyPairs{..} = mconcat
+        [ "dryRun"  =? _dkp1DryRun
+        , "Filter"  =? _dkp1Filters
+        , "KeyName" =? _dkp1KeyNames
+        ]
 
 instance ToHeaders DescribeKeyPairs
 
@@ -127,4 +129,4 @@ instance AWSRequest DescribeKeyPairs where
 
 instance FromXML DescribeKeyPairsResponse where
     parseXML x = DescribeKeyPairsResponse
-        <$> x .@ "keySet"
+        <$> x .@  "keySet"

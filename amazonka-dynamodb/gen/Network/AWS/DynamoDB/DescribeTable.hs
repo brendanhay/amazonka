@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeTable = DescribeTable
     { _dt1TableName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeTable' constructor.
 --
@@ -68,7 +69,7 @@ dt1TableName = lens _dt1TableName (\s a -> s { _dt1TableName = a })
 
 newtype DescribeTableResponse = DescribeTableResponse
     { _dtrTable :: Maybe TableDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeTableResponse' constructor.
 --

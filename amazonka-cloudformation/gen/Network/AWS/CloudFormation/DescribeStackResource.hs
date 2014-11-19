@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data DescribeStackResource = DescribeStackResource
     { _dsr1LogicalResourceId :: Text
     , _dsr1StackName         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeStackResource' constructor.
 --
@@ -83,7 +84,7 @@ dsr1StackName = lens _dsr1StackName (\s a -> s { _dsr1StackName = a })
 
 newtype DescribeStackResourceResponse = DescribeStackResourceResponse
     { _dsrrStackResourceDetail :: Maybe StackResourceDetail
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeStackResourceResponse' constructor.
 --
@@ -105,7 +106,11 @@ dsrrStackResourceDetail =
 instance ToPath DescribeStackResource where
     toPath = const "/"
 
-instance ToQuery DescribeStackResource
+instance ToQuery DescribeStackResource where
+    toQuery DescribeStackResource{..} = mconcat
+        [ "LogicalResourceId" =? _dsr1LogicalResourceId
+        , "StackName"         =? _dsr1StackName
+        ]
 
 instance ToHeaders DescribeStackResource
 
@@ -117,5 +122,5 @@ instance AWSRequest DescribeStackResource where
     response = xmlResponse
 
 instance FromXML DescribeStackResourceResponse where
-    parseXML = withElement "DescribeStackResourceResult" $ \x ->
-            <$> x .@? "StackResourceDetail"
+    parseXML = withElement "DescribeStackResourceResult" $ \x -> DescribeStackResourceResponse
+        <$> x .@? "StackResourceDetail"

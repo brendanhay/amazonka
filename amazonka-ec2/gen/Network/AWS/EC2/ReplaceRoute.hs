@@ -61,7 +61,7 @@ data ReplaceRoute = ReplaceRoute
     , _rrNetworkInterfaceId     :: Maybe Text
     , _rrRouteTableId           :: Text
     , _rrVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ReplaceRoute' constructor.
 --
@@ -136,7 +136,16 @@ replaceRouteResponse = ReplaceRouteResponse
 instance ToPath ReplaceRoute where
     toPath = const "/"
 
-instance ToQuery ReplaceRoute
+instance ToQuery ReplaceRoute where
+    toQuery ReplaceRoute{..} = mconcat
+        [ "destinationCidrBlock"   =? _rrDestinationCidrBlock
+        , "dryRun"                 =? _rrDryRun
+        , "gatewayId"              =? _rrGatewayId
+        , "instanceId"             =? _rrInstanceId
+        , "networkInterfaceId"     =? _rrNetworkInterfaceId
+        , "routeTableId"           =? _rrRouteTableId
+        , "vpcPeeringConnectionId" =? _rrVpcPeeringConnectionId
+        ]
 
 instance ToHeaders ReplaceRoute
 

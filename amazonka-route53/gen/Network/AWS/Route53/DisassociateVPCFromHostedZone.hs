@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone
     { _dvpcfhzComment      :: Maybe Text
     , _dvpcfhzHostedZoneId :: Text
     , _dvpcfhzVPC          :: VPC
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DisassociateVPCFromHostedZone' constructor.
 --
@@ -95,7 +96,7 @@ dvpcfhzVPC = lens _dvpcfhzVPC (\s a -> s { _dvpcfhzVPC = a })
 
 newtype DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse
     { _dvpcfhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DisassociateVPCFromHostedZoneResponse' constructor.
 --
@@ -144,4 +145,4 @@ instance AWSRequest DisassociateVPCFromHostedZone where
 
 instance FromXML DisassociateVPCFromHostedZoneResponse where
     parseXML x = DisassociateVPCFromHostedZoneResponse
-            <$> x .@ "ChangeInfo"
+        <$> x .@  "ChangeInfo"

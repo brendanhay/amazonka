@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ data UpdateGroup = UpdateGroup
     { _ugGroupName    :: Text
     , _ugNewGroupName :: Maybe Text
     , _ugNewPath      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateGroup' constructor.
 --
@@ -93,7 +94,12 @@ updateGroupResponse = UpdateGroupResponse
 instance ToPath UpdateGroup where
     toPath = const "/"
 
-instance ToQuery UpdateGroup
+instance ToQuery UpdateGroup where
+    toQuery UpdateGroup{..} = mconcat
+        [ "GroupName"    =? _ugGroupName
+        , "NewGroupName" =? _ugNewGroupName
+        , "NewPath"      =? _ugNewPath
+        ]
 
 instance ToHeaders UpdateGroup
 

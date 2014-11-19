@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ data UpdateApplicationVersion = UpdateApplicationVersion
     { _uavApplicationName :: Text
     , _uavDescription     :: Maybe Text
     , _uavVersionLabel    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateApplicationVersion' constructor.
 --
@@ -90,7 +91,7 @@ uavVersionLabel = lens _uavVersionLabel (\s a -> s { _uavVersionLabel = a })
 
 newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
     { _uavrApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateApplicationVersionResponse' constructor.
 --
@@ -111,7 +112,12 @@ uavrApplicationVersion =
 instance ToPath UpdateApplicationVersion where
     toPath = const "/"
 
-instance ToQuery UpdateApplicationVersion
+instance ToQuery UpdateApplicationVersion where
+    toQuery UpdateApplicationVersion{..} = mconcat
+        [ "ApplicationName" =? _uavApplicationName
+        , "Description"     =? _uavDescription
+        , "VersionLabel"    =? _uavVersionLabel
+        ]
 
 instance ToHeaders UpdateApplicationVersion
 
@@ -123,5 +129,5 @@ instance AWSRequest UpdateApplicationVersion where
     response = xmlResponse
 
 instance FromXML UpdateApplicationVersionResponse where
-    parseXML = withElement "UpdateApplicationVersionResult" $ \x ->
-            <$> x .@? "ApplicationVersion"
+    parseXML = withElement "UpdateApplicationVersionResult" $ \x -> UpdateApplicationVersionResponse
+        <$> x .@? "ApplicationVersion"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
     { _dncAutoScalingGroupName :: Text
     , _dncTopicARN             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteNotificationConfiguration' constructor.
 --
@@ -84,7 +85,11 @@ deleteNotificationConfigurationResponse = DeleteNotificationConfigurationRespons
 instance ToPath DeleteNotificationConfiguration where
     toPath = const "/"
 
-instance ToQuery DeleteNotificationConfiguration
+instance ToQuery DeleteNotificationConfiguration where
+    toQuery DeleteNotificationConfiguration{..} = mconcat
+        [ "AutoScalingGroupName" =? _dncAutoScalingGroupName
+        , "TopicARN"             =? _dncTopicARN
+        ]
 
 instance ToHeaders DeleteNotificationConfiguration
 

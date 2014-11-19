@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data MonitorInstances = MonitorInstances
     { _miDryRun      :: Maybe Bool
     , _miInstanceIds :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'MonitorInstances' constructor.
 --
@@ -72,12 +72,11 @@ miDryRun = lens _miDryRun (\s a -> s { _miDryRun = a })
 
 -- | One or more instance IDs.
 miInstanceIds :: Lens' MonitorInstances [Text]
-miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
-    . _List
+miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a }) . _List
 
 newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: List "item" InstanceMonitoring
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList MonitorInstancesResponse where
     type Item MonitorInstancesResponse = InstanceMonitoring
@@ -105,7 +104,11 @@ mirInstanceMonitorings =
 instance ToPath MonitorInstances where
     toPath = const "/"
 
-instance ToQuery MonitorInstances
+instance ToQuery MonitorInstances where
+    toQuery MonitorInstances{..} = mconcat
+        [ "dryRun"     =? _miDryRun
+        , "InstanceId" =? _miInstanceIds
+        ]
 
 instance ToHeaders MonitorInstances
 
@@ -118,4 +121,4 @@ instance AWSRequest MonitorInstances where
 
 instance FromXML MonitorInstancesResponse where
     parseXML x = MonitorInstancesResponse
-        <$> x .@ "instancesSet"
+        <$> x .@  "instancesSet"

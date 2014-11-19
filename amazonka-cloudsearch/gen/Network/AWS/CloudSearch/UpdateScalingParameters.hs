@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 data UpdateScalingParameters = UpdateScalingParameters
     { _uspDomainName        :: Text
     , _uspScalingParameters :: ScalingParameters
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateScalingParameters' constructor.
 --
@@ -81,7 +82,7 @@ uspScalingParameters =
 
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _usprScalingParameters :: ScalingParametersStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateScalingParametersResponse' constructor.
 --
@@ -102,7 +103,11 @@ usprScalingParameters =
 instance ToPath UpdateScalingParameters where
     toPath = const "/"
 
-instance ToQuery UpdateScalingParameters
+instance ToQuery UpdateScalingParameters where
+    toQuery UpdateScalingParameters{..} = mconcat
+        [ "DomainName"        =? _uspDomainName
+        , "ScalingParameters" =? _uspScalingParameters
+        ]
 
 instance ToHeaders UpdateScalingParameters
 
@@ -114,5 +119,5 @@ instance AWSRequest UpdateScalingParameters where
     response = xmlResponse
 
 instance FromXML UpdateScalingParametersResponse where
-    parseXML = withElement "UpdateScalingParametersResult" $ \x ->
-            <$> x .@ "ScalingParameters"
+    parseXML = withElement "UpdateScalingParametersResult" $ \x -> UpdateScalingParametersResponse
+        <$> x .@  "ScalingParameters"

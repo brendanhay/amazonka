@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,8 +49,8 @@ import qualified GHC.Exts
 
 data AttachInstances = AttachInstances
     { _aiAutoScalingGroupName :: Text
-    , _aiInstanceIds          :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _aiInstanceIds          :: List "InstanceIds" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'AttachInstances' constructor.
 --
@@ -75,7 +76,7 @@ aiAutoScalingGroupName =
 -- | One or more IDs of the Amazon EC2 instances to attach to the specified
 -- Auto Scaling group. You must specify at least one instance ID.
 aiInstanceIds :: Lens' AttachInstances [Text]
-aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a })
+aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a }) . _List
 
 data AttachInstancesResponse = AttachInstancesResponse
     deriving (Eq, Ord, Show, Generic)
@@ -87,7 +88,11 @@ attachInstancesResponse = AttachInstancesResponse
 instance ToPath AttachInstances where
     toPath = const "/"
 
-instance ToQuery AttachInstances
+instance ToQuery AttachInstances where
+    toQuery AttachInstances{..} = mconcat
+        [ "AutoScalingGroupName" =? _aiAutoScalingGroupName
+        , "InstanceIds"          =? _aiInstanceIds
+        ]
 
 instance ToHeaders AttachInstances
 

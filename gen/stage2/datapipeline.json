@@ -70,8 +70,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "pipelineObject",
@@ -108,8 +107,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -119,7 +118,7 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eKey-value pairs that define the properties of the object.\u003c/p\u003e",
                         "typeExposed": "[Field]",
-                        "type": "[Field]"
+                        "type": "List \"fields\" Field"
                     }
                 ],
                 "payload": null,
@@ -157,12 +156,13 @@
                 ],
                 "contentPad": 7,
                 "name": "PipelineObject",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -172,14 +172,14 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eKey-value pairs that define the properties of the object.\u003c/p\u003e",
                         "typeExposed": "[Field]",
-                        "type": "[Field]"
+                        "type": "List \"fields\" Field"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -189,7 +189,7 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eKey-value pairs that define the properties of the object.\u003c/p\u003e",
                         "typeExposed": "[Field]",
-                        "type": "[Field]"
+                        "type": "List \"fields\" Field"
                     },
                     {
                         "location": null,
@@ -227,8 +227,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "field",
@@ -299,6 +298,7 @@
                 ],
                 "contentPad": 12,
                 "name": "Field",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -383,8 +383,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "selector",
@@ -424,6 +423,7 @@
                 "required": [],
                 "contentPad": 10,
                 "name": "Selector",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -494,8 +494,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 8,
                 "ctor": "operator",
@@ -517,8 +516,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -528,13 +527,14 @@
                         "locationName": "values",
                         "documentation": "\u003cp\u003eThe value that the actual field value will be compared with.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"values\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 7,
                 "name": "Operator",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -554,8 +554,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -565,7 +565,7 @@
                         "locationName": "values",
                         "documentation": "\u003cp\u003eThe value that the actual field value will be compared with.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"values\" Text"
                     }
                 ],
                 "fields": [
@@ -586,8 +586,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -597,15 +597,14 @@
                         "locationName": "values",
                         "documentation": "\u003cp\u003eThe value that the actual field value will be compared with.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"values\" Text"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "taskObject",
@@ -668,13 +667,14 @@
                         "locationName": "objects",
                         "documentation": "\u003cp\u003eConnection information for the location where the task runner will publish the output of the task.\u003c/p\u003e",
                         "typeExposed": "HashMap Text PipelineObject",
-                        "type": "Map Text PipelineObject"
+                        "type": "Map \"entry\" \"key\" \"value\" Text PipelineObject"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 11,
                 "name": "TaskObject",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -735,7 +735,7 @@
                         "locationName": "objects",
                         "documentation": "\u003cp\u003eConnection information for the location where the task runner will publish the output of the task.\u003c/p\u003e",
                         "typeExposed": "HashMap Text PipelineObject",
-                        "type": "Map Text PipelineObject"
+                        "type": "Map \"entry\" \"key\" \"value\" Text PipelineObject"
                     }
                 ],
                 "fields": [
@@ -767,7 +767,7 @@
                         "locationName": "objects",
                         "documentation": "\u003cp\u003eConnection information for the location where the task runner will publish the output of the task.\u003c/p\u003e",
                         "typeExposed": "HashMap Text PipelineObject",
-                        "type": "Map Text PipelineObject"
+                        "type": "Map \"entry\" \"key\" \"value\" Text PipelineObject"
                     },
                     {
                         "location": null,
@@ -805,8 +805,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "validationError",
@@ -828,8 +827,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -839,13 +838,14 @@
                         "locationName": "errors",
                         "documentation": "\u003cp\u003eA description of the validation error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"errors\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 7,
                 "name": "ValidationError",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -865,8 +865,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -876,14 +876,14 @@
                         "locationName": "errors",
                         "documentation": "\u003cp\u003eA description of the validation error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"errors\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -893,7 +893,7 @@
                         "locationName": "errors",
                         "documentation": "\u003cp\u003eA description of the validation error.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"errors\" Text"
                     },
                     {
                         "location": null,
@@ -915,8 +915,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "pipelineDescription",
@@ -953,8 +952,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -964,7 +963,7 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eA list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.\u003c/p\u003e",
                         "typeExposed": "[Field]",
-                        "type": "[Field]"
+                        "type": "List \"fields\" Field"
                     },
                     {
                         "location": null,
@@ -1017,12 +1016,13 @@
                 ],
                 "contentPad": 12,
                 "name": "PipelineDescription",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1032,7 +1032,7 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eA list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.\u003c/p\u003e",
                         "typeExposed": "[Field]",
-                        "type": "[Field]"
+                        "type": "List \"fields\" Field"
                     },
                     {
                         "location": null,
@@ -1068,8 +1068,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1079,7 +1079,7 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eA list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.\u003c/p\u003e",
                         "typeExposed": "[Field]",
-                        "type": "[Field]"
+                        "type": "List \"fields\" Field"
                     },
                     {
                         "location": null,
@@ -1117,8 +1117,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "instanceIdentity",
@@ -1158,6 +1157,7 @@
                 "required": [],
                 "contentPad": 10,
                 "name": "InstanceIdentity",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -1228,7 +1228,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1237,8 +1236,8 @@
                 "ctor": "query",
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1248,13 +1247,13 @@
                     "locationName": "selectors",
                     "documentation": "\u003cp\u003eList of selectors that define the query. An object must satisfy all of the selectors to match the query.\u003c/p\u003e",
                     "typeExposed": "[Selector]",
-                    "type": "[Selector]"
+                    "type": "List \"selectors\" Selector"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1264,19 +1263,20 @@
                         "locationName": "selectors",
                         "documentation": "\u003cp\u003eList of selectors that define the query. An object must satisfy all of the selectors to match the query.\u003c/p\u003e",
                         "typeExposed": "[Selector]",
-                        "type": "[Selector]"
+                        "type": "List \"selectors\" Selector"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 0,
                 "name": "Query",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1286,14 +1286,14 @@
                         "locationName": "selectors",
                         "documentation": "\u003cp\u003eList of selectors that define the query. An object must satisfy all of the selectors to match the query.\u003c/p\u003e",
                         "typeExposed": "[Selector]",
-                        "type": "[Selector]"
+                        "type": "List \"selectors\" Selector"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1303,7 +1303,7 @@
                         "locationName": "selectors",
                         "documentation": "\u003cp\u003eList of selectors that define the query. An object must satisfy all of the selectors to match the query.\u003c/p\u003e",
                         "typeExposed": "[Selector]",
-                        "type": "[Selector]"
+                        "type": "List \"selectors\" Selector"
                     }
                 ]
             },
@@ -1331,8 +1331,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 8,
                 "ctor": "pipelineIdName",
@@ -1372,6 +1371,7 @@
                 "required": [],
                 "contentPad": 5,
                 "name": "PipelineIdName",
+                "locationPad": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -1460,8 +1460,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "validationWarning",
@@ -1483,8 +1482,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1494,13 +1493,14 @@
                         "locationName": "warnings",
                         "documentation": "\u003cp\u003eA description of the validation warning.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"errors\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 9,
                 "name": "ValidationWarning",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -1520,8 +1520,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1531,7 +1531,7 @@
                         "locationName": "warnings",
                         "documentation": "\u003cp\u003eA description of the validation warning.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"errors\" Text"
                     }
                 ],
                 "fields": [
@@ -1552,8 +1552,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1563,7 +1563,7 @@
                         "locationName": "warnings",
                         "documentation": "\u003cp\u003eA description of the validation warning.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"errors\" Text"
                     }
                 ]
             }
@@ -1619,7 +1619,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1692,6 +1691,7 @@
                 "queryPad": 0,
                 "name": "ActivatePipeline",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -1722,7 +1722,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1789,6 +1788,7 @@
                 "contentPad": 0,
                 "name": "CreatePipelineResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -1826,8 +1826,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1927,6 +1926,7 @@
                 "queryPad": 0,
                 "name": "CreatePipeline",
                 "query": [],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2039,7 +2039,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2112,6 +2111,7 @@
                 "queryPad": 0,
                 "name": "DeletePipeline",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2140,8 +2140,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2151,8 +2150,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2162,7 +2161,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eAn array of object definitions that are returned by the call to \u003ca\u003eDescribeObjects\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     },
                     {
                         "location": null,
@@ -2204,13 +2203,14 @@
                 "contentPad": 16,
                 "name": "DescribeObjectsResponse",
                 "resultWrapper": null,
+                "locationPad": 16,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2220,7 +2220,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eAn array of object definitions that are returned by the call to \u003ca\u003eDescribeObjects\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     },
                     {
                         "location": null,
@@ -2286,8 +2286,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2297,7 +2297,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eAn array of object definitions that are returned by the call to \u003ca\u003eDescribeObjects\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ]
             },
@@ -2324,8 +2324,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2350,8 +2349,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2361,7 +2360,7 @@
                         "locationName": "objectIds",
                         "documentation": "\u003cp\u003eIdentifiers of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to DescribeObjects.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     },
                     {
                         "location": null,
@@ -2425,14 +2424,15 @@
                 "queryPad": 0,
                 "name": "DescribeObjects",
                 "query": [],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2442,7 +2442,7 @@
                         "locationName": "objectIds",
                         "documentation": "\u003cp\u003eIdentifiers of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to DescribeObjects.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     },
                     {
                         "location": null,
@@ -2508,8 +2508,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2519,7 +2519,7 @@
                         "locationName": "objectIds",
                         "documentation": "\u003cp\u003eIdentifiers of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to DescribeObjects.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     },
                     {
                         "location": null,
@@ -2545,7 +2545,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2557,8 +2556,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -2568,13 +2567,13 @@
                     "locationName": "pipelineDescriptionList",
                     "documentation": "\u003cp\u003eAn array of descriptions returned for the specified pipelines.\u003c/p\u003e",
                     "typeExposed": "[PipelineDescription]",
-                    "type": "[PipelineDescription]"
+                    "type": "List \"pipelineDescriptionList\" PipelineDescription"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2584,7 +2583,7 @@
                         "locationName": "pipelineDescriptionList",
                         "documentation": "\u003cp\u003eAn array of descriptions returned for the specified pipelines.\u003c/p\u003e",
                         "typeExposed": "[PipelineDescription]",
-                        "type": "[PipelineDescription]"
+                        "type": "List \"pipelineDescriptionList\" PipelineDescription"
                     }
                 ],
                 "wrapper": false,
@@ -2596,13 +2595,14 @@
                 "contentPad": 0,
                 "name": "DescribePipelinesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2612,14 +2612,14 @@
                         "locationName": "pipelineDescriptionList",
                         "documentation": "\u003cp\u003eAn array of descriptions returned for the specified pipelines.\u003c/p\u003e",
                         "typeExposed": "[PipelineDescription]",
-                        "type": "[PipelineDescription]"
+                        "type": "List \"pipelineDescriptionList\" PipelineDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2629,7 +2629,7 @@
                         "locationName": "pipelineDescriptionList",
                         "documentation": "\u003cp\u003eAn array of descriptions returned for the specified pipelines.\u003c/p\u003e",
                         "typeExposed": "[PipelineDescription]",
-                        "type": "[PipelineDescription]"
+                        "type": "List \"pipelineDescriptionList\" PipelineDescription"
                     }
                 ]
             },
@@ -2650,7 +2650,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2662,8 +2661,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -2673,13 +2672,13 @@
                     "locationName": "pipelineIds",
                     "documentation": "\u003cp\u003eIdentifiers of the pipelines to describe. You can pass as many as 25 identifiers in a single call to \u003ca\u003eDescribePipelines\u003c/a\u003e. You can obtain pipeline identifiers by calling \u003ca\u003eListPipelines\u003c/a\u003e.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"pipelineIds\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2689,7 +2688,7 @@
                         "locationName": "pipelineIds",
                         "documentation": "\u003cp\u003eIdentifiers of the pipelines to describe. You can pass as many as 25 identifiers in a single call to \u003ca\u003eDescribePipelines\u003c/a\u003e. You can obtain pipeline identifiers by calling \u003ca\u003eListPipelines\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     }
                 ],
                 "path": [
@@ -2707,14 +2706,15 @@
                 "queryPad": 0,
                 "name": "DescribePipelines",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2724,14 +2724,14 @@
                         "locationName": "pipelineIds",
                         "documentation": "\u003cp\u003eIdentifiers of the pipelines to describe. You can pass as many as 25 identifiers in a single call to \u003ca\u003eDescribePipelines\u003c/a\u003e. You can obtain pipeline identifiers by calling \u003ca\u003eListPipelines\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2741,7 +2741,7 @@
                         "locationName": "pipelineIds",
                         "documentation": "\u003cp\u003eIdentifiers of the pipelines to describe. You can pass as many as 25 identifiers in a single call to \u003ca\u003eDescribePipelines\u003c/a\u003e. You can obtain pipeline identifiers by calling \u003ca\u003eListPipelines\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     }
                 ]
             }
@@ -2753,7 +2753,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2820,6 +2819,7 @@
                 "contentPad": 0,
                 "name": "EvaluateExpressionResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -2857,8 +2857,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2973,6 +2972,7 @@
                 "queryPad": 0,
                 "name": "EvaluateExpression",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3032,7 +3032,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3044,8 +3043,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3055,13 +3054,13 @@
                     "locationName": "pipelineObjects",
                     "documentation": "\u003cp\u003eAn array of objects defined in the pipeline.\u003c/p\u003e",
                     "typeExposed": "[PipelineObject]",
-                    "type": "[PipelineObject]"
+                    "type": "List \"pipelineObjects\" PipelineObject"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3071,7 +3070,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eAn array of objects defined in the pipeline.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ],
                 "wrapper": false,
@@ -3083,13 +3082,14 @@
                 "contentPad": 0,
                 "name": "GetPipelineDefinitionResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3099,14 +3099,14 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eAn array of objects defined in the pipeline.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3116,7 +3116,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eAn array of objects defined in the pipeline.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ]
             },
@@ -3136,8 +3136,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3207,6 +3206,7 @@
                 "queryPad": 0,
                 "name": "GetPipelineDefinition",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3266,8 +3266,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3277,8 +3276,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3288,7 +3287,7 @@
                         "locationName": "pipelineIdList",
                         "documentation": "\u003cp\u003e A list of all the pipeline identifiers that your account has permission to access. If you require additional information about the pipelines, you can use these identifiers to call \u003ca\u003eDescribePipelines\u003c/a\u003e and \u003ca\u003eGetPipelineDefinition\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[PipelineIdName]",
-                        "type": "[PipelineIdName]"
+                        "type": "List \"pipelineIdList\" PipelineIdName"
                     },
                     {
                         "location": null,
@@ -3330,13 +3329,14 @@
                 "contentPad": 15,
                 "name": "ListPipelinesResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3346,7 +3346,7 @@
                         "locationName": "pipelineIdList",
                         "documentation": "\u003cp\u003e A list of all the pipeline identifiers that your account has permission to access. If you require additional information about the pipelines, you can use these identifiers to call \u003ca\u003eDescribePipelines\u003c/a\u003e and \u003ca\u003eGetPipelineDefinition\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[PipelineIdName]",
-                        "type": "[PipelineIdName]"
+                        "type": "List \"pipelineIdList\" PipelineIdName"
                     },
                     {
                         "location": null,
@@ -3412,8 +3412,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3423,7 +3423,7 @@
                         "locationName": "pipelineIdList",
                         "documentation": "\u003cp\u003e A list of all the pipeline identifiers that your account has permission to access. If you require additional information about the pipelines, you can use these identifiers to call \u003ca\u003eDescribePipelines\u003c/a\u003e and \u003ca\u003eGetPipelineDefinition\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[PipelineIdName]",
-                        "type": "[PipelineIdName]"
+                        "type": "List \"pipelineIdList\" PipelineIdName"
                     }
                 ]
             },
@@ -3451,7 +3451,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3507,6 +3506,7 @@
                 "queryPad": 0,
                 "name": "ListPipelines",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -3551,8 +3551,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3601,6 +3600,7 @@
                 "contentPad": 0,
                 "name": "PollForTaskResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -3653,8 +3653,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3739,6 +3738,7 @@
                 "queryPad": 0,
                 "name": "PollForTask",
                 "query": [],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3828,8 +3828,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3839,8 +3838,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3850,12 +3849,12 @@
                         "locationName": "validationErrors",
                         "documentation": "\u003cp\u003eA list of the validation errors that are associated with the objects defined in \u003ccode\u003epipelineObjects\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationError]",
-                        "type": "[ValidationError]"
+                        "type": "List \"validationErrors\" ValidationError"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3865,7 +3864,7 @@
                         "locationName": "validationWarnings",
                         "documentation": "\u003cp\u003eA list of the validation warnings that are associated with the objects defined in \u003ccode\u003epipelineObjects\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationWarning]",
-                        "type": "[ValidationWarning]"
+                        "type": "List \"validationWarnings\" ValidationWarning"
                     },
                     {
                         "location": null,
@@ -3908,13 +3907,14 @@
                 "contentPad": 19,
                 "name": "PutPipelineDefinitionResponse",
                 "resultWrapper": null,
+                "locationPad": 19,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3924,12 +3924,12 @@
                         "locationName": "validationErrors",
                         "documentation": "\u003cp\u003eA list of the validation errors that are associated with the objects defined in \u003ccode\u003epipelineObjects\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationError]",
-                        "type": "[ValidationError]"
+                        "type": "List \"validationErrors\" ValidationError"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3939,7 +3939,7 @@
                         "locationName": "validationWarnings",
                         "documentation": "\u003cp\u003eA list of the validation warnings that are associated with the objects defined in \u003ccode\u003epipelineObjects\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationWarning]",
-                        "type": "[ValidationWarning]"
+                        "type": "List \"validationWarnings\" ValidationWarning"
                     }
                 ],
                 "fields": [
@@ -3960,8 +3960,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3971,12 +3971,12 @@
                         "locationName": "validationErrors",
                         "documentation": "\u003cp\u003eA list of the validation errors that are associated with the objects defined in \u003ccode\u003epipelineObjects\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationError]",
-                        "type": "[ValidationError]"
+                        "type": "List \"validationErrors\" ValidationError"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3986,7 +3986,7 @@
                         "locationName": "validationWarnings",
                         "documentation": "\u003cp\u003eA list of the validation warnings that are associated with the objects defined in \u003ccode\u003epipelineObjects\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationWarning]",
-                        "type": "[ValidationWarning]"
+                        "type": "List \"validationWarnings\" ValidationWarning"
                     }
                 ]
             },
@@ -4005,8 +4005,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4031,8 +4030,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4042,7 +4041,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eThe objects that define the pipeline. These will overwrite the existing pipeline definition.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ],
                 "path": [
@@ -4076,14 +4075,15 @@
                 "queryPad": 0,
                 "name": "PutPipelineDefinition",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4093,7 +4093,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eThe objects that define the pipeline. These will overwrite the existing pipeline definition.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ],
                 "fields": [
@@ -4114,8 +4114,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4125,7 +4125,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eThe objects that define the pipeline. These will overwrite the existing pipeline definition.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ]
             }
@@ -4136,8 +4136,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4147,8 +4146,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4158,7 +4157,7 @@
                         "locationName": "ids",
                         "documentation": "\u003cp\u003eA list of identifiers that match the query selectors.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     },
                     {
                         "location": null,
@@ -4200,13 +4199,14 @@
                 "contentPad": 15,
                 "name": "QueryObjectsResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4216,7 +4216,7 @@
                         "locationName": "ids",
                         "documentation": "\u003cp\u003eA list of identifiers that match the query selectors.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     },
                     {
                         "location": null,
@@ -4267,8 +4267,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4278,7 +4278,7 @@
                         "locationName": "ids",
                         "documentation": "\u003cp\u003eA list of identifiers that match the query selectors.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     },
                     {
                         "location": null,
@@ -4319,8 +4319,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4450,6 +4449,7 @@
                 "queryPad": 0,
                 "name": "QueryObjects",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4586,7 +4586,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Enum"
                 ],
                 "streaming": false,
@@ -4652,6 +4651,7 @@
                 "contentPad": 0,
                 "name": "ReportTaskProgressResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -4690,7 +4690,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4763,6 +4762,7 @@
                 "queryPad": 0,
                 "name": "ReportTaskProgress",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -4793,7 +4793,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Enum"
                 ],
                 "streaming": false,
@@ -4859,6 +4858,7 @@
                 "contentPad": 0,
                 "name": "ReportTaskRunnerHeartbeatResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -4896,8 +4896,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4982,6 +4981,7 @@
                 "queryPad": 0,
                 "name": "ReportTaskRunnerHeartbeat",
                 "query": [],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5108,8 +5108,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5134,8 +5133,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5145,7 +5144,7 @@
                         "locationName": "objectIds",
                         "documentation": "\u003cp\u003eIdentifies an array of objects. The corresponding objects can be either physical or components, but not a mix of both types.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     },
                     {
                         "location": null,
@@ -5209,14 +5208,15 @@
                 "queryPad": 0,
                 "name": "SetStatus",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5226,14 +5226,14 @@
                         "locationName": "objectIds",
                         "documentation": "\u003cp\u003eIdentifies an array of objects. The corresponding objects can be either physical or components, but not a mix of both types.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5243,7 +5243,7 @@
                         "locationName": "objectIds",
                         "documentation": "\u003cp\u003eIdentifies an array of objects. The corresponding objects can be either physical or components, but not a mix of both types.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"pipelineIds\" Text"
                     },
                     {
                         "location": null,
@@ -5320,8 +5320,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5451,6 +5450,7 @@
                 "queryPad": 0,
                 "name": "SetTaskStatus",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5585,8 +5585,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5596,8 +5595,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5607,12 +5606,12 @@
                         "locationName": "validationErrors",
                         "documentation": "\u003cp\u003eLists the validation errors that were found by \u003ca\u003eValidatePipelineDefinition\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationError]",
-                        "type": "[ValidationError]"
+                        "type": "List \"validationErrors\" ValidationError"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5622,7 +5621,7 @@
                         "locationName": "validationWarnings",
                         "documentation": "\u003cp\u003eLists the validation warnings that were found by \u003ca\u003eValidatePipelineDefinition\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationWarning]",
-                        "type": "[ValidationWarning]"
+                        "type": "List \"validationWarnings\" ValidationWarning"
                     },
                     {
                         "location": null,
@@ -5665,13 +5664,14 @@
                 "contentPad": 19,
                 "name": "ValidatePipelineDefinitionResponse",
                 "resultWrapper": null,
+                "locationPad": 19,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5681,12 +5681,12 @@
                         "locationName": "validationErrors",
                         "documentation": "\u003cp\u003eLists the validation errors that were found by \u003ca\u003eValidatePipelineDefinition\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationError]",
-                        "type": "[ValidationError]"
+                        "type": "List \"validationErrors\" ValidationError"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5696,7 +5696,7 @@
                         "locationName": "validationWarnings",
                         "documentation": "\u003cp\u003eLists the validation warnings that were found by \u003ca\u003eValidatePipelineDefinition\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationWarning]",
-                        "type": "[ValidationWarning]"
+                        "type": "List \"validationWarnings\" ValidationWarning"
                     }
                 ],
                 "fields": [
@@ -5717,8 +5717,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5728,12 +5728,12 @@
                         "locationName": "validationErrors",
                         "documentation": "\u003cp\u003eLists the validation errors that were found by \u003ca\u003eValidatePipelineDefinition\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationError]",
-                        "type": "[ValidationError]"
+                        "type": "List \"validationErrors\" ValidationError"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5743,7 +5743,7 @@
                         "locationName": "validationWarnings",
                         "documentation": "\u003cp\u003eLists the validation warnings that were found by \u003ca\u003eValidatePipelineDefinition\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[ValidationWarning]",
-                        "type": "[ValidationWarning]"
+                        "type": "List \"validationWarnings\" ValidationWarning"
                     }
                 ]
             },
@@ -5762,8 +5762,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5788,8 +5787,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5799,7 +5798,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eA list of objects that define the pipeline changes to validate against the pipeline.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ],
                 "path": [
@@ -5833,14 +5832,15 @@
                 "queryPad": 0,
                 "name": "ValidatePipelineDefinition",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5850,7 +5850,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eA list of objects that define the pipeline changes to validate against the pipeline.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ],
                 "fields": [
@@ -5871,8 +5871,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5882,7 +5882,7 @@
                         "locationName": "pipelineObjects",
                         "documentation": "\u003cp\u003eA list of objects that define the pipeline changes to validate against the pipeline.\u003c/p\u003e",
                         "typeExposed": "[PipelineObject]",
-                        "type": "[PipelineObject]"
+                        "type": "List \"pipelineObjects\" PipelineObject"
                     }
                 ]
             }

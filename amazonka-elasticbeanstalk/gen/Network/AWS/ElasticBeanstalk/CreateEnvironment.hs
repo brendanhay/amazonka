@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -74,14 +75,14 @@ data CreateEnvironment = CreateEnvironment
     , _ceCNAMEPrefix       :: Maybe Text
     , _ceDescription       :: Maybe Text
     , _ceEnvironmentName   :: Text
-    , _ceOptionSettings    :: [ConfigurationOptionSetting]
-    , _ceOptionsToRemove   :: [OptionSpecification]
+    , _ceOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
+    , _ceOptionsToRemove   :: List "OptionsToRemove" OptionSpecification
     , _ceSolutionStackName :: Maybe Text
-    , _ceTags              :: [Tag]
+    , _ceTags              :: List "Tags" Tag
     , _ceTemplateName      :: Maybe Text
     , _ceTier              :: Maybe EnvironmentTier
     , _ceVersionLabel      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateEnvironment' constructor.
 --
@@ -160,13 +161,14 @@ ceEnvironmentName =
 -- environment. These override the values obtained from the solution stack
 -- or the configuration template.
 ceOptionSettings :: Lens' CreateEnvironment [ConfigurationOptionSetting]
-ceOptionSettings = lens _ceOptionSettings (\s a -> s { _ceOptionSettings = a })
+ceOptionSettings = lens _ceOptionSettings (\s a -> s { _ceOptionSettings = a }) . _List
 
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this new environment.
 ceOptionsToRemove :: Lens' CreateEnvironment [OptionSpecification]
 ceOptionsToRemove =
     lens _ceOptionsToRemove (\s a -> s { _ceOptionsToRemove = a })
+        . _List
 
 -- | This is an alternative to specifying a configuration name. If specified,
 -- AWS Elastic Beanstalk sets the configuration values to the default values
@@ -181,7 +183,7 @@ ceSolutionStackName =
 
 -- | This specifies the tags applied to resources in the environment.
 ceTags :: Lens' CreateEnvironment [Tag]
-ceTags = lens _ceTags (\s a -> s { _ceTags = a })
+ceTags = lens _ceTags (\s a -> s { _ceTags = a }) . _List
 
 -- | The name of the configuration template to use in deployment. If no
 -- configuration template is found with this name, AWS Elastic Beanstalk
@@ -221,7 +223,7 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
     , _cerTemplateName      :: Maybe Text
     , _cerTier              :: Maybe EnvironmentTier
     , _cerVersionLabel      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateEnvironmentResponse' constructor.
 --
@@ -287,13 +289,11 @@ cerCNAME = lens _cerCNAME (\s a -> s { _cerCNAME = a })
 
 -- | The creation date for this environment.
 cerDateCreated :: Lens' CreateEnvironmentResponse (Maybe UTCTime)
-cerDateCreated = lens _cerDateCreated (\s a -> s { _cerDateCreated = a })
-    . mapping _Time
+cerDateCreated = lens _cerDateCreated (\s a -> s { _cerDateCreated = a }) . mapping _Time
 
 -- | The last modified date for this environment.
 cerDateUpdated :: Lens' CreateEnvironmentResponse (Maybe UTCTime)
-cerDateUpdated = lens _cerDateUpdated (\s a -> s { _cerDateUpdated = a })
-    . mapping _Time
+cerDateUpdated = lens _cerDateUpdated (\s a -> s { _cerDateUpdated = a }) . mapping _Time
 
 -- | Describes this environment.
 cerDescription :: Lens' CreateEnvironmentResponse (Maybe Text)
@@ -363,7 +363,20 @@ cerVersionLabel = lens _cerVersionLabel (\s a -> s { _cerVersionLabel = a })
 instance ToPath CreateEnvironment where
     toPath = const "/"
 
-instance ToQuery CreateEnvironment
+instance ToQuery CreateEnvironment where
+    toQuery CreateEnvironment{..} = mconcat
+        [ "ApplicationName"   =? _ceApplicationName
+        , "CNAMEPrefix"       =? _ceCNAMEPrefix
+        , "Description"       =? _ceDescription
+        , "EnvironmentName"   =? _ceEnvironmentName
+        , "OptionSettings"    =? _ceOptionSettings
+        , "OptionsToRemove"   =? _ceOptionsToRemove
+        , "SolutionStackName" =? _ceSolutionStackName
+        , "Tags"              =? _ceTags
+        , "TemplateName"      =? _ceTemplateName
+        , "Tier"              =? _ceTier
+        , "VersionLabel"      =? _ceVersionLabel
+        ]
 
 instance ToHeaders CreateEnvironment
 
@@ -375,19 +388,19 @@ instance AWSRequest CreateEnvironment where
     response = xmlResponse
 
 instance FromXML CreateEnvironmentResponse where
-    parseXML = withElement "CreateEnvironmentResult" $ \x ->
-            <$> x .@? "ApplicationName"
-            <*> x .@? "CNAME"
-            <*> x .@? "DateCreated"
-            <*> x .@? "DateUpdated"
-            <*> x .@? "Description"
-            <*> x .@? "EndpointURL"
-            <*> x .@? "EnvironmentId"
-            <*> x .@? "EnvironmentName"
-            <*> x .@? "Health"
-            <*> x .@? "Resources"
-            <*> x .@? "SolutionStackName"
-            <*> x .@? "Status"
-            <*> x .@? "TemplateName"
-            <*> x .@? "Tier"
-            <*> x .@? "VersionLabel"
+    parseXML = withElement "CreateEnvironmentResult" $ \x -> CreateEnvironmentResponse
+        <$> x .@? "ApplicationName"
+        <*> x .@? "CNAME"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "Description"
+        <*> x .@? "EndpointURL"
+        <*> x .@? "EnvironmentId"
+        <*> x .@? "EnvironmentName"
+        <*> x .@? "Health"
+        <*> x .@? "Resources"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "Status"
+        <*> x .@? "TemplateName"
+        <*> x .@? "Tier"
+        <*> x .@? "VersionLabel"

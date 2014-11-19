@@ -56,7 +56,7 @@ data DescribeAddresses = DescribeAddresses
     , _daDryRun        :: Maybe Bool
     , _daFilters       :: List "Filter" Filter
     , _daPublicIps     :: List "PublicIp" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAddresses' constructor.
 --
@@ -81,8 +81,7 @@ describeAddresses = DescribeAddresses
 -- | [EC2-VPC] One or more allocation IDs. Default: Describes all your Elastic
 -- IP addresses.
 daAllocationIds :: Lens' DescribeAddresses [Text]
-daAllocationIds = lens _daAllocationIds (\s a -> s { _daAllocationIds = a })
-    . _List
+daAllocationIds = lens _daAllocationIds (\s a -> s { _daAllocationIds = a }) . _List
 
 daDryRun :: Lens' DescribeAddresses (Maybe Bool)
 daDryRun = lens _daDryRun (\s a -> s { _daDryRun = a })
@@ -98,18 +97,16 @@ daDryRun = lens _daDryRun (\s a -> s { _daDryRun = a })
 -- private-ip-address - [EC2-VPC] The private IP address associated with the
 -- Elastic IP address. public-ip - The Elastic IP address.
 daFilters :: Lens' DescribeAddresses [Filter]
-daFilters = lens _daFilters (\s a -> s { _daFilters = a })
-    . _List
+daFilters = lens _daFilters (\s a -> s { _daFilters = a }) . _List
 
 -- | [EC2-Classic] One or more Elastic IP addresses. Default: Describes all
 -- your Elastic IP addresses.
 daPublicIps :: Lens' DescribeAddresses [Text]
-daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a })
-    . _List
+daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a }) . _List
 
 newtype DescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses :: List "item" Address
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAddressesResponse where
     type Item DescribeAddressesResponse = Address
@@ -130,13 +127,18 @@ describeAddressesResponse = DescribeAddressesResponse
 
 -- | Information about one or more Elastic IP addresses.
 darAddresses :: Lens' DescribeAddressesResponse [Address]
-darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a })
-    . _List
+darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a }) . _List
 
 instance ToPath DescribeAddresses where
     toPath = const "/"
 
-instance ToQuery DescribeAddresses
+instance ToQuery DescribeAddresses where
+    toQuery DescribeAddresses{..} = mconcat
+        [ "AllocationId" =? _daAllocationIds
+        , "dryRun"       =? _daDryRun
+        , "Filter"       =? _daFilters
+        , "PublicIp"     =? _daPublicIps
+        ]
 
 instance ToHeaders DescribeAddresses
 
@@ -149,4 +151,4 @@ instance AWSRequest DescribeAddresses where
 
 instance FromXML DescribeAddressesResponse where
     parseXML x = DescribeAddressesResponse
-        <$> x .@ "addressesSet"
+        <$> x .@  "addressesSet"

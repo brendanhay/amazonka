@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilReservedInstancesListingId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CancelReservedInstancesListing' constructor.
 --
@@ -71,7 +71,7 @@ crilReservedInstancesListingId =
 
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings :: List "item" ReservedInstancesListing
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CancelReservedInstancesListingResponse where
     type Item CancelReservedInstancesListingResponse = ReservedInstancesListing
@@ -100,7 +100,10 @@ crilrReservedInstancesListings =
 instance ToPath CancelReservedInstancesListing where
     toPath = const "/"
 
-instance ToQuery CancelReservedInstancesListing
+instance ToQuery CancelReservedInstancesListing where
+    toQuery CancelReservedInstancesListing{..} = mconcat
+        [ "reservedInstancesListingId" =? _crilReservedInstancesListingId
+        ]
 
 instance ToHeaders CancelReservedInstancesListing
 
@@ -113,4 +116,4 @@ instance AWSRequest CancelReservedInstancesListing where
 
 instance FromXML CancelReservedInstancesListingResponse where
     parseXML x = CancelReservedInstancesListingResponse
-        <$> x .@ "reservedInstancesListingsSet"
+        <$> x .@  "reservedInstancesListingsSet"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,9 +57,9 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 data SetTerminationProtection = SetTerminationProtection
-    { _stpJobFlowIds           :: [Text]
+    { _stpJobFlowIds           :: List "Args" Text
     , _stpTerminationProtected :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetTerminationProtection' constructor.
 --
@@ -79,7 +80,7 @@ setTerminationProtection p1 = SetTerminationProtection
 -- identifier is returned by RunJobFlow and can also be obtained from
 -- DescribeJobFlows .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
-stpJobFlowIds = lens _stpJobFlowIds (\s a -> s { _stpJobFlowIds = a })
+stpJobFlowIds = lens _stpJobFlowIds (\s a -> s { _stpJobFlowIds = a }) . _List
 
 -- | A Boolean that indicates whether to protect the job flow and prevent the
 -- Amazon EC2 instances in the cluster from shutting down due to API calls,

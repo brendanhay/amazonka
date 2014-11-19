@@ -51,7 +51,7 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpc1DryRun                  :: Maybe Bool
     , _dvpc1Filters                 :: List "Filter" Filter
     , _dvpc1VpcPeeringConnectionIds :: List "item" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVpcPeeringConnections' constructor.
 --
@@ -95,8 +95,7 @@ dvpc1DryRun = lens _dvpc1DryRun (\s a -> s { _dvpc1DryRun = a })
 -- resource. This filter is independent of the tag-key filter.
 -- vpc-peering-connection-id - The ID of the VPC peering connection.
 dvpc1Filters :: Lens' DescribeVpcPeeringConnections [Filter]
-dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a })
-    . _List
+dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a }) . _List
 
 -- | One or more VPC peering connection IDs. Default: Describes all your VPC
 -- peering connections.
@@ -108,7 +107,7 @@ dvpc1VpcPeeringConnectionIds =
 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrVpcPeeringConnections :: List "item" VpcPeeringConnection
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVpcPeeringConnectionsResponse where
     type Item DescribeVpcPeeringConnectionsResponse = VpcPeeringConnection
@@ -137,7 +136,12 @@ dvpcrVpcPeeringConnections =
 instance ToPath DescribeVpcPeeringConnections where
     toPath = const "/"
 
-instance ToQuery DescribeVpcPeeringConnections
+instance ToQuery DescribeVpcPeeringConnections where
+    toQuery DescribeVpcPeeringConnections{..} = mconcat
+        [ "dryRun"                 =? _dvpc1DryRun
+        , "Filter"                 =? _dvpc1Filters
+        , "VpcPeeringConnectionId" =? _dvpc1VpcPeeringConnectionIds
+        ]
 
 instance ToHeaders DescribeVpcPeeringConnections
 
@@ -150,4 +154,4 @@ instance AWSRequest DescribeVpcPeeringConnections where
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where
     parseXML x = DescribeVpcPeeringConnectionsResponse
-        <$> x .@ "vpcPeeringConnectionSet"
+        <$> x .@  "vpcPeeringConnectionSet"

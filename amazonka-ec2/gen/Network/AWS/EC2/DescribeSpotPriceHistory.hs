@@ -79,9 +79,9 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     , _dsphInstanceTypes       :: List "InstanceType" Text
     , _dsphMaxResults          :: Maybe Int
     , _dsphNextToken           :: Maybe Text
-    , _dsphProductDescriptions :: List "String" Text
+    , _dsphProductDescriptions :: List "ProductDescription" Text
     , _dsphStartTime           :: Maybe RFC822
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeSpotPriceHistory' constructor.
 --
@@ -128,8 +128,7 @@ dsphDryRun = lens _dsphDryRun (\s a -> s { _dsphDryRun = a })
 
 -- | The end date and time of the Spot Price history data.
 dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
-dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a })
-    . mapping _Time
+dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a }) . mapping _Time
 
 -- | One or more filters. availability-zone - The Availability Zone for which
 -- prices should be returned. instance-type - The type of instance (for
@@ -142,8 +141,7 @@ dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a })
 -- wildcards (* and ?). Greater than or less than comparison is not
 -- supported.
 dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
-dsphFilters = lens _dsphFilters (\s a -> s { _dsphFilters = a })
-    . _List
+dsphFilters = lens _dsphFilters (\s a -> s { _dsphFilters = a }) . _List
 
 -- | One or more instance types.
 dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [Text]
@@ -167,13 +165,12 @@ dsphProductDescriptions =
 
 -- | The start date and time of the Spot Price history data.
 dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
-dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a })
-    . mapping _Time
+dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a }) . mapping _Time
 
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrNextToken        :: Maybe Text
     , _dsphrSpotPriceHistory :: List "item" SpotPrice
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeSpotPriceHistoryResponse' constructor.
 --
@@ -203,7 +200,18 @@ dsphrSpotPriceHistory =
 instance ToPath DescribeSpotPriceHistory where
     toPath = const "/"
 
-instance ToQuery DescribeSpotPriceHistory
+instance ToQuery DescribeSpotPriceHistory where
+    toQuery DescribeSpotPriceHistory{..} = mconcat
+        [ "availabilityZone"   =? _dsphAvailabilityZone
+        , "dryRun"             =? _dsphDryRun
+        , "endTime"            =? _dsphEndTime
+        , "Filter"             =? _dsphFilters
+        , "InstanceType"       =? _dsphInstanceTypes
+        , "maxResults"         =? _dsphMaxResults
+        , "nextToken"          =? _dsphNextToken
+        , "ProductDescription" =? _dsphProductDescriptions
+        , "startTime"          =? _dsphStartTime
+        ]
 
 instance ToHeaders DescribeSpotPriceHistory
 
@@ -217,7 +225,7 @@ instance AWSRequest DescribeSpotPriceHistory where
 instance FromXML DescribeSpotPriceHistoryResponse where
     parseXML x = DescribeSpotPriceHistoryResponse
         <$> x .@? "nextToken"
-        <*> x .@ "spotPriceHistorySet"
+        <*> x .@  "spotPriceHistorySet"
 
 instance AWSPager DescribeSpotPriceHistory where
     next rq rs = (\x -> rq & dsphNextToken ?~ x)

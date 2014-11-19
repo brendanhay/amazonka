@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,9 +52,9 @@ import qualified GHC.Exts
 
 data PutNotificationConfiguration = PutNotificationConfiguration
     { _pncAutoScalingGroupName :: Text
-    , _pncNotificationTypes    :: [Text]
+    , _pncNotificationTypes    :: List "LifecycleHookTypes" Text
     , _pncTopicARN             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PutNotificationConfiguration' constructor.
 --
@@ -85,6 +86,7 @@ pncAutoScalingGroupName =
 pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
 pncNotificationTypes =
     lens _pncNotificationTypes (\s a -> s { _pncNotificationTypes = a })
+        . _List
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
@@ -101,7 +103,12 @@ putNotificationConfigurationResponse = PutNotificationConfigurationResponse
 instance ToPath PutNotificationConfiguration where
     toPath = const "/"
 
-instance ToQuery PutNotificationConfiguration
+instance ToQuery PutNotificationConfiguration where
+    toQuery PutNotificationConfiguration{..} = mconcat
+        [ "AutoScalingGroupName" =? _pncAutoScalingGroupName
+        , "NotificationTypes"    =? _pncNotificationTypes
+        , "TopicARN"             =? _pncTopicARN
+        ]
 
 instance ToHeaders PutNotificationConfiguration
 

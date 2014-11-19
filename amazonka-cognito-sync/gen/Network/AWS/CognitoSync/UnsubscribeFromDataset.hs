@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data UnsubscribeFromDataset = UnsubscribeFromDataset
     , _ufdDeviceId       :: Text
     , _ufdIdentityId     :: Text
     , _ufdIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UnsubscribeFromDataset' constructor.
 --

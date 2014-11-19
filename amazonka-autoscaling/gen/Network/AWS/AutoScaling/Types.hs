@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -276,7 +277,7 @@ data TagDescription = TagDescription
     , _tdResourceId        :: Text
     , _tdResourceType      :: Text
     , _tdValue             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TagDescription' constructor.
 --
@@ -333,13 +334,20 @@ tdValue = lens _tdValue (\s a -> s { _tdValue = a })
 
 instance FromXML TagDescription where
     parseXML x = TagDescription
-            <$> x .@ "Key"
-            <*> x .@ "PropagateAtLaunch"
-            <*> x .@ "ResourceId"
-            <*> x .@ "ResourceType"
-            <*> x .@ "Value"
+        <$> x .@  "Key"
+        <*> x .@  "PropagateAtLaunch"
+        <*> x .@  "ResourceId"
+        <*> x .@  "ResourceType"
+        <*> x .@  "Value"
 
-instance ToQuery TagDescription
+instance ToQuery TagDescription where
+    toQuery TagDescription{..} = mconcat
+        [ "Key"               =? _tdKey
+        , "PropagateAtLaunch" =? _tdPropagateAtLaunch
+        , "ResourceId"        =? _tdResourceId
+        , "ResourceType"      =? _tdResourceType
+        , "Value"             =? _tdValue
+        ]
 
 data Tag = Tag
     { _tagKey               :: Text
@@ -347,7 +355,7 @@ data Tag = Tag
     , _tagResourceId        :: Text
     , _tagResourceType      :: Text
     , _tagValue             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Tag' constructor.
 --
@@ -404,19 +412,26 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-            <$> x .@ "Key"
-            <*> x .@ "PropagateAtLaunch"
-            <*> x .@ "ResourceId"
-            <*> x .@ "ResourceType"
-            <*> x .@ "Value"
+        <$> x .@  "Key"
+        <*> x .@  "PropagateAtLaunch"
+        <*> x .@  "ResourceId"
+        <*> x .@  "ResourceType"
+        <*> x .@  "Value"
 
-instance ToQuery Tag
+instance ToQuery Tag where
+    toQuery Tag{..} = mconcat
+        [ "Key"               =? _tagKey
+        , "PropagateAtLaunch" =? _tagPropagateAtLaunch
+        , "ResourceId"        =? _tagResourceId
+        , "ResourceType"      =? _tagResourceType
+        , "Value"             =? _tagValue
+        ]
 
 data NotificationConfiguration = NotificationConfiguration
     { _ncAutoScalingGroupName :: Maybe Text
     , _ncNotificationType     :: Maybe Text
     , _ncTopicARN             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -452,18 +467,23 @@ ncTopicARN = lens _ncTopicARN (\s a -> s { _ncTopicARN = a })
 
 instance FromXML NotificationConfiguration where
     parseXML x = NotificationConfiguration
-            <$> x .@? "AutoScalingGroupName"
-            <*> x .@? "NotificationType"
-            <*> x .@? "TopicARN"
+        <$> x .@? "AutoScalingGroupName"
+        <*> x .@? "NotificationType"
+        <*> x .@? "TopicARN"
 
-instance ToQuery NotificationConfiguration
+instance ToQuery NotificationConfiguration where
+    toQuery NotificationConfiguration{..} = mconcat
+        [ "AutoScalingGroupName" =? _ncAutoScalingGroupName
+        , "NotificationType"     =? _ncNotificationType
+        , "TopicARN"             =? _ncTopicARN
+        ]
 
 data BlockDeviceMapping = BlockDeviceMapping
     { _bdmDeviceName  :: Text
     , _bdmEbs         :: Maybe Ebs
     , _bdmNoDevice    :: Maybe Bool
     , _bdmVirtualName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'BlockDeviceMapping' constructor.
 --
@@ -504,16 +524,22 @@ bdmVirtualName = lens _bdmVirtualName (\s a -> s { _bdmVirtualName = a })
 
 instance FromXML BlockDeviceMapping where
     parseXML x = BlockDeviceMapping
-            <$> x .@ "DeviceName"
-            <*> x .@? "Ebs"
-            <*> x .@? "NoDevice"
-            <*> x .@? "VirtualName"
+        <$> x .@  "DeviceName"
+        <*> x .@? "Ebs"
+        <*> x .@? "NoDevice"
+        <*> x .@? "VirtualName"
 
-instance ToQuery BlockDeviceMapping
+instance ToQuery BlockDeviceMapping where
+    toQuery BlockDeviceMapping{..} = mconcat
+        [ "DeviceName"  =? _bdmDeviceName
+        , "Ebs"         =? _bdmEbs
+        , "NoDevice"    =? _bdmNoDevice
+        , "VirtualName" =? _bdmVirtualName
+        ]
 
 data LaunchConfiguration = LaunchConfiguration
     { _lcAssociatePublicIpAddress :: Maybe Bool
-    , _lcBlockDeviceMappings      :: [BlockDeviceMapping]
+    , _lcBlockDeviceMappings      :: List "BlockDeviceMappings" BlockDeviceMapping
     , _lcCreatedTime              :: RFC822
     , _lcEbsOptimized             :: Maybe Bool
     , _lcIamInstanceProfile       :: Maybe Text
@@ -526,10 +552,10 @@ data LaunchConfiguration = LaunchConfiguration
     , _lcLaunchConfigurationName  :: Text
     , _lcPlacementTenancy         :: Maybe Text
     , _lcRamdiskId                :: Maybe Text
-    , _lcSecurityGroups           :: [Text]
+    , _lcSecurityGroups           :: List "SecurityGroups" Text
     , _lcSpotPrice                :: Maybe Text
     , _lcUserData                 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'LaunchConfiguration' constructor.
 --
@@ -606,11 +632,11 @@ lcAssociatePublicIpAddress =
 lcBlockDeviceMappings :: Lens' LaunchConfiguration [BlockDeviceMapping]
 lcBlockDeviceMappings =
     lens _lcBlockDeviceMappings (\s a -> s { _lcBlockDeviceMappings = a })
+        . _List
 
 -- | Provides the creation date and time for this launch configuration.
 lcCreatedTime :: Lens' LaunchConfiguration UTCTime
-lcCreatedTime = lens _lcCreatedTime (\s a -> s { _lcCreatedTime = a })
-    . _Time
+lcCreatedTime = lens _lcCreatedTime (\s a -> s { _lcCreatedTime = a }) . _Time
 
 -- | Specifies whether the instance is optimized for EBS I/O (true) or not
 -- (false).
@@ -673,7 +699,7 @@ lcRamdiskId = lens _lcRamdiskId (\s a -> s { _lcRamdiskId = a })
 -- | A description of the security groups to associate with the Amazon EC2
 -- instances.
 lcSecurityGroups :: Lens' LaunchConfiguration [Text]
-lcSecurityGroups = lens _lcSecurityGroups (\s a -> s { _lcSecurityGroups = a })
+lcSecurityGroups = lens _lcSecurityGroups (\s a -> s { _lcSecurityGroups = a }) . _List
 
 -- | Specifies the price to bid when launching Spot Instances.
 lcSpotPrice :: Lens' LaunchConfiguration (Maybe Text)
@@ -685,48 +711,67 @@ lcUserData = lens _lcUserData (\s a -> s { _lcUserData = a })
 
 instance FromXML LaunchConfiguration where
     parseXML x = LaunchConfiguration
-            <$> x .@? "AssociatePublicIpAddress"
-            <*> x .@ "BlockDeviceMappings"
-            <*> x .@ "CreatedTime"
-            <*> x .@? "EbsOptimized"
-            <*> x .@? "IamInstanceProfile"
-            <*> x .@ "ImageId"
-            <*> x .@? "InstanceMonitoring"
-            <*> x .@ "InstanceType"
-            <*> x .@? "KernelId"
-            <*> x .@? "KeyName"
-            <*> x .@? "LaunchConfigurationARN"
-            <*> x .@ "LaunchConfigurationName"
-            <*> x .@? "PlacementTenancy"
-            <*> x .@? "RamdiskId"
-            <*> x .@ "SecurityGroups"
-            <*> x .@? "SpotPrice"
-            <*> x .@? "UserData"
+        <$> x .@? "AssociatePublicIpAddress"
+        <*> x .@  "BlockDeviceMappings"
+        <*> x .@  "CreatedTime"
+        <*> x .@? "EbsOptimized"
+        <*> x .@? "IamInstanceProfile"
+        <*> x .@  "ImageId"
+        <*> x .@? "InstanceMonitoring"
+        <*> x .@  "InstanceType"
+        <*> x .@? "KernelId"
+        <*> x .@? "KeyName"
+        <*> x .@? "LaunchConfigurationARN"
+        <*> x .@  "LaunchConfigurationName"
+        <*> x .@? "PlacementTenancy"
+        <*> x .@? "RamdiskId"
+        <*> x .@  "SecurityGroups"
+        <*> x .@? "SpotPrice"
+        <*> x .@? "UserData"
 
-instance ToQuery LaunchConfiguration
+instance ToQuery LaunchConfiguration where
+    toQuery LaunchConfiguration{..} = mconcat
+        [ "AssociatePublicIpAddress" =? _lcAssociatePublicIpAddress
+        , "BlockDeviceMappings"      =? _lcBlockDeviceMappings
+        , "CreatedTime"              =? _lcCreatedTime
+        , "EbsOptimized"             =? _lcEbsOptimized
+        , "IamInstanceProfile"       =? _lcIamInstanceProfile
+        , "ImageId"                  =? _lcImageId
+        , "InstanceMonitoring"       =? _lcInstanceMonitoring
+        , "InstanceType"             =? _lcInstanceType
+        , "KernelId"                 =? _lcKernelId
+        , "KeyName"                  =? _lcKeyName
+        , "LaunchConfigurationARN"   =? _lcLaunchConfigurationARN
+        , "LaunchConfigurationName"  =? _lcLaunchConfigurationName
+        , "PlacementTenancy"         =? _lcPlacementTenancy
+        , "RamdiskId"                =? _lcRamdiskId
+        , "SecurityGroups"           =? _lcSecurityGroups
+        , "SpotPrice"                =? _lcSpotPrice
+        , "UserData"                 =? _lcUserData
+        ]
 
 data AutoScalingGroup = AutoScalingGroup
     { _asgAutoScalingGroupARN     :: Maybe Text
     , _asgAutoScalingGroupName    :: Text
-    , _asgAvailabilityZones       :: List1 Text
+    , _asgAvailabilityZones       :: List1 "AvailabilityZones" Text
     , _asgCreatedTime             :: RFC822
     , _asgDefaultCooldown         :: Int
     , _asgDesiredCapacity         :: Int
-    , _asgEnabledMetrics          :: [EnabledMetric]
+    , _asgEnabledMetrics          :: List "EnabledMetrics" EnabledMetric
     , _asgHealthCheckGracePeriod  :: Maybe Int
     , _asgHealthCheckType         :: Text
-    , _asgInstances               :: [Instance]
+    , _asgInstances               :: List "Instances" Instance
     , _asgLaunchConfigurationName :: Text
-    , _asgLoadBalancerNames       :: [Text]
+    , _asgLoadBalancerNames       :: List "LoadBalancerNames" Text
     , _asgMaxSize                 :: Int
     , _asgMinSize                 :: Int
     , _asgPlacementGroup          :: Maybe Text
     , _asgStatus                  :: Maybe Text
-    , _asgSuspendedProcesses      :: [SuspendedProcess]
-    , _asgTags                    :: [TagDescription]
-    , _asgTerminationPolicies     :: [Text]
+    , _asgSuspendedProcesses      :: List "SuspendedProcesses" SuspendedProcess
+    , _asgTags                    :: List "Tags" TagDescription
+    , _asgTerminationPolicies     :: List "TerminationPolicies" Text
     , _asgVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AutoScalingGroup' constructor.
 --
@@ -789,7 +834,7 @@ autoScalingGroup p1 p2 p3 p4 p5 p6 p7 p8 p9 = AutoScalingGroup
     , _asgMaxSize                 = p4
     , _asgDesiredCapacity         = p5
     , _asgDefaultCooldown         = p6
-    , _asgAvailabilityZones       = p7
+    , _asgAvailabilityZones       = withIso _List1 (const id) p7
     , _asgHealthCheckType         = p8
     , _asgCreatedTime             = withIso _Time (const id) p9
     , _asgAutoScalingGroupARN     = Nothing
@@ -819,11 +864,11 @@ asgAutoScalingGroupName =
 asgAvailabilityZones :: Lens' AutoScalingGroup (NonEmpty Text)
 asgAvailabilityZones =
     lens _asgAvailabilityZones (\s a -> s { _asgAvailabilityZones = a })
+        . _List1
 
 -- | Specifies the date and time the Auto Scaling group was created.
 asgCreatedTime :: Lens' AutoScalingGroup UTCTime
-asgCreatedTime = lens _asgCreatedTime (\s a -> s { _asgCreatedTime = a })
-    . _Time
+asgCreatedTime = lens _asgCreatedTime (\s a -> s { _asgCreatedTime = a }) . _Time
 
 -- | The number of seconds after a scaling activity completes before any
 -- further scaling activities can start.
@@ -840,6 +885,7 @@ asgDesiredCapacity =
 asgEnabledMetrics :: Lens' AutoScalingGroup [EnabledMetric]
 asgEnabledMetrics =
     lens _asgEnabledMetrics (\s a -> s { _asgEnabledMetrics = a })
+        . _List
 
 -- | The length of time that Auto Scaling waits before checking an instance's
 -- health status. The grace period begins when an instance comes into
@@ -857,7 +903,7 @@ asgHealthCheckType =
 
 -- | Provides a summary list of Amazon EC2 instances.
 asgInstances :: Lens' AutoScalingGroup [Instance]
-asgInstances = lens _asgInstances (\s a -> s { _asgInstances = a })
+asgInstances = lens _asgInstances (\s a -> s { _asgInstances = a }) . _List
 
 -- | Specifies the name of the associated LaunchConfiguration.
 asgLaunchConfigurationName :: Lens' AutoScalingGroup Text
@@ -869,6 +915,7 @@ asgLaunchConfigurationName =
 asgLoadBalancerNames :: Lens' AutoScalingGroup [Text]
 asgLoadBalancerNames =
     lens _asgLoadBalancerNames (\s a -> s { _asgLoadBalancerNames = a })
+        . _List
 
 -- | Contains the maximum size of the Auto Scaling group.
 asgMaxSize :: Lens' AutoScalingGroup Int
@@ -893,16 +940,18 @@ asgStatus = lens _asgStatus (\s a -> s { _asgStatus = a })
 asgSuspendedProcesses :: Lens' AutoScalingGroup [SuspendedProcess]
 asgSuspendedProcesses =
     lens _asgSuspendedProcesses (\s a -> s { _asgSuspendedProcesses = a })
+        . _List
 
 -- | A list of tags for the Auto Scaling group.
 asgTags :: Lens' AutoScalingGroup [TagDescription]
-asgTags = lens _asgTags (\s a -> s { _asgTags = a })
+asgTags = lens _asgTags (\s a -> s { _asgTags = a }) . _List
 
 -- | A standalone termination policy or a list of termination policies for
 -- this Auto Scaling group.
 asgTerminationPolicies :: Lens' AutoScalingGroup [Text]
 asgTerminationPolicies =
     lens _asgTerminationPolicies (\s a -> s { _asgTerminationPolicies = a })
+        . _List
 
 -- | The subnet identifier for the Amazon VPC connection, if applicable. You
 -- can specify several subnets in a comma-separated list. When you specify
@@ -914,39 +963,61 @@ asgVPCZoneIdentifier =
 
 instance FromXML AutoScalingGroup where
     parseXML x = AutoScalingGroup
-            <$> x .@? "AutoScalingGroupARN"
-            <*> x .@ "AutoScalingGroupName"
-            <*> x .@ "AvailabilityZones"
-            <*> x .@ "CreatedTime"
-            <*> x .@ "DefaultCooldown"
-            <*> x .@ "DesiredCapacity"
-            <*> x .@ "EnabledMetrics"
-            <*> x .@? "HealthCheckGracePeriod"
-            <*> x .@ "HealthCheckType"
-            <*> x .@ "Instances"
-            <*> x .@ "LaunchConfigurationName"
-            <*> x .@ "LoadBalancerNames"
-            <*> x .@ "MaxSize"
-            <*> x .@ "MinSize"
-            <*> x .@? "PlacementGroup"
-            <*> x .@? "Status"
-            <*> x .@ "SuspendedProcesses"
-            <*> x .@ "Tags"
-            <*> x .@ "TerminationPolicies"
-            <*> x .@? "VPCZoneIdentifier"
+        <$> x .@? "AutoScalingGroupARN"
+        <*> x .@  "AutoScalingGroupName"
+        <*> x .@  "AvailabilityZones"
+        <*> x .@  "CreatedTime"
+        <*> x .@  "DefaultCooldown"
+        <*> x .@  "DesiredCapacity"
+        <*> x .@  "EnabledMetrics"
+        <*> x .@? "HealthCheckGracePeriod"
+        <*> x .@  "HealthCheckType"
+        <*> x .@  "Instances"
+        <*> x .@  "LaunchConfigurationName"
+        <*> x .@  "LoadBalancerNames"
+        <*> x .@  "MaxSize"
+        <*> x .@  "MinSize"
+        <*> x .@? "PlacementGroup"
+        <*> x .@? "Status"
+        <*> x .@  "SuspendedProcesses"
+        <*> x .@  "Tags"
+        <*> x .@  "TerminationPolicies"
+        <*> x .@? "VPCZoneIdentifier"
 
-instance ToQuery AutoScalingGroup
+instance ToQuery AutoScalingGroup where
+    toQuery AutoScalingGroup{..} = mconcat
+        [ "AutoScalingGroupARN"     =? _asgAutoScalingGroupARN
+        , "AutoScalingGroupName"    =? _asgAutoScalingGroupName
+        , "AvailabilityZones"       =? _asgAvailabilityZones
+        , "CreatedTime"             =? _asgCreatedTime
+        , "DefaultCooldown"         =? _asgDefaultCooldown
+        , "DesiredCapacity"         =? _asgDesiredCapacity
+        , "EnabledMetrics"          =? _asgEnabledMetrics
+        , "HealthCheckGracePeriod"  =? _asgHealthCheckGracePeriod
+        , "HealthCheckType"         =? _asgHealthCheckType
+        , "Instances"               =? _asgInstances
+        , "LaunchConfigurationName" =? _asgLaunchConfigurationName
+        , "LoadBalancerNames"       =? _asgLoadBalancerNames
+        , "MaxSize"                 =? _asgMaxSize
+        , "MinSize"                 =? _asgMinSize
+        , "PlacementGroup"          =? _asgPlacementGroup
+        , "Status"                  =? _asgStatus
+        , "SuspendedProcesses"      =? _asgSuspendedProcesses
+        , "Tags"                    =? _asgTags
+        , "TerminationPolicies"     =? _asgTerminationPolicies
+        , "VPCZoneIdentifier"       =? _asgVPCZoneIdentifier
+        ]
 
 data ScalingPolicy = ScalingPolicy
     { _sp1AdjustmentType       :: Maybe Text
-    , _sp1Alarms               :: [Alarm]
+    , _sp1Alarms               :: List "Alarms" Alarm
     , _sp1AutoScalingGroupName :: Maybe Text
     , _sp1Cooldown             :: Maybe Int
     , _sp1MinAdjustmentStep    :: Maybe Int
     , _sp1PolicyARN            :: Maybe Text
     , _sp1PolicyName           :: Maybe Text
     , _sp1ScalingAdjustment    :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ScalingPolicy' constructor.
 --
@@ -989,7 +1060,7 @@ sp1AdjustmentType =
 
 -- | A list of CloudWatch Alarms related to the policy.
 sp1Alarms :: Lens' ScalingPolicy [Alarm]
-sp1Alarms = lens _sp1Alarms (\s a -> s { _sp1Alarms = a })
+sp1Alarms = lens _sp1Alarms (\s a -> s { _sp1Alarms = a }) . _List
 
 -- | The name of the Auto Scaling group associated with this scaling policy.
 sp1AutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
@@ -1024,20 +1095,30 @@ sp1ScalingAdjustment =
 
 instance FromXML ScalingPolicy where
     parseXML x = ScalingPolicy
-            <$> x .@? "AdjustmentType"
-            <*> x .@ "Alarms"
-            <*> x .@? "AutoScalingGroupName"
-            <*> x .@? "Cooldown"
-            <*> x .@? "MinAdjustmentStep"
-            <*> x .@? "PolicyARN"
-            <*> x .@? "PolicyName"
-            <*> x .@? "ScalingAdjustment"
+        <$> x .@? "AdjustmentType"
+        <*> x .@  "Alarms"
+        <*> x .@? "AutoScalingGroupName"
+        <*> x .@? "Cooldown"
+        <*> x .@? "MinAdjustmentStep"
+        <*> x .@? "PolicyARN"
+        <*> x .@? "PolicyName"
+        <*> x .@? "ScalingAdjustment"
 
-instance ToQuery ScalingPolicy
+instance ToQuery ScalingPolicy where
+    toQuery ScalingPolicy{..} = mconcat
+        [ "AdjustmentType"       =? _sp1AdjustmentType
+        , "Alarms"               =? _sp1Alarms
+        , "AutoScalingGroupName" =? _sp1AutoScalingGroupName
+        , "Cooldown"             =? _sp1Cooldown
+        , "MinAdjustmentStep"    =? _sp1MinAdjustmentStep
+        , "PolicyARN"            =? _sp1PolicyARN
+        , "PolicyName"           =? _sp1PolicyName
+        , "ScalingAdjustment"    =? _sp1ScalingAdjustment
+        ]
 
 newtype InstanceMonitoring = InstanceMonitoring
     { _imEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstanceMonitoring' constructor.
 --
@@ -1056,9 +1137,12 @@ imEnabled = lens _imEnabled (\s a -> s { _imEnabled = a })
 
 instance FromXML InstanceMonitoring where
     parseXML x = InstanceMonitoring
-            <$> x .@? "Enabled"
+        <$> x .@? "Enabled"
 
-instance ToQuery InstanceMonitoring
+instance ToQuery InstanceMonitoring where
+    toQuery InstanceMonitoring{..} = mconcat
+        [ "Enabled" =? _imEnabled
+        ]
 
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     { _sugaAutoScalingGroupName :: Maybe Text
@@ -1071,7 +1155,7 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     , _sugaScheduledActionName  :: Maybe Text
     , _sugaStartTime            :: Maybe RFC822
     , _sugaTime                 :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ScheduledUpdateGroupAction' constructor.
 --
@@ -1126,8 +1210,7 @@ sugaDesiredCapacity =
 -- | The time that the action is scheduled to end. This value can be up to one
 -- month in the future.
 sugaEndTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
-sugaEndTime = lens _sugaEndTime (\s a -> s { _sugaEndTime = a })
-    . mapping _Time
+sugaEndTime = lens _sugaEndTime (\s a -> s { _sugaEndTime = a }) . mapping _Time
 
 -- | The maximum size of the Auto Scaling group.
 sugaMaxSize :: Lens' ScheduledUpdateGroupAction (Maybe Int)
@@ -1156,34 +1239,44 @@ sugaScheduledActionName =
 -- Recurrence, they form the boundaries of when the recurring action will
 -- start and stop.
 sugaStartTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
-sugaStartTime = lens _sugaStartTime (\s a -> s { _sugaStartTime = a })
-    . mapping _Time
+sugaStartTime = lens _sugaStartTime (\s a -> s { _sugaStartTime = a }) . mapping _Time
 
 -- | Time is deprecated. The time that the action is scheduled to begin. Time
 -- is an alias for StartTime.
 sugaTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
-sugaTime = lens _sugaTime (\s a -> s { _sugaTime = a })
-    . mapping _Time
+sugaTime = lens _sugaTime (\s a -> s { _sugaTime = a }) . mapping _Time
 
 instance FromXML ScheduledUpdateGroupAction where
     parseXML x = ScheduledUpdateGroupAction
-            <$> x .@? "AutoScalingGroupName"
-            <*> x .@? "DesiredCapacity"
-            <*> x .@? "EndTime"
-            <*> x .@? "MaxSize"
-            <*> x .@? "MinSize"
-            <*> x .@? "Recurrence"
-            <*> x .@? "ScheduledActionARN"
-            <*> x .@? "ScheduledActionName"
-            <*> x .@? "StartTime"
-            <*> x .@? "Time"
+        <$> x .@? "AutoScalingGroupName"
+        <*> x .@? "DesiredCapacity"
+        <*> x .@? "EndTime"
+        <*> x .@? "MaxSize"
+        <*> x .@? "MinSize"
+        <*> x .@? "Recurrence"
+        <*> x .@? "ScheduledActionARN"
+        <*> x .@? "ScheduledActionName"
+        <*> x .@? "StartTime"
+        <*> x .@? "Time"
 
-instance ToQuery ScheduledUpdateGroupAction
+instance ToQuery ScheduledUpdateGroupAction where
+    toQuery ScheduledUpdateGroupAction{..} = mconcat
+        [ "AutoScalingGroupName" =? _sugaAutoScalingGroupName
+        , "DesiredCapacity"      =? _sugaDesiredCapacity
+        , "EndTime"              =? _sugaEndTime
+        , "MaxSize"              =? _sugaMaxSize
+        , "MinSize"              =? _sugaMinSize
+        , "Recurrence"           =? _sugaRecurrence
+        , "ScheduledActionARN"   =? _sugaScheduledActionARN
+        , "ScheduledActionName"  =? _sugaScheduledActionName
+        , "StartTime"            =? _sugaStartTime
+        , "Time"                 =? _sugaTime
+        ]
 
 data ScalingProcessQuery = ScalingProcessQuery
     { _spqAutoScalingGroupName :: Text
-    , _spqScalingProcesses     :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _spqScalingProcesses     :: List "ScalingProcesses" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ScalingProcessQuery' constructor.
 --
@@ -1212,13 +1305,18 @@ spqAutoScalingGroupName =
 spqScalingProcesses :: Lens' ScalingProcessQuery [Text]
 spqScalingProcesses =
     lens _spqScalingProcesses (\s a -> s { _spqScalingProcesses = a })
+        . _List
 
 instance FromXML ScalingProcessQuery where
     parseXML x = ScalingProcessQuery
-            <$> x .@ "AutoScalingGroupName"
-            <*> x .@ "ScalingProcesses"
+        <$> x .@  "AutoScalingGroupName"
+        <*> x .@  "ScalingProcesses"
 
-instance ToQuery ScalingProcessQuery
+instance ToQuery ScalingProcessQuery where
+    toQuery ScalingProcessQuery{..} = mconcat
+        [ "AutoScalingGroupName" =? _spqAutoScalingGroupName
+        , "ScalingProcesses"     =? _spqScalingProcesses
+        ]
 
 data Ebs = Ebs
     { _ebsDeleteOnTermination :: Maybe Bool
@@ -1226,7 +1324,7 @@ data Ebs = Ebs
     , _ebsSnapshotId          :: Maybe Text
     , _ebsVolumeSize          :: Maybe Nat
     , _ebsVolumeType          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Ebs' constructor.
 --
@@ -1261,8 +1359,7 @@ ebsDeleteOnTermination =
 -- The maximum ratio of IOPS to volume size is 30.0 Valid Values: Range is
 -- 100 to 4000. Default: None.
 ebsIops :: Lens' Ebs (Maybe Natural)
-ebsIops = lens _ebsIops (\s a -> s { _ebsIops = a })
-    . mapping _Nat
+ebsIops = lens _ebsIops (\s a -> s { _ebsIops = a }) . mapping _Nat
 
 -- | The snapshot ID.
 ebsSnapshotId :: Lens' Ebs (Maybe Text)
@@ -1273,8 +1370,7 @@ ebsSnapshotId = lens _ebsSnapshotId (\s a -> s { _ebsSnapshotId = a })
 -- volume from a snapshot, and you don't specify a volume size, the default
 -- is the snapshot size. Required: Required when the volume type is io1.
 ebsVolumeSize :: Lens' Ebs (Maybe Natural)
-ebsVolumeSize = lens _ebsVolumeSize (\s a -> s { _ebsVolumeSize = a })
-    . mapping _Nat
+ebsVolumeSize = lens _ebsVolumeSize (\s a -> s { _ebsVolumeSize = a }) . mapping _Nat
 
 -- | The volume type. Valid values: standard | io1 Default: standard.
 ebsVolumeType :: Lens' Ebs (Maybe Text)
@@ -1282,17 +1378,24 @@ ebsVolumeType = lens _ebsVolumeType (\s a -> s { _ebsVolumeType = a })
 
 instance FromXML Ebs where
     parseXML x = Ebs
-            <$> x .@? "DeleteOnTermination"
-            <*> x .@? "Iops"
-            <*> x .@? "SnapshotId"
-            <*> x .@? "VolumeSize"
-            <*> x .@? "VolumeType"
+        <$> x .@? "DeleteOnTermination"
+        <*> x .@? "Iops"
+        <*> x .@? "SnapshotId"
+        <*> x .@? "VolumeSize"
+        <*> x .@? "VolumeType"
 
-instance ToQuery Ebs
+instance ToQuery Ebs where
+    toQuery Ebs{..} = mconcat
+        [ "DeleteOnTermination" =? _ebsDeleteOnTermination
+        , "Iops"                =? _ebsIops
+        , "SnapshotId"          =? _ebsSnapshotId
+        , "VolumeSize"          =? _ebsVolumeSize
+        , "VolumeType"          =? _ebsVolumeType
+        ]
 
 newtype AdjustmentType = AdjustmentType
     { _atAdjustmentType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AdjustmentType' constructor.
 --
@@ -1312,13 +1415,16 @@ atAdjustmentType = lens _atAdjustmentType (\s a -> s { _atAdjustmentType = a })
 
 instance FromXML AdjustmentType where
     parseXML x = AdjustmentType
-            <$> x .@? "AdjustmentType"
+        <$> x .@? "AdjustmentType"
 
-instance ToQuery AdjustmentType
+instance ToQuery AdjustmentType where
+    toQuery AdjustmentType{..} = mconcat
+        [ "AdjustmentType" =? _atAdjustmentType
+        ]
 
 newtype MetricCollectionType = MetricCollectionType
     { _mctMetric :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'MetricCollectionType' constructor.
 --
@@ -1336,9 +1442,12 @@ mctMetric = lens _mctMetric (\s a -> s { _mctMetric = a })
 
 instance FromXML MetricCollectionType where
     parseXML x = MetricCollectionType
-            <$> x .@? "Metric"
+        <$> x .@? "Metric"
 
-instance ToQuery MetricCollectionType
+instance ToQuery MetricCollectionType where
+    toQuery MetricCollectionType{..} = mconcat
+        [ "Metric" =? _mctMetric
+        ]
 
 data LifecycleHook = LifecycleHook
     { _lhAutoScalingGroupName  :: Maybe Text
@@ -1350,7 +1459,7 @@ data LifecycleHook = LifecycleHook
     , _lhNotificationMetadata  :: Maybe Text
     , _lhNotificationTargetARN :: Maybe Text
     , _lhRoleARN               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LifecycleHook' constructor.
 --
@@ -1447,17 +1556,28 @@ lhRoleARN = lens _lhRoleARN (\s a -> s { _lhRoleARN = a })
 
 instance FromXML LifecycleHook where
     parseXML x = LifecycleHook
-            <$> x .@? "AutoScalingGroupName"
-            <*> x .@? "DefaultResult"
-            <*> x .@? "GlobalTimeout"
-            <*> x .@? "HeartbeatTimeout"
-            <*> x .@? "LifecycleHookName"
-            <*> x .@? "LifecycleTransition"
-            <*> x .@? "NotificationMetadata"
-            <*> x .@? "NotificationTargetARN"
-            <*> x .@? "RoleARN"
+        <$> x .@? "AutoScalingGroupName"
+        <*> x .@? "DefaultResult"
+        <*> x .@? "GlobalTimeout"
+        <*> x .@? "HeartbeatTimeout"
+        <*> x .@? "LifecycleHookName"
+        <*> x .@? "LifecycleTransition"
+        <*> x .@? "NotificationMetadata"
+        <*> x .@? "NotificationTargetARN"
+        <*> x .@? "RoleARN"
 
-instance ToQuery LifecycleHook
+instance ToQuery LifecycleHook where
+    toQuery LifecycleHook{..} = mconcat
+        [ "AutoScalingGroupName"  =? _lhAutoScalingGroupName
+        , "DefaultResult"         =? _lhDefaultResult
+        , "GlobalTimeout"         =? _lhGlobalTimeout
+        , "HeartbeatTimeout"      =? _lhHeartbeatTimeout
+        , "LifecycleHookName"     =? _lhLifecycleHookName
+        , "LifecycleTransition"   =? _lhLifecycleTransition
+        , "NotificationMetadata"  =? _lhNotificationMetadata
+        , "NotificationTargetARN" =? _lhNotificationTargetARN
+        , "RoleARN"               =? _lhRoleARN
+        ]
 
 data Activity = Activity
     { _aActivityId           :: Text
@@ -1470,7 +1590,7 @@ data Activity = Activity
     , _aStartTime            :: RFC822
     , _aStatusCode           :: Text
     , _aStatusMessage        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Activity' constructor.
 --
@@ -1538,8 +1658,7 @@ aDetails = lens _aDetails (\s a -> s { _aDetails = a })
 
 -- | Provides the end time of this activity.
 aEndTime :: Lens' Activity (Maybe UTCTime)
-aEndTime = lens _aEndTime (\s a -> s { _aEndTime = a })
-    . mapping _Time
+aEndTime = lens _aEndTime (\s a -> s { _aEndTime = a }) . mapping _Time
 
 -- | Specifies a value between 0 and 100 that indicates the progress of the
 -- activity.
@@ -1548,8 +1667,7 @@ aProgress = lens _aProgress (\s a -> s { _aProgress = a })
 
 -- | Provides the start time of this activity.
 aStartTime :: Lens' Activity UTCTime
-aStartTime = lens _aStartTime (\s a -> s { _aStartTime = a })
-    . _Time
+aStartTime = lens _aStartTime (\s a -> s { _aStartTime = a }) . _Time
 
 -- | Contains the current status of the activity.
 aStatusCode :: Lens' Activity Text
@@ -1561,23 +1679,35 @@ aStatusMessage = lens _aStatusMessage (\s a -> s { _aStatusMessage = a })
 
 instance FromXML Activity where
     parseXML x = Activity
-            <$> x .@ "ActivityId"
-            <*> x .@ "AutoScalingGroupName"
-            <*> x .@ "Cause"
-            <*> x .@? "Description"
-            <*> x .@? "Details"
-            <*> x .@? "EndTime"
-            <*> x .@? "Progress"
-            <*> x .@ "StartTime"
-            <*> x .@ "StatusCode"
-            <*> x .@? "StatusMessage"
+        <$> x .@  "ActivityId"
+        <*> x .@  "AutoScalingGroupName"
+        <*> x .@  "Cause"
+        <*> x .@? "Description"
+        <*> x .@? "Details"
+        <*> x .@? "EndTime"
+        <*> x .@? "Progress"
+        <*> x .@  "StartTime"
+        <*> x .@  "StatusCode"
+        <*> x .@? "StatusMessage"
 
-instance ToQuery Activity
+instance ToQuery Activity where
+    toQuery Activity{..} = mconcat
+        [ "ActivityId"           =? _aActivityId
+        , "AutoScalingGroupName" =? _aAutoScalingGroupName
+        , "Cause"                =? _aCause
+        , "Description"          =? _aDescription
+        , "Details"              =? _aDetails
+        , "EndTime"              =? _aEndTime
+        , "Progress"             =? _aProgress
+        , "StartTime"            =? _aStartTime
+        , "StatusCode"           =? _aStatusCode
+        , "StatusMessage"        =? _aStatusMessage
+        ]
 
 data SuspendedProcess = SuspendedProcess
     { _spProcessName      :: Maybe Text
     , _spSuspensionReason :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SuspendedProcess' constructor.
 --
@@ -1604,14 +1734,18 @@ spSuspensionReason =
 
 instance FromXML SuspendedProcess where
     parseXML x = SuspendedProcess
-            <$> x .@? "ProcessName"
-            <*> x .@? "SuspensionReason"
+        <$> x .@? "ProcessName"
+        <*> x .@? "SuspensionReason"
 
-instance ToQuery SuspendedProcess
+instance ToQuery SuspendedProcess where
+    toQuery SuspendedProcess{..} = mconcat
+        [ "ProcessName"      =? _spProcessName
+        , "SuspensionReason" =? _spSuspensionReason
+        ]
 
 newtype MetricGranularityType = MetricGranularityType
     { _mgtGranularity :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'MetricGranularityType' constructor.
 --
@@ -1630,14 +1764,17 @@ mgtGranularity = lens _mgtGranularity (\s a -> s { _mgtGranularity = a })
 
 instance FromXML MetricGranularityType where
     parseXML x = MetricGranularityType
-            <$> x .@? "Granularity"
+        <$> x .@? "Granularity"
 
-instance ToQuery MetricGranularityType
+instance ToQuery MetricGranularityType where
+    toQuery MetricGranularityType{..} = mconcat
+        [ "Granularity" =? _mgtGranularity
+        ]
 
 data Filter = Filter
     { _fName   :: Text
-    , _fValues :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _fValues :: List "Values" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'Filter' constructor.
 --
@@ -1661,18 +1798,22 @@ fName = lens _fName (\s a -> s { _fName = a })
 
 -- | The value of the filter.
 fValues :: Lens' Filter [Text]
-fValues = lens _fValues (\s a -> s { _fValues = a })
+fValues = lens _fValues (\s a -> s { _fValues = a }) . _List
 
 instance FromXML Filter where
     parseXML x = Filter
-            <$> x .@ "Name"
-            <*> x .@ "Values"
+        <$> x .@  "Name"
+        <*> x .@  "Values"
 
-instance ToQuery Filter
+instance ToQuery Filter where
+    toQuery Filter{..} = mconcat
+        [ "Name"   =? _fName
+        , "Values" =? _fValues
+        ]
 
 newtype ProcessType = ProcessType
     { _ptProcessName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ProcessType' constructor.
 --
@@ -1692,14 +1833,17 @@ ptProcessName = lens _ptProcessName (\s a -> s { _ptProcessName = a })
 
 instance FromXML ProcessType where
     parseXML x = ProcessType
-            <$> x .@ "ProcessName"
+        <$> x .@  "ProcessName"
 
-instance ToQuery ProcessType
+instance ToQuery ProcessType where
+    toQuery ProcessType{..} = mconcat
+        [ "ProcessName" =? _ptProcessName
+        ]
 
 data Alarm = Alarm
     { _aAlarmARN  :: Maybe Text
     , _aAlarmName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Alarm' constructor.
 --
@@ -1725,15 +1869,19 @@ aAlarmName = lens _aAlarmName (\s a -> s { _aAlarmName = a })
 
 instance FromXML Alarm where
     parseXML x = Alarm
-            <$> x .@? "AlarmARN"
-            <*> x .@? "AlarmName"
+        <$> x .@? "AlarmARN"
+        <*> x .@? "AlarmName"
 
-instance ToQuery Alarm
+instance ToQuery Alarm where
+    toQuery Alarm{..} = mconcat
+        [ "AlarmARN"  =? _aAlarmARN
+        , "AlarmName" =? _aAlarmName
+        ]
 
 data EnabledMetric = EnabledMetric
     { _emGranularity :: Maybe Text
     , _emMetric      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnabledMetric' constructor.
 --
@@ -1759,10 +1907,14 @@ emMetric = lens _emMetric (\s a -> s { _emMetric = a })
 
 instance FromXML EnabledMetric where
     parseXML x = EnabledMetric
-            <$> x .@? "Granularity"
-            <*> x .@? "Metric"
+        <$> x .@? "Granularity"
+        <*> x .@? "Metric"
 
-instance ToQuery EnabledMetric
+instance ToQuery EnabledMetric where
+    toQuery EnabledMetric{..} = mconcat
+        [ "Granularity" =? _emGranularity
+        , "Metric"      =? _emMetric
+        ]
 
 data Instance = Instance
     { _iAvailabilityZone        :: Text
@@ -1770,7 +1922,7 @@ data Instance = Instance
     , _iInstanceId              :: Text
     , _iLaunchConfigurationName :: Text
     , _iLifecycleState          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Instance' constructor.
 --
@@ -1825,13 +1977,20 @@ iLifecycleState = lens _iLifecycleState (\s a -> s { _iLifecycleState = a })
 
 instance FromXML Instance where
     parseXML x = Instance
-            <$> x .@ "AvailabilityZone"
-            <*> x .@ "HealthStatus"
-            <*> x .@ "InstanceId"
-            <*> x .@ "LaunchConfigurationName"
-            <*> x .@ "LifecycleState"
+        <$> x .@  "AvailabilityZone"
+        <*> x .@  "HealthStatus"
+        <*> x .@  "InstanceId"
+        <*> x .@  "LaunchConfigurationName"
+        <*> x .@  "LifecycleState"
 
-instance ToQuery Instance
+instance ToQuery Instance where
+    toQuery Instance{..} = mconcat
+        [ "AvailabilityZone"        =? _iAvailabilityZone
+        , "HealthStatus"            =? _iHealthStatus
+        , "InstanceId"              =? _iInstanceId
+        , "LaunchConfigurationName" =? _iLaunchConfigurationName
+        , "LifecycleState"          =? _iLifecycleState
+        ]
 
 data LifecycleState
     = Detached           -- ^ Detached
@@ -1885,7 +2044,8 @@ instance ToText LifecycleState where
 instance FromXML LifecycleState where
     parseXML = parseXMLText "LifecycleState"
 
-instance ToQuery LifecycleState
+instance ToQuery LifecycleState where
+    toQuery LifecycleState = toQuery . toText
 
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     { _asidAutoScalingGroupName    :: Text
@@ -1894,7 +2054,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     , _asidInstanceId              :: Text
     , _asidLaunchConfigurationName :: Text
     , _asidLifecycleState          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AutoScalingInstanceDetails' constructor.
 --
@@ -1963,14 +2123,22 @@ asidLifecycleState =
 
 instance FromXML AutoScalingInstanceDetails where
     parseXML x = AutoScalingInstanceDetails
-            <$> x .@ "AutoScalingGroupName"
-            <*> x .@ "AvailabilityZone"
-            <*> x .@ "HealthStatus"
-            <*> x .@ "InstanceId"
-            <*> x .@ "LaunchConfigurationName"
-            <*> x .@ "LifecycleState"
+        <$> x .@  "AutoScalingGroupName"
+        <*> x .@  "AvailabilityZone"
+        <*> x .@  "HealthStatus"
+        <*> x .@  "InstanceId"
+        <*> x .@  "LaunchConfigurationName"
+        <*> x .@  "LifecycleState"
 
-instance ToQuery AutoScalingInstanceDetails
+instance ToQuery AutoScalingInstanceDetails where
+    toQuery AutoScalingInstanceDetails{..} = mconcat
+        [ "AutoScalingGroupName"    =? _asidAutoScalingGroupName
+        , "AvailabilityZone"        =? _asidAvailabilityZone
+        , "HealthStatus"            =? _asidHealthStatus
+        , "InstanceId"              =? _asidInstanceId
+        , "LaunchConfigurationName" =? _asidLaunchConfigurationName
+        , "LifecycleState"          =? _asidLifecycleState
+        ]
 
 data ScalingActivityStatusCode
     = Cancelled                       -- ^ Cancelled
@@ -2015,4 +2183,5 @@ instance ToText ScalingActivityStatusCode where
 instance FromXML ScalingActivityStatusCode where
     parseXML = parseXMLText "ScalingActivityStatusCode"
 
-instance ToQuery ScalingActivityStatusCode
+instance ToQuery ScalingActivityStatusCode where
+    toQuery ScalingActivityStatusCode = toQuery . toText

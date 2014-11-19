@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
     { _asitsSourceIdentifier :: Text
     , _asitsSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddSourceIdentifierToSubscription' constructor.
 --
@@ -88,7 +89,7 @@ asitsSubscriptionName =
 
 newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
     { _asitsrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AddSourceIdentifierToSubscriptionResponse' constructor.
 --
@@ -108,7 +109,11 @@ asitsrEventSubscription =
 instance ToPath AddSourceIdentifierToSubscription where
     toPath = const "/"
 
-instance ToQuery AddSourceIdentifierToSubscription
+instance ToQuery AddSourceIdentifierToSubscription where
+    toQuery AddSourceIdentifierToSubscription{..} = mconcat
+        [ "SourceIdentifier" =? _asitsSourceIdentifier
+        , "SubscriptionName" =? _asitsSubscriptionName
+        ]
 
 instance ToHeaders AddSourceIdentifierToSubscription
 
@@ -120,5 +125,5 @@ instance AWSRequest AddSourceIdentifierToSubscription where
     response = xmlResponse
 
 instance FromXML AddSourceIdentifierToSubscriptionResponse where
-    parseXML = withElement "AddSourceIdentifierToSubscriptionResult" $ \x ->
-            <$> x .@? "EventSubscription"
+    parseXML = withElement "AddSourceIdentifierToSubscriptionResult" $ \x -> AddSourceIdentifierToSubscriptionResponse
+        <$> x .@? "EventSubscription"

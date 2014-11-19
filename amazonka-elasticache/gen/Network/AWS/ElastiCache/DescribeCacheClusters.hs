@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -68,7 +69,7 @@ data DescribeCacheClusters = DescribeCacheClusters
     , _dcc1Marker            :: Maybe Text
     , _dcc1MaxRecords        :: Maybe Int
     , _dcc1ShowCacheNodeInfo :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCacheClusters' constructor.
 --
@@ -118,9 +119,9 @@ dcc1ShowCacheNodeInfo =
     lens _dcc1ShowCacheNodeInfo (\s a -> s { _dcc1ShowCacheNodeInfo = a })
 
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse
-    { _dccrCacheClusters :: [CacheCluster]
+    { _dccrCacheClusters :: List "CacheCluster" CacheCluster
     , _dccrMarker        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeCacheClustersResponse' constructor.
 --
@@ -141,6 +142,7 @@ describeCacheClustersResponse = DescribeCacheClustersResponse
 dccrCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
 dccrCacheClusters =
     lens _dccrCacheClusters (\s a -> s { _dccrCacheClusters = a })
+        . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dccrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
@@ -149,7 +151,13 @@ dccrMarker = lens _dccrMarker (\s a -> s { _dccrMarker = a })
 instance ToPath DescribeCacheClusters where
     toPath = const "/"
 
-instance ToQuery DescribeCacheClusters
+instance ToQuery DescribeCacheClusters where
+    toQuery DescribeCacheClusters{..} = mconcat
+        [ "CacheClusterId"    =? _dcc1CacheClusterId
+        , "Marker"            =? _dcc1Marker
+        , "MaxRecords"        =? _dcc1MaxRecords
+        , "ShowCacheNodeInfo" =? _dcc1ShowCacheNodeInfo
+        ]
 
 instance ToHeaders DescribeCacheClusters
 
@@ -161,9 +169,9 @@ instance AWSRequest DescribeCacheClusters where
     response = xmlResponse
 
 instance FromXML DescribeCacheClustersResponse where
-    parseXML = withElement "DescribeCacheClustersResult" $ \x ->
-            <$> x .@ "CacheClusters"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeCacheClustersResult" $ \x -> DescribeCacheClustersResponse
+        <$> x .@  "CacheClusters"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheClusters where
     next rq rs = (\x -> rq & dcc1Marker ?~ x)

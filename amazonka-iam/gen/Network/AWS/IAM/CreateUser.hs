@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data CreateUser = CreateUser
     { _cuPath     :: Maybe Text
     , _cuUserName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateUser' constructor.
 --
@@ -79,7 +80,7 @@ cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
 
 newtype CreateUserResponse = CreateUserResponse
     { _curUser :: Maybe User
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateUserResponse' constructor.
 --
@@ -99,7 +100,11 @@ curUser = lens _curUser (\s a -> s { _curUser = a })
 instance ToPath CreateUser where
     toPath = const "/"
 
-instance ToQuery CreateUser
+instance ToQuery CreateUser where
+    toQuery CreateUser{..} = mconcat
+        [ "Path"     =? _cuPath
+        , "UserName" =? _cuUserName
+        ]
 
 instance ToHeaders CreateUser
 
@@ -111,5 +116,5 @@ instance AWSRequest CreateUser where
     response = xmlResponse
 
 instance FromXML CreateUserResponse where
-    parseXML = withElement "CreateUserResult" $ \x ->
-            <$> x .@? "User"
+    parseXML = withElement "CreateUserResult" $ \x -> CreateUserResponse
+        <$> x .@? "User"

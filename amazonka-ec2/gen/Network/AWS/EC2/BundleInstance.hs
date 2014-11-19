@@ -54,7 +54,7 @@ data BundleInstance = BundleInstance
     { _biDryRun     :: Maybe Bool
     , _biInstanceId :: Text
     , _biStorage    :: Storage
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'BundleInstance' constructor.
 --
@@ -91,7 +91,7 @@ biStorage = lens _biStorage (\s a -> s { _biStorage = a })
 
 newtype BundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask :: Maybe BundleTask
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'BundleInstanceResponse' constructor.
 --
@@ -111,7 +111,12 @@ birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
 instance ToPath BundleInstance where
     toPath = const "/"
 
-instance ToQuery BundleInstance
+instance ToQuery BundleInstance where
+    toQuery BundleInstance{..} = mconcat
+        [ "dryRun"     =? _biDryRun
+        , "InstanceId" =? _biInstanceId
+        , "Storage"    =? _biStorage
+        ]
 
 instance ToHeaders BundleInstance
 

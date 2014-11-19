@@ -53,7 +53,7 @@ data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddoDhcpOptionsIds :: List "DhcpOptionsId" Text
     , _ddoDryRun         :: Maybe Bool
     , _ddoFilters        :: List "Filter" Filter
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDhcpOptions' constructor.
 --
@@ -95,12 +95,11 @@ ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
 -- of a tag assigned to the resource. This filter is independent of the
 -- tag-key filter.
 ddoFilters :: Lens' DescribeDhcpOptions [Filter]
-ddoFilters = lens _ddoFilters (\s a -> s { _ddoFilters = a })
-    . _List
+ddoFilters = lens _ddoFilters (\s a -> s { _ddoFilters = a }) . _List
 
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: List "item" DhcpOptions
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDhcpOptionsResponse where
     type Item DescribeDhcpOptionsResponse = DhcpOptions
@@ -121,13 +120,17 @@ describeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 
 -- | Information about one or more DHCP options sets.
 ddorDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
-ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a })
-    . _List
+ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a }) . _List
 
 instance ToPath DescribeDhcpOptions where
     toPath = const "/"
 
-instance ToQuery DescribeDhcpOptions
+instance ToQuery DescribeDhcpOptions where
+    toQuery DescribeDhcpOptions{..} = mconcat
+        [ "DhcpOptionsId" =? _ddoDhcpOptionsIds
+        , "dryRun"        =? _ddoDryRun
+        , "Filter"        =? _ddoFilters
+        ]
 
 instance ToHeaders DescribeDhcpOptions
 
@@ -140,4 +143,4 @@ instance AWSRequest DescribeDhcpOptions where
 
 instance FromXML DescribeDhcpOptionsResponse where
     parseXML x = DescribeDhcpOptionsResponse
-        <$> x .@ "dhcpOptionsSet"
+        <$> x .@  "dhcpOptionsSet"

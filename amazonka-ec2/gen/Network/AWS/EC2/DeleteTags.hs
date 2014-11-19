@@ -50,9 +50,9 @@ import qualified GHC.Exts
 
 data DeleteTags = DeleteTags
     { _dt1DryRun    :: Maybe Bool
-    , _dt1Resources :: List "String" Text
+    , _dt1Resources :: List "ResourceId" Text
     , _dt1Tags      :: List "item" Tag
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteTags' constructor.
 --
@@ -77,16 +77,14 @@ dt1DryRun = lens _dt1DryRun (\s a -> s { _dt1DryRun = a })
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
 -- than one resource ID.
 dt1Resources :: Lens' DeleteTags [Text]
-dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a })
-    . _List
+dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a }) . _List
 
 -- | One or more tags to delete. If you omit the value parameter, we delete
 -- the tag regardless of its value. If you specify this parameter with an
 -- empty string as the value, we delete the key only if its value is an
 -- empty string.
 dt1Tags :: Lens' DeleteTags [Tag]
-dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a })
-    . _List
+dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a }) . _List
 
 data DeleteTagsResponse = DeleteTagsResponse
     deriving (Eq, Ord, Show, Generic)
@@ -98,7 +96,12 @@ deleteTagsResponse = DeleteTagsResponse
 instance ToPath DeleteTags where
     toPath = const "/"
 
-instance ToQuery DeleteTags
+instance ToQuery DeleteTags where
+    toQuery DeleteTags{..} = mconcat
+        [ "dryRun"     =? _dt1DryRun
+        , "resourceId" =? _dt1Resources
+        , "tag"        =? _dt1Tags
+        ]
 
 instance ToHeaders DeleteTags
 

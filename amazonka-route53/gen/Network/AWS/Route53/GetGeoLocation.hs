@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data GetGeoLocation = GetGeoLocation
     { _gglContinentCode   :: Maybe Text
     , _gglCountryCode     :: Maybe Text
     , _gglSubdivisionCode :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetGeoLocation' constructor.
 --
@@ -95,7 +96,7 @@ gglSubdivisionCode =
 
 newtype GetGeoLocationResponse = GetGeoLocationResponse
     { _gglrGeoLocationDetails :: GeoLocationDetails
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetGeoLocationResponse' constructor.
 --
@@ -118,7 +119,12 @@ gglrGeoLocationDetails =
 instance ToPath GetGeoLocation where
     toPath = const "/2013-04-01/geolocation"
 
-instance ToQuery GetGeoLocation
+instance ToQuery GetGeoLocation where
+    toQuery GetGeoLocation{..} = mconcat
+        [ "continentcode"   =? _gglContinentCode
+        , "countrycode"     =? _gglCountryCode
+        , "subdivisioncode" =? _gglSubdivisionCode
+        ]
 
 instance ToHeaders GetGeoLocation
 
@@ -136,4 +142,4 @@ instance AWSRequest GetGeoLocation where
 
 instance FromXML GetGeoLocationResponse where
     parseXML x = GetGeoLocationResponse
-            <$> x .@ "GeoLocationDetails"
+        <$> x .@  "GeoLocationDetails"

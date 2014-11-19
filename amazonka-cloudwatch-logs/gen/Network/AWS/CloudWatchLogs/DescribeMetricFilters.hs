@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ data DescribeMetricFilters = DescribeMetricFilters
     , _dmfLimit            :: Maybe Nat
     , _dmfLogGroupName     :: Text
     , _dmfNextToken        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeMetricFilters' constructor.
 --
@@ -88,8 +89,7 @@ dmfFilterNamePrefix =
 -- | The maximum number of items returned in the response. If you don't
 -- specify a value, the request would return up to 50 items.
 dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
-dmfLimit = lens _dmfLimit (\s a -> s { _dmfLimit = a })
-    . mapping _Nat
+dmfLimit = lens _dmfLimit (\s a -> s { _dmfLimit = a }) . mapping _Nat
 
 dmfLogGroupName :: Lens' DescribeMetricFilters Text
 dmfLogGroupName = lens _dmfLogGroupName (\s a -> s { _dmfLogGroupName = a })
@@ -101,9 +101,9 @@ dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
 dmfNextToken = lens _dmfNextToken (\s a -> s { _dmfNextToken = a })
 
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
-    { _dmfrMetricFilters :: [MetricFilter]
+    { _dmfrMetricFilters :: List "metricFilters" MetricFilter
     , _dmfrNextToken     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeMetricFiltersResponse' constructor.
 --
@@ -122,6 +122,7 @@ describeMetricFiltersResponse = DescribeMetricFiltersResponse
 dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrMetricFilters =
     lens _dmfrMetricFilters (\s a -> s { _dmfrMetricFilters = a })
+        . _List
 
 dmfrNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
 dmfrNextToken = lens _dmfrNextToken (\s a -> s { _dmfrNextToken = a })
@@ -151,5 +152,5 @@ instance AWSRequest DescribeMetricFilters where
 
 instance FromJSON DescribeMetricFiltersResponse where
     parseJSON = withObject "DescribeMetricFiltersResponse" $ \o -> DescribeMetricFiltersResponse
-        <$> o .: "metricFilters"
+        <$> o .:  "metricFilters"
         <*> o .:? "nextToken"

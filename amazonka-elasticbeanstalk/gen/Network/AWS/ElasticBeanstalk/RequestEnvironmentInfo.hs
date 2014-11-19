@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo
     { _reiEnvironmentId   :: Maybe Text
     , _reiEnvironmentName :: Maybe Text
     , _reiInfoType        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RequestEnvironmentInfo' constructor.
 --
@@ -103,7 +104,12 @@ requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
 instance ToPath RequestEnvironmentInfo where
     toPath = const "/"
 
-instance ToQuery RequestEnvironmentInfo
+instance ToQuery RequestEnvironmentInfo where
+    toQuery RequestEnvironmentInfo{..} = mconcat
+        [ "EnvironmentId"   =? _reiEnvironmentId
+        , "EnvironmentName" =? _reiEnvironmentName
+        , "InfoType"        =? _reiInfoType
+        ]
 
 instance ToHeaders RequestEnvironmentInfo
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
     { _rcweDomain     :: Text
     , _rcweRunId      :: Maybe Text
     , _rcweWorkflowId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RequestCancelWorkflowExecution' constructor.
 --

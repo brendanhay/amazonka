@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ import qualified GHC.Exts
 data DescribeWorkflowType = DescribeWorkflowType
     { _dwtDomain       :: Text
     , _dwtWorkflowType :: WorkflowType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeWorkflowType' constructor.
 --
@@ -91,7 +92,7 @@ dwtWorkflowType = lens _dwtWorkflowType (\s a -> s { _dwtWorkflowType = a })
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
     { _dwtrConfiguration :: WorkflowTypeConfiguration
     , _dwtrTypeInfo      :: WorkflowTypeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeWorkflowTypeResponse' constructor.
 --
@@ -148,5 +149,5 @@ instance AWSRequest DescribeWorkflowType where
 
 instance FromJSON DescribeWorkflowTypeResponse where
     parseJSON = withObject "DescribeWorkflowTypeResponse" $ \o -> DescribeWorkflowTypeResponse
-        <$> o .: "configuration"
-        <*> o .: "typeInfo"
+        <$> o .:  "configuration"
+        <*> o .:  "typeInfo"

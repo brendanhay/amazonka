@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,10 +51,10 @@ import qualified GHC.Exts
 
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
     { _clbpLoadBalancerName :: Text
-    , _clbpPolicyAttributes :: [PolicyAttribute]
+    , _clbpPolicyAttributes :: List "PolicyAttributes" PolicyAttribute
     , _clbpPolicyName       :: Text
     , _clbpPolicyTypeName   :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateLoadBalancerPolicy' constructor.
 --
@@ -88,6 +89,7 @@ clbpLoadBalancerName =
 clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
 clbpPolicyAttributes =
     lens _clbpPolicyAttributes (\s a -> s { _clbpPolicyAttributes = a })
+        . _List
 
 -- | The name of the load balancer policy being created. The name must be
 -- unique within the set of policies for this load balancer.
@@ -110,7 +112,13 @@ createLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
 instance ToPath CreateLoadBalancerPolicy where
     toPath = const "/"
 
-instance ToQuery CreateLoadBalancerPolicy
+instance ToQuery CreateLoadBalancerPolicy where
+    toQuery CreateLoadBalancerPolicy{..} = mconcat
+        [ "LoadBalancerName" =? _clbpLoadBalancerName
+        , "PolicyAttributes" =? _clbpPolicyAttributes
+        , "PolicyName"       =? _clbpPolicyName
+        , "PolicyTypeName"   =? _clbpPolicyTypeName
+        ]
 
 instance ToHeaders CreateLoadBalancerPolicy
 

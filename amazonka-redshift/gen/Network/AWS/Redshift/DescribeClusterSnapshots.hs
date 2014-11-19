@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots
     , _dcs1SnapshotIdentifier :: Maybe Text
     , _dcs1SnapshotType       :: Maybe Text
     , _dcs1StartTime          :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterSnapshots' constructor.
 --
@@ -110,8 +111,7 @@ dcs1ClusterIdentifier =
 -- information about ISO 8601, go to the ISO8601 Wikipedia page. Example:
 -- 2012-07-16T18:00:00Z.
 dcs1EndTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
-dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a })
-    . mapping _Time
+dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a }) . mapping _Time
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterSnapshots
@@ -154,13 +154,12 @@ dcs1SnapshotType = lens _dcs1SnapshotType (\s a -> s { _dcs1SnapshotType = a })
 -- information about ISO 8601, go to the ISO8601 Wikipedia page. Example:
 -- 2012-07-16T18:00:00Z.
 dcs1StartTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
-dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a })
-    . mapping _Time
+dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a }) . mapping _Time
 
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     { _dcsrMarker    :: Maybe Text
-    , _dcsrSnapshots :: [Snapshot]
-    } deriving (Eq, Show, Generic)
+    , _dcsrSnapshots :: List "Snapshot" Snapshot
+    } deriving (Eq, Show)
 
 -- | 'DescribeClusterSnapshotsResponse' constructor.
 --
@@ -187,12 +186,22 @@ dcsrMarker = lens _dcsrMarker (\s a -> s { _dcsrMarker = a })
 
 -- | A list of Snapshot instances.
 dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
-dcsrSnapshots = lens _dcsrSnapshots (\s a -> s { _dcsrSnapshots = a })
+dcsrSnapshots = lens _dcsrSnapshots (\s a -> s { _dcsrSnapshots = a }) . _List
 
 instance ToPath DescribeClusterSnapshots where
     toPath = const "/"
 
-instance ToQuery DescribeClusterSnapshots
+instance ToQuery DescribeClusterSnapshots where
+    toQuery DescribeClusterSnapshots{..} = mconcat
+        [ "ClusterIdentifier"  =? _dcs1ClusterIdentifier
+        , "EndTime"            =? _dcs1EndTime
+        , "Marker"             =? _dcs1Marker
+        , "MaxRecords"         =? _dcs1MaxRecords
+        , "OwnerAccount"       =? _dcs1OwnerAccount
+        , "SnapshotIdentifier" =? _dcs1SnapshotIdentifier
+        , "SnapshotType"       =? _dcs1SnapshotType
+        , "StartTime"          =? _dcs1StartTime
+        ]
 
 instance ToHeaders DescribeClusterSnapshots
 
@@ -204,9 +213,9 @@ instance AWSRequest DescribeClusterSnapshots where
     response = xmlResponse
 
 instance FromXML DescribeClusterSnapshotsResponse where
-    parseXML = withElement "DescribeClusterSnapshotsResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "Snapshots"
+    parseXML = withElement "DescribeClusterSnapshotsResult" $ \x -> DescribeClusterSnapshotsResponse
+        <$> x .@? "Marker"
+        <*> x .@  "Snapshots"
 
 instance AWSPager DescribeClusterSnapshots where
     next rq rs = (\x -> rq & dcs1Marker ?~ x)

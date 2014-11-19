@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeInterconnects = DescribeInterconnects
     { _diInterconnectId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DescribeInterconnects' constructor.
 --
@@ -65,8 +66,8 @@ diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
 diInterconnectId = lens _diInterconnectId (\s a -> s { _diInterconnectId = a })
 
 newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
-    { _dirInterconnects :: [Interconnect]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dirInterconnects :: List "interconnects" Interconnect
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeInterconnectsResponse where
     type Item DescribeInterconnectsResponse = Interconnect
@@ -87,7 +88,7 @@ describeInterconnectsResponse = DescribeInterconnectsResponse
 
 -- | A list of interconnects.
 dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
-dirInterconnects = lens _dirInterconnects (\s a -> s { _dirInterconnects = a })
+dirInterconnects = lens _dirInterconnects (\s a -> s { _dirInterconnects = a }) . _List
 
 instance ToPath DescribeInterconnects where
     toPath = const "/"
@@ -111,4 +112,4 @@ instance AWSRequest DescribeInterconnects where
 
 instance FromJSON DescribeInterconnectsResponse where
     parseJSON = withObject "DescribeInterconnectsResponse" $ \o -> DescribeInterconnectsResponse
-        <$> o .: "interconnects"
+        <$> o .:  "interconnects"

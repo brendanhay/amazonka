@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -63,14 +64,14 @@ import qualified GHC.Exts
 data DescribeCases = DescribeCases
     { _dcAfterTime             :: Maybe Text
     , _dcBeforeTime            :: Maybe Text
-    , _dcCaseIdList            :: [Text]
+    , _dcCaseIdList            :: List "caseIdList" Text
     , _dcDisplayId             :: Maybe Text
     , _dcIncludeCommunications :: Maybe Bool
     , _dcIncludeResolvedCases  :: Maybe Bool
     , _dcLanguage              :: Maybe Text
     , _dcMaxResults            :: Maybe Nat
     , _dcNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCases' constructor.
 --
@@ -120,7 +121,7 @@ dcBeforeTime = lens _dcBeforeTime (\s a -> s { _dcBeforeTime = a })
 -- | A list of ID numbers of the support cases you want returned. The maximum
 -- number of cases is 100.
 dcCaseIdList :: Lens' DescribeCases [Text]
-dcCaseIdList = lens _dcCaseIdList (\s a -> s { _dcCaseIdList = a })
+dcCaseIdList = lens _dcCaseIdList (\s a -> s { _dcCaseIdList = a }) . _List
 
 -- | The ID displayed for a case in the AWS Support Center user interface.
 dcDisplayId :: Lens' DescribeCases (Maybe Text)
@@ -146,17 +147,16 @@ dcLanguage = lens _dcLanguage (\s a -> s { _dcLanguage = a })
 
 -- | The maximum number of results to return before paginating.
 dcMaxResults :: Lens' DescribeCases (Maybe Natural)
-dcMaxResults = lens _dcMaxResults (\s a -> s { _dcMaxResults = a })
-    . mapping _Nat
+dcMaxResults = lens _dcMaxResults (\s a -> s { _dcMaxResults = a }) . mapping _Nat
 
 -- | A resumption point for pagination.
 dcNextToken :: Lens' DescribeCases (Maybe Text)
 dcNextToken = lens _dcNextToken (\s a -> s { _dcNextToken = a })
 
 data DescribeCasesResponse = DescribeCasesResponse
-    { _dcr1Cases     :: [CaseDetails]
+    { _dcr1Cases     :: List "cases" CaseDetails
     , _dcr1NextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeCasesResponse' constructor.
 --
@@ -174,7 +174,7 @@ describeCasesResponse = DescribeCasesResponse
 
 -- | The details for the cases that match the request.
 dcr1Cases :: Lens' DescribeCasesResponse [CaseDetails]
-dcr1Cases = lens _dcr1Cases (\s a -> s { _dcr1Cases = a })
+dcr1Cases = lens _dcr1Cases (\s a -> s { _dcr1Cases = a }) . _List
 
 -- | A resumption point for pagination.
 dcr1NextToken :: Lens' DescribeCasesResponse (Maybe Text)
@@ -210,7 +210,7 @@ instance AWSRequest DescribeCases where
 
 instance FromJSON DescribeCasesResponse where
     parseJSON = withObject "DescribeCasesResponse" $ \o -> DescribeCasesResponse
-        <$> o .: "cases"
+        <$> o .:  "cases"
         <*> o .:? "nextToken"
 
 instance AWSPager DescribeCases where

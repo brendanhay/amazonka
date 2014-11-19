@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,10 +57,10 @@ data DescribeDBLogFiles = DescribeDBLogFiles
     , _ddblfFileLastWritten      :: Maybe Integer
     , _ddblfFileSize             :: Maybe Integer
     , _ddblfFilenameContains     :: Maybe Text
-    , _ddblfFilters              :: [Filter]
+    , _ddblfFilters              :: List "Filter" Filter
     , _ddblfMarker               :: Maybe Text
     , _ddblfMaxRecords           :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBLogFiles' constructor.
 --
@@ -118,7 +119,7 @@ ddblfFilenameContains =
 
 -- | This parameter is not currently supported.
 ddblfFilters :: Lens' DescribeDBLogFiles [Filter]
-ddblfFilters = lens _ddblfFilters (\s a -> s { _ddblfFilters = a })
+ddblfFilters = lens _ddblfFilters (\s a -> s { _ddblfFilters = a }) . _List
 
 -- | The pagination token provided in the previous request. If this parameter
 -- is specified the response includes only records beyond the marker, up to
@@ -134,9 +135,9 @@ ddblfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
 ddblfMaxRecords = lens _ddblfMaxRecords (\s a -> s { _ddblfMaxRecords = a })
 
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
-    { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
+    { _ddblfrDescribeDBLogFiles :: List "DescribeDBLogFilesDetails" DescribeDBLogFilesDetails
     , _ddblfrMarker             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBLogFilesResponse' constructor.
 --
@@ -157,6 +158,7 @@ ddblfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFiles
 ddblfrDescribeDBLogFiles =
     lens _ddblfrDescribeDBLogFiles
         (\s a -> s { _ddblfrDescribeDBLogFiles = a })
+            . _List
 
 -- | A pagination token that can be used in a subsequent DescribeDBLogFiles
 -- request.
@@ -166,7 +168,16 @@ ddblfrMarker = lens _ddblfrMarker (\s a -> s { _ddblfrMarker = a })
 instance ToPath DescribeDBLogFiles where
     toPath = const "/"
 
-instance ToQuery DescribeDBLogFiles
+instance ToQuery DescribeDBLogFiles where
+    toQuery DescribeDBLogFiles{..} = mconcat
+        [ "DBInstanceIdentifier" =? _ddblfDBInstanceIdentifier
+        , "FileLastWritten"      =? _ddblfFileLastWritten
+        , "FileSize"             =? _ddblfFileSize
+        , "FilenameContains"     =? _ddblfFilenameContains
+        , "Filters"              =? _ddblfFilters
+        , "Marker"               =? _ddblfMarker
+        , "MaxRecords"           =? _ddblfMaxRecords
+        ]
 
 instance ToHeaders DescribeDBLogFiles
 
@@ -178,9 +189,9 @@ instance AWSRequest DescribeDBLogFiles where
     response = xmlResponse
 
 instance FromXML DescribeDBLogFilesResponse where
-    parseXML = withElement "DescribeDBLogFilesResult" $ \x ->
-            <$> x .@ "DescribeDBLogFiles"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeDBLogFilesResult" $ \x -> DescribeDBLogFilesResponse
+        <$> x .@  "DescribeDBLogFiles"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeDBLogFiles where
     next rq rs = (\x -> rq & ddblfMarker ?~ x)

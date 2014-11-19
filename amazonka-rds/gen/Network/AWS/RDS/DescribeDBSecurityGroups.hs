@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,10 +53,10 @@ import qualified GHC.Exts
 
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups
     { _ddbsg1DBSecurityGroupName :: Maybe Text
-    , _ddbsg1Filters             :: [Filter]
+    , _ddbsg1Filters             :: List "Filter" Filter
     , _ddbsg1Marker              :: Maybe Text
     , _ddbsg1MaxRecords          :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBSecurityGroups' constructor.
 --
@@ -85,7 +86,7 @@ ddbsg1DBSecurityGroupName =
 
 -- | This parameter is not currently supported.
 ddbsg1Filters :: Lens' DescribeDBSecurityGroups [Filter]
-ddbsg1Filters = lens _ddbsg1Filters (\s a -> s { _ddbsg1Filters = a })
+ddbsg1Filters = lens _ddbsg1Filters (\s a -> s { _ddbsg1Filters = a }) . _List
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBSecurityGroups request. If this parameter is specified, the
@@ -102,9 +103,9 @@ ddbsg1MaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Int)
 ddbsg1MaxRecords = lens _ddbsg1MaxRecords (\s a -> s { _ddbsg1MaxRecords = a })
 
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
-    { _ddbsgr1DBSecurityGroups :: [DBSecurityGroup]
+    { _ddbsgr1DBSecurityGroups :: List "DBSecurityGroup" DBSecurityGroup
     , _ddbsgr1Marker           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDBSecurityGroupsResponse' constructor.
 --
@@ -124,6 +125,7 @@ describeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
 ddbsgr1DBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
 ddbsgr1DBSecurityGroups =
     lens _ddbsgr1DBSecurityGroups (\s a -> s { _ddbsgr1DBSecurityGroups = a })
+        . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -134,7 +136,13 @@ ddbsgr1Marker = lens _ddbsgr1Marker (\s a -> s { _ddbsgr1Marker = a })
 instance ToPath DescribeDBSecurityGroups where
     toPath = const "/"
 
-instance ToQuery DescribeDBSecurityGroups
+instance ToQuery DescribeDBSecurityGroups where
+    toQuery DescribeDBSecurityGroups{..} = mconcat
+        [ "DBSecurityGroupName" =? _ddbsg1DBSecurityGroupName
+        , "Filters"             =? _ddbsg1Filters
+        , "Marker"              =? _ddbsg1Marker
+        , "MaxRecords"          =? _ddbsg1MaxRecords
+        ]
 
 instance ToHeaders DescribeDBSecurityGroups
 
@@ -146,9 +154,9 @@ instance AWSRequest DescribeDBSecurityGroups where
     response = xmlResponse
 
 instance FromXML DescribeDBSecurityGroupsResponse where
-    parseXML = withElement "DescribeDBSecurityGroupsResult" $ \x ->
-            <$> x .@ "DBSecurityGroups"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeDBSecurityGroupsResult" $ \x -> DescribeDBSecurityGroupsResponse
+        <$> x .@  "DBSecurityGroups"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeDBSecurityGroups where
     next rq rs = (\x -> rq & ddbsg1Marker ?~ x)

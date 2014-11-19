@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteVolume = DeleteVolume
     { _dv4DryRun   :: Maybe Bool
     , _dv4VolumeId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteVolume' constructor.
 --
@@ -84,7 +84,11 @@ deleteVolumeResponse = DeleteVolumeResponse
 instance ToPath DeleteVolume where
     toPath = const "/"
 
-instance ToQuery DeleteVolume
+instance ToQuery DeleteVolume where
+    toQuery DeleteVolume{..} = mconcat
+        [ "dryRun"   =? _dv4DryRun
+        , "VolumeId" =? _dv4VolumeId
+        ]
 
 instance ToHeaders DeleteVolume
 

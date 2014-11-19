@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DisableGateway = DisableGateway
     { _dg1GatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DisableGateway' constructor.
 --
@@ -69,7 +70,7 @@ dg1GatewayARN = lens _dg1GatewayARN (\s a -> s { _dg1GatewayARN = a })
 
 newtype DisableGatewayResponse = DisableGatewayResponse
     { _dgr1GatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DisableGatewayResponse' constructor.
 --

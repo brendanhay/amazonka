@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,9 +52,9 @@ import qualified GHC.Exts
 data CreateDBSubnetGroup = CreateDBSubnetGroup
     { _cdbsg1DBSubnetGroupDescription :: Text
     , _cdbsg1DBSubnetGroupName        :: Text
-    , _cdbsg1SubnetIds                :: [Text]
-    , _cdbsg1Tags                     :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _cdbsg1SubnetIds                :: List "SubnetIdentifier" Text
+    , _cdbsg1Tags                     :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateDBSubnetGroup' constructor.
 --
@@ -92,14 +93,14 @@ cdbsg1DBSubnetGroupName =
 
 -- | The EC2 Subnet IDs for the DB subnet group.
 cdbsg1SubnetIds :: Lens' CreateDBSubnetGroup [Text]
-cdbsg1SubnetIds = lens _cdbsg1SubnetIds (\s a -> s { _cdbsg1SubnetIds = a })
+cdbsg1SubnetIds = lens _cdbsg1SubnetIds (\s a -> s { _cdbsg1SubnetIds = a }) . _List
 
 cdbsg1Tags :: Lens' CreateDBSubnetGroup [Tag]
-cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a })
+cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a }) . _List
 
 newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _cdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDBSubnetGroupResponse' constructor.
 --
@@ -119,7 +120,13 @@ cdbsgrDBSubnetGroup =
 instance ToPath CreateDBSubnetGroup where
     toPath = const "/"
 
-instance ToQuery CreateDBSubnetGroup
+instance ToQuery CreateDBSubnetGroup where
+    toQuery CreateDBSubnetGroup{..} = mconcat
+        [ "DBSubnetGroupDescription" =? _cdbsg1DBSubnetGroupDescription
+        , "DBSubnetGroupName"        =? _cdbsg1DBSubnetGroupName
+        , "SubnetIds"                =? _cdbsg1SubnetIds
+        , "Tags"                     =? _cdbsg1Tags
+        ]
 
 instance ToHeaders CreateDBSubnetGroup
 
@@ -131,5 +138,5 @@ instance AWSRequest CreateDBSubnetGroup where
     response = xmlResponse
 
 instance FromXML CreateDBSubnetGroupResponse where
-    parseXML = withElement "CreateDBSubnetGroupResult" $ \x ->
-            <$> x .@? "DBSubnetGroup"
+    parseXML = withElement "CreateDBSubnetGroupResult" $ \x -> CreateDBSubnetGroupResponse
+        <$> x .@? "DBSubnetGroup"

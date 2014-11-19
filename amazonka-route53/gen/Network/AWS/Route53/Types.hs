@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -209,7 +210,7 @@ data AliasTarget = AliasTarget
     { _atDNSName              :: Text
     , _atEvaluateTargetHealth :: Bool
     , _atHostedZoneId         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AliasTarget' constructor.
 --
@@ -254,9 +255,9 @@ atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
 
 instance FromXML AliasTarget where
     parseXML x = AliasTarget
-            <$> x .@ "DNSName"
-            <*> x .@ "EvaluateTargetHealth"
-            <*> x .@ "HostedZoneId"
+        <$> x .@  "DNSName"
+        <*> x .@  "EvaluateTargetHealth"
+        <*> x .@  "HostedZoneId"
 
 instance ToXML AliasTarget where
     toXML AliasTarget{..} = nodes "AliasTarget"
@@ -267,7 +268,7 @@ instance ToXML AliasTarget where
 
 newtype ResourceRecord = ResourceRecord
     { _rrValue :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ResourceRecord' constructor.
 --
@@ -287,7 +288,7 @@ rrValue = lens _rrValue (\s a -> s { _rrValue = a })
 
 instance FromXML ResourceRecord where
     parseXML x = ResourceRecord
-            <$> x .@ "Value"
+        <$> x .@  "Value"
 
 instance ToXML ResourceRecord where
     toXML ResourceRecord{..} = nodes "ResourceRecord"
@@ -297,7 +298,7 @@ instance ToXML ResourceRecord where
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Tag' constructor.
 --
@@ -323,8 +324,8 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-            <$> x .@? "Key"
-            <*> x .@? "Value"
+        <$> x .@? "Key"
+        <*> x .@? "Value"
 
 instance ToXML Tag where
     toXML Tag{..} = nodes "Tag"
@@ -339,7 +340,7 @@ data GeoLocationDetails = GeoLocationDetails
     , _gldCountryName     :: Maybe Text
     , _gldSubdivisionCode :: Maybe Text
     , _gldSubdivisionName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GeoLocationDetails' constructor.
 --
@@ -403,12 +404,12 @@ gldSubdivisionName =
 
 instance FromXML GeoLocationDetails where
     parseXML x = GeoLocationDetails
-            <$> x .@? "ContinentCode"
-            <*> x .@? "ContinentName"
-            <*> x .@? "CountryCode"
-            <*> x .@? "CountryName"
-            <*> x .@? "SubdivisionCode"
-            <*> x .@? "SubdivisionName"
+        <$> x .@? "ContinentCode"
+        <*> x .@? "ContinentName"
+        <*> x .@? "CountryCode"
+        <*> x .@? "CountryName"
+        <*> x .@? "SubdivisionCode"
+        <*> x .@? "SubdivisionName"
 
 instance ToXML GeoLocationDetails where
     toXML GeoLocationDetails{..} = nodes "GeoLocationDetails"
@@ -425,7 +426,7 @@ data HealthCheck = HealthCheck
     , _hcHealthCheckConfig  :: HealthCheckConfig
     , _hcHealthCheckVersion :: Nat
     , _hcId                 :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'HealthCheck' constructor.
 --
@@ -475,10 +476,10 @@ hcId = lens _hcId (\s a -> s { _hcId = a })
 
 instance FromXML HealthCheck where
     parseXML x = HealthCheck
-            <$> x .@ "CallerReference"
-            <*> x .@ "HealthCheckConfig"
-            <*> x .@ "HealthCheckVersion"
-            <*> x .@ "Id"
+        <$> x .@  "CallerReference"
+        <*> x .@  "HealthCheckConfig"
+        <*> x .@  "HealthCheckVersion"
+        <*> x .@  "Id"
 
 instance ToXML HealthCheck where
     toXML HealthCheck{..} = nodes "HealthCheck"
@@ -586,7 +587,7 @@ data HealthCheckConfig = HealthCheckConfig
     , _hccResourcePath             :: Maybe Text
     , _hccSearchString             :: Maybe Text
     , _hccType                     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'HealthCheckConfig' constructor.
 --
@@ -646,8 +647,7 @@ hccIPAddress = lens _hccIPAddress (\s a -> s { _hccIPAddress = a })
 -- specified. For HTTPS and HTTPS_STR_MATCH this defaults to 443 if the port
 -- is not specified.
 hccPort :: Lens' HealthCheckConfig (Maybe Natural)
-hccPort = lens _hccPort (\s a -> s { _hccPort = a })
-    . mapping _Nat
+hccPort = lens _hccPort (\s a -> s { _hccPort = a }) . mapping _Nat
 
 -- | The number of seconds between the time that Route 53 gets a response from
 -- your endpoint and the time that it sends the next health-check request.
@@ -676,14 +676,14 @@ hccType = lens _hccType (\s a -> s { _hccType = a })
 
 instance FromXML HealthCheckConfig where
     parseXML x = HealthCheckConfig
-            <$> x .@? "FailureThreshold"
-            <*> x .@? "FullyQualifiedDomainName"
-            <*> x .@? "IPAddress"
-            <*> x .@? "Port"
-            <*> x .@? "RequestInterval"
-            <*> x .@? "ResourcePath"
-            <*> x .@? "SearchString"
-            <*> x .@ "Type"
+        <$> x .@? "FailureThreshold"
+        <*> x .@? "FullyQualifiedDomainName"
+        <*> x .@? "IPAddress"
+        <*> x .@? "Port"
+        <*> x .@? "RequestInterval"
+        <*> x .@? "ResourcePath"
+        <*> x .@? "SearchString"
+        <*> x .@  "Type"
 
 instance ToXML HealthCheckConfig where
     toXML HealthCheckConfig{..} = nodes "HealthCheckConfig"
@@ -700,7 +700,7 @@ instance ToXML HealthCheckConfig where
 data Change = Change
     { _cAction            :: Text
     , _cResourceRecordSet :: ResourceRecordSet
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Change' constructor.
 --
@@ -729,8 +729,8 @@ cResourceRecordSet =
 
 instance FromXML Change where
     parseXML x = Change
-            <$> x .@ "Action"
-            <*> x .@ "ResourceRecordSet"
+        <$> x .@  "Action"
+        <*> x .@  "ResourceRecordSet"
 
 instance ToXML Change where
     toXML Change{..} = nodes "Change"
@@ -766,7 +766,7 @@ data HostedZone = HostedZone
     , _hzId                     :: Text
     , _hzName                   :: Text
     , _hzResourceRecordSetCount :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'HostedZone' constructor.
 --
@@ -826,11 +826,11 @@ hzResourceRecordSetCount =
 
 instance FromXML HostedZone where
     parseXML x = HostedZone
-            <$> x .@ "CallerReference"
-            <*> x .@? "Config"
-            <*> x .@ "Id"
-            <*> x .@ "Name"
-            <*> x .@? "ResourceRecordSetCount"
+        <$> x .@  "CallerReference"
+        <*> x .@? "Config"
+        <*> x .@  "Id"
+        <*> x .@  "Name"
+        <*> x .@? "ResourceRecordSetCount"
 
 instance ToXML HostedZone where
     toXML HostedZone{..} = nodes "HostedZone"
@@ -844,8 +844,8 @@ instance ToXML HostedZone where
 data ResourceTagSet = ResourceTagSet
     { _rtsResourceId   :: Maybe Text
     , _rtsResourceType :: Maybe Text
-    , _rtsTags         :: List1 Tag
-    } deriving (Eq, Show, Generic)
+    , _rtsTags         :: List1 "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'ResourceTagSet' constructor.
 --
@@ -860,7 +860,7 @@ data ResourceTagSet = ResourceTagSet
 resourceTagSet :: NonEmpty Tag -- ^ 'rtsTags'
                -> ResourceTagSet
 resourceTagSet p1 = ResourceTagSet
-    { _rtsTags         = p1
+    { _rtsTags         = withIso _List1 (const id) p1
     , _rtsResourceType = Nothing
     , _rtsResourceId   = Nothing
     }
@@ -876,13 +876,13 @@ rtsResourceType = lens _rtsResourceType (\s a -> s { _rtsResourceType = a })
 
 -- | The tags associated with the specified resource.
 rtsTags :: Lens' ResourceTagSet (NonEmpty Tag)
-rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
+rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a }) . _List1
 
 instance FromXML ResourceTagSet where
     parseXML x = ResourceTagSet
-            <$> x .@? "ResourceId"
-            <*> x .@? "ResourceType"
-            <*> x .@ "Tags"
+        <$> x .@? "ResourceId"
+        <*> x .@? "ResourceType"
+        <*> x .@  "Tags"
 
 instance ToXML ResourceTagSet where
     toXML ResourceTagSet{..} = nodes "ResourceTagSet"
@@ -914,9 +914,9 @@ instance ToXML ChangeStatus where
     toXML = toXMLText
 
 data ChangeBatch = ChangeBatch
-    { _cbChanges :: List1 Change
+    { _cbChanges :: List1 "Change" Change
     , _cbComment :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ChangeBatch' constructor.
 --
@@ -929,14 +929,14 @@ data ChangeBatch = ChangeBatch
 changeBatch :: NonEmpty Change -- ^ 'cbChanges'
             -> ChangeBatch
 changeBatch p1 = ChangeBatch
-    { _cbChanges = p1
+    { _cbChanges = withIso _List1 (const id) p1
     , _cbComment = Nothing
     }
 
 -- | A complex type that contains one Change element for each resource record
 -- set that you want to create or delete.
 cbChanges :: Lens' ChangeBatch (NonEmpty Change)
-cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a })
+cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a }) . _List1
 
 -- | Optional: Any comments you want to include about a change batch request.
 cbComment :: Lens' ChangeBatch (Maybe Text)
@@ -944,8 +944,8 @@ cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 
 instance FromXML ChangeBatch where
     parseXML x = ChangeBatch
-            <$> x .@ "Changes"
-            <*> x .@? "Comment"
+        <$> x .@  "Changes"
+        <*> x .@? "Comment"
 
 instance ToXML ChangeBatch where
     toXML ChangeBatch{..} = nodes "ChangeBatch"
@@ -956,7 +956,7 @@ instance ToXML ChangeBatch where
 data StatusReport = StatusReport
     { _srCheckedTime :: Maybe RFC822
     , _srStatus      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StatusReport' constructor.
 --
@@ -978,8 +978,7 @@ statusReport = StatusReport
 -- listed in Coordinated Universal Time (UTC), which is synonymous with
 -- Greenwich Mean Time in this context.
 srCheckedTime :: Lens' StatusReport (Maybe UTCTime)
-srCheckedTime = lens _srCheckedTime (\s a -> s { _srCheckedTime = a })
-    . mapping _Time
+srCheckedTime = lens _srCheckedTime (\s a -> s { _srCheckedTime = a }) . mapping _Time
 
 -- | The observed health check status.
 srStatus :: Lens' StatusReport (Maybe Text)
@@ -987,8 +986,8 @@ srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 
 instance FromXML StatusReport where
     parseXML x = StatusReport
-            <$> x .@? "CheckedTime"
-            <*> x .@? "Status"
+        <$> x .@? "CheckedTime"
+        <*> x .@? "Status"
 
 instance ToXML StatusReport where
     toXML StatusReport{..} = nodes "StatusReport"
@@ -1030,7 +1029,7 @@ instance ToXML HealthCheckType where
 data VPC = VPC
     { _vpcVPCId     :: Maybe Text
     , _vpcVPCRegion :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'VPC' constructor.
 --
@@ -1054,8 +1053,8 @@ vpcVPCRegion = lens _vpcVPCRegion (\s a -> s { _vpcVPCRegion = a })
 
 instance FromXML VPC where
     parseXML x = VPC
-            <$> x .@? "VPCId"
-            <*> x .@? "VPCRegion"
+        <$> x .@? "VPCId"
+        <*> x .@? "VPCRegion"
 
 instance ToXMLRoot VPC where
     toXMLRoot VPC{..} = element "VPC"
@@ -1068,7 +1067,7 @@ instance ToXML VPC
 data HostedZoneConfig = HostedZoneConfig
     { _hzcComment     :: Maybe Text
     , _hzcPrivateZone :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'HostedZoneConfig' constructor.
 --
@@ -1095,8 +1094,8 @@ hzcPrivateZone = lens _hzcPrivateZone (\s a -> s { _hzcPrivateZone = a })
 
 instance FromXML HostedZoneConfig where
     parseXML x = HostedZoneConfig
-            <$> x .@? "Comment"
-            <*> x .@? "PrivateZone"
+        <$> x .@? "Comment"
+        <*> x .@? "PrivateZone"
 
 instance ToXML HostedZoneConfig where
     toXML HostedZoneConfig{..} = nodes "HostedZoneConfig"
@@ -1111,12 +1110,12 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsHealthCheckId   :: Maybe Text
     , _rrsName            :: Text
     , _rrsRegion          :: Maybe Text
-    , _rrsResourceRecords :: List1 ResourceRecord
+    , _rrsResourceRecords :: List1 "ResourceRecord" ResourceRecord
     , _rrsSetIdentifier   :: Maybe Text
     , _rrsTTL             :: Maybe Nat
     , _rrsType            :: Text
     , _rrsWeight          :: Maybe Nat
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ResourceRecordSet' constructor.
 --
@@ -1151,7 +1150,7 @@ resourceRecordSet :: Text -- ^ 'rrsName'
 resourceRecordSet p1 p2 p3 = ResourceRecordSet
     { _rrsName            = p1
     , _rrsType            = p2
-    , _rrsResourceRecords = p3
+    , _rrsResourceRecords = withIso _List1 (const id) p3
     , _rrsSetIdentifier   = Nothing
     , _rrsWeight          = Nothing
     , _rrsRegion          = Nothing
@@ -1212,6 +1211,7 @@ rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
 rrsResourceRecords :: Lens' ResourceRecordSet (NonEmpty ResourceRecord)
 rrsResourceRecords =
     lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
+        . _List1
 
 -- | Weighted, Latency, Geo, and Failover resource record sets only: An
 -- identifier that differentiates among multiple resource record sets that
@@ -1221,8 +1221,7 @@ rrsSetIdentifier = lens _rrsSetIdentifier (\s a -> s { _rrsSetIdentifier = a })
 
 -- | The cache time to live for the current resource record set.
 rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
-rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a })
-    . mapping _Nat
+rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a }) . mapping _Nat
 
 -- | The type of the current resource record set.
 rrsType :: Lens' ResourceRecordSet Text
@@ -1233,22 +1232,21 @@ rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 -- portion of traffic for the current resource record set is routed to the
 -- associated location.
 rrsWeight :: Lens' ResourceRecordSet (Maybe Natural)
-rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
-    . mapping _Nat
+rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a }) . mapping _Nat
 
 instance FromXML ResourceRecordSet where
     parseXML x = ResourceRecordSet
-            <$> x .@? "AliasTarget"
-            <*> x .@? "Failover"
-            <*> x .@? "GeoLocation"
-            <*> x .@? "HealthCheckId"
-            <*> x .@ "Name"
-            <*> x .@? "Region"
-            <*> x .@ "ResourceRecords"
-            <*> x .@? "SetIdentifier"
-            <*> x .@? "TTL"
-            <*> x .@ "Type"
-            <*> x .@? "Weight"
+        <$> x .@? "AliasTarget"
+        <*> x .@? "Failover"
+        <*> x .@? "GeoLocation"
+        <*> x .@? "HealthCheckId"
+        <*> x .@  "Name"
+        <*> x .@? "Region"
+        <*> x .@  "ResourceRecords"
+        <*> x .@? "SetIdentifier"
+        <*> x .@? "TTL"
+        <*> x .@  "Type"
+        <*> x .@? "Weight"
 
 instance ToXML ResourceRecordSet where
     toXML ResourceRecordSet{..} = nodes "ResourceRecordSet"
@@ -1268,8 +1266,8 @@ instance ToXML ResourceRecordSet where
 data DelegationSet = DelegationSet
     { _dsCallerReference :: Maybe Text
     , _dsId              :: Maybe Text
-    , _dsNameServers     :: List1 Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _dsNameServers     :: List1 "NameServer" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DelegationSet' constructor.
 --
@@ -1284,7 +1282,7 @@ data DelegationSet = DelegationSet
 delegationSet :: NonEmpty Text -- ^ 'dsNameServers'
               -> DelegationSet
 delegationSet p1 = DelegationSet
-    { _dsNameServers     = p1
+    { _dsNameServers     = withIso _List1 (const id) p1
     , _dsId              = Nothing
     , _dsCallerReference = Nothing
     }
@@ -1301,13 +1299,13 @@ dsId = lens _dsId (\s a -> s { _dsId = a })
 -- NS record to your domain for each NameServer that is assigned to your
 -- hosted zone.
 dsNameServers :: Lens' DelegationSet (NonEmpty Text)
-dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
+dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a }) . _List1
 
 instance FromXML DelegationSet where
     parseXML x = DelegationSet
-            <$> x .@? "CallerReference"
-            <*> x .@? "Id"
-            <*> x .@ "NameServers"
+        <$> x .@? "CallerReference"
+        <*> x .@? "Id"
+        <*> x .@  "NameServers"
 
 instance ToXMLRoot DelegationSet where
     toXMLRoot DelegationSet{..} = element "DelegationSet"
@@ -1323,7 +1321,7 @@ data ChangeInfo = ChangeInfo
     , _ciId          :: Text
     , _ciStatus      :: Text
     , _ciSubmittedAt :: RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ChangeInfo' constructor.
 --
@@ -1372,15 +1370,14 @@ ciStatus = lens _ciStatus (\s a -> s { _ciStatus = a })
 -- listed in Coordinated Universal Time (UTC), which is synonymous with
 -- Greenwich Mean Time in this context.
 ciSubmittedAt :: Lens' ChangeInfo UTCTime
-ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a })
-    . _Time
+ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a }) . _Time
 
 instance FromXML ChangeInfo where
     parseXML x = ChangeInfo
-            <$> x .@? "Comment"
-            <*> x .@ "Id"
-            <*> x .@ "Status"
-            <*> x .@ "SubmittedAt"
+        <$> x .@? "Comment"
+        <*> x .@  "Id"
+        <*> x .@  "Status"
+        <*> x .@  "SubmittedAt"
 
 instance ToXML ChangeInfo where
     toXML ChangeInfo{..} = nodes "ChangeInfo"
@@ -1394,7 +1391,7 @@ data GeoLocation = GeoLocation
     { _glContinentCode   :: Maybe Text
     , _glCountryCode     :: Maybe Text
     , _glSubdivisionCode :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GeoLocation' constructor.
 --
@@ -1437,9 +1434,9 @@ glSubdivisionCode =
 
 instance FromXML GeoLocation where
     parseXML x = GeoLocation
-            <$> x .@? "ContinentCode"
-            <*> x .@? "CountryCode"
-            <*> x .@? "SubdivisionCode"
+        <$> x .@? "ContinentCode"
+        <*> x .@? "CountryCode"
+        <*> x .@? "SubdivisionCode"
 
 instance ToXML GeoLocation where
     toXML GeoLocation{..} = nodes "GeoLocation"
@@ -1451,7 +1448,7 @@ instance ToXML GeoLocation where
 data HealthCheckObservation = HealthCheckObservation
     { _hcoIPAddress    :: Maybe Text
     , _hcoStatusReport :: Maybe StatusReport
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'HealthCheckObservation' constructor.
 --
@@ -1479,8 +1476,8 @@ hcoStatusReport = lens _hcoStatusReport (\s a -> s { _hcoStatusReport = a })
 
 instance FromXML HealthCheckObservation where
     parseXML x = HealthCheckObservation
-            <$> x .@? "IPAddress"
-            <*> x .@? "StatusReport"
+        <$> x .@? "IPAddress"
+        <*> x .@? "StatusReport"
 
 instance ToXMLRoot HealthCheckObservation where
     toXMLRoot HealthCheckObservation{..} = element "HealthCheckObservation"

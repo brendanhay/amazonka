@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetLoginProfile = GetLoginProfile
     { _glpUserName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetLoginProfile' constructor.
 --
@@ -68,7 +69,7 @@ glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
 
 newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glprLoginProfile :: LoginProfile
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetLoginProfileResponse' constructor.
 --
@@ -89,7 +90,10 @@ glprLoginProfile = lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
 instance ToPath GetLoginProfile where
     toPath = const "/"
 
-instance ToQuery GetLoginProfile
+instance ToQuery GetLoginProfile where
+    toQuery GetLoginProfile{..} = mconcat
+        [ "UserName" =? _glpUserName
+        ]
 
 instance ToHeaders GetLoginProfile
 
@@ -101,5 +105,5 @@ instance AWSRequest GetLoginProfile where
     response = xmlResponse
 
 instance FromXML GetLoginProfileResponse where
-    parseXML = withElement "GetLoginProfileResult" $ \x ->
-            <$> x .@ "LoginProfile"
+    parseXML = withElement "GetLoginProfileResult" $ \x -> GetLoginProfileResponse
+        <$> x .@  "LoginProfile"

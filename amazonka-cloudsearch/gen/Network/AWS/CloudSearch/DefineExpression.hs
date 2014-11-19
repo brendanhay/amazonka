@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data DefineExpression = DefineExpression
     { _de1DomainName :: Text
     , _de1Expression :: Expression
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DefineExpression' constructor.
 --
@@ -77,7 +78,7 @@ de1Expression = lens _de1Expression (\s a -> s { _de1Expression = a })
 
 newtype DefineExpressionResponse = DefineExpressionResponse
     { _derExpression :: ExpressionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DefineExpressionResponse' constructor.
 --
@@ -97,7 +98,11 @@ derExpression = lens _derExpression (\s a -> s { _derExpression = a })
 instance ToPath DefineExpression where
     toPath = const "/"
 
-instance ToQuery DefineExpression
+instance ToQuery DefineExpression where
+    toQuery DefineExpression{..} = mconcat
+        [ "DomainName" =? _de1DomainName
+        , "Expression" =? _de1Expression
+        ]
 
 instance ToHeaders DefineExpression
 
@@ -109,5 +114,5 @@ instance AWSRequest DefineExpression where
     response = xmlResponse
 
 instance FromXML DefineExpressionResponse where
-    parseXML = withElement "DefineExpressionResult" $ \x ->
-            <$> x .@ "Expression"
+    parseXML = withElement "DefineExpressionResult" $ \x -> DefineExpressionResponse
+        <$> x .@  "Expression"

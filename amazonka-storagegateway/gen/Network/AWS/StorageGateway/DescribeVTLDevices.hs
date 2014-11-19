@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,8 +56,8 @@ data DescribeVTLDevices = DescribeVTLDevices
     { _dvtldGatewayARN    :: Text
     , _dvtldLimit         :: Maybe Nat
     , _dvtldMarker        :: Maybe Text
-    , _dvtldVTLDeviceARNs :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dvtldVTLDeviceARNs :: List "VTLDeviceARNs" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeVTLDevices' constructor.
 --
@@ -85,8 +86,7 @@ dvtldGatewayARN = lens _dvtldGatewayARN (\s a -> s { _dvtldGatewayARN = a })
 -- | Specifies that the number of VTL devices described be limited to the
 -- specified number.
 dvtldLimit :: Lens' DescribeVTLDevices (Maybe Natural)
-dvtldLimit = lens _dvtldLimit (\s a -> s { _dvtldLimit = a })
-    . mapping _Nat
+dvtldLimit = lens _dvtldLimit (\s a -> s { _dvtldLimit = a }) . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin describing
 -- the VTL devices.
@@ -98,12 +98,13 @@ dvtldMarker = lens _dvtldMarker (\s a -> s { _dvtldMarker = a })
 dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
 dvtldVTLDeviceARNs =
     lens _dvtldVTLDeviceARNs (\s a -> s { _dvtldVTLDeviceARNs = a })
+        . _List
 
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
     { _dvtldrGatewayARN :: Maybe Text
     , _dvtldrMarker     :: Maybe Text
-    , _dvtldrVTLDevices :: [VTLDevice]
-    } deriving (Eq, Show, Generic)
+    , _dvtldrVTLDevices :: List "VTLDevices" VTLDevice
+    } deriving (Eq, Show)
 
 -- | 'DescribeVTLDevicesResponse' constructor.
 --
@@ -135,7 +136,7 @@ dvtldrMarker = lens _dvtldrMarker (\s a -> s { _dvtldrMarker = a })
 -- | An array of VTL device objects composed of the Amazon Resource Name(ARN)
 -- of the VTL devices.
 dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
-dvtldrVTLDevices = lens _dvtldrVTLDevices (\s a -> s { _dvtldrVTLDevices = a })
+dvtldrVTLDevices = lens _dvtldrVTLDevices (\s a -> s { _dvtldrVTLDevices = a }) . _List
 
 instance ToPath DescribeVTLDevices where
     toPath = const "/"
@@ -164,7 +165,7 @@ instance FromJSON DescribeVTLDevicesResponse where
     parseJSON = withObject "DescribeVTLDevicesResponse" $ \o -> DescribeVTLDevicesResponse
         <$> o .:? "GatewayARN"
         <*> o .:? "Marker"
-        <*> o .: "VTLDevices"
+        <*> o .:  "VTLDevices"
 
 instance AWSPager DescribeVTLDevices where
     next rq rs = (\x -> rq & dvtldMarker ?~ x)

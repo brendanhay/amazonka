@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -95,7 +96,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
     , _arwsamlPrincipalArn    :: Text
     , _arwsamlRoleArn         :: Text
     , _arwsamlSAMLAssertion   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AssumeRoleWithSAML' constructor.
 --
@@ -172,7 +173,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     , _arwsamlrPackedPolicySize :: Maybe Nat
     , _arwsamlrSubject          :: Maybe Text
     , _arwsamlrSubjectType      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AssumeRoleWithSAMLResponse' constructor.
 --
@@ -261,7 +262,14 @@ arwsamlrSubjectType =
 instance ToPath AssumeRoleWithSAML where
     toPath = const "/"
 
-instance ToQuery AssumeRoleWithSAML
+instance ToQuery AssumeRoleWithSAML where
+    toQuery AssumeRoleWithSAML{..} = mconcat
+        [ "DurationSeconds" =? _arwsamlDurationSeconds
+        , "Policy"          =? _arwsamlPolicy
+        , "PrincipalArn"    =? _arwsamlPrincipalArn
+        , "RoleArn"         =? _arwsamlRoleArn
+        , "SAMLAssertion"   =? _arwsamlSAMLAssertion
+        ]
 
 instance ToHeaders AssumeRoleWithSAML
 
@@ -273,12 +281,12 @@ instance AWSRequest AssumeRoleWithSAML where
     response = xmlResponse
 
 instance FromXML AssumeRoleWithSAMLResponse where
-    parseXML = withElement "AssumeRoleWithSAMLResult" $ \x ->
-            <$> x .@? "AssumedRoleUser"
-            <*> x .@? "Audience"
-            <*> x .@? "Credentials"
-            <*> x .@? "Issuer"
-            <*> x .@? "NameQualifier"
-            <*> x .@? "PackedPolicySize"
-            <*> x .@? "Subject"
-            <*> x .@? "SubjectType"
+    parseXML = withElement "AssumeRoleWithSAMLResult" $ \x -> AssumeRoleWithSAMLResponse
+        <$> x .@? "AssumedRoleUser"
+        <*> x .@? "Audience"
+        <*> x .@? "Credentials"
+        <*> x .@? "Issuer"
+        <*> x .@? "NameQualifier"
+        <*> x .@? "PackedPolicySize"
+        <*> x .@? "Subject"
+        <*> x .@? "SubjectType"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -63,22 +64,22 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data CreateLayer = CreateLayer
-    { _clAttributes               :: Map Text Text
+    { _clAttributes               :: Map "entry" "key" "value" Text Text
     , _clAutoAssignElasticIps     :: Maybe Bool
     , _clAutoAssignPublicIps      :: Maybe Bool
     , _clCustomInstanceProfileArn :: Maybe Text
     , _clCustomRecipes            :: Maybe Recipes
-    , _clCustomSecurityGroupIds   :: [Text]
+    , _clCustomSecurityGroupIds   :: List "InstanceIds" Text
     , _clEnableAutoHealing        :: Maybe Bool
     , _clInstallUpdatesOnBoot     :: Maybe Bool
     , _clName                     :: Text
-    , _clPackages                 :: [Text]
+    , _clPackages                 :: List "InstanceIds" Text
     , _clShortname                :: Text
     , _clStackId                  :: Text
     , _clType                     :: Text
     , _clUseEbsOptimizedInstances :: Maybe Bool
-    , _clVolumeConfigurations     :: [VolumeConfiguration]
-    } deriving (Eq, Show, Generic)
+    , _clVolumeConfigurations     :: List "VolumeConfigurations" VolumeConfiguration
+    } deriving (Eq, Show)
 
 -- | 'CreateLayer' constructor.
 --
@@ -140,8 +141,7 @@ createLayer p1 p2 p3 p4 = CreateLayer
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 clAttributes :: Lens' CreateLayer (HashMap Text Text)
-clAttributes = lens _clAttributes (\s a -> s { _clAttributes = a })
-    . _Map
+clAttributes = lens _clAttributes (\s a -> s { _clAttributes = a }) . _Map
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
@@ -172,6 +172,7 @@ clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
 clCustomSecurityGroupIds =
     lens _clCustomSecurityGroupIds
         (\s a -> s { _clCustomSecurityGroupIds = a })
+            . _List
 
 -- | Whether to disable auto healing for the layer.
 clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
@@ -193,7 +194,7 @@ clName = lens _clName (\s a -> s { _clName = a })
 
 -- | An array of Package objects that describe the layer packages.
 clPackages :: Lens' CreateLayer [Text]
-clPackages = lens _clPackages (\s a -> s { _clPackages = a })
+clPackages = lens _clPackages (\s a -> s { _clPackages = a }) . _List
 
 -- | The layer short name, which is used internally by AWS OpsWorks and by
 -- Chef recipes. The short name is also used as the name for the directory
@@ -228,10 +229,11 @@ clUseEbsOptimizedInstances =
 clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
 clVolumeConfigurations =
     lens _clVolumeConfigurations (\s a -> s { _clVolumeConfigurations = a })
+        . _List
 
 newtype CreateLayerResponse = CreateLayerResponse
     { _clrLayerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateLayerResponse' constructor.
 --

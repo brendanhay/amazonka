@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 data DeleteClusterSnapshot = DeleteClusterSnapshot
     { _dcsSnapshotClusterIdentifier :: Maybe Text
     , _dcsSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteClusterSnapshot' constructor.
 --
@@ -88,7 +89,7 @@ dcsSnapshotIdentifier =
 
 newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
     { _dcsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteClusterSnapshotResponse' constructor.
 --
@@ -107,7 +108,11 @@ dcsrSnapshot = lens _dcsrSnapshot (\s a -> s { _dcsrSnapshot = a })
 instance ToPath DeleteClusterSnapshot where
     toPath = const "/"
 
-instance ToQuery DeleteClusterSnapshot
+instance ToQuery DeleteClusterSnapshot where
+    toQuery DeleteClusterSnapshot{..} = mconcat
+        [ "SnapshotClusterIdentifier" =? _dcsSnapshotClusterIdentifier
+        , "SnapshotIdentifier"        =? _dcsSnapshotIdentifier
+        ]
 
 instance ToHeaders DeleteClusterSnapshot
 
@@ -119,5 +124,5 @@ instance AWSRequest DeleteClusterSnapshot where
     response = xmlResponse
 
 instance FromXML DeleteClusterSnapshotResponse where
-    parseXML = withElement "DeleteClusterSnapshotResult" $ \x ->
-            <$> x .@? "Snapshot"
+    parseXML = withElement "DeleteClusterSnapshotResult" $ \x -> DeleteClusterSnapshotResponse
+        <$> x .@? "Snapshot"

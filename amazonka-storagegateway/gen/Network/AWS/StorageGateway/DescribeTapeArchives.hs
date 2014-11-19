@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,8 +54,8 @@ import qualified GHC.Exts
 data DescribeTapeArchives = DescribeTapeArchives
     { _dtaLimit    :: Maybe Nat
     , _dtaMarker   :: Maybe Text
-    , _dtaTapeARNs :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dtaTapeARNs :: List "TapeARNs" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeTapeArchives' constructor.
 --
@@ -76,8 +77,7 @@ describeTapeArchives = DescribeTapeArchives
 -- | Specifies that the number of virtual tapes descried be limited to the
 -- specified number.
 dtaLimit :: Lens' DescribeTapeArchives (Maybe Natural)
-dtaLimit = lens _dtaLimit (\s a -> s { _dtaLimit = a })
-    . mapping _Nat
+dtaLimit = lens _dtaLimit (\s a -> s { _dtaLimit = a }) . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin describing
 -- virtual tapes.
@@ -87,12 +87,12 @@ dtaMarker = lens _dtaMarker (\s a -> s { _dtaMarker = a })
 -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
 -- the virtual tapes you want to describe.
 dtaTapeARNs :: Lens' DescribeTapeArchives [Text]
-dtaTapeARNs = lens _dtaTapeARNs (\s a -> s { _dtaTapeARNs = a })
+dtaTapeARNs = lens _dtaTapeARNs (\s a -> s { _dtaTapeARNs = a }) . _List
 
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
     { _dtarMarker       :: Maybe Text
-    , _dtarTapeArchives :: [TapeArchive]
-    } deriving (Eq, Show, Generic)
+    , _dtarTapeArchives :: List "TapeArchives" TapeArchive
+    } deriving (Eq, Show)
 
 -- | 'DescribeTapeArchivesResponse' constructor.
 --
@@ -122,7 +122,7 @@ dtarMarker = lens _dtarMarker (\s a -> s { _dtarMarker = a })
 -- of the tapes, size of the tapes, status of the tapes, progress of the
 -- description and tape barcode.
 dtarTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
-dtarTapeArchives = lens _dtarTapeArchives (\s a -> s { _dtarTapeArchives = a })
+dtarTapeArchives = lens _dtarTapeArchives (\s a -> s { _dtarTapeArchives = a }) . _List
 
 instance ToPath DescribeTapeArchives where
     toPath = const "/"
@@ -149,7 +149,7 @@ instance AWSRequest DescribeTapeArchives where
 instance FromJSON DescribeTapeArchivesResponse where
     parseJSON = withObject "DescribeTapeArchivesResponse" $ \o -> DescribeTapeArchivesResponse
         <$> o .:? "Marker"
-        <*> o .: "TapeArchives"
+        <*> o .:  "TapeArchives"
 
 instance AWSPager DescribeTapeArchives where
     next rq rs = (\x -> rq & dtaMarker ?~ x)

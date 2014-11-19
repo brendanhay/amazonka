@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data CreateStack = CreateStack
-    { _csAttributes                :: Map Text Text
+    { _csAttributes                :: Map "entry" "key" "value" Text Text
     , _csChefConfiguration         :: Maybe ChefConfiguration
     , _csConfigurationManager      :: Maybe StackConfigurationManager
     , _csCustomCookbooksSource     :: Maybe Source
@@ -83,7 +84,7 @@ data CreateStack = CreateStack
     , _csUseCustomCookbooks        :: Maybe Bool
     , _csUseOpsworksSecurityGroups :: Maybe Bool
     , _csVpcId                     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateStack' constructor.
 --
@@ -154,8 +155,7 @@ createStack p1 p2 p3 p4 = CreateStack
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 csAttributes :: Lens' CreateStack (HashMap Text Text)
-csAttributes = lens _csAttributes (\s a -> s { _csAttributes = a })
-    . _Map
+csAttributes = lens _csAttributes (\s a -> s { _csAttributes = a }) . _Map
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
@@ -303,7 +303,7 @@ csVpcId = lens _csVpcId (\s a -> s { _csVpcId = a })
 
 newtype CreateStackResponse = CreateStackResponse
     { _csr1StackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateStackResponse' constructor.
 --

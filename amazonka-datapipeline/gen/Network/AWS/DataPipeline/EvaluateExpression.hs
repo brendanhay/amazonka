@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data EvaluateExpression = EvaluateExpression
     { _eeExpression :: Text
     , _eeObjectId   :: Text
     , _eePipelineId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EvaluateExpression' constructor.
 --
@@ -87,7 +88,7 @@ eePipelineId = lens _eePipelineId (\s a -> s { _eePipelineId = a })
 
 newtype EvaluateExpressionResponse = EvaluateExpressionResponse
     { _eerEvaluatedExpression :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'EvaluateExpressionResponse' constructor.
 --
@@ -130,4 +131,4 @@ instance AWSRequest EvaluateExpression where
 
 instance FromJSON EvaluateExpressionResponse where
     parseJSON = withObject "EvaluateExpressionResponse" $ \o -> EvaluateExpressionResponse
-        <$> o .: "evaluatedExpression"
+        <$> o .:  "evaluatedExpression"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import qualified GHC.Exts
 
 data AddTagsToResource = AddTagsToResource
     { _attrResourceName :: Text
-    , _attrTags         :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _attrTags         :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'AddTagsToResource' constructor.
 --
@@ -75,7 +76,7 @@ attrResourceName = lens _attrResourceName (\s a -> s { _attrResourceName = a })
 
 -- | The tags to be assigned to the Amazon RDS resource.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\s a -> s { _attrTags = a })
+attrTags = lens _attrTags (\s a -> s { _attrTags = a }) . _List
 
 data AddTagsToResourceResponse = AddTagsToResourceResponse
     deriving (Eq, Ord, Show, Generic)
@@ -87,7 +88,11 @@ addTagsToResourceResponse = AddTagsToResourceResponse
 instance ToPath AddTagsToResource where
     toPath = const "/"
 
-instance ToQuery AddTagsToResource
+instance ToQuery AddTagsToResource where
+    toQuery AddTagsToResource{..} = mconcat
+        [ "ResourceName" =? _attrResourceName
+        , "Tags"         =? _attrTags
+        ]
 
 instance ToHeaders AddTagsToResource
 

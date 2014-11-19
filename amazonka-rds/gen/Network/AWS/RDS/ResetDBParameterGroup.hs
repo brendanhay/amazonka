@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,9 +55,9 @@ import qualified GHC.Exts
 
 data ResetDBParameterGroup = ResetDBParameterGroup
     { _rdbpgDBParameterGroupName :: Text
-    , _rdbpgParameters           :: [Parameter]
+    , _rdbpgParameters           :: List "Parameter" Parameter
     , _rdbpgResetAllParameters   :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ResetDBParameterGroup' constructor.
 --
@@ -93,7 +94,7 @@ rdbpgDBParameterGroupName =
 -- both dynamic and static parameters, and changes are applied when DB
 -- instance reboots. Oracle Valid Values (for Apply method): pending-reboot.
 rdbpgParameters :: Lens' ResetDBParameterGroup [Parameter]
-rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a })
+rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a }) . _List
 
 -- | Specifies whether (true) or not (false) to reset all parameters in the DB
 -- parameter group to default values. Default: true.
@@ -103,7 +104,7 @@ rdbpgResetAllParameters =
 
 newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
     { _rdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ResetDBParameterGroupResponse' constructor.
 --
@@ -125,7 +126,12 @@ rdbpgrDBParameterGroupName =
 instance ToPath ResetDBParameterGroup where
     toPath = const "/"
 
-instance ToQuery ResetDBParameterGroup
+instance ToQuery ResetDBParameterGroup where
+    toQuery ResetDBParameterGroup{..} = mconcat
+        [ "DBParameterGroupName" =? _rdbpgDBParameterGroupName
+        , "Parameters"           =? _rdbpgParameters
+        , "ResetAllParameters"   =? _rdbpgResetAllParameters
+        ]
 
 instance ToHeaders ResetDBParameterGroup
 
@@ -137,5 +143,5 @@ instance AWSRequest ResetDBParameterGroup where
     response = xmlResponse
 
 instance FromXML ResetDBParameterGroupResponse where
-    parseXML = withElement "ResetDBParameterGroupResult" $ \x ->
-            <$> x .@? "DBParameterGroupName"
+    parseXML = withElement "ResetDBParameterGroupResult" $ \x -> ResetDBParameterGroupResponse
+        <$> x .@? "DBParameterGroupName"

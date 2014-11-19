@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ import qualified GHC.Exts
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup
     { _mdbsgDBSubnetGroupDescription :: Maybe Text
     , _mdbsgDBSubnetGroupName        :: Text
-    , _mdbsgSubnetIds                :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _mdbsgSubnetIds                :: List "SubnetIdentifier" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ModifyDBSubnetGroup' constructor.
 --
@@ -86,11 +87,11 @@ mdbsgDBSubnetGroupName =
 
 -- | The EC2 subnet IDs for the DB subnet group.
 mdbsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
-mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a })
+mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a }) . _List
 
 newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
     { _mdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyDBSubnetGroupResponse' constructor.
 --
@@ -110,7 +111,12 @@ mdbsgrDBSubnetGroup =
 instance ToPath ModifyDBSubnetGroup where
     toPath = const "/"
 
-instance ToQuery ModifyDBSubnetGroup
+instance ToQuery ModifyDBSubnetGroup where
+    toQuery ModifyDBSubnetGroup{..} = mconcat
+        [ "DBSubnetGroupDescription" =? _mdbsgDBSubnetGroupDescription
+        , "DBSubnetGroupName"        =? _mdbsgDBSubnetGroupName
+        , "SubnetIds"                =? _mdbsgSubnetIds
+        ]
 
 instance ToHeaders ModifyDBSubnetGroup
 
@@ -122,5 +128,5 @@ instance AWSRequest ModifyDBSubnetGroup where
     response = xmlResponse
 
 instance FromXML ModifyDBSubnetGroupResponse where
-    parseXML = withElement "ModifyDBSubnetGroupResult" $ \x ->
-            <$> x .@? "DBSubnetGroup"
+    parseXML = withElement "ModifyDBSubnetGroupResult" $ \x -> ModifyDBSubnetGroupResponse
+        <$> x .@? "DBSubnetGroup"

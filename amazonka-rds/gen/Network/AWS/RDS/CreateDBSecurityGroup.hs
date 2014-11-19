@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ import qualified GHC.Exts
 data CreateDBSecurityGroup = CreateDBSecurityGroup
     { _cdbsgDBSecurityGroupDescription :: Text
     , _cdbsgDBSecurityGroupName        :: Text
-    , _cdbsgTags                       :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _cdbsgTags                       :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateDBSecurityGroup' constructor.
 --
@@ -89,11 +90,11 @@ cdbsgDBSecurityGroupName =
         (\s a -> s { _cdbsgDBSecurityGroupName = a })
 
 cdbsgTags :: Lens' CreateDBSecurityGroup [Tag]
-cdbsgTags = lens _cdbsgTags (\s a -> s { _cdbsgTags = a })
+cdbsgTags = lens _cdbsgTags (\s a -> s { _cdbsgTags = a }) . _List
 
 newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDBSecurityGroupResponse' constructor.
 --
@@ -113,7 +114,12 @@ cdbsgrDBSecurityGroup =
 instance ToPath CreateDBSecurityGroup where
     toPath = const "/"
 
-instance ToQuery CreateDBSecurityGroup
+instance ToQuery CreateDBSecurityGroup where
+    toQuery CreateDBSecurityGroup{..} = mconcat
+        [ "DBSecurityGroupDescription" =? _cdbsgDBSecurityGroupDescription
+        , "DBSecurityGroupName"        =? _cdbsgDBSecurityGroupName
+        , "Tags"                       =? _cdbsgTags
+        ]
 
 instance ToHeaders CreateDBSecurityGroup
 
@@ -125,5 +131,5 @@ instance AWSRequest CreateDBSecurityGroup where
     response = xmlResponse
 
 instance FromXML CreateDBSecurityGroupResponse where
-    parseXML = withElement "CreateDBSecurityGroupResult" $ \x ->
-            <$> x .@? "DBSecurityGroup"
+    parseXML = withElement "CreateDBSecurityGroupResult" $ \x -> CreateDBSecurityGroupResponse
+        <$> x .@? "DBSecurityGroup"

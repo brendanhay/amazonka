@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
     { _cpviVirtualGatewayId   :: Text
     , _cpviVirtualInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ConfirmPrivateVirtualInterface' constructor.
 --
@@ -83,7 +84,7 @@ cpviVirtualInterfaceId =
 
 newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
     { _cpvir1VirtualInterfaceState :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ConfirmPrivateVirtualInterfaceResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -439,9 +440,9 @@ data OptionGroup = OptionGroup
     , _ogMajorEngineVersion                    :: Maybe Text
     , _ogOptionGroupDescription                :: Maybe Text
     , _ogOptionGroupName                       :: Maybe Text
-    , _ogOptions                               :: [Option]
+    , _ogOptions                               :: List "Option" Option
     , _ogVpcId                                 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'OptionGroup' constructor.
 --
@@ -502,7 +503,7 @@ ogOptionGroupName =
 
 -- | Indicates what options are available in the option group.
 ogOptions :: Lens' OptionGroup [Option]
-ogOptions = lens _ogOptions (\s a -> s { _ogOptions = a })
+ogOptions = lens _ogOptions (\s a -> s { _ogOptions = a }) . _List
 
 -- | If AllowsVpcAndNonVpcInstanceMemberships is 'false', this field is blank.
 -- If AllowsVpcAndNonVpcInstanceMemberships is 'true' and this field is
@@ -514,20 +515,29 @@ ogVpcId = lens _ogVpcId (\s a -> s { _ogVpcId = a })
 
 instance FromXML OptionGroup where
     parseXML x = OptionGroup
-            <$> x .@? "AllowsVpcAndNonVpcInstanceMemberships"
-            <*> x .@? "EngineName"
-            <*> x .@? "MajorEngineVersion"
-            <*> x .@? "OptionGroupDescription"
-            <*> x .@? "OptionGroupName"
-            <*> x .@ "Options"
-            <*> x .@? "VpcId"
+        <$> x .@? "AllowsVpcAndNonVpcInstanceMemberships"
+        <*> x .@? "EngineName"
+        <*> x .@? "MajorEngineVersion"
+        <*> x .@? "OptionGroupDescription"
+        <*> x .@? "OptionGroupName"
+        <*> x .@  "Options"
+        <*> x .@? "VpcId"
 
-instance ToQuery OptionGroup
+instance ToQuery OptionGroup where
+    toQuery OptionGroup{..} = mconcat
+        [ "AllowsVpcAndNonVpcInstanceMemberships" =? _ogAllowsVpcAndNonVpcInstanceMemberships
+        , "EngineName"                            =? _ogEngineName
+        , "MajorEngineVersion"                    =? _ogMajorEngineVersion
+        , "OptionGroupDescription"                =? _ogOptionGroupDescription
+        , "OptionGroupName"                       =? _ogOptionGroupName
+        , "Options"                               =? _ogOptions
+        , "VpcId"                                 =? _ogVpcId
+        ]
 
 data DBParameterGroupStatus = DBParameterGroupStatus
     { _dbpgsDBParameterGroupName :: Maybe Text
     , _dbpgsParameterApplyStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DBParameterGroupStatus' constructor.
 --
@@ -557,18 +567,22 @@ dbpgsParameterApplyStatus =
 
 instance FromXML DBParameterGroupStatus where
     parseXML x = DBParameterGroupStatus
-            <$> x .@? "DBParameterGroupName"
-            <*> x .@? "ParameterApplyStatus"
+        <$> x .@? "DBParameterGroupName"
+        <*> x .@? "ParameterApplyStatus"
 
-instance ToQuery DBParameterGroupStatus
+instance ToQuery DBParameterGroupStatus where
+    toQuery DBParameterGroupStatus{..} = mconcat
+        [ "DBParameterGroupName" =? _dbpgsDBParameterGroupName
+        , "ParameterApplyStatus" =? _dbpgsParameterApplyStatus
+        ]
 
 data Event = Event
     { _eDate             :: Maybe RFC822
-    , _eEventCategories  :: [Text]
+    , _eEventCategories  :: List "EventCategory" Text
     , _eMessage          :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
     , _eSourceType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Event' constructor.
 --
@@ -595,12 +609,11 @@ event = Event
 
 -- | Specifies the date and time of the event.
 eDate :: Lens' Event (Maybe UTCTime)
-eDate = lens _eDate (\s a -> s { _eDate = a })
-    . mapping _Time
+eDate = lens _eDate (\s a -> s { _eDate = a }) . mapping _Time
 
 -- | Specifies the category for the event.
 eEventCategories :: Lens' Event [Text]
-eEventCategories = lens _eEventCategories (\s a -> s { _eEventCategories = a })
+eEventCategories = lens _eEventCategories (\s a -> s { _eEventCategories = a }) . _List
 
 -- | Provides the text of this event.
 eMessage :: Lens' Event (Maybe Text)
@@ -617,22 +630,29 @@ eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where
     parseXML x = Event
-            <$> x .@? "Date"
-            <*> x .@ "EventCategories"
-            <*> x .@? "Message"
-            <*> x .@? "SourceIdentifier"
-            <*> x .@? "SourceType"
+        <$> x .@? "Date"
+        <*> x .@  "EventCategories"
+        <*> x .@? "Message"
+        <*> x .@? "SourceIdentifier"
+        <*> x .@? "SourceType"
 
-instance ToQuery Event
+instance ToQuery Event where
+    toQuery Event{..} = mconcat
+        [ "Date"             =? _eDate
+        , "EventCategories"  =? _eEventCategories
+        , "Message"          =? _eMessage
+        , "SourceIdentifier" =? _eSourceIdentifier
+        , "SourceType"       =? _eSourceType
+        ]
 
 data DBSecurityGroup = DBSecurityGroup
     { _dbsgDBSecurityGroupDescription :: Maybe Text
     , _dbsgDBSecurityGroupName        :: Maybe Text
-    , _dbsgEC2SecurityGroups          :: [EC2SecurityGroup]
-    , _dbsgIPRanges                   :: [IPRange]
+    , _dbsgEC2SecurityGroups          :: List "EC2SecurityGroup" EC2SecurityGroup
+    , _dbsgIPRanges                   :: List "IPRange" IPRange
     , _dbsgOwnerId                    :: Maybe Text
     , _dbsgVpcId                      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DBSecurityGroup' constructor.
 --
@@ -675,10 +695,11 @@ dbsgDBSecurityGroupName =
 dbsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
 dbsgEC2SecurityGroups =
     lens _dbsgEC2SecurityGroups (\s a -> s { _dbsgEC2SecurityGroups = a })
+        . _List
 
 -- | Contains a list of IPRange elements.
 dbsgIPRanges :: Lens' DBSecurityGroup [IPRange]
-dbsgIPRanges = lens _dbsgIPRanges (\s a -> s { _dbsgIPRanges = a })
+dbsgIPRanges = lens _dbsgIPRanges (\s a -> s { _dbsgIPRanges = a }) . _List
 
 -- | Provides the AWS ID of the owner of a specific DB security group.
 dbsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
@@ -690,19 +711,27 @@ dbsgVpcId = lens _dbsgVpcId (\s a -> s { _dbsgVpcId = a })
 
 instance FromXML DBSecurityGroup where
     parseXML x = DBSecurityGroup
-            <$> x .@? "DBSecurityGroupDescription"
-            <*> x .@? "DBSecurityGroupName"
-            <*> x .@ "EC2SecurityGroups"
-            <*> x .@ "IPRanges"
-            <*> x .@? "OwnerId"
-            <*> x .@? "VpcId"
+        <$> x .@? "DBSecurityGroupDescription"
+        <*> x .@? "DBSecurityGroupName"
+        <*> x .@  "EC2SecurityGroups"
+        <*> x .@  "IPRanges"
+        <*> x .@? "OwnerId"
+        <*> x .@? "VpcId"
 
-instance ToQuery DBSecurityGroup
+instance ToQuery DBSecurityGroup where
+    toQuery DBSecurityGroup{..} = mconcat
+        [ "DBSecurityGroupDescription" =? _dbsgDBSecurityGroupDescription
+        , "DBSecurityGroupName"        =? _dbsgDBSecurityGroupName
+        , "EC2SecurityGroups"          =? _dbsgEC2SecurityGroups
+        , "IPRanges"                   =? _dbsgIPRanges
+        , "OwnerId"                    =? _dbsgOwnerId
+        , "VpcId"                      =? _dbsgVpcId
+        ]
 
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Tag' constructor.
 --
@@ -736,10 +765,14 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-            <$> x .@? "Key"
-            <*> x .@? "Value"
+        <$> x .@? "Key"
+        <*> x .@? "Value"
 
-instance ToQuery Tag
+instance ToQuery Tag where
+    toQuery Tag{..} = mconcat
+        [ "Key"   =? _tagKey
+        , "Value" =? _tagValue
+        ]
 
 data DBEngineVersion = DBEngineVersion
     { _dbevDBEngineDescription        :: Maybe Text
@@ -748,8 +781,8 @@ data DBEngineVersion = DBEngineVersion
     , _dbevDefaultCharacterSet        :: Maybe CharacterSet
     , _dbevEngine                     :: Maybe Text
     , _dbevEngineVersion              :: Maybe Text
-    , _dbevSupportedCharacterSets     :: [CharacterSet]
-    } deriving (Eq, Show, Generic)
+    , _dbevSupportedCharacterSets     :: List "CharacterSet" CharacterSet
+    } deriving (Eq, Show)
 
 -- | 'DBEngineVersion' constructor.
 --
@@ -819,18 +852,28 @@ dbevSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
 dbevSupportedCharacterSets =
     lens _dbevSupportedCharacterSets
         (\s a -> s { _dbevSupportedCharacterSets = a })
+            . _List
 
 instance FromXML DBEngineVersion where
     parseXML x = DBEngineVersion
-            <$> x .@? "DBEngineDescription"
-            <*> x .@? "DBEngineVersionDescription"
-            <*> x .@? "DBParameterGroupFamily"
-            <*> x .@? "DefaultCharacterSet"
-            <*> x .@? "Engine"
-            <*> x .@? "EngineVersion"
-            <*> x .@ "SupportedCharacterSets"
+        <$> x .@? "DBEngineDescription"
+        <*> x .@? "DBEngineVersionDescription"
+        <*> x .@? "DBParameterGroupFamily"
+        <*> x .@? "DefaultCharacterSet"
+        <*> x .@? "Engine"
+        <*> x .@? "EngineVersion"
+        <*> x .@  "SupportedCharacterSets"
 
-instance ToQuery DBEngineVersion
+instance ToQuery DBEngineVersion where
+    toQuery DBEngineVersion{..} = mconcat
+        [ "DBEngineDescription"        =? _dbevDBEngineDescription
+        , "DBEngineVersionDescription" =? _dbevDBEngineVersionDescription
+        , "DBParameterGroupFamily"     =? _dbevDBParameterGroupFamily
+        , "DefaultCharacterSet"        =? _dbevDefaultCharacterSet
+        , "Engine"                     =? _dbevEngine
+        , "EngineVersion"              =? _dbevEngineVersion
+        , "SupportedCharacterSets"     =? _dbevSupportedCharacterSets
+        ]
 
 data DBSnapshot = DBSnapshot
     { _dbsAllocatedStorage     :: Maybe Int
@@ -853,7 +896,7 @@ data DBSnapshot = DBSnapshot
     , _dbsStorageType          :: Maybe Text
     , _dbsTdeCredentialArn     :: Maybe Text
     , _dbsVpcId                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DBSnapshot' constructor.
 --
@@ -1022,33 +1065,55 @@ dbsVpcId = lens _dbsVpcId (\s a -> s { _dbsVpcId = a })
 
 instance FromXML DBSnapshot where
     parseXML x = DBSnapshot
-            <$> x .@? "AllocatedStorage"
-            <*> x .@? "AvailabilityZone"
-            <*> x .@? "DBInstanceIdentifier"
-            <*> x .@? "DBSnapshotIdentifier"
-            <*> x .@? "Engine"
-            <*> x .@? "EngineVersion"
-            <*> x .@? "InstanceCreateTime"
-            <*> x .@? "Iops"
-            <*> x .@? "LicenseModel"
-            <*> x .@? "MasterUsername"
-            <*> x .@? "OptionGroupName"
-            <*> x .@? "PercentProgress"
-            <*> x .@? "Port"
-            <*> x .@? "SnapshotCreateTime"
-            <*> x .@? "SnapshotType"
-            <*> x .@? "SourceRegion"
-            <*> x .@? "Status"
-            <*> x .@? "StorageType"
-            <*> x .@? "TdeCredentialArn"
-            <*> x .@? "VpcId"
+        <$> x .@? "AllocatedStorage"
+        <*> x .@? "AvailabilityZone"
+        <*> x .@? "DBInstanceIdentifier"
+        <*> x .@? "DBSnapshotIdentifier"
+        <*> x .@? "Engine"
+        <*> x .@? "EngineVersion"
+        <*> x .@? "InstanceCreateTime"
+        <*> x .@? "Iops"
+        <*> x .@? "LicenseModel"
+        <*> x .@? "MasterUsername"
+        <*> x .@? "OptionGroupName"
+        <*> x .@? "PercentProgress"
+        <*> x .@? "Port"
+        <*> x .@? "SnapshotCreateTime"
+        <*> x .@? "SnapshotType"
+        <*> x .@? "SourceRegion"
+        <*> x .@? "Status"
+        <*> x .@? "StorageType"
+        <*> x .@? "TdeCredentialArn"
+        <*> x .@? "VpcId"
 
-instance ToQuery DBSnapshot
+instance ToQuery DBSnapshot where
+    toQuery DBSnapshot{..} = mconcat
+        [ "AllocatedStorage"     =? _dbsAllocatedStorage
+        , "AvailabilityZone"     =? _dbsAvailabilityZone
+        , "DBInstanceIdentifier" =? _dbsDBInstanceIdentifier
+        , "DBSnapshotIdentifier" =? _dbsDBSnapshotIdentifier
+        , "Engine"               =? _dbsEngine
+        , "EngineVersion"        =? _dbsEngineVersion
+        , "InstanceCreateTime"   =? _dbsInstanceCreateTime
+        , "Iops"                 =? _dbsIops
+        , "LicenseModel"         =? _dbsLicenseModel
+        , "MasterUsername"       =? _dbsMasterUsername
+        , "OptionGroupName"      =? _dbsOptionGroupName
+        , "PercentProgress"      =? _dbsPercentProgress
+        , "Port"                 =? _dbsPort
+        , "SnapshotCreateTime"   =? _dbsSnapshotCreateTime
+        , "SnapshotType"         =? _dbsSnapshotType
+        , "SourceRegion"         =? _dbsSourceRegion
+        , "Status"               =? _dbsStatus
+        , "StorageType"          =? _dbsStorageType
+        , "TdeCredentialArn"     =? _dbsTdeCredentialArn
+        , "VpcId"                =? _dbsVpcId
+        ]
 
 data DBSecurityGroupMembership = DBSecurityGroupMembership
     { _dbsgmDBSecurityGroupName :: Maybe Text
     , _dbsgmStatus              :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DBSecurityGroupMembership' constructor.
 --
@@ -1076,17 +1141,21 @@ dbsgmStatus = lens _dbsgmStatus (\s a -> s { _dbsgmStatus = a })
 
 instance FromXML DBSecurityGroupMembership where
     parseXML x = DBSecurityGroupMembership
-            <$> x .@? "DBSecurityGroupName"
-            <*> x .@? "Status"
+        <$> x .@? "DBSecurityGroupName"
+        <*> x .@? "Status"
 
-instance ToQuery DBSecurityGroupMembership
+instance ToQuery DBSecurityGroupMembership where
+    toQuery DBSecurityGroupMembership{..} = mconcat
+        [ "DBSecurityGroupName" =? _dbsgmDBSecurityGroupName
+        , "Status"              =? _dbsgmStatus
+        ]
 
 data EC2SecurityGroup = EC2SecurityGroup
     { _ecsgEC2SecurityGroupId      :: Maybe Text
     , _ecsgEC2SecurityGroupName    :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
     , _ecsgStatus                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EC2SecurityGroup' constructor.
 --
@@ -1133,12 +1202,18 @@ ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
 instance FromXML EC2SecurityGroup where
     parseXML x = EC2SecurityGroup
-            <$> x .@? "EC2SecurityGroupId"
-            <*> x .@? "EC2SecurityGroupName"
-            <*> x .@? "EC2SecurityGroupOwnerId"
-            <*> x .@? "Status"
+        <$> x .@? "EC2SecurityGroupId"
+        <*> x .@? "EC2SecurityGroupName"
+        <*> x .@? "EC2SecurityGroupOwnerId"
+        <*> x .@? "Status"
 
-instance ToQuery EC2SecurityGroup
+instance ToQuery EC2SecurityGroup where
+    toQuery EC2SecurityGroup{..} = mconcat
+        [ "EC2SecurityGroupId"      =? _ecsgEC2SecurityGroupId
+        , "EC2SecurityGroupName"    =? _ecsgEC2SecurityGroupName
+        , "EC2SecurityGroupOwnerId" =? _ecsgEC2SecurityGroupOwnerId
+        , "Status"                  =? _ecsgStatus
+        ]
 
 data SourceType
     = DbInstance       -- ^ db-instance
@@ -1165,13 +1240,14 @@ instance ToText SourceType where
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
 
-instance ToQuery SourceType
+instance ToQuery SourceType where
+    toQuery SourceType = toQuery . toText
 
 data DBParameterGroup = DBParameterGroup
     { _dbpgDBParameterGroupFamily :: Maybe Text
     , _dbpgDBParameterGroupName   :: Maybe Text
     , _dbpgDescription            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DBParameterGroup' constructor.
 --
@@ -1209,11 +1285,16 @@ dbpgDescription = lens _dbpgDescription (\s a -> s { _dbpgDescription = a })
 
 instance FromXML DBParameterGroup where
     parseXML x = DBParameterGroup
-            <$> x .@? "DBParameterGroupFamily"
-            <*> x .@? "DBParameterGroupName"
-            <*> x .@? "Description"
+        <$> x .@? "DBParameterGroupFamily"
+        <*> x .@? "DBParameterGroupName"
+        <*> x .@? "Description"
 
-instance ToQuery DBParameterGroup
+instance ToQuery DBParameterGroup where
+    toQuery DBParameterGroup{..} = mconcat
+        [ "DBParameterGroupFamily" =? _dbpgDBParameterGroupFamily
+        , "DBParameterGroupName"   =? _dbpgDBParameterGroupName
+        , "Description"            =? _dbpgDescription
+        ]
 
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering
     { _rdbioCurrencyCode                  :: Maybe Text
@@ -1223,10 +1304,10 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering
     , _rdbioMultiAZ                       :: Maybe Bool
     , _rdbioOfferingType                  :: Maybe Text
     , _rdbioProductDescription            :: Maybe Text
-    , _rdbioRecurringCharges              :: [RecurringCharge]
+    , _rdbioRecurringCharges              :: List "RecurringCharge" RecurringCharge
     , _rdbioReservedDBInstancesOfferingId :: Maybe Text
     , _rdbioUsagePrice                    :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReservedDBInstancesOffering' constructor.
 --
@@ -1302,6 +1383,7 @@ rdbioProductDescription =
 rdbioRecurringCharges :: Lens' ReservedDBInstancesOffering [RecurringCharge]
 rdbioRecurringCharges =
     lens _rdbioRecurringCharges (\s a -> s { _rdbioRecurringCharges = a })
+        . _List
 
 -- | The offering identifier.
 rdbioReservedDBInstancesOfferingId :: Lens' ReservedDBInstancesOffering (Maybe Text)
@@ -1315,18 +1397,30 @@ rdbioUsagePrice = lens _rdbioUsagePrice (\s a -> s { _rdbioUsagePrice = a })
 
 instance FromXML ReservedDBInstancesOffering where
     parseXML x = ReservedDBInstancesOffering
-            <$> x .@? "CurrencyCode"
-            <*> x .@? "DBInstanceClass"
-            <*> x .@? "Duration"
-            <*> x .@? "FixedPrice"
-            <*> x .@? "MultiAZ"
-            <*> x .@? "OfferingType"
-            <*> x .@? "ProductDescription"
-            <*> x .@ "RecurringCharges"
-            <*> x .@? "ReservedDBInstancesOfferingId"
-            <*> x .@? "UsagePrice"
+        <$> x .@? "CurrencyCode"
+        <*> x .@? "DBInstanceClass"
+        <*> x .@? "Duration"
+        <*> x .@? "FixedPrice"
+        <*> x .@? "MultiAZ"
+        <*> x .@? "OfferingType"
+        <*> x .@? "ProductDescription"
+        <*> x .@  "RecurringCharges"
+        <*> x .@? "ReservedDBInstancesOfferingId"
+        <*> x .@? "UsagePrice"
 
-instance ToQuery ReservedDBInstancesOffering
+instance ToQuery ReservedDBInstancesOffering where
+    toQuery ReservedDBInstancesOffering{..} = mconcat
+        [ "CurrencyCode"                  =? _rdbioCurrencyCode
+        , "DBInstanceClass"               =? _rdbioDBInstanceClass
+        , "Duration"                      =? _rdbioDuration
+        , "FixedPrice"                    =? _rdbioFixedPrice
+        , "MultiAZ"                       =? _rdbioMultiAZ
+        , "OfferingType"                  =? _rdbioOfferingType
+        , "ProductDescription"            =? _rdbioProductDescription
+        , "RecurringCharges"              =? _rdbioRecurringCharges
+        , "ReservedDBInstancesOfferingId" =? _rdbioReservedDBInstancesOfferingId
+        , "UsagePrice"                    =? _rdbioUsagePrice
+        ]
 
 data ApplyMethod
     = Immediate     -- ^ immediate
@@ -1347,12 +1441,13 @@ instance ToText ApplyMethod where
 instance FromXML ApplyMethod where
     parseXML = parseXMLText "ApplyMethod"
 
-instance ToQuery ApplyMethod
+instance ToQuery ApplyMethod where
+    toQuery ApplyMethod = toQuery . toText
 
 data CharacterSet = CharacterSet
     { _csCharacterSetDescription :: Maybe Text
     , _csCharacterSetName        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CharacterSet' constructor.
 --
@@ -1381,16 +1476,20 @@ csCharacterSetName =
 
 instance FromXML CharacterSet where
     parseXML x = CharacterSet
-            <$> x .@? "CharacterSetDescription"
-            <*> x .@? "CharacterSetName"
+        <$> x .@? "CharacterSetDescription"
+        <*> x .@? "CharacterSetName"
 
-instance ToQuery CharacterSet
+instance ToQuery CharacterSet where
+    toQuery CharacterSet{..} = mconcat
+        [ "CharacterSetDescription" =? _csCharacterSetDescription
+        , "CharacterSetName"        =? _csCharacterSetName
+        ]
 
 data Subnet = Subnet
     { _sSubnetAvailabilityZone :: Maybe AvailabilityZone
     , _sSubnetIdentifier       :: Maybe Text
     , _sSubnetStatus           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Subnet' constructor.
 --
@@ -1424,11 +1523,16 @@ sSubnetStatus = lens _sSubnetStatus (\s a -> s { _sSubnetStatus = a })
 
 instance FromXML Subnet where
     parseXML x = Subnet
-            <$> x .@? "SubnetAvailabilityZone"
-            <*> x .@? "SubnetIdentifier"
-            <*> x .@? "SubnetStatus"
+        <$> x .@? "SubnetAvailabilityZone"
+        <*> x .@? "SubnetIdentifier"
+        <*> x .@? "SubnetStatus"
 
-instance ToQuery Subnet
+instance ToQuery Subnet where
+    toQuery Subnet{..} = mconcat
+        [ "SubnetAvailabilityZone" =? _sSubnetAvailabilityZone
+        , "SubnetIdentifier"       =? _sSubnetIdentifier
+        , "SubnetStatus"           =? _sSubnetStatus
+        ]
 
 data ReservedDBInstance = ReservedDBInstance
     { _rdbiCurrencyCode                  :: Maybe Text
@@ -1439,13 +1543,13 @@ data ReservedDBInstance = ReservedDBInstance
     , _rdbiMultiAZ                       :: Maybe Bool
     , _rdbiOfferingType                  :: Maybe Text
     , _rdbiProductDescription            :: Maybe Text
-    , _rdbiRecurringCharges              :: [RecurringCharge]
+    , _rdbiRecurringCharges              :: List "RecurringCharge" RecurringCharge
     , _rdbiReservedDBInstanceId          :: Maybe Text
     , _rdbiReservedDBInstancesOfferingId :: Maybe Text
     , _rdbiStartTime                     :: Maybe RFC822
     , _rdbiState                         :: Maybe Text
     , _rdbiUsagePrice                    :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReservedDBInstance' constructor.
 --
@@ -1536,6 +1640,7 @@ rdbiProductDescription =
 rdbiRecurringCharges :: Lens' ReservedDBInstance [RecurringCharge]
 rdbiRecurringCharges =
     lens _rdbiRecurringCharges (\s a -> s { _rdbiRecurringCharges = a })
+        . _List
 
 -- | The unique identifier for the reservation.
 rdbiReservedDBInstanceId :: Lens' ReservedDBInstance (Maybe Text)
@@ -1551,8 +1656,7 @@ rdbiReservedDBInstancesOfferingId =
 
 -- | The time the reservation started.
 rdbiStartTime :: Lens' ReservedDBInstance (Maybe UTCTime)
-rdbiStartTime = lens _rdbiStartTime (\s a -> s { _rdbiStartTime = a })
-    . mapping _Time
+rdbiStartTime = lens _rdbiStartTime (\s a -> s { _rdbiStartTime = a }) . mapping _Time
 
 -- | The state of the reserved DB instance.
 rdbiState :: Lens' ReservedDBInstance (Maybe Text)
@@ -1564,28 +1668,44 @@ rdbiUsagePrice = lens _rdbiUsagePrice (\s a -> s { _rdbiUsagePrice = a })
 
 instance FromXML ReservedDBInstance where
     parseXML x = ReservedDBInstance
-            <$> x .@? "CurrencyCode"
-            <*> x .@? "DBInstanceClass"
-            <*> x .@? "DBInstanceCount"
-            <*> x .@? "Duration"
-            <*> x .@? "FixedPrice"
-            <*> x .@? "MultiAZ"
-            <*> x .@? "OfferingType"
-            <*> x .@? "ProductDescription"
-            <*> x .@ "RecurringCharges"
-            <*> x .@? "ReservedDBInstanceId"
-            <*> x .@? "ReservedDBInstancesOfferingId"
-            <*> x .@? "StartTime"
-            <*> x .@? "State"
-            <*> x .@? "UsagePrice"
+        <$> x .@? "CurrencyCode"
+        <*> x .@? "DBInstanceClass"
+        <*> x .@? "DBInstanceCount"
+        <*> x .@? "Duration"
+        <*> x .@? "FixedPrice"
+        <*> x .@? "MultiAZ"
+        <*> x .@? "OfferingType"
+        <*> x .@? "ProductDescription"
+        <*> x .@  "RecurringCharges"
+        <*> x .@? "ReservedDBInstanceId"
+        <*> x .@? "ReservedDBInstancesOfferingId"
+        <*> x .@? "StartTime"
+        <*> x .@? "State"
+        <*> x .@? "UsagePrice"
 
-instance ToQuery ReservedDBInstance
+instance ToQuery ReservedDBInstance where
+    toQuery ReservedDBInstance{..} = mconcat
+        [ "CurrencyCode"                  =? _rdbiCurrencyCode
+        , "DBInstanceClass"               =? _rdbiDBInstanceClass
+        , "DBInstanceCount"               =? _rdbiDBInstanceCount
+        , "Duration"                      =? _rdbiDuration
+        , "FixedPrice"                    =? _rdbiFixedPrice
+        , "MultiAZ"                       =? _rdbiMultiAZ
+        , "OfferingType"                  =? _rdbiOfferingType
+        , "ProductDescription"            =? _rdbiProductDescription
+        , "RecurringCharges"              =? _rdbiRecurringCharges
+        , "ReservedDBInstanceId"          =? _rdbiReservedDBInstanceId
+        , "ReservedDBInstancesOfferingId" =? _rdbiReservedDBInstancesOfferingId
+        , "StartTime"                     =? _rdbiStartTime
+        , "State"                         =? _rdbiState
+        , "UsagePrice"                    =? _rdbiUsagePrice
+        ]
 
 data EngineDefaults = EngineDefaults
     { _edDBParameterGroupFamily :: Maybe Text
     , _edMarker                 :: Maybe Text
-    , _edParameters             :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    , _edParameters             :: List "Parameter" Parameter
+    } deriving (Eq, Show)
 
 -- | 'EngineDefaults' constructor.
 --
@@ -1619,19 +1739,24 @@ edMarker = lens _edMarker (\s a -> s { _edMarker = a })
 
 -- | Contains a list of engine default parameters.
 edParameters :: Lens' EngineDefaults [Parameter]
-edParameters = lens _edParameters (\s a -> s { _edParameters = a })
+edParameters = lens _edParameters (\s a -> s { _edParameters = a }) . _List
 
 instance FromXML EngineDefaults where
     parseXML x = EngineDefaults
-            <$> x .@? "DBParameterGroupFamily"
-            <*> x .@? "Marker"
-            <*> x .@ "Parameters"
+        <$> x .@? "DBParameterGroupFamily"
+        <*> x .@? "Marker"
+        <*> x .@  "Parameters"
 
-instance ToQuery EngineDefaults
+instance ToQuery EngineDefaults where
+    toQuery EngineDefaults{..} = mconcat
+        [ "DBParameterGroupFamily" =? _edDBParameterGroupFamily
+        , "Marker"                 =? _edMarker
+        , "Parameters"             =? _edParameters
+        ]
 
 newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage
     { _dbpgnmDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DBParameterGroupNameMessage' constructor.
 --
@@ -1652,9 +1777,12 @@ dbpgnmDBParameterGroupName =
 
 instance FromXML DBParameterGroupNameMessage where
     parseXML x = DBParameterGroupNameMessage
-            <$> x .@? "DBParameterGroupName"
+        <$> x .@? "DBParameterGroupName"
 
-instance ToQuery DBParameterGroupNameMessage
+instance ToQuery DBParameterGroupNameMessage where
+    toQuery DBParameterGroupNameMessage{..} = mconcat
+        [ "DBParameterGroupName" =? _dbpgnmDBParameterGroupName
+        ]
 
 data OptionGroupOption = OptionGroupOption
     { _ogoDefaultPort                       :: Maybe Int
@@ -1663,12 +1791,12 @@ data OptionGroupOption = OptionGroupOption
     , _ogoMajorEngineVersion                :: Maybe Text
     , _ogoMinimumRequiredMinorEngineVersion :: Maybe Text
     , _ogoName                              :: Maybe Text
-    , _ogoOptionGroupOptionSettings         :: [OptionGroupOptionSetting]
-    , _ogoOptionsDependedOn                 :: [Text]
+    , _ogoOptionGroupOptionSettings         :: List "OptionGroupOptionSetting" OptionGroupOptionSetting
+    , _ogoOptionsDependedOn                 :: List "OptionName" Text
     , _ogoPermanent                         :: Maybe Bool
     , _ogoPersistent                        :: Maybe Bool
     , _ogoPortRequired                      :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'OptionGroupOption' constructor.
 --
@@ -1744,11 +1872,13 @@ ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSettin
 ogoOptionGroupOptionSettings =
     lens _ogoOptionGroupOptionSettings
         (\s a -> s { _ogoOptionGroupOptionSettings = a })
+            . _List
 
 -- | List of all options that are prerequisites for this option.
 ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
 ogoOptionsDependedOn =
     lens _ogoOptionsDependedOn (\s a -> s { _ogoOptionsDependedOn = a })
+        . _List
 
 -- | A permanent option cannot be removed from the option group once the
 -- option group is used, and it cannot be removed from the db instance after
@@ -1769,19 +1899,32 @@ ogoPortRequired = lens _ogoPortRequired (\s a -> s { _ogoPortRequired = a })
 
 instance FromXML OptionGroupOption where
     parseXML x = OptionGroupOption
-            <$> x .@? "DefaultPort"
-            <*> x .@? "Description"
-            <*> x .@? "EngineName"
-            <*> x .@? "MajorEngineVersion"
-            <*> x .@? "MinimumRequiredMinorEngineVersion"
-            <*> x .@? "Name"
-            <*> x .@ "OptionGroupOptionSettings"
-            <*> x .@ "OptionsDependedOn"
-            <*> x .@? "Permanent"
-            <*> x .@? "Persistent"
-            <*> x .@? "PortRequired"
+        <$> x .@? "DefaultPort"
+        <*> x .@? "Description"
+        <*> x .@? "EngineName"
+        <*> x .@? "MajorEngineVersion"
+        <*> x .@? "MinimumRequiredMinorEngineVersion"
+        <*> x .@? "Name"
+        <*> x .@  "OptionGroupOptionSettings"
+        <*> x .@  "OptionsDependedOn"
+        <*> x .@? "Permanent"
+        <*> x .@? "Persistent"
+        <*> x .@? "PortRequired"
 
-instance ToQuery OptionGroupOption
+instance ToQuery OptionGroupOption where
+    toQuery OptionGroupOption{..} = mconcat
+        [ "DefaultPort"                       =? _ogoDefaultPort
+        , "Description"                       =? _ogoDescription
+        , "EngineName"                        =? _ogoEngineName
+        , "MajorEngineVersion"                =? _ogoMajorEngineVersion
+        , "MinimumRequiredMinorEngineVersion" =? _ogoMinimumRequiredMinorEngineVersion
+        , "Name"                              =? _ogoName
+        , "OptionGroupOptionSettings"         =? _ogoOptionGroupOptionSettings
+        , "OptionsDependedOn"                 =? _ogoOptionsDependedOn
+        , "Permanent"                         =? _ogoPermanent
+        , "Persistent"                        =? _ogoPersistent
+        , "PortRequired"                      =? _ogoPortRequired
+        ]
 
 data DBInstance = DBInstance
     { _dbiAllocatedStorage                      :: Maybe Int
@@ -1793,8 +1936,8 @@ data DBInstance = DBInstance
     , _dbiDBInstanceIdentifier                  :: Maybe Text
     , _dbiDBInstanceStatus                      :: Maybe Text
     , _dbiDBName                                :: Maybe Text
-    , _dbiDBParameterGroups                     :: [DBParameterGroupStatus]
-    , _dbiDBSecurityGroups                      :: [DBSecurityGroupMembership]
+    , _dbiDBParameterGroups                     :: List "DBParameterGroup" DBParameterGroupStatus
+    , _dbiDBSecurityGroups                      :: List "DBSecurityGroup" DBSecurityGroupMembership
     , _dbiDBSubnetGroup                         :: Maybe DBSubnetGroup
     , _dbiEndpoint                              :: Maybe Endpoint
     , _dbiEngine                                :: Maybe Text
@@ -1805,19 +1948,19 @@ data DBInstance = DBInstance
     , _dbiLicenseModel                          :: Maybe Text
     , _dbiMasterUsername                        :: Maybe Text
     , _dbiMultiAZ                               :: Maybe Bool
-    , _dbiOptionGroupMemberships                :: [OptionGroupMembership]
+    , _dbiOptionGroupMemberships                :: List "OptionGroupMembership" OptionGroupMembership
     , _dbiPendingModifiedValues                 :: Maybe PendingModifiedValues
     , _dbiPreferredBackupWindow                 :: Maybe Text
     , _dbiPreferredMaintenanceWindow            :: Maybe Text
     , _dbiPubliclyAccessible                    :: Maybe Bool
-    , _dbiReadReplicaDBInstanceIdentifiers      :: [Text]
+    , _dbiReadReplicaDBInstanceIdentifiers      :: List "ReadReplicaDBInstanceIdentifier" Text
     , _dbiReadReplicaSourceDBInstanceIdentifier :: Maybe Text
     , _dbiSecondaryAvailabilityZone             :: Maybe Text
-    , _dbiStatusInfos                           :: [DBInstanceStatusInfo]
+    , _dbiStatusInfos                           :: List "DBInstanceStatusInfo" DBInstanceStatusInfo
     , _dbiStorageType                           :: Maybe Text
     , _dbiTdeCredentialArn                      :: Maybe Text
-    , _dbiVpcSecurityGroups                     :: [VpcSecurityGroupMembership]
-    } deriving (Eq, Show, Generic)
+    , _dbiVpcSecurityGroups                     :: List "VpcSecurityGroupMembership" VpcSecurityGroupMembership
+    } deriving (Eq, Show)
 
 -- | 'DBInstance' constructor.
 --
@@ -1989,12 +2132,14 @@ dbiDBName = lens _dbiDBName (\s a -> s { _dbiDBName = a })
 dbiDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
 dbiDBParameterGroups =
     lens _dbiDBParameterGroups (\s a -> s { _dbiDBParameterGroups = a })
+        . _List
 
 -- | Provides List of DB security group elements containing only
 -- DBSecurityGroup.Name and DBSecurityGroup.Status subelements.
 dbiDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
 dbiDBSecurityGroups =
     lens _dbiDBSecurityGroups (\s a -> s { _dbiDBSecurityGroups = a })
+        . _List
 
 -- | Specifies information on the subnet group associated with the DB
 -- instance, including the name, description, and subnets in the subnet
@@ -2049,6 +2194,7 @@ dbiOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
 dbiOptionGroupMemberships =
     lens _dbiOptionGroupMemberships
         (\s a -> s { _dbiOptionGroupMemberships = a })
+            . _List
 
 -- | Specifies that changes to the DB instance are pending. This element is
 -- only included when changes are pending. Specific changes are identified
@@ -2095,6 +2241,7 @@ dbiReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
 dbiReadReplicaDBInstanceIdentifiers =
     lens _dbiReadReplicaDBInstanceIdentifiers
         (\s a -> s { _dbiReadReplicaDBInstanceIdentifiers = a })
+            . _List
 
 -- | Contains the identifier of the source DB instance if this DB instance is
 -- a read replica.
@@ -2113,7 +2260,7 @@ dbiSecondaryAvailabilityZone =
 -- | The status of a read replica. If the instance is not a read replica, this
 -- will be blank.
 dbiStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
-dbiStatusInfos = lens _dbiStatusInfos (\s a -> s { _dbiStatusInfos = a })
+dbiStatusInfos = lens _dbiStatusInfos (\s a -> s { _dbiStatusInfos = a }) . _List
 
 -- | Specifies storage type associated with DB Instance.
 dbiStorageType :: Lens' DBInstance (Maybe Text)
@@ -2130,48 +2277,84 @@ dbiTdeCredentialArn =
 dbiVpcSecurityGroups :: Lens' DBInstance [VpcSecurityGroupMembership]
 dbiVpcSecurityGroups =
     lens _dbiVpcSecurityGroups (\s a -> s { _dbiVpcSecurityGroups = a })
+        . _List
 
 instance FromXML DBInstance where
     parseXML x = DBInstance
-            <$> x .@? "AllocatedStorage"
-            <*> x .@? "AutoMinorVersionUpgrade"
-            <*> x .@? "AvailabilityZone"
-            <*> x .@? "BackupRetentionPeriod"
-            <*> x .@? "CharacterSetName"
-            <*> x .@? "DBInstanceClass"
-            <*> x .@? "DBInstanceIdentifier"
-            <*> x .@? "DBInstanceStatus"
-            <*> x .@? "DBName"
-            <*> x .@ "DBParameterGroups"
-            <*> x .@ "DBSecurityGroups"
-            <*> x .@? "DBSubnetGroup"
-            <*> x .@? "Endpoint"
-            <*> x .@? "Engine"
-            <*> x .@? "EngineVersion"
-            <*> x .@? "InstanceCreateTime"
-            <*> x .@? "Iops"
-            <*> x .@? "LatestRestorableTime"
-            <*> x .@? "LicenseModel"
-            <*> x .@? "MasterUsername"
-            <*> x .@? "MultiAZ"
-            <*> x .@ "OptionGroupMemberships"
-            <*> x .@? "PendingModifiedValues"
-            <*> x .@? "PreferredBackupWindow"
-            <*> x .@? "PreferredMaintenanceWindow"
-            <*> x .@? "PubliclyAccessible"
-            <*> x .@ "ReadReplicaDBInstanceIdentifiers"
-            <*> x .@? "ReadReplicaSourceDBInstanceIdentifier"
-            <*> x .@? "SecondaryAvailabilityZone"
-            <*> x .@ "StatusInfos"
-            <*> x .@? "StorageType"
-            <*> x .@? "TdeCredentialArn"
-            <*> x .@ "VpcSecurityGroups"
+        <$> x .@? "AllocatedStorage"
+        <*> x .@? "AutoMinorVersionUpgrade"
+        <*> x .@? "AvailabilityZone"
+        <*> x .@? "BackupRetentionPeriod"
+        <*> x .@? "CharacterSetName"
+        <*> x .@? "DBInstanceClass"
+        <*> x .@? "DBInstanceIdentifier"
+        <*> x .@? "DBInstanceStatus"
+        <*> x .@? "DBName"
+        <*> x .@  "DBParameterGroups"
+        <*> x .@  "DBSecurityGroups"
+        <*> x .@? "DBSubnetGroup"
+        <*> x .@? "Endpoint"
+        <*> x .@? "Engine"
+        <*> x .@? "EngineVersion"
+        <*> x .@? "InstanceCreateTime"
+        <*> x .@? "Iops"
+        <*> x .@? "LatestRestorableTime"
+        <*> x .@? "LicenseModel"
+        <*> x .@? "MasterUsername"
+        <*> x .@? "MultiAZ"
+        <*> x .@  "OptionGroupMemberships"
+        <*> x .@? "PendingModifiedValues"
+        <*> x .@? "PreferredBackupWindow"
+        <*> x .@? "PreferredMaintenanceWindow"
+        <*> x .@? "PubliclyAccessible"
+        <*> x .@  "ReadReplicaDBInstanceIdentifiers"
+        <*> x .@? "ReadReplicaSourceDBInstanceIdentifier"
+        <*> x .@? "SecondaryAvailabilityZone"
+        <*> x .@  "StatusInfos"
+        <*> x .@? "StorageType"
+        <*> x .@? "TdeCredentialArn"
+        <*> x .@  "VpcSecurityGroups"
 
-instance ToQuery DBInstance
+instance ToQuery DBInstance where
+    toQuery DBInstance{..} = mconcat
+        [ "AllocatedStorage"                      =? _dbiAllocatedStorage
+        , "AutoMinorVersionUpgrade"               =? _dbiAutoMinorVersionUpgrade
+        , "AvailabilityZone"                      =? _dbiAvailabilityZone
+        , "BackupRetentionPeriod"                 =? _dbiBackupRetentionPeriod
+        , "CharacterSetName"                      =? _dbiCharacterSetName
+        , "DBInstanceClass"                       =? _dbiDBInstanceClass
+        , "DBInstanceIdentifier"                  =? _dbiDBInstanceIdentifier
+        , "DBInstanceStatus"                      =? _dbiDBInstanceStatus
+        , "DBName"                                =? _dbiDBName
+        , "DBParameterGroups"                     =? _dbiDBParameterGroups
+        , "DBSecurityGroups"                      =? _dbiDBSecurityGroups
+        , "DBSubnetGroup"                         =? _dbiDBSubnetGroup
+        , "Endpoint"                              =? _dbiEndpoint
+        , "Engine"                                =? _dbiEngine
+        , "EngineVersion"                         =? _dbiEngineVersion
+        , "InstanceCreateTime"                    =? _dbiInstanceCreateTime
+        , "Iops"                                  =? _dbiIops
+        , "LatestRestorableTime"                  =? _dbiLatestRestorableTime
+        , "LicenseModel"                          =? _dbiLicenseModel
+        , "MasterUsername"                        =? _dbiMasterUsername
+        , "MultiAZ"                               =? _dbiMultiAZ
+        , "OptionGroupMemberships"                =? _dbiOptionGroupMemberships
+        , "PendingModifiedValues"                 =? _dbiPendingModifiedValues
+        , "PreferredBackupWindow"                 =? _dbiPreferredBackupWindow
+        , "PreferredMaintenanceWindow"            =? _dbiPreferredMaintenanceWindow
+        , "PubliclyAccessible"                    =? _dbiPubliclyAccessible
+        , "ReadReplicaDBInstanceIdentifiers"      =? _dbiReadReplicaDBInstanceIdentifiers
+        , "ReadReplicaSourceDBInstanceIdentifier" =? _dbiReadReplicaSourceDBInstanceIdentifier
+        , "SecondaryAvailabilityZone"             =? _dbiSecondaryAvailabilityZone
+        , "StatusInfos"                           =? _dbiStatusInfos
+        , "StorageType"                           =? _dbiStorageType
+        , "TdeCredentialArn"                      =? _dbiTdeCredentialArn
+        , "VpcSecurityGroups"                     =? _dbiVpcSecurityGroups
+        ]
 
 newtype AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AvailabilityZone' constructor.
 --
@@ -2190,21 +2373,24 @@ azName = lens _azName (\s a -> s { _azName = a })
 
 instance FromXML AvailabilityZone where
     parseXML x = AvailabilityZone
-            <$> x .@? "Name"
+        <$> x .@? "Name"
 
-instance ToQuery AvailabilityZone
+instance ToQuery AvailabilityZone where
+    toQuery AvailabilityZone{..} = mconcat
+        [ "Name" =? _azName
+        ]
 
 data EventSubscription = EventSubscription
     { _esCustSubscriptionId       :: Maybe Text
     , _esCustomerAwsId            :: Maybe Text
     , _esEnabled                  :: Maybe Bool
-    , _esEventCategoriesList      :: [Text]
+    , _esEventCategoriesList      :: List "EventCategory" Text
     , _esSnsTopicArn              :: Maybe Text
-    , _esSourceIdsList            :: [Text]
+    , _esSourceIdsList            :: List "SourceId" Text
     , _esSourceType               :: Maybe Text
     , _esStatus                   :: Maybe Text
     , _esSubscriptionCreationTime :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EventSubscription' constructor.
 --
@@ -2260,6 +2446,7 @@ esEnabled = lens _esEnabled (\s a -> s { _esEnabled = a })
 esEventCategoriesList :: Lens' EventSubscription [Text]
 esEventCategoriesList =
     lens _esEventCategoriesList (\s a -> s { _esEventCategoriesList = a })
+        . _List
 
 -- | The topic ARN of the RDS event notification subscription.
 esSnsTopicArn :: Lens' EventSubscription (Maybe Text)
@@ -2267,7 +2454,7 @@ esSnsTopicArn = lens _esSnsTopicArn (\s a -> s { _esSnsTopicArn = a })
 
 -- | A list of source IDs for the RDS event notification subscription.
 esSourceIdsList :: Lens' EventSubscription [Text]
-esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a })
+esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a }) . _List
 
 -- | The source type for the RDS event notification subscription.
 esSourceType :: Lens' EventSubscription (Maybe Text)
@@ -2290,25 +2477,36 @@ esSubscriptionCreationTime =
 
 instance FromXML EventSubscription where
     parseXML x = EventSubscription
-            <$> x .@? "CustSubscriptionId"
-            <*> x .@? "CustomerAwsId"
-            <*> x .@? "Enabled"
-            <*> x .@ "EventCategoriesList"
-            <*> x .@? "SnsTopicArn"
-            <*> x .@ "SourceIdsList"
-            <*> x .@? "SourceType"
-            <*> x .@? "Status"
-            <*> x .@? "SubscriptionCreationTime"
+        <$> x .@? "CustSubscriptionId"
+        <*> x .@? "CustomerAwsId"
+        <*> x .@? "Enabled"
+        <*> x .@  "EventCategoriesList"
+        <*> x .@? "SnsTopicArn"
+        <*> x .@  "SourceIdsList"
+        <*> x .@? "SourceType"
+        <*> x .@? "Status"
+        <*> x .@? "SubscriptionCreationTime"
 
-instance ToQuery EventSubscription
+instance ToQuery EventSubscription where
+    toQuery EventSubscription{..} = mconcat
+        [ "CustSubscriptionId"       =? _esCustSubscriptionId
+        , "CustomerAwsId"            =? _esCustomerAwsId
+        , "Enabled"                  =? _esEnabled
+        , "EventCategoriesList"      =? _esEventCategoriesList
+        , "SnsTopicArn"              =? _esSnsTopicArn
+        , "SourceIdsList"            =? _esSourceIdsList
+        , "SourceType"               =? _esSourceType
+        , "Status"                   =? _esStatus
+        , "SubscriptionCreationTime" =? _esSubscriptionCreationTime
+        ]
 
 data DBSubnetGroup = DBSubnetGroup
     { _dbsg1DBSubnetGroupDescription :: Maybe Text
     , _dbsg1DBSubnetGroupName        :: Maybe Text
     , _dbsg1SubnetGroupStatus        :: Maybe Text
-    , _dbsg1Subnets                  :: [Subnet]
+    , _dbsg1Subnets                  :: List "Subnet" Subnet
     , _dbsg1VpcId                    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DBSubnetGroup' constructor.
 --
@@ -2351,7 +2549,7 @@ dbsg1SubnetGroupStatus =
 
 -- | Contains a list of Subnet elements.
 dbsg1Subnets :: Lens' DBSubnetGroup [Subnet]
-dbsg1Subnets = lens _dbsg1Subnets (\s a -> s { _dbsg1Subnets = a })
+dbsg1Subnets = lens _dbsg1Subnets (\s a -> s { _dbsg1Subnets = a }) . _List
 
 -- | Provides the VpcId of the DB subnet group.
 dbsg1VpcId :: Lens' DBSubnetGroup (Maybe Text)
@@ -2359,20 +2557,27 @@ dbsg1VpcId = lens _dbsg1VpcId (\s a -> s { _dbsg1VpcId = a })
 
 instance FromXML DBSubnetGroup where
     parseXML x = DBSubnetGroup
-            <$> x .@? "DBSubnetGroupDescription"
-            <*> x .@? "DBSubnetGroupName"
-            <*> x .@? "SubnetGroupStatus"
-            <*> x .@ "Subnets"
-            <*> x .@? "VpcId"
+        <$> x .@? "DBSubnetGroupDescription"
+        <*> x .@? "DBSubnetGroupName"
+        <*> x .@? "SubnetGroupStatus"
+        <*> x .@  "Subnets"
+        <*> x .@? "VpcId"
 
-instance ToQuery DBSubnetGroup
+instance ToQuery DBSubnetGroup where
+    toQuery DBSubnetGroup{..} = mconcat
+        [ "DBSubnetGroupDescription" =? _dbsg1DBSubnetGroupDescription
+        , "DBSubnetGroupName"        =? _dbsg1DBSubnetGroupName
+        , "SubnetGroupStatus"        =? _dbsg1SubnetGroupStatus
+        , "Subnets"                  =? _dbsg1Subnets
+        , "VpcId"                    =? _dbsg1VpcId
+        ]
 
 data DBInstanceStatusInfo = DBInstanceStatusInfo
     { _dbisiMessage    :: Maybe Text
     , _dbisiNormal     :: Maybe Bool
     , _dbisiStatus     :: Maybe Text
     , _dbisiStatusType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DBInstanceStatusInfo' constructor.
 --
@@ -2415,12 +2620,18 @@ dbisiStatusType = lens _dbisiStatusType (\s a -> s { _dbisiStatusType = a })
 
 instance FromXML DBInstanceStatusInfo where
     parseXML x = DBInstanceStatusInfo
-            <$> x .@? "Message"
-            <*> x .@? "Normal"
-            <*> x .@? "Status"
-            <*> x .@? "StatusType"
+        <$> x .@? "Message"
+        <*> x .@? "Normal"
+        <*> x .@? "Status"
+        <*> x .@? "StatusType"
 
-instance ToQuery DBInstanceStatusInfo
+instance ToQuery DBInstanceStatusInfo where
+    toQuery DBInstanceStatusInfo{..} = mconcat
+        [ "Message"    =? _dbisiMessage
+        , "Normal"     =? _dbisiNormal
+        , "Status"     =? _dbisiStatus
+        , "StatusType" =? _dbisiStatusType
+        ]
 
 data OptionSetting = OptionSetting
     { _osAllowedValues :: Maybe Text
@@ -2432,7 +2643,7 @@ data OptionSetting = OptionSetting
     , _osIsModifiable  :: Maybe Bool
     , _osName          :: Maybe Text
     , _osValue         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'OptionSetting' constructor.
 --
@@ -2508,23 +2719,34 @@ osValue = lens _osValue (\s a -> s { _osValue = a })
 
 instance FromXML OptionSetting where
     parseXML x = OptionSetting
-            <$> x .@? "AllowedValues"
-            <*> x .@? "ApplyType"
-            <*> x .@? "DataType"
-            <*> x .@? "DefaultValue"
-            <*> x .@? "Description"
-            <*> x .@? "IsCollection"
-            <*> x .@? "IsModifiable"
-            <*> x .@? "Name"
-            <*> x .@? "Value"
+        <$> x .@? "AllowedValues"
+        <*> x .@? "ApplyType"
+        <*> x .@? "DataType"
+        <*> x .@? "DefaultValue"
+        <*> x .@? "Description"
+        <*> x .@? "IsCollection"
+        <*> x .@? "IsModifiable"
+        <*> x .@? "Name"
+        <*> x .@? "Value"
 
-instance ToQuery OptionSetting
+instance ToQuery OptionSetting where
+    toQuery OptionSetting{..} = mconcat
+        [ "AllowedValues" =? _osAllowedValues
+        , "ApplyType"     =? _osApplyType
+        , "DataType"      =? _osDataType
+        , "DefaultValue"  =? _osDefaultValue
+        , "Description"   =? _osDescription
+        , "IsCollection"  =? _osIsCollection
+        , "IsModifiable"  =? _osIsModifiable
+        , "Name"          =? _osName
+        , "Value"         =? _osValue
+        ]
 
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails
     { _ddblfdLastWritten :: Maybe Integer
     , _ddblfdLogFileName :: Maybe Text
     , _ddblfdSize        :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeDBLogFilesDetails' constructor.
 --
@@ -2559,14 +2781,19 @@ ddblfdSize = lens _ddblfdSize (\s a -> s { _ddblfdSize = a })
 
 instance FromXML DescribeDBLogFilesDetails where
     parseXML x = DescribeDBLogFilesDetails
-            <$> x .@? "LastWritten"
-            <*> x .@? "LogFileName"
-            <*> x .@? "Size"
+        <$> x .@? "LastWritten"
+        <*> x .@? "LogFileName"
+        <*> x .@? "Size"
 
-instance ToQuery DescribeDBLogFilesDetails
+instance ToQuery DescribeDBLogFilesDetails where
+    toQuery DescribeDBLogFilesDetails{..} = mconcat
+        [ "LastWritten" =? _ddblfdLastWritten
+        , "LogFileName" =? _ddblfdLogFileName
+        , "Size"        =? _ddblfdSize
+        ]
 
 data OrderableDBInstanceOption = OrderableDBInstanceOption
-    { _odbioAvailabilityZones  :: [AvailabilityZone]
+    { _odbioAvailabilityZones  :: List "AvailabilityZone" AvailabilityZone
     , _odbioDBInstanceClass    :: Maybe Text
     , _odbioEngine             :: Maybe Text
     , _odbioEngineVersion      :: Maybe Text
@@ -2576,7 +2803,7 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption
     , _odbioStorageType        :: Maybe Text
     , _odbioSupportsIops       :: Maybe Bool
     , _odbioVpc                :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'OrderableDBInstanceOption' constructor.
 --
@@ -2620,6 +2847,7 @@ orderableDBInstanceOption = OrderableDBInstanceOption
 odbioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
 odbioAvailabilityZones =
     lens _odbioAvailabilityZones (\s a -> s { _odbioAvailabilityZones = a })
+        . _List
 
 -- | The DB instance Class for the orderable DB instance.
 odbioDBInstanceClass :: Lens' OrderableDBInstanceOption (Maybe Text)
@@ -2665,23 +2893,35 @@ odbioVpc = lens _odbioVpc (\s a -> s { _odbioVpc = a })
 
 instance FromXML OrderableDBInstanceOption where
     parseXML x = OrderableDBInstanceOption
-            <$> x .@ "AvailabilityZones"
-            <*> x .@? "DBInstanceClass"
-            <*> x .@? "Engine"
-            <*> x .@? "EngineVersion"
-            <*> x .@? "LicenseModel"
-            <*> x .@? "MultiAZCapable"
-            <*> x .@? "ReadReplicaCapable"
-            <*> x .@? "StorageType"
-            <*> x .@? "SupportsIops"
-            <*> x .@? "Vpc"
+        <$> x .@  "AvailabilityZones"
+        <*> x .@? "DBInstanceClass"
+        <*> x .@? "Engine"
+        <*> x .@? "EngineVersion"
+        <*> x .@? "LicenseModel"
+        <*> x .@? "MultiAZCapable"
+        <*> x .@? "ReadReplicaCapable"
+        <*> x .@? "StorageType"
+        <*> x .@? "SupportsIops"
+        <*> x .@? "Vpc"
 
-instance ToQuery OrderableDBInstanceOption
+instance ToQuery OrderableDBInstanceOption where
+    toQuery OrderableDBInstanceOption{..} = mconcat
+        [ "AvailabilityZones"  =? _odbioAvailabilityZones
+        , "DBInstanceClass"    =? _odbioDBInstanceClass
+        , "Engine"             =? _odbioEngine
+        , "EngineVersion"      =? _odbioEngineVersion
+        , "LicenseModel"       =? _odbioLicenseModel
+        , "MultiAZCapable"     =? _odbioMultiAZCapable
+        , "ReadReplicaCapable" =? _odbioReadReplicaCapable
+        , "StorageType"        =? _odbioStorageType
+        , "SupportsIops"       =? _odbioSupportsIops
+        , "Vpc"                =? _odbioVpc
+        ]
 
 data Filter = Filter
     { _fName   :: Text
-    , _fValues :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _fValues :: List "Value" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'Filter' constructor.
 --
@@ -2704,19 +2944,23 @@ fName = lens _fName (\s a -> s { _fName = a })
 
 -- | This parameter is not currently supported.
 fValues :: Lens' Filter [Text]
-fValues = lens _fValues (\s a -> s { _fValues = a })
+fValues = lens _fValues (\s a -> s { _fValues = a }) . _List
 
 instance FromXML Filter where
     parseXML x = Filter
-            <$> x .@ "Name"
-            <*> x .@ "Values"
+        <$> x .@  "Name"
+        <*> x .@  "Values"
 
-instance ToQuery Filter
+instance ToQuery Filter where
+    toQuery Filter{..} = mconcat
+        [ "Name"   =? _fName
+        , "Values" =? _fValues
+        ]
 
 data RecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount    :: Maybe Double
     , _rcRecurringChargeFrequency :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RecurringCharge' constructor.
 --
@@ -2745,15 +2989,19 @@ rcRecurringChargeFrequency =
 
 instance FromXML RecurringCharge where
     parseXML x = RecurringCharge
-            <$> x .@? "RecurringChargeAmount"
-            <*> x .@? "RecurringChargeFrequency"
+        <$> x .@? "RecurringChargeAmount"
+        <*> x .@? "RecurringChargeFrequency"
 
-instance ToQuery RecurringCharge
+instance ToQuery RecurringCharge where
+    toQuery RecurringCharge{..} = mconcat
+        [ "RecurringChargeAmount"    =? _rcRecurringChargeAmount
+        , "RecurringChargeFrequency" =? _rcRecurringChargeFrequency
+        ]
 
 data Endpoint = Endpoint
     { _eAddress :: Maybe Text
     , _ePort    :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Endpoint' constructor.
 --
@@ -2779,18 +3027,22 @@ ePort = lens _ePort (\s a -> s { _ePort = a })
 
 instance FromXML Endpoint where
     parseXML x = Endpoint
-            <$> x .@? "Address"
-            <*> x .@? "Port"
+        <$> x .@? "Address"
+        <*> x .@? "Port"
 
-instance ToQuery Endpoint
+instance ToQuery Endpoint where
+    toQuery Endpoint{..} = mconcat
+        [ "Address" =? _eAddress
+        , "Port"    =? _ePort
+        ]
 
 data OptionConfiguration = OptionConfiguration
-    { _ocDBSecurityGroupMemberships  :: [Text]
+    { _ocDBSecurityGroupMemberships  :: List "DBSecurityGroupName" Text
     , _ocOptionName                  :: Text
-    , _ocOptionSettings              :: [OptionSetting]
+    , _ocOptionSettings              :: List "OptionSetting" OptionSetting
     , _ocPort                        :: Maybe Int
-    , _ocVpcSecurityGroupMemberships :: [Text]
-    } deriving (Eq, Show, Generic)
+    , _ocVpcSecurityGroupMemberships :: List "VpcSecurityGroupId" Text
+    } deriving (Eq, Show)
 
 -- | 'OptionConfiguration' constructor.
 --
@@ -2821,6 +3073,7 @@ ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
 ocDBSecurityGroupMemberships =
     lens _ocDBSecurityGroupMemberships
         (\s a -> s { _ocDBSecurityGroupMemberships = a })
+            . _List
 
 -- | The configuration of options to include in a group.
 ocOptionName :: Lens' OptionConfiguration Text
@@ -2828,7 +3081,7 @@ ocOptionName = lens _ocOptionName (\s a -> s { _ocOptionName = a })
 
 -- | The option settings to include in an option group.
 ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
-ocOptionSettings = lens _ocOptionSettings (\s a -> s { _ocOptionSettings = a })
+ocOptionSettings = lens _ocOptionSettings (\s a -> s { _ocOptionSettings = a }) . _List
 
 -- | The optional port for the option.
 ocPort :: Lens' OptionConfiguration (Maybe Int)
@@ -2839,27 +3092,35 @@ ocVpcSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
 ocVpcSecurityGroupMemberships =
     lens _ocVpcSecurityGroupMemberships
         (\s a -> s { _ocVpcSecurityGroupMemberships = a })
+            . _List
 
 instance FromXML OptionConfiguration where
     parseXML x = OptionConfiguration
-            <$> x .@ "DBSecurityGroupMemberships"
-            <*> x .@ "OptionName"
-            <*> x .@ "OptionSettings"
-            <*> x .@? "Port"
-            <*> x .@ "VpcSecurityGroupMemberships"
+        <$> x .@  "DBSecurityGroupMemberships"
+        <*> x .@  "OptionName"
+        <*> x .@  "OptionSettings"
+        <*> x .@? "Port"
+        <*> x .@  "VpcSecurityGroupMemberships"
 
-instance ToQuery OptionConfiguration
+instance ToQuery OptionConfiguration where
+    toQuery OptionConfiguration{..} = mconcat
+        [ "DBSecurityGroupMemberships"  =? _ocDBSecurityGroupMemberships
+        , "OptionName"                  =? _ocOptionName
+        , "OptionSettings"              =? _ocOptionSettings
+        , "Port"                        =? _ocPort
+        , "VpcSecurityGroupMemberships" =? _ocVpcSecurityGroupMemberships
+        ]
 
 data Option = Option
-    { _oDBSecurityGroupMemberships  :: [DBSecurityGroupMembership]
+    { _oDBSecurityGroupMemberships  :: List "DBSecurityGroup" DBSecurityGroupMembership
     , _oOptionDescription           :: Maybe Text
     , _oOptionName                  :: Maybe Text
-    , _oOptionSettings              :: [OptionSetting]
+    , _oOptionSettings              :: List "OptionSetting" OptionSetting
     , _oPermanent                   :: Maybe Bool
     , _oPersistent                  :: Maybe Bool
     , _oPort                        :: Maybe Int
-    , _oVpcSecurityGroupMemberships :: [VpcSecurityGroupMembership]
-    } deriving (Eq, Show, Generic)
+    , _oVpcSecurityGroupMemberships :: List "VpcSecurityGroupMembership" VpcSecurityGroupMembership
+    } deriving (Eq, Show)
 
 -- | 'Option' constructor.
 --
@@ -2899,6 +3160,7 @@ oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
 oDBSecurityGroupMemberships =
     lens _oDBSecurityGroupMemberships
         (\s a -> s { _oDBSecurityGroupMemberships = a })
+            . _List
 
 -- | The description of the option.
 oOptionDescription :: Lens' Option (Maybe Text)
@@ -2911,7 +3173,7 @@ oOptionName = lens _oOptionName (\s a -> s { _oOptionName = a })
 
 -- | The option settings for this option.
 oOptionSettings :: Lens' Option [OptionSetting]
-oOptionSettings = lens _oOptionSettings (\s a -> s { _oOptionSettings = a })
+oOptionSettings = lens _oOptionSettings (\s a -> s { _oOptionSettings = a }) . _List
 
 -- | Indicate if this option is permanent.
 oPermanent :: Lens' Option (Maybe Bool)
@@ -2931,24 +3193,35 @@ oVpcSecurityGroupMemberships :: Lens' Option [VpcSecurityGroupMembership]
 oVpcSecurityGroupMemberships =
     lens _oVpcSecurityGroupMemberships
         (\s a -> s { _oVpcSecurityGroupMemberships = a })
+            . _List
 
 instance FromXML Option where
     parseXML x = Option
-            <$> x .@ "DBSecurityGroupMemberships"
-            <*> x .@? "OptionDescription"
-            <*> x .@? "OptionName"
-            <*> x .@ "OptionSettings"
-            <*> x .@? "Permanent"
-            <*> x .@? "Persistent"
-            <*> x .@? "Port"
-            <*> x .@ "VpcSecurityGroupMemberships"
+        <$> x .@  "DBSecurityGroupMemberships"
+        <*> x .@? "OptionDescription"
+        <*> x .@? "OptionName"
+        <*> x .@  "OptionSettings"
+        <*> x .@? "Permanent"
+        <*> x .@? "Persistent"
+        <*> x .@? "Port"
+        <*> x .@  "VpcSecurityGroupMemberships"
 
-instance ToQuery Option
+instance ToQuery Option where
+    toQuery Option{..} = mconcat
+        [ "DBSecurityGroupMemberships"  =? _oDBSecurityGroupMemberships
+        , "OptionDescription"           =? _oOptionDescription
+        , "OptionName"                  =? _oOptionName
+        , "OptionSettings"              =? _oOptionSettings
+        , "Permanent"                   =? _oPermanent
+        , "Persistent"                  =? _oPersistent
+        , "Port"                        =? _oPort
+        , "VpcSecurityGroupMemberships" =? _oVpcSecurityGroupMemberships
+        ]
 
 data IPRange = IPRange
     { _iprCIDRIP :: Maybe Text
     , _iprStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IPRange' constructor.
 --
@@ -2975,15 +3248,19 @@ iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
 
 instance FromXML IPRange where
     parseXML x = IPRange
-            <$> x .@? "CIDRIP"
-            <*> x .@? "Status"
+        <$> x .@? "CIDRIP"
+        <*> x .@? "Status"
 
-instance ToQuery IPRange
+instance ToQuery IPRange where
+    toQuery IPRange{..} = mconcat
+        [ "CIDRIP" =? _iprCIDRIP
+        , "Status" =? _iprStatus
+        ]
 
 data OptionGroupMembership = OptionGroupMembership
     { _ogmOptionGroupName :: Maybe Text
     , _ogmStatus          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'OptionGroupMembership' constructor.
 --
@@ -3011,15 +3288,19 @@ ogmStatus = lens _ogmStatus (\s a -> s { _ogmStatus = a })
 
 instance FromXML OptionGroupMembership where
     parseXML x = OptionGroupMembership
-            <$> x .@? "OptionGroupName"
-            <*> x .@? "Status"
+        <$> x .@? "OptionGroupName"
+        <*> x .@? "Status"
 
-instance ToQuery OptionGroupMembership
+instance ToQuery OptionGroupMembership where
+    toQuery OptionGroupMembership{..} = mconcat
+        [ "OptionGroupName" =? _ogmOptionGroupName
+        , "Status"          =? _ogmStatus
+        ]
 
 data EventCategoriesMap = EventCategoriesMap
-    { _ecmEventCategories :: [Text]
+    { _ecmEventCategories :: List "EventCategory" Text
     , _ecmSourceType      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EventCategoriesMap' constructor.
 --
@@ -3039,6 +3320,7 @@ eventCategoriesMap = EventCategoriesMap
 ecmEventCategories :: Lens' EventCategoriesMap [Text]
 ecmEventCategories =
     lens _ecmEventCategories (\s a -> s { _ecmEventCategories = a })
+        . _List
 
 -- | The source type that the returned categories belong to.
 ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
@@ -3046,10 +3328,14 @@ ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
 
 instance FromXML EventCategoriesMap where
     parseXML x = EventCategoriesMap
-            <$> x .@ "EventCategories"
-            <*> x .@? "SourceType"
+        <$> x .@  "EventCategories"
+        <*> x .@? "SourceType"
 
-instance ToQuery EventCategoriesMap
+instance ToQuery EventCategoriesMap where
+    toQuery EventCategoriesMap{..} = mconcat
+        [ "EventCategories" =? _ecmEventCategories
+        , "SourceType"      =? _ecmSourceType
+        ]
 
 data PendingModifiedValues = PendingModifiedValues
     { _pmvAllocatedStorage      :: Maybe Int
@@ -3062,7 +3348,7 @@ data PendingModifiedValues = PendingModifiedValues
     , _pmvMultiAZ               :: Maybe Bool
     , _pmvPort                  :: Maybe Int
     , _pmvStorageType           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PendingModifiedValues' constructor.
 --
@@ -3157,23 +3443,35 @@ pmvStorageType = lens _pmvStorageType (\s a -> s { _pmvStorageType = a })
 
 instance FromXML PendingModifiedValues where
     parseXML x = PendingModifiedValues
-            <$> x .@? "AllocatedStorage"
-            <*> x .@? "BackupRetentionPeriod"
-            <*> x .@? "DBInstanceClass"
-            <*> x .@? "DBInstanceIdentifier"
-            <*> x .@? "EngineVersion"
-            <*> x .@? "Iops"
-            <*> x .@? "MasterUserPassword"
-            <*> x .@? "MultiAZ"
-            <*> x .@? "Port"
-            <*> x .@? "StorageType"
+        <$> x .@? "AllocatedStorage"
+        <*> x .@? "BackupRetentionPeriod"
+        <*> x .@? "DBInstanceClass"
+        <*> x .@? "DBInstanceIdentifier"
+        <*> x .@? "EngineVersion"
+        <*> x .@? "Iops"
+        <*> x .@? "MasterUserPassword"
+        <*> x .@? "MultiAZ"
+        <*> x .@? "Port"
+        <*> x .@? "StorageType"
 
-instance ToQuery PendingModifiedValues
+instance ToQuery PendingModifiedValues where
+    toQuery PendingModifiedValues{..} = mconcat
+        [ "AllocatedStorage"      =? _pmvAllocatedStorage
+        , "BackupRetentionPeriod" =? _pmvBackupRetentionPeriod
+        , "DBInstanceClass"       =? _pmvDBInstanceClass
+        , "DBInstanceIdentifier"  =? _pmvDBInstanceIdentifier
+        , "EngineVersion"         =? _pmvEngineVersion
+        , "Iops"                  =? _pmvIops
+        , "MasterUserPassword"    =? _pmvMasterUserPassword
+        , "MultiAZ"               =? _pmvMultiAZ
+        , "Port"                  =? _pmvPort
+        , "StorageType"           =? _pmvStorageType
+        ]
 
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmStatus             :: Maybe Text
     , _vsgmVpcSecurityGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'VpcSecurityGroupMembership' constructor.
 --
@@ -3200,10 +3498,14 @@ vsgmVpcSecurityGroupId =
 
 instance FromXML VpcSecurityGroupMembership where
     parseXML x = VpcSecurityGroupMembership
-            <$> x .@? "Status"
-            <*> x .@? "VpcSecurityGroupId"
+        <$> x .@? "Status"
+        <*> x .@? "VpcSecurityGroupId"
 
-instance ToQuery VpcSecurityGroupMembership
+instance ToQuery VpcSecurityGroupMembership where
+    toQuery VpcSecurityGroupMembership{..} = mconcat
+        [ "Status"             =? _vsgmStatus
+        , "VpcSecurityGroupId" =? _vsgmVpcSecurityGroupId
+        ]
 
 data Parameter = Parameter
     { _pAllowedValues        :: Maybe Text
@@ -3216,7 +3518,7 @@ data Parameter = Parameter
     , _pParameterName        :: Maybe Text
     , _pParameterValue       :: Maybe Text
     , _pSource               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Parameter' constructor.
 --
@@ -3301,18 +3603,30 @@ pSource = lens _pSource (\s a -> s { _pSource = a })
 
 instance FromXML Parameter where
     parseXML x = Parameter
-            <$> x .@? "AllowedValues"
-            <*> x .@? "ApplyMethod"
-            <*> x .@? "ApplyType"
-            <*> x .@? "DataType"
-            <*> x .@? "Description"
-            <*> x .@? "IsModifiable"
-            <*> x .@? "MinimumEngineVersion"
-            <*> x .@? "ParameterName"
-            <*> x .@? "ParameterValue"
-            <*> x .@? "Source"
+        <$> x .@? "AllowedValues"
+        <*> x .@? "ApplyMethod"
+        <*> x .@? "ApplyType"
+        <*> x .@? "DataType"
+        <*> x .@? "Description"
+        <*> x .@? "IsModifiable"
+        <*> x .@? "MinimumEngineVersion"
+        <*> x .@? "ParameterName"
+        <*> x .@? "ParameterValue"
+        <*> x .@? "Source"
 
-instance ToQuery Parameter
+instance ToQuery Parameter where
+    toQuery Parameter{..} = mconcat
+        [ "AllowedValues"        =? _pAllowedValues
+        , "ApplyMethod"          =? _pApplyMethod
+        , "ApplyType"            =? _pApplyType
+        , "DataType"             =? _pDataType
+        , "Description"          =? _pDescription
+        , "IsModifiable"         =? _pIsModifiable
+        , "MinimumEngineVersion" =? _pMinimumEngineVersion
+        , "ParameterName"        =? _pParameterName
+        , "ParameterValue"       =? _pParameterValue
+        , "Source"               =? _pSource
+        ]
 
 data OptionGroupOptionSetting = OptionGroupOptionSetting
     { _ogosAllowedValues      :: Maybe Text
@@ -3321,7 +3635,7 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting
     , _ogosIsModifiable       :: Maybe Bool
     , _ogosSettingDescription :: Maybe Text
     , _ogosSettingName        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'OptionGroupOptionSetting' constructor.
 --
@@ -3378,11 +3692,19 @@ ogosSettingName = lens _ogosSettingName (\s a -> s { _ogosSettingName = a })
 
 instance FromXML OptionGroupOptionSetting where
     parseXML x = OptionGroupOptionSetting
-            <$> x .@? "AllowedValues"
-            <*> x .@? "ApplyType"
-            <*> x .@? "DefaultValue"
-            <*> x .@? "IsModifiable"
-            <*> x .@? "SettingDescription"
-            <*> x .@? "SettingName"
+        <$> x .@? "AllowedValues"
+        <*> x .@? "ApplyType"
+        <*> x .@? "DefaultValue"
+        <*> x .@? "IsModifiable"
+        <*> x .@? "SettingDescription"
+        <*> x .@? "SettingName"
 
-instance ToQuery OptionGroupOptionSetting
+instance ToQuery OptionGroupOptionSetting where
+    toQuery OptionGroupOptionSetting{..} = mconcat
+        [ "AllowedValues"      =? _ogosAllowedValues
+        , "ApplyType"          =? _ogosApplyType
+        , "DefaultValue"       =? _ogosDefaultValue
+        , "IsModifiable"       =? _ogosIsModifiable
+        , "SettingDescription" =? _ogosSettingDescription
+        , "SettingName"        =? _ogosSettingName
+        ]

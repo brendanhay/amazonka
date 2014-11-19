@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadSerialNumber :: Text
     , _dmfadUserName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeactivateMFADevice' constructor.
 --
@@ -87,7 +88,11 @@ deactivateMFADeviceResponse = DeactivateMFADeviceResponse
 instance ToPath DeactivateMFADevice where
     toPath = const "/"
 
-instance ToQuery DeactivateMFADevice
+instance ToQuery DeactivateMFADevice where
+    toQuery DeactivateMFADevice{..} = mconcat
+        [ "SerialNumber" =? _dmfadSerialNumber
+        , "UserName"     =? _dmfadUserName
+        ]
 
 instance ToHeaders DeactivateMFADevice
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data ListTagsForResource = ListTagsForResource
     { _ltfrResourceId   :: Text
     , _ltfrResourceType :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListTagsForResource' constructor.
 --
@@ -77,7 +78,7 @@ ltfrResourceType = lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
 
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrResourceTagSet :: ResourceTagSet
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListTagsForResourceResponse' constructor.
 --
@@ -123,4 +124,4 @@ instance AWSRequest ListTagsForResource where
 
 instance FromXML ListTagsForResourceResponse where
     parseXML x = ListTagsForResourceResponse
-            <$> x .@ "ResourceTagSet"
+        <$> x .@  "ResourceTagSet"

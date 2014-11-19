@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data DeleteExpression = DeleteExpression
     { _de2DomainName     :: Text
     , _de2ExpressionName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteExpression' constructor.
 --
@@ -77,7 +78,7 @@ de2ExpressionName =
 
 newtype DeleteExpressionResponse = DeleteExpressionResponse
     { _der1Expression :: ExpressionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteExpressionResponse' constructor.
 --
@@ -98,7 +99,11 @@ der1Expression = lens _der1Expression (\s a -> s { _der1Expression = a })
 instance ToPath DeleteExpression where
     toPath = const "/"
 
-instance ToQuery DeleteExpression
+instance ToQuery DeleteExpression where
+    toQuery DeleteExpression{..} = mconcat
+        [ "DomainName"     =? _de2DomainName
+        , "ExpressionName" =? _de2ExpressionName
+        ]
 
 instance ToHeaders DeleteExpression
 
@@ -110,5 +115,5 @@ instance AWSRequest DeleteExpression where
     response = xmlResponse
 
 instance FromXML DeleteExpressionResponse where
-    parseXML = withElement "DeleteExpressionResult" $ \x ->
-            <$> x .@ "Expression"
+    parseXML = withElement "DeleteExpressionResult" $ \x -> DeleteExpressionResponse
+        <$> x .@  "Expression"

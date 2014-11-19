@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CreateDomain' constructor.
 --
@@ -69,7 +70,7 @@ cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
 
 newtype CreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDomainResponse' constructor.
 --
@@ -88,7 +89,10 @@ cdrDomainStatus = lens _cdrDomainStatus (\s a -> s { _cdrDomainStatus = a })
 instance ToPath CreateDomain where
     toPath = const "/"
 
-instance ToQuery CreateDomain
+instance ToQuery CreateDomain where
+    toQuery CreateDomain{..} = mconcat
+        [ "DomainName" =? _cdDomainName
+        ]
 
 instance ToHeaders CreateDomain
 
@@ -100,5 +104,5 @@ instance AWSRequest CreateDomain where
     response = xmlResponse
 
 instance FromXML CreateDomainResponse where
-    parseXML = withElement "CreateDomainResult" $ \x ->
-            <$> x .@? "DomainStatus"
+    parseXML = withElement "CreateDomainResult" $ \x -> CreateDomainResponse
+        <$> x .@? "DomainStatus"

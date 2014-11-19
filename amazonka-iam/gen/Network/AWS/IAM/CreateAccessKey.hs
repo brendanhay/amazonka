@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ import qualified GHC.Exts
 
 newtype CreateAccessKey = CreateAccessKey
     { _cakUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateAccessKey' constructor.
 --
@@ -76,7 +77,7 @@ cakUserName = lens _cakUserName (\s a -> s { _cakUserName = a })
 
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _cakrAccessKey :: AccessKey
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateAccessKeyResponse' constructor.
 --
@@ -97,7 +98,10 @@ cakrAccessKey = lens _cakrAccessKey (\s a -> s { _cakrAccessKey = a })
 instance ToPath CreateAccessKey where
     toPath = const "/"
 
-instance ToQuery CreateAccessKey
+instance ToQuery CreateAccessKey where
+    toQuery CreateAccessKey{..} = mconcat
+        [ "UserName" =? _cakUserName
+        ]
 
 instance ToHeaders CreateAccessKey
 
@@ -109,5 +113,5 @@ instance AWSRequest CreateAccessKey where
     response = xmlResponse
 
 instance FromXML CreateAccessKeyResponse where
-    parseXML = withElement "CreateAccessKeyResult" $ \x ->
-            <$> x .@ "AccessKey"
+    parseXML = withElement "CreateAccessKeyResult" $ \x -> CreateAccessKeyResponse
+        <$> x .@  "AccessKey"

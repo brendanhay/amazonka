@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data DeleteCluster = DeleteCluster
     { _dc1ClusterIdentifier              :: Text
     , _dc1FinalClusterSnapshotIdentifier :: Maybe Text
     , _dc1SkipFinalClusterSnapshot       :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteCluster' constructor.
 --
@@ -111,7 +112,7 @@ dc1SkipFinalClusterSnapshot =
 
 newtype DeleteClusterResponse = DeleteClusterResponse
     { _dcrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteClusterResponse' constructor.
 --
@@ -130,7 +131,12 @@ dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
 instance ToPath DeleteCluster where
     toPath = const "/"
 
-instance ToQuery DeleteCluster
+instance ToQuery DeleteCluster where
+    toQuery DeleteCluster{..} = mconcat
+        [ "ClusterIdentifier"              =? _dc1ClusterIdentifier
+        , "FinalClusterSnapshotIdentifier" =? _dc1FinalClusterSnapshotIdentifier
+        , "SkipFinalClusterSnapshot"       =? _dc1SkipFinalClusterSnapshot
+        ]
 
 instance ToHeaders DeleteCluster
 
@@ -142,5 +148,5 @@ instance AWSRequest DeleteCluster where
     response = xmlResponse
 
 instance FromXML DeleteClusterResponse where
-    parseXML = withElement "DeleteClusterResult" $ \x ->
-            <$> x .@? "Cluster"
+    parseXML = withElement "DeleteClusterResult" $ \x -> DeleteClusterResponse
+        <$> x .@? "Cluster"

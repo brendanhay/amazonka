@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CreateDomain' constructor.
 --
@@ -79,7 +80,10 @@ createDomainResponse = CreateDomainResponse
 instance ToPath CreateDomain where
     toPath = const "/"
 
-instance ToQuery CreateDomain
+instance ToQuery CreateDomain where
+    toQuery CreateDomain{..} = mconcat
+        [ "DomainName" =? _cdDomainName
+        ]
 
 instance ToHeaders CreateDomain
 

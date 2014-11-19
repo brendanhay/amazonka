@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,21 +60,21 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data UpdateLayer = UpdateLayer
-    { _ulAttributes               :: Map Text Text
+    { _ulAttributes               :: Map "entry" "key" "value" Text Text
     , _ulAutoAssignElasticIps     :: Maybe Bool
     , _ulAutoAssignPublicIps      :: Maybe Bool
     , _ulCustomInstanceProfileArn :: Maybe Text
     , _ulCustomRecipes            :: Maybe Recipes
-    , _ulCustomSecurityGroupIds   :: [Text]
+    , _ulCustomSecurityGroupIds   :: List "InstanceIds" Text
     , _ulEnableAutoHealing        :: Maybe Bool
     , _ulInstallUpdatesOnBoot     :: Maybe Bool
     , _ulLayerId                  :: Text
     , _ulName                     :: Maybe Text
-    , _ulPackages                 :: [Text]
+    , _ulPackages                 :: List "InstanceIds" Text
     , _ulShortname                :: Maybe Text
     , _ulUseEbsOptimizedInstances :: Maybe Bool
-    , _ulVolumeConfigurations     :: [VolumeConfiguration]
-    } deriving (Eq, Show, Generic)
+    , _ulVolumeConfigurations     :: List "VolumeConfigurations" VolumeConfiguration
+    } deriving (Eq, Show)
 
 -- | 'UpdateLayer' constructor.
 --
@@ -129,8 +130,7 @@ updateLayer p1 = UpdateLayer
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 ulAttributes :: Lens' UpdateLayer (HashMap Text Text)
-ulAttributes = lens _ulAttributes (\s a -> s { _ulAttributes = a })
-    . _Map
+ulAttributes = lens _ulAttributes (\s a -> s { _ulAttributes = a }) . _Map
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
@@ -161,6 +161,7 @@ ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
 ulCustomSecurityGroupIds =
     lens _ulCustomSecurityGroupIds
         (\s a -> s { _ulCustomSecurityGroupIds = a })
+            . _List
 
 -- | Whether to disable auto healing for the layer.
 ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
@@ -186,7 +187,7 @@ ulName = lens _ulName (\s a -> s { _ulName = a })
 
 -- | An array of Package objects that describe the layer's packages.
 ulPackages :: Lens' UpdateLayer [Text]
-ulPackages = lens _ulPackages (\s a -> s { _ulPackages = a })
+ulPackages = lens _ulPackages (\s a -> s { _ulPackages = a }) . _List
 
 -- | The layer short name, which is used internally by AWS OpsWorksand by
 -- Chef. The short name is also used as the name for the directory where
@@ -206,6 +207,7 @@ ulUseEbsOptimizedInstances =
 ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
 ulVolumeConfigurations =
     lens _ulVolumeConfigurations (\s a -> s { _ulVolumeConfigurations = a })
+        . _List
 
 data UpdateLayerResponse = UpdateLayerResponse
     deriving (Eq, Ord, Show, Generic)

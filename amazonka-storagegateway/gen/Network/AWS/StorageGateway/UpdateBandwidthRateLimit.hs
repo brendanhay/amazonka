@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
     { _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
     , _ubrlAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
     , _ubrlGatewayARN                           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateBandwidthRateLimit' constructor.
 --
@@ -96,7 +97,7 @@ ubrlGatewayARN = lens _ubrlGatewayARN (\s a -> s { _ubrlGatewayARN = a })
 
 newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
     { _ubrlrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'UpdateBandwidthRateLimitResponse' constructor.
 --

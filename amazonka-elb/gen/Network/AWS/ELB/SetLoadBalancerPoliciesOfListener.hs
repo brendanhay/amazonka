@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,8 +49,8 @@ import qualified GHC.Exts
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
     { _slbpolLoadBalancerName :: Text
     , _slbpolLoadBalancerPort :: Int
-    , _slbpolPolicyNames      :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _slbpolPolicyNames      :: List "PolicyNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetLoadBalancerPoliciesOfListener' constructor.
 --
@@ -85,6 +86,7 @@ slbpolLoadBalancerPort =
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
 slbpolPolicyNames =
     lens _slbpolPolicyNames (\s a -> s { _slbpolPolicyNames = a })
+        . _List
 
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
     deriving (Eq, Ord, Show, Generic)
@@ -96,7 +98,12 @@ setLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerRes
 instance ToPath SetLoadBalancerPoliciesOfListener where
     toPath = const "/"
 
-instance ToQuery SetLoadBalancerPoliciesOfListener
+instance ToQuery SetLoadBalancerPoliciesOfListener where
+    toQuery SetLoadBalancerPoliciesOfListener{..} = mconcat
+        [ "LoadBalancerName" =? _slbpolLoadBalancerName
+        , "LoadBalancerPort" =? _slbpolLoadBalancerPort
+        , "PolicyNames"      =? _slbpolPolicyNames
+        ]
 
 instance ToHeaders SetLoadBalancerPoliciesOfListener
 

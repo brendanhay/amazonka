@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ import qualified GHC.Exts
 data ListSteps = ListSteps
     { _lsClusterId  :: Text
     , _lsMarker     :: Maybe Text
-    , _lsStepStates :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _lsStepStates :: List "StepStates" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListSteps' constructor.
 --
@@ -81,12 +82,12 @@ lsMarker = lens _lsMarker (\s a -> s { _lsMarker = a })
 
 -- | The filter to limit the step list based on certain states.
 lsStepStates :: Lens' ListSteps [Text]
-lsStepStates = lens _lsStepStates (\s a -> s { _lsStepStates = a })
+lsStepStates = lens _lsStepStates (\s a -> s { _lsStepStates = a }) . _List
 
 data ListStepsResponse = ListStepsResponse
     { _lsrMarker :: Maybe Text
-    , _lsrSteps  :: [StepSummary]
-    } deriving (Eq, Show, Generic)
+    , _lsrSteps  :: List "Steps" StepSummary
+    } deriving (Eq, Show)
 
 -- | 'ListStepsResponse' constructor.
 --
@@ -108,7 +109,7 @@ lsrMarker = lens _lsrMarker (\s a -> s { _lsrMarker = a })
 
 -- | The filtered list of steps for the cluster.
 lsrSteps :: Lens' ListStepsResponse [StepSummary]
-lsrSteps = lens _lsrSteps (\s a -> s { _lsrSteps = a })
+lsrSteps = lens _lsrSteps (\s a -> s { _lsrSteps = a }) . _List
 
 instance ToPath ListSteps where
     toPath = const "/"
@@ -135,7 +136,7 @@ instance AWSRequest ListSteps where
 instance FromJSON ListStepsResponse where
     parseJSON = withObject "ListStepsResponse" $ \o -> ListStepsResponse
         <$> o .:? "Marker"
-        <*> o .: "Steps"
+        <*> o .:  "Steps"
 
 instance AWSPager ListSteps where
     next rq rs = (\x -> rq & lsMarker ?~ x)

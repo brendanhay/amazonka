@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup
     { _dasgAutoScalingGroupName :: Text
     , _dasgForceDelete          :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteAutoScalingGroup' constructor.
 --
@@ -87,7 +88,11 @@ deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
 instance ToPath DeleteAutoScalingGroup where
     toPath = const "/"
 
-instance ToQuery DeleteAutoScalingGroup
+instance ToQuery DeleteAutoScalingGroup where
+    toQuery DeleteAutoScalingGroup{..} = mconcat
+        [ "AutoScalingGroupName" =? _dasgAutoScalingGroupName
+        , "ForceDelete"          =? _dasgForceDelete
+        ]
 
 instance ToHeaders DeleteAutoScalingGroup
 

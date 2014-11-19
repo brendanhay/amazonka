@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
     { _dmstGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeMaintenanceStartTime' constructor.
 --
@@ -75,7 +76,7 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     , _dmstrHourOfDay    :: Maybe Nat
     , _dmstrMinuteOfHour :: Maybe Nat
     , _dmstrTimezone     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeMaintenanceStartTimeResponse' constructor.
 --
@@ -101,15 +102,13 @@ describeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     }
 
 dmstrDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
-dmstrDayOfWeek = lens _dmstrDayOfWeek (\s a -> s { _dmstrDayOfWeek = a })
-    . mapping _Nat
+dmstrDayOfWeek = lens _dmstrDayOfWeek (\s a -> s { _dmstrDayOfWeek = a }) . mapping _Nat
 
 dmstrGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrGatewayARN = lens _dmstrGatewayARN (\s a -> s { _dmstrGatewayARN = a })
 
 dmstrHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
-dmstrHourOfDay = lens _dmstrHourOfDay (\s a -> s { _dmstrHourOfDay = a })
-    . mapping _Nat
+dmstrHourOfDay = lens _dmstrHourOfDay (\s a -> s { _dmstrHourOfDay = a }) . mapping _Nat
 
 dmstrMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrMinuteOfHour =

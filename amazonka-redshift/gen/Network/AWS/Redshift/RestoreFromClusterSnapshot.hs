@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -75,7 +76,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsAvailabilityZone                 :: Maybe Text
     , _rfcsClusterIdentifier                :: Text
     , _rfcsClusterParameterGroupName        :: Maybe Text
-    , _rfcsClusterSecurityGroups            :: [Text]
+    , _rfcsClusterSecurityGroups            :: List "ClusterSecurityGroupName" Text
     , _rfcsClusterSubnetGroupName           :: Maybe Text
     , _rfcsElasticIp                        :: Maybe Text
     , _rfcsHsmClientCertificateIdentifier   :: Maybe Text
@@ -86,8 +87,8 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsPubliclyAccessible               :: Maybe Bool
     , _rfcsSnapshotClusterIdentifier        :: Maybe Text
     , _rfcsSnapshotIdentifier               :: Text
-    , _rfcsVpcSecurityGroupIds              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _rfcsVpcSecurityGroupIds              :: List "VpcSecurityGroupId" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'RestoreFromClusterSnapshot' constructor.
 --
@@ -200,6 +201,7 @@ rfcsClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot [Text]
 rfcsClusterSecurityGroups =
     lens _rfcsClusterSecurityGroups
         (\s a -> s { _rfcsClusterSecurityGroups = a })
+            . _List
 
 -- | The name of the subnet group where you want to cluster restored. A
 -- snapshot of cluster in VPC can be restored only in VPC. Therefore, you
@@ -276,10 +278,11 @@ rfcsSnapshotIdentifier =
 rfcsVpcSecurityGroupIds :: Lens' RestoreFromClusterSnapshot [Text]
 rfcsVpcSecurityGroupIds =
     lens _rfcsVpcSecurityGroupIds (\s a -> s { _rfcsVpcSecurityGroupIds = a })
+        . _List
 
 newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     { _rfcsrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RestoreFromClusterSnapshotResponse' constructor.
 --
@@ -298,7 +301,26 @@ rfcsrCluster = lens _rfcsrCluster (\s a -> s { _rfcsrCluster = a })
 instance ToPath RestoreFromClusterSnapshot where
     toPath = const "/"
 
-instance ToQuery RestoreFromClusterSnapshot
+instance ToQuery RestoreFromClusterSnapshot where
+    toQuery RestoreFromClusterSnapshot{..} = mconcat
+        [ "AllowVersionUpgrade"              =? _rfcsAllowVersionUpgrade
+        , "AutomatedSnapshotRetentionPeriod" =? _rfcsAutomatedSnapshotRetentionPeriod
+        , "AvailabilityZone"                 =? _rfcsAvailabilityZone
+        , "ClusterIdentifier"                =? _rfcsClusterIdentifier
+        , "ClusterParameterGroupName"        =? _rfcsClusterParameterGroupName
+        , "ClusterSecurityGroups"            =? _rfcsClusterSecurityGroups
+        , "ClusterSubnetGroupName"           =? _rfcsClusterSubnetGroupName
+        , "ElasticIp"                        =? _rfcsElasticIp
+        , "HsmClientCertificateIdentifier"   =? _rfcsHsmClientCertificateIdentifier
+        , "HsmConfigurationIdentifier"       =? _rfcsHsmConfigurationIdentifier
+        , "OwnerAccount"                     =? _rfcsOwnerAccount
+        , "Port"                             =? _rfcsPort
+        , "PreferredMaintenanceWindow"       =? _rfcsPreferredMaintenanceWindow
+        , "PubliclyAccessible"               =? _rfcsPubliclyAccessible
+        , "SnapshotClusterIdentifier"        =? _rfcsSnapshotClusterIdentifier
+        , "SnapshotIdentifier"               =? _rfcsSnapshotIdentifier
+        , "VpcSecurityGroupIds"              =? _rfcsVpcSecurityGroupIds
+        ]
 
 instance ToHeaders RestoreFromClusterSnapshot
 
@@ -310,5 +332,5 @@ instance AWSRequest RestoreFromClusterSnapshot where
     response = xmlResponse
 
 instance FromXML RestoreFromClusterSnapshotResponse where
-    parseXML = withElement "RestoreFromClusterSnapshotResult" $ \x ->
-            <$> x .@? "Cluster"
+    parseXML = withElement "RestoreFromClusterSnapshotResult" $ \x -> RestoreFromClusterSnapshotResponse
+        <$> x .@? "Cluster"

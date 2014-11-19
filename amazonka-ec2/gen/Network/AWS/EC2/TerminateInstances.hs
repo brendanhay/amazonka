@@ -63,7 +63,7 @@ import qualified GHC.Exts
 data TerminateInstances = TerminateInstances
     { _tiDryRun      :: Maybe Bool
     , _tiInstanceIds :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TerminateInstances' constructor.
 --
@@ -84,12 +84,11 @@ tiDryRun = lens _tiDryRun (\s a -> s { _tiDryRun = a })
 
 -- | One or more instance IDs.
 tiInstanceIds :: Lens' TerminateInstances [Text]
-tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
-    . _List
+tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a }) . _List
 
 newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: List "item" InstanceStateChange
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList TerminateInstancesResponse where
     type Item TerminateInstancesResponse = InstanceStateChange
@@ -117,7 +116,11 @@ tirTerminatingInstances =
 instance ToPath TerminateInstances where
     toPath = const "/"
 
-instance ToQuery TerminateInstances
+instance ToQuery TerminateInstances where
+    toQuery TerminateInstances{..} = mconcat
+        [ "dryRun"     =? _tiDryRun
+        , "InstanceId" =? _tiInstanceIds
+        ]
 
 instance ToHeaders TerminateInstances
 
@@ -130,4 +133,4 @@ instance AWSRequest TerminateInstances where
 
 instance FromXML TerminateInstancesResponse where
     parseXML x = TerminateInstancesResponse
-        <$> x .@ "instancesSet"
+        <$> x .@  "instancesSet"

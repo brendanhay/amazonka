@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -76,7 +77,7 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
     , _loweStartTimeFilter :: ExecutionTimeFilter
     , _loweTagFilter       :: Maybe TagFilter
     , _loweTypeFilter      :: Maybe WorkflowTypeFilter
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListOpenWorkflowExecutions' constructor.
 --
@@ -162,9 +163,9 @@ loweTypeFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
 loweTypeFilter = lens _loweTypeFilter (\s a -> s { _loweTypeFilter = a })
 
 data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
-    { _lowerExecutionInfos :: [WorkflowExecutionInfo]
+    { _lowerExecutionInfos :: List "executionInfos" WorkflowExecutionInfo
     , _lowerNextPageToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListOpenWorkflowExecutionsResponse' constructor.
 --
@@ -184,6 +185,7 @@ listOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
 lowerExecutionInfos :: Lens' ListOpenWorkflowExecutionsResponse [WorkflowExecutionInfo]
 lowerExecutionInfos =
     lens _lowerExecutionInfos (\s a -> s { _lowerExecutionInfos = a })
+        . _List
 
 -- | The token of the next page in the result. If set, the results have more
 -- than one page. The next page can be retrieved by repeating the request
@@ -221,7 +223,7 @@ instance AWSRequest ListOpenWorkflowExecutions where
 
 instance FromJSON ListOpenWorkflowExecutionsResponse where
     parseJSON = withObject "ListOpenWorkflowExecutionsResponse" $ \o -> ListOpenWorkflowExecutionsResponse
-        <$> o .: "executionInfos"
+        <$> o .:  "executionInfos"
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListOpenWorkflowExecutions where

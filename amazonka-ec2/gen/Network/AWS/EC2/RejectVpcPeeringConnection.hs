@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcDryRun                 :: Maybe Bool
     , _rvpcVpcPeeringConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RejectVpcPeeringConnection' constructor.
 --
@@ -81,7 +81,7 @@ rvpcVpcPeeringConnectionId =
 
 newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RejectVpcPeeringConnectionResponse' constructor.
 --
@@ -101,7 +101,11 @@ rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
 instance ToPath RejectVpcPeeringConnection where
     toPath = const "/"
 
-instance ToQuery RejectVpcPeeringConnection
+instance ToQuery RejectVpcPeeringConnection where
+    toQuery RejectVpcPeeringConnection{..} = mconcat
+        [ "dryRun"                 =? _rvpcDryRun
+        , "vpcPeeringConnectionId" =? _rvpcVpcPeeringConnectionId
+        ]
 
 instance ToHeaders RejectVpcPeeringConnection
 

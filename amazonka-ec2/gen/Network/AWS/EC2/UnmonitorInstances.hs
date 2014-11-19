@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data UnmonitorInstances = UnmonitorInstances
     { _uiDryRun      :: Maybe Bool
     , _uiInstanceIds :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UnmonitorInstances' constructor.
 --
@@ -72,12 +72,11 @@ uiDryRun = lens _uiDryRun (\s a -> s { _uiDryRun = a })
 
 -- | One or more instance IDs.
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
-uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a })
-    . _List
+uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a }) . _List
 
 newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: List "item" InstanceMonitoring
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList UnmonitorInstancesResponse where
     type Item UnmonitorInstancesResponse = InstanceMonitoring
@@ -105,7 +104,11 @@ uirInstanceMonitorings =
 instance ToPath UnmonitorInstances where
     toPath = const "/"
 
-instance ToQuery UnmonitorInstances
+instance ToQuery UnmonitorInstances where
+    toQuery UnmonitorInstances{..} = mconcat
+        [ "dryRun"     =? _uiDryRun
+        , "InstanceId" =? _uiInstanceIds
+        ]
 
 instance ToHeaders UnmonitorInstances
 
@@ -118,4 +121,4 @@ instance AWSRequest UnmonitorInstances where
 
 instance FromXML UnmonitorInstancesResponse where
     parseXML x = UnmonitorInstancesResponse
-        <$> x .@ "instancesSet"
+        <$> x .@  "instancesSet"

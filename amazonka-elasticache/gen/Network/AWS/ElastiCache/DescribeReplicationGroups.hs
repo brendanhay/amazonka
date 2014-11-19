@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data DescribeReplicationGroups = DescribeReplicationGroups
     { _drg1Marker             :: Maybe Text
     , _drg1MaxRecords         :: Maybe Int
     , _drg1ReplicationGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeReplicationGroups' constructor.
 --
@@ -95,8 +96,8 @@ drg1ReplicationGroupId =
 
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrMarker            :: Maybe Text
-    , _drgrReplicationGroups :: [ReplicationGroup]
-    } deriving (Eq, Show, Generic)
+    , _drgrReplicationGroups :: List "ReplicationGroup" ReplicationGroup
+    } deriving (Eq, Show)
 
 -- | 'DescribeReplicationGroupsResponse' constructor.
 --
@@ -121,11 +122,17 @@ drgrMarker = lens _drgrMarker (\s a -> s { _drgrMarker = a })
 drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
 drgrReplicationGroups =
     lens _drgrReplicationGroups (\s a -> s { _drgrReplicationGroups = a })
+        . _List
 
 instance ToPath DescribeReplicationGroups where
     toPath = const "/"
 
-instance ToQuery DescribeReplicationGroups
+instance ToQuery DescribeReplicationGroups where
+    toQuery DescribeReplicationGroups{..} = mconcat
+        [ "Marker"             =? _drg1Marker
+        , "MaxRecords"         =? _drg1MaxRecords
+        , "ReplicationGroupId" =? _drg1ReplicationGroupId
+        ]
 
 instance ToHeaders DescribeReplicationGroups
 
@@ -137,9 +144,9 @@ instance AWSRequest DescribeReplicationGroups where
     response = xmlResponse
 
 instance FromXML DescribeReplicationGroupsResponse where
-    parseXML = withElement "DescribeReplicationGroupsResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "ReplicationGroups"
+    parseXML = withElement "DescribeReplicationGroupsResult" $ \x -> DescribeReplicationGroupsResponse
+        <$> x .@? "Marker"
+        <*> x .@  "ReplicationGroups"
 
 instance AWSPager DescribeReplicationGroups where
     next rq rs = (\x -> rq & drg1Marker ?~ x)

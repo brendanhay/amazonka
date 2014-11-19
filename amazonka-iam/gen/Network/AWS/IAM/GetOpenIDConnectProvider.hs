@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetOpenIDConnectProvider = GetOpenIDConnectProvider
     { _goidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetOpenIDConnectProvider' constructor.
 --
@@ -72,11 +73,11 @@ goidcpOpenIDConnectProviderArn =
         (\s a -> s { _goidcpOpenIDConnectProviderArn = a })
 
 data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse
-    { _goidcprClientIDList   :: [Text]
+    { _goidcprClientIDList   :: List "ClientIDList" Text
     , _goidcprCreateDate     :: Maybe RFC822
-    , _goidcprThumbprintList :: [Text]
+    , _goidcprThumbprintList :: List "ThumbprintList" Text
     , _goidcprUrl            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetOpenIDConnectProviderResponse' constructor.
 --
@@ -104,6 +105,7 @@ getOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse
 goidcprClientIDList :: Lens' GetOpenIDConnectProviderResponse [Text]
 goidcprClientIDList =
     lens _goidcprClientIDList (\s a -> s { _goidcprClientIDList = a })
+        . _List
 
 -- | The date and time when the IAM OpenID Connect provider entity was created
 -- in the AWS account.
@@ -118,6 +120,7 @@ goidcprCreateDate =
 goidcprThumbprintList :: Lens' GetOpenIDConnectProviderResponse [Text]
 goidcprThumbprintList =
     lens _goidcprThumbprintList (\s a -> s { _goidcprThumbprintList = a })
+        . _List
 
 -- | The URL that the IAM OpenID Connect provider is associated with. For more
 -- information, see CreateOpenIDConnectProvider.
@@ -127,7 +130,10 @@ goidcprUrl = lens _goidcprUrl (\s a -> s { _goidcprUrl = a })
 instance ToPath GetOpenIDConnectProvider where
     toPath = const "/"
 
-instance ToQuery GetOpenIDConnectProvider
+instance ToQuery GetOpenIDConnectProvider where
+    toQuery GetOpenIDConnectProvider{..} = mconcat
+        [ "OpenIDConnectProviderArn" =? _goidcpOpenIDConnectProviderArn
+        ]
 
 instance ToHeaders GetOpenIDConnectProvider
 
@@ -139,8 +145,8 @@ instance AWSRequest GetOpenIDConnectProvider where
     response = xmlResponse
 
 instance FromXML GetOpenIDConnectProviderResponse where
-    parseXML = withElement "GetOpenIDConnectProviderResult" $ \x ->
-            <$> x .@ "ClientIDList"
-            <*> x .@? "CreateDate"
-            <*> x .@ "ThumbprintList"
-            <*> x .@? "Url"
+    parseXML = withElement "GetOpenIDConnectProviderResult" $ \x -> GetOpenIDConnectProviderResponse
+        <$> x .@  "ClientIDList"
+        <*> x .@? "CreateDate"
+        <*> x .@  "ThumbprintList"
+        <*> x .@? "Url"

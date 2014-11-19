@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,8 +58,8 @@ data TestRole = TestRole
     { _trInputBucket  :: Text
     , _trOutputBucket :: Text
     , _trRole         :: Text
-    , _trTopics       :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _trTopics       :: List "Topics" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'TestRole' constructor.
 --
@@ -101,12 +102,12 @@ trRole = lens _trRole (\s a -> s { _trRole = a })
 -- | The ARNs of one or more Amazon Simple Notification Service (Amazon SNS)
 -- topics that you want the action to send a test notification to.
 trTopics :: Lens' TestRole [Text]
-trTopics = lens _trTopics (\s a -> s { _trTopics = a })
+trTopics = lens _trTopics (\s a -> s { _trTopics = a }) . _List
 
 data TestRoleResponse = TestRoleResponse
-    { _trrMessages :: [Text]
+    { _trrMessages :: List "Messages" Text
     , _trrSuccess  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TestRoleResponse' constructor.
 --
@@ -125,7 +126,7 @@ testRoleResponse = TestRoleResponse
 -- | If the Success element contains false, this value is an array of one or
 -- more error messages that were generated during the test process.
 trrMessages :: Lens' TestRoleResponse [Text]
-trrMessages = lens _trrMessages (\s a -> s { _trrMessages = a })
+trrMessages = lens _trrMessages (\s a -> s { _trrMessages = a }) . _List
 
 -- | If the operation is successful, this value is true; otherwise, the value
 -- is false.
@@ -157,5 +158,5 @@ instance AWSRequest TestRole where
 
 instance FromJSON TestRoleResponse where
     parseJSON = withObject "TestRoleResponse" $ \o -> TestRoleResponse
-        <$> o .: "Messages"
+        <$> o .:  "Messages"
         <*> o .:? "Success"

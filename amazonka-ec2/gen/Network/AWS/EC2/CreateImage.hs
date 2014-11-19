@@ -63,7 +63,7 @@ data CreateImage = CreateImage
     , _ci1InstanceId          :: Text
     , _ci1Name                :: Text
     , _ci1NoReboot            :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateImage' constructor.
 --
@@ -127,7 +127,7 @@ ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
 
 newtype CreateImageResponse = CreateImageResponse
     { _cirImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateImageResponse' constructor.
 --
@@ -147,7 +147,15 @@ cirImageId = lens _cirImageId (\s a -> s { _cirImageId = a })
 instance ToPath CreateImage where
     toPath = const "/"
 
-instance ToQuery CreateImage
+instance ToQuery CreateImage where
+    toQuery CreateImage{..} = mconcat
+        [ "blockDeviceMapping" =? _ci1BlockDeviceMappings
+        , "description"        =? _ci1Description
+        , "dryRun"             =? _ci1DryRun
+        , "instanceId"         =? _ci1InstanceId
+        , "name"               =? _ci1Name
+        , "noReboot"           =? _ci1NoReboot
+        ]
 
 instance ToHeaders CreateImage
 

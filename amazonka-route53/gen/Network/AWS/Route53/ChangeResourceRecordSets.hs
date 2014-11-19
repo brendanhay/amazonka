@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -67,7 +68,7 @@ import qualified GHC.Exts
 data ChangeResourceRecordSets = ChangeResourceRecordSets
     { _crrsChangeBatch  :: ChangeBatch
     , _crrsHostedZoneId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ChangeResourceRecordSets' constructor.
 --
@@ -96,7 +97,7 @@ crrsHostedZoneId = lens _crrsHostedZoneId (\s a -> s { _crrsHostedZoneId = a })
 
 newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { _crrsrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ChangeResourceRecordSetsResponse' constructor.
 --
@@ -144,4 +145,4 @@ instance AWSRequest ChangeResourceRecordSets where
 
 instance FromXML ChangeResourceRecordSetsResponse where
     parseXML x = ChangeResourceRecordSetsResponse
-            <$> x .@ "ChangeInfo"
+        <$> x .@  "ChangeInfo"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity
     , _udiDeveloperUserIdentifier :: Text
     , _udiIdentityId              :: Text
     , _udiIdentityPoolId          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UnlinkDeveloperIdentity' constructor.
 --

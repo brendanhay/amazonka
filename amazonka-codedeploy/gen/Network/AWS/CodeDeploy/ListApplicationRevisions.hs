@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ data ListApplicationRevisions = ListApplicationRevisions
     , _larS3KeyPrefix     :: Maybe Text
     , _larSortBy          :: Maybe Text
     , _larSortOrder       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListApplicationRevisions' constructor.
 --
@@ -139,8 +140,8 @@ larSortOrder = lens _larSortOrder (\s a -> s { _larSortOrder = a })
 
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse
     { _larrNextToken :: Maybe Text
-    , _larrRevisions :: [RevisionLocation]
-    } deriving (Eq, Show, Generic)
+    , _larrRevisions :: List "revisions" RevisionLocation
+    } deriving (Eq, Show)
 
 -- | 'ListApplicationRevisionsResponse' constructor.
 --
@@ -165,7 +166,7 @@ larrNextToken = lens _larrNextToken (\s a -> s { _larrNextToken = a })
 
 -- | A list of revision locations that contain the matching revisions.
 larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
-larrRevisions = lens _larrRevisions (\s a -> s { _larrRevisions = a })
+larrRevisions = lens _larrRevisions (\s a -> s { _larrRevisions = a }) . _List
 
 instance ToPath ListApplicationRevisions where
     toPath = const "/"
@@ -196,4 +197,4 @@ instance AWSRequest ListApplicationRevisions where
 instance FromJSON ListApplicationRevisionsResponse where
     parseJSON = withObject "ListApplicationRevisionsResponse" $ \o -> ListApplicationRevisionsResponse
         <$> o .:? "nextToken"
-        <*> o .: "revisions"
+        <*> o .:  "revisions"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,9 +61,9 @@ data UpdateRecords = UpdateRecords
     , _urDeviceId         :: Maybe Text
     , _urIdentityId       :: Text
     , _urIdentityPoolId   :: Text
-    , _urRecordPatches    :: [RecordPatch]
+    , _urRecordPatches    :: List "RecordPatches" RecordPatch
     , _urSyncSessionToken :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateRecords' constructor.
 --
@@ -126,7 +127,7 @@ urIdentityPoolId = lens _urIdentityPoolId (\s a -> s { _urIdentityPoolId = a })
 
 -- | A list of patch operations.
 urRecordPatches :: Lens' UpdateRecords [RecordPatch]
-urRecordPatches = lens _urRecordPatches (\s a -> s { _urRecordPatches = a })
+urRecordPatches = lens _urRecordPatches (\s a -> s { _urRecordPatches = a }) . _List
 
 -- | The SyncSessionToken returned by a previous call to ListRecords for this
 -- dataset and identity.
@@ -135,8 +136,8 @@ urSyncSessionToken =
     lens _urSyncSessionToken (\s a -> s { _urSyncSessionToken = a })
 
 newtype UpdateRecordsResponse = UpdateRecordsResponse
-    { _urrRecords :: [Record]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _urrRecords :: List "Records" Record
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList UpdateRecordsResponse where
     type Item UpdateRecordsResponse = Record
@@ -157,7 +158,7 @@ updateRecordsResponse = UpdateRecordsResponse
 
 -- | A list of records that have been updated.
 urrRecords :: Lens' UpdateRecordsResponse [Record]
-urrRecords = lens _urrRecords (\s a -> s { _urrRecords = a })
+urrRecords = lens _urrRecords (\s a -> s { _urrRecords = a }) . _List
 
 instance ToPath UpdateRecords where
     toPath UpdateRecords{..} = mconcat
@@ -193,4 +194,4 @@ instance AWSRequest UpdateRecords where
 
 instance FromJSON UpdateRecordsResponse where
     parseJSON = withObject "UpdateRecordsResponse" $ \o -> UpdateRecordsResponse
-        <$> o .: "Records"
+        <$> o .:  "Records"

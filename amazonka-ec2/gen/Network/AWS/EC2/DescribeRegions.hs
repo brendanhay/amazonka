@@ -52,7 +52,7 @@ data DescribeRegions = DescribeRegions
     { _dr1DryRun      :: Maybe Bool
     , _dr1Filters     :: List "Filter" Filter
     , _dr1RegionNames :: List "RegionName" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeRegions' constructor.
 --
@@ -78,17 +78,15 @@ dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
 -- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
 -- example, us-east-1).
 dr1Filters :: Lens' DescribeRegions [Filter]
-dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a })
-    . _List
+dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a }) . _List
 
 -- | The names of one or more regions.
 dr1RegionNames :: Lens' DescribeRegions [Text]
-dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
-    . _List
+dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a }) . _List
 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: List "item" Region
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeRegionsResponse where
     type Item DescribeRegionsResponse = Region
@@ -109,13 +107,17 @@ describeRegionsResponse = DescribeRegionsResponse
 
 -- | Information about one or more regions.
 drrRegions :: Lens' DescribeRegionsResponse [Region]
-drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
-    . _List
+drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a }) . _List
 
 instance ToPath DescribeRegions where
     toPath = const "/"
 
-instance ToQuery DescribeRegions
+instance ToQuery DescribeRegions where
+    toQuery DescribeRegions{..} = mconcat
+        [ "dryRun"     =? _dr1DryRun
+        , "Filter"     =? _dr1Filters
+        , "RegionName" =? _dr1RegionNames
+        ]
 
 instance ToHeaders DescribeRegions
 
@@ -128,4 +130,4 @@ instance AWSRequest DescribeRegions where
 
 instance FromXML DescribeRegionsResponse where
     parseXML x = DescribeRegionsResponse
-        <$> x .@ "regionInfo"
+        <$> x .@  "regionInfo"

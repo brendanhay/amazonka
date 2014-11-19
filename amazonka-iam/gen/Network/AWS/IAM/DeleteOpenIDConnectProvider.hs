@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteOpenIDConnectProvider = DeleteOpenIDConnectProvider
     { _doidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteOpenIDConnectProvider' constructor.
 --
@@ -81,7 +82,10 @@ deleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse
 instance ToPath DeleteOpenIDConnectProvider where
     toPath = const "/"
 
-instance ToQuery DeleteOpenIDConnectProvider
+instance ToQuery DeleteOpenIDConnectProvider where
+    toQuery DeleteOpenIDConnectProvider{..} = mconcat
+        [ "OpenIDConnectProviderArn" =? _doidcpOpenIDConnectProviderArn
+        ]
 
 instance ToHeaders DeleteOpenIDConnectProvider
 

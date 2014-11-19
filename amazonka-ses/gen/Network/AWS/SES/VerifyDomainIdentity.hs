@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype VerifyDomainIdentity = VerifyDomainIdentity
     { _vdiDomain :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'VerifyDomainIdentity' constructor.
 --
@@ -66,7 +67,7 @@ vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
 
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
     { _vdirVerificationToken :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'VerifyDomainIdentityResponse' constructor.
 --
@@ -89,7 +90,10 @@ vdirVerificationToken =
 instance ToPath VerifyDomainIdentity where
     toPath = const "/"
 
-instance ToQuery VerifyDomainIdentity
+instance ToQuery VerifyDomainIdentity where
+    toQuery VerifyDomainIdentity{..} = mconcat
+        [ "Domain" =? _vdiDomain
+        ]
 
 instance ToHeaders VerifyDomainIdentity
 
@@ -101,5 +105,5 @@ instance AWSRequest VerifyDomainIdentity where
     response = xmlResponse
 
 instance FromXML VerifyDomainIdentityResponse where
-    parseXML = withElement "VerifyDomainIdentityResult" $ \x ->
-            <$> x .@ "VerificationToken"
+    parseXML = withElement "VerifyDomainIdentityResult" $ \x -> VerifyDomainIdentityResponse
+        <$> x .@  "VerificationToken"

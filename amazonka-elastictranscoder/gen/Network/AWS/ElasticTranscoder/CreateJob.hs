@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,10 +59,10 @@ data CreateJob = CreateJob
     { _cjInput           :: JobInput
     , _cjOutput          :: Maybe CreateJobOutput
     , _cjOutputKeyPrefix :: Maybe Text
-    , _cjOutputs         :: [CreateJobOutput]
+    , _cjOutputs         :: List "Outputs" CreateJobOutput
     , _cjPipelineId      :: Text
-    , _cjPlaylists       :: [CreateJobPlaylist]
-    } deriving (Eq, Show, Generic)
+    , _cjPlaylists       :: List "Playlists" CreateJobPlaylist
+    } deriving (Eq, Show)
 
 -- | 'CreateJob' constructor.
 --
@@ -110,7 +111,7 @@ cjOutputKeyPrefix =
 -- transcoded (target) files. We recommend that you use the Outputs syntax
 -- instead of the Output syntax.
 cjOutputs :: Lens' CreateJob [CreateJobOutput]
-cjOutputs = lens _cjOutputs (\s a -> s { _cjOutputs = a })
+cjOutputs = lens _cjOutputs (\s a -> s { _cjOutputs = a }) . _List
 
 -- | The Id of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
@@ -125,11 +126,11 @@ cjPipelineId = lens _cjPipelineId (\s a -> s { _cjPipelineId = a })
 -- about the master playlists that you want Elastic Transcoder to create.
 -- The maximum number of master playlists in a job is 30.
 cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]
-cjPlaylists = lens _cjPlaylists (\s a -> s { _cjPlaylists = a })
+cjPlaylists = lens _cjPlaylists (\s a -> s { _cjPlaylists = a }) . _List
 
 newtype CreateJobResponse = CreateJobResponse
     { _cjrJob :: Maybe Job'
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateJobResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ import qualified GHC.Exts
 
 newtype DescribeCache = DescribeCache
     { _dcGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeCache' constructor.
 --
@@ -78,9 +79,9 @@ data DescribeCacheResponse = DescribeCacheResponse
     , _dcrCacheHitPercentage    :: Maybe Double
     , _dcrCacheMissPercentage   :: Maybe Double
     , _dcrCacheUsedPercentage   :: Maybe Double
-    , _dcrDiskIds               :: [Text]
+    , _dcrDiskIds               :: List "DiskIds" Text
     , _dcrGatewayARN            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCacheResponse' constructor.
 --
@@ -133,7 +134,7 @@ dcrCacheUsedPercentage =
     lens _dcrCacheUsedPercentage (\s a -> s { _dcrCacheUsedPercentage = a })
 
 dcrDiskIds :: Lens' DescribeCacheResponse [Text]
-dcrDiskIds = lens _dcrDiskIds (\s a -> s { _dcrDiskIds = a })
+dcrDiskIds = lens _dcrDiskIds (\s a -> s { _dcrDiskIds = a }) . _List
 
 dcrGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
 dcrGatewayARN = lens _dcrGatewayARN (\s a -> s { _dcrGatewayARN = a })
@@ -165,5 +166,5 @@ instance FromJSON DescribeCacheResponse where
         <*> o .:? "CacheHitPercentage"
         <*> o .:? "CacheMissPercentage"
         <*> o .:? "CacheUsedPercentage"
-        <*> o .: "DiskIds"
+        <*> o .:  "DiskIds"
         <*> o .:? "GatewayARN"

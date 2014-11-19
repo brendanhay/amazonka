@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,8 +54,8 @@ import qualified GHC.Exts
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup
     { _ccsgClusterSubnetGroupName :: Text
     , _ccsgDescription            :: Text
-    , _ccsgSubnetIds              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _ccsgSubnetIds              :: List "SubnetIdentifier" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateClusterSubnetGroup' constructor.
 --
@@ -92,11 +93,11 @@ ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
 ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
-ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a })
+ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a }) . _List
 
 newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
     { _ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateClusterSubnetGroupResponse' constructor.
 --
@@ -116,7 +117,12 @@ ccsgrClusterSubnetGroup =
 instance ToPath CreateClusterSubnetGroup where
     toPath = const "/"
 
-instance ToQuery CreateClusterSubnetGroup
+instance ToQuery CreateClusterSubnetGroup where
+    toQuery CreateClusterSubnetGroup{..} = mconcat
+        [ "ClusterSubnetGroupName" =? _ccsgClusterSubnetGroupName
+        , "Description"            =? _ccsgDescription
+        , "SubnetIds"              =? _ccsgSubnetIds
+        ]
 
 instance ToHeaders CreateClusterSubnetGroup
 
@@ -128,5 +134,5 @@ instance AWSRequest CreateClusterSubnetGroup where
     response = xmlResponse
 
 instance FromXML CreateClusterSubnetGroupResponse where
-    parseXML = withElement "CreateClusterSubnetGroupResult" $ \x ->
-            <$> x .@? "ClusterSubnetGroup"
+    parseXML = withElement "CreateClusterSubnetGroupResult" $ \x -> CreateClusterSubnetGroupResponse
+        <$> x .@? "ClusterSubnetGroup"

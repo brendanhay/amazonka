@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ import qualified GHC.Exts
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup
     { _ccsgCacheSubnetGroupDescription :: Text
     , _ccsgCacheSubnetGroupName        :: Text
-    , _ccsgSubnetIds                   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _ccsgSubnetIds                   :: List "SubnetIdentifier" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateCacheSubnetGroup' constructor.
 --
@@ -89,11 +90,11 @@ ccsgCacheSubnetGroupName =
 
 -- | A list of VPC subnet IDs for the cache subnet group.
 ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
-ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a })
+ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a }) . _List
 
 newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
     { _ccsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateCacheSubnetGroupResponse' constructor.
 --
@@ -113,7 +114,12 @@ ccsgrCacheSubnetGroup =
 instance ToPath CreateCacheSubnetGroup where
     toPath = const "/"
 
-instance ToQuery CreateCacheSubnetGroup
+instance ToQuery CreateCacheSubnetGroup where
+    toQuery CreateCacheSubnetGroup{..} = mconcat
+        [ "CacheSubnetGroupDescription" =? _ccsgCacheSubnetGroupDescription
+        , "CacheSubnetGroupName"        =? _ccsgCacheSubnetGroupName
+        , "SubnetIds"                   =? _ccsgSubnetIds
+        ]
 
 instance ToHeaders CreateCacheSubnetGroup
 
@@ -125,5 +131,5 @@ instance AWSRequest CreateCacheSubnetGroup where
     response = xmlResponse
 
 instance FromXML CreateCacheSubnetGroupResponse where
-    parseXML = withElement "CreateCacheSubnetGroupResult" $ \x ->
-            <$> x .@? "CacheSubnetGroup"
+    parseXML = withElement "CreateCacheSubnetGroupResult" $ \x -> CreateCacheSubnetGroupResponse
+        <$> x .@? "CacheSubnetGroup"

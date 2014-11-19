@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ data DescribeLogStreams = DescribeLogStreams
     , _dls1LogGroupName        :: Text
     , _dls1LogStreamNamePrefix :: Maybe Text
     , _dls1NextToken           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeLogStreams' constructor.
 --
@@ -84,8 +85,7 @@ describeLogStreams p1 = DescribeLogStreams
 -- | The maximum number of items returned in the response. If you don't
 -- specify a value, the request would return up to 50 items.
 dls1Limit :: Lens' DescribeLogStreams (Maybe Natural)
-dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a })
-    . mapping _Nat
+dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a }) . mapping _Nat
 
 dls1LogGroupName :: Lens' DescribeLogStreams Text
 dls1LogGroupName = lens _dls1LogGroupName (\s a -> s { _dls1LogGroupName = a })
@@ -101,9 +101,9 @@ dls1NextToken :: Lens' DescribeLogStreams (Maybe Text)
 dls1NextToken = lens _dls1NextToken (\s a -> s { _dls1NextToken = a })
 
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse
-    { _dlsrLogStreams :: [LogStream]
+    { _dlsrLogStreams :: List "logStreams" LogStream
     , _dlsrNextToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeLogStreamsResponse' constructor.
 --
@@ -120,7 +120,7 @@ describeLogStreamsResponse = DescribeLogStreamsResponse
     }
 
 dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
-dlsrLogStreams = lens _dlsrLogStreams (\s a -> s { _dlsrLogStreams = a })
+dlsrLogStreams = lens _dlsrLogStreams (\s a -> s { _dlsrLogStreams = a }) . _List
 
 dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlsrNextToken = lens _dlsrNextToken (\s a -> s { _dlsrNextToken = a })
@@ -150,5 +150,5 @@ instance AWSRequest DescribeLogStreams where
 
 instance FromJSON DescribeLogStreamsResponse where
     parseJSON = withObject "DescribeLogStreamsResponse" $ \o -> DescribeLogStreamsResponse
-        <$> o .: "logStreams"
+        <$> o .:  "logStreams"
         <*> o .:? "nextToken"

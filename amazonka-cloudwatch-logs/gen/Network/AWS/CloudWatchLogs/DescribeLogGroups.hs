@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data DescribeLogGroups = DescribeLogGroups
     { _dlgLimit              :: Maybe Nat
     , _dlgLogGroupNamePrefix :: Maybe Text
     , _dlgNextToken          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeLogGroups' constructor.
 --
@@ -78,8 +79,7 @@ describeLogGroups = DescribeLogGroups
 -- | The maximum number of items returned in the response. If you don't
 -- specify a value, the request would return up to 50 items.
 dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
-dlgLimit = lens _dlgLimit (\s a -> s { _dlgLimit = a })
-    . mapping _Nat
+dlgLimit = lens _dlgLimit (\s a -> s { _dlgLimit = a }) . mapping _Nat
 
 dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
 dlgLogGroupNamePrefix =
@@ -92,9 +92,9 @@ dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgNextToken = lens _dlgNextToken (\s a -> s { _dlgNextToken = a })
 
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse
-    { _dlgrLogGroups :: [LogGroup]
+    { _dlgrLogGroups :: List "logGroups" LogGroup
     , _dlgrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeLogGroupsResponse' constructor.
 --
@@ -111,7 +111,7 @@ describeLogGroupsResponse = DescribeLogGroupsResponse
     }
 
 dlgrLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
-dlgrLogGroups = lens _dlgrLogGroups (\s a -> s { _dlgrLogGroups = a })
+dlgrLogGroups = lens _dlgrLogGroups (\s a -> s { _dlgrLogGroups = a }) . _List
 
 dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrNextToken = lens _dlgrNextToken (\s a -> s { _dlgrNextToken = a })
@@ -140,5 +140,5 @@ instance AWSRequest DescribeLogGroups where
 
 instance FromJSON DescribeLogGroupsResponse where
     parseJSON = withObject "DescribeLogGroupsResponse" $ \o -> DescribeLogGroupsResponse
-        <$> o .: "logGroups"
+        <$> o .:  "logGroups"
         <*> o .:? "nextToken"

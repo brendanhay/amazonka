@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -80,14 +81,15 @@ instance ToText JobType where
 instance FromXML JobType where
     parseXML = parseXMLText "JobType"
 
-instance ToQuery JobType
+instance ToQuery JobType where
+    toQuery JobType = toQuery . toText
 
 data Job = Job
     { _jobCreationDate :: RFC822
     , _jobIsCanceled   :: Bool
     , _jobJobId        :: Text
     , _jobJobType      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Job' constructor.
 --
@@ -114,8 +116,7 @@ job p1 p2 p3 p4 = Job
     }
 
 jobCreationDate :: Lens' Job UTCTime
-jobCreationDate = lens _jobCreationDate (\s a -> s { _jobCreationDate = a })
-    . _Time
+jobCreationDate = lens _jobCreationDate (\s a -> s { _jobCreationDate = a }) . _Time
 
 jobIsCanceled :: Lens' Job Bool
 jobIsCanceled = lens _jobIsCanceled (\s a -> s { _jobIsCanceled = a })
@@ -128,9 +129,15 @@ jobJobType = lens _jobJobType (\s a -> s { _jobJobType = a })
 
 instance FromXML Job where
     parseXML x = Job
-            <$> x .@ "CreationDate"
-            <*> x .@ "IsCanceled"
-            <*> x .@ "JobId"
-            <*> x .@ "JobType"
+        <$> x .@  "CreationDate"
+        <*> x .@  "IsCanceled"
+        <*> x .@  "JobId"
+        <*> x .@  "JobType"
 
-instance ToQuery Job
+instance ToQuery Job where
+    toQuery Job{..} = mconcat
+        [ "CreationDate" =? _jobCreationDate
+        , "IsCanceled"   =? _jobIsCanceled
+        , "JobId"        =? _jobJobId
+        , "JobType"      =? _jobJobType
+        ]

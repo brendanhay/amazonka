@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -72,7 +73,7 @@ data CreateCacheCluster = CreateCacheCluster
     , _cccCacheClusterId             :: Text
     , _cccCacheNodeType              :: Maybe Text
     , _cccCacheParameterGroupName    :: Maybe Text
-    , _cccCacheSecurityGroupNames    :: [Text]
+    , _cccCacheSecurityGroupNames    :: List "CacheSecurityGroupName" Text
     , _cccCacheSubnetGroupName       :: Maybe Text
     , _cccEngine                     :: Maybe Text
     , _cccEngineVersion              :: Maybe Text
@@ -80,15 +81,15 @@ data CreateCacheCluster = CreateCacheCluster
     , _cccNumCacheNodes              :: Maybe Int
     , _cccPort                       :: Maybe Int
     , _cccPreferredAvailabilityZone  :: Maybe Text
-    , _cccPreferredAvailabilityZones :: [Text]
+    , _cccPreferredAvailabilityZones :: List "PreferredAvailabilityZone" Text
     , _cccPreferredMaintenanceWindow :: Maybe Text
     , _cccReplicationGroupId         :: Maybe Text
-    , _cccSecurityGroupIds           :: [Text]
-    , _cccSnapshotArns               :: [Text]
+    , _cccSecurityGroupIds           :: List "SecurityGroupId" Text
+    , _cccSnapshotArns               :: List "SnapshotArn" Text
     , _cccSnapshotName               :: Maybe Text
     , _cccSnapshotRetentionLimit     :: Maybe Int
     , _cccSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateCacheCluster' constructor.
 --
@@ -220,6 +221,7 @@ cccCacheSecurityGroupNames :: Lens' CreateCacheCluster [Text]
 cccCacheSecurityGroupNames =
     lens _cccCacheSecurityGroupNames
         (\s a -> s { _cccCacheSecurityGroupNames = a })
+            . _List
 
 -- | The name of the subnet group to be used for the cache cluster. Use this
 -- parameter only when you are creating a cache cluster in an Amazon Virtual
@@ -283,6 +285,7 @@ cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
 cccPreferredAvailabilityZones =
     lens _cccPreferredAvailabilityZones
         (\s a -> s { _cccPreferredAvailabilityZones = a })
+            . _List
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Example: sun:05:00-sun:09:00.
@@ -310,6 +313,7 @@ cccReplicationGroupId =
 cccSecurityGroupIds :: Lens' CreateCacheCluster [Text]
 cccSecurityGroupIds =
     lens _cccSecurityGroupIds (\s a -> s { _cccSecurityGroupIds = a })
+        . _List
 
 -- | A single-element string list containing an Amazon Resource Name (ARN)
 -- that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
@@ -318,7 +322,7 @@ cccSecurityGroupIds =
 -- only valid if the Engine parameter is redis. Example of an Amazon S3 ARN:
 -- arn:aws:s3:::my_bucket/snapshot1.rdb.
 cccSnapshotArns :: Lens' CreateCacheCluster [Text]
-cccSnapshotArns = lens _cccSnapshotArns (\s a -> s { _cccSnapshotArns = a })
+cccSnapshotArns = lens _cccSnapshotArns (\s a -> s { _cccSnapshotArns = a }) . _List
 
 -- | The name of a snapshot from which to restore data into the new node
 -- group. The snapshot status changes to restoring while the new node group
@@ -349,7 +353,7 @@ cccSnapshotWindow =
 
 newtype CreateCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateCacheClusterResponse' constructor.
 --
@@ -368,7 +372,30 @@ cccrCacheCluster = lens _cccrCacheCluster (\s a -> s { _cccrCacheCluster = a })
 instance ToPath CreateCacheCluster where
     toPath = const "/"
 
-instance ToQuery CreateCacheCluster
+instance ToQuery CreateCacheCluster where
+    toQuery CreateCacheCluster{..} = mconcat
+        [ "AZMode"                     =? _cccAZMode
+        , "AutoMinorVersionUpgrade"    =? _cccAutoMinorVersionUpgrade
+        , "CacheClusterId"             =? _cccCacheClusterId
+        , "CacheNodeType"              =? _cccCacheNodeType
+        , "CacheParameterGroupName"    =? _cccCacheParameterGroupName
+        , "CacheSecurityGroupNames"    =? _cccCacheSecurityGroupNames
+        , "CacheSubnetGroupName"       =? _cccCacheSubnetGroupName
+        , "Engine"                     =? _cccEngine
+        , "EngineVersion"              =? _cccEngineVersion
+        , "NotificationTopicArn"       =? _cccNotificationTopicArn
+        , "NumCacheNodes"              =? _cccNumCacheNodes
+        , "Port"                       =? _cccPort
+        , "PreferredAvailabilityZone"  =? _cccPreferredAvailabilityZone
+        , "PreferredAvailabilityZones" =? _cccPreferredAvailabilityZones
+        , "PreferredMaintenanceWindow" =? _cccPreferredMaintenanceWindow
+        , "ReplicationGroupId"         =? _cccReplicationGroupId
+        , "SecurityGroupIds"           =? _cccSecurityGroupIds
+        , "SnapshotArns"               =? _cccSnapshotArns
+        , "SnapshotName"               =? _cccSnapshotName
+        , "SnapshotRetentionLimit"     =? _cccSnapshotRetentionLimit
+        , "SnapshotWindow"             =? _cccSnapshotWindow
+        ]
 
 instance ToHeaders CreateCacheCluster
 
@@ -380,5 +407,5 @@ instance AWSRequest CreateCacheCluster where
     response = xmlResponse
 
 instance FromXML CreateCacheClusterResponse where
-    parseXML = withElement "CreateCacheClusterResult" $ \x ->
-            <$> x .@? "CacheCluster"
+    parseXML = withElement "CreateCacheClusterResult" $ \x -> CreateCacheClusterResponse
+        <$> x .@? "CacheCluster"

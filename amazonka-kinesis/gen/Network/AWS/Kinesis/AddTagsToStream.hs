@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,8 +49,8 @@ import qualified GHC.Exts
 
 data AddTagsToStream = AddTagsToStream
     { _attsStreamName :: Text
-    , _attsTags       :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _attsTags       :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'AddTagsToStream' constructor.
 --
@@ -72,8 +73,7 @@ attsStreamName = lens _attsStreamName (\s a -> s { _attsStreamName = a })
 
 -- | The set of key-value pairs to use to create the tags.
 attsTags :: Lens' AddTagsToStream (HashMap Text Text)
-attsTags = lens _attsTags (\s a -> s { _attsTags = a })
-    . _Map
+attsTags = lens _attsTags (\s a -> s { _attsTags = a }) . _Map
 
 data AddTagsToStreamResponse = AddTagsToStreamResponse
     deriving (Eq, Ord, Show, Generic)

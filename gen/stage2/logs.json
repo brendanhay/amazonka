@@ -66,8 +66,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "metricFilter",
@@ -104,8 +103,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -115,7 +114,7 @@
                         "locationName": "metricTransformations",
                         "documentation": null,
                         "typeExposed": "NonEmpty MetricTransformation",
-                        "type": "List1 MetricTransformation"
+                        "type": "List1 \"metricTransformations\" MetricTransformation"
                     },
                     {
                         "location": null,
@@ -137,8 +136,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -148,11 +147,12 @@
                         "locationName": "metricTransformations",
                         "documentation": null,
                         "typeExposed": "NonEmpty MetricTransformation",
-                        "type": "List1 MetricTransformation"
+                        "type": "List1 \"metricTransformations\" MetricTransformation"
                     }
                 ],
                 "contentPad": 22,
                 "name": "MetricFilter",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -249,8 +249,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -260,15 +260,14 @@
                         "locationName": "metricTransformations",
                         "documentation": null,
                         "typeExposed": "NonEmpty MetricTransformation",
-                        "type": "List1 MetricTransformation"
+                        "type": "List1 \"metricTransformations\" MetricTransformation"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "metricFilterMatchRecord",
@@ -316,13 +315,14 @@
                         "locationName": "extractedValues",
                         "documentation": null,
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 16,
                 "name": "MetricFilterMatchRecord",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -368,7 +368,7 @@
                         "locationName": "extractedValues",
                         "documentation": null,
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -415,7 +415,7 @@
                         "locationName": "extractedValues",
                         "documentation": null,
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -423,8 +423,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "metricTransformation",
@@ -525,6 +524,7 @@
                 ],
                 "contentPad": 16,
                 "name": "MetricTransformation",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -579,8 +579,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "logStream",
@@ -710,6 +709,7 @@
                 "required": [],
                 "contentPad": 20,
                 "name": "LogStream",
+                "locationPad": 20,
                 "type": "record",
                 "optional": [
                     {
@@ -960,8 +960,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "logGroup",
@@ -1061,6 +1060,7 @@
                 "required": [],
                 "contentPad": 18,
                 "name": "LogGroup",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -1251,8 +1251,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "inputLogEvent",
@@ -1323,6 +1322,7 @@
                 ],
                 "contentPad": 10,
                 "name": "InputLogEvent",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1362,8 +1362,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "outputLogEvent",
@@ -1418,6 +1417,7 @@
                 "required": [],
                 "contentPad": 14,
                 "name": "OutputLogEvent",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -1562,7 +1562,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1635,6 +1634,7 @@
                 "queryPad": 0,
                 "name": "CreateLogGroup",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -1700,8 +1700,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1786,6 +1785,7 @@
                 "queryPad": 0,
                 "name": "CreateLogStream",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1867,7 +1867,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1940,6 +1939,7 @@
                 "queryPad": 0,
                 "name": "DeleteLogGroup",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2005,8 +2005,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2091,6 +2090,7 @@
                 "queryPad": 0,
                 "name": "DeleteLogStream",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2171,8 +2171,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2257,6 +2256,7 @@
                 "queryPad": 0,
                 "name": "DeleteMetricFilter",
                 "query": [],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2338,7 +2338,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2411,6 +2410,7 @@
                 "queryPad": 0,
                 "name": "DeleteRetentionPolicy",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2439,8 +2439,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2450,8 +2449,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2461,7 +2460,7 @@
                         "locationName": "logGroups",
                         "documentation": null,
                         "typeExposed": "[LogGroup]",
-                        "type": "[LogGroup]"
+                        "type": "List \"logGroups\" LogGroup"
                     },
                     {
                         "location": null,
@@ -2488,13 +2487,14 @@
                 "contentPad": 10,
                 "name": "DescribeLogGroupsResponse",
                 "resultWrapper": null,
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2504,7 +2504,7 @@
                         "locationName": "logGroups",
                         "documentation": null,
                         "typeExposed": "[LogGroup]",
-                        "type": "[LogGroup]"
+                        "type": "List \"logGroups\" LogGroup"
                     },
                     {
                         "location": null,
@@ -2525,8 +2525,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2536,7 +2536,7 @@
                         "locationName": "logGroups",
                         "documentation": null,
                         "typeExposed": "[LogGroup]",
-                        "type": "[LogGroup]"
+                        "type": "List \"logGroups\" LogGroup"
                     },
                     {
                         "location": null,
@@ -2571,8 +2571,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2641,6 +2640,7 @@
                 "queryPad": 0,
                 "name": "DescribeLogGroups",
                 "query": [],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2745,8 +2745,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2756,8 +2755,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2767,7 +2766,7 @@
                         "locationName": "logStreams",
                         "documentation": null,
                         "typeExposed": "[LogStream]",
-                        "type": "[LogStream]"
+                        "type": "List \"logStreams\" LogStream"
                     },
                     {
                         "location": null,
@@ -2794,13 +2793,14 @@
                 "contentPad": 11,
                 "name": "DescribeLogStreamsResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2810,7 +2810,7 @@
                         "locationName": "logStreams",
                         "documentation": null,
                         "typeExposed": "[LogStream]",
-                        "type": "[LogStream]"
+                        "type": "List \"logStreams\" LogStream"
                     },
                     {
                         "location": null,
@@ -2831,8 +2831,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2842,7 +2842,7 @@
                         "locationName": "logStreams",
                         "documentation": null,
                         "typeExposed": "[LogStream]",
-                        "type": "[LogStream]"
+                        "type": "List \"logStreams\" LogStream"
                     },
                     {
                         "location": null,
@@ -2877,8 +2877,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2978,6 +2977,7 @@
                 "queryPad": 0,
                 "name": "DescribeLogStreams",
                 "query": [],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3097,8 +3097,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3108,8 +3107,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3119,7 +3118,7 @@
                         "locationName": "metricFilters",
                         "documentation": null,
                         "typeExposed": "[MetricFilter]",
-                        "type": "[MetricFilter]"
+                        "type": "List \"metricFilters\" MetricFilter"
                     },
                     {
                         "location": null,
@@ -3146,13 +3145,14 @@
                 "contentPad": 14,
                 "name": "DescribeMetricFiltersResponse",
                 "resultWrapper": null,
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3162,7 +3162,7 @@
                         "locationName": "metricFilters",
                         "documentation": null,
                         "typeExposed": "[MetricFilter]",
-                        "type": "[MetricFilter]"
+                        "type": "List \"metricFilters\" MetricFilter"
                     },
                     {
                         "location": null,
@@ -3183,8 +3183,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3194,7 +3194,7 @@
                         "locationName": "metricFilters",
                         "documentation": null,
                         "typeExposed": "[MetricFilter]",
-                        "type": "[MetricFilter]"
+                        "type": "List \"metricFilters\" MetricFilter"
                     },
                     {
                         "location": null,
@@ -3229,8 +3229,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3330,6 +3329,7 @@
                 "queryPad": 0,
                 "name": "DescribeMetricFilters",
                 "query": [],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3449,8 +3449,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3460,8 +3459,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3471,7 +3470,7 @@
                         "locationName": "events",
                         "documentation": null,
                         "typeExposed": "[OutputLogEvent]",
-                        "type": "[OutputLogEvent]"
+                        "type": "List \"events\" OutputLogEvent"
                     },
                     {
                         "location": null,
@@ -3513,13 +3512,14 @@
                 "contentPad": 18,
                 "name": "GetLogEventsResponse",
                 "resultWrapper": null,
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3529,7 +3529,7 @@
                         "locationName": "events",
                         "documentation": null,
                         "typeExposed": "[OutputLogEvent]",
-                        "type": "[OutputLogEvent]"
+                        "type": "List \"events\" OutputLogEvent"
                     },
                     {
                         "location": null,
@@ -3565,8 +3565,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3576,7 +3576,7 @@
                         "locationName": "events",
                         "documentation": null,
                         "typeExposed": "[OutputLogEvent]",
-                        "type": "[OutputLogEvent]"
+                        "type": "List \"events\" OutputLogEvent"
                     },
                     {
                         "location": null,
@@ -3626,8 +3626,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3787,6 +3786,7 @@
                 "queryPad": 0,
                 "name": "GetLogEvents",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3983,7 +3983,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4033,6 +4032,7 @@
                 "contentPad": 0,
                 "name": "PutLogEventsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4085,8 +4085,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4126,8 +4125,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4137,7 +4136,7 @@
                         "locationName": "logEvents",
                         "documentation": null,
                         "typeExposed": "NonEmpty InputLogEvent",
-                        "type": "List1 InputLogEvent"
+                        "type": "List1 \"logEvents\" InputLogEvent"
                     },
                     {
                         "location": null,
@@ -4196,8 +4195,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4207,7 +4206,7 @@
                         "locationName": "logEvents",
                         "documentation": null,
                         "typeExposed": "NonEmpty InputLogEvent",
-                        "type": "List1 InputLogEvent"
+                        "type": "List1 \"logEvents\" InputLogEvent"
                     }
                 ],
                 "shared": false,
@@ -4216,6 +4215,7 @@
                 "queryPad": 0,
                 "name": "PutLogEvents",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4239,8 +4239,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4250,7 +4250,7 @@
                         "locationName": "logEvents",
                         "documentation": null,
                         "typeExposed": "NonEmpty InputLogEvent",
-                        "type": "List1 InputLogEvent"
+                        "type": "List1 \"logEvents\" InputLogEvent"
                     },
                     {
                         "location": null,
@@ -4341,8 +4341,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4397,8 +4396,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4408,7 +4407,7 @@
                         "locationName": "metricTransformations",
                         "documentation": null,
                         "typeExposed": "NonEmpty MetricTransformation",
-                        "type": "List1 MetricTransformation"
+                        "type": "List1 \"metricTransformations\" MetricTransformation"
                     }
                 ],
                 "path": [
@@ -4467,8 +4466,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4478,7 +4477,7 @@
                         "locationName": "metricTransformations",
                         "documentation": null,
                         "typeExposed": "NonEmpty MetricTransformation",
-                        "type": "List1 MetricTransformation"
+                        "type": "List1 \"metricTransformations\" MetricTransformation"
                     }
                 ],
                 "shared": false,
@@ -4487,6 +4486,7 @@
                 "queryPad": 0,
                 "name": "PutMetricFilter",
                 "query": [],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4539,8 +4539,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4550,7 +4550,7 @@
                         "locationName": "metricTransformations",
                         "documentation": null,
                         "typeExposed": "NonEmpty MetricTransformation",
-                        "type": "List1 MetricTransformation"
+                        "type": "List1 \"metricTransformations\" MetricTransformation"
                     }
                 ]
             }
@@ -4597,8 +4597,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4683,6 +4682,7 @@
                 "queryPad": 0,
                 "name": "PutRetentionPolicy",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4727,7 +4727,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -4739,8 +4738,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -4750,13 +4749,13 @@
                     "locationName": "matches",
                     "documentation": null,
                     "typeExposed": "[MetricFilterMatchRecord]",
-                    "type": "[MetricFilterMatchRecord]"
+                    "type": "List \"matches\" MetricFilterMatchRecord"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4766,7 +4765,7 @@
                         "locationName": "matches",
                         "documentation": null,
                         "typeExposed": "[MetricFilterMatchRecord]",
-                        "type": "[MetricFilterMatchRecord]"
+                        "type": "List \"matches\" MetricFilterMatchRecord"
                     }
                 ],
                 "wrapper": false,
@@ -4778,13 +4777,14 @@
                 "contentPad": 0,
                 "name": "TestMetricFilterResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4794,14 +4794,14 @@
                         "locationName": "matches",
                         "documentation": null,
                         "typeExposed": "[MetricFilterMatchRecord]",
-                        "type": "[MetricFilterMatchRecord]"
+                        "type": "List \"matches\" MetricFilterMatchRecord"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4811,7 +4811,7 @@
                         "locationName": "matches",
                         "documentation": null,
                         "typeExposed": "[MetricFilterMatchRecord]",
-                        "type": "[MetricFilterMatchRecord]"
+                        "type": "List \"matches\" MetricFilterMatchRecord"
                     }
                 ]
             },
@@ -4831,8 +4831,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4857,8 +4856,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4868,7 +4867,7 @@
                         "locationName": "logEventMessages",
                         "documentation": null,
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"logEventMessages\" Text"
                     }
                 ],
                 "path": [
@@ -4897,8 +4896,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4908,7 +4907,7 @@
                         "locationName": "logEventMessages",
                         "documentation": null,
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"logEventMessages\" Text"
                     }
                 ],
                 "shared": false,
@@ -4917,6 +4916,7 @@
                 "queryPad": 0,
                 "name": "TestMetricFilter",
                 "query": [],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4939,8 +4939,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4950,7 +4950,7 @@
                         "locationName": "logEventMessages",
                         "documentation": null,
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"logEventMessages\" Text"
                     }
                 ]
             }

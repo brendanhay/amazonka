@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data DeleteIndexField = DeleteIndexField
     { _dif1DomainName     :: Text
     , _dif1IndexFieldName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteIndexField' constructor.
 --
@@ -78,7 +79,7 @@ dif1IndexFieldName =
 
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
     { _difrIndexField :: IndexFieldStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteIndexFieldResponse' constructor.
 --
@@ -99,7 +100,11 @@ difrIndexField = lens _difrIndexField (\s a -> s { _difrIndexField = a })
 instance ToPath DeleteIndexField where
     toPath = const "/"
 
-instance ToQuery DeleteIndexField
+instance ToQuery DeleteIndexField where
+    toQuery DeleteIndexField{..} = mconcat
+        [ "DomainName"     =? _dif1DomainName
+        , "IndexFieldName" =? _dif1IndexFieldName
+        ]
 
 instance ToHeaders DeleteIndexField
 
@@ -111,5 +116,5 @@ instance AWSRequest DeleteIndexField where
     response = xmlResponse
 
 instance FromXML DeleteIndexFieldResponse where
-    parseXML = withElement "DeleteIndexFieldResult" $ \x ->
-            <$> x .@ "IndexField"
+    parseXML = withElement "DeleteIndexFieldResult" $ \x -> DeleteIndexFieldResponse
+        <$> x .@  "IndexField"

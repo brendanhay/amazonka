@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
     , _docoMarker         :: Maybe Text
     , _docoMaxRecords     :: Maybe Int
     , _docoNodeType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeOrderableClusterOptions' constructor.
 --
@@ -115,8 +116,8 @@ docoNodeType = lens _docoNodeType (\s a -> s { _docoNodeType = a })
 
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
     { _docorMarker                  :: Maybe Text
-    , _docorOrderableClusterOptions :: [OrderableClusterOption]
-    } deriving (Eq, Show, Generic)
+    , _docorOrderableClusterOptions :: List "OrderableClusterOption" OrderableClusterOption
+    } deriving (Eq, Show)
 
 -- | 'DescribeOrderableClusterOptionsResponse' constructor.
 --
@@ -147,11 +148,18 @@ docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [O
 docorOrderableClusterOptions =
     lens _docorOrderableClusterOptions
         (\s a -> s { _docorOrderableClusterOptions = a })
+            . _List
 
 instance ToPath DescribeOrderableClusterOptions where
     toPath = const "/"
 
-instance ToQuery DescribeOrderableClusterOptions
+instance ToQuery DescribeOrderableClusterOptions where
+    toQuery DescribeOrderableClusterOptions{..} = mconcat
+        [ "ClusterVersion" =? _docoClusterVersion
+        , "Marker"         =? _docoMarker
+        , "MaxRecords"     =? _docoMaxRecords
+        , "NodeType"       =? _docoNodeType
+        ]
 
 instance ToHeaders DescribeOrderableClusterOptions
 
@@ -163,9 +171,9 @@ instance AWSRequest DescribeOrderableClusterOptions where
     response = xmlResponse
 
 instance FromXML DescribeOrderableClusterOptionsResponse where
-    parseXML = withElement "DescribeOrderableClusterOptionsResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "OrderableClusterOptions"
+    parseXML = withElement "DescribeOrderableClusterOptionsResult" $ \x -> DescribeOrderableClusterOptionsResponse
+        <$> x .@? "Marker"
+        <*> x .@  "OrderableClusterOptions"
 
 instance AWSPager DescribeOrderableClusterOptions where
     next rq rs = (\x -> rq & docoMarker ?~ x)

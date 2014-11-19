@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data GetApplicationRevision = GetApplicationRevision
     { _garApplicationName :: Text
     , _garRevision        :: RevisionLocation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetApplicationRevision' constructor.
 --
@@ -82,7 +83,7 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse
     { _garrApplicationName :: Maybe Text
     , _garrRevision        :: Maybe RevisionLocation
     , _garrRevisionInfo    :: Maybe GenericRevisionInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetApplicationRevisionResponse' constructor.
 --

@@ -55,7 +55,7 @@ data ModifyReservedInstances = ModifyReservedInstances
     { _mriClientToken          :: Maybe Text
     , _mriReservedInstancesIds :: List "ReservedInstancesId" Text
     , _mriTargetConfigurations :: List "item" ReservedInstancesConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyReservedInstances' constructor.
 --
@@ -93,7 +93,7 @@ mriTargetConfigurations =
 
 newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ModifyReservedInstancesResponse' constructor.
 --
@@ -115,7 +115,12 @@ mrirReservedInstancesModificationId =
 instance ToPath ModifyReservedInstances where
     toPath = const "/"
 
-instance ToQuery ModifyReservedInstances
+instance ToQuery ModifyReservedInstances where
+    toQuery ModifyReservedInstances{..} = mconcat
+        [ "clientToken"                               =? _mriClientToken
+        , "ReservedInstancesId"                       =? _mriReservedInstancesIds
+        , "ReservedInstancesConfigurationSetItemType" =? _mriTargetConfigurations
+        ]
 
 instance ToHeaders ModifyReservedInstances
 

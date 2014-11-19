@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -115,7 +116,7 @@ data IdentityPoolUsage = IdentityPoolUsage
     , _ipuIdentityPoolId    :: Maybe Text
     , _ipuLastModifiedDate  :: Maybe RFC822
     , _ipuSyncSessionsCount :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IdentityPoolUsage' constructor.
 --
@@ -210,7 +211,7 @@ data Dataset = Dataset
     , _dLastModifiedBy   :: Maybe Text
     , _dLastModifiedDate :: Maybe RFC822
     , _dNumRecords       :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Dataset' constructor.
 --
@@ -243,8 +244,7 @@ dataset = Dataset
 
 -- | Date on which the dataset was created.
 dCreationDate :: Lens' Dataset (Maybe UTCTime)
-dCreationDate = lens _dCreationDate (\s a -> s { _dCreationDate = a })
-    . mapping _Time
+dCreationDate = lens _dCreationDate (\s a -> s { _dCreationDate = a }) . mapping _Time
 
 -- | Total size in bytes of the records in this dataset.
 dDataStorage :: Lens' Dataset (Maybe Integer)
@@ -325,7 +325,7 @@ data Record = Record
     , _rLastModifiedDate       :: Maybe RFC822
     , _rSyncCount              :: Maybe Integer
     , _rValue                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Record' constructor.
 --
@@ -406,7 +406,7 @@ data IdentityUsage = IdentityUsage
     , _iuIdentityId       :: Maybe Text
     , _iuIdentityPoolId   :: Maybe Text
     , _iuLastModifiedDate :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'IdentityUsage' constructor.
 --
@@ -480,7 +480,7 @@ data RecordPatch = RecordPatch
     , _rpOp                     :: Text
     , _rpSyncCount              :: Integer
     , _rpValue                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RecordPatch' constructor.
 --
@@ -534,9 +534,9 @@ rpValue = lens _rpValue (\s a -> s { _rpValue = a })
 instance FromJSON RecordPatch where
     parseJSON = withObject "RecordPatch" $ \o -> RecordPatch
         <$> o .:? "DeviceLastModifiedDate"
-        <*> o .: "Key"
-        <*> o .: "Op"
-        <*> o .: "SyncCount"
+        <*> o .:  "Key"
+        <*> o .:  "Op"
+        <*> o .:  "SyncCount"
         <*> o .:? "Value"
 
 instance ToJSON RecordPatch where
@@ -549,9 +549,9 @@ instance ToJSON RecordPatch where
         ]
 
 data PushSync = PushSync
-    { _psApplicationArns :: [Text]
+    { _psApplicationArns :: List "ApplicationArns" Text
     , _psRoleArn         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PushSync' constructor.
 --
@@ -571,6 +571,7 @@ pushSync = PushSync
 psApplicationArns :: Lens' PushSync [Text]
 psApplicationArns =
     lens _psApplicationArns (\s a -> s { _psApplicationArns = a })
+        . _List
 
 -- | A role configured to allow Cognito to call SNS on behalf of the
 -- developer.
@@ -579,7 +580,7 @@ psRoleArn = lens _psRoleArn (\s a -> s { _psRoleArn = a })
 
 instance FromJSON PushSync where
     parseJSON = withObject "PushSync" $ \o -> PushSync
-        <$> o .: "ApplicationArns"
+        <$> o .:  "ApplicationArns"
         <*> o .:? "RoleArn"
 
 instance ToJSON PushSync where

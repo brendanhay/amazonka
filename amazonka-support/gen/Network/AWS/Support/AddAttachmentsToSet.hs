@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,8 +57,8 @@ import qualified GHC.Exts
 
 data AddAttachmentsToSet = AddAttachmentsToSet
     { _aatsAttachmentSetId :: Maybe Text
-    , _aatsAttachments     :: [Attachment]
-    } deriving (Eq, Show, Generic)
+    , _aatsAttachments     :: List "attachments" Attachment
+    } deriving (Eq, Show)
 
 -- | 'AddAttachmentsToSet' constructor.
 --
@@ -84,12 +85,12 @@ aatsAttachmentSetId =
 -- | One or more attachments to add to the set. The limit is 3 attachments per
 -- set, and the size limit is 5 MB per attachment.
 aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
-aatsAttachments = lens _aatsAttachments (\s a -> s { _aatsAttachments = a })
+aatsAttachments = lens _aatsAttachments (\s a -> s { _aatsAttachments = a }) . _List
 
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
     { _aatsrAttachmentSetId :: Maybe Text
     , _aatsrExpiryTime      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddAttachmentsToSetResponse' constructor.
 --

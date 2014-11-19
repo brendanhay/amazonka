@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,9 +52,9 @@ import qualified GHC.Exts
 
 data DescribeElasticIps = DescribeElasticIps
     { _deiInstanceId :: Maybe Text
-    , _deiIps        :: [Text]
+    , _deiIps        :: List "InstanceIds" Text
     , _deiStackId    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeElasticIps' constructor.
 --
@@ -83,7 +84,7 @@ deiInstanceId = lens _deiInstanceId (\s a -> s { _deiInstanceId = a })
 -- Elastic IP addresses. Otherwise, it returns a description of every
 -- Elastic IP address.
 deiIps :: Lens' DescribeElasticIps [Text]
-deiIps = lens _deiIps (\s a -> s { _deiIps = a })
+deiIps = lens _deiIps (\s a -> s { _deiIps = a }) . _List
 
 -- | A stack ID. If you include this parameter, DescribeElasticIps returns a
 -- description of the Elastic IP addresses that are registered with the
@@ -92,8 +93,8 @@ deiStackId :: Lens' DescribeElasticIps (Maybe Text)
 deiStackId = lens _deiStackId (\s a -> s { _deiStackId = a })
 
 newtype DescribeElasticIpsResponse = DescribeElasticIpsResponse
-    { _deirElasticIps :: [ElasticIp]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _deirElasticIps :: List "ElasticIps" ElasticIp
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeElasticIpsResponse where
     type Item DescribeElasticIpsResponse = ElasticIp
@@ -114,7 +115,7 @@ describeElasticIpsResponse = DescribeElasticIpsResponse
 
 -- | An ElasticIps object that describes the specified Elastic IP addresses.
 deirElasticIps :: Lens' DescribeElasticIpsResponse [ElasticIp]
-deirElasticIps = lens _deirElasticIps (\s a -> s { _deirElasticIps = a })
+deirElasticIps = lens _deirElasticIps (\s a -> s { _deirElasticIps = a }) . _List
 
 instance ToPath DescribeElasticIps where
     toPath = const "/"
@@ -140,4 +141,4 @@ instance AWSRequest DescribeElasticIps where
 
 instance FromJSON DescribeElasticIpsResponse where
     parseJSON = withObject "DescribeElasticIpsResponse" $ \o -> DescribeElasticIpsResponse
-        <$> o .: "ElasticIps"
+        <$> o .:  "ElasticIps"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data ListTables = ListTables
     { _ltExclusiveStartTableName :: Maybe Text
     , _ltLimit                   :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListTables' constructor.
 --
@@ -78,13 +79,12 @@ ltExclusiveStartTableName =
 -- | A maximum number of table names to return. If this parameter is not
 -- specified, the limit is 100.
 ltLimit :: Lens' ListTables (Maybe Natural)
-ltLimit = lens _ltLimit (\s a -> s { _ltLimit = a })
-    . mapping _Nat
+ltLimit = lens _ltLimit (\s a -> s { _ltLimit = a }) . mapping _Nat
 
 data ListTablesResponse = ListTablesResponse
     { _ltrLastEvaluatedTableName :: Maybe Text
-    , _ltrTableNames             :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _ltrTableNames             :: List "TableNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListTablesResponse' constructor.
 --
@@ -116,7 +116,7 @@ ltrLastEvaluatedTableName =
 -- as the ExclusiveStartTableName parameter in a subsequent ListTables
 -- request and obtain the next page of results.
 ltrTableNames :: Lens' ListTablesResponse [Text]
-ltrTableNames = lens _ltrTableNames (\s a -> s { _ltrTableNames = a })
+ltrTableNames = lens _ltrTableNames (\s a -> s { _ltrTableNames = a }) . _List
 
 instance ToPath ListTables where
     toPath = const "/"
@@ -142,7 +142,7 @@ instance AWSRequest ListTables where
 instance FromJSON ListTablesResponse where
     parseJSON = withObject "ListTablesResponse" $ \o -> ListTablesResponse
         <$> o .:? "LastEvaluatedTableName"
-        <*> o .: "TableNames"
+        <*> o .:  "TableNames"
 
 instance AWSPager ListTables where
     next rq rs = (\x -> rq & ltExclusiveStartTableName ?~ x)

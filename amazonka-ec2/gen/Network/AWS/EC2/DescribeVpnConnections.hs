@@ -53,7 +53,7 @@ data DescribeVpnConnections = DescribeVpnConnections
     { _dvc1DryRun           :: Maybe Bool
     , _dvc1Filters          :: List "Filter" Filter
     , _dvc1VpnConnectionIds :: List "VpnConnectionId" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVpnConnections' constructor.
 --
@@ -97,8 +97,7 @@ dvc1DryRun = lens _dvc1DryRun (\s a -> s { _dvc1DryRun = a })
 -- vpn-connection-id - The ID of the VPN connection. vpn-gateway-id - The ID
 -- of a virtual private gateway associated with the VPN connection.
 dvc1Filters :: Lens' DescribeVpnConnections [Filter]
-dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a })
-    . _List
+dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a }) . _List
 
 -- | One or more VPN connection IDs. Default: Describes your VPN connections.
 dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
@@ -108,7 +107,7 @@ dvc1VpnConnectionIds =
 
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrVpnConnections :: List "item" VpnConnection
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVpnConnectionsResponse where
     type Item DescribeVpnConnectionsResponse = VpnConnection
@@ -136,7 +135,12 @@ dvcrVpnConnections =
 instance ToPath DescribeVpnConnections where
     toPath = const "/"
 
-instance ToQuery DescribeVpnConnections
+instance ToQuery DescribeVpnConnections where
+    toQuery DescribeVpnConnections{..} = mconcat
+        [ "dryRun"          =? _dvc1DryRun
+        , "Filter"          =? _dvc1Filters
+        , "VpnConnectionId" =? _dvc1VpnConnectionIds
+        ]
 
 instance ToHeaders DescribeVpnConnections
 
@@ -149,4 +153,4 @@ instance AWSRequest DescribeVpnConnections where
 
 instance FromXML DescribeVpnConnectionsResponse where
     parseXML x = DescribeVpnConnectionsResponse
-        <$> x .@ "vpnConnectionSet"
+        <$> x .@  "vpnConnectionSet"

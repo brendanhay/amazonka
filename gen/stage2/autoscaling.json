@@ -129,8 +129,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "tagDescription",
@@ -215,6 +214,7 @@
                 ],
                 "contentPad": 0,
                 "name": "TagDescription",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -299,8 +299,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "tag",
@@ -385,6 +384,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Tag",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -469,8 +469,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "notificationConfiguration",
@@ -479,6 +478,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "NotificationConfiguration",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -578,8 +578,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "blockDeviceMapping",
@@ -604,6 +603,7 @@
                 ],
                 "contentPad": 0,
                 "name": "BlockDeviceMapping",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -718,8 +718,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 27,
                 "ctor": "launchConfiguration",
@@ -789,6 +788,7 @@
                 ],
                 "contentPad": 0,
                 "name": "LaunchConfiguration",
+                "locationPad": 25,
                 "type": "record",
                 "optional": [
                     {
@@ -823,8 +823,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -834,7 +834,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e A description of the security groups to associate with the Amazon EC2 instances. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     },
                     {
                         "location": "querystring",
@@ -883,8 +883,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -894,7 +894,7 @@
                         "locationName": "BlockDeviceMappings",
                         "documentation": "\u003cp\u003e Specifies how block devices are exposed to the instance. Each mapping is made up of a \u003ci\u003evirtualName\u003c/i\u003e and a \u003ci\u003edeviceName\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[BlockDeviceMapping]",
-                        "type": "[BlockDeviceMapping]"
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": "querystring",
@@ -1005,8 +1005,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1016,7 +1016,7 @@
                         "locationName": "BlockDeviceMappings",
                         "documentation": "\u003cp\u003e Specifies how block devices are exposed to the instance. Each mapping is made up of a \u003ci\u003evirtualName\u003c/i\u003e and a \u003ci\u003edeviceName\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[BlockDeviceMapping]",
-                        "type": "[BlockDeviceMapping]"
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": "querystring",
@@ -1200,8 +1200,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1211,7 +1211,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e A description of the security groups to associate with the Amazon EC2 instances. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1248,8 +1248,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 27,
                 "ctor": "autoScalingGroup",
@@ -1348,8 +1347,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -1359,7 +1358,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e Contains a list of Availability Zones for the group. \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1394,6 +1393,7 @@
                 ],
                 "contentPad": 0,
                 "name": "AutoScalingGroup",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -1413,8 +1413,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1424,7 +1424,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003e A list of load balancers associated with this Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1443,8 +1443,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1454,12 +1454,12 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e Provides a summary list of Amazon EC2 instances. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1469,7 +1469,7 @@
                         "locationName": "SuspendedProcesses",
                         "documentation": "\u003cp\u003e Suspended processes associated with this Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[SuspendedProcess]",
-                        "type": "[SuspendedProcess]"
+                        "type": "List \"SuspendedProcesses\" SuspendedProcess"
                     },
                     {
                         "location": "querystring",
@@ -1503,8 +1503,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1514,7 +1514,7 @@
                         "locationName": "EnabledMetrics",
                         "documentation": "\u003cp\u003e A list of metrics enabled for this Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[EnabledMetric]",
-                        "type": "[EnabledMetric]"
+                        "type": "List \"EnabledMetrics\" EnabledMetric"
                     },
                     {
                         "location": "querystring",
@@ -1533,8 +1533,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1544,12 +1544,12 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e A list of tags for the Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[TagDescription]",
-                        "type": "[TagDescription]"
+                        "type": "List \"Tags\" TagDescription"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1559,7 +1559,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "\u003cp\u003e A standalone termination policy or a list of termination policies for this Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TerminationPolicies\" Text"
                     }
                 ],
                 "fields": [
@@ -1595,8 +1595,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -1606,7 +1606,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e Contains a list of Availability Zones for the group. \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1655,8 +1655,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1666,7 +1666,7 @@
                         "locationName": "EnabledMetrics",
                         "documentation": "\u003cp\u003e A list of metrics enabled for this Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[EnabledMetric]",
-                        "type": "[EnabledMetric]"
+                        "type": "List \"EnabledMetrics\" EnabledMetric"
                     },
                     {
                         "location": "querystring",
@@ -1700,8 +1700,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1711,7 +1711,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e Provides a summary list of Amazon EC2 instances. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": "querystring",
@@ -1730,8 +1730,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1741,7 +1741,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003e A list of load balancers associated with this Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1805,8 +1805,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1816,12 +1816,12 @@
                         "locationName": "SuspendedProcesses",
                         "documentation": "\u003cp\u003e Suspended processes associated with this Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[SuspendedProcess]",
-                        "type": "[SuspendedProcess]"
+                        "type": "List \"SuspendedProcesses\" SuspendedProcess"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1831,12 +1831,12 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e A list of tags for the Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[TagDescription]",
-                        "type": "[TagDescription]"
+                        "type": "List \"Tags\" TagDescription"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1846,7 +1846,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "\u003cp\u003e A standalone termination policy or a list of termination policies for this Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TerminationPolicies\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1868,8 +1868,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "scalingPolicy",
@@ -1878,6 +1877,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ScalingPolicy",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -1972,8 +1972,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1983,7 +1983,7 @@
                         "locationName": "Alarms",
                         "documentation": "\u003cp\u003e A list of CloudWatch Alarms related to the policy. \u003c/p\u003e",
                         "typeExposed": "[Alarm]",
-                        "type": "[Alarm]"
+                        "type": "List \"Alarms\" Alarm"
                     },
                     {
                         "location": "querystring",
@@ -2019,8 +2019,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2030,7 +2030,7 @@
                         "locationName": "Alarms",
                         "documentation": "\u003cp\u003e A list of CloudWatch Alarms related to the policy. \u003c/p\u003e",
                         "typeExposed": "[Alarm]",
-                        "type": "[Alarm]"
+                        "type": "List \"Alarms\" Alarm"
                     },
                     {
                         "location": "querystring",
@@ -2128,8 +2128,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -2154,6 +2153,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "InstanceMonitoring",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2194,8 +2194,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "scheduledUpdateGroupAction",
@@ -2204,6 +2203,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ScheduledUpdateGroupAction",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -2514,8 +2514,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "scalingProcessQuery",
@@ -2540,12 +2539,13 @@
                 ],
                 "contentPad": 0,
                 "name": "ScalingProcessQuery",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2555,7 +2555,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ScalingProcesses\" Text"
                     }
                 ],
                 "fields": [
@@ -2576,8 +2576,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2587,7 +2587,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ScalingProcesses\" Text"
                     }
                 ]
             },
@@ -2595,8 +2595,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "ebs",
@@ -2605,6 +2604,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Ebs",
+                "locationPad": 20,
                 "type": "record",
                 "optional": [
                     {
@@ -2766,7 +2766,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -2792,6 +2791,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AdjustmentType",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2833,7 +2833,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -2859,6 +2858,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "MetricCollectionType",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2899,8 +2899,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "lifecycleHook",
@@ -2909,6 +2908,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LifecycleHook",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -3189,8 +3189,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "activity",
@@ -3275,6 +3274,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Activity",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -3510,8 +3510,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "suspendedProcess",
@@ -3520,6 +3519,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "SuspendedProcess",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -3591,7 +3591,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -3617,6 +3616,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "MetricGranularityType",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -3657,8 +3657,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 8,
                 "ctor": "filter'",
@@ -3683,12 +3682,13 @@
                 ],
                 "contentPad": 0,
                 "name": "Filter",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3698,7 +3698,7 @@
                         "locationName": "Values",
                         "documentation": "\u003cp\u003e The value of the filter. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Values\" Text"
                     }
                 ],
                 "fields": [
@@ -3719,8 +3719,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3730,7 +3730,7 @@
                         "locationName": "Values",
                         "documentation": "\u003cp\u003e The value of the filter. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Values\" Text"
                     }
                 ]
             },
@@ -3739,7 +3739,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3782,6 +3781,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ProcessType",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -3806,8 +3806,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 11,
                 "ctor": "alarm",
@@ -3816,6 +3815,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Alarm",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -3886,8 +3886,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "enabledMetric",
@@ -3896,6 +3895,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "EnabledMetric",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -3966,8 +3966,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "instance'",
@@ -4052,6 +4051,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Instance",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4164,8 +4164,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "autoScalingInstanceDetails",
@@ -4265,6 +4264,7 @@
                 ],
                 "contentPad": 0,
                 "name": "AutoScalingInstanceDetails",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -4436,8 +4436,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4487,14 +4486,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4504,7 +4504,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e One or more IDs of the Amazon EC2 instances to attach to the specified Auto Scaling group. You must specify at least one instance ID. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     }
                 ],
                 "fields": [
@@ -4525,8 +4525,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4536,7 +4536,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e One or more IDs of the Amazon EC2 instances to attach to the specified Auto Scaling group. You must specify at least one instance ID. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     }
                 ]
             }
@@ -4583,8 +4583,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4689,6 +4688,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4798,8 +4798,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4863,8 +4862,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4874,7 +4873,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of Availability Zones for the Auto Scaling group. This is required unless you have specified subnets. \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"AvailabilityZones\" Text"
                     }
                 ],
                 "shared": false,
@@ -4959,6 +4958,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 24,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5025,8 +5025,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5036,7 +5036,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003e A list of existing Elastic Load Balancing load balancers to use. The load balancers must be associated with the AWS account. \u003c/p\u003e \u003cp\u003eFor information on using load balancers, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html\"\u003eLoad Balance Your Auto Scaling Group\u003c/a\u003e in the \u003ci\u003eAuto Scaling Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5100,8 +5100,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5111,12 +5111,12 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "\u003cp\u003eA standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. \u003c/p\u003e \u003cp\u003e For more information on configuring a termination policy for your Auto Scaling group, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html\"\u003eInstance Termination Policy for Your Auto Scaling Group\u003c/a\u003e in the \u003ci\u003eAuto Scaling Developer Guide\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TerminationPolicies\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5126,7 +5126,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e The tag to be created or updated. Each tag should be defined by its resource type, resource ID, key, value, and a propagate flag. Valid values: key=\u003ci\u003evalue\u003c/i\u003e, value=\u003ci\u003evalue\u003c/i\u003e, propagate=\u003ci\u003etrue\u003c/i\u003e or \u003ci\u003efalse\u003c/i\u003e. Value and propagate are optional parameters.\u003c/p\u003e \u003cp\u003eFor information about using tags, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html\"\u003eTag Your Auto Scaling Groups and Amazon EC2 Instances\u003c/a\u003e in the \u003ci\u003eAuto Scaling Developer Guide\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "fields": [
@@ -5147,8 +5147,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -5158,7 +5158,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of Availability Zones for the Auto Scaling group. This is required unless you have specified subnets. \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5252,8 +5252,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5263,7 +5263,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003e A list of existing Elastic Load Balancing load balancers to use. The load balancers must be associated with the AWS account. \u003c/p\u003e \u003cp\u003eFor information on using load balancers, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html\"\u003eLoad Balance Your Auto Scaling Group\u003c/a\u003e in the \u003ci\u003eAuto Scaling Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5312,8 +5312,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5323,12 +5323,12 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e The tag to be created or updated. Each tag should be defined by its resource type, resource ID, key, value, and a propagate flag. Valid values: key=\u003ci\u003evalue\u003c/i\u003e, value=\u003ci\u003evalue\u003c/i\u003e, propagate=\u003ci\u003etrue\u003c/i\u003e or \u003ci\u003efalse\u003c/i\u003e. Value and propagate are optional parameters.\u003c/p\u003e \u003cp\u003eFor information about using tags, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html\"\u003eTag Your Auto Scaling Groups and Amazon EC2 Instances\u003c/a\u003e in the \u003ci\u003eAuto Scaling Developer Guide\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5338,7 +5338,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "\u003cp\u003eA standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. \u003c/p\u003e \u003cp\u003e For more information on configuring a termination policy for your Auto Scaling group, see \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html\"\u003eInstance Termination Policy for Your Auto Scaling Group\u003c/a\u003e in the \u003ci\u003eAuto Scaling Developer Guide\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TerminationPolicies\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5399,8 +5399,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5520,6 +5519,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5556,8 +5556,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5567,7 +5567,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e The security groups with which to associate Amazon EC2 or Amazon VPC instances.\u003c/p\u003e \u003cp\u003eIf your instances are launched in EC2, you can either specify Amazon EC2 security group names or the security group IDs. For more information about Amazon EC2 security groups, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/index.html?using-network-security.html\"\u003e Using Security Groups\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf your instances are launched within VPC, specify Amazon VPC security group IDs. For more information about Amazon VPC security groups, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/index.html?VPC_SecurityGroups.html\"\u003eSecurity Groups\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5646,8 +5646,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5657,7 +5657,7 @@
                         "locationName": "BlockDeviceMappings",
                         "documentation": "\u003cp\u003e A list of mappings that specify how block devices are exposed to the instance. Each mapping is made up of a \u003ci\u003eVirtualName\u003c/i\u003e, a \u003ci\u003eDeviceName\u003c/i\u003e, and an \u003ci\u003eebs\u003c/i\u003e data structure that contains information about the associated Elastic Block Storage volume. For more information about Amazon EC2 BlockDeviceMappings, go to \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/index.html?block-device-mapping-concepts.html\"\u003e Block Device Mapping\u003c/a\u003e in the Amazon EC2 product documentation. \u003c/p\u003e",
                         "typeExposed": "[BlockDeviceMapping]",
-                        "type": "[BlockDeviceMapping]"
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": "querystring",
@@ -5768,8 +5768,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5779,7 +5779,7 @@
                         "locationName": "BlockDeviceMappings",
                         "documentation": "\u003cp\u003e A list of mappings that specify how block devices are exposed to the instance. Each mapping is made up of a \u003ci\u003eVirtualName\u003c/i\u003e, a \u003ci\u003eDeviceName\u003c/i\u003e, and an \u003ci\u003eebs\u003c/i\u003e data structure that contains information about the associated Elastic Block Storage volume. For more information about Amazon EC2 BlockDeviceMappings, go to \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/index.html?block-device-mapping-concepts.html\"\u003e Block Device Mapping\u003c/a\u003e in the Amazon EC2 product documentation. \u003c/p\u003e",
                         "typeExposed": "[BlockDeviceMapping]",
-                        "type": "[BlockDeviceMapping]"
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": "querystring",
@@ -5948,8 +5948,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5959,7 +5959,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e The security groups with which to associate Amazon EC2 or Amazon VPC instances.\u003c/p\u003e \u003cp\u003eIf your instances are launched in EC2, you can either specify Amazon EC2 security group names or the security group IDs. For more information about Amazon EC2 security groups, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/index.html?using-network-security.html\"\u003e Using Security Groups\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf your instances are launched within VPC, specify Amazon VPC security group IDs. For more information about Amazon VPC security groups, see \u003ca href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/index.html?VPC_SecurityGroups.html\"\u003eSecurity Groups\u003c/a\u003e in the \u003ci\u003eAmazon Virtual Private Cloud User Guide\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6036,7 +6036,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6048,8 +6047,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6059,7 +6058,7 @@
                     "locationName": "Tags",
                     "documentation": "\u003cp\u003e The tag to be created or updated. Each tag should be defined by its resource type, resource ID, key, value, and a propagate flag. The resource type and resource ID identify the type and name of resource for which the tag is created. Currently, \u003ccode\u003eauto-scaling-group\u003c/code\u003e is the only supported resource type. The valid value for the resource ID is \u003ci\u003egroupname\u003c/i\u003e. \u003c/p\u003e \u003cp\u003eThe \u003ccode\u003ePropagateAtLaunch\u003c/code\u003e flag defines whether the new tag will be applied to instances launched by the Auto Scaling group. Valid values are \u003ccode\u003etrue\u003c/code\u003e or \u003ccode\u003efalse\u003c/code\u003e. However, instances that are already running will not get the new or updated tag. Likewise, when you modify a tag, the updated version will be applied only to new instances launched by the Auto Scaling group after the change. Running instances that had the previous version of the tag will continue to have the older tag. \u003c/p\u003e \u003cp\u003eWhen you create a tag and a tag of the same name already exists, the operation overwrites the previous tag definition, but you will not get an error message. \u003c/p\u003e",
                     "typeExposed": "[Tag]",
-                    "type": "[Tag]"
+                    "type": "List \"Tags\" Tag"
                 },
                 "contents": [],
                 "path": [
@@ -6083,14 +6082,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6100,14 +6100,14 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e The tag to be created or updated. Each tag should be defined by its resource type, resource ID, key, value, and a propagate flag. The resource type and resource ID identify the type and name of resource for which the tag is created. Currently, \u003ccode\u003eauto-scaling-group\u003c/code\u003e is the only supported resource type. The valid value for the resource ID is \u003ci\u003egroupname\u003c/i\u003e. \u003c/p\u003e \u003cp\u003eThe \u003ccode\u003ePropagateAtLaunch\u003c/code\u003e flag defines whether the new tag will be applied to instances launched by the Auto Scaling group. Valid values are \u003ccode\u003etrue\u003c/code\u003e or \u003ccode\u003efalse\u003c/code\u003e. However, instances that are already running will not get the new or updated tag. Likewise, when you modify a tag, the updated version will be applied only to new instances launched by the Auto Scaling group after the change. Running instances that had the previous version of the tag will continue to have the older tag. \u003c/p\u003e \u003cp\u003eWhen you create a tag and a tag of the same name already exists, the operation overwrites the previous tag definition, but you will not get an error message. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6117,7 +6117,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e The tag to be created or updated. Each tag should be defined by its resource type, resource ID, key, value, and a propagate flag. The resource type and resource ID identify the type and name of resource for which the tag is created. Currently, \u003ccode\u003eauto-scaling-group\u003c/code\u003e is the only supported resource type. The valid value for the resource ID is \u003ci\u003egroupname\u003c/i\u003e. \u003c/p\u003e \u003cp\u003eThe \u003ccode\u003ePropagateAtLaunch\u003c/code\u003e flag defines whether the new tag will be applied to instances launched by the Auto Scaling group. Valid values are \u003ccode\u003etrue\u003c/code\u003e or \u003ccode\u003efalse\u003c/code\u003e. However, instances that are already running will not get the new or updated tag. Likewise, when you modify a tag, the updated version will be applied only to new instances launched by the Auto Scaling group after the change. Running instances that had the previous version of the tag will continue to have the older tag. \u003c/p\u003e \u003cp\u003eWhen you create a tag and a tag of the same name already exists, the operation overwrites the previous tag definition, but you will not get an error message. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ]
             }
@@ -6164,8 +6164,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6215,6 +6214,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6312,7 +6312,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6375,6 +6374,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -6440,8 +6440,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6506,6 +6505,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6586,8 +6586,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6652,6 +6651,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6732,8 +6732,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6783,6 +6782,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6879,8 +6879,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6930,6 +6929,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7026,7 +7026,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7038,8 +7037,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7049,7 +7048,7 @@
                     "locationName": "Tags",
                     "documentation": "\u003cp\u003eEach tag should be defined by its resource type, resource ID, key, value, and a propagate flag. Valid values are: Resource type = \u003ci\u003eauto-scaling-group\u003c/i\u003e, Resource ID = \u003ci\u003eAutoScalingGroupName\u003c/i\u003e, key=\u003ci\u003evalue\u003c/i\u003e, value=\u003ci\u003evalue\u003c/i\u003e, propagate=\u003ci\u003etrue\u003c/i\u003e or \u003ci\u003efalse\u003c/i\u003e. \u003c/p\u003e",
                     "typeExposed": "[Tag]",
-                    "type": "[Tag]"
+                    "type": "List \"Tags\" Tag"
                 },
                 "contents": [],
                 "path": [
@@ -7073,14 +7072,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7090,14 +7090,14 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eEach tag should be defined by its resource type, resource ID, key, value, and a propagate flag. Valid values are: Resource type = \u003ci\u003eauto-scaling-group\u003c/i\u003e, Resource ID = \u003ci\u003eAutoScalingGroupName\u003c/i\u003e, key=\u003ci\u003evalue\u003c/i\u003e, value=\u003ci\u003evalue\u003c/i\u003e, propagate=\u003ci\u003etrue\u003c/i\u003e or \u003ci\u003efalse\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7107,7 +7107,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eEach tag should be defined by its resource type, resource ID, key, value, and a propagate flag. Valid values are: Resource type = \u003ci\u003eauto-scaling-group\u003c/i\u003e, Resource ID = \u003ci\u003eAutoScalingGroupName\u003c/i\u003e, key=\u003ci\u003evalue\u003c/i\u003e, value=\u003ci\u003evalue\u003c/i\u003e, propagate=\u003ci\u003etrue\u003c/i\u003e or \u003ci\u003efalse\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ]
             }
@@ -7118,8 +7118,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -7136,6 +7135,7 @@
                 "contentPad": 0,
                 "name": "DescribeAccountLimitsResponse",
                 "resultWrapper": "DescribeAccountLimitsResult",
+                "locationPad": 32,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -7253,7 +7253,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7265,8 +7264,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7276,7 +7275,7 @@
                     "locationName": "AdjustmentTypes",
                     "documentation": "\u003cp\u003e A list of specific policy adjustment types. \u003c/p\u003e",
                     "typeExposed": "[AdjustmentType]",
-                    "type": "[AdjustmentType]"
+                    "type": "List \"AdjustmentTypes\" AdjustmentType"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7288,13 +7287,14 @@
                 "contentPad": 0,
                 "name": "DescribeAdjustmentTypesResponse",
                 "resultWrapper": "DescribeAdjustmentTypesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7304,14 +7304,14 @@
                         "locationName": "AdjustmentTypes",
                         "documentation": "\u003cp\u003e A list of specific policy adjustment types. \u003c/p\u003e",
                         "typeExposed": "[AdjustmentType]",
-                        "type": "[AdjustmentType]"
+                        "type": "List \"AdjustmentTypes\" AdjustmentType"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7321,7 +7321,7 @@
                         "locationName": "AdjustmentTypes",
                         "documentation": "\u003cp\u003e A list of specific policy adjustment types. \u003c/p\u003e",
                         "typeExposed": "[AdjustmentType]",
-                        "type": "[AdjustmentType]"
+                        "type": "List \"AdjustmentTypes\" AdjustmentType"
                     }
                 ]
             },
@@ -7374,8 +7374,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -7392,13 +7391,14 @@
                 "contentPad": 0,
                 "name": "DescribeAutoScalingGroupsResponse",
                 "resultWrapper": "DescribeAutoScalingGroupsResult",
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7408,7 +7408,7 @@
                         "locationName": "AutoScalingGroups",
                         "documentation": "\u003cp\u003e A list of Auto Scaling groups. \u003c/p\u003e",
                         "typeExposed": "[AutoScalingGroup]",
-                        "type": "[AutoScalingGroup]"
+                        "type": "List \"AutoScalingGroups\" AutoScalingGroup"
                     },
                     {
                         "location": "querystring",
@@ -7429,8 +7429,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7440,7 +7440,7 @@
                         "locationName": "AutoScalingGroups",
                         "documentation": "\u003cp\u003e A list of Auto Scaling groups. \u003c/p\u003e",
                         "typeExposed": "[AutoScalingGroup]",
-                        "type": "[AutoScalingGroup]"
+                        "type": "List \"AutoScalingGroups\" AutoScalingGroup"
                     },
                     {
                         "location": "querystring",
@@ -7482,8 +7482,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7522,14 +7521,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7539,7 +7539,7 @@
                         "locationName": "AutoScalingGroupNames",
                         "documentation": "\u003cp\u003e A list of Auto Scaling group names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AutoScalingGroupNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7575,8 +7575,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7586,7 +7586,7 @@
                         "locationName": "AutoScalingGroupNames",
                         "documentation": "\u003cp\u003e A list of Auto Scaling group names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AutoScalingGroupNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7626,8 +7626,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -7644,13 +7643,14 @@
                 "contentPad": 0,
                 "name": "DescribeAutoScalingInstancesResponse",
                 "resultWrapper": "DescribeAutoScalingInstancesResult",
+                "locationPad": 21,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7660,7 +7660,7 @@
                         "locationName": "AutoScalingInstances",
                         "documentation": "\u003cp\u003e A list of Auto Scaling instances. \u003c/p\u003e",
                         "typeExposed": "[AutoScalingInstanceDetails]",
-                        "type": "[AutoScalingInstanceDetails]"
+                        "type": "List \"AutoScalingInstances\" AutoScalingInstanceDetails"
                     },
                     {
                         "location": "querystring",
@@ -7681,8 +7681,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7692,7 +7692,7 @@
                         "locationName": "AutoScalingInstances",
                         "documentation": "\u003cp\u003e A list of Auto Scaling instances. \u003c/p\u003e",
                         "typeExposed": "[AutoScalingInstanceDetails]",
-                        "type": "[AutoScalingInstanceDetails]"
+                        "type": "List \"AutoScalingInstances\" AutoScalingInstanceDetails"
                     },
                     {
                         "location": "querystring",
@@ -7734,8 +7734,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7774,14 +7773,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7791,7 +7791,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e The list of Auto Scaling instances to describe. If this list is omitted, all auto scaling instances are described. The list of requested instances cannot contain more than 50 items. If unknown instances are requested, they are ignored with no error. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7827,8 +7827,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7838,7 +7838,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e The list of Auto Scaling instances to describe. If this list is omitted, all auto scaling instances are described. The list of requested instances cannot contain more than 50 items. If unknown instances are requested, they are ignored with no error. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7880,7 +7880,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7892,8 +7891,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7903,7 +7902,7 @@
                     "locationName": "AutoScalingNotificationTypes",
                     "documentation": "\u003cp\u003eReturns a list of all notification types supported by Auto Scaling. They are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_LAUNCH\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_LAUNCH_ERROR\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_TERMINATE\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_TERMINATE_ERROR\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:TEST_NOTIFICATION\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"LifecycleHookTypes\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7915,13 +7914,14 @@
                 "contentPad": 0,
                 "name": "DescribeAutoScalingNotificationTypesResponse",
                 "resultWrapper": "DescribeAutoScalingNotificationTypesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7931,14 +7931,14 @@
                         "locationName": "AutoScalingNotificationTypes",
                         "documentation": "\u003cp\u003eReturns a list of all notification types supported by Auto Scaling. They are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_LAUNCH\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_LAUNCH_ERROR\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_TERMINATE\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_TERMINATE_ERROR\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:TEST_NOTIFICATION\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LifecycleHookTypes\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7948,7 +7948,7 @@
                         "locationName": "AutoScalingNotificationTypes",
                         "documentation": "\u003cp\u003eReturns a list of all notification types supported by Auto Scaling. They are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_LAUNCH\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_LAUNCH_ERROR\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_TERMINATE\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_TERMINATE_ERROR\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:TEST_NOTIFICATION\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LifecycleHookTypes\" Text"
                     }
                 ]
             },
@@ -8001,8 +8001,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8019,13 +8018,14 @@
                 "contentPad": 0,
                 "name": "DescribeLaunchConfigurationsResponse",
                 "resultWrapper": "DescribeLaunchConfigurationsResult",
+                "locationPad": 21,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8035,7 +8035,7 @@
                         "locationName": "LaunchConfigurations",
                         "documentation": "\u003cp\u003e A list of launch configurations. \u003c/p\u003e",
                         "typeExposed": "[LaunchConfiguration]",
-                        "type": "[LaunchConfiguration]"
+                        "type": "List \"LaunchConfigurations\" LaunchConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -8056,8 +8056,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8067,7 +8067,7 @@
                         "locationName": "LaunchConfigurations",
                         "documentation": "\u003cp\u003e A list of launch configurations. \u003c/p\u003e",
                         "typeExposed": "[LaunchConfiguration]",
-                        "type": "[LaunchConfiguration]"
+                        "type": "List \"LaunchConfigurations\" LaunchConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -8109,8 +8109,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8149,14 +8148,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8166,7 +8166,7 @@
                         "locationName": "LaunchConfigurationNames",
                         "documentation": "\u003cp\u003e A list of launch configuration names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LaunchConfigurationNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8202,8 +8202,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8213,7 +8213,7 @@
                         "locationName": "LaunchConfigurationNames",
                         "documentation": "\u003cp\u003e A list of launch configuration names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LaunchConfigurationNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8255,7 +8255,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -8267,8 +8266,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -8278,7 +8277,7 @@
                     "locationName": "LifecycleHookTypes",
                     "documentation": "\u003cp\u003eReturns a list of all notification types supported by Auto Scaling. They are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_LAUNCHING\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_TERMINATING\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"LifecycleHookTypes\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8290,13 +8289,14 @@
                 "contentPad": 0,
                 "name": "DescribeLifecycleHookTypesResponse",
                 "resultWrapper": "DescribeLifecycleHookTypesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8306,14 +8306,14 @@
                         "locationName": "LifecycleHookTypes",
                         "documentation": "\u003cp\u003eReturns a list of all notification types supported by Auto Scaling. They are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_LAUNCHING\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_TERMINATING\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LifecycleHookTypes\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8323,7 +8323,7 @@
                         "locationName": "LifecycleHookTypes",
                         "documentation": "\u003cp\u003eReturns a list of all notification types supported by Auto Scaling. They are:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_LAUNCHING\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eautoscaling:EC2_INSTANCE_TERMINATING\u003c/code\u003e\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LifecycleHookTypes\" Text"
                     }
                 ]
             },
@@ -8377,7 +8377,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -8389,8 +8388,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -8400,7 +8399,7 @@
                     "locationName": "LifecycleHooks",
                     "documentation": "\u003cp\u003e A list describing the lifecycle hooks that belong to the specified Auto Scaling group. \u003c/p\u003e",
                     "typeExposed": "[LifecycleHook]",
-                    "type": "[LifecycleHook]"
+                    "type": "List \"LifecycleHooks\" LifecycleHook"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8412,13 +8411,14 @@
                 "contentPad": 0,
                 "name": "DescribeLifecycleHooksResponse",
                 "resultWrapper": "DescribeLifecycleHooksResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8428,14 +8428,14 @@
                         "locationName": "LifecycleHooks",
                         "documentation": "\u003cp\u003e A list describing the lifecycle hooks that belong to the specified Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[LifecycleHook]",
-                        "type": "[LifecycleHook]"
+                        "type": "List \"LifecycleHooks\" LifecycleHook"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8445,7 +8445,7 @@
                         "locationName": "LifecycleHooks",
                         "documentation": "\u003cp\u003e A list describing the lifecycle hooks that belong to the specified Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[LifecycleHook]",
-                        "type": "[LifecycleHook]"
+                        "type": "List \"LifecycleHooks\" LifecycleHook"
                     }
                 ]
             },
@@ -8465,8 +8465,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8516,14 +8515,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8533,7 +8533,7 @@
                         "locationName": "LifecycleHookNames",
                         "documentation": "\u003cp\u003eThe name of one or more lifecycle hooks.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LifecycleHookNames\" Text"
                     }
                 ],
                 "fields": [
@@ -8554,8 +8554,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8565,7 +8565,7 @@
                         "locationName": "LifecycleHookNames",
                         "documentation": "\u003cp\u003eThe name of one or more lifecycle hooks.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LifecycleHookNames\" Text"
                     }
                 ]
             }
@@ -8575,8 +8575,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8593,13 +8592,14 @@
                 "contentPad": 0,
                 "name": "DescribeMetricCollectionTypesResponse",
                 "resultWrapper": "DescribeMetricCollectionTypesResult",
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8609,12 +8609,12 @@
                         "locationName": "Metrics",
                         "documentation": "\u003cp\u003eThe list of Metrics collected. The following metrics are supported: \u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003eGroupMinSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupMaxSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupDesiredCapacity\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupInServiceInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupPendingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupStandbyInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTerminatingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTotalInstances\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[MetricCollectionType]",
-                        "type": "[MetricCollectionType]"
+                        "type": "List \"Metrics\" MetricCollectionType"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8624,14 +8624,14 @@
                         "locationName": "Granularities",
                         "documentation": "\u003cp\u003eA list of granularities for the listed Metrics.\u003c/p\u003e",
                         "typeExposed": "[MetricGranularityType]",
-                        "type": "[MetricGranularityType]"
+                        "type": "List \"Granularities\" MetricGranularityType"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8641,12 +8641,12 @@
                         "locationName": "Granularities",
                         "documentation": "\u003cp\u003eA list of granularities for the listed Metrics.\u003c/p\u003e",
                         "typeExposed": "[MetricGranularityType]",
-                        "type": "[MetricGranularityType]"
+                        "type": "List \"Granularities\" MetricGranularityType"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8656,7 +8656,7 @@
                         "locationName": "Metrics",
                         "documentation": "\u003cp\u003eThe list of Metrics collected. The following metrics are supported: \u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003eGroupMinSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupMaxSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupDesiredCapacity\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupInServiceInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupPendingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupStandbyInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTerminatingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTotalInstances\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[MetricCollectionType]",
-                        "type": "[MetricCollectionType]"
+                        "type": "List \"Metrics\" MetricCollectionType"
                     }
                 ]
             },
@@ -8709,8 +8709,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8727,13 +8726,14 @@
                 "contentPad": 0,
                 "name": "DescribeNotificationConfigurationsResponse",
                 "resultWrapper": "DescribeNotificationConfigurationsResult",
+                "locationPad": 27,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8743,7 +8743,7 @@
                         "locationName": "NotificationConfigurations",
                         "documentation": "\u003cp\u003eThe list of notification configurations.\u003c/p\u003e",
                         "typeExposed": "[NotificationConfiguration]",
-                        "type": "[NotificationConfiguration]"
+                        "type": "List \"NotificationConfigurations\" NotificationConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -8779,8 +8779,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8790,7 +8790,7 @@
                         "locationName": "NotificationConfigurations",
                         "documentation": "\u003cp\u003eThe list of notification configurations.\u003c/p\u003e",
                         "typeExposed": "[NotificationConfiguration]",
-                        "type": "[NotificationConfiguration]"
+                        "type": "List \"NotificationConfigurations\" NotificationConfiguration"
                     }
                 ]
             },
@@ -8817,8 +8817,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8857,14 +8856,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8874,7 +8874,7 @@
                         "locationName": "AutoScalingGroupNames",
                         "documentation": "\u003cp\u003e The name of the Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AutoScalingGroupNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8910,8 +8910,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8921,7 +8921,7 @@
                         "locationName": "AutoScalingGroupNames",
                         "documentation": "\u003cp\u003e The name of the Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AutoScalingGroupNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8961,8 +8961,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8979,13 +8978,14 @@
                 "contentPad": 0,
                 "name": "DescribePoliciesResponse",
                 "resultWrapper": "DescribePoliciesResult",
+                "locationPad": 16,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8995,7 +8995,7 @@
                         "locationName": "ScalingPolicies",
                         "documentation": "\u003cp\u003e A list of scaling policies. \u003c/p\u003e",
                         "typeExposed": "[ScalingPolicy]",
-                        "type": "[ScalingPolicy]"
+                        "type": "List \"ScalingPolicies\" ScalingPolicy"
                     },
                     {
                         "location": "querystring",
@@ -9031,8 +9031,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9042,7 +9042,7 @@
                         "locationName": "ScalingPolicies",
                         "documentation": "\u003cp\u003e A list of scaling policies. \u003c/p\u003e",
                         "typeExposed": "[ScalingPolicy]",
-                        "type": "[ScalingPolicy]"
+                        "type": "List \"ScalingPolicies\" ScalingPolicy"
                     }
                 ]
             },
@@ -9069,8 +9069,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9114,6 +9113,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9135,8 +9135,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9146,7 +9146,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e A list of policy names or policy ARNs to be described. If this list is omitted, all policy names are described. If an auto scaling group name is provided, the results are limited to that group. The list of requested policy names cannot contain more than 50 items. If unknown policy names are requested, they are ignored with no error. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9227,8 +9227,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9238,7 +9238,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e A list of policy names or policy ARNs to be described. If this list is omitted, all policy names are described. If an auto scaling group name is provided, the results are limited to that group. The list of requested policy names cannot contain more than 50 items. If unknown policy names are requested, they are ignored with no error. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             }
@@ -9248,8 +9248,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9266,13 +9265,14 @@
                 "contentPad": 0,
                 "name": "DescribeScalingActivitiesResponse",
                 "resultWrapper": "DescribeScalingActivitiesResult",
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9282,7 +9282,7 @@
                         "locationName": "Activities",
                         "documentation": "\u003cp\u003e A list of the requested scaling activities. \u003c/p\u003e",
                         "typeExposed": "[Activity]",
-                        "type": "[Activity]"
+                        "type": "List \"Activities\" Activity"
                     },
                     {
                         "location": "querystring",
@@ -9303,8 +9303,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9314,7 +9314,7 @@
                         "locationName": "Activities",
                         "documentation": "\u003cp\u003e A list of the requested scaling activities. \u003c/p\u003e",
                         "typeExposed": "[Activity]",
-                        "type": "[Activity]"
+                        "type": "List \"Activities\" Activity"
                     },
                     {
                         "location": "querystring",
@@ -9356,8 +9356,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9401,14 +9400,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9418,7 +9418,7 @@
                         "locationName": "ActivityIds",
                         "documentation": "\u003cp\u003e A list containing the activity IDs of the desired scaling activities. If this list is omitted, all activities are described. If an \u003ccode\u003eAutoScalingGroupName\u003c/code\u003e is provided, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ActivityIds\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9469,8 +9469,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9480,7 +9480,7 @@
                         "locationName": "ActivityIds",
                         "documentation": "\u003cp\u003e A list containing the activity IDs of the desired scaling activities. If this list is omitted, all activities are described. If an \u003ccode\u003eAutoScalingGroupName\u003c/code\u003e is provided, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ActivityIds\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9536,7 +9536,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -9548,8 +9547,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -9559,7 +9558,7 @@
                     "locationName": "Processes",
                     "documentation": "\u003cp\u003e A list of \u003ca\u003eProcessType\u003c/a\u003e names. \u003c/p\u003e",
                     "typeExposed": "[ProcessType]",
-                    "type": "[ProcessType]"
+                    "type": "List \"Processes\" ProcessType"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -9571,13 +9570,14 @@
                 "contentPad": 0,
                 "name": "DescribeScalingProcessTypesResponse",
                 "resultWrapper": "DescribeScalingProcessTypesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9587,14 +9587,14 @@
                         "locationName": "Processes",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eProcessType\u003c/a\u003e names. \u003c/p\u003e",
                         "typeExposed": "[ProcessType]",
-                        "type": "[ProcessType]"
+                        "type": "List \"Processes\" ProcessType"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9604,7 +9604,7 @@
                         "locationName": "Processes",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eProcessType\u003c/a\u003e names. \u003c/p\u003e",
                         "typeExposed": "[ProcessType]",
-                        "type": "[ProcessType]"
+                        "type": "List \"Processes\" ProcessType"
                     }
                 ]
             },
@@ -9657,8 +9657,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -9675,13 +9674,14 @@
                 "contentPad": 0,
                 "name": "DescribeScheduledActionsResponse",
                 "resultWrapper": "DescribeScheduledActionsResult",
+                "locationPad": 28,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9691,7 +9691,7 @@
                         "locationName": "ScheduledUpdateGroupActions",
                         "documentation": "\u003cp\u003e A list of scheduled actions designed to update an Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[ScheduledUpdateGroupAction]",
-                        "type": "[ScheduledUpdateGroupAction]"
+                        "type": "List \"ScheduledUpdateGroupActions\" ScheduledUpdateGroupAction"
                     },
                     {
                         "location": "querystring",
@@ -9727,8 +9727,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9738,7 +9738,7 @@
                         "locationName": "ScheduledUpdateGroupActions",
                         "documentation": "\u003cp\u003e A list of scheduled actions designed to update an Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[ScheduledUpdateGroupAction]",
-                        "type": "[ScheduledUpdateGroupAction]"
+                        "type": "List \"ScheduledUpdateGroupActions\" ScheduledUpdateGroupAction"
                     }
                 ]
             },
@@ -9765,8 +9765,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -9820,6 +9819,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -9841,8 +9841,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9852,7 +9852,7 @@
                         "locationName": "ScheduledActionNames",
                         "documentation": "\u003cp\u003e A list of scheduled actions to be described. If this list is omitted, all scheduled actions are described. The list of requested scheduled actions cannot contain more than 50 items. If an auto scaling group name is provided, the results are limited to that group. If unknown scheduled actions are requested, they are ignored with no error. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ScheduledActionNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9978,8 +9978,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9989,7 +9989,7 @@
                         "locationName": "ScheduledActionNames",
                         "documentation": "\u003cp\u003e A list of scheduled actions to be described. If this list is omitted, all scheduled actions are described. The list of requested scheduled actions cannot contain more than 50 items. If an auto scaling group name is provided, the results are limited to that group. If unknown scheduled actions are requested, they are ignored with no error. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ScheduledActionNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -10014,8 +10014,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -10032,13 +10031,14 @@
                 "contentPad": 0,
                 "name": "DescribeTagsResponse",
                 "resultWrapper": "DescribeTagsResult",
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10048,7 +10048,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e The list of tags. \u003c/p\u003e",
                         "typeExposed": "[TagDescription]",
-                        "type": "[TagDescription]"
+                        "type": "List \"Tags\" TagDescription"
                     },
                     {
                         "location": "querystring",
@@ -10084,8 +10084,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10095,7 +10095,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003e The list of tags. \u003c/p\u003e",
                         "typeExposed": "[TagDescription]",
-                        "type": "[TagDescription]"
+                        "type": "List \"Tags\" TagDescription"
                     }
                 ]
             },
@@ -10121,8 +10121,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -10161,14 +10160,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10178,7 +10178,7 @@
                         "locationName": "Filters",
                         "documentation": "\u003cp\u003e The value of the filter type used to identify the tags to be returned. For example, you can filter so that tags are returned according to Auto Scaling group, the key and value, or whether the new tag will be applied to instances launched after the tag is created (PropagateAtLaunch). \u003c/p\u003e",
                         "typeExposed": "[Filter]",
-                        "type": "[Filter]"
+                        "type": "List \"Filters\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -10214,8 +10214,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10225,7 +10225,7 @@
                         "locationName": "Filters",
                         "documentation": "\u003cp\u003e The value of the filter type used to identify the tags to be returned. For example, you can filter so that tags are returned according to Auto Scaling group, the key and value, or whether the new tag will be applied to instances launched after the tag is created (PropagateAtLaunch). \u003c/p\u003e",
                         "typeExposed": "[Filter]",
-                        "type": "[Filter]"
+                        "type": "List \"Filters\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -10267,7 +10267,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -10279,8 +10278,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -10290,7 +10289,7 @@
                     "locationName": "TerminationPolicyTypes",
                     "documentation": "\u003cp\u003e Termination policies supported by Auto Scaling. They are: \u003ccode\u003eOldestInstance\u003c/code\u003e, \u003ccode\u003eOldestLaunchConfiguration\u003c/code\u003e, \u003ccode\u003eNewestInstance\u003c/code\u003e, \u003ccode\u003eClosestToNextInstanceHour\u003c/code\u003e, \u003ccode\u003eDefault\u003c/code\u003e \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"TerminationPolicies\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -10302,13 +10301,14 @@
                 "contentPad": 0,
                 "name": "DescribeTerminationPolicyTypesResponse",
                 "resultWrapper": "DescribeTerminationPolicyTypesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10318,14 +10318,14 @@
                         "locationName": "TerminationPolicyTypes",
                         "documentation": "\u003cp\u003e Termination policies supported by Auto Scaling. They are: \u003ccode\u003eOldestInstance\u003c/code\u003e, \u003ccode\u003eOldestLaunchConfiguration\u003c/code\u003e, \u003ccode\u003eNewestInstance\u003c/code\u003e, \u003ccode\u003eClosestToNextInstanceHour\u003c/code\u003e, \u003ccode\u003eDefault\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TerminationPolicies\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10335,7 +10335,7 @@
                         "locationName": "TerminationPolicyTypes",
                         "documentation": "\u003cp\u003e Termination policies supported by Auto Scaling. They are: \u003ccode\u003eOldestInstance\u003c/code\u003e, \u003ccode\u003eOldestLaunchConfiguration\u003c/code\u003e, \u003ccode\u003eNewestInstance\u003c/code\u003e, \u003ccode\u003eClosestToNextInstanceHour\u003c/code\u003e, \u003ccode\u003eDefault\u003c/code\u003e \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TerminationPolicies\" Text"
                     }
                 ]
             },
@@ -10389,7 +10389,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -10401,8 +10400,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -10412,7 +10411,7 @@
                     "locationName": "Activities",
                     "documentation": "\u003cp\u003e A list describing the activities related to detaching the instances from the Auto Scaling group. \u003c/p\u003e",
                     "typeExposed": "[Activity]",
-                    "type": "[Activity]"
+                    "type": "List \"Activities\" Activity"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -10424,13 +10423,14 @@
                 "contentPad": 0,
                 "name": "DetachInstancesResponse",
                 "resultWrapper": "DetachInstancesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10440,14 +10440,14 @@
                         "locationName": "Activities",
                         "documentation": "\u003cp\u003e A list describing the activities related to detaching the instances from the Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[Activity]",
-                        "type": "[Activity]"
+                        "type": "List \"Activities\" Activity"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10457,7 +10457,7 @@
                         "locationName": "Activities",
                         "documentation": "\u003cp\u003e A list describing the activities related to detaching the instances from the Auto Scaling group. \u003c/p\u003e",
                         "typeExposed": "[Activity]",
-                        "type": "[Activity]"
+                        "type": "List \"Activities\" Activity"
                     }
                 ]
             },
@@ -10477,8 +10477,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -10548,14 +10547,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 31,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10565,7 +10565,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e A list of instances to detach from the Auto Scaling group. You must specify at least one instance ID. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     }
                 ],
                 "fields": [
@@ -10586,8 +10586,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10597,7 +10597,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e A list of instances to detach from the Auto Scaling group. You must specify at least one instance ID. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     },
                     {
                         "location": "querystring",
@@ -10659,8 +10659,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -10710,14 +10709,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10727,7 +10727,7 @@
                         "locationName": "Metrics",
                         "documentation": "\u003cp\u003e The list of metrics to disable. If no metrics are specified, all metrics are disabled. The following metrics are supported: \u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003eGroupMinSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupMaxSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupDesiredCapacity\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupInServiceInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupPendingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupStandbyInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTerminatingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTotalInstances\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Metrics\" Text"
                     }
                 ],
                 "fields": [
@@ -10748,8 +10748,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10759,7 +10759,7 @@
                         "locationName": "Metrics",
                         "documentation": "\u003cp\u003e The list of metrics to disable. If no metrics are specified, all metrics are disabled. The following metrics are supported: \u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003eGroupMinSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupMaxSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupDesiredCapacity\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupInServiceInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupPendingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupStandbyInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTerminatingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTotalInstances\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Metrics\" Text"
                     }
                 ]
             }
@@ -10806,8 +10806,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -10877,14 +10876,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10894,7 +10894,7 @@
                         "locationName": "Metrics",
                         "documentation": "\u003cp\u003e The list of metrics to collect. If no metrics are specified, all metrics are enabled. The following metrics are supported: \u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003eGroupMinSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupMaxSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupDesiredCapacity\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupInServiceInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupPendingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupStandbyInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTerminatingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTotalInstances\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Metrics\" Text"
                     }
                 ],
                 "fields": [
@@ -10930,8 +10930,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10941,7 +10941,7 @@
                         "locationName": "Metrics",
                         "documentation": "\u003cp\u003e The list of metrics to collect. If no metrics are specified, all metrics are enabled. The following metrics are supported: \u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003eGroupMinSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupMaxSize\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupDesiredCapacity\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupInServiceInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupPendingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupStandbyInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTerminatingInstances\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003eGroupTotalInstances\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Metrics\" Text"
                     }
                 ]
             }
@@ -10952,7 +10952,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -10964,8 +10963,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -10975,7 +10974,7 @@
                     "locationName": "Activities",
                     "documentation": "\u003cp\u003e A list describing the activities related to moving instances into Standby mode. \u003c/p\u003e",
                     "typeExposed": "[Activity]",
-                    "type": "[Activity]"
+                    "type": "List \"Activities\" Activity"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -10987,13 +10986,14 @@
                 "contentPad": 0,
                 "name": "EnterStandbyResponse",
                 "resultWrapper": "EnterStandbyResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11003,14 +11003,14 @@
                         "locationName": "Activities",
                         "documentation": "\u003cp\u003e A list describing the activities related to moving instances into Standby mode. \u003c/p\u003e",
                         "typeExposed": "[Activity]",
-                        "type": "[Activity]"
+                        "type": "List \"Activities\" Activity"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11020,7 +11020,7 @@
                         "locationName": "Activities",
                         "documentation": "\u003cp\u003e A list describing the activities related to moving instances into Standby mode. \u003c/p\u003e",
                         "typeExposed": "[Activity]",
-                        "type": "[Activity]"
+                        "type": "List \"Activities\" Activity"
                     }
                 ]
             },
@@ -11040,8 +11040,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11111,14 +11110,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 31,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11128,7 +11128,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e The instances to move into Standby mode. You must specify at least one instance ID. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     }
                 ],
                 "fields": [
@@ -11149,8 +11149,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11160,7 +11160,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e The instances to move into Standby mode. You must specify at least one instance ID. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11222,8 +11222,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11278,6 +11277,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11368,7 +11368,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -11380,8 +11379,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -11391,7 +11390,7 @@
                     "locationName": "Activities",
                     "documentation": "\u003cp\u003eA list describing the activities related to moving instances out of Standby mode.\u003c/p\u003e",
                     "typeExposed": "[Activity]",
-                    "type": "[Activity]"
+                    "type": "List \"Activities\" Activity"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -11403,13 +11402,14 @@
                 "contentPad": 0,
                 "name": "ExitStandbyResponse",
                 "resultWrapper": "ExitStandbyResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11419,14 +11419,14 @@
                         "locationName": "Activities",
                         "documentation": "\u003cp\u003eA list describing the activities related to moving instances out of Standby mode.\u003c/p\u003e",
                         "typeExposed": "[Activity]",
-                        "type": "[Activity]"
+                        "type": "List \"Activities\" Activity"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11436,7 +11436,7 @@
                         "locationName": "Activities",
                         "documentation": "\u003cp\u003eA list describing the activities related to moving instances out of Standby mode.\u003c/p\u003e",
                         "typeExposed": "[Activity]",
-                        "type": "[Activity]"
+                        "type": "List \"Activities\" Activity"
                     }
                 ]
             },
@@ -11456,8 +11456,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11507,14 +11506,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11524,7 +11524,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e A list of instances to move out of Standby mode. You must specify at least one instance ID. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     }
                 ],
                 "fields": [
@@ -11545,8 +11545,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11556,7 +11556,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "\u003cp\u003e A list of instances to move out of Standby mode. You must specify at least one instance ID. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"InstanceIds\" Text"
                     }
                 ]
             }
@@ -11603,8 +11603,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -11699,6 +11698,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -11960,8 +11960,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12031,14 +12030,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12048,7 +12048,7 @@
                         "locationName": "NotificationTypes",
                         "documentation": "\u003cp\u003eThe type of event that will cause the notification to be sent. For details about notification types supported by Auto Scaling, see \u003ca\u003eDescribeAutoScalingNotificationTypes\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LifecycleHookTypes\" Text"
                     }
                 ],
                 "fields": [
@@ -12069,8 +12069,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12080,7 +12080,7 @@
                         "locationName": "NotificationTypes",
                         "documentation": "\u003cp\u003eThe type of event that will cause the notification to be sent. For details about notification types supported by Auto Scaling, see \u003ca\u003eDescribeAutoScalingNotificationTypes\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LifecycleHookTypes\" Text"
                     },
                     {
                         "location": "querystring",
@@ -12107,7 +12107,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -12141,6 +12140,7 @@
                 "contentPad": 0,
                 "name": "PutScalingPolicyResponse",
                 "resultWrapper": "PutScalingPolicyResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -12194,8 +12194,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12310,6 +12309,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12481,8 +12481,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12582,6 +12581,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -12873,8 +12873,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -12959,6 +12958,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13054,8 +13054,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13105,14 +13104,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13122,7 +13122,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ScalingProcesses\" Text"
                     }
                 ],
                 "fields": [
@@ -13143,8 +13143,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13154,7 +13154,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ScalingProcesses\" Text"
                     }
                 ]
             }
@@ -13201,8 +13201,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13272,6 +13271,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13383,8 +13383,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13454,6 +13453,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13565,8 +13565,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13616,14 +13615,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13633,7 +13633,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ScalingProcesses\" Text"
                     }
                 ],
                 "fields": [
@@ -13654,8 +13654,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13665,7 +13665,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ScalingProcesses\" Text"
                     }
                 ]
             }
@@ -13675,8 +13675,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -13709,6 +13708,7 @@
                 "contentPad": 0,
                 "name": "TerminateInstanceInAutoScalingGroupResponse",
                 "resultWrapper": "TerminateInstanceInAutoScalingGroupResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -13762,8 +13762,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13828,6 +13827,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 31,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13908,8 +13908,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -13943,8 +13942,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -13954,7 +13953,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e Availability Zones for the group. \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"AvailabilityZones\" Text"
                     }
                 ],
                 "shared": false,
@@ -14024,6 +14023,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 24,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -14165,8 +14165,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14176,7 +14176,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "\u003cp\u003e A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. \u003c/p\u003e \u003cp\u003e For more information on creating a termination policy for your Auto Scaling group, go to \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html\"\u003eInstance Termination Policy for Your Auto Scaling Group\u003c/a\u003e in the the \u003ci\u003eAuto Scaling Developer Guide\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TerminationPolicies\" Text"
                     }
                 ],
                 "fields": [
@@ -14197,8 +14197,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -14208,7 +14208,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e Availability Zones for the group. \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14332,8 +14332,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14343,7 +14343,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "\u003cp\u003e A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. \u003c/p\u003e \u003cp\u003e For more information on creating a termination policy for your Auto Scaling group, go to \u003ca href=\"http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html\"\u003eInstance Termination Policy for Your Auto Scaling Group\u003c/a\u003e in the the \u003ci\u003eAuto Scaling Developer Guide\u003c/i\u003e. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"TerminationPolicies\" Text"
                     },
                     {
                         "location": "querystring",

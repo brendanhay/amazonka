@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ data ListInvalidations = ListInvalidations
     { _liDistributionId :: Text
     , _liMarker         :: Maybe Text
     , _liMaxItems       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListInvalidations' constructor.
 --
@@ -90,7 +91,7 @@ liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 
 newtype ListInvalidationsResponse = ListInvalidationsResponse
     { _lirInvalidationList :: InvalidationList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListInvalidationsResponse' constructor.
 --
@@ -138,7 +139,7 @@ instance AWSRequest ListInvalidations where
 
 instance FromXML ListInvalidationsResponse where
     parseXML x = ListInvalidationsResponse
-            <$> x .@ "InvalidationList"
+        <$> x .@  "InvalidationList"
 
 instance AWSPager ListInvalidations where
     next rq rs

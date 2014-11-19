@@ -54,7 +54,7 @@ data ConfirmProductInstance = ConfirmProductInstance
     { _cpiDryRun      :: Maybe Bool
     , _cpiInstanceId  :: Text
     , _cpiProductCode :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ConfirmProductInstance' constructor.
 --
@@ -88,7 +88,7 @@ cpiProductCode = lens _cpiProductCode (\s a -> s { _cpiProductCode = a })
 
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ConfirmProductInstanceResponse' constructor.
 --
@@ -109,7 +109,12 @@ cpirOwnerId = lens _cpirOwnerId (\s a -> s { _cpirOwnerId = a })
 instance ToPath ConfirmProductInstance where
     toPath = const "/"
 
-instance ToQuery ConfirmProductInstance
+instance ToQuery ConfirmProductInstance where
+    toQuery ConfirmProductInstance{..} = mconcat
+        [ "dryRun"      =? _cpiDryRun
+        , "InstanceId"  =? _cpiInstanceId
+        , "ProductCode" =? _cpiProductCode
+        ]
 
 instance ToHeaders ConfirmProductInstance
 

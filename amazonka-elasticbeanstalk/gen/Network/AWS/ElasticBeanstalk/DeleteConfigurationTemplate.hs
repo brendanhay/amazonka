@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate
     { _dctApplicationName :: Text
     , _dctTemplateName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteConfigurationTemplate' constructor.
 --
@@ -83,7 +84,11 @@ deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
 instance ToPath DeleteConfigurationTemplate where
     toPath = const "/"
 
-instance ToQuery DeleteConfigurationTemplate
+instance ToQuery DeleteConfigurationTemplate where
+    toQuery DeleteConfigurationTemplate{..} = mconcat
+        [ "ApplicationName" =? _dctApplicationName
+        , "TemplateName"    =? _dctTemplateName
+        ]
 
 instance ToHeaders DeleteConfigurationTemplate
 

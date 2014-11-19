@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,11 +54,11 @@ import Network.AWS.SDB.Types
 import qualified GHC.Exts
 
 data DeleteAttributes = DeleteAttributes
-    { _daAttributes :: Flatten [Attribute]
+    { _daAttributes :: List "Attribute" Attribute
     , _daDomainName :: Text
     , _daExpected   :: Maybe UpdateCondition
     , _daItemName   :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteAttributes' constructor.
 --
@@ -78,15 +79,14 @@ deleteAttributes :: Text -- ^ 'daDomainName'
 deleteAttributes p1 p2 p3 = DeleteAttributes
     { _daDomainName = p1
     , _daItemName   = p2
-    , _daAttributes = withIso _Flatten (const id) p3
+    , _daAttributes = withIso _List (const id) p3
     , _daExpected   = Nothing
     }
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
 daAttributes :: Lens' DeleteAttributes [Attribute]
-daAttributes = lens _daAttributes (\s a -> s { _daAttributes = a })
-    . _Flatten
+daAttributes = lens _daAttributes (\s a -> s { _daAttributes = a }) . _List
 
 -- | The name of the domain in which to perform the operation.
 daDomainName :: Lens' DeleteAttributes Text
@@ -114,7 +114,13 @@ deleteAttributesResponse = DeleteAttributesResponse
 instance ToPath DeleteAttributes where
     toPath = const "/"
 
-instance ToQuery DeleteAttributes
+instance ToQuery DeleteAttributes where
+    toQuery DeleteAttributes{..} = mconcat
+        [ toQuery     _daAttributes
+        , "DomainName" =? _daDomainName
+        , "Expected"   =? _daExpected
+        , "ItemName"   =? _daItemName
+        ]
 
 instance ToHeaders DeleteAttributes
 

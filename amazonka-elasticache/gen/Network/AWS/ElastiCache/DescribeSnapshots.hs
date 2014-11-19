@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ data DescribeSnapshots = DescribeSnapshots
     , _dsMaxRecords     :: Maybe Int
     , _dsSnapshotName   :: Maybe Text
     , _dsSnapshotSource :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeSnapshots' constructor.
 --
@@ -116,8 +117,8 @@ dsSnapshotSource = lens _dsSnapshotSource (\s a -> s { _dsSnapshotSource = a })
 
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrMarker    :: Maybe Text
-    , _dsrSnapshots :: [Snapshot]
-    } deriving (Eq, Show, Generic)
+    , _dsrSnapshots :: List "Snapshot" Snapshot
+    } deriving (Eq, Show)
 
 -- | 'DescribeSnapshotsResponse' constructor.
 --
@@ -143,12 +144,19 @@ dsrMarker = lens _dsrMarker (\s a -> s { _dsrMarker = a })
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
+dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a }) . _List
 
 instance ToPath DescribeSnapshots where
     toPath = const "/"
 
-instance ToQuery DescribeSnapshots
+instance ToQuery DescribeSnapshots where
+    toQuery DescribeSnapshots{..} = mconcat
+        [ "CacheClusterId" =? _dsCacheClusterId
+        , "Marker"         =? _dsMarker
+        , "MaxRecords"     =? _dsMaxRecords
+        , "SnapshotName"   =? _dsSnapshotName
+        , "SnapshotSource" =? _dsSnapshotSource
+        ]
 
 instance ToHeaders DescribeSnapshots
 
@@ -160,9 +168,9 @@ instance AWSRequest DescribeSnapshots where
     response = xmlResponse
 
 instance FromXML DescribeSnapshotsResponse where
-    parseXML = withElement "DescribeSnapshotsResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "Snapshots"
+    parseXML = withElement "DescribeSnapshotsResult" $ \x -> DescribeSnapshotsResponse
+        <$> x .@? "Marker"
+        <*> x .@  "Snapshots"
 
 instance AWSPager DescribeSnapshots where
     next rq rs = (\x -> rq & dsMarker ?~ x)

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data UpdateGatewayInformation = UpdateGatewayInformation
     { _ugiGatewayARN      :: Text
     , _ugiGatewayName     :: Maybe Text
     , _ugiGatewayTimezone :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateGatewayInformation' constructor.
 --
@@ -84,7 +85,7 @@ ugiGatewayTimezone =
 
 newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
     { _ugirGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'UpdateGatewayInformationResponse' constructor.
 --

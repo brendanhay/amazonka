@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ createStorageLocation = CreateStorageLocation
 
 newtype CreateStorageLocationResponse = CreateStorageLocationResponse
     { _cslrS3Bucket :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateStorageLocationResponse' constructor.
 --
@@ -85,5 +86,5 @@ instance AWSRequest CreateStorageLocation where
     response = xmlResponse
 
 instance FromXML CreateStorageLocationResponse where
-    parseXML = withElement "CreateStorageLocationResult" $ \x ->
-            <$> x .@? "S3Bucket"
+    parseXML = withElement "CreateStorageLocationResult" $ \x -> CreateStorageLocationResponse
+        <$> x .@? "S3Bucket"

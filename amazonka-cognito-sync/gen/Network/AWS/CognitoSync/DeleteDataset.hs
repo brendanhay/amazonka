@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data DeleteDataset = DeleteDataset
     { _dd1DatasetName    :: Text
     , _dd1IdentityId     :: Text
     , _dd1IdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteDataset' constructor.
 --
@@ -95,7 +96,7 @@ dd1IdentityPoolId =
 
 newtype DeleteDatasetResponse = DeleteDatasetResponse
     { _ddr1Dataset :: Maybe Dataset
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteDatasetResponse' constructor.
 --

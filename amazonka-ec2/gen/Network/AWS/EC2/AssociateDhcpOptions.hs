@@ -57,7 +57,7 @@ data AssociateDhcpOptions = AssociateDhcpOptions
     { _adoDhcpOptionsId :: Text
     , _adoDryRun        :: Maybe Bool
     , _adoVpcId         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AssociateDhcpOptions' constructor.
 --
@@ -100,7 +100,12 @@ associateDhcpOptionsResponse = AssociateDhcpOptionsResponse
 instance ToPath AssociateDhcpOptions where
     toPath = const "/"
 
-instance ToQuery AssociateDhcpOptions
+instance ToQuery AssociateDhcpOptions where
+    toQuery AssociateDhcpOptions{..} = mconcat
+        [ "DhcpOptionsId" =? _adoDhcpOptionsId
+        , "dryRun"        =? _adoDryRun
+        , "VpcId"         =? _adoVpcId
+        ]
 
 instance ToHeaders AssociateDhcpOptions
 

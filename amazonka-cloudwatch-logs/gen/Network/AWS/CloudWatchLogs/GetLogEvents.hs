@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -68,7 +69,7 @@ data GetLogEvents = GetLogEvents
     , _gleNextToken     :: Maybe Text
     , _gleStartFromHead :: Maybe Bool
     , _gleStartTime     :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetLogEvents' constructor.
 --
@@ -102,15 +103,13 @@ getLogEvents p1 p2 = GetLogEvents
     }
 
 gleEndTime :: Lens' GetLogEvents (Maybe Natural)
-gleEndTime = lens _gleEndTime (\s a -> s { _gleEndTime = a })
-    . mapping _Nat
+gleEndTime = lens _gleEndTime (\s a -> s { _gleEndTime = a }) . mapping _Nat
 
 -- | The maximum number of log events returned in the response. If you don't
 -- specify a value, the request would return as much log events as can fit
 -- in a response size of 1MB, up to 10,000 log events.
 gleLimit :: Lens' GetLogEvents (Maybe Natural)
-gleLimit = lens _gleLimit (\s a -> s { _gleLimit = a })
-    . mapping _Nat
+gleLimit = lens _gleLimit (\s a -> s { _gleLimit = a }) . mapping _Nat
 
 gleLogGroupName :: Lens' GetLogEvents Text
 gleLogGroupName = lens _gleLogGroupName (\s a -> s { _gleLogGroupName = a })
@@ -131,14 +130,13 @@ gleStartFromHead :: Lens' GetLogEvents (Maybe Bool)
 gleStartFromHead = lens _gleStartFromHead (\s a -> s { _gleStartFromHead = a })
 
 gleStartTime :: Lens' GetLogEvents (Maybe Natural)
-gleStartTime = lens _gleStartTime (\s a -> s { _gleStartTime = a })
-    . mapping _Nat
+gleStartTime = lens _gleStartTime (\s a -> s { _gleStartTime = a }) . mapping _Nat
 
 data GetLogEventsResponse = GetLogEventsResponse
-    { _glerEvents            :: [OutputLogEvent]
+    { _glerEvents            :: List "events" OutputLogEvent
     , _glerNextBackwardToken :: Maybe Text
     , _glerNextForwardToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetLogEventsResponse' constructor.
 --
@@ -158,7 +156,7 @@ getLogEventsResponse = GetLogEventsResponse
     }
 
 glerEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
-glerEvents = lens _glerEvents (\s a -> s { _glerEvents = a })
+glerEvents = lens _glerEvents (\s a -> s { _glerEvents = a }) . _List
 
 glerNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glerNextBackwardToken =
@@ -196,6 +194,6 @@ instance AWSRequest GetLogEvents where
 
 instance FromJSON GetLogEventsResponse where
     parseJSON = withObject "GetLogEventsResponse" $ \o -> GetLogEventsResponse
-        <$> o .: "events"
+        <$> o .:  "events"
         <*> o .:? "nextBackwardToken"
         <*> o .:? "nextForwardToken"

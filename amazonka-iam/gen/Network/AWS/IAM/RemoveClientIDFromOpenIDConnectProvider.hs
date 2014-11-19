@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProvider
     { _rcidfoidcpClientID                 :: Text
     , _rcidfoidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RemoveClientIDFromOpenIDConnectProvider' constructor.
 --
@@ -92,7 +93,11 @@ removeClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnec
 instance ToPath RemoveClientIDFromOpenIDConnectProvider where
     toPath = const "/"
 
-instance ToQuery RemoveClientIDFromOpenIDConnectProvider
+instance ToQuery RemoveClientIDFromOpenIDConnectProvider where
+    toQuery RemoveClientIDFromOpenIDConnectProvider{..} = mconcat
+        [ "ClientID"                 =? _rcidfoidcpClientID
+        , "OpenIDConnectProviderArn" =? _rcidfoidcpOpenIDConnectProviderArn
+        ]
 
 instance ToHeaders RemoveClientIDFromOpenIDConnectProvider
 

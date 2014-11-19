@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype IndexDocuments = IndexDocuments
     { _idDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'IndexDocuments' constructor.
 --
@@ -66,8 +67,8 @@ idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\s a -> s { _idDomainName = a })
 
 newtype IndexDocumentsResponse = IndexDocumentsResponse
-    { _idrFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _idrFieldNames :: List "SuggesterNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList IndexDocumentsResponse where
     type Item IndexDocumentsResponse = Text
@@ -88,12 +89,15 @@ indexDocumentsResponse = IndexDocumentsResponse
 
 -- | The names of the fields that are currently being indexed.
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]
-idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a })
+idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a }) . _List
 
 instance ToPath IndexDocuments where
     toPath = const "/"
 
-instance ToQuery IndexDocuments
+instance ToQuery IndexDocuments where
+    toQuery IndexDocuments{..} = mconcat
+        [ "DomainName" =? _idDomainName
+        ]
 
 instance ToHeaders IndexDocuments
 
@@ -105,5 +109,5 @@ instance AWSRequest IndexDocuments where
     response = xmlResponse
 
 instance FromXML IndexDocumentsResponse where
-    parseXML = withElement "IndexDocumentsResult" $ \x ->
-            <$> x .@ "FieldNames"
+    parseXML = withElement "IndexDocumentsResult" $ \x -> IndexDocumentsResponse
+        <$> x .@  "FieldNames"

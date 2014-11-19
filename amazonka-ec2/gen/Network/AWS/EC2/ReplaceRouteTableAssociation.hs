@@ -57,7 +57,7 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtaAssociationId :: Text
     , _rrtaDryRun        :: Maybe Bool
     , _rrtaRouteTableId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ReplaceRouteTableAssociation' constructor.
 --
@@ -92,7 +92,7 @@ rrtaRouteTableId = lens _rrtaRouteTableId (\s a -> s { _rrtaRouteTableId = a })
 
 newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtarNewAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ReplaceRouteTableAssociationResponse' constructor.
 --
@@ -113,7 +113,12 @@ rrtarNewAssociationId =
 instance ToPath ReplaceRouteTableAssociation where
     toPath = const "/"
 
-instance ToQuery ReplaceRouteTableAssociation
+instance ToQuery ReplaceRouteTableAssociation where
+    toQuery ReplaceRouteTableAssociation{..} = mconcat
+        [ "associationId" =? _rrtaAssociationId
+        , "dryRun"        =? _rrtaDryRun
+        , "routeTableId"  =? _rrtaRouteTableId
+        ]
 
 instance ToHeaders ReplaceRouteTableAssociation
 

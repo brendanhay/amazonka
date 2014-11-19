@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -114,7 +115,7 @@ data AssumeRole = AssumeRole
     , _arRoleSessionName :: Text
     , _arSerialNumber    :: Maybe Text
     , _arTokenCode       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AssumeRole' constructor.
 --
@@ -209,7 +210,7 @@ data AssumeRoleResponse = AssumeRoleResponse
     { _arrAssumedRoleUser  :: Maybe AssumedRoleUser
     , _arrCredentials      :: Maybe Credentials
     , _arrPackedPolicySize :: Maybe Nat
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AssumeRoleResponse' constructor.
 --
@@ -254,7 +255,16 @@ arrPackedPolicySize =
 instance ToPath AssumeRole where
     toPath = const "/"
 
-instance ToQuery AssumeRole
+instance ToQuery AssumeRole where
+    toQuery AssumeRole{..} = mconcat
+        [ "DurationSeconds" =? _arDurationSeconds
+        , "ExternalId"      =? _arExternalId
+        , "Policy"          =? _arPolicy
+        , "RoleArn"         =? _arRoleArn
+        , "RoleSessionName" =? _arRoleSessionName
+        , "SerialNumber"    =? _arSerialNumber
+        , "TokenCode"       =? _arTokenCode
+        ]
 
 instance ToHeaders AssumeRole
 
@@ -266,7 +276,7 @@ instance AWSRequest AssumeRole where
     response = xmlResponse
 
 instance FromXML AssumeRoleResponse where
-    parseXML = withElement "AssumeRoleResult" $ \x ->
-            <$> x .@? "AssumedRoleUser"
-            <*> x .@? "Credentials"
-            <*> x .@? "PackedPolicySize"
+    parseXML = withElement "AssumeRoleResult" $ \x -> AssumeRoleResponse
+        <$> x .@? "AssumedRoleUser"
+        <*> x .@? "Credentials"
+        <*> x .@? "PackedPolicySize"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -81,7 +82,7 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiDBInstanceIdentifier       :: Text
     , _cdbiDBName                     :: Maybe Text
     , _cdbiDBParameterGroupName       :: Maybe Text
-    , _cdbiDBSecurityGroups           :: [Text]
+    , _cdbiDBSecurityGroups           :: List "DBSecurityGroupName" Text
     , _cdbiDBSubnetGroupName          :: Maybe Text
     , _cdbiEngine                     :: Text
     , _cdbiEngineVersion              :: Maybe Text
@@ -96,11 +97,11 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiPreferredMaintenanceWindow :: Maybe Text
     , _cdbiPubliclyAccessible         :: Maybe Bool
     , _cdbiStorageType                :: Maybe Text
-    , _cdbiTags                       :: [Tag]
+    , _cdbiTags                       :: List "Tag" Tag
     , _cdbiTdeCredentialArn           :: Maybe Text
     , _cdbiTdeCredentialPassword      :: Maybe Text
-    , _cdbiVpcSecurityGroupIds        :: [Text]
-    } deriving (Eq, Show, Generic)
+    , _cdbiVpcSecurityGroupIds        :: List "VpcSecurityGroupId" Text
+    } deriving (Eq, Show)
 
 -- | 'CreateDBInstance' constructor.
 --
@@ -295,6 +296,7 @@ cdbiDBParameterGroupName =
 cdbiDBSecurityGroups :: Lens' CreateDBInstance [Text]
 cdbiDBSecurityGroups =
     lens _cdbiDBSecurityGroups (\s a -> s { _cdbiDBSecurityGroups = a })
+        . _List
 
 -- | A DB subnet group to associate with this DB instance. If there is no DB
 -- subnet group, then it is a non-VPC DB instance.
@@ -416,7 +418,7 @@ cdbiStorageType :: Lens' CreateDBInstance (Maybe Text)
 cdbiStorageType = lens _cdbiStorageType (\s a -> s { _cdbiStorageType = a })
 
 cdbiTags :: Lens' CreateDBInstance [Tag]
-cdbiTags = lens _cdbiTags (\s a -> s { _cdbiTags = a })
+cdbiTags = lens _cdbiTags (\s a -> s { _cdbiTags = a }) . _List
 
 -- | The ARN from the Key Store with which to associate the instance for TDE
 -- encryption.
@@ -437,10 +439,11 @@ cdbiTdeCredentialPassword =
 cdbiVpcSecurityGroupIds :: Lens' CreateDBInstance [Text]
 cdbiVpcSecurityGroupIds =
     lens _cdbiVpcSecurityGroupIds (\s a -> s { _cdbiVpcSecurityGroupIds = a })
+        . _List
 
 newtype CreateDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDBInstanceResponse' constructor.
 --
@@ -459,7 +462,37 @@ cdbirDBInstance = lens _cdbirDBInstance (\s a -> s { _cdbirDBInstance = a })
 instance ToPath CreateDBInstance where
     toPath = const "/"
 
-instance ToQuery CreateDBInstance
+instance ToQuery CreateDBInstance where
+    toQuery CreateDBInstance{..} = mconcat
+        [ "AllocatedStorage"           =? _cdbiAllocatedStorage
+        , "AutoMinorVersionUpgrade"    =? _cdbiAutoMinorVersionUpgrade
+        , "AvailabilityZone"           =? _cdbiAvailabilityZone
+        , "BackupRetentionPeriod"      =? _cdbiBackupRetentionPeriod
+        , "CharacterSetName"           =? _cdbiCharacterSetName
+        , "DBInstanceClass"            =? _cdbiDBInstanceClass
+        , "DBInstanceIdentifier"       =? _cdbiDBInstanceIdentifier
+        , "DBName"                     =? _cdbiDBName
+        , "DBParameterGroupName"       =? _cdbiDBParameterGroupName
+        , "DBSecurityGroups"           =? _cdbiDBSecurityGroups
+        , "DBSubnetGroupName"          =? _cdbiDBSubnetGroupName
+        , "Engine"                     =? _cdbiEngine
+        , "EngineVersion"              =? _cdbiEngineVersion
+        , "Iops"                       =? _cdbiIops
+        , "LicenseModel"               =? _cdbiLicenseModel
+        , "MasterUserPassword"         =? _cdbiMasterUserPassword
+        , "MasterUsername"             =? _cdbiMasterUsername
+        , "MultiAZ"                    =? _cdbiMultiAZ
+        , "OptionGroupName"            =? _cdbiOptionGroupName
+        , "Port"                       =? _cdbiPort
+        , "PreferredBackupWindow"      =? _cdbiPreferredBackupWindow
+        , "PreferredMaintenanceWindow" =? _cdbiPreferredMaintenanceWindow
+        , "PubliclyAccessible"         =? _cdbiPubliclyAccessible
+        , "StorageType"                =? _cdbiStorageType
+        , "Tags"                       =? _cdbiTags
+        , "TdeCredentialArn"           =? _cdbiTdeCredentialArn
+        , "TdeCredentialPassword"      =? _cdbiTdeCredentialPassword
+        , "VpcSecurityGroupIds"        =? _cdbiVpcSecurityGroupIds
+        ]
 
 instance ToHeaders CreateDBInstance
 
@@ -471,5 +504,5 @@ instance AWSRequest CreateDBInstance where
     response = xmlResponse
 
 instance FromXML CreateDBInstanceResponse where
-    parseXML = withElement "CreateDBInstanceResult" $ \x ->
-            <$> x .@? "DBInstance"
+    parseXML = withElement "CreateDBInstanceResult" $ \x -> CreateDBInstanceResponse
+        <$> x .@? "DBInstance"

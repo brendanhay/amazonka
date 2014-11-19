@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,10 +60,10 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data UpdateTable = UpdateTable
-    { _utGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate]
+    { _utGlobalSecondaryIndexUpdates :: List "GlobalSecondaryIndexUpdates" GlobalSecondaryIndexUpdate
     , _utProvisionedThroughput       :: Maybe ProvisionedThroughput
     , _utTableName                   :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateTable' constructor.
 --
@@ -88,6 +89,7 @@ utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
 utGlobalSecondaryIndexUpdates =
     lens _utGlobalSecondaryIndexUpdates
         (\s a -> s { _utGlobalSecondaryIndexUpdates = a })
+            . _List
 
 utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
 utProvisionedThroughput =
@@ -99,7 +101,7 @@ utTableName = lens _utTableName (\s a -> s { _utTableName = a })
 
 newtype UpdateTableResponse = UpdateTableResponse
     { _utrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateTableResponse' constructor.
 --

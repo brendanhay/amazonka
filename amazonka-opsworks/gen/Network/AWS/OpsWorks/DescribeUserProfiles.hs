@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 newtype DescribeUserProfiles = DescribeUserProfiles
-    { _dupIamUserArns :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dupIamUserArns :: List "InstanceIds" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeUserProfiles where
     type Item DescribeUserProfiles = Text
@@ -69,11 +70,11 @@ describeUserProfiles = DescribeUserProfiles
 
 -- | An array of IAM user ARNs that identify the users to be described.
 dupIamUserArns :: Lens' DescribeUserProfiles [Text]
-dupIamUserArns = lens _dupIamUserArns (\s a -> s { _dupIamUserArns = a })
+dupIamUserArns = lens _dupIamUserArns (\s a -> s { _dupIamUserArns = a }) . _List
 
 newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
-    { _duprUserProfiles :: [UserProfile]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _duprUserProfiles :: List "UserProfiles" UserProfile
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeUserProfilesResponse where
     type Item DescribeUserProfilesResponse = UserProfile
@@ -94,7 +95,7 @@ describeUserProfilesResponse = DescribeUserProfilesResponse
 
 -- | A Users object that describes the specified users.
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
-duprUserProfiles = lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a })
+duprUserProfiles = lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a }) . _List
 
 instance ToPath DescribeUserProfiles where
     toPath = const "/"
@@ -118,4 +119,4 @@ instance AWSRequest DescribeUserProfiles where
 
 instance FromJSON DescribeUserProfilesResponse where
     parseJSON = withObject "DescribeUserProfilesResponse" $ \o -> DescribeUserProfilesResponse
-        <$> o .: "UserProfiles"
+        <$> o .:  "UserProfiles"

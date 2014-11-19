@@ -45,8 +45,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "searchStatus",
@@ -86,6 +85,7 @@
                 "required": [],
                 "contentPad": 7,
                 "name": "SearchStatus",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -174,8 +174,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "hit",
@@ -208,7 +207,7 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eThe fields returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text [Text]",
-                        "type": "Map Text [Text]"
+                        "type": "Map \"entry\" \"key\" \"value\" Text (List \"fields\" Text)"
                     },
                     {
                         "location": null,
@@ -223,13 +222,14 @@
                         "locationName": "highlights",
                         "documentation": "\u003cp\u003eThe highlights returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 11,
                 "name": "Hit",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -260,7 +260,7 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eThe fields returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text [Text]",
-                        "type": "Map Text [Text]"
+                        "type": "Map \"entry\" \"key\" \"value\" Text (List \"fields\" Text)"
                     },
                     {
                         "location": null,
@@ -275,7 +275,7 @@
                         "locationName": "highlights",
                         "documentation": "\u003cp\u003eThe highlights returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -292,7 +292,7 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eThe fields returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text [Text]",
-                        "type": "Map Text [Text]"
+                        "type": "Map \"entry\" \"key\" \"value\" Text (List \"fields\" Text)"
                     },
                     {
                         "location": null,
@@ -307,7 +307,7 @@
                         "locationName": "highlights",
                         "documentation": "\u003cp\u003eThe highlights returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -330,8 +330,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "suggestStatus",
@@ -371,6 +370,7 @@
                 "required": [],
                 "contentPad": 7,
                 "name": "SuggestStatus",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -441,8 +441,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 7,
                 "ctor": "bucket",
@@ -482,6 +481,7 @@
                 "required": [],
                 "contentPad": 6,
                 "name": "Bucket",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -552,8 +552,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "suggestionMatch",
@@ -608,6 +607,7 @@
                 "required": [],
                 "contentPad": 11,
                 "name": "SuggestionMatch",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -708,7 +708,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -717,8 +716,8 @@
                 "ctor": "bucketInfo",
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -728,13 +727,13 @@
                     "locationName": "buckets",
                     "documentation": "\u003cp\u003eA list of the calculated facet values and counts.\u003c/p\u003e",
                     "typeExposed": "[Bucket]",
-                    "type": "[Bucket]"
+                    "type": "List \"buckets\" Bucket"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -744,19 +743,20 @@
                         "locationName": "buckets",
                         "documentation": "\u003cp\u003eA list of the calculated facet values and counts.\u003c/p\u003e",
                         "typeExposed": "[Bucket]",
-                        "type": "[Bucket]"
+                        "type": "List \"buckets\" Bucket"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 0,
                 "name": "BucketInfo",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -766,14 +766,14 @@
                         "locationName": "buckets",
                         "documentation": "\u003cp\u003eA list of the calculated facet values and counts.\u003c/p\u003e",
                         "typeExposed": "[Bucket]",
-                        "type": "[Bucket]"
+                        "type": "List \"buckets\" Bucket"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -783,7 +783,7 @@
                         "locationName": "buckets",
                         "documentation": "\u003cp\u003eA list of the calculated facet values and counts.\u003c/p\u003e",
                         "typeExposed": "[Bucket]",
-                        "type": "[Bucket]"
+                        "type": "List \"buckets\" Bucket"
                     }
                 ]
             },
@@ -792,7 +792,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -834,6 +833,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "DocumentServiceWarning",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -873,8 +873,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "suggestModel",
@@ -911,8 +910,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -922,13 +921,14 @@
                         "locationName": "suggestions",
                         "documentation": "\u003cp\u003eThe documents that match the query string.\u003c/p\u003e",
                         "typeExposed": "[SuggestionMatch]",
-                        "type": "[SuggestionMatch]"
+                        "type": "List \"suggestions\" SuggestionMatch"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 12,
                 "name": "SuggestModel",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -963,8 +963,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -974,7 +974,7 @@
                         "locationName": "suggestions",
                         "documentation": "\u003cp\u003eThe documents that match the query string.\u003c/p\u003e",
                         "typeExposed": "[SuggestionMatch]",
-                        "type": "[SuggestionMatch]"
+                        "type": "List \"suggestions\" SuggestionMatch"
                     }
                 ],
                 "fields": [
@@ -1010,8 +1010,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1021,15 +1021,14 @@
                         "locationName": "suggestions",
                         "documentation": "\u003cp\u003eThe documents that match the query string.\u003c/p\u003e",
                         "typeExposed": "[SuggestionMatch]",
-                        "type": "[SuggestionMatch]"
+                        "type": "List \"suggestions\" SuggestionMatch"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 8,
                 "ctor": "hits",
@@ -1081,8 +1080,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1092,13 +1091,14 @@
                         "locationName": "hit",
                         "documentation": "\u003cp\u003eA document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "[Hit]",
-                        "type": "[Hit]"
+                        "type": "List \"hit\" Hit"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 7,
                 "name": "Hits",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -1148,8 +1148,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1159,7 +1159,7 @@
                         "locationName": "hit",
                         "documentation": "\u003cp\u003eA document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "[Hit]",
-                        "type": "[Hit]"
+                        "type": "List \"hit\" Hit"
                     }
                 ],
                 "fields": [
@@ -1195,8 +1195,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1206,7 +1206,7 @@
                         "locationName": "hit",
                         "documentation": "\u003cp\u003eA document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "[Hit]",
-                        "type": "[Hit]"
+                        "type": "List \"hit\" Hit"
                     },
                     {
                         "location": null,
@@ -1252,8 +1252,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1304,7 +1303,7 @@
                         "locationName": "facets",
                         "documentation": "\u003cp\u003eThe requested facet information.\u003c/p\u003e",
                         "typeExposed": "HashMap Text BucketInfo",
-                        "type": "Map Text BucketInfo"
+                        "type": "Map \"entry\" \"key\" \"value\" Text BucketInfo"
                     }
                 ],
                 "wrapper": false,
@@ -1316,6 +1315,7 @@
                 "contentPad": 7,
                 "name": "SearchResponse",
                 "resultWrapper": null,
+                "locationPad": 7,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1362,7 +1362,7 @@
                         "locationName": "facets",
                         "documentation": "\u003cp\u003eThe requested facet information.\u003c/p\u003e",
                         "typeExposed": "HashMap Text BucketInfo",
-                        "type": "Map Text BucketInfo"
+                        "type": "Map \"entry\" \"key\" \"value\" Text BucketInfo"
                     }
                 ],
                 "fields": [
@@ -1379,7 +1379,7 @@
                         "locationName": "facets",
                         "documentation": "\u003cp\u003eThe requested facet information.\u003c/p\u003e",
                         "typeExposed": "HashMap Text BucketInfo",
-                        "type": "Map Text BucketInfo"
+                        "type": "Map \"entry\" \"key\" \"value\" Text BucketInfo"
                     },
                     {
                         "location": null,
@@ -1429,8 +1429,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1539,6 +1538,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1928,8 +1928,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1977,6 +1976,7 @@
                 "contentPad": 8,
                 "name": "SuggestResponse",
                 "resultWrapper": null,
+                "locationPad": 8,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2060,8 +2060,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2135,6 +2134,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2209,8 +2209,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2265,8 +2264,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2276,7 +2275,7 @@
                         "locationName": "warnings",
                         "documentation": "\u003cp\u003eAny warnings returned by the document service about the documents being uploaded.\u003c/p\u003e",
                         "typeExposed": "[DocumentServiceWarning]",
-                        "type": "[DocumentServiceWarning]"
+                        "type": "List \"warnings\" DocumentServiceWarning"
                     }
                 ],
                 "wrapper": false,
@@ -2288,6 +2287,7 @@
                 "contentPad": 9,
                 "name": "UploadDocumentsResponse",
                 "resultWrapper": null,
+                "locationPad": 9,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2338,8 +2338,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2349,7 +2349,7 @@
                         "locationName": "warnings",
                         "documentation": "\u003cp\u003eAny warnings returned by the document service about the documents being uploaded.\u003c/p\u003e",
                         "typeExposed": "[DocumentServiceWarning]",
-                        "type": "[DocumentServiceWarning]"
+                        "type": "List \"warnings\" DocumentServiceWarning"
                     }
                 ],
                 "fields": [
@@ -2400,8 +2400,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2411,7 +2411,7 @@
                         "locationName": "warnings",
                         "documentation": "\u003cp\u003eAny warnings returned by the document service about the documents being uploaded.\u003c/p\u003e",
                         "typeExposed": "[DocumentServiceWarning]",
-                        "type": "[DocumentServiceWarning]"
+                        "type": "List \"warnings\" DocumentServiceWarning"
                     }
                 ]
             },
@@ -2430,8 +2430,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json-headers",
@@ -2526,6 +2525,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

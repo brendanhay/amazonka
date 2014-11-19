@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data ValidateTemplate = ValidateTemplate
     { _vtTemplateBody :: Maybe Text
     , _vtTemplateURL  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ValidateTemplate' constructor.
 --
@@ -84,11 +85,11 @@ vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\s a -> s { _vtTemplateURL = a })
 
 data ValidateTemplateResponse = ValidateTemplateResponse
-    { _vtrCapabilities       :: [Text]
+    { _vtrCapabilities       :: List "Capabilities" Text
     , _vtrCapabilitiesReason :: Maybe Text
     , _vtrDescription        :: Maybe Text
-    , _vtrParameters         :: [TemplateParameter]
-    } deriving (Eq, Show, Generic)
+    , _vtrParameters         :: List "Parameters" TemplateParameter
+    } deriving (Eq, Show)
 
 -- | 'ValidateTemplateResponse' constructor.
 --
@@ -117,7 +118,7 @@ validateTemplateResponse = ValidateTemplateResponse
 -- template; otherwise, those actions return an InsufficientCapabilities
 -- error.
 vtrCapabilities :: Lens' ValidateTemplateResponse [Text]
-vtrCapabilities = lens _vtrCapabilities (\s a -> s { _vtrCapabilities = a })
+vtrCapabilities = lens _vtrCapabilities (\s a -> s { _vtrCapabilities = a }) . _List
 
 -- | The capabilities reason found within the template.
 vtrCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
@@ -130,12 +131,16 @@ vtrDescription = lens _vtrDescription (\s a -> s { _vtrDescription = a })
 
 -- | A list of TemplateParameter structures.
 vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
-vtrParameters = lens _vtrParameters (\s a -> s { _vtrParameters = a })
+vtrParameters = lens _vtrParameters (\s a -> s { _vtrParameters = a }) . _List
 
 instance ToPath ValidateTemplate where
     toPath = const "/"
 
-instance ToQuery ValidateTemplate
+instance ToQuery ValidateTemplate where
+    toQuery ValidateTemplate{..} = mconcat
+        [ "TemplateBody" =? _vtTemplateBody
+        , "TemplateURL"  =? _vtTemplateURL
+        ]
 
 instance ToHeaders ValidateTemplate
 
@@ -147,8 +152,8 @@ instance AWSRequest ValidateTemplate where
     response = xmlResponse
 
 instance FromXML ValidateTemplateResponse where
-    parseXML = withElement "ValidateTemplateResult" $ \x ->
-            <$> x .@ "Capabilities"
-            <*> x .@? "CapabilitiesReason"
-            <*> x .@? "Description"
-            <*> x .@ "Parameters"
+    parseXML = withElement "ValidateTemplateResult" $ \x -> ValidateTemplateResponse
+        <$> x .@  "Capabilities"
+        <*> x .@? "CapabilitiesReason"
+        <*> x .@? "Description"
+        <*> x .@  "Parameters"

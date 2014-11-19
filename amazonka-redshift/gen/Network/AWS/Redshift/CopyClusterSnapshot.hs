@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ data CopyClusterSnapshot = CopyClusterSnapshot
     { _ccsSourceSnapshotClusterIdentifier :: Maybe Text
     , _ccsSourceSnapshotIdentifier        :: Text
     , _ccsTargetSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CopyClusterSnapshot' constructor.
 --
@@ -107,7 +108,7 @@ ccsTargetSnapshotIdentifier =
 
 newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
     { _ccsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopyClusterSnapshotResponse' constructor.
 --
@@ -126,7 +127,12 @@ ccsrSnapshot = lens _ccsrSnapshot (\s a -> s { _ccsrSnapshot = a })
 instance ToPath CopyClusterSnapshot where
     toPath = const "/"
 
-instance ToQuery CopyClusterSnapshot
+instance ToQuery CopyClusterSnapshot where
+    toQuery CopyClusterSnapshot{..} = mconcat
+        [ "SourceSnapshotClusterIdentifier" =? _ccsSourceSnapshotClusterIdentifier
+        , "SourceSnapshotIdentifier"        =? _ccsSourceSnapshotIdentifier
+        , "TargetSnapshotIdentifier"        =? _ccsTargetSnapshotIdentifier
+        ]
 
 instance ToHeaders CopyClusterSnapshot
 
@@ -138,5 +144,5 @@ instance AWSRequest CopyClusterSnapshot where
     response = xmlResponse
 
 instance FromXML CopyClusterSnapshotResponse where
-    parseXML = withElement "CopyClusterSnapshotResult" $ \x ->
-            <$> x .@? "Snapshot"
+    parseXML = withElement "CopyClusterSnapshotResult" $ \x -> CopyClusterSnapshotResponse
+        <$> x .@? "Snapshot"

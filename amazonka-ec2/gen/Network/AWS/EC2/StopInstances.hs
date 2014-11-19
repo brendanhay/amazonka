@@ -72,7 +72,7 @@ data StopInstances = StopInstances
     { _siDryRun      :: Maybe Bool
     , _siForce       :: Maybe Bool
     , _siInstanceIds :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StopInstances' constructor.
 --
@@ -103,12 +103,11 @@ siForce = lens _siForce (\s a -> s { _siForce = a })
 
 -- | One or more instance IDs.
 siInstanceIds :: Lens' StopInstances [Text]
-siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
-    . _List
+siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a }) . _List
 
 newtype StopInstancesResponse = StopInstancesResponse
     { _sirStoppingInstances :: List "item" InstanceStateChange
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList StopInstancesResponse where
     type Item StopInstancesResponse = InstanceStateChange
@@ -136,7 +135,12 @@ sirStoppingInstances =
 instance ToPath StopInstances where
     toPath = const "/"
 
-instance ToQuery StopInstances
+instance ToQuery StopInstances where
+    toQuery StopInstances{..} = mconcat
+        [ "dryRun"     =? _siDryRun
+        , "force"      =? _siForce
+        , "InstanceId" =? _siInstanceIds
+        ]
 
 instance ToHeaders StopInstances
 
@@ -149,4 +153,4 @@ instance AWSRequest StopInstances where
 
 instance FromXML StopInstancesResponse where
     parseXML x = StopInstancesResponse
-        <$> x .@ "instancesSet"
+        <$> x .@  "instancesSet"

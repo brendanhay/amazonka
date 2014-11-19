@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,8 +46,8 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 newtype CreateOrUpdateTags = CreateOrUpdateTags
-    { _coutTags :: [Tag]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _coutTags :: List "Tags" Tag
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CreateOrUpdateTags where
     type Item CreateOrUpdateTags = Tag
@@ -80,7 +81,7 @@ createOrUpdateTags = CreateOrUpdateTags
 -- tag and a tag of the same name already exists, the operation overwrites
 -- the previous tag definition, but you will not get an error message.
 coutTags :: Lens' CreateOrUpdateTags [Tag]
-coutTags = lens _coutTags (\s a -> s { _coutTags = a })
+coutTags = lens _coutTags (\s a -> s { _coutTags = a }) . _List
 
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
     deriving (Eq, Ord, Show, Generic)
@@ -92,7 +93,10 @@ createOrUpdateTagsResponse = CreateOrUpdateTagsResponse
 instance ToPath CreateOrUpdateTags where
     toPath = const "/"
 
-instance ToQuery CreateOrUpdateTags
+instance ToQuery CreateOrUpdateTags where
+    toQuery CreateOrUpdateTags{..} = mconcat
+        [ "Tags" =? _coutTags
+        ]
 
 instance ToHeaders CreateOrUpdateTags
 

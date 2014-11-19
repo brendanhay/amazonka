@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data DescribeReservedCacheNodes = DescribeReservedCacheNodes
     , _drcnProductDescription           :: Maybe Text
     , _drcnReservedCacheNodeId          :: Maybe Text
     , _drcnReservedCacheNodesOfferingId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeReservedCacheNodes' constructor.
 --
@@ -149,8 +150,8 @@ drcnReservedCacheNodesOfferingId =
 
 data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
     { _drcnrMarker             :: Maybe Text
-    , _drcnrReservedCacheNodes :: [ReservedCacheNode]
-    } deriving (Eq, Show, Generic)
+    , _drcnrReservedCacheNodes :: List "ReservedCacheNode" ReservedCacheNode
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedCacheNodesResponse' constructor.
 --
@@ -175,11 +176,22 @@ drcnrMarker = lens _drcnrMarker (\s a -> s { _drcnrMarker = a })
 drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
 drcnrReservedCacheNodes =
     lens _drcnrReservedCacheNodes (\s a -> s { _drcnrReservedCacheNodes = a })
+        . _List
 
 instance ToPath DescribeReservedCacheNodes where
     toPath = const "/"
 
-instance ToQuery DescribeReservedCacheNodes
+instance ToQuery DescribeReservedCacheNodes where
+    toQuery DescribeReservedCacheNodes{..} = mconcat
+        [ "CacheNodeType"                =? _drcnCacheNodeType
+        , "Duration"                     =? _drcnDuration
+        , "Marker"                       =? _drcnMarker
+        , "MaxRecords"                   =? _drcnMaxRecords
+        , "OfferingType"                 =? _drcnOfferingType
+        , "ProductDescription"           =? _drcnProductDescription
+        , "ReservedCacheNodeId"          =? _drcnReservedCacheNodeId
+        , "ReservedCacheNodesOfferingId" =? _drcnReservedCacheNodesOfferingId
+        ]
 
 instance ToHeaders DescribeReservedCacheNodes
 
@@ -191,9 +203,9 @@ instance AWSRequest DescribeReservedCacheNodes where
     response = xmlResponse
 
 instance FromXML DescribeReservedCacheNodesResponse where
-    parseXML = withElement "DescribeReservedCacheNodesResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "ReservedCacheNodes"
+    parseXML = withElement "DescribeReservedCacheNodesResult" $ \x -> DescribeReservedCacheNodesResponse
+        <$> x .@? "Marker"
+        <*> x .@  "ReservedCacheNodes"
 
 instance AWSPager DescribeReservedCacheNodes where
     next rq rs = (\x -> rq & drcnMarker ?~ x)

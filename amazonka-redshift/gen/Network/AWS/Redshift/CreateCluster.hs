@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -77,7 +78,7 @@ data CreateCluster = CreateCluster
     , _ccAvailabilityZone                 :: Maybe Text
     , _ccClusterIdentifier                :: Text
     , _ccClusterParameterGroupName        :: Maybe Text
-    , _ccClusterSecurityGroups            :: [Text]
+    , _ccClusterSecurityGroups            :: List "ClusterSecurityGroupName" Text
     , _ccClusterSubnetGroupName           :: Maybe Text
     , _ccClusterType                      :: Maybe Text
     , _ccClusterVersion                   :: Maybe Text
@@ -93,8 +94,8 @@ data CreateCluster = CreateCluster
     , _ccPort                             :: Maybe Int
     , _ccPreferredMaintenanceWindow       :: Maybe Text
     , _ccPubliclyAccessible               :: Maybe Bool
-    , _ccVpcSecurityGroupIds              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _ccVpcSecurityGroupIds              :: List "VpcSecurityGroupId" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateCluster' constructor.
 --
@@ -233,6 +234,7 @@ ccClusterParameterGroupName =
 ccClusterSecurityGroups :: Lens' CreateCluster [Text]
 ccClusterSecurityGroups =
     lens _ccClusterSecurityGroups (\s a -> s { _ccClusterSecurityGroups = a })
+        . _List
 
 -- | The name of a cluster subnet group to be associated with this cluster. If
 -- this parameter is not provided the resulting cluster will be deployed
@@ -357,10 +359,11 @@ ccPubliclyAccessible =
 ccVpcSecurityGroupIds :: Lens' CreateCluster [Text]
 ccVpcSecurityGroupIds =
     lens _ccVpcSecurityGroupIds (\s a -> s { _ccVpcSecurityGroupIds = a })
+        . _List
 
 newtype CreateClusterResponse = CreateClusterResponse
     { _ccrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateClusterResponse' constructor.
 --
@@ -379,7 +382,31 @@ ccrCluster = lens _ccrCluster (\s a -> s { _ccrCluster = a })
 instance ToPath CreateCluster where
     toPath = const "/"
 
-instance ToQuery CreateCluster
+instance ToQuery CreateCluster where
+    toQuery CreateCluster{..} = mconcat
+        [ "AllowVersionUpgrade"              =? _ccAllowVersionUpgrade
+        , "AutomatedSnapshotRetentionPeriod" =? _ccAutomatedSnapshotRetentionPeriod
+        , "AvailabilityZone"                 =? _ccAvailabilityZone
+        , "ClusterIdentifier"                =? _ccClusterIdentifier
+        , "ClusterParameterGroupName"        =? _ccClusterParameterGroupName
+        , "ClusterSecurityGroups"            =? _ccClusterSecurityGroups
+        , "ClusterSubnetGroupName"           =? _ccClusterSubnetGroupName
+        , "ClusterType"                      =? _ccClusterType
+        , "ClusterVersion"                   =? _ccClusterVersion
+        , "DBName"                           =? _ccDBName
+        , "ElasticIp"                        =? _ccElasticIp
+        , "Encrypted"                        =? _ccEncrypted
+        , "HsmClientCertificateIdentifier"   =? _ccHsmClientCertificateIdentifier
+        , "HsmConfigurationIdentifier"       =? _ccHsmConfigurationIdentifier
+        , "MasterUserPassword"               =? _ccMasterUserPassword
+        , "MasterUsername"                   =? _ccMasterUsername
+        , "NodeType"                         =? _ccNodeType
+        , "NumberOfNodes"                    =? _ccNumberOfNodes
+        , "Port"                             =? _ccPort
+        , "PreferredMaintenanceWindow"       =? _ccPreferredMaintenanceWindow
+        , "PubliclyAccessible"               =? _ccPubliclyAccessible
+        , "VpcSecurityGroupIds"              =? _ccVpcSecurityGroupIds
+        ]
 
 instance ToHeaders CreateCluster
 
@@ -391,5 +418,5 @@ instance AWSRequest CreateCluster where
     response = xmlResponse
 
 instance FromXML CreateClusterResponse where
-    parseXML = withElement "CreateClusterResult" $ \x ->
-            <$> x .@? "Cluster"
+    parseXML = withElement "CreateClusterResult" $ \x -> CreateClusterResponse
+        <$> x .@? "Cluster"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data UpdateApplication = UpdateApplication
     { _uaApplicationName :: Text
     , _uaDescription     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateApplication' constructor.
 --
@@ -78,7 +79,7 @@ uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
 
 newtype UpdateApplicationResponse = UpdateApplicationResponse
     { _uarApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateApplicationResponse' constructor.
 --
@@ -98,7 +99,11 @@ uarApplication = lens _uarApplication (\s a -> s { _uarApplication = a })
 instance ToPath UpdateApplication where
     toPath = const "/"
 
-instance ToQuery UpdateApplication
+instance ToQuery UpdateApplication where
+    toQuery UpdateApplication{..} = mconcat
+        [ "ApplicationName" =? _uaApplicationName
+        , "Description"     =? _uaDescription
+        ]
 
 instance ToHeaders UpdateApplication
 
@@ -110,5 +115,5 @@ instance AWSRequest UpdateApplication where
     response = xmlResponse
 
 instance FromXML UpdateApplicationResponse where
-    parseXML = withElement "UpdateApplicationResult" $ \x ->
-            <$> x .@? "Application"
+    parseXML = withElement "UpdateApplicationResult" $ \x -> UpdateApplicationResponse
+        <$> x .@? "Application"

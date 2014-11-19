@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ data UploadServerCertificate = UploadServerCertificate
     , _uscPath                  :: Maybe Text
     , _uscPrivateKey            :: Sensitive Text
     , _uscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UploadServerCertificate' constructor.
 --
@@ -105,8 +106,7 @@ uscPath = lens _uscPath (\s a -> s { _uscPath = a })
 
 -- | The contents of the private key in PEM-encoded format.
 uscPrivateKey :: Lens' UploadServerCertificate Text
-uscPrivateKey = lens _uscPrivateKey (\s a -> s { _uscPrivateKey = a })
-    . _Sensitive
+uscPrivateKey = lens _uscPrivateKey (\s a -> s { _uscPrivateKey = a }) . _Sensitive
 
 -- | The name for the server certificate. Do not include the path in this
 -- value.
@@ -117,7 +117,7 @@ uscServerCertificateName =
 
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UploadServerCertificateResponse' constructor.
 --
@@ -140,7 +140,14 @@ uscrServerCertificateMetadata =
 instance ToPath UploadServerCertificate where
     toPath = const "/"
 
-instance ToQuery UploadServerCertificate
+instance ToQuery UploadServerCertificate where
+    toQuery UploadServerCertificate{..} = mconcat
+        [ "CertificateBody"       =? _uscCertificateBody
+        , "CertificateChain"      =? _uscCertificateChain
+        , "Path"                  =? _uscPath
+        , "PrivateKey"            =? _uscPrivateKey
+        , "ServerCertificateName" =? _uscServerCertificateName
+        ]
 
 instance ToHeaders UploadServerCertificate
 
@@ -152,5 +159,5 @@ instance AWSRequest UploadServerCertificate where
     response = xmlResponse
 
 instance FromXML UploadServerCertificateResponse where
-    parseXML = withElement "UploadServerCertificateResult" $ \x ->
-            <$> x .@? "ServerCertificateMetadata"
+    parseXML = withElement "UploadServerCertificateResult" $ \x -> UploadServerCertificateResponse
+        <$> x .@? "ServerCertificateMetadata"

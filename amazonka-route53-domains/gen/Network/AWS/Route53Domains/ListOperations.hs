@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data ListOperations = ListOperations
     { _loMarker   :: Maybe Text
     , _loMaxItems :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListOperations' constructor.
 --
@@ -83,8 +84,8 @@ loMaxItems = lens _loMaxItems (\s a -> s { _loMaxItems = a })
 
 data ListOperationsResponse = ListOperationsResponse
     { _lorNextPageMarker :: Maybe Text
-    , _lorOperations     :: [OperationSummary]
-    } deriving (Eq, Show, Generic)
+    , _lorOperations     :: List "Operations" OperationSummary
+    } deriving (Eq, Show)
 
 -- | 'ListOperationsResponse' constructor.
 --
@@ -111,7 +112,7 @@ lorNextPageMarker =
 -- of operation summaries Children: OperationId, Status, SubmittedDate,
 -- Type.
 lorOperations :: Lens' ListOperationsResponse [OperationSummary]
-lorOperations = lens _lorOperations (\s a -> s { _lorOperations = a })
+lorOperations = lens _lorOperations (\s a -> s { _lorOperations = a }) . _List
 
 instance ToPath ListOperations where
     toPath = const "/"
@@ -137,4 +138,4 @@ instance AWSRequest ListOperations where
 instance FromJSON ListOperationsResponse where
     parseJSON = withObject "ListOperationsResponse" $ \o -> ListOperationsResponse
         <$> o .:? "NextPageMarker"
-        <*> o .: "Operations"
+        <*> o .:  "Operations"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DescribeWorkingStorage = DescribeWorkingStorage
     { _dwsGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeWorkingStorage' constructor.
 --
@@ -72,11 +73,11 @@ dwsGatewayARN :: Lens' DescribeWorkingStorage Text
 dwsGatewayARN = lens _dwsGatewayARN (\s a -> s { _dwsGatewayARN = a })
 
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
-    { _dwsrDiskIds                        :: [Text]
+    { _dwsrDiskIds                        :: List "DiskIds" Text
     , _dwsrGatewayARN                     :: Maybe Text
     , _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer
     , _dwsrWorkingStorageUsedInBytes      :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeWorkingStorageResponse' constructor.
 --
@@ -103,7 +104,7 @@ describeWorkingStorageResponse = DescribeWorkingStorageResponse
 -- and maximum length of 300). If no local disks are configured as working
 -- storage, then the DiskIds array is empty.
 dwsrDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
-dwsrDiskIds = lens _dwsrDiskIds (\s a -> s { _dwsrDiskIds = a })
+dwsrDiskIds = lens _dwsrDiskIds (\s a -> s { _dwsrDiskIds = a }) . _List
 
 dwsrGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
 dwsrGatewayARN = lens _dwsrGatewayARN (\s a -> s { _dwsrGatewayARN = a })
@@ -144,7 +145,7 @@ instance AWSRequest DescribeWorkingStorage where
 
 instance FromJSON DescribeWorkingStorageResponse where
     parseJSON = withObject "DescribeWorkingStorageResponse" $ \o -> DescribeWorkingStorageResponse
-        <$> o .: "DiskIds"
+        <$> o .:  "DiskIds"
         <*> o .:? "GatewayARN"
         <*> o .:? "WorkingStorageAllocatedInBytes"
         <*> o .:? "WorkingStorageUsedInBytes"

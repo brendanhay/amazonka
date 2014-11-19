@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     { _evrpGatewayId    :: Text
     , _evrpRouteTableId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnableVgwRoutePropagation' constructor.
 --
@@ -84,7 +84,11 @@ enableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 instance ToPath EnableVgwRoutePropagation where
     toPath = const "/"
 
-instance ToQuery EnableVgwRoutePropagation
+instance ToQuery EnableVgwRoutePropagation where
+    toQuery EnableVgwRoutePropagation{..} = mconcat
+        [ "GatewayId"    =? _evrpGatewayId
+        , "RouteTableId" =? _evrpRouteTableId
+        ]
 
 instance ToHeaders EnableVgwRoutePropagation
 

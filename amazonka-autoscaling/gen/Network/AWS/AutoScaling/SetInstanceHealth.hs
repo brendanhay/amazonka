@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ data SetInstanceHealth = SetInstanceHealth
     { _sihHealthStatus             :: Text
     , _sihInstanceId               :: Text
     , _sihShouldRespectGracePeriod :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetInstanceHealth' constructor.
 --
@@ -103,7 +104,12 @@ setInstanceHealthResponse = SetInstanceHealthResponse
 instance ToPath SetInstanceHealth where
     toPath = const "/"
 
-instance ToQuery SetInstanceHealth
+instance ToQuery SetInstanceHealth where
+    toQuery SetInstanceHealth{..} = mconcat
+        [ "HealthStatus"             =? _sihHealthStatus
+        , "InstanceId"               =? _sihInstanceId
+        , "ShouldRespectGracePeriod" =? _sihShouldRespectGracePeriod
+        ]
 
 instance ToHeaders SetInstanceHealth
 

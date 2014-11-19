@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype GetFunction = GetFunction
     { _gfFunctionName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetFunction' constructor.
 --
@@ -73,7 +74,7 @@ gfFunctionName = lens _gfFunctionName (\s a -> s { _gfFunctionName = a })
 data GetFunctionResponse = GetFunctionResponse
     { _gfrCode          :: Maybe FunctionCodeLocation
     , _gfrConfiguration :: Maybe FunctionConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetFunctionResponse' constructor.
 --

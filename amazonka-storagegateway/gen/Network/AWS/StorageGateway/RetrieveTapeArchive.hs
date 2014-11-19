@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 data RetrieveTapeArchive = RetrieveTapeArchive
     { _rtaGatewayARN :: Text
     , _rtaTapeARN    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RetrieveTapeArchive' constructor.
 --
@@ -86,7 +87,7 @@ rtaTapeARN = lens _rtaTapeARN (\s a -> s { _rtaTapeARN = a })
 
 newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     { _rtarTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'RetrieveTapeArchiveResponse' constructor.
 --

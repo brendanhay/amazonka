@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data ListTagsForStream = ListTagsForStream
     { _ltfsExclusiveStartTagKey :: Maybe Text
     , _ltfsLimit                :: Maybe Nat
     , _ltfsStreamName           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListTagsForStream' constructor.
 --
@@ -84,8 +85,7 @@ ltfsExclusiveStartTagKey =
 -- list additional tags, set ExclusiveStartTagKey to the last key in the
 -- response.
 ltfsLimit :: Lens' ListTagsForStream (Maybe Natural)
-ltfsLimit = lens _ltfsLimit (\s a -> s { _ltfsLimit = a })
-    . mapping _Nat
+ltfsLimit = lens _ltfsLimit (\s a -> s { _ltfsLimit = a }) . mapping _Nat
 
 -- | The name of the stream.
 ltfsStreamName :: Lens' ListTagsForStream Text
@@ -93,8 +93,8 @@ ltfsStreamName = lens _ltfsStreamName (\s a -> s { _ltfsStreamName = a })
 
 data ListTagsForStreamResponse = ListTagsForStreamResponse
     { _ltfsrHasMoreTags :: Bool
-    , _ltfsrTags        :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _ltfsrTags        :: List "Tags" Tag
+    } deriving (Eq, Show)
 
 -- | 'ListTagsForStreamResponse' constructor.
 --
@@ -119,7 +119,7 @@ ltfsrHasMoreTags = lens _ltfsrHasMoreTags (\s a -> s { _ltfsrHasMoreTags = a })
 -- | A list of tags associated with StreamName, starting with the first tag
 -- after ExclusiveStartTagKey and up to the specified Limit.
 ltfsrTags :: Lens' ListTagsForStreamResponse [Tag]
-ltfsrTags = lens _ltfsrTags (\s a -> s { _ltfsrTags = a })
+ltfsrTags = lens _ltfsrTags (\s a -> s { _ltfsrTags = a }) . _List
 
 instance ToPath ListTagsForStream where
     toPath = const "/"
@@ -145,5 +145,5 @@ instance AWSRequest ListTagsForStream where
 
 instance FromJSON ListTagsForStreamResponse where
     parseJSON = withObject "ListTagsForStreamResponse" $ \o -> ListTagsForStreamResponse
-        <$> o .: "HasMoreTags"
-        <*> o .: "Tags"
+        <$> o .:  "HasMoreTags"
+        <*> o .:  "Tags"

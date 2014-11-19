@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data CreateGroup = CreateGroup
     { _cgGroupName :: Text
     , _cgPath      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateGroup' constructor.
 --
@@ -78,7 +79,7 @@ cgPath = lens _cgPath (\s a -> s { _cgPath = a })
 
 newtype CreateGroupResponse = CreateGroupResponse
     { _cgrGroup :: Group
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateGroupResponse' constructor.
 --
@@ -99,7 +100,11 @@ cgrGroup = lens _cgrGroup (\s a -> s { _cgrGroup = a })
 instance ToPath CreateGroup where
     toPath = const "/"
 
-instance ToQuery CreateGroup
+instance ToQuery CreateGroup where
+    toQuery CreateGroup{..} = mconcat
+        [ "GroupName" =? _cgGroupName
+        , "Path"      =? _cgPath
+        ]
 
 instance ToHeaders CreateGroup
 
@@ -111,5 +116,5 @@ instance AWSRequest CreateGroup where
     response = xmlResponse
 
 instance FromXML CreateGroupResponse where
-    parseXML = withElement "CreateGroupResult" $ \x ->
-            <$> x .@ "Group"
+    parseXML = withElement "CreateGroupResult" $ \x -> CreateGroupResponse
+        <$> x .@  "Group"

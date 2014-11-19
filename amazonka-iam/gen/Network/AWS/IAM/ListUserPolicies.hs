@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data ListUserPolicies = ListUserPolicies
     { _lupMarker   :: Maybe Text
     , _lupMaxItems :: Maybe Nat
     , _lupUserName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListUserPolicies' constructor.
 --
@@ -86,8 +87,7 @@ lupMarker = lens _lupMarker (\s a -> s { _lupMarker = a })
 -- true. This parameter is optional. If you do not include it, it defaults
 -- to 100.
 lupMaxItems :: Lens' ListUserPolicies (Maybe Natural)
-lupMaxItems = lens _lupMaxItems (\s a -> s { _lupMaxItems = a })
-    . mapping _Nat
+lupMaxItems = lens _lupMaxItems (\s a -> s { _lupMaxItems = a }) . mapping _Nat
 
 -- | The name of the user to list policies for.
 lupUserName :: Lens' ListUserPolicies Text
@@ -96,8 +96,8 @@ lupUserName = lens _lupUserName (\s a -> s { _lupUserName = a })
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprIsTruncated :: Maybe Bool
     , _luprMarker      :: Maybe Text
-    , _luprPolicyNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _luprPolicyNames :: List "PolicyNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListUserPoliciesResponse' constructor.
 --
@@ -130,12 +130,17 @@ luprMarker = lens _luprMarker (\s a -> s { _luprMarker = a })
 
 -- | A list of policy names.
 luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]
-luprPolicyNames = lens _luprPolicyNames (\s a -> s { _luprPolicyNames = a })
+luprPolicyNames = lens _luprPolicyNames (\s a -> s { _luprPolicyNames = a }) . _List
 
 instance ToPath ListUserPolicies where
     toPath = const "/"
 
-instance ToQuery ListUserPolicies
+instance ToQuery ListUserPolicies where
+    toQuery ListUserPolicies{..} = mconcat
+        [ "Marker"   =? _lupMarker
+        , "MaxItems" =? _lupMaxItems
+        , "UserName" =? _lupUserName
+        ]
 
 instance ToHeaders ListUserPolicies
 
@@ -147,10 +152,10 @@ instance AWSRequest ListUserPolicies where
     response = xmlResponse
 
 instance FromXML ListUserPoliciesResponse where
-    parseXML = withElement "ListUserPoliciesResult" $ \x ->
-            <$> x .@? "IsTruncated"
-            <*> x .@? "Marker"
-            <*> x .@ "PolicyNames"
+    parseXML = withElement "ListUserPoliciesResult" $ \x -> ListUserPoliciesResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@  "PolicyNames"
 
 instance AWSPager ListUserPolicies where
     next rq rs

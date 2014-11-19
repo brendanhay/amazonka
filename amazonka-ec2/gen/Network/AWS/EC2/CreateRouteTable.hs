@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data CreateRouteTable = CreateRouteTable
     { _crtDryRun :: Maybe Bool
     , _crtVpcId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateRouteTable' constructor.
 --
@@ -78,7 +78,7 @@ crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
 
 newtype CreateRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable :: Maybe RouteTable
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateRouteTableResponse' constructor.
 --
@@ -98,7 +98,11 @@ crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
 instance ToPath CreateRouteTable where
     toPath = const "/"
 
-instance ToQuery CreateRouteTable
+instance ToQuery CreateRouteTable where
+    toQuery CreateRouteTable{..} = mconcat
+        [ "dryRun" =? _crtDryRun
+        , "vpcId"  =? _crtVpcId
+        ]
 
 instance ToHeaders CreateRouteTable
 

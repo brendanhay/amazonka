@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteDomain' constructor.
 --
@@ -68,7 +69,7 @@ ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
 
 newtype DeleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteDomainResponse' constructor.
 --
@@ -87,7 +88,10 @@ ddrDomainStatus = lens _ddrDomainStatus (\s a -> s { _ddrDomainStatus = a })
 instance ToPath DeleteDomain where
     toPath = const "/"
 
-instance ToQuery DeleteDomain
+instance ToQuery DeleteDomain where
+    toQuery DeleteDomain{..} = mconcat
+        [ "DomainName" =? _ddDomainName
+        ]
 
 instance ToHeaders DeleteDomain
 
@@ -99,5 +103,5 @@ instance AWSRequest DeleteDomain where
     response = xmlResponse
 
 instance FromXML DeleteDomainResponse where
-    parseXML = withElement "DeleteDomainResult" $ \x ->
-            <$> x .@? "DomainStatus"
+    parseXML = withElement "DeleteDomainResult" $ \x -> DeleteDomainResponse
+        <$> x .@? "DomainStatus"

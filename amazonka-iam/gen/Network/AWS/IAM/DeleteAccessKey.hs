@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data DeleteAccessKey = DeleteAccessKey
     { _dakAccessKeyId :: Text
     , _dakUserName    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteAccessKey' constructor.
 --
@@ -86,7 +87,11 @@ deleteAccessKeyResponse = DeleteAccessKeyResponse
 instance ToPath DeleteAccessKey where
     toPath = const "/"
 
-instance ToQuery DeleteAccessKey
+instance ToQuery DeleteAccessKey where
+    toQuery DeleteAccessKey{..} = mconcat
+        [ "AccessKeyId" =? _dakAccessKeyId
+        , "UserName"    =? _dakUserName
+        ]
 
 instance ToHeaders DeleteAccessKey
 

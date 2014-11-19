@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
     { _dsdsDryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeSpotDatafeedSubscription' constructor.
 --
@@ -66,7 +66,7 @@ dsdsDryRun = lens _dsdsDryRun (\s a -> s { _dsdsDryRun = a })
 
 newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeSpotDatafeedSubscriptionResponse' constructor.
 --
@@ -88,7 +88,10 @@ dsdsrSpotDatafeedSubscription =
 instance ToPath DescribeSpotDatafeedSubscription where
     toPath = const "/"
 
-instance ToQuery DescribeSpotDatafeedSubscription
+instance ToQuery DescribeSpotDatafeedSubscription where
+    toQuery DescribeSpotDatafeedSubscription{..} = mconcat
+        [ "dryRun" =? _dsdsDryRun
+        ]
 
 instance ToHeaders DescribeSpotDatafeedSubscription
 

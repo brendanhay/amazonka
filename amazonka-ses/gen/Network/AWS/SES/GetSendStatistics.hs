@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,8 +54,8 @@ getSendStatistics :: GetSendStatistics
 getSendStatistics = GetSendStatistics
 
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
-    { _gssrSendDataPoints :: [SendDataPoint]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _gssrSendDataPoints :: List "SendDataPoints" SendDataPoint
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetSendStatisticsResponse where
     type Item GetSendStatisticsResponse = SendDataPoint
@@ -77,6 +78,7 @@ getSendStatisticsResponse = GetSendStatisticsResponse
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints =
     lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
+        . _List
 
 instance ToPath GetSendStatistics where
     toPath = const "/"
@@ -94,5 +96,5 @@ instance AWSRequest GetSendStatistics where
     response = xmlResponse
 
 instance FromXML GetSendStatisticsResponse where
-    parseXML = withElement "GetSendStatisticsResult" $ \x ->
-            <$> x .@ "SendDataPoints"
+    parseXML = withElement "GetSendStatisticsResult" $ \x -> GetSendStatisticsResponse
+        <$> x .@  "SendDataPoints"

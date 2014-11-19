@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone
     { _avpcwhzComment      :: Maybe Text
     , _avpcwhzHostedZoneId :: Text
     , _avpcwhzVPC          :: VPC
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AssociateVPCWithHostedZone' constructor.
 --
@@ -96,7 +97,7 @@ avpcwhzVPC = lens _avpcwhzVPC (\s a -> s { _avpcwhzVPC = a })
 
 newtype AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse
     { _avpcwhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AssociateVPCWithHostedZoneResponse' constructor.
 --
@@ -145,4 +146,4 @@ instance AWSRequest AssociateVPCWithHostedZone where
 
 instance FromXML AssociateVPCWithHostedZoneResponse where
     parseXML x = AssociateVPCWithHostedZoneResponse
-            <$> x .@ "ChangeInfo"
+        <$> x .@  "ChangeInfo"

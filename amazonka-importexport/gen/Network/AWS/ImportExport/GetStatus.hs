@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ import qualified GHC.Exts
 
 newtype GetStatus = GetStatus
     { _gsJobId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetStatus' constructor.
 --
@@ -98,7 +99,7 @@ data GetStatusResponse = GetStatusResponse
     , _gsrSignature             :: Maybe Text
     , _gsrSignatureFileContents :: Maybe Text
     , _gsrTrackingNumber        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetStatusResponse' constructor.
 --
@@ -164,8 +165,7 @@ gsrCarrier :: Lens' GetStatusResponse (Maybe Text)
 gsrCarrier = lens _gsrCarrier (\s a -> s { _gsrCarrier = a })
 
 gsrCreationDate :: Lens' GetStatusResponse (Maybe UTCTime)
-gsrCreationDate = lens _gsrCreationDate (\s a -> s { _gsrCreationDate = a })
-    . mapping _Time
+gsrCreationDate = lens _gsrCreationDate (\s a -> s { _gsrCreationDate = a }) . mapping _Time
 
 gsrCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
 gsrCurrentManifest =
@@ -215,7 +215,10 @@ gsrTrackingNumber =
 instance ToPath GetStatus where
     toPath = const "/"
 
-instance ToQuery GetStatus
+instance ToQuery GetStatus where
+    toQuery GetStatus{..} = mconcat
+        [ "JobId" =? _gsJobId
+        ]
 
 instance ToHeaders GetStatus
 
@@ -227,20 +230,20 @@ instance AWSRequest GetStatus where
     response = xmlResponse
 
 instance FromXML GetStatusResponse where
-    parseXML = withElement "GetStatusResult" $ \x ->
-            <$> x .@? "AwsShippingAddress"
-            <*> x .@? "Carrier"
-            <*> x .@? "CreationDate"
-            <*> x .@? "CurrentManifest"
-            <*> x .@? "ErrorCount"
-            <*> x .@? "JobId"
-            <*> x .@? "JobType"
-            <*> x .@? "LocationCode"
-            <*> x .@? "LocationMessage"
-            <*> x .@? "LogBucket"
-            <*> x .@? "LogKey"
-            <*> x .@? "ProgressCode"
-            <*> x .@? "ProgressMessage"
-            <*> x .@? "Signature"
-            <*> x .@? "SignatureFileContents"
-            <*> x .@? "TrackingNumber"
+    parseXML = withElement "GetStatusResult" $ \x -> GetStatusResponse
+        <$> x .@? "AwsShippingAddress"
+        <*> x .@? "Carrier"
+        <*> x .@? "CreationDate"
+        <*> x .@? "CurrentManifest"
+        <*> x .@? "ErrorCount"
+        <*> x .@? "JobId"
+        <*> x .@? "JobType"
+        <*> x .@? "LocationCode"
+        <*> x .@? "LocationMessage"
+        <*> x .@? "LogBucket"
+        <*> x .@? "LogKey"
+        <*> x .@? "ProgressCode"
+        <*> x .@? "ProgressMessage"
+        <*> x .@? "Signature"
+        <*> x .@? "SignatureFileContents"
+        <*> x .@? "TrackingNumber"

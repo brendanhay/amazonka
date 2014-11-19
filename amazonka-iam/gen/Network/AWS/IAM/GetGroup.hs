@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data GetGroup = GetGroup
     { _ggGroupName :: Text
     , _ggMarker    :: Maybe Text
     , _ggMaxItems  :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetGroup' constructor.
 --
@@ -89,15 +90,14 @@ ggMarker = lens _ggMarker (\s a -> s { _ggMarker = a })
 -- the maximum you specify, the IsTruncated response element is true. This
 -- parameter is optional. If you do not include it, it defaults to 100.
 ggMaxItems :: Lens' GetGroup (Maybe Natural)
-ggMaxItems = lens _ggMaxItems (\s a -> s { _ggMaxItems = a })
-    . mapping _Nat
+ggMaxItems = lens _ggMaxItems (\s a -> s { _ggMaxItems = a }) . mapping _Nat
 
 data GetGroupResponse = GetGroupResponse
     { _ggrGroup       :: Group
     , _ggrIsTruncated :: Maybe Bool
     , _ggrMarker      :: Maybe Text
-    , _ggrUsers       :: [User]
-    } deriving (Eq, Show, Generic)
+    , _ggrUsers       :: List "Users" User
+    } deriving (Eq, Show)
 
 -- | 'GetGroupResponse' constructor.
 --
@@ -138,12 +138,17 @@ ggrMarker = lens _ggrMarker (\s a -> s { _ggrMarker = a })
 
 -- | A list of users in the group.
 ggrUsers :: Lens' GetGroupResponse [User]
-ggrUsers = lens _ggrUsers (\s a -> s { _ggrUsers = a })
+ggrUsers = lens _ggrUsers (\s a -> s { _ggrUsers = a }) . _List
 
 instance ToPath GetGroup where
     toPath = const "/"
 
-instance ToQuery GetGroup
+instance ToQuery GetGroup where
+    toQuery GetGroup{..} = mconcat
+        [ "GroupName" =? _ggGroupName
+        , "Marker"    =? _ggMarker
+        , "MaxItems"  =? _ggMaxItems
+        ]
 
 instance ToHeaders GetGroup
 
@@ -155,11 +160,11 @@ instance AWSRequest GetGroup where
     response = xmlResponse
 
 instance FromXML GetGroupResponse where
-    parseXML = withElement "GetGroupResult" $ \x ->
-            <$> x .@ "Group"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Marker"
-            <*> x .@ "Users"
+    parseXML = withElement "GetGroupResult" $ \x -> GetGroupResponse
+        <$> x .@  "Group"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@  "Users"
 
 instance AWSPager GetGroup where
     next rq rs

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ import qualified GHC.Exts
 data DescribeActivityType = DescribeActivityType
     { _datActivityType :: ActivityType
     , _datDomain       :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeActivityType' constructor.
 --
@@ -91,7 +92,7 @@ datDomain = lens _datDomain (\s a -> s { _datDomain = a })
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse
     { _datrConfiguration :: ActivityTypeConfiguration
     , _datrTypeInfo      :: ActivityTypeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeActivityTypeResponse' constructor.
 --
@@ -146,5 +147,5 @@ instance AWSRequest DescribeActivityType where
 
 instance FromJSON DescribeActivityTypeResponse where
     parseJSON = withObject "DescribeActivityTypeResponse" $ \o -> DescribeActivityTypeResponse
-        <$> o .: "configuration"
-        <*> o .: "typeInfo"
+        <$> o .:  "configuration"
+        <*> o .:  "typeInfo"

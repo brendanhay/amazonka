@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data DeleteCustomerGateway = DeleteCustomerGateway
     { _dcg1CustomerGatewayId :: Text
     , _dcg1DryRun            :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteCustomerGateway' constructor.
 --
@@ -83,7 +83,11 @@ deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 instance ToPath DeleteCustomerGateway where
     toPath = const "/"
 
-instance ToQuery DeleteCustomerGateway
+instance ToQuery DeleteCustomerGateway where
+    toQuery DeleteCustomerGateway{..} = mconcat
+        [ "CustomerGatewayId" =? _dcg1CustomerGatewayId
+        , "dryRun"            =? _dcg1DryRun
+        ]
 
 instance ToHeaders DeleteCustomerGateway
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
     { _prdbioDBInstanceCount               :: Maybe Int
     , _prdbioReservedDBInstanceId          :: Maybe Text
     , _prdbioReservedDBInstancesOfferingId :: Text
-    , _prdbioTags                          :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _prdbioTags                          :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'PurchaseReservedDBInstancesOffering' constructor.
 --
@@ -95,11 +96,11 @@ prdbioReservedDBInstancesOfferingId =
         (\s a -> s { _prdbioReservedDBInstancesOfferingId = a })
 
 prdbioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
-prdbioTags = lens _prdbioTags (\s a -> s { _prdbioTags = a })
+prdbioTags = lens _prdbioTags (\s a -> s { _prdbioTags = a }) . _List
 
 newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PurchaseReservedDBInstancesOfferingResponse' constructor.
 --
@@ -120,7 +121,13 @@ prdbiorReservedDBInstance =
 instance ToPath PurchaseReservedDBInstancesOffering where
     toPath = const "/"
 
-instance ToQuery PurchaseReservedDBInstancesOffering
+instance ToQuery PurchaseReservedDBInstancesOffering where
+    toQuery PurchaseReservedDBInstancesOffering{..} = mconcat
+        [ "DBInstanceCount"               =? _prdbioDBInstanceCount
+        , "ReservedDBInstanceId"          =? _prdbioReservedDBInstanceId
+        , "ReservedDBInstancesOfferingId" =? _prdbioReservedDBInstancesOfferingId
+        , "Tags"                          =? _prdbioTags
+        ]
 
 instance ToHeaders PurchaseReservedDBInstancesOffering
 
@@ -132,5 +139,5 @@ instance AWSRequest PurchaseReservedDBInstancesOffering where
     response = xmlResponse
 
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where
-    parseXML = withElement "PurchaseReservedDBInstancesOfferingResult" $ \x ->
-            <$> x .@? "ReservedDBInstance"
+    parseXML = withElement "PurchaseReservedDBInstancesOfferingResult" $ \x -> PurchaseReservedDBInstancesOfferingResponse
+        <$> x .@? "ReservedDBInstance"

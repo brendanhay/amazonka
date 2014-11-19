@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DescribeAttachment = DescribeAttachment
     { _daAttachmentId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeAttachment' constructor.
 --
@@ -71,7 +72,7 @@ daAttachmentId = lens _daAttachmentId (\s a -> s { _daAttachmentId = a })
 
 newtype DescribeAttachmentResponse = DescribeAttachmentResponse
     { _darAttachment :: Maybe Attachment
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAttachmentResponse' constructor.
 --

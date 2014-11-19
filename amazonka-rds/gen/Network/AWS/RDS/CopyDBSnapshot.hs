@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,9 +50,9 @@ import qualified GHC.Exts
 
 data CopyDBSnapshot = CopyDBSnapshot
     { _cdbsSourceDBSnapshotIdentifier :: Text
-    , _cdbsTags                       :: [Tag]
+    , _cdbsTags                       :: List "Tag" Tag
     , _cdbsTargetDBSnapshotIdentifier :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopyDBSnapshot' constructor.
 --
@@ -86,7 +87,7 @@ cdbsSourceDBSnapshotIdentifier =
         (\s a -> s { _cdbsSourceDBSnapshotIdentifier = a })
 
 cdbsTags :: Lens' CopyDBSnapshot [Tag]
-cdbsTags = lens _cdbsTags (\s a -> s { _cdbsTags = a })
+cdbsTags = lens _cdbsTags (\s a -> s { _cdbsTags = a }) . _List
 
 -- | The identifier for the copied snapshot. Constraints: Cannot be null,
 -- empty, or blank Must contain from 1 to 255 alphanumeric characters or
@@ -99,7 +100,7 @@ cdbsTargetDBSnapshotIdentifier =
 
 newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
     { _cdbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopyDBSnapshotResponse' constructor.
 --
@@ -118,7 +119,12 @@ cdbsrDBSnapshot = lens _cdbsrDBSnapshot (\s a -> s { _cdbsrDBSnapshot = a })
 instance ToPath CopyDBSnapshot where
     toPath = const "/"
 
-instance ToQuery CopyDBSnapshot
+instance ToQuery CopyDBSnapshot where
+    toQuery CopyDBSnapshot{..} = mconcat
+        [ "SourceDBSnapshotIdentifier" =? _cdbsSourceDBSnapshotIdentifier
+        , "Tags"                       =? _cdbsTags
+        , "TargetDBSnapshotIdentifier" =? _cdbsTargetDBSnapshotIdentifier
+        ]
 
 instance ToHeaders CopyDBSnapshot
 
@@ -130,5 +136,5 @@ instance AWSRequest CopyDBSnapshot where
     response = xmlResponse
 
 instance FromXML CopyDBSnapshotResponse where
-    parseXML = withElement "CopyDBSnapshotResult" $ \x ->
-            <$> x .@? "DBSnapshot"
+    parseXML = withElement "CopyDBSnapshotResult" $ \x -> CopyDBSnapshotResponse
+        <$> x .@? "DBSnapshot"

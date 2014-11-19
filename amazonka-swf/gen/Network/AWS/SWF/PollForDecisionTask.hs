@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -89,7 +90,7 @@ data PollForDecisionTask = PollForDecisionTask
     , _pfdtNextPageToken   :: Maybe Text
     , _pfdtReverseOrder    :: Maybe Bool
     , _pfdtTaskList        :: TaskList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PollForDecisionTask' constructor.
 --
@@ -163,14 +164,14 @@ pfdtTaskList :: Lens' PollForDecisionTask TaskList
 pfdtTaskList = lens _pfdtTaskList (\s a -> s { _pfdtTaskList = a })
 
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse
-    { _pfdtrEvents                 :: [HistoryEvent]
+    { _pfdtrEvents                 :: List "events" HistoryEvent
     , _pfdtrNextPageToken          :: Maybe Text
     , _pfdtrPreviousStartedEventId :: Maybe Integer
     , _pfdtrStartedEventId         :: Integer
     , _pfdtrTaskToken              :: Text
     , _pfdtrWorkflowExecution      :: WorkflowExecution
     , _pfdtrWorkflowType           :: WorkflowType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PollForDecisionTaskResponse' constructor.
 --
@@ -208,7 +209,7 @@ pollForDecisionTaskResponse p1 p2 p3 p4 = PollForDecisionTaskResponse
 -- | A paginated list of history events of the workflow execution. The decider
 -- uses this during the processing of the decision task.
 pfdtrEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
-pfdtrEvents = lens _pfdtrEvents (\s a -> s { _pfdtrEvents = a })
+pfdtrEvents = lens _pfdtrEvents (\s a -> s { _pfdtrEvents = a }) . _List
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
@@ -275,13 +276,13 @@ instance AWSRequest PollForDecisionTask where
 
 instance FromJSON PollForDecisionTaskResponse where
     parseJSON = withObject "PollForDecisionTaskResponse" $ \o -> PollForDecisionTaskResponse
-        <$> o .: "events"
+        <$> o .:  "events"
         <*> o .:? "nextPageToken"
         <*> o .:? "previousStartedEventId"
-        <*> o .: "startedEventId"
-        <*> o .: "taskToken"
-        <*> o .: "workflowExecution"
-        <*> o .: "workflowType"
+        <*> o .:  "startedEventId"
+        <*> o .:  "taskToken"
+        <*> o .:  "workflowExecution"
+        <*> o .:  "workflowType"
 
 instance AWSPager PollForDecisionTask where
     next rq rs = (\x -> rq & pfdtNextPageToken ?~ x)

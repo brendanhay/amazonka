@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data DescribeIdentityUsage = DescribeIdentityUsage
     { _diuIdentityId     :: Text
     , _diuIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeIdentityUsage' constructor.
 --
@@ -82,7 +83,7 @@ diuIdentityPoolId =
 
 newtype DescribeIdentityUsageResponse = DescribeIdentityUsageResponse
     { _diurIdentityUsage :: Maybe IdentityUsage
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeIdentityUsageResponse' constructor.
 --

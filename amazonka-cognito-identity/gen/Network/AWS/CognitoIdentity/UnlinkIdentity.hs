@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,9 +49,9 @@ import qualified GHC.Exts
 
 data UnlinkIdentity = UnlinkIdentity
     { _uiIdentityId     :: Text
-    , _uiLogins         :: Map Text Text
-    , _uiLoginsToRemove :: [Text]
-    } deriving (Eq, Show, Generic)
+    , _uiLogins         :: Map "entry" "key" "value" Text Text
+    , _uiLoginsToRemove :: List "Logins" Text
+    } deriving (Eq, Show)
 
 -- | 'UnlinkIdentity' constructor.
 --
@@ -77,12 +78,11 @@ uiIdentityId = lens _uiIdentityId (\s a -> s { _uiIdentityId = a })
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
 uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
-uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a })
-    . _Map
+uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a }) . _Map
 
 -- | Provider names to unlink from this identity.
 uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
-uiLoginsToRemove = lens _uiLoginsToRemove (\s a -> s { _uiLoginsToRemove = a })
+uiLoginsToRemove = lens _uiLoginsToRemove (\s a -> s { _uiLoginsToRemove = a }) . _List
 
 data UnlinkIdentityResponse = UnlinkIdentityResponse
     deriving (Eq, Ord, Show, Generic)

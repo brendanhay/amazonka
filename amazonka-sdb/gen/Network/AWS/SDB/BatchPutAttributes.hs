@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -77,8 +78,8 @@ import qualified GHC.Exts
 
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
-    , _bpaItems      :: Flatten [ReplaceableItem]
-    } deriving (Eq, Show, Generic)
+    , _bpaItems      :: List "Item" ReplaceableItem
+    } deriving (Eq, Show)
 
 -- | 'BatchPutAttributes' constructor.
 --
@@ -93,7 +94,7 @@ batchPutAttributes :: Text -- ^ 'bpaDomainName'
                    -> BatchPutAttributes
 batchPutAttributes p1 p2 = BatchPutAttributes
     { _bpaDomainName = p1
-    , _bpaItems      = withIso _Flatten (const id) p2
+    , _bpaItems      = withIso _List (const id) p2
     }
 
 -- | The name of the domain in which the attributes are being stored.
@@ -102,8 +103,7 @@ bpaDomainName = lens _bpaDomainName (\s a -> s { _bpaDomainName = a })
 
 -- | A list of items on which to perform the operation.
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
-bpaItems = lens _bpaItems (\s a -> s { _bpaItems = a })
-    . _Flatten
+bpaItems = lens _bpaItems (\s a -> s { _bpaItems = a }) . _List
 
 data BatchPutAttributesResponse = BatchPutAttributesResponse
     deriving (Eq, Ord, Show, Generic)
@@ -115,7 +115,11 @@ batchPutAttributesResponse = BatchPutAttributesResponse
 instance ToPath BatchPutAttributes where
     toPath = const "/"
 
-instance ToQuery BatchPutAttributes
+instance ToQuery BatchPutAttributes where
+    toQuery BatchPutAttributes{..} = mconcat
+        [ "DomainName" =? _bpaDomainName
+        , toQuery     _bpaItems
+        ]
 
 instance ToHeaders BatchPutAttributes
 

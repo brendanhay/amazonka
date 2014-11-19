@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
     { _tiiasgInstanceId                     :: Text
     , _tiiasgShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TerminateInstanceInAutoScalingGroup' constructor.
 --
@@ -80,7 +81,7 @@ tiiasgShouldDecrementDesiredCapacity =
 
 newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { _tiiasgrActivity :: Maybe Activity
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' constructor.
 --
@@ -100,7 +101,11 @@ tiiasgrActivity = lens _tiiasgrActivity (\s a -> s { _tiiasgrActivity = a })
 instance ToPath TerminateInstanceInAutoScalingGroup where
     toPath = const "/"
 
-instance ToQuery TerminateInstanceInAutoScalingGroup
+instance ToQuery TerminateInstanceInAutoScalingGroup where
+    toQuery TerminateInstanceInAutoScalingGroup{..} = mconcat
+        [ "InstanceId"                     =? _tiiasgInstanceId
+        , "ShouldDecrementDesiredCapacity" =? _tiiasgShouldDecrementDesiredCapacity
+        ]
 
 instance ToHeaders TerminateInstanceInAutoScalingGroup
 
@@ -112,5 +117,5 @@ instance AWSRequest TerminateInstanceInAutoScalingGroup where
     response = xmlResponse
 
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where
-    parseXML = withElement "TerminateInstanceInAutoScalingGroupResult" $ \x ->
-            <$> x .@? "Activity"
+    parseXML = withElement "TerminateInstanceInAutoScalingGroupResult" $ \x -> TerminateInstanceInAutoScalingGroupResponse
+        <$> x .@? "Activity"

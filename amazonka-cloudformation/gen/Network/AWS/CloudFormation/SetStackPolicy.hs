@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ data SetStackPolicy = SetStackPolicy
     { _sspStackName       :: Text
     , _sspStackPolicyBody :: Maybe Text
     , _sspStackPolicyURL  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetStackPolicy' constructor.
 --
@@ -98,7 +99,12 @@ setStackPolicyResponse = SetStackPolicyResponse
 instance ToPath SetStackPolicy where
     toPath = const "/"
 
-instance ToQuery SetStackPolicy
+instance ToQuery SetStackPolicy where
+    toQuery SetStackPolicy{..} = mconcat
+        [ "StackName"       =? _sspStackName
+        , "StackPolicyBody" =? _sspStackPolicyBody
+        , "StackPolicyURL"  =? _sspStackPolicyURL
+        ]
 
 instance ToHeaders SetStackPolicy
 

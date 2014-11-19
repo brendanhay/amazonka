@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DescribeScalingParameters = DescribeScalingParameters
     { _dspDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeScalingParameters' constructor.
 --
@@ -68,7 +69,7 @@ dspDomainName = lens _dspDomainName (\s a -> s { _dspDomainName = a })
 
 newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
     { _dsprScalingParameters :: ScalingParametersStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeScalingParametersResponse' constructor.
 --
@@ -89,7 +90,10 @@ dsprScalingParameters =
 instance ToPath DescribeScalingParameters where
     toPath = const "/"
 
-instance ToQuery DescribeScalingParameters
+instance ToQuery DescribeScalingParameters where
+    toQuery DescribeScalingParameters{..} = mconcat
+        [ "DomainName" =? _dspDomainName
+        ]
 
 instance ToHeaders DescribeScalingParameters
 
@@ -101,5 +105,5 @@ instance AWSRequest DescribeScalingParameters where
     response = xmlResponse
 
 instance FromXML DescribeScalingParametersResponse where
-    parseXML = withElement "DescribeScalingParametersResult" $ \x ->
-            <$> x .@ "ScalingParameters"
+    parseXML = withElement "DescribeScalingParametersResult" $ \x -> DescribeScalingParametersResponse
+        <$> x .@  "ScalingParameters"

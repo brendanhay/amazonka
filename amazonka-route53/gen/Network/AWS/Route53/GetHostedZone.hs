@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 
 newtype GetHostedZone = GetHostedZone
     { _ghzId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetHostedZone' constructor.
 --
@@ -73,8 +74,8 @@ ghzId = lens _ghzId (\s a -> s { _ghzId = a })
 data GetHostedZoneResponse = GetHostedZoneResponse
     { _ghzrDelegationSet :: Maybe DelegationSet
     , _ghzrHostedZone    :: HostedZone
-    , _ghzrVPCs          :: List1 VPC
-    } deriving (Eq, Show, Generic)
+    , _ghzrVPCs          :: List1 "VPC" VPC
+    } deriving (Eq, Show)
 
 -- | 'GetHostedZoneResponse' constructor.
 --
@@ -91,7 +92,7 @@ getHostedZoneResponse :: HostedZone -- ^ 'ghzrHostedZone'
                       -> GetHostedZoneResponse
 getHostedZoneResponse p1 p2 = GetHostedZoneResponse
     { _ghzrHostedZone    = p1
-    , _ghzrVPCs          = p2
+    , _ghzrVPCs          = withIso _List1 (const id) p2
     , _ghzrDelegationSet = Nothing
     }
 
@@ -109,7 +110,7 @@ ghzrHostedZone = lens _ghzrHostedZone (\s a -> s { _ghzrHostedZone = a })
 -- | A complex type that contains information about VPCs associated with the
 -- specified hosted zone.
 ghzrVPCs :: Lens' GetHostedZoneResponse (NonEmpty VPC)
-ghzrVPCs = lens _ghzrVPCs (\s a -> s { _ghzrVPCs = a })
+ghzrVPCs = lens _ghzrVPCs (\s a -> s { _ghzrVPCs = a }) . _List1
 
 instance ToPath GetHostedZone where
     toPath GetHostedZone{..} = mconcat
@@ -136,6 +137,6 @@ instance AWSRequest GetHostedZone where
 
 instance FromXML GetHostedZoneResponse where
     parseXML x = GetHostedZoneResponse
-            <$> x .@? "DelegationSet"
-            <*> x .@ "HostedZone"
-            <*> x .@ "VPCs"
+        <$> x .@? "DelegationSet"
+        <*> x .@  "HostedZone"
+        <*> x .@  "VPCs"

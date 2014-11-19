@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data UpdateSAMLProvider = UpdateSAMLProvider
     { _usamlpSAMLMetadataDocument :: Text
     , _usamlpSAMLProviderArn      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateSAMLProvider' constructor.
 --
@@ -84,7 +85,7 @@ usamlpSAMLProviderArn =
 
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'UpdateSAMLProviderResponse' constructor.
 --
@@ -105,7 +106,11 @@ usamlprSAMLProviderArn =
 instance ToPath UpdateSAMLProvider where
     toPath = const "/"
 
-instance ToQuery UpdateSAMLProvider
+instance ToQuery UpdateSAMLProvider where
+    toQuery UpdateSAMLProvider{..} = mconcat
+        [ "SAMLMetadataDocument" =? _usamlpSAMLMetadataDocument
+        , "SAMLProviderArn"      =? _usamlpSAMLProviderArn
+        ]
 
 instance ToHeaders UpdateSAMLProvider
 
@@ -117,5 +122,5 @@ instance AWSRequest UpdateSAMLProvider where
     response = xmlResponse
 
 instance FromXML UpdateSAMLProviderResponse where
-    parseXML = withElement "UpdateSAMLProviderResult" $ \x ->
-            <$> x .@? "SAMLProviderArn"
+    parseXML = withElement "UpdateSAMLProviderResult" $ \x -> UpdateSAMLProviderResponse
+        <$> x .@? "SAMLProviderArn"

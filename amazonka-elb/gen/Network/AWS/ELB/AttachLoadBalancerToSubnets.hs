@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ import qualified GHC.Exts
 
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
     { _albtsLoadBalancerName :: Text
-    , _albtsSubnets          :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _albtsSubnets          :: List "Subnets" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'AttachLoadBalancerToSubnets' constructor.
 --
@@ -78,11 +79,11 @@ albtsLoadBalancerName =
 -- | A list of subnet IDs to add for the load balancer. You can add only one
 -- subnet per Availability Zone.
 albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
-albtsSubnets = lens _albtsSubnets (\s a -> s { _albtsSubnets = a })
+albtsSubnets = lens _albtsSubnets (\s a -> s { _albtsSubnets = a }) . _List
 
 newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
-    { _albtsrSubnets :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _albtsrSubnets :: List "Subnets" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList AttachLoadBalancerToSubnetsResponse where
     type Item AttachLoadBalancerToSubnetsResponse = Text
@@ -103,12 +104,16 @@ attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
 
 -- | A list of subnet IDs attached to the load balancer.
 albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
-albtsrSubnets = lens _albtsrSubnets (\s a -> s { _albtsrSubnets = a })
+albtsrSubnets = lens _albtsrSubnets (\s a -> s { _albtsrSubnets = a }) . _List
 
 instance ToPath AttachLoadBalancerToSubnets where
     toPath = const "/"
 
-instance ToQuery AttachLoadBalancerToSubnets
+instance ToQuery AttachLoadBalancerToSubnets where
+    toQuery AttachLoadBalancerToSubnets{..} = mconcat
+        [ "LoadBalancerName" =? _albtsLoadBalancerName
+        , "Subnets"          =? _albtsSubnets
+        ]
 
 instance ToHeaders AttachLoadBalancerToSubnets
 
@@ -120,5 +125,5 @@ instance AWSRequest AttachLoadBalancerToSubnets where
     response = xmlResponse
 
 instance FromXML AttachLoadBalancerToSubnetsResponse where
-    parseXML = withElement "AttachLoadBalancerToSubnetsResult" $ \x ->
-            <$> x .@ "Subnets"
+    parseXML = withElement "AttachLoadBalancerToSubnetsResult" $ \x -> AttachLoadBalancerToSubnetsResponse
+        <$> x .@  "Subnets"

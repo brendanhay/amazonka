@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -77,24 +78,24 @@ data CreateReplicationGroup = CreateReplicationGroup
     , _crgAutomaticFailoverEnabled    :: Maybe Bool
     , _crgCacheNodeType               :: Maybe Text
     , _crgCacheParameterGroupName     :: Maybe Text
-    , _crgCacheSecurityGroupNames     :: [Text]
+    , _crgCacheSecurityGroupNames     :: List "CacheSecurityGroupName" Text
     , _crgCacheSubnetGroupName        :: Maybe Text
     , _crgEngine                      :: Maybe Text
     , _crgEngineVersion               :: Maybe Text
     , _crgNotificationTopicArn        :: Maybe Text
     , _crgNumCacheClusters            :: Maybe Int
     , _crgPort                        :: Maybe Int
-    , _crgPreferredCacheClusterAZs    :: [Text]
+    , _crgPreferredCacheClusterAZs    :: List "AvailabilityZone" Text
     , _crgPreferredMaintenanceWindow  :: Maybe Text
     , _crgPrimaryClusterId            :: Maybe Text
     , _crgReplicationGroupDescription :: Text
     , _crgReplicationGroupId          :: Text
-    , _crgSecurityGroupIds            :: [Text]
-    , _crgSnapshotArns                :: [Text]
+    , _crgSecurityGroupIds            :: List "SecurityGroupId" Text
+    , _crgSnapshotArns                :: List "SnapshotArn" Text
     , _crgSnapshotName                :: Maybe Text
     , _crgSnapshotRetentionLimit      :: Maybe Int
     , _crgSnapshotWindow              :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateReplicationGroup' constructor.
 --
@@ -219,6 +220,7 @@ crgCacheSecurityGroupNames :: Lens' CreateReplicationGroup [Text]
 crgCacheSecurityGroupNames =
     lens _crgCacheSecurityGroupNames
         (\s a -> s { _crgCacheSecurityGroupNames = a })
+            . _List
 
 -- | The name of the cache subnet group to be used for the replication group.
 crgCacheSubnetGroupName :: Lens' CreateReplicationGroup (Maybe Text)
@@ -268,6 +270,7 @@ crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup [Text]
 crgPreferredCacheClusterAZs =
     lens _crgPreferredCacheClusterAZs
         (\s a -> s { _crgPreferredCacheClusterAZs = a })
+            . _List
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Example: sun:05:00-sun:09:00.
@@ -304,6 +307,7 @@ crgReplicationGroupId =
 crgSecurityGroupIds :: Lens' CreateReplicationGroup [Text]
 crgSecurityGroupIds =
     lens _crgSecurityGroupIds (\s a -> s { _crgSecurityGroupIds = a })
+        . _List
 
 -- | A single-element string list containing an Amazon Resource Name (ARN)
 -- that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
@@ -312,7 +316,7 @@ crgSecurityGroupIds =
 -- only valid if the Engine parameter is redis. Example of an Amazon S3 ARN:
 -- arn:aws:s3:::my_bucket/snapshot1.rdb.
 crgSnapshotArns :: Lens' CreateReplicationGroup [Text]
-crgSnapshotArns = lens _crgSnapshotArns (\s a -> s { _crgSnapshotArns = a })
+crgSnapshotArns = lens _crgSnapshotArns (\s a -> s { _crgSnapshotArns = a }) . _List
 
 -- | The name of a snapshot from which to restore data into the new node
 -- group. The snapshot status changes to restoring while the new node group
@@ -343,7 +347,7 @@ crgSnapshotWindow =
 
 newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateReplicationGroupResponse' constructor.
 --
@@ -363,7 +367,30 @@ crgrReplicationGroup =
 instance ToPath CreateReplicationGroup where
     toPath = const "/"
 
-instance ToQuery CreateReplicationGroup
+instance ToQuery CreateReplicationGroup where
+    toQuery CreateReplicationGroup{..} = mconcat
+        [ "AutoMinorVersionUpgrade"     =? _crgAutoMinorVersionUpgrade
+        , "AutomaticFailoverEnabled"    =? _crgAutomaticFailoverEnabled
+        , "CacheNodeType"               =? _crgCacheNodeType
+        , "CacheParameterGroupName"     =? _crgCacheParameterGroupName
+        , "CacheSecurityGroupNames"     =? _crgCacheSecurityGroupNames
+        , "CacheSubnetGroupName"        =? _crgCacheSubnetGroupName
+        , "Engine"                      =? _crgEngine
+        , "EngineVersion"               =? _crgEngineVersion
+        , "NotificationTopicArn"        =? _crgNotificationTopicArn
+        , "NumCacheClusters"            =? _crgNumCacheClusters
+        , "Port"                        =? _crgPort
+        , "PreferredCacheClusterAZs"    =? _crgPreferredCacheClusterAZs
+        , "PreferredMaintenanceWindow"  =? _crgPreferredMaintenanceWindow
+        , "PrimaryClusterId"            =? _crgPrimaryClusterId
+        , "ReplicationGroupDescription" =? _crgReplicationGroupDescription
+        , "ReplicationGroupId"          =? _crgReplicationGroupId
+        , "SecurityGroupIds"            =? _crgSecurityGroupIds
+        , "SnapshotArns"                =? _crgSnapshotArns
+        , "SnapshotName"                =? _crgSnapshotName
+        , "SnapshotRetentionLimit"      =? _crgSnapshotRetentionLimit
+        , "SnapshotWindow"              =? _crgSnapshotWindow
+        ]
 
 instance ToHeaders CreateReplicationGroup
 
@@ -375,5 +402,5 @@ instance AWSRequest CreateReplicationGroup where
     response = xmlResponse
 
 instance FromXML CreateReplicationGroupResponse where
-    parseXML = withElement "CreateReplicationGroupResult" $ \x ->
-            <$> x .@? "ReplicationGroup"
+    parseXML = withElement "CreateReplicationGroupResult" $ \x -> CreateReplicationGroupResponse
+        <$> x .@? "ReplicationGroup"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,9 +57,9 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
-    { _dazflbAvailabilityZones :: [Text]
+    { _dazflbAvailabilityZones :: List "AvailabilityZones" Text
     , _dazflbLoadBalancerName  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DisableAvailabilityZonesForLoadBalancer' constructor.
 --
@@ -81,6 +82,7 @@ disableAvailabilityZonesForLoadBalancer p1 = DisableAvailabilityZonesForLoadBala
 dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
 dazflbAvailabilityZones =
     lens _dazflbAvailabilityZones (\s a -> s { _dazflbAvailabilityZones = a })
+        . _List
 
 -- | The name associated with the load balancer.
 dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
@@ -88,8 +90,8 @@ dazflbLoadBalancerName =
     lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
 
 newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
-    { _dazflbrAvailabilityZones :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dazflbrAvailabilityZones :: List "AvailabilityZones" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DisableAvailabilityZonesForLoadBalancerResponse where
     type Item DisableAvailabilityZonesForLoadBalancerResponse = Text
@@ -113,11 +115,16 @@ dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerRespons
 dazflbrAvailabilityZones =
     lens _dazflbrAvailabilityZones
         (\s a -> s { _dazflbrAvailabilityZones = a })
+            . _List
 
 instance ToPath DisableAvailabilityZonesForLoadBalancer where
     toPath = const "/"
 
-instance ToQuery DisableAvailabilityZonesForLoadBalancer
+instance ToQuery DisableAvailabilityZonesForLoadBalancer where
+    toQuery DisableAvailabilityZonesForLoadBalancer{..} = mconcat
+        [ "AvailabilityZones" =? _dazflbAvailabilityZones
+        , "LoadBalancerName"  =? _dazflbLoadBalancerName
+        ]
 
 instance ToHeaders DisableAvailabilityZonesForLoadBalancer
 
@@ -129,5 +136,5 @@ instance AWSRequest DisableAvailabilityZonesForLoadBalancer where
     response = xmlResponse
 
 instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
-    parseXML = withElement "DisableAvailabilityZonesForLoadBalancerResult" $ \x ->
-            <$> x .@ "AvailabilityZones"
+    parseXML = withElement "DisableAvailabilityZonesForLoadBalancerResult" $ \x -> DisableAvailabilityZonesForLoadBalancerResponse
+        <$> x .@  "AvailabilityZones"

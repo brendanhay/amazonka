@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data DeleteNetworkInterface = DeleteNetworkInterface
     { _dni2DryRun             :: Maybe Bool
     , _dni2NetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteNetworkInterface' constructor.
 --
@@ -83,7 +83,11 @@ deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 instance ToPath DeleteNetworkInterface where
     toPath = const "/"
 
-instance ToQuery DeleteNetworkInterface
+instance ToQuery DeleteNetworkInterface where
+    toQuery DeleteNetworkInterface{..} = mconcat
+        [ "dryRun"             =? _dni2DryRun
+        , "networkInterfaceId" =? _dni2NetworkInterfaceId
+        ]
 
 instance ToHeaders DeleteNetworkInterface
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data GetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrContent       :: Maybe Base64
     , _gcrrGeneratedTime :: Maybe RFC822
     , _gcrrReportFormat  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetCredentialReportResponse' constructor.
 --
@@ -107,7 +108,7 @@ instance AWSRequest GetCredentialReport where
     response = xmlResponse
 
 instance FromXML GetCredentialReportResponse where
-    parseXML = withElement "GetCredentialReportResult" $ \x ->
-            <$> x .@? "Content"
-            <*> x .@? "GeneratedTime"
-            <*> x .@? "ReportFormat"
+    parseXML = withElement "GetCredentialReportResult" $ \x -> GetCredentialReportResponse
+        <$> x .@? "Content"
+        <*> x .@? "GeneratedTime"
+        <*> x .@? "ReportFormat"

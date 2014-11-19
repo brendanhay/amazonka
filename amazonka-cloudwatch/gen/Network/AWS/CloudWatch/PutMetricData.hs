@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,9 +56,9 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 data PutMetricData = PutMetricData
-    { _pmdMetricData :: [MetricDatum]
+    { _pmdMetricData :: List "MetricData" MetricDatum
     , _pmdNamespace  :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PutMetricData' constructor.
 --
@@ -76,7 +77,7 @@ putMetricData p1 = PutMetricData
 
 -- | A list of data describing the metric.
 pmdMetricData :: Lens' PutMetricData [MetricDatum]
-pmdMetricData = lens _pmdMetricData (\s a -> s { _pmdMetricData = a })
+pmdMetricData = lens _pmdMetricData (\s a -> s { _pmdMetricData = a }) . _List
 
 -- | The namespace for the metric data.
 pmdNamespace :: Lens' PutMetricData Text
@@ -92,7 +93,11 @@ putMetricDataResponse = PutMetricDataResponse
 instance ToPath PutMetricData where
     toPath = const "/"
 
-instance ToQuery PutMetricData
+instance ToQuery PutMetricData where
+    toQuery PutMetricData{..} = mconcat
+        [ "MetricData" =? _pmdMetricData
+        , "Namespace"  =? _pmdNamespace
+        ]
 
 instance ToHeaders PutMetricData
 

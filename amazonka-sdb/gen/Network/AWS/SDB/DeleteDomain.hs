@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteDomain' constructor.
 --
@@ -74,7 +75,10 @@ deleteDomainResponse = DeleteDomainResponse
 instance ToPath DeleteDomain where
     toPath = const "/"
 
-instance ToQuery DeleteDomain
+instance ToQuery DeleteDomain where
+    toQuery DeleteDomain{..} = mconcat
+        [ "DomainName" =? _ddDomainName
+        ]
 
 instance ToHeaders DeleteDomain
 

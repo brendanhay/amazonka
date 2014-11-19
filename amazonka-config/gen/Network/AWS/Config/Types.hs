@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -149,7 +150,7 @@ data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     , _cediLastErrorMessage   :: Maybe Text
     , _cediLastStatus         :: Maybe Text
     , _cediLastSuccessfulTime :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ConfigExportDeliveryInfo' constructor.
 --
@@ -222,7 +223,7 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo
     , _csdiLastErrorMessage     :: Maybe Text
     , _csdiLastStatus           :: Maybe Text
     , _csdiLastStatusChangeTime :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ConfigStreamDeliveryInfo' constructor.
 --
@@ -284,7 +285,7 @@ data Relationship = Relationship
     { _rRelationshipName :: Maybe Text
     , _rResourceId       :: Maybe Text
     , _rResourceType     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Relationship' constructor.
 --
@@ -334,7 +335,7 @@ data DeliveryChannel = DeliveryChannel
     , _dcS3BucketName :: Maybe Text
     , _dcS3KeyPrefix  :: Maybe Text
     , _dcSnsTopicARN  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeliveryChannel' constructor.
 --
@@ -480,14 +481,14 @@ data ConfigurationItem = ConfigurationItem
     , _ciConfigurationItemMD5Hash     :: Maybe Text
     , _ciConfigurationItemStatus      :: Maybe Text
     , _ciConfigurationStateId         :: Maybe Text
-    , _ciRelatedEvents                :: [Text]
-    , _ciRelationships                :: [Relationship]
+    , _ciRelatedEvents                :: List "relatedEvents" Text
+    , _ciRelationships                :: List "relationships" Relationship
     , _ciResourceCreationTime         :: Maybe RFC822
     , _ciResourceId                   :: Maybe Text
     , _ciResourceType                 :: Maybe Text
-    , _ciTags                         :: Map Text Text
+    , _ciTags                         :: Map "entry" "key" "value" Text Text
     , _ciVersion                      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ConfigurationItem' constructor.
 --
@@ -592,11 +593,11 @@ ciConfigurationStateId =
 -- CloudTrail?. An empty field indicates that the current configuration was
 -- not initiated by any event.
 ciRelatedEvents :: Lens' ConfigurationItem [Text]
-ciRelatedEvents = lens _ciRelatedEvents (\s a -> s { _ciRelatedEvents = a })
+ciRelatedEvents = lens _ciRelatedEvents (\s a -> s { _ciRelatedEvents = a }) . _List
 
 -- | A list of related AWS resources.
 ciRelationships :: Lens' ConfigurationItem [Relationship]
-ciRelationships = lens _ciRelationships (\s a -> s { _ciRelationships = a })
+ciRelationships = lens _ciRelationships (\s a -> s { _ciRelationships = a }) . _List
 
 -- | The time stamp when the resource was created.
 ciResourceCreationTime :: Lens' ConfigurationItem (Maybe UTCTime)
@@ -614,8 +615,7 @@ ciResourceType = lens _ciResourceType (\s a -> s { _ciResourceType = a })
 
 -- | A mapping of key value tags associated with the resource.
 ciTags :: Lens' ConfigurationItem (HashMap Text Text)
-ciTags = lens _ciTags (\s a -> s { _ciTags = a })
-    . _Map
+ciTags = lens _ciTags (\s a -> s { _ciTags = a }) . _Map
 
 -- | The version number of the resource configuration.
 ciVersion :: Lens' ConfigurationItem (Maybe Text)
@@ -631,12 +631,12 @@ instance FromJSON ConfigurationItem where
         <*> o .:? "configurationItemMD5Hash"
         <*> o .:? "configurationItemStatus"
         <*> o .:? "configurationStateId"
-        <*> o .: "relatedEvents"
-        <*> o .: "relationships"
+        <*> o .:  "relatedEvents"
+        <*> o .:  "relationships"
         <*> o .:? "resourceCreationTime"
         <*> o .:? "resourceId"
         <*> o .:? "resourceType"
-        <*> o .: "tags"
+        <*> o .:  "tags"
         <*> o .:? "version"
 
 instance ToJSON ConfigurationItem where
@@ -685,7 +685,7 @@ data DeliveryChannelStatus = DeliveryChannelStatus
     , _dcsConfigSnapshotDeliveryInfo :: Maybe ConfigExportDeliveryInfo
     , _dcsConfigStreamDeliveryInfo   :: Maybe ConfigStreamDeliveryInfo
     , _dcsName                       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeliveryChannelStatus' constructor.
 --
@@ -756,7 +756,7 @@ data ConfigurationRecorderStatus = ConfigurationRecorderStatus
     , _crsLastStopTime         :: Maybe RFC822
     , _crsName                 :: Maybe Text
     , _crsRecording            :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ConfigurationRecorderStatus' constructor.
 --
@@ -801,8 +801,7 @@ crsLastErrorMessage =
 
 -- | The time the recorder was last started.
 crsLastStartTime :: Lens' ConfigurationRecorderStatus (Maybe UTCTime)
-crsLastStartTime = lens _crsLastStartTime (\s a -> s { _crsLastStartTime = a })
-    . mapping _Time
+crsLastStartTime = lens _crsLastStartTime (\s a -> s { _crsLastStartTime = a }) . mapping _Time
 
 -- | The last (previous) status of the recorder.
 crsLastStatus :: Lens' ConfigurationRecorderStatus (Maybe Text)
@@ -816,8 +815,7 @@ crsLastStatusChangeTime =
 
 -- | The time the recorder was last stopped.
 crsLastStopTime :: Lens' ConfigurationRecorderStatus (Maybe UTCTime)
-crsLastStopTime = lens _crsLastStopTime (\s a -> s { _crsLastStopTime = a })
-    . mapping _Time
+crsLastStopTime = lens _crsLastStopTime (\s a -> s { _crsLastStopTime = a }) . mapping _Time
 
 -- | The name of the configuration recorder.
 crsName :: Lens' ConfigurationRecorderStatus (Maybe Text)
@@ -881,7 +879,7 @@ instance ToJSON ConfigurationItemStatus where
 data ConfigurationRecorder = ConfigurationRecorder
     { _crName    :: Maybe Text
     , _crRoleARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ConfigurationRecorder' constructor.
 --

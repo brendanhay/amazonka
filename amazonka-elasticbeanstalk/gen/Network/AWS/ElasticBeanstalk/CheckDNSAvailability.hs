@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype CheckDNSAvailability = CheckDNSAvailability
     { _cdnsaCNAMEPrefix :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CheckDNSAvailability' constructor.
 --
@@ -68,7 +69,7 @@ cdnsaCNAMEPrefix = lens _cdnsaCNAMEPrefix (\s a -> s { _cdnsaCNAMEPrefix = a })
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
     { _cdnsarAvailable           :: Maybe Bool
     , _cdnsarFullyQualifiedCNAME :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CheckDNSAvailabilityResponse' constructor.
 --
@@ -100,7 +101,10 @@ cdnsarFullyQualifiedCNAME =
 instance ToPath CheckDNSAvailability where
     toPath = const "/"
 
-instance ToQuery CheckDNSAvailability
+instance ToQuery CheckDNSAvailability where
+    toQuery CheckDNSAvailability{..} = mconcat
+        [ "CNAMEPrefix" =? _cdnsaCNAMEPrefix
+        ]
 
 instance ToHeaders CheckDNSAvailability
 
@@ -112,6 +116,6 @@ instance AWSRequest CheckDNSAvailability where
     response = xmlResponse
 
 instance FromXML CheckDNSAvailabilityResponse where
-    parseXML = withElement "CheckDNSAvailabilityResult" $ \x ->
-            <$> x .@? "Available"
-            <*> x .@? "FullyQualifiedCNAME"
+    parseXML = withElement "CheckDNSAvailabilityResult" $ \x -> CheckDNSAvailabilityResponse
+        <$> x .@? "Available"
+        <*> x .@? "FullyQualifiedCNAME"

@@ -56,7 +56,7 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
     { _dazDryRun    :: Maybe Bool
     , _dazFilters   :: List "Filter" Filter
     , _dazZoneNames :: List "ZoneName" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAvailabilityZones' constructor.
 --
@@ -84,17 +84,15 @@ dazDryRun = lens _dazDryRun (\s a -> s { _dazDryRun = a })
 -- (available | impaired | unavailable). zone-name - The name of the
 -- Availability Zone (for example, us-east-1a).
 dazFilters :: Lens' DescribeAvailabilityZones [Filter]
-dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a })
-    . _List
+dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a }) . _List
 
 -- | The names of one or more Availability Zones.
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
-dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a })
-    . _List
+dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a }) . _List
 
 newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones :: List "item" AvailabilityZone
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAvailabilityZonesResponse where
     type Item DescribeAvailabilityZonesResponse = AvailabilityZone
@@ -122,7 +120,12 @@ dazrAvailabilityZones =
 instance ToPath DescribeAvailabilityZones where
     toPath = const "/"
 
-instance ToQuery DescribeAvailabilityZones
+instance ToQuery DescribeAvailabilityZones where
+    toQuery DescribeAvailabilityZones{..} = mconcat
+        [ "dryRun"   =? _dazDryRun
+        , "Filter"   =? _dazFilters
+        , "ZoneName" =? _dazZoneNames
+        ]
 
 instance ToHeaders DescribeAvailabilityZones
 
@@ -135,4 +138,4 @@ instance AWSRequest DescribeAvailabilityZones where
 
 instance FromXML DescribeAvailabilityZonesResponse where
     parseXML x = DescribeAvailabilityZonesResponse
-        <$> x .@ "availabilityZoneInfo"
+        <$> x .@  "availabilityZoneInfo"

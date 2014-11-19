@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetTemplate = GetTemplate
     { _gtStackName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetTemplate' constructor.
 --
@@ -72,7 +73,7 @@ gtStackName = lens _gtStackName (\s a -> s { _gtStackName = a })
 
 newtype GetTemplateResponse = GetTemplateResponse
     { _gtrTemplateBody :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'GetTemplateResponse' constructor.
 --
@@ -93,7 +94,10 @@ gtrTemplateBody = lens _gtrTemplateBody (\s a -> s { _gtrTemplateBody = a })
 instance ToPath GetTemplate where
     toPath = const "/"
 
-instance ToQuery GetTemplate
+instance ToQuery GetTemplate where
+    toQuery GetTemplate{..} = mconcat
+        [ "StackName" =? _gtStackName
+        ]
 
 instance ToHeaders GetTemplate
 
@@ -105,5 +109,5 @@ instance AWSRequest GetTemplate where
     response = xmlResponse
 
 instance FromXML GetTemplateResponse where
-    parseXML = withElement "GetTemplateResult" $ \x ->
-            <$> x .@? "TemplateBody"
+    parseXML = withElement "GetTemplateResult" $ \x -> GetTemplateResponse
+        <$> x .@? "TemplateBody"

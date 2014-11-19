@@ -61,7 +61,7 @@ data CopyImage = CopyImage
     , _ciName          :: Text
     , _ciSourceImageId :: Text
     , _ciSourceRegion  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CopyImage' constructor.
 --
@@ -119,7 +119,7 @@ ciSourceRegion = lens _ciSourceRegion (\s a -> s { _ciSourceRegion = a })
 
 newtype CopyImageResponse = CopyImageResponse
     { _cir1ImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CopyImageResponse' constructor.
 --
@@ -139,7 +139,15 @@ cir1ImageId = lens _cir1ImageId (\s a -> s { _cir1ImageId = a })
 instance ToPath CopyImage where
     toPath = const "/"
 
-instance ToQuery CopyImage
+instance ToQuery CopyImage where
+    toQuery CopyImage{..} = mconcat
+        [ "ClientToken"   =? _ciClientToken
+        , "Description"   =? _ciDescription
+        , "dryRun"        =? _ciDryRun
+        , "Name"          =? _ciName
+        , "SourceImageId" =? _ciSourceImageId
+        , "SourceRegion"  =? _ciSourceRegion
+        ]
 
 instance ToHeaders CopyImage
 

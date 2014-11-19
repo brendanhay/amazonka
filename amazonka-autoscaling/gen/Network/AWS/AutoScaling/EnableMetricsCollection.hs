@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ import qualified GHC.Exts
 data EnableMetricsCollection = EnableMetricsCollection
     { _emcAutoScalingGroupName :: Text
     , _emcGranularity          :: Text
-    , _emcMetrics              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _emcMetrics              :: List "Metrics" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnableMetricsCollection' constructor.
 --
@@ -89,7 +90,7 @@ emcGranularity = lens _emcGranularity (\s a -> s { _emcGranularity = a })
 -- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
 -- GroupTotalInstances.
 emcMetrics :: Lens' EnableMetricsCollection [Text]
-emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a })
+emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a }) . _List
 
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
     deriving (Eq, Ord, Show, Generic)
@@ -101,7 +102,12 @@ enableMetricsCollectionResponse = EnableMetricsCollectionResponse
 instance ToPath EnableMetricsCollection where
     toPath = const "/"
 
-instance ToQuery EnableMetricsCollection
+instance ToQuery EnableMetricsCollection where
+    toQuery EnableMetricsCollection{..} = mconcat
+        [ "AutoScalingGroupName" =? _emcAutoScalingGroupName
+        , "Granularity"          =? _emcGranularity
+        , "Metrics"              =? _emcMetrics
+        ]
 
 instance ToHeaders EnableMetricsCollection
 

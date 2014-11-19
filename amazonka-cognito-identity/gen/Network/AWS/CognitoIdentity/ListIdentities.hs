@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data ListIdentities = ListIdentities
     { _liIdentityPoolId :: Text
     , _liMaxResults     :: Nat
     , _liNextToken      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListIdentities' constructor.
 --
@@ -79,18 +80,17 @@ liIdentityPoolId = lens _liIdentityPoolId (\s a -> s { _liIdentityPoolId = a })
 
 -- | The maximum number of identities to return.
 liMaxResults :: Lens' ListIdentities Natural
-liMaxResults = lens _liMaxResults (\s a -> s { _liMaxResults = a })
-    . _Nat
+liMaxResults = lens _liMaxResults (\s a -> s { _liMaxResults = a }) . _Nat
 
 -- | A pagination token.
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
 
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentities     :: [IdentityDescription]
+    { _lirIdentities     :: List "Identities" IdentityDescription
     , _lirIdentityPoolId :: Maybe Text
     , _lirNextToken      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListIdentitiesResponse' constructor.
 --
@@ -111,7 +111,7 @@ listIdentitiesResponse = ListIdentitiesResponse
 
 -- | An object containing a set of identities and associated mappings.
 lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
+lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a }) . _List
 
 -- | An identity pool ID in the format REGION:GUID.
 lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
@@ -146,6 +146,6 @@ instance AWSRequest ListIdentities where
 
 instance FromJSON ListIdentitiesResponse where
     parseJSON = withObject "ListIdentitiesResponse" $ \o -> ListIdentitiesResponse
-        <$> o .: "Identities"
+        <$> o .:  "Identities"
         <*> o .:? "IdentityPoolId"
         <*> o .:? "NextToken"

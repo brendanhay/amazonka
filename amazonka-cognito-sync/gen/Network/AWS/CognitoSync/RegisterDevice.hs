@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data RegisterDevice = RegisterDevice
     , _rdIdentityPoolId :: Text
     , _rdPlatform       :: Text
     , _rdToken          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RegisterDevice' constructor.
 --
@@ -98,7 +99,7 @@ rdToken = lens _rdToken (\s a -> s { _rdToken = a })
 
 newtype RegisterDeviceResponse = RegisterDeviceResponse
     { _rdrDeviceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'RegisterDeviceResponse' constructor.
 --

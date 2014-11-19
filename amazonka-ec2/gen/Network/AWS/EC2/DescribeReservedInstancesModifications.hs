@@ -57,7 +57,7 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     { _drimFilters                          :: List "Filter" Filter
     , _drimNextToken                        :: Maybe Text
     , _drimReservedInstancesModificationIds :: List "ReservedInstancesModificationId" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedInstancesModifications' constructor.
 --
@@ -97,8 +97,7 @@ describeReservedInstancesModifications = DescribeReservedInstancesModifications
 -- status. update-date - The time when the modification request was last
 -- updated.
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
-drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a })
-    . _List
+drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a }) . _List
 
 -- | The token for the next page of data.
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
@@ -114,7 +113,7 @@ drimReservedInstancesModificationIds =
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrNextToken                      :: Maybe Text
     , _drimrReservedInstancesModifications :: List "item" ReservedInstancesModification
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedInstancesModificationsResponse' constructor.
 --
@@ -144,7 +143,12 @@ drimrReservedInstancesModifications =
 instance ToPath DescribeReservedInstancesModifications where
     toPath = const "/"
 
-instance ToQuery DescribeReservedInstancesModifications
+instance ToQuery DescribeReservedInstancesModifications where
+    toQuery DescribeReservedInstancesModifications{..} = mconcat
+        [ "Filter"                          =? _drimFilters
+        , "nextToken"                       =? _drimNextToken
+        , "ReservedInstancesModificationId" =? _drimReservedInstancesModificationIds
+        ]
 
 instance ToHeaders DescribeReservedInstancesModifications
 
@@ -158,7 +162,7 @@ instance AWSRequest DescribeReservedInstancesModifications where
 instance FromXML DescribeReservedInstancesModificationsResponse where
     parseXML x = DescribeReservedInstancesModificationsResponse
         <$> x .@? "nextToken"
-        <*> x .@ "reservedInstancesModificationsSet"
+        <*> x .@  "reservedInstancesModificationsSet"
 
 instance AWSPager DescribeReservedInstancesModifications where
     next rq rs = (\x -> rq & drimNextToken ?~ x)

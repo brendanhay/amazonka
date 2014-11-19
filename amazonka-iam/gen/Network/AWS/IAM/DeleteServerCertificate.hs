@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DeleteServerCertificate = DeleteServerCertificate
     { _dscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteServerCertificate' constructor.
 --
@@ -82,7 +83,10 @@ deleteServerCertificateResponse = DeleteServerCertificateResponse
 instance ToPath DeleteServerCertificate where
     toPath = const "/"
 
-instance ToQuery DeleteServerCertificate
+instance ToQuery DeleteServerCertificate where
+    toQuery DeleteServerCertificate{..} = mconcat
+        [ "ServerCertificateName" =? _dscServerCertificateName
+        ]
 
 instance ToHeaders DeleteServerCertificate
 

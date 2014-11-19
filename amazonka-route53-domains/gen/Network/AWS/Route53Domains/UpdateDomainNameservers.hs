@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,8 +54,8 @@ import qualified GHC.Exts
 
 data UpdateDomainNameservers = UpdateDomainNameservers
     { _udnDomainName  :: Text
-    , _udnNameservers :: [Nameserver]
-    } deriving (Eq, Show, Generic)
+    , _udnNameservers :: List "Nameservers" Nameserver
+    } deriving (Eq, Show)
 
 -- | 'UpdateDomainNameservers' constructor.
 --
@@ -81,11 +82,11 @@ udnDomainName = lens _udnDomainName (\s a -> s { _udnDomainName = a })
 -- | A list of new name servers for the domain. Type: Complex Children: Name,
 -- GlueIps Required: Yes.
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
-udnNameservers = lens _udnNameservers (\s a -> s { _udnNameservers = a })
+udnNameservers = lens _udnNameservers (\s a -> s { _udnNameservers = a }) . _List
 
 newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
     { _udnrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'UpdateDomainNameserversResponse' constructor.
 --
@@ -128,4 +129,4 @@ instance AWSRequest UpdateDomainNameservers where
 
 instance FromJSON UpdateDomainNameserversResponse where
     parseJSON = withObject "UpdateDomainNameserversResponse" $ \o -> UpdateDomainNameserversResponse
-        <$> o .: "OperationId"
+        <$> o .:  "OperationId"

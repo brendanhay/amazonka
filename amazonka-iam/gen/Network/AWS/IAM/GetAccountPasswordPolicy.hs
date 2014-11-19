@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ getAccountPasswordPolicy = GetAccountPasswordPolicy
 
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetAccountPasswordPolicyResponse' constructor.
 --
@@ -86,5 +87,5 @@ instance AWSRequest GetAccountPasswordPolicy where
     response = xmlResponse
 
 instance FromXML GetAccountPasswordPolicyResponse where
-    parseXML = withElement "GetAccountPasswordPolicyResult" $ \x ->
-            <$> x .@ "PasswordPolicy"
+    parseXML = withElement "GetAccountPasswordPolicyResult" $ \x -> GetAccountPasswordPolicyResponse
+        <$> x .@  "PasswordPolicy"

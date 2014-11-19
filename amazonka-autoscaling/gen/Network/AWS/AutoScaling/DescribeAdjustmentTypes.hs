@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ describeAdjustmentTypes :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes
 
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
-    { _datrAdjustmentTypes :: [AdjustmentType]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _datrAdjustmentTypes :: List "AdjustmentTypes" AdjustmentType
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAdjustmentTypesResponse where
     type Item DescribeAdjustmentTypesResponse = AdjustmentType
@@ -74,6 +75,7 @@ describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
 datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrAdjustmentTypes =
     lens _datrAdjustmentTypes (\s a -> s { _datrAdjustmentTypes = a })
+        . _List
 
 instance ToPath DescribeAdjustmentTypes where
     toPath = const "/"
@@ -91,5 +93,5 @@ instance AWSRequest DescribeAdjustmentTypes where
     response = xmlResponse
 
 instance FromXML DescribeAdjustmentTypesResponse where
-    parseXML = withElement "DescribeAdjustmentTypesResult" $ \x ->
-            <$> x .@ "AdjustmentTypes"
+    parseXML = withElement "DescribeAdjustmentTypesResult" $ \x -> DescribeAdjustmentTypesResponse
+        <$> x .@  "AdjustmentTypes"

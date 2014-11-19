@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteEventSubscription = DeleteEventSubscription
     { _desSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteEventSubscription' constructor.
 --
@@ -67,7 +68,7 @@ desSubscriptionName =
 
 newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     { _desrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteEventSubscriptionResponse' constructor.
 --
@@ -87,7 +88,10 @@ desrEventSubscription =
 instance ToPath DeleteEventSubscription where
     toPath = const "/"
 
-instance ToQuery DeleteEventSubscription
+instance ToQuery DeleteEventSubscription where
+    toQuery DeleteEventSubscription{..} = mconcat
+        [ "SubscriptionName" =? _desSubscriptionName
+        ]
 
 instance ToHeaders DeleteEventSubscription
 
@@ -99,5 +103,5 @@ instance AWSRequest DeleteEventSubscription where
     response = xmlResponse
 
 instance FromXML DeleteEventSubscriptionResponse where
-    parseXML = withElement "DeleteEventSubscriptionResult" $ \x ->
-            <$> x .@? "EventSubscription"
+    parseXML = withElement "DeleteEventSubscriptionResult" $ \x -> DeleteEventSubscriptionResponse
+        <$> x .@? "EventSubscription"

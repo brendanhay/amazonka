@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 data RestartAppServer = RestartAppServer
     { _rasEnvironmentId   :: Maybe Text
     , _rasEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RestartAppServer' constructor.
 --
@@ -87,7 +88,11 @@ restartAppServerResponse = RestartAppServerResponse
 instance ToPath RestartAppServer where
     toPath = const "/"
 
-instance ToQuery RestartAppServer
+instance ToQuery RestartAppServer where
+    toQuery RestartAppServer{..} = mconcat
+        [ "EnvironmentId"   =? _rasEnvironmentId
+        , "EnvironmentName" =? _rasEnvironmentName
+        ]
 
 instance ToHeaders RestartAppServer
 

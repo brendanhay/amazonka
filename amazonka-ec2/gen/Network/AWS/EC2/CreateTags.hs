@@ -51,9 +51,9 @@ import qualified GHC.Exts
 
 data CreateTags = CreateTags
     { _ct1DryRun    :: Maybe Bool
-    , _ct1Resources :: List "String" Text
+    , _ct1Resources :: List "ResourceId" Text
     , _ct1Tags      :: List "item" Tag
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateTags' constructor.
 --
@@ -77,15 +77,13 @@ ct1DryRun = lens _ct1DryRun (\s a -> s { _ct1DryRun = a })
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
 ct1Resources :: Lens' CreateTags [Text]
-ct1Resources = lens _ct1Resources (\s a -> s { _ct1Resources = a })
-    . _List
+ct1Resources = lens _ct1Resources (\s a -> s { _ct1Resources = a }) . _List
 
 -- | One or more tags. The value parameter is required, but if you don't want
 -- the tag to have a value, specify the parameter with no value, and we set
 -- the value to an empty string.
 ct1Tags :: Lens' CreateTags [Tag]
-ct1Tags = lens _ct1Tags (\s a -> s { _ct1Tags = a })
-    . _List
+ct1Tags = lens _ct1Tags (\s a -> s { _ct1Tags = a }) . _List
 
 data CreateTagsResponse = CreateTagsResponse
     deriving (Eq, Ord, Show, Generic)
@@ -97,7 +95,12 @@ createTagsResponse = CreateTagsResponse
 instance ToPath CreateTags where
     toPath = const "/"
 
-instance ToQuery CreateTags
+instance ToQuery CreateTags where
+    toQuery CreateTags{..} = mconcat
+        [ "dryRun"     =? _ct1DryRun
+        , "ResourceId" =? _ct1Resources
+        , "Tag"        =? _ct1Tags
+        ]
 
 instance ToHeaders CreateTags
 

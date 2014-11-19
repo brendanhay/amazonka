@@ -56,7 +56,7 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniaAttribute          :: Maybe Text
     , _dniaDryRun             :: Maybe Bool
     , _dniaNetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeNetworkInterfaceAttribute' constructor.
 --
@@ -94,7 +94,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     , _dniarGroups             :: List "item" GroupIdentifier
     , _dniarNetworkInterfaceId :: Maybe Text
     , _dniarSourceDestCheck    :: Maybe AttributeBooleanValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' constructor.
 --
@@ -129,8 +129,7 @@ dniarDescription = lens _dniarDescription (\s a -> s { _dniarDescription = a })
 
 -- | The security groups associated with the network interface.
 dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
-dniarGroups = lens _dniarGroups (\s a -> s { _dniarGroups = a })
-    . _List
+dniarGroups = lens _dniarGroups (\s a -> s { _dniarGroups = a }) . _List
 
 -- | The ID of the network interface.
 dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
@@ -145,7 +144,12 @@ dniarSourceDestCheck =
 instance ToPath DescribeNetworkInterfaceAttribute where
     toPath = const "/"
 
-instance ToQuery DescribeNetworkInterfaceAttribute
+instance ToQuery DescribeNetworkInterfaceAttribute where
+    toQuery DescribeNetworkInterfaceAttribute{..} = mconcat
+        [ "attribute"          =? _dniaAttribute
+        , "dryRun"             =? _dniaDryRun
+        , "networkInterfaceId" =? _dniaNetworkInterfaceId
+        ]
 
 instance ToHeaders DescribeNetworkInterfaceAttribute
 
@@ -160,6 +164,6 @@ instance FromXML DescribeNetworkInterfaceAttributeResponse where
     parseXML x = DescribeNetworkInterfaceAttributeResponse
         <$> x .@? "attachment"
         <*> x .@? "description"
-        <*> x .@ "groupSet"
+        <*> x .@  "groupSet"
         <*> x .@? "networkInterfaceId"
         <*> x .@? "sourceDestCheck"

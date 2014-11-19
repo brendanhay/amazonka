@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data ListJobsByStatus = ListJobsByStatus
     { _ljbsAscending :: Maybe Text
     , _ljbsPageToken :: Maybe Text
     , _ljbsStatus    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListJobsByStatus' constructor.
 --
@@ -92,9 +93,9 @@ ljbsStatus :: Lens' ListJobsByStatus Text
 ljbsStatus = lens _ljbsStatus (\s a -> s { _ljbsStatus = a })
 
 data ListJobsByStatusResponse = ListJobsByStatusResponse
-    { _ljbsrJobs          :: [Job']
+    { _ljbsrJobs          :: List "Jobs" Job'
     , _ljbsrNextPageToken :: Maybe Job'
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListJobsByStatusResponse' constructor.
 --
@@ -112,7 +113,7 @@ listJobsByStatusResponse = ListJobsByStatusResponse
 
 -- | An array of Job objects that have the specified status.
 ljbsrJobs :: Lens' ListJobsByStatusResponse [Job']
-ljbsrJobs = lens _ljbsrJobs (\s a -> s { _ljbsrJobs = a })
+ljbsrJobs = lens _ljbsrJobs (\s a -> s { _ljbsrJobs = a }) . _List
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
@@ -148,7 +149,7 @@ instance AWSRequest ListJobsByStatus where
 
 instance FromJSON ListJobsByStatusResponse where
     parseJSON = withObject "ListJobsByStatusResponse" $ \o -> ListJobsByStatusResponse
-        <$> o .: "Jobs"
+        <$> o .:  "Jobs"
         <*> o .:? "NextPageToken"
 
 instance AWSPager ListJobsByStatus where

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
     { _uaoDomainName :: Text
     , _uaoMultiAZ    :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateAvailabilityOptions' constructor.
 --
@@ -83,7 +84,7 @@ uaoMultiAZ = lens _uaoMultiAZ (\s a -> s { _uaoMultiAZ = a })
 
 newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateAvailabilityOptionsResponse' constructor.
 --
@@ -105,7 +106,11 @@ uaorAvailabilityOptions =
 instance ToPath UpdateAvailabilityOptions where
     toPath = const "/"
 
-instance ToQuery UpdateAvailabilityOptions
+instance ToQuery UpdateAvailabilityOptions where
+    toQuery UpdateAvailabilityOptions{..} = mconcat
+        [ "DomainName" =? _uaoDomainName
+        , "MultiAZ"    =? _uaoMultiAZ
+        ]
 
 instance ToHeaders UpdateAvailabilityOptions
 
@@ -117,5 +122,5 @@ instance AWSRequest UpdateAvailabilityOptions where
     response = xmlResponse
 
 instance FromXML UpdateAvailabilityOptionsResponse where
-    parseXML = withElement "UpdateAvailabilityOptionsResult" $ \x ->
-            <$> x .@? "AvailabilityOptions"
+    parseXML = withElement "UpdateAvailabilityOptionsResult" $ \x -> UpdateAvailabilityOptionsResponse
+        <$> x .@? "AvailabilityOptions"

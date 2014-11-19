@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -68,7 +69,7 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume
     , _csscsivPreserveExistingData :: Bool
     , _csscsivSnapshotId           :: Maybe Text
     , _csscsivTargetName           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateStorediSCSIVolume' constructor.
 --
@@ -149,7 +150,7 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
     { _csscsivrTargetARN         :: Maybe Text
     , _csscsivrVolumeARN         :: Maybe Text
     , _csscsivrVolumeSizeInBytes :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateStorediSCSIVolumeResponse' constructor.
 --

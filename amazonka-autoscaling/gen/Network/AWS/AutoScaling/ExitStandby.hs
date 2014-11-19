@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import qualified GHC.Exts
 
 data ExitStandby = ExitStandby
     { _es1AutoScalingGroupName :: Text
-    , _es1InstanceIds          :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _es1InstanceIds          :: List "InstanceIds" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ExitStandby' constructor.
 --
@@ -76,11 +77,11 @@ es1AutoScalingGroupName =
 -- | A list of instances to move out of Standby mode. You must specify at
 -- least one instance ID.
 es1InstanceIds :: Lens' ExitStandby [Text]
-es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a })
+es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a }) . _List
 
 newtype ExitStandbyResponse = ExitStandbyResponse
-    { _esrActivities :: [Activity]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _esrActivities :: List "Activities" Activity
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ExitStandbyResponse where
     type Item ExitStandbyResponse = Activity
@@ -102,12 +103,16 @@ exitStandbyResponse = ExitStandbyResponse
 -- | A list describing the activities related to moving instances out of
 -- Standby mode.
 esrActivities :: Lens' ExitStandbyResponse [Activity]
-esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a })
+esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a }) . _List
 
 instance ToPath ExitStandby where
     toPath = const "/"
 
-instance ToQuery ExitStandby
+instance ToQuery ExitStandby where
+    toQuery ExitStandby{..} = mconcat
+        [ "AutoScalingGroupName" =? _es1AutoScalingGroupName
+        , "InstanceIds"          =? _es1InstanceIds
+        ]
 
 instance ToHeaders ExitStandby
 
@@ -119,5 +124,5 @@ instance AWSRequest ExitStandby where
     response = xmlResponse
 
 instance FromXML ExitStandbyResponse where
-    parseXML = withElement "ExitStandbyResult" $ \x ->
-            <$> x .@ "Activities"
+    parseXML = withElement "ExitStandbyResult" $ \x -> ExitStandbyResponse
+        <$> x .@  "Activities"

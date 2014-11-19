@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -75,7 +76,7 @@ data ModifyDBInstance = ModifyDBInstance
     , _mdbiDBInstanceClass            :: Maybe Text
     , _mdbiDBInstanceIdentifier       :: Text
     , _mdbiDBParameterGroupName       :: Maybe Text
-    , _mdbiDBSecurityGroups           :: [Text]
+    , _mdbiDBSecurityGroups           :: List "DBSecurityGroupName" Text
     , _mdbiEngineVersion              :: Maybe Text
     , _mdbiIops                       :: Maybe Int
     , _mdbiMasterUserPassword         :: Maybe Text
@@ -87,8 +88,8 @@ data ModifyDBInstance = ModifyDBInstance
     , _mdbiStorageType                :: Maybe Text
     , _mdbiTdeCredentialArn           :: Maybe Text
     , _mdbiTdeCredentialPassword      :: Maybe Text
-    , _mdbiVpcSecurityGroupIds        :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _mdbiVpcSecurityGroupIds        :: List "VpcSecurityGroupId" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ModifyDBInstance' constructor.
 --
@@ -292,6 +293,7 @@ mdbiDBParameterGroupName =
 mdbiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
 mdbiDBSecurityGroups =
     lens _mdbiDBSecurityGroups (\s a -> s { _mdbiDBSecurityGroups = a })
+        . _List
 
 -- | The version number of the database engine to upgrade to. Changing this
 -- parameter results in an outage and the change is applied during the next
@@ -435,10 +437,11 @@ mdbiTdeCredentialPassword =
 mdbiVpcSecurityGroupIds :: Lens' ModifyDBInstance [Text]
 mdbiVpcSecurityGroupIds =
     lens _mdbiVpcSecurityGroupIds (\s a -> s { _mdbiVpcSecurityGroupIds = a })
+        . _List
 
 newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
     { _mdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyDBInstanceResponse' constructor.
 --
@@ -457,7 +460,30 @@ mdbirDBInstance = lens _mdbirDBInstance (\s a -> s { _mdbirDBInstance = a })
 instance ToPath ModifyDBInstance where
     toPath = const "/"
 
-instance ToQuery ModifyDBInstance
+instance ToQuery ModifyDBInstance where
+    toQuery ModifyDBInstance{..} = mconcat
+        [ "AllocatedStorage"           =? _mdbiAllocatedStorage
+        , "AllowMajorVersionUpgrade"   =? _mdbiAllowMajorVersionUpgrade
+        , "ApplyImmediately"           =? _mdbiApplyImmediately
+        , "AutoMinorVersionUpgrade"    =? _mdbiAutoMinorVersionUpgrade
+        , "BackupRetentionPeriod"      =? _mdbiBackupRetentionPeriod
+        , "DBInstanceClass"            =? _mdbiDBInstanceClass
+        , "DBInstanceIdentifier"       =? _mdbiDBInstanceIdentifier
+        , "DBParameterGroupName"       =? _mdbiDBParameterGroupName
+        , "DBSecurityGroups"           =? _mdbiDBSecurityGroups
+        , "EngineVersion"              =? _mdbiEngineVersion
+        , "Iops"                       =? _mdbiIops
+        , "MasterUserPassword"         =? _mdbiMasterUserPassword
+        , "MultiAZ"                    =? _mdbiMultiAZ
+        , "NewDBInstanceIdentifier"    =? _mdbiNewDBInstanceIdentifier
+        , "OptionGroupName"            =? _mdbiOptionGroupName
+        , "PreferredBackupWindow"      =? _mdbiPreferredBackupWindow
+        , "PreferredMaintenanceWindow" =? _mdbiPreferredMaintenanceWindow
+        , "StorageType"                =? _mdbiStorageType
+        , "TdeCredentialArn"           =? _mdbiTdeCredentialArn
+        , "TdeCredentialPassword"      =? _mdbiTdeCredentialPassword
+        , "VpcSecurityGroupIds"        =? _mdbiVpcSecurityGroupIds
+        ]
 
 instance ToHeaders ModifyDBInstance
 
@@ -469,5 +495,5 @@ instance AWSRequest ModifyDBInstance where
     response = xmlResponse
 
 instance FromXML ModifyDBInstanceResponse where
-    parseXML = withElement "ModifyDBInstanceResult" $ \x ->
-            <$> x .@? "DBInstance"
+    parseXML = withElement "ModifyDBInstanceResult" $ \x -> ModifyDBInstanceResponse
+        <$> x .@? "DBInstance"

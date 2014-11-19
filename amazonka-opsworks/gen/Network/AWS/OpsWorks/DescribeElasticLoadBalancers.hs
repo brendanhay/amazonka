@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,9 +51,9 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
-    { _delbLayerIds :: [Text]
+    { _delbLayerIds :: List "InstanceIds" Text
     , _delbStackId  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeElasticLoadBalancers' constructor.
 --
@@ -71,7 +72,7 @@ describeElasticLoadBalancers = DescribeElasticLoadBalancers
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
 delbLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
-delbLayerIds = lens _delbLayerIds (\s a -> s { _delbLayerIds = a })
+delbLayerIds = lens _delbLayerIds (\s a -> s { _delbLayerIds = a }) . _List
 
 -- | A stack ID. The action describes the stack's Elastic Load Balancing
 -- instances.
@@ -79,8 +80,8 @@ delbStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
 delbStackId = lens _delbStackId (\s a -> s { _delbStackId = a })
 
 newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
-    { _delbrElasticLoadBalancers :: [ElasticLoadBalancer]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _delbrElasticLoadBalancers :: List "ElasticLoadBalancers" ElasticLoadBalancer
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeElasticLoadBalancersResponse where
     type Item DescribeElasticLoadBalancersResponse = ElasticLoadBalancer
@@ -105,6 +106,7 @@ delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [Elastic
 delbrElasticLoadBalancers =
     lens _delbrElasticLoadBalancers
         (\s a -> s { _delbrElasticLoadBalancers = a })
+            . _List
 
 instance ToPath DescribeElasticLoadBalancers where
     toPath = const "/"
@@ -129,4 +131,4 @@ instance AWSRequest DescribeElasticLoadBalancers where
 
 instance FromJSON DescribeElasticLoadBalancersResponse where
     parseJSON = withObject "DescribeElasticLoadBalancersResponse" $ \o -> DescribeElasticLoadBalancersResponse
-        <$> o .: "ElasticLoadBalancers"
+        <$> o .:  "ElasticLoadBalancers"

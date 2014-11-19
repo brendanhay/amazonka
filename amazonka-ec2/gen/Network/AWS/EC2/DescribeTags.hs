@@ -56,7 +56,7 @@ data DescribeTags = DescribeTags
     , _dtFilters    :: List "Filter" Filter
     , _dtMaxResults :: Maybe Int
     , _dtNextToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeTags' constructor.
 --
@@ -88,8 +88,7 @@ dtDryRun = lens _dtDryRun (\s a -> s { _dtDryRun = a })
 -- spot-instances-request | subnet | volume | vpc | vpn-connection |
 -- vpn-gateway). value - The tag value.
 dtFilters :: Lens' DescribeTags [Filter]
-dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a })
-    . _List
+dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a }) . _List
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the next
@@ -106,7 +105,7 @@ dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrNextToken :: Maybe Text
     , _dtrTags      :: List "item" TagDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeTagsResponse' constructor.
 --
@@ -129,13 +128,18 @@ dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
 -- | A list of tags.
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
-    . _List
+dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a }) . _List
 
 instance ToPath DescribeTags where
     toPath = const "/"
 
-instance ToQuery DescribeTags
+instance ToQuery DescribeTags where
+    toQuery DescribeTags{..} = mconcat
+        [ "dryRun"     =? _dtDryRun
+        , "Filter"     =? _dtFilters
+        , "maxResults" =? _dtMaxResults
+        , "nextToken"  =? _dtNextToken
+        ]
 
 instance ToHeaders DescribeTags
 
@@ -149,7 +153,7 @@ instance AWSRequest DescribeTags where
 instance FromXML DescribeTagsResponse where
     parseXML x = DescribeTagsResponse
         <$> x .@? "nextToken"
-        <*> x .@ "tagSet"
+        <*> x .@  "tagSet"
 
 instance AWSPager DescribeTags where
     next rq rs = (\x -> rq & dtNextToken ?~ x)

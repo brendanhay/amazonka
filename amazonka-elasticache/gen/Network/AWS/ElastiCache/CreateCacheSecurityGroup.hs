@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup
     { _ccsgCacheSecurityGroupName :: Text
     , _ccsgDescription            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateCacheSecurityGroup' constructor.
 --
@@ -85,7 +86,7 @@ ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
 
 newtype CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
     { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateCacheSecurityGroupResponse' constructor.
 --
@@ -105,7 +106,11 @@ ccsgrCacheSecurityGroup =
 instance ToPath CreateCacheSecurityGroup where
     toPath = const "/"
 
-instance ToQuery CreateCacheSecurityGroup
+instance ToQuery CreateCacheSecurityGroup where
+    toQuery CreateCacheSecurityGroup{..} = mconcat
+        [ "CacheSecurityGroupName" =? _ccsgCacheSecurityGroupName
+        , "Description"            =? _ccsgDescription
+        ]
 
 instance ToHeaders CreateCacheSecurityGroup
 
@@ -117,5 +122,5 @@ instance AWSRequest CreateCacheSecurityGroup where
     response = xmlResponse
 
 instance FromXML CreateCacheSecurityGroupResponse where
-    parseXML = withElement "CreateCacheSecurityGroupResult" $ \x ->
-            <$> x .@? "CacheSecurityGroup"
+    parseXML = withElement "CreateCacheSecurityGroupResult" $ \x -> CreateCacheSecurityGroupResponse
+        <$> x .@? "CacheSecurityGroup"

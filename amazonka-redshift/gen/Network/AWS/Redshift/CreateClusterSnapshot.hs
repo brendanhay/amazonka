@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data CreateClusterSnapshot = CreateClusterSnapshot
     { _ccsClusterIdentifier  :: Text
     , _ccsSnapshotIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateClusterSnapshot' constructor.
 --
@@ -85,7 +86,7 @@ ccsSnapshotIdentifier =
 
 newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsr1Snapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateClusterSnapshotResponse' constructor.
 --
@@ -104,7 +105,11 @@ ccsr1Snapshot = lens _ccsr1Snapshot (\s a -> s { _ccsr1Snapshot = a })
 instance ToPath CreateClusterSnapshot where
     toPath = const "/"
 
-instance ToQuery CreateClusterSnapshot
+instance ToQuery CreateClusterSnapshot where
+    toQuery CreateClusterSnapshot{..} = mconcat
+        [ "ClusterIdentifier"  =? _ccsClusterIdentifier
+        , "SnapshotIdentifier" =? _ccsSnapshotIdentifier
+        ]
 
 instance ToHeaders CreateClusterSnapshot
 
@@ -116,5 +121,5 @@ instance AWSRequest CreateClusterSnapshot where
     response = xmlResponse
 
 instance FromXML CreateClusterSnapshotResponse where
-    parseXML = withElement "CreateClusterSnapshotResult" $ \x ->
-            <$> x .@? "Snapshot"
+    parseXML = withElement "CreateClusterSnapshotResult" $ \x -> CreateClusterSnapshotResponse
+        <$> x .@? "Snapshot"

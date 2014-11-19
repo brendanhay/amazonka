@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data ListGroupPolicies = ListGroupPolicies
     { _lgpGroupName :: Text
     , _lgpMarker    :: Maybe Text
     , _lgpMaxItems  :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListGroupPolicies' constructor.
 --
@@ -90,14 +91,13 @@ lgpMarker = lens _lgpMarker (\s a -> s { _lgpMarker = a })
 -- true. This parameter is optional. If you do not include it, it defaults
 -- to 100.
 lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
-lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a })
-    . mapping _Nat
+lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a }) . mapping _Nat
 
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprIsTruncated :: Maybe Bool
     , _lgprMarker      :: Maybe Text
-    , _lgprPolicyNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _lgprPolicyNames :: List "PolicyNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListGroupPoliciesResponse' constructor.
 --
@@ -130,12 +130,17 @@ lgprMarker = lens _lgprMarker (\s a -> s { _lgprMarker = a })
 
 -- | A list of policy names.
 lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
-lgprPolicyNames = lens _lgprPolicyNames (\s a -> s { _lgprPolicyNames = a })
+lgprPolicyNames = lens _lgprPolicyNames (\s a -> s { _lgprPolicyNames = a }) . _List
 
 instance ToPath ListGroupPolicies where
     toPath = const "/"
 
-instance ToQuery ListGroupPolicies
+instance ToQuery ListGroupPolicies where
+    toQuery ListGroupPolicies{..} = mconcat
+        [ "GroupName" =? _lgpGroupName
+        , "Marker"    =? _lgpMarker
+        , "MaxItems"  =? _lgpMaxItems
+        ]
 
 instance ToHeaders ListGroupPolicies
 
@@ -147,10 +152,10 @@ instance AWSRequest ListGroupPolicies where
     response = xmlResponse
 
 instance FromXML ListGroupPoliciesResponse where
-    parseXML = withElement "ListGroupPoliciesResult" $ \x ->
-            <$> x .@? "IsTruncated"
-            <*> x .@? "Marker"
-            <*> x .@ "PolicyNames"
+    parseXML = withElement "ListGroupPoliciesResult" $ \x -> ListGroupPoliciesResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@  "PolicyNames"
 
 instance AWSPager ListGroupPolicies where
     next rq rs

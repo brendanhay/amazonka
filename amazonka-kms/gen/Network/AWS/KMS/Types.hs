@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -126,7 +127,7 @@ data KeyMetadata = KeyMetadata
     , _kmEnabled      :: Maybe Bool
     , _kmKeyId        :: Text
     , _kmKeyUsage     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'KeyMetadata' constructor.
 --
@@ -168,8 +169,7 @@ kmArn = lens _kmArn (\s a -> s { _kmArn = a })
 
 -- | Date the key was created.
 kmCreationDate :: Lens' KeyMetadata (Maybe UTCTime)
-kmCreationDate = lens _kmCreationDate (\s a -> s { _kmCreationDate = a })
-    . mapping _Time
+kmCreationDate = lens _kmCreationDate (\s a -> s { _kmCreationDate = a }) . mapping _Time
 
 -- | The description of the key.
 kmDescription :: Lens' KeyMetadata (Maybe Text)
@@ -194,7 +194,7 @@ instance FromJSON KeyMetadata where
         <*> o .:? "CreationDate"
         <*> o .:? "Description"
         <*> o .:? "Enabled"
-        <*> o .: "KeyId"
+        <*> o .:  "KeyId"
         <*> o .:? "KeyUsage"
 
 instance ToJSON KeyMetadata where
@@ -231,9 +231,9 @@ instance ToJSON DataKeySpec where
     toJSON = toJSONText
 
 data GrantConstraints = GrantConstraints
-    { _gcEncryptionContextEquals :: Map Text Text
-    , _gcEncryptionContextSubset :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    { _gcEncryptionContextEquals :: Map "entry" "key" "value" Text Text
+    , _gcEncryptionContextSubset :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'GrantConstraints' constructor.
 --
@@ -266,8 +266,8 @@ gcEncryptionContextSubset =
 
 instance FromJSON GrantConstraints where
     parseJSON = withObject "GrantConstraints" $ \o -> GrantConstraints
-        <$> o .: "EncryptionContextEquals"
-        <*> o .: "EncryptionContextSubset"
+        <$> o .:  "EncryptionContextEquals"
+        <*> o .:  "EncryptionContextSubset"
 
 instance ToJSON GrantConstraints where
     toJSON GrantConstraints{..} = object
@@ -279,7 +279,7 @@ data AliasListEntry = AliasListEntry
     { _aleAliasArn    :: Maybe Text
     , _aleAliasName   :: Maybe Text
     , _aleTargetKeyId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AliasListEntry' constructor.
 --
@@ -328,9 +328,9 @@ data GrantListEntry = GrantListEntry
     , _gleGrantId           :: Maybe Text
     , _gleGranteePrincipal  :: Maybe Text
     , _gleIssuingAccount    :: Maybe Text
-    , _gleOperations        :: [Text]
+    , _gleOperations        :: List "Operations" Text
     , _gleRetiringPrincipal :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GrantListEntry' constructor.
 --
@@ -381,7 +381,7 @@ gleIssuingAccount =
 -- one or more of the following values: Decrypt Encrypt GenerateDataKey
 -- GenerateDataKeyWithoutPlaintext ReEncryptFrom ReEncryptTo CreateGrant.
 gleOperations :: Lens' GrantListEntry [Text]
-gleOperations = lens _gleOperations (\s a -> s { _gleOperations = a })
+gleOperations = lens _gleOperations (\s a -> s { _gleOperations = a }) . _List
 
 -- | The principal that can retire the account.
 gleRetiringPrincipal :: Lens' GrantListEntry (Maybe Text)
@@ -394,7 +394,7 @@ instance FromJSON GrantListEntry where
         <*> o .:? "GrantId"
         <*> o .:? "GranteePrincipal"
         <*> o .:? "IssuingAccount"
-        <*> o .: "Operations"
+        <*> o .:  "Operations"
         <*> o .:? "RetiringPrincipal"
 
 instance ToJSON GrantListEntry where
@@ -450,7 +450,7 @@ instance ToJSON GrantOperation where
 data KeyListEntry = KeyListEntry
     { _kleKeyArn :: Maybe Text
     , _kleKeyId  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'KeyListEntry' constructor.
 --

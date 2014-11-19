@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data UpdateSigningCertificate = UpdateSigningCertificate
     { _uscCertificateId :: Text
     , _uscStatus        :: Text
     , _uscUserName      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateSigningCertificate' constructor.
 --
@@ -101,7 +102,12 @@ updateSigningCertificateResponse = UpdateSigningCertificateResponse
 instance ToPath UpdateSigningCertificate where
     toPath = const "/"
 
-instance ToQuery UpdateSigningCertificate
+instance ToQuery UpdateSigningCertificate where
+    toQuery UpdateSigningCertificate{..} = mconcat
+        [ "CertificateId" =? _uscCertificateId
+        , "Status"        =? _uscStatus
+        , "UserName"      =? _uscUserName
+        ]
 
 instance ToHeaders UpdateSigningCertificate
 

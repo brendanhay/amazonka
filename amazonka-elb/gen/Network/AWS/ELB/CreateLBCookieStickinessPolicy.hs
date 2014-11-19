@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
     { _clbcspCookieExpirationPeriod :: Maybe Integer
     , _clbcspLoadBalancerName       :: Text
     , _clbcspPolicyName             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateLBCookieStickinessPolicy' constructor.
 --
@@ -110,7 +111,12 @@ createLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
 instance ToPath CreateLBCookieStickinessPolicy where
     toPath = const "/"
 
-instance ToQuery CreateLBCookieStickinessPolicy
+instance ToQuery CreateLBCookieStickinessPolicy where
+    toQuery CreateLBCookieStickinessPolicy{..} = mconcat
+        [ "CookieExpirationPeriod" =? _clbcspCookieExpirationPeriod
+        , "LoadBalancerName"       =? _clbcspLoadBalancerName
+        , "PolicyName"             =? _clbcspPolicyName
+        ]
 
 instance ToHeaders CreateLBCookieStickinessPolicy
 

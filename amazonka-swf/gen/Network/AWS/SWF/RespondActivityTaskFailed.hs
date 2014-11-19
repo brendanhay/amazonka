@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data RespondActivityTaskFailed = RespondActivityTaskFailed
     { _ratfDetails   :: Maybe Text
     , _ratfReason    :: Maybe Text
     , _ratfTaskToken :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RespondActivityTaskFailed' constructor.
 --

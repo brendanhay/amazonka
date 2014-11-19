@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ import Network.AWS.CloudSearch.Types
 import qualified GHC.Exts
 
 newtype DescribeDomains = DescribeDomains
-    { _ddDomainNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _ddDomainNames :: List "DomainNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDomains where
     type Item DescribeDomains = Text
@@ -73,11 +74,11 @@ describeDomains = DescribeDomains
 
 -- | The names of the domains you want to include in the response.
 ddDomainNames :: Lens' DescribeDomains [Text]
-ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a })
+ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a }) . _List
 
 newtype DescribeDomainsResponse = DescribeDomainsResponse
-    { _ddrDomainStatusList :: [DomainStatus]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ddrDomainStatusList :: List "DomainStatusList" DomainStatus
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDomainsResponse where
     type Item DescribeDomainsResponse = DomainStatus
@@ -99,11 +100,15 @@ describeDomainsResponse = DescribeDomainsResponse
 ddrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 ddrDomainStatusList =
     lens _ddrDomainStatusList (\s a -> s { _ddrDomainStatusList = a })
+        . _List
 
 instance ToPath DescribeDomains where
     toPath = const "/"
 
-instance ToQuery DescribeDomains
+instance ToQuery DescribeDomains where
+    toQuery DescribeDomains{..} = mconcat
+        [ "DomainNames" =? _ddDomainNames
+        ]
 
 instance ToHeaders DescribeDomains
 
@@ -115,5 +120,5 @@ instance AWSRequest DescribeDomains where
     response = xmlResponse
 
 instance FromXML DescribeDomainsResponse where
-    parseXML = withElement "DescribeDomainsResult" $ \x ->
-            <$> x .@ "DomainStatusList"
+    parseXML = withElement "DescribeDomainsResult" $ \x -> DescribeDomainsResponse
+        <$> x .@  "DomainStatusList"

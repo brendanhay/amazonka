@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -120,7 +121,7 @@ data DomainSummary = DomainSummary
     , _dsDomainName   :: Text
     , _dsExpiry       :: Maybe RFC822
     , _dsTransferLock :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DomainSummary' constructor.
 --
@@ -155,8 +156,7 @@ dsDomainName = lens _dsDomainName (\s a -> s { _dsDomainName = a })
 -- | Expiration date of the domain in Coordinated Universal Time (UTC). Type:
 -- Long.
 dsExpiry :: Lens' DomainSummary (Maybe UTCTime)
-dsExpiry = lens _dsExpiry (\s a -> s { _dsExpiry = a })
-    . mapping _Time
+dsExpiry = lens _dsExpiry (\s a -> s { _dsExpiry = a }) . mapping _Time
 
 -- | Indicates whether a domain is locked from unauthorized transfer to
 -- another party. Type: Boolean Valid values: True | False.
@@ -166,7 +166,7 @@ dsTransferLock = lens _dsTransferLock (\s a -> s { _dsTransferLock = a })
 instance FromJSON DomainSummary where
     parseJSON = withObject "DomainSummary" $ \o -> DomainSummary
         <$> o .:? "AutoRenew"
-        <*> o .: "DomainName"
+        <*> o .:  "DomainName"
         <*> o .:? "Expiry"
         <*> o .:? "TransferLock"
 
@@ -246,9 +246,9 @@ instance ToJSON ExtraParamName where
     toJSON = toJSONText
 
 data Nameserver = Nameserver
-    { _nGlueIps :: [Text]
+    { _nGlueIps :: List "GlueIps" Text
     , _nName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Nameserver' constructor.
 --
@@ -272,7 +272,7 @@ nameserver p1 = Nameserver
 -- Type: List of IP addresses. Constraints: The list can contain only one
 -- IPv4 and one IPv6 address. Parent: Nameservers.
 nGlueIps :: Lens' Nameserver [Text]
-nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a })
+nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a }) . _List
 
 -- | The fully qualified host name of the name server. Type: String
 -- Constraint: Maximum 255 characterss Parent: Nameservers.
@@ -281,8 +281,8 @@ nName = lens _nName (\s a -> s { _nName = a })
 
 instance FromJSON Nameserver where
     parseJSON = withObject "Nameserver" $ \o -> Nameserver
-        <$> o .: "GlueIps"
-        <*> o .: "Name"
+        <$> o .:  "GlueIps"
+        <*> o .:  "Name"
 
 instance ToJSON Nameserver where
     toJSON Nameserver{..} = object
@@ -1101,7 +1101,7 @@ instance ToJSON CountryCode where
 data ExtraParam = ExtraParam
     { _epName  :: Text
     , _epValue :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ExtraParam' constructor.
 --
@@ -1137,8 +1137,8 @@ epValue = lens _epValue (\s a -> s { _epValue = a })
 
 instance FromJSON ExtraParam where
     parseJSON = withObject "ExtraParam" $ \o -> ExtraParam
-        <$> o .: "Name"
-        <*> o .: "Value"
+        <$> o .:  "Name"
+        <*> o .:  "Value"
 
 instance ToJSON ExtraParam where
     toJSON ExtraParam{..} = object
@@ -1184,7 +1184,7 @@ data ContactDetail = ContactDetail
     , _cdContactType      :: Maybe Text
     , _cdCountryCode      :: Maybe Text
     , _cdEmail            :: Maybe Text
-    , _cdExtraParams      :: [ExtraParam]
+    , _cdExtraParams      :: List "ExtraParams" ExtraParam
     , _cdFax              :: Maybe Text
     , _cdFirstName        :: Maybe Text
     , _cdLastName         :: Maybe Text
@@ -1192,7 +1192,7 @@ data ContactDetail = ContactDetail
     , _cdPhoneNumber      :: Maybe Text
     , _cdState            :: Maybe Text
     , _cdZipCode          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ContactDetail' constructor.
 --
@@ -1287,7 +1287,7 @@ cdEmail = lens _cdEmail (\s a -> s { _cdEmail = a })
 -- domains. Type: Complex Default: None Parents: RegistrantContact,
 -- AdminContact, TechContact Children: Name, Value Required: No.
 cdExtraParams :: Lens' ContactDetail [ExtraParam]
-cdExtraParams = lens _cdExtraParams (\s a -> s { _cdExtraParams = a })
+cdExtraParams = lens _cdExtraParams (\s a -> s { _cdExtraParams = a }) . _List
 
 -- | Fax number of the contact. Type: String Default: None Constraints: Phone
 -- number must be specified in the format "+[country dialing code].[number
@@ -1345,7 +1345,7 @@ instance FromJSON ContactDetail where
         <*> o .:? "ContactType"
         <*> o .:? "CountryCode"
         <*> o .:? "Email"
-        <*> o .: "ExtraParams"
+        <*> o .:  "ExtraParams"
         <*> o .:? "Fax"
         <*> o .:? "FirstName"
         <*> o .:? "LastName"
@@ -1377,7 +1377,7 @@ data OperationSummary = OperationSummary
     , _osStatus        :: Text
     , _osSubmittedDate :: RFC822
     , _osType          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'OperationSummary' constructor.
 --
@@ -1414,8 +1414,7 @@ osStatus = lens _osStatus (\s a -> s { _osStatus = a })
 
 -- | The date when the request was submitted.
 osSubmittedDate :: Lens' OperationSummary UTCTime
-osSubmittedDate = lens _osSubmittedDate (\s a -> s { _osSubmittedDate = a })
-    . _Time
+osSubmittedDate = lens _osSubmittedDate (\s a -> s { _osSubmittedDate = a }) . _Time
 
 -- | Type of the action requested. Type: String Valid values: REGISTER_DOMAIN
 -- | DELETE_DOMAIN | TRANSFER_IN_DOMAIN | UPDATE_DOMAIN_CONTACT |
@@ -1425,10 +1424,10 @@ osType = lens _osType (\s a -> s { _osType = a })
 
 instance FromJSON OperationSummary where
     parseJSON = withObject "OperationSummary" $ \o -> OperationSummary
-        <$> o .: "OperationId"
-        <*> o .: "Status"
-        <*> o .: "SubmittedDate"
-        <*> o .: "Type"
+        <$> o .:  "OperationId"
+        <*> o .:  "Status"
+        <*> o .:  "SubmittedDate"
+        <*> o .:  "Type"
 
 instance ToJSON OperationSummary where
     toJSON OperationSummary{..} = object

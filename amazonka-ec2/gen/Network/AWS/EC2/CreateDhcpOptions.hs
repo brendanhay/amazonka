@@ -72,7 +72,7 @@ import qualified GHC.Exts
 data CreateDhcpOptions = CreateDhcpOptions
     { _cdoDhcpConfigurations :: List "item" NewDhcpConfiguration
     , _cdoDryRun             :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDhcpOptions' constructor.
 --
@@ -99,7 +99,7 @@ cdoDryRun = lens _cdoDryRun (\s a -> s { _cdoDryRun = a })
 
 newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions :: Maybe DhcpOptions
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDhcpOptionsResponse' constructor.
 --
@@ -119,7 +119,11 @@ cdorDhcpOptions = lens _cdorDhcpOptions (\s a -> s { _cdorDhcpOptions = a })
 instance ToPath CreateDhcpOptions where
     toPath = const "/"
 
-instance ToQuery CreateDhcpOptions
+instance ToQuery CreateDhcpOptions where
+    toQuery CreateDhcpOptions{..} = mconcat
+        [ "dhcpConfiguration" =? _cdoDhcpConfigurations
+        , "dryRun"            =? _cdoDryRun
+        ]
 
 instance ToHeaders CreateDhcpOptions
 

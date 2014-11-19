@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ listOpenIDConnectProviders :: ListOpenIDConnectProviders
 listOpenIDConnectProviders = ListOpenIDConnectProviders
 
 newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
-    { _loidcprOpenIDConnectProviderList :: [OpenIDConnectProviderListEntry]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _loidcprOpenIDConnectProviderList :: List "OpenIDConnectProviderList" OpenIDConnectProviderListEntry
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListOpenIDConnectProvidersResponse where
     type Item ListOpenIDConnectProvidersResponse = OpenIDConnectProviderListEntry
@@ -75,6 +76,7 @@ loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [Op
 loidcprOpenIDConnectProviderList =
     lens _loidcprOpenIDConnectProviderList
         (\s a -> s { _loidcprOpenIDConnectProviderList = a })
+            . _List
 
 instance ToPath ListOpenIDConnectProviders where
     toPath = const "/"
@@ -92,5 +94,5 @@ instance AWSRequest ListOpenIDConnectProviders where
     response = xmlResponse
 
 instance FromXML ListOpenIDConnectProvidersResponse where
-    parseXML = withElement "ListOpenIDConnectProvidersResult" $ \x ->
-            <$> x .@ "OpenIDConnectProviderList"
+    parseXML = withElement "ListOpenIDConnectProvidersResult" $ \x -> ListOpenIDConnectProvidersResponse
+        <$> x .@  "OpenIDConnectProviderList"

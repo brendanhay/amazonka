@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
-    { _givaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _givaIdentities :: List "Identities" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetIdentityVerificationAttributes where
     type Item GetIdentityVerificationAttributes = Text
@@ -69,11 +70,11 @@ getIdentityVerificationAttributes = GetIdentityVerificationAttributes
 
 -- | A list of identities.
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
-givaIdentities = lens _givaIdentities (\s a -> s { _givaIdentities = a })
+givaIdentities = lens _givaIdentities (\s a -> s { _givaIdentities = a }) . _List
 
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
-    { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _givarVerificationAttributes :: Map "entry" "key" "value" Text IdentityVerificationAttributes
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetIdentityVerificationAttributesResponse' constructor.
 --
@@ -96,7 +97,10 @@ givarVerificationAttributes =
 instance ToPath GetIdentityVerificationAttributes where
     toPath = const "/"
 
-instance ToQuery GetIdentityVerificationAttributes
+instance ToQuery GetIdentityVerificationAttributes where
+    toQuery GetIdentityVerificationAttributes{..} = mconcat
+        [ "Identities" =? _givaIdentities
+        ]
 
 instance ToHeaders GetIdentityVerificationAttributes
 
@@ -108,5 +112,5 @@ instance AWSRequest GetIdentityVerificationAttributes where
     response = xmlResponse
 
 instance FromXML GetIdentityVerificationAttributesResponse where
-    parseXML = withElement "GetIdentityVerificationAttributesResult" $ \x ->
-            <$> x .@ "VerificationAttributes"
+    parseXML = withElement "GetIdentityVerificationAttributesResult" $ \x -> GetIdentityVerificationAttributesResponse
+        <$> x .@  "VerificationAttributes"

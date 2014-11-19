@@ -51,7 +51,7 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute
     { _rsaAttribute  :: Text
     , _rsaDryRun     :: Maybe Bool
     , _rsaSnapshotId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ResetSnapshotAttribute' constructor.
 --
@@ -94,7 +94,12 @@ resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 instance ToPath ResetSnapshotAttribute where
     toPath = const "/"
 
-instance ToQuery ResetSnapshotAttribute
+instance ToQuery ResetSnapshotAttribute where
+    toQuery ResetSnapshotAttribute{..} = mconcat
+        [ "Attribute"  =? _rsaAttribute
+        , "dryRun"     =? _rsaDryRun
+        , "SnapshotId" =? _rsaSnapshotId
+        ]
 
 instance ToHeaders ResetSnapshotAttribute
 

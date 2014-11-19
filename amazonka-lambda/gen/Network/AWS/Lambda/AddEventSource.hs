@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -70,9 +71,9 @@ data AddEventSource = AddEventSource
     { _aesBatchSize    :: Maybe Int
     , _aesEventSource  :: Text
     , _aesFunctionName :: Text
-    , _aesParameters   :: Map Text Text
+    , _aesParameters   :: Map "entry" "key" "value" Text Text
     , _aesRole         :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AddEventSource' constructor.
 --
@@ -123,8 +124,7 @@ aesFunctionName = lens _aesFunctionName (\s a -> s { _aesFunctionName = a })
 -- "LATEST". The default value is "TRIM_HORIZON". For more information, go
 -- to ShardIteratorType in the Amazon Kinesis Service API Reference.
 aesParameters :: Lens' AddEventSource (HashMap Text Text)
-aesParameters = lens _aesParameters (\s a -> s { _aesParameters = a })
-    . _Map
+aesParameters = lens _aesParameters (\s a -> s { _aesParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to
 -- read from the stream and invoke the function.
@@ -137,11 +137,11 @@ data AddEventSourceResponse = AddEventSourceResponse
     , _aesrFunctionName :: Maybe Text
     , _aesrIsActive     :: Maybe Bool
     , _aesrLastModified :: Maybe RFC822
-    , _aesrParameters   :: Map Text Text
+    , _aesrParameters   :: Map "entry" "key" "value" Text Text
     , _aesrRole         :: Maybe Text
     , _aesrStatus       :: Maybe Text
     , _aesrUUID         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AddEventSourceResponse' constructor.
 --
@@ -201,14 +201,12 @@ aesrIsActive = lens _aesrIsActive (\s a -> s { _aesrIsActive = a })
 -- | The UTC time string indicating the last time the event mapping was
 -- updated.
 aesrLastModified :: Lens' AddEventSourceResponse (Maybe UTCTime)
-aesrLastModified = lens _aesrLastModified (\s a -> s { _aesrLastModified = a })
-    . mapping _Time
+aesrLastModified = lens _aesrLastModified (\s a -> s { _aesrLastModified = a }) . mapping _Time
 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to
 -- use when reading the event source.
 aesrParameters :: Lens' AddEventSourceResponse (HashMap Text Text)
-aesrParameters = lens _aesrParameters (\s a -> s { _aesrParameters = a })
-    . _Map
+aesrParameters = lens _aesrParameters (\s a -> s { _aesrParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to
 -- read from the stream and invoke the function.
@@ -257,7 +255,7 @@ instance FromJSON AddEventSourceResponse where
         <*> o .:? "FunctionName"
         <*> o .:? "IsActive"
         <*> o .:? "LastModified"
-        <*> o .: "Parameters"
+        <*> o .:  "Parameters"
         <*> o .:? "Role"
         <*> o .:? "Status"
         <*> o .:? "UUID"

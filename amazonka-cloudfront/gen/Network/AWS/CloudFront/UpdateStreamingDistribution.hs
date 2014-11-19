@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
     { _usdId                          :: Text
     , _usdIfMatch                     :: Maybe Text
     , _usdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateStreamingDistribution' constructor.
 --
@@ -90,7 +91,7 @@ usdStreamingDistributionConfig =
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
     { _usdrETag                  :: Maybe Text
     , _usdrStreamingDistribution :: Maybe StreamingDistribution
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateStreamingDistributionResponse' constructor.
 --

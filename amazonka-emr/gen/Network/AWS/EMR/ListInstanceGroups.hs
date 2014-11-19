@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data ListInstanceGroups = ListInstanceGroups
     { _ligClusterId :: Text
     , _ligMarker    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListInstanceGroups' constructor.
 --
@@ -75,9 +76,9 @@ ligMarker :: Lens' ListInstanceGroups (Maybe Text)
 ligMarker = lens _ligMarker (\s a -> s { _ligMarker = a })
 
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse
-    { _ligrInstanceGroups :: [InstanceGroup]
+    { _ligrInstanceGroups :: List "InstanceGroups" InstanceGroup
     , _ligrMarker         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListInstanceGroupsResponse' constructor.
 --
@@ -97,6 +98,7 @@ listInstanceGroupsResponse = ListInstanceGroupsResponse
 ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
 ligrInstanceGroups =
     lens _ligrInstanceGroups (\s a -> s { _ligrInstanceGroups = a })
+        . _List
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
@@ -125,7 +127,7 @@ instance AWSRequest ListInstanceGroups where
 
 instance FromJSON ListInstanceGroupsResponse where
     parseJSON = withObject "ListInstanceGroupsResponse" $ \o -> ListInstanceGroupsResponse
-        <$> o .: "InstanceGroups"
+        <$> o .:  "InstanceGroups"
         <*> o .:? "Marker"
 
 instance AWSPager ListInstanceGroups where

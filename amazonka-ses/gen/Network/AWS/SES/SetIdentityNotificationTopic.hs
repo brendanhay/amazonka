@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintIdentity         :: Text
     , _sintNotificationType :: Text
     , _sintSnsTopic         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetIdentityNotificationTopic' constructor.
 --
@@ -101,7 +102,12 @@ setIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 instance ToPath SetIdentityNotificationTopic where
     toPath = const "/"
 
-instance ToQuery SetIdentityNotificationTopic
+instance ToQuery SetIdentityNotificationTopic where
+    toQuery SetIdentityNotificationTopic{..} = mconcat
+        [ "Identity"         =? _sintIdentity
+        , "NotificationType" =? _sintNotificationType
+        , "SnsTopic"         =? _sintSnsTopic
+        ]
 
 instance ToHeaders SetIdentityNotificationTopic
 

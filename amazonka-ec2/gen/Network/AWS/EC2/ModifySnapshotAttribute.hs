@@ -62,7 +62,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     , _msaOperationType          :: Maybe Text
     , _msaSnapshotId             :: Text
     , _msaUserIds                :: List "UserId" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifySnapshotAttribute' constructor.
 --
@@ -109,8 +109,7 @@ msaDryRun = lens _msaDryRun (\s a -> s { _msaDryRun = a })
 
 -- | The group to modify for the snapshot.
 msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
-msaGroupNames = lens _msaGroupNames (\s a -> s { _msaGroupNames = a })
-    . _List
+msaGroupNames = lens _msaGroupNames (\s a -> s { _msaGroupNames = a }) . _List
 
 -- | The type of operation to perform to the attribute.
 msaOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
@@ -122,8 +121,7 @@ msaSnapshotId = lens _msaSnapshotId (\s a -> s { _msaSnapshotId = a })
 
 -- | The account ID to modify for the snapshot.
 msaUserIds :: Lens' ModifySnapshotAttribute [Text]
-msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a })
-    . _List
+msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a }) . _List
 
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
     deriving (Eq, Ord, Show, Generic)
@@ -135,7 +133,16 @@ modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 instance ToPath ModifySnapshotAttribute where
     toPath = const "/"
 
-instance ToQuery ModifySnapshotAttribute
+instance ToQuery ModifySnapshotAttribute where
+    toQuery ModifySnapshotAttribute{..} = mconcat
+        [ "Attribute"              =? _msaAttribute
+        , "CreateVolumePermission" =? _msaCreateVolumePermission
+        , "dryRun"                 =? _msaDryRun
+        , "UserGroup"              =? _msaGroupNames
+        , "OperationType"          =? _msaOperationType
+        , "SnapshotId"             =? _msaSnapshotId
+        , "UserId"                 =? _msaUserIds
+        ]
 
 instance ToHeaders ModifySnapshotAttribute
 

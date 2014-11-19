@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeletePlacementGroup = DeletePlacementGroup
     { _dpgDryRun    :: Maybe Bool
     , _dpgGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeletePlacementGroup' constructor.
 --
@@ -84,7 +84,11 @@ deletePlacementGroupResponse = DeletePlacementGroupResponse
 instance ToPath DeletePlacementGroup where
     toPath = const "/"
 
-instance ToQuery DeletePlacementGroup
+instance ToQuery DeletePlacementGroup where
+    toQuery DeletePlacementGroup{..} = mconcat
+        [ "dryRun"    =? _dpgDryRun
+        , "groupName" =? _dpgGroupName
+        ]
 
 instance ToHeaders DeletePlacementGroup
 

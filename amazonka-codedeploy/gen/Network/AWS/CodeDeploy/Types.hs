@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -237,12 +238,12 @@ instance AWSService CodeDeploy where
     handle = jsonError alwaysFail
 
 data GenericRevisionInfo = GenericRevisionInfo
-    { _griDeploymentGroups :: [Text]
+    { _griDeploymentGroups :: List "deploymentGroups" Text
     , _griDescription      :: Maybe Text
     , _griFirstUsedTime    :: Maybe RFC822
     , _griLastUsedTime     :: Maybe RFC822
     , _griRegisterTime     :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GenericRevisionInfo' constructor.
 --
@@ -271,6 +272,7 @@ genericRevisionInfo = GenericRevisionInfo
 griDeploymentGroups :: Lens' GenericRevisionInfo [Text]
 griDeploymentGroups =
     lens _griDeploymentGroups (\s a -> s { _griDeploymentGroups = a })
+        . _List
 
 -- | A comment about the revision.
 griDescription :: Lens' GenericRevisionInfo (Maybe Text)
@@ -278,22 +280,19 @@ griDescription = lens _griDescription (\s a -> s { _griDescription = a })
 
 -- | When the revision was first used by AWS CodeDeploy.
 griFirstUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
-griFirstUsedTime = lens _griFirstUsedTime (\s a -> s { _griFirstUsedTime = a })
-    . mapping _Time
+griFirstUsedTime = lens _griFirstUsedTime (\s a -> s { _griFirstUsedTime = a }) . mapping _Time
 
 -- | When the revision was last used by AWS CodeDeploy.
 griLastUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
-griLastUsedTime = lens _griLastUsedTime (\s a -> s { _griLastUsedTime = a })
-    . mapping _Time
+griLastUsedTime = lens _griLastUsedTime (\s a -> s { _griLastUsedTime = a }) . mapping _Time
 
 -- | When the revision was registered with AWS CodeDeploy.
 griRegisterTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
-griRegisterTime = lens _griRegisterTime (\s a -> s { _griRegisterTime = a })
-    . mapping _Time
+griRegisterTime = lens _griRegisterTime (\s a -> s { _griRegisterTime = a }) . mapping _Time
 
 instance FromJSON GenericRevisionInfo where
     parseJSON = withObject "GenericRevisionInfo" $ \o -> GenericRevisionInfo
-        <$> o .: "deploymentGroups"
+        <$> o .:  "deploymentGroups"
         <*> o .:? "description"
         <*> o .:? "firstUsedTime"
         <*> o .:? "lastUsedTime"
@@ -313,7 +312,7 @@ data ApplicationInfo = ApplicationInfo
     , _aiApplicationName :: Maybe Text
     , _aiCreateTime      :: Maybe RFC822
     , _aiLinkedToGitHub  :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ApplicationInfo' constructor.
 --
@@ -346,8 +345,7 @@ aiApplicationName =
 
 -- | The time that the application was created.
 aiCreateTime :: Lens' ApplicationInfo (Maybe UTCTime)
-aiCreateTime = lens _aiCreateTime (\s a -> s { _aiCreateTime = a })
-    . mapping _Time
+aiCreateTime = lens _aiCreateTime (\s a -> s { _aiCreateTime = a }) . mapping _Time
 
 -- | True if the user has authenticated with GitHub for the specified
 -- application; otherwise, false.
@@ -397,7 +395,7 @@ instance ToJSON BundleType where
 data TimeRange = TimeRange
     { _trEnd   :: Maybe RFC822
     , _trStart :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TimeRange' constructor.
 --
@@ -416,14 +414,12 @@ timeRange = TimeRange
 -- | The time range's end time. Specify null to leave the time range's end
 -- time open-ended.
 trEnd :: Lens' TimeRange (Maybe UTCTime)
-trEnd = lens _trEnd (\s a -> s { _trEnd = a })
-    . mapping _Time
+trEnd = lens _trEnd (\s a -> s { _trEnd = a }) . mapping _Time
 
 -- | The time range's start time. Specify null to leave the time range's start
 -- time open-ended.
 trStart :: Lens' TimeRange (Maybe UTCTime)
-trStart = lens _trStart (\s a -> s { _trStart = a })
-    . mapping _Time
+trStart = lens _trStart (\s a -> s { _trStart = a }) . mapping _Time
 
 instance FromJSON TimeRange where
     parseJSON = withObject "TimeRange" $ \o -> TimeRange
@@ -462,9 +458,9 @@ data InstanceSummary = InstanceSummary
     { _isDeploymentId    :: Maybe Text
     , _isInstanceId      :: Maybe Text
     , _isLastUpdatedAt   :: Maybe RFC822
-    , _isLifecycleEvents :: [LifecycleEvent]
+    , _isLifecycleEvents :: List "lifecycleEvents" LifecycleEvent
     , _isStatus          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'InstanceSummary' constructor.
 --
@@ -499,13 +495,13 @@ isInstanceId = lens _isInstanceId (\s a -> s { _isInstanceId = a })
 
 -- | A timestamp indicating when the instance information was last updated.
 isLastUpdatedAt :: Lens' InstanceSummary (Maybe UTCTime)
-isLastUpdatedAt = lens _isLastUpdatedAt (\s a -> s { _isLastUpdatedAt = a })
-    . mapping _Time
+isLastUpdatedAt = lens _isLastUpdatedAt (\s a -> s { _isLastUpdatedAt = a }) . mapping _Time
 
 -- | A list of lifecycle events for this instance.
 isLifecycleEvents :: Lens' InstanceSummary [LifecycleEvent]
 isLifecycleEvents =
     lens _isLifecycleEvents (\s a -> s { _isLifecycleEvents = a })
+        . _List
 
 -- | The deployment status for this instance: Pending: The deployment is
 -- pending for this instance. In Progress: The deployment is in progress for
@@ -521,7 +517,7 @@ instance FromJSON InstanceSummary where
         <$> o .:? "deploymentId"
         <*> o .:? "instanceId"
         <*> o .:? "lastUpdatedAt"
-        <*> o .: "lifecycleEvents"
+        <*> o .:  "lifecycleEvents"
         <*> o .:? "status"
 
 instance ToJSON InstanceSummary where
@@ -536,7 +532,7 @@ instance ToJSON InstanceSummary where
 data AutoScalingGroup = AutoScalingGroup
     { _asgHook :: Maybe Text
     , _asgName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AutoScalingGroup' constructor.
 --
@@ -573,14 +569,14 @@ instance ToJSON AutoScalingGroup where
 
 data DeploymentGroupInfo = DeploymentGroupInfo
     { _dgiApplicationName      :: Maybe Text
-    , _dgiAutoScalingGroups    :: [AutoScalingGroup]
+    , _dgiAutoScalingGroups    :: List "autoScalingGroups" AutoScalingGroup
     , _dgiDeploymentConfigName :: Maybe Text
     , _dgiDeploymentGroupId    :: Maybe Text
     , _dgiDeploymentGroupName  :: Maybe Text
-    , _dgiEc2TagFilters        :: [EC2TagFilter]
+    , _dgiEc2TagFilters        :: List "ec2TagFilters" EC2TagFilter
     , _dgiServiceRoleArn       :: Maybe Text
     , _dgiTargetRevision       :: Maybe RevisionLocation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeploymentGroupInfo' constructor.
 --
@@ -623,6 +619,7 @@ dgiApplicationName =
 dgiAutoScalingGroups :: Lens' DeploymentGroupInfo [AutoScalingGroup]
 dgiAutoScalingGroups =
     lens _dgiAutoScalingGroups (\s a -> s { _dgiAutoScalingGroups = a })
+        . _List
 
 -- | The deployment configuration name.
 dgiDeploymentConfigName :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -641,7 +638,7 @@ dgiDeploymentGroupName =
 
 -- | The Amazon EC2 tags to filter on.
 dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
-dgiEc2TagFilters = lens _dgiEc2TagFilters (\s a -> s { _dgiEc2TagFilters = a })
+dgiEc2TagFilters = lens _dgiEc2TagFilters (\s a -> s { _dgiEc2TagFilters = a }) . _List
 
 -- | A service role ARN.
 dgiServiceRoleArn :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -657,11 +654,11 @@ dgiTargetRevision =
 instance FromJSON DeploymentGroupInfo where
     parseJSON = withObject "DeploymentGroupInfo" $ \o -> DeploymentGroupInfo
         <$> o .:? "applicationName"
-        <*> o .: "autoScalingGroups"
+        <*> o .:  "autoScalingGroups"
         <*> o .:? "deploymentConfigName"
         <*> o .:? "deploymentGroupId"
         <*> o .:? "deploymentGroupName"
-        <*> o .: "ec2TagFilters"
+        <*> o .:  "ec2TagFilters"
         <*> o .:? "serviceRoleArn"
         <*> o .:? "targetRevision"
 
@@ -705,7 +702,7 @@ instance ToJSON ApplicationRevisionSortBy where
 data MinimumHealthyHosts = MinimumHealthyHosts
     { _mhhType  :: Maybe Text
     , _mhhValue :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'MinimumHealthyHosts' constructor.
 --
@@ -816,7 +813,7 @@ data RevisionLocation = RevisionLocation
     { _rlGitHubLocation :: Maybe GitHubLocation
     , _rlRevisionType   :: Maybe Text
     , _rlS3Location     :: Maybe S3Location
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RevisionLocation' constructor.
 --
@@ -897,7 +894,7 @@ data EC2TagFilter = EC2TagFilter
     { _ectfKey   :: Maybe Text
     , _ectfType  :: Maybe Text
     , _ectfValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EC2TagFilter' constructor.
 --
@@ -947,7 +944,7 @@ data Diagnostics = Diagnostics
     , _dLogTail    :: Maybe Text
     , _dMessage    :: Maybe Text
     , _dScriptName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Diagnostics' constructor.
 --
@@ -1031,7 +1028,7 @@ instance ToJSON StopStatus where
 data ErrorInformation = ErrorInformation
     { _eiCode    :: Maybe Text
     , _eiMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ErrorInformation' constructor.
 --
@@ -1120,7 +1117,7 @@ data DeploymentInfo = DeploymentInfo
     , _diRevision                      :: Maybe RevisionLocation
     , _diStartTime                     :: Maybe RFC822
     , _diStatus                        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeploymentInfo' constructor.
 --
@@ -1179,13 +1176,11 @@ diApplicationName =
 
 -- | A timestamp indicating when the deployment was completed.
 diCompleteTime :: Lens' DeploymentInfo (Maybe UTCTime)
-diCompleteTime = lens _diCompleteTime (\s a -> s { _diCompleteTime = a })
-    . mapping _Time
+diCompleteTime = lens _diCompleteTime (\s a -> s { _diCompleteTime = a }) . mapping _Time
 
 -- | A timestamp indicating when the deployment was created.
 diCreateTime :: Lens' DeploymentInfo (Maybe UTCTime)
-diCreateTime = lens _diCreateTime (\s a -> s { _diCreateTime = a })
-    . mapping _Time
+diCreateTime = lens _diCreateTime (\s a -> s { _diCreateTime = a }) . mapping _Time
 
 -- | How the deployment was created: user: A user created the deployment.
 -- autoscaling: Auto Scaling created the deployment.
@@ -1244,8 +1239,7 @@ diRevision = lens _diRevision (\s a -> s { _diRevision = a })
 -- differences in the clock settings of various back-end servers that
 -- participate in the overall deployment process.
 diStartTime :: Lens' DeploymentInfo (Maybe UTCTime)
-diStartTime = lens _diStartTime (\s a -> s { _diStartTime = a })
-    . mapping _Time
+diStartTime = lens _diStartTime (\s a -> s { _diStartTime = a }) . mapping _Time
 
 -- | The current state of the deployment as a whole.
 diStatus :: Lens' DeploymentInfo (Maybe Text)
@@ -1292,7 +1286,7 @@ data LifecycleEvent = LifecycleEvent
     , _leLifecycleEventName :: Maybe Text
     , _leStartTime          :: Maybe RFC822
     , _leStatus             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'LifecycleEvent' constructor.
 --
@@ -1323,8 +1317,7 @@ leDiagnostics = lens _leDiagnostics (\s a -> s { _leDiagnostics = a })
 
 -- | A timestamp indicating when the deployment lifecycle event ended.
 leEndTime :: Lens' LifecycleEvent (Maybe UTCTime)
-leEndTime = lens _leEndTime (\s a -> s { _leEndTime = a })
-    . mapping _Time
+leEndTime = lens _leEndTime (\s a -> s { _leEndTime = a }) . mapping _Time
 
 -- | The deployment lifecycle event name, such as ApplicationStop,
 -- BeforeInstall, AfterInstall, ApplicationStart, or ValidateService.
@@ -1334,8 +1327,7 @@ leLifecycleEventName =
 
 -- | A timestamp indicating when the deployment lifecycle event started.
 leStartTime :: Lens' LifecycleEvent (Maybe UTCTime)
-leStartTime = lens _leStartTime (\s a -> s { _leStartTime = a })
-    . mapping _Time
+leStartTime = lens _leStartTime (\s a -> s { _leStartTime = a }) . mapping _Time
 
 -- | The deployment lifecycle event status: Pending: The deployment lifecycle
 -- event is pending. InProgress: The deployment lifecycle event is in
@@ -1369,7 +1361,7 @@ data DeploymentOverview = DeploymentOverview
     , _doPending    :: Maybe Integer
     , _doSkipped    :: Maybe Integer
     , _doSucceeded  :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeploymentOverview' constructor.
 --
@@ -1485,7 +1477,7 @@ data DeploymentConfigInfo = DeploymentConfigInfo
     , _dciDeploymentConfigId   :: Maybe Text
     , _dciDeploymentConfigName :: Maybe Text
     , _dciMinimumHealthyHosts  :: Maybe MinimumHealthyHosts
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeploymentConfigInfo' constructor.
 --
@@ -1509,8 +1501,7 @@ deploymentConfigInfo = DeploymentConfigInfo
 
 -- | The time that the deployment configuration was created.
 dciCreateTime :: Lens' DeploymentConfigInfo (Maybe UTCTime)
-dciCreateTime = lens _dciCreateTime (\s a -> s { _dciCreateTime = a })
-    . mapping _Time
+dciCreateTime = lens _dciCreateTime (\s a -> s { _dciCreateTime = a }) . mapping _Time
 
 -- | The deployment configuration ID.
 dciDeploymentConfigId :: Lens' DeploymentConfigInfo (Maybe Text)
@@ -1616,7 +1607,7 @@ data S3Location = S3Location
     , _slETag       :: Maybe Text
     , _slKey        :: Maybe Text
     , _slVersion    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'S3Location' constructor.
 --
@@ -1711,7 +1702,7 @@ instance ToJSON MinimumHealthyHostsType where
 data GitHubLocation = GitHubLocation
     { _ghlCommitId   :: Maybe Text
     , _ghlRepository :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GitHubLocation' constructor.
 --

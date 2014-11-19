@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetStackPolicy = GetStackPolicy
     { _gspStackName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetStackPolicy' constructor.
 --
@@ -68,7 +69,7 @@ gspStackName = lens _gspStackName (\s a -> s { _gspStackName = a })
 
 newtype GetStackPolicyResponse = GetStackPolicyResponse
     { _gsprStackPolicyBody :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'GetStackPolicyResponse' constructor.
 --
@@ -91,7 +92,10 @@ gsprStackPolicyBody =
 instance ToPath GetStackPolicy where
     toPath = const "/"
 
-instance ToQuery GetStackPolicy
+instance ToQuery GetStackPolicy where
+    toQuery GetStackPolicy{..} = mconcat
+        [ "StackName" =? _gspStackName
+        ]
 
 instance ToHeaders GetStackPolicy
 
@@ -103,5 +107,5 @@ instance AWSRequest GetStackPolicy where
     response = xmlResponse
 
 instance FromXML GetStackPolicyResponse where
-    parseXML = withElement "GetStackPolicyResult" $ \x ->
-            <$> x .@? "StackPolicyBody"
+    parseXML = withElement "GetStackPolicyResult" $ \x -> GetStackPolicyResponse
+        <$> x .@? "StackPolicyBody"

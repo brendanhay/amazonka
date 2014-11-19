@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
     { _dtacLanguage :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeTrustedAdvisorChecks' constructor.
 --
@@ -70,8 +71,8 @@ dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
 dtacLanguage = lens _dtacLanguage (\s a -> s { _dtacLanguage = a })
 
 newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
-    { _dtacrChecks :: [TrustedAdvisorCheckDescription]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dtacrChecks :: List "checks" TrustedAdvisorCheckDescription
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorChecksResponse where
     type Item DescribeTrustedAdvisorChecksResponse = TrustedAdvisorCheckDescription
@@ -92,7 +93,7 @@ describeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
 
 -- | Information about all available Trusted Advisor checks.
 dtacrChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
-dtacrChecks = lens _dtacrChecks (\s a -> s { _dtacrChecks = a })
+dtacrChecks = lens _dtacrChecks (\s a -> s { _dtacrChecks = a }) . _List
 
 instance ToPath DescribeTrustedAdvisorChecks where
     toPath = const "/"
@@ -116,4 +117,4 @@ instance AWSRequest DescribeTrustedAdvisorChecks where
 
 instance FromJSON DescribeTrustedAdvisorChecksResponse where
     parseJSON = withObject "DescribeTrustedAdvisorChecksResponse" $ \o -> DescribeTrustedAdvisorChecksResponse
-        <$> o .: "checks"
+        <$> o .:  "checks"

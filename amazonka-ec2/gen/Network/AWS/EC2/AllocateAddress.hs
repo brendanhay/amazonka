@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data AllocateAddress = AllocateAddress
     { _aaDomain :: Maybe Text
     , _aaDryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AllocateAddress' constructor.
 --
@@ -81,7 +81,7 @@ data AllocateAddressResponse = AllocateAddressResponse
     { _aarAllocationId :: Maybe Text
     , _aarDomain       :: Maybe Text
     , _aarPublicIp     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AllocateAddressResponse' constructor.
 --
@@ -117,7 +117,11 @@ aarPublicIp = lens _aarPublicIp (\s a -> s { _aarPublicIp = a })
 instance ToPath AllocateAddress where
     toPath = const "/"
 
-instance ToQuery AllocateAddress
+instance ToQuery AllocateAddress where
+    toQuery AllocateAddress{..} = mconcat
+        [ "Domain" =? _aaDomain
+        , "dryRun" =? _aaDryRun
+        ]
 
 instance ToHeaders AllocateAddress
 

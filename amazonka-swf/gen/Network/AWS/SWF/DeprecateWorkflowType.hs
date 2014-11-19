@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ import qualified GHC.Exts
 data DeprecateWorkflowType = DeprecateWorkflowType
     { _dwt1Domain       :: Text
     , _dwt1WorkflowType :: WorkflowType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeprecateWorkflowType' constructor.
 --

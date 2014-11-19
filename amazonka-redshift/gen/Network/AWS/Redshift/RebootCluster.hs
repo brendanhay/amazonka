@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 
 newtype RebootCluster = RebootCluster
     { _rcClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'RebootCluster' constructor.
 --
@@ -72,7 +73,7 @@ rcClusterIdentifier =
 
 newtype RebootClusterResponse = RebootClusterResponse
     { _rcrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RebootClusterResponse' constructor.
 --
@@ -91,7 +92,10 @@ rcrCluster = lens _rcrCluster (\s a -> s { _rcrCluster = a })
 instance ToPath RebootCluster where
     toPath = const "/"
 
-instance ToQuery RebootCluster
+instance ToQuery RebootCluster where
+    toQuery RebootCluster{..} = mconcat
+        [ "ClusterIdentifier" =? _rcClusterIdentifier
+        ]
 
 instance ToHeaders RebootCluster
 
@@ -103,5 +107,5 @@ instance AWSRequest RebootCluster where
     response = xmlResponse
 
 instance FromXML RebootClusterResponse where
-    parseXML = withElement "RebootClusterResult" $ \x ->
-            <$> x .@? "Cluster"
+    parseXML = withElement "RebootClusterResult" $ \x -> RebootClusterResponse
+        <$> x .@? "Cluster"

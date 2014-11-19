@@ -56,7 +56,7 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { _dsaAttribute  :: Text
     , _dsaDryRun     :: Maybe Bool
     , _dsaSnapshotId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeSnapshotAttribute' constructor.
 --
@@ -92,7 +92,7 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarCreateVolumePermissions :: List "item" CreateVolumePermission
     , _dsarProductCodes            :: List "item" ProductCode
     , _dsarSnapshotId              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeSnapshotAttributeResponse' constructor.
 --
@@ -120,8 +120,7 @@ dsarCreateVolumePermissions =
 
 -- | A list of product codes.
 dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
-dsarProductCodes = lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a })
-    . _List
+dsarProductCodes = lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a }) . _List
 
 -- | The ID of the Amazon EBS snapshot.
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
@@ -130,7 +129,12 @@ dsarSnapshotId = lens _dsarSnapshotId (\s a -> s { _dsarSnapshotId = a })
 instance ToPath DescribeSnapshotAttribute where
     toPath = const "/"
 
-instance ToQuery DescribeSnapshotAttribute
+instance ToQuery DescribeSnapshotAttribute where
+    toQuery DescribeSnapshotAttribute{..} = mconcat
+        [ "Attribute"  =? _dsaAttribute
+        , "dryRun"     =? _dsaDryRun
+        , "SnapshotId" =? _dsaSnapshotId
+        ]
 
 instance ToHeaders DescribeSnapshotAttribute
 
@@ -143,6 +147,6 @@ instance AWSRequest DescribeSnapshotAttribute where
 
 instance FromXML DescribeSnapshotAttributeResponse where
     parseXML x = DescribeSnapshotAttributeResponse
-        <$> x .@ "createVolumePermission"
-        <*> x .@ "productCodes"
+        <$> x .@  "createVolumePermission"
+        <*> x .@  "productCodes"
         <*> x .@? "snapshotId"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeSeverityLevels = DescribeSeverityLevels
     { _dslLanguage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DescribeSeverityLevels' constructor.
 --
@@ -68,8 +69,8 @@ dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslLanguage = lens _dslLanguage (\s a -> s { _dslLanguage = a })
 
 newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
-    { _dslrSeverityLevels :: [SeverityLevel]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dslrSeverityLevels :: List "severityLevels" SeverityLevel
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSeverityLevelsResponse where
     type Item DescribeSeverityLevelsResponse = SeverityLevel
@@ -93,6 +94,7 @@ describeSeverityLevelsResponse = DescribeSeverityLevelsResponse
 dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrSeverityLevels =
     lens _dslrSeverityLevels (\s a -> s { _dslrSeverityLevels = a })
+        . _List
 
 instance ToPath DescribeSeverityLevels where
     toPath = const "/"
@@ -116,4 +118,4 @@ instance AWSRequest DescribeSeverityLevels where
 
 instance FromJSON DescribeSeverityLevelsResponse where
     parseJSON = withObject "DescribeSeverityLevelsResponse" $ \o -> DescribeSeverityLevelsResponse
-        <$> o .: "severityLevels"
+        <$> o .:  "severityLevels"

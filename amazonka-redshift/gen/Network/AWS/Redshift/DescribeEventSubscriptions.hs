@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
     { _des1Marker           :: Maybe Text
     , _des1MaxRecords       :: Maybe Int
     , _des1SubscriptionName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeEventSubscriptions' constructor.
 --
@@ -96,9 +97,9 @@ des1SubscriptionName =
     lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
 
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrEventSubscriptionsList :: [EventSubscription]
+    { _desrEventSubscriptionsList :: List "EventSubscription" EventSubscription
     , _desrMarker                 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEventSubscriptionsResponse' constructor.
 --
@@ -119,6 +120,7 @@ desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSub
 desrEventSubscriptionsList =
     lens _desrEventSubscriptionsList
         (\s a -> s { _desrEventSubscriptionsList = a })
+            . _List
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -132,7 +134,12 @@ desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
 instance ToPath DescribeEventSubscriptions where
     toPath = const "/"
 
-instance ToQuery DescribeEventSubscriptions
+instance ToQuery DescribeEventSubscriptions where
+    toQuery DescribeEventSubscriptions{..} = mconcat
+        [ "Marker"           =? _des1Marker
+        , "MaxRecords"       =? _des1MaxRecords
+        , "SubscriptionName" =? _des1SubscriptionName
+        ]
 
 instance ToHeaders DescribeEventSubscriptions
 
@@ -144,9 +151,9 @@ instance AWSRequest DescribeEventSubscriptions where
     response = xmlResponse
 
 instance FromXML DescribeEventSubscriptionsResponse where
-    parseXML = withElement "DescribeEventSubscriptionsResult" $ \x ->
-            <$> x .@ "EventSubscriptionsList"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeEventSubscriptionsResult" $ \x -> DescribeEventSubscriptionsResponse
+        <$> x .@  "EventSubscriptionsList"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeEventSubscriptions where
     next rq rs = (\x -> rq & des1Marker ?~ x)

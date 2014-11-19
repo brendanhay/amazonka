@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -63,7 +64,7 @@ data GetResourceConfigHistory = GetResourceConfigHistory
     , _grchNextToken          :: Maybe Text
     , _grchResourceId         :: Text
     , _grchResourceType       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetResourceConfigHistory' constructor.
 --
@@ -106,20 +107,17 @@ grchChronologicalOrder =
 -- action returns paginated results that contain configuration items that
 -- start from when the first configuration item was recorded.
 grchEarlierTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
-grchEarlierTime = lens _grchEarlierTime (\s a -> s { _grchEarlierTime = a })
-    . mapping _Time
+grchEarlierTime = lens _grchEarlierTime (\s a -> s { _grchEarlierTime = a }) . mapping _Time
 
 -- | The time stamp that indicates a later time. If not specified, current
 -- time is taken.
 grchLaterTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
-grchLaterTime = lens _grchLaterTime (\s a -> s { _grchLaterTime = a })
-    . mapping _Time
+grchLaterTime = lens _grchLaterTime (\s a -> s { _grchLaterTime = a }) . mapping _Time
 
 -- | The maximum number of configuration items returned in each page. The
 -- default is 10. You cannot specify a limit greater than 100.
 grchLimit :: Lens' GetResourceConfigHistory (Maybe Natural)
-grchLimit = lens _grchLimit (\s a -> s { _grchLimit = a })
-    . mapping _Nat
+grchLimit = lens _grchLimit (\s a -> s { _grchLimit = a }) . mapping _Nat
 
 -- | An optional parameter used for pagination of the results.
 grchNextToken :: Lens' GetResourceConfigHistory (Maybe Text)
@@ -134,9 +132,9 @@ grchResourceType :: Lens' GetResourceConfigHistory Text
 grchResourceType = lens _grchResourceType (\s a -> s { _grchResourceType = a })
 
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse
-    { _grchrConfigurationItems :: [ConfigurationItem]
+    { _grchrConfigurationItems :: List "configurationItems" ConfigurationItem
     , _grchrNextToken          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetResourceConfigHistoryResponse' constructor.
 --
@@ -156,6 +154,7 @@ getResourceConfigHistoryResponse = GetResourceConfigHistoryResponse
 grchrConfigurationItems :: Lens' GetResourceConfigHistoryResponse [ConfigurationItem]
 grchrConfigurationItems =
     lens _grchrConfigurationItems (\s a -> s { _grchrConfigurationItems = a })
+        . _List
 
 -- | A token used for pagination of results.
 grchrNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
@@ -189,5 +188,5 @@ instance AWSRequest GetResourceConfigHistory where
 
 instance FromJSON GetResourceConfigHistoryResponse where
     parseJSON = withObject "GetResourceConfigHistoryResponse" $ \o -> GetResourceConfigHistoryResponse
-        <$> o .: "configurationItems"
+        <$> o .:  "configurationItems"
         <*> o .:? "nextToken"

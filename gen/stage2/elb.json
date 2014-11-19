@@ -95,8 +95,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "sourceSecurityGroup",
@@ -105,6 +104,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "SourceSecurityGroup",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -174,8 +174,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "tagDescription",
@@ -184,8 +183,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -195,11 +194,12 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eList of tags associated with the load balancer.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tags\" Tag"
                     }
                 ],
                 "contentPad": 0,
                 "name": "TagDescription",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -236,8 +236,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -247,7 +247,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eList of tags associated with the load balancer.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tags\" Tag"
                     }
                 ]
             },
@@ -255,8 +255,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
@@ -281,6 +280,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Tag",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -336,8 +336,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "policyAttributeTypeDescription",
@@ -346,6 +345,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "PolicyAttributeTypeDescription",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -506,8 +506,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "healthCheck",
@@ -592,6 +591,7 @@
                 ],
                 "contentPad": 0,
                 "name": "HealthCheck",
+                "locationPad": 19,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -677,7 +677,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Enum"
                 ],
                 "listElement": null,
@@ -719,6 +718,7 @@
                 ],
                 "contentPad": 0,
                 "name": "CrossZoneLoadBalancing",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -742,8 +742,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "loadBalancerAttributes",
@@ -752,6 +751,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LoadBalancerAttributes",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -816,8 +816,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -827,7 +827,7 @@
                         "locationName": "AdditionalAttributes",
                         "documentation": null,
                         "typeExposed": "[AdditionalAttribute]",
-                        "type": "[AdditionalAttribute]"
+                        "type": "List \"AdditionalAttributes\" AdditionalAttribute"
                     }
                 ],
                 "fields": [
@@ -848,8 +848,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -859,7 +859,7 @@
                         "locationName": "AdditionalAttributes",
                         "documentation": null,
                         "typeExposed": "[AdditionalAttribute]",
-                        "type": "[AdditionalAttribute]"
+                        "type": "List \"AdditionalAttributes\" AdditionalAttribute"
                     },
                     {
                         "location": "querystring",
@@ -912,8 +912,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "accessLog",
@@ -938,6 +937,7 @@
                 ],
                 "contentPad": 0,
                 "name": "AccessLog",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -1052,8 +1052,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "listenerDescription",
@@ -1062,6 +1061,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "ListenerDescription",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -1081,8 +1081,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1092,7 +1092,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e A list of policies enabled for this listener. An empty list indicates that no policies are enabled. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ],
                 "fields": [
@@ -1113,8 +1113,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1124,7 +1124,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e A list of policies enabled for this listener. An empty list indicates that no policies are enabled. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             },
@@ -1132,8 +1132,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "lbcookieStickinessPolicy",
@@ -1142,6 +1141,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LBCookieStickinessPolicy",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -1211,8 +1211,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 30,
                 "ctor": "policyDescription",
@@ -1221,6 +1220,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "PolicyDescription",
+                "locationPad": 28,
                 "type": "record",
                 "optional": [
                     {
@@ -1255,8 +1255,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1266,14 +1266,14 @@
                         "locationName": "PolicyAttributeDescriptions",
                         "documentation": "\u003cp\u003e A list of policy attribute description structures. \u003c/p\u003e",
                         "typeExposed": "[PolicyAttributeDescription]",
-                        "type": "[PolicyAttributeDescription]"
+                        "type": "List \"PolicyAttributeDescriptions\" PolicyAttributeDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1283,7 +1283,7 @@
                         "locationName": "PolicyAttributeDescriptions",
                         "documentation": "\u003cp\u003e A list of policy attribute description structures. \u003c/p\u003e",
                         "typeExposed": "[PolicyAttributeDescription]",
-                        "type": "[PolicyAttributeDescription]"
+                        "type": "List \"PolicyAttributeDescriptions\" PolicyAttributeDescription"
                     },
                     {
                         "location": "querystring",
@@ -1321,8 +1321,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "appCookieStickinessPolicy",
@@ -1331,6 +1330,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AppCookieStickinessPolicy",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -1401,8 +1401,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "policyAttribute",
@@ -1411,6 +1410,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "PolicyAttribute",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -1480,8 +1480,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "loadBalancerDescription",
@@ -1490,6 +1489,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "LoadBalancerDescription",
+                "locationPad": 26,
                 "type": "record",
                 "optional": [
                     {
@@ -1554,8 +1554,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1565,7 +1565,7 @@
                         "locationName": "ListenerDescriptions",
                         "documentation": "\u003cp\u003e LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and PolicyNames are returned in a list of tuples in the ListenerDescriptions element. \u003c/p\u003e",
                         "typeExposed": "[ListenerDescription]",
-                        "type": "[ListenerDescription]"
+                        "type": "List \"ListenerDescriptions\" ListenerDescription"
                     },
                     {
                         "location": "querystring",
@@ -1584,8 +1584,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1595,12 +1595,12 @@
                         "locationName": "BackendServerDescriptions",
                         "documentation": "\u003cp\u003e Contains a list of back-end server descriptions. \u003c/p\u003e",
                         "typeExposed": "[BackendServerDescription]",
-                        "type": "[BackendServerDescription]"
+                        "type": "List \"BackendServerDescriptions\" BackendServerDescription"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1610,12 +1610,12 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e Specifies a list of Availability Zones. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1625,7 +1625,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e Provides a list of VPC subnet IDs for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1644,8 +1644,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1655,7 +1655,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e Provides a list of EC2 instance IDs for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": "querystring",
@@ -1689,8 +1689,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1700,7 +1700,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e The security groups the load balancer is a member of (VPC only). \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1736,8 +1736,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1747,12 +1747,12 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e Specifies a list of Availability Zones. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1762,7 +1762,7 @@
                         "locationName": "BackendServerDescriptions",
                         "documentation": "\u003cp\u003e Contains a list of back-end server descriptions. \u003c/p\u003e",
                         "typeExposed": "[BackendServerDescription]",
-                        "type": "[BackendServerDescription]"
+                        "type": "List \"BackendServerDescriptions\" BackendServerDescription"
                     },
                     {
                         "location": "querystring",
@@ -1841,8 +1841,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1852,12 +1852,12 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e Provides a list of EC2 instance IDs for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1867,7 +1867,7 @@
                         "locationName": "ListenerDescriptions",
                         "documentation": "\u003cp\u003e LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and PolicyNames are returned in a list of tuples in the ListenerDescriptions element. \u003c/p\u003e",
                         "typeExposed": "[ListenerDescription]",
-                        "type": "[ListenerDescription]"
+                        "type": "List \"ListenerDescriptions\" ListenerDescription"
                     },
                     {
                         "location": "querystring",
@@ -1916,8 +1916,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1927,7 +1927,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e The security groups the load balancer is a member of (VPC only). \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1946,8 +1946,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1957,7 +1957,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e Provides a list of VPC subnet IDs for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1980,8 +1980,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "backendServerDescription",
@@ -1990,6 +1989,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "BackendServerDescription",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -2009,8 +2009,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2020,7 +2020,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e Provides a list of policy names enabled for the back-end server. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ],
                 "fields": [
@@ -2041,8 +2041,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2052,7 +2052,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e Provides a list of policy names enabled for the back-end server. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             },
@@ -2060,8 +2060,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "policyAttributeDescription",
@@ -2070,6 +2069,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "PolicyAttributeDescription",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -2140,8 +2140,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 8,
                 "ctor": "additionalAttribute",
@@ -2150,6 +2149,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "AdditionalAttribute",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -2221,7 +2221,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Enum",
                     "Num",
                     "Integral",
@@ -2267,6 +2266,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ConnectionSettings",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2290,8 +2290,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 35,
                 "ctor": "policyTypeDescription",
@@ -2300,6 +2299,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "PolicyTypeDescription",
+                "locationPad": 32,
                 "type": "record",
                 "optional": [
                     {
@@ -2334,8 +2334,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2345,7 +2345,7 @@
                         "locationName": "PolicyAttributeTypeDescriptions",
                         "documentation": "\u003cp\u003e The description of the policy attributes associated with the load balancer policies defined by the Elastic Load Balancing service. \u003c/p\u003e",
                         "typeExposed": "[PolicyAttributeTypeDescription]",
-                        "type": "[PolicyAttributeTypeDescription]"
+                        "type": "List \"PolicyAttributeTypeDescriptions\" PolicyAttributeTypeDescription"
                     }
                 ],
                 "fields": [
@@ -2366,8 +2366,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2377,7 +2377,7 @@
                         "locationName": "PolicyAttributeTypeDescriptions",
                         "documentation": "\u003cp\u003e The description of the policy attributes associated with the load balancer policies defined by the Elastic Load Balancing service. \u003c/p\u003e",
                         "typeExposed": "[PolicyAttributeTypeDescription]",
-                        "type": "[PolicyAttributeTypeDescription]"
+                        "type": "List \"PolicyAttributeTypeDescriptions\" PolicyAttributeTypeDescription"
                     },
                     {
                         "location": "querystring",
@@ -2399,8 +2399,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "policies",
@@ -2409,12 +2408,13 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Policies",
+                "locationPad": 28,
                 "type": "record",
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2424,12 +2424,12 @@
                         "locationName": "AppCookieStickinessPolicies",
                         "documentation": "\u003cp\u003e A list of the \u003ca\u003eAppCookieStickinessPolicy\u003c/a\u003e objects created with \u003ca\u003eCreateAppCookieStickinessPolicy\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[AppCookieStickinessPolicy]",
-                        "type": "[AppCookieStickinessPolicy]"
+                        "type": "List \"AppCookieStickinessPolicies\" AppCookieStickinessPolicy"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2439,12 +2439,12 @@
                         "locationName": "LBCookieStickinessPolicies",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eLBCookieStickinessPolicy\u003c/a\u003e objects created with \u003ca\u003eCreateAppCookieStickinessPolicy\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[LBCookieStickinessPolicy]",
-                        "type": "[LBCookieStickinessPolicy]"
+                        "type": "List \"LBCookieStickinessPolicies\" LBCookieStickinessPolicy"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2454,14 +2454,14 @@
                         "locationName": "OtherPolicies",
                         "documentation": "\u003cp\u003e A list of policy names other than the stickiness policies. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2471,12 +2471,12 @@
                         "locationName": "AppCookieStickinessPolicies",
                         "documentation": "\u003cp\u003e A list of the \u003ca\u003eAppCookieStickinessPolicy\u003c/a\u003e objects created with \u003ca\u003eCreateAppCookieStickinessPolicy\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[AppCookieStickinessPolicy]",
-                        "type": "[AppCookieStickinessPolicy]"
+                        "type": "List \"AppCookieStickinessPolicies\" AppCookieStickinessPolicy"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2486,12 +2486,12 @@
                         "locationName": "LBCookieStickinessPolicies",
                         "documentation": "\u003cp\u003e A list of \u003ca\u003eLBCookieStickinessPolicy\u003c/a\u003e objects created with \u003ca\u003eCreateAppCookieStickinessPolicy\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "[LBCookieStickinessPolicy]",
-                        "type": "[LBCookieStickinessPolicy]"
+                        "type": "List \"LBCookieStickinessPolicies\" LBCookieStickinessPolicy"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2501,7 +2501,7 @@
                         "locationName": "OtherPolicies",
                         "documentation": "\u003cp\u003e A list of policy names other than the stickiness policies. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             },
@@ -2509,8 +2509,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "listener",
@@ -2565,6 +2564,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Listener",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -2680,8 +2680,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "connectionDraining",
@@ -2706,6 +2705,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ConnectionDraining",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -2761,8 +2761,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "instanceState",
@@ -2771,6 +2770,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "InstanceState",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -2902,7 +2902,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -2928,6 +2927,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "TagKeyOnly",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -2969,7 +2969,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -2995,6 +2994,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Instance",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -3082,8 +3082,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3102,8 +3101,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3113,7 +3112,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags for each load balancer.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tags\" Tag"
                     }
                 ],
                 "shared": false,
@@ -3133,14 +3132,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3150,14 +3150,14 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003eThe name of the load balancer to tag. You can specify a maximum of one load balancer name.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3167,12 +3167,12 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003eThe name of the load balancer to tag. You can specify a maximum of one load balancer name.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3182,7 +3182,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags for each load balancer.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tags\" Tag"
                     }
                 ]
             }
@@ -3194,7 +3194,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3206,8 +3205,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3217,7 +3216,7 @@
                     "locationName": "SecurityGroups",
                     "documentation": "\u003cp\u003e A list of security group IDs associated with your load balancer. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"SecurityGroups\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -3229,13 +3228,14 @@
                 "contentPad": 0,
                 "name": "ApplySecurityGroupsToLoadBalancerResponse",
                 "resultWrapper": "ApplySecurityGroupsToLoadBalancerResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3245,14 +3245,14 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e A list of security group IDs associated with your load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3262,7 +3262,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e A list of security group IDs associated with your load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     }
                 ]
             },
@@ -3282,8 +3282,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3333,14 +3332,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3350,7 +3350,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e A list of security group IDs to associate with your load balancer in VPC. The security group IDs must be provided as the ID and not the security group name (For example, sg-1234). \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     }
                 ],
                 "fields": [
@@ -3371,8 +3371,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3382,7 +3382,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e A list of security group IDs to associate with your load balancer in VPC. The security group IDs must be provided as the ID and not the security group name (For example, sg-1234). \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     }
                 ]
             }
@@ -3394,7 +3394,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3406,8 +3405,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3417,7 +3416,7 @@
                     "locationName": "Subnets",
                     "documentation": "\u003cp\u003e A list of subnet IDs attached to the load balancer. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"Subnets\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -3429,13 +3428,14 @@
                 "contentPad": 0,
                 "name": "AttachLoadBalancerToSubnetsResponse",
                 "resultWrapper": "AttachLoadBalancerToSubnetsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3445,14 +3445,14 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs attached to the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3462,7 +3462,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs attached to the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     }
                 ]
             },
@@ -3482,8 +3482,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3533,14 +3532,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3550,7 +3550,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs to add for the load balancer. You can add only one subnet per Availability Zone. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     }
                 ],
                 "fields": [
@@ -3571,8 +3571,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3582,7 +3582,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs to add for the load balancer. You can add only one subnet per Availability Zone. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     }
                 ]
             }
@@ -3592,8 +3592,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3626,6 +3625,7 @@
                 "contentPad": 0,
                 "name": "ConfigureHealthCheckResponse",
                 "resultWrapper": "ConfigureHealthCheckResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -3678,8 +3678,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3744,6 +3743,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3824,8 +3824,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3910,6 +3909,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4005,8 +4005,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4076,6 +4075,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4152,7 +4152,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4186,6 +4185,7 @@
                 "contentPad": 0,
                 "name": "CreateLoadBalancerResponse",
                 "resultWrapper": "CreateLoadBalancerResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4238,8 +4238,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4273,8 +4272,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4284,7 +4283,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags to assign to the load balancer.\u003c/p\u003e \u003cp\u003eFor more information about setting tags for your load balancer, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb\"\u003eTagging\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tags\" Tag"
                     }
                 ],
                 "shared": false,
@@ -4329,14 +4328,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4346,12 +4346,12 @@
                         "locationName": "Listeners",
                         "documentation": "\u003cp\u003e A list of the following tuples: Protocol, LoadBalancerPort, InstanceProtocol, InstancePort, and SSLCertificateId. \u003c/p\u003e",
                         "typeExposed": "[Listener]",
-                        "type": "[Listener]"
+                        "type": "List \"Listeners\" Listener"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4361,12 +4361,12 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of Availability Zones. \u003c/p\u003e \u003cp\u003e At least one Availability Zone must be specified. Specified Availability Zones must be in the same EC2 Region as the load balancer. Traffic will be equally distributed across all zones. \u003c/p\u003e \u003cp\u003e You can later add more Availability Zones after the creation of the load balancer by calling \u003ca\u003eEnableAvailabilityZonesForLoadBalancer\u003c/a\u003e action. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4376,12 +4376,12 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs in your VPC to attach to your load balancer. Specify one subnet per Availability Zone. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4391,7 +4391,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e The security groups to assign to your load balancer within your VPC. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4412,8 +4412,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4423,12 +4423,12 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of Availability Zones. \u003c/p\u003e \u003cp\u003e At least one Availability Zone must be specified. Specified Availability Zones must be in the same EC2 Region as the load balancer. Traffic will be equally distributed across all zones. \u003c/p\u003e \u003cp\u003e You can later add more Availability Zones after the creation of the load balancer by calling \u003ca\u003eEnableAvailabilityZonesForLoadBalancer\u003c/a\u003e action. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4438,7 +4438,7 @@
                         "locationName": "Listeners",
                         "documentation": "\u003cp\u003e A list of the following tuples: Protocol, LoadBalancerPort, InstanceProtocol, InstancePort, and SSLCertificateId. \u003c/p\u003e",
                         "typeExposed": "[Listener]",
-                        "type": "[Listener]"
+                        "type": "List \"Listeners\" Listener"
                     },
                     {
                         "location": "querystring",
@@ -4472,8 +4472,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4483,12 +4483,12 @@
                         "locationName": "SecurityGroups",
                         "documentation": "\u003cp\u003e The security groups to assign to your load balancer within your VPC. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"SecurityGroups\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4498,12 +4498,12 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs in your VPC to attach to your load balancer. Specify one subnet per Availability Zone. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -4513,7 +4513,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags to assign to the load balancer.\u003c/p\u003e \u003cp\u003eFor more information about setting tags for your load balancer, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb\"\u003eTagging\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Tag",
-                        "type": "List1 Tag"
+                        "type": "List1 \"Tags\" Tag"
                     }
                 ]
             }
@@ -4559,8 +4559,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4610,14 +4609,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4627,14 +4627,14 @@
                         "locationName": "Listeners",
                         "documentation": "\u003cp\u003e A list of \u003ccode\u003eLoadBalancerPort\u003c/code\u003e, \u003ccode\u003eInstancePort\u003c/code\u003e, \u003ccode\u003eProtocol\u003c/code\u003e, \u003ccode\u003eInstanceProtocol\u003c/code\u003e, and \u003ccode\u003eSSLCertificateId\u003c/code\u003e items. \u003c/p\u003e",
                         "typeExposed": "[Listener]",
-                        "type": "[Listener]"
+                        "type": "List \"Listeners\" Listener"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4644,7 +4644,7 @@
                         "locationName": "Listeners",
                         "documentation": "\u003cp\u003e A list of \u003ccode\u003eLoadBalancerPort\u003c/code\u003e, \u003ccode\u003eInstancePort\u003c/code\u003e, \u003ccode\u003eProtocol\u003c/code\u003e, \u003ccode\u003eInstanceProtocol\u003c/code\u003e, and \u003ccode\u003eSSLCertificateId\u003c/code\u003e items. \u003c/p\u003e",
                         "typeExposed": "[Listener]",
-                        "type": "[Listener]"
+                        "type": "List \"Listeners\" Listener"
                     },
                     {
                         "location": "querystring",
@@ -4705,8 +4705,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4796,14 +4795,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4813,7 +4813,7 @@
                         "locationName": "PolicyAttributes",
                         "documentation": "\u003cp\u003e A list of attributes associated with the policy being created. \u003c/p\u003e",
                         "typeExposed": "[PolicyAttribute]",
-                        "type": "[PolicyAttribute]"
+                        "type": "List \"PolicyAttributes\" PolicyAttribute"
                     }
                 ],
                 "fields": [
@@ -4834,8 +4834,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4845,7 +4845,7 @@
                         "locationName": "PolicyAttributes",
                         "documentation": "\u003cp\u003e A list of attributes associated with the policy being created. \u003c/p\u003e",
                         "typeExposed": "[PolicyAttribute]",
-                        "type": "[PolicyAttribute]"
+                        "type": "List \"PolicyAttributes\" PolicyAttribute"
                     },
                     {
                         "location": "querystring",
@@ -4923,7 +4923,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4986,6 +4985,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -5051,8 +5051,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5102,14 +5101,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5119,7 +5119,7 @@
                         "locationName": "LoadBalancerPorts",
                         "documentation": "\u003cp\u003e The client port number(s) of the load balancer listener(s) to be removed. \u003c/p\u003e",
                         "typeExposed": "[Int]",
-                        "type": "[Int]"
+                        "type": "List \"LoadBalancerPorts\" Int"
                     }
                 ],
                 "fields": [
@@ -5140,8 +5140,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5151,7 +5151,7 @@
                         "locationName": "LoadBalancerPorts",
                         "documentation": "\u003cp\u003e The client port number(s) of the load balancer listener(s) to be removed. \u003c/p\u003e",
                         "typeExposed": "[Int]",
-                        "type": "[Int]"
+                        "type": "List \"LoadBalancerPorts\" Int"
                     }
                 ]
             }
@@ -5198,8 +5198,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5264,6 +5263,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5308,7 +5308,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -5320,8 +5319,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -5331,7 +5330,7 @@
                     "locationName": "Instances",
                     "documentation": "\u003cp\u003e An updated list of remaining instances registered with the load balancer. \u003c/p\u003e",
                     "typeExposed": "[Instance]",
-                    "type": "[Instance]"
+                    "type": "List \"Instances\" Instance"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -5343,13 +5342,14 @@
                 "contentPad": 0,
                 "name": "DeregisterInstancesFromLoadBalancerResponse",
                 "resultWrapper": "DeregisterInstancesFromLoadBalancerResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5359,14 +5359,14 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e An updated list of remaining instances registered with the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5376,7 +5376,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e An updated list of remaining instances registered with the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     }
                 ]
             },
@@ -5395,8 +5395,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5446,14 +5445,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5463,14 +5463,14 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e A list of EC2 instance IDs consisting of all instances to be deregistered. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5480,7 +5480,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e A list of EC2 instance IDs consisting of all instances to be deregistered. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": "querystring",
@@ -5506,7 +5506,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -5518,8 +5517,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -5529,7 +5528,7 @@
                     "locationName": "InstanceStates",
                     "documentation": "\u003cp\u003e A list containing health information for the specified instances. \u003c/p\u003e",
                     "typeExposed": "[InstanceState]",
-                    "type": "[InstanceState]"
+                    "type": "List \"InstanceStates\" InstanceState"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -5541,13 +5540,14 @@
                 "contentPad": 0,
                 "name": "DescribeInstanceHealthResponse",
                 "resultWrapper": "DescribeInstanceHealthResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5557,14 +5557,14 @@
                         "locationName": "InstanceStates",
                         "documentation": "\u003cp\u003e A list containing health information for the specified instances. \u003c/p\u003e",
                         "typeExposed": "[InstanceState]",
-                        "type": "[InstanceState]"
+                        "type": "List \"InstanceStates\" InstanceState"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5574,7 +5574,7 @@
                         "locationName": "InstanceStates",
                         "documentation": "\u003cp\u003e A list containing health information for the specified instances. \u003c/p\u003e",
                         "typeExposed": "[InstanceState]",
-                        "type": "[InstanceState]"
+                        "type": "List \"InstanceStates\" InstanceState"
                     }
                 ]
             },
@@ -5593,8 +5593,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5644,14 +5643,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5661,14 +5661,14 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e A list of instance IDs whose states are being queried. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5678,7 +5678,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e A list of instance IDs whose states are being queried. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": "querystring",
@@ -5703,8 +5703,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5737,6 +5736,7 @@
                 "contentPad": 0,
                 "name": "DescribeLoadBalancerAttributesResponse",
                 "resultWrapper": "DescribeLoadBalancerAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -5791,7 +5791,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5854,6 +5853,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -5883,7 +5883,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -5895,8 +5894,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -5906,7 +5905,7 @@
                     "locationName": "PolicyDescriptions",
                     "documentation": "\u003cp\u003e A list of policy description structures. \u003c/p\u003e",
                     "typeExposed": "[PolicyDescription]",
-                    "type": "[PolicyDescription]"
+                    "type": "List \"PolicyDescriptions\" PolicyDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -5918,13 +5917,14 @@
                 "contentPad": 0,
                 "name": "DescribeLoadBalancerPoliciesResponse",
                 "resultWrapper": "DescribeLoadBalancerPoliciesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5934,14 +5934,14 @@
                         "locationName": "PolicyDescriptions",
                         "documentation": "\u003cp\u003e A list of policy description structures. \u003c/p\u003e",
                         "typeExposed": "[PolicyDescription]",
-                        "type": "[PolicyDescription]"
+                        "type": "List \"PolicyDescriptions\" PolicyDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5951,7 +5951,7 @@
                         "locationName": "PolicyDescriptions",
                         "documentation": "\u003cp\u003e A list of policy description structures. \u003c/p\u003e",
                         "typeExposed": "[PolicyDescription]",
-                        "type": "[PolicyDescription]"
+                        "type": "List \"PolicyDescriptions\" PolicyDescription"
                     }
                 ]
             },
@@ -5971,8 +5971,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6006,6 +6005,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6027,8 +6027,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6038,7 +6038,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e The names of load balancer policies you've created or Elastic Load Balancing sample policy names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ],
                 "fields": [
@@ -6059,8 +6059,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6070,7 +6070,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e The names of load balancer policies you've created or Elastic Load Balancing sample policy names. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             }
@@ -6081,7 +6081,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6093,8 +6092,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6104,7 +6103,7 @@
                     "locationName": "PolicyTypeDescriptions",
                     "documentation": "\u003cp\u003e List of policy type description structures of the specified policy type. If no policy type names are specified, returns the description of all the policy types defined by Elastic Load Balancing service. \u003c/p\u003e",
                     "typeExposed": "[PolicyTypeDescription]",
-                    "type": "[PolicyTypeDescription]"
+                    "type": "List \"PolicyTypeDescriptions\" PolicyTypeDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -6116,13 +6115,14 @@
                 "contentPad": 0,
                 "name": "DescribeLoadBalancerPolicyTypesResponse",
                 "resultWrapper": "DescribeLoadBalancerPolicyTypesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6132,14 +6132,14 @@
                         "locationName": "PolicyTypeDescriptions",
                         "documentation": "\u003cp\u003e List of policy type description structures of the specified policy type. If no policy type names are specified, returns the description of all the policy types defined by Elastic Load Balancing service. \u003c/p\u003e",
                         "typeExposed": "[PolicyTypeDescription]",
-                        "type": "[PolicyTypeDescription]"
+                        "type": "List \"PolicyTypeDescriptions\" PolicyTypeDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6149,7 +6149,7 @@
                         "locationName": "PolicyTypeDescriptions",
                         "documentation": "\u003cp\u003e List of policy type description structures of the specified policy type. If no policy type names are specified, returns the description of all the policy types defined by Elastic Load Balancing service. \u003c/p\u003e",
                         "typeExposed": "[PolicyTypeDescription]",
-                        "type": "[PolicyTypeDescription]"
+                        "type": "List \"PolicyTypeDescriptions\" PolicyTypeDescription"
                     }
                 ]
             },
@@ -6170,7 +6170,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6182,8 +6181,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6193,7 +6192,7 @@
                     "locationName": "PolicyTypeNames",
                     "documentation": "\u003cp\u003e Specifies the name of the policy types. If no names are specified, returns the description of all the policy types defined by Elastic Load Balancing service. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"PolicyTypeNames\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -6217,14 +6216,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6234,14 +6234,14 @@
                         "locationName": "PolicyTypeNames",
                         "documentation": "\u003cp\u003e Specifies the name of the policy types. If no names are specified, returns the description of all the policy types defined by Elastic Load Balancing service. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyTypeNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6251,7 +6251,7 @@
                         "locationName": "PolicyTypeNames",
                         "documentation": "\u003cp\u003e Specifies the name of the policy types. If no names are specified, returns the description of all the policy types defined by Elastic Load Balancing service. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyTypeNames\" Text"
                     }
                 ]
             }
@@ -6261,8 +6261,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -6279,13 +6278,14 @@
                 "contentPad": 0,
                 "name": "DescribeLoadBalancersResponse",
                 "resultWrapper": "DescribeLoadBalancersResult",
+                "locationPad": 25,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6295,7 +6295,7 @@
                         "locationName": "LoadBalancerDescriptions",
                         "documentation": "\u003cp\u003e A list of load balancer description structures. \u003c/p\u003e",
                         "typeExposed": "[LoadBalancerDescription]",
-                        "type": "[LoadBalancerDescription]"
+                        "type": "List \"LoadBalancerDescriptions\" LoadBalancerDescription"
                     },
                     {
                         "location": "querystring",
@@ -6316,8 +6316,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6327,7 +6327,7 @@
                         "locationName": "LoadBalancerDescriptions",
                         "documentation": "\u003cp\u003e A list of load balancer description structures. \u003c/p\u003e",
                         "typeExposed": "[LoadBalancerDescription]",
-                        "type": "[LoadBalancerDescription]"
+                        "type": "List \"LoadBalancerDescriptions\" LoadBalancerDescription"
                     },
                     {
                         "location": "querystring",
@@ -6369,8 +6369,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6409,14 +6408,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6426,7 +6426,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003e A list of load balancer names associated with the account. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6462,8 +6462,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6473,7 +6473,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003e A list of load balancer names associated with the account. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6514,7 +6514,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6526,8 +6525,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6537,7 +6536,7 @@
                     "locationName": "TagDescriptions",
                     "documentation": "\u003cp\u003e A list of tag description structures. \u003c/p\u003e",
                     "typeExposed": "[TagDescription]",
-                    "type": "[TagDescription]"
+                    "type": "List \"TagDescriptions\" TagDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -6549,13 +6548,14 @@
                 "contentPad": 0,
                 "name": "DescribeTagsResponse",
                 "resultWrapper": "DescribeTagsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6565,14 +6565,14 @@
                         "locationName": "TagDescriptions",
                         "documentation": "\u003cp\u003e A list of tag description structures. \u003c/p\u003e",
                         "typeExposed": "[TagDescription]",
-                        "type": "[TagDescription]"
+                        "type": "List \"TagDescriptions\" TagDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6582,7 +6582,7 @@
                         "locationName": "TagDescriptions",
                         "documentation": "\u003cp\u003e A list of tag description structures. \u003c/p\u003e",
                         "typeExposed": "[TagDescription]",
-                        "type": "[TagDescription]"
+                        "type": "List \"TagDescriptions\" TagDescription"
                     }
                 ]
             },
@@ -6603,7 +6603,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Semigroup"
                 ],
                 "streaming": false,
@@ -6614,8 +6613,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List1",
+                    "lensMapping": "_List1",
                     "default": "\u003cerror\u003e",
                     "flattened": false,
                     "required": true,
@@ -6625,7 +6624,7 @@
                     "locationName": "LoadBalancerNames",
                     "documentation": "\u003cp\u003e The names of the load balancers. \u003c/p\u003e",
                     "typeExposed": "NonEmpty Text",
-                    "type": "List1 Text"
+                    "type": "List1 \"LoadBalancerNames\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -6639,8 +6638,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -6650,7 +6649,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003e The names of the load balancers. \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"LoadBalancerNames\" Text"
                     }
                 ],
                 "shared": false,
@@ -6665,6 +6664,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -6672,8 +6672,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -6683,7 +6683,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003e The names of the load balancers. \u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"LoadBalancerNames\" Text"
                     }
                 ]
             }
@@ -6695,7 +6695,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6707,8 +6706,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6718,7 +6717,7 @@
                     "locationName": "Subnets",
                     "documentation": "\u003cp\u003e A list of subnet IDs the load balancer is now attached to. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"Subnets\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -6730,13 +6729,14 @@
                 "contentPad": 0,
                 "name": "DetachLoadBalancerFromSubnetsResponse",
                 "resultWrapper": "DetachLoadBalancerFromSubnetsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6746,14 +6746,14 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs the load balancer is now attached to. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6763,7 +6763,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs the load balancer is now attached to. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     }
                 ]
             },
@@ -6783,8 +6783,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -6834,14 +6833,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6851,7 +6851,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs to remove from the set of configured subnets for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     }
                 ],
                 "fields": [
@@ -6872,8 +6872,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6883,7 +6883,7 @@
                         "locationName": "Subnets",
                         "documentation": "\u003cp\u003e A list of subnet IDs to remove from the set of configured subnets for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Subnets\" Text"
                     }
                 ]
             }
@@ -6895,7 +6895,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6907,8 +6906,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6918,7 +6917,7 @@
                     "locationName": "AvailabilityZones",
                     "documentation": "\u003cp\u003e A list of updated Availability Zones for the load balancer. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"AvailabilityZones\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -6930,13 +6929,14 @@
                 "contentPad": 0,
                 "name": "DisableAvailabilityZonesForLoadBalancerResponse",
                 "resultWrapper": "DisableAvailabilityZonesForLoadBalancerResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6946,14 +6946,14 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of updated Availability Zones for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6963,7 +6963,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of updated Availability Zones for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     }
                 ]
             },
@@ -6983,8 +6983,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7034,14 +7033,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7051,14 +7051,14 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of Availability Zones to be removed from the load balancer. \u003c/p\u003e \u003cnote\u003e There must be at least one Availability Zone registered with a load balancer at all times. Specified Availability Zones must be in the same region. \u003c/note\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7068,7 +7068,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of Availability Zones to be removed from the load balancer. \u003c/p\u003e \u003cnote\u003e There must be at least one Availability Zone registered with a load balancer at all times. Specified Availability Zones must be in the same region. \u003c/note\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7095,7 +7095,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7107,8 +7106,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7118,7 +7117,7 @@
                     "locationName": "AvailabilityZones",
                     "documentation": "\u003cp\u003e An updated list of Availability Zones for the load balancer. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"AvailabilityZones\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7130,13 +7129,14 @@
                 "contentPad": 0,
                 "name": "EnableAvailabilityZonesForLoadBalancerResponse",
                 "resultWrapper": "EnableAvailabilityZonesForLoadBalancerResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7146,14 +7146,14 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e An updated list of Availability Zones for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7163,7 +7163,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e An updated list of Availability Zones for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     }
                 ]
             },
@@ -7183,8 +7183,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7234,14 +7233,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7251,14 +7251,14 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of new Availability Zones for the load balancer. Each Availability Zone must be in the same region as the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7268,7 +7268,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "\u003cp\u003e A list of new Availability Zones for the load balancer. Each Availability Zone must be in the same region as the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"AvailabilityZones\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7293,8 +7293,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -7311,6 +7310,7 @@
                 "contentPad": 0,
                 "name": "ModifyLoadBalancerAttributesResponse",
                 "resultWrapper": "ModifyLoadBalancerAttributesResult",
+                "locationPad": 23,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -7393,8 +7393,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7459,6 +7458,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -7503,7 +7503,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7515,8 +7514,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -7526,7 +7525,7 @@
                     "locationName": "Instances",
                     "documentation": "\u003cp\u003e An updated list of instances for the load balancer. \u003c/p\u003e",
                     "typeExposed": "[Instance]",
-                    "type": "[Instance]"
+                    "type": "List \"Instances\" Instance"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7538,13 +7537,14 @@
                 "contentPad": 0,
                 "name": "RegisterInstancesWithLoadBalancerResponse",
                 "resultWrapper": "RegisterInstancesWithLoadBalancerResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7554,14 +7554,14 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e An updated list of instances for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7571,7 +7571,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e An updated list of instances for the load balancer. \u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     }
                 ]
             },
@@ -7590,8 +7590,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7641,14 +7640,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7658,14 +7658,14 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e A list of instance IDs that should be registered with the load balancer.\u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7675,7 +7675,7 @@
                         "locationName": "Instances",
                         "documentation": "\u003cp\u003e A list of instance IDs that should be registered with the load balancer.\u003c/p\u003e",
                         "typeExposed": "[Instance]",
-                        "type": "[Instance]"
+                        "type": "List \"Instances\" Instance"
                     },
                     {
                         "location": "querystring",
@@ -7736,8 +7736,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7756,8 +7755,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -7767,7 +7766,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tag keys to remove.\u003c/p\u003e",
                         "typeExposed": "NonEmpty TagKeyOnly",
-                        "type": "List1 TagKeyOnly"
+                        "type": "List1 \"Tags\" TagKeyOnly"
                     }
                 ],
                 "shared": false,
@@ -7787,14 +7786,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7804,14 +7804,14 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003eThe name of the load balancer. You can specify a maximum of one load balancer name.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7821,12 +7821,12 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "\u003cp\u003eThe name of the load balancer. You can specify a maximum of one load balancer name.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"LoadBalancerNames\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -7836,7 +7836,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tag keys to remove.\u003c/p\u003e",
                         "typeExposed": "NonEmpty TagKeyOnly",
-                        "type": "List1 TagKeyOnly"
+                        "type": "List1 \"Tags\" TagKeyOnly"
                     }
                 ]
             }
@@ -7883,8 +7883,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -7969,6 +7968,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -8064,8 +8064,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8135,14 +8134,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8152,7 +8152,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e List of policy names to be set. If the list is empty, then all current polices are removed from the back-end server. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ],
                 "fields": [
@@ -8188,8 +8188,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8199,7 +8199,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e List of policy names to be set. If the list is empty, then all current polices are removed from the back-end server. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             }
@@ -8246,8 +8246,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -8317,14 +8316,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8334,7 +8334,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e List of policies to be associated with the listener. If the list is empty, the current policy is removed from the listener. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ],
                 "fields": [
@@ -8370,8 +8370,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8381,7 +8381,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003e List of policies to be associated with the listener. If the list is empty, the current policy is removed from the listener. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     }
                 ]
             }

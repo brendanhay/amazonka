@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data DescribeClusters = DescribeClusters
     { _dcClusterIdentifier :: Maybe Text
     , _dcMarker            :: Maybe Text
     , _dcMaxRecords        :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusters' constructor.
 --
@@ -100,9 +101,9 @@ dcMaxRecords :: Lens' DescribeClusters (Maybe Int)
 dcMaxRecords = lens _dcMaxRecords (\s a -> s { _dcMaxRecords = a })
 
 data DescribeClustersResponse = DescribeClustersResponse
-    { _dcrClusters :: [Cluster]
+    { _dcrClusters :: List "Cluster" Cluster
     , _dcrMarker   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeClustersResponse' constructor.
 --
@@ -120,7 +121,7 @@ describeClustersResponse = DescribeClustersResponse
 
 -- | A list of Cluster objects, where each object describes one cluster.
 dcrClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrClusters = lens _dcrClusters (\s a -> s { _dcrClusters = a })
+dcrClusters = lens _dcrClusters (\s a -> s { _dcrClusters = a }) . _List
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -134,7 +135,12 @@ dcrMarker = lens _dcrMarker (\s a -> s { _dcrMarker = a })
 instance ToPath DescribeClusters where
     toPath = const "/"
 
-instance ToQuery DescribeClusters
+instance ToQuery DescribeClusters where
+    toQuery DescribeClusters{..} = mconcat
+        [ "ClusterIdentifier" =? _dcClusterIdentifier
+        , "Marker"            =? _dcMarker
+        , "MaxRecords"        =? _dcMaxRecords
+        ]
 
 instance ToHeaders DescribeClusters
 
@@ -146,9 +152,9 @@ instance AWSRequest DescribeClusters where
     response = xmlResponse
 
 instance FromXML DescribeClustersResponse where
-    parseXML = withElement "DescribeClustersResult" $ \x ->
-            <$> x .@ "Clusters"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeClustersResult" $ \x -> DescribeClustersResponse
+        <$> x .@  "Clusters"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeClusters where
     next rq rs = (\x -> rq & dcMarker ?~ x)

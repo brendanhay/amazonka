@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype ReadPreset = ReadPreset
     { _rpId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ReadPreset' constructor.
 --
@@ -67,7 +68,7 @@ rpId = lens _rpId (\s a -> s { _rpId = a })
 
 newtype ReadPresetResponse = ReadPresetResponse
     { _rprPreset :: Maybe Preset
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReadPresetResponse' constructor.
 --

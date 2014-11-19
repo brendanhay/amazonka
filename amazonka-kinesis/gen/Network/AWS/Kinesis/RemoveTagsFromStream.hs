@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,8 +47,8 @@ import qualified GHC.Exts
 
 data RemoveTagsFromStream = RemoveTagsFromStream
     { _rtfsStreamName :: Text
-    , _rtfsTagKeys    :: List1 Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _rtfsTagKeys    :: List1 "TagKeys" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'RemoveTagsFromStream' constructor.
 --
@@ -62,7 +63,7 @@ removeTagsFromStream :: Text -- ^ 'rtfsStreamName'
                      -> RemoveTagsFromStream
 removeTagsFromStream p1 p2 = RemoveTagsFromStream
     { _rtfsStreamName = p1
-    , _rtfsTagKeys    = p2
+    , _rtfsTagKeys    = withIso _List1 (const id) p2
     }
 
 -- | The name of the stream.
@@ -71,7 +72,7 @@ rtfsStreamName = lens _rtfsStreamName (\s a -> s { _rtfsStreamName = a })
 
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
 rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
-rtfsTagKeys = lens _rtfsTagKeys (\s a -> s { _rtfsTagKeys = a })
+rtfsTagKeys = lens _rtfsTagKeys (\s a -> s { _rtfsTagKeys = a }) . _List1
 
 data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse
     deriving (Eq, Ord, Show, Generic)

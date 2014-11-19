@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirDryRun                 :: Maybe Bool
     , _csirSpotInstanceRequestIds :: List "SpotInstanceRequestId" Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CancelSpotInstanceRequests' constructor.
 --
@@ -84,7 +84,7 @@ csirSpotInstanceRequestIds =
 
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests :: List "item" CancelledSpotInstanceRequest
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CancelSpotInstanceRequestsResponse where
     type Item CancelSpotInstanceRequestsResponse = CancelledSpotInstanceRequest
@@ -113,7 +113,11 @@ csirrCancelledSpotInstanceRequests =
 instance ToPath CancelSpotInstanceRequests where
     toPath = const "/"
 
-instance ToQuery CancelSpotInstanceRequests
+instance ToQuery CancelSpotInstanceRequests where
+    toQuery CancelSpotInstanceRequests{..} = mconcat
+        [ "dryRun"                =? _csirDryRun
+        , "SpotInstanceRequestId" =? _csirSpotInstanceRequestIds
+        ]
 
 instance ToHeaders CancelSpotInstanceRequests
 
@@ -126,4 +130,4 @@ instance AWSRequest CancelSpotInstanceRequests where
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     parseXML x = CancelSpotInstanceRequestsResponse
-        <$> x .@ "spotInstanceRequestSet"
+        <$> x .@  "spotInstanceRequestSet"

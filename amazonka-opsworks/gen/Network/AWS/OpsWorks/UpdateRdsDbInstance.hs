@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ data UpdateRdsDbInstance = UpdateRdsDbInstance
     { _urdiDbPassword       :: Maybe Text
     , _urdiDbUser           :: Maybe Text
     , _urdiRdsDbInstanceArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateRdsDbInstance' constructor.
 --

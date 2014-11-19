@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetDistribution = GetDistribution
     { _gdId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetDistribution' constructor.
 --
@@ -68,7 +69,7 @@ gdId = lens _gdId (\s a -> s { _gdId = a })
 data GetDistributionResponse = GetDistributionResponse
     { _gdrDistribution :: Maybe Distribution
     , _gdrETag         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetDistributionResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,9 +50,9 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data AddTags = AddTags
-    { _atLoadBalancerNames :: [Text]
-    , _atTags              :: List1 Tag
-    } deriving (Eq, Show, Generic)
+    { _atLoadBalancerNames :: List "LoadBalancerNames" Text
+    , _atTags              :: List1 "Tags" Tag
+    } deriving (Eq, Show)
 
 -- | 'AddTags' constructor.
 --
@@ -64,7 +65,7 @@ data AddTags = AddTags
 addTags :: NonEmpty Tag -- ^ 'atTags'
         -> AddTags
 addTags p1 = AddTags
-    { _atTags              = p1
+    { _atTags              = withIso _List1 (const id) p1
     , _atLoadBalancerNames = mempty
     }
 
@@ -73,10 +74,11 @@ addTags p1 = AddTags
 atLoadBalancerNames :: Lens' AddTags [Text]
 atLoadBalancerNames =
     lens _atLoadBalancerNames (\s a -> s { _atLoadBalancerNames = a })
+        . _List
 
 -- | A list of tags for each load balancer.
 atTags :: Lens' AddTags (NonEmpty Tag)
-atTags = lens _atTags (\s a -> s { _atTags = a })
+atTags = lens _atTags (\s a -> s { _atTags = a }) . _List1
 
 data AddTagsResponse = AddTagsResponse
     deriving (Eq, Ord, Show, Generic)
@@ -88,7 +90,11 @@ addTagsResponse = AddTagsResponse
 instance ToPath AddTags where
     toPath = const "/"
 
-instance ToQuery AddTags
+instance ToQuery AddTags where
+    toQuery AddTags{..} = mconcat
+        [ "LoadBalancerNames" =? _atLoadBalancerNames
+        , "Tags"              =? _atTags
+        ]
 
 instance ToHeaders AddTags
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data SignalWorkflowExecution = SignalWorkflowExecution
     , _sweRunId      :: Maybe Text
     , _sweSignalName :: Text
     , _sweWorkflowId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SignalWorkflowExecution' constructor.
 --

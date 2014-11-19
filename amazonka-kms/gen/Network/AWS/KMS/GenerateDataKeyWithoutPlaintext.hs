@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,12 +52,12 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext
-    { _gdkwpEncryptionContext :: Map Text Text
-    , _gdkwpGrantTokens       :: [Text]
+    { _gdkwpEncryptionContext :: Map "entry" "key" "value" Text Text
+    , _gdkwpGrantTokens       :: List "GrantTokens" Text
     , _gdkwpKeyId             :: Text
     , _gdkwpKeySpec           :: Maybe Text
     , _gdkwpNumberOfBytes     :: Maybe Nat
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GenerateDataKeyWithoutPlaintext' constructor.
 --
@@ -92,7 +93,7 @@ gdkwpEncryptionContext =
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to generate a key.
 gdkwpGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext [Text]
-gdkwpGrantTokens = lens _gdkwpGrantTokens (\s a -> s { _gdkwpGrantTokens = a })
+gdkwpGrantTokens = lens _gdkwpGrantTokens (\s a -> s { _gdkwpGrantTokens = a }) . _List
 
 -- | Unique identifier of the key. This can be an ARN, an alias, or a globally
 -- unique identifier.
@@ -114,7 +115,7 @@ gdkwpNumberOfBytes =
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse
     { _gdkwprCiphertextBlob :: Maybe Base64
     , _gdkwprKeyId          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' constructor.
 --

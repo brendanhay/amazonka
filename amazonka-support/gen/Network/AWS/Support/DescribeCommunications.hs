@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data DescribeCommunications = DescribeCommunications
     , _dc1CaseId     :: Text
     , _dc1MaxResults :: Maybe Nat
     , _dc1NextToken  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCommunications' constructor.
 --
@@ -106,17 +107,16 @@ dc1CaseId = lens _dc1CaseId (\s a -> s { _dc1CaseId = a })
 
 -- | The maximum number of results to return before paginating.
 dc1MaxResults :: Lens' DescribeCommunications (Maybe Natural)
-dc1MaxResults = lens _dc1MaxResults (\s a -> s { _dc1MaxResults = a })
-    . mapping _Nat
+dc1MaxResults = lens _dc1MaxResults (\s a -> s { _dc1MaxResults = a }) . mapping _Nat
 
 -- | A resumption point for pagination.
 dc1NextToken :: Lens' DescribeCommunications (Maybe Text)
 dc1NextToken = lens _dc1NextToken (\s a -> s { _dc1NextToken = a })
 
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse
-    { _dcrCommunications :: [Communication]
+    { _dcrCommunications :: List "communications" Communication
     , _dcrNextToken      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeCommunicationsResponse' constructor.
 --
@@ -136,6 +136,7 @@ describeCommunicationsResponse = DescribeCommunicationsResponse
 dcrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrCommunications =
     lens _dcrCommunications (\s a -> s { _dcrCommunications = a })
+        . _List
 
 -- | A resumption point for pagination.
 dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
@@ -167,7 +168,7 @@ instance AWSRequest DescribeCommunications where
 
 instance FromJSON DescribeCommunicationsResponse where
     parseJSON = withObject "DescribeCommunicationsResponse" $ \o -> DescribeCommunicationsResponse
-        <$> o .: "communications"
+        <$> o .:  "communications"
         <*> o .:? "nextToken"
 
 instance AWSPager DescribeCommunications where

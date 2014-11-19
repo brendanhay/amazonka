@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DescribeStackSummary = DescribeStackSummary
     { _dssStackId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeStackSummary' constructor.
 --
@@ -71,7 +72,7 @@ dssStackId = lens _dssStackId (\s a -> s { _dssStackId = a })
 
 newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
     { _dssrStackSummary :: Maybe StackSummary
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeStackSummaryResponse' constructor.
 --

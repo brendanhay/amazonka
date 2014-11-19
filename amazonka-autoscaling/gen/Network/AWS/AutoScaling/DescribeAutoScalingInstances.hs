@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,10 +54,10 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
-    { _dasiInstanceIds :: [Text]
+    { _dasiInstanceIds :: List "InstanceIds" Text
     , _dasiMaxRecords  :: Maybe Int
     , _dasiNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeAutoScalingInstances' constructor.
 --
@@ -80,7 +81,7 @@ describeAutoScalingInstances = DescribeAutoScalingInstances
 -- cannot contain more than 50 items. If unknown instances are requested,
 -- they are ignored with no error.
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
-dasiInstanceIds = lens _dasiInstanceIds (\s a -> s { _dasiInstanceIds = a })
+dasiInstanceIds = lens _dasiInstanceIds (\s a -> s { _dasiInstanceIds = a }) . _List
 
 -- | The maximum number of Auto Scaling instances to be described with each
 -- call.
@@ -93,9 +94,9 @@ dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasiNextToken = lens _dasiNextToken (\s a -> s { _dasiNextToken = a })
 
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
-    { _dasirAutoScalingInstances :: [AutoScalingInstanceDetails]
+    { _dasirAutoScalingInstances :: List "AutoScalingInstances" AutoScalingInstanceDetails
     , _dasirNextToken            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAutoScalingInstancesResponse' constructor.
 --
@@ -116,6 +117,7 @@ dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoSca
 dasirAutoScalingInstances =
     lens _dasirAutoScalingInstances
         (\s a -> s { _dasirAutoScalingInstances = a })
+            . _List
 
 -- | A string that marks the start of the next batch of returned results.
 dasirNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
@@ -124,7 +126,12 @@ dasirNextToken = lens _dasirNextToken (\s a -> s { _dasirNextToken = a })
 instance ToPath DescribeAutoScalingInstances where
     toPath = const "/"
 
-instance ToQuery DescribeAutoScalingInstances
+instance ToQuery DescribeAutoScalingInstances where
+    toQuery DescribeAutoScalingInstances{..} = mconcat
+        [ "InstanceIds" =? _dasiInstanceIds
+        , "MaxRecords"  =? _dasiMaxRecords
+        , "NextToken"   =? _dasiNextToken
+        ]
 
 instance ToHeaders DescribeAutoScalingInstances
 
@@ -136,9 +143,9 @@ instance AWSRequest DescribeAutoScalingInstances where
     response = xmlResponse
 
 instance FromXML DescribeAutoScalingInstancesResponse where
-    parseXML = withElement "DescribeAutoScalingInstancesResult" $ \x ->
-            <$> x .@ "AutoScalingInstances"
-            <*> x .@? "NextToken"
+    parseXML = withElement "DescribeAutoScalingInstancesResult" $ \x -> DescribeAutoScalingInstancesResponse
+        <$> x .@  "AutoScalingInstances"
+        <*> x .@? "NextToken"
 
 instance AWSPager DescribeAutoScalingInstances where
     next rq rs = (\x -> rq & dasiNextToken ?~ x)

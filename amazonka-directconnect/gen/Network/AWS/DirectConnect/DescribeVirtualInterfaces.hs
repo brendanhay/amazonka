@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ import qualified GHC.Exts
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces
     { _dviConnectionId       :: Maybe Text
     , _dviVirtualInterfaceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeVirtualInterfaces' constructor.
 --
@@ -81,8 +82,8 @@ dviVirtualInterfaceId =
     lens _dviVirtualInterfaceId (\s a -> s { _dviVirtualInterfaceId = a })
 
 newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
-    { _dvirVirtualInterfaces :: [VirtualInterface]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dvirVirtualInterfaces :: List "virtualInterfaces" VirtualInterface
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVirtualInterfacesResponse where
     type Item DescribeVirtualInterfacesResponse = VirtualInterface
@@ -105,6 +106,7 @@ describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
 dvirVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
 dvirVirtualInterfaces =
     lens _dvirVirtualInterfaces (\s a -> s { _dvirVirtualInterfaces = a })
+        . _List
 
 instance ToPath DescribeVirtualInterfaces where
     toPath = const "/"
@@ -129,4 +131,4 @@ instance AWSRequest DescribeVirtualInterfaces where
 
 instance FromJSON DescribeVirtualInterfacesResponse where
     parseJSON = withObject "DescribeVirtualInterfacesResponse" $ \o -> DescribeVirtualInterfacesResponse
-        <$> o .: "virtualInterfaces"
+        <$> o .:  "virtualInterfaces"

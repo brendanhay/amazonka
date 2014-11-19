@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data CreateInstanceProfile = CreateInstanceProfile
     { _cipInstanceProfileName :: Text
     , _cipPath                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateInstanceProfile' constructor.
 --
@@ -81,7 +82,7 @@ cipPath = lens _cipPath (\s a -> s { _cipPath = a })
 
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { _ciprInstanceProfile :: InstanceProfile
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateInstanceProfileResponse' constructor.
 --
@@ -103,7 +104,11 @@ ciprInstanceProfile =
 instance ToPath CreateInstanceProfile where
     toPath = const "/"
 
-instance ToQuery CreateInstanceProfile
+instance ToQuery CreateInstanceProfile where
+    toQuery CreateInstanceProfile{..} = mconcat
+        [ "InstanceProfileName" =? _cipInstanceProfileName
+        , "Path"                =? _cipPath
+        ]
 
 instance ToHeaders CreateInstanceProfile
 
@@ -115,5 +120,5 @@ instance AWSRequest CreateInstanceProfile where
     response = xmlResponse
 
 instance FromXML CreateInstanceProfileResponse where
-    parseXML = withElement "CreateInstanceProfileResult" $ \x ->
-            <$> x .@ "InstanceProfile"
+    parseXML = withElement "CreateInstanceProfileResult" $ \x -> CreateInstanceProfileResponse
+        <$> x .@  "InstanceProfile"

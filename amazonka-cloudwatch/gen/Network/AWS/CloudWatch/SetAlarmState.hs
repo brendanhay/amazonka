@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data SetAlarmState = SetAlarmState
     , _sasStateReason     :: Text
     , _sasStateReasonData :: Maybe Text
     , _sasStateValue      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetAlarmState' constructor.
 --
@@ -108,7 +109,13 @@ setAlarmStateResponse = SetAlarmStateResponse
 instance ToPath SetAlarmState where
     toPath = const "/"
 
-instance ToQuery SetAlarmState
+instance ToQuery SetAlarmState where
+    toQuery SetAlarmState{..} = mconcat
+        [ "AlarmName"       =? _sasAlarmName
+        , "StateReason"     =? _sasStateReason
+        , "StateReasonData" =? _sasStateReasonData
+        , "StateValue"      =? _sasStateValue
+        ]
 
 instance ToHeaders SetAlarmState
 

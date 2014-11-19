@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,11 +53,11 @@ import Network.AWS.RDS.Types
 import qualified GHC.Exts
 
 data DescribeEventSubscriptions = DescribeEventSubscriptions
-    { _des1Filters          :: [Filter]
+    { _des1Filters          :: List "Filter" Filter
     , _des1Marker           :: Maybe Text
     , _des1MaxRecords       :: Maybe Int
     , _des1SubscriptionName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEventSubscriptions' constructor.
 --
@@ -80,7 +81,7 @@ describeEventSubscriptions = DescribeEventSubscriptions
 
 -- | This parameter is not currently supported.
 des1Filters :: Lens' DescribeEventSubscriptions [Filter]
-des1Filters = lens _des1Filters (\s a -> s { _des1Filters = a })
+des1Filters = lens _des1Filters (\s a -> s { _des1Filters = a }) . _List
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
@@ -102,9 +103,9 @@ des1SubscriptionName =
     lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
 
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrEventSubscriptionsList :: [EventSubscription]
+    { _desrEventSubscriptionsList :: List "EventSubscription" EventSubscription
     , _desrMarker                 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEventSubscriptionsResponse' constructor.
 --
@@ -125,6 +126,7 @@ desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSub
 desrEventSubscriptionsList =
     lens _desrEventSubscriptionsList
         (\s a -> s { _desrEventSubscriptionsList = a })
+            . _List
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
@@ -136,7 +138,13 @@ desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
 instance ToPath DescribeEventSubscriptions where
     toPath = const "/"
 
-instance ToQuery DescribeEventSubscriptions
+instance ToQuery DescribeEventSubscriptions where
+    toQuery DescribeEventSubscriptions{..} = mconcat
+        [ "Filters"          =? _des1Filters
+        , "Marker"           =? _des1Marker
+        , "MaxRecords"       =? _des1MaxRecords
+        , "SubscriptionName" =? _des1SubscriptionName
+        ]
 
 instance ToHeaders DescribeEventSubscriptions
 
@@ -148,9 +156,9 @@ instance AWSRequest DescribeEventSubscriptions where
     response = xmlResponse
 
 instance FromXML DescribeEventSubscriptionsResponse where
-    parseXML = withElement "DescribeEventSubscriptionsResult" $ \x ->
-            <$> x .@ "EventSubscriptionsList"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeEventSubscriptionsResult" $ \x -> DescribeEventSubscriptionsResponse
+        <$> x .@  "EventSubscriptionsList"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeEventSubscriptions where
     next rq rs = (\x -> rq & des1Marker ?~ x)

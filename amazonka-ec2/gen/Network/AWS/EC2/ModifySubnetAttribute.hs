@@ -47,7 +47,7 @@ import qualified GHC.Exts
 data ModifySubnetAttribute = ModifySubnetAttribute
     { _msaMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
     , _msaSubnetId            :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifySubnetAttribute' constructor.
 --
@@ -82,7 +82,11 @@ modifySubnetAttributeResponse = ModifySubnetAttributeResponse
 instance ToPath ModifySubnetAttribute where
     toPath = const "/"
 
-instance ToQuery ModifySubnetAttribute
+instance ToQuery ModifySubnetAttribute where
+    toQuery ModifySubnetAttribute{..} = mconcat
+        [ "MapPublicIpOnLaunch" =? _msaMapPublicIpOnLaunch
+        , "subnetId"            =? _msaSubnetId
+        ]
 
 instance ToHeaders ModifySubnetAttribute
 

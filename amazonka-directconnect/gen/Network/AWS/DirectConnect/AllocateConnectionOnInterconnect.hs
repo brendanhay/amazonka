@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
     , _acoiInterconnectId :: Text
     , _acoiOwnerAccount   :: Text
     , _acoiVlan           :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AllocateConnectionOnInterconnect' constructor.
 --
@@ -130,7 +131,7 @@ data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnect
     , _acoirPartnerName     :: Maybe Text
     , _acoirRegion          :: Maybe Text
     , _acoirVlan            :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AllocateConnectionOnInterconnectResponse' constructor.
 --

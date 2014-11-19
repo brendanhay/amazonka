@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
     { _mscrpClusterIdentifier :: Text
     , _mscrpRetentionPeriod   :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ModifySnapshotCopyRetentionPeriod' constructor.
 --
@@ -87,7 +88,7 @@ mscrpRetentionPeriod =
 
 newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
     { _mscrprCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifySnapshotCopyRetentionPeriodResponse' constructor.
 --
@@ -106,7 +107,11 @@ mscrprCluster = lens _mscrprCluster (\s a -> s { _mscrprCluster = a })
 instance ToPath ModifySnapshotCopyRetentionPeriod where
     toPath = const "/"
 
-instance ToQuery ModifySnapshotCopyRetentionPeriod
+instance ToQuery ModifySnapshotCopyRetentionPeriod where
+    toQuery ModifySnapshotCopyRetentionPeriod{..} = mconcat
+        [ "ClusterIdentifier" =? _mscrpClusterIdentifier
+        , "RetentionPeriod"   =? _mscrpRetentionPeriod
+        ]
 
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
 
@@ -118,5 +123,5 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod where
     response = xmlResponse
 
 instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
-    parseXML = withElement "ModifySnapshotCopyRetentionPeriodResult" $ \x ->
-            <$> x .@? "Cluster"
+    parseXML = withElement "ModifySnapshotCopyRetentionPeriodResult" $ \x -> ModifySnapshotCopyRetentionPeriodResponse
+        <$> x .@? "Cluster"

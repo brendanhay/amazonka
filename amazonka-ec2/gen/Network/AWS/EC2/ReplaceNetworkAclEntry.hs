@@ -63,7 +63,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     , _rnaeProtocol     :: Text
     , _rnaeRuleAction   :: Text
     , _rnaeRuleNumber   :: Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReplaceNetworkAclEntry' constructor.
 --
@@ -154,7 +154,18 @@ replaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
 instance ToPath ReplaceNetworkAclEntry where
     toPath = const "/"
 
-instance ToQuery ReplaceNetworkAclEntry
+instance ToQuery ReplaceNetworkAclEntry where
+    toQuery ReplaceNetworkAclEntry{..} = mconcat
+        [ "cidrBlock"    =? _rnaeCidrBlock
+        , "dryRun"       =? _rnaeDryRun
+        , "egress"       =? _rnaeEgress
+        , "Icmp"         =? _rnaeIcmpTypeCode
+        , "networkAclId" =? _rnaeNetworkAclId
+        , "portRange"    =? _rnaePortRange
+        , "protocol"     =? _rnaeProtocol
+        , "ruleAction"   =? _rnaeRuleAction
+        , "ruleNumber"   =? _rnaeRuleNumber
+        ]
 
 instance ToHeaders ReplaceNetworkAclEntry
 

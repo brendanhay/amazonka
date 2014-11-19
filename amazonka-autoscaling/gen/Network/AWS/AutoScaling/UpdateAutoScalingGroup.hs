@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ import qualified GHC.Exts
 
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     { _uasgAutoScalingGroupName    :: Text
-    , _uasgAvailabilityZones       :: List1 Text
+    , _uasgAvailabilityZones       :: List1 "AvailabilityZones" Text
     , _uasgDefaultCooldown         :: Maybe Int
     , _uasgDesiredCapacity         :: Maybe Int
     , _uasgHealthCheckGracePeriod  :: Maybe Int
@@ -67,9 +68,9 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     , _uasgMaxSize                 :: Maybe Int
     , _uasgMinSize                 :: Maybe Int
     , _uasgPlacementGroup          :: Maybe Text
-    , _uasgTerminationPolicies     :: [Text]
+    , _uasgTerminationPolicies     :: List "TerminationPolicies" Text
     , _uasgVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateAutoScalingGroup' constructor.
 --
@@ -104,7 +105,7 @@ updateAutoScalingGroup :: Text -- ^ 'uasgAutoScalingGroupName'
                        -> UpdateAutoScalingGroup
 updateAutoScalingGroup p1 p2 = UpdateAutoScalingGroup
     { _uasgAutoScalingGroupName    = p1
-    , _uasgAvailabilityZones       = p2
+    , _uasgAvailabilityZones       = withIso _List1 (const id) p2
     , _uasgLaunchConfigurationName = Nothing
     , _uasgMinSize                 = Nothing
     , _uasgMaxSize                 = Nothing
@@ -127,6 +128,7 @@ uasgAutoScalingGroupName =
 uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (NonEmpty Text)
 uasgAvailabilityZones =
     lens _uasgAvailabilityZones (\s a -> s { _uasgAvailabilityZones = a })
+        . _List1
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- any further scaling activities can start. For more information, see
@@ -184,6 +186,7 @@ uasgPlacementGroup =
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies =
     lens _uasgTerminationPolicies (\s a -> s { _uasgTerminationPolicies = a })
+        . _List
 
 -- | The subnet identifier for the Amazon VPC connection, if applicable. You
 -- can specify several subnets in a comma-separated list. When you specify
@@ -206,7 +209,21 @@ updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
 instance ToPath UpdateAutoScalingGroup where
     toPath = const "/"
 
-instance ToQuery UpdateAutoScalingGroup
+instance ToQuery UpdateAutoScalingGroup where
+    toQuery UpdateAutoScalingGroup{..} = mconcat
+        [ "AutoScalingGroupName"    =? _uasgAutoScalingGroupName
+        , "AvailabilityZones"       =? _uasgAvailabilityZones
+        , "DefaultCooldown"         =? _uasgDefaultCooldown
+        , "DesiredCapacity"         =? _uasgDesiredCapacity
+        , "HealthCheckGracePeriod"  =? _uasgHealthCheckGracePeriod
+        , "HealthCheckType"         =? _uasgHealthCheckType
+        , "LaunchConfigurationName" =? _uasgLaunchConfigurationName
+        , "MaxSize"                 =? _uasgMaxSize
+        , "MinSize"                 =? _uasgMinSize
+        , "PlacementGroup"          =? _uasgPlacementGroup
+        , "TerminationPolicies"     =? _uasgTerminationPolicies
+        , "VPCZoneIdentifier"       =? _uasgVPCZoneIdentifier
+        ]
 
 instance ToHeaders UpdateAutoScalingGroup
 

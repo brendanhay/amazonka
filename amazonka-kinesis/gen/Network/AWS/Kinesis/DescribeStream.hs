@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ data DescribeStream = DescribeStream
     { _ds1ExclusiveStartShardId :: Maybe Text
     , _ds1Limit                 :: Maybe Nat
     , _ds1StreamName            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeStream' constructor.
 --
@@ -93,8 +94,7 @@ ds1ExclusiveStartShardId =
 
 -- | The maximum number of shards to return.
 ds1Limit :: Lens' DescribeStream (Maybe Natural)
-ds1Limit = lens _ds1Limit (\s a -> s { _ds1Limit = a })
-    . mapping _Nat
+ds1Limit = lens _ds1Limit (\s a -> s { _ds1Limit = a }) . mapping _Nat
 
 -- | The name of the stream to describe.
 ds1StreamName :: Lens' DescribeStream Text
@@ -102,7 +102,7 @@ ds1StreamName = lens _ds1StreamName (\s a -> s { _ds1StreamName = a })
 
 newtype DescribeStreamResponse = DescribeStreamResponse
     { _dsrStreamDescription :: StreamDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeStreamResponse' constructor.
 --
@@ -147,7 +147,7 @@ instance AWSRequest DescribeStream where
 
 instance FromJSON DescribeStreamResponse where
     parseJSON = withObject "DescribeStreamResponse" $ \o -> DescribeStreamResponse
-        <$> o .: "StreamDescription"
+        <$> o .:  "StreamDescription"
 
 instance AWSPager DescribeStream where
     next rq rs

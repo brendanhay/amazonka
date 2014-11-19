@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data DeleteDBInstance = DeleteDBInstance
     { _ddbiDBInstanceIdentifier      :: Text
     , _ddbiFinalDBSnapshotIdentifier :: Maybe Text
     , _ddbiSkipFinalSnapshot         :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteDBInstance' constructor.
 --
@@ -106,7 +107,7 @@ ddbiSkipFinalSnapshot =
 
 newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
     { _ddbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteDBInstanceResponse' constructor.
 --
@@ -125,7 +126,12 @@ ddbirDBInstance = lens _ddbirDBInstance (\s a -> s { _ddbirDBInstance = a })
 instance ToPath DeleteDBInstance where
     toPath = const "/"
 
-instance ToQuery DeleteDBInstance
+instance ToQuery DeleteDBInstance where
+    toQuery DeleteDBInstance{..} = mconcat
+        [ "DBInstanceIdentifier"      =? _ddbiDBInstanceIdentifier
+        , "FinalDBSnapshotIdentifier" =? _ddbiFinalDBSnapshotIdentifier
+        , "SkipFinalSnapshot"         =? _ddbiSkipFinalSnapshot
+        ]
 
 instance ToHeaders DeleteDBInstance
 
@@ -137,5 +143,5 @@ instance AWSRequest DeleteDBInstance where
     response = xmlResponse
 
 instance FromXML DeleteDBInstanceResponse where
-    parseXML = withElement "DeleteDBInstanceResult" $ \x ->
-            <$> x .@? "DBInstance"
+    parseXML = withElement "DeleteDBInstanceResult" $ \x -> DeleteDBInstanceResponse
+        <$> x .@? "DBInstance"

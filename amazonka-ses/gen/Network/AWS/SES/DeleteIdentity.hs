@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,7 +46,7 @@ import qualified GHC.Exts
 
 newtype DeleteIdentity = DeleteIdentity
     { _diIdentity :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteIdentity' constructor.
 --
@@ -74,7 +75,10 @@ deleteIdentityResponse = DeleteIdentityResponse
 instance ToPath DeleteIdentity where
     toPath = const "/"
 
-instance ToQuery DeleteIdentity
+instance ToQuery DeleteIdentity where
+    toQuery DeleteIdentity{..} = mconcat
+        [ "Identity" =? _diIdentity
+        ]
 
 instance ToHeaders DeleteIdentity
 

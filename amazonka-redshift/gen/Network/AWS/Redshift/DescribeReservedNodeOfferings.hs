@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
     { _drnoMarker                 :: Maybe Text
     , _drnoMaxRecords             :: Maybe Int
     , _drnoReservedNodeOfferingId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeReservedNodeOfferings' constructor.
 --
@@ -102,8 +103,8 @@ drnoReservedNodeOfferingId =
 
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
     { _drnorMarker                :: Maybe Text
-    , _drnorReservedNodeOfferings :: [ReservedNodeOffering]
-    } deriving (Eq, Show, Generic)
+    , _drnorReservedNodeOfferings :: List "ReservedNodeOffering" ReservedNodeOffering
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedNodeOfferingsResponse' constructor.
 --
@@ -133,11 +134,17 @@ drnorReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [Reser
 drnorReservedNodeOfferings =
     lens _drnorReservedNodeOfferings
         (\s a -> s { _drnorReservedNodeOfferings = a })
+            . _List
 
 instance ToPath DescribeReservedNodeOfferings where
     toPath = const "/"
 
-instance ToQuery DescribeReservedNodeOfferings
+instance ToQuery DescribeReservedNodeOfferings where
+    toQuery DescribeReservedNodeOfferings{..} = mconcat
+        [ "Marker"                 =? _drnoMarker
+        , "MaxRecords"             =? _drnoMaxRecords
+        , "ReservedNodeOfferingId" =? _drnoReservedNodeOfferingId
+        ]
 
 instance ToHeaders DescribeReservedNodeOfferings
 
@@ -149,9 +156,9 @@ instance AWSRequest DescribeReservedNodeOfferings where
     response = xmlResponse
 
 instance FromXML DescribeReservedNodeOfferingsResponse where
-    parseXML = withElement "DescribeReservedNodeOfferingsResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "ReservedNodeOfferings"
+    parseXML = withElement "DescribeReservedNodeOfferingsResult" $ \x -> DescribeReservedNodeOfferingsResponse
+        <$> x .@? "Marker"
+        <*> x .@  "ReservedNodeOfferings"
 
 instance AWSPager DescribeReservedNodeOfferings where
     next rq rs = (\x -> rq & drnoMarker ?~ x)

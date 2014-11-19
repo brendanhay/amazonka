@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -68,7 +69,7 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
     , _coweStartTimeFilter :: ExecutionTimeFilter
     , _coweTagFilter       :: Maybe TagFilter
     , _coweTypeFilter      :: Maybe WorkflowTypeFilter
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CountOpenWorkflowExecutions' constructor.
 --
@@ -123,7 +124,7 @@ coweTypeFilter = lens _coweTypeFilter (\s a -> s { _coweTypeFilter = a })
 data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
     { _cowerCount     :: Nat
     , _cowerTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CountOpenWorkflowExecutionsResponse' constructor.
 --
@@ -142,8 +143,7 @@ countOpenWorkflowExecutionsResponse p1 = CountOpenWorkflowExecutionsResponse
 
 -- | The number of workflow executions.
 cowerCount :: Lens' CountOpenWorkflowExecutionsResponse Natural
-cowerCount = lens _cowerCount (\s a -> s { _cowerCount = a })
-    . _Nat
+cowerCount = lens _cowerCount (\s a -> s { _cowerCount = a }) . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
@@ -176,5 +176,5 @@ instance AWSRequest CountOpenWorkflowExecutions where
 
 instance FromJSON CountOpenWorkflowExecutionsResponse where
     parseJSON = withObject "CountOpenWorkflowExecutionsResponse" $ \o -> CountOpenWorkflowExecutionsResponse
-        <$> o .: "count"
+        <$> o .:  "count"
         <*> o .:? "truncated"

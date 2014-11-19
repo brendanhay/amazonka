@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -44,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteOptionGroup = DeleteOptionGroup
     { _dog1OptionGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteOptionGroup' constructor.
 --
@@ -73,7 +74,10 @@ deleteOptionGroupResponse = DeleteOptionGroupResponse
 instance ToPath DeleteOptionGroup where
     toPath = const "/"
 
-instance ToQuery DeleteOptionGroup
+instance ToQuery DeleteOptionGroup where
+    toQuery DeleteOptionGroup{..} = mconcat
+        [ "OptionGroupName" =? _dog1OptionGroupName
+        ]
 
 instance ToHeaders DeleteOptionGroup
 

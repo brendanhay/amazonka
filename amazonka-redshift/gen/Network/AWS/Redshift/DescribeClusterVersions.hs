@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data DescribeClusterVersions = DescribeClusterVersions
     , _dcvClusterVersion              :: Maybe Text
     , _dcvMarker                      :: Maybe Text
     , _dcvMaxRecords                  :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterVersions' constructor.
 --
@@ -111,9 +112,9 @@ dcvMaxRecords :: Lens' DescribeClusterVersions (Maybe Int)
 dcvMaxRecords = lens _dcvMaxRecords (\s a -> s { _dcvMaxRecords = a })
 
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
-    { _dcvrClusterVersions :: [ClusterVersion]
+    { _dcvrClusterVersions :: List "ClusterVersion" ClusterVersion
     , _dcvrMarker          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeClusterVersionsResponse' constructor.
 --
@@ -133,6 +134,7 @@ describeClusterVersionsResponse = DescribeClusterVersionsResponse
 dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
 dcvrClusterVersions =
     lens _dcvrClusterVersions (\s a -> s { _dcvrClusterVersions = a })
+        . _List
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -146,7 +148,13 @@ dcvrMarker = lens _dcvrMarker (\s a -> s { _dcvrMarker = a })
 instance ToPath DescribeClusterVersions where
     toPath = const "/"
 
-instance ToQuery DescribeClusterVersions
+instance ToQuery DescribeClusterVersions where
+    toQuery DescribeClusterVersions{..} = mconcat
+        [ "ClusterParameterGroupFamily" =? _dcvClusterParameterGroupFamily
+        , "ClusterVersion"              =? _dcvClusterVersion
+        , "Marker"                      =? _dcvMarker
+        , "MaxRecords"                  =? _dcvMaxRecords
+        ]
 
 instance ToHeaders DescribeClusterVersions
 
@@ -158,9 +166,9 @@ instance AWSRequest DescribeClusterVersions where
     response = xmlResponse
 
 instance FromXML DescribeClusterVersionsResponse where
-    parseXML = withElement "DescribeClusterVersionsResult" $ \x ->
-            <$> x .@ "ClusterVersions"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeClusterVersionsResult" $ \x -> DescribeClusterVersionsResponse
+        <$> x .@  "ClusterVersions"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeClusterVersions where
     next rq rs = (\x -> rq & dcvMarker ?~ x)

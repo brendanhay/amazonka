@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,7 +46,7 @@ import qualified GHC.Exts
 
 newtype DeleteUser = DeleteUser
     { _duUserName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteUser' constructor.
 --
@@ -73,7 +74,10 @@ deleteUserResponse = DeleteUserResponse
 instance ToPath DeleteUser where
     toPath = const "/"
 
-instance ToQuery DeleteUser
+instance ToQuery DeleteUser where
+    toQuery DeleteUser{..} = mconcat
+        [ "UserName" =? _duUserName
+        ]
 
 instance ToHeaders DeleteUser
 

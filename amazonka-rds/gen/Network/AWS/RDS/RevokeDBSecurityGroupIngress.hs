@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
     , _rdbsgiEC2SecurityGroupId      :: Maybe Text
     , _rdbsgiEC2SecurityGroupName    :: Maybe Text
     , _rdbsgiEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RevokeDBSecurityGroupIngress' constructor.
 --
@@ -125,7 +126,7 @@ rdbsgiEC2SecurityGroupOwnerId =
 
 newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
     { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RevokeDBSecurityGroupIngressResponse' constructor.
 --
@@ -145,7 +146,14 @@ rdbsgirDBSecurityGroup =
 instance ToPath RevokeDBSecurityGroupIngress where
     toPath = const "/"
 
-instance ToQuery RevokeDBSecurityGroupIngress
+instance ToQuery RevokeDBSecurityGroupIngress where
+    toQuery RevokeDBSecurityGroupIngress{..} = mconcat
+        [ "CIDRIP"                  =? _rdbsgiCIDRIP
+        , "DBSecurityGroupName"     =? _rdbsgiDBSecurityGroupName
+        , "EC2SecurityGroupId"      =? _rdbsgiEC2SecurityGroupId
+        , "EC2SecurityGroupName"    =? _rdbsgiEC2SecurityGroupName
+        , "EC2SecurityGroupOwnerId" =? _rdbsgiEC2SecurityGroupOwnerId
+        ]
 
 instance ToHeaders RevokeDBSecurityGroupIngress
 
@@ -157,5 +165,5 @@ instance AWSRequest RevokeDBSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML RevokeDBSecurityGroupIngressResponse where
-    parseXML = withElement "RevokeDBSecurityGroupIngressResult" $ \x ->
-            <$> x .@? "DBSecurityGroup"
+    parseXML = withElement "RevokeDBSecurityGroupIngressResult" $ \x -> RevokeDBSecurityGroupIngressResponse
+        <$> x .@? "DBSecurityGroup"

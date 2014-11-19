@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
     { _dlcLaunchConfigurationName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteLaunchConfiguration' constructor.
 --
@@ -76,7 +77,10 @@ deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
 instance ToPath DeleteLaunchConfiguration where
     toPath = const "/"
 
-instance ToQuery DeleteLaunchConfiguration
+instance ToQuery DeleteLaunchConfiguration where
+    toQuery DeleteLaunchConfiguration{..} = mconcat
+        [ "LaunchConfigurationName" =? _dlcLaunchConfigurationName
+        ]
 
 instance ToHeaders DeleteLaunchConfiguration
 

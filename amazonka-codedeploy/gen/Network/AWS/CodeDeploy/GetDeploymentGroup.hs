@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data GetDeploymentGroup = GetDeploymentGroup
     { _gdgApplicationName     :: Text
     , _gdgDeploymentGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetDeploymentGroup' constructor.
 --
@@ -79,7 +80,7 @@ gdgDeploymentGroupName =
 
 newtype GetDeploymentGroupResponse = GetDeploymentGroupResponse
     { _gdgrDeploymentGroupInfo :: Maybe DeploymentGroupInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetDeploymentGroupResponse' constructor.
 --

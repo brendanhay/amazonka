@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -72,7 +73,7 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
     , _ccweStartTimeFilter   :: Maybe ExecutionTimeFilter
     , _ccweTagFilter         :: Maybe TagFilter
     , _ccweTypeFilter        :: Maybe WorkflowTypeFilter
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CountClosedWorkflowExecutions' constructor.
 --
@@ -146,7 +147,7 @@ ccweTypeFilter = lens _ccweTypeFilter (\s a -> s { _ccweTypeFilter = a })
 data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsResponse
     { _ccwerCount     :: Nat
     , _ccwerTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CountClosedWorkflowExecutionsResponse' constructor.
 --
@@ -165,8 +166,7 @@ countClosedWorkflowExecutionsResponse p1 = CountClosedWorkflowExecutionsResponse
 
 -- | The number of workflow executions.
 ccwerCount :: Lens' CountClosedWorkflowExecutionsResponse Natural
-ccwerCount = lens _ccwerCount (\s a -> s { _ccwerCount = a })
-    . _Nat
+ccwerCount = lens _ccwerCount (\s a -> s { _ccwerCount = a }) . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
@@ -201,5 +201,5 @@ instance AWSRequest CountClosedWorkflowExecutions where
 
 instance FromJSON CountClosedWorkflowExecutionsResponse where
     parseJSON = withObject "CountClosedWorkflowExecutionsResponse" $ \o -> CountClosedWorkflowExecutionsResponse
-        <$> o .: "count"
+        <$> o .:  "count"
         <*> o .:? "truncated"

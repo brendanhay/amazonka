@@ -61,7 +61,7 @@ data CreateNetworkInterface = CreateNetworkInterface
     , _cniPrivateIpAddresses             :: List "item" PrivateIpAddressSpecification
     , _cniSecondaryPrivateIpAddressCount :: Maybe Int
     , _cniSubnetId                       :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateNetworkInterface' constructor.
 --
@@ -102,8 +102,7 @@ cniDryRun = lens _cniDryRun (\s a -> s { _cniDryRun = a })
 
 -- | The IDs of one or more security groups.
 cniGroups :: Lens' CreateNetworkInterface [Text]
-cniGroups = lens _cniGroups (\s a -> s { _cniGroups = a })
-    . _List
+cniGroups = lens _cniGroups (\s a -> s { _cniGroups = a }) . _List
 
 -- | The primary private IP address of the network interface. If you don't
 -- specify an IP address, Amazon EC2 selects one for you from the subnet
@@ -139,7 +138,7 @@ cniSubnetId = lens _cniSubnetId (\s a -> s { _cniSubnetId = a })
 
 newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface :: Maybe NetworkInterface
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateNetworkInterfaceResponse' constructor.
 --
@@ -160,7 +159,16 @@ cnirNetworkInterface =
 instance ToPath CreateNetworkInterface where
     toPath = const "/"
 
-instance ToQuery CreateNetworkInterface
+instance ToQuery CreateNetworkInterface where
+    toQuery CreateNetworkInterface{..} = mconcat
+        [ "description"                    =? _cniDescription
+        , "dryRun"                         =? _cniDryRun
+        , "SecurityGroupId"                =? _cniGroups
+        , "privateIpAddress"               =? _cniPrivateIpAddress
+        , "privateIpAddresses"             =? _cniPrivateIpAddresses
+        , "secondaryPrivateIpAddressCount" =? _cniSecondaryPrivateIpAddressCount
+        , "subnetId"                       =? _cniSubnetId
+        ]
 
 instance ToHeaders CreateNetworkInterface
 

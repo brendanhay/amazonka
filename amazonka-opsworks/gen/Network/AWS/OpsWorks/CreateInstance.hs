@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -71,14 +72,14 @@ data CreateInstance = CreateInstance
     , _ciHostname             :: Maybe Text
     , _ciInstallUpdatesOnBoot :: Maybe Bool
     , _ciInstanceType         :: Text
-    , _ciLayerIds             :: [Text]
+    , _ciLayerIds             :: List "InstanceIds" Text
     , _ciOs                   :: Maybe Text
     , _ciRootDeviceType       :: Maybe Text
     , _ciSshKeyName           :: Maybe Text
     , _ciStackId              :: Text
     , _ciSubnetId             :: Maybe Text
     , _ciVirtualizationType   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateInstance' constructor.
 --
@@ -194,7 +195,7 @@ ciInstanceType = lens _ciInstanceType (\s a -> s { _ciInstanceType = a })
 
 -- | An array that contains the instance layer IDs.
 ciLayerIds :: Lens' CreateInstance [Text]
-ciLayerIds = lens _ciLayerIds (\s a -> s { _ciLayerIds = a })
+ciLayerIds = lens _ciLayerIds (\s a -> s { _ciLayerIds = a }) . _List
 
 -- | The instance operating system, which must be set to one of the following.
 -- Standard operating systems: Amazon Linux or Ubuntu 12.04 LTS Custom AMIs:
@@ -232,7 +233,7 @@ ciVirtualizationType =
 
 newtype CreateInstanceResponse = CreateInstanceResponse
     { _cirInstanceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateInstanceResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype ListApplications = ListApplications
     { _laNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ListApplications' constructor.
 --
@@ -66,9 +67,9 @@ laNextToken :: Lens' ListApplications (Maybe Text)
 laNextToken = lens _laNextToken (\s a -> s { _laNextToken = a })
 
 data ListApplicationsResponse = ListApplicationsResponse
-    { _lar1Applications :: [Text]
+    { _lar1Applications :: List "applications" Text
     , _lar1NextToken    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListApplicationsResponse' constructor.
 --
@@ -86,7 +87,7 @@ listApplicationsResponse = ListApplicationsResponse
 
 -- | A list of application names.
 lar1Applications :: Lens' ListApplicationsResponse [Text]
-lar1Applications = lens _lar1Applications (\s a -> s { _lar1Applications = a })
+lar1Applications = lens _lar1Applications (\s a -> s { _lar1Applications = a }) . _List
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -116,5 +117,5 @@ instance AWSRequest ListApplications where
 
 instance FromJSON ListApplicationsResponse where
     parseJSON = withObject "ListApplicationsResponse" $ \o -> ListApplicationsResponse
-        <$> o .: "applications"
+        <$> o .:  "applications"
         <*> o .:? "nextToken"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,11 +50,11 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 data Encrypt = Encrypt
-    { _eEncryptionContext :: Map Text Text
-    , _eGrantTokens       :: [Text]
+    { _eEncryptionContext :: Map "entry" "key" "value" Text Text
+    , _eGrantTokens       :: List "GrantTokens" Text
     , _eKeyId             :: Text
     , _ePlaintext         :: Base64
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Encrypt' constructor.
 --
@@ -88,7 +89,7 @@ eEncryptionContext =
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to perform encryption.
 eGrantTokens :: Lens' Encrypt [Text]
-eGrantTokens = lens _eGrantTokens (\s a -> s { _eGrantTokens = a })
+eGrantTokens = lens _eGrantTokens (\s a -> s { _eGrantTokens = a }) . _List
 
 -- | Unique identifier of the customer master. This can be an ARN, an alias,
 -- or the Key ID.
@@ -102,7 +103,7 @@ ePlaintext = lens _ePlaintext (\s a -> s { _ePlaintext = a })
 data EncryptResponse = EncryptResponse
     { _erCiphertextBlob :: Maybe Base64
     , _erKeyId          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'EncryptResponse' constructor.
 --

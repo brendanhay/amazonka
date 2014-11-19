@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     , _uappRequireNumbers             :: Maybe Bool
     , _uappRequireSymbols             :: Maybe Bool
     , _uappRequireUppercaseCharacters :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateAccountPasswordPolicy' constructor.
 --
@@ -175,7 +176,18 @@ updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
 instance ToPath UpdateAccountPasswordPolicy where
     toPath = const "/"
 
-instance ToQuery UpdateAccountPasswordPolicy
+instance ToQuery UpdateAccountPasswordPolicy where
+    toQuery UpdateAccountPasswordPolicy{..} = mconcat
+        [ "AllowUsersToChangePassword" =? _uappAllowUsersToChangePassword
+        , "HardExpiry"                 =? _uappHardExpiry
+        , "MaxPasswordAge"             =? _uappMaxPasswordAge
+        , "MinimumPasswordLength"      =? _uappMinimumPasswordLength
+        , "PasswordReusePrevention"    =? _uappPasswordReusePrevention
+        , "RequireLowercaseCharacters" =? _uappRequireLowercaseCharacters
+        , "RequireNumbers"             =? _uappRequireNumbers
+        , "RequireSymbols"             =? _uappRequireSymbols
+        , "RequireUppercaseCharacters" =? _uappRequireUppercaseCharacters
+        ]
 
 instance ToHeaders UpdateAccountPasswordPolicy
 

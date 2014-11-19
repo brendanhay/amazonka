@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -63,21 +64,21 @@ import qualified GHC.Exts
 
 data PutMetricAlarm = PutMetricAlarm
     { _pmaActionsEnabled          :: Maybe Bool
-    , _pmaAlarmActions            :: [Text]
+    , _pmaAlarmActions            :: List "OKActions" Text
     , _pmaAlarmDescription        :: Maybe Text
     , _pmaAlarmName               :: Text
     , _pmaComparisonOperator      :: Text
-    , _pmaDimensions              :: [Dimension]
+    , _pmaDimensions              :: List "Dimensions" Dimension
     , _pmaEvaluationPeriods       :: Nat
-    , _pmaInsufficientDataActions :: [Text]
+    , _pmaInsufficientDataActions :: List "OKActions" Text
     , _pmaMetricName              :: Text
     , _pmaNamespace               :: Text
-    , _pmaOKActions               :: [Text]
+    , _pmaOKActions               :: List "OKActions" Text
     , _pmaPeriod                  :: Nat
     , _pmaStatistic               :: Text
     , _pmaThreshold               :: Double
     , _pmaUnit                    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PutMetricAlarm' constructor.
 --
@@ -151,7 +152,7 @@ pmaActionsEnabled =
 -- Resource Number (ARN). Currently the only action supported is publishing
 -- to an Amazon SNS topic or an Amazon Auto Scaling policy.
 pmaAlarmActions :: Lens' PutMetricAlarm [Text]
-pmaAlarmActions = lens _pmaAlarmActions (\s a -> s { _pmaAlarmActions = a })
+pmaAlarmActions = lens _pmaAlarmActions (\s a -> s { _pmaAlarmActions = a }) . _List
 
 -- | The description for the alarm.
 pmaAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
@@ -172,7 +173,7 @@ pmaComparisonOperator =
 
 -- | The dimensions for the alarm's associated metric.
 pmaDimensions :: Lens' PutMetricAlarm [Dimension]
-pmaDimensions = lens _pmaDimensions (\s a -> s { _pmaDimensions = a })
+pmaDimensions = lens _pmaDimensions (\s a -> s { _pmaDimensions = a }) . _List
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
@@ -189,6 +190,7 @@ pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
 pmaInsufficientDataActions =
     lens _pmaInsufficientDataActions
         (\s a -> s { _pmaInsufficientDataActions = a })
+            . _List
 
 -- | The name for the alarm's associated metric.
 pmaMetricName :: Lens' PutMetricAlarm Text
@@ -203,12 +205,11 @@ pmaNamespace = lens _pmaNamespace (\s a -> s { _pmaNamespace = a })
 -- Resource Number (ARN). Currently the only action supported is publishing
 -- to an Amazon SNS topic or an Amazon Auto Scaling policy.
 pmaOKActions :: Lens' PutMetricAlarm [Text]
-pmaOKActions = lens _pmaOKActions (\s a -> s { _pmaOKActions = a })
+pmaOKActions = lens _pmaOKActions (\s a -> s { _pmaOKActions = a }) . _List
 
 -- | The period in seconds over which the specified statistic is applied.
 pmaPeriod :: Lens' PutMetricAlarm Natural
-pmaPeriod = lens _pmaPeriod (\s a -> s { _pmaPeriod = a })
-    . _Nat
+pmaPeriod = lens _pmaPeriod (\s a -> s { _pmaPeriod = a }) . _Nat
 
 -- | The statistic to apply to the alarm's associated metric.
 pmaStatistic :: Lens' PutMetricAlarm Text
@@ -232,7 +233,24 @@ putMetricAlarmResponse = PutMetricAlarmResponse
 instance ToPath PutMetricAlarm where
     toPath = const "/"
 
-instance ToQuery PutMetricAlarm
+instance ToQuery PutMetricAlarm where
+    toQuery PutMetricAlarm{..} = mconcat
+        [ "ActionsEnabled"          =? _pmaActionsEnabled
+        , "AlarmActions"            =? _pmaAlarmActions
+        , "AlarmDescription"        =? _pmaAlarmDescription
+        , "AlarmName"               =? _pmaAlarmName
+        , "ComparisonOperator"      =? _pmaComparisonOperator
+        , "Dimensions"              =? _pmaDimensions
+        , "EvaluationPeriods"       =? _pmaEvaluationPeriods
+        , "InsufficientDataActions" =? _pmaInsufficientDataActions
+        , "MetricName"              =? _pmaMetricName
+        , "Namespace"               =? _pmaNamespace
+        , "OKActions"               =? _pmaOKActions
+        , "Period"                  =? _pmaPeriod
+        , "Statistic"               =? _pmaStatistic
+        , "Threshold"               =? _pmaThreshold
+        , "Unit"                    =? _pmaUnit
+        ]
 
 instance ToHeaders PutMetricAlarm
 

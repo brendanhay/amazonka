@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ data CreateTrail = CreateTrail
     , _ctS3BucketName               :: Text
     , _ctS3KeyPrefix                :: Maybe Text
     , _ctSnsTopicName               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateTrail' constructor.
 --
@@ -146,7 +147,7 @@ data CreateTrailResponse = CreateTrailResponse
     , _ctrS3BucketName               :: Maybe Text
     , _ctrS3KeyPrefix                :: Maybe Text
     , _ctrSnsTopicName               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateTrailResponse' constructor.
 --

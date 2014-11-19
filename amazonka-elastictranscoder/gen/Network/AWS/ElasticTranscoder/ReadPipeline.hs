@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype ReadPipeline = ReadPipeline
     { _rp1Id :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ReadPipeline' constructor.
 --
@@ -66,7 +67,7 @@ rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
 
 newtype ReadPipelineResponse = ReadPipelineResponse
     { _rprPipeline :: Maybe Pipeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReadPipelineResponse' constructor.
 --

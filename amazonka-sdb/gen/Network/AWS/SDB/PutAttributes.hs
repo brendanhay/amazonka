@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -70,11 +71,11 @@ import Network.AWS.SDB.Types
 import qualified GHC.Exts
 
 data PutAttributes = PutAttributes
-    { _paAttributes :: Flatten [ReplaceableAttribute]
+    { _paAttributes :: List "Attribute" ReplaceableAttribute
     , _paDomainName :: Text
     , _paExpected   :: Maybe UpdateCondition
     , _paItemName   :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PutAttributes' constructor.
 --
@@ -95,14 +96,13 @@ putAttributes :: Text -- ^ 'paDomainName'
 putAttributes p1 p2 p3 = PutAttributes
     { _paDomainName = p1
     , _paItemName   = p2
-    , _paAttributes = withIso _Flatten (const id) p3
+    , _paAttributes = withIso _List (const id) p3
     , _paExpected   = Nothing
     }
 
 -- | The list of attributes.
 paAttributes :: Lens' PutAttributes [ReplaceableAttribute]
-paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a })
-    . _Flatten
+paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a }) . _List
 
 -- | The name of the domain in which to perform the operation.
 paDomainName :: Lens' PutAttributes Text
@@ -129,7 +129,13 @@ putAttributesResponse = PutAttributesResponse
 instance ToPath PutAttributes where
     toPath = const "/"
 
-instance ToQuery PutAttributes
+instance ToQuery PutAttributes where
+    toQuery PutAttributes{..} = mconcat
+        [ toQuery     _paAttributes
+        , "DomainName" =? _paDomainName
+        , "Expected"   =? _paExpected
+        , "ItemName"   =? _paItemName
+        ]
 
 instance ToHeaders PutAttributes
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype CreateDistribution = CreateDistribution
     { _cdDistributionConfig :: DistributionConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDistribution' constructor.
 --
@@ -71,7 +72,7 @@ data CreateDistributionResponse = CreateDistributionResponse
     { _cdrDistribution :: Maybe Distribution
     , _cdrETag         :: Maybe Text
     , _cdrLocation     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDistributionResponse' constructor.
 --

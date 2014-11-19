@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -74,12 +75,12 @@ data StartWorkflowExecution = StartWorkflowExecution
     , _swe1Domain                       :: Text
     , _swe1ExecutionStartToCloseTimeout :: Maybe Text
     , _swe1Input                        :: Maybe Text
-    , _swe1TagList                      :: [Text]
+    , _swe1TagList                      :: List "tagList" Text
     , _swe1TaskList                     :: Maybe TaskList
     , _swe1TaskStartToCloseTimeout      :: Maybe Text
     , _swe1WorkflowId                   :: Text
     , _swe1WorkflowType                 :: WorkflowType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'StartWorkflowExecution' constructor.
 --
@@ -162,7 +163,7 @@ swe1Input = lens _swe1Input (\s a -> s { _swe1Input = a })
 -- specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
 swe1TagList :: Lens' StartWorkflowExecution [Text]
-swe1TagList = lens _swe1TagList (\s a -> s { _swe1TagList = a })
+swe1TagList = lens _swe1TagList (\s a -> s { _swe1TagList = a }) . _List
 
 -- | The task list to use for the decision tasks generated for this workflow
 -- execution. This overrides the defaultTaskList specified when registering
@@ -202,7 +203,7 @@ swe1WorkflowType = lens _swe1WorkflowType (\s a -> s { _swe1WorkflowType = a })
 
 newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
     { _swerRunId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'StartWorkflowExecutionResponse' constructor.
 --

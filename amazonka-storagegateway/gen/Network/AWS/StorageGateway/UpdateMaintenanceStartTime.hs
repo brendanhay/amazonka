@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
     , _umstGatewayARN   :: Text
     , _umstHourOfDay    :: Nat
     , _umstMinuteOfHour :: Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateMaintenanceStartTime' constructor.
 --
@@ -82,8 +83,7 @@ updateMaintenanceStartTime p1 p2 p3 p4 = UpdateMaintenanceStartTime
 
 -- | The maintenance start time day of the week.
 umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
-umstDayOfWeek = lens _umstDayOfWeek (\s a -> s { _umstDayOfWeek = a })
-    . _Nat
+umstDayOfWeek = lens _umstDayOfWeek (\s a -> s { _umstDayOfWeek = a }) . _Nat
 
 umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
 umstGatewayARN = lens _umstGatewayARN (\s a -> s { _umstGatewayARN = a })
@@ -92,19 +92,17 @@ umstGatewayARN = lens _umstGatewayARN (\s a -> s { _umstGatewayARN = a })
 -- hh is the hour (00 to 23). The hour of the day is in the time zone of the
 -- gateway.
 umstHourOfDay :: Lens' UpdateMaintenanceStartTime Natural
-umstHourOfDay = lens _umstHourOfDay (\s a -> s { _umstHourOfDay = a })
-    . _Nat
+umstHourOfDay = lens _umstHourOfDay (\s a -> s { _umstHourOfDay = a }) . _Nat
 
 -- | The minute component of the maintenance start time represented as mm,
 -- where mm is the minute (00 to 59). The minute of the hour is in the time
 -- zone of the gateway.
 umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
-umstMinuteOfHour = lens _umstMinuteOfHour (\s a -> s { _umstMinuteOfHour = a })
-    . _Nat
+umstMinuteOfHour = lens _umstMinuteOfHour (\s a -> s { _umstMinuteOfHour = a }) . _Nat
 
 newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
     { _umstrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'UpdateMaintenanceStartTimeResponse' constructor.
 --

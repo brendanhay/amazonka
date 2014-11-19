@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,10 +52,10 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeInstances = DescribeInstances
-    { _diInstanceIds :: [Text]
+    { _diInstanceIds :: List "InstanceIds" Text
     , _diLayerId     :: Maybe Text
     , _diStackId     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeInstances' constructor.
 --
@@ -77,7 +78,7 @@ describeInstances = DescribeInstances
 -- DescribeInstances returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
 diInstanceIds :: Lens' DescribeInstances [Text]
-diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a })
+diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
 
 -- | A layer ID. If you use this parameter, DescribeInstances returns
 -- descriptions of the instances associated with the specified layer.
@@ -90,8 +91,8 @@ diStackId :: Lens' DescribeInstances (Maybe Text)
 diStackId = lens _diStackId (\s a -> s { _diStackId = a })
 
 newtype DescribeInstancesResponse = DescribeInstancesResponse
-    { _dirInstances :: [Instance]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dirInstances :: List "Instances" Instance
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeInstancesResponse where
     type Item DescribeInstancesResponse = Instance
@@ -112,7 +113,7 @@ describeInstancesResponse = DescribeInstancesResponse
 
 -- | An array of Instance objects that describe the instances.
 dirInstances :: Lens' DescribeInstancesResponse [Instance]
-dirInstances = lens _dirInstances (\s a -> s { _dirInstances = a })
+dirInstances = lens _dirInstances (\s a -> s { _dirInstances = a }) . _List
 
 instance ToPath DescribeInstances where
     toPath = const "/"
@@ -138,4 +139,4 @@ instance AWSRequest DescribeInstances where
 
 instance FromJSON DescribeInstancesResponse where
     parseJSON = withObject "DescribeInstancesResponse" $ \o -> DescribeInstancesResponse
-        <$> o .: "Instances"
+        <$> o .:  "Instances"

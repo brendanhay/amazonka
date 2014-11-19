@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype CreateInternetGateway = CreateInternetGateway
     { _cigDryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateInternetGateway' constructor.
 --
@@ -68,7 +68,7 @@ cigDryRun = lens _cigDryRun (\s a -> s { _cigDryRun = a })
 
 newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway :: Maybe InternetGateway
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateInternetGatewayResponse' constructor.
 --
@@ -89,7 +89,10 @@ cigrInternetGateway =
 instance ToPath CreateInternetGateway where
     toPath = const "/"
 
-instance ToQuery CreateInternetGateway
+instance ToQuery CreateInternetGateway where
+    toQuery CreateInternetGateway{..} = mconcat
+        [ "dryRun" =? _cigDryRun
+        ]
 
 instance ToHeaders CreateInternetGateway
 

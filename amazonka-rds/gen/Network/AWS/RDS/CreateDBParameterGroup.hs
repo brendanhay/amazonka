@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -68,8 +69,8 @@ data CreateDBParameterGroup = CreateDBParameterGroup
     { _cdbpg1DBParameterGroupFamily :: Text
     , _cdbpg1DBParameterGroupName   :: Text
     , _cdbpg1Description            :: Text
-    , _cdbpg1Tags                   :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _cdbpg1Tags                   :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateDBParameterGroup' constructor.
 --
@@ -117,11 +118,11 @@ cdbpg1Description =
     lens _cdbpg1Description (\s a -> s { _cdbpg1Description = a })
 
 cdbpg1Tags :: Lens' CreateDBParameterGroup [Tag]
-cdbpg1Tags = lens _cdbpg1Tags (\s a -> s { _cdbpg1Tags = a })
+cdbpg1Tags = lens _cdbpg1Tags (\s a -> s { _cdbpg1Tags = a }) . _List
 
 newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
     { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDBParameterGroupResponse' constructor.
 --
@@ -141,7 +142,13 @@ cdbpgrDBParameterGroup =
 instance ToPath CreateDBParameterGroup where
     toPath = const "/"
 
-instance ToQuery CreateDBParameterGroup
+instance ToQuery CreateDBParameterGroup where
+    toQuery CreateDBParameterGroup{..} = mconcat
+        [ "DBParameterGroupFamily" =? _cdbpg1DBParameterGroupFamily
+        , "DBParameterGroupName"   =? _cdbpg1DBParameterGroupName
+        , "Description"            =? _cdbpg1Description
+        , "Tags"                   =? _cdbpg1Tags
+        ]
 
 instance ToHeaders CreateDBParameterGroup
 
@@ -153,5 +160,5 @@ instance AWSRequest CreateDBParameterGroup where
     response = xmlResponse
 
 instance FromXML CreateDBParameterGroupResponse where
-    parseXML = withElement "CreateDBParameterGroupResult" $ \x ->
-            <$> x .@? "DBParameterGroup"
+    parseXML = withElement "CreateDBParameterGroupResult" $ \x -> CreateDBParameterGroupResponse
+        <$> x .@? "DBParameterGroup"

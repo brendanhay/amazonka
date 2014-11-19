@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
     { _dhc1HsmConfigurationIdentifier :: Maybe Text
     , _dhc1Marker                     :: Maybe Text
     , _dhc1MaxRecords                 :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeHsmConfigurations' constructor.
 --
@@ -98,9 +99,9 @@ dhc1MaxRecords :: Lens' DescribeHsmConfigurations (Maybe Int)
 dhc1MaxRecords = lens _dhc1MaxRecords (\s a -> s { _dhc1MaxRecords = a })
 
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
-    { _dhcrHsmConfigurations :: [HsmConfiguration]
+    { _dhcrHsmConfigurations :: List "HsmConfiguration" HsmConfiguration
     , _dhcrMarker            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeHsmConfigurationsResponse' constructor.
 --
@@ -120,6 +121,7 @@ describeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
 dhcrHsmConfigurations :: Lens' DescribeHsmConfigurationsResponse [HsmConfiguration]
 dhcrHsmConfigurations =
     lens _dhcrHsmConfigurations (\s a -> s { _dhcrHsmConfigurations = a })
+        . _List
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -133,7 +135,12 @@ dhcrMarker = lens _dhcrMarker (\s a -> s { _dhcrMarker = a })
 instance ToPath DescribeHsmConfigurations where
     toPath = const "/"
 
-instance ToQuery DescribeHsmConfigurations
+instance ToQuery DescribeHsmConfigurations where
+    toQuery DescribeHsmConfigurations{..} = mconcat
+        [ "HsmConfigurationIdentifier" =? _dhc1HsmConfigurationIdentifier
+        , "Marker"                     =? _dhc1Marker
+        , "MaxRecords"                 =? _dhc1MaxRecords
+        ]
 
 instance ToHeaders DescribeHsmConfigurations
 
@@ -145,9 +152,9 @@ instance AWSRequest DescribeHsmConfigurations where
     response = xmlResponse
 
 instance FromXML DescribeHsmConfigurationsResponse where
-    parseXML = withElement "DescribeHsmConfigurationsResult" $ \x ->
-            <$> x .@ "HsmConfigurations"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeHsmConfigurationsResult" $ \x -> DescribeHsmConfigurationsResponse
+        <$> x .@  "HsmConfigurations"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeHsmConfigurations where
     next rq rs = (\x -> rq & dhc1Marker ?~ x)

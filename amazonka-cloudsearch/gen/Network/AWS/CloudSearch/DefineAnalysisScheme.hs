@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data DefineAnalysisScheme = DefineAnalysisScheme
     { _das2AnalysisScheme :: AnalysisScheme
     , _das2DomainName     :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DefineAnalysisScheme' constructor.
 --
@@ -78,7 +79,7 @@ das2DomainName = lens _das2DomainName (\s a -> s { _das2DomainName = a })
 
 newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
     { _dasr1AnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DefineAnalysisSchemeResponse' constructor.
 --
@@ -99,7 +100,11 @@ dasr1AnalysisScheme =
 instance ToPath DefineAnalysisScheme where
     toPath = const "/"
 
-instance ToQuery DefineAnalysisScheme
+instance ToQuery DefineAnalysisScheme where
+    toQuery DefineAnalysisScheme{..} = mconcat
+        [ "AnalysisScheme" =? _das2AnalysisScheme
+        , "DomainName"     =? _das2DomainName
+        ]
 
 instance ToHeaders DefineAnalysisScheme
 
@@ -111,5 +116,5 @@ instance AWSRequest DefineAnalysisScheme where
     response = xmlResponse
 
 instance FromXML DefineAnalysisSchemeResponse where
-    parseXML = withElement "DefineAnalysisSchemeResult" $ \x ->
-            <$> x .@ "AnalysisScheme"
+    parseXML = withElement "DefineAnalysisSchemeResult" $ \x -> DefineAnalysisSchemeResponse
+        <$> x .@  "AnalysisScheme"

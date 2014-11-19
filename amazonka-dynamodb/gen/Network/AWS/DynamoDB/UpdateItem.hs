@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,19 +65,19 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data UpdateItem = UpdateItem
-    { _uiAttributeUpdates            :: Map Text AttributeValueUpdate
+    { _uiAttributeUpdates            :: Map "entry" "key" "value" Text AttributeValueUpdate
     , _uiConditionExpression         :: Maybe Text
     , _uiConditionalOperator         :: Maybe Text
-    , _uiExpected                    :: Map Text ExpectedAttributeValue
-    , _uiExpressionAttributeNames    :: Map Text Text
-    , _uiExpressionAttributeValues   :: Map Text AttributeValue
-    , _uiKey                         :: Map Text AttributeValue
+    , _uiExpected                    :: Map "entry" "key" "value" Text ExpectedAttributeValue
+    , _uiExpressionAttributeNames    :: Map "entry" "key" "value" Text Text
+    , _uiExpressionAttributeValues   :: Map "entry" "key" "value" Text AttributeValue
+    , _uiKey                         :: Map "entry" "key" "value" Text AttributeValue
     , _uiReturnConsumedCapacity      :: Maybe Text
     , _uiReturnItemCollectionMetrics :: Maybe Text
     , _uiReturnValues                :: Maybe Text
     , _uiTableName                   :: Text
     , _uiUpdateExpression            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateItem' constructor.
 --
@@ -322,8 +323,7 @@ uiConditionalOperator =
 -- of parameters at once, DynamoDB will return a ValidationException
 -- exception.
 uiExpected :: Lens' UpdateItem (HashMap Text ExpectedAttributeValue)
-uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a })
-    . _Map
+uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a }) . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
 -- following are some use cases for an ExpressionAttributeNames value: To
@@ -363,8 +363,7 @@ uiExpressionAttributeValues =
 -- type primary key, you must specify both the hash attribute and the range
 -- attribute.
 uiKey :: Lens' UpdateItem (HashMap Text AttributeValue)
-uiKey = lens _uiKey (\s a -> s { _uiKey = a })
-    . _Map
+uiKey = lens _uiKey (\s a -> s { _uiKey = a }) . _Map
 
 uiReturnConsumedCapacity :: Lens' UpdateItem (Maybe Text)
 uiReturnConsumedCapacity =
@@ -442,10 +441,10 @@ uiUpdateExpression =
     lens _uiUpdateExpression (\s a -> s { _uiUpdateExpression = a })
 
 data UpdateItemResponse = UpdateItemResponse
-    { _uirAttributes            :: Map Text AttributeValue
+    { _uirAttributes            :: Map "entry" "key" "value" Text AttributeValue
     , _uirConsumedCapacity      :: Maybe ConsumedCapacity
     , _uirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateItemResponse' constructor.
 --
@@ -469,8 +468,7 @@ updateItemResponse = UpdateItemResponse
 -- something other than NONE in the request. Each element represents one
 -- attribute.
 uirAttributes :: Lens' UpdateItemResponse (HashMap Text AttributeValue)
-uirAttributes = lens _uirAttributes (\s a -> s { _uirAttributes = a })
-    . _Map
+uirAttributes = lens _uirAttributes (\s a -> s { _uirAttributes = a }) . _Map
 
 uirConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
 uirConsumedCapacity =
@@ -514,6 +512,6 @@ instance AWSRequest UpdateItem where
 
 instance FromJSON UpdateItemResponse where
     parseJSON = withObject "UpdateItemResponse" $ \o -> UpdateItemResponse
-        <$> o .: "Attributes"
+        <$> o .:  "Attributes"
         <*> o .:? "ConsumedCapacity"
         <*> o .:? "ItemCollectionMetrics"

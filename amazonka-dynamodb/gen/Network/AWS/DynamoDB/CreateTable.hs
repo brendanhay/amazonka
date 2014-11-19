@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,13 +61,13 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data CreateTable = CreateTable
-    { _ctAttributeDefinitions   :: [AttributeDefinition]
-    , _ctGlobalSecondaryIndexes :: [GlobalSecondaryIndex]
-    , _ctKeySchema              :: List1 KeySchemaElement
-    , _ctLocalSecondaryIndexes  :: [LocalSecondaryIndex]
+    { _ctAttributeDefinitions   :: List "AttributeDefinitions" AttributeDefinition
+    , _ctGlobalSecondaryIndexes :: List "GlobalSecondaryIndexes" GlobalSecondaryIndex
+    , _ctKeySchema              :: List1 "KeySchema" KeySchemaElement
+    , _ctLocalSecondaryIndexes  :: List "LocalSecondaryIndexes" LocalSecondaryIndex
     , _ctProvisionedThroughput  :: ProvisionedThroughput
     , _ctTableName              :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateTable' constructor.
 --
@@ -90,7 +91,7 @@ createTable :: Text -- ^ 'ctTableName'
             -> CreateTable
 createTable p1 p2 p3 = CreateTable
     { _ctTableName              = p1
-    , _ctKeySchema              = p2
+    , _ctKeySchema              = withIso _List1 (const id) p2
     , _ctProvisionedThroughput  = p3
     , _ctAttributeDefinitions   = mempty
     , _ctLocalSecondaryIndexes  = mempty
@@ -102,6 +103,7 @@ createTable p1 p2 p3 = CreateTable
 ctAttributeDefinitions :: Lens' CreateTable [AttributeDefinition]
 ctAttributeDefinitions =
     lens _ctAttributeDefinitions (\s a -> s { _ctAttributeDefinitions = a })
+        . _List
 
 -- | One or more global secondary indexes (the maximum is five) to be created
 -- on the table. Each global secondary index in the array includes the
@@ -127,6 +129,7 @@ ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
 ctGlobalSecondaryIndexes =
     lens _ctGlobalSecondaryIndexes
         (\s a -> s { _ctGlobalSecondaryIndexes = a })
+            . _List
 
 -- | Specifies the attributes that make up the primary key for a table or an
 -- index. The attributes in KeySchema must also be defined in the
@@ -141,7 +144,7 @@ ctGlobalSecondaryIndexes =
 -- have a KeyType of RANGE. For more information, see Specifying the Primary
 -- Key in the Amazon DynamoDB Developer Guide.
 ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
-ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a })
+ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a }) . _List1
 
 -- | One or more local secondary indexes (the maximum is five) to be created
 -- on the table. Each index is scoped to a given hash key value. There is a
@@ -167,6 +170,7 @@ ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a })
 ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
 ctLocalSecondaryIndexes =
     lens _ctLocalSecondaryIndexes (\s a -> s { _ctLocalSecondaryIndexes = a })
+        . _List
 
 ctProvisionedThroughput :: Lens' CreateTable ProvisionedThroughput
 ctProvisionedThroughput =
@@ -178,7 +182,7 @@ ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
 
 newtype CreateTableResponse = CreateTableResponse
     { _ctrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateTableResponse' constructor.
 --

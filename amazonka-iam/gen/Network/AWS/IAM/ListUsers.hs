@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data ListUsers = ListUsers
     { _luMarker     :: Maybe Text
     , _luMaxItems   :: Maybe Nat
     , _luPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListUsers' constructor.
 --
@@ -87,8 +88,7 @@ luMarker = lens _luMarker (\s a -> s { _luMarker = a })
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
 luMaxItems :: Lens' ListUsers (Maybe Natural)
-luMaxItems = lens _luMaxItems (\s a -> s { _luMaxItems = a })
-    . mapping _Nat
+luMaxItems = lens _luMaxItems (\s a -> s { _luMaxItems = a }) . mapping _Nat
 
 -- | The path prefix for filtering the results. For example:
 -- /division_abc/subdivision_xyz/, which would get all user names whose path
@@ -101,8 +101,8 @@ luPathPrefix = lens _luPathPrefix (\s a -> s { _luPathPrefix = a })
 data ListUsersResponse = ListUsersResponse
     { _lurIsTruncated :: Maybe Bool
     , _lurMarker      :: Maybe Text
-    , _lurUsers       :: [User]
-    } deriving (Eq, Show, Generic)
+    , _lurUsers       :: List "Users" User
+    } deriving (Eq, Show)
 
 -- | 'ListUsersResponse' constructor.
 --
@@ -134,12 +134,17 @@ lurMarker = lens _lurMarker (\s a -> s { _lurMarker = a })
 
 -- | A list of users.
 lurUsers :: Lens' ListUsersResponse [User]
-lurUsers = lens _lurUsers (\s a -> s { _lurUsers = a })
+lurUsers = lens _lurUsers (\s a -> s { _lurUsers = a }) . _List
 
 instance ToPath ListUsers where
     toPath = const "/"
 
-instance ToQuery ListUsers
+instance ToQuery ListUsers where
+    toQuery ListUsers{..} = mconcat
+        [ "Marker"     =? _luMarker
+        , "MaxItems"   =? _luMaxItems
+        , "PathPrefix" =? _luPathPrefix
+        ]
 
 instance ToHeaders ListUsers
 
@@ -151,10 +156,10 @@ instance AWSRequest ListUsers where
     response = xmlResponse
 
 instance FromXML ListUsersResponse where
-    parseXML = withElement "ListUsersResult" $ \x ->
-            <$> x .@? "IsTruncated"
-            <*> x .@? "Marker"
-            <*> x .@ "Users"
+    parseXML = withElement "ListUsersResult" $ \x -> ListUsersResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@  "Users"
 
 instance AWSPager ListUsers where
     next rq rs

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,13 +53,13 @@ import qualified GHC.Exts
 
 data UpdateDeploymentGroup = UpdateDeploymentGroup
     { _udgApplicationName            :: Text
-    , _udgAutoScalingGroups          :: [Text]
+    , _udgAutoScalingGroups          :: List "autoScalingGroups" Text
     , _udgCurrentDeploymentGroupName :: Text
     , _udgDeploymentConfigName       :: Maybe Text
-    , _udgEc2TagFilters              :: [EC2TagFilter]
+    , _udgEc2TagFilters              :: List "ec2TagFilters" EC2TagFilter
     , _udgNewDeploymentGroupName     :: Maybe Text
     , _udgServiceRoleArn             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateDeploymentGroup' constructor.
 --
@@ -101,6 +102,7 @@ udgApplicationName =
 udgAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
 udgAutoScalingGroups =
     lens _udgAutoScalingGroups (\s a -> s { _udgAutoScalingGroups = a })
+        . _List
 
 -- | The current name of the existing deployment group.
 udgCurrentDeploymentGroupName :: Lens' UpdateDeploymentGroup Text
@@ -117,7 +119,7 @@ udgDeploymentConfigName =
 -- | The replacement set of Amazon EC2 tags to filter on, if you want to
 -- change them.
 udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
-udgEc2TagFilters = lens _udgEc2TagFilters (\s a -> s { _udgEc2TagFilters = a })
+udgEc2TagFilters = lens _udgEc2TagFilters (\s a -> s { _udgEc2TagFilters = a }) . _List
 
 -- | The new name of the deployment group, if you want to change it.
 udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
@@ -131,8 +133,8 @@ udgServiceRoleArn =
     lens _udgServiceRoleArn (\s a -> s { _udgServiceRoleArn = a })
 
 newtype UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse
-    { _udgrHooksNotCleanedUp :: [AutoScalingGroup]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _udgrHooksNotCleanedUp :: List "autoScalingGroups" AutoScalingGroup
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList UpdateDeploymentGroupResponse where
     type Item UpdateDeploymentGroupResponse = AutoScalingGroup
@@ -159,6 +161,7 @@ updateDeploymentGroupResponse = UpdateDeploymentGroupResponse
 udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrHooksNotCleanedUp =
     lens _udgrHooksNotCleanedUp (\s a -> s { _udgrHooksNotCleanedUp = a })
+        . _List
 
 instance ToPath UpdateDeploymentGroup where
     toPath = const "/"
@@ -188,4 +191,4 @@ instance AWSRequest UpdateDeploymentGroup where
 
 instance FromJSON UpdateDeploymentGroupResponse where
     parseJSON = withObject "UpdateDeploymentGroupResponse" $ \o -> UpdateDeploymentGroupResponse
-        <$> o .: "hooksNotCleanedUp"
+        <$> o .:  "hooksNotCleanedUp"

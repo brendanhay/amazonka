@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import qualified GHC.Exts
 
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
-    , _bdaItems      :: Flatten [DeletableItem]
-    } deriving (Eq, Show, Generic)
+    , _bdaItems      :: List "Item" DeletableItem
+    } deriving (Eq, Show)
 
 -- | 'BatchDeleteAttributes' constructor.
 --
@@ -65,7 +66,7 @@ batchDeleteAttributes :: Text -- ^ 'bdaDomainName'
                       -> BatchDeleteAttributes
 batchDeleteAttributes p1 p2 = BatchDeleteAttributes
     { _bdaDomainName = p1
-    , _bdaItems      = withIso _Flatten (const id) p2
+    , _bdaItems      = withIso _List (const id) p2
     }
 
 -- | The name of the domain in which the attributes are being deleted.
@@ -74,8 +75,7 @@ bdaDomainName = lens _bdaDomainName (\s a -> s { _bdaDomainName = a })
 
 -- | A list of items on which to perform the operation.
 bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
-bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a })
-    . _Flatten
+bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a }) . _List
 
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
     deriving (Eq, Ord, Show, Generic)
@@ -87,7 +87,11 @@ batchDeleteAttributesResponse = BatchDeleteAttributesResponse
 instance ToPath BatchDeleteAttributes where
     toPath = const "/"
 
-instance ToQuery BatchDeleteAttributes
+instance ToQuery BatchDeleteAttributes where
+    toQuery BatchDeleteAttributes{..} = mconcat
+        [ "DomainName" =? _bdaDomainName
+        , toQuery     _bdaItems
+        ]
 
 instance ToHeaders BatchDeleteAttributes
 

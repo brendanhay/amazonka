@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype CancelExportTask = CancelExportTask
     { _cetExportTaskId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CancelExportTask' constructor.
 --
@@ -77,7 +77,10 @@ cancelExportTaskResponse = CancelExportTaskResponse
 instance ToPath CancelExportTask where
     toPath = const "/"
 
-instance ToQuery CancelExportTask
+instance ToQuery CancelExportTask where
+    toQuery CancelExportTask{..} = mconcat
+        [ "exportTaskId" =? _cetExportTaskId
+        ]
 
 instance ToHeaders CancelExportTask
 

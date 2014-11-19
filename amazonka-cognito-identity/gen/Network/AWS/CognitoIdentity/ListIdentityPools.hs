@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data ListIdentityPools = ListIdentityPools
     { _lipMaxResults :: Nat
     , _lipNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListIdentityPools' constructor.
 --
@@ -68,17 +69,16 @@ listIdentityPools p1 = ListIdentityPools
 
 -- | The maximum number of identities to return.
 lipMaxResults :: Lens' ListIdentityPools Natural
-lipMaxResults = lens _lipMaxResults (\s a -> s { _lipMaxResults = a })
-    . _Nat
+lipMaxResults = lens _lipMaxResults (\s a -> s { _lipMaxResults = a }) . _Nat
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityPools (Maybe Text)
 lipNextToken = lens _lipNextToken (\s a -> s { _lipNextToken = a })
 
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse
-    { _liprIdentityPools :: [IdentityPoolShortDescription]
+    { _liprIdentityPools :: List "IdentityPools" IdentityPoolShortDescription
     , _liprNextToken     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListIdentityPoolsResponse' constructor.
 --
@@ -98,6 +98,7 @@ listIdentityPoolsResponse = ListIdentityPoolsResponse
 liprIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
 liprIdentityPools =
     lens _liprIdentityPools (\s a -> s { _liprIdentityPools = a })
+        . _List
 
 -- | A pagination token.
 liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
@@ -126,5 +127,5 @@ instance AWSRequest ListIdentityPools where
 
 instance FromJSON ListIdentityPoolsResponse where
     parseJSON = withObject "ListIdentityPoolsResponse" $ \o -> ListIdentityPoolsResponse
-        <$> o .: "IdentityPools"
+        <$> o .:  "IdentityPools"
         <*> o .:? "NextToken"

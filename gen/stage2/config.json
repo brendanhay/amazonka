@@ -61,8 +61,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "configExportDeliveryInfo",
@@ -147,6 +146,7 @@
                 "required": [],
                 "contentPad": 19,
                 "name": "ConfigExportDeliveryInfo",
+                "locationPad": 19,
                 "type": "record",
                 "optional": [
                     {
@@ -307,8 +307,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "configStreamDeliveryInfo",
@@ -378,6 +377,7 @@
                 "required": [],
                 "contentPad": 21,
                 "name": "ConfigStreamDeliveryInfo",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -508,8 +508,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "relationship",
@@ -564,6 +563,7 @@
                 "required": [],
                 "contentPad": 17,
                 "name": "Relationship",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -664,8 +664,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "deliveryChannel",
@@ -735,6 +734,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "DeliveryChannel",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -910,8 +910,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 31,
                 "ctor": "configurationItem",
@@ -1094,12 +1093,12 @@
                         "locationName": "tags",
                         "documentation": "\u003cp\u003eA mapping of key value tags associated with the resource.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1109,12 +1108,12 @@
                         "locationName": "relatedEvents",
                         "documentation": "\u003cp\u003eA list of CloudTrail event IDs.\u003c/p\u003e \u003cp\u003eA populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see \u003ca href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html\"\u003eWhat is AWS CloudTrail?\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eAn empty field indicates that the current configuration was not initiated by any event.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"relatedEvents\" Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1124,7 +1123,7 @@
                         "locationName": "relationships",
                         "documentation": "\u003cp\u003eA list of related AWS resources.\u003c/p\u003e",
                         "typeExposed": "[Relationship]",
-                        "type": "[Relationship]"
+                        "type": "List \"relationships\" Relationship"
                     },
                     {
                         "location": null,
@@ -1146,6 +1145,7 @@
                 "required": [],
                 "contentPad": 29,
                 "name": "ConfigurationItem",
+                "locationPad": 29,
                 "type": "record",
                 "optional": [
                     {
@@ -1326,12 +1326,12 @@
                         "locationName": "tags",
                         "documentation": "\u003cp\u003eA mapping of key value tags associated with the resource.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1341,12 +1341,12 @@
                         "locationName": "relatedEvents",
                         "documentation": "\u003cp\u003eA list of CloudTrail event IDs.\u003c/p\u003e \u003cp\u003eA populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see \u003ca href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html\"\u003eWhat is AWS CloudTrail?\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eAn empty field indicates that the current configuration was not initiated by any event.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"relatedEvents\" Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1356,7 +1356,7 @@
                         "locationName": "relationships",
                         "documentation": "\u003cp\u003eA list of related AWS resources.\u003c/p\u003e",
                         "typeExposed": "[Relationship]",
-                        "type": "[Relationship]"
+                        "type": "List \"relationships\" Relationship"
                     },
                     {
                         "location": null,
@@ -1497,8 +1497,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1508,12 +1508,12 @@
                         "locationName": "relatedEvents",
                         "documentation": "\u003cp\u003eA list of CloudTrail event IDs.\u003c/p\u003e \u003cp\u003eA populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see \u003ca href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html\"\u003eWhat is AWS CloudTrail?\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eAn empty field indicates that the current configuration was not initiated by any event.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"relatedEvents\" Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1523,7 +1523,7 @@
                         "locationName": "relationships",
                         "documentation": "\u003cp\u003eA list of related AWS resources.\u003c/p\u003e",
                         "typeExposed": "[Relationship]",
-                        "type": "[Relationship]"
+                        "type": "List \"relationships\" Relationship"
                     },
                     {
                         "location": null,
@@ -1583,7 +1583,7 @@
                         "locationName": "tags",
                         "documentation": "\u003cp\u003eA mapping of key value tags associated with the resource.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -1622,8 +1622,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 30,
                 "ctor": "deliveryChannelStatus",
@@ -1693,6 +1692,7 @@
                 "required": [],
                 "contentPad": 27,
                 "name": "DeliveryChannelStatus",
+                "locationPad": 27,
                 "type": "record",
                 "optional": [
                     {
@@ -1823,8 +1823,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "configurationRecorderStatus",
@@ -1954,6 +1953,7 @@
                 "required": [],
                 "contentPad": 21,
                 "name": "ConfigurationRecorderStatus",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -2223,8 +2223,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "configurationRecorder",
@@ -2264,6 +2263,7 @@
                 "required": [],
                 "contentPad": 8,
                 "name": "ConfigurationRecorder",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -2396,7 +2396,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2469,6 +2468,7 @@
                 "queryPad": 0,
                 "name": "DeleteDeliveryChannel",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2499,7 +2499,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -2549,6 +2548,7 @@
                 "contentPad": 0,
                 "name": "DeliverConfigSnapshotResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2603,7 +2603,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2676,6 +2675,7 @@
                 "queryPad": 0,
                 "name": "DeliverConfigSnapshot",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2705,7 +2705,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2717,8 +2716,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -2728,13 +2727,13 @@
                     "locationName": "ConfigurationRecordersStatus",
                     "documentation": "\u003cp\u003e A list that contains status of the specified recorders. \u003c/p\u003e",
                     "typeExposed": "[ConfigurationRecorderStatus]",
-                    "type": "[ConfigurationRecorderStatus]"
+                    "type": "List \"ConfigurationRecordersStatus\" ConfigurationRecorderStatus"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2744,7 +2743,7 @@
                         "locationName": "ConfigurationRecordersStatus",
                         "documentation": "\u003cp\u003e A list that contains status of the specified recorders. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationRecorderStatus]",
-                        "type": "[ConfigurationRecorderStatus]"
+                        "type": "List \"ConfigurationRecordersStatus\" ConfigurationRecorderStatus"
                     }
                 ],
                 "wrapper": false,
@@ -2756,13 +2755,14 @@
                 "contentPad": 0,
                 "name": "DescribeConfigurationRecorderStatusResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2772,14 +2772,14 @@
                         "locationName": "ConfigurationRecordersStatus",
                         "documentation": "\u003cp\u003e A list that contains status of the specified recorders. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationRecorderStatus]",
-                        "type": "[ConfigurationRecorderStatus]"
+                        "type": "List \"ConfigurationRecordersStatus\" ConfigurationRecorderStatus"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2789,7 +2789,7 @@
                         "locationName": "ConfigurationRecordersStatus",
                         "documentation": "\u003cp\u003e A list that contains status of the specified recorders. \u003c/p\u003e",
                         "typeExposed": "[ConfigurationRecorderStatus]",
-                        "type": "[ConfigurationRecorderStatus]"
+                        "type": "List \"ConfigurationRecordersStatus\" ConfigurationRecorderStatus"
                     }
                 ]
             },
@@ -2810,7 +2810,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2822,8 +2821,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -2833,13 +2832,13 @@
                     "locationName": "ConfigurationRecorderNames",
                     "documentation": "\u003cp\u003eThe name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account. \u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"ConfigurationRecorderNames\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2849,7 +2848,7 @@
                         "locationName": "ConfigurationRecorderNames",
                         "documentation": "\u003cp\u003eThe name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ConfigurationRecorderNames\" Text"
                     }
                 ],
                 "path": [
@@ -2867,14 +2866,15 @@
                 "queryPad": 0,
                 "name": "DescribeConfigurationRecorderStatus",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2884,14 +2884,14 @@
                         "locationName": "ConfigurationRecorderNames",
                         "documentation": "\u003cp\u003eThe name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ConfigurationRecorderNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2901,7 +2901,7 @@
                         "locationName": "ConfigurationRecorderNames",
                         "documentation": "\u003cp\u003eThe name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ConfigurationRecorderNames\" Text"
                     }
                 ]
             }
@@ -2912,7 +2912,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2924,8 +2923,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -2935,13 +2934,13 @@
                     "locationName": "ConfigurationRecorders",
                     "documentation": "\u003cp\u003eA list that contains the descriptions of the specified configuration recorders.\u003c/p\u003e",
                     "typeExposed": "[ConfigurationRecorder]",
-                    "type": "[ConfigurationRecorder]"
+                    "type": "List \"ConfigurationRecorders\" ConfigurationRecorder"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2951,7 +2950,7 @@
                         "locationName": "ConfigurationRecorders",
                         "documentation": "\u003cp\u003eA list that contains the descriptions of the specified configuration recorders.\u003c/p\u003e",
                         "typeExposed": "[ConfigurationRecorder]",
-                        "type": "[ConfigurationRecorder]"
+                        "type": "List \"ConfigurationRecorders\" ConfigurationRecorder"
                     }
                 ],
                 "wrapper": false,
@@ -2963,13 +2962,14 @@
                 "contentPad": 0,
                 "name": "DescribeConfigurationRecordersResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2979,14 +2979,14 @@
                         "locationName": "ConfigurationRecorders",
                         "documentation": "\u003cp\u003eA list that contains the descriptions of the specified configuration recorders.\u003c/p\u003e",
                         "typeExposed": "[ConfigurationRecorder]",
-                        "type": "[ConfigurationRecorder]"
+                        "type": "List \"ConfigurationRecorders\" ConfigurationRecorder"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2996,7 +2996,7 @@
                         "locationName": "ConfigurationRecorders",
                         "documentation": "\u003cp\u003eA list that contains the descriptions of the specified configuration recorders.\u003c/p\u003e",
                         "typeExposed": "[ConfigurationRecorder]",
-                        "type": "[ConfigurationRecorder]"
+                        "type": "List \"ConfigurationRecorders\" ConfigurationRecorder"
                     }
                 ]
             },
@@ -3017,7 +3017,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3029,8 +3028,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3040,13 +3039,13 @@
                     "locationName": "ConfigurationRecorderNames",
                     "documentation": "\u003cp\u003eA list of configuration recorder names.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"ConfigurationRecorderNames\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3056,7 +3055,7 @@
                         "locationName": "ConfigurationRecorderNames",
                         "documentation": "\u003cp\u003eA list of configuration recorder names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ConfigurationRecorderNames\" Text"
                     }
                 ],
                 "path": [
@@ -3074,14 +3073,15 @@
                 "queryPad": 0,
                 "name": "DescribeConfigurationRecorders",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3091,14 +3091,14 @@
                         "locationName": "ConfigurationRecorderNames",
                         "documentation": "\u003cp\u003eA list of configuration recorder names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ConfigurationRecorderNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3108,7 +3108,7 @@
                         "locationName": "ConfigurationRecorderNames",
                         "documentation": "\u003cp\u003eA list of configuration recorder names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ConfigurationRecorderNames\" Text"
                     }
                 ]
             }
@@ -3119,7 +3119,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3131,8 +3130,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3142,13 +3141,13 @@
                     "locationName": "DeliveryChannelsStatus",
                     "documentation": "\u003cp\u003eA list that contains the status of a specified delivery channel.\u003c/p\u003e",
                     "typeExposed": "[DeliveryChannelStatus]",
-                    "type": "[DeliveryChannelStatus]"
+                    "type": "List \"DeliveryChannelsStatus\" DeliveryChannelStatus"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3158,7 +3157,7 @@
                         "locationName": "DeliveryChannelsStatus",
                         "documentation": "\u003cp\u003eA list that contains the status of a specified delivery channel.\u003c/p\u003e",
                         "typeExposed": "[DeliveryChannelStatus]",
-                        "type": "[DeliveryChannelStatus]"
+                        "type": "List \"DeliveryChannelsStatus\" DeliveryChannelStatus"
                     }
                 ],
                 "wrapper": false,
@@ -3170,13 +3169,14 @@
                 "contentPad": 0,
                 "name": "DescribeDeliveryChannelStatusResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3186,14 +3186,14 @@
                         "locationName": "DeliveryChannelsStatus",
                         "documentation": "\u003cp\u003eA list that contains the status of a specified delivery channel.\u003c/p\u003e",
                         "typeExposed": "[DeliveryChannelStatus]",
-                        "type": "[DeliveryChannelStatus]"
+                        "type": "List \"DeliveryChannelsStatus\" DeliveryChannelStatus"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3203,7 +3203,7 @@
                         "locationName": "DeliveryChannelsStatus",
                         "documentation": "\u003cp\u003eA list that contains the status of a specified delivery channel.\u003c/p\u003e",
                         "typeExposed": "[DeliveryChannelStatus]",
-                        "type": "[DeliveryChannelStatus]"
+                        "type": "List \"DeliveryChannelsStatus\" DeliveryChannelStatus"
                     }
                 ]
             },
@@ -3224,7 +3224,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3236,8 +3235,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3247,13 +3246,13 @@
                     "locationName": "DeliveryChannelNames",
                     "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"DeliveryChannelNames\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3263,7 +3262,7 @@
                         "locationName": "DeliveryChannelNames",
                         "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DeliveryChannelNames\" Text"
                     }
                 ],
                 "path": [
@@ -3281,14 +3280,15 @@
                 "queryPad": 0,
                 "name": "DescribeDeliveryChannelStatus",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3298,14 +3298,14 @@
                         "locationName": "DeliveryChannelNames",
                         "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DeliveryChannelNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3315,7 +3315,7 @@
                         "locationName": "DeliveryChannelNames",
                         "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DeliveryChannelNames\" Text"
                     }
                 ]
             }
@@ -3326,7 +3326,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3338,8 +3337,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3349,13 +3348,13 @@
                     "locationName": "DeliveryChannels",
                     "documentation": "\u003cp\u003eA list that contains the descriptions of the specified delivery channel.\u003c/p\u003e",
                     "typeExposed": "[DeliveryChannel]",
-                    "type": "[DeliveryChannel]"
+                    "type": "List \"DeliveryChannels\" DeliveryChannel"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3365,7 +3364,7 @@
                         "locationName": "DeliveryChannels",
                         "documentation": "\u003cp\u003eA list that contains the descriptions of the specified delivery channel.\u003c/p\u003e",
                         "typeExposed": "[DeliveryChannel]",
-                        "type": "[DeliveryChannel]"
+                        "type": "List \"DeliveryChannels\" DeliveryChannel"
                     }
                 ],
                 "wrapper": false,
@@ -3377,13 +3376,14 @@
                 "contentPad": 0,
                 "name": "DescribeDeliveryChannelsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3393,14 +3393,14 @@
                         "locationName": "DeliveryChannels",
                         "documentation": "\u003cp\u003eA list that contains the descriptions of the specified delivery channel.\u003c/p\u003e",
                         "typeExposed": "[DeliveryChannel]",
-                        "type": "[DeliveryChannel]"
+                        "type": "List \"DeliveryChannels\" DeliveryChannel"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3410,7 +3410,7 @@
                         "locationName": "DeliveryChannels",
                         "documentation": "\u003cp\u003eA list that contains the descriptions of the specified delivery channel.\u003c/p\u003e",
                         "typeExposed": "[DeliveryChannel]",
-                        "type": "[DeliveryChannel]"
+                        "type": "List \"DeliveryChannels\" DeliveryChannel"
                     }
                 ]
             },
@@ -3431,7 +3431,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3443,8 +3442,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3454,13 +3453,13 @@
                     "locationName": "DeliveryChannelNames",
                     "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"DeliveryChannelNames\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3470,7 +3469,7 @@
                         "locationName": "DeliveryChannelNames",
                         "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DeliveryChannelNames\" Text"
                     }
                 ],
                 "path": [
@@ -3488,14 +3487,15 @@
                 "queryPad": 0,
                 "name": "DescribeDeliveryChannels",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3505,14 +3505,14 @@
                         "locationName": "DeliveryChannelNames",
                         "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DeliveryChannelNames\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3522,7 +3522,7 @@
                         "locationName": "DeliveryChannelNames",
                         "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DeliveryChannelNames\" Text"
                     }
                 ]
             }
@@ -3532,8 +3532,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3543,8 +3542,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3554,7 +3553,7 @@
                         "locationName": "configurationItems",
                         "documentation": "\u003cp\u003eA list that contains the configuration history of one or more resources.\u003c/p\u003e",
                         "typeExposed": "[ConfigurationItem]",
-                        "type": "[ConfigurationItem]"
+                        "type": "List \"configurationItems\" ConfigurationItem"
                     },
                     {
                         "location": null,
@@ -3581,13 +3580,14 @@
                 "contentPad": 19,
                 "name": "GetResourceConfigHistoryResponse",
                 "resultWrapper": null,
+                "locationPad": 19,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3597,7 +3597,7 @@
                         "locationName": "configurationItems",
                         "documentation": "\u003cp\u003eA list that contains the configuration history of one or more resources.\u003c/p\u003e",
                         "typeExposed": "[ConfigurationItem]",
-                        "type": "[ConfigurationItem]"
+                        "type": "List \"configurationItems\" ConfigurationItem"
                     },
                     {
                         "location": null,
@@ -3618,8 +3618,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3629,7 +3629,7 @@
                         "locationName": "configurationItems",
                         "documentation": "\u003cp\u003eA list that contains the configuration history of one or more resources.\u003c/p\u003e",
                         "typeExposed": "[ConfigurationItem]",
-                        "type": "[ConfigurationItem]"
+                        "type": "List \"configurationItems\" ConfigurationItem"
                     },
                     {
                         "location": null,
@@ -3664,8 +3664,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3825,6 +3824,7 @@
                 "queryPad": 0,
                 "name": "GetResourceConfigHistory",
                 "query": [],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4055,8 +4055,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4127,6 +4126,7 @@
                 "queryPad": 0,
                 "name": "PutConfigurationRecorder",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -4191,8 +4191,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4263,6 +4262,7 @@
                 "queryPad": 0,
                 "name": "PutDeliveryChannel",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -4329,7 +4329,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4402,6 +4401,7 @@
                 "queryPad": 0,
                 "name": "StartConfigurationRecorder",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -4468,7 +4468,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4541,6 +4540,7 @@
                 "queryPad": 0,
                 "name": "StopConfigurationRecorder",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,

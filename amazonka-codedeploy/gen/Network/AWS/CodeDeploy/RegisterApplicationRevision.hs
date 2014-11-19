@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ data RegisterApplicationRevision = RegisterApplicationRevision
     { _rarApplicationName :: Text
     , _rarDescription     :: Maybe Text
     , _rarRevision        :: RevisionLocation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RegisterApplicationRevision' constructor.
 --

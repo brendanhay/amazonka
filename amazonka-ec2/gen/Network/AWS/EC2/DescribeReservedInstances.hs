@@ -55,7 +55,7 @@ data DescribeReservedInstances = DescribeReservedInstances
     , _driFilters              :: List "Filter" Filter
     , _driOfferingType         :: Maybe Text
     , _driReservedInstancesIds :: List "ReservedInstancesId" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedInstances' constructor.
 --
@@ -104,8 +104,7 @@ driDryRun = lens _driDryRun (\s a -> s { _driDryRun = a })
 -- filter is independent of the tag-key filter. usage-price - The usage
 -- price of the Reserved Instance, per hour (for example, 0.84).
 driFilters :: Lens' DescribeReservedInstances [Filter]
-driFilters = lens _driFilters (\s a -> s { _driFilters = a })
-    . _List
+driFilters = lens _driFilters (\s a -> s { _driFilters = a }) . _List
 
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the Medium
@@ -122,7 +121,7 @@ driReservedInstancesIds =
 
 newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drirReservedInstances :: List "item" ReservedInstances
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeReservedInstancesResponse where
     type Item DescribeReservedInstancesResponse = ReservedInstances
@@ -150,7 +149,13 @@ drirReservedInstances =
 instance ToPath DescribeReservedInstances where
     toPath = const "/"
 
-instance ToQuery DescribeReservedInstances
+instance ToQuery DescribeReservedInstances where
+    toQuery DescribeReservedInstances{..} = mconcat
+        [ "dryRun"              =? _driDryRun
+        , "Filter"              =? _driFilters
+        , "offeringType"        =? _driOfferingType
+        , "ReservedInstancesId" =? _driReservedInstancesIds
+        ]
 
 instance ToHeaders DescribeReservedInstances
 
@@ -163,4 +168,4 @@ instance AWSRequest DescribeReservedInstances where
 
 instance FromXML DescribeReservedInstancesResponse where
     parseXML x = DescribeReservedInstancesResponse
-        <$> x .@ "reservedInstancesSet"
+        <$> x .@  "reservedInstancesSet"

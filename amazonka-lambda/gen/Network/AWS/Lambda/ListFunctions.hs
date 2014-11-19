@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 data ListFunctions = ListFunctions
     { _lfMarker   :: Maybe Text
     , _lfMaxItems :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListFunctions' constructor.
 --
@@ -77,13 +78,12 @@ lfMarker = lens _lfMarker (\s a -> s { _lfMarker = a })
 -- | Optional integer. Specifies the maximum number of AWS Lambda functions to
 -- return in response. This parameter value must be greater than 0.
 lfMaxItems :: Lens' ListFunctions (Maybe Natural)
-lfMaxItems = lens _lfMaxItems (\s a -> s { _lfMaxItems = a })
-    . mapping _Nat
+lfMaxItems = lens _lfMaxItems (\s a -> s { _lfMaxItems = a }) . mapping _Nat
 
 data ListFunctionsResponse = ListFunctionsResponse
-    { _lfrFunctions  :: [FunctionConfiguration]
+    { _lfrFunctions  :: List "Functions" FunctionConfiguration
     , _lfrNextMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListFunctionsResponse' constructor.
 --
@@ -101,7 +101,7 @@ listFunctionsResponse = ListFunctionsResponse
 
 -- | A list of Lambda functions.
 lfrFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
-lfrFunctions = lens _lfrFunctions (\s a -> s { _lfrFunctions = a })
+lfrFunctions = lens _lfrFunctions (\s a -> s { _lfrFunctions = a }) . _List
 
 -- | A string, present if there are more functions.
 lfrNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
@@ -110,7 +110,11 @@ lfrNextMarker = lens _lfrNextMarker (\s a -> s { _lfrNextMarker = a })
 instance ToPath ListFunctions where
     toPath = const "/2014-11-13/functions/"
 
-instance ToQuery ListFunctions
+instance ToQuery ListFunctions where
+    toQuery ListFunctions{..} = mconcat
+        [ "Marker"   =? _lfMarker
+        , "MaxItems" =? _lfMaxItems
+        ]
 
 instance ToHeaders ListFunctions
 
@@ -126,5 +130,5 @@ instance AWSRequest ListFunctions where
 
 instance FromJSON ListFunctionsResponse where
     parseJSON = withObject "ListFunctionsResponse" $ \o -> ListFunctionsResponse
-        <$> o .: "Functions"
+        <$> o .:  "Functions"
         <*> o .:? "NextMarker"

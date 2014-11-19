@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarpPolicyDocument :: Text
     , _uarpRoleName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateAssumeRolePolicy' constructor.
 --
@@ -84,7 +85,11 @@ updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
 instance ToPath UpdateAssumeRolePolicy where
     toPath = const "/"
 
-instance ToQuery UpdateAssumeRolePolicy
+instance ToQuery UpdateAssumeRolePolicy where
+    toQuery UpdateAssumeRolePolicy{..} = mconcat
+        [ "PolicyDocument" =? _uarpPolicyDocument
+        , "RoleName"       =? _uarpRoleName
+        ]
 
 instance ToHeaders UpdateAssumeRolePolicy
 

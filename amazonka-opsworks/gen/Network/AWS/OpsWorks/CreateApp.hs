@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,17 +61,17 @@ import qualified GHC.Exts
 
 data CreateApp = CreateApp
     { _caAppSource        :: Maybe Source
-    , _caAttributes       :: Map Text Text
-    , _caDataSources      :: [DataSource]
+    , _caAttributes       :: Map "entry" "key" "value" Text Text
+    , _caDataSources      :: List "DataSources" DataSource
     , _caDescription      :: Maybe Text
-    , _caDomains          :: [Text]
+    , _caDomains          :: List "InstanceIds" Text
     , _caEnableSsl        :: Maybe Bool
     , _caName             :: Text
     , _caShortname        :: Maybe Text
     , _caSslConfiguration :: Maybe SslConfiguration
     , _caStackId          :: Text
     , _caType             :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateApp' constructor.
 --
@@ -123,12 +124,11 @@ caAppSource = lens _caAppSource (\s a -> s { _caAppSource = a })
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 caAttributes :: Lens' CreateApp (HashMap Text Text)
-caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a })
-    . _Map
+caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a }) . _Map
 
 -- | The app's data source.
 caDataSources :: Lens' CreateApp [DataSource]
-caDataSources = lens _caDataSources (\s a -> s { _caDataSources = a })
+caDataSources = lens _caDataSources (\s a -> s { _caDataSources = a }) . _List
 
 -- | A description of the app.
 caDescription :: Lens' CreateApp (Maybe Text)
@@ -137,7 +137,7 @@ caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 -- | The app virtual host settings, with multiple domains separated by commas.
 -- For example: 'www.example.com, example.com'.
 caDomains :: Lens' CreateApp [Text]
-caDomains = lens _caDomains (\s a -> s { _caDomains = a })
+caDomains = lens _caDomains (\s a -> s { _caDomains = a }) . _List
 
 -- | Whether to enable SSL for the app.
 caEnableSsl :: Lens' CreateApp (Maybe Bool)
@@ -169,7 +169,7 @@ caType = lens _caType (\s a -> s { _caType = a })
 
 newtype CreateAppResponse = CreateAppResponse
     { _carAppId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateAppResponse' constructor.
 --

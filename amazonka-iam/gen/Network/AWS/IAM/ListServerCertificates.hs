@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data ListServerCertificates = ListServerCertificates
     { _lscMarker     :: Maybe Text
     , _lscMaxItems   :: Maybe Nat
     , _lscPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListServerCertificates' constructor.
 --
@@ -85,8 +86,7 @@ lscMarker = lens _lscMarker (\s a -> s { _lscMarker = a })
 -- response element will be set to true. This parameter is optional. If you
 -- do not include it, it defaults to 100.
 lscMaxItems :: Lens' ListServerCertificates (Maybe Natural)
-lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a })
-    . mapping _Nat
+lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a }) . mapping _Nat
 
 -- | The path prefix for filtering the results. For example:
 -- /company/servercerts would get all server certificates for which the path
@@ -99,8 +99,8 @@ lscPathPrefix = lens _lscPathPrefix (\s a -> s { _lscPathPrefix = a })
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrIsTruncated                   :: Maybe Bool
     , _lscrMarker                        :: Maybe Text
-    , _lscrServerCertificateMetadataList :: [ServerCertificateMetadata]
-    } deriving (Eq, Show, Generic)
+    , _lscrServerCertificateMetadataList :: List "ServerCertificateMetadataList" ServerCertificateMetadata
+    } deriving (Eq, Show)
 
 -- | 'ListServerCertificatesResponse' constructor.
 --
@@ -136,11 +136,17 @@ lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [Serve
 lscrServerCertificateMetadataList =
     lens _lscrServerCertificateMetadataList
         (\s a -> s { _lscrServerCertificateMetadataList = a })
+            . _List
 
 instance ToPath ListServerCertificates where
     toPath = const "/"
 
-instance ToQuery ListServerCertificates
+instance ToQuery ListServerCertificates where
+    toQuery ListServerCertificates{..} = mconcat
+        [ "Marker"     =? _lscMarker
+        , "MaxItems"   =? _lscMaxItems
+        , "PathPrefix" =? _lscPathPrefix
+        ]
 
 instance ToHeaders ListServerCertificates
 
@@ -152,10 +158,10 @@ instance AWSRequest ListServerCertificates where
     response = xmlResponse
 
 instance FromXML ListServerCertificatesResponse where
-    parseXML = withElement "ListServerCertificatesResult" $ \x ->
-            <$> x .@? "IsTruncated"
-            <*> x .@? "Marker"
-            <*> x .@ "ServerCertificateMetadataList"
+    parseXML = withElement "ListServerCertificatesResult" $ \x -> ListServerCertificatesResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@  "ServerCertificateMetadataList"
 
 instance AWSPager ListServerCertificates where
     next rq rs

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
     { _dtrpGatewayARN :: Text
     , _dtrpLimit      :: Maybe Nat
     , _dtrpMarker     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeTapeRecoveryPoints' constructor.
 --
@@ -82,8 +83,7 @@ dtrpGatewayARN = lens _dtrpGatewayARN (\s a -> s { _dtrpGatewayARN = a })
 -- | Specifies that the number of virtual tape recovery points that are
 -- described be limited to the specified number.
 dtrpLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
-dtrpLimit = lens _dtrpLimit (\s a -> s { _dtrpLimit = a })
-    . mapping _Nat
+dtrpLimit = lens _dtrpLimit (\s a -> s { _dtrpLimit = a }) . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin describing
 -- the virtual tape recovery points.
@@ -93,8 +93,8 @@ dtrpMarker = lens _dtrpMarker (\s a -> s { _dtrpMarker = a })
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
     { _dtrprGatewayARN             :: Maybe Text
     , _dtrprMarker                 :: Maybe Text
-    , _dtrprTapeRecoveryPointInfos :: [TapeRecoveryPointInfo]
-    } deriving (Eq, Show, Generic)
+    , _dtrprTapeRecoveryPointInfos :: List "TapeRecoveryPointInfos" TapeRecoveryPointInfo
+    } deriving (Eq, Show)
 
 -- | 'DescribeTapeRecoveryPointsResponse' constructor.
 --
@@ -130,6 +130,7 @@ dtrprTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRec
 dtrprTapeRecoveryPointInfos =
     lens _dtrprTapeRecoveryPointInfos
         (\s a -> s { _dtrprTapeRecoveryPointInfos = a })
+            . _List
 
 instance ToPath DescribeTapeRecoveryPoints where
     toPath = const "/"
@@ -157,7 +158,7 @@ instance FromJSON DescribeTapeRecoveryPointsResponse where
     parseJSON = withObject "DescribeTapeRecoveryPointsResponse" $ \o -> DescribeTapeRecoveryPointsResponse
         <$> o .:? "GatewayARN"
         <*> o .:? "Marker"
-        <*> o .: "TapeRecoveryPointInfos"
+        <*> o .:  "TapeRecoveryPointInfos"
 
 instance AWSPager DescribeTapeRecoveryPoints where
     next rq rs = (\x -> rq & dtrpMarker ?~ x)

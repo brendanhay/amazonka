@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data ListStreamingDistributions = ListStreamingDistributions
     { _lsdMarker   :: Maybe Text
     , _lsdMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListStreamingDistributions' constructor.
 --
@@ -79,7 +80,7 @@ lsdMaxItems = lens _lsdMaxItems (\s a -> s { _lsdMaxItems = a })
 
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
     { _lsdrStreamingDistributionList :: StreamingDistributionList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListStreamingDistributionsResponse' constructor.
 --
@@ -102,7 +103,11 @@ lsdrStreamingDistributionList =
 instance ToPath ListStreamingDistributions where
     toPath = const "/2014-05-31/streaming-distribution"
 
-instance ToQuery ListStreamingDistributions
+instance ToQuery ListStreamingDistributions where
+    toQuery ListStreamingDistributions{..} = mconcat
+        [ "Marker"   =? _lsdMarker
+        , "MaxItems" =? _lsdMaxItems
+        ]
 
 instance ToHeaders ListStreamingDistributions
 
@@ -120,7 +125,7 @@ instance AWSRequest ListStreamingDistributions where
 
 instance FromXML ListStreamingDistributionsResponse where
     parseXML x = ListStreamingDistributionsResponse
-            <$> x .@ "StreamingDistributionList"
+        <$> x .@  "StreamingDistributionList"
 
 instance AWSPager ListStreamingDistributions where
     next rq rs

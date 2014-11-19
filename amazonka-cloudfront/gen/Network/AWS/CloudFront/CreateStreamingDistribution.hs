@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype CreateStreamingDistribution = CreateStreamingDistribution
     { _csdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateStreamingDistribution' constructor.
 --
@@ -72,7 +73,7 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
     { _csdrETag                  :: Maybe Text
     , _csdrLocation              :: Maybe Text
     , _csdrStreamingDistribution :: Maybe StreamingDistribution
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateStreamingDistributionResponse' constructor.
 --

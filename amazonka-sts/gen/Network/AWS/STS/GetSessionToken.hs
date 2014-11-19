@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -72,7 +73,7 @@ data GetSessionToken = GetSessionToken
     { _gstDurationSeconds :: Maybe Nat
     , _gstSerialNumber    :: Maybe Text
     , _gstTokenCode       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetSessionToken' constructor.
 --
@@ -124,7 +125,7 @@ gstTokenCode = lens _gstTokenCode (\s a -> s { _gstTokenCode = a })
 
 newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials :: Maybe Credentials
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetSessionTokenResponse' constructor.
 --
@@ -144,7 +145,12 @@ gstrCredentials = lens _gstrCredentials (\s a -> s { _gstrCredentials = a })
 instance ToPath GetSessionToken where
     toPath = const "/"
 
-instance ToQuery GetSessionToken
+instance ToQuery GetSessionToken where
+    toQuery GetSessionToken{..} = mconcat
+        [ "DurationSeconds" =? _gstDurationSeconds
+        , "SerialNumber"    =? _gstSerialNumber
+        , "TokenCode"       =? _gstTokenCode
+        ]
 
 instance ToHeaders GetSessionToken
 
@@ -156,5 +162,5 @@ instance AWSRequest GetSessionToken where
     response = xmlResponse
 
 instance FromXML GetSessionTokenResponse where
-    parseXML = withElement "GetSessionTokenResult" $ \x ->
-            <$> x .@? "Credentials"
+    parseXML = withElement "GetSessionTokenResult" $ \x -> GetSessionTokenResponse
+        <$> x .@? "Credentials"

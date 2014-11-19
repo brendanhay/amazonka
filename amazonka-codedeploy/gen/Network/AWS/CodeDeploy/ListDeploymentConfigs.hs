@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype ListDeploymentConfigs = ListDeploymentConfigs
     { _ldcNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ListDeploymentConfigs' constructor.
 --
@@ -67,9 +68,9 @@ ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
 ldcNextToken = lens _ldcNextToken (\s a -> s { _ldcNextToken = a })
 
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse
-    { _ldcrDeploymentConfigsList :: [Text]
+    { _ldcrDeploymentConfigsList :: List "deploymentConfigsList" Text
     , _ldcrNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDeploymentConfigsResponse' constructor.
 --
@@ -91,6 +92,7 @@ ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrDeploymentConfigsList =
     lens _ldcrDeploymentConfigsList
         (\s a -> s { _ldcrDeploymentConfigsList = a })
+            . _List
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -121,5 +123,5 @@ instance AWSRequest ListDeploymentConfigs where
 
 instance FromJSON ListDeploymentConfigsResponse where
     parseJSON = withObject "ListDeploymentConfigsResponse" $ \o -> ListDeploymentConfigsResponse
-        <$> o .: "deploymentConfigsList"
+        <$> o .:  "deploymentConfigsList"
         <*> o .:? "nextToken"

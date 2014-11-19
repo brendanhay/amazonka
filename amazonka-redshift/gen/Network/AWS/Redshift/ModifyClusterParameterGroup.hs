@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ import qualified GHC.Exts
 
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
     { _mcpgParameterGroupName :: Text
-    , _mcpgParameters         :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    , _mcpgParameters         :: List "Parameter" Parameter
+    } deriving (Eq, Show)
 
 -- | 'ModifyClusterParameterGroup' constructor.
 --
@@ -80,12 +81,12 @@ mcpgParameterGroupName =
 -- configuration, you must supply all the name-value pairs in the
 -- wlm_json_configuration parameter.
 mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
-mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a })
+mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a }) . _List
 
 data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     { _mcpgrParameterGroupName   :: Maybe Text
     , _mcpgrParameterGroupStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ModifyClusterParameterGroupResponse' constructor.
 --
@@ -117,7 +118,11 @@ mcpgrParameterGroupStatus =
 instance ToPath ModifyClusterParameterGroup where
     toPath = const "/"
 
-instance ToQuery ModifyClusterParameterGroup
+instance ToQuery ModifyClusterParameterGroup where
+    toQuery ModifyClusterParameterGroup{..} = mconcat
+        [ "ParameterGroupName" =? _mcpgParameterGroupName
+        , "Parameters"         =? _mcpgParameters
+        ]
 
 instance ToHeaders ModifyClusterParameterGroup
 
@@ -129,6 +134,6 @@ instance AWSRequest ModifyClusterParameterGroup where
     response = xmlResponse
 
 instance FromXML ModifyClusterParameterGroupResponse where
-    parseXML = withElement "ModifyClusterParameterGroupResult" $ \x ->
-            <$> x .@? "ParameterGroupName"
-            <*> x .@? "ParameterGroupStatus"
+    parseXML = withElement "ModifyClusterParameterGroupResult" $ \x -> ModifyClusterParameterGroupResponse
+        <$> x .@? "ParameterGroupName"
+        <*> x .@? "ParameterGroupStatus"

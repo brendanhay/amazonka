@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     { _decApplicationName :: Text
     , _decEnvironmentName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteEnvironmentConfiguration' constructor.
 --
@@ -90,7 +91,11 @@ deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
 instance ToPath DeleteEnvironmentConfiguration where
     toPath = const "/"
 
-instance ToQuery DeleteEnvironmentConfiguration
+instance ToQuery DeleteEnvironmentConfiguration where
+    toQuery DeleteEnvironmentConfiguration{..} = mconcat
+        [ "ApplicationName" =? _decApplicationName
+        , "EnvironmentName" =? _decEnvironmentName
+        ]
 
 instance ToHeaders DeleteEnvironmentConfiguration
 

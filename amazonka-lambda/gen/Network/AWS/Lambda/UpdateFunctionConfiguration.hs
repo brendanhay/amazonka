@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -71,7 +72,7 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration
     , _ufcMemorySize   :: Maybe Nat
     , _ufcRole         :: Maybe Text
     , _ufcTimeout      :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateFunctionConfiguration' constructor.
 --
@@ -121,8 +122,7 @@ ufcHandler = lens _ufcHandler (\s a -> s { _ufcHandler = a })
 -- processing function. The default value is 128 MB. The value must be a
 -- multiple of 64 MB.
 ufcMemorySize :: Lens' UpdateFunctionConfiguration (Maybe Natural)
-ufcMemorySize = lens _ufcMemorySize (\s a -> s { _ufcMemorySize = a })
-    . mapping _Nat
+ufcMemorySize = lens _ufcMemorySize (\s a -> s { _ufcMemorySize = a }) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda will assume
 -- when it executes your function.
@@ -134,8 +134,7 @@ ufcRole = lens _ufcRole (\s a -> s { _ufcRole = a })
 -- you set this value based on your expected execution time. The default is
 -- 3 seconds.
 ufcTimeout :: Lens' UpdateFunctionConfiguration (Maybe Natural)
-ufcTimeout = lens _ufcTimeout (\s a -> s { _ufcTimeout = a })
-    . mapping _Nat
+ufcTimeout = lens _ufcTimeout (\s a -> s { _ufcTimeout = a }) . mapping _Nat
 
 data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
     { _ufcrCodeSize        :: Maybe Integer
@@ -150,7 +149,7 @@ data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
     , _ufcrRole            :: Maybe Text
     , _ufcrRuntime         :: Maybe Text
     , _ufcrTimeout         :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateFunctionConfigurationResponse' constructor.
 --
@@ -224,14 +223,12 @@ ufcrHandler = lens _ufcrHandler (\s a -> s { _ufcrHandler = a })
 
 -- | The timestamp of the last time you updated the function.
 ufcrLastModified :: Lens' UpdateFunctionConfigurationResponse (Maybe UTCTime)
-ufcrLastModified = lens _ufcrLastModified (\s a -> s { _ufcrLastModified = a })
-    . mapping _Time
+ufcrLastModified = lens _ufcrLastModified (\s a -> s { _ufcrLastModified = a }) . mapping _Time
 
 -- | The memory size, in MB, you configured for the function. Must be a
 -- multiple of 64 MB.
 ufcrMemorySize :: Lens' UpdateFunctionConfigurationResponse (Maybe Natural)
-ufcrMemorySize = lens _ufcrMemorySize (\s a -> s { _ufcrMemorySize = a })
-    . mapping _Nat
+ufcrMemorySize = lens _ufcrMemorySize (\s a -> s { _ufcrMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
 ufcrMode :: Lens' UpdateFunctionConfigurationResponse (Maybe Text)
@@ -252,8 +249,7 @@ ufcrRuntime = lens _ufcrRuntime (\s a -> s { _ufcrRuntime = a })
 -- you set this value based on your expected execution time. The default is
 -- 3 seconds.
 ufcrTimeout :: Lens' UpdateFunctionConfigurationResponse (Maybe Natural)
-ufcrTimeout = lens _ufcrTimeout (\s a -> s { _ufcrTimeout = a })
-    . mapping _Nat
+ufcrTimeout = lens _ufcrTimeout (\s a -> s { _ufcrTimeout = a }) . mapping _Nat
 
 instance ToPath UpdateFunctionConfiguration where
     toPath UpdateFunctionConfiguration{..} = mconcat

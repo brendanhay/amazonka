@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,12 +52,12 @@ import qualified GHC.Exts
 
 data CreateDeploymentGroup = CreateDeploymentGroup
     { _cdgApplicationName      :: Text
-    , _cdgAutoScalingGroups    :: [Text]
+    , _cdgAutoScalingGroups    :: List "autoScalingGroups" Text
     , _cdgDeploymentConfigName :: Maybe Text
     , _cdgDeploymentGroupName  :: Text
-    , _cdgEc2TagFilters        :: [EC2TagFilter]
+    , _cdgEc2TagFilters        :: List "ec2TagFilters" EC2TagFilter
     , _cdgServiceRoleArn       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDeploymentGroup' constructor.
 --
@@ -96,6 +97,7 @@ cdgApplicationName =
 cdgAutoScalingGroups :: Lens' CreateDeploymentGroup [Text]
 cdgAutoScalingGroups =
     lens _cdgAutoScalingGroups (\s a -> s { _cdgAutoScalingGroups = a })
+        . _List
 
 -- | If specified, the deployment configuration name must be one of the
 -- predefined values, or it can be a custom deployment configuration:
@@ -138,7 +140,7 @@ cdgDeploymentGroupName =
 
 -- | The Amazon EC2 tags to filter on.
 cdgEc2TagFilters :: Lens' CreateDeploymentGroup [EC2TagFilter]
-cdgEc2TagFilters = lens _cdgEc2TagFilters (\s a -> s { _cdgEc2TagFilters = a })
+cdgEc2TagFilters = lens _cdgEc2TagFilters (\s a -> s { _cdgEc2TagFilters = a }) . _List
 
 -- | A service role ARN that allows AWS CodeDeploy to act on the user's behalf
 -- when interacting with AWS services.
@@ -148,7 +150,7 @@ cdgServiceRoleArn =
 
 newtype CreateDeploymentGroupResponse = CreateDeploymentGroupResponse
     { _cdgrDeploymentGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateDeploymentGroupResponse' constructor.
 --

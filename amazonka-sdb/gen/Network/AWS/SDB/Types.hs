@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -96,7 +97,7 @@ data Attribute = Attribute
     , _aAlternateValueEncoding :: Maybe Text
     , _aName                   :: Text
     , _aValue                  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Attribute' constructor.
 --
@@ -140,17 +141,23 @@ aValue = lens _aValue (\s a -> s { _aValue = a })
 
 instance FromXML Attribute where
     parseXML x = Attribute
-            <$> x .@? "AlternateNameEncoding"
-            <*> x .@? "AlternateValueEncoding"
-            <*> x .@ "Name"
-            <*> x .@ "Value"
+        <$> x .@? "AlternateNameEncoding"
+        <*> x .@? "AlternateValueEncoding"
+        <*> x .@  "Name"
+        <*> x .@  "Value"
 
-instance ToQuery Attribute
+instance ToQuery Attribute where
+    toQuery Attribute{..} = mconcat
+        [ "AlternateNameEncoding"  =? _aAlternateNameEncoding
+        , "AlternateValueEncoding" =? _aAlternateValueEncoding
+        , "Name"                   =? _aName
+        , "Value"                  =? _aValue
+        ]
 
 data DeletableItem = DeletableItem
-    { _diAttributes :: Flatten [Attribute]
+    { _diAttributes :: List "Attribute" Attribute
     , _diName       :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeletableItem' constructor.
 --
@@ -165,27 +172,30 @@ deletableItem :: Text -- ^ 'diName'
               -> DeletableItem
 deletableItem p1 p2 = DeletableItem
     { _diName       = p1
-    , _diAttributes = withIso _Flatten (const id) p2
+    , _diAttributes = withIso _List (const id) p2
     }
 
 diAttributes :: Lens' DeletableItem [Attribute]
-diAttributes = lens _diAttributes (\s a -> s { _diAttributes = a })
-    . _Flatten
+diAttributes = lens _diAttributes (\s a -> s { _diAttributes = a }) . _List
 
 diName :: Lens' DeletableItem Text
 diName = lens _diName (\s a -> s { _diName = a })
 
 instance FromXML DeletableItem where
     parseXML x = DeletableItem
-            <$> parseXML x
-            <*> x .@ "ItemName"
+        <$> parseXML x
+        <*> x .@  "ItemName"
 
-instance ToQuery DeletableItem
+instance ToQuery DeletableItem where
+    toQuery DeletableItem{..} = mconcat
+        [ toQuery     _diAttributes
+        , "ItemName"   =? _diName
+        ]
 
 data ReplaceableItem = ReplaceableItem
-    { _riAttributes :: Flatten [ReplaceableAttribute]
+    { _riAttributes :: List "Attribute" ReplaceableAttribute
     , _riName       :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReplaceableItem' constructor.
 --
@@ -200,13 +210,12 @@ replaceableItem :: Text -- ^ 'riName'
                 -> ReplaceableItem
 replaceableItem p1 p2 = ReplaceableItem
     { _riName       = p1
-    , _riAttributes = withIso _Flatten (const id) p2
+    , _riAttributes = withIso _List (const id) p2
     }
 
 -- | The list of attributes for a replaceable item.
 riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
-riAttributes = lens _riAttributes (\s a -> s { _riAttributes = a })
-    . _Flatten
+riAttributes = lens _riAttributes (\s a -> s { _riAttributes = a }) . _List
 
 -- | The name of the replaceable item.
 riName :: Lens' ReplaceableItem Text
@@ -214,16 +223,20 @@ riName = lens _riName (\s a -> s { _riName = a })
 
 instance FromXML ReplaceableItem where
     parseXML x = ReplaceableItem
-            <$> parseXML x
-            <*> x .@ "ItemName"
+        <$> parseXML x
+        <*> x .@  "ItemName"
 
-instance ToQuery ReplaceableItem
+instance ToQuery ReplaceableItem where
+    toQuery ReplaceableItem{..} = mconcat
+        [ toQuery     _riAttributes
+        , "ItemName"   =? _riName
+        ]
 
 data UpdateCondition = UpdateCondition
     { _ucExists :: Maybe Bool
     , _ucName   :: Maybe Text
     , _ucValue  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateCondition' constructor.
 --
@@ -261,17 +274,22 @@ ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 
 instance FromXML UpdateCondition where
     parseXML x = UpdateCondition
-            <$> x .@? "Exists"
-            <*> x .@? "Name"
-            <*> x .@? "Value"
+        <$> x .@? "Exists"
+        <*> x .@? "Name"
+        <*> x .@? "Value"
 
-instance ToQuery UpdateCondition
+instance ToQuery UpdateCondition where
+    toQuery UpdateCondition{..} = mconcat
+        [ "Exists" =? _ucExists
+        , "Name"   =? _ucName
+        , "Value"  =? _ucValue
+        ]
 
 data ReplaceableAttribute = ReplaceableAttribute
     { _raName    :: Text
     , _raReplace :: Maybe Bool
     , _raValue   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ReplaceableAttribute' constructor.
 --
@@ -307,17 +325,22 @@ raValue = lens _raValue (\s a -> s { _raValue = a })
 
 instance FromXML ReplaceableAttribute where
     parseXML x = ReplaceableAttribute
-            <$> x .@ "Name"
-            <*> x .@? "Replace"
-            <*> x .@ "Value"
+        <$> x .@  "Name"
+        <*> x .@? "Replace"
+        <*> x .@  "Value"
 
-instance ToQuery ReplaceableAttribute
+instance ToQuery ReplaceableAttribute where
+    toQuery ReplaceableAttribute{..} = mconcat
+        [ "Name"    =? _raName
+        , "Replace" =? _raReplace
+        , "Value"   =? _raValue
+        ]
 
 data Item = Item
     { _iAlternateNameEncoding :: Maybe Text
-    , _iAttributes            :: Flatten [Attribute]
+    , _iAttributes            :: List "Attribute" Attribute
     , _iName                  :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Item' constructor.
 --
@@ -334,7 +357,7 @@ item :: Text -- ^ 'iName'
      -> Item
 item p1 p2 = Item
     { _iName                  = p1
-    , _iAttributes            = withIso _Flatten (const id) p2
+    , _iAttributes            = withIso _List (const id) p2
     , _iAlternateNameEncoding = Nothing
     }
 
@@ -345,8 +368,7 @@ iAlternateNameEncoding =
 
 -- | A list of attributes.
 iAttributes :: Lens' Item [Attribute]
-iAttributes = lens _iAttributes (\s a -> s { _iAttributes = a })
-    . _Flatten
+iAttributes = lens _iAttributes (\s a -> s { _iAttributes = a }) . _List
 
 -- | The name of the item.
 iName :: Lens' Item Text
@@ -354,8 +376,13 @@ iName = lens _iName (\s a -> s { _iName = a })
 
 instance FromXML Item where
     parseXML x = Item
-            <$> x .@? "AlternateNameEncoding"
-            <*> parseXML x
-            <*> x .@ "Name"
+        <$> x .@? "AlternateNameEncoding"
+        <*> parseXML x
+        <*> x .@  "Name"
 
-instance ToQuery Item
+instance ToQuery Item where
+    toQuery Item{..} = mconcat
+        [ "AlternateNameEncoding" =? _iAlternateNameEncoding
+        , toQuery                _iAttributes
+        , "Name"                  =? _iName
+        ]

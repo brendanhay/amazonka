@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -72,7 +73,7 @@ data ModifyCluster = ModifyCluster
     , _mcAutomatedSnapshotRetentionPeriod :: Maybe Int
     , _mcClusterIdentifier                :: Text
     , _mcClusterParameterGroupName        :: Maybe Text
-    , _mcClusterSecurityGroups            :: [Text]
+    , _mcClusterSecurityGroups            :: List "ClusterSecurityGroupName" Text
     , _mcClusterType                      :: Maybe Text
     , _mcClusterVersion                   :: Maybe Text
     , _mcHsmClientCertificateIdentifier   :: Maybe Text
@@ -82,8 +83,8 @@ data ModifyCluster = ModifyCluster
     , _mcNodeType                         :: Maybe Text
     , _mcNumberOfNodes                    :: Maybe Int
     , _mcPreferredMaintenanceWindow       :: Maybe Text
-    , _mcVpcSecurityGroupIds              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _mcVpcSecurityGroupIds              :: List "VpcSecurityGroupId" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ModifyCluster' constructor.
 --
@@ -182,6 +183,7 @@ mcClusterParameterGroupName =
 mcClusterSecurityGroups :: Lens' ModifyCluster [Text]
 mcClusterSecurityGroups =
     lens _mcClusterSecurityGroups (\s a -> s { _mcClusterSecurityGroups = a })
+        . _List
 
 -- | The new cluster type. When you submit your cluster resize request, your
 -- existing cluster goes into a read-only mode. After Amazon Redshift
@@ -284,10 +286,11 @@ mcPreferredMaintenanceWindow =
 mcVpcSecurityGroupIds :: Lens' ModifyCluster [Text]
 mcVpcSecurityGroupIds =
     lens _mcVpcSecurityGroupIds (\s a -> s { _mcVpcSecurityGroupIds = a })
+        . _List
 
 newtype ModifyClusterResponse = ModifyClusterResponse
     { _mcrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyClusterResponse' constructor.
 --
@@ -306,7 +309,24 @@ mcrCluster = lens _mcrCluster (\s a -> s { _mcrCluster = a })
 instance ToPath ModifyCluster where
     toPath = const "/"
 
-instance ToQuery ModifyCluster
+instance ToQuery ModifyCluster where
+    toQuery ModifyCluster{..} = mconcat
+        [ "AllowVersionUpgrade"              =? _mcAllowVersionUpgrade
+        , "AutomatedSnapshotRetentionPeriod" =? _mcAutomatedSnapshotRetentionPeriod
+        , "ClusterIdentifier"                =? _mcClusterIdentifier
+        , "ClusterParameterGroupName"        =? _mcClusterParameterGroupName
+        , "ClusterSecurityGroups"            =? _mcClusterSecurityGroups
+        , "ClusterType"                      =? _mcClusterType
+        , "ClusterVersion"                   =? _mcClusterVersion
+        , "HsmClientCertificateIdentifier"   =? _mcHsmClientCertificateIdentifier
+        , "HsmConfigurationIdentifier"       =? _mcHsmConfigurationIdentifier
+        , "MasterUserPassword"               =? _mcMasterUserPassword
+        , "NewClusterIdentifier"             =? _mcNewClusterIdentifier
+        , "NodeType"                         =? _mcNodeType
+        , "NumberOfNodes"                    =? _mcNumberOfNodes
+        , "PreferredMaintenanceWindow"       =? _mcPreferredMaintenanceWindow
+        , "VpcSecurityGroupIds"              =? _mcVpcSecurityGroupIds
+        ]
 
 instance ToHeaders ModifyCluster
 
@@ -318,5 +338,5 @@ instance AWSRequest ModifyCluster where
     response = xmlResponse
 
 instance FromXML ModifyClusterResponse where
-    parseXML = withElement "ModifyClusterResult" $ \x ->
-            <$> x .@? "Cluster"
+    parseXML = withElement "ModifyClusterResult" $ \x -> ModifyClusterResponse
+        <$> x .@? "Cluster"

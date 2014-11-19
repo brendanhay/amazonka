@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DomainMetadata = DomainMetadata
     { _dmDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DomainMetadata' constructor.
 --
@@ -80,7 +81,7 @@ data DomainMetadataResponse = DomainMetadataResponse
     , _dmrItemCount                :: Maybe Int
     , _dmrItemNamesSizeBytes       :: Maybe Integer
     , _dmrTimestamp                :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DomainMetadataResponse' constructor.
 --
@@ -149,7 +150,10 @@ dmrTimestamp = lens _dmrTimestamp (\s a -> s { _dmrTimestamp = a })
 instance ToPath DomainMetadata where
     toPath = const "/"
 
-instance ToQuery DomainMetadata
+instance ToQuery DomainMetadata where
+    toQuery DomainMetadata{..} = mconcat
+        [ "DomainName" =? _dmDomainName
+        ]
 
 instance ToHeaders DomainMetadata
 
@@ -161,11 +165,11 @@ instance AWSRequest DomainMetadata where
     response = xmlResponse
 
 instance FromXML DomainMetadataResponse where
-    parseXML = withElement "DomainMetadataResult" $ \x ->
-            <$> x .@? "AttributeNameCount"
-            <*> x .@? "AttributeNamesSizeBytes"
-            <*> x .@? "AttributeValueCount"
-            <*> x .@? "AttributeValuesSizeBytes"
-            <*> x .@? "ItemCount"
-            <*> x .@? "ItemNamesSizeBytes"
-            <*> x .@? "Timestamp"
+    parseXML = withElement "DomainMetadataResult" $ \x -> DomainMetadataResponse
+        <$> x .@? "AttributeNameCount"
+        <*> x .@? "AttributeNamesSizeBytes"
+        <*> x .@? "AttributeValueCount"
+        <*> x .@? "AttributeValuesSizeBytes"
+        <*> x .@? "ItemCount"
+        <*> x .@? "ItemNamesSizeBytes"
+        <*> x .@? "Timestamp"

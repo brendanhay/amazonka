@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -77,12 +78,12 @@ data UpdateEnvironment = UpdateEnvironment
     { _ueDescription     :: Maybe Text
     , _ueEnvironmentId   :: Maybe Text
     , _ueEnvironmentName :: Maybe Text
-    , _ueOptionSettings  :: [ConfigurationOptionSetting]
-    , _ueOptionsToRemove :: [OptionSpecification]
+    , _ueOptionSettings  :: List "OptionSettings" ConfigurationOptionSetting
+    , _ueOptionsToRemove :: List "OptionsToRemove" OptionSpecification
     , _ueTemplateName    :: Maybe Text
     , _ueTier            :: Maybe EnvironmentTier
     , _ueVersionLabel    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateEnvironment' constructor.
 --
@@ -142,13 +143,14 @@ ueEnvironmentName =
 -- associated with the running environment and sets the specified
 -- configuration options to the requested value.
 ueOptionSettings :: Lens' UpdateEnvironment [ConfigurationOptionSetting]
-ueOptionSettings = lens _ueOptionSettings (\s a -> s { _ueOptionSettings = a })
+ueOptionSettings = lens _ueOptionSettings (\s a -> s { _ueOptionSettings = a }) . _List
 
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this environment.
 ueOptionsToRemove :: Lens' UpdateEnvironment [OptionSpecification]
 ueOptionsToRemove =
     lens _ueOptionsToRemove (\s a -> s { _ueOptionsToRemove = a })
+        . _List
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys this
 -- configuration template to the environment. If no such configuration
@@ -186,7 +188,7 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse
     , _uerTemplateName      :: Maybe Text
     , _uerTier              :: Maybe EnvironmentTier
     , _uerVersionLabel      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateEnvironmentResponse' constructor.
 --
@@ -252,13 +254,11 @@ uerCNAME = lens _uerCNAME (\s a -> s { _uerCNAME = a })
 
 -- | The creation date for this environment.
 uerDateCreated :: Lens' UpdateEnvironmentResponse (Maybe UTCTime)
-uerDateCreated = lens _uerDateCreated (\s a -> s { _uerDateCreated = a })
-    . mapping _Time
+uerDateCreated = lens _uerDateCreated (\s a -> s { _uerDateCreated = a }) . mapping _Time
 
 -- | The last modified date for this environment.
 uerDateUpdated :: Lens' UpdateEnvironmentResponse (Maybe UTCTime)
-uerDateUpdated = lens _uerDateUpdated (\s a -> s { _uerDateUpdated = a })
-    . mapping _Time
+uerDateUpdated = lens _uerDateUpdated (\s a -> s { _uerDateUpdated = a }) . mapping _Time
 
 -- | Describes this environment.
 uerDescription :: Lens' UpdateEnvironmentResponse (Maybe Text)
@@ -328,7 +328,17 @@ uerVersionLabel = lens _uerVersionLabel (\s a -> s { _uerVersionLabel = a })
 instance ToPath UpdateEnvironment where
     toPath = const "/"
 
-instance ToQuery UpdateEnvironment
+instance ToQuery UpdateEnvironment where
+    toQuery UpdateEnvironment{..} = mconcat
+        [ "Description"     =? _ueDescription
+        , "EnvironmentId"   =? _ueEnvironmentId
+        , "EnvironmentName" =? _ueEnvironmentName
+        , "OptionSettings"  =? _ueOptionSettings
+        , "OptionsToRemove" =? _ueOptionsToRemove
+        , "TemplateName"    =? _ueTemplateName
+        , "Tier"            =? _ueTier
+        , "VersionLabel"    =? _ueVersionLabel
+        ]
 
 instance ToHeaders UpdateEnvironment
 
@@ -340,19 +350,19 @@ instance AWSRequest UpdateEnvironment where
     response = xmlResponse
 
 instance FromXML UpdateEnvironmentResponse where
-    parseXML = withElement "UpdateEnvironmentResult" $ \x ->
-            <$> x .@? "ApplicationName"
-            <*> x .@? "CNAME"
-            <*> x .@? "DateCreated"
-            <*> x .@? "DateUpdated"
-            <*> x .@? "Description"
-            <*> x .@? "EndpointURL"
-            <*> x .@? "EnvironmentId"
-            <*> x .@? "EnvironmentName"
-            <*> x .@? "Health"
-            <*> x .@? "Resources"
-            <*> x .@? "SolutionStackName"
-            <*> x .@? "Status"
-            <*> x .@? "TemplateName"
-            <*> x .@? "Tier"
-            <*> x .@? "VersionLabel"
+    parseXML = withElement "UpdateEnvironmentResult" $ \x -> UpdateEnvironmentResponse
+        <$> x .@? "ApplicationName"
+        <*> x .@? "CNAME"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "Description"
+        <*> x .@? "EndpointURL"
+        <*> x .@? "EnvironmentId"
+        <*> x .@? "EnvironmentName"
+        <*> x .@? "Health"
+        <*> x .@? "Resources"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "Status"
+        <*> x .@? "TemplateName"
+        <*> x .@? "Tier"
+        <*> x .@? "VersionLabel"

@@ -54,7 +54,7 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaaAssociationId :: Text
     , _rnaaDryRun        :: Maybe Bool
     , _rnaaNetworkAclId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ReplaceNetworkAclAssociation' constructor.
 --
@@ -90,7 +90,7 @@ rnaaNetworkAclId = lens _rnaaNetworkAclId (\s a -> s { _rnaaNetworkAclId = a })
 
 newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ReplaceNetworkAclAssociationResponse' constructor.
 --
@@ -111,7 +111,12 @@ rnaarNewAssociationId =
 instance ToPath ReplaceNetworkAclAssociation where
     toPath = const "/"
 
-instance ToQuery ReplaceNetworkAclAssociation
+instance ToQuery ReplaceNetworkAclAssociation where
+    toQuery ReplaceNetworkAclAssociation{..} = mconcat
+        [ "associationId" =? _rnaaAssociationId
+        , "dryRun"        =? _rnaaDryRun
+        , "networkAclId"  =? _rnaaNetworkAclId
+        ]
 
 instance ToHeaders ReplaceNetworkAclAssociation
 

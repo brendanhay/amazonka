@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,11 +54,11 @@ import Network.AWS.SDB.Types
 import qualified GHC.Exts
 
 data GetAttributes = GetAttributes
-    { _gaAttributeNames :: Flatten [Text]
+    { _gaAttributeNames :: List "AttributeName" Text
     , _gaConsistentRead :: Maybe Bool
     , _gaDomainName     :: Text
     , _gaItemName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetAttributes' constructor.
 --
@@ -78,14 +79,13 @@ getAttributes :: Text -- ^ 'gaDomainName'
 getAttributes p1 p2 p3 = GetAttributes
     { _gaDomainName     = p1
     , _gaItemName       = p2
-    , _gaAttributeNames = withIso _Flatten (const id) p3
+    , _gaAttributeNames = withIso _List (const id) p3
     , _gaConsistentRead = Nothing
     }
 
 -- | The names of the attributes.
 gaAttributeNames :: Lens' GetAttributes [Text]
-gaAttributeNames = lens _gaAttributeNames (\s a -> s { _gaAttributeNames = a })
-    . _Flatten
+gaAttributeNames = lens _gaAttributeNames (\s a -> s { _gaAttributeNames = a }) . _List
 
 -- | Determines whether or not strong consistency should be enforced when data
 -- is read from SimpleDB. If true, any data previously written to SimpleDB
@@ -104,8 +104,8 @@ gaItemName :: Lens' GetAttributes Text
 gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
 
 newtype GetAttributesResponse = GetAttributesResponse
-    { _garAttributes :: Flatten [Attribute]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _garAttributes :: List "Attribute" Attribute
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetAttributesResponse' constructor.
 --
@@ -116,18 +116,23 @@ newtype GetAttributesResponse = GetAttributesResponse
 getAttributesResponse :: [Attribute] -- ^ 'garAttributes'
                       -> GetAttributesResponse
 getAttributesResponse p1 = GetAttributesResponse
-    { _garAttributes = withIso _Flatten (const id) p1
+    { _garAttributes = withIso _List (const id) p1
     }
 
 -- | The list of attributes returned by the operation.
 garAttributes :: Lens' GetAttributesResponse [Attribute]
-garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a })
-    . _Flatten
+garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a }) . _List
 
 instance ToPath GetAttributes where
     toPath = const "/"
 
-instance ToQuery GetAttributes
+instance ToQuery GetAttributes where
+    toQuery GetAttributes{..} = mconcat
+        [ toQuery         _gaAttributeNames
+        , "ConsistentRead" =? _gaConsistentRead
+        , "DomainName"     =? _gaDomainName
+        , "ItemName"       =? _gaItemName
+        ]
 
 instance ToHeaders GetAttributes
 
@@ -139,5 +144,5 @@ instance AWSRequest GetAttributes where
     response = xmlResponse
 
 instance FromXML GetAttributesResponse where
-    parseXML = withElement "GetAttributesResult" $ \x ->
-            <$> parseXML x
+    parseXML = withElement "GetAttributesResult" $ \x -> GetAttributesResponse
+        <$> parseXML x

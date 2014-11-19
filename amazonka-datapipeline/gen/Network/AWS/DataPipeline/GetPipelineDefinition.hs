@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data GetPipelineDefinition = GetPipelineDefinition
     { _gpdPipelineId :: Text
     , _gpdVersion    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetPipelineDefinition' constructor.
 --
@@ -79,8 +80,8 @@ gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
 
 newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
-    { _gpdrPipelineObjects :: [PipelineObject]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _gpdrPipelineObjects :: List "pipelineObjects" PipelineObject
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetPipelineDefinitionResponse where
     type Item GetPipelineDefinitionResponse = PipelineObject
@@ -103,6 +104,7 @@ getPipelineDefinitionResponse = GetPipelineDefinitionResponse
 gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
 gpdrPipelineObjects =
     lens _gpdrPipelineObjects (\s a -> s { _gpdrPipelineObjects = a })
+        . _List
 
 instance ToPath GetPipelineDefinition where
     toPath = const "/"
@@ -127,4 +129,4 @@ instance AWSRequest GetPipelineDefinition where
 
 instance FromJSON GetPipelineDefinitionResponse where
     parseJSON = withObject "GetPipelineDefinitionResponse" $ \o -> GetPipelineDefinitionResponse
-        <$> o .: "pipelineObjects"
+        <$> o .:  "pipelineObjects"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess
     { _rsaAccountWithRestoreAccess  :: Text
     , _rsaSnapshotClusterIdentifier :: Maybe Text
     , _rsaSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RevokeSnapshotAccess' constructor.
 --
@@ -98,7 +99,7 @@ rsaSnapshotIdentifier =
 
 newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     { _rsarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RevokeSnapshotAccessResponse' constructor.
 --
@@ -117,7 +118,12 @@ rsarSnapshot = lens _rsarSnapshot (\s a -> s { _rsarSnapshot = a })
 instance ToPath RevokeSnapshotAccess where
     toPath = const "/"
 
-instance ToQuery RevokeSnapshotAccess
+instance ToQuery RevokeSnapshotAccess where
+    toQuery RevokeSnapshotAccess{..} = mconcat
+        [ "AccountWithRestoreAccess"  =? _rsaAccountWithRestoreAccess
+        , "SnapshotClusterIdentifier" =? _rsaSnapshotClusterIdentifier
+        , "SnapshotIdentifier"        =? _rsaSnapshotIdentifier
+        ]
 
 instance ToHeaders RevokeSnapshotAccess
 
@@ -129,5 +135,5 @@ instance AWSRequest RevokeSnapshotAccess where
     response = xmlResponse
 
 instance FromXML RevokeSnapshotAccessResponse where
-    parseXML = withElement "RevokeSnapshotAccessResult" $ \x ->
-            <$> x .@? "Snapshot"
+    parseXML = withElement "RevokeSnapshotAccessResult" $ \x -> RevokeSnapshotAccessResponse
+        <$> x .@? "Snapshot"

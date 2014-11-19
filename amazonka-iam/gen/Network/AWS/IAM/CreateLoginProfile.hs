@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data CreateLoginProfile = CreateLoginProfile
     { _clpPassword              :: Sensitive Text
     , _clpPasswordResetRequired :: Maybe Bool
     , _clpUserName              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateLoginProfile' constructor.
 --
@@ -76,8 +77,7 @@ createLoginProfile p1 p2 = CreateLoginProfile
 
 -- | The new password for the user.
 clpPassword :: Lens' CreateLoginProfile Text
-clpPassword = lens _clpPassword (\s a -> s { _clpPassword = a })
-    . _Sensitive
+clpPassword = lens _clpPassword (\s a -> s { _clpPassword = a }) . _Sensitive
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
@@ -92,7 +92,7 @@ clpUserName = lens _clpUserName (\s a -> s { _clpUserName = a })
 
 newtype CreateLoginProfileResponse = CreateLoginProfileResponse
     { _clprLoginProfile :: LoginProfile
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateLoginProfileResponse' constructor.
 --
@@ -113,7 +113,12 @@ clprLoginProfile = lens _clprLoginProfile (\s a -> s { _clprLoginProfile = a })
 instance ToPath CreateLoginProfile where
     toPath = const "/"
 
-instance ToQuery CreateLoginProfile
+instance ToQuery CreateLoginProfile where
+    toQuery CreateLoginProfile{..} = mconcat
+        [ "Password"              =? _clpPassword
+        , "PasswordResetRequired" =? _clpPasswordResetRequired
+        , "UserName"              =? _clpUserName
+        ]
 
 instance ToHeaders CreateLoginProfile
 
@@ -125,5 +130,5 @@ instance AWSRequest CreateLoginProfile where
     response = xmlResponse
 
 instance FromXML CreateLoginProfileResponse where
-    parseXML = withElement "CreateLoginProfileResult" $ \x ->
-            <$> x .@ "LoginProfile"
+    parseXML = withElement "CreateLoginProfileResult" $ \x -> CreateLoginProfileResponse
+        <$> x .@  "LoginProfile"

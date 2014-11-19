@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import qualified GHC.Exts
 
 data ResumeProcesses = ResumeProcesses
     { _rpAutoScalingGroupName :: Text
-    , _rpScalingProcesses     :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _rpScalingProcesses     :: List "ScalingProcesses" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ResumeProcesses' constructor.
 --
@@ -77,6 +78,7 @@ rpAutoScalingGroupName =
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses =
     lens _rpScalingProcesses (\s a -> s { _rpScalingProcesses = a })
+        . _List
 
 data ResumeProcessesResponse = ResumeProcessesResponse
     deriving (Eq, Ord, Show, Generic)
@@ -88,7 +90,11 @@ resumeProcessesResponse = ResumeProcessesResponse
 instance ToPath ResumeProcesses where
     toPath = const "/"
 
-instance ToQuery ResumeProcesses
+instance ToQuery ResumeProcesses where
+    toQuery ResumeProcesses{..} = mconcat
+        [ "AutoScalingGroupName" =? _rpAutoScalingGroupName
+        , "ScalingProcesses"     =? _rpScalingProcesses
+        ]
 
 instance ToHeaders ResumeProcesses
 

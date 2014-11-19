@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -63,7 +64,7 @@ data CreateHsmConfiguration = CreateHsmConfiguration
     , _chcHsmPartitionName           :: Text
     , _chcHsmPartitionPassword       :: Text
     , _chcHsmServerPublicCertificate :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateHsmConfiguration' constructor.
 --
@@ -133,7 +134,7 @@ chcHsmServerPublicCertificate =
 
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateHsmConfigurationResponse' constructor.
 --
@@ -153,7 +154,15 @@ chcrHsmConfiguration =
 instance ToPath CreateHsmConfiguration where
     toPath = const "/"
 
-instance ToQuery CreateHsmConfiguration
+instance ToQuery CreateHsmConfiguration where
+    toQuery CreateHsmConfiguration{..} = mconcat
+        [ "Description"                =? _chcDescription
+        , "HsmConfigurationIdentifier" =? _chcHsmConfigurationIdentifier
+        , "HsmIpAddress"               =? _chcHsmIpAddress
+        , "HsmPartitionName"           =? _chcHsmPartitionName
+        , "HsmPartitionPassword"       =? _chcHsmPartitionPassword
+        , "HsmServerPublicCertificate" =? _chcHsmServerPublicCertificate
+        ]
 
 instance ToHeaders CreateHsmConfiguration
 
@@ -165,5 +174,5 @@ instance AWSRequest CreateHsmConfiguration where
     response = xmlResponse
 
 instance FromXML CreateHsmConfigurationResponse where
-    parseXML = withElement "CreateHsmConfigurationResult" $ \x ->
-            <$> x .@? "HsmConfiguration"
+    parseXML = withElement "CreateHsmConfigurationResult" $ \x -> CreateHsmConfigurationResponse
+        <$> x .@? "HsmConfiguration"

@@ -70,7 +70,7 @@ data AssociateAddress = AssociateAddress
     , _aa1NetworkInterfaceId :: Maybe Text
     , _aa1PrivateIpAddress   :: Maybe Text
     , _aa1PublicIp           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AssociateAddress' constructor.
 --
@@ -142,7 +142,7 @@ aa1PublicIp = lens _aa1PublicIp (\s a -> s { _aa1PublicIp = a })
 
 newtype AssociateAddressResponse = AssociateAddressResponse
     { _aarAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AssociateAddressResponse' constructor.
 --
@@ -163,7 +163,16 @@ aarAssociationId = lens _aarAssociationId (\s a -> s { _aarAssociationId = a })
 instance ToPath AssociateAddress where
     toPath = const "/"
 
-instance ToQuery AssociateAddress
+instance ToQuery AssociateAddress where
+    toQuery AssociateAddress{..} = mconcat
+        [ "AllocationId"       =? _aa1AllocationId
+        , "allowReassociation" =? _aa1AllowReassociation
+        , "dryRun"             =? _aa1DryRun
+        , "InstanceId"         =? _aa1InstanceId
+        , "networkInterfaceId" =? _aa1NetworkInterfaceId
+        , "privateIpAddress"   =? _aa1PrivateIpAddress
+        , "PublicIp"           =? _aa1PublicIp
+        ]
 
 instance ToHeaders AssociateAddress
 

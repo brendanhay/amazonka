@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -75,7 +76,7 @@ data Credentials = Credentials
     , _cExpiration      :: RFC822
     , _cSecretAccessKey :: Text
     , _cSessionToken    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Credentials' constructor.
 --
@@ -107,8 +108,7 @@ cAccessKeyId = lens _cAccessKeyId (\s a -> s { _cAccessKeyId = a })
 
 -- | The date on which the current credentials expire.
 cExpiration :: Lens' Credentials UTCTime
-cExpiration = lens _cExpiration (\s a -> s { _cExpiration = a })
-    . _Time
+cExpiration = lens _cExpiration (\s a -> s { _cExpiration = a }) . _Time
 
 -- | The secret access key that can be used to sign requests.
 cSecretAccessKey :: Lens' Credentials Text
@@ -121,17 +121,23 @@ cSessionToken = lens _cSessionToken (\s a -> s { _cSessionToken = a })
 
 instance FromXML Credentials where
     parseXML x = Credentials
-            <$> x .@ "AccessKeyId"
-            <*> x .@ "Expiration"
-            <*> x .@ "SecretAccessKey"
-            <*> x .@ "SessionToken"
+        <$> x .@  "AccessKeyId"
+        <*> x .@  "Expiration"
+        <*> x .@  "SecretAccessKey"
+        <*> x .@  "SessionToken"
 
-instance ToQuery Credentials
+instance ToQuery Credentials where
+    toQuery Credentials{..} = mconcat
+        [ "AccessKeyId"     =? _cAccessKeyId
+        , "Expiration"      =? _cExpiration
+        , "SecretAccessKey" =? _cSecretAccessKey
+        , "SessionToken"    =? _cSessionToken
+        ]
 
 data FederatedUser = FederatedUser
     { _fuArn             :: Text
     , _fuFederatedUserId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'FederatedUser' constructor.
 --
@@ -163,15 +169,19 @@ fuFederatedUserId =
 
 instance FromXML FederatedUser where
     parseXML x = FederatedUser
-            <$> x .@ "Arn"
-            <*> x .@ "FederatedUserId"
+        <$> x .@  "Arn"
+        <*> x .@  "FederatedUserId"
 
-instance ToQuery FederatedUser
+instance ToQuery FederatedUser where
+    toQuery FederatedUser{..} = mconcat
+        [ "Arn"             =? _fuArn
+        , "FederatedUserId" =? _fuFederatedUserId
+        ]
 
 data AssumedRoleUser = AssumedRoleUser
     { _aruArn           :: Text
     , _aruAssumedRoleId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AssumedRoleUser' constructor.
 --
@@ -203,7 +213,11 @@ aruAssumedRoleId = lens _aruAssumedRoleId (\s a -> s { _aruAssumedRoleId = a })
 
 instance FromXML AssumedRoleUser where
     parseXML x = AssumedRoleUser
-            <$> x .@ "Arn"
-            <*> x .@ "AssumedRoleId"
+        <$> x .@  "Arn"
+        <*> x .@  "AssumedRoleId"
 
-instance ToQuery AssumedRoleUser
+instance ToQuery AssumedRoleUser where
+    toQuery AssumedRoleUser{..} = mconcat
+        [ "Arn"           =? _aruArn
+        , "AssumedRoleId" =? _aruAssumedRoleId
+        ]

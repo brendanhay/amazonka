@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,9 +52,9 @@ import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
 data AddCache = AddCache
-    { _acDiskIds    :: [Text]
+    { _acDiskIds    :: List "DiskIds" Text
     , _acGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddCache' constructor.
 --
@@ -71,14 +72,14 @@ addCache p1 = AddCache
     }
 
 acDiskIds :: Lens' AddCache [Text]
-acDiskIds = lens _acDiskIds (\s a -> s { _acDiskIds = a })
+acDiskIds = lens _acDiskIds (\s a -> s { _acDiskIds = a }) . _List
 
 acGatewayARN :: Lens' AddCache Text
 acGatewayARN = lens _acGatewayARN (\s a -> s { _acGatewayARN = a })
 
 newtype AddCacheResponse = AddCacheResponse
     { _acrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AddCacheResponse' constructor.
 --

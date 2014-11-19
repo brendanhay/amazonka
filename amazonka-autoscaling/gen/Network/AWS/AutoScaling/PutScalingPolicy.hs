@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ data PutScalingPolicy = PutScalingPolicy
     , _pspMinAdjustmentStep    :: Maybe Int
     , _pspPolicyName           :: Text
     , _pspScalingAdjustment    :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PutScalingPolicy' constructor.
 --
@@ -135,7 +136,7 @@ pspScalingAdjustment =
 
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse
     { _psprPolicyARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'PutScalingPolicyResponse' constructor.
 --
@@ -155,7 +156,15 @@ psprPolicyARN = lens _psprPolicyARN (\s a -> s { _psprPolicyARN = a })
 instance ToPath PutScalingPolicy where
     toPath = const "/"
 
-instance ToQuery PutScalingPolicy
+instance ToQuery PutScalingPolicy where
+    toQuery PutScalingPolicy{..} = mconcat
+        [ "AdjustmentType"       =? _pspAdjustmentType
+        , "AutoScalingGroupName" =? _pspAutoScalingGroupName
+        , "Cooldown"             =? _pspCooldown
+        , "MinAdjustmentStep"    =? _pspMinAdjustmentStep
+        , "PolicyName"           =? _pspPolicyName
+        , "ScalingAdjustment"    =? _pspScalingAdjustment
+        ]
 
 instance ToHeaders PutScalingPolicy
 
@@ -167,5 +176,5 @@ instance AWSRequest PutScalingPolicy where
     response = xmlResponse
 
 instance FromXML PutScalingPolicyResponse where
-    parseXML = withElement "PutScalingPolicyResult" $ \x ->
-            <$> x .@? "PolicyARN"
+    parseXML = withElement "PutScalingPolicyResult" $ \x -> PutScalingPolicyResponse
+        <$> x .@? "PolicyARN"

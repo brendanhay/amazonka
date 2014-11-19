@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype GenerateRandom = GenerateRandom
     { _grNumberOfBytes :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GenerateRandom' constructor.
 --
@@ -62,12 +63,11 @@ generateRandom = GenerateRandom
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, 1024 and so on. The current limit is 1024 bytes.
 grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
-grNumberOfBytes = lens _grNumberOfBytes (\s a -> s { _grNumberOfBytes = a })
-    . mapping _Nat
+grNumberOfBytes = lens _grNumberOfBytes (\s a -> s { _grNumberOfBytes = a }) . mapping _Nat
 
 newtype GenerateRandomResponse = GenerateRandomResponse
     { _grrPlaintext :: Maybe Base64
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GenerateRandomResponse' constructor.
 --

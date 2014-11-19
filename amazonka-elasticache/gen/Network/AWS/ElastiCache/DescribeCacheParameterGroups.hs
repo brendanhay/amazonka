@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups
     { _dcpgCacheParameterGroupName :: Maybe Text
     , _dcpgMarker                  :: Maybe Text
     , _dcpgMaxRecords              :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCacheParameterGroups' constructor.
 --
@@ -93,9 +94,9 @@ dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
 dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
-    { _dcpgrCacheParameterGroups :: [CacheParameterGroup]
+    { _dcpgrCacheParameterGroups :: List "CacheParameterGroup" CacheParameterGroup
     , _dcpgrMarker               :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeCacheParameterGroupsResponse' constructor.
 --
@@ -117,6 +118,7 @@ dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CachePa
 dcpgrCacheParameterGroups =
     lens _dcpgrCacheParameterGroups
         (\s a -> s { _dcpgrCacheParameterGroups = a })
+            . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
@@ -125,7 +127,12 @@ dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 instance ToPath DescribeCacheParameterGroups where
     toPath = const "/"
 
-instance ToQuery DescribeCacheParameterGroups
+instance ToQuery DescribeCacheParameterGroups where
+    toQuery DescribeCacheParameterGroups{..} = mconcat
+        [ "CacheParameterGroupName" =? _dcpgCacheParameterGroupName
+        , "Marker"                  =? _dcpgMarker
+        , "MaxRecords"              =? _dcpgMaxRecords
+        ]
 
 instance ToHeaders DescribeCacheParameterGroups
 
@@ -137,9 +144,9 @@ instance AWSRequest DescribeCacheParameterGroups where
     response = xmlResponse
 
 instance FromXML DescribeCacheParameterGroupsResponse where
-    parseXML = withElement "DescribeCacheParameterGroupsResult" $ \x ->
-            <$> x .@ "CacheParameterGroups"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeCacheParameterGroupsResult" $ \x -> DescribeCacheParameterGroupsResponse
+        <$> x .@  "CacheParameterGroups"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheParameterGroups where
     next rq rs = (\x -> rq & dcpgMarker ?~ x)

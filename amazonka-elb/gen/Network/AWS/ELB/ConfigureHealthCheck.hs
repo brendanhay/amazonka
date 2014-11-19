@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data ConfigureHealthCheck = ConfigureHealthCheck
     { _chcHealthCheck      :: HealthCheck
     , _chcLoadBalancerName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ConfigureHealthCheck' constructor.
 --
@@ -81,7 +82,7 @@ chcLoadBalancerName =
 
 newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { _chcrHealthCheck :: Maybe HealthCheck
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ConfigureHealthCheckResponse' constructor.
 --
@@ -101,7 +102,11 @@ chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 instance ToPath ConfigureHealthCheck where
     toPath = const "/"
 
-instance ToQuery ConfigureHealthCheck
+instance ToQuery ConfigureHealthCheck where
+    toQuery ConfigureHealthCheck{..} = mconcat
+        [ "HealthCheck"      =? _chcHealthCheck
+        , "LoadBalancerName" =? _chcLoadBalancerName
+        ]
 
 instance ToHeaders ConfigureHealthCheck
 
@@ -113,5 +118,5 @@ instance AWSRequest ConfigureHealthCheck where
     response = xmlResponse
 
 instance FromXML ConfigureHealthCheckResponse where
-    parseXML = withElement "ConfigureHealthCheckResult" $ \x ->
-            <$> x .@? "HealthCheck"
+    parseXML = withElement "ConfigureHealthCheckResult" $ \x -> ConfigureHealthCheckResponse
+        <$> x .@? "HealthCheck"

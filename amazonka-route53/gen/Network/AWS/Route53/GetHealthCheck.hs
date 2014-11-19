@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetHealthCheck = GetHealthCheck
     { _ghcHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetHealthCheck' constructor.
 --
@@ -67,7 +68,7 @@ ghcHealthCheckId = lens _ghcHealthCheckId (\s a -> s { _ghcHealthCheckId = a })
 
 newtype GetHealthCheckResponse = GetHealthCheckResponse
     { _ghcrHealthCheck :: HealthCheck
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetHealthCheckResponse' constructor.
 --
@@ -111,4 +112,4 @@ instance AWSRequest GetHealthCheck where
 
 instance FromXML GetHealthCheckResponse where
     parseXML x = GetHealthCheckResponse
-            <$> x .@ "HealthCheck"
+        <$> x .@  "HealthCheck"

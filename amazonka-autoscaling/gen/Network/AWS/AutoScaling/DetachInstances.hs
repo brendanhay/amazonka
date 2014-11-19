@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,9 +52,9 @@ import qualified GHC.Exts
 
 data DetachInstances = DetachInstances
     { _diAutoScalingGroupName           :: Text
-    , _diInstanceIds                    :: [Text]
+    , _diInstanceIds                    :: List "InstanceIds" Text
     , _diShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DetachInstances' constructor.
 --
@@ -82,7 +83,7 @@ diAutoScalingGroupName =
 -- | A list of instances to detach from the Auto Scaling group. You must
 -- specify at least one instance ID.
 diInstanceIds :: Lens' DetachInstances [Text]
-diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a })
+diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
 
 -- | Specifies if the detached instance should decrement the desired capacity
 -- value for the Auto Scaling group. If set to True, the Auto Scaling group
@@ -94,8 +95,8 @@ diShouldDecrementDesiredCapacity =
         (\s a -> s { _diShouldDecrementDesiredCapacity = a })
 
 newtype DetachInstancesResponse = DetachInstancesResponse
-    { _dirActivities :: [Activity]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dirActivities :: List "Activities" Activity
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DetachInstancesResponse where
     type Item DetachInstancesResponse = Activity
@@ -117,12 +118,17 @@ detachInstancesResponse = DetachInstancesResponse
 -- | A list describing the activities related to detaching the instances from
 -- the Auto Scaling group.
 dirActivities :: Lens' DetachInstancesResponse [Activity]
-dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a })
+dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a }) . _List
 
 instance ToPath DetachInstances where
     toPath = const "/"
 
-instance ToQuery DetachInstances
+instance ToQuery DetachInstances where
+    toQuery DetachInstances{..} = mconcat
+        [ "AutoScalingGroupName"           =? _diAutoScalingGroupName
+        , "InstanceIds"                    =? _diInstanceIds
+        , "ShouldDecrementDesiredCapacity" =? _diShouldDecrementDesiredCapacity
+        ]
 
 instance ToHeaders DetachInstances
 
@@ -134,5 +140,5 @@ instance AWSRequest DetachInstances where
     response = xmlResponse
 
 instance FromXML DetachInstancesResponse where
-    parseXML = withElement "DetachInstancesResult" $ \x ->
-            <$> x .@ "Activities"
+    parseXML = withElement "DetachInstancesResult" $ \x -> DetachInstancesResponse
+        <$> x .@  "Activities"

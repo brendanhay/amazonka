@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetInstanceProfile = GetInstanceProfile
     { _gipInstanceProfileName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetInstanceProfile' constructor.
 --
@@ -70,7 +71,7 @@ gipInstanceProfileName =
 
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
     { _giprInstanceProfile :: InstanceProfile
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetInstanceProfileResponse' constructor.
 --
@@ -92,7 +93,10 @@ giprInstanceProfile =
 instance ToPath GetInstanceProfile where
     toPath = const "/"
 
-instance ToQuery GetInstanceProfile
+instance ToQuery GetInstanceProfile where
+    toQuery GetInstanceProfile{..} = mconcat
+        [ "InstanceProfileName" =? _gipInstanceProfileName
+        ]
 
 instance ToHeaders GetInstanceProfile
 
@@ -104,5 +108,5 @@ instance AWSRequest GetInstanceProfile where
     response = xmlResponse
 
 instance FromXML GetInstanceProfileResponse where
-    parseXML = withElement "GetInstanceProfileResult" $ \x ->
-            <$> x .@ "InstanceProfile"
+    parseXML = withElement "GetInstanceProfileResult" $ \x -> GetInstanceProfileResponse
+        <$> x .@  "InstanceProfile"

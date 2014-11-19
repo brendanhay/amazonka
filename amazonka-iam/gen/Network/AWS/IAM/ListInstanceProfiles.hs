@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data ListInstanceProfiles = ListInstanceProfiles
     { _lipMarker     :: Maybe Text
     , _lipMaxItems   :: Maybe Nat
     , _lipPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListInstanceProfiles' constructor.
 --
@@ -87,8 +88,7 @@ lipMarker = lens _lipMarker (\s a -> s { _lipMarker = a })
 -- IsTruncated response element is true. This parameter is optional. If you
 -- do not include it, it defaults to 100.
 lipMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
-lipMaxItems = lens _lipMaxItems (\s a -> s { _lipMaxItems = a })
-    . mapping _Nat
+lipMaxItems = lens _lipMaxItems (\s a -> s { _lipMaxItems = a }) . mapping _Nat
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- /application_abc/component_xyz/ gets all instance profiles whose path
@@ -99,10 +99,10 @@ lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
 lipPathPrefix = lens _lipPathPrefix (\s a -> s { _lipPathPrefix = a })
 
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
-    { _liprInstanceProfiles :: [InstanceProfile]
+    { _liprInstanceProfiles :: List "InstanceProfiles" InstanceProfile
     , _liprIsTruncated      :: Maybe Bool
     , _liprMarker           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListInstanceProfilesResponse' constructor.
 --
@@ -125,6 +125,7 @@ listInstanceProfilesResponse = ListInstanceProfilesResponse
 liprInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
 liprInstanceProfiles =
     lens _liprInstanceProfiles (\s a -> s { _liprInstanceProfiles = a })
+        . _List
 
 -- | A flag that indicates whether there are more instance profiles to list.
 -- If your results were truncated, you can make a subsequent pagination
@@ -141,7 +142,12 @@ liprMarker = lens _liprMarker (\s a -> s { _liprMarker = a })
 instance ToPath ListInstanceProfiles where
     toPath = const "/"
 
-instance ToQuery ListInstanceProfiles
+instance ToQuery ListInstanceProfiles where
+    toQuery ListInstanceProfiles{..} = mconcat
+        [ "Marker"     =? _lipMarker
+        , "MaxItems"   =? _lipMaxItems
+        , "PathPrefix" =? _lipPathPrefix
+        ]
 
 instance ToHeaders ListInstanceProfiles
 
@@ -153,10 +159,10 @@ instance AWSRequest ListInstanceProfiles where
     response = xmlResponse
 
 instance FromXML ListInstanceProfilesResponse where
-    parseXML = withElement "ListInstanceProfilesResult" $ \x ->
-            <$> x .@ "InstanceProfiles"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Marker"
+    parseXML = withElement "ListInstanceProfilesResult" $ \x -> ListInstanceProfilesResponse
+        <$> x .@  "InstanceProfiles"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
 
 instance AWSPager ListInstanceProfiles where
     next rq rs

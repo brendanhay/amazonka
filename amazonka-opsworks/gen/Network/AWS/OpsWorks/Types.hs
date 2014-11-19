@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -442,7 +443,7 @@ data SslConfiguration = SslConfiguration
     { _scCertificate :: Text
     , _scChain       :: Maybe Text
     , _scPrivateKey  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SslConfiguration' constructor.
 --
@@ -478,9 +479,9 @@ scPrivateKey = lens _scPrivateKey (\s a -> s { _scPrivateKey = a })
 
 instance FromJSON SslConfiguration where
     parseJSON = withObject "SslConfiguration" $ \o -> SslConfiguration
-        <$> o .: "Certificate"
+        <$> o .:  "Certificate"
         <*> o .:? "Chain"
-        <*> o .: "PrivateKey"
+        <*> o .:  "PrivateKey"
 
 instance ToJSON SslConfiguration where
     toJSON SslConfiguration{..} = object
@@ -500,7 +501,7 @@ data Command = Command
     , _cLogUrl         :: Maybe Text
     , _cStatus         :: Maybe Text
     , _cType           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Command' constructor.
 --
@@ -622,7 +623,7 @@ data RaidArray = RaidArray
     , _raRaidLevel        :: Maybe Int
     , _raSize             :: Maybe Int
     , _raVolumeType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RaidArray' constructor.
 --
@@ -750,16 +751,16 @@ instance ToJSON RaidArray where
         ]
 
 data ElasticLoadBalancer = ElasticLoadBalancer
-    { _elbAvailabilityZones       :: [Text]
+    { _elbAvailabilityZones       :: List "InstanceIds" Text
     , _elbDnsName                 :: Maybe Text
-    , _elbEc2InstanceIds          :: [Text]
+    , _elbEc2InstanceIds          :: List "InstanceIds" Text
     , _elbElasticLoadBalancerName :: Maybe Text
     , _elbLayerId                 :: Maybe Text
     , _elbRegion                  :: Maybe Text
     , _elbStackId                 :: Maybe Text
-    , _elbSubnetIds               :: [Text]
+    , _elbSubnetIds               :: List "InstanceIds" Text
     , _elbVpcId                   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ElasticLoadBalancer' constructor.
 --
@@ -800,6 +801,7 @@ elasticLoadBalancer = ElasticLoadBalancer
 elbAvailabilityZones :: Lens' ElasticLoadBalancer [Text]
 elbAvailabilityZones =
     lens _elbAvailabilityZones (\s a -> s { _elbAvailabilityZones = a })
+        . _List
 
 -- | The instance's public DNS name.
 elbDnsName :: Lens' ElasticLoadBalancer (Maybe Text)
@@ -810,6 +812,7 @@ elbDnsName = lens _elbDnsName (\s a -> s { _elbDnsName = a })
 elbEc2InstanceIds :: Lens' ElasticLoadBalancer [Text]
 elbEc2InstanceIds =
     lens _elbEc2InstanceIds (\s a -> s { _elbEc2InstanceIds = a })
+        . _List
 
 -- | The Elastic Load Balancing instance's name.
 elbElasticLoadBalancerName :: Lens' ElasticLoadBalancer (Maybe Text)
@@ -831,7 +834,7 @@ elbStackId = lens _elbStackId (\s a -> s { _elbStackId = a })
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
 elbSubnetIds :: Lens' ElasticLoadBalancer [Text]
-elbSubnetIds = lens _elbSubnetIds (\s a -> s { _elbSubnetIds = a })
+elbSubnetIds = lens _elbSubnetIds (\s a -> s { _elbSubnetIds = a }) . _List
 
 -- | The VPC ID.
 elbVpcId :: Lens' ElasticLoadBalancer (Maybe Text)
@@ -839,14 +842,14 @@ elbVpcId = lens _elbVpcId (\s a -> s { _elbVpcId = a })
 
 instance FromJSON ElasticLoadBalancer where
     parseJSON = withObject "ElasticLoadBalancer" $ \o -> ElasticLoadBalancer
-        <$> o .: "AvailabilityZones"
+        <$> o .:  "AvailabilityZones"
         <*> o .:? "DnsName"
-        <*> o .: "Ec2InstanceIds"
+        <*> o .:  "Ec2InstanceIds"
         <*> o .:? "ElasticLoadBalancerName"
         <*> o .:? "LayerId"
         <*> o .:? "Region"
         <*> o .:? "StackId"
-        <*> o .: "SubnetIds"
+        <*> o .:  "SubnetIds"
         <*> o .:? "VpcId"
 
 instance ToJSON ElasticLoadBalancer where
@@ -872,7 +875,7 @@ data RdsDbInstance = RdsDbInstance
     , _rdiRdsDbInstanceArn     :: Maybe Text
     , _rdiRegion               :: Maybe Text
     , _rdiStackId              :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RdsDbInstance' constructor.
 --
@@ -1007,7 +1010,7 @@ data ServiceError' = ServiceError'
     , _seServiceErrorId :: Maybe Text
     , _seStackId        :: Maybe Text
     , _seType           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ServiceError'' constructor.
 --
@@ -1085,7 +1088,7 @@ data StackSummary = StackSummary
     , _ssLayersCount    :: Maybe Int
     , _ssName           :: Maybe Text
     , _ssStackId        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'StackSummary' constructor.
 --
@@ -1179,7 +1182,7 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     , _lbascEnable      :: Maybe Bool
     , _lbascLayerId     :: Maybe Text
     , _lbascUpScaling   :: Maybe AutoScalingThresholds
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'LoadBasedAutoScalingConfiguration' constructor.
 --
@@ -1278,7 +1281,7 @@ data Volume = Volume
     , _vStatus           :: Maybe Text
     , _vVolumeId         :: Maybe Text
     , _vVolumeType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Volume' constructor.
 --
@@ -1418,7 +1421,7 @@ instance ToJSON Volume where
 data ChefConfiguration = ChefConfiguration
     { _ccBerkshelfVersion :: Maybe Text
     , _ccManageBerkshelf  :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ChefConfiguration' constructor.
 --
@@ -1505,7 +1508,7 @@ data AutoScalingThresholds = AutoScalingThresholds
     , _astLoadThreshold      :: Maybe Double
     , _astMemoryThreshold    :: Maybe Double
     , _astThresholdsWaitTime :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AutoScalingThresholds' constructor.
 --
@@ -1594,18 +1597,18 @@ instance ToJSON AutoScalingThresholds where
 data App = App
     { _appAppId            :: Maybe Text
     , _appAppSource        :: Maybe Source
-    , _appAttributes       :: Map Text Text
+    , _appAttributes       :: Map "entry" "key" "value" Text Text
     , _appCreatedAt        :: Maybe Text
-    , _appDataSources      :: [DataSource]
+    , _appDataSources      :: List "DataSources" DataSource
     , _appDescription      :: Maybe Text
-    , _appDomains          :: [Text]
+    , _appDomains          :: List "InstanceIds" Text
     , _appEnableSsl        :: Maybe Bool
     , _appName             :: Maybe Text
     , _appShortname        :: Maybe Text
     , _appSslConfiguration :: Maybe SslConfiguration
     , _appStackId          :: Maybe Text
     , _appType             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'App' constructor.
 --
@@ -1664,8 +1667,7 @@ appAppSource = lens _appAppSource (\s a -> s { _appAppSource = a })
 
 -- | The stack attributes.
 appAttributes :: Lens' App (HashMap Text Text)
-appAttributes = lens _appAttributes (\s a -> s { _appAttributes = a })
-    . _Map
+appAttributes = lens _appAttributes (\s a -> s { _appAttributes = a }) . _Map
 
 -- | When the app was created.
 appCreatedAt :: Lens' App (Maybe Text)
@@ -1673,7 +1675,7 @@ appCreatedAt = lens _appCreatedAt (\s a -> s { _appCreatedAt = a })
 
 -- | The app's data sources.
 appDataSources :: Lens' App [DataSource]
-appDataSources = lens _appDataSources (\s a -> s { _appDataSources = a })
+appDataSources = lens _appDataSources (\s a -> s { _appDataSources = a }) . _List
 
 -- | A description of the app.
 appDescription :: Lens' App (Maybe Text)
@@ -1682,7 +1684,7 @@ appDescription = lens _appDescription (\s a -> s { _appDescription = a })
 -- | The app vhost settings with multiple domains separated by commas. For
 -- example: 'www.example.com, example.com'.
 appDomains :: Lens' App [Text]
-appDomains = lens _appDomains (\s a -> s { _appDomains = a })
+appDomains = lens _appDomains (\s a -> s { _appDomains = a }) . _List
 
 -- | Whether to enable SSL for the app.
 appEnableSsl :: Lens' App (Maybe Bool)
@@ -1713,11 +1715,11 @@ instance FromJSON App where
     parseJSON = withObject "App" $ \o -> App
         <$> o .:? "AppId"
         <*> o .:? "AppSource"
-        <*> o .: "Attributes"
+        <*> o .:  "Attributes"
         <*> o .:? "CreatedAt"
-        <*> o .: "DataSources"
+        <*> o .:  "DataSources"
         <*> o .:? "Description"
-        <*> o .: "Domains"
+        <*> o .:  "Domains"
         <*> o .:? "EnableSsl"
         <*> o .:? "Name"
         <*> o .:? "Shortname"
@@ -1748,7 +1750,7 @@ data ElasticIp = ElasticIp
     , _eiIp         :: Maybe Text
     , _eiName       :: Maybe Text
     , _eiRegion     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ElasticIp' constructor.
 --
@@ -1816,7 +1818,7 @@ data UserProfile = UserProfile
     , _upName                :: Maybe Text
     , _upSshPublicKey        :: Maybe Text
     , _upSshUsername         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UserProfile' constructor.
 --
@@ -1909,7 +1911,7 @@ data Source = Source
     , _sType     :: Maybe Text
     , _sUrl      :: Maybe Text
     , _sUsername :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Source' constructor.
 --
@@ -1992,7 +1994,7 @@ data DataSource = DataSource
     { _dsArn          :: Maybe Text
     , _dsDatabaseName :: Maybe Text
     , _dsType         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DataSource' constructor.
 --
@@ -2062,7 +2064,7 @@ instance ToJSON Architecture where
 data StackConfigurationManager = StackConfigurationManager
     { _scmName    :: Maybe Text
     , _scmVersion :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'StackConfigurationManager' constructor.
 --
@@ -2193,7 +2195,7 @@ data VolumeConfiguration = VolumeConfiguration
     , _vcRaidLevel     :: Maybe Int
     , _vcSize          :: Int
     , _vcVolumeType    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'VolumeConfiguration' constructor.
 --
@@ -2251,10 +2253,10 @@ vcVolumeType = lens _vcVolumeType (\s a -> s { _vcVolumeType = a })
 instance FromJSON VolumeConfiguration where
     parseJSON = withObject "VolumeConfiguration" $ \o -> VolumeConfiguration
         <$> o .:? "Iops"
-        <*> o .: "MountPoint"
-        <*> o .: "NumberOfDisks"
+        <*> o .:  "MountPoint"
+        <*> o .:  "NumberOfDisks"
         <*> o .:? "RaidLevel"
-        <*> o .: "Size"
+        <*> o .:  "Size"
         <*> o .:? "VolumeType"
 
 instance ToJSON VolumeConfiguration where
@@ -2273,7 +2275,7 @@ data Permission = Permission
     , _pIamUserArn :: Maybe Text
     , _pLevel      :: Maybe Text
     , _pStackId    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Permission' constructor.
 --
@@ -2339,26 +2341,26 @@ instance ToJSON Permission where
         ]
 
 data Layer = Layer
-    { _lAttributes                :: Map Text Text
+    { _lAttributes                :: Map "entry" "key" "value" Text Text
     , _lAutoAssignElasticIps      :: Maybe Bool
     , _lAutoAssignPublicIps       :: Maybe Bool
     , _lCreatedAt                 :: Maybe Text
     , _lCustomInstanceProfileArn  :: Maybe Text
     , _lCustomRecipes             :: Maybe Recipes
-    , _lCustomSecurityGroupIds    :: [Text]
+    , _lCustomSecurityGroupIds    :: List "InstanceIds" Text
     , _lDefaultRecipes            :: Maybe Recipes
-    , _lDefaultSecurityGroupNames :: [Text]
+    , _lDefaultSecurityGroupNames :: List "InstanceIds" Text
     , _lEnableAutoHealing         :: Maybe Bool
     , _lInstallUpdatesOnBoot      :: Maybe Bool
     , _lLayerId                   :: Maybe Text
     , _lName                      :: Maybe Text
-    , _lPackages                  :: [Text]
+    , _lPackages                  :: List "InstanceIds" Text
     , _lShortname                 :: Maybe Text
     , _lStackId                   :: Maybe Text
     , _lType                      :: Maybe Text
     , _lUseEbsOptimizedInstances  :: Maybe Bool
-    , _lVolumeConfigurations      :: [VolumeConfiguration]
-    } deriving (Eq, Show, Generic)
+    , _lVolumeConfigurations      :: List "VolumeConfigurations" VolumeConfiguration
+    } deriving (Eq, Show)
 
 -- | 'Layer' constructor.
 --
@@ -2427,8 +2429,7 @@ layer = Layer
 
 -- | The layer attributes.
 lAttributes :: Lens' Layer (HashMap Text Text)
-lAttributes = lens _lAttributes (\s a -> s { _lAttributes = a })
-    . _Map
+lAttributes = lens _lAttributes (\s a -> s { _lAttributes = a }) . _Map
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
@@ -2462,6 +2463,7 @@ lCustomRecipes = lens _lCustomRecipes (\s a -> s { _lCustomRecipes = a })
 lCustomSecurityGroupIds :: Lens' Layer [Text]
 lCustomSecurityGroupIds =
     lens _lCustomSecurityGroupIds (\s a -> s { _lCustomSecurityGroupIds = a })
+        . _List
 
 lDefaultRecipes :: Lens' Layer (Maybe Recipes)
 lDefaultRecipes = lens _lDefaultRecipes (\s a -> s { _lDefaultRecipes = a })
@@ -2471,6 +2473,7 @@ lDefaultSecurityGroupNames :: Lens' Layer [Text]
 lDefaultSecurityGroupNames =
     lens _lDefaultSecurityGroupNames
         (\s a -> s { _lDefaultSecurityGroupNames = a })
+            . _List
 
 -- | Whether auto healing is disabled for the layer.
 lEnableAutoHealing :: Lens' Layer (Maybe Bool)
@@ -2496,7 +2499,7 @@ lName = lens _lName (\s a -> s { _lName = a })
 
 -- | An array of Package objects that describe the layer's packages.
 lPackages :: Lens' Layer [Text]
-lPackages = lens _lPackages (\s a -> s { _lPackages = a })
+lPackages = lens _lPackages (\s a -> s { _lPackages = a }) . _List
 
 -- | The layer short name.
 lShortname :: Lens' Layer (Maybe Text)
@@ -2523,28 +2526,29 @@ lUseEbsOptimizedInstances =
 lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
 lVolumeConfigurations =
     lens _lVolumeConfigurations (\s a -> s { _lVolumeConfigurations = a })
+        . _List
 
 instance FromJSON Layer where
     parseJSON = withObject "Layer" $ \o -> Layer
-        <$> o .: "Attributes"
+        <$> o .:  "Attributes"
         <*> o .:? "AutoAssignElasticIps"
         <*> o .:? "AutoAssignPublicIps"
         <*> o .:? "CreatedAt"
         <*> o .:? "CustomInstanceProfileArn"
         <*> o .:? "CustomRecipes"
-        <*> o .: "CustomSecurityGroupIds"
+        <*> o .:  "CustomSecurityGroupIds"
         <*> o .:? "DefaultRecipes"
-        <*> o .: "DefaultSecurityGroupNames"
+        <*> o .:  "DefaultSecurityGroupNames"
         <*> o .:? "EnableAutoHealing"
         <*> o .:? "InstallUpdatesOnBoot"
         <*> o .:? "LayerId"
         <*> o .:? "Name"
-        <*> o .: "Packages"
+        <*> o .:  "Packages"
         <*> o .:? "Shortname"
         <*> o .:? "StackId"
         <*> o .:? "Type"
         <*> o .:? "UseEbsOptimizedInstances"
-        <*> o .: "VolumeConfigurations"
+        <*> o .:  "VolumeConfigurations"
 
 instance ToJSON Layer where
     toJSON Layer{..} = object
@@ -2570,12 +2574,12 @@ instance ToJSON Layer where
         ]
 
 data Recipes = Recipes
-    { _rConfigure :: [Text]
-    , _rDeploy    :: [Text]
-    , _rSetup     :: [Text]
-    , _rShutdown  :: [Text]
-    , _rUndeploy  :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    { _rConfigure :: List "InstanceIds" Text
+    , _rDeploy    :: List "InstanceIds" Text
+    , _rSetup     :: List "InstanceIds" Text
+    , _rShutdown  :: List "InstanceIds" Text
+    , _rUndeploy  :: List "InstanceIds" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'Recipes' constructor.
 --
@@ -2602,31 +2606,31 @@ recipes = Recipes
 
 -- | An array of custom recipe names to be run following a configure event.
 rConfigure :: Lens' Recipes [Text]
-rConfigure = lens _rConfigure (\s a -> s { _rConfigure = a })
+rConfigure = lens _rConfigure (\s a -> s { _rConfigure = a }) . _List
 
 -- | An array of custom recipe names to be run following a deploy event.
 rDeploy :: Lens' Recipes [Text]
-rDeploy = lens _rDeploy (\s a -> s { _rDeploy = a })
+rDeploy = lens _rDeploy (\s a -> s { _rDeploy = a }) . _List
 
 -- | An array of custom recipe names to be run following a setup event.
 rSetup :: Lens' Recipes [Text]
-rSetup = lens _rSetup (\s a -> s { _rSetup = a })
+rSetup = lens _rSetup (\s a -> s { _rSetup = a }) . _List
 
 -- | An array of custom recipe names to be run following a shutdown event.
 rShutdown :: Lens' Recipes [Text]
-rShutdown = lens _rShutdown (\s a -> s { _rShutdown = a })
+rShutdown = lens _rShutdown (\s a -> s { _rShutdown = a }) . _List
 
 -- | An array of custom recipe names to be run following a undeploy event.
 rUndeploy :: Lens' Recipes [Text]
-rUndeploy = lens _rUndeploy (\s a -> s { _rUndeploy = a })
+rUndeploy = lens _rUndeploy (\s a -> s { _rUndeploy = a }) . _List
 
 instance FromJSON Recipes where
     parseJSON = withObject "Recipes" $ \o -> Recipes
-        <$> o .: "Configure"
-        <*> o .: "Deploy"
-        <*> o .: "Setup"
-        <*> o .: "Shutdown"
-        <*> o .: "Undeploy"
+        <$> o .:  "Configure"
+        <*> o .:  "Deploy"
+        <*> o .:  "Setup"
+        <*> o .:  "Shutdown"
+        <*> o .:  "Undeploy"
 
 instance ToJSON Recipes where
     toJSON Recipes{..} = object
@@ -2640,7 +2644,7 @@ instance ToJSON Recipes where
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
     , _tbascInstanceId          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TimeBasedAutoScalingConfiguration' constructor.
 --
@@ -2682,7 +2686,7 @@ data SelfUserProfile = SelfUserProfile
     , _supName         :: Maybe Text
     , _supSshPublicKey :: Maybe Text
     , _supSshUsername  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SelfUserProfile' constructor.
 --
@@ -2759,7 +2763,7 @@ instance ToJSON RootDeviceType where
 
 data Stack = Stack
     { _sArn                       :: Maybe Text
-    , _sAttributes                :: Map Text Text
+    , _sAttributes                :: Map "entry" "key" "value" Text Text
     , _sChefConfiguration         :: Maybe ChefConfiguration
     , _sConfigurationManager      :: Maybe StackConfigurationManager
     , _sCreatedAt                 :: Maybe Text
@@ -2779,7 +2783,7 @@ data Stack = Stack
     , _sUseCustomCookbooks        :: Maybe Bool
     , _sUseOpsworksSecurityGroups :: Maybe Bool
     , _sVpcId                     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Stack' constructor.
 --
@@ -2858,8 +2862,7 @@ sArn = lens _sArn (\s a -> s { _sArn = a })
 
 -- | The stack's attributes.
 sAttributes :: Lens' Stack (HashMap Text Text)
-sAttributes = lens _sAttributes (\s a -> s { _sAttributes = a })
-    . _Map
+sAttributes = lens _sAttributes (\s a -> s { _sAttributes = a }) . _Map
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version. For more information, see Create a New Stack.
@@ -2966,7 +2969,7 @@ sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 instance FromJSON Stack where
     parseJSON = withObject "Stack" $ \o -> Stack
         <$> o .:? "Arn"
-        <*> o .: "Attributes"
+        <*> o .:  "Attributes"
         <*> o .:? "ChefConfiguration"
         <*> o .:? "ConfigurationManager"
         <*> o .:? "CreatedAt"
@@ -3013,9 +3016,9 @@ instance ToJSON Stack where
         ]
 
 data DeploymentCommand = DeploymentCommand
-    { _dcArgs :: Map Text [Text]
+    { _dcArgs :: Map "entry" "key" "value" Text (List "InstanceIds" Text)
     , _dcName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeploymentCommand' constructor.
 --
@@ -3036,8 +3039,7 @@ deploymentCommand p1 = DeploymentCommand
 -- a JSON object with the following format: {"arg_name":["value1", "value2",
 -- ...]}.
 dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
-dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a })
-    . _Map
+dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a }) . _Map
 
 -- | Specifies the operation. You can specify only one command. For stacks,
 -- the following commands are available: execute_recipes: Execute one or
@@ -3062,8 +3064,8 @@ dcName = lens _dcName (\s a -> s { _dcName = a })
 
 instance FromJSON DeploymentCommand where
     parseJSON = withObject "DeploymentCommand" $ \o -> DeploymentCommand
-        <$> o .: "Args"
-        <*> o .: "Name"
+        <$> o .:  "Args"
+        <*> o .:  "Name"
 
 instance ToJSON DeploymentCommand where
     toJSON DeploymentCommand{..} = object
@@ -3072,14 +3074,14 @@ instance ToJSON DeploymentCommand where
         ]
 
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
-    { _wassFriday    :: Map Text Text
-    , _wassMonday    :: Map Text Text
-    , _wassSaturday  :: Map Text Text
-    , _wassSunday    :: Map Text Text
-    , _wassThursday  :: Map Text Text
-    , _wassTuesday   :: Map Text Text
-    , _wassWednesday :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    { _wassFriday    :: Map "entry" "key" "value" Text Text
+    , _wassMonday    :: Map "entry" "key" "value" Text Text
+    , _wassSaturday  :: Map "entry" "key" "value" Text Text
+    , _wassSunday    :: Map "entry" "key" "value" Text Text
+    , _wassThursday  :: Map "entry" "key" "value" Text Text
+    , _wassTuesday   :: Map "entry" "key" "value" Text Text
+    , _wassWednesday :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'WeeklyAutoScalingSchedule' constructor.
 --
@@ -3112,48 +3114,41 @@ weeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
 
 -- | The schedule for Friday.
 wassFriday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassFriday = lens _wassFriday (\s a -> s { _wassFriday = a })
-    . _Map
+wassFriday = lens _wassFriday (\s a -> s { _wassFriday = a }) . _Map
 
 -- | The schedule for Monday.
 wassMonday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassMonday = lens _wassMonday (\s a -> s { _wassMonday = a })
-    . _Map
+wassMonday = lens _wassMonday (\s a -> s { _wassMonday = a }) . _Map
 
 -- | The schedule for Saturday.
 wassSaturday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassSaturday = lens _wassSaturday (\s a -> s { _wassSaturday = a })
-    . _Map
+wassSaturday = lens _wassSaturday (\s a -> s { _wassSaturday = a }) . _Map
 
 -- | The schedule for Sunday.
 wassSunday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassSunday = lens _wassSunday (\s a -> s { _wassSunday = a })
-    . _Map
+wassSunday = lens _wassSunday (\s a -> s { _wassSunday = a }) . _Map
 
 -- | The schedule for Thursday.
 wassThursday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassThursday = lens _wassThursday (\s a -> s { _wassThursday = a })
-    . _Map
+wassThursday = lens _wassThursday (\s a -> s { _wassThursday = a }) . _Map
 
 -- | The schedule for Tuesday.
 wassTuesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassTuesday = lens _wassTuesday (\s a -> s { _wassTuesday = a })
-    . _Map
+wassTuesday = lens _wassTuesday (\s a -> s { _wassTuesday = a }) . _Map
 
 -- | The schedule for Wednesday.
 wassWednesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassWednesday = lens _wassWednesday (\s a -> s { _wassWednesday = a })
-    . _Map
+wassWednesday = lens _wassWednesday (\s a -> s { _wassWednesday = a }) . _Map
 
 instance FromJSON WeeklyAutoScalingSchedule where
     parseJSON = withObject "WeeklyAutoScalingSchedule" $ \o -> WeeklyAutoScalingSchedule
-        <$> o .: "Friday"
-        <*> o .: "Monday"
-        <*> o .: "Saturday"
-        <*> o .: "Sunday"
-        <*> o .: "Thursday"
-        <*> o .: "Tuesday"
-        <*> o .: "Wednesday"
+        <$> o .:  "Friday"
+        <*> o .:  "Monday"
+        <*> o .:  "Saturday"
+        <*> o .:  "Sunday"
+        <*> o .:  "Thursday"
+        <*> o .:  "Tuesday"
+        <*> o .:  "Wednesday"
 
 instance ToJSON WeeklyAutoScalingSchedule where
     toJSON WeeklyAutoScalingSchedule{..} = object
@@ -3227,7 +3222,7 @@ data Instance = Instance
     , _iInstanceProfileArn       :: Maybe Text
     , _iInstanceType             :: Maybe Text
     , _iLastServiceErrorId       :: Maybe Text
-    , _iLayerIds                 :: [Text]
+    , _iLayerIds                 :: List "InstanceIds" Text
     , _iOs                       :: Maybe Text
     , _iPrivateDns               :: Maybe Text
     , _iPrivateIp                :: Maybe Text
@@ -3235,7 +3230,7 @@ data Instance = Instance
     , _iPublicIp                 :: Maybe Text
     , _iRootDeviceType           :: Maybe Text
     , _iRootDeviceVolumeId       :: Maybe Text
-    , _iSecurityGroupIds         :: [Text]
+    , _iSecurityGroupIds         :: List "InstanceIds" Text
     , _iSshHostDsaKeyFingerprint :: Maybe Text
     , _iSshHostRsaKeyFingerprint :: Maybe Text
     , _iSshKeyName               :: Maybe Text
@@ -3243,7 +3238,7 @@ data Instance = Instance
     , _iStatus                   :: Maybe Text
     , _iSubnetId                 :: Maybe Text
     , _iVirtualizationType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Instance' constructor.
 --
@@ -3423,7 +3418,7 @@ iLastServiceErrorId =
 
 -- | An array containing the instance layer IDs.
 iLayerIds :: Lens' Instance [Text]
-iLayerIds = lens _iLayerIds (\s a -> s { _iLayerIds = a })
+iLayerIds = lens _iLayerIds (\s a -> s { _iLayerIds = a }) . _List
 
 -- | The instance operating system.
 iOs :: Lens' Instance (Maybe Text)
@@ -3459,6 +3454,7 @@ iRootDeviceVolumeId =
 iSecurityGroupIds :: Lens' Instance [Text]
 iSecurityGroupIds =
     lens _iSecurityGroupIds (\s a -> s { _iSecurityGroupIds = a })
+        . _List
 
 -- | The SSH key's DSA fingerprint.
 iSshHostDsaKeyFingerprint :: Lens' Instance (Maybe Text)
@@ -3510,7 +3506,7 @@ instance FromJSON Instance where
         <*> o .:? "InstanceProfileArn"
         <*> o .:? "InstanceType"
         <*> o .:? "LastServiceErrorId"
-        <*> o .: "LayerIds"
+        <*> o .:  "LayerIds"
         <*> o .:? "Os"
         <*> o .:? "PrivateDns"
         <*> o .:? "PrivateIp"
@@ -3518,7 +3514,7 @@ instance FromJSON Instance where
         <*> o .:? "PublicIp"
         <*> o .:? "RootDeviceType"
         <*> o .:? "RootDeviceVolumeId"
-        <*> o .: "SecurityGroupIds"
+        <*> o .:  "SecurityGroupIds"
         <*> o .:? "SshHostDsaKeyFingerprint"
         <*> o .:? "SshHostRsaKeyFingerprint"
         <*> o .:? "SshKeyName"
@@ -3571,10 +3567,10 @@ data Deployment = Deployment
     , _dDeploymentId :: Maybe Text
     , _dDuration     :: Maybe Int
     , _dIamUserArn   :: Maybe Text
-    , _dInstanceIds  :: [Text]
+    , _dInstanceIds  :: List "InstanceIds" Text
     , _dStackId      :: Maybe Text
     , _dStatus       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Deployment' constructor.
 --
@@ -3662,7 +3658,7 @@ dIamUserArn = lens _dIamUserArn (\s a -> s { _dIamUserArn = a })
 
 -- | The IDs of the target instances.
 dInstanceIds :: Lens' Deployment [Text]
-dInstanceIds = lens _dInstanceIds (\s a -> s { _dInstanceIds = a })
+dInstanceIds = lens _dInstanceIds (\s a -> s { _dInstanceIds = a }) . _List
 
 -- | The stack ID.
 dStackId :: Lens' Deployment (Maybe Text)
@@ -3683,7 +3679,7 @@ instance FromJSON Deployment where
         <*> o .:? "DeploymentId"
         <*> o .:? "Duration"
         <*> o .:? "IamUserArn"
-        <*> o .: "InstanceIds"
+        <*> o .:  "InstanceIds"
         <*> o .:? "StackId"
         <*> o .:? "Status"
 
@@ -3718,7 +3714,7 @@ data InstancesCount = InstancesCount
     , _icStopping       :: Maybe Int
     , _icTerminated     :: Maybe Int
     , _icTerminating    :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstancesCount' constructor.
 --

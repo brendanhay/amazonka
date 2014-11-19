@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 
 newtype StartGateway = StartGateway
     { _sgGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'StartGateway' constructor.
 --
@@ -70,7 +71,7 @@ sgGatewayARN = lens _sgGatewayARN (\s a -> s { _sgGatewayARN = a })
 
 newtype StartGatewayResponse = StartGatewayResponse
     { _sgrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'StartGatewayResponse' constructor.
 --

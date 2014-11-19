@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,9 +51,9 @@ import qualified GHC.Exts
 
 data Decrypt = Decrypt
     { _dCiphertextBlob    :: Base64
-    , _dEncryptionContext :: Map Text Text
-    , _dGrantTokens       :: [Text]
-    } deriving (Eq, Show, Generic)
+    , _dEncryptionContext :: Map "entry" "key" "value" Text Text
+    , _dGrantTokens       :: List "GrantTokens" Text
+    } deriving (Eq, Show)
 
 -- | 'Decrypt' constructor.
 --
@@ -87,12 +88,12 @@ dEncryptionContext =
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to perform decryption.
 dGrantTokens :: Lens' Decrypt [Text]
-dGrantTokens = lens _dGrantTokens (\s a -> s { _dGrantTokens = a })
+dGrantTokens = lens _dGrantTokens (\s a -> s { _dGrantTokens = a }) . _List
 
 data DecryptResponse = DecryptResponse
     { _drKeyId     :: Maybe Text
     , _drPlaintext :: Maybe Base64
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DecryptResponse' constructor.
 --

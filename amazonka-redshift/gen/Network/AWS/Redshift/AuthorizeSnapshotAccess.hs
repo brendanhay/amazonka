@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
     { _asaAccountWithRestoreAccess  :: Text
     , _asaSnapshotClusterIdentifier :: Maybe Text
     , _asaSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AuthorizeSnapshotAccess' constructor.
 --
@@ -96,7 +97,7 @@ asaSnapshotIdentifier =
 
 newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AuthorizeSnapshotAccessResponse' constructor.
 --
@@ -115,7 +116,12 @@ asarSnapshot = lens _asarSnapshot (\s a -> s { _asarSnapshot = a })
 instance ToPath AuthorizeSnapshotAccess where
     toPath = const "/"
 
-instance ToQuery AuthorizeSnapshotAccess
+instance ToQuery AuthorizeSnapshotAccess where
+    toQuery AuthorizeSnapshotAccess{..} = mconcat
+        [ "AccountWithRestoreAccess"  =? _asaAccountWithRestoreAccess
+        , "SnapshotClusterIdentifier" =? _asaSnapshotClusterIdentifier
+        , "SnapshotIdentifier"        =? _asaSnapshotIdentifier
+        ]
 
 instance ToHeaders AuthorizeSnapshotAccess
 
@@ -127,5 +133,5 @@ instance AWSRequest AuthorizeSnapshotAccess where
     response = xmlResponse
 
 instance FromXML AuthorizeSnapshotAccessResponse where
-    parseXML = withElement "AuthorizeSnapshotAccessResult" $ \x ->
-            <$> x .@? "Snapshot"
+    parseXML = withElement "AuthorizeSnapshotAccessResult" $ \x -> AuthorizeSnapshotAccessResponse
+        <$> x .@? "Snapshot"

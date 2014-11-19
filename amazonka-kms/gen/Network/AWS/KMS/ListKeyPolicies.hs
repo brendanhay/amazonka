@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data ListKeyPolicies = ListKeyPolicies
     { _lkpKeyId  :: Text
     , _lkpLimit  :: Maybe Nat
     , _lkpMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListKeyPolicies' constructor.
 --
@@ -82,8 +83,7 @@ lkpKeyId = lens _lkpKeyId (\s a -> s { _lkpKeyId = a })
 -- additional policies beyond the maximum you specify, the Truncated
 -- response element will be set to true.
 lkpLimit :: Lens' ListKeyPolicies (Maybe Natural)
-lkpLimit = lens _lkpLimit (\s a -> s { _lkpLimit = a })
-    . mapping _Nat
+lkpLimit = lens _lkpLimit (\s a -> s { _lkpLimit = a }) . mapping _Nat
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -93,9 +93,9 @@ lkpMarker = lens _lkpMarker (\s a -> s { _lkpMarker = a })
 
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse
     { _lkprNextMarker  :: Maybe Text
-    , _lkprPolicyNames :: [Text]
+    , _lkprPolicyNames :: List "PolicyNames" Text
     , _lkprTruncated   :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListKeyPoliciesResponse' constructor.
 --
@@ -122,7 +122,7 @@ lkprNextMarker = lens _lkprNextMarker (\s a -> s { _lkprNextMarker = a })
 -- | A list of policy names. Currently, there is only one policy and it is
 -- named "Default".
 lkprPolicyNames :: Lens' ListKeyPoliciesResponse [Text]
-lkprPolicyNames = lens _lkprPolicyNames (\s a -> s { _lkprPolicyNames = a })
+lkprPolicyNames = lens _lkprPolicyNames (\s a -> s { _lkprPolicyNames = a }) . _List
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -155,5 +155,5 @@ instance AWSRequest ListKeyPolicies where
 instance FromJSON ListKeyPoliciesResponse where
     parseJSON = withObject "ListKeyPoliciesResponse" $ \o -> ListKeyPoliciesResponse
         <$> o .:? "NextMarker"
-        <*> o .: "PolicyNames"
+        <*> o .:  "PolicyNames"
         <*> o .:? "Truncated"

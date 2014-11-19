@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,11 +52,11 @@ import qualified GHC.Exts
 
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions
     { _dogoEngineName         :: Text
-    , _dogoFilters            :: [Filter]
+    , _dogoFilters            :: List "Filter" Filter
     , _dogoMajorEngineVersion :: Maybe Text
     , _dogoMarker             :: Maybe Text
     , _dogoMaxRecords         :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeOptionGroupOptions' constructor.
 --
@@ -88,7 +89,7 @@ dogoEngineName = lens _dogoEngineName (\s a -> s { _dogoEngineName = a })
 
 -- | This parameter is not currently supported.
 dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
-dogoFilters = lens _dogoFilters (\s a -> s { _dogoFilters = a })
+dogoFilters = lens _dogoFilters (\s a -> s { _dogoFilters = a }) . _List
 
 -- | If specified, filters the results to include only options for the
 -- specified major engine version.
@@ -111,8 +112,8 @@ dogoMaxRecords = lens _dogoMaxRecords (\s a -> s { _dogoMaxRecords = a })
 
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     { _dogorMarker             :: Maybe Text
-    , _dogorOptionGroupOptions :: [OptionGroupOption]
-    } deriving (Eq, Show, Generic)
+    , _dogorOptionGroupOptions :: List "OptionGroupOption" OptionGroupOption
+    } deriving (Eq, Show)
 
 -- | 'DescribeOptionGroupOptionsResponse' constructor.
 --
@@ -137,11 +138,19 @@ dogorMarker = lens _dogorMarker (\s a -> s { _dogorMarker = a })
 dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
 dogorOptionGroupOptions =
     lens _dogorOptionGroupOptions (\s a -> s { _dogorOptionGroupOptions = a })
+        . _List
 
 instance ToPath DescribeOptionGroupOptions where
     toPath = const "/"
 
-instance ToQuery DescribeOptionGroupOptions
+instance ToQuery DescribeOptionGroupOptions where
+    toQuery DescribeOptionGroupOptions{..} = mconcat
+        [ "EngineName"         =? _dogoEngineName
+        , "Filters"            =? _dogoFilters
+        , "MajorEngineVersion" =? _dogoMajorEngineVersion
+        , "Marker"             =? _dogoMarker
+        , "MaxRecords"         =? _dogoMaxRecords
+        ]
 
 instance ToHeaders DescribeOptionGroupOptions
 
@@ -153,9 +162,9 @@ instance AWSRequest DescribeOptionGroupOptions where
     response = xmlResponse
 
 instance FromXML DescribeOptionGroupOptionsResponse where
-    parseXML = withElement "DescribeOptionGroupOptionsResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "OptionGroupOptions"
+    parseXML = withElement "DescribeOptionGroupOptionsResult" $ \x -> DescribeOptionGroupOptionsResponse
+        <$> x .@? "Marker"
+        <*> x .@  "OptionGroupOptions"
 
 instance AWSPager DescribeOptionGroupOptions where
     next rq rs = (\x -> rq & dogoMarker ?~ x)

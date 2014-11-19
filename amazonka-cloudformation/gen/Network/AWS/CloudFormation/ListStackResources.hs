@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data ListStackResources = ListStackResources
     { _lsrNextToken :: Maybe Text
     , _lsrStackName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListStackResources' constructor.
 --
@@ -82,8 +83,8 @@ lsrStackName = lens _lsrStackName (\s a -> s { _lsrStackName = a })
 
 data ListStackResourcesResponse = ListStackResourcesResponse
     { _lsrrNextToken              :: Maybe Text
-    , _lsrrStackResourceSummaries :: [StackResourceSummary]
-    } deriving (Eq, Show, Generic)
+    , _lsrrStackResourceSummaries :: List "StackResourceSummaries" StackResourceSummary
+    } deriving (Eq, Show)
 
 -- | 'ListStackResourcesResponse' constructor.
 --
@@ -109,11 +110,16 @@ lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSum
 lsrrStackResourceSummaries =
     lens _lsrrStackResourceSummaries
         (\s a -> s { _lsrrStackResourceSummaries = a })
+            . _List
 
 instance ToPath ListStackResources where
     toPath = const "/"
 
-instance ToQuery ListStackResources
+instance ToQuery ListStackResources where
+    toQuery ListStackResources{..} = mconcat
+        [ "NextToken" =? _lsrNextToken
+        , "StackName" =? _lsrStackName
+        ]
 
 instance ToHeaders ListStackResources
 
@@ -125,9 +131,9 @@ instance AWSRequest ListStackResources where
     response = xmlResponse
 
 instance FromXML ListStackResourcesResponse where
-    parseXML = withElement "ListStackResourcesResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "StackResourceSummaries"
+    parseXML = withElement "ListStackResourcesResult" $ \x -> ListStackResourcesResponse
+        <$> x .@? "NextToken"
+        <*> x .@  "StackResourceSummaries"
 
 instance AWSPager ListStackResources where
     next rq rs = (\x -> rq & lsrNextToken ?~ x)

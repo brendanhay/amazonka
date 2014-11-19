@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data UpdateChapCredentials = UpdateChapCredentials
     , _uccSecretToAuthenticateInitiator :: Text
     , _uccSecretToAuthenticateTarget    :: Maybe Text
     , _uccTargetARN                     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateChapCredentials' constructor.
 --
@@ -109,7 +110,7 @@ uccTargetARN = lens _uccTargetARN (\s a -> s { _uccTargetARN = a })
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
     { _uccrInitiatorName :: Maybe Text
     , _uccrTargetARN     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateChapCredentialsResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -77,18 +78,18 @@ import qualified GHC.Exts
 data RunJobFlow = RunJobFlow
     { _rjfAdditionalInfo       :: Maybe Text
     , _rjfAmiVersion           :: Maybe Text
-    , _rjfBootstrapActions     :: [BootstrapActionConfig]
+    , _rjfBootstrapActions     :: List "BootstrapActions" BootstrapActionConfig
     , _rjfInstances            :: JobFlowInstancesConfig
     , _rjfJobFlowRole          :: Maybe Text
     , _rjfLogUri               :: Maybe Text
     , _rjfName                 :: Text
-    , _rjfNewSupportedProducts :: [SupportedProductConfig]
+    , _rjfNewSupportedProducts :: List "NewSupportedProducts" SupportedProductConfig
     , _rjfServiceRole          :: Maybe Text
-    , _rjfSteps                :: [StepConfig]
-    , _rjfSupportedProducts    :: [Text]
-    , _rjfTags                 :: [Tag]
+    , _rjfSteps                :: List "Steps" StepConfig
+    , _rjfSupportedProducts    :: List "SupportedProducts" Text
+    , _rjfTags                 :: List "Tags" Tag
     , _rjfVisibleToAllUsers    :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RunJobFlow' constructor.
 --
@@ -162,6 +163,7 @@ rjfAmiVersion = lens _rjfAmiVersion (\s a -> s { _rjfAmiVersion = a })
 rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
 rjfBootstrapActions =
     lens _rjfBootstrapActions (\s a -> s { _rjfBootstrapActions = a })
+        . _List
 
 -- | A specification of the number and type of Amazon EC2 instances on which
 -- to run the job flow.
@@ -195,6 +197,7 @@ rjfName = lens _rjfName (\s a -> s { _rjfName = a })
 rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
 rjfNewSupportedProducts =
     lens _rjfNewSupportedProducts (\s a -> s { _rjfNewSupportedProducts = a })
+        . _List
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access AWS
 -- resources on your behalf.
@@ -203,7 +206,7 @@ rjfServiceRole = lens _rjfServiceRole (\s a -> s { _rjfServiceRole = a })
 
 -- | A list of steps to be executed by the job flow.
 rjfSteps :: Lens' RunJobFlow [StepConfig]
-rjfSteps = lens _rjfSteps (\s a -> s { _rjfSteps = a })
+rjfSteps = lens _rjfSteps (\s a -> s { _rjfSteps = a }) . _List
 
 -- | A list of strings that indicates third-party software to use with the job
 -- flow. For more information, go to Use Third Party Applications with
@@ -213,11 +216,12 @@ rjfSteps = lens _rjfSteps (\s a -> s { _rjfSteps = a })
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts =
     lens _rjfSupportedProducts (\s a -> s { _rjfSupportedProducts = a })
+        . _List
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances.
 rjfTags :: Lens' RunJobFlow [Tag]
-rjfTags = lens _rjfTags (\s a -> s { _rjfTags = a })
+rjfTags = lens _rjfTags (\s a -> s { _rjfTags = a }) . _List
 
 -- | Whether the job flow is visible to all IAM users of the AWS account
 -- associated with the job flow. If this value is set to true, all IAM users
@@ -230,7 +234,7 @@ rjfVisibleToAllUsers =
 
 newtype RunJobFlowResponse = RunJobFlowResponse
     { _rjfrJobFlowId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'RunJobFlowResponse' constructor.
 --

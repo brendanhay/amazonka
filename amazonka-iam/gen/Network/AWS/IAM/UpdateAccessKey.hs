@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data UpdateAccessKey = UpdateAccessKey
     { _uakAccessKeyId :: Text
     , _uakStatus      :: Text
     , _uakUserName    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateAccessKey' constructor.
 --
@@ -100,7 +101,12 @@ updateAccessKeyResponse = UpdateAccessKeyResponse
 instance ToPath UpdateAccessKey where
     toPath = const "/"
 
-instance ToQuery UpdateAccessKey
+instance ToQuery UpdateAccessKey where
+    toQuery UpdateAccessKey{..} = mconcat
+        [ "AccessKeyId" =? _uakAccessKeyId
+        , "Status"      =? _uakStatus
+        , "UserName"    =? _uakUserName
+        ]
 
 instance ToHeaders UpdateAccessKey
 

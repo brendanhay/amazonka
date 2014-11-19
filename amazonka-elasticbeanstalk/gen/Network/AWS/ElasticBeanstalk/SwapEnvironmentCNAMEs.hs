@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     , _secnameDestinationEnvironmentName :: Maybe Text
     , _secnameSourceEnvironmentId        :: Maybe Text
     , _secnameSourceEnvironmentName      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SwapEnvironmentCNAMEs' constructor.
 --
@@ -118,7 +119,13 @@ swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
 instance ToPath SwapEnvironmentCNAMEs where
     toPath = const "/"
 
-instance ToQuery SwapEnvironmentCNAMEs
+instance ToQuery SwapEnvironmentCNAMEs where
+    toQuery SwapEnvironmentCNAMEs{..} = mconcat
+        [ "DestinationEnvironmentId"   =? _secnameDestinationEnvironmentId
+        , "DestinationEnvironmentName" =? _secnameDestinationEnvironmentName
+        , "SourceEnvironmentId"        =? _secnameSourceEnvironmentId
+        , "SourceEnvironmentName"      =? _secnameSourceEnvironmentName
+        ]
 
 instance ToHeaders SwapEnvironmentCNAMEs
 

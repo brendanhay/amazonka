@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,8 +46,8 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 newtype DisableAlarmActions = DisableAlarmActions
-    { _daaAlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _daaAlarmNames :: List "AlarmNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DisableAlarmActions where
     type Item DisableAlarmActions = Text
@@ -67,7 +68,7 @@ disableAlarmActions = DisableAlarmActions
 
 -- | The names of the alarms to disable actions for.
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
-daaAlarmNames = lens _daaAlarmNames (\s a -> s { _daaAlarmNames = a })
+daaAlarmNames = lens _daaAlarmNames (\s a -> s { _daaAlarmNames = a }) . _List
 
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
     deriving (Eq, Ord, Show, Generic)
@@ -79,7 +80,10 @@ disableAlarmActionsResponse = DisableAlarmActionsResponse
 instance ToPath DisableAlarmActions where
     toPath = const "/"
 
-instance ToQuery DisableAlarmActions
+instance ToQuery DisableAlarmActions where
+    toQuery DisableAlarmActions{..} = mconcat
+        [ "AlarmNames" =? _daaAlarmNames
+        ]
 
 instance ToHeaders DisableAlarmActions
 

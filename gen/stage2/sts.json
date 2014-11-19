@@ -51,8 +51,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "credentials",
@@ -122,6 +121,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Credentials",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -191,8 +191,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "federatedUser",
@@ -232,6 +231,7 @@
                 ],
                 "contentPad": 0,
                 "name": "FederatedUser",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -271,8 +271,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "assumedRoleUser",
@@ -312,6 +311,7 @@
                 ],
                 "contentPad": 0,
                 "name": "AssumedRoleUser",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -360,8 +360,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -378,6 +377,7 @@
                 "contentPad": 0,
                 "name": "AssumeRoleResponse",
                 "resultWrapper": "AssumeRoleResult",
+                "locationPad": 17,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -491,8 +491,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -582,6 +581,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -776,8 +776,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -794,6 +793,7 @@
                 "contentPad": 0,
                 "name": "AssumeRoleWithSAMLResponse",
                 "resultWrapper": "AssumeRoleWithSAMLResult",
+                "locationPad": 17,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1057,8 +1057,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1153,6 +1152,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1272,8 +1272,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -1290,6 +1289,7 @@
                 "contentPad": 0,
                 "name": "AssumeRoleWithWebIdentityResponse",
                 "resultWrapper": "AssumeRoleWithWebIdentityResult",
+                "locationPad": 28,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1493,8 +1493,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1594,6 +1593,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1745,7 +1745,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -1779,6 +1778,7 @@
                 "contentPad": 0,
                 "name": "DecodeAuthorizationMessageResponse",
                 "resultWrapper": "DecodeAuthorizationMessageResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1833,7 +1833,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1896,6 +1895,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -1924,8 +1924,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -1942,6 +1941,7 @@
                 "contentPad": 0,
                 "name": "GetFederationTokenResponse",
                 "resultWrapper": "GetFederationTokenResult",
+                "locationPad": 17,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2055,8 +2055,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2111,6 +2110,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2200,8 +2200,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -2234,6 +2233,7 @@
                 "contentPad": 0,
                 "name": "GetSessionTokenResponse",
                 "resultWrapper": "GetSessionTokenResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2287,8 +2287,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2327,6 +2326,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,

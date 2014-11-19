@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ import qualified GHC.Exts
 data ListGateways = ListGateways
     { _lgLimit  :: Maybe Nat
     , _lgMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListGateways' constructor.
 --
@@ -75,8 +76,7 @@ listGateways = ListGateways
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
 lgLimit :: Lens' ListGateways (Maybe Natural)
-lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a })
-    . mapping _Nat
+lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a }) . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin the
 -- returned list of gateways.
@@ -84,9 +84,9 @@ lgMarker :: Lens' ListGateways (Maybe Text)
 lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 
 data ListGatewaysResponse = ListGatewaysResponse
-    { _lgrGateways :: [GatewayInfo]
+    { _lgrGateways :: List "Gateways" GatewayInfo
     , _lgrMarker   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListGatewaysResponse' constructor.
 --
@@ -103,7 +103,7 @@ listGatewaysResponse = ListGatewaysResponse
     }
 
 lgrGateways :: Lens' ListGatewaysResponse [GatewayInfo]
-lgrGateways = lens _lgrGateways (\s a -> s { _lgrGateways = a })
+lgrGateways = lens _lgrGateways (\s a -> s { _lgrGateways = a }) . _List
 
 lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
@@ -131,7 +131,7 @@ instance AWSRequest ListGateways where
 
 instance FromJSON ListGatewaysResponse where
     parseJSON = withObject "ListGatewaysResponse" $ \o -> ListGatewaysResponse
-        <$> o .: "Gateways"
+        <$> o .:  "Gateways"
         <*> o .:? "Marker"
 
 instance AWSPager ListGateways where

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,11 +56,11 @@ import qualified GHC.Exts
 
 data ReEncrypt = ReEncrypt
     { _reCiphertextBlob               :: Base64
-    , _reDestinationEncryptionContext :: Map Text Text
+    , _reDestinationEncryptionContext :: Map "entry" "key" "value" Text Text
     , _reDestinationKeyId             :: Text
-    , _reGrantTokens                  :: [Text]
-    , _reSourceEncryptionContext      :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _reGrantTokens                  :: List "GrantTokens" Text
+    , _reSourceEncryptionContext      :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'ReEncrypt' constructor.
 --
@@ -105,7 +106,7 @@ reDestinationKeyId =
 -- | Grant tokens that identify the grants that have permissions for the
 -- encryption and decryption process.
 reGrantTokens :: Lens' ReEncrypt [Text]
-reGrantTokens = lens _reGrantTokens (\s a -> s { _reGrantTokens = a })
+reGrantTokens = lens _reGrantTokens (\s a -> s { _reGrantTokens = a }) . _List
 
 -- | Encryption context used to encrypt and decrypt the data specified in the
 -- CiphertextBlob parameter.
@@ -119,7 +120,7 @@ data ReEncryptResponse = ReEncryptResponse
     { _rerCiphertextBlob :: Maybe Base64
     , _rerKeyId          :: Maybe Text
     , _rerSourceKeyId    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReEncryptResponse' constructor.
 --

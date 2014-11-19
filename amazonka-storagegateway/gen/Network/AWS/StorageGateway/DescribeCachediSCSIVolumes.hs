@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
 newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes
-    { _dcscsivVolumeARNs :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dcscsivVolumeARNs :: List "VolumeARNs" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeCachediSCSIVolumes where
     type Item DescribeCachediSCSIVolumes = Text
@@ -72,10 +73,11 @@ describeCachediSCSIVolumes = DescribeCachediSCSIVolumes
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
 dcscsivVolumeARNs =
     lens _dcscsivVolumeARNs (\s a -> s { _dcscsivVolumeARNs = a })
+        . _List
 
 newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
-    { _dcscsivrCachediSCSIVolumes :: [CachediSCSIVolume]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dcscsivrCachediSCSIVolumes :: List "CachediSCSIVolumes" CachediSCSIVolume
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeCachediSCSIVolumesResponse where
     type Item DescribeCachediSCSIVolumesResponse = CachediSCSIVolume
@@ -100,6 +102,7 @@ dcscsivrCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediS
 dcscsivrCachediSCSIVolumes =
     lens _dcscsivrCachediSCSIVolumes
         (\s a -> s { _dcscsivrCachediSCSIVolumes = a })
+            . _List
 
 instance ToPath DescribeCachediSCSIVolumes where
     toPath = const "/"
@@ -123,4 +126,4 @@ instance AWSRequest DescribeCachediSCSIVolumes where
 
 instance FromJSON DescribeCachediSCSIVolumesResponse where
     parseJSON = withObject "DescribeCachediSCSIVolumesResponse" $ \o -> DescribeCachediSCSIVolumesResponse
-        <$> o .: "CachediSCSIVolumes"
+        <$> o .:  "CachediSCSIVolumes"

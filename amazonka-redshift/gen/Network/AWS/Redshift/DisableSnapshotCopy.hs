@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DisableSnapshotCopy = DisableSnapshotCopy
     { _dscClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DisableSnapshotCopy' constructor.
 --
@@ -71,7 +72,7 @@ dscClusterIdentifier =
 
 newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DisableSnapshotCopyResponse' constructor.
 --
@@ -90,7 +91,10 @@ dscrCluster = lens _dscrCluster (\s a -> s { _dscrCluster = a })
 instance ToPath DisableSnapshotCopy where
     toPath = const "/"
 
-instance ToQuery DisableSnapshotCopy
+instance ToQuery DisableSnapshotCopy where
+    toQuery DisableSnapshotCopy{..} = mconcat
+        [ "ClusterIdentifier" =? _dscClusterIdentifier
+        ]
 
 instance ToHeaders DisableSnapshotCopy
 
@@ -102,5 +106,5 @@ instance AWSRequest DisableSnapshotCopy where
     response = xmlResponse
 
 instance FromXML DisableSnapshotCopyResponse where
-    parseXML = withElement "DisableSnapshotCopyResult" $ \x ->
-            <$> x .@? "Cluster"
+    parseXML = withElement "DisableSnapshotCopyResult" $ \x -> DisableSnapshotCopyResponse
+        <$> x .@? "Cluster"

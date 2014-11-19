@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage
     { _dipuIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeIdentityPoolUsage' constructor.
 --
@@ -70,7 +71,7 @@ dipuIdentityPoolId =
 
 newtype DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse
     { _dipurIdentityPoolUsage :: Maybe IdentityPoolUsage
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeIdentityPoolUsageResponse' constructor.
 --

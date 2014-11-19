@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,8 +49,8 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
-    { _dlbptPolicyTypeNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dlbptPolicyTypeNames :: List "PolicyTypeNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypes where
     type Item DescribeLoadBalancerPolicyTypes = Text
@@ -74,10 +75,11 @@ describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
 dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
 dlbptPolicyTypeNames =
     lens _dlbptPolicyTypeNames (\s a -> s { _dlbptPolicyTypeNames = a })
+        . _List
 
 newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
-    { _dlbptrPolicyTypeDescriptions :: [PolicyTypeDescription]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dlbptrPolicyTypeDescriptions :: List "PolicyTypeDescriptions" PolicyTypeDescription
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypesResponse where
     type Item DescribeLoadBalancerPolicyTypesResponse = PolicyTypeDescription
@@ -103,11 +105,15 @@ dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [P
 dlbptrPolicyTypeDescriptions =
     lens _dlbptrPolicyTypeDescriptions
         (\s a -> s { _dlbptrPolicyTypeDescriptions = a })
+            . _List
 
 instance ToPath DescribeLoadBalancerPolicyTypes where
     toPath = const "/"
 
-instance ToQuery DescribeLoadBalancerPolicyTypes
+instance ToQuery DescribeLoadBalancerPolicyTypes where
+    toQuery DescribeLoadBalancerPolicyTypes{..} = mconcat
+        [ "PolicyTypeNames" =? _dlbptPolicyTypeNames
+        ]
 
 instance ToHeaders DescribeLoadBalancerPolicyTypes
 
@@ -119,5 +125,5 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes where
     response = xmlResponse
 
 instance FromXML DescribeLoadBalancerPolicyTypesResponse where
-    parseXML = withElement "DescribeLoadBalancerPolicyTypesResult" $ \x ->
-            <$> x .@ "PolicyTypeDescriptions"
+    parseXML = withElement "DescribeLoadBalancerPolicyTypesResult" $ \x -> DescribeLoadBalancerPolicyTypesResponse
+        <$> x .@  "PolicyTypeDescriptions"

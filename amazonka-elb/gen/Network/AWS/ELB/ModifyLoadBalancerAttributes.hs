@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ import qualified GHC.Exts
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
     { _mlbaLoadBalancerAttributes :: LoadBalancerAttributes
     , _mlbaLoadBalancerName       :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyLoadBalancerAttributes' constructor.
 --
@@ -87,7 +88,7 @@ mlbaLoadBalancerName =
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     { _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     , _mlbarLoadBalancerName       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyLoadBalancerAttributesResponse' constructor.
 --
@@ -116,7 +117,11 @@ mlbarLoadBalancerName =
 instance ToPath ModifyLoadBalancerAttributes where
     toPath = const "/"
 
-instance ToQuery ModifyLoadBalancerAttributes
+instance ToQuery ModifyLoadBalancerAttributes where
+    toQuery ModifyLoadBalancerAttributes{..} = mconcat
+        [ "LoadBalancerAttributes" =? _mlbaLoadBalancerAttributes
+        , "LoadBalancerName"       =? _mlbaLoadBalancerName
+        ]
 
 instance ToHeaders ModifyLoadBalancerAttributes
 
@@ -128,6 +133,6 @@ instance AWSRequest ModifyLoadBalancerAttributes where
     response = xmlResponse
 
 instance FromXML ModifyLoadBalancerAttributesResponse where
-    parseXML = withElement "ModifyLoadBalancerAttributesResult" $ \x ->
-            <$> x .@? "LoadBalancerAttributes"
-            <*> x .@? "LoadBalancerName"
+    parseXML = withElement "ModifyLoadBalancerAttributesResult" $ \x -> ModifyLoadBalancerAttributesResponse
+        <$> x .@? "LoadBalancerAttributes"
+        <*> x .@? "LoadBalancerName"

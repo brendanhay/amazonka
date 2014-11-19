@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data ResyncMFADevice = ResyncMFADevice
     , _rmfadAuthenticationCode2 :: Text
     , _rmfadSerialNumber        :: Text
     , _rmfadUserName            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ResyncMFADevice' constructor.
 --
@@ -109,7 +110,13 @@ resyncMFADeviceResponse = ResyncMFADeviceResponse
 instance ToPath ResyncMFADevice where
     toPath = const "/"
 
-instance ToQuery ResyncMFADevice
+instance ToQuery ResyncMFADevice where
+    toQuery ResyncMFADevice{..} = mconcat
+        [ "AuthenticationCode1" =? _rmfadAuthenticationCode1
+        , "AuthenticationCode2" =? _rmfadAuthenticationCode2
+        , "SerialNumber"        =? _rmfadSerialNumber
+        , "UserName"            =? _rmfadUserName
+        ]
 
 instance ToHeaders ResyncMFADevice
 

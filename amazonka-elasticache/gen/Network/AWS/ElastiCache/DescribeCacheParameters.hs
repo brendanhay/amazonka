@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data DescribeCacheParameters = DescribeCacheParameters
     , _dcpMarker                  :: Maybe Text
     , _dcpMaxRecords              :: Maybe Int
     , _dcpSource                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCacheParameters' constructor.
 --
@@ -104,10 +105,10 @@ dcpSource :: Lens' DescribeCacheParameters (Maybe Text)
 dcpSource = lens _dcpSource (\s a -> s { _dcpSource = a })
 
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse
-    { _dcprCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
+    { _dcprCacheNodeTypeSpecificParameters :: List "CacheNodeTypeSpecificParameter" CacheNodeTypeSpecificParameter
     , _dcprMarker                          :: Maybe Text
-    , _dcprParameters                      :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    , _dcprParameters                      :: List "Parameter" Parameter
+    } deriving (Eq, Show)
 
 -- | 'DescribeCacheParametersResponse' constructor.
 --
@@ -132,6 +133,7 @@ dcprCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [Ca
 dcprCacheNodeTypeSpecificParameters =
     lens _dcprCacheNodeTypeSpecificParameters
         (\s a -> s { _dcprCacheNodeTypeSpecificParameters = a })
+            . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
@@ -139,12 +141,18 @@ dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 
 -- | A list of Parameter instances.
 dcprParameters :: Lens' DescribeCacheParametersResponse [Parameter]
-dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a })
+dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a }) . _List
 
 instance ToPath DescribeCacheParameters where
     toPath = const "/"
 
-instance ToQuery DescribeCacheParameters
+instance ToQuery DescribeCacheParameters where
+    toQuery DescribeCacheParameters{..} = mconcat
+        [ "CacheParameterGroupName" =? _dcpCacheParameterGroupName
+        , "Marker"                  =? _dcpMarker
+        , "MaxRecords"              =? _dcpMaxRecords
+        , "Source"                  =? _dcpSource
+        ]
 
 instance ToHeaders DescribeCacheParameters
 
@@ -156,10 +164,10 @@ instance AWSRequest DescribeCacheParameters where
     response = xmlResponse
 
 instance FromXML DescribeCacheParametersResponse where
-    parseXML = withElement "DescribeCacheParametersResult" $ \x ->
-            <$> x .@ "CacheNodeTypeSpecificParameters"
-            <*> x .@? "Marker"
-            <*> x .@ "Parameters"
+    parseXML = withElement "DescribeCacheParametersResult" $ \x -> DescribeCacheParametersResponse
+        <$> x .@  "CacheNodeTypeSpecificParameters"
+        <*> x .@? "Marker"
+        <*> x .@  "Parameters"
 
 instance AWSPager DescribeCacheParameters where
     next rq rs = (\x -> rq & dcpMarker ?~ x)

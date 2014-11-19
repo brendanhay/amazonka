@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,8 +49,8 @@ import qualified GHC.Exts
 
 data AddTags = AddTags
     { _atResourceId :: Text
-    , _atTags       :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _atTags       :: List "Tags" Tag
+    } deriving (Eq, Show)
 
 -- | 'AddTags' constructor.
 --
@@ -76,7 +77,7 @@ atResourceId = lens _atResourceId (\s a -> s { _atResourceId = a })
 -- required key string with a maximum of 128 characters, and an optional
 -- value string with a maximum of 256 characters.
 atTags :: Lens' AddTags [Tag]
-atTags = lens _atTags (\s a -> s { _atTags = a })
+atTags = lens _atTags (\s a -> s { _atTags = a }) . _List
 
 data AddTagsResponse = AddTagsResponse
     deriving (Eq, Ord, Show, Generic)

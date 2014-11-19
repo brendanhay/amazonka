@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -66,7 +67,7 @@ import qualified GHC.Exts
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted
     { _ratcResult    :: Maybe Text
     , _ratcTaskToken :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RespondActivityTaskCompleted' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data ListHostedZones = ListHostedZones
     { _lhzDelegationSetId :: Maybe Text
     , _lhzMarker          :: Maybe Text
     , _lhzMaxItems        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListHostedZones' constructor.
 --
@@ -96,12 +97,12 @@ lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
 lhzMaxItems = lens _lhzMaxItems (\s a -> s { _lhzMaxItems = a })
 
 data ListHostedZonesResponse = ListHostedZonesResponse
-    { _lhzrHostedZones :: [HostedZone]
+    { _lhzrHostedZones :: List "HostedZone" HostedZone
     , _lhzrIsTruncated :: Bool
     , _lhzrMarker      :: Text
     , _lhzrMaxItems    :: Text
     , _lhzrNextMarker  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListHostedZonesResponse' constructor.
 --
@@ -132,7 +133,7 @@ listHostedZonesResponse p1 p2 p3 = ListHostedZonesResponse
 -- | A complex type that contains information about the hosted zones
 -- associated with the current AWS account.
 lhzrHostedZones :: Lens' ListHostedZonesResponse [HostedZone]
-lhzrHostedZones = lens _lhzrHostedZones (\s a -> s { _lhzrHostedZones = a })
+lhzrHostedZones = lens _lhzrHostedZones (\s a -> s { _lhzrHostedZones = a }) . _List
 
 -- | A flag indicating whether there are more hosted zones to be listed. If
 -- your results were truncated, you can make a follow-up request for the
@@ -166,7 +167,12 @@ lhzrNextMarker = lens _lhzrNextMarker (\s a -> s { _lhzrNextMarker = a })
 instance ToPath ListHostedZones where
     toPath = const "/2013-04-01/hostedzone"
 
-instance ToQuery ListHostedZones
+instance ToQuery ListHostedZones where
+    toQuery ListHostedZones{..} = mconcat
+        [ "delegationsetid" =? _lhzDelegationSetId
+        , "marker"          =? _lhzMarker
+        , "maxitems"        =? _lhzMaxItems
+        ]
 
 instance ToHeaders ListHostedZones
 
@@ -184,11 +190,11 @@ instance AWSRequest ListHostedZones where
 
 instance FromXML ListHostedZonesResponse where
     parseXML x = ListHostedZonesResponse
-            <$> x .@ "HostedZones"
-            <*> x .@ "IsTruncated"
-            <*> x .@ "Marker"
-            <*> x .@ "MaxItems"
-            <*> x .@? "NextMarker"
+        <$> x .@  "HostedZones"
+        <*> x .@  "IsTruncated"
+        <*> x .@  "Marker"
+        <*> x .@  "MaxItems"
+        <*> x .@? "NextMarker"
 
 instance AWSPager ListHostedZones where
     next rq rs

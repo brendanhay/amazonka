@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype GetDeployment = GetDeployment
     { _gdDeploymentId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetDeployment' constructor.
 --
@@ -66,7 +67,7 @@ gdDeploymentId = lens _gdDeploymentId (\s a -> s { _gdDeploymentId = a })
 
 newtype GetDeploymentResponse = GetDeploymentResponse
     { _gdrDeploymentInfo :: Maybe DeploymentInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetDeploymentResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ data DescribeStackResources = DescribeStackResources
     { _dsrLogicalResourceId  :: Maybe Text
     , _dsrPhysicalResourceId :: Maybe Text
     , _dsrStackName          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeStackResources' constructor.
 --
@@ -109,8 +110,8 @@ dsrStackName :: Lens' DescribeStackResources (Maybe Text)
 dsrStackName = lens _dsrStackName (\s a -> s { _dsrStackName = a })
 
 newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
-    { _dsrrStackResources :: [StackResource]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dsrrStackResources :: List "StackResources" StackResource
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeStackResourcesResponse where
     type Item DescribeStackResourcesResponse = StackResource
@@ -133,11 +134,17 @@ describeStackResourcesResponse = DescribeStackResourcesResponse
 dsrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 dsrrStackResources =
     lens _dsrrStackResources (\s a -> s { _dsrrStackResources = a })
+        . _List
 
 instance ToPath DescribeStackResources where
     toPath = const "/"
 
-instance ToQuery DescribeStackResources
+instance ToQuery DescribeStackResources where
+    toQuery DescribeStackResources{..} = mconcat
+        [ "LogicalResourceId"  =? _dsrLogicalResourceId
+        , "PhysicalResourceId" =? _dsrPhysicalResourceId
+        , "StackName"          =? _dsrStackName
+        ]
 
 instance ToHeaders DescribeStackResources
 
@@ -149,5 +156,5 @@ instance AWSRequest DescribeStackResources where
     response = xmlResponse
 
 instance FromXML DescribeStackResourcesResponse where
-    parseXML = withElement "DescribeStackResourcesResult" $ \x ->
-            <$> x .@ "StackResources"
+    parseXML = withElement "DescribeStackResourcesResult" $ \x -> DescribeStackResourcesResponse
+        <$> x .@  "StackResources"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -69,7 +70,7 @@ import qualified GHC.Exts
 data UploadDocuments = UploadDocuments
     { _udContentType :: Text
     , _udDocuments   :: Base64
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UploadDocuments' constructor.
 --
@@ -100,8 +101,8 @@ data UploadDocumentsResponse = UploadDocumentsResponse
     { _udrAdds     :: Maybe Integer
     , _udrDeletes  :: Maybe Integer
     , _udrStatus   :: Maybe Text
-    , _udrWarnings :: [DocumentServiceWarning]
-    } deriving (Eq, Show, Generic)
+    , _udrWarnings :: List "warnings" DocumentServiceWarning
+    } deriving (Eq, Show)
 
 -- | 'UploadDocumentsResponse' constructor.
 --
@@ -138,7 +139,7 @@ udrStatus = lens _udrStatus (\s a -> s { _udrStatus = a })
 -- | Any warnings returned by the document service about the documents being
 -- uploaded.
 udrWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
-udrWarnings = lens _udrWarnings (\s a -> s { _udrWarnings = a })
+udrWarnings = lens _udrWarnings (\s a -> s { _udrWarnings = a }) . _List
 
 instance ToPath UploadDocuments where
     toPath = const "/2013-01-01/documents/batch"
@@ -168,4 +169,4 @@ instance FromJSON UploadDocumentsResponse where
         <$> o .:? "adds"
         <*> o .:? "deletes"
         <*> o .:? "status"
-        <*> o .: "warnings"
+        <*> o .:  "warnings"

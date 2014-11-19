@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ data MergeDeveloperIdentities = MergeDeveloperIdentities
     , _mdiDeveloperProviderName     :: Text
     , _mdiIdentityPoolId            :: Text
     , _mdiSourceUserIdentifier      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'MergeDeveloperIdentities' constructor.
 --
@@ -116,7 +117,7 @@ mdiSourceUserIdentifier =
 
 newtype MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse
     { _mdirIdentityId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'MergeDeveloperIdentitiesResponse' constructor.
 --

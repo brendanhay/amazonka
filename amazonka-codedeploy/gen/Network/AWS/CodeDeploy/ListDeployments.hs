@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,9 +55,9 @@ data ListDeployments = ListDeployments
     { _ldApplicationName     :: Maybe Text
     , _ldCreateTimeRange     :: Maybe TimeRange
     , _ldDeploymentGroupName :: Maybe Text
-    , _ldIncludeOnlyStatuses :: [Text]
+    , _ldIncludeOnlyStatuses :: List "includeOnlyStatuses" Text
     , _ldNextToken           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListDeployments' constructor.
 --
@@ -107,6 +108,7 @@ ldDeploymentGroupName =
 ldIncludeOnlyStatuses :: Lens' ListDeployments [Text]
 ldIncludeOnlyStatuses =
     lens _ldIncludeOnlyStatuses (\s a -> s { _ldIncludeOnlyStatuses = a })
+        . _List
 
 -- | An identifier that was returned from the previous list deployments call,
 -- which can be used to return the next set of deployments in the list.
@@ -114,9 +116,9 @@ ldNextToken :: Lens' ListDeployments (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
 data ListDeploymentsResponse = ListDeploymentsResponse
-    { _ldrDeployments :: [Text]
+    { _ldrDeployments :: List "deployments" Text
     , _ldrNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDeploymentsResponse' constructor.
 --
@@ -134,7 +136,7 @@ listDeploymentsResponse = ListDeploymentsResponse
 
 -- | A list of deployment IDs.
 ldrDeployments :: Lens' ListDeploymentsResponse [Text]
-ldrDeployments = lens _ldrDeployments (\s a -> s { _ldrDeployments = a })
+ldrDeployments = lens _ldrDeployments (\s a -> s { _ldrDeployments = a }) . _List
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -168,5 +170,5 @@ instance AWSRequest ListDeployments where
 
 instance FromJSON ListDeploymentsResponse where
     parseJSON = withObject "ListDeploymentsResponse" $ \o -> ListDeploymentsResponse
-        <$> o .: "deployments"
+        <$> o .:  "deployments"
         <*> o .:? "nextToken"

@@ -60,7 +60,7 @@ data ReleaseAddress = ReleaseAddress
     { _raAllocationId :: Maybe Text
     , _raDryRun       :: Maybe Bool
     , _raPublicIp     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ReleaseAddress' constructor.
 --
@@ -100,7 +100,12 @@ releaseAddressResponse = ReleaseAddressResponse
 instance ToPath ReleaseAddress where
     toPath = const "/"
 
-instance ToQuery ReleaseAddress
+instance ToQuery ReleaseAddress where
+    toQuery ReleaseAddress{..} = mconcat
+        [ "AllocationId" =? _raAllocationId
+        , "dryRun"       =? _raDryRun
+        , "PublicIp"     =? _raPublicIp
+        ]
 
 instance ToHeaders ReleaseAddress
 

@@ -52,7 +52,7 @@ data CreatePlacementGroup = CreatePlacementGroup
     { _cpgDryRun    :: Maybe Bool
     , _cpgGroupName :: Text
     , _cpgStrategy  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreatePlacementGroup' constructor.
 --
@@ -94,7 +94,12 @@ createPlacementGroupResponse = CreatePlacementGroupResponse
 instance ToPath CreatePlacementGroup where
     toPath = const "/"
 
-instance ToQuery CreatePlacementGroup
+instance ToQuery CreatePlacementGroup where
+    toQuery CreatePlacementGroup{..} = mconcat
+        [ "dryRun"    =? _cpgDryRun
+        , "groupName" =? _cpgGroupName
+        , "strategy"  =? _cpgStrategy
+        ]
 
 instance ToHeaders CreatePlacementGroup
 

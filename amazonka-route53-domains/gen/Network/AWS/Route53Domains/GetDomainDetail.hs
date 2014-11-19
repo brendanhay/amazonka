@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -67,7 +68,7 @@ import qualified GHC.Exts
 
 newtype GetDomainDetail = GetDomainDetail
     { _gddDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetDomainDetail' constructor.
 --
@@ -98,19 +99,19 @@ data GetDomainDetailResponse = GetDomainDetailResponse
     , _gddrDnsSec            :: Maybe Text
     , _gddrDomainName        :: Text
     , _gddrExpirationDate    :: Maybe RFC822
-    , _gddrNameservers       :: [Nameserver]
+    , _gddrNameservers       :: List "Nameservers" Nameserver
     , _gddrRegistrantContact :: ContactDetail
     , _gddrRegistrantPrivacy :: Maybe Bool
     , _gddrRegistrarName     :: Maybe Text
     , _gddrRegistrarUrl      :: Maybe Text
     , _gddrRegistryDomainId  :: Maybe Text
     , _gddrReseller          :: Maybe Text
-    , _gddrStatusList        :: [Text]
+    , _gddrStatusList        :: List "StatusList" Text
     , _gddrTechContact       :: ContactDetail
     , _gddrTechPrivacy       :: Maybe Bool
     , _gddrUpdatedDate       :: Maybe RFC822
     , _gddrWhoIsServer       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetDomainDetailResponse' constructor.
 --
@@ -222,8 +223,7 @@ gddrAutoRenew = lens _gddrAutoRenew (\s a -> s { _gddrAutoRenew = a })
 -- | The date when the domain was created as found in the response to a WHOIS
 -- query. The date format is Unix time.
 gddrCreationDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
-gddrCreationDate = lens _gddrCreationDate (\s a -> s { _gddrCreationDate = a })
-    . mapping _Time
+gddrCreationDate = lens _gddrCreationDate (\s a -> s { _gddrCreationDate = a }) . mapping _Time
 
 -- | Reserved for future use.
 gddrDnsSec :: Lens' GetDomainDetailResponse (Maybe Text)
@@ -242,7 +242,7 @@ gddrExpirationDate =
 
 -- | The name of the domain. Type: String.
 gddrNameservers :: Lens' GetDomainDetailResponse [Nameserver]
-gddrNameservers = lens _gddrNameservers (\s a -> s { _gddrNameservers = a })
+gddrNameservers = lens _gddrNameservers (\s a -> s { _gddrNameservers = a }) . _List
 
 -- | Provides details about the domain registrant. Type: Complex Children:
 -- FirstName, MiddleName, LastName, ContactType, OrganizationName,
@@ -293,7 +293,7 @@ gddrReseller = lens _gddrReseller (\s a -> s { _gddrReseller = a })
 -- search for epp status codes. (Search on the ICANN website; web searches
 -- sometimes return an old version of the document.) Type: Array of String.
 gddrStatusList :: Lens' GetDomainDetailResponse [Text]
-gddrStatusList = lens _gddrStatusList (\s a -> s { _gddrStatusList = a })
+gddrStatusList = lens _gddrStatusList (\s a -> s { _gddrStatusList = a }) . _List
 
 -- | Provides details about the domain technical contact. Type: Complex
 -- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
@@ -312,8 +312,7 @@ gddrTechPrivacy = lens _gddrTechPrivacy (\s a -> s { _gddrTechPrivacy = a })
 -- | The last updated date of the domain as found in the response to a WHOIS
 -- query. The date format is Unix time.
 gddrUpdatedDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
-gddrUpdatedDate = lens _gddrUpdatedDate (\s a -> s { _gddrUpdatedDate = a })
-    . mapping _Time
+gddrUpdatedDate = lens _gddrUpdatedDate (\s a -> s { _gddrUpdatedDate = a }) . mapping _Time
 
 -- | The fully qualified name of the WHOIS server that can answer the WHOIS
 -- query for the domain. Type: String.
@@ -344,22 +343,22 @@ instance FromJSON GetDomainDetailResponse where
     parseJSON = withObject "GetDomainDetailResponse" $ \o -> GetDomainDetailResponse
         <$> o .:? "AbuseContactEmail"
         <*> o .:? "AbuseContactPhone"
-        <*> o .: "AdminContact"
+        <*> o .:  "AdminContact"
         <*> o .:? "AdminPrivacy"
         <*> o .:? "AutoRenew"
         <*> o .:? "CreationDate"
         <*> o .:? "DnsSec"
-        <*> o .: "DomainName"
+        <*> o .:  "DomainName"
         <*> o .:? "ExpirationDate"
-        <*> o .: "Nameservers"
-        <*> o .: "RegistrantContact"
+        <*> o .:  "Nameservers"
+        <*> o .:  "RegistrantContact"
         <*> o .:? "RegistrantPrivacy"
         <*> o .:? "RegistrarName"
         <*> o .:? "RegistrarUrl"
         <*> o .:? "RegistryDomainId"
         <*> o .:? "Reseller"
-        <*> o .: "StatusList"
-        <*> o .: "TechContact"
+        <*> o .:  "StatusList"
+        <*> o .:  "TechContact"
         <*> o .:? "TechPrivacy"
         <*> o .:? "UpdatedDate"
         <*> o .:? "WhoIsServer"

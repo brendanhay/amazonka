@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 data DescribeStackEvents = DescribeStackEvents
     { _dseNextToken :: Maybe Text
     , _dseStackName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeStackEvents' constructor.
 --
@@ -83,8 +84,8 @@ dseStackName = lens _dseStackName (\s a -> s { _dseStackName = a })
 
 data DescribeStackEventsResponse = DescribeStackEventsResponse
     { _dserNextToken   :: Maybe Text
-    , _dserStackEvents :: [StackEvent]
-    } deriving (Eq, Show, Generic)
+    , _dserStackEvents :: List "StackEvents" StackEvent
+    } deriving (Eq, Show)
 
 -- | 'DescribeStackEventsResponse' constructor.
 --
@@ -107,12 +108,16 @@ dserNextToken = lens _dserNextToken (\s a -> s { _dserNextToken = a })
 
 -- | A list of StackEvents structures.
 dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
-dserStackEvents = lens _dserStackEvents (\s a -> s { _dserStackEvents = a })
+dserStackEvents = lens _dserStackEvents (\s a -> s { _dserStackEvents = a }) . _List
 
 instance ToPath DescribeStackEvents where
     toPath = const "/"
 
-instance ToQuery DescribeStackEvents
+instance ToQuery DescribeStackEvents where
+    toQuery DescribeStackEvents{..} = mconcat
+        [ "NextToken" =? _dseNextToken
+        , "StackName" =? _dseStackName
+        ]
 
 instance ToHeaders DescribeStackEvents
 
@@ -124,9 +129,9 @@ instance AWSRequest DescribeStackEvents where
     response = xmlResponse
 
 instance FromXML DescribeStackEventsResponse where
-    parseXML = withElement "DescribeStackEventsResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "StackEvents"
+    parseXML = withElement "DescribeStackEventsResult" $ \x -> DescribeStackEventsResponse
+        <$> x .@? "NextToken"
+        <*> x .@  "StackEvents"
 
 instance AWSPager DescribeStackEvents where
     next rq rs = (\x -> rq & dseNextToken ?~ x)

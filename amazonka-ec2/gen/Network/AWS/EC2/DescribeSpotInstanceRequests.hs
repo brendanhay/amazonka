@@ -61,7 +61,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirDryRun                 :: Maybe Bool
     , _dsirFilters                :: List "Filter" Filter
     , _dsirSpotInstanceRequestIds :: List "SpotInstanceRequestId" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeSpotInstanceRequests' constructor.
 --
@@ -140,8 +140,7 @@ dsirDryRun = lens _dsirDryRun (\s a -> s { _dsirDryRun = a })
 -- launched. valid-from - The start date of the request. valid-until - The
 -- end date of the request.
 dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
-dsirFilters = lens _dsirFilters (\s a -> s { _dsirFilters = a })
-    . _List
+dsirFilters = lens _dsirFilters (\s a -> s { _dsirFilters = a }) . _List
 
 -- | One or more Spot Instance request IDs.
 dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
@@ -152,7 +151,7 @@ dsirSpotInstanceRequestIds =
 
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests :: List "item" SpotInstanceRequest
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSpotInstanceRequestsResponse where
     type Item DescribeSpotInstanceRequestsResponse = SpotInstanceRequest
@@ -181,7 +180,12 @@ dsirrSpotInstanceRequests =
 instance ToPath DescribeSpotInstanceRequests where
     toPath = const "/"
 
-instance ToQuery DescribeSpotInstanceRequests
+instance ToQuery DescribeSpotInstanceRequests where
+    toQuery DescribeSpotInstanceRequests{..} = mconcat
+        [ "dryRun"                =? _dsirDryRun
+        , "Filter"                =? _dsirFilters
+        , "SpotInstanceRequestId" =? _dsirSpotInstanceRequestIds
+        ]
 
 instance ToHeaders DescribeSpotInstanceRequests
 
@@ -194,4 +198,4 @@ instance AWSRequest DescribeSpotInstanceRequests where
 
 instance FromXML DescribeSpotInstanceRequestsResponse where
     parseXML x = DescribeSpotInstanceRequestsResponse
-        <$> x .@ "spotInstanceRequestSet"
+        <$> x .@  "spotInstanceRequestSet"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ import qualified GHC.Exts
 
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
     { _asgtlbLoadBalancerName :: Text
-    , _asgtlbSecurityGroups   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _asgtlbSecurityGroups   :: List "SecurityGroups" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancer' constructor.
 --
@@ -81,10 +82,11 @@ asgtlbLoadBalancerName =
 asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
 asgtlbSecurityGroups =
     lens _asgtlbSecurityGroups (\s a -> s { _asgtlbSecurityGroups = a })
+        . _List
 
 newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
-    { _asgtlbrSecurityGroups :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _asgtlbrSecurityGroups :: List "SecurityGroups" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ApplySecurityGroupsToLoadBalancerResponse where
     type Item ApplySecurityGroupsToLoadBalancerResponse = Text
@@ -107,11 +109,16 @@ applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerRes
 asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrSecurityGroups =
     lens _asgtlbrSecurityGroups (\s a -> s { _asgtlbrSecurityGroups = a })
+        . _List
 
 instance ToPath ApplySecurityGroupsToLoadBalancer where
     toPath = const "/"
 
-instance ToQuery ApplySecurityGroupsToLoadBalancer
+instance ToQuery ApplySecurityGroupsToLoadBalancer where
+    toQuery ApplySecurityGroupsToLoadBalancer{..} = mconcat
+        [ "LoadBalancerName" =? _asgtlbLoadBalancerName
+        , "SecurityGroups"   =? _asgtlbSecurityGroups
+        ]
 
 instance ToHeaders ApplySecurityGroupsToLoadBalancer
 
@@ -123,5 +130,5 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer where
     response = xmlResponse
 
 instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
-    parseXML = withElement "ApplySecurityGroupsToLoadBalancerResult" $ \x ->
-            <$> x .@ "SecurityGroups"
+    parseXML = withElement "ApplySecurityGroupsToLoadBalancerResult" $ \x -> ApplySecurityGroupsToLoadBalancerResponse
+        <$> x .@  "SecurityGroups"

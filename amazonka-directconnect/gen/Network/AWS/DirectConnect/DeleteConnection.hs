@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ import qualified GHC.Exts
 
 newtype DeleteConnection = DeleteConnection
     { _dcConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteConnection' constructor.
 --
@@ -84,7 +85,7 @@ data DeleteConnectionResponse = DeleteConnectionResponse
     , _dcrPartnerName     :: Maybe Text
     , _dcrRegion          :: Maybe Text
     , _dcrVlan            :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteConnectionResponse' constructor.
 --

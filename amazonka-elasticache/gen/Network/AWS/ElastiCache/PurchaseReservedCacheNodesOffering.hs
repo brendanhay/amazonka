@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
     { _prcnoCacheNodeCount               :: Maybe Int
     , _prcnoReservedCacheNodeId          :: Maybe Text
     , _prcnoReservedCacheNodesOfferingId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PurchaseReservedCacheNodesOffering' constructor.
 --
@@ -92,7 +93,7 @@ prcnoReservedCacheNodesOfferingId =
 
 newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' constructor.
 --
@@ -112,7 +113,12 @@ prcnorReservedCacheNode =
 instance ToPath PurchaseReservedCacheNodesOffering where
     toPath = const "/"
 
-instance ToQuery PurchaseReservedCacheNodesOffering
+instance ToQuery PurchaseReservedCacheNodesOffering where
+    toQuery PurchaseReservedCacheNodesOffering{..} = mconcat
+        [ "CacheNodeCount"               =? _prcnoCacheNodeCount
+        , "ReservedCacheNodeId"          =? _prcnoReservedCacheNodeId
+        , "ReservedCacheNodesOfferingId" =? _prcnoReservedCacheNodesOfferingId
+        ]
 
 instance ToHeaders PurchaseReservedCacheNodesOffering
 
@@ -124,5 +130,5 @@ instance AWSRequest PurchaseReservedCacheNodesOffering where
     response = xmlResponse
 
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where
-    parseXML = withElement "PurchaseReservedCacheNodesOfferingResult" $ \x ->
-            <$> x .@? "ReservedCacheNode"
+    parseXML = withElement "PurchaseReservedCacheNodesOfferingResult" $ \x -> PurchaseReservedCacheNodesOfferingResponse
+        <$> x .@? "ReservedCacheNode"

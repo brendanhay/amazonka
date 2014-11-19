@@ -53,7 +53,7 @@ data DescribeConversionTasks = DescribeConversionTasks
     { _dctConversionTaskIds :: List "item" Text
     , _dctDryRun            :: Maybe Bool
     , _dctFilters           :: List "Filter" Filter
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeConversionTasks' constructor.
 --
@@ -82,12 +82,11 @@ dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
 dctDryRun = lens _dctDryRun (\s a -> s { _dctDryRun = a })
 
 dctFilters :: Lens' DescribeConversionTasks [Filter]
-dctFilters = lens _dctFilters (\s a -> s { _dctFilters = a })
-    . _List
+dctFilters = lens _dctFilters (\s a -> s { _dctFilters = a }) . _List
 
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: List "item" ConversionTask
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConversionTasksResponse where
     type Item DescribeConversionTasksResponse = ConversionTask
@@ -114,7 +113,12 @@ dctrConversionTasks =
 instance ToPath DescribeConversionTasks where
     toPath = const "/"
 
-instance ToQuery DescribeConversionTasks
+instance ToQuery DescribeConversionTasks where
+    toQuery DescribeConversionTasks{..} = mconcat
+        [ "conversionTaskId" =? _dctConversionTaskIds
+        , "dryRun"           =? _dctDryRun
+        , "filter"           =? _dctFilters
+        ]
 
 instance ToHeaders DescribeConversionTasks
 
@@ -127,4 +131,4 @@ instance AWSRequest DescribeConversionTasks where
 
 instance FromXML DescribeConversionTasksResponse where
     parseXML x = DescribeConversionTasksResponse
-        <$> x .@ "conversionTasks"
+        <$> x .@  "conversionTasks"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import qualified GHC.Exts
 
 data DisableMetricsCollection = DisableMetricsCollection
     { _dmcAutoScalingGroupName :: Text
-    , _dmcMetrics              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dmcMetrics              :: List "Metrics" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DisableMetricsCollection' constructor.
 --
@@ -76,7 +77,7 @@ dmcAutoScalingGroupName =
 -- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
 -- GroupTotalInstances.
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
-dmcMetrics = lens _dmcMetrics (\s a -> s { _dmcMetrics = a })
+dmcMetrics = lens _dmcMetrics (\s a -> s { _dmcMetrics = a }) . _List
 
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
     deriving (Eq, Ord, Show, Generic)
@@ -88,7 +89,11 @@ disableMetricsCollectionResponse = DisableMetricsCollectionResponse
 instance ToPath DisableMetricsCollection where
     toPath = const "/"
 
-instance ToQuery DisableMetricsCollection
+instance ToQuery DisableMetricsCollection where
+    toQuery DisableMetricsCollection{..} = mconcat
+        [ "AutoScalingGroupName" =? _dmcAutoScalingGroupName
+        , "Metrics"              =? _dmcMetrics
+        ]
 
 instance ToHeaders DisableMetricsCollection
 

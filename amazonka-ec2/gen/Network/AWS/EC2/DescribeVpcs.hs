@@ -51,7 +51,7 @@ data DescribeVpcs = DescribeVpcs
     { _dv1DryRun  :: Maybe Bool
     , _dv1Filters :: List "Filter" Filter
     , _dv1VpcIds  :: List "VpcId" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVpcs' constructor.
 --
@@ -89,17 +89,15 @@ dv1DryRun = lens _dv1DryRun (\s a -> s { _dv1DryRun = a })
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC.
 dv1Filters :: Lens' DescribeVpcs [Filter]
-dv1Filters = lens _dv1Filters (\s a -> s { _dv1Filters = a })
-    . _List
+dv1Filters = lens _dv1Filters (\s a -> s { _dv1Filters = a }) . _List
 
 -- | One or more VPC IDs. Default: Describes all your VPCs.
 dv1VpcIds :: Lens' DescribeVpcs [Text]
-dv1VpcIds = lens _dv1VpcIds (\s a -> s { _dv1VpcIds = a })
-    . _List
+dv1VpcIds = lens _dv1VpcIds (\s a -> s { _dv1VpcIds = a }) . _List
 
 newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrVpcs :: List "item" Vpc
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVpcsResponse where
     type Item DescribeVpcsResponse = Vpc
@@ -120,13 +118,17 @@ describeVpcsResponse = DescribeVpcsResponse
 
 -- | Information about one or more VPCs.
 dvrVpcs :: Lens' DescribeVpcsResponse [Vpc]
-dvrVpcs = lens _dvrVpcs (\s a -> s { _dvrVpcs = a })
-    . _List
+dvrVpcs = lens _dvrVpcs (\s a -> s { _dvrVpcs = a }) . _List
 
 instance ToPath DescribeVpcs where
     toPath = const "/"
 
-instance ToQuery DescribeVpcs
+instance ToQuery DescribeVpcs where
+    toQuery DescribeVpcs{..} = mconcat
+        [ "dryRun" =? _dv1DryRun
+        , "Filter" =? _dv1Filters
+        , "VpcId"  =? _dv1VpcIds
+        ]
 
 instance ToHeaders DescribeVpcs
 
@@ -139,4 +141,4 @@ instance AWSRequest DescribeVpcs where
 
 instance FromXML DescribeVpcsResponse where
     parseXML x = DescribeVpcsResponse
-        <$> x .@ "vpcSet"
+        <$> x .@  "vpcSet"

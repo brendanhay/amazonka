@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,8 +57,8 @@ import qualified GHC.Exts
 
 data DescribeServices = DescribeServices
     { _dsLanguage        :: Maybe Text
-    , _dsServiceCodeList :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dsServiceCodeList :: List "serviceCodeList" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeServices' constructor.
 --
@@ -83,10 +84,11 @@ dsLanguage = lens _dsLanguage (\s a -> s { _dsLanguage = a })
 dsServiceCodeList :: Lens' DescribeServices [Text]
 dsServiceCodeList =
     lens _dsServiceCodeList (\s a -> s { _dsServiceCodeList = a })
+        . _List
 
 newtype DescribeServicesResponse = DescribeServicesResponse
-    { _dsrServices :: [Service]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dsrServices :: List "services" Service
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeServicesResponse where
     type Item DescribeServicesResponse = Service
@@ -107,7 +109,7 @@ describeServicesResponse = DescribeServicesResponse
 
 -- | A JSON-formatted list of AWS services.
 dsrServices :: Lens' DescribeServicesResponse [Service]
-dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a })
+dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a }) . _List
 
 instance ToPath DescribeServices where
     toPath = const "/"
@@ -132,4 +134,4 @@ instance AWSRequest DescribeServices where
 
 instance FromJSON DescribeServicesResponse where
     parseJSON = withObject "DescribeServicesResponse" $ \o -> DescribeServicesResponse
-        <$> o .: "services"
+        <$> o .:  "services"

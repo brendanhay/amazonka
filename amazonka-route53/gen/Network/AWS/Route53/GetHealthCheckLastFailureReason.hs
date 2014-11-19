@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason
     { _ghclfrHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetHealthCheckLastFailureReason' constructor.
 --
@@ -70,8 +71,8 @@ ghclfrHealthCheckId =
     lens _ghclfrHealthCheckId (\s a -> s { _ghclfrHealthCheckId = a })
 
 newtype GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse
-    { _ghclfrrHealthCheckObservations :: [HealthCheckObservation]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ghclfrrHealthCheckObservations :: List "HealthCheckObservation" HealthCheckObservation
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetHealthCheckLastFailureReasonResponse where
     type Item GetHealthCheckLastFailureReasonResponse = HealthCheckObservation
@@ -96,6 +97,7 @@ ghclfrrHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse 
 ghclfrrHealthCheckObservations =
     lens _ghclfrrHealthCheckObservations
         (\s a -> s { _ghclfrrHealthCheckObservations = a })
+            . _List
 
 instance ToPath GetHealthCheckLastFailureReason where
     toPath GetHealthCheckLastFailureReason{..} = mconcat
@@ -123,4 +125,4 @@ instance AWSRequest GetHealthCheckLastFailureReason where
 
 instance FromXML GetHealthCheckLastFailureReasonResponse where
     parseXML x = GetHealthCheckLastFailureReasonResponse
-            <$> x .@ "HealthCheckObservations"
+        <$> x .@  "HealthCheckObservations"

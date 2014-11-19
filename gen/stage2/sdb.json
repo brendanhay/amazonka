@@ -59,8 +59,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "attribute",
@@ -100,6 +99,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Attribute",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -199,8 +199,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "deletableItem",
@@ -224,8 +223,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -235,18 +234,19 @@
                         "locationName": "Attributes",
                         "documentation": null,
                         "typeExposed": "[Attribute]",
-                        "type": "Flatten [Attribute]"
+                        "type": "List \"Attribute\" Attribute"
                     }
                 ],
                 "contentPad": 0,
                 "name": "DeletableItem",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -256,7 +256,7 @@
                         "locationName": "Attributes",
                         "documentation": null,
                         "typeExposed": "[Attribute]",
-                        "type": "Flatten [Attribute]"
+                        "type": "List \"Attribute\" Attribute"
                     },
                     {
                         "location": "querystring",
@@ -278,8 +278,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "replaceableItem",
@@ -303,8 +302,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -314,18 +313,19 @@
                         "locationName": "Attributes",
                         "documentation": "The list of attributes for a replaceable item.",
                         "typeExposed": "[ReplaceableAttribute]",
-                        "type": "Flatten [ReplaceableAttribute]"
+                        "type": "List \"Attribute\" ReplaceableAttribute"
                     }
                 ],
                 "contentPad": 0,
                 "name": "ReplaceableItem",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -335,7 +335,7 @@
                         "locationName": "Attributes",
                         "documentation": "The list of attributes for a replaceable item.",
                         "typeExposed": "[ReplaceableAttribute]",
-                        "type": "Flatten [ReplaceableAttribute]"
+                        "type": "List \"Attribute\" ReplaceableAttribute"
                     },
                     {
                         "location": "querystring",
@@ -358,8 +358,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "updateCondition",
@@ -368,6 +367,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "UpdateCondition",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -468,8 +468,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "replaceableAttribute",
@@ -509,6 +508,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ReplaceableAttribute",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -578,8 +578,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "item",
@@ -603,8 +602,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -614,11 +613,12 @@
                         "locationName": "Attributes",
                         "documentation": "A list of attributes.",
                         "typeExposed": "[Attribute]",
-                        "type": "Flatten [Attribute]"
+                        "type": "List \"Attribute\" Attribute"
                     }
                 ],
                 "contentPad": 0,
                 "name": "Item",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -655,8 +655,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -666,7 +666,7 @@
                         "locationName": "Attributes",
                         "documentation": "A list of attributes.",
                         "typeExposed": "[Attribute]",
-                        "type": "Flatten [Attribute]"
+                        "type": "List \"Attribute\" Attribute"
                     },
                     {
                         "location": "querystring",
@@ -734,8 +734,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -769,8 +768,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -780,7 +779,7 @@
                         "locationName": "Items",
                         "documentation": "A list of items on which to perform the operation.",
                         "typeExposed": "[DeletableItem]",
-                        "type": "Flatten [DeletableItem]"
+                        "type": "List \"Item\" DeletableItem"
                     }
                 ],
                 "shared": false,
@@ -800,6 +799,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -822,8 +822,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -833,7 +833,7 @@
                         "locationName": "Items",
                         "documentation": "A list of items on which to perform the operation.",
                         "typeExposed": "[DeletableItem]",
-                        "type": "Flatten [DeletableItem]"
+                        "type": "List \"Item\" DeletableItem"
                     }
                 ]
             }
@@ -879,8 +879,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -914,8 +913,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -925,7 +924,7 @@
                         "locationName": "Items",
                         "documentation": "A list of items on which to perform the operation.",
                         "typeExposed": "[ReplaceableItem]",
-                        "type": "Flatten [ReplaceableItem]"
+                        "type": "List \"Item\" ReplaceableItem"
                     }
                 ],
                 "shared": false,
@@ -945,6 +944,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -967,8 +967,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -978,7 +978,7 @@
                         "locationName": "Items",
                         "documentation": "A list of items on which to perform the operation.",
                         "typeExposed": "[ReplaceableItem]",
-                        "type": "Flatten [ReplaceableItem]"
+                        "type": "List \"Item\" ReplaceableItem"
                     }
                 ]
             }
@@ -1026,7 +1026,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1089,6 +1088,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -1153,8 +1153,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1203,8 +1202,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1214,7 +1213,7 @@
                         "locationName": "Attributes",
                         "documentation": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.",
                         "typeExposed": "[Attribute]",
-                        "type": "Flatten [Attribute]"
+                        "type": "List \"Attribute\" Attribute"
                     }
                 ],
                 "shared": false,
@@ -1244,6 +1243,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1267,8 +1267,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1278,7 +1278,7 @@
                         "locationName": "Attributes",
                         "documentation": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.",
                         "typeExposed": "[Attribute]",
-                        "type": "Flatten [Attribute]"
+                        "type": "List \"Attribute\" Attribute"
                     },
                     {
                         "location": "querystring",
@@ -1371,7 +1371,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1434,6 +1433,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -1463,8 +1463,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -1481,6 +1480,7 @@
                 "contentPad": 0,
                 "name": "DomainMetadataResponse",
                 "resultWrapper": "DomainMetadataResult",
+                "locationPad": 25,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1715,7 +1715,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1778,6 +1777,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -1807,7 +1807,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1819,8 +1818,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten",
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -1830,7 +1829,7 @@
                     "locationName": "Attributes",
                     "documentation": "The list of attributes returned by the operation.",
                     "typeExposed": "[Attribute]",
-                    "type": "Flatten [Attribute]"
+                    "type": "List \"Attribute\" Attribute"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -1839,8 +1838,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1850,7 +1849,7 @@
                         "locationName": "Attributes",
                         "documentation": "The list of attributes returned by the operation.",
                         "typeExposed": "[Attribute]",
-                        "type": "Flatten [Attribute]"
+                        "type": "List \"Attribute\" Attribute"
                     }
                 ],
                 "shared": false,
@@ -1858,14 +1857,15 @@
                 "contentPad": 0,
                 "name": "GetAttributesResponse",
                 "resultWrapper": "GetAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1875,7 +1875,7 @@
                         "locationName": "Attributes",
                         "documentation": "The list of attributes returned by the operation.",
                         "typeExposed": "[Attribute]",
-                        "type": "Flatten [Attribute]"
+                        "type": "List \"Attribute\" Attribute"
                     }
                 ]
             },
@@ -1895,8 +1895,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1945,8 +1944,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1956,7 +1955,7 @@
                         "locationName": "AttributeNames",
                         "documentation": "The names of the attributes.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AttributeName\" Text"
                     }
                 ],
                 "shared": false,
@@ -1986,6 +1985,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2009,8 +2009,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2020,7 +2020,7 @@
                         "locationName": "AttributeNames",
                         "documentation": "The names of the attributes.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AttributeName\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2076,8 +2076,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -2091,8 +2090,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2102,7 +2101,7 @@
                         "locationName": "DomainNames",
                         "documentation": "A list of domain names that match the expression.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"DomainName\" Text"
                     }
                 ],
                 "shared": false,
@@ -2110,6 +2109,7 @@
                 "contentPad": 0,
                 "name": "ListDomainsResponse",
                 "resultWrapper": "ListDomainsResult",
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2132,8 +2132,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2143,7 +2143,7 @@
                         "locationName": "DomainNames",
                         "documentation": "A list of domain names that match the expression.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"DomainName\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2185,8 +2185,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2220,6 +2219,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2330,8 +2330,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2380,8 +2379,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2391,7 +2390,7 @@
                         "locationName": "Attributes",
                         "documentation": "The list of attributes.",
                         "typeExposed": "[ReplaceableAttribute]",
-                        "type": "Flatten [ReplaceableAttribute]"
+                        "type": "List \"Attribute\" ReplaceableAttribute"
                     }
                 ],
                 "shared": false,
@@ -2421,6 +2420,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2444,8 +2444,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2455,7 +2455,7 @@
                         "locationName": "Attributes",
                         "documentation": "The list of attributes.",
                         "typeExposed": "[ReplaceableAttribute]",
-                        "type": "Flatten [ReplaceableAttribute]"
+                        "type": "List \"Attribute\" ReplaceableAttribute"
                     },
                     {
                         "location": "querystring",
@@ -2510,8 +2510,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -2525,8 +2524,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2536,7 +2535,7 @@
                         "locationName": "Items",
                         "documentation": "A list of items that match the select expression.",
                         "typeExposed": "[Item]",
-                        "type": "Flatten [Item]"
+                        "type": "List \"Item\" Item"
                     }
                 ],
                 "shared": false,
@@ -2544,6 +2543,7 @@
                 "contentPad": 0,
                 "name": "SelectResponse",
                 "resultWrapper": "SelectResult",
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2566,8 +2566,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2577,7 +2577,7 @@
                         "locationName": "Items",
                         "documentation": "A list of items that match the select expression.",
                         "typeExposed": "[Item]",
-                        "type": "Flatten [Item]"
+                        "type": "List \"Item\" Item"
                     },
                     {
                         "location": "querystring",
@@ -2619,8 +2619,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2675,6 +2674,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,9 +57,9 @@ import qualified GHC.Exts
 data AddCommunicationToCase = AddCommunicationToCase
     { _actcAttachmentSetId   :: Maybe Text
     , _actcCaseId            :: Maybe Text
-    , _actcCcEmailAddresses  :: [Text]
+    , _actcCcEmailAddresses  :: List "ccEmailAddresses" Text
     , _actcCommunicationBody :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddCommunicationToCase' constructor.
 --
@@ -98,6 +99,7 @@ actcCaseId = lens _actcCaseId (\s a -> s { _actcCaseId = a })
 actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
 actcCcEmailAddresses =
     lens _actcCcEmailAddresses (\s a -> s { _actcCcEmailAddresses = a })
+        . _List
 
 -- | The body of an email communication to add to the support case.
 actcCommunicationBody :: Lens' AddCommunicationToCase Text
@@ -106,7 +108,7 @@ actcCommunicationBody =
 
 newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddCommunicationToCaseResponse' constructor.
 --

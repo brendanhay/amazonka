@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data ListDomains = ListDomains
     { _ldMarker   :: Maybe Text
     , _ldMaxItems :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDomains' constructor.
 --
@@ -83,9 +84,9 @@ ldMaxItems :: Lens' ListDomains (Maybe Int)
 ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 
 data ListDomainsResponse = ListDomainsResponse
-    { _ldrDomains        :: [DomainSummary]
+    { _ldrDomains        :: List "Domains" DomainSummary
     , _ldrNextPageMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListDomainsResponse' constructor.
 --
@@ -104,7 +105,7 @@ listDomainsResponse = ListDomainsResponse
 -- | A summary of domains. Type: Complex type containing a list of domain
 -- summaries. Children: AutoRenew, DomainName, Expiry, TransferLock.
 ldrDomains :: Lens' ListDomainsResponse [DomainSummary]
-ldrDomains = lens _ldrDomains (\s a -> s { _ldrDomains = a })
+ldrDomains = lens _ldrDomains (\s a -> s { _ldrDomains = a }) . _List
 
 -- | If there are more domains than you specified for MaxItems in the request,
 -- submit another request and include the value of NextPageMarker in the
@@ -136,5 +137,5 @@ instance AWSRequest ListDomains where
 
 instance FromJSON ListDomainsResponse where
     parseJSON = withObject "ListDomainsResponse" $ \o -> ListDomainsResponse
-        <$> o .: "Domains"
+        <$> o .:  "Domains"
         <*> o .:? "NextPageMarker"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 data DeleteScheduledAction = DeleteScheduledAction
     { _dsaAutoScalingGroupName :: Maybe Text
     , _dsaScheduledActionName  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteScheduledAction' constructor.
 --
@@ -84,7 +85,11 @@ deleteScheduledActionResponse = DeleteScheduledActionResponse
 instance ToPath DeleteScheduledAction where
     toPath = const "/"
 
-instance ToQuery DeleteScheduledAction
+instance ToQuery DeleteScheduledAction where
+    toQuery DeleteScheduledAction{..} = mconcat
+        [ "AutoScalingGroupName" =? _dsaAutoScalingGroupName
+        , "ScheduledActionName"  =? _dsaScheduledActionName
+        ]
 
 instance ToHeaders DeleteScheduledAction
 

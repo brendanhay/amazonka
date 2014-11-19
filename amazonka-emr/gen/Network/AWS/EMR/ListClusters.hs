@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,11 +54,11 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 data ListClusters = ListClusters
-    { _lcClusterStates :: [Text]
+    { _lcClusterStates :: List "ClusterStates" Text
     , _lcCreatedAfter  :: Maybe RFC822
     , _lcCreatedBefore :: Maybe RFC822
     , _lcMarker        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListClusters' constructor.
 --
@@ -81,26 +82,24 @@ listClusters = ListClusters
 
 -- | The cluster state filters to apply when listing clusters.
 lcClusterStates :: Lens' ListClusters [Text]
-lcClusterStates = lens _lcClusterStates (\s a -> s { _lcClusterStates = a })
+lcClusterStates = lens _lcClusterStates (\s a -> s { _lcClusterStates = a }) . _List
 
 -- | The creation date and time beginning value filter for listing clusters .
 lcCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
-lcCreatedAfter = lens _lcCreatedAfter (\s a -> s { _lcCreatedAfter = a })
-    . mapping _Time
+lcCreatedAfter = lens _lcCreatedAfter (\s a -> s { _lcCreatedAfter = a }) . mapping _Time
 
 -- | The creation date and time end value filter for listing clusters .
 lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
-lcCreatedBefore = lens _lcCreatedBefore (\s a -> s { _lcCreatedBefore = a })
-    . mapping _Time
+lcCreatedBefore = lens _lcCreatedBefore (\s a -> s { _lcCreatedBefore = a }) . mapping _Time
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lcMarker :: Lens' ListClusters (Maybe Text)
 lcMarker = lens _lcMarker (\s a -> s { _lcMarker = a })
 
 data ListClustersResponse = ListClustersResponse
-    { _lcrClusters :: [ClusterSummary]
+    { _lcrClusters :: List "Clusters" ClusterSummary
     , _lcrMarker   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListClustersResponse' constructor.
 --
@@ -118,7 +117,7 @@ listClustersResponse = ListClustersResponse
 
 -- | The list of clusters for the account based on the given filters.
 lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
-lcrClusters = lens _lcrClusters (\s a -> s { _lcrClusters = a })
+lcrClusters = lens _lcrClusters (\s a -> s { _lcrClusters = a }) . _List
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lcrMarker :: Lens' ListClustersResponse (Maybe Text)
@@ -149,7 +148,7 @@ instance AWSRequest ListClusters where
 
 instance FromJSON ListClustersResponse where
     parseJSON = withObject "ListClustersResponse" $ \o -> ListClustersResponse
-        <$> o .: "Clusters"
+        <$> o .:  "Clusters"
         <*> o .:? "Marker"
 
 instance AWSPager ListClusters where

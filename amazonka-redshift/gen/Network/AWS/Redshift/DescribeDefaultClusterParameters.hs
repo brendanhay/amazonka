@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
     { _ddcpMarker               :: Maybe Text
     , _ddcpMaxRecords           :: Maybe Int
     , _ddcpParameterGroupFamily :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeDefaultClusterParameters' constructor.
 --
@@ -97,7 +98,7 @@ ddcpParameterGroupFamily =
 
 newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
     { _ddcprDefaultClusterParameters :: Maybe DefaultClusterParameters
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeDefaultClusterParametersResponse' constructor.
 --
@@ -118,7 +119,12 @@ ddcprDefaultClusterParameters =
 instance ToPath DescribeDefaultClusterParameters where
     toPath = const "/"
 
-instance ToQuery DescribeDefaultClusterParameters
+instance ToQuery DescribeDefaultClusterParameters where
+    toQuery DescribeDefaultClusterParameters{..} = mconcat
+        [ "Marker"               =? _ddcpMarker
+        , "MaxRecords"           =? _ddcpMaxRecords
+        , "ParameterGroupFamily" =? _ddcpParameterGroupFamily
+        ]
 
 instance ToHeaders DescribeDefaultClusterParameters
 
@@ -130,8 +136,8 @@ instance AWSRequest DescribeDefaultClusterParameters where
     response = xmlResponse
 
 instance FromXML DescribeDefaultClusterParametersResponse where
-    parseXML = withElement "DescribeDefaultClusterParametersResult" $ \x ->
-            <$> x .@? "DefaultClusterParameters"
+    parseXML = withElement "DescribeDefaultClusterParametersResult" $ \x -> DescribeDefaultClusterParametersResponse
+        <$> x .@? "DefaultClusterParameters"
 
 instance AWSPager DescribeDefaultClusterParameters where
     next rq rs = (\x -> rq & ddcpMarker ?~ x)

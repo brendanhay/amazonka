@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data CreateInvalidation = CreateInvalidation
     { _ciDistributionId    :: Text
     , _ciInvalidationBatch :: InvalidationBatch
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateInvalidation' constructor.
 --
@@ -79,7 +80,7 @@ ciInvalidationBatch =
 data CreateInvalidationResponse = CreateInvalidationResponse
     { _cirInvalidation :: Maybe Invalidation
     , _cirLocation     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateInvalidationResponse' constructor.
 --

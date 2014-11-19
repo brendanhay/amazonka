@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -129,10 +130,10 @@ instance AWSService DataPipeline where
     handle = jsonError alwaysFail
 
 data PipelineObject = PipelineObject
-    { _poFields :: [Field]
+    { _poFields :: List "fields" Field
     , _poId     :: Text
     , _poName   :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PipelineObject' constructor.
 --
@@ -155,7 +156,7 @@ pipelineObject p1 p2 = PipelineObject
 
 -- | Key-value pairs that define the properties of the object.
 poFields :: Lens' PipelineObject [Field]
-poFields = lens _poFields (\s a -> s { _poFields = a })
+poFields = lens _poFields (\s a -> s { _poFields = a }) . _List
 
 -- | Identifier of the object.
 poId :: Lens' PipelineObject Text
@@ -167,9 +168,9 @@ poName = lens _poName (\s a -> s { _poName = a })
 
 instance FromJSON PipelineObject where
     parseJSON = withObject "PipelineObject" $ \o -> PipelineObject
-        <$> o .: "fields"
-        <*> o .: "id"
-        <*> o .: "name"
+        <$> o .:  "fields"
+        <*> o .:  "id"
+        <*> o .:  "name"
 
 instance ToJSON PipelineObject where
     toJSON PipelineObject{..} = object
@@ -182,7 +183,7 @@ data Field = Field
     { _fKey         :: Text
     , _fRefValue    :: Maybe Text
     , _fStringValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Field' constructor.
 --
@@ -216,7 +217,7 @@ fStringValue = lens _fStringValue (\s a -> s { _fStringValue = a })
 
 instance FromJSON Field where
     parseJSON = withObject "Field" $ \o -> Field
-        <$> o .: "key"
+        <$> o .:  "key"
         <*> o .:? "refValue"
         <*> o .:? "stringValue"
 
@@ -230,7 +231,7 @@ instance ToJSON Field where
 data Selector = Selector
     { _sFieldName :: Maybe Text
     , _sOperator  :: Maybe Operator
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Selector' constructor.
 --
@@ -269,8 +270,8 @@ instance ToJSON Selector where
 
 data Operator = Operator
     { _oType   :: Maybe Text
-    , _oValues :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _oValues :: List "values" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'Operator' constructor.
 --
@@ -306,12 +307,12 @@ oType = lens _oType (\s a -> s { _oType = a })
 
 -- | The value that the actual field value will be compared with.
 oValues :: Lens' Operator [Text]
-oValues = lens _oValues (\s a -> s { _oValues = a })
+oValues = lens _oValues (\s a -> s { _oValues = a }) . _List
 
 instance FromJSON Operator where
     parseJSON = withObject "Operator" $ \o -> Operator
         <$> o .:? "type"
-        <*> o .: "values"
+        <*> o .:  "values"
 
 instance ToJSON Operator where
     toJSON Operator{..} = object
@@ -321,10 +322,10 @@ instance ToJSON Operator where
 
 data TaskObject = TaskObject
     { _toAttemptId  :: Maybe Text
-    , _toObjects    :: Map Text PipelineObject
+    , _toObjects    :: Map "entry" "key" "value" Text PipelineObject
     , _toPipelineId :: Maybe Text
     , _toTaskId     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TaskObject' constructor.
 --
@@ -354,8 +355,7 @@ toAttemptId = lens _toAttemptId (\s a -> s { _toAttemptId = a })
 -- | Connection information for the location where the task runner will
 -- publish the output of the task.
 toObjects :: Lens' TaskObject (HashMap Text PipelineObject)
-toObjects = lens _toObjects (\s a -> s { _toObjects = a })
-    . _Map
+toObjects = lens _toObjects (\s a -> s { _toObjects = a }) . _Map
 
 -- | Identifier of the pipeline that provided the task.
 toPipelineId :: Lens' TaskObject (Maybe Text)
@@ -369,7 +369,7 @@ toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
 instance FromJSON TaskObject where
     parseJSON = withObject "TaskObject" $ \o -> TaskObject
         <$> o .:? "attemptId"
-        <*> o .: "objects"
+        <*> o .:  "objects"
         <*> o .:? "pipelineId"
         <*> o .:? "taskId"
 
@@ -382,9 +382,9 @@ instance ToJSON TaskObject where
         ]
 
 data ValidationError = ValidationError
-    { _veErrors :: [Text]
+    { _veErrors :: List "errors" Text
     , _veId     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ValidationError' constructor.
 --
@@ -402,7 +402,7 @@ validationError = ValidationError
 
 -- | A description of the validation error.
 veErrors :: Lens' ValidationError [Text]
-veErrors = lens _veErrors (\s a -> s { _veErrors = a })
+veErrors = lens _veErrors (\s a -> s { _veErrors = a }) . _List
 
 -- | The identifier of the object that contains the validation error.
 veId :: Lens' ValidationError (Maybe Text)
@@ -410,7 +410,7 @@ veId = lens _veId (\s a -> s { _veId = a })
 
 instance FromJSON ValidationError where
     parseJSON = withObject "ValidationError" $ \o -> ValidationError
-        <$> o .: "errors"
+        <$> o .:  "errors"
         <*> o .:? "id"
 
 instance ToJSON ValidationError where
@@ -421,10 +421,10 @@ instance ToJSON ValidationError where
 
 data PipelineDescription = PipelineDescription
     { _pdDescription :: Maybe Text
-    , _pdFields      :: [Field]
+    , _pdFields      :: List "fields" Field
     , _pdName        :: Text
     , _pdPipelineId  :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PipelineDescription' constructor.
 --
@@ -455,7 +455,7 @@ pdDescription = lens _pdDescription (\s a -> s { _pdDescription = a })
 -- | A list of read-only fields that contain metadata about the pipeline:
 -- @userId, @accountId, and @pipelineState.
 pdFields :: Lens' PipelineDescription [Field]
-pdFields = lens _pdFields (\s a -> s { _pdFields = a })
+pdFields = lens _pdFields (\s a -> s { _pdFields = a }) . _List
 
 -- | Name of the pipeline.
 pdName :: Lens' PipelineDescription Text
@@ -469,9 +469,9 @@ pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 instance FromJSON PipelineDescription where
     parseJSON = withObject "PipelineDescription" $ \o -> PipelineDescription
         <$> o .:? "description"
-        <*> o .: "fields"
-        <*> o .: "name"
-        <*> o .: "pipelineId"
+        <*> o .:  "fields"
+        <*> o .:  "name"
+        <*> o .:  "pipelineId"
 
 instance ToJSON PipelineDescription where
     toJSON PipelineDescription{..} = object
@@ -484,7 +484,7 @@ instance ToJSON PipelineDescription where
 data InstanceIdentity = InstanceIdentity
     { _iiDocument  :: Maybe Text
     , _iiSignature :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InstanceIdentity' constructor.
 --
@@ -523,8 +523,8 @@ instance ToJSON InstanceIdentity where
         ]
 
 newtype Query = Query
-    { _qSelectors :: [Selector]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _qSelectors :: List "selectors" Selector
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList Query where
     type Item Query = Selector
@@ -546,11 +546,11 @@ query = Query
 -- | List of selectors that define the query. An object must satisfy all of
 -- the selectors to match the query.
 qSelectors :: Lens' Query [Selector]
-qSelectors = lens _qSelectors (\s a -> s { _qSelectors = a })
+qSelectors = lens _qSelectors (\s a -> s { _qSelectors = a }) . _List
 
 instance FromJSON Query where
     parseJSON = withObject "Query" $ \o -> Query
-        <$> o .: "selectors"
+        <$> o .:  "selectors"
 
 instance ToJSON Query where
     toJSON Query{..} = object
@@ -591,7 +591,7 @@ instance ToJSON OperatorType where
 data PipelineIdName = PipelineIdName
     { _pinId   :: Maybe Text
     , _pinName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PipelineIdName' constructor.
 --
@@ -654,8 +654,8 @@ instance ToJSON TaskStatus where
 
 data ValidationWarning = ValidationWarning
     { _vwId       :: Maybe Text
-    , _vwWarnings :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _vwWarnings :: List "errors" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ValidationWarning' constructor.
 --
@@ -677,12 +677,12 @@ vwId = lens _vwId (\s a -> s { _vwId = a })
 
 -- | A description of the validation warning.
 vwWarnings :: Lens' ValidationWarning [Text]
-vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a })
+vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a }) . _List
 
 instance FromJSON ValidationWarning where
     parseJSON = withObject "ValidationWarning" $ \o -> ValidationWarning
         <$> o .:? "id"
-        <*> o .: "warnings"
+        <*> o .:  "warnings"
 
 instance ToJSON ValidationWarning where
     toJSON ValidationWarning{..} = object

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ data ListDomains = ListDomains
     , _ldNextPageToken      :: Maybe Text
     , _ldRegistrationStatus :: Text
     , _ldReverseOrder       :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListDomains' constructor.
 --
@@ -117,9 +118,9 @@ ldReverseOrder :: Lens' ListDomains (Maybe Bool)
 ldReverseOrder = lens _ldReverseOrder (\s a -> s { _ldReverseOrder = a })
 
 data ListDomainsResponse = ListDomainsResponse
-    { _ldrDomainInfos   :: [DomainInfo]
+    { _ldrDomainInfos   :: List "domainInfos" DomainInfo
     , _ldrNextPageToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListDomainsResponse' constructor.
 --
@@ -137,7 +138,7 @@ listDomainsResponse = ListDomainsResponse
 
 -- | A list of DomainInfo structures.
 ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
-ldrDomainInfos = lens _ldrDomainInfos (\s a -> s { _ldrDomainInfos = a })
+ldrDomainInfos = lens _ldrDomainInfos (\s a -> s { _ldrDomainInfos = a }) . _List
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
@@ -170,7 +171,7 @@ instance AWSRequest ListDomains where
 
 instance FromJSON ListDomainsResponse where
     parseJSON = withObject "ListDomainsResponse" $ \o -> ListDomainsResponse
-        <$> o .: "domainInfos"
+        <$> o .:  "domainInfos"
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListDomains where

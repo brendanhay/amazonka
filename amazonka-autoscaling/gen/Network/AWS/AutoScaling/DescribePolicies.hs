@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,8 +56,8 @@ data DescribePolicies = DescribePolicies
     { _dp1AutoScalingGroupName :: Maybe Text
     , _dp1MaxRecords           :: Maybe Int
     , _dp1NextToken            :: Maybe Text
-    , _dp1PolicyNames          :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dp1PolicyNames          :: List "PolicyNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribePolicies' constructor.
 --
@@ -98,12 +99,12 @@ dp1NextToken = lens _dp1NextToken (\s a -> s { _dp1NextToken = a })
 -- policy names cannot contain more than 50 items. If unknown policy names
 -- are requested, they are ignored with no error.
 dp1PolicyNames :: Lens' DescribePolicies [Text]
-dp1PolicyNames = lens _dp1PolicyNames (\s a -> s { _dp1PolicyNames = a })
+dp1PolicyNames = lens _dp1PolicyNames (\s a -> s { _dp1PolicyNames = a }) . _List
 
 data DescribePoliciesResponse = DescribePoliciesResponse
     { _dprNextToken       :: Maybe Text
-    , _dprScalingPolicies :: [ScalingPolicy]
-    } deriving (Eq, Show, Generic)
+    , _dprScalingPolicies :: List "ScalingPolicies" ScalingPolicy
+    } deriving (Eq, Show)
 
 -- | 'DescribePoliciesResponse' constructor.
 --
@@ -127,11 +128,18 @@ dprNextToken = lens _dprNextToken (\s a -> s { _dprNextToken = a })
 dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprScalingPolicies =
     lens _dprScalingPolicies (\s a -> s { _dprScalingPolicies = a })
+        . _List
 
 instance ToPath DescribePolicies where
     toPath = const "/"
 
-instance ToQuery DescribePolicies
+instance ToQuery DescribePolicies where
+    toQuery DescribePolicies{..} = mconcat
+        [ "AutoScalingGroupName" =? _dp1AutoScalingGroupName
+        , "MaxRecords"           =? _dp1MaxRecords
+        , "NextToken"            =? _dp1NextToken
+        , "PolicyNames"          =? _dp1PolicyNames
+        ]
 
 instance ToHeaders DescribePolicies
 
@@ -143,9 +151,9 @@ instance AWSRequest DescribePolicies where
     response = xmlResponse
 
 instance FromXML DescribePoliciesResponse where
-    parseXML = withElement "DescribePoliciesResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "ScalingPolicies"
+    parseXML = withElement "DescribePoliciesResult" $ \x -> DescribePoliciesResponse
+        <$> x .@? "NextToken"
+        <*> x .@  "ScalingPolicies"
 
 instance AWSPager DescribePolicies where
     next rq rs = (\x -> rq & dp1NextToken ?~ x)

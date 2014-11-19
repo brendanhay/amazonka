@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 
 newtype VerifyEmailAddress = VerifyEmailAddress
     { _veaEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'VerifyEmailAddress' constructor.
 --
@@ -76,7 +77,10 @@ verifyEmailAddressResponse = VerifyEmailAddressResponse
 instance ToPath VerifyEmailAddress where
     toPath = const "/"
 
-instance ToQuery VerifyEmailAddress
+instance ToQuery VerifyEmailAddress where
+    toQuery VerifyEmailAddress{..} = mconcat
+        [ "EmailAddress" =? _veaEmailAddress
+        ]
 
 instance ToHeaders VerifyEmailAddress
 

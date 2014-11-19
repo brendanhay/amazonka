@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data DeleteReplicationGroup = DeleteReplicationGroup
     { _drgFinalSnapshotIdentifier :: Maybe Text
     , _drgReplicationGroupId      :: Text
     , _drgRetainPrimaryCluster    :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteReplicationGroup' constructor.
 --
@@ -99,7 +100,7 @@ drgRetainPrimaryCluster =
 
 newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
     { _drgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteReplicationGroupResponse' constructor.
 --
@@ -119,7 +120,12 @@ drgrReplicationGroup =
 instance ToPath DeleteReplicationGroup where
     toPath = const "/"
 
-instance ToQuery DeleteReplicationGroup
+instance ToQuery DeleteReplicationGroup where
+    toQuery DeleteReplicationGroup{..} = mconcat
+        [ "FinalSnapshotIdentifier" =? _drgFinalSnapshotIdentifier
+        , "ReplicationGroupId"      =? _drgReplicationGroupId
+        , "RetainPrimaryCluster"    =? _drgRetainPrimaryCluster
+        ]
 
 instance ToHeaders DeleteReplicationGroup
 
@@ -131,5 +137,5 @@ instance AWSRequest DeleteReplicationGroup where
     response = xmlResponse
 
 instance FromXML DeleteReplicationGroupResponse where
-    parseXML = withElement "DeleteReplicationGroupResult" $ \x ->
-            <$> x .@? "ReplicationGroup"
+    parseXML = withElement "DeleteReplicationGroupResult" $ \x -> DeleteReplicationGroupResponse
+        <$> x .@? "ReplicationGroup"

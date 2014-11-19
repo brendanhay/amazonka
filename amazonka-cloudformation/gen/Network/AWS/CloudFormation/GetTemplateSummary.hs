@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ data GetTemplateSummary = GetTemplateSummary
     { _gtsStackName    :: Maybe Text
     , _gtsTemplateBody :: Maybe Text
     , _gtsTemplateURL  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetTemplateSummary' constructor.
 --
@@ -105,12 +106,12 @@ gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\s a -> s { _gtsTemplateURL = a })
 
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse
-    { _gtsrCapabilities       :: [Text]
+    { _gtsrCapabilities       :: List "Capabilities" Text
     , _gtsrCapabilitiesReason :: Maybe Text
     , _gtsrDescription        :: Maybe Text
-    , _gtsrParameters         :: [ParameterDeclaration]
+    , _gtsrParameters         :: List "Parameters" ParameterDeclaration
     , _gtsrVersion            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetTemplateSummaryResponse' constructor.
 --
@@ -142,7 +143,7 @@ getTemplateSummaryResponse = GetTemplateSummaryResponse
 -- template; otherwise, those actions return an InsufficientCapabilities
 -- error.
 gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Text]
-gtsrCapabilities = lens _gtsrCapabilities (\s a -> s { _gtsrCapabilities = a })
+gtsrCapabilities = lens _gtsrCapabilities (\s a -> s { _gtsrCapabilities = a }) . _List
 
 -- | The capabilities reason found within the template.
 gtsrCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
@@ -156,7 +157,7 @@ gtsrDescription = lens _gtsrDescription (\s a -> s { _gtsrDescription = a })
 -- | A list of parameter declarations that describe various properties for
 -- each parameter.
 gtsrParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
-gtsrParameters = lens _gtsrParameters (\s a -> s { _gtsrParameters = a })
+gtsrParameters = lens _gtsrParameters (\s a -> s { _gtsrParameters = a }) . _List
 
 -- | The AWS template format version, which identifies the capabilities of the
 -- template.
@@ -166,7 +167,12 @@ gtsrVersion = lens _gtsrVersion (\s a -> s { _gtsrVersion = a })
 instance ToPath GetTemplateSummary where
     toPath = const "/"
 
-instance ToQuery GetTemplateSummary
+instance ToQuery GetTemplateSummary where
+    toQuery GetTemplateSummary{..} = mconcat
+        [ "StackName"    =? _gtsStackName
+        , "TemplateBody" =? _gtsTemplateBody
+        , "TemplateURL"  =? _gtsTemplateURL
+        ]
 
 instance ToHeaders GetTemplateSummary
 
@@ -178,9 +184,9 @@ instance AWSRequest GetTemplateSummary where
     response = xmlResponse
 
 instance FromXML GetTemplateSummaryResponse where
-    parseXML = withElement "GetTemplateSummaryResult" $ \x ->
-            <$> x .@ "Capabilities"
-            <*> x .@? "CapabilitiesReason"
-            <*> x .@? "Description"
-            <*> x .@ "Parameters"
-            <*> x .@? "Version"
+    parseXML = withElement "GetTemplateSummaryResult" $ \x -> GetTemplateSummaryResponse
+        <$> x .@  "Capabilities"
+        <*> x .@? "CapabilitiesReason"
+        <*> x .@? "Description"
+        <*> x .@  "Parameters"
+        <*> x .@? "Version"

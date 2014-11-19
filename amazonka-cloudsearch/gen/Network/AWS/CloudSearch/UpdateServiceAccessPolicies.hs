@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
     { _usapAccessPolicies :: Text
     , _usapDomainName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateServiceAccessPolicies' constructor.
 --
@@ -79,7 +80,7 @@ usapDomainName = lens _usapDomainName (\s a -> s { _usapDomainName = a })
 
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateServiceAccessPoliciesResponse' constructor.
 --
@@ -101,7 +102,11 @@ usaprAccessPolicies =
 instance ToPath UpdateServiceAccessPolicies where
     toPath = const "/"
 
-instance ToQuery UpdateServiceAccessPolicies
+instance ToQuery UpdateServiceAccessPolicies where
+    toQuery UpdateServiceAccessPolicies{..} = mconcat
+        [ "AccessPolicies" =? _usapAccessPolicies
+        , "DomainName"     =? _usapDomainName
+        ]
 
 instance ToHeaders UpdateServiceAccessPolicies
 
@@ -113,5 +118,5 @@ instance AWSRequest UpdateServiceAccessPolicies where
     response = xmlResponse
 
 instance FromXML UpdateServiceAccessPoliciesResponse where
-    parseXML = withElement "UpdateServiceAccessPoliciesResult" $ \x ->
-            <$> x .@ "AccessPolicies"
+    parseXML = withElement "UpdateServiceAccessPoliciesResult" $ \x -> UpdateServiceAccessPoliciesResponse
+        <$> x .@  "AccessPolicies"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data DeleteApplication = DeleteApplication
     { _daApplicationName     :: Text
     , _daTerminateEnvByForce :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteApplication' constructor.
 --
@@ -86,7 +87,11 @@ deleteApplicationResponse = DeleteApplicationResponse
 instance ToPath DeleteApplication where
     toPath = const "/"
 
-instance ToQuery DeleteApplication
+instance ToQuery DeleteApplication where
+    toQuery DeleteApplication{..} = mconcat
+        [ "ApplicationName"     =? _daApplicationName
+        , "TerminateEnvByForce" =? _daTerminateEnvByForce
+        ]
 
 instance ToHeaders DeleteApplication
 

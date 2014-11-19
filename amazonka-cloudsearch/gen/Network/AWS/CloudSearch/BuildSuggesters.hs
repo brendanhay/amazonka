@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype BuildSuggesters = BuildSuggesters
     { _bsDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'BuildSuggesters' constructor.
 --
@@ -65,8 +66,8 @@ bsDomainName :: Lens' BuildSuggesters Text
 bsDomainName = lens _bsDomainName (\s a -> s { _bsDomainName = a })
 
 newtype BuildSuggestersResponse = BuildSuggestersResponse
-    { _bsrFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _bsrFieldNames :: List "SuggesterNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BuildSuggestersResponse where
     type Item BuildSuggestersResponse = Text
@@ -86,12 +87,15 @@ buildSuggestersResponse = BuildSuggestersResponse
     }
 
 bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
-bsrFieldNames = lens _bsrFieldNames (\s a -> s { _bsrFieldNames = a })
+bsrFieldNames = lens _bsrFieldNames (\s a -> s { _bsrFieldNames = a }) . _List
 
 instance ToPath BuildSuggesters where
     toPath = const "/"
 
-instance ToQuery BuildSuggesters
+instance ToQuery BuildSuggesters where
+    toQuery BuildSuggesters{..} = mconcat
+        [ "DomainName" =? _bsDomainName
+        ]
 
 instance ToHeaders BuildSuggesters
 
@@ -103,5 +107,5 @@ instance AWSRequest BuildSuggesters where
     response = xmlResponse
 
 instance FromXML BuildSuggestersResponse where
-    parseXML = withElement "BuildSuggestersResult" $ \x ->
-            <$> x .@ "FieldNames"
+    parseXML = withElement "BuildSuggestersResult" $ \x -> BuildSuggestersResponse
+        <$> x .@  "FieldNames"

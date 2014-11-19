@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 data DeleteGroupPolicy = DeleteGroupPolicy
     { _dgpGroupName  :: Text
     , _dgpPolicyName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteGroupPolicy' constructor.
 --
@@ -82,7 +83,11 @@ deleteGroupPolicyResponse = DeleteGroupPolicyResponse
 instance ToPath DeleteGroupPolicy where
     toPath = const "/"
 
-instance ToQuery DeleteGroupPolicy
+instance ToQuery DeleteGroupPolicy where
+    toQuery DeleteGroupPolicy{..} = mconcat
+        [ "GroupName"  =? _dgpGroupName
+        , "PolicyName" =? _dgpPolicyName
+        ]
 
 instance ToHeaders DeleteGroupPolicy
 

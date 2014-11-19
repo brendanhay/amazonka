@@ -52,8 +52,8 @@ import qualified GHC.Exts
 data DescribePlacementGroups = DescribePlacementGroups
     { _dpg1DryRun     :: Maybe Bool
     , _dpg1Filters    :: List "Filter" Filter
-    , _dpg1GroupNames :: List "String" Text
-    } deriving (Eq, Show, Generic)
+    , _dpg1GroupNames :: List "groupName" Text
+    } deriving (Eq, Show)
 
 -- | 'DescribePlacementGroups' constructor.
 --
@@ -79,18 +79,16 @@ dpg1DryRun = lens _dpg1DryRun (\s a -> s { _dpg1DryRun = a })
 -- - The state of the placement group (pending | available | deleting |
 -- deleted). strategy - The strategy of the placement group (cluster).
 dpg1Filters :: Lens' DescribePlacementGroups [Filter]
-dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
-    . _List
+dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a }) . _List
 
 -- | One or more placement group names. Default: Describes all your placement
 -- groups, or only those otherwise specified.
 dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
-dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a })
-    . _List
+dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a }) . _List
 
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups :: List "item" PlacementGroup
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribePlacementGroupsResponse where
     type Item DescribePlacementGroupsResponse = PlacementGroup
@@ -118,7 +116,12 @@ dpgrPlacementGroups =
 instance ToPath DescribePlacementGroups where
     toPath = const "/"
 
-instance ToQuery DescribePlacementGroups
+instance ToQuery DescribePlacementGroups where
+    toQuery DescribePlacementGroups{..} = mconcat
+        [ "dryRun"    =? _dpg1DryRun
+        , "Filter"    =? _dpg1Filters
+        , "groupName" =? _dpg1GroupNames
+        ]
 
 instance ToHeaders DescribePlacementGroups
 
@@ -131,4 +134,4 @@ instance AWSRequest DescribePlacementGroups where
 
 instance FromXML DescribePlacementGroupsResponse where
     parseXML x = DescribePlacementGroupsResponse
-        <$> x .@ "placementGroupSet"
+        <$> x .@  "placementGroupSet"

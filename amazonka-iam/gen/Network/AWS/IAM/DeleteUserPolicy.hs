@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 data DeleteUserPolicy = DeleteUserPolicy
     { _dupPolicyName :: Text
     , _dupUserName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteUserPolicy' constructor.
 --
@@ -82,7 +83,11 @@ deleteUserPolicyResponse = DeleteUserPolicyResponse
 instance ToPath DeleteUserPolicy where
     toPath = const "/"
 
-instance ToQuery DeleteUserPolicy
+instance ToQuery DeleteUserPolicy where
+    toQuery DeleteUserPolicy{..} = mconcat
+        [ "PolicyName" =? _dupPolicyName
+        , "UserName"   =? _dupUserName
+        ]
 
 instance ToHeaders DeleteUserPolicy
 

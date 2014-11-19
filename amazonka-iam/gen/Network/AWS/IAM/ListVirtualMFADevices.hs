@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe Text
     , _lvmfadMarker           :: Maybe Text
     , _lvmfadMaxItems         :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListVirtualMFADevices' constructor.
 --
@@ -94,14 +95,13 @@ lvmfadMarker = lens _lvmfadMarker (\s a -> s { _lvmfadMarker = a })
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
 lvmfadMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
-lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a })
-    . mapping _Nat
+lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a }) . mapping _Nat
 
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrIsTruncated       :: Maybe Bool
     , _lvmfadrMarker            :: Maybe Text
-    , _lvmfadrVirtualMFADevices :: [VirtualMFADevice]
-    } deriving (Eq, Show, Generic)
+    , _lvmfadrVirtualMFADevices :: List "VirtualMFADevices" VirtualMFADevice
+    } deriving (Eq, Show)
 
 -- | 'ListVirtualMFADevicesResponse' constructor.
 --
@@ -138,11 +138,17 @@ lvmfadrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevic
 lvmfadrVirtualMFADevices =
     lens _lvmfadrVirtualMFADevices
         (\s a -> s { _lvmfadrVirtualMFADevices = a })
+            . _List
 
 instance ToPath ListVirtualMFADevices where
     toPath = const "/"
 
-instance ToQuery ListVirtualMFADevices
+instance ToQuery ListVirtualMFADevices where
+    toQuery ListVirtualMFADevices{..} = mconcat
+        [ "AssignmentStatus" =? _lvmfadAssignmentStatus
+        , "Marker"           =? _lvmfadMarker
+        , "MaxItems"         =? _lvmfadMaxItems
+        ]
 
 instance ToHeaders ListVirtualMFADevices
 
@@ -154,10 +160,10 @@ instance AWSRequest ListVirtualMFADevices where
     response = xmlResponse
 
 instance FromXML ListVirtualMFADevicesResponse where
-    parseXML = withElement "ListVirtualMFADevicesResult" $ \x ->
-            <$> x .@? "IsTruncated"
-            <*> x .@? "Marker"
-            <*> x .@ "VirtualMFADevices"
+    parseXML = withElement "ListVirtualMFADevicesResult" $ \x -> ListVirtualMFADevicesResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@  "VirtualMFADevices"
 
 instance AWSPager ListVirtualMFADevices where
     next rq rs

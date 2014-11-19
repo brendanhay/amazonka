@@ -75,8 +75,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "destination",
@@ -85,12 +84,13 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Destination",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -100,12 +100,12 @@
                         "locationName": "ToAddresses",
                         "documentation": "\u003cp\u003eThe To: field(s) of the message.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -115,12 +115,12 @@
                         "locationName": "CcAddresses",
                         "documentation": "\u003cp\u003eThe CC: field(s) of the message.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -130,14 +130,14 @@
                         "locationName": "BccAddresses",
                         "documentation": "\u003cp\u003eThe BCC: field(s) of the message.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -147,12 +147,12 @@
                         "locationName": "BccAddresses",
                         "documentation": "\u003cp\u003eThe BCC: field(s) of the message.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -162,12 +162,12 @@
                         "locationName": "CcAddresses",
                         "documentation": "\u003cp\u003eThe CC: field(s) of the message.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -177,7 +177,7 @@
                         "locationName": "ToAddresses",
                         "documentation": "\u003cp\u003eThe To: field(s) of the message.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     }
                 ]
             },
@@ -185,8 +185,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "identityDkimAttributes",
@@ -226,12 +225,13 @@
                 ],
                 "contentPad": 0,
                 "name": "IdentityDkimAttributes",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -241,7 +241,7 @@
                         "locationName": "DkimTokens",
                         "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DkimTokens\" Text"
                     }
                 ],
                 "fields": [
@@ -262,8 +262,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -273,7 +273,7 @@
                         "locationName": "DkimTokens",
                         "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DkimTokens\" Text"
                     },
                     {
                         "location": "querystring",
@@ -295,8 +295,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 6,
                 "ctor": "body",
@@ -305,6 +304,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Body",
+                "locationPad": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -375,8 +375,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "identityVerificationAttributes",
@@ -401,6 +400,7 @@
                 ],
                 "contentPad": 0,
                 "name": "IdentityVerificationAttributes",
+                "locationPad": 19,
                 "type": "record",
                 "optional": [
                     {
@@ -456,8 +456,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "sendDataPoint",
@@ -466,6 +465,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "SendDataPoint",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -643,8 +643,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "content",
@@ -669,6 +668,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Content",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [
                     {
@@ -724,8 +724,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "identityNotificationAttributes",
@@ -795,6 +794,7 @@
                 ],
                 "contentPad": 0,
                 "name": "IdentityNotificationAttributes",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -863,8 +863,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -905,6 +904,7 @@
                 ],
                 "contentPad": 0,
                 "name": "RawMessage",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -966,8 +966,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "message",
@@ -1007,6 +1006,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Message",
+                "locationPad": 8,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1090,7 +1090,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1153,6 +1152,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -1219,7 +1219,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1282,6 +1281,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -1311,7 +1311,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1334,7 +1333,7 @@
                     "locationName": "DkimAttributes",
                     "documentation": "\u003cp\u003eThe DKIM attributes for an email address or a domain. \u003c/p\u003e",
                     "typeExposed": "HashMap Text IdentityDkimAttributes",
-                    "type": "Map Text IdentityDkimAttributes"
+                    "type": "Map \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -1346,6 +1345,7 @@
                 "contentPad": 0,
                 "name": "GetIdentityDkimAttributesResponse",
                 "resultWrapper": "GetIdentityDkimAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1362,7 +1362,7 @@
                         "locationName": "DkimAttributes",
                         "documentation": "\u003cp\u003eThe DKIM attributes for an email address or a domain. \u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityDkimAttributes",
-                        "type": "Map Text IdentityDkimAttributes"
+                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
                     }
                 ],
                 "fields": [
@@ -1379,7 +1379,7 @@
                         "locationName": "DkimAttributes",
                         "documentation": "\u003cp\u003eThe DKIM attributes for an email address or a domain. \u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityDkimAttributes",
-                        "type": "Map Text IdentityDkimAttributes"
+                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
                     }
                 ]
             },
@@ -1400,7 +1400,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1412,8 +1411,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1423,7 +1422,7 @@
                     "locationName": "Identities",
                     "documentation": "\u003cp\u003eA list of one or more verified identities - email addresses, domains, or both.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"Identities\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -1447,14 +1446,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1464,14 +1464,14 @@
                         "locationName": "Identities",
                         "documentation": "\u003cp\u003eA list of one or more verified identities - email addresses, domains, or both.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Identities\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1481,7 +1481,7 @@
                         "locationName": "Identities",
                         "documentation": "\u003cp\u003eA list of one or more verified identities - email addresses, domains, or both.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Identities\" Text"
                     }
                 ]
             }
@@ -1492,7 +1492,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1515,7 +1514,7 @@
                     "locationName": "NotificationAttributes",
                     "documentation": "\u003cp\u003eA map of Identity to IdentityNotificationAttributes.\u003c/p\u003e",
                     "typeExposed": "HashMap Text IdentityNotificationAttributes",
-                    "type": "Map Text IdentityNotificationAttributes"
+                    "type": "Map \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -1527,6 +1526,7 @@
                 "contentPad": 0,
                 "name": "GetIdentityNotificationAttributesResponse",
                 "resultWrapper": "GetIdentityNotificationAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1543,7 +1543,7 @@
                         "locationName": "NotificationAttributes",
                         "documentation": "\u003cp\u003eA map of Identity to IdentityNotificationAttributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityNotificationAttributes",
-                        "type": "Map Text IdentityNotificationAttributes"
+                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
                     }
                 ],
                 "fields": [
@@ -1560,7 +1560,7 @@
                         "locationName": "NotificationAttributes",
                         "documentation": "\u003cp\u003eA map of Identity to IdentityNotificationAttributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityNotificationAttributes",
-                        "type": "Map Text IdentityNotificationAttributes"
+                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
                     }
                 ]
             },
@@ -1581,7 +1581,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1593,8 +1592,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1604,7 +1603,7 @@
                     "locationName": "Identities",
                     "documentation": "\u003cp\u003eA list of one or more identities.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"Identities\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -1628,14 +1627,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1645,14 +1645,14 @@
                         "locationName": "Identities",
                         "documentation": "\u003cp\u003eA list of one or more identities.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Identities\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1662,7 +1662,7 @@
                         "locationName": "Identities",
                         "documentation": "\u003cp\u003eA list of one or more identities.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Identities\" Text"
                     }
                 ]
             }
@@ -1673,7 +1673,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1696,7 +1695,7 @@
                     "locationName": "VerificationAttributes",
                     "documentation": "\u003cp\u003eA map of Identities to IdentityVerificationAttributes objects.\u003c/p\u003e",
                     "typeExposed": "HashMap Text IdentityVerificationAttributes",
-                    "type": "Map Text IdentityVerificationAttributes"
+                    "type": "Map \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -1708,6 +1707,7 @@
                 "contentPad": 0,
                 "name": "GetIdentityVerificationAttributesResponse",
                 "resultWrapper": "GetIdentityVerificationAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1724,7 +1724,7 @@
                         "locationName": "VerificationAttributes",
                         "documentation": "\u003cp\u003eA map of Identities to IdentityVerificationAttributes objects.\u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityVerificationAttributes",
-                        "type": "Map Text IdentityVerificationAttributes"
+                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
                     }
                 ],
                 "fields": [
@@ -1741,7 +1741,7 @@
                         "locationName": "VerificationAttributes",
                         "documentation": "\u003cp\u003eA map of Identities to IdentityVerificationAttributes objects.\u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityVerificationAttributes",
-                        "type": "Map Text IdentityVerificationAttributes"
+                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
                     }
                 ]
             },
@@ -1762,7 +1762,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1774,8 +1773,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1785,7 +1784,7 @@
                     "locationName": "Identities",
                     "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"Identities\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -1809,14 +1808,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1826,14 +1826,14 @@
                         "locationName": "Identities",
                         "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Identities\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1843,7 +1843,7 @@
                         "locationName": "Identities",
                         "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Identities\" Text"
                     }
                 ]
             }
@@ -1854,8 +1854,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -1872,6 +1871,7 @@
                 "contentPad": 0,
                 "name": "GetSendQuotaResponse",
                 "resultWrapper": "GetSendQuotaResult",
+                "locationPad": 16,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2019,7 +2019,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2031,8 +2030,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -2042,7 +2041,7 @@
                     "locationName": "SendDataPoints",
                     "documentation": "\u003cp\u003eA list of data points, each of which represents 15 minutes of activity.\u003c/p\u003e",
                     "typeExposed": "[SendDataPoint]",
-                    "type": "[SendDataPoint]"
+                    "type": "List \"SendDataPoints\" SendDataPoint"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2054,13 +2053,14 @@
                 "contentPad": 0,
                 "name": "GetSendStatisticsResponse",
                 "resultWrapper": "GetSendStatisticsResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2070,14 +2070,14 @@
                         "locationName": "SendDataPoints",
                         "documentation": "\u003cp\u003eA list of data points, each of which represents 15 minutes of activity.\u003c/p\u003e",
                         "typeExposed": "[SendDataPoint]",
-                        "type": "[SendDataPoint]"
+                        "type": "List \"SendDataPoints\" SendDataPoint"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2087,7 +2087,7 @@
                         "locationName": "SendDataPoints",
                         "documentation": "\u003cp\u003eA list of data points, each of which represents 15 minutes of activity.\u003c/p\u003e",
                         "typeExposed": "[SendDataPoint]",
-                        "type": "[SendDataPoint]"
+                        "type": "List \"SendDataPoints\" SendDataPoint"
                     }
                 ]
             },
@@ -2141,8 +2141,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -2159,13 +2158,14 @@
                 "contentPad": 0,
                 "name": "ListIdentitiesResponse",
                 "resultWrapper": "ListIdentitiesResult",
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2175,7 +2175,7 @@
                         "locationName": "Identities",
                         "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Identities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2196,8 +2196,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2207,7 +2207,7 @@
                         "locationName": "Identities",
                         "documentation": "\u003cp\u003eA list of identities.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Identities\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2249,8 +2249,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2289,6 +2288,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2395,7 +2395,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2407,8 +2406,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -2418,7 +2417,7 @@
                     "locationName": "VerifiedEmailAddresses",
                     "documentation": "\u003cp\u003eA list of email addresses that have been verified.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"ToAddresses\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2430,13 +2429,14 @@
                 "contentPad": 0,
                 "name": "ListVerifiedEmailAddressesResponse",
                 "resultWrapper": "ListVerifiedEmailAddressesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2446,14 +2446,14 @@
                         "locationName": "VerifiedEmailAddresses",
                         "documentation": "\u003cp\u003eA list of email addresses that have been verified.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2463,7 +2463,7 @@
                         "locationName": "VerifiedEmailAddresses",
                         "documentation": "\u003cp\u003eA list of email addresses that have been verified.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     }
                 ]
             },
@@ -2518,7 +2518,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2569,6 +2568,7 @@
                 "contentPad": 0,
                 "name": "SendEmailResponse",
                 "resultWrapper": "SendEmailResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -2605,8 +2605,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2701,14 +2700,15 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2718,7 +2718,7 @@
                         "locationName": "ReplyToAddresses",
                         "documentation": "\u003cp\u003eThe reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2769,8 +2769,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2780,7 +2780,7 @@
                         "locationName": "ReplyToAddresses",
                         "documentation": "\u003cp\u003eThe reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2822,7 +2822,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2873,6 +2872,7 @@
                 "contentPad": 0,
                 "name": "SendRawEmailResponse",
                 "resultWrapper": "SendRawEmailResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -2909,8 +2909,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2965,6 +2964,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2986,8 +2986,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2997,14 +2997,14 @@
                         "locationName": "Destinations",
                         "documentation": "\u003cp\u003eA list of destinations for the message, consisting of To:, CC:, and BCC: addresses.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3014,7 +3014,7 @@
                         "locationName": "Destinations",
                         "documentation": "\u003cp\u003eA list of destinations for the message, consisting of To:, CC:, and BCC: addresses.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ToAddresses\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3091,8 +3091,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3157,6 +3156,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3237,8 +3237,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3303,6 +3302,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3383,8 +3383,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3454,6 +3453,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3530,7 +3530,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3542,8 +3541,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -3553,7 +3552,7 @@
                     "locationName": "DkimTokens",
                     "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.\u003c/p\u003e \u003cp\u003eUsing these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign emails originating from that domain.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"DkimTokens\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -3565,13 +3564,14 @@
                 "contentPad": 0,
                 "name": "VerifyDomainDkimResponse",
                 "resultWrapper": "VerifyDomainDkimResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3581,14 +3581,14 @@
                         "locationName": "DkimTokens",
                         "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.\u003c/p\u003e \u003cp\u003eUsing these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign emails originating from that domain.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DkimTokens\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3598,7 +3598,7 @@
                         "locationName": "DkimTokens",
                         "documentation": "\u003cp\u003eA set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.\u003c/p\u003e \u003cp\u003eUsing these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign emails originating from that domain.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"DkimTokens\" Text"
                     }
                 ]
             },
@@ -3619,7 +3619,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3682,6 +3681,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3712,7 +3712,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3763,6 +3762,7 @@
                 "contentPad": 0,
                 "name": "VerifyDomainIdentityResponse",
                 "resultWrapper": "VerifyDomainIdentityResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3801,7 +3801,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3864,6 +3863,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3930,7 +3930,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3993,6 +3992,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -4059,7 +4059,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4122,6 +4121,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,

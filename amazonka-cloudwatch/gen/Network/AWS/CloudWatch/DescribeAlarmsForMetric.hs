@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,13 +52,13 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric
-    { _dafmDimensions :: [Dimension]
+    { _dafmDimensions :: List "Dimensions" Dimension
     , _dafmMetricName :: Text
     , _dafmNamespace  :: Text
     , _dafmPeriod     :: Maybe Nat
     , _dafmStatistic  :: Maybe Text
     , _dafmUnit       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAlarmsForMetric' constructor.
 --
@@ -89,7 +90,7 @@ describeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
 
 -- | The list of dimensions associated with the metric.
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
-dafmDimensions = lens _dafmDimensions (\s a -> s { _dafmDimensions = a })
+dafmDimensions = lens _dafmDimensions (\s a -> s { _dafmDimensions = a }) . _List
 
 -- | The name of the metric.
 dafmMetricName :: Lens' DescribeAlarmsForMetric Text
@@ -101,8 +102,7 @@ dafmNamespace = lens _dafmNamespace (\s a -> s { _dafmNamespace = a })
 
 -- | The period in seconds over which the statistic is applied.
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
-dafmPeriod = lens _dafmPeriod (\s a -> s { _dafmPeriod = a })
-    . mapping _Nat
+dafmPeriod = lens _dafmPeriod (\s a -> s { _dafmPeriod = a }) . mapping _Nat
 
 -- | The statistic for the metric.
 dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Text)
@@ -113,8 +113,8 @@ dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe Text)
 dafmUnit = lens _dafmUnit (\s a -> s { _dafmUnit = a })
 
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
-    { _dafmrMetricAlarms :: [MetricAlarm]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dafmrMetricAlarms :: List "MetricAlarms" MetricAlarm
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAlarmsForMetricResponse where
     type Item DescribeAlarmsForMetricResponse = MetricAlarm
@@ -137,11 +137,20 @@ describeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
 dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrMetricAlarms =
     lens _dafmrMetricAlarms (\s a -> s { _dafmrMetricAlarms = a })
+        . _List
 
 instance ToPath DescribeAlarmsForMetric where
     toPath = const "/"
 
-instance ToQuery DescribeAlarmsForMetric
+instance ToQuery DescribeAlarmsForMetric where
+    toQuery DescribeAlarmsForMetric{..} = mconcat
+        [ "Dimensions" =? _dafmDimensions
+        , "MetricName" =? _dafmMetricName
+        , "Namespace"  =? _dafmNamespace
+        , "Period"     =? _dafmPeriod
+        , "Statistic"  =? _dafmStatistic
+        , "Unit"       =? _dafmUnit
+        ]
 
 instance ToHeaders DescribeAlarmsForMetric
 
@@ -153,5 +162,5 @@ instance AWSRequest DescribeAlarmsForMetric where
     response = xmlResponse
 
 instance FromXML DescribeAlarmsForMetricResponse where
-    parseXML = withElement "DescribeAlarmsForMetricResult" $ \x ->
-            <$> x .@ "MetricAlarms"
+    parseXML = withElement "DescribeAlarmsForMetricResult" $ \x -> DescribeAlarmsForMetricResponse
+        <$> x .@  "MetricAlarms"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ import qualified GHC.Exts
 
 newtype ReportTaskProgress = ReportTaskProgress
     { _rtpTaskId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ReportTaskProgress' constructor.
 --
@@ -79,7 +80,7 @@ rtpTaskId = lens _rtpTaskId (\s a -> s { _rtpTaskId = a })
 
 newtype ReportTaskProgressResponse = ReportTaskProgressResponse
     { _rtprCanceled :: Bool
-    } deriving (Eq, Ord, Show, Generic, Enum)
+    } deriving (Eq, Ord, Show, Enum)
 
 -- | 'ReportTaskProgressResponse' constructor.
 --
@@ -120,4 +121,4 @@ instance AWSRequest ReportTaskProgress where
 
 instance FromJSON ReportTaskProgressResponse where
     parseJSON = withObject "ReportTaskProgressResponse" $ \o -> ReportTaskProgressResponse
-        <$> o .: "canceled"
+        <$> o .:  "canceled"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -97,10 +98,10 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data BatchWriteItem = BatchWriteItem
-    { _bwiRequestItems                :: Map Text (List1 WriteRequest)
+    { _bwiRequestItems                :: Map "entry" "key" "value" Text (List1 "RequestItems" WriteRequest)
     , _bwiReturnConsumedCapacity      :: Maybe Text
     , _bwiReturnItemCollectionMetrics :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'BatchWriteItem' constructor.
 --
@@ -140,8 +141,7 @@ batchWriteItem = BatchWriteItem
 -- for those attributes must match those of the schema in the table's
 -- attribute definition.
 bwiRequestItems :: Lens' BatchWriteItem (HashMap Text (NonEmpty WriteRequest))
-bwiRequestItems = lens _bwiRequestItems (\s a -> s { _bwiRequestItems = a })
-    . _Map
+bwiRequestItems = lens _bwiRequestItems (\s a -> s { _bwiRequestItems = a }) . _Map
 
 bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe Text)
 bwiReturnConsumedCapacity =
@@ -158,10 +158,10 @@ bwiReturnItemCollectionMetrics =
         (\s a -> s { _bwiReturnItemCollectionMetrics = a })
 
 data BatchWriteItemResponse = BatchWriteItemResponse
-    { _bwirConsumedCapacity      :: [ConsumedCapacity]
-    , _bwirItemCollectionMetrics :: Map Text [ItemCollectionMetrics]
-    , _bwirUnprocessedItems      :: Map Text (List1 WriteRequest)
-    } deriving (Eq, Show, Generic)
+    { _bwirConsumedCapacity      :: List "ConsumedCapacity" ConsumedCapacity
+    , _bwirItemCollectionMetrics :: Map "entry" "key" "value" Text (List "ItemCollectionMetrics" ItemCollectionMetrics)
+    , _bwirUnprocessedItems      :: Map "entry" "key" "value" Text (List1 "RequestItems" WriteRequest)
+    } deriving (Eq, Show)
 
 -- | 'BatchWriteItemResponse' constructor.
 --
@@ -186,6 +186,7 @@ batchWriteItemResponse = BatchWriteItemResponse
 bwirConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
 bwirConsumedCapacity =
     lens _bwirConsumedCapacity (\s a -> s { _bwirConsumedCapacity = a })
+        . _List
 
 -- | A list of tables that were processed by BatchWriteItem and, for each
 -- table, information about any item collections that were affected by
@@ -257,6 +258,6 @@ instance AWSRequest BatchWriteItem where
 
 instance FromJSON BatchWriteItemResponse where
     parseJSON = withObject "BatchWriteItemResponse" $ \o -> BatchWriteItemResponse
-        <$> o .: "ConsumedCapacity"
-        <*> o .: "ItemCollectionMetrics"
-        <*> o .: "UnprocessedItems"
+        <$> o .:  "ConsumedCapacity"
+        <*> o .:  "ItemCollectionMetrics"
+        <*> o .:  "UnprocessedItems"

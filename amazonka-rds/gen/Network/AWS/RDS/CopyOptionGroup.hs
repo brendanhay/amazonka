@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,10 +50,10 @@ import qualified GHC.Exts
 
 data CopyOptionGroup = CopyOptionGroup
     { _cog1SourceOptionGroupIdentifier  :: Text
-    , _cog1Tags                         :: [Tag]
+    , _cog1Tags                         :: List "Tag" Tag
     , _cog1TargetOptionGroupDescription :: Text
     , _cog1TargetOptionGroupIdentifier  :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopyOptionGroup' constructor.
 --
@@ -89,7 +90,7 @@ cog1SourceOptionGroupIdentifier =
         (\s a -> s { _cog1SourceOptionGroupIdentifier = a })
 
 cog1Tags :: Lens' CopyOptionGroup [Tag]
-cog1Tags = lens _cog1Tags (\s a -> s { _cog1Tags = a })
+cog1Tags = lens _cog1Tags (\s a -> s { _cog1Tags = a }) . _List
 
 -- | The description for the copied Option Group.
 cog1TargetOptionGroupDescription :: Lens' CopyOptionGroup Text
@@ -108,7 +109,7 @@ cog1TargetOptionGroupIdentifier =
 
 newtype CopyOptionGroupResponse = CopyOptionGroupResponse
     { _cogrOptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopyOptionGroupResponse' constructor.
 --
@@ -127,7 +128,13 @@ cogrOptionGroup = lens _cogrOptionGroup (\s a -> s { _cogrOptionGroup = a })
 instance ToPath CopyOptionGroup where
     toPath = const "/"
 
-instance ToQuery CopyOptionGroup
+instance ToQuery CopyOptionGroup where
+    toQuery CopyOptionGroup{..} = mconcat
+        [ "SourceOptionGroupIdentifier"  =? _cog1SourceOptionGroupIdentifier
+        , "Tags"                         =? _cog1Tags
+        , "TargetOptionGroupDescription" =? _cog1TargetOptionGroupDescription
+        , "TargetOptionGroupIdentifier"  =? _cog1TargetOptionGroupIdentifier
+        ]
 
 instance ToHeaders CopyOptionGroup
 
@@ -139,5 +146,5 @@ instance AWSRequest CopyOptionGroup where
     response = xmlResponse
 
 instance FromXML CopyOptionGroupResponse where
-    parseXML = withElement "CopyOptionGroupResult" $ \x ->
-            <$> x .@? "OptionGroup"
+    parseXML = withElement "CopyOptionGroupResult" $ \x -> CopyOptionGroupResponse
+        <$> x .@? "OptionGroup"

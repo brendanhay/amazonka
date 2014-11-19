@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 data ListJobs = ListJobs
     { _ljMarker  :: Maybe Text
     , _ljMaxJobs :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListJobs' constructor.
 --
@@ -77,8 +78,8 @@ ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
 
 data ListJobsResponse = ListJobsResponse
     { _ljrIsTruncated :: Maybe Bool
-    , _ljrJobs        :: [Job]
-    } deriving (Eq, Show, Generic)
+    , _ljrJobs        :: List "Jobs" Job
+    } deriving (Eq, Show)
 
 -- | 'ListJobsResponse' constructor.
 --
@@ -98,12 +99,16 @@ ljrIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrIsTruncated = lens _ljrIsTruncated (\s a -> s { _ljrIsTruncated = a })
 
 ljrJobs :: Lens' ListJobsResponse [Job]
-ljrJobs = lens _ljrJobs (\s a -> s { _ljrJobs = a })
+ljrJobs = lens _ljrJobs (\s a -> s { _ljrJobs = a }) . _List
 
 instance ToPath ListJobs where
     toPath = const "/"
 
-instance ToQuery ListJobs
+instance ToQuery ListJobs where
+    toQuery ListJobs{..} = mconcat
+        [ "Marker"  =? _ljMarker
+        , "MaxJobs" =? _ljMaxJobs
+        ]
 
 instance ToHeaders ListJobs
 
@@ -115,9 +120,9 @@ instance AWSRequest ListJobs where
     response = xmlResponse
 
 instance FromXML ListJobsResponse where
-    parseXML = withElement "ListJobsResult" $ \x ->
-            <$> x .@? "IsTruncated"
-            <*> x .@ "Jobs"
+    parseXML = withElement "ListJobsResult" $ \x -> ListJobsResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@  "Jobs"
 
 instance AWSPager ListJobs where
     next rq rs

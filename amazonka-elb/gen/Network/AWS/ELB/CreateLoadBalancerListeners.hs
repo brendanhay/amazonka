@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,9 +49,9 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
-    { _clblListeners        :: [Listener]
+    { _clblListeners        :: List "Listeners" Listener
     , _clblLoadBalancerName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateLoadBalancerListeners' constructor.
 --
@@ -70,7 +71,7 @@ createLoadBalancerListeners p1 = CreateLoadBalancerListeners
 -- | A list of LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
 -- SSLCertificateId items.
 clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
-clblListeners = lens _clblListeners (\s a -> s { _clblListeners = a })
+clblListeners = lens _clblListeners (\s a -> s { _clblListeners = a }) . _List
 
 -- | The name of the load balancer.
 clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
@@ -87,7 +88,11 @@ createLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
 instance ToPath CreateLoadBalancerListeners where
     toPath = const "/"
 
-instance ToQuery CreateLoadBalancerListeners
+instance ToQuery CreateLoadBalancerListeners where
+    toQuery CreateLoadBalancerListeners{..} = mconcat
+        [ "Listeners"        =? _clblListeners
+        , "LoadBalancerName" =? _clblLoadBalancerName
+        ]
 
 instance ToHeaders CreateLoadBalancerListeners
 

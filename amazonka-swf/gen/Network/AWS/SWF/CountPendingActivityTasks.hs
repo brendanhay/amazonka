@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ import qualified GHC.Exts
 data CountPendingActivityTasks = CountPendingActivityTasks
     { _cpatDomain   :: Text
     , _cpatTaskList :: TaskList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CountPendingActivityTasks' constructor.
 --
@@ -90,7 +91,7 @@ cpatTaskList = lens _cpatTaskList (\s a -> s { _cpatTaskList = a })
 data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
     { _cpatrCount     :: Nat
     , _cpatrTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CountPendingActivityTasksResponse' constructor.
 --
@@ -109,8 +110,7 @@ countPendingActivityTasksResponse p1 = CountPendingActivityTasksResponse
 
 -- | The number of tasks in the task list.
 cpatrCount :: Lens' CountPendingActivityTasksResponse Natural
-cpatrCount = lens _cpatrCount (\s a -> s { _cpatrCount = a })
-    . _Nat
+cpatrCount = lens _cpatrCount (\s a -> s { _cpatrCount = a }) . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
@@ -140,5 +140,5 @@ instance AWSRequest CountPendingActivityTasks where
 
 instance FromJSON CountPendingActivityTasksResponse where
     parseJSON = withObject "CountPendingActivityTasksResponse" $ \o -> CountPendingActivityTasksResponse
-        <$> o .: "count"
+        <$> o .:  "count"
         <*> o .:? "truncated"

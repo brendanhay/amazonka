@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -72,8 +73,8 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
     , _cdbirrPubliclyAccessible         :: Maybe Bool
     , _cdbirrSourceDBInstanceIdentifier :: Text
     , _cdbirrStorageType                :: Maybe Text
-    , _cdbirrTags                       :: [Tag]
-    } deriving (Eq, Show, Generic)
+    , _cdbirrTags                       :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateDBInstanceReadReplica' constructor.
 --
@@ -225,11 +226,11 @@ cdbirrStorageType =
     lens _cdbirrStorageType (\s a -> s { _cdbirrStorageType = a })
 
 cdbirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
-cdbirrTags = lens _cdbirrTags (\s a -> s { _cdbirrTags = a })
+cdbirrTags = lens _cdbirrTags (\s a -> s { _cdbirrTags = a }) . _List
 
 newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDBInstanceReadReplicaResponse' constructor.
 --
@@ -249,7 +250,21 @@ cdbirrrDBInstance =
 instance ToPath CreateDBInstanceReadReplica where
     toPath = const "/"
 
-instance ToQuery CreateDBInstanceReadReplica
+instance ToQuery CreateDBInstanceReadReplica where
+    toQuery CreateDBInstanceReadReplica{..} = mconcat
+        [ "AutoMinorVersionUpgrade"    =? _cdbirrAutoMinorVersionUpgrade
+        , "AvailabilityZone"           =? _cdbirrAvailabilityZone
+        , "DBInstanceClass"            =? _cdbirrDBInstanceClass
+        , "DBInstanceIdentifier"       =? _cdbirrDBInstanceIdentifier
+        , "DBSubnetGroupName"          =? _cdbirrDBSubnetGroupName
+        , "Iops"                       =? _cdbirrIops
+        , "OptionGroupName"            =? _cdbirrOptionGroupName
+        , "Port"                       =? _cdbirrPort
+        , "PubliclyAccessible"         =? _cdbirrPubliclyAccessible
+        , "SourceDBInstanceIdentifier" =? _cdbirrSourceDBInstanceIdentifier
+        , "StorageType"                =? _cdbirrStorageType
+        , "Tags"                       =? _cdbirrTags
+        ]
 
 instance ToHeaders CreateDBInstanceReadReplica
 
@@ -261,5 +276,5 @@ instance AWSRequest CreateDBInstanceReadReplica where
     response = xmlResponse
 
 instance FromXML CreateDBInstanceReadReplicaResponse where
-    parseXML = withElement "CreateDBInstanceReadReplicaResult" $ \x ->
-            <$> x .@? "DBInstance"
+    parseXML = withElement "CreateDBInstanceReadReplicaResult" $ \x -> CreateDBInstanceReadReplicaResponse
+        <$> x .@? "DBInstance"

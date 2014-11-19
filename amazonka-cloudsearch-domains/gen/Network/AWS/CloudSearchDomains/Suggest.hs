@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ data Suggest = Suggest
     { _sQuery     :: Text
     , _sSize      :: Maybe Integer
     , _sSuggester :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Suggest' constructor.
 --
@@ -100,7 +101,7 @@ sSuggester = lens _sSuggester (\s a -> s { _sSuggester = a })
 data SuggestResponse = SuggestResponse
     { _srStatus  :: Maybe SuggestStatus
     , _srSuggest :: Maybe SuggestModel
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SuggestResponse' constructor.
 --
@@ -128,7 +129,12 @@ srSuggest = lens _srSuggest (\s a -> s { _srSuggest = a })
 instance ToPath Suggest where
     toPath = const "/2013-01-01/suggest"
 
-instance ToQuery Suggest
+instance ToQuery Suggest where
+    toQuery Suggest{..} = mconcat
+        [ "q"         =? _sQuery
+        , "size"      =? _sSize
+        , "suggester" =? _sSuggester
+        ]
 
 instance ToHeaders Suggest
 

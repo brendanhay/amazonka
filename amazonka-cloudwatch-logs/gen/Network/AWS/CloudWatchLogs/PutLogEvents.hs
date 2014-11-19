@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,11 +59,11 @@ import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
 data PutLogEvents = PutLogEvents
-    { _pleLogEvents     :: List1 InputLogEvent
+    { _pleLogEvents     :: List1 "logEvents" InputLogEvent
     , _pleLogGroupName  :: Text
     , _pleLogStreamName :: Text
     , _pleSequenceToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PutLogEvents' constructor.
 --
@@ -83,12 +84,12 @@ putLogEvents :: Text -- ^ 'pleLogGroupName'
 putLogEvents p1 p2 p3 = PutLogEvents
     { _pleLogGroupName  = p1
     , _pleLogStreamName = p2
-    , _pleLogEvents     = p3
+    , _pleLogEvents     = withIso _List1 (const id) p3
     , _pleSequenceToken = Nothing
     }
 
 pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
-pleLogEvents = lens _pleLogEvents (\s a -> s { _pleLogEvents = a })
+pleLogEvents = lens _pleLogEvents (\s a -> s { _pleLogEvents = a }) . _List1
 
 pleLogGroupName :: Lens' PutLogEvents Text
 pleLogGroupName = lens _pleLogGroupName (\s a -> s { _pleLogGroupName = a })
@@ -103,7 +104,7 @@ pleSequenceToken = lens _pleSequenceToken (\s a -> s { _pleSequenceToken = a })
 
 newtype PutLogEventsResponse = PutLogEventsResponse
     { _plerNextSequenceToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'PutLogEventsResponse' constructor.
 --

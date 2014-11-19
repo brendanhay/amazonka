@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data CopySnapshot = CopySnapshot
     { _csSourceSnapshotName :: Text
     , _csTargetSnapshotName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CopySnapshot' constructor.
 --
@@ -78,7 +79,7 @@ csTargetSnapshotName =
 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopySnapshotResponse' constructor.
 --
@@ -97,7 +98,11 @@ csrSnapshot = lens _csrSnapshot (\s a -> s { _csrSnapshot = a })
 instance ToPath CopySnapshot where
     toPath = const "/"
 
-instance ToQuery CopySnapshot
+instance ToQuery CopySnapshot where
+    toQuery CopySnapshot{..} = mconcat
+        [ "SourceSnapshotName" =? _csSourceSnapshotName
+        , "TargetSnapshotName" =? _csTargetSnapshotName
+        ]
 
 instance ToHeaders CopySnapshot
 
@@ -109,5 +114,5 @@ instance AWSRequest CopySnapshot where
     response = xmlResponse
 
 instance FromXML CopySnapshotResponse where
-    parseXML = withElement "CopySnapshotResult" $ \x ->
-            <$> x .@? "Snapshot"
+    parseXML = withElement "CopySnapshotResult" $ \x -> CopySnapshotResponse
+        <$> x .@? "Snapshot"

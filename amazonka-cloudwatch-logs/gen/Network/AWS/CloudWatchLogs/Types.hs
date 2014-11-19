@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -112,8 +113,8 @@ data MetricFilter = MetricFilter
     { _mfCreationTime          :: Maybe Nat
     , _mfFilterName            :: Maybe Text
     , _mfFilterPattern         :: Maybe Text
-    , _mfMetricTransformations :: List1 MetricTransformation
-    } deriving (Eq, Show, Generic)
+    , _mfMetricTransformations :: List1 "metricTransformations" MetricTransformation
+    } deriving (Eq, Show)
 
 -- | 'MetricFilter' constructor.
 --
@@ -130,15 +131,14 @@ data MetricFilter = MetricFilter
 metricFilter :: NonEmpty MetricTransformation -- ^ 'mfMetricTransformations'
              -> MetricFilter
 metricFilter p1 = MetricFilter
-    { _mfMetricTransformations = p1
+    { _mfMetricTransformations = withIso _List1 (const id) p1
     , _mfFilterName            = Nothing
     , _mfFilterPattern         = Nothing
     , _mfCreationTime          = Nothing
     }
 
 mfCreationTime :: Lens' MetricFilter (Maybe Natural)
-mfCreationTime = lens _mfCreationTime (\s a -> s { _mfCreationTime = a })
-    . mapping _Nat
+mfCreationTime = lens _mfCreationTime (\s a -> s { _mfCreationTime = a }) . mapping _Nat
 
 mfFilterName :: Lens' MetricFilter (Maybe Text)
 mfFilterName = lens _mfFilterName (\s a -> s { _mfFilterName = a })
@@ -149,13 +149,14 @@ mfFilterPattern = lens _mfFilterPattern (\s a -> s { _mfFilterPattern = a })
 mfMetricTransformations :: Lens' MetricFilter (NonEmpty MetricTransformation)
 mfMetricTransformations =
     lens _mfMetricTransformations (\s a -> s { _mfMetricTransformations = a })
+        . _List1
 
 instance FromJSON MetricFilter where
     parseJSON = withObject "MetricFilter" $ \o -> MetricFilter
         <$> o .:? "creationTime"
         <*> o .:? "filterName"
         <*> o .:? "filterPattern"
-        <*> o .: "metricTransformations"
+        <*> o .:  "metricTransformations"
 
 instance ToJSON MetricFilter where
     toJSON MetricFilter{..} = object
@@ -168,8 +169,8 @@ instance ToJSON MetricFilter where
 data MetricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventMessage    :: Maybe Text
     , _mfmrEventNumber     :: Maybe Integer
-    , _mfmrExtractedValues :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    , _mfmrExtractedValues :: Map "entry" "key" "value" Text Text
+    } deriving (Eq, Show)
 
 -- | 'MetricFilterMatchRecord' constructor.
 --
@@ -203,7 +204,7 @@ instance FromJSON MetricFilterMatchRecord where
     parseJSON = withObject "MetricFilterMatchRecord" $ \o -> MetricFilterMatchRecord
         <$> o .:? "eventMessage"
         <*> o .:? "eventNumber"
-        <*> o .: "extractedValues"
+        <*> o .:  "extractedValues"
 
 instance ToJSON MetricFilterMatchRecord where
     toJSON MetricFilterMatchRecord{..} = object
@@ -216,7 +217,7 @@ data MetricTransformation = MetricTransformation
     { _mtMetricName      :: Text
     , _mtMetricNamespace :: Text
     , _mtMetricValue     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'MetricTransformation' constructor.
 --
@@ -250,9 +251,9 @@ mtMetricValue = lens _mtMetricValue (\s a -> s { _mtMetricValue = a })
 
 instance FromJSON MetricTransformation where
     parseJSON = withObject "MetricTransformation" $ \o -> MetricTransformation
-        <$> o .: "metricName"
-        <*> o .: "metricNamespace"
-        <*> o .: "metricValue"
+        <$> o .:  "metricName"
+        <*> o .:  "metricNamespace"
+        <*> o .:  "metricValue"
 
 instance ToJSON MetricTransformation where
     toJSON MetricTransformation{..} = object
@@ -270,7 +271,7 @@ data LogStream = LogStream
     , _lsLogStreamName       :: Maybe Text
     , _lsStoredBytes         :: Maybe Nat
     , _lsUploadSequenceToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LogStream' constructor.
 --
@@ -308,8 +309,7 @@ lsArn :: Lens' LogStream (Maybe Text)
 lsArn = lens _lsArn (\s a -> s { _lsArn = a })
 
 lsCreationTime :: Lens' LogStream (Maybe Natural)
-lsCreationTime = lens _lsCreationTime (\s a -> s { _lsCreationTime = a })
-    . mapping _Nat
+lsCreationTime = lens _lsCreationTime (\s a -> s { _lsCreationTime = a }) . mapping _Nat
 
 lsFirstEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsFirstEventTimestamp =
@@ -330,8 +330,7 @@ lsLogStreamName :: Lens' LogStream (Maybe Text)
 lsLogStreamName = lens _lsLogStreamName (\s a -> s { _lsLogStreamName = a })
 
 lsStoredBytes :: Lens' LogStream (Maybe Natural)
-lsStoredBytes = lens _lsStoredBytes (\s a -> s { _lsStoredBytes = a })
-    . mapping _Nat
+lsStoredBytes = lens _lsStoredBytes (\s a -> s { _lsStoredBytes = a }) . mapping _Nat
 
 lsUploadSequenceToken :: Lens' LogStream (Maybe Text)
 lsUploadSequenceToken =
@@ -367,7 +366,7 @@ data LogGroup = LogGroup
     , _lgMetricFilterCount :: Maybe Int
     , _lgRetentionInDays   :: Maybe Int
     , _lgStoredBytes       :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LogGroup' constructor.
 --
@@ -399,8 +398,7 @@ lgArn :: Lens' LogGroup (Maybe Text)
 lgArn = lens _lgArn (\s a -> s { _lgArn = a })
 
 lgCreationTime :: Lens' LogGroup (Maybe Natural)
-lgCreationTime = lens _lgCreationTime (\s a -> s { _lgCreationTime = a })
-    . mapping _Nat
+lgCreationTime = lens _lgCreationTime (\s a -> s { _lgCreationTime = a }) . mapping _Nat
 
 lgLogGroupName :: Lens' LogGroup (Maybe Text)
 lgLogGroupName = lens _lgLogGroupName (\s a -> s { _lgLogGroupName = a })
@@ -414,8 +412,7 @@ lgRetentionInDays =
     lens _lgRetentionInDays (\s a -> s { _lgRetentionInDays = a })
 
 lgStoredBytes :: Lens' LogGroup (Maybe Natural)
-lgStoredBytes = lens _lgStoredBytes (\s a -> s { _lgStoredBytes = a })
-    . mapping _Nat
+lgStoredBytes = lens _lgStoredBytes (\s a -> s { _lgStoredBytes = a }) . mapping _Nat
 
 instance FromJSON LogGroup where
     parseJSON = withObject "LogGroup" $ \o -> LogGroup
@@ -439,7 +436,7 @@ instance ToJSON LogGroup where
 data InputLogEvent = InputLogEvent
     { _ileMessage   :: Text
     , _ileTimestamp :: Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'InputLogEvent' constructor.
 --
@@ -461,13 +458,12 @@ ileMessage :: Lens' InputLogEvent Text
 ileMessage = lens _ileMessage (\s a -> s { _ileMessage = a })
 
 ileTimestamp :: Lens' InputLogEvent Natural
-ileTimestamp = lens _ileTimestamp (\s a -> s { _ileTimestamp = a })
-    . _Nat
+ileTimestamp = lens _ileTimestamp (\s a -> s { _ileTimestamp = a }) . _Nat
 
 instance FromJSON InputLogEvent where
     parseJSON = withObject "InputLogEvent" $ \o -> InputLogEvent
-        <$> o .: "message"
-        <*> o .: "timestamp"
+        <$> o .:  "message"
+        <*> o .:  "timestamp"
 
 instance ToJSON InputLogEvent where
     toJSON InputLogEvent{..} = object
@@ -479,7 +475,7 @@ data OutputLogEvent = OutputLogEvent
     { _oleIngestionTime :: Maybe Nat
     , _oleMessage       :: Maybe Text
     , _oleTimestamp     :: Maybe Nat
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'OutputLogEvent' constructor.
 --
@@ -499,15 +495,13 @@ outputLogEvent = OutputLogEvent
     }
 
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
-oleIngestionTime = lens _oleIngestionTime (\s a -> s { _oleIngestionTime = a })
-    . mapping _Nat
+oleIngestionTime = lens _oleIngestionTime (\s a -> s { _oleIngestionTime = a }) . mapping _Nat
 
 oleMessage :: Lens' OutputLogEvent (Maybe Text)
 oleMessage = lens _oleMessage (\s a -> s { _oleMessage = a })
 
 oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
-oleTimestamp = lens _oleTimestamp (\s a -> s { _oleTimestamp = a })
-    . mapping _Nat
+oleTimestamp = lens _oleTimestamp (\s a -> s { _oleTimestamp = a }) . mapping _Nat
 
 instance FromJSON OutputLogEvent where
     parseJSON = withObject "OutputLogEvent" $ \o -> OutputLogEvent

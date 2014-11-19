@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,10 +52,10 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeCommands = DescribeCommands
-    { _dcCommandIds   :: [Text]
+    { _dcCommandIds   :: List "InstanceIds" Text
     , _dcDeploymentId :: Maybe Text
     , _dcInstanceId   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeCommands' constructor.
 --
@@ -77,7 +78,7 @@ describeCommands = DescribeCommands
 -- returns a description of the specified commands. Otherwise, it returns a
 -- description of every command.
 dcCommandIds :: Lens' DescribeCommands [Text]
-dcCommandIds = lens _dcCommandIds (\s a -> s { _dcCommandIds = a })
+dcCommandIds = lens _dcCommandIds (\s a -> s { _dcCommandIds = a }) . _List
 
 -- | The deployment ID. If you include this parameter, DescribeCommands
 -- returns a description of the commands associated with the specified
@@ -91,8 +92,8 @@ dcInstanceId :: Lens' DescribeCommands (Maybe Text)
 dcInstanceId = lens _dcInstanceId (\s a -> s { _dcInstanceId = a })
 
 newtype DescribeCommandsResponse = DescribeCommandsResponse
-    { _dcrCommands :: [Command]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dcrCommands :: List "Commands" Command
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeCommandsResponse where
     type Item DescribeCommandsResponse = Command
@@ -113,7 +114,7 @@ describeCommandsResponse = DescribeCommandsResponse
 
 -- | An array of Command objects that describe each of the specified commands.
 dcrCommands :: Lens' DescribeCommandsResponse [Command]
-dcrCommands = lens _dcrCommands (\s a -> s { _dcrCommands = a })
+dcrCommands = lens _dcrCommands (\s a -> s { _dcrCommands = a }) . _List
 
 instance ToPath DescribeCommands where
     toPath = const "/"
@@ -139,4 +140,4 @@ instance AWSRequest DescribeCommands where
 
 instance FromJSON DescribeCommandsResponse where
     parseJSON = withObject "DescribeCommandsResponse" $ \o -> DescribeCommandsResponse
-        <$> o .: "Commands"
+        <$> o .:  "Commands"

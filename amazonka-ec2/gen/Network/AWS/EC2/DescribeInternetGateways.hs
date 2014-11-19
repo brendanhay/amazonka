@@ -51,7 +51,7 @@ data DescribeInternetGateways = DescribeInternetGateways
     { _dig1DryRun             :: Maybe Bool
     , _dig1Filters            :: List "Filter" Filter
     , _dig1InternetGatewayIds :: List "item" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeInternetGateways' constructor.
 --
@@ -87,8 +87,7 @@ dig1DryRun = lens _dig1DryRun (\s a -> s { _dig1DryRun = a })
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter.
 dig1Filters :: Lens' DescribeInternetGateways [Filter]
-dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a })
-    . _List
+dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a }) . _List
 
 -- | One or more Internet gateway IDs. Default: Describes all your Internet
 -- gateways.
@@ -99,7 +98,7 @@ dig1InternetGatewayIds =
 
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: List "item" InternetGateway
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeInternetGatewaysResponse where
     type Item DescribeInternetGatewaysResponse = InternetGateway
@@ -127,7 +126,12 @@ digrInternetGateways =
 instance ToPath DescribeInternetGateways where
     toPath = const "/"
 
-instance ToQuery DescribeInternetGateways
+instance ToQuery DescribeInternetGateways where
+    toQuery DescribeInternetGateways{..} = mconcat
+        [ "dryRun"            =? _dig1DryRun
+        , "Filter"            =? _dig1Filters
+        , "internetGatewayId" =? _dig1InternetGatewayIds
+        ]
 
 instance ToHeaders DescribeInternetGateways
 
@@ -140,4 +144,4 @@ instance AWSRequest DescribeInternetGateways where
 
 instance FromXML DescribeInternetGatewaysResponse where
     parseXML x = DescribeInternetGatewaysResponse
-        <$> x .@ "internetGatewaySet"
+        <$> x .@  "internetGatewaySet"

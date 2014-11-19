@@ -113,7 +113,7 @@ data RunInstances = RunInstances
     , _riSecurityGroups                    :: List "SecurityGroup" Text
     , _riSubnetId                          :: Maybe Text
     , _riUserData                          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RunInstances' constructor.
 --
@@ -329,8 +329,7 @@ riSecurityGroupIds =
 -- nondefault VPC, you must use security group IDs instead. Default: Amazon
 -- EC2 uses the default security group.
 riSecurityGroups :: Lens' RunInstances [Text]
-riSecurityGroups = lens _riSecurityGroups (\s a -> s { _riSecurityGroups = a })
-    . _List
+riSecurityGroups = lens _riSecurityGroups (\s a -> s { _riSecurityGroups = a }) . _List
 
 -- | [EC2-VPC] The ID of the subnet to launch the instance into.
 riSubnetId :: Lens' RunInstances (Maybe Text)
@@ -346,7 +345,7 @@ data RunInstancesResponse = RunInstancesResponse
     , _rirOwnerId       :: Maybe Text
     , _rirRequesterId   :: Maybe Text
     , _rirReservationId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RunInstancesResponse' constructor.
 --
@@ -373,13 +372,11 @@ runInstancesResponse = RunInstancesResponse
 
 -- | One or more security groups.
 rirGroups :: Lens' RunInstancesResponse [GroupIdentifier]
-rirGroups = lens _rirGroups (\s a -> s { _rirGroups = a })
-    . _List
+rirGroups = lens _rirGroups (\s a -> s { _rirGroups = a }) . _List
 
 -- | One or more instances.
 rirInstances :: Lens' RunInstancesResponse [Instance]
-rirInstances = lens _rirInstances (\s a -> s { _rirInstances = a })
-    . _List
+rirInstances = lens _rirInstances (\s a -> s { _rirInstances = a }) . _List
 
 -- | The ID of the AWS account that owns the reservation.
 rirOwnerId :: Lens' RunInstancesResponse (Maybe Text)
@@ -397,7 +394,32 @@ rirReservationId = lens _rirReservationId (\s a -> s { _rirReservationId = a })
 instance ToPath RunInstances where
     toPath = const "/"
 
-instance ToQuery RunInstances
+instance ToQuery RunInstances where
+    toQuery RunInstances{..} = mconcat
+        [ "additionalInfo"                    =? _riAdditionalInfo
+        , "BlockDeviceMapping"                =? _riBlockDeviceMappings
+        , "clientToken"                       =? _riClientToken
+        , "disableApiTermination"             =? _riDisableApiTermination
+        , "dryRun"                            =? _riDryRun
+        , "ebsOptimized"                      =? _riEbsOptimized
+        , "iamInstanceProfile"                =? _riIamInstanceProfile
+        , "ImageId"                           =? _riImageId
+        , "instanceInitiatedShutdownBehavior" =? _riInstanceInitiatedShutdownBehavior
+        , "InstanceType"                      =? _riInstanceType
+        , "KernelId"                          =? _riKernelId
+        , "KeyName"                           =? _riKeyName
+        , "MaxCount"                          =? _riMaxCount
+        , "MinCount"                          =? _riMinCount
+        , "Monitoring"                        =? _riMonitoring
+        , "networkInterface"                  =? _riNetworkInterfaces
+        , "Placement"                         =? _riPlacement
+        , "privateIpAddress"                  =? _riPrivateIpAddress
+        , "RamdiskId"                         =? _riRamdiskId
+        , "SecurityGroupId"                   =? _riSecurityGroupIds
+        , "SecurityGroup"                     =? _riSecurityGroups
+        , "SubnetId"                          =? _riSubnetId
+        , "UserData"                          =? _riUserData
+        ]
 
 instance ToHeaders RunInstances
 
@@ -410,8 +432,8 @@ instance AWSRequest RunInstances where
 
 instance FromXML RunInstancesResponse where
     parseXML x = RunInstancesResponse
-        <$> x .@ "groupSet"
-        <*> x .@ "instancesSet"
+        <$> x .@  "groupSet"
+        <*> x .@  "instancesSet"
         <*> x .@? "ownerId"
         <*> x .@? "requesterId"
         <*> x .@? "reservationId"

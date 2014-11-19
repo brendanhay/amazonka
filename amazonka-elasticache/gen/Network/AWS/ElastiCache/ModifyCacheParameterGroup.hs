@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import qualified GHC.Exts
 
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName :: Text
-    , _mcpgParameterNameValues     :: [ParameterNameValue]
-    } deriving (Eq, Show, Generic)
+    , _mcpgParameterNameValues     :: List "ParameterNameValue" ParameterNameValue
+    } deriving (Eq, Show)
 
 -- | 'ModifyCacheParameterGroup' constructor.
 --
@@ -79,10 +80,11 @@ mcpgCacheParameterGroupName =
 mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
 mcpgParameterNameValues =
     lens _mcpgParameterNameValues (\s a -> s { _mcpgParameterNameValues = a })
+        . _List
 
 newtype ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
     { _mcpgrCacheParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ModifyCacheParameterGroupResponse' constructor.
 --
@@ -104,7 +106,11 @@ mcpgrCacheParameterGroupName =
 instance ToPath ModifyCacheParameterGroup where
     toPath = const "/"
 
-instance ToQuery ModifyCacheParameterGroup
+instance ToQuery ModifyCacheParameterGroup where
+    toQuery ModifyCacheParameterGroup{..} = mconcat
+        [ "CacheParameterGroupName" =? _mcpgCacheParameterGroupName
+        , "ParameterNameValues"     =? _mcpgParameterNameValues
+        ]
 
 instance ToHeaders ModifyCacheParameterGroup
 
@@ -116,5 +122,5 @@ instance AWSRequest ModifyCacheParameterGroup where
     response = xmlResponse
 
 instance FromXML ModifyCacheParameterGroupResponse where
-    parseXML = withElement "ModifyCacheParameterGroupResult" $ \x ->
-            <$> x .@? "CacheParameterGroupName"
+    parseXML = withElement "ModifyCacheParameterGroupResult" $ \x -> ModifyCacheParameterGroupResponse
+        <$> x .@? "CacheParameterGroupName"

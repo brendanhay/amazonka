@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -66,9 +67,9 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
-    { _riwlbInstances        :: [Instance]
+    { _riwlbInstances        :: List "Instances" Instance
     , _riwlbLoadBalancerName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RegisterInstancesWithLoadBalancer' constructor.
 --
@@ -87,7 +88,7 @@ registerInstancesWithLoadBalancer p1 = RegisterInstancesWithLoadBalancer
 
 -- | A list of instance IDs that should be registered with the load balancer.
 riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
-riwlbInstances = lens _riwlbInstances (\s a -> s { _riwlbInstances = a })
+riwlbInstances = lens _riwlbInstances (\s a -> s { _riwlbInstances = a }) . _List
 
 -- | The name associated with the load balancer. The name must be unique
 -- within your set of load balancers.
@@ -96,8 +97,8 @@ riwlbLoadBalancerName =
     lens _riwlbLoadBalancerName (\s a -> s { _riwlbLoadBalancerName = a })
 
 newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
-    { _riwlbrInstances :: [Instance]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _riwlbrInstances :: List "Instances" Instance
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList RegisterInstancesWithLoadBalancerResponse where
     type Item RegisterInstancesWithLoadBalancerResponse = Instance
@@ -118,12 +119,16 @@ registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerRes
 
 -- | An updated list of instances for the load balancer.
 riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
-riwlbrInstances = lens _riwlbrInstances (\s a -> s { _riwlbrInstances = a })
+riwlbrInstances = lens _riwlbrInstances (\s a -> s { _riwlbrInstances = a }) . _List
 
 instance ToPath RegisterInstancesWithLoadBalancer where
     toPath = const "/"
 
-instance ToQuery RegisterInstancesWithLoadBalancer
+instance ToQuery RegisterInstancesWithLoadBalancer where
+    toQuery RegisterInstancesWithLoadBalancer{..} = mconcat
+        [ "Instances"        =? _riwlbInstances
+        , "LoadBalancerName" =? _riwlbLoadBalancerName
+        ]
 
 instance ToHeaders RegisterInstancesWithLoadBalancer
 
@@ -135,5 +140,5 @@ instance AWSRequest RegisterInstancesWithLoadBalancer where
     response = xmlResponse
 
 instance FromXML RegisterInstancesWithLoadBalancerResponse where
-    parseXML = withElement "RegisterInstancesWithLoadBalancerResult" $ \x ->
-            <$> x .@ "Instances"
+    parseXML = withElement "RegisterInstancesWithLoadBalancerResult" $ \x -> RegisterInstancesWithLoadBalancerResponse
+        <$> x .@  "Instances"

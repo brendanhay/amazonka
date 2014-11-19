@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,9 +63,9 @@ import Network.AWS.CloudFormation.Types
 import qualified GHC.Exts
 
 data UpdateStack = UpdateStack
-    { _usCapabilities                :: [Text]
-    , _usNotificationARNs            :: [Text]
-    , _usParameters                  :: [Parameter]
+    { _usCapabilities                :: List "Capabilities" Text
+    , _usNotificationARNs            :: List "NotificationARNs" Text
+    , _usParameters                  :: List "Parameters" Parameter
     , _usStackName                   :: Text
     , _usStackPolicyBody             :: Maybe Text
     , _usStackPolicyDuringUpdateBody :: Maybe Text
@@ -73,7 +74,7 @@ data UpdateStack = UpdateStack
     , _usTemplateBody                :: Maybe Text
     , _usTemplateURL                 :: Maybe Text
     , _usUsePreviousTemplate         :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateStack' constructor.
 --
@@ -130,18 +131,19 @@ updateStack p1 = UpdateStack
 -- them. If you don't specify this parameter, this action returns an
 -- InsufficientCapabilities error.
 usCapabilities :: Lens' UpdateStack [Text]
-usCapabilities = lens _usCapabilities (\s a -> s { _usCapabilities = a })
+usCapabilities = lens _usCapabilities (\s a -> s { _usCapabilities = a }) . _List
 
 -- | Update the ARNs for the Amazon SNS topics that are associated with the
 -- stack.
 usNotificationARNs :: Lens' UpdateStack [Text]
 usNotificationARNs =
     lens _usNotificationARNs (\s a -> s { _usNotificationARNs = a })
+        . _List
 
 -- | A list of Parameter structures that specify input parameters for the
 -- stack.
 usParameters :: Lens' UpdateStack [Parameter]
-usParameters = lens _usParameters (\s a -> s { _usParameters = a })
+usParameters = lens _usParameters (\s a -> s { _usParameters = a }) . _List
 
 -- | The name or stack ID of the stack to update. Must contain only
 -- alphanumeric characters (case sensitive) and start with an alpha
@@ -217,7 +219,7 @@ usUsePreviousTemplate =
 
 newtype UpdateStackResponse = UpdateStackResponse
     { _usrStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'UpdateStackResponse' constructor.
 --
@@ -237,7 +239,20 @@ usrStackId = lens _usrStackId (\s a -> s { _usrStackId = a })
 instance ToPath UpdateStack where
     toPath = const "/"
 
-instance ToQuery UpdateStack
+instance ToQuery UpdateStack where
+    toQuery UpdateStack{..} = mconcat
+        [ "Capabilities"                =? _usCapabilities
+        , "NotificationARNs"            =? _usNotificationARNs
+        , "Parameters"                  =? _usParameters
+        , "StackName"                   =? _usStackName
+        , "StackPolicyBody"             =? _usStackPolicyBody
+        , "StackPolicyDuringUpdateBody" =? _usStackPolicyDuringUpdateBody
+        , "StackPolicyDuringUpdateURL"  =? _usStackPolicyDuringUpdateURL
+        , "StackPolicyURL"              =? _usStackPolicyURL
+        , "TemplateBody"                =? _usTemplateBody
+        , "TemplateURL"                 =? _usTemplateURL
+        , "UsePreviousTemplate"         =? _usUsePreviousTemplate
+        ]
 
 instance ToHeaders UpdateStack
 
@@ -249,5 +264,5 @@ instance AWSRequest UpdateStack where
     response = xmlResponse
 
 instance FromXML UpdateStackResponse where
-    parseXML = withElement "UpdateStackResult" $ \x ->
-            <$> x .@? "StackId"
+    parseXML = withElement "UpdateStackResult" $ \x -> UpdateStackResponse
+        <$> x .@? "StackId"

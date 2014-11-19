@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ data CompleteLifecycleAction = CompleteLifecycleAction
     , _claLifecycleActionResult :: Text
     , _claLifecycleActionToken  :: Text
     , _claLifecycleHookName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CompleteLifecycleAction' constructor.
 --
@@ -121,7 +122,13 @@ completeLifecycleActionResponse = CompleteLifecycleActionResponse
 instance ToPath CompleteLifecycleAction where
     toPath = const "/"
 
-instance ToQuery CompleteLifecycleAction
+instance ToQuery CompleteLifecycleAction where
+    toQuery CompleteLifecycleAction{..} = mconcat
+        [ "AutoScalingGroupName"  =? _claAutoScalingGroupName
+        , "LifecycleActionResult" =? _claLifecycleActionResult
+        , "LifecycleActionToken"  =? _claLifecycleActionToken
+        , "LifecycleHookName"     =? _claLifecycleHookName
+        ]
 
 instance ToHeaders CompleteLifecycleAction
 

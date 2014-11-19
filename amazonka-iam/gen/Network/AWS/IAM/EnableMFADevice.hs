@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ data EnableMFADevice = EnableMFADevice
     , _emfadAuthenticationCode2 :: Text
     , _emfadSerialNumber        :: Text
     , _emfadUserName            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnableMFADevice' constructor.
 --
@@ -110,7 +111,13 @@ enableMFADeviceResponse = EnableMFADeviceResponse
 instance ToPath EnableMFADevice where
     toPath = const "/"
 
-instance ToQuery EnableMFADevice
+instance ToQuery EnableMFADevice where
+    toQuery EnableMFADevice{..} = mconcat
+        [ "AuthenticationCode1" =? _emfadAuthenticationCode1
+        , "AuthenticationCode2" =? _emfadAuthenticationCode2
+        , "SerialNumber"        =? _emfadSerialNumber
+        , "UserName"            =? _emfadUserName
+        ]
 
 instance ToHeaders EnableMFADevice
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import Network.AWS.Config.Types
 import qualified GHC.Exts
 
 newtype DescribeDeliveryChannels = DescribeDeliveryChannels
-    { _ddcDeliveryChannelNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _ddcDeliveryChannelNames :: List "DeliveryChannelNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDeliveryChannels where
     type Item DescribeDeliveryChannels = Text
@@ -71,10 +72,11 @@ describeDeliveryChannels = DescribeDeliveryChannels
 ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
 ddcDeliveryChannelNames =
     lens _ddcDeliveryChannelNames (\s a -> s { _ddcDeliveryChannelNames = a })
+        . _List
 
 newtype DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse
-    { _ddcrDeliveryChannels :: [DeliveryChannel]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _ddcrDeliveryChannels :: List "DeliveryChannels" DeliveryChannel
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDeliveryChannelsResponse where
     type Item DescribeDeliveryChannelsResponse = DeliveryChannel
@@ -97,6 +99,7 @@ describeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse
 ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
 ddcrDeliveryChannels =
     lens _ddcrDeliveryChannels (\s a -> s { _ddcrDeliveryChannels = a })
+        . _List
 
 instance ToPath DescribeDeliveryChannels where
     toPath = const "/"
@@ -120,4 +123,4 @@ instance AWSRequest DescribeDeliveryChannels where
 
 instance FromJSON DescribeDeliveryChannelsResponse where
     parseJSON = withObject "DescribeDeliveryChannelsResponse" $ \o -> DescribeDeliveryChannelsResponse
-        <$> o .: "DeliveryChannels"
+        <$> o .:  "DeliveryChannels"

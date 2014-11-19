@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,8 +54,8 @@ listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
 listVerifiedEmailAddresses = ListVerifiedEmailAddresses
 
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
-    { _lvearVerifiedEmailAddresses :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _lvearVerifiedEmailAddresses :: List "ToAddresses" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListVerifiedEmailAddressesResponse where
     type Item ListVerifiedEmailAddressesResponse = Text
@@ -78,6 +79,7 @@ lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearVerifiedEmailAddresses =
     lens _lvearVerifiedEmailAddresses
         (\s a -> s { _lvearVerifiedEmailAddresses = a })
+            . _List
 
 instance ToPath ListVerifiedEmailAddresses where
     toPath = const "/"
@@ -95,5 +97,5 @@ instance AWSRequest ListVerifiedEmailAddresses where
     response = xmlResponse
 
 instance FromXML ListVerifiedEmailAddressesResponse where
-    parseXML = withElement "ListVerifiedEmailAddressesResult" $ \x ->
-            <$> x .@ "VerifiedEmailAddresses"
+    parseXML = withElement "ListVerifiedEmailAddressesResult" $ \x -> ListVerifiedEmailAddressesResponse
+        <$> x .@  "VerifiedEmailAddresses"

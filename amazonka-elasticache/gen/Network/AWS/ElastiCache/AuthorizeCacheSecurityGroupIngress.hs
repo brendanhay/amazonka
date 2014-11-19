@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
     { _acsgiCacheSecurityGroupName  :: Text
     , _acsgiEC2SecurityGroupName    :: Text
     , _acsgiEC2SecurityGroupOwnerId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngress' constructor.
 --
@@ -98,7 +99,7 @@ acsgiEC2SecurityGroupOwnerId =
 
 newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' constructor.
 --
@@ -119,7 +120,12 @@ acsgirCacheSecurityGroup =
 instance ToPath AuthorizeCacheSecurityGroupIngress where
     toPath = const "/"
 
-instance ToQuery AuthorizeCacheSecurityGroupIngress
+instance ToQuery AuthorizeCacheSecurityGroupIngress where
+    toQuery AuthorizeCacheSecurityGroupIngress{..} = mconcat
+        [ "CacheSecurityGroupName"  =? _acsgiCacheSecurityGroupName
+        , "EC2SecurityGroupName"    =? _acsgiEC2SecurityGroupName
+        , "EC2SecurityGroupOwnerId" =? _acsgiEC2SecurityGroupOwnerId
+        ]
 
 instance ToHeaders AuthorizeCacheSecurityGroupIngress
 
@@ -131,5 +137,5 @@ instance AWSRequest AuthorizeCacheSecurityGroupIngress where
     response = xmlResponse
 
 instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
-    parseXML = withElement "AuthorizeCacheSecurityGroupIngressResult" $ \x ->
-            <$> x .@? "CacheSecurityGroup"
+    parseXML = withElement "AuthorizeCacheSecurityGroupIngressResult" $ \x -> AuthorizeCacheSecurityGroupIngressResponse
+        <$> x .@? "CacheSecurityGroup"

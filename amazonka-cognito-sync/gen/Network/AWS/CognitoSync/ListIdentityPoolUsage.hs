@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data ListIdentityPoolUsage = ListIdentityPoolUsage
     { _lipuMaxResults :: Maybe Int
     , _lipuNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListIdentityPoolUsage' constructor.
 --
@@ -77,10 +78,10 @@ lipuNextToken = lens _lipuNextToken (\s a -> s { _lipuNextToken = a })
 
 data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse
     { _lipurCount              :: Maybe Int
-    , _lipurIdentityPoolUsages :: [IdentityPoolUsage]
+    , _lipurIdentityPoolUsages :: List "IdentityPoolUsages" IdentityPoolUsage
     , _lipurMaxResults         :: Maybe Int
     , _lipurNextToken          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListIdentityPoolUsageResponse' constructor.
 --
@@ -110,6 +111,7 @@ lipurCount = lens _lipurCount (\s a -> s { _lipurCount = a })
 lipurIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
 lipurIdentityPoolUsages =
     lens _lipurIdentityPoolUsages (\s a -> s { _lipurIdentityPoolUsages = a })
+        . _List
 
 -- | The maximum number of results to be returned.
 lipurMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
@@ -122,7 +124,11 @@ lipurNextToken = lens _lipurNextToken (\s a -> s { _lipurNextToken = a })
 instance ToPath ListIdentityPoolUsage where
     toPath = const "/identitypools"
 
-instance ToQuery ListIdentityPoolUsage
+instance ToQuery ListIdentityPoolUsage where
+    toQuery ListIdentityPoolUsage{..} = mconcat
+        [ "maxResults" =? _lipuMaxResults
+        , "nextToken"  =? _lipuNextToken
+        ]
 
 instance ToHeaders ListIdentityPoolUsage
 
@@ -139,6 +145,6 @@ instance AWSRequest ListIdentityPoolUsage where
 instance FromJSON ListIdentityPoolUsageResponse where
     parseJSON = withObject "ListIdentityPoolUsageResponse" $ \o -> ListIdentityPoolUsageResponse
         <$> o .:? "Count"
-        <*> o .: "IdentityPoolUsages"
+        <*> o .:  "IdentityPoolUsages"
         <*> o .:? "MaxResults"
         <*> o .:? "NextToken"

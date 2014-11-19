@@ -68,7 +68,7 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
     , _crilInstanceCount       :: Int
     , _crilPriceSchedules      :: List "item" PriceScheduleSpecification
     , _crilReservedInstancesId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateReservedInstancesListing' constructor.
 --
@@ -121,7 +121,7 @@ crilReservedInstancesId =
 
 newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilr1ReservedInstancesListings :: List "item" ReservedInstancesListing
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CreateReservedInstancesListingResponse where
     type Item CreateReservedInstancesListingResponse = ReservedInstancesListing
@@ -150,7 +150,13 @@ crilr1ReservedInstancesListings =
 instance ToPath CreateReservedInstancesListing where
     toPath = const "/"
 
-instance ToQuery CreateReservedInstancesListing
+instance ToQuery CreateReservedInstancesListing where
+    toQuery CreateReservedInstancesListing{..} = mconcat
+        [ "clientToken"         =? _crilClientToken
+        , "instanceCount"       =? _crilInstanceCount
+        , "priceSchedules"      =? _crilPriceSchedules
+        , "reservedInstancesId" =? _crilReservedInstancesId
+        ]
 
 instance ToHeaders CreateReservedInstancesListing
 
@@ -163,4 +169,4 @@ instance AWSRequest CreateReservedInstancesListing where
 
 instance FromXML CreateReservedInstancesListingResponse where
     parseXML x = CreateReservedInstancesListingResponse
-        <$> x .@ "reservedInstancesListingsSet"
+        <$> x .@  "reservedInstancesListingsSet"

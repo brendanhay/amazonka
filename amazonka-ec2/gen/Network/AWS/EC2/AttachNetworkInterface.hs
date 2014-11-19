@@ -53,7 +53,7 @@ data AttachNetworkInterface = AttachNetworkInterface
     , _aniDryRun             :: Maybe Bool
     , _aniInstanceId         :: Text
     , _aniNetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AttachNetworkInterface' constructor.
 --
@@ -96,7 +96,7 @@ aniNetworkInterfaceId =
 
 newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AttachNetworkInterfaceResponse' constructor.
 --
@@ -116,7 +116,13 @@ anirAttachmentId = lens _anirAttachmentId (\s a -> s { _anirAttachmentId = a })
 instance ToPath AttachNetworkInterface where
     toPath = const "/"
 
-instance ToQuery AttachNetworkInterface
+instance ToQuery AttachNetworkInterface where
+    toQuery AttachNetworkInterface{..} = mconcat
+        [ "deviceIndex"        =? _aniDeviceIndex
+        , "dryRun"             =? _aniDryRun
+        , "instanceId"         =? _aniInstanceId
+        , "networkInterfaceId" =? _aniNetworkInterfaceId
+        ]
 
 instance ToHeaders AttachNetworkInterface
 

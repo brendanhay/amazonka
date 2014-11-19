@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,9 +52,9 @@ import qualified GHC.Exts
 
 data DescribeServiceErrors = DescribeServiceErrors
     { _dseInstanceId      :: Maybe Text
-    , _dseServiceErrorIds :: [Text]
+    , _dseServiceErrorIds :: List "InstanceIds" Text
     , _dseStackId         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeServiceErrors' constructor.
 --
@@ -83,6 +84,7 @@ dseInstanceId = lens _dseInstanceId (\s a -> s { _dseInstanceId = a })
 dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
 dseServiceErrorIds =
     lens _dseServiceErrorIds (\s a -> s { _dseServiceErrorIds = a })
+        . _List
 
 -- | The stack ID. If you use this parameter, DescribeServiceErrors returns
 -- descriptions of the errors associated with the specified stack.
@@ -90,8 +92,8 @@ dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dseStackId = lens _dseStackId (\s a -> s { _dseStackId = a })
 
 newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
-    { _dserServiceErrors :: [ServiceError']
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dserServiceErrors :: List "ServiceErrors" ServiceError'
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeServiceErrorsResponse where
     type Item DescribeServiceErrorsResponse = ServiceError'
@@ -115,6 +117,7 @@ describeServiceErrorsResponse = DescribeServiceErrorsResponse
 dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dserServiceErrors =
     lens _dserServiceErrors (\s a -> s { _dserServiceErrors = a })
+        . _List
 
 instance ToPath DescribeServiceErrors where
     toPath = const "/"
@@ -140,4 +143,4 @@ instance AWSRequest DescribeServiceErrors where
 
 instance FromJSON DescribeServiceErrorsResponse where
     parseJSON = withObject "DescribeServiceErrorsResponse" $ \o -> DescribeServiceErrorsResponse
-        <$> o .: "ServiceErrors"
+        <$> o .:  "ServiceErrors"

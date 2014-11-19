@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
     , _udcpDomainName        :: Text
     , _udcpRegistrantPrivacy :: Maybe Bool
     , _udcpTechPrivacy       :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateDomainContactPrivacy' constructor.
 --
@@ -117,7 +118,7 @@ udcpTechPrivacy = lens _udcpTechPrivacy (\s a -> s { _udcpTechPrivacy = a })
 
 newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
     { _udcprOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'UpdateDomainContactPrivacyResponse' constructor.
 --
@@ -162,4 +163,4 @@ instance AWSRequest UpdateDomainContactPrivacy where
 
 instance FromJSON UpdateDomainContactPrivacyResponse where
     parseJSON = withObject "UpdateDomainContactPrivacyResponse" $ \o -> UpdateDomainContactPrivacyResponse
-        <$> o .: "OperationId"
+        <$> o .:  "OperationId"

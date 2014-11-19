@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,11 +47,11 @@ import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
 data ChangeTagsForResource = ChangeTagsForResource
-    { _ctfrAddTags       :: List1 Tag
-    , _ctfrRemoveTagKeys :: List1 Text
+    { _ctfrAddTags       :: List1 "Tag" Tag
+    , _ctfrRemoveTagKeys :: List1 "Key" Text
     , _ctfrResourceId    :: Text
     , _ctfrResourceType  :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ChangeTagsForResource' constructor.
 --
@@ -72,20 +73,21 @@ changeTagsForResource :: Text -- ^ 'ctfrResourceType'
 changeTagsForResource p1 p2 p3 p4 = ChangeTagsForResource
     { _ctfrResourceType  = p1
     , _ctfrResourceId    = p2
-    , _ctfrAddTags       = p3
-    , _ctfrRemoveTagKeys = p4
+    , _ctfrAddTags       = withIso _List1 (const id) p3
+    , _ctfrRemoveTagKeys = withIso _List1 (const id) p4
     }
 
 -- | A complex type that contains a list of Tag elements. Each Tag element
 -- identifies a tag that you want to add or update for the specified
 -- resource.
 ctfrAddTags :: Lens' ChangeTagsForResource (NonEmpty Tag)
-ctfrAddTags = lens _ctfrAddTags (\s a -> s { _ctfrAddTags = a })
+ctfrAddTags = lens _ctfrAddTags (\s a -> s { _ctfrAddTags = a }) . _List1
 
 -- | A list of Tag keys that you want to remove from the specified resource.
 ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (NonEmpty Text)
 ctfrRemoveTagKeys =
     lens _ctfrRemoveTagKeys (\s a -> s { _ctfrRemoveTagKeys = a })
+        . _List1
 
 -- | The ID of the resource for which you want to add, change, or delete tags.
 ctfrResourceId :: Lens' ChangeTagsForResource Text

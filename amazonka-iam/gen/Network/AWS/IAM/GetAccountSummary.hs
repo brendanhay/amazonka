@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,8 +53,8 @@ getAccountSummary :: GetAccountSummary
 getAccountSummary = GetAccountSummary
 
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
-    { _gasrSummaryMap :: Map Text Int
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _gasrSummaryMap :: Map "entry" "key" "value" Text Int
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetAccountSummaryResponse' constructor.
 --
@@ -89,8 +90,7 @@ getAccountSummaryResponse = GetAccountSummaryResponse
 -- size for user policy documents (in kilobytes) Users - Number of users for
 -- the AWS account UsersQuota - Maximum users allowed for the AWS account.
 gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap Text Int)
-gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a })
-    . _Map
+gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a }) . _Map
 
 instance ToPath GetAccountSummary where
     toPath = const "/"
@@ -108,5 +108,5 @@ instance AWSRequest GetAccountSummary where
     response = xmlResponse
 
 instance FromXML GetAccountSummaryResponse where
-    parseXML = withElement "GetAccountSummaryResult" $ \x ->
-            <$> x .@ "SummaryMap"
+    parseXML = withElement "GetAccountSummaryResult" $ \x -> GetAccountSummaryResponse
+        <$> x .@  "SummaryMap"

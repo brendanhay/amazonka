@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype ReadJob = ReadJob
     { _rjId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ReadJob' constructor.
 --
@@ -66,7 +67,7 @@ rjId = lens _rjId (\s a -> s { _rjId = a })
 
 newtype ReadJobResponse = ReadJobResponse
     { _rjrJob :: Maybe Job'
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ReadJobResponse' constructor.
 --

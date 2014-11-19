@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ import qualified GHC.Exts
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
     { _sideDkimEnabled :: Bool
     , _sideIdentity    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetIdentityDkimEnabled' constructor.
 --
@@ -93,7 +94,11 @@ setIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
 instance ToPath SetIdentityDkimEnabled where
     toPath = const "/"
 
-instance ToQuery SetIdentityDkimEnabled
+instance ToQuery SetIdentityDkimEnabled where
+    toQuery SetIdentityDkimEnabled{..} = mconcat
+        [ "DkimEnabled" =? _sideDkimEnabled
+        , "Identity"    =? _sideIdentity
+        ]
 
 instance ToHeaders SetIdentityDkimEnabled
 

@@ -68,7 +68,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     , _rsgeSourceSecurityGroupName    :: Maybe Text
     , _rsgeSourceSecurityGroupOwnerId :: Maybe Text
     , _rsgeToPort                     :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RevokeSecurityGroupEgress' constructor.
 --
@@ -166,7 +166,18 @@ revokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
 instance ToPath RevokeSecurityGroupEgress where
     toPath = const "/"
 
-instance ToQuery RevokeSecurityGroupEgress
+instance ToQuery RevokeSecurityGroupEgress where
+    toQuery RevokeSecurityGroupEgress{..} = mconcat
+        [ "cidrIp"                     =? _rsgeCidrIp
+        , "dryRun"                     =? _rsgeDryRun
+        , "fromPort"                   =? _rsgeFromPort
+        , "groupId"                    =? _rsgeGroupId
+        , "ipPermissions"              =? _rsgeIpPermissions
+        , "ipProtocol"                 =? _rsgeIpProtocol
+        , "sourceSecurityGroupName"    =? _rsgeSourceSecurityGroupName
+        , "sourceSecurityGroupOwnerId" =? _rsgeSourceSecurityGroupOwnerId
+        , "toPort"                     =? _rsgeToPort
+        ]
 
 instance ToHeaders RevokeSecurityGroupEgress
 

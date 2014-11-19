@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -74,7 +75,7 @@ data MergeShards = MergeShards
     { _msAdjacentShardToMerge :: Text
     , _msShardToMerge         :: Text
     , _msStreamName           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'MergeShards' constructor.
 --

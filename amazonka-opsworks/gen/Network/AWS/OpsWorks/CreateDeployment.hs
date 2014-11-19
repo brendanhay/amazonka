@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,9 +62,9 @@ data CreateDeployment = CreateDeployment
     , _cdCommand     :: DeploymentCommand
     , _cdComment     :: Maybe Text
     , _cdCustomJson  :: Maybe Text
-    , _cdInstanceIds :: [Text]
+    , _cdInstanceIds :: List "InstanceIds" Text
     , _cdStackId     :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateDeployment' constructor.
 --
@@ -118,7 +119,7 @@ cdCustomJson = lens _cdCustomJson (\s a -> s { _cdCustomJson = a })
 
 -- | The instance IDs for the deployment targets.
 cdInstanceIds :: Lens' CreateDeployment [Text]
-cdInstanceIds = lens _cdInstanceIds (\s a -> s { _cdInstanceIds = a })
+cdInstanceIds = lens _cdInstanceIds (\s a -> s { _cdInstanceIds = a }) . _List
 
 -- | The stack ID.
 cdStackId :: Lens' CreateDeployment Text
@@ -126,7 +127,7 @@ cdStackId = lens _cdStackId (\s a -> s { _cdStackId = a })
 
 newtype CreateDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateDeploymentResponse' constructor.
 --

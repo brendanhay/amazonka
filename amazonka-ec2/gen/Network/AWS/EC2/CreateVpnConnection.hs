@@ -65,7 +65,7 @@ data CreateVpnConnection = CreateVpnConnection
     , _cvcOptions           :: Maybe VpnConnectionOptionsSpecification
     , _cvcType              :: Text
     , _cvcVpnGatewayId      :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateVpnConnection' constructor.
 --
@@ -117,7 +117,7 @@ cvcVpnGatewayId = lens _cvcVpnGatewayId (\s a -> s { _cvcVpnGatewayId = a })
 
 newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection :: Maybe VpnConnection
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateVpnConnectionResponse' constructor.
 --
@@ -138,7 +138,14 @@ cvcrVpnConnection =
 instance ToPath CreateVpnConnection where
     toPath = const "/"
 
-instance ToQuery CreateVpnConnection
+instance ToQuery CreateVpnConnection where
+    toQuery CreateVpnConnection{..} = mconcat
+        [ "CustomerGatewayId" =? _cvcCustomerGatewayId
+        , "dryRun"            =? _cvcDryRun
+        , "options"           =? _cvcOptions
+        , "Type"              =? _cvcType
+        , "VpnGatewayId"      =? _cvcVpnGatewayId
+        ]
 
 instance ToHeaders CreateVpnConnection
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ import qualified GHC.Exts
 data ListReusableDelegationSets = ListReusableDelegationSets
     { _lrdsMarker   :: Maybe Text
     , _lrdsMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListReusableDelegationSets' constructor.
 --
@@ -88,12 +89,12 @@ lrdsMaxItems :: Lens' ListReusableDelegationSets (Maybe Text)
 lrdsMaxItems = lens _lrdsMaxItems (\s a -> s { _lrdsMaxItems = a })
 
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse
-    { _lrdsrDelegationSets :: [DelegationSet]
+    { _lrdsrDelegationSets :: List "DelegationSet" DelegationSet
     , _lrdsrIsTruncated    :: Bool
     , _lrdsrMarker         :: Text
     , _lrdsrMaxItems       :: Text
     , _lrdsrNextMarker     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListReusableDelegationSetsResponse' constructor.
 --
@@ -126,6 +127,7 @@ listReusableDelegationSetsResponse p1 p2 p3 = ListReusableDelegationSetsResponse
 lrdsrDelegationSets :: Lens' ListReusableDelegationSetsResponse [DelegationSet]
 lrdsrDelegationSets =
     lens _lrdsrDelegationSets (\s a -> s { _lrdsrDelegationSets = a })
+        . _List
 
 -- | A flag indicating whether there are more reusable delegation sets to be
 -- listed. If your results were truncated, you can make a follow-up request
@@ -161,7 +163,11 @@ lrdsrNextMarker = lens _lrdsrNextMarker (\s a -> s { _lrdsrNextMarker = a })
 instance ToPath ListReusableDelegationSets where
     toPath = const "/2013-04-01/delegationset"
 
-instance ToQuery ListReusableDelegationSets
+instance ToQuery ListReusableDelegationSets where
+    toQuery ListReusableDelegationSets{..} = mconcat
+        [ "marker"   =? _lrdsMarker
+        , "maxitems" =? _lrdsMaxItems
+        ]
 
 instance ToHeaders ListReusableDelegationSets
 
@@ -179,8 +185,8 @@ instance AWSRequest ListReusableDelegationSets where
 
 instance FromXML ListReusableDelegationSetsResponse where
     parseXML x = ListReusableDelegationSetsResponse
-            <$> x .@ "DelegationSets"
-            <*> x .@ "IsTruncated"
-            <*> x .@ "Marker"
-            <*> x .@ "MaxItems"
-            <*> x .@? "NextMarker"
+        <$> x .@  "DelegationSets"
+        <*> x .@  "IsTruncated"
+        <*> x .@  "Marker"
+        <*> x .@  "MaxItems"
+        <*> x .@? "NextMarker"

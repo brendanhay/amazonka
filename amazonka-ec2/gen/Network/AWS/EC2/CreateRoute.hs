@@ -68,7 +68,7 @@ data CreateRoute = CreateRoute
     , _crNetworkInterfaceId     :: Maybe Text
     , _crRouteTableId           :: Text
     , _crVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateRoute' constructor.
 --
@@ -145,7 +145,16 @@ createRouteResponse = CreateRouteResponse
 instance ToPath CreateRoute where
     toPath = const "/"
 
-instance ToQuery CreateRoute
+instance ToQuery CreateRoute where
+    toQuery CreateRoute{..} = mconcat
+        [ "destinationCidrBlock"   =? _crDestinationCidrBlock
+        , "dryRun"                 =? _crDryRun
+        , "gatewayId"              =? _crGatewayId
+        , "instanceId"             =? _crInstanceId
+        , "networkInterfaceId"     =? _crNetworkInterfaceId
+        , "routeTableId"           =? _crRouteTableId
+        , "vpcPeeringConnectionId" =? _crVpcPeeringConnectionId
+        ]
 
 instance ToHeaders CreateRoute
 

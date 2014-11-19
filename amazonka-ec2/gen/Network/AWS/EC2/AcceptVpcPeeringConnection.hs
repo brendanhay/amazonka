@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcDryRun                 :: Maybe Bool
     , _avpcVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AcceptVpcPeeringConnection' constructor.
 --
@@ -79,7 +79,7 @@ avpcVpcPeeringConnectionId =
 
 newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AcceptVpcPeeringConnectionResponse' constructor.
 --
@@ -101,7 +101,11 @@ avpcrVpcPeeringConnection =
 instance ToPath AcceptVpcPeeringConnection where
     toPath = const "/"
 
-instance ToQuery AcceptVpcPeeringConnection
+instance ToQuery AcceptVpcPeeringConnection where
+    toQuery AcceptVpcPeeringConnection{..} = mconcat
+        [ "dryRun"                 =? _avpcDryRun
+        , "vpcPeeringConnectionId" =? _avpcVpcPeeringConnectionId
+        ]
 
 instance ToHeaders AcceptVpcPeeringConnection
 

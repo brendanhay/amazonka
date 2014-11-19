@@ -73,7 +73,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
     , _cnaeProtocol     :: Text
     , _cnaeRuleAction   :: Text
     , _cnaeRuleNumber   :: Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateNetworkAclEntry' constructor.
 --
@@ -166,7 +166,18 @@ createNetworkAclEntryResponse = CreateNetworkAclEntryResponse
 instance ToPath CreateNetworkAclEntry where
     toPath = const "/"
 
-instance ToQuery CreateNetworkAclEntry
+instance ToQuery CreateNetworkAclEntry where
+    toQuery CreateNetworkAclEntry{..} = mconcat
+        [ "cidrBlock"    =? _cnaeCidrBlock
+        , "dryRun"       =? _cnaeDryRun
+        , "egress"       =? _cnaeEgress
+        , "Icmp"         =? _cnaeIcmpTypeCode
+        , "networkAclId" =? _cnaeNetworkAclId
+        , "portRange"    =? _cnaePortRange
+        , "protocol"     =? _cnaeProtocol
+        , "ruleAction"   =? _cnaeRuleAction
+        , "ruleNumber"   =? _cnaeRuleNumber
+        ]
 
 instance ToHeaders CreateNetworkAclEntry
 

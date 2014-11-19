@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,9 +51,9 @@ import qualified GHC.Exts
 
 data EnterStandby = EnterStandby
     { _esAutoScalingGroupName           :: Text
-    , _esInstanceIds                    :: [Text]
+    , _esInstanceIds                    :: List "InstanceIds" Text
     , _esShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnterStandby' constructor.
 --
@@ -82,7 +83,7 @@ esAutoScalingGroupName =
 -- | The instances to move into Standby mode. You must specify at least one
 -- instance ID.
 esInstanceIds :: Lens' EnterStandby [Text]
-esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a })
+esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a }) . _List
 
 -- | Specifies whether the instances moved to Standby mode count as part of
 -- the Auto Scaling group's desired capacity. If set, the desired capacity
@@ -94,8 +95,8 @@ esShouldDecrementDesiredCapacity =
         (\s a -> s { _esShouldDecrementDesiredCapacity = a })
 
 newtype EnterStandbyResponse = EnterStandbyResponse
-    { _esr1Activities :: [Activity]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _esr1Activities :: List "Activities" Activity
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList EnterStandbyResponse where
     type Item EnterStandbyResponse = Activity
@@ -117,12 +118,17 @@ enterStandbyResponse = EnterStandbyResponse
 -- | A list describing the activities related to moving instances into Standby
 -- mode.
 esr1Activities :: Lens' EnterStandbyResponse [Activity]
-esr1Activities = lens _esr1Activities (\s a -> s { _esr1Activities = a })
+esr1Activities = lens _esr1Activities (\s a -> s { _esr1Activities = a }) . _List
 
 instance ToPath EnterStandby where
     toPath = const "/"
 
-instance ToQuery EnterStandby
+instance ToQuery EnterStandby where
+    toQuery EnterStandby{..} = mconcat
+        [ "AutoScalingGroupName"           =? _esAutoScalingGroupName
+        , "InstanceIds"                    =? _esInstanceIds
+        , "ShouldDecrementDesiredCapacity" =? _esShouldDecrementDesiredCapacity
+        ]
 
 instance ToHeaders EnterStandby
 
@@ -134,5 +140,5 @@ instance AWSRequest EnterStandby where
     response = xmlResponse
 
 instance FromXML EnterStandbyResponse where
-    parseXML = withElement "EnterStandbyResult" $ \x ->
-            <$> x .@ "Activities"
+    parseXML = withElement "EnterStandbyResult" $ \x -> EnterStandbyResponse
+        <$> x .@  "Activities"

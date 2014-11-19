@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteSAMLProvider' constructor.
 --
@@ -76,7 +77,10 @@ deleteSAMLProviderResponse = DeleteSAMLProviderResponse
 instance ToPath DeleteSAMLProvider where
     toPath = const "/"
 
-instance ToQuery DeleteSAMLProvider
+instance ToQuery DeleteSAMLProvider where
+    toQuery DeleteSAMLProvider{..} = mconcat
+        [ "SAMLProviderArn" =? _dsamlpSAMLProviderArn
+        ]
 
 instance ToHeaders DeleteSAMLProvider
 

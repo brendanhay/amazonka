@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ data UpdateHealthCheck = UpdateHealthCheck
     , _uhcPort                     :: Maybe Nat
     , _uhcResourcePath             :: Maybe Text
     , _uhcSearchString             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateHealthCheck' constructor.
 --
@@ -140,8 +141,7 @@ uhcIPAddress = lens _uhcIPAddress (\s a -> s { _uhcIPAddress = a })
 -- | The port on which you want Route 53 to open a connection to perform
 -- health checks. Specify this value only if you want to change it.
 uhcPort :: Lens' UpdateHealthCheck (Maybe Natural)
-uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a })
-    . mapping _Nat
+uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a }) . mapping _Nat
 
 -- | The path that you want Amazon Route 53 to request when performing health
 -- checks. The path can be any value for which your endpoint will return an
@@ -160,7 +160,7 @@ uhcSearchString = lens _uhcSearchString (\s a -> s { _uhcSearchString = a })
 
 newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
     { _uhcrHealthCheck :: HealthCheck
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateHealthCheckResponse' constructor.
 --
@@ -210,4 +210,4 @@ instance AWSRequest UpdateHealthCheck where
 
 instance FromXML UpdateHealthCheckResponse where
     parseXML x = UpdateHealthCheckResponse
-            <$> x .@ "HealthCheck"
+        <$> x .@  "HealthCheck"

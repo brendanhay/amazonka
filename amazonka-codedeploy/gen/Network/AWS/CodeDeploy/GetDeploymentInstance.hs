@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,7 +49,7 @@ import qualified GHC.Exts
 data GetDeploymentInstance = GetDeploymentInstance
     { _gdiDeploymentId :: Text
     , _gdiInstanceId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetDeploymentInstance' constructor.
 --
@@ -77,7 +78,7 @@ gdiInstanceId = lens _gdiInstanceId (\s a -> s { _gdiInstanceId = a })
 
 newtype GetDeploymentInstanceResponse = GetDeploymentInstanceResponse
     { _gdirInstanceSummary :: Maybe InstanceSummary
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetDeploymentInstanceResponse' constructor.
 --

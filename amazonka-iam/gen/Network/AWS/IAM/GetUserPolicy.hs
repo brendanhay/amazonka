@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 data GetUserPolicy = GetUserPolicy
     { _gupPolicyName :: Text
     , _gupUserName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetUserPolicy' constructor.
 --
@@ -82,7 +83,7 @@ data GetUserPolicyResponse = GetUserPolicyResponse
     { _guprPolicyDocument :: Text
     , _guprPolicyName     :: Text
     , _guprUserName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetUserPolicyResponse' constructor.
 --
@@ -120,7 +121,11 @@ guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
 instance ToPath GetUserPolicy where
     toPath = const "/"
 
-instance ToQuery GetUserPolicy
+instance ToQuery GetUserPolicy where
+    toQuery GetUserPolicy{..} = mconcat
+        [ "PolicyName" =? _gupPolicyName
+        , "UserName"   =? _gupUserName
+        ]
 
 instance ToHeaders GetUserPolicy
 
@@ -132,7 +137,7 @@ instance AWSRequest GetUserPolicy where
     response = xmlResponse
 
 instance FromXML GetUserPolicyResponse where
-    parseXML = withElement "GetUserPolicyResult" $ \x ->
-            <$> x .@ "PolicyDocument"
-            <*> x .@ "PolicyName"
-            <*> x .@ "UserName"
+    parseXML = withElement "GetUserPolicyResult" $ \x -> GetUserPolicyResponse
+        <$> x .@  "PolicyDocument"
+        <*> x .@  "PolicyName"
+        <*> x .@  "UserName"

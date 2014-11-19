@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 data CreateApplication = CreateApplication
     { _caApplicationName :: Text
     , _caDescription     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateApplication' constructor.
 --
@@ -79,7 +80,7 @@ caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 
 newtype CreateApplicationResponse = CreateApplicationResponse
     { _carApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateApplicationResponse' constructor.
 --
@@ -99,7 +100,11 @@ carApplication = lens _carApplication (\s a -> s { _carApplication = a })
 instance ToPath CreateApplication where
     toPath = const "/"
 
-instance ToQuery CreateApplication
+instance ToQuery CreateApplication where
+    toQuery CreateApplication{..} = mconcat
+        [ "ApplicationName" =? _caApplicationName
+        , "Description"     =? _caDescription
+        ]
 
 instance ToHeaders CreateApplication
 
@@ -111,5 +116,5 @@ instance AWSRequest CreateApplication where
     response = xmlResponse
 
 instance FromXML CreateApplicationResponse where
-    parseXML = withElement "CreateApplicationResult" $ \x ->
-            <$> x .@? "Application"
+    parseXML = withElement "CreateApplicationResult" $ \x -> CreateApplicationResponse
+        <$> x .@? "Application"

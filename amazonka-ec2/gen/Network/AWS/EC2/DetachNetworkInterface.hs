@@ -49,7 +49,7 @@ data DetachNetworkInterface = DetachNetworkInterface
     { _dniAttachmentId :: Text
     , _dniDryRun       :: Maybe Bool
     , _dniForce        :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DetachNetworkInterface' constructor.
 --
@@ -90,7 +90,12 @@ detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 instance ToPath DetachNetworkInterface where
     toPath = const "/"
 
-instance ToQuery DetachNetworkInterface
+instance ToQuery DetachNetworkInterface where
+    toQuery DetachNetworkInterface{..} = mconcat
+        [ "attachmentId" =? _dniAttachmentId
+        , "dryRun"       =? _dniDryRun
+        , "force"        =? _dniForce
+        ]
 
 instance ToHeaders DetachNetworkInterface
 

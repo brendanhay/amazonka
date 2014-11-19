@@ -62,7 +62,7 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     , _prioInstanceCount               :: Int
     , _prioLimitPrice                  :: Maybe ReservedInstanceLimitPrice
     , _prioReservedInstancesOfferingId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PurchaseReservedInstancesOffering' constructor.
 --
@@ -108,7 +108,7 @@ prioReservedInstancesOfferingId =
 
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'PurchaseReservedInstancesOfferingResponse' constructor.
 --
@@ -130,7 +130,13 @@ priorReservedInstancesId =
 instance ToPath PurchaseReservedInstancesOffering where
     toPath = const "/"
 
-instance ToQuery PurchaseReservedInstancesOffering
+instance ToQuery PurchaseReservedInstancesOffering where
+    toQuery PurchaseReservedInstancesOffering{..} = mconcat
+        [ "dryRun"                      =? _prioDryRun
+        , "InstanceCount"               =? _prioInstanceCount
+        , "limitPrice"                  =? _prioLimitPrice
+        , "ReservedInstancesOfferingId" =? _prioReservedInstancesOfferingId
+        ]
 
 instance ToHeaders PurchaseReservedInstancesOffering
 

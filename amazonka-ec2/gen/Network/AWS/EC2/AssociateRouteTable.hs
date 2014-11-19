@@ -57,7 +57,7 @@ data AssociateRouteTable = AssociateRouteTable
     { _artDryRun       :: Maybe Bool
     , _artRouteTableId :: Text
     , _artSubnetId     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AssociateRouteTable' constructor.
 --
@@ -91,7 +91,7 @@ artSubnetId = lens _artSubnetId (\s a -> s { _artSubnetId = a })
 
 newtype AssociateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AssociateRouteTableResponse' constructor.
 --
@@ -112,7 +112,12 @@ artrAssociationId =
 instance ToPath AssociateRouteTable where
     toPath = const "/"
 
-instance ToQuery AssociateRouteTable
+instance ToQuery AssociateRouteTable where
+    toQuery AssociateRouteTable{..} = mconcat
+        [ "dryRun"       =? _artDryRun
+        , "routeTableId" =? _artRouteTableId
+        , "subnetId"     =? _artSubnetId
+        ]
 
 instance ToHeaders AssociateRouteTable
 

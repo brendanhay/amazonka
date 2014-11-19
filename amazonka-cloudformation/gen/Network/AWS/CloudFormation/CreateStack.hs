@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,19 +59,19 @@ import Network.AWS.CloudFormation.Types
 import qualified GHC.Exts
 
 data CreateStack = CreateStack
-    { _csCapabilities     :: [Text]
+    { _csCapabilities     :: List "Capabilities" Text
     , _csDisableRollback  :: Maybe Bool
-    , _csNotificationARNs :: [Text]
+    , _csNotificationARNs :: List "NotificationARNs" Text
     , _csOnFailure        :: Maybe Text
-    , _csParameters       :: [Parameter]
+    , _csParameters       :: List "Parameters" Parameter
     , _csStackName        :: Text
     , _csStackPolicyBody  :: Maybe Text
     , _csStackPolicyURL   :: Maybe Text
-    , _csTags             :: [Tag]
+    , _csTags             :: List "Tags" Tag
     , _csTemplateBody     :: Maybe Text
     , _csTemplateURL      :: Maybe Text
     , _csTimeoutInMinutes :: Maybe Nat
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateStack' constructor.
 --
@@ -130,7 +131,7 @@ createStack p1 = CreateStack
 -- them. If you don't specify this parameter, this action returns an
 -- InsufficientCapabilities error.
 csCapabilities :: Lens' CreateStack [Text]
-csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a })
+csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a }) . _List
 
 -- | Set to true to disable rollback of the stack if stack creation failed.
 -- You can specify either DisableRollback or OnFailure, but not both.
@@ -145,6 +146,7 @@ csDisableRollback =
 csNotificationARNs :: Lens' CreateStack [Text]
 csNotificationARNs =
     lens _csNotificationARNs (\s a -> s { _csNotificationARNs = a })
+        . _List
 
 -- | Determines what action will be taken if stack creation fails. This must
 -- be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either
@@ -155,7 +157,7 @@ csOnFailure = lens _csOnFailure (\s a -> s { _csOnFailure = a })
 -- | A list of Parameter structures that specify input parameters for the
 -- stack.
 csParameters :: Lens' CreateStack [Parameter]
-csParameters = lens _csParameters (\s a -> s { _csParameters = a })
+csParameters = lens _csParameters (\s a -> s { _csParameters = a }) . _List
 
 -- | The name associated with the stack. The name must be unique within your
 -- AWS account. Must contain only alphanumeric characters (case sensitive)
@@ -184,7 +186,7 @@ csStackPolicyURL = lens _csStackPolicyURL (\s a -> s { _csStackPolicyURL = a })
 -- resources that are created as part of the stack. A maximum number of 10
 -- tags can be specified.
 csTags :: Lens' CreateStack [Tag]
-csTags = lens _csTags (\s a -> s { _csTags = a })
+csTags = lens _csTags (\s a -> s { _csTags = a }) . _List
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information, go to
@@ -212,7 +214,7 @@ csTimeoutInMinutes =
 
 newtype CreateStackResponse = CreateStackResponse
     { _csrStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateStackResponse' constructor.
 --
@@ -232,7 +234,21 @@ csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 instance ToPath CreateStack where
     toPath = const "/"
 
-instance ToQuery CreateStack
+instance ToQuery CreateStack where
+    toQuery CreateStack{..} = mconcat
+        [ "Capabilities"     =? _csCapabilities
+        , "DisableRollback"  =? _csDisableRollback
+        , "NotificationARNs" =? _csNotificationARNs
+        , "OnFailure"        =? _csOnFailure
+        , "Parameters"       =? _csParameters
+        , "StackName"        =? _csStackName
+        , "StackPolicyBody"  =? _csStackPolicyBody
+        , "StackPolicyURL"   =? _csStackPolicyURL
+        , "Tags"             =? _csTags
+        , "TemplateBody"     =? _csTemplateBody
+        , "TemplateURL"      =? _csTemplateURL
+        , "TimeoutInMinutes" =? _csTimeoutInMinutes
+        ]
 
 instance ToHeaders CreateStack
 
@@ -244,5 +260,5 @@ instance AWSRequest CreateStack where
     response = xmlResponse
 
 instance FromXML CreateStackResponse where
-    parseXML = withElement "CreateStackResult" $ \x ->
-            <$> x .@? "StackId"
+    parseXML = withElement "CreateStackResult" $ \x -> CreateStackResponse
+        <$> x .@? "StackId"

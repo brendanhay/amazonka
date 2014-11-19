@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -72,7 +73,7 @@ import qualified GHC.Exts
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
     { _rathDetails   :: Maybe Text
     , _rathTaskToken :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RecordActivityTaskHeartbeat' constructor.
 --
@@ -102,7 +103,7 @@ rathTaskToken = lens _rathTaskToken (\s a -> s { _rathTaskToken = a })
 
 newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
     { _rathrCancelRequested :: Bool
-    } deriving (Eq, Ord, Show, Generic, Enum)
+    } deriving (Eq, Ord, Show, Enum)
 
 -- | 'RecordActivityTaskHeartbeatResponse' constructor.
 --
@@ -144,4 +145,4 @@ instance AWSRequest RecordActivityTaskHeartbeat where
 
 instance FromJSON RecordActivityTaskHeartbeatResponse where
     parseJSON = withObject "RecordActivityTaskHeartbeatResponse" $ \o -> RecordActivityTaskHeartbeatResponse
-        <$> o .: "cancelRequested"
+        <$> o .:  "cancelRequested"

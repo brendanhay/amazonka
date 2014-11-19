@@ -53,7 +53,7 @@ data DescribeCustomerGateways = DescribeCustomerGateways
     { _dcgCustomerGatewayIds :: List "CustomerGatewayId" Text
     , _dcgDryRun             :: Maybe Bool
     , _dcgFilters            :: List "Filter" Filter
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeCustomerGateways' constructor.
 --
@@ -98,12 +98,11 @@ dcgDryRun = lens _dcgDryRun (\s a -> s { _dcgDryRun = a })
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
 dcgFilters :: Lens' DescribeCustomerGateways [Filter]
-dcgFilters = lens _dcgFilters (\s a -> s { _dcgFilters = a })
-    . _List
+dcgFilters = lens _dcgFilters (\s a -> s { _dcgFilters = a }) . _List
 
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways :: List "item" CustomerGateway
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeCustomerGatewaysResponse where
     type Item DescribeCustomerGatewaysResponse = CustomerGateway
@@ -131,7 +130,12 @@ dcgrCustomerGateways =
 instance ToPath DescribeCustomerGateways where
     toPath = const "/"
 
-instance ToQuery DescribeCustomerGateways
+instance ToQuery DescribeCustomerGateways where
+    toQuery DescribeCustomerGateways{..} = mconcat
+        [ "CustomerGatewayId" =? _dcgCustomerGatewayIds
+        , "dryRun"            =? _dcgDryRun
+        , "Filter"            =? _dcgFilters
+        ]
 
 instance ToHeaders DescribeCustomerGateways
 
@@ -144,4 +148,4 @@ instance AWSRequest DescribeCustomerGateways where
 
 instance FromXML DescribeCustomerGatewaysResponse where
     parseXML x = DescribeCustomerGatewaysResponse
-        <$> x .@ "customerGatewaySet"
+        <$> x .@  "customerGatewaySet"

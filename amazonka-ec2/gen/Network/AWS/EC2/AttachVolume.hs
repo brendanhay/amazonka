@@ -77,7 +77,7 @@ data AttachVolume = AttachVolume
     , _avDryRun     :: Maybe Bool
     , _avInstanceId :: Text
     , _avVolumeId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AttachVolume' constructor.
 --
@@ -126,7 +126,7 @@ data AttachVolumeResponse = AttachVolumeResponse
     , _avrInstanceId          :: Maybe Text
     , _avrState               :: Maybe Text
     , _avrVolumeId            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AttachVolumeResponse' constructor.
 --
@@ -156,8 +156,7 @@ attachVolumeResponse = AttachVolumeResponse
 
 -- | The time stamp when the attachment initiated.
 avrAttachTime :: Lens' AttachVolumeResponse (Maybe UTCTime)
-avrAttachTime = lens _avrAttachTime (\s a -> s { _avrAttachTime = a })
-    . mapping _Time
+avrAttachTime = lens _avrAttachTime (\s a -> s { _avrAttachTime = a }) . mapping _Time
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance
 -- termination.
@@ -184,7 +183,13 @@ avrVolumeId = lens _avrVolumeId (\s a -> s { _avrVolumeId = a })
 instance ToPath AttachVolume where
     toPath = const "/"
 
-instance ToQuery AttachVolume
+instance ToQuery AttachVolume where
+    toQuery AttachVolume{..} = mconcat
+        [ "Device"     =? _avDevice
+        , "dryRun"     =? _avDryRun
+        , "InstanceId" =? _avInstanceId
+        , "VolumeId"   =? _avVolumeId
+        ]
 
 instance ToHeaders AttachVolume
 

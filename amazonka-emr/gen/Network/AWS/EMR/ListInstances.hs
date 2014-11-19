@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,9 +56,9 @@ import qualified GHC.Exts
 data ListInstances = ListInstances
     { _liClusterId          :: Text
     , _liInstanceGroupId    :: Maybe Text
-    , _liInstanceGroupTypes :: [Text]
+    , _liInstanceGroupTypes :: List "InstanceGroupTypes" Text
     , _liMarker             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListInstances' constructor.
 --
@@ -93,15 +94,16 @@ liInstanceGroupId =
 liInstanceGroupTypes :: Lens' ListInstances [Text]
 liInstanceGroupTypes =
     lens _liInstanceGroupTypes (\s a -> s { _liInstanceGroupTypes = a })
+        . _List
 
 -- | The pagination token that indicates the next set of results to retrieve.
 liMarker :: Lens' ListInstances (Maybe Text)
 liMarker = lens _liMarker (\s a -> s { _liMarker = a })
 
 data ListInstancesResponse = ListInstancesResponse
-    { _lirInstances :: [Instance]
+    { _lirInstances :: List "Instances" Instance
     , _lirMarker    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListInstancesResponse' constructor.
 --
@@ -119,7 +121,7 @@ listInstancesResponse = ListInstancesResponse
 
 -- | The list of instances for the cluster and given filters.
 lirInstances :: Lens' ListInstancesResponse [Instance]
-lirInstances = lens _lirInstances (\s a -> s { _lirInstances = a })
+lirInstances = lens _lirInstances (\s a -> s { _lirInstances = a }) . _List
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lirMarker :: Lens' ListInstancesResponse (Maybe Text)
@@ -150,7 +152,7 @@ instance AWSRequest ListInstances where
 
 instance FromJSON ListInstancesResponse where
     parseJSON = withObject "ListInstancesResponse" $ \o -> ListInstancesResponse
-        <$> o .: "Instances"
+        <$> o .:  "Instances"
         <*> o .:? "Marker"
 
 instance AWSPager ListInstances where

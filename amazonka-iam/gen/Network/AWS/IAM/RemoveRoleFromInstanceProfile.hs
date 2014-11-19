@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName :: Text
     , _rrfipRoleName            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RemoveRoleFromInstanceProfile' constructor.
 --
@@ -90,7 +91,11 @@ removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
 instance ToPath RemoveRoleFromInstanceProfile where
     toPath = const "/"
 
-instance ToQuery RemoveRoleFromInstanceProfile
+instance ToQuery RemoveRoleFromInstanceProfile where
+    toQuery RemoveRoleFromInstanceProfile{..} = mconcat
+        [ "InstanceProfileName" =? _rrfipInstanceProfileName
+        , "RoleName"            =? _rrfipRoleName
+        ]
 
 instance ToHeaders RemoveRoleFromInstanceProfile
 

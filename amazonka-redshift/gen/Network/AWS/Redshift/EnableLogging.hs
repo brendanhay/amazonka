@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data EnableLogging = EnableLogging
     { _elBucketName        :: Text
     , _elClusterIdentifier :: Text
     , _elS3KeyPrefix       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnableLogging' constructor.
 --
@@ -103,7 +104,7 @@ data EnableLoggingResponse = EnableLoggingResponse
     , _elrLastSuccessfulDeliveryTime :: Maybe RFC822
     , _elrLoggingEnabled             :: Maybe Bool
     , _elrS3KeyPrefix                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnableLoggingResponse' constructor.
 --
@@ -165,7 +166,12 @@ elrS3KeyPrefix = lens _elrS3KeyPrefix (\s a -> s { _elrS3KeyPrefix = a })
 instance ToPath EnableLogging where
     toPath = const "/"
 
-instance ToQuery EnableLogging
+instance ToQuery EnableLogging where
+    toQuery EnableLogging{..} = mconcat
+        [ "BucketName"        =? _elBucketName
+        , "ClusterIdentifier" =? _elClusterIdentifier
+        , "S3KeyPrefix"       =? _elS3KeyPrefix
+        ]
 
 instance ToHeaders EnableLogging
 
@@ -177,10 +183,10 @@ instance AWSRequest EnableLogging where
     response = xmlResponse
 
 instance FromXML EnableLoggingResponse where
-    parseXML = withElement "EnableLoggingResult" $ \x ->
-            <$> x .@? "BucketName"
-            <*> x .@? "LastFailureMessage"
-            <*> x .@? "LastFailureTime"
-            <*> x .@? "LastSuccessfulDeliveryTime"
-            <*> x .@? "LoggingEnabled"
-            <*> x .@? "S3KeyPrefix"
+    parseXML = withElement "EnableLoggingResult" $ \x -> EnableLoggingResponse
+        <$> x .@? "BucketName"
+        <*> x .@? "LastFailureMessage"
+        <*> x .@? "LastFailureTime"
+        <*> x .@? "LastSuccessfulDeliveryTime"
+        <*> x .@? "LoggingEnabled"
+        <*> x .@? "S3KeyPrefix"

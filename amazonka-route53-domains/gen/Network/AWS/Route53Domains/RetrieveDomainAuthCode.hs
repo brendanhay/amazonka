@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode
     { _rdacDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'RetrieveDomainAuthCode' constructor.
 --
@@ -70,7 +71,7 @@ rdacDomainName = lens _rdacDomainName (\s a -> s { _rdacDomainName = a })
 
 newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
     { _rdacrAuthCode :: Sensitive Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'RetrieveDomainAuthCodeResponse' constructor.
 --
@@ -86,8 +87,7 @@ retrieveDomainAuthCodeResponse p1 = RetrieveDomainAuthCodeResponse
 
 -- | The authorization code for the domain. Type: String.
 rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
-rdacrAuthCode = lens _rdacrAuthCode (\s a -> s { _rdacrAuthCode = a })
-    . _Sensitive
+rdacrAuthCode = lens _rdacrAuthCode (\s a -> s { _rdacrAuthCode = a }) . _Sensitive
 
 instance ToPath RetrieveDomainAuthCode where
     toPath = const "/"
@@ -111,4 +111,4 @@ instance AWSRequest RetrieveDomainAuthCode where
 
 instance FromJSON RetrieveDomainAuthCodeResponse where
     parseJSON = withObject "RetrieveDomainAuthCodeResponse" $ \o -> RetrieveDomainAuthCodeResponse
-        <$> o .: "AuthCode"
+        <$> o .:  "AuthCode"

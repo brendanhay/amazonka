@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 
 newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
-    { _dtptrTerminationPolicyTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dtptrTerminationPolicyTypes :: List "TerminationPolicies" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTerminationPolicyTypesResponse where
     type Item DescribeTerminationPolicyTypesResponse = Text
@@ -77,6 +78,7 @@ dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Tex
 dtptrTerminationPolicyTypes =
     lens _dtptrTerminationPolicyTypes
         (\s a -> s { _dtptrTerminationPolicyTypes = a })
+            . _List
 
 instance ToPath DescribeTerminationPolicyTypes where
     toPath = const "/"
@@ -94,5 +96,5 @@ instance AWSRequest DescribeTerminationPolicyTypes where
     response = xmlResponse
 
 instance FromXML DescribeTerminationPolicyTypesResponse where
-    parseXML = withElement "DescribeTerminationPolicyTypesResult" $ \x ->
-            <$> x .@ "TerminationPolicyTypes"
+    parseXML = withElement "DescribeTerminationPolicyTypesResult" $ \x -> DescribeTerminationPolicyTypesResponse
+        <$> x .@  "TerminationPolicyTypes"

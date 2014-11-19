@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data CreateKey = CreateKey
     { _ckDescription :: Maybe Text
     , _ckKeyUsage    :: Maybe Text
     , _ckPolicy      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateKey' constructor.
 --
@@ -91,7 +92,7 @@ ckPolicy = lens _ckPolicy (\s a -> s { _ckPolicy = a })
 
 newtype CreateKeyResponse = CreateKeyResponse
     { _ckrKeyMetadata :: Maybe KeyMetadata
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateKeyResponse' constructor.
 --

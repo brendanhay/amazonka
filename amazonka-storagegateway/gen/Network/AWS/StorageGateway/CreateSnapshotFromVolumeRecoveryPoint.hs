@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -62,7 +63,7 @@ import qualified GHC.Exts
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint
     { _csfvrpSnapshotDescription :: Text
     , _csfvrpVolumeARN           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPoint' constructor.
 --
@@ -92,7 +93,7 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
     { _csfvrprSnapshotId              :: Maybe Text
     , _csfvrprVolumeARN               :: Maybe Text
     , _csfvrprVolumeRecoveryPointTime :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPointResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend   :: Maybe Double
     , _gsqrMaxSendRate     :: Maybe Double
     , _gsqrSentLast24Hours :: Maybe Double
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetSendQuotaResponse' constructor.
 --
@@ -106,7 +107,7 @@ instance AWSRequest GetSendQuota where
     response = xmlResponse
 
 instance FromXML GetSendQuotaResponse where
-    parseXML = withElement "GetSendQuotaResult" $ \x ->
-            <$> x .@? "Max24HourSend"
-            <*> x .@? "MaxSendRate"
-            <*> x .@? "SentLast24Hours"
+    parseXML = withElement "GetSendQuotaResult" $ \x -> GetSendQuotaResponse
+        <$> x .@? "Max24HourSend"
+        <*> x .@? "MaxSendRate"
+        <*> x .@? "SentLast24Hours"

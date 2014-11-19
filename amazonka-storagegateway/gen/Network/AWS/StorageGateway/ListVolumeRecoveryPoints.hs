@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ListVolumeRecoveryPoints' constructor.
 --
@@ -71,8 +72,8 @@ lvrpGatewayARN = lens _lvrpGatewayARN (\s a -> s { _lvrpGatewayARN = a })
 
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
     { _lvrprGatewayARN               :: Maybe Text
-    , _lvrprVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
-    } deriving (Eq, Show, Generic)
+    , _lvrprVolumeRecoveryPointInfos :: List "VolumeRecoveryPointInfos" VolumeRecoveryPointInfo
+    } deriving (Eq, Show)
 
 -- | 'ListVolumeRecoveryPointsResponse' constructor.
 --
@@ -95,6 +96,7 @@ lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeR
 lvrprVolumeRecoveryPointInfos =
     lens _lvrprVolumeRecoveryPointInfos
         (\s a -> s { _lvrprVolumeRecoveryPointInfos = a })
+            . _List
 
 instance ToPath ListVolumeRecoveryPoints where
     toPath = const "/"
@@ -119,4 +121,4 @@ instance AWSRequest ListVolumeRecoveryPoints where
 instance FromJSON ListVolumeRecoveryPointsResponse where
     parseJSON = withObject "ListVolumeRecoveryPointsResponse" $ \o -> ListVolumeRecoveryPointsResponse
         <$> o .:? "GatewayARN"
-        <*> o .: "VolumeRecoveryPointInfos"
+        <*> o .:  "VolumeRecoveryPointInfos"

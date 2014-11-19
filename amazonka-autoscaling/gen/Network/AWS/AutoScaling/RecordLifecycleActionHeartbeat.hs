@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
     { _rlahAutoScalingGroupName :: Text
     , _rlahLifecycleActionToken :: Text
     , _rlahLifecycleHookName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RecordLifecycleActionHeartbeat' constructor.
 --
@@ -110,7 +111,12 @@ recordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
 instance ToPath RecordLifecycleActionHeartbeat where
     toPath = const "/"
 
-instance ToQuery RecordLifecycleActionHeartbeat
+instance ToQuery RecordLifecycleActionHeartbeat where
+    toQuery RecordLifecycleActionHeartbeat{..} = mconcat
+        [ "AutoScalingGroupName" =? _rlahAutoScalingGroupName
+        , "LifecycleActionToken" =? _rlahLifecycleActionToken
+        , "LifecycleHookName"    =? _rlahLifecycleHookName
+        ]
 
 instance ToHeaders RecordLifecycleActionHeartbeat
 

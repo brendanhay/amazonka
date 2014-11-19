@@ -58,7 +58,7 @@ data ImportKeyPair = ImportKeyPair
     { _ikpDryRun            :: Maybe Bool
     , _ikpKeyName           :: Text
     , _ikpPublicKeyMaterial :: Base64
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ImportKeyPair' constructor.
 --
@@ -95,7 +95,7 @@ ikpPublicKeyMaterial =
 data ImportKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyFingerprint :: Maybe Text
     , _ikprKeyName        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ImportKeyPairResponse' constructor.
 --
@@ -123,7 +123,12 @@ ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
 instance ToPath ImportKeyPair where
     toPath = const "/"
 
-instance ToQuery ImportKeyPair
+instance ToQuery ImportKeyPair where
+    toQuery ImportKeyPair{..} = mconcat
+        [ "dryRun"            =? _ikpDryRun
+        , "keyName"           =? _ikpKeyName
+        , "publicKeyMaterial" =? _ikpPublicKeyMaterial
+        ]
 
 instance ToHeaders ImportKeyPair
 

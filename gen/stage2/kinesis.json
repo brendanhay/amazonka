@@ -62,8 +62,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "shard",
@@ -194,6 +193,7 @@
                 ],
                 "contentPad": 22,
                 "name": "Shard",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -309,8 +309,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
@@ -366,6 +365,7 @@
                 ],
                 "contentPad": 6,
                 "name": "Tag",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -420,8 +420,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "streamDescription",
@@ -473,8 +472,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -484,7 +483,7 @@
                         "locationName": "Shards",
                         "documentation": "\u003cp\u003eThe shards that comprise the stream.\u003c/p\u003e",
                         "typeExposed": "[Shard]",
-                        "type": "[Shard]"
+                        "type": "List \"Shards\" Shard"
                     },
                     {
                         "location": null,
@@ -567,12 +566,13 @@
                 ],
                 "contentPad": 14,
                 "name": "StreamDescription",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -582,7 +582,7 @@
                         "locationName": "Shards",
                         "documentation": "\u003cp\u003eThe shards that comprise the stream.\u003c/p\u003e",
                         "typeExposed": "[Shard]",
-                        "type": "[Shard]"
+                        "type": "List \"Shards\" Shard"
                     }
                 ],
                 "fields": [
@@ -603,8 +603,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -614,7 +614,7 @@
                         "locationName": "Shards",
                         "documentation": "\u003cp\u003eThe shards that comprise the stream.\u003c/p\u003e",
                         "typeExposed": "[Shard]",
-                        "type": "[Shard]"
+                        "type": "List \"Shards\" Shard"
                     },
                     {
                         "location": null,
@@ -686,8 +686,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "hashKeyRange",
@@ -758,6 +757,7 @@
                 ],
                 "contentPad": 16,
                 "name": "HashKeyRange",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -796,8 +796,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "record",
@@ -898,6 +897,7 @@
                 ],
                 "contentPad": 15,
                 "name": "Record",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -952,8 +952,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "sequenceNumberRange",
@@ -1009,6 +1008,7 @@
                 ],
                 "contentPad": 23,
                 "name": "SequenceNumberRange",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -1125,8 +1125,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1162,7 +1161,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "path": [
@@ -1196,6 +1195,7 @@
                 "queryPad": 0,
                 "name": "AddTagsToStream",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1213,7 +1213,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -1245,7 +1245,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             }
@@ -1292,8 +1292,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1378,6 +1377,7 @@
                 "queryPad": 0,
                 "name": "CreateStream",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1459,7 +1459,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1532,6 +1531,7 @@
                 "queryPad": 0,
                 "name": "DeleteStream",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -1560,8 +1560,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -1626,6 +1625,7 @@
                 "contentPad": 0,
                 "name": "DescribeStreamResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -1670,8 +1670,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1756,6 +1755,7 @@
                 "queryPad": 0,
                 "name": "DescribeStream",
                 "query": [],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1845,8 +1845,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1856,8 +1855,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1867,7 +1866,7 @@
                         "locationName": "Records",
                         "documentation": "\u003cP\u003eThe data records retrieved from the shard.\u003c/P\u003e",
                         "typeExposed": "[Record]",
-                        "type": "[Record]"
+                        "type": "List \"Records\" Record"
                     },
                     {
                         "location": null,
@@ -1894,13 +1893,14 @@
                 "contentPad": 18,
                 "name": "GetRecordsResponse",
                 "resultWrapper": null,
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1910,7 +1910,7 @@
                         "locationName": "Records",
                         "documentation": "\u003cP\u003eThe data records retrieved from the shard.\u003c/P\u003e",
                         "typeExposed": "[Record]",
-                        "type": "[Record]"
+                        "type": "List \"Records\" Record"
                     },
                     {
                         "location": null,
@@ -1946,8 +1946,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1957,7 +1957,7 @@
                         "locationName": "Records",
                         "documentation": "\u003cP\u003eThe data records retrieved from the shard.\u003c/P\u003e",
                         "typeExposed": "[Record]",
-                        "type": "[Record]"
+                        "type": "List \"Records\" Record"
                     }
                 ]
             },
@@ -1977,8 +1977,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2048,6 +2047,7 @@
                 "queryPad": 0,
                 "name": "GetRecords",
                 "query": [],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2109,7 +2109,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -2159,6 +2158,7 @@
                 "contentPad": 0,
                 "name": "GetShardIteratorResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2212,8 +2212,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2343,6 +2342,7 @@
                 "queryPad": 0,
                 "name": "GetShardIterator",
                 "query": [],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2433,8 +2433,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2444,8 +2443,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2455,7 +2454,7 @@
                         "locationName": "StreamNames",
                         "documentation": "\u003cp\u003eThe names of the streams that are associated with the AWS account making the \u003ccode\u003eListStreams\u003c/code\u003e request.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StreamNames\" Text"
                     },
                     {
                         "location": null,
@@ -2498,13 +2497,14 @@
                 "contentPad": 15,
                 "name": "ListStreamsResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2514,7 +2514,7 @@
                         "locationName": "StreamNames",
                         "documentation": "\u003cp\u003eThe names of the streams that are associated with the AWS account making the \u003ccode\u003eListStreams\u003c/code\u003e request.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StreamNames\" Text"
                     }
                 ],
                 "fields": [
@@ -2535,8 +2535,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2546,7 +2546,7 @@
                         "locationName": "StreamNames",
                         "documentation": "\u003cp\u003eThe names of the streams that are associated with the AWS account making the \u003ccode\u003eListStreams\u003c/code\u003e request.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StreamNames\" Text"
                     }
                 ]
             },
@@ -2573,8 +2573,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2628,6 +2627,7 @@
                 "queryPad": 0,
                 "name": "ListStreams",
                 "query": [],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2702,8 +2702,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2713,8 +2712,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2724,7 +2723,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags associated with \u003ccode\u003eStreamName\u003c/code\u003e, starting with the first tag after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e and up to the specified \u003ccode\u003eLimit\u003c/code\u003e. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     },
                     {
                         "location": null,
@@ -2767,13 +2766,14 @@
                 "contentPad": 12,
                 "name": "ListTagsForStreamResponse",
                 "resultWrapper": null,
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2783,7 +2783,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags associated with \u003ccode\u003eStreamName\u003c/code\u003e, starting with the first tag after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e and up to the specified \u003ccode\u003eLimit\u003c/code\u003e. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ],
                 "fields": [
@@ -2804,8 +2804,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2815,7 +2815,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eA list of tags associated with \u003ccode\u003eStreamName\u003c/code\u003e, starting with the first tag after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e and up to the specified \u003ccode\u003eLimit\u003c/code\u003e. \u003c/p\u003e",
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tags\" Tag"
                     }
                 ]
             },
@@ -2835,8 +2835,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2921,6 +2920,7 @@
                 "queryPad": 0,
                 "name": "ListTagsForStream",
                 "query": [],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3047,8 +3047,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3163,6 +3162,7 @@
                 "queryPad": 0,
                 "name": "MergeShards",
                 "query": [],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3222,8 +3222,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3302,6 +3301,7 @@
                 "contentPad": 15,
                 "name": "PutRecordResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -3353,8 +3353,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3499,6 +3498,7 @@
                 "queryPad": 0,
                 "name": "PutRecord",
                 "query": [],
+                "locationPad": 26,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3655,8 +3655,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3681,8 +3680,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3692,7 +3691,7 @@
                         "locationName": "TagKeys",
                         "documentation": "\u003cp\u003eA list of tag keys. Each corresponding tag is removed from the stream.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"TagKeys\" Text"
                     }
                 ],
                 "path": [
@@ -3721,8 +3720,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3732,7 +3731,7 @@
                         "locationName": "TagKeys",
                         "documentation": "\u003cp\u003eA list of tag keys. Each corresponding tag is removed from the stream.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"TagKeys\" Text"
                     }
                 ],
                 "shared": false,
@@ -3741,6 +3740,7 @@
                 "queryPad": 0,
                 "name": "RemoveTagsFromStream",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3763,8 +3763,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "flattened": false,
                         "required": true,
@@ -3774,7 +3774,7 @@
                         "locationName": "TagKeys",
                         "documentation": "\u003cp\u003eA list of tag keys. Each corresponding tag is removed from the stream.\u003c/p\u003e",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 Text"
+                        "type": "List1 \"TagKeys\" Text"
                     }
                 ]
             }
@@ -3821,8 +3821,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3937,6 +3936,7 @@
                 "queryPad": 0,
                 "name": "SplitShard",
                 "query": [],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

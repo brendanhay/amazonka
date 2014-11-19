@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
     { _rtrhHostname     :: Maybe Text
     , _rtrhTaskrunnerId :: Text
     , _rtrhWorkerGroup  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ReportTaskRunnerHeartbeat' constructor.
 --
@@ -98,7 +99,7 @@ rtrhWorkerGroup = lens _rtrhWorkerGroup (\s a -> s { _rtrhWorkerGroup = a })
 
 newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
     { _rtrhrTerminate :: Bool
-    } deriving (Eq, Ord, Show, Generic, Enum)
+    } deriving (Eq, Ord, Show, Enum)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' constructor.
 --
@@ -141,4 +142,4 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
 
 instance FromJSON ReportTaskRunnerHeartbeatResponse where
     parseJSON = withObject "ReportTaskRunnerHeartbeatResponse" $ \o -> ReportTaskRunnerHeartbeatResponse
-        <$> o .: "terminate"
+        <$> o .:  "terminate"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -66,7 +67,7 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
     , _gwehMaximumPageSize :: Maybe Nat
     , _gwehNextPageToken   :: Maybe Text
     , _gwehReverseOrder    :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetWorkflowExecutionHistory' constructor.
 --
@@ -127,9 +128,9 @@ gwehReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
 gwehReverseOrder = lens _gwehReverseOrder (\s a -> s { _gwehReverseOrder = a })
 
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
-    { _gwehrEvents        :: [HistoryEvent]
+    { _gwehrEvents        :: List "events" HistoryEvent
     , _gwehrNextPageToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetWorkflowExecutionHistoryResponse' constructor.
 --
@@ -147,7 +148,7 @@ getWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
 
 -- | The list of history events.
 gwehrEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
-gwehrEvents = lens _gwehrEvents (\s a -> s { _gwehrEvents = a })
+gwehrEvents = lens _gwehrEvents (\s a -> s { _gwehrEvents = a }) . _List
 
 -- | The token for the next page. If set, the history consists of more than
 -- one page and the next page can be retrieved by repeating the request with
@@ -182,7 +183,7 @@ instance AWSRequest GetWorkflowExecutionHistory where
 
 instance FromJSON GetWorkflowExecutionHistoryResponse where
     parseJSON = withObject "GetWorkflowExecutionHistoryResponse" $ \o -> GetWorkflowExecutionHistoryResponse
-        <$> o .: "events"
+        <$> o .:  "events"
         <*> o .:? "nextPageToken"
 
 instance AWSPager GetWorkflowExecutionHistory where

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,8 +54,8 @@ import qualified GHC.Exts
 
 data RebootCacheCluster = RebootCacheCluster
     { _rccCacheClusterId       :: Text
-    , _rccCacheNodeIdsToReboot :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _rccCacheNodeIdsToReboot :: List "CacheNodeId" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'RebootCacheCluster' constructor.
 --
@@ -83,10 +84,11 @@ rccCacheClusterId =
 rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
 rccCacheNodeIdsToReboot =
     lens _rccCacheNodeIdsToReboot (\s a -> s { _rccCacheNodeIdsToReboot = a })
+        . _List
 
 newtype RebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RebootCacheClusterResponse' constructor.
 --
@@ -105,7 +107,11 @@ rccrCacheCluster = lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
 instance ToPath RebootCacheCluster where
     toPath = const "/"
 
-instance ToQuery RebootCacheCluster
+instance ToQuery RebootCacheCluster where
+    toQuery RebootCacheCluster{..} = mconcat
+        [ "CacheClusterId"       =? _rccCacheClusterId
+        , "CacheNodeIdsToReboot" =? _rccCacheNodeIdsToReboot
+        ]
 
 instance ToHeaders RebootCacheCluster
 
@@ -117,5 +123,5 @@ instance AWSRequest RebootCacheCluster where
     response = xmlResponse
 
 instance FromXML RebootCacheClusterResponse where
-    parseXML = withElement "RebootCacheClusterResult" $ \x ->
-            <$> x .@? "CacheCluster"
+    parseXML = withElement "RebootCacheClusterResult" $ \x -> RebootCacheClusterResponse
+        <$> x .@? "CacheCluster"

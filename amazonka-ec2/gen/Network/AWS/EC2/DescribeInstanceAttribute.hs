@@ -68,7 +68,7 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute
     { _diaAttribute  :: Text
     , _diaDryRun     :: Maybe Bool
     , _diaInstanceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeInstanceAttribute' constructor.
 --
@@ -115,7 +115,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     , _diar1SourceDestCheck                   :: Maybe AttributeBooleanValue
     , _diar1SriovNetSupport                   :: Maybe AttributeValue
     , _diar1UserData                          :: Maybe AttributeValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeInstanceAttributeResponse' constructor.
 --
@@ -188,8 +188,7 @@ diar1EbsOptimized =
 
 -- | The security groups associated with the instance.
 diar1Groups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
-diar1Groups = lens _diar1Groups (\s a -> s { _diar1Groups = a })
-    . _List
+diar1Groups = lens _diar1Groups (\s a -> s { _diar1Groups = a }) . _List
 
 -- | The ID of the instance.
 diar1InstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
@@ -245,7 +244,12 @@ diar1UserData = lens _diar1UserData (\s a -> s { _diar1UserData = a })
 instance ToPath DescribeInstanceAttribute where
     toPath = const "/"
 
-instance ToQuery DescribeInstanceAttribute
+instance ToQuery DescribeInstanceAttribute where
+    toQuery DescribeInstanceAttribute{..} = mconcat
+        [ "attribute"  =? _diaAttribute
+        , "dryRun"     =? _diaDryRun
+        , "instanceId" =? _diaInstanceId
+        ]
 
 instance ToHeaders DescribeInstanceAttribute
 
@@ -258,15 +262,15 @@ instance AWSRequest DescribeInstanceAttribute where
 
 instance FromXML DescribeInstanceAttributeResponse where
     parseXML x = DescribeInstanceAttributeResponse
-        <$> x .@ "blockDeviceMapping"
+        <$> x .@  "blockDeviceMapping"
         <*> x .@? "disableApiTermination"
         <*> x .@? "ebsOptimized"
-        <*> x .@ "groupSet"
+        <*> x .@  "groupSet"
         <*> x .@? "instanceId"
         <*> x .@? "instanceInitiatedShutdownBehavior"
         <*> x .@? "instanceType"
         <*> x .@? "kernel"
-        <*> x .@ "productCodes"
+        <*> x .@  "productCodes"
         <*> x .@? "ramdisk"
         <*> x .@? "rootDeviceName"
         <*> x .@? "sourceDestCheck"

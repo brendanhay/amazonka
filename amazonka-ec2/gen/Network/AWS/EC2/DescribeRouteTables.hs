@@ -53,7 +53,7 @@ data DescribeRouteTables = DescribeRouteTables
     { _drt2DryRun        :: Maybe Bool
     , _drt2Filters       :: List "Filter" Filter
     , _drt2RouteTableIds :: List "item" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeRouteTables' constructor.
 --
@@ -105,8 +105,7 @@ drt2DryRun = lens _drt2DryRun (\s a -> s { _drt2DryRun = a })
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC
 -- for the route table.
 drt2Filters :: Lens' DescribeRouteTables [Filter]
-drt2Filters = lens _drt2Filters (\s a -> s { _drt2Filters = a })
-    . _List
+drt2Filters = lens _drt2Filters (\s a -> s { _drt2Filters = a }) . _List
 
 -- | One or more route table IDs. Default: Describes all your route tables.
 drt2RouteTableIds :: Lens' DescribeRouteTables [Text]
@@ -116,7 +115,7 @@ drt2RouteTableIds =
 
 newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables :: List "item" RouteTable
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeRouteTablesResponse where
     type Item DescribeRouteTablesResponse = RouteTable
@@ -137,13 +136,17 @@ describeRouteTablesResponse = DescribeRouteTablesResponse
 
 -- | Information about one or more route tables.
 drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
-drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a })
-    . _List
+drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a }) . _List
 
 instance ToPath DescribeRouteTables where
     toPath = const "/"
 
-instance ToQuery DescribeRouteTables
+instance ToQuery DescribeRouteTables where
+    toQuery DescribeRouteTables{..} = mconcat
+        [ "dryRun"       =? _drt2DryRun
+        , "Filter"       =? _drt2Filters
+        , "RouteTableId" =? _drt2RouteTableIds
+        ]
 
 instance ToHeaders DescribeRouteTables
 
@@ -156,4 +159,4 @@ instance AWSRequest DescribeRouteTables where
 
 instance FromXML DescribeRouteTablesResponse where
     parseXML x = DescribeRouteTablesResponse
-        <$> x .@ "routeTableSet"
+        <$> x .@  "routeTableSet"

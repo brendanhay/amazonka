@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data ListAliases = ListAliases
     { _laLimit  :: Maybe Nat
     , _laMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListAliases' constructor.
 --
@@ -71,8 +72,7 @@ listAliases = ListAliases
 -- aliases beyond the maximum you specify, the Truncated response element
 -- will be set to true.
 laLimit :: Lens' ListAliases (Maybe Natural)
-laLimit = lens _laLimit (\s a -> s { _laLimit = a })
-    . mapping _Nat
+laLimit = lens _laLimit (\s a -> s { _laLimit = a }) . mapping _Nat
 
 -- | Use this parameter when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -82,10 +82,10 @@ laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\s a -> s { _laMarker = a })
 
 data ListAliasesResponse = ListAliasesResponse
-    { _larAliases    :: [AliasListEntry]
+    { _larAliases    :: List "Aliases" AliasListEntry
     , _larNextMarker :: Maybe Text
     , _larTruncated  :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListAliasesResponse' constructor.
 --
@@ -106,7 +106,7 @@ listAliasesResponse = ListAliasesResponse
 
 -- | A list of key aliases in the user's account.
 larAliases :: Lens' ListAliasesResponse [AliasListEntry]
-larAliases = lens _larAliases (\s a -> s { _larAliases = a })
+larAliases = lens _larAliases (\s a -> s { _larAliases = a }) . _List
 
 -- | If Truncated is true, this value is present and contains the value to use
 -- for the Marker request parameter in a subsequent pagination request.
@@ -142,6 +142,6 @@ instance AWSRequest ListAliases where
 
 instance FromJSON ListAliasesResponse where
     parseJSON = withObject "ListAliasesResponse" $ \o -> ListAliasesResponse
-        <$> o .: "Aliases"
+        <$> o .:  "Aliases"
         <*> o .:? "NextMarker"
         <*> o .:? "Truncated"

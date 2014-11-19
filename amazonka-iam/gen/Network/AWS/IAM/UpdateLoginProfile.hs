@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ data UpdateLoginProfile = UpdateLoginProfile
     { _ulpPassword              :: Maybe (Sensitive Text)
     , _ulpPasswordResetRequired :: Maybe Bool
     , _ulpUserName              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateLoginProfile' constructor.
 --
@@ -72,8 +73,7 @@ updateLoginProfile p1 = UpdateLoginProfile
 
 -- | The new password for the specified user.
 ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
-ulpPassword = lens _ulpPassword (\s a -> s { _ulpPassword = a })
-    . mapping _Sensitive
+ulpPassword = lens _ulpPassword (\s a -> s { _ulpPassword = a }) . mapping _Sensitive
 
 -- | Require the specified user to set a new password on next sign-in.
 ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
@@ -95,7 +95,12 @@ updateLoginProfileResponse = UpdateLoginProfileResponse
 instance ToPath UpdateLoginProfile where
     toPath = const "/"
 
-instance ToQuery UpdateLoginProfile
+instance ToQuery UpdateLoginProfile where
+    toQuery UpdateLoginProfile{..} = mconcat
+        [ "Password"              =? _ulpPassword
+        , "PasswordResetRequired" =? _ulpPasswordResetRequired
+        , "UserName"              =? _ulpUserName
+        ]
 
 instance ToHeaders UpdateLoginProfile
 

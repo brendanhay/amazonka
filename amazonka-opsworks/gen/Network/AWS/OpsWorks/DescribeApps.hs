@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,9 +51,9 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeApps = DescribeApps
-    { _daAppIds  :: [Text]
+    { _daAppIds  :: List "InstanceIds" Text
     , _daStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeApps' constructor.
 --
@@ -72,7 +73,7 @@ describeApps = DescribeApps
 -- parameter, DescribeApps returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
 daAppIds :: Lens' DescribeApps [Text]
-daAppIds = lens _daAppIds (\s a -> s { _daAppIds = a })
+daAppIds = lens _daAppIds (\s a -> s { _daAppIds = a }) . _List
 
 -- | The app stack ID. If you use this parameter, DescribeApps returns a
 -- description of the apps in the specified stack.
@@ -80,8 +81,8 @@ daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\s a -> s { _daStackId = a })
 
 newtype DescribeAppsResponse = DescribeAppsResponse
-    { _darApps :: [App]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _darApps :: List "Apps" App
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAppsResponse where
     type Item DescribeAppsResponse = App
@@ -102,7 +103,7 @@ describeAppsResponse = DescribeAppsResponse
 
 -- | An array of App objects that describe the specified apps.
 darApps :: Lens' DescribeAppsResponse [App]
-darApps = lens _darApps (\s a -> s { _darApps = a })
+darApps = lens _darApps (\s a -> s { _darApps = a }) . _List
 
 instance ToPath DescribeApps where
     toPath = const "/"
@@ -127,4 +128,4 @@ instance AWSRequest DescribeApps where
 
 instance FromJSON DescribeAppsResponse where
     parseJSON = withObject "DescribeAppsResponse" $ \o -> DescribeAppsResponse
-        <$> o .: "Apps"
+        <$> o .:  "Apps"

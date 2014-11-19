@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,10 +54,10 @@ import Network.AWS.CloudSearch.Types
 import qualified GHC.Exts
 
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes
-    { _das1AnalysisSchemeNames :: [Text]
+    { _das1AnalysisSchemeNames :: List "SuggesterNames" Text
     , _das1Deployed            :: Maybe Bool
     , _das1DomainName          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeAnalysisSchemes' constructor.
 --
@@ -80,6 +81,7 @@ describeAnalysisSchemes p1 = DescribeAnalysisSchemes
 das1AnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
 das1AnalysisSchemeNames =
     lens _das1AnalysisSchemeNames (\s a -> s { _das1AnalysisSchemeNames = a })
+        . _List
 
 -- | Whether to display the deployed configuration (true) or include any
 -- pending changes (false). Defaults to false.
@@ -91,8 +93,8 @@ das1DomainName :: Lens' DescribeAnalysisSchemes Text
 das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
 
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
-    { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dasrAnalysisSchemes :: List "AnalysisSchemes" AnalysisSchemeStatus
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAnalysisSchemesResponse where
     type Item DescribeAnalysisSchemesResponse = AnalysisSchemeStatus
@@ -115,11 +117,17 @@ describeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
 dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrAnalysisSchemes =
     lens _dasrAnalysisSchemes (\s a -> s { _dasrAnalysisSchemes = a })
+        . _List
 
 instance ToPath DescribeAnalysisSchemes where
     toPath = const "/"
 
-instance ToQuery DescribeAnalysisSchemes
+instance ToQuery DescribeAnalysisSchemes where
+    toQuery DescribeAnalysisSchemes{..} = mconcat
+        [ "AnalysisSchemeNames" =? _das1AnalysisSchemeNames
+        , "Deployed"            =? _das1Deployed
+        , "DomainName"          =? _das1DomainName
+        ]
 
 instance ToHeaders DescribeAnalysisSchemes
 
@@ -131,5 +139,5 @@ instance AWSRequest DescribeAnalysisSchemes where
     response = xmlResponse
 
 instance FromXML DescribeAnalysisSchemesResponse where
-    parseXML = withElement "DescribeAnalysisSchemesResult" $ \x ->
-            <$> x .@ "AnalysisSchemes"
+    parseXML = withElement "DescribeAnalysisSchemesResult" $ \x -> DescribeAnalysisSchemesResponse
+        <$> x .@  "AnalysisSchemes"

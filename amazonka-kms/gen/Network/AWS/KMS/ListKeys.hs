@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data ListKeys = ListKeys
     { _lkLimit  :: Maybe Nat
     , _lkMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListKeys' constructor.
 --
@@ -71,8 +72,7 @@ listKeys = ListKeys
 -- additional keys beyond the maximum you specify, the Truncated response
 -- element will be set to true.
 lkLimit :: Lens' ListKeys (Maybe Natural)
-lkLimit = lens _lkLimit (\s a -> s { _lkLimit = a })
-    . mapping _Nat
+lkLimit = lens _lkLimit (\s a -> s { _lkLimit = a }) . mapping _Nat
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
@@ -81,10 +81,10 @@ lkMarker :: Lens' ListKeys (Maybe Text)
 lkMarker = lens _lkMarker (\s a -> s { _lkMarker = a })
 
 data ListKeysResponse = ListKeysResponse
-    { _lkrKeys       :: [KeyListEntry]
+    { _lkrKeys       :: List "Keys" KeyListEntry
     , _lkrNextMarker :: Maybe Text
     , _lkrTruncated  :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListKeysResponse' constructor.
 --
@@ -105,7 +105,7 @@ listKeysResponse = ListKeysResponse
 
 -- | A list of keys.
 lkrKeys :: Lens' ListKeysResponse [KeyListEntry]
-lkrKeys = lens _lkrKeys (\s a -> s { _lkrKeys = a })
+lkrKeys = lens _lkrKeys (\s a -> s { _lkrKeys = a }) . _List
 
 -- | If Truncated is true, this value is present and contains the value to use
 -- for the Marker request parameter in a subsequent pagination request.
@@ -141,6 +141,6 @@ instance AWSRequest ListKeys where
 
 instance FromJSON ListKeysResponse where
     parseJSON = withObject "ListKeysResponse" $ \o -> ListKeysResponse
-        <$> o .: "Keys"
+        <$> o .:  "Keys"
         <*> o .:? "NextMarker"
         <*> o .:? "Truncated"

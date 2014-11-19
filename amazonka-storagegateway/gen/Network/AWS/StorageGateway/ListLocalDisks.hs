@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 
 newtype ListLocalDisks = ListLocalDisks
     { _lldGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ListLocalDisks' constructor.
 --
@@ -69,9 +70,9 @@ lldGatewayARN :: Lens' ListLocalDisks Text
 lldGatewayARN = lens _lldGatewayARN (\s a -> s { _lldGatewayARN = a })
 
 data ListLocalDisksResponse = ListLocalDisksResponse
-    { _lldrDisks      :: [Disk]
+    { _lldrDisks      :: List "Disks" Disk
     , _lldrGatewayARN :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListLocalDisksResponse' constructor.
 --
@@ -88,7 +89,7 @@ listLocalDisksResponse = ListLocalDisksResponse
     }
 
 lldrDisks :: Lens' ListLocalDisksResponse [Disk]
-lldrDisks = lens _lldrDisks (\s a -> s { _lldrDisks = a })
+lldrDisks = lens _lldrDisks (\s a -> s { _lldrDisks = a }) . _List
 
 lldrGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
 lldrGatewayARN = lens _lldrGatewayARN (\s a -> s { _lldrGatewayARN = a })
@@ -115,5 +116,5 @@ instance AWSRequest ListLocalDisks where
 
 instance FromJSON ListLocalDisksResponse where
     parseJSON = withObject "ListLocalDisksResponse" $ \o -> ListLocalDisksResponse
-        <$> o .: "Disks"
+        <$> o .:  "Disks"
         <*> o .:? "GatewayARN"

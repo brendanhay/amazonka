@@ -75,7 +75,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     , _asgeSourceSecurityGroupName    :: Maybe Text
     , _asgeSourceSecurityGroupOwnerId :: Maybe Text
     , _asgeToPort                     :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AuthorizeSecurityGroupEgress' constructor.
 --
@@ -173,7 +173,18 @@ authorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
 instance ToPath AuthorizeSecurityGroupEgress where
     toPath = const "/"
 
-instance ToQuery AuthorizeSecurityGroupEgress
+instance ToQuery AuthorizeSecurityGroupEgress where
+    toQuery AuthorizeSecurityGroupEgress{..} = mconcat
+        [ "cidrIp"                     =? _asgeCidrIp
+        , "dryRun"                     =? _asgeDryRun
+        , "fromPort"                   =? _asgeFromPort
+        , "groupId"                    =? _asgeGroupId
+        , "ipPermissions"              =? _asgeIpPermissions
+        , "ipProtocol"                 =? _asgeIpProtocol
+        , "sourceSecurityGroupName"    =? _asgeSourceSecurityGroupName
+        , "sourceSecurityGroupOwnerId" =? _asgeSourceSecurityGroupOwnerId
+        , "toPort"                     =? _asgeToPort
+        ]
 
 instance ToHeaders AuthorizeSecurityGroupEgress
 

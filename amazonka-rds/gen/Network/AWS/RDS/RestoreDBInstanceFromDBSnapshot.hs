@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -80,10 +81,10 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
     , _rdbifdbsPort                    :: Maybe Int
     , _rdbifdbsPubliclyAccessible      :: Maybe Bool
     , _rdbifdbsStorageType             :: Maybe Text
-    , _rdbifdbsTags                    :: [Tag]
+    , _rdbifdbsTags                    :: List "Tag" Tag
     , _rdbifdbsTdeCredentialArn        :: Maybe Text
     , _rdbifdbsTdeCredentialPassword   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RestoreDBInstanceFromDBSnapshot' constructor.
 --
@@ -273,7 +274,7 @@ rdbifdbsStorageType =
     lens _rdbifdbsStorageType (\s a -> s { _rdbifdbsStorageType = a })
 
 rdbifdbsTags :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
-rdbifdbsTags = lens _rdbifdbsTags (\s a -> s { _rdbifdbsTags = a })
+rdbifdbsTags = lens _rdbifdbsTags (\s a -> s { _rdbifdbsTags = a }) . _List
 
 -- | The ARN from the Key Store with which to associate the instance for TDE
 -- encryption.
@@ -291,7 +292,7 @@ rdbifdbsTdeCredentialPassword =
 
 newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
     { _rdbifdbsrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RestoreDBInstanceFromDBSnapshotResponse' constructor.
 --
@@ -311,7 +312,27 @@ rdbifdbsrDBInstance =
 instance ToPath RestoreDBInstanceFromDBSnapshot where
     toPath = const "/"
 
-instance ToQuery RestoreDBInstanceFromDBSnapshot
+instance ToQuery RestoreDBInstanceFromDBSnapshot where
+    toQuery RestoreDBInstanceFromDBSnapshot{..} = mconcat
+        [ "AutoMinorVersionUpgrade" =? _rdbifdbsAutoMinorVersionUpgrade
+        , "AvailabilityZone"        =? _rdbifdbsAvailabilityZone
+        , "DBInstanceClass"         =? _rdbifdbsDBInstanceClass
+        , "DBInstanceIdentifier"    =? _rdbifdbsDBInstanceIdentifier
+        , "DBName"                  =? _rdbifdbsDBName
+        , "DBSnapshotIdentifier"    =? _rdbifdbsDBSnapshotIdentifier
+        , "DBSubnetGroupName"       =? _rdbifdbsDBSubnetGroupName
+        , "Engine"                  =? _rdbifdbsEngine
+        , "Iops"                    =? _rdbifdbsIops
+        , "LicenseModel"            =? _rdbifdbsLicenseModel
+        , "MultiAZ"                 =? _rdbifdbsMultiAZ
+        , "OptionGroupName"         =? _rdbifdbsOptionGroupName
+        , "Port"                    =? _rdbifdbsPort
+        , "PubliclyAccessible"      =? _rdbifdbsPubliclyAccessible
+        , "StorageType"             =? _rdbifdbsStorageType
+        , "Tags"                    =? _rdbifdbsTags
+        , "TdeCredentialArn"        =? _rdbifdbsTdeCredentialArn
+        , "TdeCredentialPassword"   =? _rdbifdbsTdeCredentialPassword
+        ]
 
 instance ToHeaders RestoreDBInstanceFromDBSnapshot
 
@@ -323,5 +344,5 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot where
     response = xmlResponse
 
 instance FromXML RestoreDBInstanceFromDBSnapshotResponse where
-    parseXML = withElement "RestoreDBInstanceFromDBSnapshotResult" $ \x ->
-            <$> x .@? "DBInstance"
+    parseXML = withElement "RestoreDBInstanceFromDBSnapshotResult" $ \x -> RestoreDBInstanceFromDBSnapshotResponse
+        <$> x .@? "DBInstance"

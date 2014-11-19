@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteDhcpOptions = DeleteDhcpOptions
     { _ddo1DhcpOptionsId :: Text
     , _ddo1DryRun        :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteDhcpOptions' constructor.
 --
@@ -85,7 +85,11 @@ deleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
 instance ToPath DeleteDhcpOptions where
     toPath = const "/"
 
-instance ToQuery DeleteDhcpOptions
+instance ToQuery DeleteDhcpOptions where
+    toQuery DeleteDhcpOptions{..} = mconcat
+        [ "DhcpOptionsId" =? _ddo1DhcpOptionsId
+        , "dryRun"        =? _ddo1DryRun
+        ]
 
 instance ToHeaders DeleteDhcpOptions
 

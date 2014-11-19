@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -58,7 +59,7 @@ import qualified GHC.Exts
 data DescribeReservedDBInstances = DescribeReservedDBInstances
     { _drdbiDBInstanceClass               :: Maybe Text
     , _drdbiDuration                      :: Maybe Text
-    , _drdbiFilters                       :: [Filter]
+    , _drdbiFilters                       :: List "Filter" Filter
     , _drdbiMarker                        :: Maybe Text
     , _drdbiMaxRecords                    :: Maybe Int
     , _drdbiMultiAZ                       :: Maybe Bool
@@ -66,7 +67,7 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances
     , _drdbiProductDescription            :: Maybe Text
     , _drdbiReservedDBInstanceId          :: Maybe Text
     , _drdbiReservedDBInstancesOfferingId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedDBInstances' constructor.
 --
@@ -120,7 +121,7 @@ drdbiDuration = lens _drdbiDuration (\s a -> s { _drdbiDuration = a })
 
 -- | This parameter is not currently supported.
 drdbiFilters :: Lens' DescribeReservedDBInstances [Filter]
-drdbiFilters = lens _drdbiFilters (\s a -> s { _drdbiFilters = a })
+drdbiFilters = lens _drdbiFilters (\s a -> s { _drdbiFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -169,8 +170,8 @@ drdbiReservedDBInstancesOfferingId =
 
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
     { _drdbirMarker              :: Maybe Text
-    , _drdbirReservedDBInstances :: [ReservedDBInstance]
-    } deriving (Eq, Show, Generic)
+    , _drdbirReservedDBInstances :: List "ReservedDBInstance" ReservedDBInstance
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedDBInstancesResponse' constructor.
 --
@@ -197,11 +198,24 @@ drdbirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [Reserved
 drdbirReservedDBInstances =
     lens _drdbirReservedDBInstances
         (\s a -> s { _drdbirReservedDBInstances = a })
+            . _List
 
 instance ToPath DescribeReservedDBInstances where
     toPath = const "/"
 
-instance ToQuery DescribeReservedDBInstances
+instance ToQuery DescribeReservedDBInstances where
+    toQuery DescribeReservedDBInstances{..} = mconcat
+        [ "DBInstanceClass"               =? _drdbiDBInstanceClass
+        , "Duration"                      =? _drdbiDuration
+        , "Filters"                       =? _drdbiFilters
+        , "Marker"                        =? _drdbiMarker
+        , "MaxRecords"                    =? _drdbiMaxRecords
+        , "MultiAZ"                       =? _drdbiMultiAZ
+        , "OfferingType"                  =? _drdbiOfferingType
+        , "ProductDescription"            =? _drdbiProductDescription
+        , "ReservedDBInstanceId"          =? _drdbiReservedDBInstanceId
+        , "ReservedDBInstancesOfferingId" =? _drdbiReservedDBInstancesOfferingId
+        ]
 
 instance ToHeaders DescribeReservedDBInstances
 
@@ -213,9 +227,9 @@ instance AWSRequest DescribeReservedDBInstances where
     response = xmlResponse
 
 instance FromXML DescribeReservedDBInstancesResponse where
-    parseXML = withElement "DescribeReservedDBInstancesResult" $ \x ->
-            <$> x .@? "Marker"
-            <*> x .@ "ReservedDBInstances"
+    parseXML = withElement "DescribeReservedDBInstancesResult" $ \x -> DescribeReservedDBInstancesResponse
+        <$> x .@? "Marker"
+        <*> x .@  "ReservedDBInstances"
 
 instance AWSPager DescribeReservedDBInstances where
     next rq rs = (\x -> rq & drdbiMarker ?~ x)

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
     { _dcoiInterconnectId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeConnectionsOnInterconnect' constructor.
 --
@@ -68,8 +69,8 @@ dcoiInterconnectId =
     lens _dcoiInterconnectId (\s a -> s { _dcoiInterconnectId = a })
 
 newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
-    { _dcoirConnections :: [Connection]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dcoirConnections :: List "connections" Connection
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConnectionsOnInterconnectResponse where
     type Item DescribeConnectionsOnInterconnectResponse = Connection
@@ -90,7 +91,7 @@ describeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectRes
 
 -- | A list of connections.
 dcoirConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]
-dcoirConnections = lens _dcoirConnections (\s a -> s { _dcoirConnections = a })
+dcoirConnections = lens _dcoirConnections (\s a -> s { _dcoirConnections = a }) . _List
 
 instance ToPath DescribeConnectionsOnInterconnect where
     toPath = const "/"
@@ -114,4 +115,4 @@ instance AWSRequest DescribeConnectionsOnInterconnect where
 
 instance FromJSON DescribeConnectionsOnInterconnectResponse where
     parseJSON = withObject "DescribeConnectionsOnInterconnectResponse" $ \o -> DescribeConnectionsOnInterconnectResponse
-        <$> o .: "connections"
+        <$> o .:  "connections"

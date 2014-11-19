@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,9 +53,9 @@ import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
 data AddWorkingStorage = AddWorkingStorage
-    { _awsDiskIds    :: [Text]
+    { _awsDiskIds    :: List "DiskIds" Text
     , _awsGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddWorkingStorage' constructor.
 --
@@ -75,14 +76,14 @@ addWorkingStorage p1 = AddWorkingStorage
 -- working storage. Each string have a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
 awsDiskIds :: Lens' AddWorkingStorage [Text]
-awsDiskIds = lens _awsDiskIds (\s a -> s { _awsDiskIds = a })
+awsDiskIds = lens _awsDiskIds (\s a -> s { _awsDiskIds = a }) . _List
 
 awsGatewayARN :: Lens' AddWorkingStorage Text
 awsGatewayARN = lens _awsGatewayARN (\s a -> s { _awsGatewayARN = a })
 
 newtype AddWorkingStorageResponse = AddWorkingStorageResponse
     { _awsrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AddWorkingStorageResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance
     , _rrdiDbUser           :: Text
     , _rrdiRdsDbInstanceArn :: Text
     , _rrdiStackId          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RegisterRdsDbInstance' constructor.
 --

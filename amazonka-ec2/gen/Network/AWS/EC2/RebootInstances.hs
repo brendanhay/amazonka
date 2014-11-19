@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data RebootInstances = RebootInstances
     { _ri2DryRun      :: Maybe Bool
     , _ri2InstanceIds :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RebootInstances' constructor.
 --
@@ -74,8 +74,7 @@ ri2DryRun = lens _ri2DryRun (\s a -> s { _ri2DryRun = a })
 
 -- | One or more instance IDs.
 ri2InstanceIds :: Lens' RebootInstances [Text]
-ri2InstanceIds = lens _ri2InstanceIds (\s a -> s { _ri2InstanceIds = a })
-    . _List
+ri2InstanceIds = lens _ri2InstanceIds (\s a -> s { _ri2InstanceIds = a }) . _List
 
 data RebootInstancesResponse = RebootInstancesResponse
     deriving (Eq, Ord, Show, Generic)
@@ -87,7 +86,11 @@ rebootInstancesResponse = RebootInstancesResponse
 instance ToPath RebootInstances where
     toPath = const "/"
 
-instance ToQuery RebootInstances
+instance ToQuery RebootInstances where
+    toQuery RebootInstances{..} = mconcat
+        [ "dryRun"     =? _ri2DryRun
+        , "InstanceId" =? _ri2InstanceIds
+        ]
 
 instance ToHeaders RebootInstances
 

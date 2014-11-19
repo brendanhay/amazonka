@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data ListRoles = ListRoles
     { _lrMarker     :: Maybe Text
     , _lrMaxItems   :: Maybe Nat
     , _lrPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListRoles' constructor.
 --
@@ -88,8 +89,7 @@ lrMarker = lens _lrMarker (\s a -> s { _lrMarker = a })
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
 lrMaxItems :: Lens' ListRoles (Maybe Natural)
-lrMaxItems = lens _lrMaxItems (\s a -> s { _lrMaxItems = a })
-    . mapping _Nat
+lrMaxItems = lens _lrMaxItems (\s a -> s { _lrMaxItems = a }) . mapping _Nat
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- /application_abc/component_xyz/ gets all roles whose path starts with
@@ -101,8 +101,8 @@ lrPathPrefix = lens _lrPathPrefix (\s a -> s { _lrPathPrefix = a })
 data ListRolesResponse = ListRolesResponse
     { _lrrIsTruncated :: Maybe Bool
     , _lrrMarker      :: Maybe Text
-    , _lrrRoles       :: [Role]
-    } deriving (Eq, Show, Generic)
+    , _lrrRoles       :: List "Roles" Role
+    } deriving (Eq, Show)
 
 -- | 'ListRolesResponse' constructor.
 --
@@ -134,12 +134,17 @@ lrrMarker = lens _lrrMarker (\s a -> s { _lrrMarker = a })
 
 -- | A list of roles.
 lrrRoles :: Lens' ListRolesResponse [Role]
-lrrRoles = lens _lrrRoles (\s a -> s { _lrrRoles = a })
+lrrRoles = lens _lrrRoles (\s a -> s { _lrrRoles = a }) . _List
 
 instance ToPath ListRoles where
     toPath = const "/"
 
-instance ToQuery ListRoles
+instance ToQuery ListRoles where
+    toQuery ListRoles{..} = mconcat
+        [ "Marker"     =? _lrMarker
+        , "MaxItems"   =? _lrMaxItems
+        , "PathPrefix" =? _lrPathPrefix
+        ]
 
 instance ToHeaders ListRoles
 
@@ -151,10 +156,10 @@ instance AWSRequest ListRoles where
     response = xmlResponse
 
 instance FromXML ListRolesResponse where
-    parseXML = withElement "ListRolesResult" $ \x ->
-            <$> x .@? "IsTruncated"
-            <*> x .@? "Marker"
-            <*> x .@ "Roles"
+    parseXML = withElement "ListRolesResult" $ \x -> ListRolesResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@  "Roles"
 
 instance AWSPager ListRoles where
     next rq rs

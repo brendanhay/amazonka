@@ -66,7 +66,7 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilFilters                    :: List "Filter" Filter
     , _drilReservedInstancesId        :: Maybe Text
     , _drilReservedInstancesListingId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeReservedInstancesListings' constructor.
 --
@@ -91,8 +91,7 @@ describeReservedInstancesListings = DescribeReservedInstancesListings
 -- (pending | active | cancelled | closed). status-message - The reason for
 -- the status.
 drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
-drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a })
-    . _List
+drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a }) . _List
 
 -- | One or more Reserved Instance IDs.
 drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
@@ -107,7 +106,7 @@ drilReservedInstancesListingId =
 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings :: List "item" ReservedInstancesListing
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeReservedInstancesListingsResponse where
     type Item DescribeReservedInstancesListingsResponse = ReservedInstancesListing
@@ -136,7 +135,12 @@ drilrReservedInstancesListings =
 instance ToPath DescribeReservedInstancesListings where
     toPath = const "/"
 
-instance ToQuery DescribeReservedInstancesListings
+instance ToQuery DescribeReservedInstancesListings where
+    toQuery DescribeReservedInstancesListings{..} = mconcat
+        [ "filters"                    =? _drilFilters
+        , "reservedInstancesId"        =? _drilReservedInstancesId
+        , "reservedInstancesListingId" =? _drilReservedInstancesListingId
+        ]
 
 instance ToHeaders DescribeReservedInstancesListings
 
@@ -149,4 +153,4 @@ instance AWSRequest DescribeReservedInstancesListings where
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     parseXML x = DescribeReservedInstancesListingsResponse
-        <$> x .@ "reservedInstancesListingsSet"
+        <$> x .@  "reservedInstancesListingsSet"

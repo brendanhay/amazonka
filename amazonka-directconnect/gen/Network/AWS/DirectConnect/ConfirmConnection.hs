@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype ConfirmConnection = ConfirmConnection
     { _ccConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ConfirmConnection' constructor.
 --
@@ -68,7 +69,7 @@ ccConnectionId = lens _ccConnectionId (\s a -> s { _ccConnectionId = a })
 
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse
     { _ccr1ConnectionState :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ConfirmConnectionResponse' constructor.
 --

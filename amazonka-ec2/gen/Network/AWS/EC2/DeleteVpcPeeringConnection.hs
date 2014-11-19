@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     { _dvpcDryRun                 :: Maybe Bool
     , _dvpcVpcPeeringConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteVpcPeeringConnection' constructor.
 --
@@ -80,7 +80,7 @@ dvpcVpcPeeringConnectionId =
 
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteVpcPeeringConnectionResponse' constructor.
 --
@@ -100,7 +100,11 @@ dvpcrReturn = lens _dvpcrReturn (\s a -> s { _dvpcrReturn = a })
 instance ToPath DeleteVpcPeeringConnection where
     toPath = const "/"
 
-instance ToQuery DeleteVpcPeeringConnection
+instance ToQuery DeleteVpcPeeringConnection where
+    toQuery DeleteVpcPeeringConnection{..} = mconcat
+        [ "dryRun"                 =? _dvpcDryRun
+        , "vpcPeeringConnectionId" =? _dvpcVpcPeeringConnectionId
+        ]
 
 instance ToHeaders DeleteVpcPeeringConnection
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,9 +52,9 @@ import Network.AWS.StorageGateway.Types
 import qualified GHC.Exts
 
 data AddUploadBuffer = AddUploadBuffer
-    { _aubDiskIds    :: [Text]
+    { _aubDiskIds    :: List "DiskIds" Text
     , _aubGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddUploadBuffer' constructor.
 --
@@ -71,14 +72,14 @@ addUploadBuffer p1 = AddUploadBuffer
     }
 
 aubDiskIds :: Lens' AddUploadBuffer [Text]
-aubDiskIds = lens _aubDiskIds (\s a -> s { _aubDiskIds = a })
+aubDiskIds = lens _aubDiskIds (\s a -> s { _aubDiskIds = a }) . _List
 
 aubGatewayARN :: Lens' AddUploadBuffer Text
 aubGatewayARN = lens _aubGatewayARN (\s a -> s { _aubGatewayARN = a })
 
 newtype AddUploadBufferResponse = AddUploadBufferResponse
     { _aubrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'AddUploadBufferResponse' constructor.
 --

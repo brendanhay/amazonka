@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 newtype TerminateJobFlows = TerminateJobFlows
-    { _tjfJobFlowIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _tjfJobFlowIds :: List "Args" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList TerminateJobFlows where
     type Item TerminateJobFlows = Text
@@ -72,7 +73,7 @@ terminateJobFlows = TerminateJobFlows
 
 -- | A list of job flows to be shutdown.
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
-tjfJobFlowIds = lens _tjfJobFlowIds (\s a -> s { _tjfJobFlowIds = a })
+tjfJobFlowIds = lens _tjfJobFlowIds (\s a -> s { _tjfJobFlowIds = a }) . _List
 
 data TerminateJobFlowsResponse = TerminateJobFlowsResponse
     deriving (Eq, Ord, Show, Generic)

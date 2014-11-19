@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import qualified GHC.Exts
 
 data RemoveTags = RemoveTags
     { _rtResourceId :: Text
-    , _rtTagKeys    :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _rtTagKeys    :: List "Args" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'RemoveTags' constructor.
 --
@@ -74,7 +75,7 @@ rtResourceId = lens _rtResourceId (\s a -> s { _rtResourceId = a })
 
 -- | A list of tag keys to remove from a resource.
 rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\s a -> s { _rtTagKeys = a })
+rtTagKeys = lens _rtTagKeys (\s a -> s { _rtTagKeys = a }) . _List
 
 data RemoveTagsResponse = RemoveTagsResponse
     deriving (Eq, Ord, Show, Generic)

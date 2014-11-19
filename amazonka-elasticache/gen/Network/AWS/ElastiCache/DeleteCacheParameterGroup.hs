@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
     { _dcpg1CacheParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteCacheParameterGroup' constructor.
 --
@@ -76,7 +77,10 @@ deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
 instance ToPath DeleteCacheParameterGroup where
     toPath = const "/"
 
-instance ToQuery DeleteCacheParameterGroup
+instance ToQuery DeleteCacheParameterGroup where
+    toQuery DeleteCacheParameterGroup{..} = mconcat
+        [ "CacheParameterGroupName" =? _dcpg1CacheParameterGroupName
+        ]
 
 instance ToHeaders DeleteCacheParameterGroup
 

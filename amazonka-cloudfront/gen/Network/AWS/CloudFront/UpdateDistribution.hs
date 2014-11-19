@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ data UpdateDistribution = UpdateDistribution
     { _udDistributionConfig :: DistributionConfig
     , _udId                 :: Text
     , _udIfMatch            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateDistribution' constructor.
 --
@@ -89,7 +90,7 @@ udIfMatch = lens _udIfMatch (\s a -> s { _udIfMatch = a })
 data UpdateDistributionResponse = UpdateDistributionResponse
     { _udrDistribution :: Maybe Distribution
     , _udrETag         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateDistributionResponse' constructor.
 --

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -182,7 +183,7 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
     , _tarsResourcesIgnored    :: Integer
     , _tarsResourcesProcessed  :: Integer
     , _tarsResourcesSuppressed :: Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TrustedAdvisorResourcesSummary' constructor.
 --
@@ -234,10 +235,10 @@ tarsResourcesSuppressed =
 
 instance FromJSON TrustedAdvisorResourcesSummary where
     parseJSON = withObject "TrustedAdvisorResourcesSummary" $ \o -> TrustedAdvisorResourcesSummary
-        <$> o .: "resourcesFlagged"
-        <*> o .: "resourcesIgnored"
-        <*> o .: "resourcesProcessed"
-        <*> o .: "resourcesSuppressed"
+        <$> o .:  "resourcesFlagged"
+        <*> o .:  "resourcesIgnored"
+        <*> o .:  "resourcesProcessed"
+        <*> o .:  "resourcesSuppressed"
 
 instance ToJSON TrustedAdvisorResourcesSummary where
     toJSON TrustedAdvisorResourcesSummary{..} = object
@@ -248,10 +249,10 @@ instance ToJSON TrustedAdvisorResourcesSummary where
         ]
 
 data Service = Service
-    { _sCategories :: [Category]
+    { _sCategories :: List "categories" Category
     , _sCode       :: Maybe Text
     , _sName       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Service' constructor.
 --
@@ -275,7 +276,7 @@ service = Service
 -- Category names and codes are passed to AWS Support when you call
 -- CreateCase.
 sCategories :: Lens' Service [Category]
-sCategories = lens _sCategories (\s a -> s { _sCategories = a })
+sCategories = lens _sCategories (\s a -> s { _sCategories = a }) . _List
 
 -- | The code for an AWS service returned by the DescribeServices response.
 -- The Name element contains the corresponding friendly name.
@@ -289,7 +290,7 @@ sName = lens _sName (\s a -> s { _sName = a })
 
 instance FromJSON Service where
     parseJSON = withObject "Service" $ \o -> Service
-        <$> o .: "categories"
+        <$> o .:  "categories"
         <*> o .:? "code"
         <*> o .:? "name"
 
@@ -302,7 +303,7 @@ instance ToJSON Service where
 
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
     { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TrustedAdvisorCategorySpecificSummary' constructor.
 --
@@ -331,12 +332,12 @@ instance ToJSON TrustedAdvisorCategorySpecificSummary where
         ]
 
 data Communication = Communication
-    { _cAttachmentSet :: [AttachmentDetails]
+    { _cAttachmentSet :: List "attachmentSet" AttachmentDetails
     , _cBody          :: Maybe Text
     , _cCaseId        :: Maybe Text
     , _cSubmittedBy   :: Maybe Text
     , _cTimeCreated   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Communication' constructor.
 --
@@ -363,7 +364,7 @@ communication = Communication
 
 -- | Information about the attachments to the case communication.
 cAttachmentSet :: Lens' Communication [AttachmentDetails]
-cAttachmentSet = lens _cAttachmentSet (\s a -> s { _cAttachmentSet = a })
+cAttachmentSet = lens _cAttachmentSet (\s a -> s { _cAttachmentSet = a }) . _List
 
 -- | The text of the communication between the customer and AWS Support.
 cBody :: Lens' Communication (Maybe Text)
@@ -385,7 +386,7 @@ cTimeCreated = lens _cTimeCreated (\s a -> s { _cTimeCreated = a })
 
 instance FromJSON Communication where
     parseJSON = withObject "Communication" $ \o -> Communication
-        <$> o .: "attachmentSet"
+        <$> o .:  "attachmentSet"
         <*> o .:? "body"
         <*> o .:? "caseId"
         <*> o .:? "submittedBy"
@@ -403,7 +404,7 @@ instance ToJSON Communication where
 data Category = Category
     { _cCode :: Maybe Text
     , _cName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Category' constructor.
 --
@@ -445,7 +446,7 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
     , _tacsResourcesSummary        :: TrustedAdvisorResourcesSummary
     , _tacsStatus                  :: Text
     , _tacsTimestamp               :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TrustedAdvisorCheckSummary' constructor.
 --
@@ -509,12 +510,12 @@ tacsTimestamp = lens _tacsTimestamp (\s a -> s { _tacsTimestamp = a })
 
 instance FromJSON TrustedAdvisorCheckSummary where
     parseJSON = withObject "TrustedAdvisorCheckSummary" $ \o -> TrustedAdvisorCheckSummary
-        <$> o .: "categorySpecificSummary"
-        <*> o .: "checkId"
+        <$> o .:  "categorySpecificSummary"
+        <*> o .:  "checkId"
         <*> o .:? "hasFlaggedResources"
-        <*> o .: "resourcesSummary"
-        <*> o .: "status"
-        <*> o .: "timestamp"
+        <*> o .:  "resourcesSummary"
+        <*> o .:  "status"
+        <*> o .:  "timestamp"
 
 instance ToJSON TrustedAdvisorCheckSummary where
     toJSON TrustedAdvisorCheckSummary{..} = object
@@ -529,7 +530,7 @@ instance ToJSON TrustedAdvisorCheckSummary where
 data AttachmentDetails = AttachmentDetails
     { _adAttachmentId :: Maybe Text
     , _adFileName     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AttachmentDetails' constructor.
 --
@@ -567,11 +568,11 @@ instance ToJSON AttachmentDetails where
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
     { _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
     , _tacrCheckId                 :: Text
-    , _tacrFlaggedResources        :: [TrustedAdvisorResourceDetail]
+    , _tacrFlaggedResources        :: List "flaggedResources" TrustedAdvisorResourceDetail
     , _tacrResourcesSummary        :: TrustedAdvisorResourcesSummary
     , _tacrStatus                  :: Text
     , _tacrTimestamp               :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TrustedAdvisorCheckResult' constructor.
 --
@@ -619,6 +620,7 @@ tacrCheckId = lens _tacrCheckId (\s a -> s { _tacrCheckId = a })
 tacrFlaggedResources :: Lens' TrustedAdvisorCheckResult [TrustedAdvisorResourceDetail]
 tacrFlaggedResources =
     lens _tacrFlaggedResources (\s a -> s { _tacrFlaggedResources = a })
+        . _List
 
 tacrResourcesSummary :: Lens' TrustedAdvisorCheckResult TrustedAdvisorResourcesSummary
 tacrResourcesSummary =
@@ -635,12 +637,12 @@ tacrTimestamp = lens _tacrTimestamp (\s a -> s { _tacrTimestamp = a })
 
 instance FromJSON TrustedAdvisorCheckResult where
     parseJSON = withObject "TrustedAdvisorCheckResult" $ \o -> TrustedAdvisorCheckResult
-        <$> o .: "categorySpecificSummary"
-        <*> o .: "checkId"
-        <*> o .: "flaggedResources"
-        <*> o .: "resourcesSummary"
-        <*> o .: "status"
-        <*> o .: "timestamp"
+        <$> o .:  "categorySpecificSummary"
+        <*> o .:  "checkId"
+        <*> o .:  "flaggedResources"
+        <*> o .:  "resourcesSummary"
+        <*> o .:  "status"
+        <*> o .:  "timestamp"
 
 instance ToJSON TrustedAdvisorCheckResult where
     toJSON TrustedAdvisorCheckResult{..} = object
@@ -656,9 +658,9 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
     { _tacdCategory    :: Text
     , _tacdDescription :: Text
     , _tacdId          :: Text
-    , _tacdMetadata    :: [Text]
+    , _tacdMetadata    :: List "checkIds" Text
     , _tacdName        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TrustedAdvisorCheckDescription' constructor.
 --
@@ -706,7 +708,7 @@ tacdId = lens _tacdId (\s a -> s { _tacdId = a })
 -- Metadata contains all the data that is shown in the Excel download, even
 -- in those cases where the UI shows just summary data.
 tacdMetadata :: Lens' TrustedAdvisorCheckDescription [Text]
-tacdMetadata = lens _tacdMetadata (\s a -> s { _tacdMetadata = a })
+tacdMetadata = lens _tacdMetadata (\s a -> s { _tacdMetadata = a }) . _List
 
 -- | The display name for the Trusted Advisor check.
 tacdName :: Lens' TrustedAdvisorCheckDescription Text
@@ -714,11 +716,11 @@ tacdName = lens _tacdName (\s a -> s { _tacdName = a })
 
 instance FromJSON TrustedAdvisorCheckDescription where
     parseJSON = withObject "TrustedAdvisorCheckDescription" $ \o -> TrustedAdvisorCheckDescription
-        <$> o .: "category"
-        <*> o .: "description"
-        <*> o .: "id"
-        <*> o .: "metadata"
-        <*> o .: "name"
+        <$> o .:  "category"
+        <*> o .:  "description"
+        <*> o .:  "id"
+        <*> o .:  "metadata"
+        <*> o .:  "name"
 
 instance ToJSON TrustedAdvisorCheckDescription where
     toJSON TrustedAdvisorCheckDescription{..} = object
@@ -732,7 +734,7 @@ instance ToJSON TrustedAdvisorCheckDescription where
 data Attachment = Attachment
     { _aData     :: Maybe Base64
     , _aFileName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Attachment' constructor.
 --
@@ -768,9 +770,9 @@ instance ToJSON Attachment where
         ]
 
 data RecentCaseCommunications = RecentCaseCommunications
-    { _rccCommunications :: [Communication]
+    { _rccCommunications :: List "communications" Communication
     , _rccNextToken      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RecentCaseCommunications' constructor.
 --
@@ -790,6 +792,7 @@ recentCaseCommunications = RecentCaseCommunications
 rccCommunications :: Lens' RecentCaseCommunications [Communication]
 rccCommunications =
     lens _rccCommunications (\s a -> s { _rccCommunications = a })
+        . _List
 
 -- | A resumption point for pagination.
 rccNextToken :: Lens' RecentCaseCommunications (Maybe Text)
@@ -797,7 +800,7 @@ rccNextToken = lens _rccNextToken (\s a -> s { _rccNextToken = a })
 
 instance FromJSON RecentCaseCommunications where
     parseJSON = withObject "RecentCaseCommunications" $ \o -> RecentCaseCommunications
-        <$> o .: "communications"
+        <$> o .:  "communications"
         <*> o .:? "nextToken"
 
 instance ToJSON RecentCaseCommunications where
@@ -808,11 +811,11 @@ instance ToJSON RecentCaseCommunications where
 
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
     { _tardIsSuppressed :: Maybe Bool
-    , _tardMetadata     :: [Text]
+    , _tardMetadata     :: List "checkIds" Text
     , _tardRegion       :: Text
     , _tardResourceId   :: Text
     , _tardStatus       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TrustedAdvisorResourceDetail' constructor.
 --
@@ -852,7 +855,7 @@ tardIsSuppressed = lens _tardIsSuppressed (\s a -> s { _tardIsSuppressed = a })
 -- shown in the Excel download, even in those cases where the UI shows just
 -- summary data.
 tardMetadata :: Lens' TrustedAdvisorResourceDetail [Text]
-tardMetadata = lens _tardMetadata (\s a -> s { _tardMetadata = a })
+tardMetadata = lens _tardMetadata (\s a -> s { _tardMetadata = a }) . _List
 
 -- | The AWS region in which the identified resource is located.
 tardRegion :: Lens' TrustedAdvisorResourceDetail Text
@@ -869,10 +872,10 @@ tardStatus = lens _tardStatus (\s a -> s { _tardStatus = a })
 instance FromJSON TrustedAdvisorResourceDetail where
     parseJSON = withObject "TrustedAdvisorResourceDetail" $ \o -> TrustedAdvisorResourceDetail
         <$> o .:? "isSuppressed"
-        <*> o .: "metadata"
-        <*> o .: "region"
-        <*> o .: "resourceId"
-        <*> o .: "status"
+        <*> o .:  "metadata"
+        <*> o .:  "region"
+        <*> o .:  "resourceId"
+        <*> o .:  "status"
 
 instance ToJSON TrustedAdvisorResourceDetail where
     toJSON TrustedAdvisorResourceDetail{..} = object
@@ -886,7 +889,7 @@ instance ToJSON TrustedAdvisorResourceDetail where
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
     { _tacosEstimatedMonthlySavings        :: Double
     , _tacosEstimatedPercentMonthlySavings :: Double
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TrustedAdvisorCostOptimizingSummary' constructor.
 --
@@ -920,8 +923,8 @@ tacosEstimatedPercentMonthlySavings =
 
 instance FromJSON TrustedAdvisorCostOptimizingSummary where
     parseJSON = withObject "TrustedAdvisorCostOptimizingSummary" $ \o -> TrustedAdvisorCostOptimizingSummary
-        <$> o .: "estimatedMonthlySavings"
-        <*> o .: "estimatedPercentMonthlySavings"
+        <$> o .:  "estimatedMonthlySavings"
+        <*> o .:  "estimatedPercentMonthlySavings"
 
 instance ToJSON TrustedAdvisorCostOptimizingSummary where
     toJSON TrustedAdvisorCostOptimizingSummary{..} = object
@@ -932,7 +935,7 @@ instance ToJSON TrustedAdvisorCostOptimizingSummary where
 data SeverityLevel = SeverityLevel
     { _slCode :: Maybe Text
     , _slName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SeverityLevel' constructor.
 --
@@ -973,7 +976,7 @@ instance ToJSON SeverityLevel where
 data CaseDetails = CaseDetails
     { _cdCaseId               :: Maybe Text
     , _cdCategoryCode         :: Maybe Text
-    , _cdCcEmailAddresses     :: [Text]
+    , _cdCcEmailAddresses     :: List "ccEmailAddresses" Text
     , _cdDisplayId            :: Maybe Text
     , _cdLanguage             :: Maybe Text
     , _cdRecentCommunications :: Maybe RecentCaseCommunications
@@ -983,7 +986,7 @@ data CaseDetails = CaseDetails
     , _cdSubject              :: Maybe Text
     , _cdSubmittedBy          :: Maybe Text
     , _cdTimeCreated          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CaseDetails' constructor.
 --
@@ -1043,6 +1046,7 @@ cdCategoryCode = lens _cdCategoryCode (\s a -> s { _cdCategoryCode = a })
 cdCcEmailAddresses :: Lens' CaseDetails [Text]
 cdCcEmailAddresses =
     lens _cdCcEmailAddresses (\s a -> s { _cdCcEmailAddresses = a })
+        . _List
 
 -- | The ID displayed for the case in the AWS Support Center. This is a
 -- numeric string.
@@ -1091,7 +1095,7 @@ instance FromJSON CaseDetails where
     parseJSON = withObject "CaseDetails" $ \o -> CaseDetails
         <$> o .:? "caseId"
         <*> o .:? "categoryCode"
-        <*> o .: "ccEmailAddresses"
+        <*> o .:  "ccEmailAddresses"
         <*> o .:? "displayId"
         <*> o .:? "language"
         <*> o .:? "recentCommunications"
@@ -1122,7 +1126,7 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
     { _tacrsCheckId                    :: Text
     , _tacrsMillisUntilNextRefreshable :: Integer
     , _tacrsStatus                     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TrustedAdvisorCheckRefreshStatus' constructor.
 --
@@ -1162,9 +1166,9 @@ tacrsStatus = lens _tacrsStatus (\s a -> s { _tacrsStatus = a })
 
 instance FromJSON TrustedAdvisorCheckRefreshStatus where
     parseJSON = withObject "TrustedAdvisorCheckRefreshStatus" $ \o -> TrustedAdvisorCheckRefreshStatus
-        <$> o .: "checkId"
-        <*> o .: "millisUntilNextRefreshable"
-        <*> o .: "status"
+        <$> o .:  "checkId"
+        <*> o .:  "millisUntilNextRefreshable"
+        <*> o .:  "status"
 
 instance ToJSON TrustedAdvisorCheckRefreshStatus where
     toJSON TrustedAdvisorCheckRefreshStatus{..} = object

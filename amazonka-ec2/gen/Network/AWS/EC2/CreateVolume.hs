@@ -79,7 +79,7 @@ data CreateVolume = CreateVolume
     , _cv1Size             :: Maybe Int
     , _cv1SnapshotId       :: Maybe Text
     , _cv1VolumeType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateVolume' constructor.
 --
@@ -159,7 +159,7 @@ data CreateVolumeResponse = CreateVolumeResponse
     , _cvrTags             :: List "item" Tag
     , _cvrVolumeId         :: Maybe Text
     , _cvrVolumeType       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateVolumeResponse' constructor.
 --
@@ -203,8 +203,7 @@ createVolumeResponse = CreateVolumeResponse
     }
 
 cvrAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
-cvrAttachments = lens _cvrAttachments (\s a -> s { _cvrAttachments = a })
-    . _List
+cvrAttachments = lens _cvrAttachments (\s a -> s { _cvrAttachments = a }) . _List
 
 -- | The Availability Zone for the volume.
 cvrAvailabilityZone :: Lens' CreateVolumeResponse (Maybe Text)
@@ -213,8 +212,7 @@ cvrAvailabilityZone =
 
 -- | The time stamp when volume creation was initiated.
 cvrCreateTime :: Lens' CreateVolumeResponse (Maybe UTCTime)
-cvrCreateTime = lens _cvrCreateTime (\s a -> s { _cvrCreateTime = a })
-    . mapping _Time
+cvrCreateTime = lens _cvrCreateTime (\s a -> s { _cvrCreateTime = a }) . mapping _Time
 
 -- | Indicates whether the volume is encrypted.
 cvrEncrypted :: Lens' CreateVolumeResponse (Maybe Bool)
@@ -248,8 +246,7 @@ cvrState = lens _cvrState (\s a -> s { _cvrState = a })
 
 -- | Any tags assigned to the volume.
 cvrTags :: Lens' CreateVolumeResponse [Tag]
-cvrTags = lens _cvrTags (\s a -> s { _cvrTags = a })
-    . _List
+cvrTags = lens _cvrTags (\s a -> s { _cvrTags = a }) . _List
 
 -- | The ID of the volume.
 cvrVolumeId :: Lens' CreateVolumeResponse (Maybe Text)
@@ -263,7 +260,16 @@ cvrVolumeType = lens _cvrVolumeType (\s a -> s { _cvrVolumeType = a })
 instance ToPath CreateVolume where
     toPath = const "/"
 
-instance ToQuery CreateVolume
+instance ToQuery CreateVolume where
+    toQuery CreateVolume{..} = mconcat
+        [ "AvailabilityZone" =? _cv1AvailabilityZone
+        , "dryRun"           =? _cv1DryRun
+        , "encrypted"        =? _cv1Encrypted
+        , "Iops"             =? _cv1Iops
+        , "Size"             =? _cv1Size
+        , "SnapshotId"       =? _cv1SnapshotId
+        , "VolumeType"       =? _cv1VolumeType
+        ]
 
 instance ToHeaders CreateVolume
 
@@ -276,7 +282,7 @@ instance AWSRequest CreateVolume where
 
 instance FromXML CreateVolumeResponse where
     parseXML x = CreateVolumeResponse
-        <$> x .@ "attachmentSet"
+        <$> x .@  "attachmentSet"
         <*> x .@? "availabilityZone"
         <*> x .@? "createTime"
         <*> x .@? "encrypted"
@@ -284,6 +290,6 @@ instance FromXML CreateVolumeResponse where
         <*> x .@? "size"
         <*> x .@? "snapshotId"
         <*> x .@? "status"
-        <*> x .@ "tagSet"
+        <*> x .@  "tagSet"
         <*> x .@? "volumeId"
         <*> x .@? "volumeType"

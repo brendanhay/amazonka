@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ getHealthCheckCount = GetHealthCheckCount
 
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount :: Integer
-    } deriving (Eq, Ord, Show, Generic, Enum, Num, Integral, Real)
+    } deriving (Eq, Ord, Show, Enum, Num, Integral, Real)
 
 -- | 'GetHealthCheckCountResponse' constructor.
 --
@@ -93,4 +94,4 @@ instance AWSRequest GetHealthCheckCount where
 
 instance FromXML GetHealthCheckCountResponse where
     parseXML x = GetHealthCheckCountResponse
-            <$> x .@ "HealthCheckCount"
+        <$> x .@  "HealthCheckCount"

@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data EnableVolumeIO = EnableVolumeIO
     { _evioDryRun   :: Maybe Bool
     , _evioVolumeId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'EnableVolumeIO' constructor.
 --
@@ -82,7 +82,11 @@ enableVolumeIOResponse = EnableVolumeIOResponse
 instance ToPath EnableVolumeIO where
     toPath = const "/"
 
-instance ToQuery EnableVolumeIO
+instance ToQuery EnableVolumeIO where
+    toQuery EnableVolumeIO{..} = mconcat
+        [ "dryRun"   =? _evioDryRun
+        , "volumeId" =? _evioVolumeId
+        ]
 
 instance ToHeaders EnableVolumeIO
 

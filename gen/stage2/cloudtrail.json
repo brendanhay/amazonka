@@ -53,8 +53,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "trail",
@@ -169,6 +168,7 @@
                 "required": [],
                 "contentPad": 27,
                 "name": "Trail",
+                "locationPad": 27,
                 "type": "record",
                 "optional": [
                     {
@@ -396,8 +396,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -520,6 +519,7 @@
                 "contentPad": 27,
                 "name": "CreateTrailResponse",
                 "resultWrapper": null,
+                "locationPad": 27,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -753,8 +753,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -914,6 +913,7 @@
                 "queryPad": 0,
                 "name": "CreateTrail",
                 "query": [],
+                "locationPad": 27,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1146,7 +1146,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1219,6 +1218,7 @@
                 "queryPad": 0,
                 "name": "DeleteTrail",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -1248,7 +1248,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1260,8 +1259,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1271,13 +1270,13 @@
                     "locationName": "trailList",
                     "documentation": "\u003cp\u003eThe list of trails.\u003c/p\u003e",
                     "typeExposed": "[Trail]",
-                    "type": "[Trail]"
+                    "type": "List \"trailList\" Trail"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1287,7 +1286,7 @@
                         "locationName": "trailList",
                         "documentation": "\u003cp\u003eThe list of trails.\u003c/p\u003e",
                         "typeExposed": "[Trail]",
-                        "type": "[Trail]"
+                        "type": "List \"trailList\" Trail"
                     }
                 ],
                 "wrapper": false,
@@ -1299,13 +1298,14 @@
                 "contentPad": 0,
                 "name": "DescribeTrailsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1315,14 +1315,14 @@
                         "locationName": "trailList",
                         "documentation": "\u003cp\u003eThe list of trails.\u003c/p\u003e",
                         "typeExposed": "[Trail]",
-                        "type": "[Trail]"
+                        "type": "List \"trailList\" Trail"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1332,7 +1332,7 @@
                         "locationName": "trailList",
                         "documentation": "\u003cp\u003eThe list of trails.\u003c/p\u003e",
                         "typeExposed": "[Trail]",
-                        "type": "[Trail]"
+                        "type": "List \"trailList\" Trail"
                     }
                 ]
             },
@@ -1353,7 +1353,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -1365,8 +1364,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1376,13 +1375,13 @@
                     "locationName": "trailNameList",
                     "documentation": "\u003cp\u003eThe trail returned.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"trailNameList\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1392,7 +1391,7 @@
                         "locationName": "trailNameList",
                         "documentation": "\u003cp\u003eThe trail returned.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"trailNameList\" Text"
                     }
                 ],
                 "path": [
@@ -1410,14 +1409,15 @@
                 "queryPad": 0,
                 "name": "DescribeTrails",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1427,14 +1427,14 @@
                         "locationName": "trailNameList",
                         "documentation": "\u003cp\u003eThe trail returned.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"trailNameList\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1444,7 +1444,7 @@
                         "locationName": "trailNameList",
                         "documentation": "\u003cp\u003eThe trail returned.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"trailNameList\" Text"
                     }
                 ]
             }
@@ -1455,8 +1455,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1609,6 +1608,7 @@
                 "contentPad": 34,
                 "name": "GetTrailStatusResponse",
                 "resultWrapper": null,
+                "locationPad": 34,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1903,7 +1903,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1976,6 +1975,7 @@
                 "queryPad": 0,
                 "name": "GetTrailStatus",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2042,7 +2042,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2115,6 +2114,7 @@
                 "queryPad": 0,
                 "name": "StartLogging",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2181,7 +2181,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2254,6 +2253,7 @@
                 "queryPad": 0,
                 "name": "StopLogging",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2283,8 +2283,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2407,6 +2406,7 @@
                 "contentPad": 27,
                 "name": "UpdateTrailResponse",
                 "resultWrapper": null,
+                "locationPad": 27,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2640,8 +2640,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2786,6 +2785,7 @@
                 "queryPad": 0,
                 "name": "UpdateTrail",
                 "query": [],
+                "locationPad": 27,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

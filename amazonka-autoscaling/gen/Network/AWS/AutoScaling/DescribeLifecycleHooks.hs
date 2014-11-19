@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,8 +49,8 @@ import qualified GHC.Exts
 
 data DescribeLifecycleHooks = DescribeLifecycleHooks
     { _dlhAutoScalingGroupName :: Text
-    , _dlhLifecycleHookNames   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dlhLifecycleHookNames   :: List "LifecycleHookNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeLifecycleHooks' constructor.
 --
@@ -75,10 +76,11 @@ dlhAutoScalingGroupName =
 dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
 dlhLifecycleHookNames =
     lens _dlhLifecycleHookNames (\s a -> s { _dlhLifecycleHookNames = a })
+        . _List
 
 newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
-    { _dlhrLifecycleHooks :: [LifecycleHook]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dlhrLifecycleHooks :: List "LifecycleHooks" LifecycleHook
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLifecycleHooksResponse where
     type Item DescribeLifecycleHooksResponse = LifecycleHook
@@ -102,11 +104,16 @@ describeLifecycleHooksResponse = DescribeLifecycleHooksResponse
 dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrLifecycleHooks =
     lens _dlhrLifecycleHooks (\s a -> s { _dlhrLifecycleHooks = a })
+        . _List
 
 instance ToPath DescribeLifecycleHooks where
     toPath = const "/"
 
-instance ToQuery DescribeLifecycleHooks
+instance ToQuery DescribeLifecycleHooks where
+    toQuery DescribeLifecycleHooks{..} = mconcat
+        [ "AutoScalingGroupName" =? _dlhAutoScalingGroupName
+        , "LifecycleHookNames"   =? _dlhLifecycleHookNames
+        ]
 
 instance ToHeaders DescribeLifecycleHooks
 
@@ -118,5 +125,5 @@ instance AWSRequest DescribeLifecycleHooks where
     response = xmlResponse
 
 instance FromXML DescribeLifecycleHooksResponse where
-    parseXML = withElement "DescribeLifecycleHooksResult" $ \x ->
-            <$> x .@ "LifecycleHooks"
+    parseXML = withElement "DescribeLifecycleHooksResult" $ \x -> DescribeLifecycleHooksResponse
+        <$> x .@  "LifecycleHooks"

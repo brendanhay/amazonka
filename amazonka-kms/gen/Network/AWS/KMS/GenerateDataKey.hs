@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,12 +53,12 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 data GenerateDataKey = GenerateDataKey
-    { _gdkEncryptionContext :: Map Text Text
-    , _gdkGrantTokens       :: [Text]
+    { _gdkEncryptionContext :: Map "entry" "key" "value" Text Text
+    , _gdkGrantTokens       :: List "GrantTokens" Text
     , _gdkKeyId             :: Text
     , _gdkKeySpec           :: Maybe Text
     , _gdkNumberOfBytes     :: Maybe Nat
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GenerateDataKey' constructor.
 --
@@ -95,7 +96,7 @@ gdkEncryptionContext =
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to generate a key.
 gdkGrantTokens :: Lens' GenerateDataKey [Text]
-gdkGrantTokens = lens _gdkGrantTokens (\s a -> s { _gdkGrantTokens = a })
+gdkGrantTokens = lens _gdkGrantTokens (\s a -> s { _gdkGrantTokens = a }) . _List
 
 -- | Unique identifier of the key. This can be an ARN, an alias, or a globally
 -- unique identifier.
@@ -110,14 +111,13 @@ gdkKeySpec = lens _gdkKeySpec (\s a -> s { _gdkKeySpec = a })
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, 1024 and so on. 1024 is the current limit.
 gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
-gdkNumberOfBytes = lens _gdkNumberOfBytes (\s a -> s { _gdkNumberOfBytes = a })
-    . mapping _Nat
+gdkNumberOfBytes = lens _gdkNumberOfBytes (\s a -> s { _gdkNumberOfBytes = a }) . mapping _Nat
 
 data GenerateDataKeyResponse = GenerateDataKeyResponse
     { _gdkrCiphertextBlob :: Maybe Base64
     , _gdkrKeyId          :: Maybe Text
     , _gdkrPlaintext      :: Maybe Base64
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GenerateDataKeyResponse' constructor.
 --

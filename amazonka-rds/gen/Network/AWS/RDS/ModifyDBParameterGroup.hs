@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,8 +60,8 @@ import qualified GHC.Exts
 
 data ModifyDBParameterGroup = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName :: Text
-    , _mdbpgParameters           :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    , _mdbpgParameters           :: List "Parameter" Parameter
+    } deriving (Eq, Show)
 
 -- | 'ModifyDBParameterGroup' constructor.
 --
@@ -92,11 +93,11 @@ mdbpgDBParameterGroupName =
 -- parameters may be modified in a single request. Valid Values (for the
 -- application method): immediate | pending-reboot.
 mdbpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
-mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a })
+mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a }) . _List
 
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     { _mdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ModifyDBParameterGroupResponse' constructor.
 --
@@ -118,7 +119,11 @@ mdbpgrDBParameterGroupName =
 instance ToPath ModifyDBParameterGroup where
     toPath = const "/"
 
-instance ToQuery ModifyDBParameterGroup
+instance ToQuery ModifyDBParameterGroup where
+    toQuery ModifyDBParameterGroup{..} = mconcat
+        [ "DBParameterGroupName" =? _mdbpgDBParameterGroupName
+        , "Parameters"           =? _mdbpgParameters
+        ]
 
 instance ToHeaders ModifyDBParameterGroup
 
@@ -130,5 +135,5 @@ instance AWSRequest ModifyDBParameterGroup where
     response = xmlResponse
 
 instance FromXML ModifyDBParameterGroupResponse where
-    parseXML = withElement "ModifyDBParameterGroupResult" $ \x ->
-            <$> x .@? "DBParameterGroupName"
+    parseXML = withElement "ModifyDBParameterGroupResult" $ \x -> ModifyDBParameterGroupResponse
+        <$> x .@? "DBParameterGroupName"

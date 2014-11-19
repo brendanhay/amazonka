@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import qualified GHC.Exts
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
     { _prnoNodeCount              :: Maybe Int
     , _prnoReservedNodeOfferingId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PurchaseReservedNodeOffering' constructor.
 --
@@ -83,7 +84,7 @@ prnoReservedNodeOfferingId =
 
 newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode :: Maybe ReservedNode
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PurchaseReservedNodeOfferingResponse' constructor.
 --
@@ -103,7 +104,11 @@ prnorReservedNode =
 instance ToPath PurchaseReservedNodeOffering where
     toPath = const "/"
 
-instance ToQuery PurchaseReservedNodeOffering
+instance ToQuery PurchaseReservedNodeOffering where
+    toQuery PurchaseReservedNodeOffering{..} = mconcat
+        [ "NodeCount"              =? _prnoNodeCount
+        , "ReservedNodeOfferingId" =? _prnoReservedNodeOfferingId
+        ]
 
 instance ToHeaders PurchaseReservedNodeOffering
 
@@ -115,5 +120,5 @@ instance AWSRequest PurchaseReservedNodeOffering where
     response = xmlResponse
 
 instance FromXML PurchaseReservedNodeOfferingResponse where
-    parseXML = withElement "PurchaseReservedNodeOfferingResult" $ \x ->
-            <$> x .@? "ReservedNode"
+    parseXML = withElement "PurchaseReservedNodeOfferingResult" $ \x -> PurchaseReservedNodeOfferingResponse
+        <$> x .@? "ReservedNode"

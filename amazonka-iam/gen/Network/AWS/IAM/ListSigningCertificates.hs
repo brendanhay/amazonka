@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ data ListSigningCertificates = ListSigningCertificates
     { _lsc1Marker   :: Maybe Text
     , _lsc1MaxItems :: Maybe Nat
     , _lsc1UserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListSigningCertificates' constructor.
 --
@@ -91,18 +92,17 @@ lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
 lsc1MaxItems :: Lens' ListSigningCertificates (Maybe Natural)
-lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a })
-    . mapping _Nat
+lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a }) . mapping _Nat
 
 -- | The name of the user.
 lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)
 lsc1UserName = lens _lsc1UserName (\s a -> s { _lsc1UserName = a })
 
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
-    { _lscr1Certificates :: [SigningCertificate]
+    { _lscr1Certificates :: List "Certificates" SigningCertificate
     , _lscr1IsTruncated  :: Maybe Bool
     , _lscr1Marker       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListSigningCertificatesResponse' constructor.
 --
@@ -125,6 +125,7 @@ listSigningCertificatesResponse = ListSigningCertificatesResponse
 lscr1Certificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
 lscr1Certificates =
     lens _lscr1Certificates (\s a -> s { _lscr1Certificates = a })
+        . _List
 
 -- | A flag that indicates whether there are more certificate IDs to list. If
 -- your results were truncated, you can make a subsequent pagination request
@@ -141,7 +142,12 @@ lscr1Marker = lens _lscr1Marker (\s a -> s { _lscr1Marker = a })
 instance ToPath ListSigningCertificates where
     toPath = const "/"
 
-instance ToQuery ListSigningCertificates
+instance ToQuery ListSigningCertificates where
+    toQuery ListSigningCertificates{..} = mconcat
+        [ "Marker"   =? _lsc1Marker
+        , "MaxItems" =? _lsc1MaxItems
+        , "UserName" =? _lsc1UserName
+        ]
 
 instance ToHeaders ListSigningCertificates
 
@@ -153,10 +159,10 @@ instance AWSRequest ListSigningCertificates where
     response = xmlResponse
 
 instance FromXML ListSigningCertificatesResponse where
-    parseXML = withElement "ListSigningCertificatesResult" $ \x ->
-            <$> x .@ "Certificates"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Marker"
+    parseXML = withElement "ListSigningCertificatesResult" $ \x -> ListSigningCertificatesResponse
+        <$> x .@  "Certificates"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
 
 instance AWSPager ListSigningCertificates where
     next rq rs

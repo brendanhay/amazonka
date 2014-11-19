@@ -67,8 +67,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "trustedAdvisorResourcesSummary",
@@ -199,6 +198,7 @@
                 ],
                 "contentPad": 20,
                 "name": "TrustedAdvisorResourcesSummary",
+                "locationPad": 20,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -267,8 +267,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "service",
@@ -305,8 +304,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -316,13 +315,14 @@
                         "locationName": "categories",
                         "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Category]",
-                        "type": "[Category]"
+                        "type": "List \"categories\" Category"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 11,
                 "name": "Service",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -357,8 +357,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -368,14 +368,14 @@
                         "locationName": "categories",
                         "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Category]",
-                        "type": "[Category]"
+                        "type": "List \"categories\" Category"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -385,7 +385,7 @@
                         "locationName": "categories",
                         "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "[Category]",
-                        "type": "[Category]"
+                        "type": "List \"categories\" Category"
                     },
                     {
                         "location": null,
@@ -422,8 +422,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -464,6 +463,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "TrustedAdvisorCategorySpecificSummary",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -503,8 +503,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "communication",
@@ -571,8 +570,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -582,13 +581,14 @@
                         "locationName": "attachmentSet",
                         "documentation": "\u003cp\u003eInformation about the attachments to the case communication. \u003c/p\u003e",
                         "typeExposed": "[AttachmentDetails]",
-                        "type": "[AttachmentDetails]"
+                        "type": "List \"attachmentSet\" AttachmentDetails"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 14,
                 "name": "Communication",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -653,8 +653,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -664,14 +664,14 @@
                         "locationName": "attachmentSet",
                         "documentation": "\u003cp\u003eInformation about the attachments to the case communication. \u003c/p\u003e",
                         "typeExposed": "[AttachmentDetails]",
-                        "type": "[AttachmentDetails]"
+                        "type": "List \"attachmentSet\" AttachmentDetails"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -681,7 +681,7 @@
                         "locationName": "attachmentSet",
                         "documentation": "\u003cp\u003eInformation about the attachments to the case communication. \u003c/p\u003e",
                         "typeExposed": "[AttachmentDetails]",
-                        "type": "[AttachmentDetails]"
+                        "type": "List \"attachmentSet\" AttachmentDetails"
                     },
                     {
                         "location": null,
@@ -749,8 +749,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 6,
                 "ctor": "category",
@@ -790,6 +789,7 @@
                 "required": [],
                 "contentPad": 5,
                 "name": "Category",
+                "locationPad": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -859,8 +859,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "trustedAdvisorCheckSummary",
@@ -1036,6 +1035,7 @@
                 ],
                 "contentPad": 24,
                 "name": "TrustedAdvisorCheckSummary",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -1151,8 +1151,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "attachmentDetails",
@@ -1192,6 +1191,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "AttachmentDetails",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -1261,8 +1261,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 28,
                 "ctor": "trustedAdvisorCheckResult",
@@ -1344,8 +1343,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1355,7 +1354,7 @@
                         "locationName": "flaggedResources",
                         "documentation": "\u003cp\u003eThe details about each resource listed in the check result.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorResourceDetail]",
-                        "type": "[TrustedAdvisorResourceDetail]"
+                        "type": "List \"flaggedResources\" TrustedAdvisorResourceDetail"
                     }
                 ],
                 "payload": null,
@@ -1438,12 +1437,13 @@
                 ],
                 "contentPad": 24,
                 "name": "TrustedAdvisorCheckResult",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1453,7 +1453,7 @@
                         "locationName": "flaggedResources",
                         "documentation": "\u003cp\u003eThe details about each resource listed in the check result.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorResourceDetail]",
-                        "type": "[TrustedAdvisorResourceDetail]"
+                        "type": "List \"flaggedResources\" TrustedAdvisorResourceDetail"
                     }
                 ],
                 "fields": [
@@ -1489,8 +1489,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1500,7 +1500,7 @@
                         "locationName": "flaggedResources",
                         "documentation": "\u003cp\u003eThe details about each resource listed in the check result.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorResourceDetail]",
-                        "type": "[TrustedAdvisorResourceDetail]"
+                        "type": "List \"flaggedResources\" TrustedAdvisorResourceDetail"
                     },
                     {
                         "location": null,
@@ -1553,8 +1553,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "trustedAdvisorCheckDescription",
@@ -1621,8 +1620,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1632,7 +1631,7 @@
                         "locationName": "metadata",
                         "documentation": "\u003cp\u003eThe column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the \u003cb\u003eMetadata\u003c/b\u003e element of the \u003ca\u003eTrustedAdvisorResourceDetail\u003c/a\u003e for the check. \u003cb\u003eMetadata\u003c/b\u003e contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ],
                 "payload": null,
@@ -1700,12 +1699,13 @@
                 ],
                 "contentPad": 12,
                 "name": "TrustedAdvisorCheckDescription",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1715,7 +1715,7 @@
                         "locationName": "metadata",
                         "documentation": "\u003cp\u003eThe column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the \u003cb\u003eMetadata\u003c/b\u003e element of the \u003ca\u003eTrustedAdvisorResourceDetail\u003c/a\u003e for the check. \u003cb\u003eMetadata\u003c/b\u003e contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ],
                 "fields": [
@@ -1766,8 +1766,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1777,7 +1777,7 @@
                         "locationName": "metadata",
                         "documentation": "\u003cp\u003eThe column headings for the data returned by the Trusted Advisor check. The order of the headings corresponds to the order of the data in the \u003cb\u003eMetadata\u003c/b\u003e element of the \u003ca\u003eTrustedAdvisorResourceDetail\u003c/a\u003e for the check. \u003cb\u003eMetadata\u003c/b\u003e contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     },
                     {
                         "location": null,
@@ -1799,8 +1799,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "attachment",
@@ -1840,6 +1839,7 @@
                 "required": [],
                 "contentPad": 9,
                 "name": "Attachment",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -1909,16 +1909,15 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "recentCaseCommunications",
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1928,7 +1927,7 @@
                         "locationName": "communications",
                         "documentation": "\u003cp\u003eThe five most recent communications associated with the case.\u003c/p\u003e",
                         "typeExposed": "[Communication]",
-                        "type": "[Communication]"
+                        "type": "List \"communications\" Communication"
                     },
                     {
                         "location": null,
@@ -1950,12 +1949,13 @@
                 "required": [],
                 "contentPad": 15,
                 "name": "RecentCaseCommunications",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1965,7 +1965,7 @@
                         "locationName": "communications",
                         "documentation": "\u003cp\u003eThe five most recent communications associated with the case.\u003c/p\u003e",
                         "typeExposed": "[Communication]",
-                        "type": "[Communication]"
+                        "type": "List \"communications\" Communication"
                     },
                     {
                         "location": null,
@@ -1986,8 +1986,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1997,7 +1997,7 @@
                         "locationName": "communications",
                         "documentation": "\u003cp\u003eThe five most recent communications associated with the case.\u003c/p\u003e",
                         "typeExposed": "[Communication]",
-                        "type": "[Communication]"
+                        "type": "List \"communications\" Communication"
                     },
                     {
                         "location": null,
@@ -2020,8 +2020,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 17,
                 "ctor": "trustedAdvisorResourceDetail",
@@ -2088,8 +2087,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2099,7 +2098,7 @@
                         "locationName": "metadata",
                         "documentation": "\u003cp\u003eAdditional information about the identified resource. The exact metadata and its order can be obtained by inspecting the \u003ca\u003eTrustedAdvisorCheckDescription\u003c/a\u003e object returned by the call to \u003ca\u003eDescribeTrustedAdvisorChecks\u003c/a\u003e. \u003cb\u003eMetadata\u003c/b\u003e contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ],
                 "payload": null,
@@ -2152,6 +2151,7 @@
                 ],
                 "contentPad": 13,
                 "name": "TrustedAdvisorResourceDetail",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -2171,8 +2171,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2182,7 +2182,7 @@
                         "locationName": "metadata",
                         "documentation": "\u003cp\u003eAdditional information about the identified resource. The exact metadata and its order can be obtained by inspecting the \u003ca\u003eTrustedAdvisorCheckDescription\u003c/a\u003e object returned by the call to \u003ca\u003eDescribeTrustedAdvisorChecks\u003c/a\u003e. \u003cb\u003eMetadata\u003c/b\u003e contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ],
                 "fields": [
@@ -2203,8 +2203,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2214,7 +2214,7 @@
                         "locationName": "metadata",
                         "documentation": "\u003cp\u003eAdditional information about the identified resource. The exact metadata and its order can be obtained by inspecting the \u003ca\u003eTrustedAdvisorCheckDescription\u003c/a\u003e object returned by the call to \u003ca\u003eDescribeTrustedAdvisorChecks\u003c/a\u003e. \u003cb\u003eMetadata\u003c/b\u003e contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     },
                     {
                         "location": null,
@@ -2267,8 +2267,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 36,
                 "ctor": "trustedAdvisorCostOptimizingSummary",
@@ -2339,6 +2338,7 @@
                 ],
                 "contentPad": 31,
                 "name": "TrustedAdvisorCostOptimizingSummary",
+                "locationPad": 31,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2378,8 +2378,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 7,
                 "ctor": "severityLevel",
@@ -2419,6 +2418,7 @@
                 "required": [],
                 "contentPad": 5,
                 "name": "SeverityLevel",
+                "locationPad": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -2488,8 +2488,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "caseDetails",
@@ -2646,8 +2645,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2657,7 +2656,7 @@
                         "locationName": "ccEmailAddresses",
                         "documentation": "\u003cp\u003eThe email addresses that receive copies of communication about the case.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ccEmailAddresses\" Text"
                     },
                     {
                         "location": null,
@@ -2679,6 +2678,7 @@
                 "required": [],
                 "contentPad": 21,
                 "name": "CaseDetails",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -2833,8 +2833,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2844,7 +2844,7 @@
                         "locationName": "ccEmailAddresses",
                         "documentation": "\u003cp\u003eThe email addresses that receive copies of communication about the case.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ccEmailAddresses\" Text"
                     },
                     {
                         "location": null,
@@ -2895,8 +2895,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2906,7 +2906,7 @@
                         "locationName": "ccEmailAddresses",
                         "documentation": "\u003cp\u003eThe email addresses that receive copies of communication about the case.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ccEmailAddresses\" Text"
                     },
                     {
                         "location": null,
@@ -3049,8 +3049,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 32,
                 "ctor": "trustedAdvisorCheckRefreshStatus",
@@ -3151,6 +3150,7 @@
                 ],
                 "contentPad": 27,
                 "name": "TrustedAdvisorCheckRefreshStatus",
+                "locationPad": 27,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -3214,8 +3214,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3263,6 +3262,7 @@
                 "contentPad": 16,
                 "name": "AddAttachmentsToSetResponse",
                 "resultWrapper": null,
+                "locationPad": 16,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3345,8 +3345,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3371,8 +3370,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3382,7 +3381,7 @@
                         "locationName": "attachments",
                         "documentation": "\u003cp\u003eOne or more attachments to add to the set. The limit is 3 attachments per set, and the size limit is 5 MB per attachment.\u003c/p\u003e",
                         "typeExposed": "[Attachment]",
-                        "type": "[Attachment]"
+                        "type": "List \"attachments\" Attachment"
                     }
                 ],
                 "path": [
@@ -3400,6 +3399,7 @@
                 "queryPad": 0,
                 "name": "AddAttachmentsToSet",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3421,8 +3421,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3432,7 +3432,7 @@
                         "locationName": "attachments",
                         "documentation": "\u003cp\u003eOne or more attachments to add to the set. The limit is 3 attachments per set, and the size limit is 5 MB per attachment.\u003c/p\u003e",
                         "typeExposed": "[Attachment]",
-                        "type": "[Attachment]"
+                        "type": "List \"attachments\" Attachment"
                     }
                 ],
                 "fields": [
@@ -3453,8 +3453,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3464,7 +3464,7 @@
                         "locationName": "attachments",
                         "documentation": "\u003cp\u003eOne or more attachments to add to the set. The limit is 3 attachments per set, and the size limit is 5 MB per attachment.\u003c/p\u003e",
                         "typeExposed": "[Attachment]",
-                        "type": "[Attachment]"
+                        "type": "List \"attachments\" Attachment"
                     }
                 ]
             }
@@ -3475,8 +3475,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3525,6 +3524,7 @@
                 "contentPad": 0,
                 "name": "AddCommunicationToCaseResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -3578,8 +3578,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3619,8 +3618,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3630,7 +3629,7 @@
                         "locationName": "ccEmailAddresses",
                         "documentation": "\u003cp\u003eThe email addresses in the CC line of an email to be added to the support case.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ccEmailAddresses\" Text"
                     },
                     {
                         "location": null,
@@ -3679,6 +3678,7 @@
                 "queryPad": 0,
                 "name": "AddCommunicationToCase",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3700,8 +3700,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3711,7 +3711,7 @@
                         "locationName": "ccEmailAddresses",
                         "documentation": "\u003cp\u003eThe email addresses in the CC line of an email to be added to the support case.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ccEmailAddresses\" Text"
                     },
                     {
                         "location": null,
@@ -3762,8 +3762,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3773,7 +3773,7 @@
                         "locationName": "ccEmailAddresses",
                         "documentation": "\u003cp\u003eThe email addresses in the CC line of an email to be added to the support case.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ccEmailAddresses\" Text"
                     },
                     {
                         "location": null,
@@ -3800,7 +3800,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3850,6 +3849,7 @@
                 "contentPad": 0,
                 "name": "CreateCaseResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -3903,8 +3903,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3989,8 +3988,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4000,7 +3999,7 @@
                         "locationName": "ccEmailAddresses",
                         "documentation": "\u003cp\u003eA list of email addresses that AWS Support copies on case correspondence.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ccEmailAddresses\" Text"
                     },
                     {
                         "location": null,
@@ -4094,6 +4093,7 @@
                 "queryPad": 0,
                 "name": "CreateCase",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4145,8 +4145,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4156,7 +4156,7 @@
                         "locationName": "ccEmailAddresses",
                         "documentation": "\u003cp\u003eA list of email addresses that AWS Support copies on case correspondence.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ccEmailAddresses\" Text"
                     },
                     {
                         "location": null,
@@ -4237,8 +4237,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4248,7 +4248,7 @@
                         "locationName": "ccEmailAddresses",
                         "documentation": "\u003cp\u003eA list of email addresses that AWS Support copies on case correspondence.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"ccEmailAddresses\" Text"
                     },
                     {
                         "location": null,
@@ -4348,8 +4348,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4398,6 +4397,7 @@
                 "contentPad": 0,
                 "name": "DescribeAttachmentResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4452,7 +4452,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4525,6 +4524,7 @@
                 "queryPad": 0,
                 "name": "DescribeAttachment",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -4553,8 +4553,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4564,8 +4563,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4575,7 +4574,7 @@
                         "locationName": "cases",
                         "documentation": "\u003cp\u003eThe details for the cases that match the request.\u003c/p\u003e",
                         "typeExposed": "[CaseDetails]",
-                        "type": "[CaseDetails]"
+                        "type": "List \"cases\" CaseDetails"
                     },
                     {
                         "location": null,
@@ -4602,13 +4601,14 @@
                 "contentPad": 10,
                 "name": "DescribeCasesResponse",
                 "resultWrapper": null,
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4618,7 +4618,7 @@
                         "locationName": "cases",
                         "documentation": "\u003cp\u003eThe details for the cases that match the request.\u003c/p\u003e",
                         "typeExposed": "[CaseDetails]",
-                        "type": "[CaseDetails]"
+                        "type": "List \"cases\" CaseDetails"
                     },
                     {
                         "location": null,
@@ -4639,8 +4639,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4650,7 +4650,7 @@
                         "locationName": "cases",
                         "documentation": "\u003cp\u003eThe details for the cases that match the request.\u003c/p\u003e",
                         "typeExposed": "[CaseDetails]",
-                        "type": "[CaseDetails]"
+                        "type": "List \"cases\" CaseDetails"
                     },
                     {
                         "location": null,
@@ -4692,8 +4692,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4703,8 +4702,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4714,7 +4713,7 @@
                         "locationName": "caseIdList",
                         "documentation": "\u003cp\u003eA list of ID numbers of the support cases you want returned. The maximum number of cases is 100. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"caseIdList\" Text"
                     },
                     {
                         "location": null,
@@ -4852,14 +4851,15 @@
                 "queryPad": 0,
                 "name": "DescribeCases",
                 "query": [],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4869,7 +4869,7 @@
                         "locationName": "caseIdList",
                         "documentation": "\u003cp\u003eA list of ID numbers of the support cases you want returned. The maximum number of cases is 100. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"caseIdList\" Text"
                     },
                     {
                         "location": null,
@@ -5025,8 +5025,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5036,7 +5036,7 @@
                         "locationName": "caseIdList",
                         "documentation": "\u003cp\u003eA list of ID numbers of the support cases you want returned. The maximum number of cases is 100. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"caseIdList\" Text"
                     },
                     {
                         "location": null,
@@ -5136,8 +5136,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5147,8 +5146,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5158,7 +5157,7 @@
                         "locationName": "communications",
                         "documentation": "\u003cp\u003eThe communications for the case.\u003c/p\u003e",
                         "typeExposed": "[Communication]",
-                        "type": "[Communication]"
+                        "type": "List \"communications\" Communication"
                     },
                     {
                         "location": null,
@@ -5185,13 +5184,14 @@
                 "contentPad": 15,
                 "name": "DescribeCommunicationsResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5201,7 +5201,7 @@
                         "locationName": "communications",
                         "documentation": "\u003cp\u003eThe communications for the case.\u003c/p\u003e",
                         "typeExposed": "[Communication]",
-                        "type": "[Communication]"
+                        "type": "List \"communications\" Communication"
                     },
                     {
                         "location": null,
@@ -5222,8 +5222,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5233,7 +5233,7 @@
                         "locationName": "communications",
                         "documentation": "\u003cp\u003eThe communications for the case.\u003c/p\u003e",
                         "typeExposed": "[Communication]",
-                        "type": "[Communication]"
+                        "type": "List \"communications\" Communication"
                     },
                     {
                         "location": null,
@@ -5275,8 +5275,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5391,6 +5390,7 @@
                 "queryPad": 0,
                 "name": "DescribeCommunications",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5541,7 +5541,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -5553,8 +5552,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -5564,13 +5563,13 @@
                     "locationName": "services",
                     "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
                     "typeExposed": "[Service]",
-                    "type": "[Service]"
+                    "type": "List \"services\" Service"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5580,7 +5579,7 @@
                         "locationName": "services",
                         "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
                         "typeExposed": "[Service]",
-                        "type": "[Service]"
+                        "type": "List \"services\" Service"
                     }
                 ],
                 "wrapper": false,
@@ -5592,13 +5591,14 @@
                 "contentPad": 0,
                 "name": "DescribeServicesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5608,14 +5608,14 @@
                         "locationName": "services",
                         "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
                         "typeExposed": "[Service]",
-                        "type": "[Service]"
+                        "type": "List \"services\" Service"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5625,7 +5625,7 @@
                         "locationName": "services",
                         "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
                         "typeExposed": "[Service]",
-                        "type": "[Service]"
+                        "type": "List \"services\" Service"
                     }
                 ]
             },
@@ -5645,8 +5645,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5656,8 +5655,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5667,7 +5666,7 @@
                         "locationName": "serviceCodeList",
                         "documentation": "\u003cp\u003eA JSON-formatted list of service codes available for AWS services.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"serviceCodeList\" Text"
                     },
                     {
                         "location": null,
@@ -5700,14 +5699,15 @@
                 "queryPad": 0,
                 "name": "DescribeServices",
                 "query": [],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5717,7 +5717,7 @@
                         "locationName": "serviceCodeList",
                         "documentation": "\u003cp\u003eA JSON-formatted list of service codes available for AWS services.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"serviceCodeList\" Text"
                     },
                     {
                         "location": null,
@@ -5753,8 +5753,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5764,7 +5764,7 @@
                         "locationName": "serviceCodeList",
                         "documentation": "\u003cp\u003eA JSON-formatted list of service codes available for AWS services.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"serviceCodeList\" Text"
                     }
                 ]
             }
@@ -5775,7 +5775,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -5787,8 +5786,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -5798,13 +5797,13 @@
                     "locationName": "severityLevels",
                     "documentation": "\u003cp\u003eThe available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.\u003c/p\u003e",
                     "typeExposed": "[SeverityLevel]",
-                    "type": "[SeverityLevel]"
+                    "type": "List \"severityLevels\" SeverityLevel"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5814,7 +5813,7 @@
                         "locationName": "severityLevels",
                         "documentation": "\u003cp\u003eThe available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.\u003c/p\u003e",
                         "typeExposed": "[SeverityLevel]",
-                        "type": "[SeverityLevel]"
+                        "type": "List \"severityLevels\" SeverityLevel"
                     }
                 ],
                 "wrapper": false,
@@ -5826,13 +5825,14 @@
                 "contentPad": 0,
                 "name": "DescribeSeverityLevelsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5842,14 +5842,14 @@
                         "locationName": "severityLevels",
                         "documentation": "\u003cp\u003eThe available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.\u003c/p\u003e",
                         "typeExposed": "[SeverityLevel]",
-                        "type": "[SeverityLevel]"
+                        "type": "List \"severityLevels\" SeverityLevel"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5859,7 +5859,7 @@
                         "locationName": "severityLevels",
                         "documentation": "\u003cp\u003eThe available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.\u003c/p\u003e",
                         "typeExposed": "[SeverityLevel]",
-                        "type": "[SeverityLevel]"
+                        "type": "List \"severityLevels\" SeverityLevel"
                     }
                 ]
             },
@@ -5880,7 +5880,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -5936,6 +5935,7 @@
                 "queryPad": 0,
                 "name": "DescribeSeverityLevels",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -5981,7 +5981,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -5993,8 +5992,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6004,13 +6003,13 @@
                     "locationName": "statuses",
                     "documentation": "\u003cp\u003eThe refresh status of the specified Trusted Advisor checks.\u003c/p\u003e",
                     "typeExposed": "[TrustedAdvisorCheckRefreshStatus]",
-                    "type": "[TrustedAdvisorCheckRefreshStatus]"
+                    "type": "List \"statuses\" TrustedAdvisorCheckRefreshStatus"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6020,7 +6019,7 @@
                         "locationName": "statuses",
                         "documentation": "\u003cp\u003eThe refresh status of the specified Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorCheckRefreshStatus]",
-                        "type": "[TrustedAdvisorCheckRefreshStatus]"
+                        "type": "List \"statuses\" TrustedAdvisorCheckRefreshStatus"
                     }
                 ],
                 "wrapper": false,
@@ -6032,13 +6031,14 @@
                 "contentPad": 0,
                 "name": "DescribeTrustedAdvisorCheckRefreshStatusesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6048,14 +6048,14 @@
                         "locationName": "statuses",
                         "documentation": "\u003cp\u003eThe refresh status of the specified Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorCheckRefreshStatus]",
-                        "type": "[TrustedAdvisorCheckRefreshStatus]"
+                        "type": "List \"statuses\" TrustedAdvisorCheckRefreshStatus"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6065,7 +6065,7 @@
                         "locationName": "statuses",
                         "documentation": "\u003cp\u003eThe refresh status of the specified Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorCheckRefreshStatus]",
-                        "type": "[TrustedAdvisorCheckRefreshStatus]"
+                        "type": "List \"statuses\" TrustedAdvisorCheckRefreshStatus"
                     }
                 ]
             },
@@ -6086,7 +6086,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6098,8 +6097,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6109,13 +6108,13 @@
                     "locationName": "checkIds",
                     "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"checkIds\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6125,7 +6124,7 @@
                         "locationName": "checkIds",
                         "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ],
                 "path": [
@@ -6143,14 +6142,15 @@
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorCheckRefreshStatuses",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6160,14 +6160,14 @@
                         "locationName": "checkIds",
                         "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6177,7 +6177,7 @@
                         "locationName": "checkIds",
                         "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ]
             }
@@ -6187,8 +6187,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6237,6 +6236,7 @@
                 "contentPad": 0,
                 "name": "DescribeTrustedAdvisorCheckResultResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -6290,8 +6290,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6361,6 +6360,7 @@
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorCheckResult",
                 "query": [],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6421,7 +6421,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6433,8 +6432,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6444,13 +6443,13 @@
                     "locationName": "summaries",
                     "documentation": "\u003cp\u003eThe summary information for the requested Trusted Advisor checks.\u003c/p\u003e",
                     "typeExposed": "[TrustedAdvisorCheckSummary]",
-                    "type": "[TrustedAdvisorCheckSummary]"
+                    "type": "List \"summaries\" TrustedAdvisorCheckSummary"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6460,7 +6459,7 @@
                         "locationName": "summaries",
                         "documentation": "\u003cp\u003eThe summary information for the requested Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorCheckSummary]",
-                        "type": "[TrustedAdvisorCheckSummary]"
+                        "type": "List \"summaries\" TrustedAdvisorCheckSummary"
                     }
                 ],
                 "wrapper": false,
@@ -6472,13 +6471,14 @@
                 "contentPad": 0,
                 "name": "DescribeTrustedAdvisorCheckSummariesResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6488,14 +6488,14 @@
                         "locationName": "summaries",
                         "documentation": "\u003cp\u003eThe summary information for the requested Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorCheckSummary]",
-                        "type": "[TrustedAdvisorCheckSummary]"
+                        "type": "List \"summaries\" TrustedAdvisorCheckSummary"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6505,7 +6505,7 @@
                         "locationName": "summaries",
                         "documentation": "\u003cp\u003eThe summary information for the requested Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorCheckSummary]",
-                        "type": "[TrustedAdvisorCheckSummary]"
+                        "type": "List \"summaries\" TrustedAdvisorCheckSummary"
                     }
                 ]
             },
@@ -6526,7 +6526,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6538,8 +6537,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6549,13 +6548,13 @@
                     "locationName": "checkIds",
                     "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "[Text]"
+                    "type": "List \"checkIds\" Text"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6565,7 +6564,7 @@
                         "locationName": "checkIds",
                         "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ],
                 "path": [
@@ -6583,14 +6582,15 @@
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorCheckSummaries",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6600,14 +6600,14 @@
                         "locationName": "checkIds",
                         "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6617,7 +6617,7 @@
                         "locationName": "checkIds",
                         "documentation": "\u003cp\u003eThe IDs of the Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"checkIds\" Text"
                     }
                 ]
             }
@@ -6628,7 +6628,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6640,8 +6639,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -6651,13 +6650,13 @@
                     "locationName": "checks",
                     "documentation": "\u003cp\u003eInformation about all available Trusted Advisor checks.\u003c/p\u003e",
                     "typeExposed": "[TrustedAdvisorCheckDescription]",
-                    "type": "[TrustedAdvisorCheckDescription]"
+                    "type": "List \"checks\" TrustedAdvisorCheckDescription"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6667,7 +6666,7 @@
                         "locationName": "checks",
                         "documentation": "\u003cp\u003eInformation about all available Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorCheckDescription]",
-                        "type": "[TrustedAdvisorCheckDescription]"
+                        "type": "List \"checks\" TrustedAdvisorCheckDescription"
                     }
                 ],
                 "wrapper": false,
@@ -6679,13 +6678,14 @@
                 "contentPad": 0,
                 "name": "DescribeTrustedAdvisorChecksResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6695,14 +6695,14 @@
                         "locationName": "checks",
                         "documentation": "\u003cp\u003eInformation about all available Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorCheckDescription]",
-                        "type": "[TrustedAdvisorCheckDescription]"
+                        "type": "List \"checks\" TrustedAdvisorCheckDescription"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6712,7 +6712,7 @@
                         "locationName": "checks",
                         "documentation": "\u003cp\u003eInformation about all available Trusted Advisor checks.\u003c/p\u003e",
                         "typeExposed": "[TrustedAdvisorCheckDescription]",
-                        "type": "[TrustedAdvisorCheckDescription]"
+                        "type": "List \"checks\" TrustedAdvisorCheckDescription"
                     }
                 ]
             },
@@ -6733,7 +6733,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -6806,6 +6805,7 @@
                 "queryPad": 0,
                 "name": "DescribeTrustedAdvisorChecks",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -6834,8 +6834,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6900,6 +6899,7 @@
                 "contentPad": 0,
                 "name": "RefreshTrustedAdvisorCheckResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -6938,7 +6938,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7011,6 +7010,7 @@
                 "queryPad": 0,
                 "name": "RefreshTrustedAdvisorCheck",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -7040,8 +7040,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7089,6 +7088,7 @@
                 "contentPad": 18,
                 "name": "ResolveCaseResponse",
                 "resultWrapper": null,
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -7173,7 +7173,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -7229,6 +7228,7 @@
                 "queryPad": 0,
                 "name": "ResolveCase",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,

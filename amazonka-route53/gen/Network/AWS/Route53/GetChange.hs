@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 
 newtype GetChange = GetChange
     { _gcId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetChange' constructor.
 --
@@ -72,7 +73,7 @@ gcId = lens _gcId (\s a -> s { _gcId = a })
 
 newtype GetChangeResponse = GetChangeResponse
     { _gcrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetChangeResponse' constructor.
 --
@@ -117,4 +118,4 @@ instance AWSRequest GetChange where
 
 instance FromXML GetChangeResponse where
     parseXML x = GetChangeResponse
-            <$> x .@ "ChangeInfo"
+        <$> x .@  "ChangeInfo"

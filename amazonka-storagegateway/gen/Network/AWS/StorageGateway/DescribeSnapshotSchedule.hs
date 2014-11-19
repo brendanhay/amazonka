@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
     { _dssVolumeARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DescribeSnapshotSchedule' constructor.
 --
@@ -77,7 +78,7 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
     , _dssrStartAt           :: Maybe Nat
     , _dssrTimezone          :: Maybe Text
     , _dssrVolumeARN         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeSnapshotScheduleResponse' constructor.
 --
@@ -111,8 +112,7 @@ dssrRecurrenceInHours =
         . mapping _Nat
 
 dssrStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
-dssrStartAt = lens _dssrStartAt (\s a -> s { _dssrStartAt = a })
-    . mapping _Nat
+dssrStartAt = lens _dssrStartAt (\s a -> s { _dssrStartAt = a }) . mapping _Nat
 
 dssrTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrTimezone = lens _dssrTimezone (\s a -> s { _dssrTimezone = a })

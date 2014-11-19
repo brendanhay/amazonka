@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -90,7 +91,7 @@ data ListResourceRecordSets = ListResourceRecordSets
     , _lrrsStartRecordIdentifier :: Maybe Text
     , _lrrsStartRecordName       :: Maybe Text
     , _lrrsStartRecordType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListResourceRecordSets' constructor.
 --
@@ -157,8 +158,8 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     , _lrrsrNextRecordIdentifier :: Maybe Text
     , _lrrsrNextRecordName       :: Maybe Text
     , _lrrsrNextRecordType       :: Maybe Text
-    , _lrrsrResourceRecordSets   :: [ResourceRecordSet]
-    } deriving (Eq, Show, Generic)
+    , _lrrsrResourceRecordSets   :: List "ResourceRecordSet" ResourceRecordSet
+    } deriving (Eq, Show)
 
 -- | 'ListResourceRecordSetsResponse' constructor.
 --
@@ -228,6 +229,7 @@ lrrsrNextRecordType =
 lrrsrResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
 lrrsrResourceRecordSets =
     lens _lrrsrResourceRecordSets (\s a -> s { _lrrsrResourceRecordSets = a })
+        . _List
 
 instance ToPath ListResourceRecordSets where
     toPath ListResourceRecordSets{..} = mconcat
@@ -260,12 +262,12 @@ instance AWSRequest ListResourceRecordSets where
 
 instance FromXML ListResourceRecordSetsResponse where
     parseXML x = ListResourceRecordSetsResponse
-            <$> x .@ "IsTruncated"
-            <*> x .@ "MaxItems"
-            <*> x .@? "NextRecordIdentifier"
-            <*> x .@? "NextRecordName"
-            <*> x .@? "NextRecordType"
-            <*> x .@ "ResourceRecordSets"
+        <$> x .@  "IsTruncated"
+        <*> x .@  "MaxItems"
+        <*> x .@? "NextRecordIdentifier"
+        <*> x .@? "NextRecordName"
+        <*> x .@? "NextRecordType"
+        <*> x .@  "ResourceRecordSets"
 
 instance AWSPager ListResourceRecordSets where
     next rq rs

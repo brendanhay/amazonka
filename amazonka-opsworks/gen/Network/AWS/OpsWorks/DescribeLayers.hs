@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,9 +51,9 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeLayers = DescribeLayers
-    { _dlLayerIds :: [Text]
+    { _dlLayerIds :: List "InstanceIds" Text
     , _dlStackId  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeLayers' constructor.
 --
@@ -72,15 +73,15 @@ describeLayers = DescribeLayers
 -- omit this parameter, DescribeLayers returns a description of every layer
 -- in the specified stack.
 dlLayerIds :: Lens' DescribeLayers [Text]
-dlLayerIds = lens _dlLayerIds (\s a -> s { _dlLayerIds = a })
+dlLayerIds = lens _dlLayerIds (\s a -> s { _dlLayerIds = a }) . _List
 
 -- | The stack ID.
 dlStackId :: Lens' DescribeLayers (Maybe Text)
 dlStackId = lens _dlStackId (\s a -> s { _dlStackId = a })
 
 newtype DescribeLayersResponse = DescribeLayersResponse
-    { _dlrLayers :: [Layer]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dlrLayers :: List "Layers" Layer
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLayersResponse where
     type Item DescribeLayersResponse = Layer
@@ -101,7 +102,7 @@ describeLayersResponse = DescribeLayersResponse
 
 -- | An array of Layer objects that describe the layers.
 dlrLayers :: Lens' DescribeLayersResponse [Layer]
-dlrLayers = lens _dlrLayers (\s a -> s { _dlrLayers = a })
+dlrLayers = lens _dlrLayers (\s a -> s { _dlrLayers = a }) . _List
 
 instance ToPath DescribeLayers where
     toPath = const "/"
@@ -126,4 +127,4 @@ instance AWSRequest DescribeLayers where
 
 instance FromJSON DescribeLayersResponse where
     parseJSON = withObject "DescribeLayersResponse" $ \o -> DescribeLayersResponse
-        <$> o .: "Layers"
+        <$> o .:  "Layers"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup
     , _mrgAutoMinorVersionUpgrade     :: Maybe Bool
     , _mrgAutomaticFailoverEnabled    :: Maybe Bool
     , _mrgCacheParameterGroupName     :: Maybe Text
-    , _mrgCacheSecurityGroupNames     :: [Text]
+    , _mrgCacheSecurityGroupNames     :: List "CacheSecurityGroupName" Text
     , _mrgEngineVersion               :: Maybe Text
     , _mrgNotificationTopicArn        :: Maybe Text
     , _mrgNotificationTopicStatus     :: Maybe Text
@@ -73,11 +74,11 @@ data ModifyReplicationGroup = ModifyReplicationGroup
     , _mrgPrimaryClusterId            :: Maybe Text
     , _mrgReplicationGroupDescription :: Maybe Text
     , _mrgReplicationGroupId          :: Text
-    , _mrgSecurityGroupIds            :: [Text]
+    , _mrgSecurityGroupIds            :: List "SecurityGroupId" Text
     , _mrgSnapshotRetentionLimit      :: Maybe Int
     , _mrgSnapshotWindow              :: Maybe Text
     , _mrgSnapshottingClusterId       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ModifyReplicationGroup' constructor.
 --
@@ -183,6 +184,7 @@ mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup [Text]
 mrgCacheSecurityGroupNames =
     lens _mrgCacheSecurityGroupNames
         (\s a -> s { _mrgCacheSecurityGroupNames = a })
+            . _List
 
 -- | The upgraded version of the cache engine to be run on the cache clusters
 -- in the replication group.
@@ -240,6 +242,7 @@ mrgReplicationGroupId =
 mrgSecurityGroupIds :: Lens' ModifyReplicationGroup [Text]
 mrgSecurityGroupIds =
     lens _mrgSecurityGroupIds (\s a -> s { _mrgSecurityGroupIds = a })
+        . _List
 
 -- | The number of days for which ElastiCache will retain automatic node group
 -- snapshots before deleting them. For example, if you set
@@ -268,7 +271,7 @@ mrgSnapshottingClusterId =
 
 newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
     { _mrgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyReplicationGroupResponse' constructor.
 --
@@ -288,7 +291,25 @@ mrgrReplicationGroup =
 instance ToPath ModifyReplicationGroup where
     toPath = const "/"
 
-instance ToQuery ModifyReplicationGroup
+instance ToQuery ModifyReplicationGroup where
+    toQuery ModifyReplicationGroup{..} = mconcat
+        [ "ApplyImmediately"            =? _mrgApplyImmediately
+        , "AutoMinorVersionUpgrade"     =? _mrgAutoMinorVersionUpgrade
+        , "AutomaticFailoverEnabled"    =? _mrgAutomaticFailoverEnabled
+        , "CacheParameterGroupName"     =? _mrgCacheParameterGroupName
+        , "CacheSecurityGroupNames"     =? _mrgCacheSecurityGroupNames
+        , "EngineVersion"               =? _mrgEngineVersion
+        , "NotificationTopicArn"        =? _mrgNotificationTopicArn
+        , "NotificationTopicStatus"     =? _mrgNotificationTopicStatus
+        , "PreferredMaintenanceWindow"  =? _mrgPreferredMaintenanceWindow
+        , "PrimaryClusterId"            =? _mrgPrimaryClusterId
+        , "ReplicationGroupDescription" =? _mrgReplicationGroupDescription
+        , "ReplicationGroupId"          =? _mrgReplicationGroupId
+        , "SecurityGroupIds"            =? _mrgSecurityGroupIds
+        , "SnapshotRetentionLimit"      =? _mrgSnapshotRetentionLimit
+        , "SnapshotWindow"              =? _mrgSnapshotWindow
+        , "SnapshottingClusterId"       =? _mrgSnapshottingClusterId
+        ]
 
 instance ToHeaders ModifyReplicationGroup
 
@@ -300,5 +321,5 @@ instance AWSRequest ModifyReplicationGroup where
     response = xmlResponse
 
 instance FromXML ModifyReplicationGroupResponse where
-    parseXML = withElement "ModifyReplicationGroupResult" $ \x ->
-            <$> x .@? "ReplicationGroup"
+    parseXML = withElement "ModifyReplicationGroupResult" $ \x -> ModifyReplicationGroupResponse
+        <$> x .@? "ReplicationGroup"

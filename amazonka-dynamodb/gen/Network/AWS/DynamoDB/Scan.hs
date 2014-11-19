@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -73,21 +74,21 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data Scan = Scan
-    { _sAttributesToGet           :: List1 Text
+    { _sAttributesToGet           :: List1 "AttributesToGet" Text
     , _sConditionalOperator       :: Maybe Text
-    , _sExclusiveStartKey         :: Map Text AttributeValue
-    , _sExpressionAttributeNames  :: Map Text Text
-    , _sExpressionAttributeValues :: Map Text AttributeValue
+    , _sExclusiveStartKey         :: Map "entry" "key" "value" Text AttributeValue
+    , _sExpressionAttributeNames  :: Map "entry" "key" "value" Text Text
+    , _sExpressionAttributeValues :: Map "entry" "key" "value" Text AttributeValue
     , _sFilterExpression          :: Maybe Text
     , _sLimit                     :: Maybe Nat
     , _sProjectionExpression      :: Maybe Text
     , _sReturnConsumedCapacity    :: Maybe Text
-    , _sScanFilter                :: Map Text Condition
+    , _sScanFilter                :: Map "entry" "key" "value" Text Condition
     , _sSegment                   :: Maybe Nat
     , _sSelect                    :: Maybe Text
     , _sTableName                 :: Text
     , _sTotalSegments             :: Maybe Nat
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Scan' constructor.
 --
@@ -126,7 +127,7 @@ scan :: Text -- ^ 'sTableName'
      -> Scan
 scan p1 p2 = Scan
     { _sTableName                 = p1
-    , _sAttributesToGet           = p2
+    , _sAttributesToGet           = withIso _List1 (const id) p2
     , _sLimit                     = Nothing
     , _sSelect                    = Nothing
     , _sScanFilter                = mempty
@@ -153,7 +154,7 @@ scan p1 p2 = Scan
 -- capacity units consumed based on item size, not on the amount of data
 -- that is returned to an application.
 sAttributesToGet :: Lens' Scan (NonEmpty Text)
-sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a })
+sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a }) . _List1
 
 -- | There is a newer parameter available. Use ConditionExpression instead.
 -- Note that if you use ConditionalOperator and ConditionExpression at the
@@ -228,8 +229,7 @@ sFilterExpression =
 -- subsequent operation to continue the operation. For more information, see
 -- Query and Scan in the Amazon DynamoDB Developer Guide.
 sLimit :: Lens' Scan (Maybe Natural)
-sLimit = lens _sLimit (\s a -> s { _sLimit = a })
-    . mapping _Nat
+sLimit = lens _sLimit (\s a -> s { _sLimit = a }) . mapping _Nat
 
 -- | One or more attributes to retrieve from the table. These attributes can
 -- include scalars, sets, or elements of a JSON document. The attributes in
@@ -272,8 +272,7 @@ sReturnConsumedCapacity =
 -- | BETWEEN For complete descriptions of all comparison operators, see
 -- Condition.
 sScanFilter :: Lens' Scan (HashMap Text Condition)
-sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a })
-    . _Map
+sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a }) . _Map
 
 -- | For a parallel Scan request, Segment identifies an individual segment to
 -- be scanned by an application worker. Segment IDs are zero-based, so the
@@ -286,8 +285,7 @@ sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a })
 -- less than the value provided for TotalSegments. If you specify Segment,
 -- you must also specify TotalSegments.
 sSegment :: Lens' Scan (Maybe Natural)
-sSegment = lens _sSegment (\s a -> s { _sSegment = a })
-    . mapping _Nat
+sSegment = lens _sSegment (\s a -> s { _sSegment = a }) . mapping _Nat
 
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, or the count of matching items.
@@ -318,16 +316,15 @@ sTableName = lens _sTableName (\s a -> s { _sTableName = a })
 -- operation will be sequential rather than parallel. If you specify
 -- TotalSegments, you must also specify Segment.
 sTotalSegments :: Lens' Scan (Maybe Natural)
-sTotalSegments = lens _sTotalSegments (\s a -> s { _sTotalSegments = a })
-    . mapping _Nat
+sTotalSegments = lens _sTotalSegments (\s a -> s { _sTotalSegments = a }) . mapping _Nat
 
 data ScanResponse = ScanResponse
     { _srConsumedCapacity :: Maybe ConsumedCapacity
     , _srCount            :: Maybe Int
-    , _srItems            :: [(Map Text AttributeValue)]
-    , _srLastEvaluatedKey :: Map Text AttributeValue
+    , _srItems            :: List "Items" (Map "entry" "key" "value" Text AttributeValue)
+    , _srLastEvaluatedKey :: Map "entry" "key" "value" Text AttributeValue
     , _srScannedCount     :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ScanResponse' constructor.
 --
@@ -368,8 +365,7 @@ srCount = lens _srCount (\s a -> s { _srCount = a })
 -- this array consists of an attribute name and the value for that
 -- attribute.
 srItems :: Lens' ScanResponse ([(HashMap Text AttributeValue)])
-srItems = lens _srItems (\s a -> s { _srItems = a })
-    . mapping _Map
+srItems = lens _srItems (\s a -> s { _srItems = a }) . _List
 
 -- | The primary key of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding
@@ -428,8 +424,8 @@ instance FromJSON ScanResponse where
     parseJSON = withObject "ScanResponse" $ \o -> ScanResponse
         <$> o .:? "ConsumedCapacity"
         <*> o .:? "Count"
-        <*> o .: "Items"
-        <*> o .: "LastEvaluatedKey"
+        <*> o .:  "Items"
+        <*> o .:  "LastEvaluatedKey"
         <*> o .:? "ScannedCount"
 
 instance AWSPager Scan where

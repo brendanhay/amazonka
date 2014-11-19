@@ -49,7 +49,7 @@ data DeleteRoute = DeleteRoute
     { _drDestinationCidrBlock :: Text
     , _drDryRun               :: Maybe Bool
     , _drRouteTableId         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteRoute' constructor.
 --
@@ -93,7 +93,12 @@ deleteRouteResponse = DeleteRouteResponse
 instance ToPath DeleteRoute where
     toPath = const "/"
 
-instance ToQuery DeleteRoute
+instance ToQuery DeleteRoute where
+    toQuery DeleteRoute{..} = mconcat
+        [ "destinationCidrBlock" =? _drDestinationCidrBlock
+        , "dryRun"               =? _drDryRun
+        , "routeTableId"         =? _drRouteTableId
+        ]
 
 instance ToHeaders DeleteRoute
 

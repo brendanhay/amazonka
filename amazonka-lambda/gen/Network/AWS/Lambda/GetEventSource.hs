@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ import qualified GHC.Exts
 
 newtype GetEventSource = GetEventSource
     { _gesUUID :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetEventSource' constructor.
 --
@@ -80,11 +81,11 @@ data GetEventSourceResponse = GetEventSourceResponse
     , _gesrFunctionName :: Maybe Text
     , _gesrIsActive     :: Maybe Bool
     , _gesrLastModified :: Maybe RFC822
-    , _gesrParameters   :: Map Text Text
+    , _gesrParameters   :: Map "entry" "key" "value" Text Text
     , _gesrRole         :: Maybe Text
     , _gesrStatus       :: Maybe Text
     , _gesrUUID         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetEventSourceResponse' constructor.
 --
@@ -144,14 +145,12 @@ gesrIsActive = lens _gesrIsActive (\s a -> s { _gesrIsActive = a })
 -- | The UTC time string indicating the last time the event mapping was
 -- updated.
 gesrLastModified :: Lens' GetEventSourceResponse (Maybe UTCTime)
-gesrLastModified = lens _gesrLastModified (\s a -> s { _gesrLastModified = a })
-    . mapping _Time
+gesrLastModified = lens _gesrLastModified (\s a -> s { _gesrLastModified = a }) . mapping _Time
 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to
 -- use when reading the event source.
 gesrParameters :: Lens' GetEventSourceResponse (HashMap Text Text)
-gesrParameters = lens _gesrParameters (\s a -> s { _gesrParameters = a })
-    . _Map
+gesrParameters = lens _gesrParameters (\s a -> s { _gesrParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to
 -- read from the stream and invoke the function.
@@ -197,7 +196,7 @@ instance FromJSON GetEventSourceResponse where
         <*> o .:? "FunctionName"
         <*> o .:? "IsActive"
         <*> o .:? "LastModified"
-        <*> o .: "Parameters"
+        <*> o .:  "Parameters"
         <*> o .:? "Role"
         <*> o .:? "Status"
         <*> o .:? "UUID"

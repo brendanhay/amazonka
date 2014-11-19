@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates
     { _dhccHsmClientCertificateIdentifier :: Maybe Text
     , _dhccMarker                         :: Maybe Text
     , _dhccMaxRecords                     :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeHsmClientCertificates' constructor.
 --
@@ -98,9 +99,9 @@ dhccMaxRecords :: Lens' DescribeHsmClientCertificates (Maybe Int)
 dhccMaxRecords = lens _dhccMaxRecords (\s a -> s { _dhccMaxRecords = a })
 
 data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
-    { _dhccrHsmClientCertificates :: [HsmClientCertificate]
+    { _dhccrHsmClientCertificates :: List "HsmClientCertificate" HsmClientCertificate
     , _dhccrMarker                :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeHsmClientCertificatesResponse' constructor.
 --
@@ -123,6 +124,7 @@ dhccrHsmClientCertificates :: Lens' DescribeHsmClientCertificatesResponse [HsmCl
 dhccrHsmClientCertificates =
     lens _dhccrHsmClientCertificates
         (\s a -> s { _dhccrHsmClientCertificates = a })
+            . _List
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -136,7 +138,12 @@ dhccrMarker = lens _dhccrMarker (\s a -> s { _dhccrMarker = a })
 instance ToPath DescribeHsmClientCertificates where
     toPath = const "/"
 
-instance ToQuery DescribeHsmClientCertificates
+instance ToQuery DescribeHsmClientCertificates where
+    toQuery DescribeHsmClientCertificates{..} = mconcat
+        [ "HsmClientCertificateIdentifier" =? _dhccHsmClientCertificateIdentifier
+        , "Marker"                         =? _dhccMarker
+        , "MaxRecords"                     =? _dhccMaxRecords
+        ]
 
 instance ToHeaders DescribeHsmClientCertificates
 
@@ -148,9 +155,9 @@ instance AWSRequest DescribeHsmClientCertificates where
     response = xmlResponse
 
 instance FromXML DescribeHsmClientCertificatesResponse where
-    parseXML = withElement "DescribeHsmClientCertificatesResult" $ \x ->
-            <$> x .@ "HsmClientCertificates"
-            <*> x .@? "Marker"
+    parseXML = withElement "DescribeHsmClientCertificatesResult" $ \x -> DescribeHsmClientCertificatesResponse
+        <$> x .@  "HsmClientCertificates"
+        <*> x .@? "Marker"
 
 instance AWSPager DescribeHsmClientCertificates where
     next rq rs = (\x -> rq & dhccMarker ?~ x)

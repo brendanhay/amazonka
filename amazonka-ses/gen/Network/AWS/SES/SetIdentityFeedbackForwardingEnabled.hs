@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,7 +52,7 @@ import qualified GHC.Exts
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     { _siffeForwardingEnabled :: Bool
     , _siffeIdentity          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetIdentityFeedbackForwardingEnabled' constructor.
 --
@@ -95,7 +96,11 @@ setIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnab
 instance ToPath SetIdentityFeedbackForwardingEnabled where
     toPath = const "/"
 
-instance ToQuery SetIdentityFeedbackForwardingEnabled
+instance ToQuery SetIdentityFeedbackForwardingEnabled where
+    toQuery SetIdentityFeedbackForwardingEnabled{..} = mconcat
+        [ "ForwardingEnabled" =? _siffeForwardingEnabled
+        , "Identity"          =? _siffeIdentity
+        ]
 
 instance ToHeaders SetIdentityFeedbackForwardingEnabled
 

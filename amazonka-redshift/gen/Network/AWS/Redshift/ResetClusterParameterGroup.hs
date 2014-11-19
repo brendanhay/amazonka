@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,9 +54,9 @@ import qualified GHC.Exts
 
 data ResetClusterParameterGroup = ResetClusterParameterGroup
     { _rcpgParameterGroupName :: Text
-    , _rcpgParameters         :: [Parameter]
+    , _rcpgParameters         :: List "Parameter" Parameter
     , _rcpgResetAllParameters :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ResetClusterParameterGroup' constructor.
 --
@@ -84,7 +85,7 @@ rcpgParameterGroupName =
 -- is not used, then at least one parameter name must be supplied.
 -- Constraints: A maximum of 20 parameters can be reset in a single request.
 rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
-rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a })
+rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a }) . _List
 
 -- | If true, all parameters in the specified parameter group will be reset to
 -- their default values. Default: true.
@@ -95,7 +96,7 @@ rcpgResetAllParameters =
 data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
     { _rcpgrParameterGroupName   :: Maybe Text
     , _rcpgrParameterGroupStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ResetClusterParameterGroupResponse' constructor.
 --
@@ -127,7 +128,12 @@ rcpgrParameterGroupStatus =
 instance ToPath ResetClusterParameterGroup where
     toPath = const "/"
 
-instance ToQuery ResetClusterParameterGroup
+instance ToQuery ResetClusterParameterGroup where
+    toQuery ResetClusterParameterGroup{..} = mconcat
+        [ "ParameterGroupName" =? _rcpgParameterGroupName
+        , "Parameters"         =? _rcpgParameters
+        , "ResetAllParameters" =? _rcpgResetAllParameters
+        ]
 
 instance ToHeaders ResetClusterParameterGroup
 
@@ -139,6 +145,6 @@ instance AWSRequest ResetClusterParameterGroup where
     response = xmlResponse
 
 instance FromXML ResetClusterParameterGroupResponse where
-    parseXML = withElement "ResetClusterParameterGroupResult" $ \x ->
-            <$> x .@? "ParameterGroupName"
-            <*> x .@? "ParameterGroupStatus"
+    parseXML = withElement "ResetClusterParameterGroupResult" $ \x -> ResetClusterParameterGroupResponse
+        <$> x .@? "ParameterGroupName"
+        <*> x .@? "ParameterGroupStatus"

@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
     { _dvrpGatewayId    :: Text
     , _dvrpRouteTableId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DisableVgwRoutePropagation' constructor.
 --
@@ -84,7 +84,11 @@ disableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 instance ToPath DisableVgwRoutePropagation where
     toPath = const "/"
 
-instance ToQuery DisableVgwRoutePropagation
+instance ToQuery DisableVgwRoutePropagation where
+    toQuery DisableVgwRoutePropagation{..} = mconcat
+        [ "GatewayId"    =? _dvrpGatewayId
+        , "RouteTableId" =? _dvrpRouteTableId
+        ]
 
 instance ToHeaders DisableVgwRoutePropagation
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ data ListMFADevices = ListMFADevices
     { _lmfadMarker   :: Maybe Text
     , _lmfadMaxItems :: Maybe Nat
     , _lmfadUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListMFADevices' constructor.
 --
@@ -86,8 +87,7 @@ lmfadMarker = lens _lmfadMarker (\s a -> s { _lmfadMarker = a })
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
 lmfadMaxItems :: Lens' ListMFADevices (Maybe Natural)
-lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a })
-    . mapping _Nat
+lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a }) . mapping _Nat
 
 -- | The name of the user whose MFA devices you want to list.
 lmfadUserName :: Lens' ListMFADevices (Maybe Text)
@@ -95,9 +95,9 @@ lmfadUserName = lens _lmfadUserName (\s a -> s { _lmfadUserName = a })
 
 data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrIsTruncated :: Maybe Bool
-    , _lmfadrMFADevices  :: [MFADevice]
+    , _lmfadrMFADevices  :: List "MFADevices" MFADevice
     , _lmfadrMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListMFADevicesResponse' constructor.
 --
@@ -126,7 +126,7 @@ lmfadrIsTruncated =
 
 -- | A list of MFA devices.
 lmfadrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
-lmfadrMFADevices = lens _lmfadrMFADevices (\s a -> s { _lmfadrMFADevices = a })
+lmfadrMFADevices = lens _lmfadrMFADevices (\s a -> s { _lmfadrMFADevices = a }) . _List
 
 -- | If IsTruncated is true, this element is present and contains the value to
 -- use for the Marker parameter in a subsequent pagination request.
@@ -136,7 +136,12 @@ lmfadrMarker = lens _lmfadrMarker (\s a -> s { _lmfadrMarker = a })
 instance ToPath ListMFADevices where
     toPath = const "/"
 
-instance ToQuery ListMFADevices
+instance ToQuery ListMFADevices where
+    toQuery ListMFADevices{..} = mconcat
+        [ "Marker"   =? _lmfadMarker
+        , "MaxItems" =? _lmfadMaxItems
+        , "UserName" =? _lmfadUserName
+        ]
 
 instance ToHeaders ListMFADevices
 
@@ -148,10 +153,10 @@ instance AWSRequest ListMFADevices where
     response = xmlResponse
 
 instance FromXML ListMFADevicesResponse where
-    parseXML = withElement "ListMFADevicesResult" $ \x ->
-            <$> x .@? "IsTruncated"
-            <*> x .@ "MFADevices"
-            <*> x .@? "Marker"
+    parseXML = withElement "ListMFADevicesResult" $ \x -> ListMFADevicesResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@  "MFADevices"
+        <*> x .@? "Marker"
 
 instance AWSPager ListMFADevices where
     next rq rs

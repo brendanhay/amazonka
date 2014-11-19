@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,10 +62,10 @@ import qualified GHC.Exts
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate
     { _uctApplicationName :: Text
     , _uctDescription     :: Maybe Text
-    , _uctOptionSettings  :: [ConfigurationOptionSetting]
-    , _uctOptionsToRemove :: [OptionSpecification]
+    , _uctOptionSettings  :: List "OptionSettings" ConfigurationOptionSetting
+    , _uctOptionsToRemove :: List "OptionsToRemove" OptionSpecification
     , _uctTemplateName    :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateConfigurationTemplate' constructor.
 --
@@ -107,12 +108,14 @@ uctDescription = lens _uctDescription (\s a -> s { _uctDescription = a })
 uctOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
 uctOptionSettings =
     lens _uctOptionSettings (\s a -> s { _uctOptionSettings = a })
+        . _List
 
 -- | A list of configuration options to remove from the configuration set.
 -- Constraint: You can remove only UserDefined configuration options.
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
 uctOptionsToRemove =
     lens _uctOptionsToRemove (\s a -> s { _uctOptionsToRemove = a })
+        . _List
 
 -- | The name of the configuration template to update. If no configuration
 -- template is found with this name, UpdateConfigurationTemplate returns an
@@ -127,10 +130,10 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     , _uctrDeploymentStatus  :: Maybe Text
     , _uctrDescription       :: Maybe Text
     , _uctrEnvironmentName   :: Maybe Text
-    , _uctrOptionSettings    :: [ConfigurationOptionSetting]
+    , _uctrOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
     , _uctrSolutionStackName :: Maybe Text
     , _uctrTemplateName      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateConfigurationTemplateResponse' constructor.
 --
@@ -174,13 +177,11 @@ uctrApplicationName =
 
 -- | The date (in UTC time) when this configuration set was created.
 uctrDateCreated :: Lens' UpdateConfigurationTemplateResponse (Maybe UTCTime)
-uctrDateCreated = lens _uctrDateCreated (\s a -> s { _uctrDateCreated = a })
-    . mapping _Time
+uctrDateCreated = lens _uctrDateCreated (\s a -> s { _uctrDateCreated = a }) . mapping _Time
 
 -- | The date (in UTC time) when this configuration set was last modified.
 uctrDateUpdated :: Lens' UpdateConfigurationTemplateResponse (Maybe UTCTime)
-uctrDateUpdated = lens _uctrDateUpdated (\s a -> s { _uctrDateUpdated = a })
-    . mapping _Time
+uctrDateUpdated = lens _uctrDateUpdated (\s a -> s { _uctrDateUpdated = a }) . mapping _Time
 
 -- | If this configuration set is associated with an environment, the
 -- DeploymentStatus parameter indicates the deployment status of this
@@ -214,6 +215,7 @@ uctrEnvironmentName =
 uctrOptionSettings :: Lens' UpdateConfigurationTemplateResponse [ConfigurationOptionSetting]
 uctrOptionSettings =
     lens _uctrOptionSettings (\s a -> s { _uctrOptionSettings = a })
+        . _List
 
 -- | The name of the solution stack this configuration set uses.
 uctrSolutionStackName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
@@ -228,7 +230,14 @@ uctrTemplateName = lens _uctrTemplateName (\s a -> s { _uctrTemplateName = a })
 instance ToPath UpdateConfigurationTemplate where
     toPath = const "/"
 
-instance ToQuery UpdateConfigurationTemplate
+instance ToQuery UpdateConfigurationTemplate where
+    toQuery UpdateConfigurationTemplate{..} = mconcat
+        [ "ApplicationName" =? _uctApplicationName
+        , "Description"     =? _uctDescription
+        , "OptionSettings"  =? _uctOptionSettings
+        , "OptionsToRemove" =? _uctOptionsToRemove
+        , "TemplateName"    =? _uctTemplateName
+        ]
 
 instance ToHeaders UpdateConfigurationTemplate
 
@@ -240,13 +249,13 @@ instance AWSRequest UpdateConfigurationTemplate where
     response = xmlResponse
 
 instance FromXML UpdateConfigurationTemplateResponse where
-    parseXML = withElement "UpdateConfigurationTemplateResult" $ \x ->
-            <$> x .@? "ApplicationName"
-            <*> x .@? "DateCreated"
-            <*> x .@? "DateUpdated"
-            <*> x .@? "DeploymentStatus"
-            <*> x .@? "Description"
-            <*> x .@? "EnvironmentName"
-            <*> x .@ "OptionSettings"
-            <*> x .@? "SolutionStackName"
-            <*> x .@? "TemplateName"
+    parseXML = withElement "UpdateConfigurationTemplateResult" $ \x -> UpdateConfigurationTemplateResponse
+        <$> x .@? "ApplicationName"
+        <*> x .@? "DateCreated"
+        <*> x .@? "DateUpdated"
+        <*> x .@? "DeploymentStatus"
+        <*> x .@? "Description"
+        <*> x .@? "EnvironmentName"
+        <*> x .@  "OptionSettings"
+        <*> x .@? "SolutionStackName"
+        <*> x .@? "TemplateName"

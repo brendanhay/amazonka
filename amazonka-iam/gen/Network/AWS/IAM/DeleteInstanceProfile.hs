@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteInstanceProfile = DeleteInstanceProfile
     { _dipInstanceProfileName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteInstanceProfile' constructor.
 --
@@ -78,7 +79,10 @@ deleteInstanceProfileResponse = DeleteInstanceProfileResponse
 instance ToPath DeleteInstanceProfile where
     toPath = const "/"
 
-instance ToQuery DeleteInstanceProfile
+instance ToQuery DeleteInstanceProfile where
+    toQuery DeleteInstanceProfile{..} = mconcat
+        [ "InstanceProfileName" =? _dipInstanceProfileName
+        ]
 
 instance ToHeaders DeleteInstanceProfile
 

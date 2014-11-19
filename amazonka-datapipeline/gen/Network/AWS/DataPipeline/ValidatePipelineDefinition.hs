@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ import qualified GHC.Exts
 
 data ValidatePipelineDefinition = ValidatePipelineDefinition
     { _vpdPipelineId      :: Text
-    , _vpdPipelineObjects :: [PipelineObject]
-    } deriving (Eq, Show, Generic)
+    , _vpdPipelineObjects :: List "pipelineObjects" PipelineObject
+    } deriving (Eq, Show)
 
 -- | 'ValidatePipelineDefinition' constructor.
 --
@@ -77,12 +78,13 @@ vpdPipelineId = lens _vpdPipelineId (\s a -> s { _vpdPipelineId = a })
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects =
     lens _vpdPipelineObjects (\s a -> s { _vpdPipelineObjects = a })
+        . _List
 
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
     { _vpdrErrored            :: Bool
-    , _vpdrValidationErrors   :: [ValidationError]
-    , _vpdrValidationWarnings :: [ValidationWarning]
-    } deriving (Eq, Show, Generic)
+    , _vpdrValidationErrors   :: List "validationErrors" ValidationError
+    , _vpdrValidationWarnings :: List "validationWarnings" ValidationWarning
+    } deriving (Eq, Show)
 
 -- | 'ValidatePipelineDefinitionResponse' constructor.
 --
@@ -111,12 +113,14 @@ vpdrErrored = lens _vpdrErrored (\s a -> s { _vpdrErrored = a })
 vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
 vpdrValidationErrors =
     lens _vpdrValidationErrors (\s a -> s { _vpdrValidationErrors = a })
+        . _List
 
 -- | Lists the validation warnings that were found by
 -- ValidatePipelineDefinition.
 vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
 vpdrValidationWarnings =
     lens _vpdrValidationWarnings (\s a -> s { _vpdrValidationWarnings = a })
+        . _List
 
 instance ToPath ValidatePipelineDefinition where
     toPath = const "/"
@@ -141,6 +145,6 @@ instance AWSRequest ValidatePipelineDefinition where
 
 instance FromJSON ValidatePipelineDefinitionResponse where
     parseJSON = withObject "ValidatePipelineDefinitionResponse" $ \o -> ValidatePipelineDefinitionResponse
-        <$> o .: "errored"
-        <*> o .: "validationErrors"
-        <*> o .: "validationWarnings"
+        <$> o .:  "errored"
+        <*> o .:  "validationErrors"
+        <*> o .:  "validationWarnings"

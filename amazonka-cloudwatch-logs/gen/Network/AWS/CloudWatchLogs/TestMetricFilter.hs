@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -49,8 +50,8 @@ import qualified GHC.Exts
 
 data TestMetricFilter = TestMetricFilter
     { _tmfFilterPattern    :: Text
-    , _tmfLogEventMessages :: List1 Text
-    } deriving (Eq, Ord, Show, Generic)
+    , _tmfLogEventMessages :: List1 "logEventMessages" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'TestMetricFilter' constructor.
 --
@@ -65,7 +66,7 @@ testMetricFilter :: Text -- ^ 'tmfFilterPattern'
                  -> TestMetricFilter
 testMetricFilter p1 p2 = TestMetricFilter
     { _tmfFilterPattern    = p1
-    , _tmfLogEventMessages = p2
+    , _tmfLogEventMessages = withIso _List1 (const id) p2
     }
 
 tmfFilterPattern :: Lens' TestMetricFilter Text
@@ -74,10 +75,11 @@ tmfFilterPattern = lens _tmfFilterPattern (\s a -> s { _tmfFilterPattern = a })
 tmfLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
 tmfLogEventMessages =
     lens _tmfLogEventMessages (\s a -> s { _tmfLogEventMessages = a })
+        . _List1
 
 newtype TestMetricFilterResponse = TestMetricFilterResponse
-    { _tmfrMatches :: [MetricFilterMatchRecord]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _tmfrMatches :: List "matches" MetricFilterMatchRecord
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList TestMetricFilterResponse where
     type Item TestMetricFilterResponse = MetricFilterMatchRecord
@@ -97,7 +99,7 @@ testMetricFilterResponse = TestMetricFilterResponse
     }
 
 tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
-tmfrMatches = lens _tmfrMatches (\s a -> s { _tmfrMatches = a })
+tmfrMatches = lens _tmfrMatches (\s a -> s { _tmfrMatches = a }) . _List
 
 instance ToPath TestMetricFilter where
     toPath = const "/"
@@ -122,4 +124,4 @@ instance AWSRequest TestMetricFilter where
 
 instance FromJSON TestMetricFilterResponse where
     parseJSON = withObject "TestMetricFilterResponse" $ \o -> TestMetricFilterResponse
-        <$> o .: "matches"
+        <$> o .:  "matches"

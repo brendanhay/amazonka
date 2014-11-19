@@ -105,8 +105,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "keyMetadata",
@@ -237,6 +236,7 @@
                 ],
                 "contentPad": 13,
                 "name": "KeyMetadata",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -458,8 +458,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 26,
                 "ctor": "grantConstraints",
@@ -477,7 +476,7 @@
                         "locationName": "EncryptionContextSubset",
                         "documentation": "The constraint equals the full encryption context.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -492,13 +491,14 @@
                         "locationName": "EncryptionContextEquals",
                         "documentation": "The constraint contains additional key/value pairs that serve to further limit the grant.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
                 "contentPad": 24,
                 "name": "GrantConstraints",
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -514,7 +514,7 @@
                         "locationName": "EncryptionContextSubset",
                         "documentation": "The constraint equals the full encryption context.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -529,7 +529,7 @@
                         "locationName": "EncryptionContextEquals",
                         "documentation": "The constraint contains additional key/value pairs that serve to further limit the grant.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -546,7 +546,7 @@
                         "locationName": "EncryptionContextEquals",
                         "documentation": "The constraint contains additional key/value pairs that serve to further limit the grant.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -561,7 +561,7 @@
                         "locationName": "EncryptionContextSubset",
                         "documentation": "The constraint equals the full encryption context.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -569,8 +569,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "aliasListEntry",
@@ -625,6 +624,7 @@
                 "required": [],
                 "contentPad": 12,
                 "name": "AliasListEntry",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -724,8 +724,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 21,
                 "ctor": "grantListEntry",
@@ -792,8 +791,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -803,7 +802,7 @@
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Operations\" Text"
                     },
                     {
                         "location": null,
@@ -825,6 +824,7 @@
                 "required": [],
                 "contentPad": 18,
                 "name": "GrantListEntry",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -889,8 +889,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -900,7 +900,7 @@
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Operations\" Text"
                     },
                     {
                         "location": null,
@@ -981,8 +981,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -992,7 +992,7 @@
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Operations\" Text"
                     },
                     {
                         "location": null,
@@ -1038,8 +1038,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "keyListEntry",
@@ -1079,6 +1078,7 @@
                 "required": [],
                 "contentPad": 7,
                 "name": "KeyListEntry",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -1194,8 +1194,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1280,6 +1279,7 @@
                 "queryPad": 0,
                 "name": "CreateAlias",
                 "query": [],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1324,8 +1324,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1373,6 +1372,7 @@
                 "contentPad": 11,
                 "name": "CreateGrantResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -1455,8 +1455,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1511,8 +1510,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1522,7 +1521,7 @@
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Operations\" Text"
                     },
                     {
                         "location": null,
@@ -1541,8 +1540,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1552,7 +1551,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eList of grant tokens.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "path": [
@@ -1601,6 +1600,7 @@
                 "queryPad": 0,
                 "name": "CreateGrant",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -1622,8 +1622,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1633,7 +1633,7 @@
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Operations\" Text"
                     },
                     {
                         "location": null,
@@ -1652,8 +1652,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1663,7 +1663,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eList of grant tokens.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "fields": [
@@ -1684,8 +1684,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1695,7 +1695,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eList of grant tokens.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     },
                     {
                         "location": null,
@@ -1729,8 +1729,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1740,7 +1740,7 @@
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"Operations\" Text"
                     },
                     {
                         "location": null,
@@ -1765,8 +1765,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -1815,6 +1814,7 @@
                 "contentPad": 0,
                 "name": "CreateKeyResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1868,8 +1868,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -1938,6 +1937,7 @@
                 "queryPad": 0,
                 "name": "CreateKey",
                 "query": [],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2042,8 +2042,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2091,6 +2090,7 @@
                 "contentPad": 10,
                 "name": "DecryptResponse",
                 "resultWrapper": null,
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2173,8 +2173,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -2210,12 +2209,12 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eThe encryption context. If this was specified in the \u003ca\u003eEncrypt\u003c/a\u003e function, it must be specified here or the decryption operation will fail. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html\"\u003eEncryption Context\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2225,7 +2224,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to perform decryption.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "path": [
@@ -2259,6 +2258,7 @@
                 "queryPad": 0,
                 "name": "Decrypt",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -2276,12 +2276,12 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eThe encryption context. If this was specified in the \u003ca\u003eEncrypt\u003c/a\u003e function, it must be specified here or the decryption operation will fail. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html\"\u003eEncryption Context\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2291,7 +2291,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to perform decryption.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "fields": [
@@ -2323,12 +2323,12 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eThe encryption context. If this was specified in the \u003ca\u003eEncrypt\u003c/a\u003e function, it must be specified here or the decryption operation will fail. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html\"\u003eEncryption Context\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2338,7 +2338,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to perform decryption.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ]
             }
@@ -2386,7 +2386,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2459,6 +2458,7 @@
                 "queryPad": 0,
                 "name": "DeleteAlias",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2487,8 +2487,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -2537,6 +2536,7 @@
                 "contentPad": 0,
                 "name": "DescribeKeyResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2591,7 +2591,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2664,6 +2663,7 @@
                 "queryPad": 0,
                 "name": "DescribeKey",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2730,7 +2730,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2803,6 +2802,7 @@
                 "queryPad": 0,
                 "name": "DisableKey",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -2869,7 +2869,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2942,6 +2941,7 @@
                 "queryPad": 0,
                 "name": "DisableKeyRotation",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -3008,7 +3008,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3081,6 +3080,7 @@
                 "queryPad": 0,
                 "name": "EnableKey",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -3147,7 +3147,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3220,6 +3219,7 @@
                 "queryPad": 0,
                 "name": "EnableKeyRotation",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -3248,8 +3248,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3297,6 +3296,7 @@
                 "contentPad": 15,
                 "name": "EncryptResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3379,8 +3379,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3431,12 +3430,12 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that specifies the encryption context to be used for authenticated encryption. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html\"\u003eAuthenticated Encryption\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3446,7 +3445,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to perform encryption.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "path": [
@@ -3495,6 +3494,7 @@
                 "queryPad": 0,
                 "name": "Encrypt",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3512,12 +3512,12 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that specifies the encryption context to be used for authenticated encryption. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html\"\u003eAuthenticated Encryption\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3527,7 +3527,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to perform encryption.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "fields": [
@@ -3544,12 +3544,12 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that specifies the encryption context to be used for authenticated encryption. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html\"\u003eAuthenticated Encryption\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3559,7 +3559,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to perform encryption.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     },
                     {
                         "location": null,
@@ -3599,8 +3599,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3663,6 +3662,7 @@
                 "contentPad": 15,
                 "name": "GenerateDataKeyResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3775,8 +3775,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -3812,7 +3811,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName/value pair that contains additional data to be authenticated during the encryption and decryption processes that use the key. This value is logged by AWS CloudTrail to provide context around the data encrypted by the key. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -3846,8 +3845,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3857,7 +3856,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to generate a key.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "path": [
@@ -3891,6 +3890,7 @@
                 "queryPad": 0,
                 "name": "GenerateDataKey",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -3908,7 +3908,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName/value pair that contains additional data to be authenticated during the encryption and decryption processes that use the key. This value is logged by AWS CloudTrail to provide context around the data encrypted by the key. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -3942,8 +3942,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3953,7 +3953,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to generate a key.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "fields": [
@@ -3970,12 +3970,12 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName/value pair that contains additional data to be authenticated during the encryption and decryption processes that use the key. This value is logged by AWS CloudTrail to provide context around the data encrypted by the key. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3985,7 +3985,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to generate a key.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     },
                     {
                         "location": null,
@@ -4040,8 +4040,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4089,6 +4088,7 @@
                 "contentPad": 15,
                 "name": "GenerateDataKeyWithoutPlaintextResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4171,8 +4171,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4208,7 +4207,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that contains additional data to be authenticated during the encryption and decryption processes. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -4242,8 +4241,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4253,7 +4252,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to generate a key.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "path": [
@@ -4287,6 +4286,7 @@
                 "queryPad": 0,
                 "name": "GenerateDataKeyWithoutPlaintext",
                 "query": [],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4304,7 +4304,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that contains additional data to be authenticated during the encryption and decryption processes. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -4338,8 +4338,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4349,7 +4349,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to generate a key.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "fields": [
@@ -4366,12 +4366,12 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that contains additional data to be authenticated during the encryption and decryption processes. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4381,7 +4381,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003eA list of grant tokens that represent grants which can be used to provide long term permissions to generate a key.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     },
                     {
                         "location": null,
@@ -4436,8 +4436,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4486,6 +4485,7 @@
                 "contentPad": 0,
                 "name": "GenerateRandomResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4539,8 +4539,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4595,6 +4594,7 @@
                 "queryPad": 0,
                 "name": "GenerateRandom",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -4641,7 +4641,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -4691,6 +4690,7 @@
                 "contentPad": 0,
                 "name": "GetKeyPolicyResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4744,8 +4744,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -4830,6 +4829,7 @@
                 "queryPad": 0,
                 "name": "GetKeyPolicy",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -4874,8 +4874,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -4924,6 +4923,7 @@
                 "contentPad": 0,
                 "name": "GetKeyRotationStatusResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -4978,7 +4978,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5051,6 +5050,7 @@
                 "queryPad": 0,
                 "name": "GetKeyRotationStatus",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -5079,8 +5079,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5090,8 +5089,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5101,7 +5100,7 @@
                         "locationName": "Aliases",
                         "documentation": "\u003cp\u003eA list of key aliases in the user's account.\u003c/p\u003e",
                         "typeExposed": "[AliasListEntry]",
-                        "type": "[AliasListEntry]"
+                        "type": "List \"Aliases\" AliasListEntry"
                     },
                     {
                         "location": null,
@@ -5143,13 +5142,14 @@
                 "contentPad": 11,
                 "name": "ListAliasesResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5159,7 +5159,7 @@
                         "locationName": "Aliases",
                         "documentation": "\u003cp\u003eA list of key aliases in the user's account.\u003c/p\u003e",
                         "typeExposed": "[AliasListEntry]",
-                        "type": "[AliasListEntry]"
+                        "type": "List \"Aliases\" AliasListEntry"
                     },
                     {
                         "location": null,
@@ -5195,8 +5195,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5206,7 +5206,7 @@
                         "locationName": "Aliases",
                         "documentation": "\u003cp\u003eA list of key aliases in the user's account.\u003c/p\u003e",
                         "typeExposed": "[AliasListEntry]",
-                        "type": "[AliasListEntry]"
+                        "type": "List \"Aliases\" AliasListEntry"
                     },
                     {
                         "location": null,
@@ -5256,8 +5256,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5311,6 +5310,7 @@
                 "queryPad": 0,
                 "name": "ListAliases",
                 "query": [],
+                "locationPad": 7,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5385,8 +5385,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5396,8 +5395,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5407,7 +5406,7 @@
                         "locationName": "Grants",
                         "documentation": "\u003cp\u003eA list of grants.\u003c/p\u003e",
                         "typeExposed": "[GrantListEntry]",
-                        "type": "[GrantListEntry]"
+                        "type": "List \"Grants\" GrantListEntry"
                     },
                     {
                         "location": null,
@@ -5449,13 +5448,14 @@
                 "contentPad": 11,
                 "name": "ListGrantsResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5465,7 +5465,7 @@
                         "locationName": "Grants",
                         "documentation": "\u003cp\u003eA list of grants.\u003c/p\u003e",
                         "typeExposed": "[GrantListEntry]",
-                        "type": "[GrantListEntry]"
+                        "type": "List \"Grants\" GrantListEntry"
                     },
                     {
                         "location": null,
@@ -5501,8 +5501,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5512,7 +5512,7 @@
                         "locationName": "Grants",
                         "documentation": "\u003cp\u003eA list of grants.\u003c/p\u003e",
                         "typeExposed": "[GrantListEntry]",
-                        "type": "[GrantListEntry]"
+                        "type": "List \"Grants\" GrantListEntry"
                     },
                     {
                         "location": null,
@@ -5562,8 +5562,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5648,6 +5647,7 @@
                 "queryPad": 0,
                 "name": "ListGrants",
                 "query": [],
+                "locationPad": 7,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -5738,8 +5738,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -5749,8 +5748,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5760,7 +5759,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003eA list of policy names. Currently, there is only one policy and it is named \"Default\".\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     },
                     {
                         "location": null,
@@ -5802,13 +5801,14 @@
                 "contentPad": 12,
                 "name": "ListKeyPoliciesResponse",
                 "resultWrapper": null,
+                "locationPad": 12,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5818,7 +5818,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003eA list of policy names. Currently, there is only one policy and it is named \"Default\".\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     },
                     {
                         "location": null,
@@ -5869,8 +5869,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5880,7 +5880,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "\u003cp\u003eA list of policy names. Currently, there is only one policy and it is named \"Default\".\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"PolicyNames\" Text"
                     },
                     {
                         "location": null,
@@ -5915,8 +5915,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6001,6 +6000,7 @@
                 "queryPad": 0,
                 "name": "ListKeyPolicies",
                 "query": [],
+                "locationPad": 7,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6090,8 +6090,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6101,8 +6100,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6112,7 +6111,7 @@
                         "locationName": "Keys",
                         "documentation": "\u003cp\u003eA list of keys.\u003c/p\u003e",
                         "typeExposed": "[KeyListEntry]",
-                        "type": "[KeyListEntry]"
+                        "type": "List \"Keys\" KeyListEntry"
                     },
                     {
                         "location": null,
@@ -6154,13 +6153,14 @@
                 "contentPad": 11,
                 "name": "ListKeysResponse",
                 "resultWrapper": null,
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6170,7 +6170,7 @@
                         "locationName": "Keys",
                         "documentation": "\u003cp\u003eA list of keys.\u003c/p\u003e",
                         "typeExposed": "[KeyListEntry]",
-                        "type": "[KeyListEntry]"
+                        "type": "List \"Keys\" KeyListEntry"
                     },
                     {
                         "location": null,
@@ -6206,8 +6206,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6217,7 +6217,7 @@
                         "locationName": "Keys",
                         "documentation": "\u003cp\u003eA list of keys.\u003c/p\u003e",
                         "typeExposed": "[KeyListEntry]",
-                        "type": "[KeyListEntry]"
+                        "type": "List \"Keys\" KeyListEntry"
                     },
                     {
                         "location": null,
@@ -6267,8 +6267,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6322,6 +6321,7 @@
                 "queryPad": 0,
                 "name": "ListKeys",
                 "query": [],
+                "locationPad": 7,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6433,8 +6433,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6549,6 +6548,7 @@
                 "queryPad": 0,
                 "name": "PutKeyPolicy",
                 "query": [],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6607,8 +6607,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6671,6 +6670,7 @@
                 "contentPad": 15,
                 "name": "ReEncryptResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -6783,8 +6783,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -6820,7 +6819,7 @@
                         "locationName": "SourceEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context used to encrypt and decrypt the data specified in the \u003ccode\u003eCiphertextBlob\u003c/code\u003e parameter. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -6850,12 +6849,12 @@
                         "locationName": "DestinationEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context to be used when the data is re-encrypted.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6865,7 +6864,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003e Grant tokens that identify the grants that have permissions for the encryption and decryption process.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "path": [
@@ -6914,6 +6913,7 @@
                 "queryPad": 0,
                 "name": "ReEncrypt",
                 "query": [],
+                "locationPad": 29,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -6931,7 +6931,7 @@
                         "locationName": "SourceEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context used to encrypt and decrypt the data specified in the \u003ccode\u003eCiphertextBlob\u003c/code\u003e parameter. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -6946,12 +6946,12 @@
                         "locationName": "DestinationEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context to be used when the data is re-encrypted.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6961,7 +6961,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003e Grant tokens that identify the grants that have permissions for the encryption and decryption process.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     }
                 ],
                 "fields": [
@@ -6993,7 +6993,7 @@
                         "locationName": "DestinationEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context to be used when the data is re-encrypted.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": null,
@@ -7012,8 +7012,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7023,7 +7023,7 @@
                         "locationName": "GrantTokens",
                         "documentation": "\u003cp\u003e Grant tokens that identify the grants that have permissions for the encryption and decryption process.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"GrantTokens\" Text"
                     },
                     {
                         "location": null,
@@ -7038,7 +7038,7 @@
                         "locationName": "SourceEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context used to encrypt and decrypt the data specified in the \u003ccode\u003eCiphertextBlob\u003c/code\u003e parameter. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             }
@@ -7086,7 +7086,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7159,6 +7158,7 @@
                 "queryPad": 0,
                 "name": "RetireGrant",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -7224,8 +7224,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7310,6 +7309,7 @@
                 "queryPad": 0,
                 "name": "RevokeGrant",
                 "query": [],
+                "locationPad": 8,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -7390,8 +7390,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "json",
@@ -7476,6 +7475,7 @@
                 "queryPad": 0,
                 "name": "UpdateKeyDescription",
                 "query": [],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

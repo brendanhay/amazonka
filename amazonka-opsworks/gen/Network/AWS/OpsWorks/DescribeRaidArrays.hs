@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,8 +51,8 @@ import qualified GHC.Exts
 
 data DescribeRaidArrays = DescribeRaidArrays
     { _draInstanceId   :: Maybe Text
-    , _draRaidArrayIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _draRaidArrayIds :: List "InstanceIds" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeRaidArrays' constructor.
 --
@@ -76,11 +77,11 @@ draInstanceId = lens _draInstanceId (\s a -> s { _draInstanceId = a })
 -- returns descriptions of the specified arrays. Otherwise, it returns a
 -- description of every array.
 draRaidArrayIds :: Lens' DescribeRaidArrays [Text]
-draRaidArrayIds = lens _draRaidArrayIds (\s a -> s { _draRaidArrayIds = a })
+draRaidArrayIds = lens _draRaidArrayIds (\s a -> s { _draRaidArrayIds = a }) . _List
 
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
-    { _drarRaidArrays :: [RaidArray]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _drarRaidArrays :: List "RaidArrays" RaidArray
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeRaidArraysResponse where
     type Item DescribeRaidArraysResponse = RaidArray
@@ -101,7 +102,7 @@ describeRaidArraysResponse = DescribeRaidArraysResponse
 
 -- | A RaidArrays object that describes the specified RAID arrays.
 drarRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
-drarRaidArrays = lens _drarRaidArrays (\s a -> s { _drarRaidArrays = a })
+drarRaidArrays = lens _drarRaidArrays (\s a -> s { _drarRaidArrays = a }) . _List
 
 instance ToPath DescribeRaidArrays where
     toPath = const "/"
@@ -126,4 +127,4 @@ instance AWSRequest DescribeRaidArrays where
 
 instance FromJSON DescribeRaidArraysResponse where
     parseJSON = withObject "DescribeRaidArraysResponse" $ \o -> DescribeRaidArraysResponse
-        <$> o .: "RaidArrays"
+        <$> o .:  "RaidArrays"

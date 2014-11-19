@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetKeyRotationStatus = GetKeyRotationStatus
     { _gkrsKeyId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetKeyRotationStatus' constructor.
 --
@@ -68,7 +69,7 @@ gkrsKeyId = lens _gkrsKeyId (\s a -> s { _gkrsKeyId = a })
 
 newtype GetKeyRotationStatusResponse = GetKeyRotationStatusResponse
     { _gkrsrKeyRotationEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetKeyRotationStatusResponse' constructor.
 --

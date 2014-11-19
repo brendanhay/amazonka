@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import qualified GHC.Exts
 
 data DescribeApplicationVersions = DescribeApplicationVersions
     { _dav1ApplicationName :: Maybe Text
-    , _dav1VersionLabels   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _dav1VersionLabels   :: List "Versions" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeApplicationVersions' constructor.
 --
@@ -75,10 +76,11 @@ dav1ApplicationName =
 dav1VersionLabels :: Lens' DescribeApplicationVersions [Text]
 dav1VersionLabels =
     lens _dav1VersionLabels (\s a -> s { _dav1VersionLabels = a })
+        . _List
 
 newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
-    { _davrApplicationVersions :: [ApplicationVersionDescription]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _davrApplicationVersions :: List "ApplicationVersions" ApplicationVersionDescription
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeApplicationVersionsResponse where
     type Item DescribeApplicationVersionsResponse = ApplicationVersionDescription
@@ -101,11 +103,16 @@ describeApplicationVersionsResponse = DescribeApplicationVersionsResponse
 davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrApplicationVersions =
     lens _davrApplicationVersions (\s a -> s { _davrApplicationVersions = a })
+        . _List
 
 instance ToPath DescribeApplicationVersions where
     toPath = const "/"
 
-instance ToQuery DescribeApplicationVersions
+instance ToQuery DescribeApplicationVersions where
+    toQuery DescribeApplicationVersions{..} = mconcat
+        [ "ApplicationName" =? _dav1ApplicationName
+        , "VersionLabels"   =? _dav1VersionLabels
+        ]
 
 instance ToHeaders DescribeApplicationVersions
 
@@ -117,5 +124,5 @@ instance AWSRequest DescribeApplicationVersions where
     response = xmlResponse
 
 instance FromXML DescribeApplicationVersionsResponse where
-    parseXML = withElement "DescribeApplicationVersionsResult" $ \x ->
-            <$> x .@ "ApplicationVersions"
+    parseXML = withElement "DescribeApplicationVersionsResult" $ \x -> DescribeApplicationVersionsResponse
+        <$> x .@  "ApplicationVersions"

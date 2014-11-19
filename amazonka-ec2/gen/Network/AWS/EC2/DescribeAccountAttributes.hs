@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DescribeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames :: List "attributeName" Text
     , _daaDryRun         :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeAccountAttributes' constructor.
 --
@@ -76,7 +76,7 @@ daaDryRun = lens _daaDryRun (\s a -> s { _daaDryRun = a })
 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: List "item" AccountAttribute
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAccountAttributesResponse where
     type Item DescribeAccountAttributesResponse = AccountAttribute
@@ -104,7 +104,11 @@ daarAccountAttributes =
 instance ToPath DescribeAccountAttributes where
     toPath = const "/"
 
-instance ToQuery DescribeAccountAttributes
+instance ToQuery DescribeAccountAttributes where
+    toQuery DescribeAccountAttributes{..} = mconcat
+        [ "attributeName" =? _daaAttributeNames
+        , "dryRun"        =? _daaDryRun
+        ]
 
 instance ToHeaders DescribeAccountAttributes
 
@@ -117,4 +121,4 @@ instance AWSRequest DescribeAccountAttributes where
 
 instance FromXML DescribeAccountAttributesResponse where
     parseXML x = DescribeAccountAttributesResponse
-        <$> x .@ "accountAttributeSet"
+        <$> x .@  "accountAttributeSet"

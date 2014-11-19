@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,10 +55,10 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeTags = DescribeTags
-    { _dtFilters    :: [Filter]
+    { _dtFilters    :: List "Filters" Filter
     , _dtMaxRecords :: Maybe Int
     , _dtNextToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeTags' constructor.
 --
@@ -81,7 +82,7 @@ describeTags = DescribeTags
 -- Scaling group, the key and value, or whether the new tag will be applied
 -- to instances launched after the tag is created (PropagateAtLaunch).
 dtFilters :: Lens' DescribeTags [Filter]
-dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a })
+dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a }) . _List
 
 -- | The maximum number of records to return.
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
@@ -93,8 +94,8 @@ dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrNextToken :: Maybe Text
-    , _dtrTags      :: [TagDescription]
-    } deriving (Eq, Show, Generic)
+    , _dtrTags      :: List "Tags" TagDescription
+    } deriving (Eq, Show)
 
 -- | 'DescribeTagsResponse' constructor.
 --
@@ -116,12 +117,17 @@ dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
 -- | The list of tags.
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
+dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a }) . _List
 
 instance ToPath DescribeTags where
     toPath = const "/"
 
-instance ToQuery DescribeTags
+instance ToQuery DescribeTags where
+    toQuery DescribeTags{..} = mconcat
+        [ "Filters"    =? _dtFilters
+        , "MaxRecords" =? _dtMaxRecords
+        , "NextToken"  =? _dtNextToken
+        ]
 
 instance ToHeaders DescribeTags
 
@@ -133,9 +139,9 @@ instance AWSRequest DescribeTags where
     response = xmlResponse
 
 instance FromXML DescribeTagsResponse where
-    parseXML = withElement "DescribeTagsResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "Tags"
+    parseXML = withElement "DescribeTagsResult" $ \x -> DescribeTagsResponse
+        <$> x .@? "NextToken"
+        <*> x .@  "Tags"
 
 instance AWSPager DescribeTags where
     next rq rs = (\x -> rq & dtNextToken ?~ x)

@@ -81,7 +81,7 @@ data DescribeVolumeStatus = DescribeVolumeStatus
     , _dvsMaxResults :: Maybe Int
     , _dvsNextToken  :: Maybe Text
     , _dvsVolumeIds  :: List "VolumeId" Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVolumeStatus' constructor.
 --
@@ -125,8 +125,7 @@ dvsDryRun = lens _dvsDryRun (\s a -> s { _dvsDryRun = a })
 -- severely-degraded | stalled). volume-status.status - The status of the
 -- volume (ok | impaired | warning | insufficient-data).
 dvsFilters :: Lens' DescribeVolumeStatus [Filter]
-dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a })
-    . _List
+dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a }) . _List
 
 -- | The maximum number of paginated volume items per response.
 dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
@@ -139,13 +138,12 @@ dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
 
 -- | One or more volume IDs. Default: Describes all your volumes.
 dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
-dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
-    . _List
+dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a }) . _List
 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrNextToken      :: Maybe Text
     , _dvsrVolumeStatuses :: List "item" VolumeStatusItem
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVolumeStatusResponse' constructor.
 --
@@ -174,7 +172,14 @@ dvsrVolumeStatuses =
 instance ToPath DescribeVolumeStatus where
     toPath = const "/"
 
-instance ToQuery DescribeVolumeStatus
+instance ToQuery DescribeVolumeStatus where
+    toQuery DescribeVolumeStatus{..} = mconcat
+        [ "dryRun"     =? _dvsDryRun
+        , "Filter"     =? _dvsFilters
+        , "MaxResults" =? _dvsMaxResults
+        , "NextToken"  =? _dvsNextToken
+        , "VolumeId"   =? _dvsVolumeIds
+        ]
 
 instance ToHeaders DescribeVolumeStatus
 
@@ -188,7 +193,7 @@ instance AWSRequest DescribeVolumeStatus where
 instance FromXML DescribeVolumeStatusResponse where
     parseXML x = DescribeVolumeStatusResponse
         <$> x .@? "nextToken"
-        <*> x .@ "volumeStatusSet"
+        <*> x .@  "volumeStatusSet"
 
 instance AWSPager DescribeVolumeStatus where
     next rq rs = (\x -> rq & dvsNextToken ?~ x)

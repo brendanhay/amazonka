@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,10 +65,10 @@ data UpdateInstance = UpdateInstance
     , _uiInstallUpdatesOnBoot :: Maybe Bool
     , _uiInstanceId           :: Text
     , _uiInstanceType         :: Maybe Text
-    , _uiLayerIds             :: [Text]
+    , _uiLayerIds             :: List "InstanceIds" Text
     , _uiOs                   :: Maybe Text
     , _uiSshKeyName           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateInstance' constructor.
 --
@@ -164,7 +165,7 @@ uiInstanceType = lens _uiInstanceType (\s a -> s { _uiInstanceType = a })
 
 -- | The instance's layer IDs.
 uiLayerIds :: Lens' UpdateInstance [Text]
-uiLayerIds = lens _uiLayerIds (\s a -> s { _uiLayerIds = a })
+uiLayerIds = lens _uiLayerIds (\s a -> s { _uiLayerIds = a }) . _List
 
 -- | The instance operating system, which must be set to one of the following.
 -- Standard operating systems: Amazon Linux or Ubuntu 12.04 LTS Custom AMIs:

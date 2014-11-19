@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'RefreshTrustedAdvisorCheck' constructor.
 --
@@ -73,7 +74,7 @@ rtacCheckId = lens _rtacCheckId (\s a -> s { _rtacCheckId = a })
 
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus :: TrustedAdvisorCheckRefreshStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RefreshTrustedAdvisorCheckResponse' constructor.
 --
@@ -114,4 +115,4 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
 
 instance FromJSON RefreshTrustedAdvisorCheckResponse where
     parseJSON = withObject "RefreshTrustedAdvisorCheckResponse" $ \o -> RefreshTrustedAdvisorCheckResponse
-        <$> o .: "status"
+        <$> o .:  "status"

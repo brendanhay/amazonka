@@ -59,7 +59,7 @@ data DescribeImageAttribute = DescribeImageAttribute
     { _dia1Attribute :: Text
     , _dia1DryRun    :: Maybe Bool
     , _dia1ImageId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeImageAttribute' constructor.
 --
@@ -100,7 +100,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     , _diarProductCodes        :: List "item" ProductCode
     , _diarRamdiskId           :: Maybe AttributeValue
     , _diarSriovNetSupport     :: Maybe AttributeValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeImageAttributeResponse' constructor.
 --
@@ -160,8 +160,7 @@ diarLaunchPermissions =
 
 -- | One or more product codes.
 diarProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
-diarProductCodes = lens _diarProductCodes (\s a -> s { _diarProductCodes = a })
-    . _List
+diarProductCodes = lens _diarProductCodes (\s a -> s { _diarProductCodes = a }) . _List
 
 -- | The RAM disk ID.
 diarRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
@@ -174,7 +173,12 @@ diarSriovNetSupport =
 instance ToPath DescribeImageAttribute where
     toPath = const "/"
 
-instance ToQuery DescribeImageAttribute
+instance ToQuery DescribeImageAttribute where
+    toQuery DescribeImageAttribute{..} = mconcat
+        [ "Attribute" =? _dia1Attribute
+        , "dryRun"    =? _dia1DryRun
+        , "ImageId"   =? _dia1ImageId
+        ]
 
 instance ToHeaders DescribeImageAttribute
 
@@ -187,11 +191,11 @@ instance AWSRequest DescribeImageAttribute where
 
 instance FromXML DescribeImageAttributeResponse where
     parseXML x = DescribeImageAttributeResponse
-        <$> x .@ "blockDeviceMapping"
+        <$> x .@  "blockDeviceMapping"
         <*> x .@? "description"
         <*> x .@? "imageId"
         <*> x .@? "kernel"
-        <*> x .@ "launchPermission"
-        <*> x .@ "productCodes"
+        <*> x .@  "launchPermission"
+        <*> x .@  "productCodes"
         <*> x .@? "ramdisk"
         <*> x .@? "sriovNetSupport"

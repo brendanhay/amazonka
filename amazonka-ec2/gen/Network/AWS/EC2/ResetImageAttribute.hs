@@ -49,7 +49,7 @@ data ResetImageAttribute = ResetImageAttribute
     { _ria1Attribute :: Text
     , _ria1DryRun    :: Maybe Bool
     , _ria1ImageId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ResetImageAttribute' constructor.
 --
@@ -92,7 +92,12 @@ resetImageAttributeResponse = ResetImageAttributeResponse
 instance ToPath ResetImageAttribute where
     toPath = const "/"
 
-instance ToQuery ResetImageAttribute
+instance ToQuery ResetImageAttribute where
+    toQuery ResetImageAttribute{..} = mconcat
+        [ "Attribute" =? _ria1Attribute
+        , "dryRun"    =? _ria1DryRun
+        , "ImageId"   =? _ria1ImageId
+        ]
 
 instance ToHeaders ResetImageAttribute
 

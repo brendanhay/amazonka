@@ -64,7 +64,7 @@ data ModifyImageAttribute = ModifyImageAttribute
     , _miaUserGroups       :: List "UserGroup" Text
     , _miaUserIds          :: List "UserId" Text
     , _miaValue            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ModifyImageAttribute' constructor.
 --
@@ -133,20 +133,17 @@ miaOperationType = lens _miaOperationType (\s a -> s { _miaOperationType = a })
 -- can't be removed. This is only valid when modifying the productCodes
 -- attribute.
 miaProductCodes :: Lens' ModifyImageAttribute [Text]
-miaProductCodes = lens _miaProductCodes (\s a -> s { _miaProductCodes = a })
-    . _List
+miaProductCodes = lens _miaProductCodes (\s a -> s { _miaProductCodes = a }) . _List
 
 -- | One or more user groups. This is only valid when modifying the
 -- launchPermission attribute.
 miaUserGroups :: Lens' ModifyImageAttribute [Text]
-miaUserGroups = lens _miaUserGroups (\s a -> s { _miaUserGroups = a })
-    . _List
+miaUserGroups = lens _miaUserGroups (\s a -> s { _miaUserGroups = a }) . _List
 
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- launchPermission attribute.
 miaUserIds :: Lens' ModifyImageAttribute [Text]
-miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
-    . _List
+miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a }) . _List
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the description attribute.
@@ -163,7 +160,19 @@ modifyImageAttributeResponse = ModifyImageAttributeResponse
 instance ToPath ModifyImageAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyImageAttribute
+instance ToQuery ModifyImageAttribute where
+    toQuery ModifyImageAttribute{..} = mconcat
+        [ "Attribute"        =? _miaAttribute
+        , "Description"      =? _miaDescription
+        , "dryRun"           =? _miaDryRun
+        , "ImageId"          =? _miaImageId
+        , "LaunchPermission" =? _miaLaunchPermission
+        , "OperationType"    =? _miaOperationType
+        , "ProductCode"      =? _miaProductCodes
+        , "UserGroup"        =? _miaUserGroups
+        , "UserId"           =? _miaUserIds
+        , "Value"            =? _miaValue
+        ]
 
 instance ToHeaders ModifyImageAttribute
 

@@ -64,7 +64,7 @@ data CopySnapshot = CopySnapshot
     , _csPresignedUrl      :: Maybe Text
     , _csSourceRegion      :: Text
     , _csSourceSnapshotId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CopySnapshot' constructor.
 --
@@ -134,7 +134,7 @@ csSourceSnapshotId =
 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CopySnapshotResponse' constructor.
 --
@@ -154,7 +154,15 @@ csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 instance ToPath CopySnapshot where
     toPath = const "/"
 
-instance ToQuery CopySnapshot
+instance ToQuery CopySnapshot where
+    toQuery CopySnapshot{..} = mconcat
+        [ "Description"       =? _csDescription
+        , "destinationRegion" =? _csDestinationRegion
+        , "dryRun"            =? _csDryRun
+        , "presignedUrl"      =? _csPresignedUrl
+        , "SourceRegion"      =? _csSourceRegion
+        , "SourceSnapshotId"  =? _csSourceSnapshotId
+        ]
 
 instance ToHeaders CopySnapshot
 

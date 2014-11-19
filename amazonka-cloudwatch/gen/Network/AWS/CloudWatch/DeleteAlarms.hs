@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -44,8 +45,8 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 newtype DeleteAlarms = DeleteAlarms
-    { _da1AlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _da1AlarmNames :: List "AlarmNames" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeleteAlarms where
     type Item DeleteAlarms = Text
@@ -66,7 +67,7 @@ deleteAlarms = DeleteAlarms
 
 -- | A list of alarms to be deleted.
 da1AlarmNames :: Lens' DeleteAlarms [Text]
-da1AlarmNames = lens _da1AlarmNames (\s a -> s { _da1AlarmNames = a })
+da1AlarmNames = lens _da1AlarmNames (\s a -> s { _da1AlarmNames = a }) . _List
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
     deriving (Eq, Ord, Show, Generic)
@@ -78,7 +79,10 @@ deleteAlarmsResponse = DeleteAlarmsResponse
 instance ToPath DeleteAlarms where
     toPath = const "/"
 
-instance ToQuery DeleteAlarms
+instance ToQuery DeleteAlarms where
+    toQuery DeleteAlarms{..} = mconcat
+        [ "AlarmNames" =? _da1AlarmNames
+        ]
 
 instance ToHeaders DeleteAlarms
 

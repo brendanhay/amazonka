@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data CreateNetworkAcl = CreateNetworkAcl
     { _cnaDryRun :: Maybe Bool
     , _cnaVpcId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CreateNetworkAcl' constructor.
 --
@@ -78,7 +78,7 @@ cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
 
 newtype CreateNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl :: Maybe NetworkAcl
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateNetworkAclResponse' constructor.
 --
@@ -98,7 +98,11 @@ cnarNetworkAcl = lens _cnarNetworkAcl (\s a -> s { _cnarNetworkAcl = a })
 instance ToPath CreateNetworkAcl where
     toPath = const "/"
 
-instance ToQuery CreateNetworkAcl
+instance ToQuery CreateNetworkAcl where
+    toQuery CreateNetworkAcl{..} = mconcat
+        [ "dryRun" =? _cnaDryRun
+        , "vpcId"  =? _cnaVpcId
+        ]
 
 instance ToHeaders CreateNetworkAcl
 

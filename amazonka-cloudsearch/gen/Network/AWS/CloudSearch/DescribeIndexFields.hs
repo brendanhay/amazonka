@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,8 +55,8 @@ import qualified GHC.Exts
 data DescribeIndexFields = DescribeIndexFields
     { _difDeployed   :: Maybe Bool
     , _difDomainName :: Text
-    , _difFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _difFieldNames :: List "SuggesterNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'DescribeIndexFields' constructor.
 --
@@ -87,11 +88,11 @@ difDomainName = lens _difDomainName (\s a -> s { _difDomainName = a })
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
 difFieldNames :: Lens' DescribeIndexFields [Text]
-difFieldNames = lens _difFieldNames (\s a -> s { _difFieldNames = a })
+difFieldNames = lens _difFieldNames (\s a -> s { _difFieldNames = a }) . _List
 
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
-    { _difrIndexFields :: [IndexFieldStatus]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _difrIndexFields :: List "IndexFields" IndexFieldStatus
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeIndexFieldsResponse where
     type Item DescribeIndexFieldsResponse = IndexFieldStatus
@@ -112,12 +113,17 @@ describeIndexFieldsResponse = DescribeIndexFieldsResponse
 
 -- | The index fields configured for the domain.
 difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difrIndexFields = lens _difrIndexFields (\s a -> s { _difrIndexFields = a })
+difrIndexFields = lens _difrIndexFields (\s a -> s { _difrIndexFields = a }) . _List
 
 instance ToPath DescribeIndexFields where
     toPath = const "/"
 
-instance ToQuery DescribeIndexFields
+instance ToQuery DescribeIndexFields where
+    toQuery DescribeIndexFields{..} = mconcat
+        [ "Deployed"   =? _difDeployed
+        , "DomainName" =? _difDomainName
+        , "FieldNames" =? _difFieldNames
+        ]
 
 instance ToHeaders DescribeIndexFields
 
@@ -129,5 +135,5 @@ instance AWSRequest DescribeIndexFields where
     response = xmlResponse
 
 instance FromXML DescribeIndexFieldsResponse where
-    parseXML = withElement "DescribeIndexFieldsResult" $ \x ->
-            <$> x .@ "IndexFields"
+    parseXML = withElement "DescribeIndexFieldsResult" $ \x -> DescribeIndexFieldsResponse
+        <$> x .@  "IndexFields"

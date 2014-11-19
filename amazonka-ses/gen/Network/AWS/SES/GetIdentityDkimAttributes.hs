@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,8 +58,8 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
-    { _gidaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _gidaIdentities :: List "Identities" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetIdentityDkimAttributes where
     type Item GetIdentityDkimAttributes = Text
@@ -80,11 +81,11 @@ getIdentityDkimAttributes = GetIdentityDkimAttributes
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
-gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a })
+gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a }) . _List
 
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
-    { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _gidarDkimAttributes :: Map "entry" "key" "value" Text IdentityDkimAttributes
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetIdentityDkimAttributesResponse' constructor.
 --
@@ -106,7 +107,10 @@ gidarDkimAttributes =
 instance ToPath GetIdentityDkimAttributes where
     toPath = const "/"
 
-instance ToQuery GetIdentityDkimAttributes
+instance ToQuery GetIdentityDkimAttributes where
+    toQuery GetIdentityDkimAttributes{..} = mconcat
+        [ "Identities" =? _gidaIdentities
+        ]
 
 instance ToHeaders GetIdentityDkimAttributes
 
@@ -118,5 +122,5 @@ instance AWSRequest GetIdentityDkimAttributes where
     response = xmlResponse
 
 instance FromXML GetIdentityDkimAttributesResponse where
-    parseXML = withElement "GetIdentityDkimAttributesResult" $ \x ->
-            <$> x .@ "DkimAttributes"
+    parseXML = withElement "GetIdentityDkimAttributesResult" $ \x -> GetIdentityDkimAttributesResponse
+        <$> x .@  "DkimAttributes"

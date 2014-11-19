@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ describeScalingProcessTypes :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes
 
 newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
-    { _dsptrProcesses :: [ProcessType]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dsptrProcesses :: List "Processes" ProcessType
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeScalingProcessTypesResponse where
     type Item DescribeScalingProcessTypesResponse = ProcessType
@@ -73,7 +74,7 @@ describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
 
 -- | A list of ProcessType names.
 dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
-dsptrProcesses = lens _dsptrProcesses (\s a -> s { _dsptrProcesses = a })
+dsptrProcesses = lens _dsptrProcesses (\s a -> s { _dsptrProcesses = a }) . _List
 
 instance ToPath DescribeScalingProcessTypes where
     toPath = const "/"
@@ -91,5 +92,5 @@ instance AWSRequest DescribeScalingProcessTypes where
     response = xmlResponse
 
 instance FromXML DescribeScalingProcessTypesResponse where
-    parseXML = withElement "DescribeScalingProcessTypesResult" $ \x ->
-            <$> x .@ "Processes"
+    parseXML = withElement "DescribeScalingProcessTypesResult" $ \x -> DescribeScalingProcessTypesResponse
+        <$> x .@  "Processes"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ import qualified GHC.Exts
 data CountPendingDecisionTasks = CountPendingDecisionTasks
     { _cpdtDomain   :: Text
     , _cpdtTaskList :: TaskList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CountPendingDecisionTasks' constructor.
 --
@@ -90,7 +91,7 @@ cpdtTaskList = lens _cpdtTaskList (\s a -> s { _cpdtTaskList = a })
 data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
     { _cpdtrCount     :: Nat
     , _cpdtrTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CountPendingDecisionTasksResponse' constructor.
 --
@@ -109,8 +110,7 @@ countPendingDecisionTasksResponse p1 = CountPendingDecisionTasksResponse
 
 -- | The number of tasks in the task list.
 cpdtrCount :: Lens' CountPendingDecisionTasksResponse Natural
-cpdtrCount = lens _cpdtrCount (\s a -> s { _cpdtrCount = a })
-    . _Nat
+cpdtrCount = lens _cpdtrCount (\s a -> s { _cpdtrCount = a }) . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
@@ -140,5 +140,5 @@ instance AWSRequest CountPendingDecisionTasks where
 
 instance FromJSON CountPendingDecisionTasksResponse where
     parseJSON = withObject "CountPendingDecisionTasksResponse" $ \o -> CountPendingDecisionTasksResponse
-        <$> o .: "count"
+        <$> o .:  "count"
         <*> o .:? "truncated"

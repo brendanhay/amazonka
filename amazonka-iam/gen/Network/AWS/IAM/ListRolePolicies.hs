@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ data ListRolePolicies = ListRolePolicies
     { _lrpMarker   :: Maybe Text
     , _lrpMaxItems :: Maybe Nat
     , _lrpRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListRolePolicies' constructor.
 --
@@ -87,8 +88,7 @@ lrpMarker = lens _lrpMarker (\s a -> s { _lrpMarker = a })
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
 lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
-lrpMaxItems = lens _lrpMaxItems (\s a -> s { _lrpMaxItems = a })
-    . mapping _Nat
+lrpMaxItems = lens _lrpMaxItems (\s a -> s { _lrpMaxItems = a }) . mapping _Nat
 
 -- | The name of the role to list policies for.
 lrpRoleName :: Lens' ListRolePolicies Text
@@ -97,8 +97,8 @@ lrpRoleName = lens _lrpRoleName (\s a -> s { _lrpRoleName = a })
 data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprIsTruncated :: Maybe Bool
     , _lrprMarker      :: Maybe Text
-    , _lrprPolicyNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    , _lrprPolicyNames :: List "PolicyNames" Text
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListRolePoliciesResponse' constructor.
 --
@@ -131,12 +131,17 @@ lrprMarker = lens _lrprMarker (\s a -> s { _lrprMarker = a })
 
 -- | A list of policy names.
 lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
-lrprPolicyNames = lens _lrprPolicyNames (\s a -> s { _lrprPolicyNames = a })
+lrprPolicyNames = lens _lrprPolicyNames (\s a -> s { _lrprPolicyNames = a }) . _List
 
 instance ToPath ListRolePolicies where
     toPath = const "/"
 
-instance ToQuery ListRolePolicies
+instance ToQuery ListRolePolicies where
+    toQuery ListRolePolicies{..} = mconcat
+        [ "Marker"   =? _lrpMarker
+        , "MaxItems" =? _lrpMaxItems
+        , "RoleName" =? _lrpRoleName
+        ]
 
 instance ToHeaders ListRolePolicies
 
@@ -148,10 +153,10 @@ instance AWSRequest ListRolePolicies where
     response = xmlResponse
 
 instance FromXML ListRolePoliciesResponse where
-    parseXML = withElement "ListRolePoliciesResult" $ \x ->
-            <$> x .@? "IsTruncated"
-            <*> x .@? "Marker"
-            <*> x .@ "PolicyNames"
+    parseXML = withElement "ListRolePoliciesResult" $ \x -> ListRolePoliciesResponse
+        <$> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@  "PolicyNames"
 
 instance AWSPager ListRolePolicies where
     next rq rs

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ import qualified GHC.Exts
 data ListPresets = ListPresets
     { _lp1Ascending :: Maybe Text
     , _lp1PageToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListPresets' constructor.
 --
@@ -80,8 +81,8 @@ lp1PageToken = lens _lp1PageToken (\s a -> s { _lp1PageToken = a })
 
 data ListPresetsResponse = ListPresetsResponse
     { _lpr1NextPageToken :: Maybe Text
-    , _lpr1Presets       :: [Preset]
-    } deriving (Eq, Show, Generic)
+    , _lpr1Presets       :: List "Presets" Preset
+    } deriving (Eq, Show)
 
 -- | 'ListPresetsResponse' constructor.
 --
@@ -106,12 +107,16 @@ lpr1NextPageToken =
 
 -- | An array of Preset objects.
 lpr1Presets :: Lens' ListPresetsResponse [Preset]
-lpr1Presets = lens _lpr1Presets (\s a -> s { _lpr1Presets = a })
+lpr1Presets = lens _lpr1Presets (\s a -> s { _lpr1Presets = a }) . _List
 
 instance ToPath ListPresets where
     toPath = const "/2012-09-25/presets"
 
-instance ToQuery ListPresets
+instance ToQuery ListPresets where
+    toQuery ListPresets{..} = mconcat
+        [ "Ascending" =? _lp1Ascending
+        , "PageToken" =? _lp1PageToken
+        ]
 
 instance ToHeaders ListPresets
 
@@ -128,7 +133,7 @@ instance AWSRequest ListPresets where
 instance FromJSON ListPresetsResponse where
     parseJSON = withObject "ListPresetsResponse" $ \o -> ListPresetsResponse
         <$> o .:? "NextPageToken"
-        <*> o .: "Presets"
+        <*> o .:  "Presets"
 
 instance AWSPager ListPresets where
     next rq rs = (\x -> rq & lp1PageToken ?~ x)

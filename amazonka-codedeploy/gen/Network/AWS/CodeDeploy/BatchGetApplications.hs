@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -45,8 +46,8 @@ import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
 newtype BatchGetApplications = BatchGetApplications
-    { _bgaApplicationNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _bgaApplicationNames :: List "applications" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetApplications where
     type Item BatchGetApplications = Text
@@ -70,10 +71,11 @@ batchGetApplications = BatchGetApplications
 bgaApplicationNames :: Lens' BatchGetApplications [Text]
 bgaApplicationNames =
     lens _bgaApplicationNames (\s a -> s { _bgaApplicationNames = a })
+        . _List
 
 newtype BatchGetApplicationsResponse = BatchGetApplicationsResponse
-    { _bgarApplicationsInfo :: [ApplicationInfo]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _bgarApplicationsInfo :: List "applicationsInfo" ApplicationInfo
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetApplicationsResponse where
     type Item BatchGetApplicationsResponse = ApplicationInfo
@@ -96,6 +98,7 @@ batchGetApplicationsResponse = BatchGetApplicationsResponse
 bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarApplicationsInfo =
     lens _bgarApplicationsInfo (\s a -> s { _bgarApplicationsInfo = a })
+        . _List
 
 instance ToPath BatchGetApplications where
     toPath = const "/"
@@ -119,4 +122,4 @@ instance AWSRequest BatchGetApplications where
 
 instance FromJSON BatchGetApplicationsResponse where
     parseJSON = withObject "BatchGetApplicationsResponse" $ \o -> BatchGetApplicationsResponse
-        <$> o .: "applicationsInfo"
+        <$> o .:  "applicationsInfo"

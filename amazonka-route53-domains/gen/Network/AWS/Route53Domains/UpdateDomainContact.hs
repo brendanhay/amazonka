@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -57,7 +58,7 @@ data UpdateDomainContact = UpdateDomainContact
     , _udcDomainName        :: Text
     , _udcRegistrantContact :: Maybe ContactDetail
     , _udcTechContact       :: Maybe ContactDetail
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'UpdateDomainContact' constructor.
 --
@@ -111,7 +112,7 @@ udcTechContact = lens _udcTechContact (\s a -> s { _udcTechContact = a })
 
 newtype UpdateDomainContactResponse = UpdateDomainContactResponse
     { _udcrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'UpdateDomainContactResponse' constructor.
 --
@@ -156,4 +157,4 @@ instance AWSRequest UpdateDomainContact where
 
 instance FromJSON UpdateDomainContactResponse where
     parseJSON = withObject "UpdateDomainContactResponse" $ \o -> UpdateDomainContactResponse
-        <$> o .: "OperationId"
+        <$> o .:  "OperationId"

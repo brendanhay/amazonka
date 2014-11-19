@@ -48,7 +48,7 @@ import qualified GHC.Exts
 data DeleteSubnet = DeleteSubnet
     { _ds2DryRun   :: Maybe Bool
     , _ds2SubnetId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteSubnet' constructor.
 --
@@ -82,7 +82,11 @@ deleteSubnetResponse = DeleteSubnetResponse
 instance ToPath DeleteSubnet where
     toPath = const "/"
 
-instance ToQuery DeleteSubnet
+instance ToQuery DeleteSubnet where
+    toQuery DeleteSubnet{..} = mconcat
+        [ "dryRun"   =? _ds2DryRun
+        , "SubnetId" =? _ds2SubnetId
+        ]
 
 instance ToHeaders DeleteSubnet
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -55,7 +56,7 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrMarker   :: Maybe Text
     , _lipfrMaxItems :: Maybe Nat
     , _lipfrRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListInstanceProfilesForRole' constructor.
 --
@@ -88,18 +89,17 @@ lipfrMarker = lens _lipfrMarker (\s a -> s { _lipfrMarker = a })
 -- IsTruncated response element is true. This parameter is optional. If you
 -- do not include it, it defaults to 100.
 lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
-lipfrMaxItems = lens _lipfrMaxItems (\s a -> s { _lipfrMaxItems = a })
-    . mapping _Nat
+lipfrMaxItems = lens _lipfrMaxItems (\s a -> s { _lipfrMaxItems = a }) . mapping _Nat
 
 -- | The name of the role to list instance profiles for.
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\s a -> s { _lipfrRoleName = a })
 
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
-    { _lipfrrInstanceProfiles :: [InstanceProfile]
+    { _lipfrrInstanceProfiles :: List "InstanceProfiles" InstanceProfile
     , _lipfrrIsTruncated      :: Maybe Bool
     , _lipfrrMarker           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListInstanceProfilesForRoleResponse' constructor.
 --
@@ -122,6 +122,7 @@ listInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
 lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]
 lipfrrInstanceProfiles =
     lens _lipfrrInstanceProfiles (\s a -> s { _lipfrrInstanceProfiles = a })
+        . _List
 
 -- | A flag that indicates whether there are more instance profiles to list.
 -- If your results were truncated, you can make a subsequent pagination
@@ -139,7 +140,12 @@ lipfrrMarker = lens _lipfrrMarker (\s a -> s { _lipfrrMarker = a })
 instance ToPath ListInstanceProfilesForRole where
     toPath = const "/"
 
-instance ToQuery ListInstanceProfilesForRole
+instance ToQuery ListInstanceProfilesForRole where
+    toQuery ListInstanceProfilesForRole{..} = mconcat
+        [ "Marker"   =? _lipfrMarker
+        , "MaxItems" =? _lipfrMaxItems
+        , "RoleName" =? _lipfrRoleName
+        ]
 
 instance ToHeaders ListInstanceProfilesForRole
 
@@ -151,10 +157,10 @@ instance AWSRequest ListInstanceProfilesForRole where
     response = xmlResponse
 
 instance FromXML ListInstanceProfilesForRoleResponse where
-    parseXML = withElement "ListInstanceProfilesForRoleResult" $ \x ->
-            <$> x .@ "InstanceProfiles"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Marker"
+    parseXML = withElement "ListInstanceProfilesForRoleResult" $ \x -> ListInstanceProfilesForRoleResponse
+        <$> x .@  "InstanceProfiles"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
 
 instance AWSPager ListInstanceProfilesForRole where
     next rq rs

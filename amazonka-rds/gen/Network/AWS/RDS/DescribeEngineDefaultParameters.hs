@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,10 +51,10 @@ import qualified GHC.Exts
 
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpDBParameterGroupFamily :: Text
-    , _dedpFilters                :: [Filter]
+    , _dedpFilters                :: List "Filter" Filter
     , _dedpMarker                 :: Maybe Text
     , _dedpMaxRecords             :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEngineDefaultParameters' constructor.
 --
@@ -84,7 +85,7 @@ dedpDBParameterGroupFamily =
 
 -- | Not currently supported.
 dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
-dedpFilters = lens _dedpFilters (\s a -> s { _dedpFilters = a })
+dedpFilters = lens _dedpFilters (\s a -> s { _dedpFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous
 -- DescribeEngineDefaultParameters request. If this parameter is specified,
@@ -102,7 +103,7 @@ dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults :: EngineDefaults
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEngineDefaultParametersResponse' constructor.
 --
@@ -123,7 +124,13 @@ dedprEngineDefaults =
 instance ToPath DescribeEngineDefaultParameters where
     toPath = const "/"
 
-instance ToQuery DescribeEngineDefaultParameters
+instance ToQuery DescribeEngineDefaultParameters where
+    toQuery DescribeEngineDefaultParameters{..} = mconcat
+        [ "DBParameterGroupFamily" =? _dedpDBParameterGroupFamily
+        , "Filters"                =? _dedpFilters
+        , "Marker"                 =? _dedpMarker
+        , "MaxRecords"             =? _dedpMaxRecords
+        ]
 
 instance ToHeaders DescribeEngineDefaultParameters
 
@@ -135,8 +142,8 @@ instance AWSRequest DescribeEngineDefaultParameters where
     response = xmlResponse
 
 instance FromXML DescribeEngineDefaultParametersResponse where
-    parseXML = withElement "DescribeEngineDefaultParametersResult" $ \x ->
-            <$> x .@ "EngineDefaults"
+    parseXML = withElement "DescribeEngineDefaultParametersResult" $ \x -> DescribeEngineDefaultParametersResponse
+        <$> x .@  "EngineDefaults"
 
 instance AWSPager DescribeEngineDefaultParameters where
     next rq rs = (\x -> rq & dedpMarker ?~ x)

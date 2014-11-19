@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -50,7 +51,7 @@ data UpdateUser = UpdateUser
     { _uuNewPath     :: Maybe Text
     , _uuNewUserName :: Maybe Text
     , _uuUserName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'UpdateUser' constructor.
 --
@@ -95,7 +96,12 @@ updateUserResponse = UpdateUserResponse
 instance ToPath UpdateUser where
     toPath = const "/"
 
-instance ToQuery UpdateUser
+instance ToQuery UpdateUser where
+    toQuery UpdateUser{..} = mconcat
+        [ "NewPath"     =? _uuNewPath
+        , "NewUserName" =? _uuNewUserName
+        , "UserName"    =? _uuUserName
+        ]
 
 instance ToHeaders UpdateUser
 

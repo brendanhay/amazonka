@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,8 +65,8 @@ import qualified GHC.Exts
 
 data AddJobFlowSteps = AddJobFlowSteps
     { _ajfsJobFlowId :: Text
-    , _ajfsSteps     :: [StepConfig]
-    } deriving (Eq, Show, Generic)
+    , _ajfsSteps     :: List "Steps" StepConfig
+    } deriving (Eq, Show)
 
 -- | 'AddJobFlowSteps' constructor.
 --
@@ -89,11 +90,11 @@ ajfsJobFlowId = lens _ajfsJobFlowId (\s a -> s { _ajfsJobFlowId = a })
 
 -- | A list of StepConfig to be executed by the job flow.
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
-ajfsSteps = lens _ajfsSteps (\s a -> s { _ajfsSteps = a })
+ajfsSteps = lens _ajfsSteps (\s a -> s { _ajfsSteps = a }) . _List
 
 newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
-    { _ajfsrStepIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _ajfsrStepIds :: List "StepIds" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList AddJobFlowStepsResponse where
     type Item AddJobFlowStepsResponse = Text
@@ -114,7 +115,7 @@ addJobFlowStepsResponse = AddJobFlowStepsResponse
 
 -- | The identifiers of the list of steps added to the job flow.
 ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
-ajfsrStepIds = lens _ajfsrStepIds (\s a -> s { _ajfsrStepIds = a })
+ajfsrStepIds = lens _ajfsrStepIds (\s a -> s { _ajfsrStepIds = a }) . _List
 
 instance ToPath AddJobFlowSteps where
     toPath = const "/"
@@ -139,4 +140,4 @@ instance AWSRequest AddJobFlowSteps where
 
 instance FromJSON AddJobFlowStepsResponse where
     parseJSON = withObject "AddJobFlowStepsResponse" $ \o -> AddJobFlowStepsResponse
-        <$> o .: "StepIds"
+        <$> o .:  "StepIds"

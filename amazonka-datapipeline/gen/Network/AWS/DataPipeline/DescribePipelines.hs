@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,8 +53,8 @@ import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
 newtype DescribePipelines = DescribePipelines
-    { _dpPipelineIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dpPipelineIds :: List "pipelineIds" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribePipelines where
     type Item DescribePipelines = Text
@@ -76,11 +77,11 @@ describePipelines = DescribePipelines
 -- identifiers in a single call to DescribePipelines. You can obtain
 -- pipeline identifiers by calling ListPipelines.
 dpPipelineIds :: Lens' DescribePipelines [Text]
-dpPipelineIds = lens _dpPipelineIds (\s a -> s { _dpPipelineIds = a })
+dpPipelineIds = lens _dpPipelineIds (\s a -> s { _dpPipelineIds = a }) . _List
 
 newtype DescribePipelinesResponse = DescribePipelinesResponse
-    { _dprPipelineDescriptionList :: [PipelineDescription]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dprPipelineDescriptionList :: List "pipelineDescriptionList" PipelineDescription
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribePipelinesResponse where
     type Item DescribePipelinesResponse = PipelineDescription
@@ -104,6 +105,7 @@ dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescripti
 dprPipelineDescriptionList =
     lens _dprPipelineDescriptionList
         (\s a -> s { _dprPipelineDescriptionList = a })
+            . _List
 
 instance ToPath DescribePipelines where
     toPath = const "/"
@@ -127,4 +129,4 @@ instance AWSRequest DescribePipelines where
 
 instance FromJSON DescribePipelinesResponse where
     parseJSON = withObject "DescribePipelinesResponse" $ \o -> DescribePipelinesResponse
-        <$> o .: "pipelineDescriptionList"
+        <$> o .:  "pipelineDescriptionList"

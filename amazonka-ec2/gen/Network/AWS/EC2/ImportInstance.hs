@@ -55,11 +55,11 @@ import qualified GHC.Exts
 
 data ImportInstance = ImportInstance
     { _iiDescription         :: Maybe Text
-    , _iiDiskImages          :: List "DiskImage" DiskImage
+    , _iiDiskImages          :: List "diskImage" DiskImage
     , _iiDryRun              :: Maybe Bool
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
     , _iiPlatform            :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ImportInstance' constructor.
 --
@@ -90,8 +90,7 @@ iiDescription :: Lens' ImportInstance (Maybe Text)
 iiDescription = lens _iiDescription (\s a -> s { _iiDescription = a })
 
 iiDiskImages :: Lens' ImportInstance [DiskImage]
-iiDiskImages = lens _iiDiskImages (\s a -> s { _iiDiskImages = a })
-    . _List
+iiDiskImages = lens _iiDiskImages (\s a -> s { _iiDiskImages = a }) . _List
 
 iiDryRun :: Lens' ImportInstance (Maybe Bool)
 iiDryRun = lens _iiDryRun (\s a -> s { _iiDryRun = a })
@@ -107,7 +106,7 @@ iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
 
 newtype ImportInstanceResponse = ImportInstanceResponse
     { _iirConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ImportInstanceResponse' constructor.
 --
@@ -127,7 +126,14 @@ iirConversionTask =
 instance ToPath ImportInstance where
     toPath = const "/"
 
-instance ToQuery ImportInstance
+instance ToQuery ImportInstance where
+    toQuery ImportInstance{..} = mconcat
+        [ "description"         =? _iiDescription
+        , "diskImage"           =? _iiDiskImages
+        , "dryRun"              =? _iiDryRun
+        , "launchSpecification" =? _iiLaunchSpecification
+        , "platform"            =? _iiPlatform
+        ]
 
 instance ToHeaders ImportInstance
 

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -53,7 +54,7 @@ import qualified GHC.Exts
 data DefineSuggester = DefineSuggester
     { _ds2DomainName :: Text
     , _ds2Suggester  :: Suggester
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DefineSuggester' constructor.
 --
@@ -79,7 +80,7 @@ ds2Suggester = lens _ds2Suggester (\s a -> s { _ds2Suggester = a })
 
 newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dsrSuggester :: SuggesterStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DefineSuggesterResponse' constructor.
 --
@@ -99,7 +100,11 @@ dsrSuggester = lens _dsrSuggester (\s a -> s { _dsrSuggester = a })
 instance ToPath DefineSuggester where
     toPath = const "/"
 
-instance ToQuery DefineSuggester
+instance ToQuery DefineSuggester where
+    toQuery DefineSuggester{..} = mconcat
+        [ "DomainName" =? _ds2DomainName
+        , "Suggester"  =? _ds2Suggester
+        ]
 
 instance ToHeaders DefineSuggester
 
@@ -111,5 +116,5 @@ instance AWSRequest DefineSuggester where
     response = xmlResponse
 
 instance FromXML DefineSuggesterResponse where
-    parseXML = withElement "DefineSuggesterResult" $ \x ->
-            <$> x .@ "Suggester"
+    parseXML = withElement "DefineSuggesterResult" $ \x -> DefineSuggesterResponse
+        <$> x .@  "Suggester"

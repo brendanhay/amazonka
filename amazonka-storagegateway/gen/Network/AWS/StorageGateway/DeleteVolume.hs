@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ import qualified GHC.Exts
 
 newtype DeleteVolume = DeleteVolume
     { _dvVolumeARN :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteVolume' constructor.
 --
@@ -77,7 +78,7 @@ dvVolumeARN = lens _dvVolumeARN (\s a -> s { _dvVolumeARN = a })
 
 newtype DeleteVolumeResponse = DeleteVolumeResponse
     { _dvrVolumeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'DeleteVolumeResponse' constructor.
 --

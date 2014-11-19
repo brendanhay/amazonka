@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -48,8 +49,8 @@ import Network.AWS.Support.Types
 import qualified GHC.Exts
 
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
-    { _dtacsCheckIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    { _dtacsCheckIds :: List "checkIds" Text
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorCheckSummaries where
     type Item DescribeTrustedAdvisorCheckSummaries = Text
@@ -70,11 +71,11 @@ describeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
 
 -- | The IDs of the Trusted Advisor checks.
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
-dtacsCheckIds = lens _dtacsCheckIds (\s a -> s { _dtacsCheckIds = a })
+dtacsCheckIds = lens _dtacsCheckIds (\s a -> s { _dtacsCheckIds = a }) . _List
 
 newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse
-    { _dtacsrSummaries :: [TrustedAdvisorCheckSummary]
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    { _dtacsrSummaries :: List "summaries" TrustedAdvisorCheckSummary
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorCheckSummariesResponse where
     type Item DescribeTrustedAdvisorCheckSummariesResponse = TrustedAdvisorCheckSummary
@@ -95,7 +96,7 @@ describeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummar
 
 -- | The summary information for the requested Trusted Advisor checks.
 dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-dtacsrSummaries = lens _dtacsrSummaries (\s a -> s { _dtacsrSummaries = a })
+dtacsrSummaries = lens _dtacsrSummaries (\s a -> s { _dtacsrSummaries = a }) . _List
 
 instance ToPath DescribeTrustedAdvisorCheckSummaries where
     toPath = const "/"
@@ -119,4 +120,4 @@ instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
 
 instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse where
     parseJSON = withObject "DescribeTrustedAdvisorCheckSummariesResponse" $ \o -> DescribeTrustedAdvisorCheckSummariesResponse
-        <$> o .: "summaries"
+        <$> o .:  "summaries"

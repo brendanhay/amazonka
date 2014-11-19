@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -68,7 +69,7 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
     , _tweReason      :: Maybe Text
     , _tweRunId       :: Maybe Text
     , _tweWorkflowId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TerminateWorkflowExecution' constructor.
 --

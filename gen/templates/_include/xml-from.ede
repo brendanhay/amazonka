@@ -5,7 +5,7 @@ instance FromXML {{ type.name }} where
     parseXML = parseXMLText "{{ type.name }}"
 {% else %}
   {% if type.resultWrapper %}
-    parseXML = withElement "{{ type.resultWrapper }}" $ \x ->
+    parseXML = withElement "{{ type.resultWrapper }}" $ \x -> {{ type.name }}
   {% else %}
     parseXML x = {{ type.name }}
   {% endif %}

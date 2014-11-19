@@ -22,10 +22,7 @@
         . {{ field.value.lensMapping }}
       {% endif %}
     {% else %}
-{{ field.value.lens }} = lens {{ field.value.name }} (\s a -> s { {{ field.value.name }} = a })
-      {% if field.value.lensMapping %}
-    . {{ field.value.lensMapping }}
-      {% endif %}
+{{ field.value.lens }} = lens {{ field.value.name }} (\s a -> s { {{ field.value.name }} = a }){% if field.value.lensMapping %} . {{ field.value.lensMapping }}{% endif %}
     {% endif %}
   {% endfor %}
 {% endcase %}

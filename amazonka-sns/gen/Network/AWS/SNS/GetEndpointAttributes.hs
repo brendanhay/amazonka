@@ -93,13 +93,15 @@ getEndpointAttributesResponse = GetEndpointAttributesResponse
 -- service when an app and mobile device are registered with the
 -- notification service.
 gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
-gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a })
-    . _Map
+gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a }) . _Map
 
 instance ToPath GetEndpointAttributes where
     toPath = const "/"
 
-instance ToQuery GetEndpointAttributes
+instance ToQuery GetEndpointAttributes where
+    toQuery GetEndpointAttributes{..} = mconcat
+        [ "EndpointArn" =? _geaEndpointArn
+        ]
 
 instance ToHeaders GetEndpointAttributes
 
@@ -111,5 +113,5 @@ instance AWSRequest GetEndpointAttributes where
     response = xmlResponse
 
 instance FromXML GetEndpointAttributesResponse where
-    parseXML = withElement "GetEndpointAttributesResult" $ \x ->
+    parseXML = withElement "GetEndpointAttributesResult" $ \x -> GetEndpointAttributesResponse
         <$> x .@ "Attributes"

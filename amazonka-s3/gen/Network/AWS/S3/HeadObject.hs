@@ -187,8 +187,7 @@ hoSSECustomerAlgorithm =
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
 hoSSECustomerKey :: Lens' HeadObject (Maybe Text)
-hoSSECustomerKey = lens _hoSSECustomerKey (\s a -> s { _hoSSECustomerKey = a })
-    . mapping _Sensitive
+hoSSECustomerKey = lens _hoSSECustomerKey (\s a -> s { _hoSSECustomerKey = a }) . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -199,8 +198,7 @@ hoSSECustomerKeyMD5 =
 
 -- | Specifies the AWS KMS key ID to use for object encryption.
 hoSSEKMSKeyId :: Lens' HeadObject (Maybe Text)
-hoSSEKMSKeyId = lens _hoSSEKMSKeyId (\s a -> s { _hoSSEKMSKeyId = a })
-    . mapping _Sensitive
+hoSSEKMSKeyId = lens _hoSSEKMSKeyId (\s a -> s { _hoSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | VersionId used to reference a specific version of the object.
 hoVersionId :: Lens' HeadObject (Maybe Text)
@@ -349,23 +347,19 @@ horETag = lens _horETag (\s a -> s { _horETag = a })
 -- key value pairs providing object expiration information. The value of the
 -- rule-id is URL encoded.
 horExpiration :: Lens' HeadObjectResponse (Maybe UTCTime)
-horExpiration = lens _horExpiration (\s a -> s { _horExpiration = a })
-    . mapping _Time
+horExpiration = lens _horExpiration (\s a -> s { _horExpiration = a }) . mapping _Time
 
 -- | The date and time at which the object is no longer cacheable.
 horExpires :: Lens' HeadObjectResponse (Maybe UTCTime)
-horExpires = lens _horExpires (\s a -> s { _horExpires = a })
-    . mapping _Time
+horExpires = lens _horExpires (\s a -> s { _horExpires = a }) . mapping _Time
 
 -- | Last modified date of the object.
 horLastModified :: Lens' HeadObjectResponse (Maybe UTCTime)
-horLastModified = lens _horLastModified (\s a -> s { _horLastModified = a })
-    . mapping _Time
+horLastModified = lens _horLastModified (\s a -> s { _horLastModified = a }) . mapping _Time
 
 -- | A map of metadata to store with the object in S3.
 horMetadata :: Lens' HeadObjectResponse (HashMap Text Text)
-horMetadata = lens _horMetadata (\s a -> s { _horMetadata = a })
-    . _Map
+horMetadata = lens _horMetadata (\s a -> s { _horMetadata = a }) . _Map
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
 -- headers. This can happen if you create metadata using an API like SOAP
@@ -396,8 +390,7 @@ horSSECustomerKeyMD5 =
 
 -- | If present, specifies the AWS KMS key used to encrypt the object.
 horSSEKMSKeyId :: Lens' HeadObjectResponse (Maybe Text)
-horSSEKMSKeyId = lens _horSSEKMSKeyId (\s a -> s { _horSSEKMSKeyId = a })
-    . mapping _Sensitive
+horSSEKMSKeyId = lens _horSSEKMSKeyId (\s a -> s { _horSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

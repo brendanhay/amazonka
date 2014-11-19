@@ -94,13 +94,15 @@ getTopicAttributesResponse = GetTopicAttributesResponse
 -- serialization of the effective delivery policy that takes into account
 -- system defaults.
 gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
-gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a })
-    . _Map
+gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a }) . _Map
 
 instance ToPath GetTopicAttributes where
     toPath = const "/"
 
-instance ToQuery GetTopicAttributes
+instance ToQuery GetTopicAttributes where
+    toQuery GetTopicAttributes{..} = mconcat
+        [ "TopicArn" =? _gtaTopicArn
+        ]
 
 instance ToHeaders GetTopicAttributes
 
@@ -112,5 +114,5 @@ instance AWSRequest GetTopicAttributes where
     response = xmlResponse
 
 instance FromXML GetTopicAttributesResponse where
-    parseXML = withElement "GetTopicAttributesResult" $ \x ->
+    parseXML = withElement "GetTopicAttributesResult" $ \x -> GetTopicAttributesResponse
         <$> x .@ "Attributes"

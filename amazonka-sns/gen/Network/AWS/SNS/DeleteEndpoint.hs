@@ -74,7 +74,10 @@ deleteEndpointResponse = DeleteEndpointResponse
 instance ToPath DeleteEndpoint where
     toPath = const "/"
 
-instance ToQuery DeleteEndpoint
+instance ToQuery DeleteEndpoint where
+    toQuery DeleteEndpoint{..} = mconcat
+        [ "EndpointArn" =? _deEndpointArn
+        ]
 
 instance ToHeaders DeleteEndpoint
 

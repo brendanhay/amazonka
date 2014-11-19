@@ -125,7 +125,12 @@ srSubscriptionArn =
 instance ToPath Subscribe where
     toPath = const "/"
 
-instance ToQuery Subscribe
+instance ToQuery Subscribe where
+    toQuery Subscribe{..} = mconcat
+        [ "Endpoint" =? _sEndpoint
+        , "Protocol" =? _sProtocol
+        , "TopicArn" =? _sTopicArn
+        ]
 
 instance ToHeaders Subscribe
 
@@ -137,5 +142,5 @@ instance AWSRequest Subscribe where
     response = xmlResponse
 
 instance FromXML SubscribeResponse where
-    parseXML = withElement "SubscribeResult" $ \x ->
+    parseXML = withElement "SubscribeResult" $ \x -> SubscribeResponse
         <$> x .@? "SubscriptionArn"

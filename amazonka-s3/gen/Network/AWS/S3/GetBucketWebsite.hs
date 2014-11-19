@@ -108,8 +108,7 @@ gbwrRedirectAllRequestsTo =
         (\s a -> s { _gbwrRedirectAllRequestsTo = a })
 
 gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrRoutingRules = lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
-    . _List
+gbwrRoutingRules = lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a }) . _List
 
 instance ToPath GetBucketWebsite where
     toPath GetBucketWebsite{..} = mconcat

@@ -119,8 +119,7 @@ receiveMessage p1 p2 p3 = ReceiveMessage
 -- sender. SentTimestamp - returns the time when the message was sent (epoch
 -- time in milliseconds).
 rmAttributeNames :: Lens' ReceiveMessage [Text]
-rmAttributeNames = lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a })
-    . _List
+rmAttributeNames = lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a }) . _List
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value but may return fewer. Values can be from 1 to
@@ -178,13 +177,20 @@ receiveMessageResponse p1 = ReceiveMessageResponse
 
 -- | A list of messages.
 rmrMessages :: Lens' ReceiveMessageResponse [Message]
-rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
-    . _List
+rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a }) . _List
 
 instance ToPath ReceiveMessage where
     toPath = const "/"
 
-instance ToQuery ReceiveMessage
+instance ToQuery ReceiveMessage where
+    toQuery ReceiveMessage{..} = mconcat
+        [ toQuery _rmAttributeNames
+        , "MaxNumberOfMessages" =? _rmMaxNumberOfMessages
+        , toQuery _rmMessageAttributeNames
+        , "QueueUrl" =? _rmQueueUrl
+        , "VisibilityTimeout" =? _rmVisibilityTimeout
+        , "WaitTimeSeconds" =? _rmWaitTimeSeconds
+        ]
 
 instance ToHeaders ReceiveMessage
 
@@ -196,5 +202,5 @@ instance AWSRequest ReceiveMessage where
     response = xmlResponse
 
 instance FromXML ReceiveMessageResponse where
-    parseXML = withElement "ReceiveMessageResult" $ \x ->
+    parseXML = withElement "ReceiveMessageResult" $ \x -> ReceiveMessageResponse
         <$> parseXML x

@@ -72,8 +72,7 @@ listBucketsResponse = ListBucketsResponse
     }
 
 lbrBuckets :: Lens' ListBucketsResponse [Bucket]
-lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a })
-    . _List
+lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a }) . _List
 
 lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrOwner = lens _lbrOwner (\s a -> s { _lbrOwner = a })

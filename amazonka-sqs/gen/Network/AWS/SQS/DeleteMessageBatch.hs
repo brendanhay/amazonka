@@ -75,8 +75,7 @@ deleteMessageBatch p1 p2 = DeleteMessageBatch
 
 -- | A list of receipt handles for the messages to be deleted.
 dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
-dmbEntries = lens _dmbEntries (\s a -> s { _dmbEntries = a })
-    . _List
+dmbEntries = lens _dmbEntries (\s a -> s { _dmbEntries = a }) . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 dmbQueueUrl :: Lens' DeleteMessageBatch Text
@@ -105,18 +104,20 @@ deleteMessageBatchResponse p1 p2 = DeleteMessageBatchResponse
 
 -- | A list of BatchResultErrorEntry items.
 dmbrFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
-dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a })
-    . _List
+dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a }) . _List
 
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
-dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a })
-    . _List
+dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a }) . _List
 
 instance ToPath DeleteMessageBatch where
     toPath = const "/"
 
-instance ToQuery DeleteMessageBatch
+instance ToQuery DeleteMessageBatch where
+    toQuery DeleteMessageBatch{..} = mconcat
+        [ toQuery _dmbEntries
+        , "QueueUrl" =? _dmbQueueUrl
+        ]
 
 instance ToHeaders DeleteMessageBatch
 
@@ -128,6 +129,6 @@ instance AWSRequest DeleteMessageBatch where
     response = xmlResponse
 
 instance FromXML DeleteMessageBatchResponse where
-    parseXML = withElement "DeleteMessageBatchResult" $ \x ->
+    parseXML = withElement "DeleteMessageBatchResult" $ \x -> DeleteMessageBatchResponse
         <$> parseXML x
         <*> parseXML x

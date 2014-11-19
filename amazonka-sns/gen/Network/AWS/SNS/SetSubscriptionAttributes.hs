@@ -97,7 +97,12 @@ setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
 instance ToPath SetSubscriptionAttributes where
     toPath = const "/"
 
-instance ToQuery SetSubscriptionAttributes
+instance ToQuery SetSubscriptionAttributes where
+    toQuery SetSubscriptionAttributes{..} = mconcat
+        [ "AttributeName" =? _ssaAttributeName
+        , "AttributeValue" =? _ssaAttributeValue
+        , "SubscriptionArn" =? _ssaSubscriptionArn
+        ]
 
 instance ToHeaders SetSubscriptionAttributes
 

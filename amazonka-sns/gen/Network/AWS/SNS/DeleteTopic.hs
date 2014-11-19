@@ -76,7 +76,10 @@ deleteTopicResponse = DeleteTopicResponse
 instance ToPath DeleteTopic where
     toPath = const "/"
 
-instance ToQuery DeleteTopic
+instance ToQuery DeleteTopic where
+    toQuery DeleteTopic{..} = mconcat
+        [ "TopicArn" =? _dtTopicArn
+        ]
 
 instance ToHeaders DeleteTopic
 

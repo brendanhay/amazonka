@@ -533,8 +533,7 @@ transition = Transition
 -- | Indicates at what date the object is to be moved or deleted. Should be in
 -- GMT ISO 8601 Format.
 tDate :: Lens' Transition (Maybe UTCTime)
-tDate = lens _tDate (\s a -> s { _tDate = a })
-    . mapping _Time
+tDate = lens _tDate (\s a -> s { _tDate = a }) . mapping _Time
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
@@ -603,8 +602,7 @@ dmeKey = lens _dmeKey (\s a -> s { _dmeKey = a })
 
 -- | Date and time the object was last modified.
 dmeLastModified :: Lens' DeleteMarkerEntry (Maybe UTCTime)
-dmeLastModified = lens _dmeLastModified (\s a -> s { _dmeLastModified = a })
-    . mapping _Time
+dmeLastModified = lens _dmeLastModified (\s a -> s { _dmeLastModified = a }) . mapping _Time
 
 dmeOwner :: Lens' DeleteMarkerEntry (Maybe Owner)
 dmeOwner = lens _dmeOwner (\s a -> s { _dmeOwner = a })
@@ -691,8 +689,7 @@ pETag = lens _pETag (\s a -> s { _pETag = a })
 
 -- | Date and time at which the part was uploaded.
 pLastModified :: Lens' Part (Maybe UTCTime)
-pLastModified = lens _pLastModified (\s a -> s { _pLastModified = a })
-    . mapping _Time
+pLastModified = lens _pLastModified (\s a -> s { _pLastModified = a }) . mapping _Time
 
 -- | Part number identifying the part.
 pPartNumber :: Lens' Part (Maybe Int)
@@ -1226,8 +1223,7 @@ cprETag = lens _cprETag (\s a -> s { _cprETag = a })
 
 -- | Date and time at which the object was uploaded.
 cprLastModified :: Lens' CopyPartResult (Maybe UTCTime)
-cprLastModified = lens _cprLastModified (\s a -> s { _cprLastModified = a })
-    . mapping _Time
+cprLastModified = lens _cprLastModified (\s a -> s { _cprLastModified = a }) . mapping _Time
 
 instance FromXML CopyPartResult where
     parseXML x = CopyPartResult
@@ -1423,8 +1419,7 @@ wcRedirectAllRequestsTo =
     lens _wcRedirectAllRequestsTo (\s a -> s { _wcRedirectAllRequestsTo = a })
 
 wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
-wcRoutingRules = lens _wcRoutingRules (\s a -> s { _wcRoutingRules = a })
-    . _List
+wcRoutingRules = lens _wcRoutingRules (\s a -> s { _wcRoutingRules = a }) . _List
 
 instance FromXML WebsiteConfiguration where
     parseXML x = WebsiteConfiguration
@@ -1596,8 +1591,7 @@ bucket = Bucket
 
 -- | Date the bucket was created.
 bCreationDate :: Lens' Bucket (Maybe UTCTime)
-bCreationDate = lens _bCreationDate (\s a -> s { _bCreationDate = a })
-    . mapping _Time
+bCreationDate = lens _bCreationDate (\s a -> s { _bCreationDate = a }) . mapping _Time
 
 -- | The name of the bucket.
 bName :: Lens' Bucket (Maybe Text)
@@ -1809,8 +1803,7 @@ tcEvent :: Lens' TopicConfiguration (Maybe Text)
 tcEvent = lens _tcEvent (\s a -> s { _tcEvent = a })
 
 tcEvents :: Lens' TopicConfiguration [Text]
-tcEvents = lens _tcEvents (\s a -> s { _tcEvents = a })
-    . _List
+tcEvents = lens _tcEvents (\s a -> s { _tcEvents = a }) . _List
 
 tcId :: Lens' TopicConfiguration (Maybe Text)
 tcId = lens _tcId (\s a -> s { _tcId = a })
@@ -1870,8 +1863,7 @@ qcEvent :: Lens' QueueConfiguration (Maybe Text)
 qcEvent = lens _qcEvent (\s a -> s { _qcEvent = a })
 
 qcEvents :: Lens' QueueConfiguration [Text]
-qcEvents = lens _qcEvents (\s a -> s { _qcEvents = a })
-    . _List
+qcEvents = lens _qcEvents (\s a -> s { _qcEvents = a }) . _List
 
 qcId :: Lens' QueueConfiguration (Maybe Text)
 qcId = lens _qcId (\s a -> s { _qcId = a })
@@ -2080,8 +2072,7 @@ ovKey = lens _ovKey (\s a -> s { _ovKey = a })
 
 -- | Date and time the object was last modified.
 ovLastModified :: Lens' ObjectVersion (Maybe UTCTime)
-ovLastModified = lens _ovLastModified (\s a -> s { _ovLastModified = a })
-    . mapping _Time
+ovLastModified = lens _ovLastModified (\s a -> s { _ovLastModified = a }) . mapping _Time
 
 ovOwner :: Lens' ObjectVersion (Maybe Owner)
 ovOwner = lens _ovOwner (\s a -> s { _ovOwner = a })
@@ -2419,8 +2410,7 @@ tagging = Tagging
     }
 
 tTagSet :: Lens' Tagging [Tag]
-tTagSet = lens _tTagSet (\s a -> s { _tTagSet = a })
-    . _List
+tTagSet = lens _tTagSet (\s a -> s { _tTagSet = a }) . _List
 
 instance FromXML Tagging where
     parseXML x = Tagging
@@ -2456,8 +2446,7 @@ lifecycleExpiration = LifecycleExpiration
 -- | Indicates at what date the object is to be moved or deleted. Should be in
 -- GMT ISO 8601 Format.
 leDate :: Lens' LifecycleExpiration (Maybe UTCTime)
-leDate = lens _leDate (\s a -> s { _leDate = a })
-    . mapping _Time
+leDate = lens _leDate (\s a -> s { _leDate = a }) . mapping _Time
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
@@ -2495,8 +2484,7 @@ corsconfiguration p1 = CORSConfiguration
     }
 
 corscCORSRules :: Lens' CORSConfiguration [CORSRule]
-corscCORSRules = lens _corscCORSRules (\s a -> s { _corscCORSRules = a })
-    . _List
+corscCORSRules = lens _corscCORSRules (\s a -> s { _corscCORSRules = a }) . _List
 
 instance FromXML CORSConfiguration where
     parseXML x = CORSConfiguration
@@ -2558,8 +2546,7 @@ oKey :: Lens' Object Text
 oKey = lens _oKey (\s a -> s { _oKey = a })
 
 oLastModified :: Lens' Object UTCTime
-oLastModified = lens _oLastModified (\s a -> s { _oLastModified = a })
-    . _Time
+oLastModified = lens _oLastModified (\s a -> s { _oLastModified = a }) . _Time
 
 oOwner :: Lens' Object Owner
 oOwner = lens _oOwner (\s a -> s { _oOwner = a })
@@ -2659,8 +2646,7 @@ multipartUpload = MultipartUpload
 
 -- | Date and time at which the multipart upload was initiated.
 muInitiated :: Lens' MultipartUpload (Maybe UTCTime)
-muInitiated = lens _muInitiated (\s a -> s { _muInitiated = a })
-    . mapping _Time
+muInitiated = lens _muInitiated (\s a -> s { _muInitiated = a }) . mapping _Time
 
 -- | Identifies who initiated the multipart upload.
 muInitiator :: Lens' MultipartUpload (Maybe Initiator)
@@ -2769,8 +2755,7 @@ completedMultipartUpload p1 = CompletedMultipartUpload
     }
 
 cmuParts :: Lens' CompletedMultipartUpload [CompletedPart]
-cmuParts = lens _cmuParts (\s a -> s { _cmuParts = a })
-    . _List
+cmuParts = lens _cmuParts (\s a -> s { _cmuParts = a }) . _List
 
 instance FromXML CompletedMultipartUpload where
     parseXML x = CompletedMultipartUpload
@@ -2892,8 +2877,7 @@ accessControlPolicy = AccessControlPolicy
 
 -- | A list of grants.
 acpGrants :: Lens' AccessControlPolicy [Grant]
-acpGrants = lens _acpGrants (\s a -> s { _acpGrants = a })
-    . _List
+acpGrants = lens _acpGrants (\s a -> s { _acpGrants = a }) . _List
 
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
@@ -3006,8 +2990,7 @@ cfcEvent :: Lens' CloudFunctionConfiguration (Maybe Text)
 cfcEvent = lens _cfcEvent (\s a -> s { _cfcEvent = a })
 
 cfcEvents :: Lens' CloudFunctionConfiguration [Text]
-cfcEvents = lens _cfcEvents (\s a -> s { _cfcEvents = a })
-    . _List
+cfcEvents = lens _cfcEvents (\s a -> s { _cfcEvents = a }) . _List
 
 cfcId :: Lens' CloudFunctionConfiguration (Maybe Text)
 cfcId = lens _cfcId (\s a -> s { _cfcId = a })
@@ -3125,8 +3108,7 @@ lifecycleConfiguration p1 = LifecycleConfiguration
     }
 
 lcRules :: Lens' LifecycleConfiguration [Rule]
-lcRules = lens _lcRules (\s a -> s { _lcRules = a })
-    . _List
+lcRules = lens _lcRules (\s a -> s { _lcRules = a }) . _List
 
 instance FromXML LifecycleConfiguration where
     parseXML x = LifecycleConfiguration
@@ -3173,8 +3155,7 @@ leTargetBucket :: Lens' LoggingEnabled (Maybe Text)
 leTargetBucket = lens _leTargetBucket (\s a -> s { _leTargetBucket = a })
 
 leTargetGrants :: Lens' LoggingEnabled [TargetGrant]
-leTargetGrants = lens _leTargetGrants (\s a -> s { _leTargetGrants = a })
-    . _List
+leTargetGrants = lens _leTargetGrants (\s a -> s { _leTargetGrants = a }) . _List
 
 -- | This element lets you specify a prefix for the keys that the log files
 -- will be stored under.
@@ -3277,8 +3258,7 @@ corETag :: Lens' CopyObjectResult (Maybe Text)
 corETag = lens _corETag (\s a -> s { _corETag = a })
 
 corLastModified :: Lens' CopyObjectResult (Maybe UTCTime)
-corLastModified = lens _corLastModified (\s a -> s { _corLastModified = a })
-    . mapping _Time
+corLastModified = lens _corLastModified (\s a -> s { _corLastModified = a }) . mapping _Time
 
 instance FromXML CopyObjectResult where
     parseXML x = CopyObjectResult
@@ -3315,8 +3295,7 @@ delete' p1 = Delete
     }
 
 dObjects :: Lens' Delete [ObjectIdentifier]
-dObjects = lens _dObjects (\s a -> s { _dObjects = a })
-    . _List
+dObjects = lens _dObjects (\s a -> s { _dObjects = a }) . _List
 
 -- | Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.

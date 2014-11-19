@@ -82,8 +82,7 @@ setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributes
 -- notifications should be sent upon Direct Publish delivery failure
 -- (permanent) to one of the application's endpoints.
 spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
-spaaAttributes = lens _spaaAttributes (\s a -> s { _spaaAttributes = a })
-    . _Map
+spaaAttributes = lens _spaaAttributes (\s a -> s { _spaaAttributes = a }) . _Map
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
 spaaPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes Text
@@ -101,7 +100,11 @@ setPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesRespo
 instance ToPath SetPlatformApplicationAttributes where
     toPath = const "/"
 
-instance ToQuery SetPlatformApplicationAttributes
+instance ToQuery SetPlatformApplicationAttributes where
+    toQuery SetPlatformApplicationAttributes{..} = mconcat
+        [ "Attributes" =? _spaaAttributes
+        , "PlatformApplicationArn" =? _spaaPlatformApplicationArn
+        ]
 
 instance ToHeaders SetPlatformApplicationAttributes
 

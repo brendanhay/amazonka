@@ -78,8 +78,7 @@ changeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
 -- | A list of receipt handles of the messages for which the visibility
 -- timeout must be changed.
 cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
-cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a })
-    . _List
+cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a }) . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
@@ -108,18 +107,20 @@ changeMessageVisibilityBatchResponse p1 p2 = ChangeMessageVisibilityBatchRespons
 
 -- | A list of BatchResultErrorEntry items.
 cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
-cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a })
-    . _List
+cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a }) . _List
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
-cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a })
-    . _List
+cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a }) . _List
 
 instance ToPath ChangeMessageVisibilityBatch where
     toPath = const "/"
 
-instance ToQuery ChangeMessageVisibilityBatch
+instance ToQuery ChangeMessageVisibilityBatch where
+    toQuery ChangeMessageVisibilityBatch{..} = mconcat
+        [ toQuery _cmvbEntries
+        , "QueueUrl" =? _cmvbQueueUrl
+        ]
 
 instance ToHeaders ChangeMessageVisibilityBatch
 
@@ -131,6 +132,6 @@ instance AWSRequest ChangeMessageVisibilityBatch where
     response = xmlResponse
 
 instance FromXML ChangeMessageVisibilityBatchResponse where
-    parseXML = withElement "ChangeMessageVisibilityBatchResult" $ \x ->
+    parseXML = withElement "ChangeMessageVisibilityBatchResult" $ \x -> ChangeMessageVisibilityBatchResponse
         <$> parseXML x
         <*> parseXML x

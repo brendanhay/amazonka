@@ -119,13 +119,16 @@ getQueueAttributesResponse p1 = GetQueueAttributesResponse
 
 -- | A map of attributes to the respective values.
 gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
-gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
-    . _Map
+gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a }) . _Map
 
 instance ToPath GetQueueAttributes where
     toPath = const "/"
 
-instance ToQuery GetQueueAttributes
+instance ToQuery GetQueueAttributes where
+    toQuery GetQueueAttributes{..} = mconcat
+        [ toQuery _gqaAttributeNames
+        , "QueueUrl" =? _gqaQueueUrl
+        ]
 
 instance ToHeaders GetQueueAttributes
 
@@ -137,5 +140,5 @@ instance AWSRequest GetQueueAttributes where
     response = xmlResponse
 
 instance FromXML GetQueueAttributesResponse where
-    parseXML = withElement "GetQueueAttributesResult" $ \x ->
+    parseXML = withElement "GetQueueAttributesResult" $ \x -> GetQueueAttributesResponse
         <$> parseXML x

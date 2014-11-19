@@ -84,7 +84,10 @@ deleteQueueResponse = DeleteQueueResponse
 instance ToPath DeleteQueue where
     toPath = const "/"
 
-instance ToQuery DeleteQueue
+instance ToQuery DeleteQueue where
+    toQuery DeleteQueue{..} = mconcat
+        [ "QueueUrl" =? _dqQueueUrl
+        ]
 
 instance ToHeaders DeleteQueue
 

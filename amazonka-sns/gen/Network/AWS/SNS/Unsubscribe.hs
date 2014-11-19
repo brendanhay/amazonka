@@ -79,7 +79,10 @@ unsubscribeResponse = UnsubscribeResponse
 instance ToPath Unsubscribe where
     toPath = const "/"
 
-instance ToQuery Unsubscribe
+instance ToQuery Unsubscribe where
+    toQuery Unsubscribe{..} = mconcat
+        [ "SubscriptionArn" =? _uSubscriptionArn
+        ]
 
 instance ToHeaders Unsubscribe
 

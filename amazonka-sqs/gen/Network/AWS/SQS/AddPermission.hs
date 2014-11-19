@@ -88,8 +88,7 @@ addPermission p1 p2 p3 p4 = AddPermission
 -- identification, see Your AWS Identifiers in the Amazon SQS Developer
 -- Guide.
 apAWSAccountIds :: Lens' AddPermission [Text]
-apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
-    . _List
+apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a }) . _List
 
 -- | The action the client wants to allow for the specified principal. The
 -- following are valid values: * | SendMessage | ReceiveMessage |
@@ -100,8 +99,7 @@ apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
 -- grants permissions for the corresponding batch versions of those actions:
 -- SendMessageBatch, DeleteMessageBatch, and ChangeMessageVisibilityBatch.
 apActions :: Lens' AddPermission [Text]
-apActions = lens _apActions (\s a -> s { _apActions = a })
-    . _List
+apActions = lens _apActions (\s a -> s { _apActions = a }) . _List
 
 -- | The unique identification of the permission you're setting (e.g.,
 -- AliceSendMessage). Constraints: Maximum 80 characters; alphanumeric
@@ -123,7 +121,13 @@ addPermissionResponse = AddPermissionResponse
 instance ToPath AddPermission where
     toPath = const "/"
 
-instance ToQuery AddPermission
+instance ToQuery AddPermission where
+    toQuery AddPermission{..} = mconcat
+        [ toQuery _apAWSAccountIds
+        , toQuery _apActions
+        , "Label" =? _apLabel
+        , "QueueUrl" =? _apQueueUrl
+        ]
 
 instance ToHeaders AddPermission
 

@@ -178,7 +178,15 @@ prMessageId = lens _prMessageId (\s a -> s { _prMessageId = a })
 instance ToPath Publish where
     toPath = const "/"
 
-instance ToQuery Publish
+instance ToQuery Publish where
+    toQuery Publish{..} = mconcat
+        [ "Message" =? _pMessage
+        , "MessageAttributes" =? _pMessageAttributes
+        , "MessageStructure" =? _pMessageStructure
+        , "Subject" =? _pSubject
+        , "TargetArn" =? _pTargetArn
+        , "TopicArn" =? _pTopicArn
+        ]
 
 instance ToHeaders Publish
 
@@ -190,5 +198,5 @@ instance AWSRequest Publish where
     response = xmlResponse
 
 instance FromXML PublishResponse where
-    parseXML = withElement "PublishResult" $ \x ->
+    parseXML = withElement "PublishResult" $ \x -> PublishResponse
         <$> x .@? "MessageId"

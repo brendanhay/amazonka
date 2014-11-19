@@ -105,7 +105,11 @@ gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
 instance ToPath GetQueueUrl where
     toPath = const "/"
 
-instance ToQuery GetQueueUrl
+instance ToQuery GetQueueUrl where
+    toQuery GetQueueUrl{..} = mconcat
+        [ "QueueName" =? _gquQueueName
+        , "QueueOwnerAWSAccountId" =? _gquQueueOwnerAWSAccountId
+        ]
 
 instance ToHeaders GetQueueUrl
 
@@ -117,5 +121,5 @@ instance AWSRequest GetQueueUrl where
     response = xmlResponse
 
 instance FromXML GetQueueUrlResponse where
-    parseXML = withElement "GetQueueUrlResult" $ \x ->
+    parseXML = withElement "GetQueueUrlResult" $ \x -> GetQueueUrlResponse
         <$> x .@? "QueueUrl"

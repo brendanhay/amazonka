@@ -93,8 +93,7 @@ setQueueAttributes p1 p2 = SetQueueAttributes
 -- For more information about RedrivePolicy and dead letter queues, see
 -- Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
 sqaAttributes :: Lens' SetQueueAttributes (HashMap Text Text)
-sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
-    . _Map
+sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a }) . _Map
 
 -- | The URL of the Amazon SQS queue to take action on.
 sqaQueueUrl :: Lens' SetQueueAttributes Text
@@ -110,7 +109,11 @@ setQueueAttributesResponse = SetQueueAttributesResponse
 instance ToPath SetQueueAttributes where
     toPath = const "/"
 
-instance ToQuery SetQueueAttributes
+instance ToQuery SetQueueAttributes where
+    toQuery SetQueueAttributes{..} = mconcat
+        [ toQuery _sqaAttributes
+        , "QueueUrl" =? _sqaQueueUrl
+        ]
 
 instance ToHeaders SetQueueAttributes
 

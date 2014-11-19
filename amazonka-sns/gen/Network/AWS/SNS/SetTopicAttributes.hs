@@ -95,7 +95,12 @@ setTopicAttributesResponse = SetTopicAttributesResponse
 instance ToPath SetTopicAttributes where
     toPath = const "/"
 
-instance ToQuery SetTopicAttributes
+instance ToQuery SetTopicAttributes where
+    toQuery SetTopicAttributes{..} = mconcat
+        [ "AttributeName" =? _staAttributeName
+        , "AttributeValue" =? _staAttributeValue
+        , "TopicArn" =? _staTopicArn
+        ]
 
 instance ToHeaders SetTopicAttributes
 

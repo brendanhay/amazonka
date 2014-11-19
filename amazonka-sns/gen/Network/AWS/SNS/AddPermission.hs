@@ -80,14 +80,12 @@ addPermission p1 p2 = AddPermission
 -- the specified actions. The users must have AWS accounts, but do not need
 -- to be signed up for this service.
 apAWSAccountId :: Lens' AddPermission [Text]
-apAWSAccountId = lens _apAWSAccountId (\s a -> s { _apAWSAccountId = a })
-    . _List
+apAWSAccountId = lens _apAWSAccountId (\s a -> s { _apAWSAccountId = a }) . _List
 
 -- | The action you want to allow for the specified principal(s). Valid
 -- values: any Amazon SNS action name.
 apActionName :: Lens' AddPermission [Text]
-apActionName = lens _apActionName (\s a -> s { _apActionName = a })
-    . _List
+apActionName = lens _apActionName (\s a -> s { _apActionName = a }) . _List
 
 -- | A unique identifier for the new policy statement.
 apLabel :: Lens' AddPermission Text
@@ -107,7 +105,13 @@ addPermissionResponse = AddPermissionResponse
 instance ToPath AddPermission where
     toPath = const "/"
 
-instance ToQuery AddPermission
+instance ToQuery AddPermission where
+    toQuery AddPermission{..} = mconcat
+        [ "AWSAccountId" =? _apAWSAccountId
+        , "ActionName" =? _apActionName
+        , "Label" =? _apLabel
+        , "TopicArn" =? _apTopicArn
+        ]
 
 instance ToHeaders AddPermission
 

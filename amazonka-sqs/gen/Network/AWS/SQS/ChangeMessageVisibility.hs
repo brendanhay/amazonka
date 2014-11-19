@@ -116,7 +116,12 @@ changeMessageVisibilityResponse = ChangeMessageVisibilityResponse
 instance ToPath ChangeMessageVisibility where
     toPath = const "/"
 
-instance ToQuery ChangeMessageVisibility
+instance ToQuery ChangeMessageVisibility where
+    toQuery ChangeMessageVisibility{..} = mconcat
+        [ "QueueUrl" =? _cmvQueueUrl
+        , "ReceiptHandle" =? _cmvReceiptHandle
+        , "VisibilityTimeout" =? _cmvVisibilityTimeout
+        ]
 
 instance ToHeaders ChangeMessageVisibility
 

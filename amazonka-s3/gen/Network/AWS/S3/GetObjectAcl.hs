@@ -104,8 +104,7 @@ getObjectAclResponse = GetObjectAclResponse
 
 -- | A list of grants.
 goarGrants :: Lens' GetObjectAclResponse [Grant]
-goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a })
-    . _List
+goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a }) . _List
 
 goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })

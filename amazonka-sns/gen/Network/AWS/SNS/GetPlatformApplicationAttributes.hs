@@ -93,13 +93,15 @@ getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesRespo
 -- upon Direct Publish delivery failure (permanent) to one of the
 -- application's endpoints.
 gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
-gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a })
-    . _Map
+gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a }) . _Map
 
 instance ToPath GetPlatformApplicationAttributes where
     toPath = const "/"
 
-instance ToQuery GetPlatformApplicationAttributes
+instance ToQuery GetPlatformApplicationAttributes where
+    toQuery GetPlatformApplicationAttributes{..} = mconcat
+        [ "PlatformApplicationArn" =? _gpaaPlatformApplicationArn
+        ]
 
 instance ToHeaders GetPlatformApplicationAttributes
 
@@ -111,5 +113,5 @@ instance AWSRequest GetPlatformApplicationAttributes where
     response = xmlResponse
 
 instance FromXML GetPlatformApplicationAttributesResponse where
-    parseXML = withElement "GetPlatformApplicationAttributesResult" $ \x ->
+    parseXML = withElement "GetPlatformApplicationAttributesResult" $ \x -> GetPlatformApplicationAttributesResponse
         <$> x .@ "Attributes"

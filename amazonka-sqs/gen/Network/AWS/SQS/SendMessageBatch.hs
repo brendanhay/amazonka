@@ -84,8 +84,7 @@ sendMessageBatch p1 p2 = SendMessageBatch
 
 -- | A list of SendMessageBatchRequestEntry items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
-smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a })
-    . _List
+smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a }) . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 smbQueueUrl :: Lens' SendMessageBatch Text
@@ -115,18 +114,20 @@ sendMessageBatchResponse p1 p2 = SendMessageBatchResponse
 -- | A list of BatchResultErrorEntry items with the error detail about each
 -- message that could not be enqueued.
 smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
-smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
-    . _List
+smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a }) . _List
 
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
-smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
-    . _List
+smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a }) . _List
 
 instance ToPath SendMessageBatch where
     toPath = const "/"
 
-instance ToQuery SendMessageBatch
+instance ToQuery SendMessageBatch where
+    toQuery SendMessageBatch{..} = mconcat
+        [ toQuery _smbEntries
+        , "QueueUrl" =? _smbQueueUrl
+        ]
 
 instance ToHeaders SendMessageBatch
 
@@ -138,6 +139,6 @@ instance AWSRequest SendMessageBatch where
     response = xmlResponse
 
 instance FromXML SendMessageBatchResponse where
-    parseXML = withElement "SendMessageBatchResult" $ \x ->
+    parseXML = withElement "SendMessageBatchResult" $ \x -> SendMessageBatchResponse
         <$> parseXML x
         <*> parseXML x

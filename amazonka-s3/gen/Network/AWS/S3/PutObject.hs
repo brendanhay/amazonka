@@ -229,8 +229,7 @@ poContentType = lens _poContentType (\s a -> s { _poContentType = a })
 
 -- | The date and time at which the object is no longer cacheable.
 poExpires :: Lens' PutObject (Maybe UTCTime)
-poExpires = lens _poExpires (\s a -> s { _poExpires = a })
-    . mapping _Time
+poExpires = lens _poExpires (\s a -> s { _poExpires = a }) . mapping _Time
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
@@ -255,8 +254,7 @@ poKey = lens _poKey (\s a -> s { _poKey = a })
 
 -- | A map of metadata to store with the object in S3.
 poMetadata :: Lens' PutObject (HashMap Text Text)
-poMetadata = lens _poMetadata (\s a -> s { _poMetadata = a })
-    . _Map
+poMetadata = lens _poMetadata (\s a -> s { _poMetadata = a }) . _Map
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256, aws:kms).
@@ -270,8 +268,7 @@ poSSECustomerAlgorithm =
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
 poSSECustomerKey :: Lens' PutObject (Maybe Text)
-poSSECustomerKey = lens _poSSECustomerKey (\s a -> s { _poSSECustomerKey = a })
-    . mapping _Sensitive
+poSSECustomerKey = lens _poSSECustomerKey (\s a -> s { _poSSECustomerKey = a }) . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -282,8 +279,7 @@ poSSECustomerKeyMD5 =
 
 -- | Specifies the AWS KMS key ID to use for object encryption.
 poSSEKMSKeyId :: Lens' PutObject (Maybe Text)
-poSSEKMSKeyId = lens _poSSEKMSKeyId (\s a -> s { _poSSEKMSKeyId = a })
-    . mapping _Sensitive
+poSSEKMSKeyId = lens _poSSEKMSKeyId (\s a -> s { _poSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
@@ -350,8 +346,7 @@ porETag = lens _porETag (\s a -> s { _porETag = a })
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
 porExpiration :: Lens' PutObjectResponse (Maybe UTCTime)
-porExpiration = lens _porExpiration (\s a -> s { _porExpiration = a })
-    . mapping _Time
+porExpiration = lens _porExpiration (\s a -> s { _porExpiration = a }) . mapping _Time
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
@@ -369,8 +364,7 @@ porSSECustomerKeyMD5 =
 
 -- | If present, specifies the AWS KMS key used to encrypt the object.
 porSSEKMSKeyId :: Lens' PutObjectResponse (Maybe Text)
-porSSEKMSKeyId = lens _porSSEKMSKeyId (\s a -> s { _porSSEKMSKeyId = a })
-    . mapping _Sensitive
+porSSEKMSKeyId = lens _porSSEKMSKeyId (\s a -> s { _porSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

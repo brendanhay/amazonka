@@ -252,8 +252,7 @@ lovrVersionIdMarker =
     lens _lovrVersionIdMarker (\s a -> s { _lovrVersionIdMarker = a })
 
 lovrVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
-lovrVersions = lens _lovrVersions (\s a -> s { _lovrVersions = a })
-    . _List
+lovrVersions = lens _lovrVersions (\s a -> s { _lovrVersions = a }) . _List
 
 instance ToPath ListObjectVersions where
     toPath ListObjectVersions{..} = mconcat

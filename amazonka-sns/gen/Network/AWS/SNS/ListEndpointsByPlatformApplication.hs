@@ -109,8 +109,7 @@ listEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationR
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
 lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
-lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
-    . _List
+lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a }) . _List
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
@@ -121,7 +120,11 @@ lebparNextToken = lens _lebparNextToken (\s a -> s { _lebparNextToken = a })
 instance ToPath ListEndpointsByPlatformApplication where
     toPath = const "/"
 
-instance ToQuery ListEndpointsByPlatformApplication
+instance ToQuery ListEndpointsByPlatformApplication where
+    toQuery ListEndpointsByPlatformApplication{..} = mconcat
+        [ "NextToken" =? _lebpaNextToken
+        , "PlatformApplicationArn" =? _lebpaPlatformApplicationArn
+        ]
 
 instance ToHeaders ListEndpointsByPlatformApplication
 
@@ -133,7 +136,7 @@ instance AWSRequest ListEndpointsByPlatformApplication where
     response = xmlResponse
 
 instance FromXML ListEndpointsByPlatformApplicationResponse where
-    parseXML = withElement "ListEndpointsByPlatformApplicationResult" $ \x ->
+    parseXML = withElement "ListEndpointsByPlatformApplicationResult" $ \x -> ListEndpointsByPlatformApplicationResponse
         <$> x .@ "Endpoints"
         <*> x .@? "NextToken"
 

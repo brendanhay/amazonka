@@ -81,8 +81,7 @@ getBucketCorsResponse p1 = GetBucketCorsResponse
     }
 
 gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
-gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a })
-    . _List
+gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a }) . _List
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat

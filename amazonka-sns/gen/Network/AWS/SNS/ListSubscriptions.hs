@@ -94,13 +94,15 @@ lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 
 -- | A list of subscriptions.
 lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
-lsrSubscriptions = lens _lsrSubscriptions (\s a -> s { _lsrSubscriptions = a })
-    . _List
+lsrSubscriptions = lens _lsrSubscriptions (\s a -> s { _lsrSubscriptions = a }) . _List
 
 instance ToPath ListSubscriptions where
     toPath = const "/"
 
-instance ToQuery ListSubscriptions
+instance ToQuery ListSubscriptions where
+    toQuery ListSubscriptions{..} = mconcat
+        [ "NextToken" =? _lsNextToken
+        ]
 
 instance ToHeaders ListSubscriptions
 
@@ -112,7 +114,7 @@ instance AWSRequest ListSubscriptions where
     response = xmlResponse
 
 instance FromXML ListSubscriptionsResponse where
-    parseXML = withElement "ListSubscriptionsResult" $ \x ->
+    parseXML = withElement "ListSubscriptionsResult" $ \x -> ListSubscriptionsResponse
         <$> x .@? "NextToken"
         <*> x .@ "Subscriptions"
 

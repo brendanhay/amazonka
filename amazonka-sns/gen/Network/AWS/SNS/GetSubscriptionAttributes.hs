@@ -91,13 +91,15 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 -- delivery policy that takes into account the topic delivery policy and
 -- account system defaults.
 gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
-gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a })
-    . _Map
+gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a }) . _Map
 
 instance ToPath GetSubscriptionAttributes where
     toPath = const "/"
 
-instance ToQuery GetSubscriptionAttributes
+instance ToQuery GetSubscriptionAttributes where
+    toQuery GetSubscriptionAttributes{..} = mconcat
+        [ "SubscriptionArn" =? _gsaSubscriptionArn
+        ]
 
 instance ToHeaders GetSubscriptionAttributes
 
@@ -109,5 +111,5 @@ instance AWSRequest GetSubscriptionAttributes where
     response = xmlResponse
 
 instance FromXML GetSubscriptionAttributesResponse where
-    parseXML = withElement "GetSubscriptionAttributesResult" $ \x ->
+    parseXML = withElement "GetSubscriptionAttributesResult" $ \x -> GetSubscriptionAttributesResponse
         <$> x .@ "Attributes"

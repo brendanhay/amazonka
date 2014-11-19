@@ -83,7 +83,11 @@ removePermissionResponse = RemovePermissionResponse
 instance ToPath RemovePermission where
     toPath = const "/"
 
-instance ToQuery RemovePermission
+instance ToQuery RemovePermission where
+    toQuery RemovePermission{..} = mconcat
+        [ "Label" =? _rpLabel
+        , "TopicArn" =? _rpTopicArn
+        ]
 
 instance ToHeaders RemovePermission
 

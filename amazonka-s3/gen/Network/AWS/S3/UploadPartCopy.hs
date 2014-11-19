@@ -322,8 +322,7 @@ upcrSSECustomerKeyMD5 =
 
 -- | If present, specifies the AWS KMS key used to encrypt the object.
 upcrSSEKMSKeyId :: Lens' UploadPartCopyResponse (Maybe Text)
-upcrSSEKMSKeyId = lens _upcrSSEKMSKeyId (\s a -> s { _upcrSSEKMSKeyId = a })
-    . mapping _Sensitive
+upcrSSEKMSKeyId = lens _upcrSSEKMSKeyId (\s a -> s { _upcrSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

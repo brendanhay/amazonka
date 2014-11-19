@@ -116,7 +116,12 @@ csrSubscriptionArn =
 instance ToPath ConfirmSubscription where
     toPath = const "/"
 
-instance ToQuery ConfirmSubscription
+instance ToQuery ConfirmSubscription where
+    toQuery ConfirmSubscription{..} = mconcat
+        [ "AuthenticateOnUnsubscribe" =? _csAuthenticateOnUnsubscribe
+        , "Token" =? _csToken
+        , "TopicArn" =? _csTopicArn
+        ]
 
 instance ToHeaders ConfirmSubscription
 
@@ -128,5 +133,5 @@ instance AWSRequest ConfirmSubscription where
     response = xmlResponse
 
 instance FromXML ConfirmSubscriptionResponse where
-    parseXML = withElement "ConfirmSubscriptionResult" $ \x ->
+    parseXML = withElement "ConfirmSubscriptionResult" $ \x -> ConfirmSubscriptionResponse
         <$> x .@? "SubscriptionArn"

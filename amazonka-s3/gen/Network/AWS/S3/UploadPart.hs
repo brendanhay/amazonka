@@ -158,8 +158,7 @@ upSSECustomerAlgorithm =
 -- This must be the same encryption key specified in the initiate multipart
 -- upload request.
 upSSECustomerKey :: Lens' UploadPart (Maybe Text)
-upSSECustomerKey = lens _upSSECustomerKey (\s a -> s { _upSSECustomerKey = a })
-    . mapping _Sensitive
+upSSECustomerKey = lens _upSSECustomerKey (\s a -> s { _upSSECustomerKey = a }) . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -170,8 +169,7 @@ upSSECustomerKeyMD5 =
 
 -- | Specifies the AWS KMS key ID to use for object encryption.
 upSSEKMSKeyId :: Lens' UploadPart (Maybe Text)
-upSSEKMSKeyId = lens _upSSEKMSKeyId (\s a -> s { _upSSEKMSKeyId = a })
-    . mapping _Sensitive
+upSSEKMSKeyId = lens _upSSEKMSKeyId (\s a -> s { _upSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | Upload ID identifying the multipart upload whose part is being uploaded.
 upUploadId :: Lens' UploadPart Text
@@ -228,8 +226,7 @@ uprSSECustomerKeyMD5 =
 
 -- | If present, specifies the AWS KMS key used to encrypt the object.
 uprSSEKMSKeyId :: Lens' UploadPartResponse (Maybe Text)
-uprSSEKMSKeyId = lens _uprSSEKMSKeyId (\s a -> s { _uprSSEKMSKeyId = a })
-    . mapping _Sensitive
+uprSSEKMSKeyId = lens _uprSSEKMSKeyId (\s a -> s { _uprSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

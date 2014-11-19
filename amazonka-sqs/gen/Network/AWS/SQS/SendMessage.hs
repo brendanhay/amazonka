@@ -161,7 +161,13 @@ smrMessageId = lens _smrMessageId (\s a -> s { _smrMessageId = a })
 instance ToPath SendMessage where
     toPath = const "/"
 
-instance ToQuery SendMessage
+instance ToQuery SendMessage where
+    toQuery SendMessage{..} = mconcat
+        [ "DelaySeconds" =? _smDelaySeconds
+        , toQuery _smMessageAttributes
+        , "MessageBody" =? _smMessageBody
+        , "QueueUrl" =? _smQueueUrl
+        ]
 
 instance ToHeaders SendMessage
 
@@ -173,7 +179,7 @@ instance AWSRequest SendMessage where
     response = xmlResponse
 
 instance FromXML SendMessageResponse where
-    parseXML = withElement "SendMessageResult" $ \x ->
+    parseXML = withElement "SendMessageResult" $ \x -> SendMessageResponse
         <$> x .@? "MD5OfMessageAttributes"
         <*> x .@? "MD5OfMessageBody"
         <*> x .@? "MessageId"

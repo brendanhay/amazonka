@@ -77,7 +77,10 @@ deletePlatformApplicationResponse = DeletePlatformApplicationResponse
 instance ToPath DeletePlatformApplication where
     toPath = const "/"
 
-instance ToQuery DeletePlatformApplication
+instance ToQuery DeletePlatformApplication where
+    toQuery DeletePlatformApplication{..} = mconcat
+        [ "PlatformApplicationArn" =? _dpaPlatformApplicationArn
+        ]
 
 instance ToHeaders DeletePlatformApplication
 

@@ -207,8 +207,7 @@ cmuContentType = lens _cmuContentType (\s a -> s { _cmuContentType = a })
 
 -- | The date and time at which the object is no longer cacheable.
 cmuExpires :: Lens' CreateMultipartUpload (Maybe UTCTime)
-cmuExpires = lens _cmuExpires (\s a -> s { _cmuExpires = a })
-    . mapping _Time
+cmuExpires = lens _cmuExpires (\s a -> s { _cmuExpires = a }) . mapping _Time
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
@@ -233,8 +232,7 @@ cmuKey = lens _cmuKey (\s a -> s { _cmuKey = a })
 
 -- | A map of metadata to store with the object in S3.
 cmuMetadata :: Lens' CreateMultipartUpload (HashMap Text Text)
-cmuMetadata = lens _cmuMetadata (\s a -> s { _cmuMetadata = a })
-    . _Map
+cmuMetadata = lens _cmuMetadata (\s a -> s { _cmuMetadata = a }) . _Map
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256, aws:kms).
@@ -261,8 +259,7 @@ cmuSSECustomerKeyMD5 =
 
 -- | Specifies the AWS KMS key ID to use for object encryption.
 cmuSSEKMSKeyId :: Lens' CreateMultipartUpload (Maybe Text)
-cmuSSEKMSKeyId = lens _cmuSSEKMSKeyId (\s a -> s { _cmuSSEKMSKeyId = a })
-    . mapping _Sensitive
+cmuSSEKMSKeyId = lens _cmuSSEKMSKeyId (\s a -> s { _cmuSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
@@ -346,8 +343,7 @@ cmurSSECustomerKeyMD5 =
 
 -- | If present, specifies the AWS KMS key used to encrypt the object.
 cmurSSEKMSKeyId :: Lens' CreateMultipartUploadResponse (Maybe Text)
-cmurSSEKMSKeyId = lens _cmurSSEKMSKeyId (\s a -> s { _cmurSSEKMSKeyId = a })
-    . mapping _Sensitive
+cmurSSEKMSKeyId = lens _cmurSSEKMSKeyId (\s a -> s { _cmurSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

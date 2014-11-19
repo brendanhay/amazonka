@@ -252,8 +252,7 @@ lmurUploadIdMarker =
     lens _lmurUploadIdMarker (\s a -> s { _lmurUploadIdMarker = a })
 
 lmurUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
-lmurUploads = lens _lmurUploads (\s a -> s { _lmurUploads = a })
-    . _List
+lmurUploads = lens _lmurUploads (\s a -> s { _lmurUploads = a }) . _List
 
 instance ToPath ListMultipartUploads where
     toPath ListMultipartUploads{..} = mconcat

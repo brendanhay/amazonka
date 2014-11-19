@@ -308,8 +308,7 @@ coCopySourceSSEKMSKeyId =
 
 -- | The date and time at which the object is no longer cacheable.
 coExpires :: Lens' CopyObject (Maybe UTCTime)
-coExpires = lens _coExpires (\s a -> s { _coExpires = a })
-    . mapping _Time
+coExpires = lens _coExpires (\s a -> s { _coExpires = a }) . mapping _Time
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
@@ -334,8 +333,7 @@ coKey = lens _coKey (\s a -> s { _coKey = a })
 
 -- | A map of metadata to store with the object in S3.
 coMetadata :: Lens' CopyObject (HashMap Text Text)
-coMetadata = lens _coMetadata (\s a -> s { _coMetadata = a })
-    . _Map
+coMetadata = lens _coMetadata (\s a -> s { _coMetadata = a }) . _Map
 
 -- | Specifies whether the metadata is copied from the source object or
 -- replaced with metadata provided in the request.
@@ -355,8 +353,7 @@ coSSECustomerAlgorithm =
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
 coSSECustomerKey :: Lens' CopyObject (Maybe Text)
-coSSECustomerKey = lens _coSSECustomerKey (\s a -> s { _coSSECustomerKey = a })
-    . mapping _Sensitive
+coSSECustomerKey = lens _coSSECustomerKey (\s a -> s { _coSSECustomerKey = a }) . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -433,8 +430,7 @@ corCopySourceVersionId =
 -- | If the object expiration is configured, the response includes this
 -- header.
 corExpiration :: Lens' CopyObjectResponse (Maybe UTCTime)
-corExpiration = lens _corExpiration (\s a -> s { _corExpiration = a })
-    . mapping _Time
+corExpiration = lens _corExpiration (\s a -> s { _corExpiration = a }) . mapping _Time
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
@@ -452,8 +448,7 @@ corSSECustomerKeyMD5 =
 
 -- | If present, specifies the AWS KMS key used to encrypt the object.
 corSSEKMSKeyId :: Lens' CopyObjectResponse (Maybe Text)
-corSSEKMSKeyId = lens _corSSEKMSKeyId (\s a -> s { _corSSEKMSKeyId = a })
-    . mapping _Sensitive
+corSSEKMSKeyId = lens _corSSEKMSKeyId (\s a -> s { _corSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

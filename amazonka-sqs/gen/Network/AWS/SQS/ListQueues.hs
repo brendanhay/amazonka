@@ -87,13 +87,15 @@ listQueuesResponse p1 = ListQueuesResponse
 
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueUrls :: Lens' ListQueuesResponse [Text]
-lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
-    . _List
+lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a }) . _List
 
 instance ToPath ListQueues where
     toPath = const "/"
 
-instance ToQuery ListQueues
+instance ToQuery ListQueues where
+    toQuery ListQueues{..} = mconcat
+        [ "QueueNamePrefix" =? _lqQueueNamePrefix
+        ]
 
 instance ToHeaders ListQueues
 
@@ -105,5 +107,5 @@ instance AWSRequest ListQueues where
     response = xmlResponse
 
 instance FromXML ListQueuesResponse where
-    parseXML = withElement "ListQueuesResult" $ \x ->
+    parseXML = withElement "ListQueuesResult" $ \x -> ListQueuesResponse
         <$> parseXML x

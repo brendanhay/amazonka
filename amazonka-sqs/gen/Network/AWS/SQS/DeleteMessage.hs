@@ -94,7 +94,11 @@ deleteMessageResponse = DeleteMessageResponse
 instance ToPath DeleteMessage where
     toPath = const "/"
 
-instance ToQuery DeleteMessage
+instance ToQuery DeleteMessage where
+    toQuery DeleteMessage{..} = mconcat
+        [ "QueueUrl" =? _dmQueueUrl
+        , "ReceiptHandle" =? _dmReceiptHandle
+        ]
 
 instance ToHeaders DeleteMessage
 

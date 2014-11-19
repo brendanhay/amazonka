@@ -433,8 +433,7 @@ message p1 p2 = Message
 -- ApproximateFirstReceiveTimestamp are each returned as an integer
 -- representing the epoch time in milliseconds.
 mAttributes :: Lens' Message (HashMap Text Text)
-mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a })
-    . _Map
+mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a }) . _Map
 
 -- | The message's contents (not URL-encoded).
 mBody :: Lens' Message (Maybe Text)

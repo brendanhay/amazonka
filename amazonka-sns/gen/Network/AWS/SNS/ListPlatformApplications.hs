@@ -109,7 +109,10 @@ lparPlatformApplications =
 instance ToPath ListPlatformApplications where
     toPath = const "/"
 
-instance ToQuery ListPlatformApplications
+instance ToQuery ListPlatformApplications where
+    toQuery ListPlatformApplications{..} = mconcat
+        [ "NextToken" =? _lpaNextToken
+        ]
 
 instance ToHeaders ListPlatformApplications
 
@@ -121,7 +124,7 @@ instance AWSRequest ListPlatformApplications where
     response = xmlResponse
 
 instance FromXML ListPlatformApplicationsResponse where
-    parseXML = withElement "ListPlatformApplicationsResult" $ \x ->
+    parseXML = withElement "ListPlatformApplicationsResult" $ \x -> ListPlatformApplicationsResponse
         <$> x .@? "NextToken"
         <*> x .@ "PlatformApplications"
 

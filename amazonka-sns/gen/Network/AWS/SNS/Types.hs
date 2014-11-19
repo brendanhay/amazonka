@@ -177,8 +177,7 @@ platformApplication = PlatformApplication
 
 -- | Attributes for platform application object.
 paAttributes :: Lens' PlatformApplication (HashMap Text Text)
-paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a })
-    . _Map
+paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a }) . _Map
 
 -- | PlatformApplicationArn for platform application object.
 paPlatformApplicationArn :: Lens' PlatformApplication (Maybe Text)
@@ -276,8 +275,7 @@ endpoint = Endpoint
 
 -- | Attributes for endpoint.
 eAttributes :: Lens' Endpoint (HashMap Text Text)
-eAttributes = lens _eAttributes (\s a -> s { _eAttributes = a })
-    . _Map
+eAttributes = lens _eAttributes (\s a -> s { _eAttributes = a }) . _Map
 
 -- | EndpointArn for mobile app and device.
 eEndpointArn :: Lens' Endpoint (Maybe Text)

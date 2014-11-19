@@ -250,8 +250,7 @@ goSSECustomerAlgorithm =
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
 goSSECustomerKey :: Lens' GetObject (Maybe Text)
-goSSECustomerKey = lens _goSSECustomerKey (\s a -> s { _goSSECustomerKey = a })
-    . mapping _Sensitive
+goSSECustomerKey = lens _goSSECustomerKey (\s a -> s { _goSSECustomerKey = a }) . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
@@ -262,8 +261,7 @@ goSSECustomerKeyMD5 =
 
 -- | Specifies the AWS KMS key ID to use for object encryption.
 goSSEKMSKeyId :: Lens' GetObject (Maybe Text)
-goSSEKMSKeyId = lens _goSSEKMSKeyId (\s a -> s { _goSSEKMSKeyId = a })
-    . mapping _Sensitive
+goSSEKMSKeyId = lens _goSSEKMSKeyId (\s a -> s { _goSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | VersionId used to reference a specific version of the object.
 goVersionId :: Lens' GetObject (Maybe Text)
@@ -420,23 +418,19 @@ gorETag = lens _gorETag (\s a -> s { _gorETag = a })
 -- key value pairs providing object expiration information. The value of the
 -- rule-id is URL encoded.
 gorExpiration :: Lens' GetObjectResponse (Maybe UTCTime)
-gorExpiration = lens _gorExpiration (\s a -> s { _gorExpiration = a })
-    . mapping _Time
+gorExpiration = lens _gorExpiration (\s a -> s { _gorExpiration = a }) . mapping _Time
 
 -- | The date and time at which the object is no longer cacheable.
 gorExpires :: Lens' GetObjectResponse (Maybe UTCTime)
-gorExpires = lens _gorExpires (\s a -> s { _gorExpires = a })
-    . mapping _Time
+gorExpires = lens _gorExpires (\s a -> s { _gorExpires = a }) . mapping _Time
 
 -- | Last modified date of the object.
 gorLastModified :: Lens' GetObjectResponse (Maybe UTCTime)
-gorLastModified = lens _gorLastModified (\s a -> s { _gorLastModified = a })
-    . mapping _Time
+gorLastModified = lens _gorLastModified (\s a -> s { _gorLastModified = a }) . mapping _Time
 
 -- | A map of metadata to store with the object in S3.
 gorMetadata :: Lens' GetObjectResponse (HashMap Text Text)
-gorMetadata = lens _gorMetadata (\s a -> s { _gorMetadata = a })
-    . _Map
+gorMetadata = lens _gorMetadata (\s a -> s { _gorMetadata = a }) . _Map
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
 -- headers. This can happen if you create metadata using an API like SOAP
@@ -467,8 +461,7 @@ gorSSECustomerKeyMD5 =
 
 -- | If present, specifies the AWS KMS key used to encrypt the object.
 gorSSEKMSKeyId :: Lens' GetObjectResponse (Maybe Text)
-gorSSEKMSKeyId = lens _gorSSEKMSKeyId (\s a -> s { _gorSSEKMSKeyId = a })
-    . mapping _Sensitive
+gorSSEKMSKeyId = lens _gorSSEKMSKeyId (\s a -> s { _gorSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

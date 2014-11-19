@@ -91,8 +91,7 @@ createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
 
 -- | For a list of attributes, see SetEndpointAttributes.
 cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
-cpeAttributes = lens _cpeAttributes (\s a -> s { _cpeAttributes = a })
-    . _Map
+cpeAttributes = lens _cpeAttributes (\s a -> s { _cpeAttributes = a }) . _Map
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
 -- use this data. The data must be in UTF-8 format and less than 2KB.
@@ -138,7 +137,13 @@ cperEndpointArn = lens _cperEndpointArn (\s a -> s { _cperEndpointArn = a })
 instance ToPath CreatePlatformEndpoint where
     toPath = const "/"
 
-instance ToQuery CreatePlatformEndpoint
+instance ToQuery CreatePlatformEndpoint where
+    toQuery CreatePlatformEndpoint{..} = mconcat
+        [ "Attributes" =? _cpeAttributes
+        , "CustomUserData" =? _cpeCustomUserData
+        , "PlatformApplicationArn" =? _cpePlatformApplicationArn
+        , "Token" =? _cpeToken
+        ]
 
 instance ToHeaders CreatePlatformEndpoint
 
@@ -150,5 +155,5 @@ instance AWSRequest CreatePlatformEndpoint where
     response = xmlResponse
 
 instance FromXML CreatePlatformEndpointResponse where
-    parseXML = withElement "CreatePlatformEndpointResult" $ \x ->
+    parseXML = withElement "CreatePlatformEndpointResult" $ \x -> CreatePlatformEndpointResponse
         <$> x .@? "EndpointArn"

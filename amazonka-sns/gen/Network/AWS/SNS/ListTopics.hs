@@ -94,13 +94,15 @@ ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
 
 -- | A list of topic ARNs.
 ltrTopics :: Lens' ListTopicsResponse [Topic]
-ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a })
-    . _List
+ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a }) . _List
 
 instance ToPath ListTopics where
     toPath = const "/"
 
-instance ToQuery ListTopics
+instance ToQuery ListTopics where
+    toQuery ListTopics{..} = mconcat
+        [ "NextToken" =? _ltNextToken
+        ]
 
 instance ToHeaders ListTopics
 
@@ -112,7 +114,7 @@ instance AWSRequest ListTopics where
     response = xmlResponse
 
 instance FromXML ListTopicsResponse where
-    parseXML = withElement "ListTopicsResult" $ \x ->
+    parseXML = withElement "ListTopicsResult" $ \x -> ListTopicsResponse
         <$> x .@? "NextToken"
         <*> x .@ "Topics"
 

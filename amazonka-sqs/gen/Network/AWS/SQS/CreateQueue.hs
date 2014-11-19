@@ -99,8 +99,7 @@ createQueue p1 p2 = CreateQueue
 -- for this attribute is 30. For more information about visibility timeout,
 -- see Visibility Timeout in the Amazon SQS Developer Guide.
 cqAttributes :: Lens' CreateQueue (HashMap Text Text)
-cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
-    . _Map
+cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a }) . _Map
 
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text
@@ -128,7 +127,11 @@ cqrQueueUrl = lens _cqrQueueUrl (\s a -> s { _cqrQueueUrl = a })
 instance ToPath CreateQueue where
     toPath = const "/"
 
-instance ToQuery CreateQueue
+instance ToQuery CreateQueue where
+    toQuery CreateQueue{..} = mconcat
+        [ toQuery _cqAttributes
+        , "QueueName" =? _cqQueueName
+        ]
 
 instance ToHeaders CreateQueue
 
@@ -140,5 +143,5 @@ instance AWSRequest CreateQueue where
     response = xmlResponse
 
 instance FromXML CreateQueueResponse where
-    parseXML = withElement "CreateQueueResult" $ \x ->
+    parseXML = withElement "CreateQueueResult" $ \x -> CreateQueueResponse
         <$> x .@? "QueueUrl"

@@ -152,8 +152,7 @@ cmur1ETag = lens _cmur1ETag (\s a -> s { _cmur1ETag = a })
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
 cmur1Expiration :: Lens' CompleteMultipartUploadResponse (Maybe UTCTime)
-cmur1Expiration = lens _cmur1Expiration (\s a -> s { _cmur1Expiration = a })
-    . mapping _Time
+cmur1Expiration = lens _cmur1Expiration (\s a -> s { _cmur1Expiration = a }) . mapping _Time
 
 cmur1Key :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmur1Key = lens _cmur1Key (\s a -> s { _cmur1Key = a })
@@ -163,8 +162,7 @@ cmur1Location = lens _cmur1Location (\s a -> s { _cmur1Location = a })
 
 -- | If present, specifies the AWS KMS key used to encrypt the object.
 cmur1SSEKMSKeyId :: Lens' CompleteMultipartUploadResponse (Maybe Text)
-cmur1SSEKMSKeyId = lens _cmur1SSEKMSKeyId (\s a -> s { _cmur1SSEKMSKeyId = a })
-    . mapping _Sensitive
+cmur1SSEKMSKeyId = lens _cmur1SSEKMSKeyId (\s a -> s { _cmur1SSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

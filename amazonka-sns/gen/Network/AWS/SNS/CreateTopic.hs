@@ -93,7 +93,10 @@ ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
 instance ToPath CreateTopic where
     toPath = const "/"
 
-instance ToQuery CreateTopic
+instance ToQuery CreateTopic where
+    toQuery CreateTopic{..} = mconcat
+        [ "Name" =? _ctName
+        ]
 
 instance ToHeaders CreateTopic
 
@@ -105,5 +108,5 @@ instance AWSRequest CreateTopic where
     response = xmlResponse
 
 instance FromXML CreateTopicResponse where
-    parseXML = withElement "CreateTopicResult" $ \x ->
+    parseXML = withElement "CreateTopicResult" $ \x -> CreateTopicResponse
         <$> x .@? "TopicArn"

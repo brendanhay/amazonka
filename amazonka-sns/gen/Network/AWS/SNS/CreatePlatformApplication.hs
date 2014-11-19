@@ -87,8 +87,7 @@ createPlatformApplication p1 p2 = CreatePlatformApplication
 
 -- | For a list of attributes, see SetPlatformApplicationAttributes.
 cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
-cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a })
-    . _Map
+cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a }) . _Map
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between
@@ -126,7 +125,12 @@ cparPlatformApplicationArn =
 instance ToPath CreatePlatformApplication where
     toPath = const "/"
 
-instance ToQuery CreatePlatformApplication
+instance ToQuery CreatePlatformApplication where
+    toQuery CreatePlatformApplication{..} = mconcat
+        [ "Attributes" =? _cpaAttributes
+        , "Name" =? _cpaName
+        , "Platform" =? _cpaPlatform
+        ]
 
 instance ToHeaders CreatePlatformApplication
 
@@ -138,5 +142,5 @@ instance AWSRequest CreatePlatformApplication where
     response = xmlResponse
 
 instance FromXML CreatePlatformApplicationResponse where
-    parseXML = withElement "CreatePlatformApplicationResult" $ \x ->
+    parseXML = withElement "CreatePlatformApplicationResult" $ \x -> CreatePlatformApplicationResponse
         <$> x .@? "PlatformApplicationArn"

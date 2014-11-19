@@ -111,7 +111,11 @@ lsbtrSubscriptions =
 instance ToPath ListSubscriptionsByTopic where
     toPath = const "/"
 
-instance ToQuery ListSubscriptionsByTopic
+instance ToQuery ListSubscriptionsByTopic where
+    toQuery ListSubscriptionsByTopic{..} = mconcat
+        [ "NextToken" =? _lsbtNextToken
+        , "TopicArn" =? _lsbtTopicArn
+        ]
 
 instance ToHeaders ListSubscriptionsByTopic
 
@@ -123,7 +127,7 @@ instance AWSRequest ListSubscriptionsByTopic where
     response = xmlResponse
 
 instance FromXML ListSubscriptionsByTopicResponse where
-    parseXML = withElement "ListSubscriptionsByTopicResult" $ \x ->
+    parseXML = withElement "ListSubscriptionsByTopicResult" $ \x -> ListSubscriptionsByTopicResponse
         <$> x .@? "NextToken"
         <*> x .@ "Subscriptions"
 

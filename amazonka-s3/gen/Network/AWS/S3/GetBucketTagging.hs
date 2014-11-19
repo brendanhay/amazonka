@@ -86,8 +86,7 @@ getBucketTaggingResponse = GetBucketTaggingResponse
     }
 
 gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
-gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })
-    . _List
+gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a }) . _List
 
 instance ToPath GetBucketTagging where
     toPath GetBucketTagging{..} = mconcat

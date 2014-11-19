@@ -86,8 +86,7 @@ getBucketAclResponse = GetBucketAclResponse
 
 -- | A list of grants.
 gbarGrants :: Lens' GetBucketAclResponse [Grant]
-gbarGrants = lens _gbarGrants (\s a -> s { _gbarGrants = a })
-    . _List
+gbarGrants = lens _gbarGrants (\s a -> s { _gbarGrants = a }) . _List
 
 gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
 gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })

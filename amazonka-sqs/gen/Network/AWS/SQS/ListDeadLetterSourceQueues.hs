@@ -86,13 +86,15 @@ listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
 ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
-ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
-    . _List
+ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a }) . _List
 
 instance ToPath ListDeadLetterSourceQueues where
     toPath = const "/"
 
-instance ToQuery ListDeadLetterSourceQueues
+instance ToQuery ListDeadLetterSourceQueues where
+    toQuery ListDeadLetterSourceQueues{..} = mconcat
+        [ "QueueUrl" =? _ldlsqQueueUrl
+        ]
 
 instance ToHeaders ListDeadLetterSourceQueues
 
@@ -104,5 +106,5 @@ instance AWSRequest ListDeadLetterSourceQueues where
     response = xmlResponse
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
-    parseXML = withElement "ListDeadLetterSourceQueuesResult" $ \x ->
+    parseXML = withElement "ListDeadLetterSourceQueuesResult" $ \x -> ListDeadLetterSourceQueuesResponse
         <$> parseXML x

@@ -457,7 +457,7 @@ instance ToJSON Data where
                     | otherwise      =
                         maximum (map (Text.length . _fLocationName) contents) + 1
 
-                contents   = filter (isNothing . _fLocation) fs
+                contents = filter (isNothing . _fLocation) fs
 
 nestedTypes :: Data -> [Type]
 nestedTypes = concatMap universe . toListOf (dataFields . typesOf)

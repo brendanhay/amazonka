@@ -77,8 +77,7 @@ setEndpointAttributes p1 = SetEndpointAttributes
 -- device. This is returned from the notification service when an app and
 -- mobile device are registered with the notification service.
 seaAttributes :: Lens' SetEndpointAttributes (HashMap Text Text)
-seaAttributes = lens _seaAttributes (\s a -> s { _seaAttributes = a })
-    . _Map
+seaAttributes = lens _seaAttributes (\s a -> s { _seaAttributes = a }) . _Map
 
 -- | EndpointArn used for SetEndpointAttributes action.
 seaEndpointArn :: Lens' SetEndpointAttributes Text
@@ -94,7 +93,11 @@ setEndpointAttributesResponse = SetEndpointAttributesResponse
 instance ToPath SetEndpointAttributes where
     toPath = const "/"
 
-instance ToQuery SetEndpointAttributes
+instance ToQuery SetEndpointAttributes where
+    toQuery SetEndpointAttributes{..} = mconcat
+        [ "Attributes" =? _seaAttributes
+        , "EndpointArn" =? _seaEndpointArn
+        ]
 
 instance ToHeaders SetEndpointAttributes
 

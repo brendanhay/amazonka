@@ -211,7 +211,7 @@ instance ToJSON (Exposed Type) where
             TPrim      p -> primitive False p
             TMaybe     x -> "Maybe "     <> wrap (go x)
             TSensitive x -> go x
-            TFlatten   x -> wrap (go x)
+            TFlatten   x -> go x
 
             TList  _ x   -> "[" <> wrap (go x) <> "]"
             TList1 _ x   -> "NonEmpty " <> wrap (go x)

@@ -1,7 +1,12 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE DefaultSignatures   #-}
+{-# LANGUAGE DeriveDataTypeable  #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE FlexibleInstances   #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
 
 -- Module      : Network.AWS.Data.Internal.Query
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,25 +19,38 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Internal.Query
-    ( ToQuery (..)
-
+    ( QueryOptions (..)
     , Query
+
+    , queryField
     , keysOf
     , valuesOf
 
     , pair
     , (=?)
+
+    , ToQuery      (..)
+    , renderQuery
+
+    , loweredQuery
+    , genericQuery
     ) where
 
 import           Control.Applicative
 import           Control.Lens                         hiding (to, from)
 import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString.Char8                as BS
+import           Data.Char
+import           Data.Data
+import           Data.Data.Lens
+import           Data.Default.Class
 import           Data.List                            (sort)
+import           Data.List.NonEmpty                   (NonEmpty(..))
+import qualified Data.List.NonEmpty                   as NonEmpty
 import           Data.Monoid
 import           Data.String
 import           Data.Text                            (Text)
-import qualified Data.Text.Encoding                   as Text
+import           GHC.Generics
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.Time
@@ -42,39 +60,33 @@ data Query
     = List  [Query]
     | Pair  ByteString Query
     | Value (Maybe ByteString)
-      deriving (Eq, Show)
+      deriving (Eq, Show, Data, Typeable)
 
 makePrisms ''Query
 
+instance Monoid Query where
+    mempty = List []
+
+    mappend a b = case (a, b) of
+        (List l, List r) -> List (l ++ r)
+        (List l, r)      -> List (r : l)
+        (l,      List r) -> List (l : r)
+        (l,      r)      -> List [l, r]
+
 instance Plated Query where
-    plate f = \case
-         List vs  -> List   <$> traverse f vs
-         Pair k v -> Pair k <$> f v
-         Value  v -> pure (Value v)
+    plate = uniplate
+
+instance ToText Query where
+    toText = toText . renderQuery
+
+instance IsString Query where
+    fromString = toQuery . BS.pack
 
 keysOf :: Traversal' Query ByteString
 keysOf = deep (_Pair . _1)
 
 valuesOf :: Traversal' Query (Maybe ByteString)
 valuesOf = deep _Value
-
-instance Monoid Query where
-    mempty      = List []
-    mappend a b =
-        case (a, b) of
-            (List l, List r) -> List (l ++ r)
-            (List l, r)      -> List (r:l)
-            (l,      List r) -> List (l:r)
-            (l,      r)      -> List [l, r]
-
-instance ToText Query where
-    toText = Text.decodeUtf8 . renderQuery
-
-instance ToByteString Query where
-    toBS = renderQuery
-
-instance IsString Query where
-    fromString = toQuery . BS.pack
 
 pair :: ToQuery a => ByteString -> a -> Query -> Query
 pair k v = mappend (Pair k (toQuery v))
@@ -103,30 +115,53 @@ renderQuery = intercalate . sort . enc Nothing
     ksep = "&"
     vsep = "="
 
+newtype QueryOptions = QueryOptions
+    { _queryField :: String -> ByteString
+    }
+
+queryField :: Lens' QueryOptions (String -> ByteString)
+queryField f (QueryOptions g) = QueryOptions <$> f g
+
+instance Default QueryOptions where
+    def = QueryOptions (BS.dropWhile isLower . BS.pack)
+
+loweredQuery :: (Generic a, GToQuery (Rep a))
+             => a
+             -> Query
+loweredQuery = genericQuery (def & queryField %~ (BS.map toLower .))
+
+genericQuery :: (Generic a, GToQuery (Rep a))
+             => QueryOptions
+             -> a
+             -> Query
+genericQuery o = gToQuery o . from
+
 class ToQuery a where
     toQuery :: a -> Query
+
+    default toQuery :: (Generic a, GToQuery (Rep a))
+                    => a
+                    -> Query
+    toQuery = genericQuery def
 
 instance ToQuery Query where
     toQuery = id
 
-instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
-    toQuery (k, v) = Pair (toBS k) (Value (toBS <$> v))
-
 instance (ToByteString k, ToQuery v) => ToQuery (k, v) where
     toQuery (k, v) = Pair (toBS k) (toQuery v)
 
-instance ToQuery a => ToQuery (Maybe a) where
-    toQuery (Just x) = toQuery x
-    toQuery Nothing  = mempty
+instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
+    toQuery (k, v) = Pair (toBS k) . Value $ toBS <$> v
 
-instance ToQuery Bool where
-    toQuery = Value . Just . \case
-        True  -> "true"
-        False -> "false"
+instance ToQuery () where
+    toQuery () = mempty
+
+instance ToQuery Char where
+    toQuery = toQuery . BS.singleton
 
 instance ToQuery ByteString where
     toQuery "" = Value Nothing
-    toQuery x  = Value (Just x)
+    toQuery bs = Value (Just bs)
 
 instance ToQuery Text      where toQuery = toQuery . toBS
 instance ToQuery Int       where toQuery = toQuery . toBS
@@ -138,37 +173,45 @@ instance ToQuery ISO8601   where toQuery = toQuery . toBS
 instance ToQuery BasicTime where toQuery = toQuery . toBS
 instance ToQuery AWSTime   where toQuery = toQuery . toBS
 
--- instance ToQuery a => ToQuery [a] where
---     toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx
---       where
---         idx = [1..] :: [Integer]
+instance ToQuery a => ToQuery [a] where
+    toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx
+      where
+        idx = [1..] :: [Integer]
 
--- instance ToQuery a => ToQuery (NonEmpty a) where
---     toQuery = toQuery . NonEmpty.toList
+instance ToQuery a => ToQuery (NonEmpty a) where
+    toQuery = toQuery . NonEmpty.toList
 
--- class GToQuery f where
---     gToQuery :: QueryOptions -> f a -> Query
+instance ToQuery a => ToQuery (Maybe a) where
+    toQuery (Just x) = toQuery x
+    toQuery Nothing  = mempty
 
--- instance (GToQuery f, GToQuery g) => GToQuery (f :+: g) where
---     gToQuery o (L1 x) = gToQuery o x
---     gToQuery o (R1 y) = gToQuery o y
+instance ToQuery Bool where
+    toQuery True  = toQuery ("true"  :: ByteString)
+    toQuery False = toQuery ("false" :: ByteString)
 
--- instance (GToQuery f, GToQuery g) => GToQuery (f :*: g) where
---     gToQuery o (x :*: y) = gToQuery o x <> gToQuery o y
+class GToQuery f where
+    gToQuery :: QueryOptions -> f a -> Query
 
--- instance GToQuery U1 where
---     gToQuery _ _ = mempty
+instance (GToQuery f, GToQuery g) => GToQuery (f :+: g) where
+    gToQuery o (L1 x) = gToQuery o x
+    gToQuery o (R1 y) = gToQuery o y
 
--- instance ToQuery a => GToQuery (K1 R a) where
---     gToQuery _ = toQuery . unK1
+instance (GToQuery f, GToQuery g) => GToQuery (f :*: g) where
+    gToQuery o (x :*: y) = gToQuery o x <> gToQuery o y
 
--- instance GToQuery f => GToQuery (D1 c f) where
---     gToQuery o = gToQuery o . unM1
+instance GToQuery U1 where
+    gToQuery _ _ = mempty
 
--- instance GToQuery f => GToQuery (C1 c f) where
---     gToQuery o = gToQuery o . unM1
+instance ToQuery a => GToQuery (K1 R a) where
+    gToQuery _ = toQuery . unK1
 
--- instance (Selector c, GToQuery f) => GToQuery (S1 c f) where
---     gToQuery o = Pair name . gToQuery o . unM1
---       where
---         name = _queryField o $ selName (undefined :: S1 c f p)
+instance GToQuery f => GToQuery (D1 c f) where
+    gToQuery o = gToQuery o . unM1
+
+instance GToQuery f => GToQuery (C1 c f) where
+    gToQuery o = gToQuery o . unM1
+
+instance (Selector c, GToQuery f) => GToQuery (S1 c f) where
+    gToQuery o = Pair name . gToQuery o . unM1
+      where
+        name = _queryField o $ selName (undefined :: S1 c f p)

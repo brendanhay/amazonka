@@ -41,26 +41,32 @@ import           Network.AWS.Data.Internal.Flatten
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.XML
 
-newtype List (e :: Symbol) a = List { list :: [a] }
+newtype List (k :: Symbol) a = List { list :: [a] }
     deriving (Eq, Ord, Show, Semigroup, Monoid)
 
 type role List  phantom representational
 
-_List :: (Coercible a b, Coercible b a) => Iso' (List e a) [b]
+_List :: (Coercible a b, Coercible b a) => Iso' (List k a) [b]
 _List = iso (coerce . list) (List . coerce)
 
-listItem :: forall e a. KnownSymbol e => List e a -> Text
+listItem :: forall k a. KnownSymbol k => List k a -> Text
 listItem _ = Text.pack (symbolVal (Proxy :: Proxy e))
 
-newtype List1 (e :: Symbol) a = List1 { list1 :: NonEmpty a }
+instance ToQuery a => ToQuery (List k a) where
+    toQuery (List xs) =
+--     toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx
+--       where
+--         idx = [1..] :: [Integer]
+
+newtype List1 (k :: Symbol) a = List1 { list1 :: NonEmpty a }
     deriving (Eq, Ord, Show, Semigroup)
 
 type role List1 phantom representational
 
-_List1 :: (Coercible a b, Coercible b a) => Iso' (List1 e a) (NonEmpty b)
+_List1 :: (Coercible a b, Coercible b a) => Iso' (List1 k a) (NonEmpty b)
 _List1 = iso (coerce . list1) (List1 . coerce)
 
-list1Item :: forall e a. KnownSymbol e => List1 e a -> Text
+list1Item :: forall k a. KnownSymbol k => List1 k a -> Text
 list1Item _ = Text.pack (symbolVal (Proxy :: Proxy e))
 
 -- instance ToQuery a => ToQuery [a] where

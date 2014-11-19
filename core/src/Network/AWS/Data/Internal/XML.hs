@@ -15,10 +15,9 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Internal.XML
-    ( XMLRoot   (..)
-
+    (
     -- * FromXML
-    , FromXML   (..)
+      FromXML   (..)
     , decodeXML
     , parseXMLText
     , (.@)
@@ -29,6 +28,7 @@ module Network.AWS.Data.Internal.XML
 
     -- * ToXML
     , ToXML     (..)
+    , ToXMLRoot (..)
     , encodeXML
     , toXMLText
     , element
@@ -68,12 +68,12 @@ decodeXML = either failure success . parseLBS def
     failure = Left  . show
     success = Right . elementNodes . documentRoot
 
-encodeXML :: forall a. (XMLRoot a, ToXML a) => a -> LazyByteString
+encodeXML :: ToXMLRoot a => a -> LazyByteString
 encodeXML x = renderLBS def doc
   where
     doc = Document
         { documentPrologue = pro
-        , documentRoot     = element n (toXML x)
+        , documentRoot     = toXMLRoot x
         , documentEpilogue = []
         }
 
@@ -82,8 +82,6 @@ encodeXML x = renderLBS def doc
         , prologueDoctype = Nothing
         , prologueAfter   = []
         }
-
-    n = untag (rootXML :: Tagged a Name)
 
 parseXMLText :: FromText a => String -> [Node] -> Either String a
 parseXMLText n = withContent n fromText
@@ -148,9 +146,6 @@ children n (NodeElement e)
     | nameLocalName (elementName e) == n = Just (elementNodes e)
 children _ _ = Nothing
 
-class XMLRoot a where
-    rootXML :: Tagged a Name
-
 class FromXML a where
     parseXML :: [Node] -> Either String a
 
@@ -159,7 +154,7 @@ instance FromXML a => FromXML (Maybe a) where
     parseXML ns = Just <$> parseXML ns
     {-# INLINE parseXML #-}
 
--- instance (XMLRoot a, FromXML a) => FromXML [a] where
+-- instance (RootXML a, FromXML a) => FromXML [a] where
 --     parseXML = traverse parseXML . mapMaybe (children n)
 --       where
 --         n = nameLocalName $ untag (rootXML :: Tagged a Name)
@@ -178,8 +173,14 @@ instance FromXML Natural where parseXML = parseXMLText "Natural"
 instance FromXML Double  where parseXML = parseXMLText "Double"
 instance FromXML Bool    where parseXML = parseXMLText "Bool"
 
+class ToXMLRoot a where
+    toXMLRoot :: a -> Element
+
 class ToXML a where
     toXML :: a -> [Node]
+
+    default toXML :: ToXMLRoot a => a -> [Node]
+    toXML = (:[]) . NodeElement . toXMLRoot
 
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
@@ -187,22 +188,22 @@ instance ToXML a => ToXML (Maybe a) where
     {-# INLINE toXML #-}
 
 -- flattened:
--- instance (XMLRoot a, ToXML a) => ToXML (Flatten [a]) where
+-- instance (RootXML a, ToXML a) => ToXML (Flatten [a]) where
 --     toXML = map (NodeElement . element n . toXML) . flatten
 --       where
 --         n = untag (rootXML :: Tagged a Name)
 --     {-# INLINE toXML #-}
 
 -- unflattened:
--- instance (XMLRoot a, ToXML a) => ToXML [a] where
+-- instance (RootXML a, ToXML a) => ToXML [a] where
 --     toXML = nodes n . map (NodeElement . element n . toXML)
 --       where
 --         n = untag (rootXML :: Tagged a Name)
 --     {-# INLINE toXML #-}
 
 
--- instance ToXMLRoot a => ToXML [a] where
---     toXML = map (NodeElement . toXMLRoot)
+-- instance ToRootXML a => ToXML [a] where
+--     toXML = map (NodeElement . toRootXML)
 --     {-# INLINE toXML #-}
 
 -- how to correctly annotate the name of a list element
@@ -254,12 +255,12 @@ instance ToXML Bool    where toXML = toXMLText
 -- decodeXML = either failure success . parseLBS def
 --   where
 --     failure = Left . show
---     success = join . fmap (fromXML o) . parseXMLRoot o
+--     success = join . fmap (fromXML o) . parseRootXML o
 
 --     o = parseXMLOptions :: Tagged a XMLOptions
 
 -- encodeXML :: forall a. ToXML a => a -> LazyByteString
--- encodeXML = renderLBS def . toXMLRoot o . toXML o
+-- encodeXML = renderLBS def . toRootXML o . toXML o
 --   where
 --     o = toXMLOptions :: Tagged a XMLOptions
 
@@ -306,7 +307,7 @@ instance ToXML Bool    where toXML = toXMLText
 -- fromRoot :: Text -> Tagged a XMLOptions -> Document -> Either String [Node]
 -- fromRoot = fromNestedRoot . (:| [])
 
--- gFromRoot :: forall a. (Generic a, GXMLRoot (Rep a))
+-- gFromRoot :: forall a. (Generic a, GRootXML (Rep a))
 --                 => Tagged a XMLOptions
 --                 -> Document
 --                 -> Either String [Node]
@@ -314,16 +315,16 @@ instance ToXML Bool    where toXML = toXMLText
 
 -- class FromXML a where
 --     parseXMLOptions :: Tagged a XMLOptions
---     parseXMLRoot    :: Tagged a XMLOptions -> Document -> Either String [Node]
+--     parseRootXML    :: Tagged a XMLOptions -> Document -> Either String [Node]
 --     parseXML        :: Tagged a XMLOptions -> [Node]   -> Either String a
 
 --     parseXMLOptions = Tagged def
 
---     default parseXMLRoot :: (Generic a, GXMLRoot (Rep a))
+--     default parseRootXML :: (Generic a, GRootXML (Rep a))
 --                         => Tagged a XMLOptions
 --                         -> Document
 --                         -> Either String [Node]
---     parseXMLRoot = gFromRoot
+--     parseRootXML = gFromRoot
 
 --     default parseXML :: (Generic a, GFromXML (Rep a))
 --                     => Tagged a XMLOptions
@@ -342,23 +343,23 @@ instance ToXML Bool    where toXML = toXMLText
 --     parseXML = const fromNodeContent
 
 -- instance FromXML Text where
---     parseXMLRoot = fromRoot "Text"
+--     parseRootXML = fromRoot "Text"
 --     parseXML     = const fromNodeContent
 
 -- instance FromXML BS.ByteString where
---     parseXMLRoot = fromRoot "ByteString"
+--     parseRootXML = fromRoot "ByteString"
 --     parseXML o   = fmap Text.encodeUtf8 . parseXML (retag o)
 
 -- instance FromXML Int where
---     parseXMLRoot = fromRoot "Int"
+--     parseRootXML = fromRoot "Int"
 --     parseXML     = const fromNodeContent
 
 -- instance FromXML Integer where
---     parseXMLRoot = fromRoot "Integer"
+--     parseRootXML = fromRoot "Integer"
 --     parseXML     = const fromNodeContent
 
 -- instance FromXML Natural where
---     parseXMLRoot = fromRoot "Natural"
+--     parseRootXML = fromRoot "Natural"
 --     parseXML     = const fromNodeContent
 
 -- instance FromXML Double where
@@ -379,7 +380,7 @@ instance ToXML Bool    where toXML = toXMLText
 --         ns   = xmlNamespace (untag o)
 
 -- instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (HashMap k v) where
---     parseXMLRoot = fromRoot "HashMap"
+--     parseRootXML = fromRoot "HashMap"
 --     parseXML o   = fmap Map.fromList . mapM f
 --       where
 --         f (NodeElement (Element n _ xs))
@@ -397,7 +398,7 @@ instance ToXML Bool    where toXML = toXMLText
 --         ns   = xmlNamespace (untag o)
 
 -- instance FromXML a => FromXML (NonEmpty a) where
---     parseXMLRoot = fromRoot "NonEmpty"
+--     parseRootXML = fromRoot "NonEmpty"
 --     parseXML o   = join
 --         . fmap (note . NonEmpty.nonEmpty)
 --         . parseXML (retag o)
@@ -464,7 +465,7 @@ instance ToXML Bool    where toXML = toXMLText
 -- toRoot :: Text -> Tagged a XMLOptions -> [Node] -> Document
 -- toRoot = toNestedRoot . (NonEmpty.:| [])
 
--- genericToRoot :: forall a. (Generic a, GXMLRoot (Rep a))
+-- genericToRoot :: forall a. (Generic a, GRootXML (Rep a))
 --               => Tagged a XMLOptions
 --               -> [Node]
 --               -> Document
@@ -472,16 +473,16 @@ instance ToXML Bool    where toXML = toXMLText
 
 -- class ToXML a where
 --     toXMLOptions :: Tagged a XMLOptions
---     toXMLRoot    :: Tagged a XMLOptions -> [Node] -> Document
+--     toRootXML    :: Tagged a XMLOptions -> [Node] -> Document
 --     toXML        :: Tagged a XMLOptions -> a -> [Node]
 
 --     toXMLOptions = Tagged def
 
---     default toXMLRoot :: (Generic a, GXMLRoot (Rep a))
+--     default toRootXML :: (Generic a, GRootXML (Rep a))
 --                       => Tagged a XMLOptions
 --                       -> [Node]
 --                       -> Document
---     toXMLRoot = genericToRoot
+--     toRootXML = genericToRoot
 
 --     default toXML :: (Generic a, GToXML (Rep a))
 --                   => Tagged a XMLOptions
@@ -490,23 +491,23 @@ instance ToXML Bool    where toXML = toXMLText
 --     toXML o = gToXML (untag o) . from
 
 -- instance ToXML Text where
---     toXMLRoot = toRoot "Text"
+--     toRootXML = toRoot "Text"
 --     toXML _   = (:[]) . NodeContent
 
 -- instance ToXML BS.ByteString where
---     toXMLRoot = toRoot "ByteString"
+--     toRootXML = toRoot "ByteString"
 --     toXML o   = toXML (retag o) . Text.decodeUtf8
 
 -- instance ToXML Int where
---     toXMLRoot = toRoot "Int"
+--     toRootXML = toRoot "Int"
 --     toXML _   = (:[]) . NodeContent . toText
 
 -- instance ToXML Integer where
---     toXMLRoot = toRoot "Integer"
+--     toRootXML = toRoot "Integer"
 --     toXML _   = (:[]) . NodeContent . toText
 
 -- instance ToXML Natural where
---     toXMLRoot = toRoot "Natural"
+--     toRootXML = toRoot "Natural"
 --     toXML _   = (:[]) . NodeContent . toText
 
 -- instance ToXML Double where
@@ -523,7 +524,7 @@ instance ToXML Bool    where toXML = toXMLText
 --         o' = retag o
 
 -- instance ToXML a => ToXML (NonEmpty a) where
---     toXMLRoot = toRoot "NonEmpty"
+--     toRootXML = toRoot "NonEmpty"
 --     toXML o   = toXML (retag o) . NonEmpty.toList
 
 -- instance ToXML a => ToXML (Maybe a) where
@@ -575,17 +576,17 @@ instance ToXML Bool    where toXML = toXMLText
 --                 . Element (Name (xmlFieldMod o n) (xmlNamespace o) Nothing)
 --                           mempty
 
--- class GXMLRoot f where
+-- class GRootXML f where
 --     gRootName :: XMLOptions -> f a -> Text
 
--- instance (GXMLRoot f, GXMLRoot g) => GXMLRoot (f :+: g) where
+-- instance (GRootXML f, GRootXML g) => GRootXML (f :+: g) where
 --     gRootName o (_ :: (f :+: g) a) = gRootName o (undefined :: f a)
 
--- instance GXMLRoot f => GXMLRoot (D1 c f) where
+-- instance GRootXML f => GRootXML (D1 c f) where
 --     gRootName o = gRootName o . unM1
 
--- instance Constructor c => GXMLRoot (C1 c f) where
+-- instance Constructor c => GRootXML (C1 c f) where
 --     gRootName o _ = xmlCtorMod o $ conName (undefined :: C1 c f p)
 
--- instance GXMLRoot a => GXMLRoot (M1 i c a) where
+-- instance GRootXML a => GRootXML (M1 i c a) where
 --     gRootName o = gRootName o . unM1

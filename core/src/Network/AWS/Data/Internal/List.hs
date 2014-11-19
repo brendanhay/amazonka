@@ -17,18 +17,19 @@
 module Network.AWS.Data.Internal.List where
 
 import           Control.Applicative
-import           Control.Lens                    hiding (coerce)
+import           Control.Lens                      hiding (coerce)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Coerce
-import           Data.Foldable                   (Foldable)
-import           Data.List.NonEmpty              (NonEmpty(..))
-import qualified Data.List.NonEmpty              as NonEmpty
+import           Data.Foldable                     (Foldable)
+import           Data.List.NonEmpty                (NonEmpty(..))
+import qualified Data.List.NonEmpty                as NonEmpty
 import           Data.Monoid
-import           Data.Semigroup                  (Semigroup)
+import           Data.Semigroup                    (Semigroup)
 import           Data.Traversable
-import qualified Data.Vector                     as Vector
+import qualified Data.Vector                       as Vector
 import           GHC.Exts
+import           Network.AWS.Data.Internal.Flatten
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.XML
 

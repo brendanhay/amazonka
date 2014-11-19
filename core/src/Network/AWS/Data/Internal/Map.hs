@@ -58,7 +58,7 @@ newtype Map (e :: Symbol) (i :: Symbol) (j :: Symbol) k v = Map
     { toHashMap :: HashMap k v
     } deriving (Eq, Show, Monoid, Semigroup)
 
-type role Map phantom phantom nominal phantom representational
+type role Map phantom phantom phantom nominal representational
 
 _Map :: (Coercible a b, Coercible b a) => Iso' (Map e i j k a) (HashMap k b)
 _Map = iso (coerce . toHashMap) (Map . coerce)

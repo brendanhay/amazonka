@@ -126,9 +126,9 @@ instance ( KnownSymbol e
          , FromXML k
          , FromXML v
          ) => FromXML (Map e i j k v) where
-    parseXML = fmap fromList . traverse (withElement e pair . (:[]))
+    parseXML = fmap fromList . traverse (withElement e go . (:[]))
       where
-        pair ns
+        go ns
             | length ns == 2 =
                 (,) <$> withElement i parseXML ns
                     <*> withElement j parseXML ns

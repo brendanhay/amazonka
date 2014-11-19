@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -66,7 +67,7 @@ gtaTopicArn :: Lens' GetTopicAttributes Text
 gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
-    { _gtarAttributes :: Map Text Text
+    { _gtarAttributes :: Map "entry" Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetTopicAttributesResponse' constructor.
@@ -112,4 +113,4 @@ instance AWSRequest GetTopicAttributes where
 
 instance FromXML GetTopicAttributesResponse where
     parseXML = withElement "GetTopicAttributesResult" $ \x ->
-            <$> x .@ "Attributes"
+        <$> x .@ "Attributes"

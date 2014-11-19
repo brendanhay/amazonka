@@ -9217,7 +9217,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",
@@ -9729,7 +9729,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",
@@ -10950,7 +10950,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",
@@ -11267,7 +11267,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",
@@ -15666,7 +15666,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",
@@ -15923,7 +15923,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",
@@ -17773,7 +17773,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",
@@ -18015,7 +18015,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",
@@ -25172,7 +25172,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",
@@ -25534,7 +25534,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" TextText"
+                        "type": "Map \"entry\" Text Text"
                     },
                     {
                         "location": "header",

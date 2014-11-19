@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data CreatePlatformEndpoint = CreatePlatformEndpoint
-    { _cpeAttributes             :: Map Text Text
+    { _cpeAttributes             :: Map "entry" Text Text
     , _cpeCustomUserData         :: Maybe Text
     , _cpePlatformApplicationArn :: Text
     , _cpeToken                  :: Text
@@ -150,4 +151,4 @@ instance AWSRequest CreatePlatformEndpoint where
 
 instance FromXML CreatePlatformEndpointResponse where
     parseXML = withElement "CreatePlatformEndpointResult" $ \x ->
-            <$> x .@? "EndpointArn"
+        <$> x .@? "EndpointArn"

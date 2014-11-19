@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -105,4 +106,4 @@ instance AWSRequest CreateTopic where
 
 instance FromXML CreateTopicResponse where
     parseXML = withElement "CreateTopicResult" $ \x ->
-            <$> x .@? "TopicArn"
+        <$> x .@? "TopicArn"

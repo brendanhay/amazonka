@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -128,4 +129,4 @@ instance AWSRequest ConfirmSubscription where
 
 instance FromXML ConfirmSubscriptionResponse where
     parseXML = withElement "ConfirmSubscriptionResult" $ \x ->
-            <$> x .@? "SubscriptionArn"
+        <$> x .@? "SubscriptionArn"

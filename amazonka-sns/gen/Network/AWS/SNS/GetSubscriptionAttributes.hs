@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -66,7 +67,7 @@ gsaSubscriptionArn =
     lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
-    { _gsarAttributes :: Map Text Text
+    { _gsarAttributes :: Map "entry" Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetSubscriptionAttributesResponse' constructor.
@@ -109,4 +110,4 @@ instance AWSRequest GetSubscriptionAttributes where
 
 instance FromXML GetSubscriptionAttributesResponse where
     parseXML = withElement "GetSubscriptionAttributesResult" $ \x ->
-            <$> x .@ "Attributes"
+        <$> x .@ "Attributes"

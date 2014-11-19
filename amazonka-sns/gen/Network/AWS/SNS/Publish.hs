@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -59,7 +60,7 @@ import qualified GHC.Exts
 
 data Publish = Publish
     { _pMessage           :: Text
-    , _pMessageAttributes :: Map Text MessageAttributeValue
+    , _pMessageAttributes :: Map "entry" Text MessageAttributeValue
     , _pMessageStructure  :: Maybe Text
     , _pSubject           :: Maybe Text
     , _pTargetArn         :: Maybe Text
@@ -190,4 +191,4 @@ instance AWSRequest Publish where
 
 instance FromXML PublishResponse where
     parseXML = withElement "PublishResult" $ \x ->
-            <$> x .@? "MessageId"
+        <$> x .@? "MessageId"

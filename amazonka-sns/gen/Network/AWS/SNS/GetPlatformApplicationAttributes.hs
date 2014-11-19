@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -69,7 +70,7 @@ gpaaPlatformApplicationArn =
         (\s a -> s { _gpaaPlatformApplicationArn = a })
 
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
-    { _gpaarAttributes :: Map Text Text
+    { _gpaarAttributes :: Map "entry" Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetPlatformApplicationAttributesResponse' constructor.
@@ -111,4 +112,4 @@ instance AWSRequest GetPlatformApplicationAttributes where
 
 instance FromXML GetPlatformApplicationAttributesResponse where
     parseXML = withElement "GetPlatformApplicationAttributesResult" $ \x ->
-            <$> x .@ "Attributes"
+        <$> x .@ "Attributes"

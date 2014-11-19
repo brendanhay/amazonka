@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data CreatePlatformApplication = CreatePlatformApplication
-    { _cpaAttributes :: Map Text Text
+    { _cpaAttributes :: Map "entry" Text Text
     , _cpaName       :: Text
     , _cpaPlatform   :: Text
     } deriving (Eq, Show, Generic)
@@ -138,4 +139,4 @@ instance AWSRequest CreatePlatformApplication where
 
 instance FromXML CreatePlatformApplicationResponse where
     parseXML = withElement "CreatePlatformApplicationResult" $ \x ->
-            <$> x .@? "PlatformApplicationArn"
+        <$> x .@? "PlatformApplicationArn"

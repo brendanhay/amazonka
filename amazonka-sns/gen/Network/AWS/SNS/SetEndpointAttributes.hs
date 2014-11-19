@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -46,7 +47,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data SetEndpointAttributes = SetEndpointAttributes
-    { _seaAttributes  :: Map Text Text
+    { _seaAttributes  :: Map "entry" Text Text
     , _seaEndpointArn :: Text
     } deriving (Eq, Show, Generic)
 

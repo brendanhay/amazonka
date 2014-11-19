@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -67,7 +68,7 @@ geaEndpointArn :: Lens' GetEndpointAttributes Text
 geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
-    { _gearAttributes :: Map Text Text
+    { _gearAttributes :: Map "entry" Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetEndpointAttributesResponse' constructor.
@@ -111,4 +112,4 @@ instance AWSRequest GetEndpointAttributes where
 
 instance FromXML GetEndpointAttributesResponse where
     parseXML = withElement "GetEndpointAttributesResult" $ \x ->
-            <$> x .@ "Attributes"
+        <$> x .@ "Attributes"

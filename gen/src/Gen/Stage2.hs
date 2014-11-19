@@ -227,7 +227,7 @@ instance ToJSON (Internal Type) where
             TPrim      p     -> primitive True p
             TList      l x   -> "List"       <> witness l <> wrap (go x)
             TList1     l x   -> "List1"      <> witness l <> wrap (go x)
-            TMap       l k v -> "Map"        <> witness l <> wrap (go k) <> wrap (go v)
+            TMap       l k v -> "Map"        <> witness l <> wrap (go k) <> " " <> wrap (go v)
             TMaybe     x     -> "Maybe "     <> wrap (go x)
             TSensitive x     -> "Sensitive " <> wrap (go x)
             TFlatten   x     -> go x

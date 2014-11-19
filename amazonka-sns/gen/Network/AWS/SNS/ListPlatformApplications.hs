@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -75,7 +76,7 @@ lpaNextToken = lens _lpaNextToken (\s a -> s { _lpaNextToken = a })
 
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparNextToken            :: Maybe Text
-    , _lparPlatformApplications :: [PlatformApplication]
+    , _lparPlatformApplications :: List "PlatformApplications" PlatformApplication
     } deriving (Eq, Show, Generic)
 
 -- | 'ListPlatformApplicationsResponse' constructor.
@@ -103,6 +104,7 @@ lparPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformAppl
 lparPlatformApplications =
     lens _lparPlatformApplications
         (\s a -> s { _lparPlatformApplications = a })
+            . _List
 
 instance ToPath ListPlatformApplications where
     toPath = const "/"
@@ -120,8 +122,8 @@ instance AWSRequest ListPlatformApplications where
 
 instance FromXML ListPlatformApplicationsResponse where
     parseXML = withElement "ListPlatformApplicationsResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "PlatformApplications"
+        <$> x .@? "NextToken"
+        <*> x .@ "PlatformApplications"
 
 instance AWSPager ListPlatformApplications where
     next rq rs = (\x -> rq & lpaNextToken ?~ x)

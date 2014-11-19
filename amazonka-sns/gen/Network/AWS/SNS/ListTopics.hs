@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -69,7 +70,7 @@ ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 
 data ListTopicsResponse = ListTopicsResponse
     { _ltrNextToken :: Maybe Text
-    , _ltrTopics    :: [Topic]
+    , _ltrTopics    :: List "Topics" Topic
     } deriving (Eq, Show, Generic)
 
 -- | 'ListTopicsResponse' constructor.
@@ -94,6 +95,7 @@ ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
 -- | A list of topic ARNs.
 ltrTopics :: Lens' ListTopicsResponse [Topic]
 ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a })
+    . _List
 
 instance ToPath ListTopics where
     toPath = const "/"
@@ -111,8 +113,8 @@ instance AWSRequest ListTopics where
 
 instance FromXML ListTopicsResponse where
     parseXML = withElement "ListTopicsResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "Topics"
+        <$> x .@? "NextToken"
+        <*> x .@ "Topics"
 
 instance AWSPager ListTopics where
     next rq rs = (\x -> rq & ltNextToken ?~ x)

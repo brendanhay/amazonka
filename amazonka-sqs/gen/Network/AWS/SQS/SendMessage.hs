@@ -61,7 +61,7 @@ import qualified GHC.Exts
 
 data SendMessage = SendMessage
     { _smDelaySeconds      :: Maybe Int
-    , _smMessageAttributes :: Map "MessageAttribute" TextMessageAttributeValue
+    , _smMessageAttributes :: Map "MessageAttribute" Text MessageAttributeValue
     , _smMessageBody       :: Text
     , _smQueueUrl          :: Text
     } deriving (Eq, Show, Generic)

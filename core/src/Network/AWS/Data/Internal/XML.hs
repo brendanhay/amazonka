@@ -21,6 +21,7 @@ module Network.AWS.Data.Internal.XML
     , decodeXML
     , parseXMLText
     , childNodes
+    , findElement
     , withContent
     , withElement
     , withNode

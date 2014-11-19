@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -88,7 +89,7 @@ lebpaPlatformApplicationArn =
         (\s a -> s { _lebpaPlatformApplicationArn = a })
 
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
-    { _lebparEndpoints :: [Endpoint]
+    { _lebparEndpoints :: List "Endpoints" Endpoint
     , _lebparNextToken :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -109,6 +110,7 @@ listEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationR
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
 lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
 lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
+    . _List
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
@@ -132,8 +134,8 @@ instance AWSRequest ListEndpointsByPlatformApplication where
 
 instance FromXML ListEndpointsByPlatformApplicationResponse where
     parseXML = withElement "ListEndpointsByPlatformApplicationResult" $ \x ->
-            <$> x .@ "Endpoints"
-            <*> x .@? "NextToken"
+        <$> x .@ "Endpoints"
+        <*> x .@? "NextToken"
 
 instance AWSPager ListEndpointsByPlatformApplication where
     next rq rs = (\x -> rq & lebpaNextToken ?~ x)

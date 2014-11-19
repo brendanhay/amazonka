@@ -283,7 +283,7 @@ data GetObjectResponse = GetObjectResponse
     , _gorExpiration              :: Maybe RFC822
     , _gorExpires                 :: Maybe RFC822
     , _gorLastModified            :: Maybe RFC822
-    , _gorMetadata                :: Map "entry" TextText
+    , _gorMetadata                :: Map "entry" Text Text
     , _gorMissingMeta             :: Maybe Int
     , _gorRestore                 :: Maybe Text
     , _gorSSECustomerAlgorithm    :: Maybe Text

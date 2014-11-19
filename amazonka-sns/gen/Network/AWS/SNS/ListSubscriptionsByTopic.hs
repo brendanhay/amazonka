@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -79,7 +80,7 @@ lsbtTopicArn = lens _lsbtTopicArn (\s a -> s { _lsbtTopicArn = a })
 
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrNextToken     :: Maybe Text
-    , _lsbtrSubscriptions :: [Subscription]
+    , _lsbtrSubscriptions :: List "Subscriptions" Subscription
     } deriving (Eq, Show, Generic)
 
 -- | 'ListSubscriptionsByTopicResponse' constructor.
@@ -105,6 +106,7 @@ lsbtrNextToken = lens _lsbtrNextToken (\s a -> s { _lsbtrNextToken = a })
 lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrSubscriptions =
     lens _lsbtrSubscriptions (\s a -> s { _lsbtrSubscriptions = a })
+        . _List
 
 instance ToPath ListSubscriptionsByTopic where
     toPath = const "/"
@@ -122,8 +124,8 @@ instance AWSRequest ListSubscriptionsByTopic where
 
 instance FromXML ListSubscriptionsByTopicResponse where
     parseXML = withElement "ListSubscriptionsByTopicResult" $ \x ->
-            <$> x .@? "NextToken"
-            <*> x .@ "Subscriptions"
+        <$> x .@? "NextToken"
+        <*> x .@ "Subscriptions"
 
 instance AWSPager ListSubscriptionsByTopic where
     next rq rs = (\x -> rq & lsbtNextToken ?~ x)

@@ -1,8 +1,11 @@
-{-# LANGUAGE DeriveTraversable          #-}
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RoleAnnotations            #-}
 {-# LANGUAGE TupleSections              #-}
+{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
 
 -- Module      : Network.AWS.Data.Internal.Map
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,11 +17,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Map
-    ( Map (..)
-    , _Map
-    , (~::)
-    ) where
+module Network.AWS.Data.Internal.Map where
+    -- ( Map (..)
+    -- , _Map
+    -- , (~::)
+    -- ) where
 
 import           Control.Applicative
 import           Control.Lens                         hiding (coerce)
@@ -30,11 +33,15 @@ import           Data.Foldable                        (Foldable)
 import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
 import           Data.Hashable                        (Hashable)
+import           Data.List
 import           Data.Monoid
+import           Data.Proxy
 import           Data.Semigroup                       (Semigroup)
 import           Data.Text                            (Text)
 import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
+import           GHC.Exts
+import           GHC.TypeLits
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Flatten
 import           Network.AWS.Data.Internal.Header
@@ -42,72 +49,84 @@ import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
 import           Network.HTTP.Types.Header            (Header)
+import           Text.XML
 
--- newtype MapE
+newtype Map (e :: Symbol) k v = Map { toHashMap :: HashMap k v }
+    deriving (Eq, Show, Monoid, Semigroup)
 
-newtype Map k v = Map { toHashMap :: HashMap k v }
-    deriving
-        ( Eq
-        , Show
-        , Read
-        , Functor
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+type role Map phantom nominal representational
 
-type role Map nominal representational
-
-_Map :: (Coercible a b, Coercible b a) => Iso' (Map k a) (HashMap k b)
+_Map :: (Coercible a b, Coercible b a) => Iso' (Map e k a) (HashMap k b)
 _Map = iso (coerce . toHashMap) (Map . coerce)
 
-(~::) :: FromText v => [Header] -> Text -> Either String (Map Text v)
-(~::) hs p = Map
-    . Map.filterWithKey (const . Text.isPrefixOf p)
-    . Map.fromList <$> mapM f hs
-  where
-    f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
-        <$> fromText (Text.decodeUtf8 v)
+-- (~::) :: FromText v => [Header] -> Text -> Either String (Map e Text v)
+-- (~::) hs p = Map
+--     . Map.filterWithKey (const . Text.isPrefixOf p)
+--     . Map.fromList <$> mapM f hs
+--   where
+--     f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
+--         <$> fromText (Text.decodeUtf8 v)
 
-instance (ToByteString k, ToByteString v) => ToHeader (Map k v) where
-    toHeader k = map (bimap (mappend k . CI.mk . toBS) toBS)
-        . Map.toList
-        . toHashMap
+instance (Eq k, Hashable k) => IsList (Map e k v) where
+    type Item (Map e k v) = (k, v)
+
+    fromList = Map . Map.fromList
+    toList   = Map.toList . toHashMap
+
+-- instance (ToByteString k, ToByteString v) => ToHeader (Map e k v) where
+--     toHeader k = map (bimap (mappend k . CI.mk . toBS) toBS) . toList
+
+-- Move the x-amz-meta shit into Map witness?
 
 -- instance (ToByteString k, ToQuery v) => ToQuery (Map k v) where
 --     toQuery = toQuery . map (toQuery . first toBS) . Map.toList . toHashMap
 
-instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
-    parseJSON = withObject "HashMap" f
+instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map e k v) where
+    parseJSON = withObject "HashMap" (fmap fromList . traverse g . toList)
       where
-        f = fmap (Map . Map.fromList) . mapM g . Map.toList
         g (k, v) = (,)
             <$> either fail return (fromText k)
             <*> parseJSON v
 
-instance (ToText k, ToJSON v) => ToJSON (Map k v) where
-    toJSON = Object
-        . Map.fromList
-        . map (bimap toText toJSON)
-        . Map.toList
-        . toHashMap
+instance (Eq k, Hashable k, ToText k, ToJSON v) => ToJSON (Map e k v) where
+    toJSON = Object . fromList . map (bimap toText toJSON) . toList
 
--- instance (Eq k, Hashable k, FromText k, FromXML v) => FromXML (Map k v) where
+instance ( KnownSymbol e
+         , Eq k
+         , Hashable k
+         , FromXML k
+         , FromXML v
+         ) => FromXML (Map e k v) where
+    parseXML = fmap fromList . traverse (withElement n try . (:[]))
+      where
+        n = Text.pack $ symbolVal (Proxy :: Proxy e)
 
--- instance (Eq k, Hashable k, FromText k, FromXML v) => ToXML (Map k v) where
+        try ns = pair "key"  "value" ns
+             <|> pair "Name" "Value" ns
 
--- instance ToXML (Flatten (Map ))
+        pair k v ns
+            | length ns == 2 =
+                (,) <$> withElement k parseXML ns
+                    <*> withElement v parseXML ns
+            | otherwise      =
+                Left $ "Expected two elements named "
+                     ++ show k ++ " and "
+                     ++ show v ++ " within "
+                     ++ show n
 
--- instance FromXML (Flatten (Map ))
+instance ( KnownSymbol e
+         , Eq k
+         , Hashable k
+         , ToXML k
+         , ToXML v
+         ) => ToXML (Map e k v) where
+    toXML = map (uncurry go) . toList
+      where
+        n = fromString $ symbolVal (Proxy :: Proxy e)
+        n = fromString $ symbolVal (Proxy :: Proxy i)
+        n = fromString $ symbolVal (Proxy :: Proxy j)
 
-
--- import flatten and define to/from xml here alongside map instance
-
--- look for element named entry containing:
--- (although it doesn't seem to care what the enclosing element is named)
---   look for key or name case insensitively
---   look for value case insensitively
+        go k v =
 
 --    flattened: true
 -- looks for many top-level element name

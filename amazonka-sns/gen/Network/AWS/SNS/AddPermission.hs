@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,8 +48,8 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data AddPermission = AddPermission
-    { _apAWSAccountId :: [Text]
-    , _apActionName   :: [Text]
+    { _apAWSAccountId :: List "AWSAccountId" Text
+    , _apActionName   :: List "ActionName" Text
     , _apLabel        :: Text
     , _apTopicArn     :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -80,11 +81,13 @@ addPermission p1 p2 = AddPermission
 -- to be signed up for this service.
 apAWSAccountId :: Lens' AddPermission [Text]
 apAWSAccountId = lens _apAWSAccountId (\s a -> s { _apAWSAccountId = a })
+    . _List
 
 -- | The action you want to allow for the specified principal(s). Valid
 -- values: any Amazon SNS action name.
 apActionName :: Lens' AddPermission [Text]
 apActionName = lens _apActionName (\s a -> s { _apActionName = a })
+    . _List
 
 -- | A unique identifier for the new policy statement.
 apLabel :: Lens' AddPermission Text

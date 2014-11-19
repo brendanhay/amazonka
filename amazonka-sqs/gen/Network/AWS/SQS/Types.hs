@@ -173,7 +173,8 @@ instance ToText QueueAttributeName where
 instance FromXML QueueAttributeName where
     parseXML = parseXMLText "QueueAttributeName"
 
-instance ToQuery QueueAttributeName
+instance ToQuery QueueAttributeName where
+    toQuery QueueAttributeName = toQuery . toText
 
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
     { _dmbreId            :: Text
@@ -212,7 +213,11 @@ instance FromXML DeleteMessageBatchRequestEntry where
         <$> x .@ "Id"
         <*> x .@ "ReceiptHandle"
 
-instance ToQuery DeleteMessageBatchRequestEntry
+instance ToQuery DeleteMessageBatchRequestEntry where
+    toQuery DeleteMessageBatchRequestEntry{..} = mconcat
+        [ "Id" =? _dmbreId
+        , "ReceiptHandle" =? _dmbreReceiptHandle
+        ]
 
 data MessageAttributeValue = MessageAttributeValue
     { _mavBinaryListValues :: List "BinaryListValue" Base64
@@ -282,7 +287,14 @@ instance FromXML MessageAttributeValue where
         <*> x .@ "StringListValue"
         <*> x .@? "StringValue"
 
-instance ToQuery MessageAttributeValue
+instance ToQuery MessageAttributeValue where
+    toQuery MessageAttributeValue{..} = mconcat
+        [ "BinaryListValue" =? _mavBinaryListValues
+        , "BinaryValue" =? _mavBinaryValue
+        , "DataType" =? _mavDataType
+        , "StringListValue" =? _mavStringListValues
+        , "StringValue" =? _mavStringValue
+        ]
 
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry
     { _cmvbreId :: Text
@@ -309,7 +321,10 @@ instance FromXML ChangeMessageVisibilityBatchResultEntry where
     parseXML x = ChangeMessageVisibilityBatchResultEntry
         <$> x .@ "Id"
 
-instance ToQuery ChangeMessageVisibilityBatchResultEntry
+instance ToQuery ChangeMessageVisibilityBatchResultEntry where
+    toQuery ChangeMessageVisibilityBatchResultEntry{..} = mconcat
+        [ "Id" =? _cmvbreId
+        ]
 
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry
     { _cmvbre1Id                :: Text
@@ -359,7 +374,12 @@ instance FromXML ChangeMessageVisibilityBatchRequestEntry where
         <*> x .@ "ReceiptHandle"
         <*> x .@? "VisibilityTimeout"
 
-instance ToQuery ChangeMessageVisibilityBatchRequestEntry
+instance ToQuery ChangeMessageVisibilityBatchRequestEntry where
+    toQuery ChangeMessageVisibilityBatchRequestEntry{..} = mconcat
+        [ "Id" =? _cmvbre1Id
+        , "ReceiptHandle" =? _cmvbre1ReceiptHandle
+        , "VisibilityTimeout" =? _cmvbre1VisibilityTimeout
+        ]
 
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
     { _dmbre1Id :: Text
@@ -385,7 +405,10 @@ instance FromXML DeleteMessageBatchResultEntry where
     parseXML x = DeleteMessageBatchResultEntry
         <$> x .@ "Id"
 
-instance ToQuery DeleteMessageBatchResultEntry
+instance ToQuery DeleteMessageBatchResultEntry where
+    toQuery DeleteMessageBatchResultEntry{..} = mconcat
+        [ "Id" =? _dmbre1Id
+        ]
 
 data Message = Message
     { _mAttributes             :: Map "Attribute" "Name" "Value" Text Text
@@ -480,7 +503,16 @@ instance FromXML Message where
         <*> x .@? "MessageId"
         <*> x .@? "ReceiptHandle"
 
-instance ToQuery Message
+instance ToQuery Message where
+    toQuery Message{..} = mconcat
+        [ toQuery _mAttributes
+        , "Body" =? _mBody
+        , "MD5OfBody" =? _mMD5OfBody
+        , "MD5OfMessageAttributes" =? _mMD5OfMessageAttributes
+        , toQuery _mMessageAttributes
+        , "MessageId" =? _mMessageId
+        , "ReceiptHandle" =? _mReceiptHandle
+        ]
 
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     { _smbreDelaySeconds      :: Maybe Int
@@ -541,7 +573,13 @@ instance FromXML SendMessageBatchRequestEntry where
         <*> parseXML x
         <*> x .@ "MessageBody"
 
-instance ToQuery SendMessageBatchRequestEntry
+instance ToQuery SendMessageBatchRequestEntry where
+    toQuery SendMessageBatchRequestEntry{..} = mconcat
+        [ "DelaySeconds" =? _smbreDelaySeconds
+        , "Id" =? _smbreId
+        , toQuery _smbreMessageAttributes
+        , "MessageBody" =? _smbreMessageBody
+        ]
 
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry
     { _smbre1Id                     :: Text
@@ -605,7 +643,13 @@ instance FromXML SendMessageBatchResultEntry where
         <*> x .@ "MD5OfMessageBody"
         <*> x .@ "MessageId"
 
-instance ToQuery SendMessageBatchResultEntry
+instance ToQuery SendMessageBatchResultEntry where
+    toQuery SendMessageBatchResultEntry{..} = mconcat
+        [ "Id" =? _smbre1Id
+        , "MD5OfMessageAttributes" =? _smbre1MD5OfMessageAttributes
+        , "MD5OfMessageBody" =? _smbre1MD5OfMessageBody
+        , "MessageId" =? _smbre1MessageId
+        ]
 
 data BatchResultErrorEntry = BatchResultErrorEntry
     { _breeCode        :: Text
@@ -660,4 +704,10 @@ instance FromXML BatchResultErrorEntry where
         <*> x .@? "Message"
         <*> x .@ "SenderFault"
 
-instance ToQuery BatchResultErrorEntry
+instance ToQuery BatchResultErrorEntry where
+    toQuery BatchResultErrorEntry{..} = mconcat
+        [ "Code" =? _breeCode
+        , "Id" =? _breeId
+        , "Message" =? _breeMessage
+        , "SenderFault" =? _breeSenderFault
+        ]

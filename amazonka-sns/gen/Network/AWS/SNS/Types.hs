@@ -107,7 +107,10 @@ instance FromXML Topic where
     parseXML x = Topic
         <$> x .@? "TopicArn"
 
-instance ToQuery Topic
+instance ToQuery Topic where
+    toQuery Topic{..} = mconcat
+        [ "TopicArn" =? _tTopicArn
+        ]
 
 data MessageAttributeValue = MessageAttributeValue
     { _mavBinaryValue :: Maybe Base64
@@ -154,7 +157,12 @@ instance FromXML MessageAttributeValue where
         <*> x .@ "DataType"
         <*> x .@? "StringValue"
 
-instance ToQuery MessageAttributeValue
+instance ToQuery MessageAttributeValue where
+    toQuery MessageAttributeValue{..} = mconcat
+        [ "BinaryValue" =? _mavBinaryValue
+        , "DataType" =? _mavDataType
+        , "StringValue" =? _mavStringValue
+        ]
 
 data PlatformApplication = PlatformApplication
     { _paAttributes             :: Map "entry" "key" "value" Text Text
@@ -190,7 +198,11 @@ instance FromXML PlatformApplication where
         <$> x .@ "Attributes"
         <*> x .@? "PlatformApplicationArn"
 
-instance ToQuery PlatformApplication
+instance ToQuery PlatformApplication where
+    toQuery PlatformApplication{..} = mconcat
+        [ "Attributes" =? _paAttributes
+        , "PlatformApplicationArn" =? _paPlatformApplicationArn
+        ]
 
 data Subscription = Subscription
     { _s1Endpoint        :: Maybe Text
@@ -252,7 +264,14 @@ instance FromXML Subscription where
         <*> x .@? "SubscriptionArn"
         <*> x .@? "TopicArn"
 
-instance ToQuery Subscription
+instance ToQuery Subscription where
+    toQuery Subscription{..} = mconcat
+        [ "Endpoint" =? _s1Endpoint
+        , "Owner" =? _s1Owner
+        , "Protocol" =? _s1Protocol
+        , "SubscriptionArn" =? _s1SubscriptionArn
+        , "TopicArn" =? _s1TopicArn
+        ]
 
 data Endpoint = Endpoint
     { _eAttributes  :: Map "entry" "key" "value" Text Text
@@ -286,4 +305,8 @@ instance FromXML Endpoint where
         <$> x .@ "Attributes"
         <*> x .@? "EndpointArn"
 
-instance ToQuery Endpoint
+instance ToQuery Endpoint where
+    toQuery Endpoint{..} = mconcat
+        [ "Attributes" =? _eAttributes
+        , "EndpointArn" =? _eEndpointArn
+        ]

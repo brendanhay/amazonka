@@ -54,7 +54,7 @@ import           Network.AWS.Data.Internal.XML
 import           Network.HTTP.Types.Header            (Header)
 import           Text.XML
 
-newtype Map (e :: Symbol) (i :: Symbol) k (j :: Symbol) v = Map
+newtype Map (e :: Symbol) (i :: Symbol) (j :: Symbol) k v = Map
     { toHashMap :: HashMap k v
     } deriving (Eq, Show, Monoid, Semigroup)
 

@@ -139,13 +139,5 @@ instance AWSRequest SendMessageBatch where
 
 instance FromXML SendMessageBatchResponse where
     parseXML = withElement "SendMessageBatchResult" $ \x ->
-
-    Failed
-    List "BatchResultErrorEntry" BatchResultErrorEntry
-    true
         <$> parseXML x
-
-    Successful
-    List "SendMessageBatchResultEntry" SendMessageBatchResultEntry
-    true
         <*> parseXML x

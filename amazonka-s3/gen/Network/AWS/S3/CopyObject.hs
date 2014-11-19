@@ -103,7 +103,7 @@ data CopyObject = CopyObject
     , _coGrantReadACP                   :: Maybe Text
     , _coGrantWriteACP                  :: Maybe Text
     , _coKey                            :: Text
-    , _coMetadata                       :: Map Text Text
+    , _coMetadata                       :: Map "entry" TextText
     , _coMetadataDirective              :: Maybe Text
     , _coSSECustomerAlgorithm           :: Maybe Text
     , _coSSECustomerKey                 :: Maybe (Sensitive Text)

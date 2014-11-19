@@ -209,15 +209,7 @@ dmbreReceiptHandle =
 
 instance FromXML DeleteMessageBatchRequestEntry where
     parseXML x = DeleteMessageBatchRequestEntry
-
-    Id
-    Text
-    false
         <$> x .@ "Id"
-
-    ReceiptHandle
-    Text
-    false
         <*> x .@ "ReceiptHandle"
 
 instance ToQuery DeleteMessageBatchRequestEntry
@@ -284,30 +276,10 @@ mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
     parseXML x = MessageAttributeValue
-
-    BinaryListValue
-    List "BinaryListValue" Base64
-    false
         <$> x .@ "BinaryListValue"
-
-    BinaryValue
-    Maybe Base64
-    false
         <*> x .@? "BinaryValue"
-
-    DataType
-    Text
-    false
         <*> x .@ "DataType"
-
-    StringListValue
-    List "StringListValue" Text
-    false
         <*> x .@ "StringListValue"
-
-    StringValue
-    Maybe Text
-    false
         <*> x .@? "StringValue"
 
 instance ToQuery MessageAttributeValue
@@ -335,10 +307,6 @@ cmvbreId = lens _cmvbreId (\s a -> s { _cmvbreId = a })
 
 instance FromXML ChangeMessageVisibilityBatchResultEntry where
     parseXML x = ChangeMessageVisibilityBatchResultEntry
-
-    Id
-    Text
-    false
         <$> x .@ "Id"
 
 instance ToQuery ChangeMessageVisibilityBatchResultEntry
@@ -387,20 +355,8 @@ cmvbre1VisibilityTimeout =
 
 instance FromXML ChangeMessageVisibilityBatchRequestEntry where
     parseXML x = ChangeMessageVisibilityBatchRequestEntry
-
-    Id
-    Text
-    false
         <$> x .@ "Id"
-
-    ReceiptHandle
-    Text
-    false
         <*> x .@ "ReceiptHandle"
-
-    VisibilityTimeout
-    Maybe Int
-    false
         <*> x .@? "VisibilityTimeout"
 
 instance ToQuery ChangeMessageVisibilityBatchRequestEntry
@@ -427,10 +383,6 @@ dmbre1Id = lens _dmbre1Id (\s a -> s { _dmbre1Id = a })
 
 instance FromXML DeleteMessageBatchResultEntry where
     parseXML x = DeleteMessageBatchResultEntry
-
-    Id
-    Text
-    false
         <$> x .@ "Id"
 
 instance ToQuery DeleteMessageBatchResultEntry
@@ -521,40 +473,12 @@ mReceiptHandle = lens _mReceiptHandle (\s a -> s { _mReceiptHandle = a })
 
 instance FromXML Message where
     parseXML x = Message
-
-    Attribute
-    Map "Attribute" TextText
-    true
         <$> parseXML x
-
-    Body
-    Maybe Text
-    false
         <*> x .@? "Body"
-
-    MD5OfBody
-    Maybe Text
-    false
         <*> x .@? "MD5OfBody"
-
-    MD5OfMessageAttributes
-    Maybe Text
-    false
         <*> x .@? "MD5OfMessageAttributes"
-
-    MessageAttribute
-    Map "MessageAttribute" TextMessageAttributeValue
-    true
         <*> parseXML x
-
-    MessageId
-    Maybe Text
-    false
         <*> x .@? "MessageId"
-
-    ReceiptHandle
-    Maybe Text
-    false
         <*> x .@? "ReceiptHandle"
 
 instance ToQuery Message
@@ -613,25 +537,9 @@ smbreMessageBody = lens _smbreMessageBody (\s a -> s { _smbreMessageBody = a })
 
 instance FromXML SendMessageBatchRequestEntry where
     parseXML x = SendMessageBatchRequestEntry
-
-    DelaySeconds
-    Maybe Int
-    false
         <$> x .@? "DelaySeconds"
-
-    Id
-    Text
-    false
         <*> x .@ "Id"
-
-    MessageAttribute
-    Map "MessageAttribute" TextMessageAttributeValue
-    true
         <*> parseXML x
-
-    MessageBody
-    Text
-    false
         <*> x .@ "MessageBody"
 
 instance ToQuery SendMessageBatchRequestEntry
@@ -693,25 +601,9 @@ smbre1MessageId = lens _smbre1MessageId (\s a -> s { _smbre1MessageId = a })
 
 instance FromXML SendMessageBatchResultEntry where
     parseXML x = SendMessageBatchResultEntry
-
-    Id
-    Text
-    false
         <$> x .@ "Id"
-
-    MD5OfMessageAttributes
-    Maybe Text
-    false
         <*> x .@? "MD5OfMessageAttributes"
-
-    MD5OfMessageBody
-    Text
-    false
         <*> x .@ "MD5OfMessageBody"
-
-    MessageId
-    Text
-    false
         <*> x .@ "MessageId"
 
 instance ToQuery SendMessageBatchResultEntry
@@ -764,25 +656,9 @@ breeSenderFault = lens _breeSenderFault (\s a -> s { _breeSenderFault = a })
 
 instance FromXML BatchResultErrorEntry where
     parseXML x = BatchResultErrorEntry
-
-    Code
-    Text
-    false
         <$> x .@ "Code"
-
-    Id
-    Text
-    false
         <*> x .@ "Id"
-
-    Message
-    Maybe Text
-    false
         <*> x .@? "Message"
-
-    SenderFault
-    Bool
-    false
         <*> x .@ "SenderFault"
 
 instance ToQuery BatchResultErrorEntry

@@ -105,8 +105,4 @@ instance AWSRequest ListDeadLetterSourceQueues where
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
     parseXML = withElement "ListDeadLetterSourceQueuesResult" $ \x ->
-
-    queueUrls
-    List "QueueUrl" Text
-    true
         <$> parseXML x

@@ -138,8 +138,4 @@ instance AWSRequest GetQueueAttributes where
 
 instance FromXML GetQueueAttributesResponse where
     parseXML = withElement "GetQueueAttributesResult" $ \x ->
-
-    Attribute
-    Map "Attribute" TextText
-    true
         <$> parseXML x

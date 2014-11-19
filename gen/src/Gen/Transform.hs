@@ -480,42 +480,42 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
           -> [Text]
           -> (Text, Ref)
           -> State (HashMap Text Type) Field
-    field pay req (k, r) = do
-        t <- require req k <$> ref r
+    field pay req (fld, r) = do
+        t <- require req fld <$> ref fld r
         return $ Field
-            { _fName          = k
+            { _fName          = fld
             , _fShape         = r ^. refShape
             , _fType          = t
             , _fLocation      = location proto (r ^. refLocation)
-            , _fLocationName  = fromMaybe k (r ^. refLocationName)
-            , _fPayload       = Just k == pay
+            , _fLocationName  = fromMaybe fld (r ^. refLocationName)
+            , _fPayload       = Just fld == pay
             , _fStream        = fromMaybe False (r ^. refStreaming)
             , _fDocumentation = Doc <$> (r ^. refDocumentation)
             }
 
     require :: [Text] -> Text -> Type -> Type
-    require req k x
-        | k `elem` req = x
-        | otherwise    =
+    require req fld x
+        | fld `elem` req = x
+        | otherwise      =
             case x of
                 TPrim      {} -> TMaybe x
                 TType      {} -> TMaybe x
                 TSensitive {} -> TMaybe x
                 _             -> x
 
-    ref :: Ref -> State (HashMap Text Type) Type
-    ref r = do
+    ref :: Text -> Ref -> State (HashMap Text Type) Type
+    ref fld r = do
         let k = r ^. refShape
             t = TType k
         x <- gets (Map.lookup k)
         maybe (maybe (insert k t >> return t)
-                     (prop r k)
+                     (prop fld r k)
                      (Map.lookup k m))
               return
               x
 
-    prop :: Ref -> Text -> S1.Shape -> State (HashMap Text Type) Type
-    prop r k s =  do
+    prop :: Text -> Ref -> Text -> S1.Shape -> State (HashMap Text Type) Type
+    prop fld r k s =  do
         x <- gets (Map.lookup k)
         maybe (go >>= insert k)
               return
@@ -528,8 +528,8 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
             Time'   x -> pure (TPrim . PTime $ defaultTS (x ^. tsTimestampFormat))
             Blob'   _ -> pure (TPrim PBlob)
 
-            List'   x -> list x <$> ref (x ^. lstMember)
-            Map'    x -> hmap x <$> ref (x ^. mapKey) <*> ref (x ^. mapValue)
+            List'   x -> list x <$> ref fld (x ^. lstMember)
+            Map'    x -> hmap x <$> ref fld (x ^. mapKey) <*> ref fld (x ^. mapValue)
 
             String' x
                 | Just True <- (x ^. strSensitive)
@@ -559,9 +559,9 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
             flatten = x ^. lstFlattened
                   <|> x ^. lstMember . refFlattened
 
-            val = fromMaybe
-                (x ^. lstMember . refShape)
-                (x ^. lstMember . refLocationName)
+            val = fromMaybe fld $
+                    x ^. lstMember . refLocationName
+                <|> r ^. refLocationName
 
     flat :: Maybe Bool -> Type -> Type
     flat (Just True) = TFlatten

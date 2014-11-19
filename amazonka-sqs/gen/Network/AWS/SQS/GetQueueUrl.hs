@@ -118,8 +118,4 @@ instance AWSRequest GetQueueUrl where
 
 instance FromXML GetQueueUrlResponse where
     parseXML = withElement "GetQueueUrlResult" $ \x ->
-
-    QueueUrl
-    Maybe Text
-    false
         <$> x .@? "QueueUrl"

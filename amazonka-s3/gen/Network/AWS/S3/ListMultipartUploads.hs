@@ -147,7 +147,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     , _lmurNextUploadIdMarker :: Maybe Text
     , _lmurPrefix             :: Maybe Text
     , _lmurUploadIdMarker     :: Maybe Text
-    , _lmurUploads            :: List "Uploads" MultipartUpload
+    , _lmurUploads            :: List "Upload" MultipartUpload
     } deriving (Eq, Show, Generic)
 
 -- | 'ListMultipartUploadsResponse' constructor.

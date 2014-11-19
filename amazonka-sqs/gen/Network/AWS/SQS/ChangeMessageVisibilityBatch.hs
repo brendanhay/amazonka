@@ -132,13 +132,5 @@ instance AWSRequest ChangeMessageVisibilityBatch where
 
 instance FromXML ChangeMessageVisibilityBatchResponse where
     parseXML = withElement "ChangeMessageVisibilityBatchResult" $ \x ->
-
-    Failed
-    List "BatchResultErrorEntry" BatchResultErrorEntry
-    true
         <$> parseXML x
-
-    Successful
-    List "ChangeMessageVisibilityBatchResultEntry" ChangeMessageVisibilityBatchResultEntry
-    true
         <*> parseXML x

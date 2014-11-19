@@ -48,7 +48,7 @@ JSON := \
  cloudsearchdomain \
  lambda
 
-MODELS ?= sqs #$(QUERY) $(XML) $(JSON)
+MODELS ?= s3 sqs #$(QUERY) $(XML) $(JSON)
 
 .PHONY: gen
 

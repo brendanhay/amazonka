@@ -65,7 +65,7 @@ gbl1Bucket :: Lens' GetBucketLifecycle Text
 gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
 
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gblrRules :: List "Rules" Rule
+    { _gblrRules :: List "Rule" Rule
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetBucketLifecycleResponse' constructor.

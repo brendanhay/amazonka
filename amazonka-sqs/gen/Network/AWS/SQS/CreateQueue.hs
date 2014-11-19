@@ -141,8 +141,4 @@ instance AWSRequest CreateQueue where
 
 instance FromXML CreateQueueResponse where
     parseXML = withElement "CreateQueueResult" $ \x ->
-
-    QueueUrl
-    Maybe Text
-    false
         <$> x .@? "QueueUrl"

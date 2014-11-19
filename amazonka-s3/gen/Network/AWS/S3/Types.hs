@@ -1237,10 +1237,10 @@ instance ToXML RequestPaymentConfiguration where
         ]
 
 data CORSRule = CORSRule
-    { _corsrAllowedHeaders :: List "AllowedHeaders" Text
-    , _corsrAllowedMethods :: List "AllowedMethods" Text
-    , _corsrAllowedOrigins :: List "AllowedOrigins" Text
-    , _corsrExposeHeaders  :: List "ExposeHeaders" Text
+    { _corsrAllowedHeaders :: List "AllowedHeader" Text
+    , _corsrAllowedMethods :: List "AllowedMethod" Text
+    , _corsrAllowedOrigins :: List "AllowedOrigin" Text
+    , _corsrExposeHeaders  :: List "ExposeHeader" Text
     , _corsrMaxAgeSeconds  :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1694,7 +1694,7 @@ instance ToXML Rule where
 
 data TopicConfiguration = TopicConfiguration
     { _tcEvent  :: Maybe Text
-    , _tcEvents :: List "Events" Text
+    , _tcEvents :: List "Event" Text
     , _tcId     :: Maybe Text
     , _tcTopic  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -1753,7 +1753,7 @@ instance ToXML TopicConfiguration where
 
 data QueueConfiguration = QueueConfiguration
     { _qcEvent  :: Maybe Text
-    , _qcEvents :: List "Events" Text
+    , _qcEvents :: List "Event" Text
     , _qcId     :: Maybe Text
     , _qcQueue  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -2350,7 +2350,7 @@ instance ToXML LifecycleExpiration where
         ]
 
 newtype CORSConfiguration = CORSConfiguration
-    { _corscCORSRules :: List "CORSRules" CORSRule
+    { _corscCORSRules :: List "CORSRule" CORSRule
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'CORSConfiguration' constructor.
@@ -2609,7 +2609,7 @@ instance ToXML TransitionStorageClass where
     toXML = toXMLText
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
-    { _cmuParts :: List "Parts" CompletedPart
+    { _cmuParts :: List "Part" CompletedPart
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'CompletedMultipartUpload' constructor.
@@ -2811,7 +2811,7 @@ instance ToXML MFADelete where
 data CloudFunctionConfiguration = CloudFunctionConfiguration
     { _cfcCloudFunction  :: Maybe Text
     , _cfcEvent          :: Maybe Text
-    , _cfcEvents         :: List "Events" Text
+    , _cfcEvents         :: List "Event" Text
     , _cfcId             :: Maybe Text
     , _cfcInvocationRole :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -2944,7 +2944,7 @@ instance ToXML Grantee where
         ]
 
 newtype LifecycleConfiguration = LifecycleConfiguration
-    { _lcRules :: List "Rules" Rule
+    { _lcRules :: List "Rule" Rule
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'LifecycleConfiguration' constructor.
@@ -3115,7 +3115,7 @@ instance ToXML CopyObjectResult where
         ]
 
 data Delete = Delete
-    { _dObjects :: List "Objects" ObjectIdentifier
+    { _dObjects :: List "Object" ObjectIdentifier
     , _dQuiet   :: Maybe Bool
     } deriving (Eq, Show, Generic)
 

@@ -122,7 +122,7 @@ data ListPartsResponse = ListPartsResponse
     , _lprNextPartNumberMarker :: Maybe Int
     , _lprOwner                :: Maybe Owner
     , _lprPartNumberMarker     :: Maybe Int
-    , _lprParts                :: List "Parts" Part
+    , _lprParts                :: List "Part" Part
     , _lprStorageClass         :: Maybe Text
     , _lprUploadId             :: Maybe Text
     } deriving (Eq, Show, Generic)

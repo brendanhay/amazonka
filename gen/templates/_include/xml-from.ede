@@ -10,10 +10,6 @@ instance FromXML {{ type.name }} where
     parseXML x = {{ type.name }}
   {% endif %}
   {% for field in type.fields %}
-
-    {{ field.value.locationName }}
-    {{ field.value.type }}
-    {{ field.value.flattened }}
     {% if field.value.flattened %}
         {% include "applicative.ede" %} parseXML x
     {% else %}

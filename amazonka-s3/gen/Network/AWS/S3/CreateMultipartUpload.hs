@@ -90,7 +90,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmuGrantReadACP            :: Maybe Text
     , _cmuGrantWriteACP           :: Maybe Text
     , _cmuKey                     :: Text
-    , _cmuMetadata                :: Map Text Text
+    , _cmuMetadata                :: Map "entry" TextText
     , _cmuSSECustomerAlgorithm    :: Maybe Text
     , _cmuSSECustomerKey          :: Maybe (Sensitive Text)
     , _cmuSSECustomerKeyMD5       :: Maybe Text

@@ -133,7 +133,7 @@ lovVersionIdMarker =
 
 data ListObjectVersionsResponse = ListObjectVersionsResponse
     { _lovrCommonPrefixes      :: List "CommonPrefixes" CommonPrefix
-    , _lovrDeleteMarkers       :: List "DeleteMarkers" DeleteMarkerEntry
+    , _lovrDeleteMarkers       :: List "DeleteMarker" DeleteMarkerEntry
     , _lovrDelimiter           :: Maybe Text
     , _lovrEncodingType        :: Maybe Text
     , _lovrIsTruncated         :: Maybe Bool
@@ -144,7 +144,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
     , _lovrNextVersionIdMarker :: Maybe Text
     , _lovrPrefix              :: Maybe Text
     , _lovrVersionIdMarker     :: Maybe Text
-    , _lovrVersions            :: List "Versions" ObjectVersion
+    , _lovrVersions            :: List "Version" ObjectVersion
     } deriving (Eq, Show, Generic)
 
 -- | 'ListObjectVersionsResponse' constructor.

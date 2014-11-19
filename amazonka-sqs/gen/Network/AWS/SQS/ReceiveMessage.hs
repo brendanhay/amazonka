@@ -197,8 +197,4 @@ instance AWSRequest ReceiveMessage where
 
 instance FromXML ReceiveMessageResponse where
     parseXML = withElement "ReceiveMessageResult" $ \x ->
-
-    Messages
-    List "Message" Message
-    true
         <$> parseXML x

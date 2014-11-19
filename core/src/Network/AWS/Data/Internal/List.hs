@@ -23,26 +23,21 @@
 
 module Network.AWS.Data.Internal.List where
 
-import           Control.Applicative
 import           Control.Lens                      hiding (coerce, element)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Coerce
 import           Data.Foldable                     (Foldable)
 import           Data.List.NonEmpty                (NonEmpty(..))
-import qualified Data.List.NonEmpty                as NonEmpty
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Proxy
 import           Data.Semigroup                    (Semigroup)
 import           Data.String
-import           Data.Text                         (Text)
 import qualified Data.Text                         as Text
-import           Data.Traversable
 import qualified Data.Vector                       as Vector
 import           GHC.Exts
 import           GHC.TypeLits
-import           Network.AWS.Data.Internal.Flatten
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.XML
 import           Text.XML

@@ -30,6 +30,7 @@ import           Control.Applicative
 import           Control.Lens                         hiding (coerce, element)
 import           Data.Aeson
 import           Data.Bifunctor
+import qualified Data.ByteString.Char8                as BS
 import qualified Data.CaseInsensitive                 as CI
 import           Data.Coerce
 import           Data.Foldable                        (Foldable)
@@ -46,7 +47,6 @@ import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
 import           GHC.TypeLits
 import           Network.AWS.Data.Internal.ByteString
-import           Network.AWS.Data.Internal.Flatten
 import           Network.AWS.Data.Internal.Header
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
@@ -82,8 +82,23 @@ toList = Map.toList . toHashMap
 
 -- Move the x-amz-meta shit into Map witness?
 
--- instance (ToByteString k, ToQuery v) => ToQuery (Map k v) where
---     toQuery = toQuery . map (toQuery . first toBS) . Map.toList . toHashMap
+instance ( KnownSymbol e
+         , KnownSymbol i
+         , KnownSymbol j
+         , Eq k
+         , Hashable k
+         , ToQuery k
+         , ToQuery v
+         ) => ToQuery (Map e i k j v) where
+    toQuery m = toBS e =? (mconcat . zipWith go idx $ toList m)
+      where
+        go n (k, v) = toBS n =? toQuery (i, k) <> toQuery (j, v)
+
+        idx = [1..] :: [Integer]
+
+        i = BS.pack $ symbolVal (Proxy :: Proxy i)
+        j = BS.pack $ symbolVal (Proxy :: Proxy j)
+        e = BS.pack $ symbolVal (Proxy :: Proxy e)
 
 instance ( Eq k
          , Hashable k

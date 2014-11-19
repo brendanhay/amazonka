@@ -121,19 +121,3 @@ instance (KnownSymbol k, ToXML a) => ToXML (List k a) where
 
 instance (KnownSymbol k, ToXML a) => ToXML (List1 k a) where
     toXML = toXML . fromList1
-
--- instance ToQuery a => ToQuery (List1 a) where
---     toQuery = toQuery . toList
-
--- instance ToQuery a => ToQuery (List1 a) where
---     toQuery = toQuery . toList
-
--- instance ToQuery a => ToQuery (List1 a) where
---     toQuery = toQuery . toList
-
-
--- instance FromXML a => FromXML (List1 a) where
---     parseXML = fmap List1 . parseXML
-
--- instance ToXML a => ToXML (List1 a) where
---     toXML = toXML . toList

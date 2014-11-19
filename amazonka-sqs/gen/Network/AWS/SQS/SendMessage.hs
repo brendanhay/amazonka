@@ -101,7 +101,7 @@ smDelaySeconds = lens _smDelaySeconds (\s a -> s { _smDelaySeconds = a })
 smMessageAttributes :: Lens' SendMessage ((HashMap Text MessageAttributeValue))
 smMessageAttributes =
     lens _smMessageAttributes (\s a -> s { _smMessageAttributes = a })
-        . _Map . _Map
+        . _Map
 
 -- | The message to send. String maximum 256 KB in size. For a list of allowed
 -- characters, see the preceding important note.

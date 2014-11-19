@@ -85,7 +85,7 @@ sendMessageBatch p1 p2 = SendMessageBatch
 -- | A list of SendMessageBatchRequestEntry items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a })
-    . _List . _List
+    . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 smbQueueUrl :: Lens' SendMessageBatch Text
@@ -116,12 +116,12 @@ sendMessageBatchResponse p1 p2 = SendMessageBatchResponse
 -- message that could not be enqueued.
 smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
-    . _List . _List
+    . _List
 
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
-    . _List . _List
+    . _List
 
 instance ToPath SendMessageBatch where
     toPath = const "/"

@@ -210,7 +210,7 @@ instance ToJSON (Exposed Type) where
             TType      t -> upperHead t
             TPrim      p -> primitive False p
             TMaybe     x -> "Maybe "     <> wrap (go x)
-            TSensitive x -> wrap (go x)
+            TSensitive x -> go x
             TFlatten   x -> wrap (go x)
 
             TList  _ x   -> "[" <> wrap (go x) <> "]"
@@ -259,7 +259,7 @@ typeMapping t
         TMap       _ _ _ -> maybeToList (typeIso y)
         TMaybe     x     -> wrap (go x)
         TSensitive x     -> maybeToList (typeIso y) ++ go x
-        TFlatten   x     -> maybeToList (typeIso y) ++ go x
+        TFlatten   x     -> go x
 
     wrap (x:xs) = "mapping " <> x : xs
     wrap _      = []

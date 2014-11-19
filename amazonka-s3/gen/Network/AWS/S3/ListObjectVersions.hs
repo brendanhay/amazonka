@@ -200,12 +200,12 @@ listObjectVersionsResponse p1 p2 p3 = ListObjectVersionsResponse
 lovrCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
 lovrCommonPrefixes =
     lens _lovrCommonPrefixes (\s a -> s { _lovrCommonPrefixes = a })
-        . _List . _List
+        . _List
 
 lovrDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
 lovrDeleteMarkers =
     lens _lovrDeleteMarkers (\s a -> s { _lovrDeleteMarkers = a })
-        . _List . _List
+        . _List
 
 lovrDelimiter :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrDelimiter = lens _lovrDelimiter (\s a -> s { _lovrDelimiter = a })
@@ -253,7 +253,7 @@ lovrVersionIdMarker =
 
 lovrVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
 lovrVersions = lens _lovrVersions (\s a -> s { _lovrVersions = a })
-    . _List . _List
+    . _List
 
 instance ToPath ListObjectVersions where
     toPath ListObjectVersions{..} = mconcat

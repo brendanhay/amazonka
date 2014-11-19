@@ -88,7 +88,7 @@ listQueuesResponse p1 = ListQueuesResponse
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueUrls :: Lens' ListQueuesResponse [Text]
 lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
-    . _List . _List
+    . _List
 
 instance ToPath ListQueues where
     toPath = const "/"

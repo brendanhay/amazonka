@@ -176,11 +176,11 @@ listObjectsResponse p1 p2 = ListObjectsResponse
 lorCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
 lorCommonPrefixes =
     lens _lorCommonPrefixes (\s a -> s { _lorCommonPrefixes = a })
-        . _List . _List
+        . _List
 
 lorContents :: Lens' ListObjectsResponse [Object]
 lorContents = lens _lorContents (\s a -> s { _lorContents = a })
-    . _List . _List
+    . _List
 
 lorDelimiter :: Lens' ListObjectsResponse (Maybe Text)
 lorDelimiter = lens _lorDelimiter (\s a -> s { _lorDelimiter = a })

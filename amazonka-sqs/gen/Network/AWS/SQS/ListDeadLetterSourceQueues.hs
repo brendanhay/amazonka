@@ -87,7 +87,7 @@ listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
 -- configured with a dead letter queue.
 ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
-    . _List . _List
+    . _List
 
 instance ToPath ListDeadLetterSourceQueues where
     toPath = const "/"

@@ -203,7 +203,7 @@ lmurBucket = lens _lmurBucket (\s a -> s { _lmurBucket = a })
 lmurCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
 lmurCommonPrefixes =
     lens _lmurCommonPrefixes (\s a -> s { _lmurCommonPrefixes = a })
-        . _List . _List
+        . _List
 
 lmurDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurDelimiter = lens _lmurDelimiter (\s a -> s { _lmurDelimiter = a })
@@ -253,7 +253,7 @@ lmurUploadIdMarker =
 
 lmurUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
 lmurUploads = lens _lmurUploads (\s a -> s { _lmurUploads = a })
-    . _List . _List
+    . _List
 
 instance ToPath ListMultipartUploads where
     toPath ListMultipartUploads{..} = mconcat

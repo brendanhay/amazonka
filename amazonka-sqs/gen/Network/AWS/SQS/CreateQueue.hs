@@ -100,7 +100,7 @@ createQueue p1 p2 = CreateQueue
 -- see Visibility Timeout in the Amazon SQS Developer Guide.
 cqAttributes :: Lens' CreateQueue ((HashMap Text Text))
 cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
-    . _Map . _Map
+    . _Map
 
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text

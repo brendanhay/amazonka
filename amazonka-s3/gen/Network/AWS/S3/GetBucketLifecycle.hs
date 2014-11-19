@@ -82,7 +82,7 @@ getBucketLifecycleResponse p1 = GetBucketLifecycleResponse
 
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a })
-    . _List . _List
+    . _List
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat

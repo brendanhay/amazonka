@@ -206,7 +206,7 @@ lprPartNumberMarker =
 
 lprParts :: Lens' ListPartsResponse [Part]
 lprParts = lens _lprParts (\s a -> s { _lprParts = a })
-    . _List . _List
+    . _List
 
 -- | The class of storage used to store the object.
 lprStorageClass :: Lens' ListPartsResponse (Maybe Text)

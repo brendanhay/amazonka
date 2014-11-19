@@ -94,7 +94,7 @@ setQueueAttributes p1 p2 = SetQueueAttributes
 -- Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
 sqaAttributes :: Lens' SetQueueAttributes ((HashMap Text Text))
 sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
-    . _Map . _Map
+    . _Map
 
 -- | The URL of the Amazon SQS queue to take action on.
 sqaQueueUrl :: Lens' SetQueueAttributes Text

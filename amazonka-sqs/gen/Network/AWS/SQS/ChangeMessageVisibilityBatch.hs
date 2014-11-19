@@ -79,7 +79,7 @@ changeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
 -- timeout must be changed.
 cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
 cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a })
-    . _List . _List
+    . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
@@ -109,12 +109,12 @@ changeMessageVisibilityBatchResponse p1 p2 = ChangeMessageVisibilityBatchRespons
 -- | A list of BatchResultErrorEntry items.
 cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a })
-    . _List . _List
+    . _List
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a })
-    . _List . _List
+    . _List
 
 instance ToPath ChangeMessageVisibilityBatch where
     toPath = const "/"

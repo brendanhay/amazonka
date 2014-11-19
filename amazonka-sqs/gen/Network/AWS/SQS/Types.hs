@@ -434,7 +434,7 @@ message p1 p2 = Message
 -- representing the epoch time in milliseconds.
 mAttributes :: Lens' Message ((HashMap Text Text))
 mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a })
-    . _Map . _Map
+    . _Map
 
 -- | The message's contents (not URL-encoded).
 mBody :: Lens' Message (Maybe Text)
@@ -457,7 +457,7 @@ mMD5OfMessageAttributes =
 mMessageAttributes :: Lens' Message ((HashMap Text MessageAttributeValue))
 mMessageAttributes =
     lens _mMessageAttributes (\s a -> s { _mMessageAttributes = a })
-        . _Map . _Map
+        . _Map
 
 -- | A unique identifier for the message. Message IDs are considered unique
 -- across all AWS accounts for an extended period of time.
@@ -529,7 +529,7 @@ smbreId = lens _smbreId (\s a -> s { _smbreId = a })
 smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry ((HashMap Text MessageAttributeValue))
 smbreMessageAttributes =
     lens _smbreMessageAttributes (\s a -> s { _smbreMessageAttributes = a })
-        . _Map . _Map
+        . _Map
 
 -- | Body of the message.
 smbreMessageBody :: Lens' SendMessageBatchRequestEntry Text

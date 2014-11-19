@@ -1335,21 +1335,21 @@ corsrule p1 p2 p3 p4 = CORSRule
 corsrAllowedHeaders :: Lens' CORSRule [Text]
 corsrAllowedHeaders =
     lens _corsrAllowedHeaders (\s a -> s { _corsrAllowedHeaders = a })
-        . _List . _List
+        . _List
 
 -- | Identifies HTTP methods that the domain/origin specified in the rule is
 -- allowed to execute.
 corsrAllowedMethods :: Lens' CORSRule [Text]
 corsrAllowedMethods =
     lens _corsrAllowedMethods (\s a -> s { _corsrAllowedMethods = a })
-        . _List . _List
+        . _List
 
 -- | One or more origins you want customers to be able to access the bucket
 -- from.
 corsrAllowedOrigins :: Lens' CORSRule [Text]
 corsrAllowedOrigins =
     lens _corsrAllowedOrigins (\s a -> s { _corsrAllowedOrigins = a })
-        . _List . _List
+        . _List
 
 -- | One or more headers in the response that you want customers to be able to
 -- access from their applications (for example, from a JavaScript
@@ -1357,7 +1357,7 @@ corsrAllowedOrigins =
 corsrExposeHeaders :: Lens' CORSRule [Text]
 corsrExposeHeaders =
     lens _corsrExposeHeaders (\s a -> s { _corsrExposeHeaders = a })
-        . _List . _List
+        . _List
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
@@ -1810,7 +1810,7 @@ tcEvent = lens _tcEvent (\s a -> s { _tcEvent = a })
 
 tcEvents :: Lens' TopicConfiguration [Text]
 tcEvents = lens _tcEvents (\s a -> s { _tcEvents = a })
-    . _List . _List
+    . _List
 
 tcId :: Lens' TopicConfiguration (Maybe Text)
 tcId = lens _tcId (\s a -> s { _tcId = a })
@@ -1871,7 +1871,7 @@ qcEvent = lens _qcEvent (\s a -> s { _qcEvent = a })
 
 qcEvents :: Lens' QueueConfiguration [Text]
 qcEvents = lens _qcEvents (\s a -> s { _qcEvents = a })
-    . _List . _List
+    . _List
 
 qcId :: Lens' QueueConfiguration (Maybe Text)
 qcId = lens _qcId (\s a -> s { _qcId = a })
@@ -2496,7 +2496,7 @@ corsconfiguration p1 = CORSConfiguration
 
 corscCORSRules :: Lens' CORSConfiguration [CORSRule]
 corscCORSRules = lens _corscCORSRules (\s a -> s { _corscCORSRules = a })
-    . _List . _List
+    . _List
 
 instance FromXML CORSConfiguration where
     parseXML x = CORSConfiguration
@@ -2770,7 +2770,7 @@ completedMultipartUpload p1 = CompletedMultipartUpload
 
 cmuParts :: Lens' CompletedMultipartUpload [CompletedPart]
 cmuParts = lens _cmuParts (\s a -> s { _cmuParts = a })
-    . _List . _List
+    . _List
 
 instance FromXML CompletedMultipartUpload where
     parseXML x = CompletedMultipartUpload
@@ -3007,7 +3007,7 @@ cfcEvent = lens _cfcEvent (\s a -> s { _cfcEvent = a })
 
 cfcEvents :: Lens' CloudFunctionConfiguration [Text]
 cfcEvents = lens _cfcEvents (\s a -> s { _cfcEvents = a })
-    . _List . _List
+    . _List
 
 cfcId :: Lens' CloudFunctionConfiguration (Maybe Text)
 cfcId = lens _cfcId (\s a -> s { _cfcId = a })
@@ -3126,7 +3126,7 @@ lifecycleConfiguration p1 = LifecycleConfiguration
 
 lcRules :: Lens' LifecycleConfiguration [Rule]
 lcRules = lens _lcRules (\s a -> s { _lcRules = a })
-    . _List . _List
+    . _List
 
 instance FromXML LifecycleConfiguration where
     parseXML x = LifecycleConfiguration
@@ -3316,7 +3316,7 @@ delete' p1 = Delete
 
 dObjects :: Lens' Delete [ObjectIdentifier]
 dObjects = lens _dObjects (\s a -> s { _dObjects = a })
-    . _List . _List
+    . _List
 
 -- | Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.

@@ -95,7 +95,7 @@ getQueueAttributes p1 p2 = GetQueueAttributes
 gqaAttributeNames :: Lens' GetQueueAttributes [Text]
 gqaAttributeNames =
     lens _gqaAttributeNames (\s a -> s { _gqaAttributeNames = a })
-        . _List . _List
+        . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 gqaQueueUrl :: Lens' GetQueueAttributes Text
@@ -120,7 +120,7 @@ getQueueAttributesResponse p1 = GetQueueAttributesResponse
 -- | A map of attributes to the respective values.
 gqarAttributes :: Lens' GetQueueAttributesResponse ((HashMap Text Text))
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
-    . _Map . _Map
+    . _Map
 
 instance ToPath GetQueueAttributes where
     toPath = const "/"

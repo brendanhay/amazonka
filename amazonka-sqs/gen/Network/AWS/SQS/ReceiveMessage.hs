@@ -120,7 +120,7 @@ receiveMessage p1 p2 p3 = ReceiveMessage
 -- time in milliseconds).
 rmAttributeNames :: Lens' ReceiveMessage [Text]
 rmAttributeNames = lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a })
-    . _List . _List
+    . _List
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value but may return fewer. Values can be from 1 to
@@ -140,7 +140,7 @@ rmMaxNumberOfMessages =
 rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
 rmMessageAttributeNames =
     lens _rmMessageAttributeNames (\s a -> s { _rmMessageAttributeNames = a })
-        . _List . _List
+        . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 rmQueueUrl :: Lens' ReceiveMessage Text
@@ -179,7 +179,7 @@ receiveMessageResponse p1 = ReceiveMessageResponse
 -- | A list of messages.
 rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
-    . _List . _List
+    . _List
 
 instance ToPath ReceiveMessage where
     toPath = const "/"

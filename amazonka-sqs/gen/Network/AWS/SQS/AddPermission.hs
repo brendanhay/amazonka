@@ -89,7 +89,7 @@ addPermission p1 p2 p3 p4 = AddPermission
 -- Guide.
 apAWSAccountIds :: Lens' AddPermission [Text]
 apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
-    . _List . _List
+    . _List
 
 -- | The action the client wants to allow for the specified principal. The
 -- following are valid values: * | SendMessage | ReceiveMessage |
@@ -101,7 +101,7 @@ apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
 -- SendMessageBatch, DeleteMessageBatch, and ChangeMessageVisibilityBatch.
 apActions :: Lens' AddPermission [Text]
 apActions = lens _apActions (\s a -> s { _apActions = a })
-    . _List . _List
+    . _List
 
 -- | The unique identification of the permission you're setting (e.g.,
 -- AliceSendMessage). Constraints: Maximum 80 characters; alphanumeric

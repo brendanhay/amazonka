@@ -109,16 +109,16 @@ newtype GetQueueAttributesResponse = GetQueueAttributesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqarAttributes' @::@ ('HashMap' 'Text' 'Text')
+-- * 'gqarAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
-getQueueAttributesResponse :: (HashMap Text Text) -- ^ 'gqarAttributes'
+getQueueAttributesResponse :: HashMap Text Text -- ^ 'gqarAttributes'
                            -> GetQueueAttributesResponse
 getQueueAttributesResponse p1 = GetQueueAttributesResponse
     { _gqarAttributes = withIso _Map (const id) p1
     }
 
 -- | A map of attributes to the respective values.
-gqarAttributes :: Lens' GetQueueAttributesResponse ((HashMap Text Text))
+gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
     . _Map
 

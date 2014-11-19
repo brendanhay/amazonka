@@ -401,7 +401,7 @@ data Message = Message
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mAttributes' @::@ ('HashMap' 'Text' 'Text')
+-- * 'mAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
 -- * 'mBody' @::@ 'Maybe' 'Text'
 --
@@ -409,14 +409,14 @@ data Message = Message
 --
 -- * 'mMD5OfMessageAttributes' @::@ 'Maybe' 'Text'
 --
--- * 'mMessageAttributes' @::@ ('HashMap' 'Text' 'MessageAttributeValue')
+-- * 'mMessageAttributes' @::@ 'HashMap' 'Text' 'MessageAttributeValue'
 --
 -- * 'mMessageId' @::@ 'Maybe' 'Text'
 --
 -- * 'mReceiptHandle' @::@ 'Maybe' 'Text'
 --
-message :: (HashMap Text Text) -- ^ 'mAttributes'
-        -> (HashMap Text MessageAttributeValue) -- ^ 'mMessageAttributes'
+message :: HashMap Text Text -- ^ 'mAttributes'
+        -> HashMap Text MessageAttributeValue -- ^ 'mMessageAttributes'
         -> Message
 message p1 p2 = Message
     { _mAttributes             = withIso _Map (const id) p1
@@ -432,7 +432,7 @@ message p1 p2 = Message
 -- ApproximateFirstReceiveTimestamp. SentTimestamp and
 -- ApproximateFirstReceiveTimestamp are each returned as an integer
 -- representing the epoch time in milliseconds.
-mAttributes :: Lens' Message ((HashMap Text Text))
+mAttributes :: Lens' Message (HashMap Text Text)
 mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a })
     . _Map
 
@@ -454,7 +454,7 @@ mMD5OfMessageAttributes =
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-mMessageAttributes :: Lens' Message ((HashMap Text MessageAttributeValue))
+mMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
 mMessageAttributes =
     lens _mMessageAttributes (\s a -> s { _mMessageAttributes = a })
         . _Map
@@ -498,13 +498,13 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
 --
 -- * 'smbreId' @::@ 'Text'
 --
--- * 'smbreMessageAttributes' @::@ ('HashMap' 'Text' 'MessageAttributeValue')
+-- * 'smbreMessageAttributes' @::@ 'HashMap' 'Text' 'MessageAttributeValue'
 --
 -- * 'smbreMessageBody' @::@ 'Text'
 --
 sendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
                              -> Text -- ^ 'smbreMessageBody'
-                             -> (HashMap Text MessageAttributeValue) -- ^ 'smbreMessageAttributes'
+                             -> HashMap Text MessageAttributeValue -- ^ 'smbreMessageAttributes'
                              -> SendMessageBatchRequestEntry
 sendMessageBatchRequestEntry p1 p2 p3 = SendMessageBatchRequestEntry
     { _smbreId                = p1
@@ -526,7 +526,7 @@ smbreId = lens _smbreId (\s a -> s { _smbreId = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry ((HashMap Text MessageAttributeValue))
+smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
 smbreMessageAttributes =
     lens _smbreMessageAttributes (\s a -> s { _smbreMessageAttributes = a })
         . _Map

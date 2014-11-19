@@ -56,12 +56,12 @@ data SetQueueAttributes = SetQueueAttributes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sqaAttributes' @::@ ('HashMap' 'Text' 'Text')
+-- * 'sqaAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
 -- * 'sqaQueueUrl' @::@ 'Text'
 --
 setQueueAttributes :: Text -- ^ 'sqaQueueUrl'
-                   -> (HashMap Text Text) -- ^ 'sqaAttributes'
+                   -> HashMap Text Text -- ^ 'sqaAttributes'
                    -> SetQueueAttributes
 setQueueAttributes p1 p2 = SetQueueAttributes
     { _sqaQueueUrl   = p1
@@ -92,7 +92,7 @@ setQueueAttributes p1 p2 = SetQueueAttributes
 -- The parameters for dead letter queue functionality of the source queue.
 -- For more information about RedrivePolicy and dead letter queues, see
 -- Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
-sqaAttributes :: Lens' SetQueueAttributes ((HashMap Text Text))
+sqaAttributes :: Lens' SetQueueAttributes (HashMap Text Text)
 sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
     . _Map
 

@@ -65,12 +65,12 @@ data CreateQueue = CreateQueue
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cqAttributes' @::@ ('HashMap' 'Text' 'Text')
+-- * 'cqAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
 -- * 'cqQueueName' @::@ 'Text'
 --
 createQueue :: Text -- ^ 'cqQueueName'
-            -> (HashMap Text Text) -- ^ 'cqAttributes'
+            -> HashMap Text Text -- ^ 'cqAttributes'
             -> CreateQueue
 createQueue p1 p2 = CreateQueue
     { _cqQueueName  = p1
@@ -98,7 +98,7 @@ createQueue p1 p2 = CreateQueue
 -- timeout for the queue. An integer from 0 to 43200 (12 hours). The default
 -- for this attribute is 30. For more information about visibility timeout,
 -- see Visibility Timeout in the Amazon SQS Developer Guide.
-cqAttributes :: Lens' CreateQueue ((HashMap Text Text))
+cqAttributes :: Lens' CreateQueue (HashMap Text Text)
 cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
     . _Map
 

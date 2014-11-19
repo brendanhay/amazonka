@@ -72,7 +72,7 @@ data SendMessage = SendMessage
 --
 -- * 'smDelaySeconds' @::@ 'Maybe' 'Int'
 --
--- * 'smMessageAttributes' @::@ ('HashMap' 'Text' 'MessageAttributeValue')
+-- * 'smMessageAttributes' @::@ 'HashMap' 'Text' 'MessageAttributeValue'
 --
 -- * 'smMessageBody' @::@ 'Text'
 --
@@ -80,7 +80,7 @@ data SendMessage = SendMessage
 --
 sendMessage :: Text -- ^ 'smQueueUrl'
             -> Text -- ^ 'smMessageBody'
-            -> (HashMap Text MessageAttributeValue) -- ^ 'smMessageAttributes'
+            -> HashMap Text MessageAttributeValue -- ^ 'smMessageAttributes'
             -> SendMessage
 sendMessage p1 p2 p3 = SendMessage
     { _smQueueUrl          = p1
@@ -98,7 +98,7 @@ smDelaySeconds = lens _smDelaySeconds (\s a -> s { _smDelaySeconds = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-smMessageAttributes :: Lens' SendMessage ((HashMap Text MessageAttributeValue))
+smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
 smMessageAttributes =
     lens _smMessageAttributes (\s a -> s { _smMessageAttributes = a })
         . _Map

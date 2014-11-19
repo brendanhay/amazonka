@@ -11,18 +11,14 @@ instance ToXML {{ type.name }} where
   {% if type.contents | empty %}
     toXML = const (nodes "{{ type.name }}" [])
   {% else %}
-    toXML {{ type.name }}{..} = nodes "{{ type.name }}" $
+    toXML {{ type.name }}{..} = nodes "{{ type.name }}"
     {% for field in type.contents %}
-      {% if !field.value.flattened %}
+      {% if field.value.flattened %}
+        {% include "list.ede" %} {{ "unsafeToXML" | justifyLeft(type.contentPad) }}     {{ field.value.name }}
+      {% else %}
         {% include "list.ede" %} "{{ field.value.locationName | concat("\"") | justifyLeft(type.contentPad) }} =@ {{ field.value.name }}
       {% endif %}
     {% endfor %}
         ]
-    {% for field in type.contents %}
-      {% if field.value.flattened %}
-          ++ toXML {{ field.value.name }}
-      {% endif %}
-    {% else %}
-    {% endfor %}
   {% endif %}
 {% endcase %}

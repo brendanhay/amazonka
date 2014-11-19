@@ -36,6 +36,7 @@ module Network.AWS.Data.Internal.XML
     , element
     , nodes
     , (=@)
+    , unsafeToXML
     ) where
 
 import           Control.Applicative
@@ -115,6 +116,14 @@ nodes n ns = [NodeElement (element n ns)]
 (=@) :: ToXML a => Name -> a -> Node
 n =@ x = NodeElement (element n (toXML x))
 {-# INLINE (=@) #-}
+
+-- | /Caution:/ This is for use with types which are 'flattened' in
+-- AWS service model terminology. It is applied by the generator/templating
+-- in safe contexts only.
+unsafeToXML :: (Show a, ToXML a) => a -> Node
+unsafeToXML x =
+    fromMaybe (error $ "Failed to unflatten unexpected node-list: " ++ show a)
+              (listToMaybe (toXML x))
 
 withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a
 withContent n f = withNode n (join . fmap f . g)

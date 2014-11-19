@@ -122,7 +122,7 @@ n =@ x = NodeElement (element n (toXML x))
 -- in safe contexts only.
 unsafeToXML :: (Show a, ToXML a) => a -> Node
 unsafeToXML x =
-    fromMaybe (error $ "Failed to unflatten unexpected node-list: " ++ show a)
+    fromMaybe (error $ "Failed to unflatten node-list for: " ++ show x)
               (listToMaybe (toXML x))
 
 withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a

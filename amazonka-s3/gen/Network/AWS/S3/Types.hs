@@ -497,7 +497,7 @@ instance FromXML NoncurrentVersionExpiration where
         <$> x .@  "NoncurrentDays"
 
 instance ToXML NoncurrentVersionExpiration where
-    toXML NoncurrentVersionExpiration{..} = nodes "NoncurrentVersionExpiration"
+    toXML NoncurrentVersionExpiration{..} = nodes "NoncurrentVersionExpiration" $
         [ "NoncurrentDays" =@ _nveNoncurrentDays
         ]
 
@@ -545,7 +545,7 @@ instance FromXML Transition where
         <*> x .@? "StorageClass"
 
 instance ToXML Transition where
-    toXML Transition{..} = nodes "Transition"
+    toXML Transition{..} = nodes "Transition" $
         [ "Date"         =@ _tDate
         , "Days"         =@ _tDays
         , "StorageClass" =@ _tStorageClass
@@ -611,7 +611,7 @@ instance FromXML DeleteMarkerEntry where
         <*> x .@? "VersionId"
 
 instance ToXML DeleteMarkerEntry where
-    toXML DeleteMarkerEntry{..} = nodes "DeleteMarkerEntry"
+    toXML DeleteMarkerEntry{..} = nodes "DeleteMarkerEntry" $
         [ "Owner"        =@ _dmeOwner
         , "Key"          =@ _dmeKey
         , "VersionId"    =@ _dmeVersionId
@@ -692,7 +692,7 @@ instance FromXML Part where
         <*> x .@? "Size"
 
 instance ToXML Part where
-    toXML Part{..} = nodes "Part"
+    toXML Part{..} = nodes "Part" $
         [ "PartNumber"   =@ _pPartNumber
         , "LastModified" =@ _pLastModified
         , "ETag"         =@ _pETag
@@ -735,7 +735,7 @@ instance FromXML VersioningConfiguration where
         <*> x .@? "Status"
 
 instance ToXML VersioningConfiguration where
-    toXML VersioningConfiguration{..} = nodes "VersioningConfiguration"
+    toXML VersioningConfiguration{..} = nodes "VersioningConfiguration" $
         [ "MfaDelete" =@ _vcMFADelete
         , "Status"    =@ _vcStatus
         ]
@@ -775,7 +775,7 @@ instance FromXML Tag where
         <*> x .@  "Value"
 
 instance ToXML Tag where
-    toXML Tag{..} = nodes "Tag"
+    toXML Tag{..} = nodes "Tag" $
         [ "Key"   =@ _tagKey
         , "Value" =@ _tagValue
         ]
@@ -862,7 +862,7 @@ instance FromXML RedirectAllRequestsTo where
         <*> x .@? "Protocol"
 
 instance ToXML RedirectAllRequestsTo where
-    toXML RedirectAllRequestsTo{..} = nodes "RedirectAllRequestsTo"
+    toXML RedirectAllRequestsTo{..} = nodes "RedirectAllRequestsTo" $
         [ "HostName" =@ _rartHostName
         , "Protocol" =@ _rartProtocol
         ]
@@ -907,7 +907,7 @@ instance FromXML RoutingRule where
         <*> x .@  "Redirect"
 
 instance ToXML RoutingRule where
-    toXML RoutingRule{..} = nodes "RoutingRule"
+    toXML RoutingRule{..} = nodes "RoutingRule" $
         [ "Condition" =@ _rrCondition
         , "Redirect"  =@ _rrRedirect
         ]
@@ -955,7 +955,7 @@ instance FromXML NotificationConfiguration where
         <*> x .@? "TopicConfiguration"
 
 instance ToXML NotificationConfiguration where
-    toXML NotificationConfiguration{..} = nodes "NotificationConfiguration"
+    toXML NotificationConfiguration{..} = nodes "NotificationConfiguration" $
         [ "TopicConfiguration"         =@ _ncTopicConfiguration
         , "QueueConfiguration"         =@ _ncQueueConfiguration
         , "CloudFunctionConfiguration" =@ _ncCloudFunctionConfiguration
@@ -1122,7 +1122,7 @@ instance FromXML DeletedObject where
         <*> x .@? "VersionId"
 
 instance ToXML DeletedObject where
-    toXML DeletedObject{..} = nodes "DeletedObject"
+    toXML DeletedObject{..} = nodes "DeletedObject" $
         [ "Key"                   =@ _do1Key
         , "VersionId"             =@ _do1VersionId
         , "DeleteMarker"          =@ _do1DeleteMarker
@@ -1180,7 +1180,7 @@ instance FromXML CopyPartResult where
         <*> x .@? "LastModified"
 
 instance ToXML CopyPartResult where
-    toXML CopyPartResult{..} = nodes "CopyPartResult"
+    toXML CopyPartResult{..} = nodes "CopyPartResult" $
         [ "ETag"         =@ _cprETag
         , "LastModified" =@ _cprLastModified
         ]
@@ -1228,7 +1228,7 @@ instance FromXML RequestPaymentConfiguration where
         <$> x .@  "Payer"
 
 instance ToXML RequestPaymentConfiguration where
-    toXML RequestPaymentConfiguration{..} = nodes "RequestPaymentConfiguration"
+    toXML RequestPaymentConfiguration{..} = nodes "RequestPaymentConfiguration" $
         [ "Payer" =@ _rpcPayer
         ]
 
@@ -1310,13 +1310,13 @@ instance FromXML CORSRule where
         <*> x .@? "MaxAgeSeconds"
 
 instance ToXML CORSRule where
-    toXML CORSRule{..} = nodes "CORSRule"
-        [ toXML              _corsrAllowedHeaders
-        , toXML              _corsrAllowedMethods
-        , toXML              _corsrAllowedOrigins
-        , toXML              _corsrExposeHeaders
+    toXML CORSRule{..} = nodes "CORSRule" $
         , "MaxAgeSeconds" =@ _corsrMaxAgeSeconds
         ]
+          ++ toXML _corsrAllowedHeaders
+          ++ toXML _corsrAllowedMethods
+          ++ toXML _corsrAllowedOrigins
+          ++ toXML _corsrExposeHeaders
 
 data WebsiteConfiguration = WebsiteConfiguration
     { _wcErrorDocument         :: Maybe ErrorDocument
@@ -1366,7 +1366,7 @@ instance FromXML WebsiteConfiguration where
         <*> x .@  "RoutingRules"
 
 instance ToXML WebsiteConfiguration where
-    toXML WebsiteConfiguration{..} = nodes "WebsiteConfiguration"
+    toXML WebsiteConfiguration{..} = nodes "WebsiteConfiguration" $
         [ "ErrorDocument"         =@ _wcErrorDocument
         , "IndexDocument"         =@ _wcIndexDocument
         , "RedirectAllRequestsTo" =@ _wcRedirectAllRequestsTo
@@ -1412,7 +1412,7 @@ instance FromXML NoncurrentVersionTransition where
         <*> x .@  "StorageClass"
 
 instance ToXML NoncurrentVersionTransition where
-    toXML NoncurrentVersionTransition{..} = nodes "NoncurrentVersionTransition"
+    toXML NoncurrentVersionTransition{..} = nodes "NoncurrentVersionTransition" $
         [ "NoncurrentDays" =@ _nvtNoncurrentDays
         , "StorageClass"   =@ _nvtStorageClass
         ]
@@ -1451,7 +1451,7 @@ instance FromXML Initiator where
         <*> x .@? "ID"
 
 instance ToXML Initiator where
-    toXML Initiator{..} = nodes "Initiator"
+    toXML Initiator{..} = nodes "Initiator" $
         [ "ID"          =@ _iID
         , "DisplayName" =@ _iDisplayName
         ]
@@ -1490,7 +1490,7 @@ instance FromXML ObjectIdentifier where
         <*> x .@? "VersionId"
 
 instance ToXML ObjectIdentifier where
-    toXML ObjectIdentifier{..} = nodes "ObjectIdentifier"
+    toXML ObjectIdentifier{..} = nodes "ObjectIdentifier" $
         [ "Key"       =@ _oiKey
         , "VersionId" =@ _oiVersionId
         ]
@@ -1528,7 +1528,7 @@ instance FromXML Bucket where
         <*> x .@? "Name"
 
 instance ToXML Bucket where
-    toXML Bucket{..} = nodes "Bucket"
+    toXML Bucket{..} = nodes "Bucket" $
         [ "Name"         =@ _bName
         , "CreationDate" =@ _bCreationDate
         ]
@@ -1676,7 +1676,7 @@ instance FromXML Rule where
         <*> x .@? "Transition"
 
 instance ToXML Rule where
-    toXML Rule{..} = nodes "Rule"
+    toXML Rule{..} = nodes "Rule" $
         [ "Expiration"                  =@ _rExpiration
         , "ID"                          =@ _rID
         , "Prefix"                      =@ _rPrefix
@@ -1737,12 +1737,12 @@ instance FromXML TopicConfiguration where
         <*> x .@? "Topic"
 
 instance ToXML TopicConfiguration where
-    toXML TopicConfiguration{..} = nodes "TopicConfiguration"
+    toXML TopicConfiguration{..} = nodes "TopicConfiguration" $
         [ "Id"    =@ _tcId
-        , toXML      _tcEvents
         , "Event" =@ _tcEvent
         , "Topic" =@ _tcTopic
         ]
+          ++ toXML _tcEvents
 
 data QueueConfiguration = QueueConfiguration
     { _qcEvent  :: Maybe Text
@@ -1792,12 +1792,12 @@ instance FromXML QueueConfiguration where
         <*> x .@? "Queue"
 
 instance ToXML QueueConfiguration where
-    toXML QueueConfiguration{..} = nodes "QueueConfiguration"
+    toXML QueueConfiguration{..} = nodes "QueueConfiguration" $
         [ "Id"    =@ _qcId
         , "Event" =@ _qcEvent
-        , toXML      _qcEvents
         , "Queue" =@ _qcQueue
         ]
+          ++ toXML _qcEvents
 
 data Owner = Owner
     { _oDisplayName :: Maybe Text
@@ -1861,7 +1861,7 @@ instance FromXML BucketLoggingStatus where
         <$> x .@? "LoggingEnabled"
 
 instance ToXML BucketLoggingStatus where
-    toXML BucketLoggingStatus{..} = nodes "BucketLoggingStatus"
+    toXML BucketLoggingStatus{..} = nodes "BucketLoggingStatus" $
         [ "LoggingEnabled" =@ _blsLoggingEnabled
         ]
 
@@ -1890,7 +1890,7 @@ instance FromXML ErrorDocument where
         <$> x .@  "Key"
 
 instance ToXML ErrorDocument where
-    toXML ErrorDocument{..} = nodes "ErrorDocument"
+    toXML ErrorDocument{..} = nodes "ErrorDocument" $
         [ "Key" =@ _edKey
         ]
 
@@ -2002,7 +2002,7 @@ instance FromXML ObjectVersion where
         <*> x .@? "VersionId"
 
 instance ToXML ObjectVersion where
-    toXML ObjectVersion{..} = nodes "ObjectVersion"
+    toXML ObjectVersion{..} = nodes "ObjectVersion" $
         [ "ETag"         =@ _ovETag
         , "Size"         =@ _ovSize
         , "StorageClass" =@ _ovStorageClass
@@ -2045,7 +2045,7 @@ instance FromXML TargetGrant where
         <*> x .@? "Permission"
 
 instance ToXML TargetGrant where
-    toXML TargetGrant{..} = nodes "TargetGrant"
+    toXML TargetGrant{..} = nodes "TargetGrant" $
         [ "Grantee"    =@ _tgGrantee
         , "Permission" =@ _tgPermission
         ]
@@ -2165,7 +2165,7 @@ instance FromXML Redirect where
         <*> x .@? "ReplaceKeyWith"
 
 instance ToXML Redirect where
-    toXML Redirect{..} = nodes "Redirect"
+    toXML Redirect{..} = nodes "Redirect" $
         [ "HostName"             =@ _rHostName
         , "HttpRedirectCode"     =@ _rHttpRedirectCode
         , "Protocol"             =@ _rProtocol
@@ -2231,7 +2231,7 @@ instance FromXML CompletedPart where
         <*> x .@? "PartNumber"
 
 instance ToXML CompletedPart where
-    toXML CompletedPart{..} = nodes "CompletedPart"
+    toXML CompletedPart{..} = nodes "CompletedPart" $
         [ "ETag"       =@ _cpETag
         , "PartNumber" =@ _cpPartNumber
         ]
@@ -2261,7 +2261,7 @@ instance FromXML CreateBucketConfiguration where
         <$> x .@? "LocationConstraint"
 
 instance ToXML CreateBucketConfiguration where
-    toXML CreateBucketConfiguration{..} = nodes "CreateBucketConfiguration"
+    toXML CreateBucketConfiguration{..} = nodes "CreateBucketConfiguration" $
         [ "LocationConstraint" =@ _cbcLocationConstraint
         ]
 
@@ -2294,7 +2294,7 @@ instance FromXML Tagging where
         <$> x .@  "TagSet"
 
 instance ToXML Tagging where
-    toXML Tagging{..} = nodes "Tagging"
+    toXML Tagging{..} = nodes "Tagging" $
         [ "TagSet" =@ _tTagSet
         ]
 
@@ -2333,7 +2333,7 @@ instance FromXML LifecycleExpiration where
         <*> x .@? "Days"
 
 instance ToXML LifecycleExpiration where
-    toXML LifecycleExpiration{..} = nodes "LifecycleExpiration"
+    toXML LifecycleExpiration{..} = nodes "LifecycleExpiration" $
         [ "Date" =@ _leDate
         , "Days" =@ _leDays
         ]
@@ -2362,9 +2362,9 @@ instance FromXML CORSConfiguration where
         <$> parseXML x
 
 instance ToXML CORSConfiguration where
-    toXML CORSConfiguration{..} = nodes "CORSConfiguration"
-        [ toXML     _corscCORSRules
+    toXML CORSConfiguration{..} = nodes "CORSConfiguration" $
         ]
+          ++ toXML _corscCORSRules
 
 data Object = Object
     { _oETag         :: Text
@@ -2436,7 +2436,7 @@ instance FromXML Object where
         <*> x .@  "StorageClass"
 
 instance ToXML Object where
-    toXML Object{..} = nodes "Object"
+    toXML Object{..} = nodes "Object" $
         [ "Key"          =@ _oKey
         , "LastModified" =@ _oLastModified
         , "ETag"         =@ _oETag
@@ -2542,7 +2542,7 @@ instance FromXML MultipartUpload where
         <*> x .@? "UploadId"
 
 instance ToXML MultipartUpload where
-    toXML MultipartUpload{..} = nodes "MultipartUpload"
+    toXML MultipartUpload{..} = nodes "MultipartUpload" $
         [ "UploadId"     =@ _muUploadId
         , "Key"          =@ _muKey
         , "Initiated"    =@ _muInitiated
@@ -2618,9 +2618,9 @@ instance FromXML CompletedMultipartUpload where
         <$> parseXML x
 
 instance ToXML CompletedMultipartUpload where
-    toXML CompletedMultipartUpload{..} = nodes "CompletedMultipartUpload"
-        [ toXML     _cmuParts
+    toXML CompletedMultipartUpload{..} = nodes "CompletedMultipartUpload" $
         ]
+          ++ toXML _cmuParts
 
 data Condition = Condition
     { _cHttpErrorCodeReturnedEquals :: Maybe Text
@@ -2667,7 +2667,7 @@ instance FromXML Condition where
         <*> x .@? "KeyPrefixEquals"
 
 instance ToXML Condition where
-    toXML Condition{..} = nodes "Condition"
+    toXML Condition{..} = nodes "Condition" $
         [ "HttpErrorCodeReturnedEquals" =@ _cHttpErrorCodeReturnedEquals
         , "KeyPrefixEquals"             =@ _cKeyPrefixEquals
         ]
@@ -2849,13 +2849,13 @@ instance FromXML CloudFunctionConfiguration where
         <*> x .@? "InvocationRole"
 
 instance ToXML CloudFunctionConfiguration where
-    toXML CloudFunctionConfiguration{..} = nodes "CloudFunctionConfiguration"
+    toXML CloudFunctionConfiguration{..} = nodes "CloudFunctionConfiguration" $
         [ "Id"             =@ _cfcId
         , "Event"          =@ _cfcEvent
-        , toXML               _cfcEvents
         , "CloudFunction"  =@ _cfcCloudFunction
         , "InvocationRole" =@ _cfcInvocationRole
         ]
+          ++ toXML _cfcEvents
 
 data Grantee = Grantee
     { _gDisplayName  :: Maybe Text
@@ -2918,7 +2918,7 @@ instance FromXML Grantee where
         <*> x .@? "URI"
 
 instance ToXML Grantee where
-    toXML Grantee{..} = nodes "Grantee"
+    toXML Grantee{..} = nodes "Grantee" $
         [ "DisplayName"  =@ _gDisplayName
         , "EmailAddress" =@ _gEmailAddress
         , "ID"           =@ _gID
@@ -2950,9 +2950,9 @@ instance FromXML LifecycleConfiguration where
         <$> parseXML x
 
 instance ToXML LifecycleConfiguration where
-    toXML LifecycleConfiguration{..} = nodes "LifecycleConfiguration"
-        [ toXML     _lcRules
+    toXML LifecycleConfiguration{..} = nodes "LifecycleConfiguration" $
         ]
+          ++ toXML _lcRules
 
 data LoggingEnabled = LoggingEnabled
     { _leTargetBucket :: Maybe Text
@@ -3001,7 +3001,7 @@ instance FromXML LoggingEnabled where
         <*> x .@? "TargetPrefix"
 
 instance ToXML LoggingEnabled where
-    toXML LoggingEnabled{..} = nodes "LoggingEnabled"
+    toXML LoggingEnabled{..} = nodes "LoggingEnabled" $
         [ "TargetBucket" =@ _leTargetBucket
         , "TargetGrants" =@ _leTargetGrants
         , "TargetPrefix" =@ _leTargetPrefix
@@ -3054,7 +3054,7 @@ instance FromXML IndexDocument where
         <$> x .@  "Suffix"
 
 instance ToXML IndexDocument where
-    toXML IndexDocument{..} = nodes "IndexDocument"
+    toXML IndexDocument{..} = nodes "IndexDocument" $
         [ "Suffix" =@ _idSuffix
         ]
 
@@ -3089,7 +3089,7 @@ instance FromXML CopyObjectResult where
         <*> x .@? "LastModified"
 
 instance ToXML CopyObjectResult where
-    toXML CopyObjectResult{..} = nodes "CopyObjectResult"
+    toXML CopyObjectResult{..} = nodes "CopyObjectResult" $
         [ "ETag"         =@ _corETag
         , "LastModified" =@ _corLastModified
         ]
@@ -3128,10 +3128,10 @@ instance FromXML Delete where
         <*> x .@? "Quiet"
 
 instance ToXML Delete where
-    toXML Delete{..} = nodes "Delete"
-        [ toXML       _dObjects
+    toXML Delete{..} = nodes "Delete" $
         , "Quiet"  =@ _dQuiet
         ]
+          ++ toXML _dObjects
 
 newtype RestoreRequest = RestoreRequest
     { _rDays :: Int
@@ -3158,6 +3158,6 @@ instance FromXML RestoreRequest where
         <$> x .@  "Days"
 
 instance ToXML RestoreRequest where
-    toXML RestoreRequest{..} = nodes "RestoreRequest"
+    toXML RestoreRequest{..} = nodes "RestoreRequest" $
         [ "Days" =@ _rDays
         ]

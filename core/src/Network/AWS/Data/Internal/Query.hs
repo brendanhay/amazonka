@@ -109,6 +109,7 @@ renderQuery = intercalate . sort . enc Nothing
 
 class ToQuery a where
     toQuery :: a -> Query
+    toQuery = const mempty
 
 instance ToQuery Query where
     toQuery = id

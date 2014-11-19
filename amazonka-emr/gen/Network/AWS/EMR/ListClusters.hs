@@ -151,3 +151,7 @@ instance FromJSON ListClustersResponse where
     parseJSON = withObject "ListClustersResponse" $ \o -> ListClustersResponse
         <$> o .: "Clusters"
         <*> o .:? "Marker"
+
+instance AWSPager ListClusters where
+    next rq rs = (\x -> rq & lcMarker ?~ x)
+        <$> (rs ^. lcrMarker)

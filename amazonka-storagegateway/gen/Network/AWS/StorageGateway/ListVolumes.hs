@@ -154,3 +154,7 @@ instance FromJSON ListVolumesResponse where
         <$> o .:? "GatewayARN"
         <*> o .:? "Marker"
         <*> o .: "VolumeInfos"
+
+instance AWSPager ListVolumes where
+    next rq rs = (\x -> rq & lvMarker ?~ x)
+        <$> (rs ^. lvrMarker)

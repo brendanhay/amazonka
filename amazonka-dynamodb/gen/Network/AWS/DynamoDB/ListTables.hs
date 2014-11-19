@@ -143,3 +143,7 @@ instance FromJSON ListTablesResponse where
     parseJSON = withObject "ListTablesResponse" $ \o -> ListTablesResponse
         <$> o .:? "LastEvaluatedTableName"
         <*> o .: "TableNames"
+
+instance AWSPager ListTables where
+    next rq rs = (\x -> rq & ltExclusiveStartTableName ?~ x)
+        <$> (rs ^. ltrLastEvaluatedTableName)

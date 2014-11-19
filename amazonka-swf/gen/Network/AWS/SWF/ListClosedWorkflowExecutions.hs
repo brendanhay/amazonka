@@ -251,3 +251,7 @@ instance FromJSON ListClosedWorkflowExecutionsResponse where
     parseJSON = withObject "ListClosedWorkflowExecutionsResponse" $ \o -> ListClosedWorkflowExecutionsResponse
         <$> o .: "executionInfos"
         <*> o .:? "nextPageToken"
+
+instance AWSPager ListClosedWorkflowExecutions where
+    next rq rs = (\x -> rq & lcweNextPageToken ?~ x)
+        <$> (rs ^. lcwerNextPageToken)

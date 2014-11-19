@@ -156,3 +156,7 @@ instance FromJSON DescribeTapesResponse where
     parseJSON = withObject "DescribeTapesResponse" $ \o -> DescribeTapesResponse
         <$> o .:? "Marker"
         <*> o .: "Tapes"
+
+instance AWSPager DescribeTapes where
+    next rq rs = (\x -> rq & dtMarker ?~ x)
+        <$> (rs ^. dtrMarker)

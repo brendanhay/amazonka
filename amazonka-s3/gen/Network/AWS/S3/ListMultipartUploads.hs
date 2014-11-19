@@ -299,3 +299,14 @@ instance FromXML ListMultipartUploadsResponse where
         <*> x .@? "Prefix"
         <*> x .@? "UploadIdMarker"
         <*> x .@ "Upload"
+
+instance AWSPager ListMultipartUploads where
+    next rq rs
+        | not (more (rs ^. lmurIsTruncated)) = Nothing
+        | isNothing p1 && isNothing p2 = Nothing
+        | otherwise = Just $ rq
+            & lmuKeyMarker .~ p1
+            & lmuUploadIdMarker .~ p2
+      where
+        p1 = rs ^. lmurNextKeyMarker
+        p2 = rs ^. lmurNextUploadIdMarker

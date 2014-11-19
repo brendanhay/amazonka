@@ -161,3 +161,9 @@ instance FromXML GetGroupResponse where
             <*> x .@? "IsTruncated"
             <*> x .@? "Marker"
             <*> x .@ "Users"
+
+instance AWSPager GetGroup where
+    next rq rs
+        | not (more (rs ^. ggrIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & ggMarker .~ rs ^. ggrMarker

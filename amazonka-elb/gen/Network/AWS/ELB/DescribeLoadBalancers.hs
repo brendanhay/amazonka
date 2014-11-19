@@ -139,3 +139,7 @@ instance FromXML DescribeLoadBalancersResponse where
         DescribeLoadBalancersResponse
             <$> x .@ "LoadBalancerDescriptions"
             <*> x .@? "NextMarker"
+
+instance AWSPager DescribeLoadBalancers where
+    next rq rs = (\x -> rq & dlbMarker ?~ x)
+        <$> (rs ^. dlbrNextMarker)

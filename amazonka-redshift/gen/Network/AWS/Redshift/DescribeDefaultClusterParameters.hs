@@ -133,3 +133,7 @@ instance FromXML DescribeDefaultClusterParametersResponse where
     parseXML = withElement "DescribeDefaultClusterParametersResult" $ \x ->
         DescribeDefaultClusterParametersResponse
             <$> x .@? "DefaultClusterParameters"
+
+instance AWSPager DescribeDefaultClusterParameters where
+    next rq rs = (\x -> rq & ddcpMarker ?~ x)
+        <$> (rs ^. ddcprDefaultClusterParameters . dcpMarker)

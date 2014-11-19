@@ -192,3 +192,7 @@ instance FromXML DescribeDBEngineVersionsResponse where
         DescribeDBEngineVersionsResponse
             <$> x .@ "DBEngineVersions"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeDBEngineVersions where
+    next rq rs = (\x -> rq & ddbevMarker ?~ x)
+        <$> (rs ^. ddbevrMarker)

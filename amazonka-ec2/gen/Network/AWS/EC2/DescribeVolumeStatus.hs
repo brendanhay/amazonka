@@ -185,3 +185,7 @@ instance FromXML DescribeVolumeStatusResponse where
     parseXML x = DescribeVolumeStatusResponse
         <$> x .@? "nextToken"
         <*> x .@ "volumeStatusSet"
+
+instance AWSPager DescribeVolumeStatus where
+    next rq rs = (\x -> rq & dvsNextToken ?~ x)
+        <$> (rs ^. dvsrNextToken)

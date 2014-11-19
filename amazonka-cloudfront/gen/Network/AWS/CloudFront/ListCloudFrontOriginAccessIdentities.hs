@@ -120,3 +120,9 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
 instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
     parseXML x = ListCloudFrontOriginAccessIdentitiesResponse
         <$> x .@? "CloudFrontOriginAccessIdentityList"
+
+instance AWSPager ListCloudFrontOriginAccessIdentities where
+    next rq rs
+        | not (more (rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lcfoaiMarker .~ rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker

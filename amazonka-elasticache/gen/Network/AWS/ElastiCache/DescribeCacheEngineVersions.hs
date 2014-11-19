@@ -172,3 +172,7 @@ instance FromXML DescribeCacheEngineVersionsResponse where
         DescribeCacheEngineVersionsResponse
             <$> x .@ "CacheEngineVersions"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeCacheEngineVersions where
+    next rq rs = (\x -> rq & dcevMarker ?~ x)
+        <$> (rs ^. dcevrMarker)

@@ -150,3 +150,7 @@ instance FromXML DescribeDBSecurityGroupsResponse where
         DescribeDBSecurityGroupsResponse
             <$> x .@ "DBSecurityGroups"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeDBSecurityGroups where
+    next rq rs = (\x -> rq & ddbsg1Marker ?~ x)
+        <$> (rs ^. ddbsgr1Marker)

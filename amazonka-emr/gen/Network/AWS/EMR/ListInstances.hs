@@ -152,3 +152,7 @@ instance FromJSON ListInstancesResponse where
     parseJSON = withObject "ListInstancesResponse" $ \o -> ListInstancesResponse
         <$> o .: "Instances"
         <*> o .:? "Marker"
+
+instance AWSPager ListInstances where
+    next rq rs = (\x -> rq & liMarker ?~ x)
+        <$> (rs ^. lirMarker)

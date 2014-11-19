@@ -130,3 +130,7 @@ instance FromXML DescribeEngineDefaultParametersResponse where
     parseXML = withElement "DescribeEngineDefaultParametersResult" $ \x ->
         DescribeEngineDefaultParametersResponse
             <$> x .@ "EngineDefaults"
+
+instance AWSPager DescribeEngineDefaultParameters where
+    next rq rs = (\x -> rq & dedpMarker ?~ x)
+        <$> (rs ^. dedprEngineDefaults . edMarker)

@@ -114,3 +114,7 @@ instance FromXML ListTopicsResponse where
         ListTopicsResponse
             <$> x .@? "NextToken"
             <*> x .@ "Topics"
+
+instance AWSPager ListTopics where
+    next rq rs = (\x -> rq & ltNextToken ?~ x)
+        <$> (rs ^. ltrNextToken)

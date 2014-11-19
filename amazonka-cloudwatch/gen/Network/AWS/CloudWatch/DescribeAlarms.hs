@@ -161,3 +161,7 @@ instance FromXML DescribeAlarmsResponse where
         DescribeAlarmsResponse
             <$> x .@ "MetricAlarms"
             <*> x .@? "NextToken"
+
+instance AWSPager DescribeAlarms where
+    next rq rs = (\x -> rq & daNextToken ?~ x)
+        <$> (rs ^. darNextToken)

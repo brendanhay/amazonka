@@ -128,3 +128,7 @@ instance FromJSON ListPipelinesResponse where
     parseJSON = withObject "ListPipelinesResponse" $ \o -> ListPipelinesResponse
         <$> o .:? "NextPageToken"
         <*> o .: "Pipelines"
+
+instance AWSPager ListPipelines where
+    next rq rs = (\x -> rq & lpPageToken ?~ x)
+        <$> (rs ^. lprNextPageToken)

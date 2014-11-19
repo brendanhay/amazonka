@@ -219,3 +219,7 @@ instance FromXML DescribeEventsResponse where
         DescribeEventsResponse
             <$> x .@ "Events"
             <*> x .@? "NextToken"
+
+instance AWSPager DescribeEvents where
+    next rq rs = (\x -> rq & deNextToken ?~ x)
+        <$> (rs ^. derNextToken)

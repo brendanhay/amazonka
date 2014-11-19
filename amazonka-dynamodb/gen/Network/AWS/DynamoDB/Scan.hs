@@ -432,3 +432,7 @@ instance FromJSON ScanResponse where
         <*> o .: "Items"
         <*> o .: "LastEvaluatedKey"
         <*> o .:? "ScannedCount"
+
+instance AWSPager Scan where
+    next rq rs = (\x -> rq & sExclusiveStartKey ?~ x)
+        <$> (rs ^. srLastEvaluatedKey)

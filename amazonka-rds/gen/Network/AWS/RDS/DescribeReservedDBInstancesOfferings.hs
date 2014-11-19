@@ -206,3 +206,7 @@ instance FromXML DescribeReservedDBInstancesOfferingsResponse where
         DescribeReservedDBInstancesOfferingsResponse
             <$> x .@? "Marker"
             <*> x .@ "ReservedDBInstancesOfferings"
+
+instance AWSPager DescribeReservedDBInstancesOfferings where
+    next rq rs = (\x -> rq & drdbioMarker ?~ x)
+        <$> (rs ^. drdbiorMarker)

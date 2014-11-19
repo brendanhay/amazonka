@@ -156,3 +156,9 @@ instance FromXML ListRolesResponse where
             <$> x .@? "IsTruncated"
             <*> x .@? "Marker"
             <*> x .@ "Roles"
+
+instance AWSPager ListRoles where
+    next rq rs
+        | not (more (rs ^. lrrIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lrMarker .~ rs ^. lrrMarker

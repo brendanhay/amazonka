@@ -181,3 +181,9 @@ instance FromXML ListHealthChecksResponse where
         <*> x .@ "Marker"
         <*> x .@ "MaxItems"
         <*> x .@? "NextMarker"
+
+instance AWSPager ListHealthChecks where
+    next rq rs
+        | not (more (rs ^. lhcrIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lhcMarker .~ rs ^. lhcrNextMarker

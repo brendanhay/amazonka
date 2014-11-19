@@ -152,3 +152,9 @@ instance FromXML ListGroupPoliciesResponse where
             <$> x .@? "IsTruncated"
             <*> x .@? "Marker"
             <*> x .@ "PolicyNames"
+
+instance AWSPager ListGroupPolicies where
+    next rq rs
+        | not (more (rs ^. lgprIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lgpMarker .~ rs ^. lgprMarker

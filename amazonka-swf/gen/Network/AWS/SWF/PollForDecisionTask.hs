@@ -282,3 +282,7 @@ instance FromJSON PollForDecisionTaskResponse where
         <*> o .: "taskToken"
         <*> o .: "workflowExecution"
         <*> o .: "workflowType"
+
+instance AWSPager PollForDecisionTask where
+    next rq rs = (\x -> rq & pfdtNextPageToken ?~ x)
+        <$> (rs ^. pfdtrNextPageToken)

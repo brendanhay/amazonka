@@ -165,3 +165,7 @@ instance FromJSON DescribeVTLDevicesResponse where
         <$> o .:? "GatewayARN"
         <*> o .:? "Marker"
         <*> o .: "VTLDevices"
+
+instance AWSPager DescribeVTLDevices where
+    next rq rs = (\x -> rq & dvtldMarker ?~ x)
+        <$> (rs ^. dvtldrMarker)

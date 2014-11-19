@@ -300,3 +300,14 @@ instance FromXML ListObjectVersionsResponse where
         <*> x .@? "Prefix"
         <*> x .@? "VersionIdMarker"
         <*> x .@ "Version"
+
+instance AWSPager ListObjectVersions where
+    next rq rs
+        | not (more (rs ^. lovrIsTruncated)) = Nothing
+        | isNothing p1 && isNothing p2 = Nothing
+        | otherwise = Just $ rq
+            & lovKeyMarker .~ p1
+            & lovVersionIdMarker .~ p2
+      where
+        p1 = rs ^. lovrNextKeyMarker
+        p2 = rs ^. lovrNextVersionIdMarker

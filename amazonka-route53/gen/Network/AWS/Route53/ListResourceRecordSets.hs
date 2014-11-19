@@ -266,3 +266,16 @@ instance FromXML ListResourceRecordSetsResponse where
         <*> x .@? "NextRecordName"
         <*> x .@? "NextRecordType"
         <*> x .@ "ResourceRecordSets"
+
+instance AWSPager ListResourceRecordSets where
+    next rq rs
+        | not (more (rs ^. lrrsrIsTruncated)) = Nothing
+        | isNothing p1 && isNothing p2 && isNothing p3 = Nothing
+        | otherwise = Just $ rq
+            & lrrsStartRecordName .~ p1
+            & lrrsStartRecordType .~ p2
+            & lrrsStartRecordIdentifier .~ p3
+      where
+        p1 = rs ^. lrrsrNextRecordName
+        p2 = rs ^. lrrsrNextRecordType
+        p3 = rs ^. lrrsrNextRecordIdentifier

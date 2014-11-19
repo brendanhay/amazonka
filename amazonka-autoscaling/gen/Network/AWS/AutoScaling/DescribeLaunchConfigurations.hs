@@ -134,3 +134,7 @@ instance FromXML DescribeLaunchConfigurationsResponse where
         DescribeLaunchConfigurationsResponse
             <$> x .@ "LaunchConfigurations"
             <*> x .@? "NextToken"
+
+instance AWSPager DescribeLaunchConfigurations where
+    next rq rs = (\x -> rq & dlcNextToken ?~ x)
+        <$> (rs ^. dlcrNextToken)

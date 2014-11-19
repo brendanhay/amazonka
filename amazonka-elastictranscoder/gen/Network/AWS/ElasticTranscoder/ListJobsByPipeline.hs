@@ -149,3 +149,7 @@ instance FromJSON ListJobsByPipelineResponse where
     parseJSON = withObject "ListJobsByPipelineResponse" $ \o -> ListJobsByPipelineResponse
         <$> o .: "Jobs"
         <*> o .:? "NextPageToken"
+
+instance AWSPager ListJobsByPipeline where
+    next rq rs = (\x -> rq & ljbpPageToken ?~ x)
+        <$> (rs ^. ljbprNextPageToken)

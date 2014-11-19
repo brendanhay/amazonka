@@ -127,3 +127,7 @@ instance FromJSON ListBootstrapActionsResponse where
     parseJSON = withObject "ListBootstrapActionsResponse" $ \o -> ListBootstrapActionsResponse
         <$> o .: "BootstrapActions"
         <*> o .:? "Marker"
+
+instance AWSPager ListBootstrapActions where
+    next rq rs = (\x -> rq & lbaMarker ?~ x)
+        <$> (rs ^. lbarMarker)

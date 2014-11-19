@@ -20,3 +20,4 @@
     response = xmlHeaderResponse $ \h x -> {{ response.name }}
 {% include "response-xml.ede" %}
 {% endcase %}
+{% include "pager.ede" %}

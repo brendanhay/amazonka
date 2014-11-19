@@ -158,3 +158,9 @@ instance FromXML ListInstanceProfilesResponse where
             <$> x .@ "InstanceProfiles"
             <*> x .@? "IsTruncated"
             <*> x .@? "Marker"
+
+instance AWSPager ListInstanceProfiles where
+    next rq rs
+        | not (more (rs ^. liprIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lipMarker .~ rs ^. liprMarker

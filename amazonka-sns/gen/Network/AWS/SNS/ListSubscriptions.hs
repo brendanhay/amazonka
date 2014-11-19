@@ -114,3 +114,7 @@ instance FromXML ListSubscriptionsResponse where
         ListSubscriptionsResponse
             <$> x .@? "NextToken"
             <*> x .@ "Subscriptions"
+
+instance AWSPager ListSubscriptions where
+    next rq rs = (\x -> rq & lsNextToken ?~ x)
+        <$> (rs ^. lsrNextToken)

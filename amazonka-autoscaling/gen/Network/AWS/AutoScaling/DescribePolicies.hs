@@ -147,3 +147,7 @@ instance FromXML DescribePoliciesResponse where
         DescribePoliciesResponse
             <$> x .@? "NextToken"
             <*> x .@ "ScalingPolicies"
+
+instance AWSPager DescribePolicies where
+    next rq rs = (\x -> rq & dp1NextToken ?~ x)
+        <$> (rs ^. dprNextToken)

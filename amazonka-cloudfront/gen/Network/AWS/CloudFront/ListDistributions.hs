@@ -118,3 +118,9 @@ instance AWSRequest ListDistributions where
 instance FromXML ListDistributionsResponse where
     parseXML x = ListDistributionsResponse
         <$> x .@? "DistributionList"
+
+instance AWSPager ListDistributions where
+    next rq rs
+        | not (more (rs ^. ldrDistributionList . dlIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & ldMarker .~ rs ^. ldrDistributionList . dlNextMarker

@@ -171,3 +171,7 @@ instance FromXML DescribeScheduledActionsResponse where
         DescribeScheduledActionsResponse
             <$> x .@? "NextToken"
             <*> x .@ "ScheduledUpdateGroupActions"
+
+instance AWSPager DescribeScheduledActions where
+    next rq rs = (\x -> rq & dsa1NextToken ?~ x)
+        <$> (rs ^. dsarNextToken)

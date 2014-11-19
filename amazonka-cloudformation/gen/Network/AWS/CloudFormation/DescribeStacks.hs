@@ -125,3 +125,7 @@ instance FromXML DescribeStacksResponse where
         DescribeStacksResponse
             <$> x .@? "NextToken"
             <*> x .@ "Stacks"
+
+instance AWSPager DescribeStacks where
+    next rq rs = (\x -> rq & ds1NextToken ?~ x)
+        <$> (rs ^. dsrNextToken)

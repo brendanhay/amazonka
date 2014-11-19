@@ -130,3 +130,7 @@ instance FromXML ListDomainsResponse where
         ListDomainsResponse
             <$> parseXML x
             <*> x .@? "NextToken"
+
+instance AWSPager ListDomains where
+    next rq rs = (\x -> rq & ldNextToken ?~ x)
+        <$> (rs ^. ldrNextToken)

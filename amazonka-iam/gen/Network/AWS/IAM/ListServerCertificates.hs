@@ -157,3 +157,9 @@ instance FromXML ListServerCertificatesResponse where
             <$> x .@? "IsTruncated"
             <*> x .@? "Marker"
             <*> x .@ "ServerCertificateMetadataList"
+
+instance AWSPager ListServerCertificates where
+    next rq rs
+        | not (more (rs ^. lscrIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lscMarker .~ rs ^. lscrMarker

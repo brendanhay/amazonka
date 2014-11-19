@@ -141,3 +141,7 @@ instance FromXML DescribeReplicationGroupsResponse where
         DescribeReplicationGroupsResponse
             <$> x .@? "Marker"
             <*> x .@ "ReplicationGroups"
+
+instance AWSPager DescribeReplicationGroups where
+    next rq rs = (\x -> rq & drg1Marker ?~ x)
+        <$> (rs ^. drgrMarker)

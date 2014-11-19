@@ -120,3 +120,9 @@ instance AWSRequest ListStreamingDistributions where
 instance FromXML ListStreamingDistributionsResponse where
     parseXML x = ListStreamingDistributionsResponse
         <$> x .@? "StreamingDistributionList"
+
+instance AWSPager ListStreamingDistributions where
+    next rq rs
+        | not (more (rs ^. lsdrStreamingDistributionList . sdlIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lsdMarker .~ rs ^. lsdrStreamingDistributionList . sdlNextMarker

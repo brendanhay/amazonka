@@ -128,3 +128,7 @@ instance FromXML DescribeStackEventsResponse where
         DescribeStackEventsResponse
             <$> x .@? "NextToken"
             <*> x .@ "StackEvents"
+
+instance AWSPager DescribeStackEvents where
+    next rq rs = (\x -> rq & dseNextToken ?~ x)
+        <$> (rs ^. dserNextToken)

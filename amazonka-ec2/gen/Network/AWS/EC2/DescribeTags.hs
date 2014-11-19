@@ -147,3 +147,7 @@ instance FromXML DescribeTagsResponse where
     parseXML x = DescribeTagsResponse
         <$> x .@? "nextToken"
         <*> x .@ "tagSet"
+
+instance AWSPager DescribeTags where
+    next rq rs = (\x -> rq & dtNextToken ?~ x)
+        <$> (rs ^. dtrNextToken)

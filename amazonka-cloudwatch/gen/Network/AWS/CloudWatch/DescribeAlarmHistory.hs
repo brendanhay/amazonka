@@ -163,3 +163,7 @@ instance FromXML DescribeAlarmHistoryResponse where
         DescribeAlarmHistoryResponse
             <$> x .@ "AlarmHistoryItems"
             <*> x .@? "NextToken"
+
+instance AWSPager DescribeAlarmHistory where
+    next rq rs = (\x -> rq & dahNextToken ?~ x)
+        <$> (rs ^. dahrNextToken)

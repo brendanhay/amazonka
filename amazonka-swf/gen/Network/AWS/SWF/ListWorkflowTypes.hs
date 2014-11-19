@@ -193,3 +193,7 @@ instance FromJSON ListWorkflowTypesResponse where
     parseJSON = withObject "ListWorkflowTypesResponse" $ \o -> ListWorkflowTypesResponse
         <$> o .:? "nextPageToken"
         <*> o .: "typeInfos"
+
+instance AWSPager ListWorkflowTypes where
+    next rq rs = (\x -> rq & lwtNextPageToken ?~ x)
+        <$> (rs ^. lwtrNextPageToken)

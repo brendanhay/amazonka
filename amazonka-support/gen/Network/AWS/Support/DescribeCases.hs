@@ -212,3 +212,7 @@ instance FromJSON DescribeCasesResponse where
     parseJSON = withObject "DescribeCasesResponse" $ \o -> DescribeCasesResponse
         <$> o .: "cases"
         <*> o .:? "nextToken"
+
+instance AWSPager DescribeCases where
+    next rq rs = (\x -> rq & dcNextToken ?~ x)
+        <$> (rs ^. dcr1NextToken)

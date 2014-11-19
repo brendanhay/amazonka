@@ -152,3 +152,7 @@ instance FromXML DescribeHsmClientCertificatesResponse where
         DescribeHsmClientCertificatesResponse
             <$> x .@ "HsmClientCertificates"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeHsmClientCertificates where
+    next rq rs = (\x -> rq & dhccMarker ?~ x)
+        <$> (rs ^. dhccrMarker)

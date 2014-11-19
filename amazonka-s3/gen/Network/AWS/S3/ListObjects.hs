@@ -257,3 +257,9 @@ instance FromXML ListObjectsResponse where
         <*> x .@? "Name"
         <*> x .@? "NextMarker"
         <*> x .@? "Prefix"
+
+instance AWSPager ListObjects where
+    next rq rs
+        | not (more (rs ^. lorIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & loMarker .~ rs ^. lorNextMarker

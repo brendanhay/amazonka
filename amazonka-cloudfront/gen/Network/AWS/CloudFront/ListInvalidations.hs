@@ -138,3 +138,9 @@ instance AWSRequest ListInvalidations where
 instance FromXML ListInvalidationsResponse where
     parseXML x = ListInvalidationsResponse
         <$> x .@? "InvalidationList"
+
+instance AWSPager ListInvalidations where
+    next rq rs
+        | not (more (rs ^. lirInvalidationList . ilIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & liMarker .~ rs ^. lirInvalidationList . ilNextMarker

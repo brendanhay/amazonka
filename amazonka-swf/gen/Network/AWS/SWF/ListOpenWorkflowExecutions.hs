@@ -223,3 +223,7 @@ instance FromJSON ListOpenWorkflowExecutionsResponse where
     parseJSON = withObject "ListOpenWorkflowExecutionsResponse" $ \o -> ListOpenWorkflowExecutionsResponse
         <$> o .: "executionInfos"
         <*> o .:? "nextPageToken"
+
+instance AWSPager ListOpenWorkflowExecutions where
+    next rq rs = (\x -> rq & loweNextPageToken ?~ x)
+        <$> (rs ^. lowerNextPageToken)

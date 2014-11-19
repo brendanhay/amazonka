@@ -182,3 +182,7 @@ instance FromXML DescribeDBLogFilesResponse where
         DescribeDBLogFilesResponse
             <$> x .@ "DescribeDBLogFiles"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeDBLogFiles where
+    next rq rs = (\x -> rq & ddblfMarker ?~ x)
+        <$> (rs ^. ddblfrMarker)

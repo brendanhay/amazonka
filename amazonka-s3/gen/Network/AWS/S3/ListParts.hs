@@ -257,3 +257,9 @@ instance FromXML ListPartsResponse where
         <*> x .@ "Part"
         <*> x .@? "StorageClass"
         <*> x .@? "UploadId"
+
+instance AWSPager ListParts where
+    next rq rs
+        | not (more (rs ^. lprIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lpPartNumberMarker .~ rs ^. lprNextPartNumberMarker

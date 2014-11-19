@@ -148,3 +148,9 @@ instance AWSRequest DescribeStream where
 instance FromJSON DescribeStreamResponse where
     parseJSON = withObject "DescribeStreamResponse" $ \o -> DescribeStreamResponse
         <$> o .: "StreamDescription"
+
+instance AWSPager DescribeStream where
+    next rq rs
+        | not (more (rs ^. dsrStreamDescription . sdHasMoreShards)) = Nothing
+        | otherwise = Just $ rq
+            & ds1ExclusiveStartShardId .~ rs ^. index (dsrStreamDescription . sdShards) sShardId

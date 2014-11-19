@@ -141,3 +141,7 @@ instance FromXML DescribeCacheParameterGroupsResponse where
         DescribeCacheParameterGroupsResponse
             <$> x .@ "CacheParameterGroups"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeCacheParameterGroups where
+    next rq rs = (\x -> rq & dcpgMarker ?~ x)
+        <$> (rs ^. dcpgrMarker)

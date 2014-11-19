@@ -160,3 +160,7 @@ instance FromXML DescribeDBParametersResponse where
         DescribeDBParametersResponse
             <$> x .@? "Marker"
             <*> x .@ "Parameters"
+
+instance AWSPager DescribeDBParameters where
+    next rq rs = (\x -> rq & ddbpMarker ?~ x)
+        <$> (rs ^. ddbprMarker)

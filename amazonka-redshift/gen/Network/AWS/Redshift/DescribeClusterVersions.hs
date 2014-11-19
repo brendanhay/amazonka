@@ -162,3 +162,7 @@ instance FromXML DescribeClusterVersionsResponse where
         DescribeClusterVersionsResponse
             <$> x .@ "ClusterVersions"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeClusterVersions where
+    next rq rs = (\x -> rq & dcvMarker ?~ x)
+        <$> (rs ^. dcvrMarker)

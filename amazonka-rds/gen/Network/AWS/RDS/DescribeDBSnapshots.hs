@@ -177,3 +177,7 @@ instance FromXML DescribeDBSnapshotsResponse where
         DescribeDBSnapshotsResponse
             <$> x .@ "DBSnapshots"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeDBSnapshots where
+    next rq rs = (\x -> rq & ddbsMarker ?~ x)
+        <$> (rs ^. ddbsrMarker)

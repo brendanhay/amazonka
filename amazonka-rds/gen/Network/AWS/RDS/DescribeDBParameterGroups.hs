@@ -153,3 +153,7 @@ instance FromXML DescribeDBParameterGroupsResponse where
         DescribeDBParameterGroupsResponse
             <$> x .@ "DBParameterGroups"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeDBParameterGroups where
+    next rq rs = (\x -> rq & ddbpgMarker ?~ x)
+        <$> (rs ^. ddbpgrMarker)

@@ -165,3 +165,7 @@ instance FromXML DescribeCacheClustersResponse where
         DescribeCacheClustersResponse
             <$> x .@ "CacheClusters"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeCacheClusters where
+    next rq rs = (\x -> rq & dcc1Marker ?~ x)
+        <$> (rs ^. dccrMarker)

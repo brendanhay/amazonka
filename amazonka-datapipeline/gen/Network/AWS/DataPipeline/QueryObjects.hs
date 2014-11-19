@@ -184,3 +184,9 @@ instance FromJSON QueryObjectsResponse where
         <$> o .:? "hasMoreResults"
         <*> o .: "ids"
         <*> o .:? "marker"
+
+instance AWSPager QueryObjects where
+    next rq rs
+        | not (more (rs ^. qorHasMoreResults)) = Nothing
+        | otherwise = Just $ rq
+            & qoMarker .~ rs ^. qorMarker

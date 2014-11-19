@@ -155,3 +155,7 @@ instance FromXML DescribeClusterSecurityGroupsResponse where
         DescribeClusterSecurityGroupsResponse
             <$> x .@ "ClusterSecurityGroups"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeClusterSecurityGroups where
+    next rq rs = (\x -> rq & dcsgMarker ?~ x)
+        <$> (rs ^. dcsgr1Marker)

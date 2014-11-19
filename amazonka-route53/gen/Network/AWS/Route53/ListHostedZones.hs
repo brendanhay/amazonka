@@ -189,3 +189,9 @@ instance FromXML ListHostedZonesResponse where
         <*> x .@ "Marker"
         <*> x .@ "MaxItems"
         <*> x .@? "NextMarker"
+
+instance AWSPager ListHostedZones where
+    next rq rs
+        | not (more (rs ^. lhzrIsTruncated)) = Nothing
+        | otherwise = Just $ rq
+            & lhzMarker .~ rs ^. lhzrNextMarker

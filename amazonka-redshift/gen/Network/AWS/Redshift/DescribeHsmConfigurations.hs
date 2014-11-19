@@ -149,3 +149,7 @@ instance FromXML DescribeHsmConfigurationsResponse where
         DescribeHsmConfigurationsResponse
             <$> x .@ "HsmConfigurations"
             <*> x .@? "Marker"
+
+instance AWSPager DescribeHsmConfigurations where
+    next rq rs = (\x -> rq & dhc1Marker ?~ x)
+        <$> (rs ^. dhcrMarker)

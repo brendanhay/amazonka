@@ -4,9 +4,8 @@
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RoleAnnotations            #-}
-
-{-# LANGUAGE ScopedTypeVariables            #-}
-
+{-# LANGUAGE ScopedTypeVariables        #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Data.Internal.List
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,6 +27,7 @@ import           Data.Coerce
 import           Data.Foldable                     (Foldable)
 import           Data.List.NonEmpty                (NonEmpty(..))
 import qualified Data.List.NonEmpty                as NonEmpty
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Proxy
 import           Data.Semigroup                    (Semigroup)
@@ -44,41 +44,51 @@ import           Network.AWS.Data.Internal.XML
 newtype List (k :: Symbol) a = List { list :: [a] }
     deriving (Eq, Ord, Show, Semigroup, Monoid)
 
+newtype List1 (k :: Symbol) a = List1 { list1 :: NonEmpty a }
+    deriving (Eq, Ord, Show, Semigroup)
+
 type role List  phantom representational
+type role List1 phantom representational
 
 _List :: (Coercible a b, Coercible b a) => Iso' (List k a) [b]
 _List = iso (coerce . list) (List . coerce)
 
-listItem :: forall k a. KnownSymbol k => List k a -> Text
-listItem _ = Text.pack (symbolVal (Proxy :: Proxy e))
-
-instance ToQuery a => ToQuery (List k a) where
-    toQuery (List xs) =
---     toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx
---       where
---         idx = [1..] :: [Integer]
-
-newtype List1 (k :: Symbol) a = List1 { list1 :: NonEmpty a }
-    deriving (Eq, Ord, Show, Semigroup)
-
-type role List1 phantom representational
-
 _List1 :: (Coercible a b, Coercible b a) => Iso' (List1 k a) (NonEmpty b)
 _List1 = iso (coerce . list1) (List1 . coerce)
 
+listItem :: forall k a. KnownSymbol k => List k a -> Text
+listItem _ = Text.pack (symbolVal (Proxy :: Proxy k))
+
 list1Item :: forall k a. KnownSymbol k => List1 k a -> Text
-list1Item _ = Text.pack (symbolVal (Proxy :: Proxy e))
+list1Item _ = Text.pack (symbolVal (Proxy :: Proxy k))
 
--- instance ToQuery a => ToQuery [a] where
---     toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx
---       where
---         idx = [1..] :: [Integer]
+instance IsList (List k a) where
+    type Item (List k a) = a
 
--- fromList :: a -> [a] -> List1 a
--- fromList a = List1 . (:|) a
+    fromList = List
+    toList   = list
 
--- toList :: List1 a -> [a]
--- toList = NonEmpty.toList . toNonEmpty
+fromList1 :: List1 k a -> List k a
+fromList1 = List . toList . list1
+
+toList1 :: List k a -> Either String (List1 k a)
+toList1 (List (x:xs))
+          = Right $ List1 (x :| xs)
+toList1 _ = Left  $ "Unexpected empty list, expected at least 1 element."
+
+instance ToQuery a => ToQuery (List k a) where
+    toQuery = toQuery . list
+
+instance ToQuery a => ToQuery (List1 k a) where
+    toQuery = toQuery . toList . list1
+
+instance (KnownSymbol k, FromXML a) => FromXML (List k a) where
+    parseXML = fmap List . traverse parseXML . mapMaybe (childNodes n)
+      where
+        n = listItem (undefined :: List k a)
+
+instance (KnownSymbol k, FromXML a) => FromXML (List1 k a) where
+    parseXML = parseXML >=> toList1
 
 -- instance ToQuery a => ToQuery (List1 a) where
 --     toQuery = toQuery . toList

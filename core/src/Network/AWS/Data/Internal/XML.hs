@@ -20,11 +20,12 @@ module Network.AWS.Data.Internal.XML
       FromXML   (..)
     , decodeXML
     , parseXMLText
-    , (.@)
-    , (.@?)
+    , childNodes
     , withContent
     , withElement
     , withNode
+    , (.@)
+    , (.@?)
 
     -- * ToXML
     , ToXML     (..)
@@ -136,15 +137,15 @@ withElement n f = join . fmap f . findElement n
 {-# INLINE withElement #-}
 
 findElement :: Text -> [Node] -> Either String [Node]
-findElement n = maybe err Right . listToMaybe . mapMaybe (children n)
+findElement n = maybe err Right . listToMaybe . mapMaybe (childNodes n)
   where
     err = Left $ "unable to find element " ++ show n
 {-# INLINE findElement #-}
 
-children :: Text -> Node -> Maybe [Node]
-children n (NodeElement e)
+childNodes :: Text -> Node -> Maybe [Node]
+childNodes n (NodeElement e)
     | nameLocalName (elementName e) == n = Just (elementNodes e)
-children _ _ = Nothing
+childNodes _ _ = Nothing
 
 class FromXML a where
     parseXML :: [Node] -> Either String a
@@ -155,7 +156,7 @@ instance FromXML a => FromXML (Maybe a) where
     {-# INLINE parseXML #-}
 
 -- instance (RootXML a, FromXML a) => FromXML [a] where
---     parseXML = traverse parseXML . mapMaybe (children n)
+--     parseXML = traverse parseXML . mapMaybe (childNodes n)
 --       where
 --         n = nameLocalName $ untag (rootXML :: Tagged a Name)
 --     {-# INLINE parseXML #-}

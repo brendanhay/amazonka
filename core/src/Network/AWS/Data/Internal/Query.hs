@@ -50,6 +50,7 @@ import qualified Data.List.NonEmpty                   as NonEmpty
 import           Data.Monoid
 import           Data.String
 import           Data.Text                            (Text)
+import qualified Data.Text.Encoding                   as Text
 import           GHC.Generics
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
@@ -76,8 +77,11 @@ instance Monoid Query where
 instance Plated Query where
     plate = uniplate
 
+instance ToByteString Query where
+    toBS = renderQuery
+
 instance ToText Query where
-    toText = toText . renderQuery
+    toText = Text.decodeUtf8 . renderQuery
 
 instance IsString Query where
     fromString = toQuery . BS.pack

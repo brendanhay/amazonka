@@ -2,10 +2,28 @@
 instance FromXML {{ type.name }} where
 {% case type.type %}
 {% when "nullary" %}
-    parseXML = parseXMLText "{{ type.name }}"
+  {% if type.resultWrapper %}
+    parseXML = withElement "{{ type.resultWrapper }}" $
+        . withElement "{{ type.name }}"
+        $ const (return {{ type.name }})
+  {% else %}
+    parseXML = withElement "{{ type.name }}" (const (return {{ type.name }}))
+  {% endif %}
 {% else %}
+  {% if type.resultWrapper %}
+    parseXML = withElement "{{ type.resultWrapper }}" $ \x ->
+        {{ type.name }}
+    {% for field in type.fields %}
+      {% if field.value.flattened %}
+            {% include "applicative.ede" %} parseXML x
+      {% else %}
+            {% include "applicative.ede" %} x {% include "xml-operator.ede" %} "{{ field.value.locationName }}"
+      {% endif %}
+    {% endfor %}
+  {% else %}
     parseXML x = {{ type.name }}
-  {% for field in type.fields %}
+    {% for field in type.fields %}
         {% include "applicative.ede" %} x {% include "xml-operator.ede" %} "{{ field.value.locationName }}"
-  {% endfor %}
+    {% endfor %}
+  {% endif %}
 {% endcase %}

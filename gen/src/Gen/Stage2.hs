@@ -171,7 +171,7 @@ data Type
     | TMap       !Type !Type
     | TMaybe     !Type
     | TSensitive !Type
-    | TTuple     !Type !Type
+    | TFlatten   !Type
       deriving (Eq, Ord, Show)
 
 isRequired :: Type -> Bool
@@ -182,6 +182,12 @@ isMonoid :: Type -> Bool
 isMonoid (TList  _) = True
 isMonoid (TMap _ _) = True
 isMonoid _          = False
+
+isFlattened :: Type -> Bool
+isFlattened = any f . universe
+  where
+    f (TFlatten _) = True
+    f _            = False
 
 listElement :: Type -> Maybe Type
 listElement (TList l) = Just l
@@ -194,6 +200,7 @@ instance Plated Type where
         TMap       k v -> TMap       <$> f k <*> f v
         TMaybe     x   -> TMaybe     <$> f x
         TSensitive x   -> TSensitive <$> f x
+        TFlatten   x   -> TFlatten   <$> f x
         x              -> pure x
 
 instance ToJSON (Exposed Type) where
@@ -207,7 +214,7 @@ instance ToJSON (Exposed Type) where
             TMap       k v -> "HashMap "   <> wrap (go k) <> " " <> wrap (go v)
             TMaybe     x   -> "Maybe "     <> wrap (go x)
             TSensitive x   -> wrap (go x)
-            TTuple     a b -> wrap (go a <> ", " <> go b)
+            TFlatten   x   -> wrap (go x)
 
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
@@ -223,7 +230,7 @@ instance ToJSON (Internal Type) where
             TMap       k v -> "Map "       <> wrap (go k) <> " " <> wrap (go v)
             TMaybe     x   -> "Maybe "     <> wrap (go x)
             TSensitive x   -> "Sensitive " <> wrap (go x)
-            TTuple     a b -> parens (go a <> ", " <> go b)
+            TFlatten   x   -> "Flatten "   <> wrap (go x)
 
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
@@ -241,7 +248,7 @@ typeMapping t
         TMap       _ _ -> maybeToList (typeIso y)
         TMaybe     x   -> wrap (go x)
         TSensitive x   -> maybeToList (typeIso y) ++ go x
-        TTuple     _ _ -> []
+        TFlatten   x   -> maybeToList (typeIso y) ++ go x
 
     wrap (x:xs) = "mapping " <> x : xs
     wrap _      = []
@@ -255,6 +262,7 @@ typeIso = \case
     TList1     _              -> Just "_List1" -- No nested mappings, since it's Coercible.
     TMap       _ _            -> Just "_Map"   -- No nested mappings, since it's Coercible.
     TSensitive _              -> Just "_Sensitive"
+    TFlatten   _              -> Just "_Flatten"
     _                         -> Nothing
 
 primIso :: Prim -> Maybe Text
@@ -281,7 +289,7 @@ typesOf = typeOf . go
         TMap       k v -> TMap       <$> f k <*> f v
         TMaybe     x   -> TMaybe     <$> f x
         TSensitive x   -> TSensitive <$> f x
-        TTuple     a b -> TTuple     <$> f a <*> f b
+        TFlatten   x   -> TFlatten   <$> f x
         t              -> pure t
 
 data Field = Field
@@ -312,6 +320,7 @@ instance ToJSON Field where
         , "locationName"  .= _fLocationName
         , "documentation" .= _fDocumentation
         , "required"      .= isRequired _fType
+        , "flattened"     .= isFlattened _fType
         , "default"       .= typeDefault _fType
         , "iso"           .= typeIso _fType
         ]
@@ -512,10 +521,10 @@ instance DerivingOf Prim where
 instance DerivingOf Type where
     derivingOf = \case
         TType      _   -> [Eq', Show', Generic']
-        TTuple     _ _ -> [Eq', Show', Generic']
         TPrim      p   -> derivingOf p
         TMaybe     x   -> prim (derivingOf x)
         TSensitive x   -> derivingOf x
+        TFlatten   x   -> derivingOf x
         TList      x   -> list (derivingOf x)
         TList1     x   -> Set.delete Monoid' . list $ derivingOf x
         TMap       k v -> Set.delete Ord' . list $

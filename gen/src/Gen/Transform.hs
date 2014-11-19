@@ -426,12 +426,13 @@ overriden = flip (Map.foldlWithKey' run)
         go False = id
 
         retype :: Type -> Type
-        retype (TMaybe _) = TMaybe z
-        retype (TList  _) = TList  z
-        retype (TList1 _) = TList1 z
-        retype (TType  _) = z
-        retype (TPrim  _) = z
-        retype e          = error $ "Unsupported retyping of: " ++ show (e, y)
+        retype TMaybe   {} = TMaybe z
+        retype TList    {} = TList  z
+        retype TList1   {} = TList1 z
+        retype TFlatten {} = TFlatten z
+        retype TType    {} = z
+        retype TPrim    {} = z
+        retype e           = error $ "Unsupported retyping of: " ++ show (e, y)
 
         z = TType y
 
@@ -521,12 +522,15 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
       where
         go = case s of
             Struct' _ -> pure (TType k)
-            List'   x -> list x <$> ref (x ^. lstMember)
-            Map'    x -> TMap   <$> ref (x ^. mapKey) <*> ref (x ^. mapValue)
             Double' _ -> pure (TPrim PDouble)
             Bool'   _ -> pure (TPrim PBool)
             Time'   x -> pure (TPrim . PTime $ defaultTS (x ^. tsTimestampFormat))
             Blob'   _ -> pure (TPrim PBlob)
+
+            List'   x -> list x <$> ref (x ^. lstMember)
+
+            Map'    x -> flat (_mapFlattened x) <$>
+                (TMap <$> ref (x ^. mapKey) <*> ref (x ^. mapValue))
 
             String' x
                 | Just True <- (x ^. strSensitive)
@@ -541,9 +545,14 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
                 | isNatural x -> pure (TPrim PNatural)
                 | otherwise   -> pure (TPrim PInteger)
 
-        list SList{..}
-            | fromMaybe 0 _lstMin > 0 = TList1
-            | otherwise               = TList
+        list l = flat (_lstFlattened l) .
+             if fromMaybe 0 (_lstMin l) > 0
+                 then TList1
+                 else TList
+
+    flat :: Maybe Bool -> Type -> Type
+    flat (Just True) = TFlatten
+    flat _           = id
 
     insert :: Text -> Type -> State (HashMap Text Type) Type
     insert k t = modify (Map.insert k t) >> return t

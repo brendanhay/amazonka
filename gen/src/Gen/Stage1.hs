@@ -108,6 +108,7 @@ data SMap = SMap
     , _mapDocumentation :: Maybe Text
     , _mapMin           :: Maybe Int
     , _mapMax           :: Maybe Int
+    , _mapFlattened     :: Maybe Bool
     } deriving (Eq, Show)
 
 record stage1 ''SMap

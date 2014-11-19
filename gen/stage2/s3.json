@@ -221,6 +221,7 @@
                 ],
                 "contentPad": 0,
                 "name": "NoncurrentVersionExpiration",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -301,6 +302,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "Transition",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -486,6 +488,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "DeleteMarkerEntry",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -734,6 +737,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "Part",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -905,6 +909,7 @@
                 "required": [],
                 "contentPad": 10,
                 "name": "VersioningConfiguration",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -1047,6 +1052,7 @@
                 ],
                 "contentPad": 6,
                 "name": "Tag",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -1178,6 +1184,7 @@
                 ],
                 "contentPad": 9,
                 "name": "RedirectAllRequestsTo",
+                "locationPad": 9,
                 "type": "record",
                 "optional": [
                     {
@@ -1289,6 +1296,7 @@
                 ],
                 "contentPad": 10,
                 "name": "RoutingRule",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -1399,6 +1407,7 @@
                 "required": [],
                 "contentPad": 27,
                 "name": "NotificationConfiguration",
+                "locationPad": 27,
                 "type": "record",
                 "optional": [
                     {
@@ -1570,6 +1579,7 @@
                 "required": [],
                 "contentPad": 10,
                 "name": "S3ServiceError",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -1809,6 +1819,7 @@
                 "required": [],
                 "contentPad": 22,
                 "name": "DeletedObject",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -1996,6 +2007,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "CopyPartResult",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -2142,6 +2154,7 @@
                 ],
                 "contentPad": 0,
                 "name": "RequestPaymentConfiguration",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -2313,6 +2326,7 @@
                 ],
                 "contentPad": 14,
                 "name": "CORSRule",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -2483,6 +2497,7 @@
                 "required": [],
                 "contentPad": 22,
                 "name": "WebsiteConfiguration",
+                "locationPad": 22,
                 "type": "record",
                 "optional": [
                     {
@@ -2685,6 +2700,7 @@
                 ],
                 "contentPad": 15,
                 "name": "NoncurrentVersionTransition",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -2765,6 +2781,7 @@
                 "required": [],
                 "contentPad": 12,
                 "name": "Initiator",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -2892,6 +2909,7 @@
                 ],
                 "contentPad": 10,
                 "name": "ObjectIdentifier",
+                "locationPad": 10,
                 "type": "record",
                 "optional": [
                     {
@@ -2988,6 +3006,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "Bucket",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -3115,6 +3134,7 @@
                 "required": [],
                 "contentPad": 11,
                 "name": "Grant",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -3331,6 +3351,7 @@
                 ],
                 "contentPad": 28,
                 "name": "Rule",
+                "locationPad": 28,
                 "type": "record",
                 "optional": [
                     {
@@ -3608,6 +3629,7 @@
                 ],
                 "contentPad": 6,
                 "name": "TopicConfiguration",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -3810,6 +3832,7 @@
                 ],
                 "contentPad": 6,
                 "name": "QueueConfiguration",
+                "locationPad": 6,
                 "type": "record",
                 "optional": [
                     {
@@ -3966,6 +3989,7 @@
                 "required": [],
                 "contentPad": 12,
                 "name": "Owner",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -4077,6 +4101,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "BucketLoggingStatus",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -4177,6 +4202,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ErrorDocument",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -4348,6 +4374,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "ObjectVersion",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -4638,6 +4665,7 @@
                 "required": [],
                 "contentPad": 11,
                 "name": "TargetGrant",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -4828,6 +4856,7 @@
                 "required": [],
                 "contentPad": 21,
                 "name": "Redirect",
+                "locationPad": 21,
                 "type": "record",
                 "optional": [
                     {
@@ -5047,6 +5076,7 @@
                 "required": [],
                 "contentPad": 11,
                 "name": "CompletedPart",
+                "locationPad": 11,
                 "type": "record",
                 "optional": [
                     {
@@ -5160,6 +5190,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "CreateBucketConfiguration",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -5243,6 +5274,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Tagging",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -5324,6 +5356,7 @@
                 "required": [],
                 "contentPad": 5,
                 "name": "LifecycleExpiration",
+                "locationPad": 5,
                 "type": "record",
                 "optional": [
                     {
@@ -5453,6 +5486,7 @@
                 ],
                 "contentPad": 0,
                 "name": "CORSConfiguration",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -5668,6 +5702,7 @@
                 ],
                 "contentPad": 13,
                 "name": "Object",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -5810,6 +5845,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "CommonPrefix",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -5950,6 +5986,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "MultipartUpload",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -6233,6 +6270,7 @@
                 ],
                 "contentPad": 0,
                 "name": "CompletedMultipartUpload",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -6298,6 +6336,7 @@
                 "required": [],
                 "contentPad": 28,
                 "name": "Condition",
+                "locationPad": 28,
                 "type": "record",
                 "optional": [
                     {
@@ -6428,6 +6467,7 @@
                 "required": [],
                 "contentPad": 18,
                 "name": "AccessControlPolicy",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -6636,6 +6676,7 @@
                 ],
                 "contentPad": 15,
                 "name": "CloudFunctionConfiguration",
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -6883,6 +6924,7 @@
                 ],
                 "contentPad": 13,
                 "name": "Grantee",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -7087,6 +7129,7 @@
                 ],
                 "contentPad": 0,
                 "name": "LifecycleConfiguration",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7166,6 +7209,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "LoggingEnabled",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -7342,6 +7386,7 @@
                 ],
                 "contentPad": 0,
                 "name": "IndexDocument",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7407,6 +7452,7 @@
                 "required": [],
                 "contentPad": 13,
                 "name": "CopyObjectResult",
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
                     {
@@ -7533,6 +7579,7 @@
                 ],
                 "contentPad": 7,
                 "name": "Delete",
+                "locationPad": 7,
                 "type": "record",
                 "optional": [
                     {
@@ -7650,6 +7697,7 @@
                 ],
                 "contentPad": 0,
                 "name": "RestoreRequest",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -7813,6 +7861,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -7972,6 +8021,7 @@
                 "contentPad": 9,
                 "name": "CompleteMultipartUploadResponse",
                 "resultWrapper": null,
+                "locationPad": 44,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -8352,6 +8402,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 24,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -8520,6 +8571,7 @@
                 "contentPad": 17,
                 "name": "CopyObjectResponse",
                 "resultWrapper": null,
+                "locationPad": 48,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -8975,6 +9027,7 @@
                 "queryPad": 0,
                 "name": "CopyObject",
                 "query": [],
+                "locationPad": 60,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -9886,6 +9939,7 @@
                 "contentPad": 0,
                 "name": "CreateBucketResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": true,
                 "optional": [
@@ -10043,6 +10097,7 @@
                 "queryPad": 0,
                 "name": "CreateBucket",
                 "query": [],
+                "locationPad": 26,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -10368,6 +10423,7 @@
                 "contentPad": 9,
                 "name": "CreateMultipartUploadResponse",
                 "resultWrapper": null,
+                "locationPad": 48,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -10768,6 +10824,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 48,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -11481,6 +11538,7 @@
                 "queryPad": 0,
                 "name": "DeleteBucket",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -11613,6 +11671,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -11745,6 +11804,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -11877,6 +11937,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -12009,6 +12070,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -12141,6 +12203,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -12199,6 +12262,7 @@
                 "contentPad": 0,
                 "name": "DeleteObjectResponse",
                 "resultWrapper": null,
+                "locationPad": 20,
                 "type": "record",
                 "headerAll": true,
                 "optional": [
@@ -12361,6 +12425,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -12545,6 +12610,7 @@
                 "contentPad": 8,
                 "name": "DeleteObjectsResponse",
                 "resultWrapper": null,
+                "locationPad": 8,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -12696,6 +12762,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -12819,6 +12886,7 @@
                 "contentPad": 18,
                 "name": "GetBucketAclResponse",
                 "resultWrapper": null,
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -12969,6 +13037,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -13065,6 +13134,7 @@
                 "contentPad": 0,
                 "name": "GetBucketCorsResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -13169,6 +13239,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -13265,6 +13336,7 @@
                 "contentPad": 0,
                 "name": "GetBucketLifecycleResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -13369,6 +13441,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -13449,6 +13522,7 @@
                 "contentPad": 0,
                 "name": "GetBucketLocationResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -13569,6 +13643,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -13647,6 +13722,7 @@
                 "contentPad": 0,
                 "name": "GetBucketLoggingResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -13767,6 +13843,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -13859,6 +13936,7 @@
                 "contentPad": 27,
                 "name": "GetBucketNotificationResponse",
                 "resultWrapper": null,
+                "locationPad": 27,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -14039,6 +14117,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -14133,6 +14212,7 @@
                 "contentPad": 0,
                 "name": "GetBucketPolicyResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -14253,6 +14333,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -14333,6 +14414,7 @@
                 "contentPad": 0,
                 "name": "GetBucketRequestPaymentResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -14453,6 +14535,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -14533,6 +14616,7 @@
                 "contentPad": 0,
                 "name": "GetBucketTaggingResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -14653,6 +14737,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -14731,6 +14816,7 @@
                 "contentPad": 10,
                 "name": "GetBucketVersioningResponse",
                 "resultWrapper": null,
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -14881,6 +14967,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -14988,6 +15075,7 @@
                 "contentPad": 22,
                 "name": "GetBucketWebsiteResponse",
                 "resultWrapper": null,
+                "locationPad": 22,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -15198,6 +15286,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -15380,6 +15469,7 @@
                 "contentPad": 5,
                 "name": "GetObjectResponse",
                 "resultWrapper": null,
+                "locationPad": 48,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -16212,6 +16302,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 48,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -16785,6 +16876,7 @@
                 "contentPad": 18,
                 "name": "GetObjectAclResponse",
                 "resultWrapper": null,
+                "locationPad": 18,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -16945,6 +17037,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -17083,6 +17176,7 @@
                 "contentPad": 0,
                 "name": "GetObjectTorrentResponse",
                 "resultWrapper": null,
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -17208,6 +17302,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 7,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -17350,6 +17445,7 @@
                 "queryPad": 0,
                 "name": "HeadBucket",
                 "query": [],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
@@ -17502,6 +17598,7 @@
                 "contentPad": 0,
                 "name": "HeadObjectResponse",
                 "resultWrapper": null,
+                "locationPad": 48,
                 "type": "record",
                 "headerAll": true,
                 "optional": [
@@ -18274,6 +18371,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 48,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -18667,6 +18765,7 @@
                 "contentPad": 8,
                 "name": "ListBucketsResponse",
                 "resultWrapper": null,
+                "locationPad": 8,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -19013,6 +19112,7 @@
                 "contentPad": 19,
                 "name": "ListMultipartUploadsResponse",
                 "resultWrapper": null,
+                "locationPad": 19,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -19459,6 +19559,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -19928,6 +20029,7 @@
                 "contentPad": 20,
                 "name": "ListObjectVersionsResponse",
                 "resultWrapper": null,
+                "locationPad": 20,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -20389,6 +20491,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -20798,6 +20901,7 @@
                 "contentPad": 15,
                 "name": "ListObjectsResponse",
                 "resultWrapper": null,
+                "locationPad": 15,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -21168,6 +21272,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -21547,6 +21652,7 @@
                 "contentPad": 21,
                 "name": "ListPartsResponse",
                 "resultWrapper": null,
+                "locationPad": 21,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -21990,6 +22096,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 19,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -22260,6 +22367,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -22650,6 +22758,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -22860,6 +22969,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -23085,6 +23195,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 20,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -23295,6 +23406,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 26,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -23506,6 +23618,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -23716,6 +23829,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 28,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -23926,6 +24040,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -24141,6 +24256,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 24,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -24381,6 +24497,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 21,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -24510,6 +24627,7 @@
                 "contentPad": 0,
                 "name": "PutObjectResponse",
                 "resultWrapper": null,
+                "locationPad": 48,
                 "type": "record",
                 "headerAll": true,
                 "optional": [
@@ -24945,6 +25063,7 @@
                 "queryPad": 0,
                 "name": "PutObject",
                 "query": [],
+                "locationPad": 48,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -25823,6 +25942,7 @@
                         "type": "const"
                     }
                 ],
+                "locationPad": 25,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -26250,6 +26370,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -26399,6 +26520,7 @@
                 "contentPad": 0,
                 "name": "UploadPartResponse",
                 "resultWrapper": null,
+                "locationPad": 48,
                 "type": "record",
                 "headerAll": true,
                 "optional": [
@@ -26740,6 +26862,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 48,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,
@@ -27098,6 +27221,7 @@
                 "contentPad": 15,
                 "name": "UploadPartCopyResponse",
                 "resultWrapper": null,
+                "locationPad": 48,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -27490,6 +27614,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 60,
                 "type": "record",
                 "queryAll": false,
                 "headerAll": false,

@@ -433,6 +433,7 @@ instance ToJSON Data where
                 , "optional"    .= opt
                 , "payload"     .= if _fPayload f then Just f else Nothing
                 , "listElement" .= fmap Internal (listElement (f ^. typeOf))
+                , "locationPad" .= (0 :: Int)
                 ]
               where
                 (req, opt) = parameters [f]
@@ -448,6 +449,7 @@ instance ToJSON Data where
                 , "required"    .= req
                 , "optional"    .= opt
                 , "payload"     .= find _fPayload fs
+                , "locationPad" .= (maximum (map (Text.length . _fLocationName) fs) + 1)
                 ]
               where
                 (req, opt) = parameters fs
@@ -558,7 +560,7 @@ instance DerivingOf Type where
 instance DerivingOf Data where
     derivingOf d = f . derivingOf $ toListOf (dataFields . typeOf) d
       where
-        f | Newtype {} <- d = id
+        f | Newtype {} <- d = Set.delete Generic'
           | Nullary {} <- d = const [Eq', Ord', Enum', Show', Generic']
           | Empty   {} <- d = const [Eq', Ord', Show', Generic']
           | otherwise       = flip Set.difference
@@ -572,6 +574,7 @@ instance DerivingOf Data where
               , RealFloat'
               , Whole'
               , IsString'
+              , Generic'
               ]
 
 data Request = Request

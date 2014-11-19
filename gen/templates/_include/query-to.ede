@@ -11,9 +11,9 @@ instance ToQuery {{ type.name }} where
     toQuery {{ type.name }}{..} = mconcat
   {% for field in type.fields %}
     {% if field.value.flattened %}
-        {% include "list.ede" %} toQuery {{ field.value.name }}
+        {% include "list.ede" %} {{ "toQuery" | justifyLeft(type.locationPad) }} {{ field.value.name }}
     {% else %}
-        {% include "list.ede" %} "{{ field.value.locationName }}" =? {{ field.value.name }}
+        {% include "list.ede" %} "{{ field.value.locationName | concat("\"") | justifyLeft(type.locationPad) }} =? {{ field.value.name }}
     {% endif %}
   {% endfor %}
         ]

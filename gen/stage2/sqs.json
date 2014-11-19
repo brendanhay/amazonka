@@ -140,6 +140,7 @@
                 ],
                 "contentPad": 0,
                 "name": "DeleteMessageBatchRequestEntry",
+                "locationPad": 14,
                 "type": "record",
                 "optional": [],
                 "fields": [
@@ -204,6 +205,7 @@
                 ],
                 "contentPad": 0,
                 "name": "MessageAttributeValue",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -393,6 +395,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ChangeMessageVisibilityBatchResultEntry",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -458,6 +461,7 @@
                 ],
                 "contentPad": 0,
                 "name": "ChangeMessageVisibilityBatchRequestEntry",
+                "locationPad": 18,
                 "type": "record",
                 "optional": [
                     {
@@ -572,6 +576,7 @@
                 ],
                 "contentPad": 0,
                 "name": "DeleteMessageBatchResultEntry",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [],
                 "fields": [
@@ -636,6 +641,7 @@
                 ],
                 "contentPad": 0,
                 "name": "Message",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -881,6 +887,7 @@
                 ],
                 "contentPad": 0,
                 "name": "SendMessageBatchRequestEntry",
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -1022,6 +1029,7 @@
                 ],
                 "contentPad": 0,
                 "name": "SendMessageBatchResultEntry",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -1163,6 +1171,7 @@
                 ],
                 "contentPad": 0,
                 "name": "BatchResultErrorEntry",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -1399,6 +1408,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1595,6 +1605,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1702,6 +1713,7 @@
                 "contentPad": 0,
                 "name": "ChangeMessageVisibilityBatchResponse",
                 "resultWrapper": "ChangeMessageVisibilityBatchResult",
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -1819,6 +1831,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1898,6 +1911,7 @@
                 "contentPad": 0,
                 "name": "CreateQueueResponse",
                 "resultWrapper": "CreateQueueResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2016,6 +2030,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2162,6 +2177,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2254,6 +2270,7 @@
                 "contentPad": 0,
                 "name": "DeleteMessageBatchResponse",
                 "resultWrapper": "DeleteMessageBatchResult",
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -2371,6 +2388,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2515,6 +2533,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -2595,6 +2614,7 @@
                 "contentPad": 0,
                 "name": "GetQueueAttributesResponse",
                 "resultWrapper": "GetQueueAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -2698,6 +2718,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2777,6 +2798,7 @@
                 "contentPad": 0,
                 "name": "GetQueueUrlResponse",
                 "resultWrapper": "GetQueueUrlResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2881,6 +2903,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -2993,6 +3016,7 @@
                 "contentPad": 0,
                 "name": "ListDeadLetterSourceQueuesResponse",
                 "resultWrapper": "ListDeadLetterSourceQueuesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3094,6 +3118,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3175,6 +3200,7 @@
                 "contentPad": 0,
                 "name": "ListQueuesResponse",
                 "resultWrapper": "ListQueuesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3259,6 +3285,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3355,6 +3382,7 @@
                 "contentPad": 0,
                 "name": "ReceiveMessageResponse",
                 "resultWrapper": "ReceiveMessageResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [],
@@ -3493,6 +3521,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 22,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3745,6 +3774,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3807,6 +3837,7 @@
                 "contentPad": 0,
                 "name": "SendMessageResponse",
                 "resultWrapper": "SendMessageResult",
+                "locationPad": 23,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -4010,6 +4041,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 17,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4148,6 +4180,7 @@
                 "contentPad": 0,
                 "name": "SendMessageBatchResponse",
                 "resultWrapper": "SendMessageBatchResult",
+                "locationPad": 11,
                 "type": "record",
                 "headerAll": false,
                 "optional": [],
@@ -4265,6 +4298,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4410,6 +4444,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,

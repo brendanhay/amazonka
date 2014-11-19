@@ -108,12 +108,12 @@ element :: Name -> [Node] -> Element
 element n ns = Element n mempty ns
 {-# INLINE element #-}
 
-nodes :: Name -> [Node] -> [Node]
-nodes n ns = [NodeElement (element n ns)]
+nodes :: Name -> [[Node]] -> [Node]
+nodes n ns = [NodeElement (element n (concat ns))]
 {-# INLINE nodes #-}
 
-(=@) :: ToXML a => Name -> a -> Node
-n =@ x = NodeElement (Element n mempty (toXML x))
+(=@) :: ToXML a => Name -> a -> [Node]
+n =@ x = [NodeElement (element n (toXML x))]
 {-# INLINE (=@) #-}
 
 withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a

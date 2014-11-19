@@ -13,11 +13,12 @@ instance ToXML {{ type.name }} where
   {% else %}
     toXML {{ type.name }}{..} = nodes "{{ type.name }}"
     {% for field in type.contents %}
+      {% if field.value.flattened %}
+        {% include "list.ede" %} {{ "toXML" | justifyLeft(type.contentPad) }}     {{ field.value.name }}
+      {% else %}
         {% include "list.ede" %} "{{ field.value.locationName | concat("\"") | justifyLeft(type.contentPad) }} =@ {{ field.value.name }}
+      {% endif %}
     {% endfor %}
         ]
   {% endif %}
 {% endcase %}
-
-
-How to deal with flattened? Should be merged directly into the current nodeset

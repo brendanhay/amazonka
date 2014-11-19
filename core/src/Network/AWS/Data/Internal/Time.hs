@@ -44,6 +44,7 @@ import           Data.Time
 import           Data.Time.Clock.POSIX
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.JSON
+import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
 import           System.Locale
@@ -151,6 +152,11 @@ instance ToByteString RFC822    where toBS = BS.pack . renderFormattedTime
 instance ToByteString ISO8601   where toBS = BS.pack . renderFormattedTime
 instance ToByteString BasicTime where toBS = BS.pack . renderFormattedTime
 instance ToByteString AWSTime   where toBS = BS.pack . renderFormattedTime
+
+instance ToQuery RFC822    where toQuery = toQuery . toBS
+instance ToQuery ISO8601   where toQuery = toQuery . toBS
+instance ToQuery BasicTime where toQuery = toQuery . toBS
+instance ToQuery AWSTime   where toQuery = toQuery . toBS
 
 instance ToXML RFC822    where toXML = toXMLText
 instance ToXML ISO8601   where toXML = toXMLText

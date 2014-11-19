@@ -43,7 +43,6 @@ import           Data.Text                            (Text)
 import qualified Data.Text.Encoding                   as Text
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
-import           Network.AWS.Data.Internal.Time
 import           Numeric.Natural
 
 data Query
@@ -156,15 +155,11 @@ instance ToQuery ByteString where
     toQuery "" = Value Nothing
     toQuery bs = Value (Just bs)
 
-instance ToQuery Text      where toQuery = toQuery . toBS
-instance ToQuery Int       where toQuery = toQuery . toBS
-instance ToQuery Integer   where toQuery = toQuery . toBS
-instance ToQuery Double    where toQuery = toQuery . toBS
-instance ToQuery Natural   where toQuery = toQuery . toBS
-instance ToQuery RFC822    where toQuery = toQuery . toBS
-instance ToQuery ISO8601   where toQuery = toQuery . toBS
-instance ToQuery BasicTime where toQuery = toQuery . toBS
-instance ToQuery AWSTime   where toQuery = toQuery . toBS
+instance ToQuery Text    where toQuery = toQuery . toBS
+instance ToQuery Int     where toQuery = toQuery . toBS
+instance ToQuery Integer where toQuery = toQuery . toBS
+instance ToQuery Double  where toQuery = toQuery . toBS
+instance ToQuery Natural where toQuery = toQuery . toBS
 
 instance ToQuery a => ToQuery [a] where
     toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx

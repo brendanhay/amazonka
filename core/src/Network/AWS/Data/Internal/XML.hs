@@ -90,41 +90,15 @@ toXMLText x = [NodeContent (toText x)]
 {-# INLINE toXMLText #-}
 
 (.@) :: FromXML a => [Node] -> Text -> Either String a
-ns .@ n =
-    case findElement n ns of
-        Nothing -> Left $ "element " ++ show n ++ " not present"
-        Just xs -> parseXML xs
+ns .@ n = findElement n ns >>= parseXML
 {-# INLINE (.@) #-}
 
 (.@?) :: FromXML a => [Node] -> Text -> Either String (Maybe a)
 ns .@? n =
     case findElement n ns of
-        Nothing -> Right Nothing
-        Just xs -> parseXML xs
+        Left _   -> Right Nothing
+        Right xs -> parseXML xs
 {-# INLINE (.@?) #-}
-
--- 1. SQS:DeleteMessageBatchResponse:
---    responseWrapped means you get a phony structure which is not
---    indicitive of deserialisation.
-
---    DeleteMessageBatchResult is skipped, and the Failed and Successful fields are
---    populated based on what is parsed.
-
---    The MarshallName (or locationName) is specified for the list items ..
-
--- 2. ElastiCache:
---    responseWrapped means a single layer (CreateCacheClusterResult) is skipped.
-
--- unmarshallers basically go to the correct depth, and continue to read elements
--- and attempt to parse them.
-
--- A:
-
--- 1. descend depth+1 to drop a layer
--- 2. attempt to parse whatever is at the current depth and assign to the current field
--- 3. move to next field.
-
--- wrapped :: Name -> [Node] -> Either String 
 
 element :: Name -> [Node] -> Element
 element n ns = Element n mempty ns
@@ -138,31 +112,34 @@ nodes n ns = [NodeElement (element n ns)]
 n =@ x = NodeElement (Element n mempty (toXML x))
 {-# INLINE (=@) #-}
 
-withContent :: (Text -> Either String a) -> [Node] -> Either String a
-withContent f = withNode (join . fmap f . g)
+withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a
+withContent n f = withNode n (join . fmap f . g)
   where
-    g (NodeContent x) = Right x
-    g _               = Left "unexpected element, when expecting node content"
+    g (NodeContent x)
+        = Right x
+    g _ = Left $ "unexpected element, when expecting node content: " ++ n
 {-# INLINE withContent #-}
 
-withNode :: (Node -> Either String a) -> [Node] -> Either String a
+withNode :: String -> (Node -> Either String a) -> [Node] -> Either String a
 withNode n f = \case
     [x] -> f x
-    []  -> Left "empty node list, when expecting a single node"
-    _   -> Left "encountered node list, when expecting a single node"
+    []  -> Left $ "empty node list, when expecting a single node: " ++ n
+    _   -> Left $ "encountered node list, when expecting a single node: " ++ n
 {-# INLINE withNode #-}
 
-withElement :: Name -> ([Node] -> Either String a) -> [Node] -> Either String a
+withElement :: Text -> ([Node] -> Either String a) -> [Node] -> Either String a
 withElement n f = join . fmap f . findElement n
 {-# INLINE withElement #-}
 
-findElement :: Text -> [Node] -> Maybe [Node]
-findElement n = listToMaybe . mapMaybe f
+findElement :: Text -> [Node] -> Either String [Node]
+findElement n = maybe err Right . listToMaybe . mapMaybe f
   where
     f (NodeElement e)
         | nameLocalName (elementName e) == n
             = Just (elementNodes e)
     f _     = Nothing
+
+    err = Left $ "unable to find element " ++ show n
 {-# INLINE findElement #-}
 
 class FromXML a where

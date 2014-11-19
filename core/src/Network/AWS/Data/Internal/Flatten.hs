@@ -29,5 +29,4 @@ newtype Flatten a = Flatten { flatten :: a }
 _Flatten :: Iso' (Flatten a) a
 _Flatten = iso flatten Flatten
 
-
-Write instances for flattened list, list1, hashmap, map,
+-- Write instances for flattened list, list1, hashmap, map,

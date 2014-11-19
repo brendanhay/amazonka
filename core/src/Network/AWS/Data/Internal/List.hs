@@ -1,5 +1,6 @@
-{-# LANGUAGE DeriveTraversable          #-}
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RoleAnnotations            #-}
@@ -29,12 +30,16 @@ import           Data.Semigroup                    (Semigroup)
 import           Data.Traversable
 import qualified Data.Vector                       as Vector
 import           GHC.Exts
+import           GHC.TypeLits
 import           Network.AWS.Data.Internal.Flatten
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.XML
 
-newtype List  e a = List  { list  :: [a]        } deriving (Eq, Ord, Show, Semigroup, Monoid)
-newtype List1 e a = List1 { list1 :: NonEmpty a } deriving (Eq, Ord, Show, Semigroup)
+newtype List (e :: Symbol) a = List { list :: [a] }
+    deriving (Eq, Ord, Show, Semigroup, Monoid)
+
+newtype List1 (e :: Symbol) a = List1 { list1 :: NonEmpty a }
+    deriving (Eq, Ord, Show, Semigroup)
 
 type role List  phantom representational
 type role List1 phantom representational

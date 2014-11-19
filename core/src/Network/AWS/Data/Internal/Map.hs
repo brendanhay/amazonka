@@ -60,13 +60,13 @@ newtype Map (e :: Symbol) (i :: Symbol) k (j :: Symbol) v = Map
 
 type role Map phantom phantom nominal phantom representational
 
-_Map :: (Coercible a b, Coercible b a) => Iso' (Map e i k j a) (HashMap k b)
+_Map :: (Coercible a b, Coercible b a) => Iso' (Map e i j k a) (HashMap k b)
 _Map = iso (coerce . toHashMap) (Map . coerce)
 
-fromList :: (Eq k, Hashable k) => [(k, v)] -> Map e i k j v
+fromList :: (Eq k, Hashable k) => [(k, v)] -> Map e i j k v
 fromList = Map . Map.fromList
 
-toList :: Map e i k j v -> [(k, v)]
+toList :: Map e i j k v -> [(k, v)]
 toList = Map.toList . toHashMap
 
 -- (~::) :: FromText v => [Header] -> Text -> Either String (Map e Text v)
@@ -89,7 +89,7 @@ instance ( KnownSymbol e
          , Hashable k
          , ToQuery k
          , ToQuery v
-         ) => ToQuery (Map e i k j v) where
+         ) => ToQuery (Map e i j k v) where
     toQuery m = toBS e =? (mconcat . zipWith go idx $ toList m)
       where
         go n (k, v) = toBS n =? toQuery (i, k) <> toQuery (j, v)
@@ -104,7 +104,7 @@ instance ( Eq k
          , Hashable k
          , FromText k
          , FromJSON v
-         ) => FromJSON (Map e i k j v) where
+         ) => FromJSON (Map e i j k v) where
     parseJSON = withObject "HashMap" (fmap fromList . traverse g . Map.toList)
       where
         g (k, v) = (,)
@@ -115,7 +115,7 @@ instance ( Eq k
          , Hashable k
          , ToText k
          , ToJSON v
-         ) => ToJSON (Map e i k j v) where
+         ) => ToJSON (Map e i j k v) where
     toJSON = Object . Map.fromList . map (bimap toText toJSON) . toList
 
 instance ( KnownSymbol e
@@ -125,7 +125,7 @@ instance ( KnownSymbol e
          , Hashable k
          , FromXML k
          , FromXML v
-         ) => FromXML (Map e i k j v) where
+         ) => FromXML (Map e i j k v) where
     parseXML = fmap fromList . traverse (withElement e pair . (:[]))
       where
         pair ns
@@ -149,7 +149,7 @@ instance ( KnownSymbol e
          , Hashable k
          , ToXML k
          , ToXML v
-         ) => ToXML (Map e i k j v) where
+         ) => ToXML (Map e i j k v) where
     toXML = map (uncurry go) . toList
       where
         go k v =

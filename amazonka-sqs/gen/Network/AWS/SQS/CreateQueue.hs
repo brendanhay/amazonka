@@ -57,7 +57,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data CreateQueue = CreateQueue
-    { _cqAttributes :: Map "Attribute" "Name" Text "Value" Text
+    { _cqAttributes :: Map "Attribute" "Name" "Value" Text Text
     , _cqQueueName  :: Text
     } deriving (Eq, Show, Generic)
 

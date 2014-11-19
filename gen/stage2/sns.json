@@ -305,7 +305,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eAttributes for platform application object.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -322,7 +322,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eAttributes for platform application object.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": "querystring",
@@ -554,7 +554,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eAttributes for endpoint.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -571,7 +571,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eAttributes for endpoint.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": "querystring",
@@ -1229,7 +1229,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eFor a list of attributes, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html\"\u003eSetPlatformApplicationAttributes\u003c/a\u003e\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -1246,7 +1246,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eFor a list of attributes, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html\"\u003eSetPlatformApplicationAttributes\u003c/a\u003e\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": "querystring",
@@ -1482,7 +1482,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eFor a list of attributes, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html\"\u003eSetEndpointAttributes\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -1499,7 +1499,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eFor a list of attributes, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html\"\u003eSetEndpointAttributes\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": "querystring",
@@ -2146,7 +2146,7 @@
                     "locationName": "Attributes",
                     "documentation": "\u003cp\u003eAttributes include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCustomUserData\u003c/code\u003e -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEnabled\u003c/code\u003e -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eToken\u003c/code\u003e -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.\u003c/li\u003e \u003c/ul\u003e",
                     "typeExposed": "HashMap Text Text",
-                    "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                    "type": "Map \"entry\" \"key\" \"value\" Text Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2174,7 +2174,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eAttributes include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCustomUserData\u003c/code\u003e -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEnabled\u003c/code\u003e -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eToken\u003c/code\u003e -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -2191,7 +2191,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eAttributes include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCustomUserData\u003c/code\u003e -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEnabled\u003c/code\u003e -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eToken\u003c/code\u003e -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -2327,7 +2327,7 @@
                     "locationName": "Attributes",
                     "documentation": "\u003cp\u003eAttributes include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eEventEndpointCreated\u003c/code\u003e -- Topic ARN to which EndpointCreated event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointDeleted\u003c/code\u003e -- Topic ARN to which EndpointDeleted event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointUpdated\u003c/code\u003e -- Topic ARN to which EndpointUpdate event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventDeliveryFailure\u003c/code\u003e -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.\u003c/li\u003e \u003c/ul\u003e",
                     "typeExposed": "HashMap Text Text",
-                    "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                    "type": "Map \"entry\" \"key\" \"value\" Text Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2355,7 +2355,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eAttributes include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eEventEndpointCreated\u003c/code\u003e -- Topic ARN to which EndpointCreated event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointDeleted\u003c/code\u003e -- Topic ARN to which EndpointDeleted event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointUpdated\u003c/code\u003e -- Topic ARN to which EndpointUpdate event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventDeliveryFailure\u003c/code\u003e -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -2372,7 +2372,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eAttributes include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eEventEndpointCreated\u003c/code\u003e -- Topic ARN to which EndpointCreated event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointDeleted\u003c/code\u003e -- Topic ARN to which EndpointDeleted event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointUpdated\u003c/code\u003e -- Topic ARN to which EndpointUpdate event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventDeliveryFailure\u003c/code\u003e -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -2508,7 +2508,7 @@
                     "locationName": "Attributes",
                     "documentation": "\u003cp\u003eA map of the subscription's attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eSubscriptionArn\u003c/code\u003e -- the subscription's ARN\u003c/li\u003e \u003cli\u003e \u003ccode\u003eTopicArn\u003c/code\u003e -- the topic ARN that the subscription is associated with\u003c/li\u003e \u003cli\u003e \u003ccode\u003eOwner\u003c/code\u003e -- the AWS account ID of the subscription's owner\u003c/li\u003e \u003cli\u003e \u003ccode\u003eConfirmationWasAuthenticated\u003c/code\u003e -- true if the subscription confirmation request was authenticated\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the subscription's delivery policy\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEffectiveDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults\u003c/li\u003e \u003c/ul\u003e",
                     "typeExposed": "HashMap Text Text",
-                    "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                    "type": "Map \"entry\" \"key\" \"value\" Text Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2536,7 +2536,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA map of the subscription's attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eSubscriptionArn\u003c/code\u003e -- the subscription's ARN\u003c/li\u003e \u003cli\u003e \u003ccode\u003eTopicArn\u003c/code\u003e -- the topic ARN that the subscription is associated with\u003c/li\u003e \u003cli\u003e \u003ccode\u003eOwner\u003c/code\u003e -- the AWS account ID of the subscription's owner\u003c/li\u003e \u003cli\u003e \u003ccode\u003eConfirmationWasAuthenticated\u003c/code\u003e -- true if the subscription confirmation request was authenticated\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the subscription's delivery policy\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEffectiveDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -2553,7 +2553,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA map of the subscription's attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eSubscriptionArn\u003c/code\u003e -- the subscription's ARN\u003c/li\u003e \u003cli\u003e \u003ccode\u003eTopicArn\u003c/code\u003e -- the topic ARN that the subscription is associated with\u003c/li\u003e \u003cli\u003e \u003ccode\u003eOwner\u003c/code\u003e -- the AWS account ID of the subscription's owner\u003c/li\u003e \u003cli\u003e \u003ccode\u003eConfirmationWasAuthenticated\u003c/code\u003e -- true if the subscription confirmation request was authenticated\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the subscription's delivery policy\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEffectiveDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -2689,7 +2689,7 @@
                     "locationName": "Attributes",
                     "documentation": "\u003cp\u003eA map of the topic's attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eTopicArn\u003c/code\u003e -- the topic's ARN\u003c/li\u003e \u003cli\u003e \u003ccode\u003eOwner\u003c/code\u003e -- the AWS account ID of the topic's owner\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePolicy\u003c/code\u003e -- the JSON serialization of the topic's access control policy\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDisplayName\u003c/code\u003e -- the human-readable name used in the \"From\" field for notifications to email and email-json endpoints\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSubscriptionsPending\u003c/code\u003e -- the number of subscriptions pending confirmation on this topic\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSubscriptionsConfirmed\u003c/code\u003e -- the number of confirmed subscriptions on this topic\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSubscriptionsDeleted\u003c/code\u003e -- the number of deleted subscriptions on this topic\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the topic's delivery policy\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEffectiveDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the effective delivery policy that takes into account system defaults\u003c/li\u003e \u003c/ul\u003e",
                     "typeExposed": "HashMap Text Text",
-                    "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                    "type": "Map \"entry\" \"key\" \"value\" Text Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2717,7 +2717,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA map of the topic's attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eTopicArn\u003c/code\u003e -- the topic's ARN\u003c/li\u003e \u003cli\u003e \u003ccode\u003eOwner\u003c/code\u003e -- the AWS account ID of the topic's owner\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePolicy\u003c/code\u003e -- the JSON serialization of the topic's access control policy\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDisplayName\u003c/code\u003e -- the human-readable name used in the \"From\" field for notifications to email and email-json endpoints\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSubscriptionsPending\u003c/code\u003e -- the number of subscriptions pending confirmation on this topic\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSubscriptionsConfirmed\u003c/code\u003e -- the number of confirmed subscriptions on this topic\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSubscriptionsDeleted\u003c/code\u003e -- the number of deleted subscriptions on this topic\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the topic's delivery policy\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEffectiveDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the effective delivery policy that takes into account system defaults\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -2734,7 +2734,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA map of the topic's attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eTopicArn\u003c/code\u003e -- the topic's ARN\u003c/li\u003e \u003cli\u003e \u003ccode\u003eOwner\u003c/code\u003e -- the AWS account ID of the topic's owner\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePolicy\u003c/code\u003e -- the JSON serialization of the topic's access control policy\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDisplayName\u003c/code\u003e -- the human-readable name used in the \"From\" field for notifications to email and email-json endpoints\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSubscriptionsPending\u003c/code\u003e -- the number of subscriptions pending confirmation on this topic\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSubscriptionsConfirmed\u003c/code\u003e -- the number of confirmed subscriptions on this topic\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSubscriptionsDeleted\u003c/code\u003e -- the number of deleted subscriptions on this topic\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the topic's delivery policy\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEffectiveDeliveryPolicy\u003c/code\u003e -- the JSON serialization of the effective delivery policy that takes into account system defaults\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },
@@ -4115,7 +4115,7 @@
                         "locationName": "MessageAttributes",
                         "documentation": "\u003cp\u003eMessage attributes for Publish action.\u003c/p\u003e",
                         "typeExposed": "HashMap Text MessageAttributeValue",
-                        "type": "Map \"entry\" \"Name\" Text \"Value\" MessageAttributeValue"
+                        "type": "Map \"entry\" \"Name\" \"Value\" Text MessageAttributeValue"
                     }
                 ],
                 "fields": [
@@ -4147,7 +4147,7 @@
                         "locationName": "MessageAttributes",
                         "documentation": "\u003cp\u003eMessage attributes for Publish action.\u003c/p\u003e",
                         "typeExposed": "HashMap Text MessageAttributeValue",
-                        "type": "Map \"entry\" \"Name\" Text \"Value\" MessageAttributeValue"
+                        "type": "Map \"entry\" \"Name\" \"Value\" Text MessageAttributeValue"
                     },
                     {
                         "location": "querystring",
@@ -4467,7 +4467,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA map of the endpoint attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCustomUserData\u003c/code\u003e -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEnabled\u003c/code\u003e -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eToken\u003c/code\u003e -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -4484,7 +4484,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA map of the endpoint attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCustomUserData\u003c/code\u003e -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEnabled\u003c/code\u003e -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eToken\u003c/code\u003e -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": "querystring",
@@ -4613,7 +4613,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA map of the platform application attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003ePlatformCredential\u003c/code\u003e -- The credential received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM, PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client secret\".\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePlatformPrincipal\u003c/code\u003e -- The principal received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client id\".\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointCreated\u003c/code\u003e -- Topic ARN to which EndpointCreated event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointDeleted\u003c/code\u003e -- Topic ARN to which EndpointDeleted event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointUpdated\u003c/code\u003e -- Topic ARN to which EndpointUpdate event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventDeliveryFailure\u003c/code\u003e -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
@@ -4630,7 +4630,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA map of the platform application attributes. Attributes in this map include the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003ePlatformCredential\u003c/code\u003e -- The credential received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM, PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client secret\".\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePlatformPrincipal\u003c/code\u003e -- The principal received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client id\".\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointCreated\u003c/code\u003e -- Topic ARN to which EndpointCreated event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointDeleted\u003c/code\u003e -- Topic ARN to which EndpointDeleted event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventEndpointUpdated\u003c/code\u003e -- Topic ARN to which EndpointUpdate event notifications should be sent.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEventDeliveryFailure\u003c/code\u003e -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" Text \"value\" Text"
+                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
                     },
                     {
                         "location": "querystring",

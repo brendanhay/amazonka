@@ -68,7 +68,7 @@ geaEndpointArn :: Lens' GetEndpointAttributes Text
 geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
-    { _gearAttributes :: Map "entry" "key" Text "value" Text
+    { _gearAttributes :: Map "entry" "key" "value" Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetEndpointAttributesResponse' constructor.

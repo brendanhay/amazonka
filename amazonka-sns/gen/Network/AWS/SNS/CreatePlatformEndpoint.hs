@@ -61,7 +61,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data CreatePlatformEndpoint = CreatePlatformEndpoint
-    { _cpeAttributes             :: Map "entry" "key" Text "value" Text
+    { _cpeAttributes             :: Map "entry" "key" "value" Text Text
     , _cpeCustomUserData         :: Maybe Text
     , _cpePlatformApplicationArn :: Text
     , _cpeToken                  :: Text

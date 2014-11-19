@@ -60,7 +60,7 @@ import qualified GHC.Exts
 
 data Publish = Publish
     { _pMessage           :: Text
-    , _pMessageAttributes :: Map "entry" "Name" Text "Value" MessageAttributeValue
+    , _pMessageAttributes :: Map "entry" "Name" "Value" Text MessageAttributeValue
     , _pMessageStructure  :: Maybe Text
     , _pSubject           :: Maybe Text
     , _pTargetArn         :: Maybe Text

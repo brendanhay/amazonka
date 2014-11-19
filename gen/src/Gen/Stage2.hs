@@ -236,9 +236,9 @@ instance ToJSON (Internal Type) where
             TMap  (e, i', j) k v ->
                 "Map" <> witness e
                       <> witness i'
+                      <> witness j
                       <> " "
                       <> wrap (go k)
-                      <> witness j
                       <> " "
                       <> wrap (go v)
 

@@ -61,7 +61,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data CreatePlatformApplication = CreatePlatformApplication
-    { _cpaAttributes :: Map "entry" "key" Text "value" Text
+    { _cpaAttributes :: Map "entry" "key" "value" Text Text
     , _cpaName       :: Text
     , _cpaPlatform   :: Text
     } deriving (Eq, Show, Generic)

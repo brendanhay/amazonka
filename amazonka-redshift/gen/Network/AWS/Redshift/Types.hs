@@ -1431,7 +1431,7 @@ instance ToText SourceType where
         STClusterSnapshot       -> "cluster-snapshot"
 
 instance FromXML SourceType where
-    parseXML = withElement "SourceType" (const (return SourceType))
+    parseXML = parseXMLText "SourceType"
 
 instance ToQuery SourceType
 

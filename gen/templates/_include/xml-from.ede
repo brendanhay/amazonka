@@ -3,11 +3,9 @@ instance FromXML {{ type.name }} where
 {% case type.type %}
 {% when "nullary" %}
   {% if type.resultWrapper %}
-    parseXML = withElement "{{ type.resultWrapper }}" $
-        . withElement "{{ type.name }}"
-        $ const (return {{ type.name }})
+    parseXML = withElement "{{ type.resultWrapper }}" (parseXMLText "{{ type.name }}")
   {% else %}
-    parseXML = withElement "{{ type.name }}" (const (return {{ type.name }}))
+    parseXML = parseXMLText "{{ type.name }}"
   {% endif %}
 {% else %}
   {% if type.resultWrapper %}

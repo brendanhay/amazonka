@@ -588,7 +588,7 @@ instance ToText SSLSupportMethod where
         Vip     -> "vip"
 
 instance FromXML SSLSupportMethod where
-    parseXML = withElement "SSLSupportMethod" (const (return SSLSupportMethod))
+    parseXML = parseXMLText "SSLSupportMethod"
 
 instance ToXML SSLSupportMethod where
     toXML = toXMLText
@@ -778,7 +778,7 @@ instance ToText ViewerProtocolPolicy where
         RedirectToHttps -> "redirect-to-https"
 
 instance FromXML ViewerProtocolPolicy where
-    parseXML = withElement "ViewerProtocolPolicy" (const (return ViewerProtocolPolicy))
+    parseXML = parseXMLText "ViewerProtocolPolicy"
 
 instance ToXML ViewerProtocolPolicy where
     toXML = toXMLText
@@ -1111,7 +1111,7 @@ instance ToText OriginProtocolPolicy where
         MatchViewer -> "match-viewer"
 
 instance FromXML OriginProtocolPolicy where
-    parseXML = withElement "OriginProtocolPolicy" (const (return OriginProtocolPolicy))
+    parseXML = parseXMLText "OriginProtocolPolicy"
 
 instance ToXML OriginProtocolPolicy where
     toXML = toXMLText
@@ -2104,7 +2104,7 @@ instance ToText PriceClass where
         PriceClassAll -> "PriceClass_All"
 
 instance FromXML PriceClass where
-    parseXML = withElement "PriceClass" (const (return PriceClass))
+    parseXML = parseXMLText "PriceClass"
 
 instance ToXML PriceClass where
     toXML = toXMLText
@@ -2515,7 +2515,7 @@ instance ToText Method where
         Put     -> "PUT"
 
 instance FromXML Method where
-    parseXML = withElement "Method" (const (return Method))
+    parseXML = parseXMLText "Method"
 
 instance ToXML Method where
     toXML = toXMLText
@@ -2645,7 +2645,7 @@ instance ToText ItemSelection where
         Whitelist -> "whitelist"
 
 instance FromXML ItemSelection where
-    parseXML = withElement "ItemSelection" (const (return ItemSelection))
+    parseXML = parseXMLText "ItemSelection"
 
 instance ToXML ItemSelection where
     toXML = toXMLText
@@ -3531,7 +3531,7 @@ instance ToText GeoRestrictionType where
         GRTWhitelist -> "whitelist"
 
 instance FromXML GeoRestrictionType where
-    parseXML = withElement "GeoRestrictionType" (const (return GeoRestrictionType))
+    parseXML = parseXMLText "GeoRestrictionType"
 
 instance ToXML GeoRestrictionType where
     toXML = toXMLText

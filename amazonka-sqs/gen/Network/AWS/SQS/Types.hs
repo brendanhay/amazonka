@@ -170,7 +170,7 @@ instance ToText QueueAttributeName where
         VisibilityTimeout                     -> "VisibilityTimeout"
 
 instance FromXML QueueAttributeName where
-    parseXML = withElement "QueueAttributeName" (const (return QueueAttributeName))
+    parseXML = parseXMLText "QueueAttributeName"
 
 instance ToQuery QueueAttributeName
 

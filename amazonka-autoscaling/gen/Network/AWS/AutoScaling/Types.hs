@@ -1884,7 +1884,7 @@ instance ToText LifecycleState where
         TerminatingWait    -> "Terminating:Wait"
 
 instance FromXML LifecycleState where
-    parseXML = withElement "LifecycleState" (const (return LifecycleState))
+    parseXML = parseXMLText "LifecycleState"
 
 instance ToQuery LifecycleState
 
@@ -2014,6 +2014,6 @@ instance ToText ScalingActivityStatusCode where
         WaitingForSpotInstanceRequestId -> "WaitingForSpotInstanceRequestId"
 
 instance FromXML ScalingActivityStatusCode where
-    parseXML = withElement "ScalingActivityStatusCode" (const (return ScalingActivityStatusCode))
+    parseXML = parseXMLText "ScalingActivityStatusCode"
 
 instance ToQuery ScalingActivityStatusCode

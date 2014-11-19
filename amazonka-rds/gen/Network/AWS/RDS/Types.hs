@@ -1163,7 +1163,7 @@ instance ToText SourceType where
         DbSnapshot       -> "db-snapshot"
 
 instance FromXML SourceType where
-    parseXML = withElement "SourceType" (const (return SourceType))
+    parseXML = parseXMLText "SourceType"
 
 instance ToQuery SourceType
 
@@ -1345,7 +1345,7 @@ instance ToText ApplyMethod where
         PendingReboot -> "pending-reboot"
 
 instance FromXML ApplyMethod where
-    parseXML = withElement "ApplyMethod" (const (return ApplyMethod))
+    parseXML = parseXMLText "ApplyMethod"
 
 instance ToQuery ApplyMethod
 

@@ -462,7 +462,7 @@ instance ToText Event where
         S3ReducedRedundancyLostObject          -> "s3:ReducedRedundancyLostObject"
 
 instance FromXML Event where
-    parseXML = withElement "Event" (const (return Event))
+    parseXML = parseXMLText "Event"
 
 instance ToXML Event where
     toXML = toXMLText
@@ -637,7 +637,7 @@ instance ToText ExpirationStatus where
         Enabled  -> "Enabled"
 
 instance FromXML ExpirationStatus where
-    parseXML = withElement "ExpirationStatus" (const (return ExpirationStatus))
+    parseXML = parseXMLText "ExpirationStatus"
 
 instance ToXML ExpirationStatus where
     toXML = toXMLText
@@ -802,7 +802,7 @@ instance ToText ObjectStorageClass where
         Standard          -> "STANDARD"
 
 instance FromXML ObjectStorageClass where
-    parseXML = withElement "ObjectStorageClass" (const (return ObjectStorageClass))
+    parseXML = parseXMLText "ObjectStorageClass"
 
 instance ToXML ObjectStorageClass where
     toXML = toXMLText
@@ -824,7 +824,7 @@ instance ToText MetadataDirective where
         Replace -> "REPLACE"
 
 instance FromXML MetadataDirective where
-    parseXML = withElement "MetadataDirective" (const (return MetadataDirective))
+    parseXML = parseXMLText "MetadataDirective"
 
 instance ToXML MetadataDirective where
     toXML = toXMLText
@@ -1048,7 +1048,7 @@ instance ToText ObjectCannedACL where
         PublicReadWrite        -> "public-read-write"
 
 instance FromXML ObjectCannedACL where
-    parseXML = withElement "ObjectCannedACL" (const (return ObjectCannedACL))
+    parseXML = parseXMLText "ObjectCannedACL"
 
 instance ToXML ObjectCannedACL where
     toXML = toXMLText
@@ -1070,7 +1070,7 @@ instance ToText BucketVersioningStatus where
         BVSSuspended -> "Suspended"
 
 instance FromXML BucketVersioningStatus where
-    parseXML = withElement "BucketVersioningStatus" (const (return BucketVersioningStatus))
+    parseXML = parseXMLText "BucketVersioningStatus"
 
 instance ToXML BucketVersioningStatus where
     toXML = toXMLText
@@ -1144,7 +1144,7 @@ instance ToText ObjectVersionStorageClass where
     toText OVSCStandard = "STANDARD"
 
 instance FromXML ObjectVersionStorageClass where
-    parseXML = withElement "ObjectVersionStorageClass" (const (return ObjectVersionStorageClass))
+    parseXML = parseXMLText "ObjectVersionStorageClass"
 
 instance ToXML ObjectVersionStorageClass where
     toXML = toXMLText
@@ -1201,7 +1201,7 @@ instance ToText EncodingType where
     toText Url = "url"
 
 instance FromXML EncodingType where
-    parseXML = withElement "EncodingType" (const (return EncodingType))
+    parseXML = parseXMLText "EncodingType"
 
 instance ToXML EncodingType where
     toXML = toXMLText
@@ -1554,7 +1554,7 @@ instance ToText Protocol where
         Https -> "https"
 
 instance FromXML Protocol where
-    parseXML = withElement "Protocol" (const (return Protocol))
+    parseXML = parseXMLText "Protocol"
 
 instance ToXML Protocol where
     toXML = toXMLText
@@ -1917,7 +1917,7 @@ instance ToText StorageClass where
         SCStandard          -> "STANDARD"
 
 instance FromXML StorageClass where
-    parseXML = withElement "StorageClass" (const (return StorageClass))
+    parseXML = parseXMLText "StorageClass"
 
 instance ToXML StorageClass where
     toXML = toXMLText
@@ -2074,7 +2074,7 @@ instance ToText MFADeleteStatus where
         MFADSEnabled  -> "Enabled"
 
 instance FromXML MFADeleteStatus where
-    parseXML = withElement "MFADeleteStatus" (const (return MFADeleteStatus))
+    parseXML = parseXMLText "MFADeleteStatus"
 
 instance ToXML MFADeleteStatus where
     toXML = toXMLText
@@ -2096,7 +2096,7 @@ instance ToText Payer where
         Requester   -> "Requester"
 
 instance FromXML Payer where
-    parseXML = withElement "Payer" (const (return Payer))
+    parseXML = parseXMLText "Payer"
 
 instance ToXML Payer where
     toXML = toXMLText
@@ -2200,7 +2200,7 @@ instance ToText BucketLogsPermission where
         Write       -> "WRITE"
 
 instance FromXML BucketLogsPermission where
-    parseXML = withElement "BucketLogsPermission" (const (return BucketLogsPermission))
+    parseXML = parseXMLText "BucketLogsPermission"
 
 instance ToXML BucketLogsPermission where
     toXML = toXMLText
@@ -2582,7 +2582,7 @@ instance ToText Type where
         Group                 -> "Group"
 
 instance FromXML Type where
-    parseXML = withElement "Type" (const (return Type))
+    parseXML = parseXMLText "Type"
 
 instance ToXML Type where
     toXML = toXMLText
@@ -2600,7 +2600,7 @@ instance ToText TransitionStorageClass where
     toText TSCGlacier = "GLACIER"
 
 instance FromXML TransitionStorageClass where
-    parseXML = withElement "TransitionStorageClass" (const (return TransitionStorageClass))
+    parseXML = parseXMLText "TransitionStorageClass"
 
 instance ToXML TransitionStorageClass where
     toXML = toXMLText
@@ -2710,7 +2710,7 @@ instance ToText Permission where
         PWriteAcp    -> "WRITE_ACP"
 
 instance FromXML Permission where
-    parseXML = withElement "Permission" (const (return Permission))
+    parseXML = parseXMLText "Permission"
 
 instance ToXML Permission where
     toXML = toXMLText
@@ -2777,7 +2777,7 @@ instance ToText BucketCannedACL where
         CannedPublicReadWrite   -> "public-read-write"
 
 instance FromXML BucketCannedACL where
-    parseXML = withElement "BucketCannedACL" (const (return BucketCannedACL))
+    parseXML = parseXMLText "BucketCannedACL"
 
 instance ToXML BucketCannedACL where
     toXML = toXMLText
@@ -2799,7 +2799,7 @@ instance ToText MFADelete where
         MFADEnabled  -> "Enabled"
 
 instance FromXML MFADelete where
-    parseXML = withElement "MFADelete" (const (return MFADelete))
+    parseXML = parseXMLText "MFADelete"
 
 instance ToXML MFADelete where
     toXML = toXMLText
@@ -3034,7 +3034,7 @@ instance ToText ServerSideEncryption where
     toText AES256 = "AES256"
 
 instance FromXML ServerSideEncryption where
-    parseXML = withElement "ServerSideEncryption" (const (return ServerSideEncryption))
+    parseXML = parseXMLText "ServerSideEncryption"
 
 instance ToXML ServerSideEncryption where
     toXML = toXMLText

@@ -376,7 +376,7 @@ instance ToText IdentityType where
         ITEmailAddress -> "EmailAddress"
 
 instance FromXML IdentityType where
-    parseXML = withElement "IdentityType" (const (return IdentityType))
+    parseXML = parseXMLText "IdentityType"
 
 instance ToQuery IdentityType
 
@@ -530,7 +530,7 @@ instance ToText NotificationType where
         Delivery  -> "Delivery"
 
 instance FromXML NotificationType where
-    parseXML = withElement "NotificationType" (const (return NotificationType))
+    parseXML = parseXMLText "NotificationType"
 
 instance ToQuery NotificationType
 
@@ -560,7 +560,7 @@ instance ToText VerificationStatus where
         TemporaryFailure -> "TemporaryFailure"
 
 instance FromXML VerificationStatus where
-    parseXML = withElement "VerificationStatus" (const (return VerificationStatus))
+    parseXML = parseXMLText "VerificationStatus"
 
 instance ToQuery VerificationStatus
 

@@ -801,7 +801,7 @@ instance ToText OptionState where
         RequiresIndexDocuments -> "RequiresIndexDocuments"
 
 instance FromXML OptionState where
-    parseXML = withElement "OptionState" (const (return OptionState))
+    parseXML = parseXMLText "OptionState"
 
 instance ToQuery OptionState
 
@@ -891,7 +891,7 @@ instance ToText AlgorithmicStemming where
         None    -> "none"
 
 instance FromXML AlgorithmicStemming where
-    parseXML = withElement "AlgorithmicStemming" (const (return AlgorithmicStemming))
+    parseXML = parseXMLText "AlgorithmicStemming"
 
 instance ToQuery AlgorithmicStemming
 
@@ -1501,7 +1501,7 @@ instance ToText IndexFieldType where
         IFTTextArray    -> "text-array"
 
 instance FromXML IndexFieldType where
-    parseXML = withElement "IndexFieldType" (const (return IndexFieldType))
+    parseXML = parseXMLText "IndexFieldType"
 
 instance ToQuery IndexFieldType
 
@@ -1859,7 +1859,7 @@ instance ToText SuggesterFuzzyMatching where
         SFMNone -> "none"
 
 instance FromXML SuggesterFuzzyMatching where
-    parseXML = withElement "SuggesterFuzzyMatching" (const (return SuggesterFuzzyMatching))
+    parseXML = parseXMLText "SuggesterFuzzyMatching"
 
 instance ToQuery SuggesterFuzzyMatching
 
@@ -2042,7 +2042,7 @@ instance ToText AnalysisSchemeLanguage where
         ZhHant -> "zh-Hant"
 
 instance FromXML AnalysisSchemeLanguage where
-    parseXML = withElement "AnalysisSchemeLanguage" (const (return AnalysisSchemeLanguage))
+    parseXML = parseXMLText "AnalysisSchemeLanguage"
 
 instance ToQuery AnalysisSchemeLanguage
 
@@ -2069,7 +2069,7 @@ instance ToText PartitionInstanceType where
         SearchM2Xlarge  -> "search.m2.xlarge"
 
 instance FromXML PartitionInstanceType where
-    parseXML = withElement "PartitionInstanceType" (const (return PartitionInstanceType))
+    parseXML = parseXMLText "PartitionInstanceType"
 
 instance ToQuery PartitionInstanceType
 

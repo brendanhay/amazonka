@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -65,7 +66,7 @@ gbaBucket :: Lens' GetBucketAcl Text
 gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
 
 data GetBucketAclResponse = GetBucketAclResponse
-    { _gbarGrants :: [Grant]
+    { _gbarGrants :: List "Grant" Grant
     , _gbarOwner  :: Maybe Owner
     } deriving (Eq, Show, Generic)
 
@@ -86,6 +87,7 @@ getBucketAclResponse = GetBucketAclResponse
 -- | A list of grants.
 gbarGrants :: Lens' GetBucketAclResponse [Grant]
 gbarGrants = lens _gbarGrants (\s a -> s { _gbarGrants = a })
+    . _List
 
 gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
 gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })
@@ -115,5 +117,5 @@ instance AWSRequest GetBucketAcl where
 
 instance FromXML GetBucketAclResponse where
     parseXML x = GetBucketAclResponse
-            <$> x .@ "AccessControlList"
-            <*> x .@? "Owner"
+        <$> x .@ "AccessControlList"
+        <*> x .@? "Owner"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ gbl1Bucket :: Lens' GetBucketLifecycle Text
 gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
 
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gblrRules :: Flatten [Rule]
+    { _gblrRules :: List "Rules" Rule
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetBucketLifecycleResponse' constructor.
@@ -76,12 +77,12 @@ newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
 getBucketLifecycleResponse :: [Rule] -- ^ 'gblrRules'
                            -> GetBucketLifecycleResponse
 getBucketLifecycleResponse p1 = GetBucketLifecycleResponse
-    { _gblrRules = withIso _Flatten (const id) p1
+    { _gblrRules = withIso _List (const id) p1
     }
 
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a })
-    . _Flatten
+    . _List . _List
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat
@@ -108,4 +109,4 @@ instance AWSRequest GetBucketLifecycle where
 
 instance FromXML GetBucketLifecycleResponse where
     parseXML x = GetBucketLifecycleResponse
-            <$> parseXML x
+        <$> parseXML x

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -70,7 +71,7 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwrErrorDocument         :: Maybe ErrorDocument
     , _gbwrIndexDocument         :: Maybe IndexDocument
     , _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _gbwrRoutingRules          :: [RoutingRule]
+    , _gbwrRoutingRules          :: List "RoutingRule" RoutingRule
     } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketWebsiteResponse' constructor.
@@ -108,6 +109,7 @@ gbwrRedirectAllRequestsTo =
 
 gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
 gbwrRoutingRules = lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
+    . _List
 
 instance ToPath GetBucketWebsite where
     toPath GetBucketWebsite{..} = mconcat
@@ -134,7 +136,7 @@ instance AWSRequest GetBucketWebsite where
 
 instance FromXML GetBucketWebsiteResponse where
     parseXML x = GetBucketWebsiteResponse
-            <$> x .@? "ErrorDocument"
-            <*> x .@? "IndexDocument"
-            <*> x .@? "RedirectAllRequestsTo"
-            <*> x .@ "RoutingRules"
+        <$> x .@? "ErrorDocument"
+        <*> x .@? "IndexDocument"
+        <*> x .@? "RedirectAllRequestsTo"
+        <*> x .@ "RoutingRules"

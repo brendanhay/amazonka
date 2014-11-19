@@ -2174,8 +2174,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2185,12 +2185,12 @@
                         "locationName": "AllowedHeader",
                         "documentation": "Specifies which headers are allowed in a pre-flight OPTIONS request.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AllowedHeaders\" Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2200,12 +2200,12 @@
                         "locationName": "AllowedMethod",
                         "documentation": "Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AllowedMethods\" Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2215,12 +2215,12 @@
                         "locationName": "AllowedOrigin",
                         "documentation": "One or more origins you want customers to be able to access the bucket from.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AllowedOrigins\" Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2230,7 +2230,7 @@
                         "locationName": "ExposeHeader",
                         "documentation": "One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"ExposeHeaders\" Text"
                     },
                     {
                         "location": null,
@@ -2252,8 +2252,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2263,12 +2263,12 @@
                         "locationName": "AllowedHeader",
                         "documentation": "Specifies which headers are allowed in a pre-flight OPTIONS request.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AllowedHeaders\" Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2278,12 +2278,12 @@
                         "locationName": "AllowedMethod",
                         "documentation": "Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AllowedMethods\" Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2293,12 +2293,12 @@
                         "locationName": "AllowedOrigin",
                         "documentation": "One or more origins you want customers to be able to access the bucket from.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AllowedOrigins\" Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2308,7 +2308,7 @@
                         "locationName": "ExposeHeader",
                         "documentation": "One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"ExposeHeaders\" Text"
                     }
                 ],
                 "contentPad": 14,
@@ -2334,8 +2334,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2345,12 +2345,12 @@
                         "locationName": "AllowedHeader",
                         "documentation": "Specifies which headers are allowed in a pre-flight OPTIONS request.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AllowedHeaders\" Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2360,12 +2360,12 @@
                         "locationName": "AllowedMethod",
                         "documentation": "Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AllowedMethods\" Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2375,12 +2375,12 @@
                         "locationName": "AllowedOrigin",
                         "documentation": "One or more origins you want customers to be able to access the bucket from.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AllowedOrigins\" Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2390,7 +2390,7 @@
                         "locationName": "ExposeHeader",
                         "documentation": "One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"ExposeHeaders\" Text"
                     },
                     {
                         "location": null,
@@ -2465,8 +2465,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2476,7 +2476,7 @@
                         "locationName": "RoutingRules",
                         "documentation": null,
                         "typeExposed": "[RoutingRule]",
-                        "type": "[RoutingRule]"
+                        "type": "List \"RoutingRule\" RoutingRule"
                     }
                 ],
                 "payload": null,
@@ -2532,8 +2532,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2543,7 +2543,7 @@
                         "locationName": "RoutingRules",
                         "documentation": null,
                         "typeExposed": "[RoutingRule]",
-                        "type": "[RoutingRule]"
+                        "type": "List \"RoutingRule\" RoutingRule"
                     }
                 ],
                 "fields": [
@@ -2594,8 +2594,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2605,7 +2605,7 @@
                         "locationName": "RoutingRules",
                         "documentation": null,
                         "typeExposed": "[RoutingRule]",
-                        "type": "[RoutingRule]"
+                        "type": "List \"RoutingRule\" RoutingRule"
                     }
                 ]
             },
@@ -3544,8 +3544,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3555,7 +3555,7 @@
                         "locationName": "Event",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"Events\" Text"
                     },
                     {
                         "location": null,
@@ -3592,8 +3592,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3603,7 +3603,7 @@
                         "locationName": "Event",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"Events\" Text"
                     }
                 ],
                 "contentPad": 6,
@@ -3674,8 +3674,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3685,7 +3685,7 @@
                         "locationName": "Event",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"Events\" Text"
                     },
                     {
                         "location": null,
@@ -3761,8 +3761,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3772,7 +3772,7 @@
                         "locationName": "Event",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"Events\" Text"
                     },
                     {
                         "location": null,
@@ -3794,8 +3794,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3805,7 +3805,7 @@
                         "locationName": "Event",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"Events\" Text"
                     }
                 ],
                 "contentPad": 6,
@@ -3876,8 +3876,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3887,7 +3887,7 @@
                         "locationName": "Event",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"Events\" Text"
                     },
                     {
                         "location": null,
@@ -5209,8 +5209,8 @@
                 "ctor": "tagging",
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -5220,13 +5220,13 @@
                     "locationName": "TagSet",
                     "documentation": null,
                     "typeExposed": "[Tag]",
-                    "type": "[Tag]"
+                    "type": "List \"Tag\" Tag"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5236,7 +5236,7 @@
                         "locationName": "TagSet",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tag\" Tag"
                     }
                 ],
                 "payload": null,
@@ -5247,8 +5247,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5258,14 +5258,14 @@
                         "locationName": "TagSet",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tag\" Tag"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5275,7 +5275,7 @@
                         "locationName": "TagSet",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tag\" Tag"
                     }
                 ]
             },
@@ -5403,8 +5403,8 @@
                 "ctor": "corsconfiguration",
                 "field": {
                     "location": null,
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten",
+                    "iso": "_List",
+                    "lensMapping": "_List . _List",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -5414,13 +5414,13 @@
                     "locationName": "CORSRule",
                     "documentation": null,
                     "typeExposed": "[CORSRule]",
-                    "type": "Flatten [CORSRule]"
+                    "type": "List \"CORSRules\" CORSRule"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -5430,15 +5430,15 @@
                         "locationName": "CORSRule",
                         "documentation": null,
                         "typeExposed": "[CORSRule]",
-                        "type": "Flatten [CORSRule]"
+                        "type": "List \"CORSRules\" CORSRule"
                     }
                 ],
                 "payload": null,
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -5448,7 +5448,7 @@
                         "locationName": "CORSRule",
                         "documentation": null,
                         "typeExposed": "[CORSRule]",
-                        "type": "Flatten [CORSRule]"
+                        "type": "List \"CORSRules\" CORSRule"
                     }
                 ],
                 "contentPad": 0,
@@ -5458,8 +5458,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -5469,7 +5469,7 @@
                         "locationName": "CORSRule",
                         "documentation": null,
                         "typeExposed": "[CORSRule]",
-                        "type": "Flatten [CORSRule]"
+                        "type": "List \"CORSRules\" CORSRule"
                     }
                 ]
             },
@@ -6183,8 +6183,8 @@
                 "ctor": "completedMultipartUpload",
                 "field": {
                     "location": null,
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten",
+                    "iso": "_List",
+                    "lensMapping": "_List . _List",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -6194,13 +6194,13 @@
                     "locationName": "Part",
                     "documentation": null,
                     "typeExposed": "[CompletedPart]",
-                    "type": "Flatten [CompletedPart]"
+                    "type": "List \"Parts\" CompletedPart"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -6210,15 +6210,15 @@
                         "locationName": "Part",
                         "documentation": null,
                         "typeExposed": "[CompletedPart]",
-                        "type": "Flatten [CompletedPart]"
+                        "type": "List \"Parts\" CompletedPart"
                     }
                 ],
                 "payload": null,
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -6228,7 +6228,7 @@
                         "locationName": "Part",
                         "documentation": null,
                         "typeExposed": "[CompletedPart]",
-                        "type": "Flatten [CompletedPart]"
+                        "type": "List \"Parts\" CompletedPart"
                     }
                 ],
                 "contentPad": 0,
@@ -6238,8 +6238,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -6249,7 +6249,7 @@
                         "locationName": "Part",
                         "documentation": null,
                         "typeExposed": "[CompletedPart]",
-                        "type": "Flatten [CompletedPart]"
+                        "type": "List \"Parts\" CompletedPart"
                     }
                 ]
             },
@@ -6395,8 +6395,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6406,7 +6406,7 @@
                         "locationName": "AccessControlList",
                         "documentation": "A list of grants.",
                         "typeExposed": "[Grant]",
-                        "type": "[Grant]"
+                        "type": "List \"Grant\" Grant"
                     },
                     {
                         "location": null,
@@ -6432,8 +6432,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6443,7 +6443,7 @@
                         "locationName": "AccessControlList",
                         "documentation": "A list of grants.",
                         "typeExposed": "[Grant]",
-                        "type": "[Grant]"
+                        "type": "List \"Grant\" Grant"
                     },
                     {
                         "location": null,
@@ -6464,8 +6464,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6475,7 +6475,7 @@
                         "locationName": "AccessControlList",
                         "documentation": "A list of grants.",
                         "typeExposed": "[Grant]",
-                        "type": "[Grant]"
+                        "type": "List \"Grant\" Grant"
                     },
                     {
                         "location": null,
@@ -6572,8 +6572,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -6583,7 +6583,7 @@
                         "locationName": "Event",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"Events\" Text"
                     },
                     {
                         "location": null,
@@ -6620,8 +6620,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -6631,7 +6631,7 @@
                         "locationName": "Event",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"Events\" Text"
                     }
                 ],
                 "contentPad": 15,
@@ -6732,8 +6732,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -6743,7 +6743,7 @@
                         "locationName": "Event",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"Events\" Text"
                     },
                     {
                         "location": null,
@@ -7037,8 +7037,8 @@
                 "ctor": "lifecycleConfiguration",
                 "field": {
                     "location": null,
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten",
+                    "iso": "_List",
+                    "lensMapping": "_List . _List",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -7048,13 +7048,13 @@
                     "locationName": "Rule",
                     "documentation": null,
                     "typeExposed": "[Rule]",
-                    "type": "Flatten [Rule]"
+                    "type": "List \"Rules\" Rule"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -7064,15 +7064,15 @@
                         "locationName": "Rule",
                         "documentation": null,
                         "typeExposed": "[Rule]",
-                        "type": "Flatten [Rule]"
+                        "type": "List \"Rules\" Rule"
                     }
                 ],
                 "payload": null,
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -7082,7 +7082,7 @@
                         "locationName": "Rule",
                         "documentation": null,
                         "typeExposed": "[Rule]",
-                        "type": "Flatten [Rule]"
+                        "type": "List \"Rules\" Rule"
                     }
                 ],
                 "contentPad": 0,
@@ -7092,8 +7092,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -7103,7 +7103,7 @@
                         "locationName": "Rule",
                         "documentation": null,
                         "typeExposed": "[Rule]",
-                        "type": "Flatten [Rule]"
+                        "type": "List \"Rules\" Rule"
                     }
                 ]
             },
@@ -7133,8 +7133,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7144,7 +7144,7 @@
                         "locationName": "TargetGrants",
                         "documentation": null,
                         "typeExposed": "[TargetGrant]",
-                        "type": "[TargetGrant]"
+                        "type": "List \"Grant\" TargetGrant"
                     },
                     {
                         "location": null,
@@ -7185,8 +7185,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7196,7 +7196,7 @@
                         "locationName": "TargetGrants",
                         "documentation": null,
                         "typeExposed": "[TargetGrant]",
-                        "type": "[TargetGrant]"
+                        "type": "List \"Grant\" TargetGrant"
                     },
                     {
                         "location": null,
@@ -7232,8 +7232,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7243,7 +7243,7 @@
                         "locationName": "TargetGrants",
                         "documentation": null,
                         "typeExposed": "[TargetGrant]",
-                        "type": "[TargetGrant]"
+                        "type": "List \"Grant\" TargetGrant"
                     },
                     {
                         "location": null,
@@ -7484,8 +7484,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -7495,7 +7495,7 @@
                         "locationName": "Object",
                         "documentation": null,
                         "typeExposed": "[ObjectIdentifier]",
-                        "type": "Flatten [ObjectIdentifier]"
+                        "type": "List \"Objects\" ObjectIdentifier"
                     },
                     {
                         "location": null,
@@ -7517,8 +7517,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -7528,7 +7528,7 @@
                         "locationName": "Object",
                         "documentation": null,
                         "typeExposed": "[ObjectIdentifier]",
-                        "type": "Flatten [ObjectIdentifier]"
+                        "type": "List \"Objects\" ObjectIdentifier"
                     }
                 ],
                 "contentPad": 7,
@@ -7554,8 +7554,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -7565,7 +7565,7 @@
                         "locationName": "Object",
                         "documentation": null,
                         "typeExposed": "[ObjectIdentifier]",
-                        "type": "Flatten [ObjectIdentifier]"
+                        "type": "List \"Objects\" ObjectIdentifier"
                     },
                     {
                         "location": null,
@@ -12476,8 +12476,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12487,12 +12487,12 @@
                         "locationName": "Deleted",
                         "documentation": null,
                         "typeExposed": "S3ServiceError",
-                        "type": "Flatten S3ServiceError"
+                        "type": "S3ServiceError"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12502,7 +12502,7 @@
                         "locationName": "Error",
                         "documentation": null,
                         "typeExposed": "S3ServiceError",
-                        "type": "Flatten S3ServiceError"
+                        "type": "S3ServiceError"
                     }
                 ],
                 "wrapper": false,
@@ -12511,8 +12511,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12522,12 +12522,12 @@
                         "locationName": "Deleted",
                         "documentation": null,
                         "typeExposed": "S3ServiceError",
-                        "type": "Flatten S3ServiceError"
+                        "type": "S3ServiceError"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12537,7 +12537,7 @@
                         "locationName": "Error",
                         "documentation": null,
                         "typeExposed": "S3ServiceError",
-                        "type": "Flatten S3ServiceError"
+                        "type": "S3ServiceError"
                     }
                 ],
                 "shared": false,
@@ -12551,8 +12551,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12562,12 +12562,12 @@
                         "locationName": "Deleted",
                         "documentation": null,
                         "typeExposed": "S3ServiceError",
-                        "type": "Flatten S3ServiceError"
+                        "type": "S3ServiceError"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12577,7 +12577,7 @@
                         "locationName": "Error",
                         "documentation": null,
                         "typeExposed": "S3ServiceError",
-                        "type": "Flatten S3ServiceError"
+                        "type": "S3ServiceError"
                     }
                 ]
             },
@@ -12796,8 +12796,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12807,7 +12807,7 @@
                         "locationName": "AccessControlList",
                         "documentation": "A list of grants.",
                         "typeExposed": "[Grant]",
-                        "type": "[Grant]"
+                        "type": "List \"Grant\" Grant"
                     }
                 ],
                 "wrapper": false,
@@ -12839,8 +12839,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12850,14 +12850,14 @@
                         "locationName": "AccessControlList",
                         "documentation": "A list of grants.",
                         "typeExposed": "[Grant]",
-                        "type": "[Grant]"
+                        "type": "List \"Grant\" Grant"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12867,7 +12867,7 @@
                         "locationName": "AccessControlList",
                         "documentation": "A list of grants.",
                         "typeExposed": "[Grant]",
-                        "type": "[Grant]"
+                        "type": "List \"Grant\" Grant"
                     },
                     {
                         "location": null,
@@ -13010,8 +13010,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten",
+                    "iso": "_List",
+                    "lensMapping": "_List . _List",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -13021,13 +13021,13 @@
                     "locationName": "CORSRule",
                     "documentation": null,
                     "typeExposed": "[CORSRule]",
-                    "type": "Flatten [CORSRule]"
+                    "type": "List \"CORSRules\" CORSRule"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -13037,7 +13037,7 @@
                         "locationName": "CORSRule",
                         "documentation": null,
                         "typeExposed": "[CORSRule]",
-                        "type": "Flatten [CORSRule]"
+                        "type": "List \"CORSRules\" CORSRule"
                     }
                 ],
                 "wrapper": false,
@@ -13046,8 +13046,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -13057,7 +13057,7 @@
                         "locationName": "CORSRule",
                         "documentation": null,
                         "typeExposed": "[CORSRule]",
-                        "type": "Flatten [CORSRule]"
+                        "type": "List \"CORSRules\" CORSRule"
                     }
                 ],
                 "shared": false,
@@ -13071,8 +13071,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -13082,7 +13082,7 @@
                         "locationName": "CORSRule",
                         "documentation": null,
                         "typeExposed": "[CORSRule]",
-                        "type": "Flatten [CORSRule]"
+                        "type": "List \"CORSRules\" CORSRule"
                     }
                 ]
             },
@@ -13210,8 +13210,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten",
+                    "iso": "_List",
+                    "lensMapping": "_List . _List",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -13221,13 +13221,13 @@
                     "locationName": "Rule",
                     "documentation": null,
                     "typeExposed": "[Rule]",
-                    "type": "Flatten [Rule]"
+                    "type": "List \"Rules\" Rule"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -13237,7 +13237,7 @@
                         "locationName": "Rule",
                         "documentation": null,
                         "typeExposed": "[Rule]",
-                        "type": "Flatten [Rule]"
+                        "type": "List \"Rules\" Rule"
                     }
                 ],
                 "wrapper": false,
@@ -13246,8 +13246,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -13257,7 +13257,7 @@
                         "locationName": "Rule",
                         "documentation": null,
                         "typeExposed": "[Rule]",
-                        "type": "Flatten [Rule]"
+                        "type": "List \"Rules\" Rule"
                     }
                 ],
                 "shared": false,
@@ -13271,8 +13271,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -13282,7 +13282,7 @@
                         "locationName": "Rule",
                         "documentation": null,
                         "typeExposed": "[Rule]",
-                        "type": "Flatten [Rule]"
+                        "type": "List \"Rules\" Rule"
                     }
                 ]
             },
@@ -14494,8 +14494,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": null,
-                    "iso": null,
-                    "lensMapping": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -14505,13 +14505,13 @@
                     "locationName": "TagSet",
                     "documentation": null,
                     "typeExposed": "[Tag]",
-                    "type": "[Tag]"
+                    "type": "List \"Tag\" Tag"
                 },
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14521,7 +14521,7 @@
                         "locationName": "TagSet",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tag\" Tag"
                     }
                 ],
                 "wrapper": false,
@@ -14538,8 +14538,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14549,14 +14549,14 @@
                         "locationName": "TagSet",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tag\" Tag"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14566,7 +14566,7 @@
                         "locationName": "TagSet",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "[Tag]"
+                        "type": "List \"Tag\" Tag"
                     }
                 ]
             },
@@ -14965,8 +14965,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -14976,7 +14976,7 @@
                         "locationName": "RoutingRules",
                         "documentation": null,
                         "typeExposed": "[RoutingRule]",
-                        "type": "[RoutingRule]"
+                        "type": "List \"RoutingRule\" RoutingRule"
                     }
                 ],
                 "wrapper": false,
@@ -15038,8 +15038,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15049,7 +15049,7 @@
                         "locationName": "RoutingRules",
                         "documentation": null,
                         "typeExposed": "[RoutingRule]",
-                        "type": "[RoutingRule]"
+                        "type": "List \"RoutingRule\" RoutingRule"
                     }
                 ],
                 "fields": [
@@ -15100,8 +15100,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15111,7 +15111,7 @@
                         "locationName": "RoutingRules",
                         "documentation": null,
                         "typeExposed": "[RoutingRule]",
-                        "type": "[RoutingRule]"
+                        "type": "List \"RoutingRule\" RoutingRule"
                     }
                 ]
             },
@@ -16762,8 +16762,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -16773,7 +16773,7 @@
                         "locationName": "AccessControlList",
                         "documentation": "A list of grants.",
                         "typeExposed": "[Grant]",
-                        "type": "[Grant]"
+                        "type": "List \"Grant\" Grant"
                     }
                 ],
                 "wrapper": false,
@@ -16805,8 +16805,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -16816,14 +16816,14 @@
                         "locationName": "AccessControlList",
                         "documentation": "A list of grants.",
                         "typeExposed": "[Grant]",
-                        "type": "[Grant]"
+                        "type": "List \"Grant\" Grant"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -16833,7 +16833,7 @@
                         "locationName": "AccessControlList",
                         "documentation": "A list of grants.",
                         "typeExposed": "[Grant]",
-                        "type": "[Grant]"
+                        "type": "List \"Grant\" Grant"
                     },
                     {
                         "location": null,
@@ -18629,8 +18629,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18640,7 +18640,7 @@
                         "locationName": "Buckets",
                         "documentation": null,
                         "typeExposed": "[Bucket]",
-                        "type": "[Bucket]"
+                        "type": "List \"Bucket\" Bucket"
                     },
                     {
                         "location": null,
@@ -18672,8 +18672,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18683,7 +18683,7 @@
                         "locationName": "Buckets",
                         "documentation": null,
                         "typeExposed": "[Bucket]",
-                        "type": "[Bucket]"
+                        "type": "List \"Bucket\" Bucket"
                     },
                     {
                         "location": null,
@@ -18704,8 +18704,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -18715,7 +18715,7 @@
                         "locationName": "Buckets",
                         "documentation": null,
                         "typeExposed": "[Bucket]",
-                        "type": "[Bucket]"
+                        "type": "List \"Bucket\" Bucket"
                     },
                     {
                         "location": null,
@@ -18929,8 +18929,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -18940,12 +18940,12 @@
                         "locationName": "Upload",
                         "documentation": null,
                         "typeExposed": "[MultipartUpload]",
-                        "type": "Flatten [MultipartUpload]"
+                        "type": "List \"Uploads\" MultipartUpload"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -18955,7 +18955,7 @@
                         "locationName": "CommonPrefixes",
                         "documentation": null,
                         "typeExposed": "[CommonPrefix]",
-                        "type": "Flatten [CommonPrefix]"
+                        "type": "List \"CommonPrefixes\" CommonPrefix"
                     },
                     {
                         "location": null,
@@ -18979,8 +18979,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -18990,12 +18990,12 @@
                         "locationName": "Upload",
                         "documentation": null,
                         "typeExposed": "[MultipartUpload]",
-                        "type": "Flatten [MultipartUpload]"
+                        "type": "List \"Uploads\" MultipartUpload"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -19005,7 +19005,7 @@
                         "locationName": "CommonPrefixes",
                         "documentation": null,
                         "typeExposed": "[CommonPrefix]",
-                        "type": "Flatten [CommonPrefix]"
+                        "type": "List \"CommonPrefixes\" CommonPrefix"
                     }
                 ],
                 "shared": false,
@@ -19185,8 +19185,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -19196,7 +19196,7 @@
                         "locationName": "CommonPrefixes",
                         "documentation": null,
                         "typeExposed": "[CommonPrefix]",
-                        "type": "Flatten [CommonPrefix]"
+                        "type": "List \"CommonPrefixes\" CommonPrefix"
                     },
                     {
                         "location": null,
@@ -19335,8 +19335,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -19346,7 +19346,7 @@
                         "locationName": "Upload",
                         "documentation": null,
                         "typeExposed": "[MultipartUpload]",
-                        "type": "Flatten [MultipartUpload]"
+                        "type": "List \"Uploads\" MultipartUpload"
                     }
                 ]
             },
@@ -19754,8 +19754,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -19765,12 +19765,12 @@
                         "locationName": "Version",
                         "documentation": null,
                         "typeExposed": "[ObjectVersion]",
-                        "type": "Flatten [ObjectVersion]"
+                        "type": "List \"Versions\" ObjectVersion"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -19780,7 +19780,7 @@
                         "locationName": "DeleteMarker",
                         "documentation": null,
                         "typeExposed": "[DeleteMarkerEntry]",
-                        "type": "Flatten [DeleteMarkerEntry]"
+                        "type": "List \"DeleteMarkers\" DeleteMarkerEntry"
                     },
                     {
                         "location": null,
@@ -19844,8 +19844,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -19855,7 +19855,7 @@
                         "locationName": "CommonPrefixes",
                         "documentation": null,
                         "typeExposed": "[CommonPrefix]",
-                        "type": "Flatten [CommonPrefix]"
+                        "type": "List \"CommonPrefixes\" CommonPrefix"
                     },
                     {
                         "location": null,
@@ -19879,8 +19879,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -19890,12 +19890,12 @@
                         "locationName": "Version",
                         "documentation": null,
                         "typeExposed": "[ObjectVersion]",
-                        "type": "Flatten [ObjectVersion]"
+                        "type": "List \"Versions\" ObjectVersion"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -19905,12 +19905,12 @@
                         "locationName": "DeleteMarker",
                         "documentation": null,
                         "typeExposed": "[DeleteMarkerEntry]",
-                        "type": "Flatten [DeleteMarkerEntry]"
+                        "type": "List \"DeleteMarkers\" DeleteMarkerEntry"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -19920,7 +19920,7 @@
                         "locationName": "CommonPrefixes",
                         "documentation": null,
                         "typeExposed": "[CommonPrefix]",
-                        "type": "Flatten [CommonPrefix]"
+                        "type": "List \"CommonPrefixes\" CommonPrefix"
                     }
                 ],
                 "shared": false,
@@ -20085,8 +20085,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -20096,12 +20096,12 @@
                         "locationName": "CommonPrefixes",
                         "documentation": null,
                         "typeExposed": "[CommonPrefix]",
-                        "type": "Flatten [CommonPrefix]"
+                        "type": "List \"CommonPrefixes\" CommonPrefix"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -20111,7 +20111,7 @@
                         "locationName": "DeleteMarker",
                         "documentation": null,
                         "typeExposed": "[DeleteMarkerEntry]",
-                        "type": "Flatten [DeleteMarkerEntry]"
+                        "type": "List \"DeleteMarkers\" DeleteMarkerEntry"
                     },
                     {
                         "location": null,
@@ -20265,8 +20265,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -20276,7 +20276,7 @@
                         "locationName": "Version",
                         "documentation": null,
                         "typeExposed": "[ObjectVersion]",
-                        "type": "Flatten [ObjectVersion]"
+                        "type": "List \"Versions\" ObjectVersion"
                     }
                 ]
             },
@@ -20654,8 +20654,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -20665,7 +20665,7 @@
                         "locationName": "Contents",
                         "documentation": null,
                         "typeExposed": "[Object]",
-                        "type": "Flatten [Object]"
+                        "type": "List \"Contents\" Object"
                     },
                     {
                         "location": null,
@@ -20729,8 +20729,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -20740,7 +20740,7 @@
                         "locationName": "CommonPrefixes",
                         "documentation": null,
                         "typeExposed": "[CommonPrefix]",
-                        "type": "Flatten [CommonPrefix]"
+                        "type": "List \"CommonPrefixes\" CommonPrefix"
                     },
                     {
                         "location": null,
@@ -20764,8 +20764,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -20775,12 +20775,12 @@
                         "locationName": "Contents",
                         "documentation": null,
                         "typeExposed": "[Object]",
-                        "type": "Flatten [Object]"
+                        "type": "List \"Contents\" Object"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -20790,7 +20790,7 @@
                         "locationName": "CommonPrefixes",
                         "documentation": null,
                         "typeExposed": "[CommonPrefix]",
-                        "type": "Flatten [CommonPrefix]"
+                        "type": "List \"CommonPrefixes\" CommonPrefix"
                     }
                 ],
                 "shared": false,
@@ -20925,8 +20925,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -20936,12 +20936,12 @@
                         "locationName": "CommonPrefixes",
                         "documentation": null,
                         "typeExposed": "[CommonPrefix]",
-                        "type": "Flatten [CommonPrefix]"
+                        "type": "List \"CommonPrefixes\" CommonPrefix"
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -20951,7 +20951,7 @@
                         "locationName": "Contents",
                         "documentation": null,
                         "typeExposed": "[Object]",
-                        "type": "Flatten [Object]"
+                        "type": "List \"Contents\" Object"
                     },
                     {
                         "location": null,
@@ -21463,8 +21463,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -21474,7 +21474,7 @@
                         "locationName": "Part",
                         "documentation": null,
                         "typeExposed": "[Part]",
-                        "type": "Flatten [Part]"
+                        "type": "List \"Parts\" Part"
                     },
                     {
                         "location": null,
@@ -21528,8 +21528,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -21539,7 +21539,7 @@
                         "locationName": "Part",
                         "documentation": null,
                         "typeExposed": "[Part]",
-                        "type": "Flatten [Part]"
+                        "type": "List \"Parts\" Part"
                     }
                 ],
                 "shared": false,
@@ -21824,8 +21824,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -21835,7 +21835,7 @@
                         "locationName": "Part",
                         "documentation": null,
                         "typeExposed": "[Part]",
-                        "type": "Flatten [Part]"
+                        "type": "List \"Parts\" Part"
                     },
                     {
                         "location": null,

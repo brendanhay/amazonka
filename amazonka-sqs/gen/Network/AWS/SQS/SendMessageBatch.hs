@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -61,7 +62,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data SendMessageBatch = SendMessageBatch
-    { _smbEntries  :: Flatten [SendMessageBatchRequestEntry]
+    { _smbEntries  :: List "SendMessageBatchRequestEntry" SendMessageBatchRequestEntry
     , _smbQueueUrl :: Text
     } deriving (Eq, Show, Generic)
 
@@ -78,21 +79,21 @@ sendMessageBatch :: Text -- ^ 'smbQueueUrl'
                  -> SendMessageBatch
 sendMessageBatch p1 p2 = SendMessageBatch
     { _smbQueueUrl = p1
-    , _smbEntries  = withIso _Flatten (const id) p2
+    , _smbEntries  = withIso _List (const id) p2
     }
 
 -- | A list of SendMessageBatchRequestEntry items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a })
-    . _Flatten
+    . _List . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 smbQueueUrl :: Lens' SendMessageBatch Text
 smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
 
 data SendMessageBatchResponse = SendMessageBatchResponse
-    { _smbrFailed     :: Flatten [BatchResultErrorEntry]
-    , _smbrSuccessful :: Flatten [SendMessageBatchResultEntry]
+    { _smbrFailed     :: List "BatchResultErrorEntry" BatchResultErrorEntry
+    , _smbrSuccessful :: List "SendMessageBatchResultEntry" SendMessageBatchResultEntry
     } deriving (Eq, Show, Generic)
 
 -- | 'SendMessageBatchResponse' constructor.
@@ -107,20 +108,20 @@ sendMessageBatchResponse :: [SendMessageBatchResultEntry] -- ^ 'smbrSuccessful'
                          -> [BatchResultErrorEntry] -- ^ 'smbrFailed'
                          -> SendMessageBatchResponse
 sendMessageBatchResponse p1 p2 = SendMessageBatchResponse
-    { _smbrSuccessful = withIso _Flatten (const id) p1
-    , _smbrFailed     = withIso _Flatten (const id) p2
+    { _smbrSuccessful = withIso _List (const id) p1
+    , _smbrFailed     = withIso _List (const id) p2
     }
 
 -- | A list of BatchResultErrorEntry items with the error detail about each
 -- message that could not be enqueued.
 smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
-    . _Flatten
+    . _List . _List
 
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
-    . _Flatten
+    . _List . _List
 
 instance ToPath SendMessageBatch where
     toPath = const "/"
@@ -138,5 +139,13 @@ instance AWSRequest SendMessageBatch where
 
 instance FromXML SendMessageBatchResponse where
     parseXML = withElement "SendMessageBatchResult" $ \x ->
-            <$> parseXML x
-            <*> parseXML x
+
+    Failed
+    List "BatchResultErrorEntry" BatchResultErrorEntry
+    true
+        <$> parseXML x
+
+    Successful
+    List "SendMessageBatchResultEntry" SendMessageBatchResultEntry
+    true
+        <*> parseXML x

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -126,6 +127,6 @@ instance AWSRequest GetBucketNotification where
 
 instance FromXML GetBucketNotificationResponse where
     parseXML x = GetBucketNotificationResponse
-            <$> x .@? "CloudFunctionConfiguration"
-            <*> x .@? "QueueConfiguration"
-            <*> x .@? "TopicConfiguration"
+        <$> x .@? "CloudFunctionConfiguration"
+        <*> x .@? "QueueConfiguration"
+        <*> x .@? "TopicConfiguration"

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -136,7 +137,7 @@ lmuUploadIdMarker =
 
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     { _lmurBucket             :: Maybe Text
-    , _lmurCommonPrefixes     :: Flatten [CommonPrefix]
+    , _lmurCommonPrefixes     :: List "CommonPrefixes" CommonPrefix
     , _lmurDelimiter          :: Maybe Text
     , _lmurEncodingType       :: Maybe Text
     , _lmurIsTruncated        :: Maybe Bool
@@ -146,7 +147,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     , _lmurNextUploadIdMarker :: Maybe Text
     , _lmurPrefix             :: Maybe Text
     , _lmurUploadIdMarker     :: Maybe Text
-    , _lmurUploads            :: Flatten [MultipartUpload]
+    , _lmurUploads            :: List "Uploads" MultipartUpload
     } deriving (Eq, Show, Generic)
 
 -- | 'ListMultipartUploadsResponse' constructor.
@@ -181,8 +182,8 @@ listMultipartUploadsResponse :: [MultipartUpload] -- ^ 'lmurUploads'
                              -> [CommonPrefix] -- ^ 'lmurCommonPrefixes'
                              -> ListMultipartUploadsResponse
 listMultipartUploadsResponse p1 p2 = ListMultipartUploadsResponse
-    { _lmurUploads            = withIso _Flatten (const id) p1
-    , _lmurCommonPrefixes     = withIso _Flatten (const id) p2
+    { _lmurUploads            = withIso _List (const id) p1
+    , _lmurCommonPrefixes     = withIso _List (const id) p2
     , _lmurBucket             = Nothing
     , _lmurKeyMarker          = Nothing
     , _lmurUploadIdMarker     = Nothing
@@ -202,7 +203,7 @@ lmurBucket = lens _lmurBucket (\s a -> s { _lmurBucket = a })
 lmurCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
 lmurCommonPrefixes =
     lens _lmurCommonPrefixes (\s a -> s { _lmurCommonPrefixes = a })
-        . _Flatten
+        . _List . _List
 
 lmurDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurDelimiter = lens _lmurDelimiter (\s a -> s { _lmurDelimiter = a })
@@ -252,7 +253,7 @@ lmurUploadIdMarker =
 
 lmurUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
 lmurUploads = lens _lmurUploads (\s a -> s { _lmurUploads = a })
-    . _Flatten
+    . _List . _List
 
 instance ToPath ListMultipartUploads where
     toPath ListMultipartUploads{..} = mconcat
@@ -287,18 +288,18 @@ instance AWSRequest ListMultipartUploads where
 
 instance FromXML ListMultipartUploadsResponse where
     parseXML x = ListMultipartUploadsResponse
-            <$> x .@? "Bucket"
-            <*> parseXML x
-            <*> x .@? "Delimiter"
-            <*> x .@? "EncodingType"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "KeyMarker"
-            <*> x .@? "MaxUploads"
-            <*> x .@? "NextKeyMarker"
-            <*> x .@? "NextUploadIdMarker"
-            <*> x .@? "Prefix"
-            <*> x .@? "UploadIdMarker"
-            <*> parseXML x
+        <$> x .@? "Bucket"
+        <*> parseXML x
+        <*> x .@? "Delimiter"
+        <*> x .@? "EncodingType"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "KeyMarker"
+        <*> x .@? "MaxUploads"
+        <*> x .@? "NextKeyMarker"
+        <*> x .@? "NextUploadIdMarker"
+        <*> x .@? "Prefix"
+        <*> x .@? "UploadIdMarker"
+        <*> parseXML x
 
 instance AWSPager ListMultipartUploads where
     next rq rs

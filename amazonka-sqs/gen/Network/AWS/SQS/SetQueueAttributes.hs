@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -47,7 +48,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data SetQueueAttributes = SetQueueAttributes
-    { _sqaAttributes :: Flatten (Map Text Text)
+    { _sqaAttributes :: Map "Attribute" TextText
     , _sqaQueueUrl   :: Text
     } deriving (Eq, Show, Generic)
 
@@ -64,7 +65,7 @@ setQueueAttributes :: Text -- ^ 'sqaQueueUrl'
                    -> SetQueueAttributes
 setQueueAttributes p1 p2 = SetQueueAttributes
     { _sqaQueueUrl   = p1
-    , _sqaAttributes = withIso _Flatten (const id) p2
+    , _sqaAttributes = withIso _Map (const id) p2
     }
 
 -- | A map of attributes to set. The following lists the names, descriptions,
@@ -93,7 +94,7 @@ setQueueAttributes p1 p2 = SetQueueAttributes
 -- Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
 sqaAttributes :: Lens' SetQueueAttributes ((HashMap Text Text))
 sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
-    . _Flatten . _Map
+    . _Map . _Map
 
 -- | The URL of the Amazon SQS queue to take action on.
 sqaQueueUrl :: Lens' SetQueueAttributes Text

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -83,7 +84,7 @@ goaVersionId :: Lens' GetObjectAcl (Maybe Text)
 goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 
 data GetObjectAclResponse = GetObjectAclResponse
-    { _goarGrants :: [Grant]
+    { _goarGrants :: List "Grant" Grant
     , _goarOwner  :: Maybe Owner
     } deriving (Eq, Show, Generic)
 
@@ -104,6 +105,7 @@ getObjectAclResponse = GetObjectAclResponse
 -- | A list of grants.
 goarGrants :: Lens' GetObjectAclResponse [Grant]
 goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a })
+    . _List
 
 goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })
@@ -138,5 +140,5 @@ instance AWSRequest GetObjectAcl where
 
 instance FromXML GetObjectAclResponse where
     parseXML x = GetObjectAclResponse
-            <$> x .@ "AccessControlList"
-            <*> x .@? "Owner"
+        <$> x .@ "AccessControlList"
+        <*> x .@? "Owner"

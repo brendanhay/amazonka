@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -71,9 +72,9 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data ReceiveMessage = ReceiveMessage
-    { _rmAttributeNames        :: Flatten [Text]
+    { _rmAttributeNames        :: List "AttributeName" Text
     , _rmMaxNumberOfMessages   :: Maybe Int
-    , _rmMessageAttributeNames :: Flatten [Text]
+    , _rmMessageAttributeNames :: List "MessageAttributeName" Text
     , _rmQueueUrl              :: Text
     , _rmVisibilityTimeout     :: Maybe Int
     , _rmWaitTimeSeconds       :: Maybe Int
@@ -101,8 +102,8 @@ receiveMessage :: Text -- ^ 'rmQueueUrl'
                -> ReceiveMessage
 receiveMessage p1 p2 p3 = ReceiveMessage
     { _rmQueueUrl              = p1
-    , _rmAttributeNames        = withIso _Flatten (const id) p2
-    , _rmMessageAttributeNames = withIso _Flatten (const id) p3
+    , _rmAttributeNames        = withIso _List (const id) p2
+    , _rmMessageAttributeNames = withIso _List (const id) p3
     , _rmMaxNumberOfMessages   = Nothing
     , _rmVisibilityTimeout     = Nothing
     , _rmWaitTimeSeconds       = Nothing
@@ -119,7 +120,7 @@ receiveMessage p1 p2 p3 = ReceiveMessage
 -- time in milliseconds).
 rmAttributeNames :: Lens' ReceiveMessage [Text]
 rmAttributeNames = lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a })
-    . _Flatten
+    . _List . _List
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value but may return fewer. Values can be from 1 to
@@ -139,7 +140,7 @@ rmMaxNumberOfMessages =
 rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
 rmMessageAttributeNames =
     lens _rmMessageAttributeNames (\s a -> s { _rmMessageAttributeNames = a })
-        . _Flatten
+        . _List . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 rmQueueUrl :: Lens' ReceiveMessage Text
@@ -160,7 +161,7 @@ rmWaitTimeSeconds =
     lens _rmWaitTimeSeconds (\s a -> s { _rmWaitTimeSeconds = a })
 
 newtype ReceiveMessageResponse = ReceiveMessageResponse
-    { _rmrMessages :: Flatten [Message]
+    { _rmrMessages :: List "Message" Message
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'ReceiveMessageResponse' constructor.
@@ -172,13 +173,13 @@ newtype ReceiveMessageResponse = ReceiveMessageResponse
 receiveMessageResponse :: [Message] -- ^ 'rmrMessages'
                        -> ReceiveMessageResponse
 receiveMessageResponse p1 = ReceiveMessageResponse
-    { _rmrMessages = withIso _Flatten (const id) p1
+    { _rmrMessages = withIso _List (const id) p1
     }
 
 -- | A list of messages.
 rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
-    . _Flatten
+    . _List . _List
 
 instance ToPath ReceiveMessage where
     toPath = const "/"
@@ -196,4 +197,8 @@ instance AWSRequest ReceiveMessage where
 
 instance FromXML ReceiveMessageResponse where
     parseXML = withElement "ReceiveMessageResult" $ \x ->
-            <$> parseXML x
+
+    Messages
+    List "Message" Message
+    true
+        <$> parseXML x

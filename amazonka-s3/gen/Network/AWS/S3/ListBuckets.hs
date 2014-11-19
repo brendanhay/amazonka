@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -52,7 +53,7 @@ listBuckets :: ListBuckets
 listBuckets = ListBuckets
 
 data ListBucketsResponse = ListBucketsResponse
-    { _lbrBuckets :: [Bucket]
+    { _lbrBuckets :: List "Bucket" Bucket
     , _lbrOwner   :: Maybe Owner
     } deriving (Eq, Show, Generic)
 
@@ -72,6 +73,7 @@ listBucketsResponse = ListBucketsResponse
 
 lbrBuckets :: Lens' ListBucketsResponse [Bucket]
 lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a })
+    . _List
 
 lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrOwner = lens _lbrOwner (\s a -> s { _lbrOwner = a })
@@ -98,5 +100,5 @@ instance AWSRequest ListBuckets where
 
 instance FromXML ListBucketsResponse where
     parseXML x = ListBucketsResponse
-            <$> x .@ "Buckets"
-            <*> x .@? "Owner"
+        <$> x .@ "Buckets"
+        <*> x .@? "Owner"

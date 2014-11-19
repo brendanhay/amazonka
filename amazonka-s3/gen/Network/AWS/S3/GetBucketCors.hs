@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ gbcBucket :: Lens' GetBucketCors Text
 gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
 
 newtype GetBucketCorsResponse = GetBucketCorsResponse
-    { _gbcrCORSRules :: Flatten [CORSRule]
+    { _gbcrCORSRules :: List "CORSRules" CORSRule
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetBucketCorsResponse' constructor.
@@ -76,12 +77,12 @@ newtype GetBucketCorsResponse = GetBucketCorsResponse
 getBucketCorsResponse :: [CORSRule] -- ^ 'gbcrCORSRules'
                       -> GetBucketCorsResponse
 getBucketCorsResponse p1 = GetBucketCorsResponse
-    { _gbcrCORSRules = withIso _Flatten (const id) p1
+    { _gbcrCORSRules = withIso _List (const id) p1
     }
 
 gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
 gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a })
-    . _Flatten
+    . _List . _List
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat
@@ -108,4 +109,4 @@ instance AWSRequest GetBucketCors where
 
 instance FromXML GetBucketCorsResponse where
     parseXML x = GetBucketCorsResponse
-            <$> parseXML x
+        <$> parseXML x

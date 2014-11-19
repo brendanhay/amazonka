@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -121,7 +122,7 @@ data ListPartsResponse = ListPartsResponse
     , _lprNextPartNumberMarker :: Maybe Int
     , _lprOwner                :: Maybe Owner
     , _lprPartNumberMarker     :: Maybe Int
-    , _lprParts                :: Flatten [Part]
+    , _lprParts                :: List "Parts" Part
     , _lprStorageClass         :: Maybe Text
     , _lprUploadId             :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -155,7 +156,7 @@ data ListPartsResponse = ListPartsResponse
 listPartsResponse :: [Part] -- ^ 'lprParts'
                   -> ListPartsResponse
 listPartsResponse p1 = ListPartsResponse
-    { _lprParts                = withIso _Flatten (const id) p1
+    { _lprParts                = withIso _List (const id) p1
     , _lprBucket               = Nothing
     , _lprKey                  = Nothing
     , _lprUploadId             = Nothing
@@ -205,7 +206,7 @@ lprPartNumberMarker =
 
 lprParts :: Lens' ListPartsResponse [Part]
 lprParts = lens _lprParts (\s a -> s { _lprParts = a })
-    . _Flatten
+    . _List . _List
 
 -- | The class of storage used to store the object.
 lprStorageClass :: Lens' ListPartsResponse (Maybe Text)
@@ -246,17 +247,17 @@ instance AWSRequest ListParts where
 
 instance FromXML ListPartsResponse where
     parseXML x = ListPartsResponse
-            <$> x .@? "Bucket"
-            <*> x .@? "Initiator"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Key"
-            <*> x .@? "MaxParts"
-            <*> x .@? "NextPartNumberMarker"
-            <*> x .@? "Owner"
-            <*> x .@? "PartNumberMarker"
-            <*> parseXML x
-            <*> x .@? "StorageClass"
-            <*> x .@? "UploadId"
+        <$> x .@? "Bucket"
+        <*> x .@? "Initiator"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Key"
+        <*> x .@? "MaxParts"
+        <*> x .@? "NextPartNumberMarker"
+        <*> x .@? "Owner"
+        <*> x .@? "PartNumberMarker"
+        <*> parseXML x
+        <*> x .@? "StorageClass"
+        <*> x .@? "UploadId"
 
 instance AWSPager ListParts where
     next rq rs

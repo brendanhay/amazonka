@@ -23,12 +23,11 @@ import Network.AWS.Data.Internal.Text
 -- import Network.AWS.Data.Internal.Query
 -- import Network.AWS.Data.Internal.XML
 
-newtype Flatten a = Flatten { flatten :: a }
-    deriving (Eq, Ord, Show, IsString, Monoid, Semigroup)
+-- newtype Flatten a = Flatten { flatten :: a }
+--     deriving (Eq, Ord, Show, IsString, Monoid, Semigroup)
 
-_Flatten :: Iso' (Flatten a) a
-_Flatten = iso flatten Flatten
-
+-- _Flatten :: Iso' (Flatten a) a
+-- _Flatten = iso flatten Flatten
 
 -- instance FromXML a => FromXML (Flatten [a]) where
 

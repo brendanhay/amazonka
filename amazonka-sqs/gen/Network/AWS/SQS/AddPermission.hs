@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -51,8 +52,8 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data AddPermission = AddPermission
-    { _apAWSAccountIds :: Flatten [Text]
-    , _apActions       :: Flatten [Text]
+    { _apAWSAccountIds :: List "AWSAccountId" Text
+    , _apActions       :: List "ActionName" Text
     , _apLabel         :: Text
     , _apQueueUrl      :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -77,8 +78,8 @@ addPermission :: Text -- ^ 'apQueueUrl'
 addPermission p1 p2 p3 p4 = AddPermission
     { _apQueueUrl      = p1
     , _apLabel         = p2
-    , _apAWSAccountIds = withIso _Flatten (const id) p3
-    , _apActions       = withIso _Flatten (const id) p4
+    , _apAWSAccountIds = withIso _List (const id) p3
+    , _apActions       = withIso _List (const id) p4
     }
 
 -- | The AWS account number of the principal who will be given permission. The
@@ -88,7 +89,7 @@ addPermission p1 p2 p3 p4 = AddPermission
 -- Guide.
 apAWSAccountIds :: Lens' AddPermission [Text]
 apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
-    . _Flatten
+    . _List . _List
 
 -- | The action the client wants to allow for the specified principal. The
 -- following are valid values: * | SendMessage | ReceiveMessage |
@@ -100,7 +101,7 @@ apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
 -- SendMessageBatch, DeleteMessageBatch, and ChangeMessageVisibilityBatch.
 apActions :: Lens' AddPermission [Text]
 apActions = lens _apActions (\s a -> s { _apActions = a })
-    . _Flatten
+    . _List . _List
 
 -- | The unique identification of the permission you're setting (e.g.,
 -- AliceSendMessage). Constraints: Maximum 80 characters; alphanumeric

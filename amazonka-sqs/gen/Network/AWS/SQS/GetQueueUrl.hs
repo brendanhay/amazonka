@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -117,4 +118,8 @@ instance AWSRequest GetQueueUrl where
 
 instance FromXML GetQueueUrlResponse where
     parseXML = withElement "GetQueueUrlResult" $ \x ->
-            <$> x .@? "QueueUrl"
+
+    QueueUrl
+    Maybe Text
+    false
+        <$> x .@? "QueueUrl"

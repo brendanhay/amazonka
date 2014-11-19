@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -108,4 +109,4 @@ instance AWSRequest GetBucketLogging where
 
 instance FromXML GetBucketLoggingResponse where
     parseXML x = GetBucketLoggingResponse
-            <$> x .@? "LoggingEnabled"
+        <$> x .@? "LoggingEnabled"

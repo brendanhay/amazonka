@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -70,7 +71,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data GetQueueAttributes = GetQueueAttributes
-    { _gqaAttributeNames :: Flatten [Text]
+    { _gqaAttributeNames :: List "AttributeName" Text
     , _gqaQueueUrl       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -87,21 +88,21 @@ getQueueAttributes :: Text -- ^ 'gqaQueueUrl'
                    -> GetQueueAttributes
 getQueueAttributes p1 p2 = GetQueueAttributes
     { _gqaQueueUrl       = p1
-    , _gqaAttributeNames = withIso _Flatten (const id) p2
+    , _gqaAttributeNames = withIso _List (const id) p2
     }
 
 -- | A list of attributes to retrieve information for.
 gqaAttributeNames :: Lens' GetQueueAttributes [Text]
 gqaAttributeNames =
     lens _gqaAttributeNames (\s a -> s { _gqaAttributeNames = a })
-        . _Flatten
+        . _List . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttributes :: Flatten (Map Text Text)
+    { _gqarAttributes :: Map "Attribute" TextText
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 -- | 'GetQueueAttributesResponse' constructor.
@@ -113,13 +114,13 @@ newtype GetQueueAttributesResponse = GetQueueAttributesResponse
 getQueueAttributesResponse :: (HashMap Text Text) -- ^ 'gqarAttributes'
                            -> GetQueueAttributesResponse
 getQueueAttributesResponse p1 = GetQueueAttributesResponse
-    { _gqarAttributes = withIso _Flatten (const id) p1
+    { _gqarAttributes = withIso _Map (const id) p1
     }
 
 -- | A map of attributes to the respective values.
 gqarAttributes :: Lens' GetQueueAttributesResponse ((HashMap Text Text))
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
-    . _Flatten . _Map
+    . _Map . _Map
 
 instance ToPath GetQueueAttributes where
     toPath = const "/"
@@ -137,4 +138,8 @@ instance AWSRequest GetQueueAttributes where
 
 instance FromXML GetQueueAttributesResponse where
     parseXML = withElement "GetQueueAttributesResult" $ \x ->
-            <$> parseXML x
+
+    Attribute
+    Map "Attribute" TextText
+    true
+        <$> parseXML x

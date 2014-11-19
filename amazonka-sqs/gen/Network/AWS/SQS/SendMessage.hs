@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -60,7 +61,7 @@ import qualified GHC.Exts
 
 data SendMessage = SendMessage
     { _smDelaySeconds      :: Maybe Int
-    , _smMessageAttributes :: Flatten (Map Text MessageAttributeValue)
+    , _smMessageAttributes :: Map "MessageAttribute" TextMessageAttributeValue
     , _smMessageBody       :: Text
     , _smQueueUrl          :: Text
     } deriving (Eq, Show, Generic)
@@ -84,7 +85,7 @@ sendMessage :: Text -- ^ 'smQueueUrl'
 sendMessage p1 p2 p3 = SendMessage
     { _smQueueUrl          = p1
     , _smMessageBody       = p2
-    , _smMessageAttributes = withIso _Flatten (const id) p3
+    , _smMessageAttributes = withIso _Map (const id) p3
     , _smDelaySeconds      = Nothing
     }
 
@@ -100,7 +101,7 @@ smDelaySeconds = lens _smDelaySeconds (\s a -> s { _smDelaySeconds = a })
 smMessageAttributes :: Lens' SendMessage ((HashMap Text MessageAttributeValue))
 smMessageAttributes =
     lens _smMessageAttributes (\s a -> s { _smMessageAttributes = a })
-        . _Flatten . _Map
+        . _Map . _Map
 
 -- | The message to send. String maximum 256 KB in size. For a list of allowed
 -- characters, see the preceding important note.
@@ -173,6 +174,18 @@ instance AWSRequest SendMessage where
 
 instance FromXML SendMessageResponse where
     parseXML = withElement "SendMessageResult" $ \x ->
-            <$> x .@? "MD5OfMessageAttributes"
-            <*> x .@? "MD5OfMessageBody"
-            <*> x .@? "MessageId"
+
+    MD5OfMessageAttributes
+    Maybe Text
+    false
+        <$> x .@? "MD5OfMessageAttributes"
+
+    MD5OfMessageBody
+    Maybe Text
+    false
+        <*> x .@? "MD5OfMessageBody"
+
+    MessageId
+    Maybe Text
+    false
+        <*> x .@? "MessageId"

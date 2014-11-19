@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -85,8 +86,8 @@ do1MFA :: Lens' DeleteObjects (Maybe Text)
 do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 
 data DeleteObjectsResponse = DeleteObjectsResponse
-    { _dorDeleted :: Flatten S3ServiceError
-    , _dorErrors  :: Flatten S3ServiceError
+    { _dorDeleted :: S3ServiceError
+    , _dorErrors  :: S3ServiceError
     } deriving (Eq, Show, Generic)
 
 -- | 'DeleteObjectsResponse' constructor.
@@ -101,17 +102,15 @@ deleteObjectsResponse :: S3ServiceError -- ^ 'dorDeleted'
                       -> S3ServiceError -- ^ 'dorErrors'
                       -> DeleteObjectsResponse
 deleteObjectsResponse p1 p2 = DeleteObjectsResponse
-    { _dorDeleted = withIso _Flatten (const id) p1
-    , _dorErrors  = withIso _Flatten (const id) p2
+    { _dorDeleted = p1
+    , _dorErrors  = p2
     }
 
 dorDeleted :: Lens' DeleteObjectsResponse S3ServiceError
 dorDeleted = lens _dorDeleted (\s a -> s { _dorDeleted = a })
-    . _Flatten
 
 dorErrors :: Lens' DeleteObjectsResponse S3ServiceError
 dorErrors = lens _dorErrors (\s a -> s { _dorErrors = a })
-    . _Flatten
 
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat
@@ -143,5 +142,5 @@ instance AWSRequest DeleteObjects where
 
 instance FromXML DeleteObjectsResponse where
     parseXML x = DeleteObjectsResponse
-            <$> parseXML x
-            <*> parseXML x
+        <$> parseXML x
+        <*> parseXML x

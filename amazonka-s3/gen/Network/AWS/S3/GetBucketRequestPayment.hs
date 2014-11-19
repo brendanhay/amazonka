@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -107,4 +108,4 @@ instance AWSRequest GetBucketRequestPayment where
 
 instance FromXML GetBucketRequestPaymentResponse where
     parseXML x = GetBucketRequestPaymentResponse
-            <$> x .@? "Payer"
+        <$> x .@? "Payer"

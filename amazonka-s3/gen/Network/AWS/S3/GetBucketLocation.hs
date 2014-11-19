@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -107,4 +108,4 @@ instance AWSRequest GetBucketLocation where
 
 instance FromXML GetBucketLocationResponse where
     parseXML x = GetBucketLocationResponse
-            <$> x .@? "LocationConstraint"
+        <$> x .@? "LocationConstraint"

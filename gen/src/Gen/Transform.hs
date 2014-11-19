@@ -19,7 +19,8 @@
 
 module Gen.Transform (transformS1ToS2) where
 
-import           Control.Applicative        ((<$>), (<*>), pure)
+import Debug.Trace
+import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
 import           Control.Lens               hiding (op, ignored, filtered, indexed)
@@ -508,13 +509,13 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
             t = TType k
         x <- gets (Map.lookup k)
         maybe (maybe (insert k t >> return t)
-                     (prop k)
+                     (prop r k)
                      (Map.lookup k m))
               return
               x
 
-    prop :: Text -> S1.Shape -> State (HashMap Text Type) Type
-    prop k s =  do
+    prop :: Ref -> Text -> S1.Shape -> State (HashMap Text Type) Type
+    prop r k s =  do
         x <- gets (Map.lookup k)
         maybe (go >>= insert k)
               return
@@ -528,14 +529,12 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
             Blob'   _ -> pure (TPrim PBlob)
 
             List'   x -> list x <$> ref (x ^. lstMember)
-
-            Map'    x -> flat (_mapFlattened x) <$>
-                (TMap <$> ref (x ^. mapKey) <*> ref (x ^. mapValue))
+            Map'    x -> hmap x <$> ref (x ^. mapKey) <*> ref (x ^. mapValue)
 
             String' x
                 | Just True <- (x ^. strSensitive)
-                            -> pure (TSensitive (TPrim PText))
-                | otherwise -> pure (TPrim PText)
+                              -> pure (TSensitive (TPrim PText))
+                | otherwise   -> pure (TPrim PText)
 
             Int'    x
                 | isNatural x -> pure (TPrim PNatural)
@@ -545,14 +544,24 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
                 | isNatural x -> pure (TPrim PNatural)
                 | otherwise   -> pure (TPrim PInteger)
 
-        list l = flat (_lstFlattened l) .
-             if fromMaybe 0 (_lstMin l) > 0
-                 then TList1 loc
-                 else TList  loc
+        hmap x k' v' = flat flatten (TMap val k' v')
           where
-            loc = fromMaybe
-                (l ^. lstMember . refShape)
-                (l ^. lstMember . refLocationName)
+            val | fromMaybe False flatten = fromMaybe "entry" (r ^. refLocationName)
+                | otherwise               = "entry"
+
+            flatten = x ^. mapFlattened
+
+        list x = flat flatten . typ val
+          where
+            typ | fromMaybe 0 (_lstMin x) > 0 = TList1
+                | otherwise                   = TList
+
+            flatten = x ^. lstFlattened
+                  <|> x ^. lstMember . refFlattened
+
+            val = fromMaybe
+                (x ^. lstMember . refShape)
+                (x ^. lstMember . refLocationName)
 
     flat :: Maybe Bool -> Type -> Type
     flat (Just True) = TFlatten

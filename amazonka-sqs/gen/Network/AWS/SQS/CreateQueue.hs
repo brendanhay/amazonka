@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -56,7 +57,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data CreateQueue = CreateQueue
-    { _cqAttributes :: Flatten (Map Text Text)
+    { _cqAttributes :: Map "Attribute" TextText
     , _cqQueueName  :: Text
     } deriving (Eq, Show, Generic)
 
@@ -73,7 +74,7 @@ createQueue :: Text -- ^ 'cqQueueName'
             -> CreateQueue
 createQueue p1 p2 = CreateQueue
     { _cqQueueName  = p1
-    , _cqAttributes = withIso _Flatten (const id) p2
+    , _cqAttributes = withIso _Map (const id) p2
     }
 
 -- | A map of attributes with their corresponding values. The following lists
@@ -99,7 +100,7 @@ createQueue p1 p2 = CreateQueue
 -- see Visibility Timeout in the Amazon SQS Developer Guide.
 cqAttributes :: Lens' CreateQueue ((HashMap Text Text))
 cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
-    . _Flatten . _Map
+    . _Map . _Map
 
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text
@@ -140,4 +141,8 @@ instance AWSRequest CreateQueue where
 
 instance FromXML CreateQueueResponse where
     parseXML = withElement "CreateQueueResult" $ \x ->
-            <$> x .@? "QueueUrl"
+
+    QueueUrl
+    Maybe Text
+    false
+        <$> x .@? "QueueUrl"

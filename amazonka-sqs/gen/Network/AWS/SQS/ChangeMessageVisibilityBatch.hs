@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -54,7 +55,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
-    { _cmvbEntries  :: Flatten [ChangeMessageVisibilityBatchRequestEntry]
+    { _cmvbEntries  :: List "ChangeMessageVisibilityBatchRequestEntry" ChangeMessageVisibilityBatchRequestEntry
     , _cmvbQueueUrl :: Text
     } deriving (Eq, Show, Generic)
 
@@ -71,22 +72,22 @@ changeMessageVisibilityBatch :: Text -- ^ 'cmvbQueueUrl'
                              -> ChangeMessageVisibilityBatch
 changeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
     { _cmvbQueueUrl = p1
-    , _cmvbEntries  = withIso _Flatten (const id) p2
+    , _cmvbEntries  = withIso _List (const id) p2
     }
 
 -- | A list of receipt handles of the messages for which the visibility
 -- timeout must be changed.
 cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
 cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a })
-    . _Flatten
+    . _List . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
 cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
 
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
-    { _cmvbrFailed     :: Flatten [BatchResultErrorEntry]
-    , _cmvbrSuccessful :: Flatten [ChangeMessageVisibilityBatchResultEntry]
+    { _cmvbrFailed     :: List "BatchResultErrorEntry" BatchResultErrorEntry
+    , _cmvbrSuccessful :: List "ChangeMessageVisibilityBatchResultEntry" ChangeMessageVisibilityBatchResultEntry
     } deriving (Eq, Show, Generic)
 
 -- | 'ChangeMessageVisibilityBatchResponse' constructor.
@@ -101,19 +102,19 @@ changeMessageVisibilityBatchResponse :: [ChangeMessageVisibilityBatchResultEntry
                                      -> [BatchResultErrorEntry] -- ^ 'cmvbrFailed'
                                      -> ChangeMessageVisibilityBatchResponse
 changeMessageVisibilityBatchResponse p1 p2 = ChangeMessageVisibilityBatchResponse
-    { _cmvbrSuccessful = withIso _Flatten (const id) p1
-    , _cmvbrFailed     = withIso _Flatten (const id) p2
+    { _cmvbrSuccessful = withIso _List (const id) p1
+    , _cmvbrFailed     = withIso _List (const id) p2
     }
 
 -- | A list of BatchResultErrorEntry items.
 cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a })
-    . _Flatten
+    . _List . _List
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a })
-    . _Flatten
+    . _List . _List
 
 instance ToPath ChangeMessageVisibilityBatch where
     toPath = const "/"
@@ -131,5 +132,13 @@ instance AWSRequest ChangeMessageVisibilityBatch where
 
 instance FromXML ChangeMessageVisibilityBatchResponse where
     parseXML = withElement "ChangeMessageVisibilityBatchResult" $ \x ->
-            <$> parseXML x
-            <*> parseXML x
+
+    Failed
+    List "BatchResultErrorEntry" BatchResultErrorEntry
+    true
+        <$> parseXML x
+
+    Successful
+    List "ChangeMessageVisibilityBatchResultEntry" ChangeMessageVisibilityBatchResultEntry
+    true
+        <*> parseXML x

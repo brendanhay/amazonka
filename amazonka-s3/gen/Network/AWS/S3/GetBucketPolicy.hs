@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -107,4 +108,4 @@ instance AWSRequest GetBucketPolicy where
 
 instance FromXML GetBucketPolicyResponse where
     parseXML x = GetBucketPolicyResponse
-            <$> x .@? "Policy"
+        <$> x .@? "Policy"

@@ -56,6 +56,7 @@ data Ref = Ref
     , _refFault         :: Maybe Bool
     , _refResultWrapper :: Maybe Text
     , _refWrapper       :: Maybe Bool
+    , _refFlattened     :: Maybe Bool
     } deriving (Eq, Show)
 
 record stage1 ''Ref

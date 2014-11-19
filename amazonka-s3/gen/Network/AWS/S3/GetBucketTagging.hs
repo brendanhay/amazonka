@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -64,7 +65,7 @@ gbtBucket :: Lens' GetBucketTagging Text
 gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
 
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
-    { _gbtrTagSet :: [Tag]
+    { _gbtrTagSet :: List "Tag" Tag
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetBucketTaggingResponse where
@@ -86,6 +87,7 @@ getBucketTaggingResponse = GetBucketTaggingResponse
 
 gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })
+    . _List
 
 instance ToPath GetBucketTagging where
     toPath GetBucketTagging{..} = mconcat
@@ -112,4 +114,4 @@ instance AWSRequest GetBucketTagging where
 
 instance FromXML GetBucketTaggingResponse where
     parseXML x = GetBucketTaggingResponse
-            <$> x .@ "TagSet"
+        <$> x .@ "TagSet"

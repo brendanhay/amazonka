@@ -238,8 +238,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -249,12 +249,12 @@
                         "locationName": "StringListValue",
                         "documentation": "\u003cp\u003eNot implemented. Reserved for future use.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StringListValue\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -264,14 +264,14 @@
                         "locationName": "BinaryListValue",
                         "documentation": "\u003cp\u003eNot implemented. Reserved for future use.\u003c/p\u003e",
                         "typeExposed": "[Base64]",
-                        "type": "[Base64]"
+                        "type": "List \"BinaryListValue\" Base64"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -281,7 +281,7 @@
                         "locationName": "BinaryListValue",
                         "documentation": "\u003cp\u003eNot implemented. Reserved for future use.\u003c/p\u003e",
                         "typeExposed": "[Base64]",
-                        "type": "[Base64]"
+                        "type": "List \"BinaryListValue\" Base64"
                     },
                     {
                         "location": "querystring",
@@ -315,8 +315,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -326,7 +326,7 @@
                         "locationName": "StringListValue",
                         "documentation": "\u003cp\u003eNot implemented. Reserved for future use.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "[Text]"
+                        "type": "List \"StringListValue\" Text"
                     },
                     {
                         "location": "querystring",
@@ -605,8 +605,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -616,12 +616,12 @@
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003e\u003ccode\u003eSenderId\u003c/code\u003e, \u003ccode\u003eSentTimestamp\u003c/code\u003e, \u003ccode\u003eApproximateReceiveCount\u003c/code\u003e, and/or \u003ccode\u003eApproximateFirstReceiveTimestamp\u003c/code\u003e. \u003ccode\u003eSentTimestamp\u003c/code\u003e and \u003ccode\u003eApproximateFirstReceiveTimestamp\u003c/code\u003e are each returned as an integer representing the \u003ca href=\"http://en.wikipedia.org/wiki/Unix_time\"\u003eepoch time\u003c/a\u003e in milliseconds.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text Text)",
-                        "type": "Flatten (Map Text Text)"
+                        "type": "Map \"Attribute\" TextText"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -631,7 +631,7 @@
                         "locationName": "MessageAttribute",
                         "documentation": "\u003cp\u003eEach message attribute consists of a Name, Type, and Value. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV\"\u003eMessage Attribute Items\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text MessageAttributeValue)",
-                        "type": "Flatten (Map Text MessageAttributeValue)"
+                        "type": "Map \"MessageAttribute\" TextMessageAttributeValue"
                     }
                 ],
                 "contentPad": 0,
@@ -717,8 +717,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -728,7 +728,7 @@
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003e\u003ccode\u003eSenderId\u003c/code\u003e, \u003ccode\u003eSentTimestamp\u003c/code\u003e, \u003ccode\u003eApproximateReceiveCount\u003c/code\u003e, and/or \u003ccode\u003eApproximateFirstReceiveTimestamp\u003c/code\u003e. \u003ccode\u003eSentTimestamp\u003c/code\u003e and \u003ccode\u003eApproximateFirstReceiveTimestamp\u003c/code\u003e are each returned as an integer representing the \u003ca href=\"http://en.wikipedia.org/wiki/Unix_time\"\u003eepoch time\u003c/a\u003e in milliseconds.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text Text)",
-                        "type": "Flatten (Map Text Text)"
+                        "type": "Map \"Attribute\" TextText"
                     },
                     {
                         "location": "querystring",
@@ -777,8 +777,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -788,7 +788,7 @@
                         "locationName": "MessageAttribute",
                         "documentation": "\u003cp\u003eEach message attribute consists of a Name, Type, and Value. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV\"\u003eMessage Attribute Items\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text MessageAttributeValue)",
-                        "type": "Flatten (Map Text MessageAttributeValue)"
+                        "type": "Map \"MessageAttribute\" TextMessageAttributeValue"
                     },
                     {
                         "location": "querystring",
@@ -865,8 +865,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -876,7 +876,7 @@
                         "locationName": "MessageAttribute",
                         "documentation": "\u003cp\u003eEach message attribute consists of a Name, Type, and Value. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV\"\u003eMessage Attribute Items\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text MessageAttributeValue)",
-                        "type": "Flatten (Map Text MessageAttributeValue)"
+                        "type": "Map \"MessageAttribute\" TextMessageAttributeValue"
                     }
                 ],
                 "contentPad": 0,
@@ -932,8 +932,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -943,7 +943,7 @@
                         "locationName": "MessageAttribute",
                         "documentation": "\u003cp\u003eEach message attribute consists of a Name, Type, and Value. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV\"\u003eMessage Attribute Items\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text MessageAttributeValue)",
-                        "type": "Flatten (Map Text MessageAttributeValue)"
+                        "type": "Map \"MessageAttribute\" TextMessageAttributeValue"
                     },
                     {
                         "location": "querystring",
@@ -1343,8 +1343,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1354,12 +1354,12 @@
                         "locationName": "AWSAccountIds",
                         "documentation": "\u003cp\u003eThe AWS account number of the \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P\"\u003eprincipal\u003c/a\u003e who will be given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html\"\u003eYour AWS Identifiers\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AWSAccountId\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1369,7 +1369,7 @@
                         "locationName": "Actions",
                         "documentation": "\u003cp\u003eThe action the client wants to allow for the specified principal. The following are valid values: \u003ccode\u003e* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl\u003c/code\u003e. For more information about these actions, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes\"\u003eUnderstanding Permissions\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eSpecifying \u003ccode\u003eSendMessage\u003c/code\u003e, \u003ccode\u003eDeleteMessage\u003c/code\u003e, or \u003ccode\u003eChangeMessageVisibility\u003c/code\u003e for the \u003ccode\u003eActionName.n\u003c/code\u003e also grants permissions for the corresponding batch versions of those actions: \u003ccode\u003eSendMessageBatch\u003c/code\u003e, \u003ccode\u003eDeleteMessageBatch\u003c/code\u003e, and \u003ccode\u003eChangeMessageVisibilityBatch\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"ActionName\" Text"
                     }
                 ],
                 "shared": false,
@@ -1406,8 +1406,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1417,12 +1417,12 @@
                         "locationName": "AWSAccountIds",
                         "documentation": "\u003cp\u003eThe AWS account number of the \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P\"\u003eprincipal\u003c/a\u003e who will be given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html\"\u003eYour AWS Identifiers\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AWSAccountId\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1432,7 +1432,7 @@
                         "locationName": "Actions",
                         "documentation": "\u003cp\u003eThe action the client wants to allow for the specified principal. The following are valid values: \u003ccode\u003e* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl\u003c/code\u003e. For more information about these actions, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes\"\u003eUnderstanding Permissions\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eSpecifying \u003ccode\u003eSendMessage\u003c/code\u003e, \u003ccode\u003eDeleteMessage\u003c/code\u003e, or \u003ccode\u003eChangeMessageVisibility\u003c/code\u003e for the \u003ccode\u003eActionName.n\u003c/code\u003e also grants permissions for the corresponding batch versions of those actions: \u003ccode\u003eSendMessageBatch\u003c/code\u003e, \u003ccode\u003eDeleteMessageBatch\u003c/code\u003e, and \u003ccode\u003eChangeMessageVisibilityBatch\u003c/code\u003e.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"ActionName\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1668,8 +1668,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1679,12 +1679,12 @@
                         "locationName": "Successful",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eChangeMessageVisibilityBatchResultEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[ChangeMessageVisibilityBatchResultEntry]",
-                        "type": "Flatten [ChangeMessageVisibilityBatchResultEntry]"
+                        "type": "List \"ChangeMessageVisibilityBatchResultEntry\" ChangeMessageVisibilityBatchResultEntry"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1694,7 +1694,7 @@
                         "locationName": "Failed",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eBatchResultErrorEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[BatchResultErrorEntry]",
-                        "type": "Flatten [BatchResultErrorEntry]"
+                        "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     }
                 ],
                 "shared": false,
@@ -1708,8 +1708,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1719,12 +1719,12 @@
                         "locationName": "Failed",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eBatchResultErrorEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[BatchResultErrorEntry]",
-                        "type": "Flatten [BatchResultErrorEntry]"
+                        "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1734,7 +1734,7 @@
                         "locationName": "Successful",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eChangeMessageVisibilityBatchResultEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[ChangeMessageVisibilityBatchResultEntry]",
-                        "type": "Flatten [ChangeMessageVisibilityBatchResultEntry]"
+                        "type": "List \"ChangeMessageVisibilityBatchResultEntry\" ChangeMessageVisibilityBatchResultEntry"
                     }
                 ]
             },
@@ -1788,8 +1788,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1799,7 +1799,7 @@
                         "locationName": "Entries",
                         "documentation": "\u003cp\u003eA list of receipt handles of the messages for which the visibility timeout must be changed.\u003c/p\u003e",
                         "typeExposed": "[ChangeMessageVisibilityBatchRequestEntry]",
-                        "type": "Flatten [ChangeMessageVisibilityBatchRequestEntry]"
+                        "type": "List \"ChangeMessageVisibilityBatchRequestEntry\" ChangeMessageVisibilityBatchRequestEntry"
                     }
                 ],
                 "shared": false,
@@ -1826,8 +1826,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1837,7 +1837,7 @@
                         "locationName": "Entries",
                         "documentation": "\u003cp\u003eA list of receipt handles of the messages for which the visibility timeout must be changed.\u003c/p\u003e",
                         "typeExposed": "[ChangeMessageVisibilityBatchRequestEntry]",
-                        "type": "Flatten [ChangeMessageVisibilityBatchRequestEntry]"
+                        "type": "List \"ChangeMessageVisibilityBatchRequestEntry\" ChangeMessageVisibilityBatchRequestEntry"
                     },
                     {
                         "location": "querystring",
@@ -1985,8 +1985,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -1996,7 +1996,7 @@
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eA map of attributes with their corresponding values.\u003c/p\u003e \u003cp\u003eThe following lists the names, descriptions, and values of the special request parameters the \u003ccode\u003eCreateQueue\u003c/code\u003e action uses:\u003c/p\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eDelaySeconds\u003c/code\u003e - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMaximumMessageSize\u003c/code\u003e - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMessageRetentionPeriod\u003c/code\u003e - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePolicy\u003c/code\u003e - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html\"\u003eBasic Policy Structure\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e. For more information about form-url-encoding, see \u003ca href=\"http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\"\u003ehttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003c/a\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eReceiveMessageWaitTimeSeconds\u003c/code\u003e - The time for which a \u003ca\u003eReceiveMessage\u003c/a\u003e call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eVisibilityTimeout\u003c/code\u003e - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html\"\u003eVisibility Timeout\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "(HashMap Text Text)",
-                        "type": "Flatten (Map Text Text)"
+                        "type": "Map \"Attribute\" TextText"
                     }
                 ],
                 "shared": false,
@@ -2023,8 +2023,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2034,7 +2034,7 @@
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eA map of attributes with their corresponding values.\u003c/p\u003e \u003cp\u003eThe following lists the names, descriptions, and values of the special request parameters the \u003ccode\u003eCreateQueue\u003c/code\u003e action uses:\u003c/p\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eDelaySeconds\u003c/code\u003e - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMaximumMessageSize\u003c/code\u003e - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMessageRetentionPeriod\u003c/code\u003e - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePolicy\u003c/code\u003e - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html\"\u003eBasic Policy Structure\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e. For more information about form-url-encoding, see \u003ca href=\"http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\"\u003ehttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003c/a\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eReceiveMessageWaitTimeSeconds\u003c/code\u003e - The time for which a \u003ca\u003eReceiveMessage\u003c/a\u003e call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eVisibilityTimeout\u003c/code\u003e - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html\"\u003eVisibility Timeout\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "(HashMap Text Text)",
-                        "type": "Flatten (Map Text Text)"
+                        "type": "Map \"Attribute\" TextText"
                     },
                     {
                         "location": "querystring",
@@ -2220,8 +2220,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2231,12 +2231,12 @@
                         "locationName": "Successful",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eDeleteMessageBatchResultEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[DeleteMessageBatchResultEntry]",
-                        "type": "Flatten [DeleteMessageBatchResultEntry]"
+                        "type": "List \"DeleteMessageBatchResultEntry\" DeleteMessageBatchResultEntry"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2246,7 +2246,7 @@
                         "locationName": "Failed",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eBatchResultErrorEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[BatchResultErrorEntry]",
-                        "type": "Flatten [BatchResultErrorEntry]"
+                        "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     }
                 ],
                 "shared": false,
@@ -2260,8 +2260,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2271,12 +2271,12 @@
                         "locationName": "Failed",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eBatchResultErrorEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[BatchResultErrorEntry]",
-                        "type": "Flatten [BatchResultErrorEntry]"
+                        "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2286,7 +2286,7 @@
                         "locationName": "Successful",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eDeleteMessageBatchResultEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[DeleteMessageBatchResultEntry]",
-                        "type": "Flatten [DeleteMessageBatchResultEntry]"
+                        "type": "List \"DeleteMessageBatchResultEntry\" DeleteMessageBatchResultEntry"
                     }
                 ]
             },
@@ -2340,8 +2340,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2351,7 +2351,7 @@
                         "locationName": "Entries",
                         "documentation": "\u003cp\u003eA list of receipt handles for the messages to be deleted.\u003c/p\u003e",
                         "typeExposed": "[DeleteMessageBatchRequestEntry]",
-                        "type": "Flatten [DeleteMessageBatchRequestEntry]"
+                        "type": "List \"DeleteMessageBatchRequestEntry\" DeleteMessageBatchRequestEntry"
                     }
                 ],
                 "shared": false,
@@ -2378,8 +2378,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2389,7 +2389,7 @@
                         "locationName": "Entries",
                         "documentation": "\u003cp\u003eA list of receipt handles for the messages to be deleted.\u003c/p\u003e",
                         "typeExposed": "[DeleteMessageBatchRequestEntry]",
-                        "type": "Flatten [DeleteMessageBatchRequestEntry]"
+                        "type": "List \"DeleteMessageBatchRequestEntry\" DeleteMessageBatchRequestEntry"
                     },
                     {
                         "location": "querystring",
@@ -2556,8 +2556,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten . _Map",
+                    "iso": "_Map",
+                    "lensMapping": "_Map . _Map",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -2567,7 +2567,7 @@
                     "locationName": "Attribute",
                     "documentation": "\u003cp\u003eA map of attributes to the respective values.\u003c/p\u003e",
                     "typeExposed": "(HashMap Text Text)",
-                    "type": "Flatten (Map Text Text)"
+                    "type": "Map \"Attribute\" TextText"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2576,8 +2576,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2587,7 +2587,7 @@
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eA map of attributes to the respective values.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text Text)",
-                        "type": "Flatten (Map Text Text)"
+                        "type": "Map \"Attribute\" TextText"
                     }
                 ],
                 "shared": false,
@@ -2601,8 +2601,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2612,7 +2612,7 @@
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eA map of attributes to the respective values.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text Text)",
-                        "type": "Flatten (Map Text Text)"
+                        "type": "Map \"Attribute\" TextText"
                     }
                 ]
             },
@@ -2667,8 +2667,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2678,7 +2678,7 @@
                         "locationName": "AttributeNames",
                         "documentation": "\u003cp\u003eA list of attributes to retrieve information for. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AttributeName\" Text"
                     }
                 ],
                 "shared": false,
@@ -2705,8 +2705,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2716,7 +2716,7 @@
                         "locationName": "AttributeNames",
                         "documentation": "\u003cp\u003eA list of attributes to retrieve information for. \u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AttributeName\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2954,8 +2954,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten",
+                    "iso": "_List",
+                    "lensMapping": "_List . _List",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -2965,7 +2965,7 @@
                     "locationName": "queueUrls",
                     "documentation": "A list of source queue URLs that have the RedrivePolicy queue attribute configured with a dead letter queue.",
                     "typeExposed": "[Text]",
-                    "type": "Flatten [Text]"
+                    "type": "List \"QueueUrl\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2974,8 +2974,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -2985,7 +2985,7 @@
                         "locationName": "queueUrls",
                         "documentation": "A list of source queue URLs that have the RedrivePolicy queue attribute configured with a dead letter queue.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"QueueUrl\" Text"
                     }
                 ],
                 "shared": false,
@@ -2999,8 +2999,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3010,7 +3010,7 @@
                         "locationName": "queueUrls",
                         "documentation": "A list of source queue URLs that have the RedrivePolicy queue attribute configured with a dead letter queue.",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"QueueUrl\" Text"
                     }
                 ]
             },
@@ -3136,8 +3136,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten",
+                    "iso": "_List",
+                    "lensMapping": "_List . _List",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -3147,7 +3147,7 @@
                     "locationName": "QueueUrls",
                     "documentation": "\u003cp\u003eA list of queue URLs, up to 1000 entries.\u003c/p\u003e",
                     "typeExposed": "[Text]",
-                    "type": "Flatten [Text]"
+                    "type": "List \"QueueUrl\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -3156,8 +3156,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3167,7 +3167,7 @@
                         "locationName": "QueueUrls",
                         "documentation": "\u003cp\u003eA list of queue URLs, up to 1000 entries.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"QueueUrl\" Text"
                     }
                 ],
                 "shared": false,
@@ -3181,8 +3181,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3192,7 +3192,7 @@
                         "locationName": "QueueUrls",
                         "documentation": "\u003cp\u003eA list of queue URLs, up to 1000 entries.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"QueueUrl\" Text"
                     }
                 ]
             },
@@ -3316,8 +3316,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_Flatten",
-                    "lensMapping": "_Flatten",
+                    "iso": "_List",
+                    "lensMapping": "_List . _List",
                     "default": "\u003cerror\u003e",
                     "flattened": true,
                     "required": true,
@@ -3327,7 +3327,7 @@
                     "locationName": "Messages",
                     "documentation": "\u003cp\u003eA list of messages.\u003c/p\u003e",
                     "typeExposed": "[Message]",
-                    "type": "Flatten [Message]"
+                    "type": "List \"Message\" Message"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -3336,8 +3336,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3347,7 +3347,7 @@
                         "locationName": "Messages",
                         "documentation": "\u003cp\u003eA list of messages.\u003c/p\u003e",
                         "typeExposed": "[Message]",
-                        "type": "Flatten [Message]"
+                        "type": "List \"Message\" Message"
                     }
                 ],
                 "shared": false,
@@ -3361,8 +3361,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3372,7 +3372,7 @@
                         "locationName": "Messages",
                         "documentation": "\u003cp\u003eA list of messages.\u003c/p\u003e",
                         "typeExposed": "[Message]",
-                        "type": "Flatten [Message]"
+                        "type": "List \"Message\" Message"
                     }
                 ]
             },
@@ -3427,8 +3427,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3438,12 +3438,12 @@
                         "locationName": "AttributeNames",
                         "documentation": "\u003cp\u003eA list of attributes that need to be returned along with each message. \u003c/p\u003e \u003cp\u003e The following lists the names and descriptions of the attributes that can be returned: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eAll\u003c/code\u003e - returns all values.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eApproximateFirstReceiveTimestamp\u003c/code\u003e - returns the time when the message was first received (epoch time in milliseconds).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eApproximateReceiveCount\u003c/code\u003e - returns the number of times a message has been received but not deleted.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSenderId\u003c/code\u003e - returns the AWS account number (or the IP address, if anonymous access is allowed) of the sender.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSentTimestamp\u003c/code\u003e - returns the time when the message was sent (epoch time in milliseconds).\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AttributeName\" Text"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3453,7 +3453,7 @@
                         "locationName": "MessageAttributeNames",
                         "documentation": "\u003cp\u003eThe message attribute Name can contain the following characters: A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.). The message attribute name must not start or end with a period, and it should not have successive periods. The message attribute name is case sensitive and must be unique among all attribute names for the message. The message attribute name can be up to 256 characters long. Attribute names cannot start with \"AWS.\" or \"Amazon.\" because these prefixes are reserved for use by Amazon Web Services.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"MessageAttributeName\" Text"
                     }
                 ],
                 "shared": false,
@@ -3546,8 +3546,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3557,7 +3557,7 @@
                         "locationName": "AttributeNames",
                         "documentation": "\u003cp\u003eA list of attributes that need to be returned along with each message. \u003c/p\u003e \u003cp\u003e The following lists the names and descriptions of the attributes that can be returned: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eAll\u003c/code\u003e - returns all values.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eApproximateFirstReceiveTimestamp\u003c/code\u003e - returns the time when the message was first received (epoch time in milliseconds).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eApproximateReceiveCount\u003c/code\u003e - returns the number of times a message has been received but not deleted.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSenderId\u003c/code\u003e - returns the AWS account number (or the IP address, if anonymous access is allowed) of the sender.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eSentTimestamp\u003c/code\u003e - returns the time when the message was sent (epoch time in milliseconds).\u003c/li\u003e \u003c/ul\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"AttributeName\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3576,8 +3576,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3587,7 +3587,7 @@
                         "locationName": "MessageAttributeNames",
                         "documentation": "\u003cp\u003eThe message attribute Name can contain the following characters: A-Z, a-z, 0-9, underscore(_), hyphen(-), and period (.). The message attribute name must not start or end with a period, and it should not have successive periods. The message attribute name is case sensitive and must be unique among all attribute names for the message. The message attribute name can be up to 256 characters long. Attribute names cannot start with \"AWS.\" or \"Amazon.\" because these prefixes are reserved for use by Amazon Web Services.\u003c/p\u003e",
                         "typeExposed": "[Text]",
-                        "type": "Flatten [Text]"
+                        "type": "List \"MessageAttributeName\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3969,8 +3969,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -3980,7 +3980,7 @@
                         "locationName": "MessageAttribute",
                         "documentation": "\u003cp\u003eEach message attribute consists of a Name, Type, and Value. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV\"\u003eMessage Attribute Items\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text MessageAttributeValue)",
-                        "type": "Flatten (Map Text MessageAttributeValue)"
+                        "type": "Map \"MessageAttribute\" TextMessageAttributeValue"
                     }
                 ],
                 "shared": false,
@@ -4048,8 +4048,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -4059,7 +4059,7 @@
                         "locationName": "MessageAttribute",
                         "documentation": "\u003cp\u003eEach message attribute consists of a Name, Type, and Value. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV\"\u003eMessage Attribute Items\u003c/a\u003e.\u003c/p\u003e",
                         "typeExposed": "(HashMap Text MessageAttributeValue)",
-                        "type": "Flatten (Map Text MessageAttributeValue)"
+                        "type": "Map \"MessageAttribute\" TextMessageAttributeValue"
                     },
                     {
                         "location": "querystring",
@@ -4114,8 +4114,8 @@
                 "required": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -4125,12 +4125,12 @@
                         "locationName": "Successful",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eSendMessageBatchResultEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[SendMessageBatchResultEntry]",
-                        "type": "Flatten [SendMessageBatchResultEntry]"
+                        "type": "List \"SendMessageBatchResultEntry\" SendMessageBatchResultEntry"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -4140,7 +4140,7 @@
                         "locationName": "Failed",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eBatchResultErrorEntry\u003c/a\u003e items with the error detail about each message that could not be enqueued.\u003c/p\u003e",
                         "typeExposed": "[BatchResultErrorEntry]",
-                        "type": "Flatten [BatchResultErrorEntry]"
+                        "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     }
                 ],
                 "shared": false,
@@ -4154,8 +4154,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -4165,12 +4165,12 @@
                         "locationName": "Failed",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eBatchResultErrorEntry\u003c/a\u003e items with the error detail about each message that could not be enqueued.\u003c/p\u003e",
                         "typeExposed": "[BatchResultErrorEntry]",
-                        "type": "Flatten [BatchResultErrorEntry]"
+                        "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -4180,7 +4180,7 @@
                         "locationName": "Successful",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eSendMessageBatchResultEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[SendMessageBatchResultEntry]",
-                        "type": "Flatten [SendMessageBatchResultEntry]"
+                        "type": "List \"SendMessageBatchResultEntry\" SendMessageBatchResultEntry"
                     }
                 ]
             },
@@ -4234,8 +4234,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -4245,7 +4245,7 @@
                         "locationName": "Entries",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eSendMessageBatchRequestEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[SendMessageBatchRequestEntry]",
-                        "type": "Flatten [SendMessageBatchRequestEntry]"
+                        "type": "List \"SendMessageBatchRequestEntry\" SendMessageBatchRequestEntry"
                     }
                 ],
                 "shared": false,
@@ -4272,8 +4272,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten",
+                        "iso": "_List",
+                        "lensMapping": "_List . _List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -4283,7 +4283,7 @@
                         "locationName": "Entries",
                         "documentation": "\u003cp\u003eA list of \u003ca\u003eSendMessageBatchRequestEntry\u003c/a\u003e items.\u003c/p\u003e",
                         "typeExposed": "[SendMessageBatchRequestEntry]",
-                        "type": "Flatten [SendMessageBatchRequestEntry]"
+                        "type": "List \"SendMessageBatchRequestEntry\" SendMessageBatchRequestEntry"
                     },
                     {
                         "location": "querystring",
@@ -4379,8 +4379,8 @@
                     },
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -4390,7 +4390,7 @@
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eA map of attributes to set.\u003c/p\u003e \u003cp\u003eThe following lists the names, descriptions, and values of the special request parameters the \u003ccode\u003eSetQueueAttributes\u003c/code\u003e action uses:\u003c/p\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eDelaySeconds\u003c/code\u003e - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMaximumMessageSize\u003c/code\u003e - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMessageRetentionPeriod\u003c/code\u003e - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePolicy\u003c/code\u003e - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html\"\u003eBasic Policy Structure\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e. For more information about form-url-encoding, see \u003ca href=\"http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\"\u003ehttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003c/a\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eReceiveMessageWaitTimeSeconds\u003c/code\u003e - The time for which a ReceiveMessage call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eVisibilityTimeout\u003c/code\u003e - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see Visibility Timeout in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eRedrivePolicy\u003c/code\u003e - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see Using Amazon SQS Dead Letter Queues in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "(HashMap Text Text)",
-                        "type": "Flatten (Map Text Text)"
+                        "type": "Map \"Attribute\" TextText"
                     }
                 ],
                 "shared": false,
@@ -4417,8 +4417,8 @@
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Flatten",
-                        "lensMapping": "_Flatten . _Map",
+                        "iso": "_Map",
+                        "lensMapping": "_Map . _Map",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -4428,7 +4428,7 @@
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eA map of attributes to set.\u003c/p\u003e \u003cp\u003eThe following lists the names, descriptions, and values of the special request parameters the \u003ccode\u003eSetQueueAttributes\u003c/code\u003e action uses:\u003c/p\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eDelaySeconds\u003c/code\u003e - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMaximumMessageSize\u003c/code\u003e - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMessageRetentionPeriod\u003c/code\u003e - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePolicy\u003c/code\u003e - The queue's policy. A valid form-url-encoded policy. For more information about policy structure, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html\"\u003eBasic Policy Structure\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e. For more information about form-url-encoding, see \u003ca href=\"http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\"\u003ehttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003c/a\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eReceiveMessageWaitTimeSeconds\u003c/code\u003e - The time for which a ReceiveMessage call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eVisibilityTimeout\u003c/code\u003e - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see Visibility Timeout in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eRedrivePolicy\u003c/code\u003e - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see Using Amazon SQS Dead Letter Queues in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "(HashMap Text Text)",
-                        "type": "Flatten (Map Text Text)"
+                        "type": "Map \"Attribute\" TextText"
                     },
                     {
                         "location": "querystring",

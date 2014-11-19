@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -120,8 +121,8 @@ loPrefix :: Lens' ListObjects (Maybe Text)
 loPrefix = lens _loPrefix (\s a -> s { _loPrefix = a })
 
 data ListObjectsResponse = ListObjectsResponse
-    { _lorCommonPrefixes :: Flatten [CommonPrefix]
-    , _lorContents       :: Flatten [Object]
+    { _lorCommonPrefixes :: List "CommonPrefixes" CommonPrefix
+    , _lorContents       :: List "Contents" Object
     , _lorDelimiter      :: Maybe Text
     , _lorEncodingType   :: Maybe Text
     , _lorIsTruncated    :: Maybe Bool
@@ -160,8 +161,8 @@ listObjectsResponse :: [Object] -- ^ 'lorContents'
                     -> [CommonPrefix] -- ^ 'lorCommonPrefixes'
                     -> ListObjectsResponse
 listObjectsResponse p1 p2 = ListObjectsResponse
-    { _lorContents       = withIso _Flatten (const id) p1
-    , _lorCommonPrefixes = withIso _Flatten (const id) p2
+    { _lorContents       = withIso _List (const id) p1
+    , _lorCommonPrefixes = withIso _List (const id) p2
     , _lorIsTruncated    = Nothing
     , _lorMarker         = Nothing
     , _lorNextMarker     = Nothing
@@ -175,11 +176,11 @@ listObjectsResponse p1 p2 = ListObjectsResponse
 lorCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
 lorCommonPrefixes =
     lens _lorCommonPrefixes (\s a -> s { _lorCommonPrefixes = a })
-        . _Flatten
+        . _List . _List
 
 lorContents :: Lens' ListObjectsResponse [Object]
 lorContents = lens _lorContents (\s a -> s { _lorContents = a })
-    . _Flatten
+    . _List . _List
 
 lorDelimiter :: Lens' ListObjectsResponse (Maybe Text)
 lorDelimiter = lens _lorDelimiter (\s a -> s { _lorDelimiter = a })
@@ -247,16 +248,16 @@ instance AWSRequest ListObjects where
 
 instance FromXML ListObjectsResponse where
     parseXML x = ListObjectsResponse
-            <$> parseXML x
-            <*> parseXML x
-            <*> x .@? "Delimiter"
-            <*> x .@? "EncodingType"
-            <*> x .@? "IsTruncated"
-            <*> x .@? "Marker"
-            <*> x .@? "MaxKeys"
-            <*> x .@? "Name"
-            <*> x .@? "NextMarker"
-            <*> x .@? "Prefix"
+        <$> parseXML x
+        <*> parseXML x
+        <*> x .@? "Delimiter"
+        <*> x .@? "EncodingType"
+        <*> x .@? "IsTruncated"
+        <*> x .@? "Marker"
+        <*> x .@? "MaxKeys"
+        <*> x .@? "Name"
+        <*> x .@? "NextMarker"
+        <*> x .@? "Prefix"
 
 instance AWSPager ListObjects where
     next rq rs

@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -208,16 +209,24 @@ dmbreReceiptHandle =
 
 instance FromXML DeleteMessageBatchRequestEntry where
     parseXML x = DeleteMessageBatchRequestEntry
-            <$> x .@ "Id"
-            <*> x .@ "ReceiptHandle"
+
+    Id
+    Text
+    false
+        <$> x .@ "Id"
+
+    ReceiptHandle
+    Text
+    false
+        <*> x .@ "ReceiptHandle"
 
 instance ToQuery DeleteMessageBatchRequestEntry
 
 data MessageAttributeValue = MessageAttributeValue
-    { _mavBinaryListValues :: [Base64]
+    { _mavBinaryListValues :: List "BinaryListValue" Base64
     , _mavBinaryValue      :: Maybe Base64
     , _mavDataType         :: Text
-    , _mavStringListValues :: [Text]
+    , _mavStringListValues :: List "StringListValue" Text
     , _mavStringValue      :: Maybe Text
     } deriving (Eq, Show, Generic)
 
@@ -249,6 +258,7 @@ messageAttributeValue p1 = MessageAttributeValue
 mavBinaryListValues :: Lens' MessageAttributeValue [Base64]
 mavBinaryListValues =
     lens _mavBinaryListValues (\s a -> s { _mavBinaryListValues = a })
+        . _List
 
 -- | Binary type attributes can store any binary data, for example, compressed
 -- data, encrypted data, or images.
@@ -265,6 +275,7 @@ mavDataType = lens _mavDataType (\s a -> s { _mavDataType = a })
 mavStringListValues :: Lens' MessageAttributeValue [Text]
 mavStringListValues =
     lens _mavStringListValues (\s a -> s { _mavStringListValues = a })
+        . _List
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code values,
 -- see http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
@@ -273,11 +284,31 @@ mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
     parseXML x = MessageAttributeValue
-            <$> x .@ "BinaryListValue"
-            <*> x .@? "BinaryValue"
-            <*> x .@ "DataType"
-            <*> x .@ "StringListValue"
-            <*> x .@? "StringValue"
+
+    BinaryListValue
+    List "BinaryListValue" Base64
+    false
+        <$> x .@ "BinaryListValue"
+
+    BinaryValue
+    Maybe Base64
+    false
+        <*> x .@? "BinaryValue"
+
+    DataType
+    Text
+    false
+        <*> x .@ "DataType"
+
+    StringListValue
+    List "StringListValue" Text
+    false
+        <*> x .@ "StringListValue"
+
+    StringValue
+    Maybe Text
+    false
+        <*> x .@? "StringValue"
 
 instance ToQuery MessageAttributeValue
 
@@ -304,7 +335,11 @@ cmvbreId = lens _cmvbreId (\s a -> s { _cmvbreId = a })
 
 instance FromXML ChangeMessageVisibilityBatchResultEntry where
     parseXML x = ChangeMessageVisibilityBatchResultEntry
-            <$> x .@ "Id"
+
+    Id
+    Text
+    false
+        <$> x .@ "Id"
 
 instance ToQuery ChangeMessageVisibilityBatchResultEntry
 
@@ -352,9 +387,21 @@ cmvbre1VisibilityTimeout =
 
 instance FromXML ChangeMessageVisibilityBatchRequestEntry where
     parseXML x = ChangeMessageVisibilityBatchRequestEntry
-            <$> x .@ "Id"
-            <*> x .@ "ReceiptHandle"
-            <*> x .@? "VisibilityTimeout"
+
+    Id
+    Text
+    false
+        <$> x .@ "Id"
+
+    ReceiptHandle
+    Text
+    false
+        <*> x .@ "ReceiptHandle"
+
+    VisibilityTimeout
+    Maybe Int
+    false
+        <*> x .@? "VisibilityTimeout"
 
 instance ToQuery ChangeMessageVisibilityBatchRequestEntry
 
@@ -380,16 +427,20 @@ dmbre1Id = lens _dmbre1Id (\s a -> s { _dmbre1Id = a })
 
 instance FromXML DeleteMessageBatchResultEntry where
     parseXML x = DeleteMessageBatchResultEntry
-            <$> x .@ "Id"
+
+    Id
+    Text
+    false
+        <$> x .@ "Id"
 
 instance ToQuery DeleteMessageBatchResultEntry
 
 data Message = Message
-    { _mAttributes             :: Flatten (Map Text Text)
+    { _mAttributes             :: Map "Attribute" TextText
     , _mBody                   :: Maybe Text
     , _mMD5OfBody              :: Maybe Text
     , _mMD5OfMessageAttributes :: Maybe Text
-    , _mMessageAttributes      :: Flatten (Map Text MessageAttributeValue)
+    , _mMessageAttributes      :: Map "MessageAttribute" TextMessageAttributeValue
     , _mMessageId              :: Maybe Text
     , _mReceiptHandle          :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -416,8 +467,8 @@ message :: (HashMap Text Text) -- ^ 'mAttributes'
         -> (HashMap Text MessageAttributeValue) -- ^ 'mMessageAttributes'
         -> Message
 message p1 p2 = Message
-    { _mAttributes             = withIso _Flatten (const id) p1
-    , _mMessageAttributes      = withIso _Flatten (const id) p2
+    { _mAttributes             = withIso _Map (const id) p1
+    , _mMessageAttributes      = withIso _Map (const id) p2
     , _mMessageId              = Nothing
     , _mReceiptHandle          = Nothing
     , _mMD5OfBody              = Nothing
@@ -431,7 +482,7 @@ message p1 p2 = Message
 -- representing the epoch time in milliseconds.
 mAttributes :: Lens' Message ((HashMap Text Text))
 mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a })
-    . _Flatten . _Map
+    . _Map . _Map
 
 -- | The message's contents (not URL-encoded).
 mBody :: Lens' Message (Maybe Text)
@@ -454,7 +505,7 @@ mMD5OfMessageAttributes =
 mMessageAttributes :: Lens' Message ((HashMap Text MessageAttributeValue))
 mMessageAttributes =
     lens _mMessageAttributes (\s a -> s { _mMessageAttributes = a })
-        . _Flatten . _Map
+        . _Map . _Map
 
 -- | A unique identifier for the message. Message IDs are considered unique
 -- across all AWS accounts for an extended period of time.
@@ -470,20 +521,48 @@ mReceiptHandle = lens _mReceiptHandle (\s a -> s { _mReceiptHandle = a })
 
 instance FromXML Message where
     parseXML x = Message
-            <$> parseXML x
-            <*> x .@? "Body"
-            <*> x .@? "MD5OfBody"
-            <*> x .@? "MD5OfMessageAttributes"
-            <*> parseXML x
-            <*> x .@? "MessageId"
-            <*> x .@? "ReceiptHandle"
+
+    Attribute
+    Map "Attribute" TextText
+    true
+        <$> parseXML x
+
+    Body
+    Maybe Text
+    false
+        <*> x .@? "Body"
+
+    MD5OfBody
+    Maybe Text
+    false
+        <*> x .@? "MD5OfBody"
+
+    MD5OfMessageAttributes
+    Maybe Text
+    false
+        <*> x .@? "MD5OfMessageAttributes"
+
+    MessageAttribute
+    Map "MessageAttribute" TextMessageAttributeValue
+    true
+        <*> parseXML x
+
+    MessageId
+    Maybe Text
+    false
+        <*> x .@? "MessageId"
+
+    ReceiptHandle
+    Maybe Text
+    false
+        <*> x .@? "ReceiptHandle"
 
 instance ToQuery Message
 
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     { _smbreDelaySeconds      :: Maybe Int
     , _smbreId                :: Text
-    , _smbreMessageAttributes :: Flatten (Map Text MessageAttributeValue)
+    , _smbreMessageAttributes :: Map "MessageAttribute" TextMessageAttributeValue
     , _smbreMessageBody       :: Text
     } deriving (Eq, Show, Generic)
 
@@ -506,7 +585,7 @@ sendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
 sendMessageBatchRequestEntry p1 p2 p3 = SendMessageBatchRequestEntry
     { _smbreId                = p1
     , _smbreMessageBody       = p2
-    , _smbreMessageAttributes = withIso _Flatten (const id) p3
+    , _smbreMessageAttributes = withIso _Map (const id) p3
     , _smbreDelaySeconds      = Nothing
     }
 
@@ -526,7 +605,7 @@ smbreId = lens _smbreId (\s a -> s { _smbreId = a })
 smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry ((HashMap Text MessageAttributeValue))
 smbreMessageAttributes =
     lens _smbreMessageAttributes (\s a -> s { _smbreMessageAttributes = a })
-        . _Flatten . _Map
+        . _Map . _Map
 
 -- | Body of the message.
 smbreMessageBody :: Lens' SendMessageBatchRequestEntry Text
@@ -534,10 +613,26 @@ smbreMessageBody = lens _smbreMessageBody (\s a -> s { _smbreMessageBody = a })
 
 instance FromXML SendMessageBatchRequestEntry where
     parseXML x = SendMessageBatchRequestEntry
-            <$> x .@? "DelaySeconds"
-            <*> x .@ "Id"
-            <*> parseXML x
-            <*> x .@ "MessageBody"
+
+    DelaySeconds
+    Maybe Int
+    false
+        <$> x .@? "DelaySeconds"
+
+    Id
+    Text
+    false
+        <*> x .@ "Id"
+
+    MessageAttribute
+    Map "MessageAttribute" TextMessageAttributeValue
+    true
+        <*> parseXML x
+
+    MessageBody
+    Text
+    false
+        <*> x .@ "MessageBody"
 
 instance ToQuery SendMessageBatchRequestEntry
 
@@ -598,10 +693,26 @@ smbre1MessageId = lens _smbre1MessageId (\s a -> s { _smbre1MessageId = a })
 
 instance FromXML SendMessageBatchResultEntry where
     parseXML x = SendMessageBatchResultEntry
-            <$> x .@ "Id"
-            <*> x .@? "MD5OfMessageAttributes"
-            <*> x .@ "MD5OfMessageBody"
-            <*> x .@ "MessageId"
+
+    Id
+    Text
+    false
+        <$> x .@ "Id"
+
+    MD5OfMessageAttributes
+    Maybe Text
+    false
+        <*> x .@? "MD5OfMessageAttributes"
+
+    MD5OfMessageBody
+    Text
+    false
+        <*> x .@ "MD5OfMessageBody"
+
+    MessageId
+    Text
+    false
+        <*> x .@ "MessageId"
 
 instance ToQuery SendMessageBatchResultEntry
 
@@ -653,9 +764,25 @@ breeSenderFault = lens _breeSenderFault (\s a -> s { _breeSenderFault = a })
 
 instance FromXML BatchResultErrorEntry where
     parseXML x = BatchResultErrorEntry
-            <$> x .@ "Code"
-            <*> x .@ "Id"
-            <*> x .@? "Message"
-            <*> x .@ "SenderFault"
+
+    Code
+    Text
+    false
+        <$> x .@ "Code"
+
+    Id
+    Text
+    false
+        <*> x .@ "Id"
+
+    Message
+    Maybe Text
+    false
+        <*> x .@? "Message"
+
+    SenderFault
+    Bool
+    false
+        <*> x .@ "SenderFault"
 
 instance ToQuery BatchResultErrorEntry

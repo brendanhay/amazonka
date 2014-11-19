@@ -41,20 +41,20 @@ instance FromText ErrorType where
 instance FromXML ErrorType where
     parseXML = parseXMLText "Type"
 
-data Message = Message
+data RESTMessage = RESTMessage
     { _msgType    :: !ErrorType
     , _msgCode    :: Text
-    , _msgMessage :: Text
+    , _msgRESTMessage :: Text
     } deriving (Eq, Ord, Show, Generic)
 
-instance FromXML Message where
-    parseXML x = Message
+instance FromXML RESTMessage where
+    parseXML x = RESTMessage
         <$> x .@ "Type"
         <*> x .@ "Code"
         <*> x .@ "Message"
 
 data RESTError = RESTError
-    { _errError     :: Message
+    { _errError     :: RESTMessage
     , _errRequestId :: Text
     } deriving (Eq, Show, Generic)
 

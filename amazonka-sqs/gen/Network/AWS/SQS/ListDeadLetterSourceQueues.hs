@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -67,7 +68,7 @@ ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
 
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls :: Flatten [Text]
+    { _ldlsqrQueueUrls :: List "QueueUrl" Text
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 -- | 'ListDeadLetterSourceQueuesResponse' constructor.
@@ -79,14 +80,14 @@ newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
                                    -> ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls = withIso _Flatten (const id) p1
+    { _ldlsqrQueueUrls = withIso _List (const id) p1
     }
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
 ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
-    . _Flatten
+    . _List . _List
 
 instance ToPath ListDeadLetterSourceQueues where
     toPath = const "/"
@@ -104,4 +105,8 @@ instance AWSRequest ListDeadLetterSourceQueues where
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
     parseXML = withElement "ListDeadLetterSourceQueuesResult" $ \x ->
-            <$> parseXML x
+
+    queueUrls
+    List "QueueUrl" Text
+    true
+        <$> parseXML x

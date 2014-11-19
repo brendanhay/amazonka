@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -69,7 +70,7 @@ lqQueueNamePrefix =
     lens _lqQueueNamePrefix (\s a -> s { _lqQueueNamePrefix = a })
 
 newtype ListQueuesResponse = ListQueuesResponse
-    { _lqrQueueUrls :: Flatten [Text]
+    { _lqrQueueUrls :: List "QueueUrl" Text
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 -- | 'ListQueuesResponse' constructor.
@@ -81,13 +82,13 @@ newtype ListQueuesResponse = ListQueuesResponse
 listQueuesResponse :: [Text] -- ^ 'lqrQueueUrls'
                    -> ListQueuesResponse
 listQueuesResponse p1 = ListQueuesResponse
-    { _lqrQueueUrls = withIso _Flatten (const id) p1
+    { _lqrQueueUrls = withIso _List (const id) p1
     }
 
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueUrls :: Lens' ListQueuesResponse [Text]
 lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
-    . _Flatten
+    . _List . _List
 
 instance ToPath ListQueues where
     toPath = const "/"
@@ -105,4 +106,8 @@ instance AWSRequest ListQueues where
 
 instance FromXML ListQueuesResponse where
     parseXML = withElement "ListQueuesResult" $ \x ->
-            <$> parseXML x
+
+    QueueUrls
+    List "QueueUrl" Text
+    true
+        <$> parseXML x

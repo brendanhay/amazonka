@@ -35,7 +35,7 @@ import           Network.AWS.Data
 import           Network.AWS.Request.Internal
 import           Network.AWS.Signing.Internal
 import           Network.AWS.Types
-import           Network.HTTP.Types           hiding (renderQuery, toQuery)
+import           Network.HTTP.Types           hiding (toQuery)
 
 data V2
 
@@ -63,7 +63,7 @@ instance AWSSigner V2 where
             & method         .~ meth
             & host           .~ host'
             & path           .~ _rqPath
-            & queryString    .~ renderQuery authorised
+            & queryString    .~ toBS authorised
             & requestHeaders .~ headers
             & requestBody    .~ _bdyBody _rqBody
 
@@ -78,7 +78,7 @@ instance AWSSigner V2 where
                 [ meth
                 , host'
                 , _rqPath
-                , renderQuery query
+                , toBS query
                 ]
 
         query =

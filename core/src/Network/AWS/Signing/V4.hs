@@ -139,7 +139,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
         & method         .~ meth
         & host           .~ host'
         & path           .~ _rqPath
-        & queryString    .~ renderQuery query
+        & queryString    .~ toBS query
         & requestHeaders .~ headers
         & requestBody    .~ _bdyBody _rqBody
 
@@ -147,7 +147,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
     host' = toBS (endpoint s r)
     query = qry credentialScope signedHeaders _rqQuery
 
-    canonicalQuery = renderQuery $ query
+    canonicalQuery = toBS $ query
         & valuesOf %~ Just . maybe "" (encodeURI True)
         & keysOf   %~ encodeURI False
 

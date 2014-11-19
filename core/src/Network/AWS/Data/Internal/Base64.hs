@@ -16,12 +16,10 @@ module Network.AWS.Data.Internal.Base64
     ( Base64
     ) where
 
-import           Control.Monad
 import           Data.Aeson.Types
 import qualified Data.Attoparsec.Text                 as AText
 import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString.Base64               as Base64
-import           Data.Tagged
 import qualified Data.Text.Encoding                   as Text
 import           GHC.Generics
 import           Network.AWS.Data.Internal.ByteString
@@ -41,7 +39,7 @@ instance FromText Base64 where
 instance Show         Base64 where show      = show . toBS
 instance ToText       Base64 where toText    = Text.decodeUtf8 . toBS
 instance ToByteString Base64 where toBS      = Base64.encode . unBase64
-instance ToQuery      Base64 where toQuery   = toQuery . toBS
+instance ToQuery      Base64 where toQuery   = toQuery . toText
 instance FromXML      Base64 where parseXML  = parseXMLText "Base64"
 instance ToXML        Base64 where toXML     = toXMLText
 instance FromJSON     Base64 where parseJSON = parseJSONText "Base64"

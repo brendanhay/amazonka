@@ -49,8 +49,8 @@ type role List  phantom representational
 _List :: (Coercible a b, Coercible b a) => Iso' (List e a) [b]
 _List = iso (coerce . list) (List . coerce)
 
-listE :: forall e a. KnownSymbol e => List e a -> Text
-listE _ = Text.pack (symbolVal (Proxy :: Proxy e))
+listItem :: forall e a. KnownSymbol e => List e a -> Text
+listItem _ = Text.pack (symbolVal (Proxy :: Proxy e))
 
 newtype List1 (e :: Symbol) a = List1 { list1 :: NonEmpty a }
     deriving (Eq, Ord, Show, Semigroup)
@@ -60,12 +60,13 @@ type role List1 phantom representational
 _List1 :: (Coercible a b, Coercible b a) => Iso' (List1 e a) (NonEmpty b)
 _List1 = iso (coerce . list1) (List1 . coerce)
 
-list1E :: forall e a. KnownSymbol e => List1 e a -> Text
-list1E _ = Text.pack (symbolVal (Proxy :: Proxy e))
+list1Item :: forall e a. KnownSymbol e => List1 e a -> Text
+list1Item _ = Text.pack (symbolVal (Proxy :: Proxy e))
 
--- list1E :: List1 e a -> Text
--- list1E = Text.pack . symbolVal
-
+-- instance ToQuery a => ToQuery [a] where
+--     toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx
+--       where
+--         idx = [1..] :: [Integer]
 
 -- fromList :: a -> [a] -> List1 a
 -- fromList a = List1 . (:|) a

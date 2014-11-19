@@ -75,8 +75,8 @@ instance (ToByteString k, ToByteString v) => ToHeader (Map k v) where
         . Map.toList
         . toHashMap
 
-instance (ToByteString k, ToQuery v) => ToQuery (Map k v) where
-    toQuery = toQuery . map (toQuery . first toBS) . Map.toList . toHashMap
+-- instance (ToByteString k, ToQuery v) => ToQuery (Map k v) where
+--     toQuery = toQuery . map (toQuery . first toBS) . Map.toList . toHashMap
 
 instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
     parseJSON = withObject "HashMap" f

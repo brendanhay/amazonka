@@ -66,7 +66,7 @@ instance AWSSigner V3 where
             & method         .~ toBS _rqMethod
             & host           .~ host'
             & path           .~ _rqPath
-            & queryString    .~ renderQuery _rqQuery
+            & queryString    .~ toBS _rqQuery
             & requestHeaders .~ headers
             & requestBody    .~ _bdyBody _rqBody
 

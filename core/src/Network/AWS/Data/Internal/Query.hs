@@ -107,34 +107,8 @@ renderQuery = intercalate . sort . enc Nothing
     ksep = "&"
     vsep = "="
 
--- newtype QueryOptions = QueryOptions
---     { _queryField :: String -> ByteString
---     }
-
--- queryField :: Lens' QueryOptions (String -> ByteString)
--- queryField f (QueryOptions g) = QueryOptions <$> f g
-
--- instance Default QueryOptions where
---     def = QueryOptions (BS.dropWhile isLower . BS.pack)
-
--- loweredQuery :: (Generic a, GToQuery (Rep a))
---              => a
---              -> Query
--- loweredQuery = genericQuery (def & queryField %~ (BS.map toLower .))
-
--- genericQuery :: (Generic a, GToQuery (Rep a))
---              => QueryOptions
---              -> a
---              -> Query
--- genericQuery o = gToQuery o . from
-
 class ToQuery a where
     toQuery :: a -> Query
-
-    -- default toQuery :: (Generic a, GToQuery (Rep a))
-    --                 => a
-    --                 -> Query
-    -- toQuery = genericQuery def
 
 instance ToQuery Query where
     toQuery = id
@@ -144,9 +118,6 @@ instance (ToByteString k, ToQuery v) => ToQuery (k, v) where
 
 instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
     toQuery (k, v) = Pair (toBS k) . Value $ toBS <$> v
-
-instance ToQuery () where
-    toQuery () = mempty
 
 instance ToQuery Char where
     toQuery = toQuery . BS.singleton
@@ -173,30 +144,3 @@ instance ToQuery a => ToQuery (Maybe a) where
 instance ToQuery Bool where
     toQuery True  = toQuery ("true"  :: ByteString)
     toQuery False = toQuery ("false" :: ByteString)
-
--- class GToQuery f where
---     gToQuery :: QueryOptions -> f a -> Query
-
--- instance (GToQuery f, GToQuery g) => GToQuery (f :+: g) where
---     gToQuery o (L1 x) = gToQuery o x
---     gToQuery o (R1 y) = gToQuery o y
-
--- instance (GToQuery f, GToQuery g) => GToQuery (f :*: g) where
---     gToQuery o (x :*: y) = gToQuery o x <> gToQuery o y
-
--- instance GToQuery U1 where
---     gToQuery _ _ = mempty
-
--- instance ToQuery a => GToQuery (K1 R a) where
---     gToQuery _ = toQuery . unK1
-
--- instance GToQuery f => GToQuery (D1 c f) where
---     gToQuery o = gToQuery o . unM1
-
--- instance GToQuery f => GToQuery (C1 c f) where
---     gToQuery o = gToQuery o . unM1
-
--- instance (Selector c, GToQuery f) => GToQuery (S1 c f) where
---     gToQuery o = Pair name . gToQuery o . unM1
---       where
---         name = _queryField o $ selName (undefined :: S1 c f p)

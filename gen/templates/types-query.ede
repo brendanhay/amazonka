@@ -11,8 +11,7 @@ import qualified GHC.Exts
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}
 {% include "_include/xml-from.ede" with type = type.value %}
-
-instance ToQuery {{ type.value.name }}
+{% include "_include/query-to.ede" with type = type.value %}
   {% if !type.last %}
 
   {% endif %}

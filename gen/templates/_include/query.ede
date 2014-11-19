@@ -1,15 +1,5 @@
 {% if request.queryAll %}
-
-instance ToQuery {{ request.name }} where
-    toQuery {{ request.name }}{..} = mconcat
-  {% for field in request.fields %}
-    {% if field.value.flattened %}
-        {% include "list.ede" %} toQuery {{ field.value.name }}
-    {% else %}
-        {% include "list.ede" %} "{{ field.value.locationName }}" =? {{ field.value.name }}
-    {% endif %}
-  {% endfor %}
-        ]
+  {% include "query-to.ede" with type = request %}
 {% else %}
   {% case request.query | length %}
   {% when 0 %}

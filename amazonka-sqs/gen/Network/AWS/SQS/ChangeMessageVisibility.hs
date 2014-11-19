@@ -68,7 +68,7 @@ data ChangeMessageVisibility = ChangeMessageVisibility
     { _cmvQueueUrl          :: Text
     , _cmvReceiptHandle     :: Text
     , _cmvVisibilityTimeout :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ChangeMessageVisibility' constructor.
 --
@@ -118,8 +118,8 @@ instance ToPath ChangeMessageVisibility where
 
 instance ToQuery ChangeMessageVisibility where
     toQuery ChangeMessageVisibility{..} = mconcat
-        [ "QueueUrl" =? _cmvQueueUrl
-        , "ReceiptHandle" =? _cmvReceiptHandle
+        [ "QueueUrl"          =? _cmvQueueUrl
+        , "ReceiptHandle"     =? _cmvReceiptHandle
         , "VisibilityTimeout" =? _cmvVisibilityTimeout
         ]
 

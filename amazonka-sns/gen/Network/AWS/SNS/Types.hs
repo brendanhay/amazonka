@@ -86,7 +86,7 @@ instance AWSService SNS where
 
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'Topic' constructor.
 --
@@ -116,7 +116,7 @@ data MessageAttributeValue = MessageAttributeValue
     { _mavBinaryValue :: Maybe Base64
     , _mavDataType    :: Text
     , _mavStringValue :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'MessageAttributeValue' constructor.
 --
@@ -154,20 +154,20 @@ mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 instance FromXML MessageAttributeValue where
     parseXML x = MessageAttributeValue
         <$> x .@? "BinaryValue"
-        <*> x .@ "DataType"
+        <*> x .@  "DataType"
         <*> x .@? "StringValue"
 
 instance ToQuery MessageAttributeValue where
     toQuery MessageAttributeValue{..} = mconcat
         [ "BinaryValue" =? _mavBinaryValue
-        , "DataType" =? _mavDataType
+        , "DataType"    =? _mavDataType
         , "StringValue" =? _mavStringValue
         ]
 
 data PlatformApplication = PlatformApplication
     { _paAttributes             :: Map "entry" "key" "value" Text Text
     , _paPlatformApplicationArn :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PlatformApplication' constructor.
 --
@@ -195,12 +195,12 @@ paPlatformApplicationArn =
 
 instance FromXML PlatformApplication where
     parseXML x = PlatformApplication
-        <$> x .@ "Attributes"
+        <$> x .@  "Attributes"
         <*> x .@? "PlatformApplicationArn"
 
 instance ToQuery PlatformApplication where
     toQuery PlatformApplication{..} = mconcat
-        [ "Attributes" =? _paAttributes
+        [ "Attributes"             =? _paAttributes
         , "PlatformApplicationArn" =? _paPlatformApplicationArn
         ]
 
@@ -210,7 +210,7 @@ data Subscription = Subscription
     , _s1Protocol        :: Maybe Text
     , _s1SubscriptionArn :: Maybe Text
     , _s1TopicArn        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Subscription' constructor.
 --
@@ -266,17 +266,17 @@ instance FromXML Subscription where
 
 instance ToQuery Subscription where
     toQuery Subscription{..} = mconcat
-        [ "Endpoint" =? _s1Endpoint
-        , "Owner" =? _s1Owner
-        , "Protocol" =? _s1Protocol
+        [ "Endpoint"        =? _s1Endpoint
+        , "Owner"           =? _s1Owner
+        , "Protocol"        =? _s1Protocol
         , "SubscriptionArn" =? _s1SubscriptionArn
-        , "TopicArn" =? _s1TopicArn
+        , "TopicArn"        =? _s1TopicArn
         ]
 
 data Endpoint = Endpoint
     { _eAttributes  :: Map "entry" "key" "value" Text Text
     , _eEndpointArn :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Endpoint' constructor.
 --
@@ -302,11 +302,11 @@ eEndpointArn = lens _eEndpointArn (\s a -> s { _eEndpointArn = a })
 
 instance FromXML Endpoint where
     parseXML x = Endpoint
-        <$> x .@ "Attributes"
+        <$> x .@  "Attributes"
         <*> x .@? "EndpointArn"
 
 instance ToQuery Endpoint where
     toQuery Endpoint{..} = mconcat
-        [ "Attributes" =? _eAttributes
+        [ "Attributes"  =? _eAttributes
         , "EndpointArn" =? _eEndpointArn
         ]

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype CreateTopic = CreateTopic
     { _ctName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CreateTopic' constructor.
 --
@@ -73,7 +73,7 @@ ctName = lens _ctName (\s a -> s { _ctName = a })
 
 newtype CreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateTopicResponse' constructor.
 --

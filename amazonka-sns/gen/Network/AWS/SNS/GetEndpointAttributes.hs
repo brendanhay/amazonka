@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetEndpointAttributes = GetEndpointAttributes
     { _geaEndpointArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetEndpointAttributes' constructor.
 --
@@ -69,7 +69,7 @@ geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map "entry" "key" "value" Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetEndpointAttributesResponse' constructor.
 --
@@ -114,4 +114,4 @@ instance AWSRequest GetEndpointAttributes where
 
 instance FromXML GetEndpointAttributesResponse where
     parseXML = withElement "GetEndpointAttributesResult" $ \x -> GetEndpointAttributesResponse
-        <$> x .@ "Attributes"
+        <$> x .@  "Attributes"

@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
     { _cmvbEntries  :: List "ChangeMessageVisibilityBatchRequestEntry" ChangeMessageVisibilityBatchRequestEntry
     , _cmvbQueueUrl :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ChangeMessageVisibilityBatch' constructor.
 --
@@ -87,7 +87,7 @@ cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     { _cmvbrFailed     :: List "BatchResultErrorEntry" BatchResultErrorEntry
     , _cmvbrSuccessful :: List "ChangeMessageVisibilityBatchResultEntry" ChangeMessageVisibilityBatchResultEntry
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ChangeMessageVisibilityBatchResponse' constructor.
 --
@@ -118,7 +118,7 @@ instance ToPath ChangeMessageVisibilityBatch where
 
 instance ToQuery ChangeMessageVisibilityBatch where
     toQuery ChangeMessageVisibilityBatch{..} = mconcat
-        [ toQuery _cmvbEntries
+        [ toQuery   _cmvbEntries
         , "QueueUrl" =? _cmvbQueueUrl
         ]
 

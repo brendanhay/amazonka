@@ -160,7 +160,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Enum",
                     "Num",
                     "Integral",
@@ -246,8 +245,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "transition",
@@ -402,8 +400,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "deleteMarkerEntry",
@@ -666,8 +663,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "part",
@@ -868,8 +864,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "versioningConfiguration",
@@ -980,8 +975,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "tag",
@@ -1127,8 +1121,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "redirectAllRequestsTo",
@@ -1239,8 +1232,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "routingRule",
@@ -1351,8 +1343,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "notificationConfiguration",
@@ -1508,8 +1499,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "s3ServiceError",
@@ -1748,8 +1738,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "deletedObject",
@@ -1966,8 +1955,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "copyPartResult",
@@ -2095,7 +2083,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2179,8 +2166,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "corsrule",
@@ -2426,8 +2412,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "websiteConfiguration",
@@ -2628,8 +2613,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "noncurrentVersionTransition",
@@ -2740,8 +2724,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "initiator",
@@ -2852,8 +2835,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "objectIdentifier",
@@ -2965,8 +2947,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "bucket",
@@ -3093,8 +3074,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 12,
                 "ctor": "grant",
@@ -3204,8 +3184,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "rule",
@@ -3542,8 +3521,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "topicConfiguration",
@@ -3745,8 +3723,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "queueConfiguration",
@@ -3948,8 +3925,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "owner",
@@ -4059,8 +4035,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -4143,7 +4118,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -4243,8 +4217,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "objectVersion",
@@ -4624,8 +4597,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "targetGrant",
@@ -4770,8 +4742,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 22,
                 "ctor": "redirect",
@@ -5035,8 +5006,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "completedPart",
@@ -5148,7 +5118,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -5231,7 +5200,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -5315,8 +5283,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 7,
                 "ctor": "lifecycleExpiration",
@@ -5427,7 +5394,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -5510,8 +5476,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "object'",
@@ -5803,7 +5768,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -5885,8 +5849,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "multipartUpload",
@@ -6211,7 +6174,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6295,8 +6257,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "condition",
@@ -6426,8 +6387,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 10,
                 "ctor": "accessControlPolicy",
@@ -6574,8 +6534,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "cloudFunctionConfiguration",
@@ -6822,8 +6781,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 14,
                 "ctor": "grantee",
@@ -7070,7 +7028,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -7153,8 +7110,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "loggingEnabled",
@@ -7327,7 +7283,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -7411,8 +7366,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "copyObjectResult",
@@ -7522,8 +7476,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 9,
                 "ctor": "delete'",
@@ -7636,7 +7589,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Enum",
                     "Num",
                     "Integral",
@@ -7773,8 +7725,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -7921,8 +7872,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -8284,8 +8234,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -8492,8 +8441,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -8804,8 +8752,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -9899,7 +9846,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -9992,8 +9938,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -10338,8 +10283,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -10656,8 +10600,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -11477,7 +11420,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -11605,7 +11547,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -11738,7 +11679,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -11871,7 +11811,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -12004,7 +11943,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -12137,7 +12075,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -12233,8 +12170,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -12346,8 +12282,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -12530,8 +12465,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12662,8 +12596,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -12837,8 +12770,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -12971,7 +12903,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -13067,7 +12998,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -13173,7 +13103,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -13269,7 +13198,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -13375,7 +13303,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -13472,7 +13399,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -13577,7 +13503,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -13672,8 +13597,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -13777,7 +13701,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -13872,8 +13795,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14051,7 +13973,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -14148,7 +14069,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -14267,7 +14187,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -14364,7 +14283,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -14469,7 +14387,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -14565,7 +14482,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -14671,7 +14587,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -14767,8 +14682,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -14901,7 +14815,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -14996,8 +14909,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -15220,7 +15132,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -15315,8 +15226,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": true,
                 "style": "body-headers",
@@ -16153,8 +16063,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -16827,8 +16736,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -16960,8 +16868,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -17112,8 +17019,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": true,
                 "listElement": null,
@@ -17230,8 +17136,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -17384,7 +17289,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -17474,8 +17378,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -18252,8 +18155,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -18716,8 +18618,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -18882,8 +18783,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -19480,8 +19380,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -19769,8 +19668,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -20412,8 +20310,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -20701,8 +20598,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -21202,8 +21098,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -21452,8 +21347,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -21998,8 +21892,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -22252,8 +22145,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -22673,8 +22565,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -22884,8 +22775,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -23095,8 +22985,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -23306,8 +23195,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -23518,8 +23406,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -23729,8 +23616,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -23940,8 +23826,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -24151,8 +24036,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -24397,8 +24281,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -24573,8 +24456,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -24860,8 +24742,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": true,
                 "style": "body-headers",
@@ -25804,8 +25685,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -26263,8 +26143,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -26476,8 +26355,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -26693,8 +26571,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": true,
                 "style": "body-headers",
@@ -27147,8 +27024,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",
@@ -27425,8 +27301,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml-headers",

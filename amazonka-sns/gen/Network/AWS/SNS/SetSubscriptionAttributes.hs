@@ -50,7 +50,7 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes
     { _ssaAttributeName   :: Text
     , _ssaAttributeValue  :: Maybe Text
     , _ssaSubscriptionArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetSubscriptionAttributes' constructor.
 --
@@ -99,8 +99,8 @@ instance ToPath SetSubscriptionAttributes where
 
 instance ToQuery SetSubscriptionAttributes where
     toQuery SetSubscriptionAttributes{..} = mconcat
-        [ "AttributeName" =? _ssaAttributeName
-        , "AttributeValue" =? _ssaAttributeValue
+        [ "AttributeName"   =? _ssaAttributeName
+        , "AttributeValue"  =? _ssaAttributeValue
         , "SubscriptionArn" =? _ssaSubscriptionArn
         ]
 

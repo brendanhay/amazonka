@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype ListQueues = ListQueues
     { _lqQueueNamePrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ListQueues' constructor.
 --
@@ -71,7 +71,7 @@ lqQueueNamePrefix =
 
 newtype ListQueuesResponse = ListQueuesResponse
     { _lqrQueueUrls :: List "QueueUrl" Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 -- | 'ListQueuesResponse' constructor.
 --

@@ -65,7 +65,7 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint
     , _cpeCustomUserData         :: Maybe Text
     , _cpePlatformApplicationArn :: Text
     , _cpeToken                  :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePlatformEndpoint' constructor.
 --
@@ -117,7 +117,7 @@ cpeToken = lens _cpeToken (\s a -> s { _cpeToken = a })
 
 newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
     { _cperEndpointArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreatePlatformEndpointResponse' constructor.
 --
@@ -139,10 +139,10 @@ instance ToPath CreatePlatformEndpoint where
 
 instance ToQuery CreatePlatformEndpoint where
     toQuery CreatePlatformEndpoint{..} = mconcat
-        [ "Attributes" =? _cpeAttributes
-        , "CustomUserData" =? _cpeCustomUserData
+        [ "Attributes"             =? _cpeAttributes
+        , "CustomUserData"         =? _cpeCustomUserData
         , "PlatformApplicationArn" =? _cpePlatformApplicationArn
-        , "Token" =? _cpeToken
+        , "Token"                  =? _cpeToken
         ]
 
 instance ToHeaders CreatePlatformEndpoint

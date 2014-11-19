@@ -52,7 +52,7 @@ data GetObjectAcl = GetObjectAcl
     { _goaBucket    :: Text
     , _goaKey       :: Text
     , _goaVersionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetObjectAcl' constructor.
 --
@@ -86,7 +86,7 @@ goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 data GetObjectAclResponse = GetObjectAclResponse
     { _goarGrants :: List "Grant" Grant
     , _goarOwner  :: Maybe Owner
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetObjectAclResponse' constructor.
 --
@@ -139,5 +139,5 @@ instance AWSRequest GetObjectAcl where
 
 instance FromXML GetObjectAclResponse where
     parseXML x = GetObjectAclResponse
-        <$> x .@ "AccessControlList"
+        <$> x .@  "AccessControlList"
         <*> x .@? "Owner"

@@ -45,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle
     { _dblBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteBucketLifecycle' constructor.
 --

@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data GetQueueUrl = GetQueueUrl
     { _gquQueueName              :: Text
     , _gquQueueOwnerAWSAccountId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetQueueUrl' constructor.
 --
@@ -85,7 +85,7 @@ gquQueueOwnerAWSAccountId =
 
 newtype GetQueueUrlResponse = GetQueueUrlResponse
     { _gqurQueueUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'GetQueueUrlResponse' constructor.
 --
@@ -107,7 +107,7 @@ instance ToPath GetQueueUrl where
 
 instance ToQuery GetQueueUrl where
     toQuery GetQueueUrl{..} = mconcat
-        [ "QueueName" =? _gquQueueName
+        [ "QueueName"              =? _gquQueueName
         , "QueueOwnerAWSAccountId" =? _gquQueueOwnerAWSAccountId
         ]
 

@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetBucketAcl = GetBucketAcl
     { _gbaBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetBucketAcl' constructor.
 --
@@ -68,7 +68,7 @@ gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
 data GetBucketAclResponse = GetBucketAclResponse
     { _gbarGrants :: List "Grant" Grant
     , _gbarOwner  :: Maybe Owner
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetBucketAclResponse' constructor.
 --
@@ -116,5 +116,5 @@ instance AWSRequest GetBucketAcl where
 
 instance FromXML GetBucketAclResponse where
     parseXML x = GetBucketAclResponse
-        <$> x .@ "AccessControlList"
+        <$> x .@  "AccessControlList"
         <*> x .@? "Owner"

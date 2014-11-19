@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DeleteTopic = DeleteTopic
     { _dtTopicArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteTopic' constructor.
 --

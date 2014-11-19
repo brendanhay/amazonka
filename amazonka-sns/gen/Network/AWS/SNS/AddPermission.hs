@@ -52,7 +52,7 @@ data AddPermission = AddPermission
     , _apActionName   :: List "ActionName" Text
     , _apLabel        :: Text
     , _apTopicArn     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddPermission' constructor.
 --
@@ -108,9 +108,9 @@ instance ToPath AddPermission where
 instance ToQuery AddPermission where
     toQuery AddPermission{..} = mconcat
         [ "AWSAccountId" =? _apAWSAccountId
-        , "ActionName" =? _apActionName
-        , "Label" =? _apLabel
-        , "TopicArn" =? _apTopicArn
+        , "ActionName"   =? _apActionName
+        , "Label"        =? _apLabel
+        , "TopicArn"     =? _apTopicArn
         ]
 
 instance ToHeaders AddPermission

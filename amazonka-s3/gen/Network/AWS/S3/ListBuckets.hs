@@ -55,7 +55,7 @@ listBuckets = ListBuckets
 data ListBucketsResponse = ListBucketsResponse
     { _lbrBuckets :: List "Bucket" Bucket
     , _lbrOwner   :: Maybe Owner
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListBucketsResponse' constructor.
 --
@@ -99,5 +99,5 @@ instance AWSRequest ListBuckets where
 
 instance FromXML ListBucketsResponse where
     parseXML x = ListBucketsResponse
-        <$> x .@ "Buckets"
+        <$> x .@  "Buckets"
         <*> x .@? "Owner"

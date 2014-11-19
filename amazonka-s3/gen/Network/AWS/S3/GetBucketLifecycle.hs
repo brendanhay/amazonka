@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype GetBucketLifecycle = GetBucketLifecycle
     { _gbl1Bucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetBucketLifecycle' constructor.
 --
@@ -66,7 +66,7 @@ gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
 
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gblrRules :: List "Rule" Rule
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetBucketLifecycleResponse' constructor.
 --

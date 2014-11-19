@@ -64,7 +64,7 @@ import qualified GHC.Exts
 data SendMessageBatch = SendMessageBatch
     { _smbEntries  :: List "SendMessageBatchRequestEntry" SendMessageBatchRequestEntry
     , _smbQueueUrl :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SendMessageBatch' constructor.
 --
@@ -93,7 +93,7 @@ smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
 data SendMessageBatchResponse = SendMessageBatchResponse
     { _smbrFailed     :: List "BatchResultErrorEntry" BatchResultErrorEntry
     , _smbrSuccessful :: List "SendMessageBatchResultEntry" SendMessageBatchResultEntry
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SendMessageBatchResponse' constructor.
 --
@@ -125,7 +125,7 @@ instance ToPath SendMessageBatch where
 
 instance ToQuery SendMessageBatch where
     toQuery SendMessageBatch{..} = mconcat
-        [ toQuery _smbEntries
+        [ toQuery   _smbEntries
         , "QueueUrl" =? _smbQueueUrl
         ]
 

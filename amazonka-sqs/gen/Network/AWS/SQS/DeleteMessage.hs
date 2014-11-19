@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data DeleteMessage = DeleteMessage
     { _dmQueueUrl      :: Text
     , _dmReceiptHandle :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteMessage' constructor.
 --
@@ -96,7 +96,7 @@ instance ToPath DeleteMessage where
 
 instance ToQuery DeleteMessage where
     toQuery DeleteMessage{..} = mconcat
-        [ "QueueUrl" =? _dmQueueUrl
+        [ "QueueUrl"      =? _dmQueueUrl
         , "ReceiptHandle" =? _dmReceiptHandle
         ]
 

@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype GetBucketLocation = GetBucketLocation
     { _gblBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetBucketLocation' constructor.
 --
@@ -66,7 +66,7 @@ gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
 
 newtype GetBucketLocationResponse = GetBucketLocationResponse
     { _gblrLocationConstraint :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'GetBucketLocationResponse' constructor.
 --

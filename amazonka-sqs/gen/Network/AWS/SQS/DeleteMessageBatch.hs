@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data DeleteMessageBatch = DeleteMessageBatch
     { _dmbEntries  :: List "DeleteMessageBatchRequestEntry" DeleteMessageBatchRequestEntry
     , _dmbQueueUrl :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteMessageBatch' constructor.
 --
@@ -84,7 +84,7 @@ dmbQueueUrl = lens _dmbQueueUrl (\s a -> s { _dmbQueueUrl = a })
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse
     { _dmbrFailed     :: List "BatchResultErrorEntry" BatchResultErrorEntry
     , _dmbrSuccessful :: List "DeleteMessageBatchResultEntry" DeleteMessageBatchResultEntry
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteMessageBatchResponse' constructor.
 --
@@ -115,7 +115,7 @@ instance ToPath DeleteMessageBatch where
 
 instance ToQuery DeleteMessageBatch where
     toQuery DeleteMessageBatch{..} = mconcat
-        [ toQuery _dmbEntries
+        [ toQuery   _dmbEntries
         , "QueueUrl" =? _dmbQueueUrl
         ]
 

@@ -55,7 +55,7 @@ data ConfirmSubscription = ConfirmSubscription
     { _csAuthenticateOnUnsubscribe :: Maybe Text
     , _csToken                     :: Text
     , _csTopicArn                  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ConfirmSubscription' constructor.
 --
@@ -95,7 +95,7 @@ csTopicArn = lens _csTopicArn (\s a -> s { _csTopicArn = a })
 
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ConfirmSubscriptionResponse' constructor.
 --
@@ -119,8 +119,8 @@ instance ToPath ConfirmSubscription where
 instance ToQuery ConfirmSubscription where
     toQuery ConfirmSubscription{..} = mconcat
         [ "AuthenticateOnUnsubscribe" =? _csAuthenticateOnUnsubscribe
-        , "Token" =? _csToken
-        , "TopicArn" =? _csTopicArn
+        , "Token"                     =? _csToken
+        , "TopicArn"                  =? _csTopicArn
         ]
 
 instance ToHeaders ConfirmSubscription

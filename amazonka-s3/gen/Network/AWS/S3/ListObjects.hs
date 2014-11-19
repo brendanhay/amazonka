@@ -68,7 +68,7 @@ data ListObjects = ListObjects
     , _loMarker       :: Maybe Text
     , _loMaxKeys      :: Maybe Int
     , _loPrefix       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListObjects' constructor.
 --
@@ -131,7 +131,7 @@ data ListObjectsResponse = ListObjectsResponse
     , _lorName           :: Maybe Text
     , _lorNextMarker     :: Maybe Text
     , _lorPrefix         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListObjectsResponse' constructor.
 --

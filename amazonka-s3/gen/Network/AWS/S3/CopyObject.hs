@@ -111,7 +111,7 @@ data CopyObject = CopyObject
     , _coServerSideEncryption           :: Maybe Text
     , _coStorageClass                   :: Maybe Text
     , _coWebsiteRedirectLocation        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopyObject' constructor.
 --
@@ -388,7 +388,7 @@ data CopyObjectResponse = CopyObjectResponse
     , _corSSECustomerKeyMD5    :: Maybe Text
     , _corSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _corServerSideEncryption :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CopyObjectResponse' constructor.
 --

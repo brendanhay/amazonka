@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetBucketLogging = GetBucketLogging
     { _gbl2Bucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetBucketLogging' constructor.
 --
@@ -67,7 +67,7 @@ gbl2Bucket = lens _gbl2Bucket (\s a -> s { _gbl2Bucket = a })
 
 newtype GetBucketLoggingResponse = GetBucketLoggingResponse
     { _gblrLoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetBucketLoggingResponse' constructor.
 --

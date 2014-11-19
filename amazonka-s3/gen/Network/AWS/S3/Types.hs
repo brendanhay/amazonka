@@ -473,7 +473,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays :: Int
-    } deriving (Eq, Ord, Show, Generic, Enum, Num, Integral, Real)
+    } deriving (Eq, Ord, Show, Enum, Num, Integral, Real)
 
 -- | 'NoncurrentVersionExpiration' constructor.
 --
@@ -497,7 +497,7 @@ nveNoncurrentDays =
 
 instance FromXML NoncurrentVersionExpiration where
     parseXML x = NoncurrentVersionExpiration
-        <$> x .@ "NoncurrentDays"
+        <$> x .@  "NoncurrentDays"
 
 instance ToXML NoncurrentVersionExpiration where
     toXML NoncurrentVersionExpiration{..} = nodes "NoncurrentVersionExpiration"
@@ -511,7 +511,7 @@ data Transition = Transition
     { _tDate         :: Maybe ISO8601
     , _tDays         :: Maybe Int
     , _tStorageClass :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Transition' constructor.
 --
@@ -566,7 +566,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry
     , _dmeLastModified :: Maybe RFC822
     , _dmeOwner        :: Maybe Owner
     , _dmeVersionId    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'DeleteMarkerEntry' constructor.
 --
@@ -661,7 +661,7 @@ data Part = Part
     , _pLastModified :: Maybe RFC822
     , _pPartNumber   :: Maybe Int
     , _pSize         :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Part' constructor.
 --
@@ -720,7 +720,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data VersioningConfiguration = VersioningConfiguration
     { _vcMFADelete :: Maybe Text
     , _vcStatus    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'VersioningConfiguration' constructor.
 --
@@ -764,7 +764,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data Tag = Tag
     { _tagKey   :: Text
     , _tagValue :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Tag' constructor.
 --
@@ -792,8 +792,8 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-        <$> x .@ "Key"
-        <*> x .@ "Value"
+        <$> x .@  "Key"
+        <*> x .@  "Value"
 
 instance ToXML Tag where
     toXML Tag{..} = nodes "Tag"
@@ -860,7 +860,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data RedirectAllRequestsTo = RedirectAllRequestsTo
     { _rartHostName :: Text
     , _rartProtocol :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RedirectAllRequestsTo' constructor.
 --
@@ -888,7 +888,7 @@ rartProtocol = lens _rartProtocol (\s a -> s { _rartProtocol = a })
 
 instance FromXML RedirectAllRequestsTo where
     parseXML x = RedirectAllRequestsTo
-        <$> x .@ "HostName"
+        <$> x .@  "HostName"
         <*> x .@? "Protocol"
 
 instance ToXML RedirectAllRequestsTo where
@@ -903,7 +903,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data RoutingRule = RoutingRule
     { _rrCondition :: Maybe Condition
     , _rrRedirect  :: Redirect
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'RoutingRule' constructor.
 --
@@ -937,7 +937,7 @@ rrRedirect = lens _rrRedirect (\s a -> s { _rrRedirect = a })
 instance FromXML RoutingRule where
     parseXML x = RoutingRule
         <$> x .@? "Condition"
-        <*> x .@ "Redirect"
+        <*> x .@  "Redirect"
 
 instance ToXML RoutingRule where
     toXML RoutingRule{..} = nodes "RoutingRule"
@@ -952,7 +952,7 @@ data NotificationConfiguration = NotificationConfiguration
     { _ncCloudFunctionConfiguration :: Maybe CloudFunctionConfiguration
     , _ncQueueConfiguration         :: Maybe QueueConfiguration
     , _ncTopicConfiguration         :: Maybe TopicConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -1005,7 +1005,7 @@ data S3ServiceError = S3ServiceError
     , _sseKey       :: Maybe Text
     , _sseMessage   :: Maybe Text
     , _sseVersionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'S3ServiceError' constructor.
 --
@@ -1123,7 +1123,7 @@ data DeletedObject = DeletedObject
     , _do1DeleteMarkerVersionId :: Maybe Text
     , _do1Key                   :: Maybe Text
     , _do1VersionId             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeletedObject' constructor.
 --
@@ -1201,7 +1201,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data CopyPartResult = CopyPartResult
     { _cprETag         :: Maybe Text
     , _cprLastModified :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CopyPartResult' constructor.
 --
@@ -1262,7 +1262,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'RequestPaymentConfiguration' constructor.
 --
@@ -1282,7 +1282,7 @@ rpcPayer = lens _rpcPayer (\s a -> s { _rpcPayer = a })
 
 instance FromXML RequestPaymentConfiguration where
     parseXML x = RequestPaymentConfiguration
-        <$> x .@ "Payer"
+        <$> x .@  "Payer"
 
 instance ToXML RequestPaymentConfiguration where
     toXML RequestPaymentConfiguration{..} = nodes "RequestPaymentConfiguration"
@@ -1298,7 +1298,7 @@ data CORSRule = CORSRule
     , _corsrAllowedOrigins :: List "AllowedOrigin" Text
     , _corsrExposeHeaders  :: List "ExposeHeader" Text
     , _corsrMaxAgeSeconds  :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CORSRule' constructor.
 --
@@ -1386,7 +1386,7 @@ data WebsiteConfiguration = WebsiteConfiguration
     , _wcIndexDocument         :: Maybe IndexDocument
     , _wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _wcRoutingRules          :: List "RoutingRule" RoutingRule
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'WebsiteConfiguration' constructor.
 --
@@ -1426,7 +1426,7 @@ instance FromXML WebsiteConfiguration where
         <$> x .@? "ErrorDocument"
         <*> x .@? "IndexDocument"
         <*> x .@? "RedirectAllRequestsTo"
-        <*> x .@ "RoutingRules"
+        <*> x .@  "RoutingRules"
 
 instance ToXML WebsiteConfiguration where
     toXML WebsiteConfiguration{..} = nodes "WebsiteConfiguration"
@@ -1442,7 +1442,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data NoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays :: Int
     , _nvtStorageClass   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'NoncurrentVersionTransition' constructor.
 --
@@ -1474,8 +1474,8 @@ nvtStorageClass = lens _nvtStorageClass (\s a -> s { _nvtStorageClass = a })
 
 instance FromXML NoncurrentVersionTransition where
     parseXML x = NoncurrentVersionTransition
-        <$> x .@ "NoncurrentDays"
-        <*> x .@ "StorageClass"
+        <$> x .@  "NoncurrentDays"
+        <*> x .@  "StorageClass"
 
 instance ToXML NoncurrentVersionTransition where
     toXML NoncurrentVersionTransition{..} = nodes "NoncurrentVersionTransition"
@@ -1489,7 +1489,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data Initiator = Initiator
     { _iDisplayName :: Maybe Text
     , _iID          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Initiator' constructor.
 --
@@ -1531,7 +1531,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data ObjectIdentifier = ObjectIdentifier
     { _oiKey       :: Text
     , _oiVersionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ObjectIdentifier' constructor.
 --
@@ -1558,7 +1558,7 @@ oiVersionId = lens _oiVersionId (\s a -> s { _oiVersionId = a })
 
 instance FromXML ObjectIdentifier where
     parseXML x = ObjectIdentifier
-        <$> x .@ "Key"
+        <$> x .@  "Key"
         <*> x .@? "VersionId"
 
 instance ToXML ObjectIdentifier where
@@ -1573,7 +1573,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data Bucket = Bucket
     { _bCreationDate :: Maybe RFC822
     , _bName         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Bucket' constructor.
 --
@@ -1639,7 +1639,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data Grant = Grant
     { _gGrantee    :: Maybe Grantee
     , _gPermission :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Grant' constructor.
 --
@@ -1683,7 +1683,7 @@ data Rule = Rule
     , _rPrefix                      :: Text
     , _rStatus                      :: Text
     , _rTransition                  :: Maybe Transition
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Rule' constructor.
 --
@@ -1752,8 +1752,8 @@ instance FromXML Rule where
         <*> x .@? "ID"
         <*> x .@? "NoncurrentVersionExpiration"
         <*> x .@? "NoncurrentVersionTransition"
-        <*> x .@ "Prefix"
-        <*> x .@ "Status"
+        <*> x .@  "Prefix"
+        <*> x .@  "Status"
         <*> x .@? "Transition"
 
 instance ToXML Rule where
@@ -1775,7 +1775,7 @@ data TopicConfiguration = TopicConfiguration
     , _tcEvents :: List "Event" Text
     , _tcId     :: Maybe Text
     , _tcTopic  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'TopicConfiguration' constructor.
 --
@@ -1836,7 +1836,7 @@ data QueueConfiguration = QueueConfiguration
     , _qcEvents :: List "Event" Text
     , _qcId     :: Maybe Text
     , _qcQueue  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'QueueConfiguration' constructor.
 --
@@ -1892,7 +1892,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data Owner = Owner
     { _oDisplayName :: Maybe Text
     , _oID          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Owner' constructor.
 --
@@ -1929,7 +1929,7 @@ instance ToXML Owner
 
 newtype BucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'BucketLoggingStatus' constructor.
 --
@@ -1960,7 +1960,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype ErrorDocument = ErrorDocument
     { _edKey :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ErrorDocument' constructor.
 --
@@ -1980,7 +1980,7 @@ edKey = lens _edKey (\s a -> s { _edKey = a })
 
 instance FromXML ErrorDocument where
     parseXML x = ErrorDocument
-        <$> x .@ "Key"
+        <$> x .@  "Key"
 
 instance ToXML ErrorDocument where
     toXML ErrorDocument{..} = nodes "ErrorDocument"
@@ -2024,7 +2024,7 @@ data ObjectVersion = ObjectVersion
     , _ovSize         :: Maybe Int
     , _ovStorageClass :: Maybe Text
     , _ovVersionId    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ObjectVersion' constructor.
 --
@@ -2118,7 +2118,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data TargetGrant = TargetGrant
     { _tgGrantee    :: Maybe Grantee
     , _tgPermission :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'TargetGrant' constructor.
 --
@@ -2211,7 +2211,7 @@ data Redirect = Redirect
     , _rProtocol             :: Maybe Text
     , _rReplaceKeyPrefixWith :: Maybe Text
     , _rReplaceKeyWith       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Redirect' constructor.
 --
@@ -2318,7 +2318,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data CompletedPart = CompletedPart
     { _cpETag       :: Maybe Text
     , _cpPartNumber :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CompletedPart' constructor.
 --
@@ -2358,7 +2358,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateBucketConfiguration' constructor.
 --
@@ -2390,7 +2390,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype Tagging = Tagging
     { _tTagSet :: List "Tag" Tag
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList Tagging where
     type Item Tagging = Tag
@@ -2414,7 +2414,7 @@ tTagSet = lens _tTagSet (\s a -> s { _tTagSet = a }) . _List
 
 instance FromXML Tagging where
     parseXML x = Tagging
-        <$> x .@ "TagSet"
+        <$> x .@  "TagSet"
 
 instance ToXML Tagging where
     toXML Tagging{..} = nodes "Tagging"
@@ -2427,7 +2427,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data LifecycleExpiration = LifecycleExpiration
     { _leDate :: Maybe ISO8601
     , _leDays :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'LifecycleExpiration' constructor.
 --
@@ -2469,7 +2469,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: List "CORSRule" CORSRule
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'CORSConfiguration' constructor.
 --
@@ -2505,7 +2505,7 @@ data Object = Object
     , _oOwner        :: Owner
     , _oSize         :: Int
     , _oStorageClass :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Object' constructor.
 --
@@ -2560,12 +2560,12 @@ oStorageClass = lens _oStorageClass (\s a -> s { _oStorageClass = a })
 
 instance FromXML Object where
     parseXML x = Object
-        <$> x .@ "ETag"
-        <*> x .@ "Key"
-        <*> x .@ "LastModified"
-        <*> x .@ "Owner"
-        <*> x .@ "Size"
-        <*> x .@ "StorageClass"
+        <$> x .@  "ETag"
+        <*> x .@  "Key"
+        <*> x .@  "LastModified"
+        <*> x .@  "Owner"
+        <*> x .@  "Size"
+        <*> x .@  "StorageClass"
 
 instance ToXML Object where
     toXML Object{..} = nodes "Object"
@@ -2582,7 +2582,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype CommonPrefix = CommonPrefix
     { _cpPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CommonPrefix' constructor.
 --
@@ -2616,7 +2616,7 @@ data MultipartUpload = MultipartUpload
     , _muOwner        :: Maybe Owner
     , _muStorageClass :: Maybe Text
     , _muUploadId     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'MultipartUpload' constructor.
 --
@@ -2740,7 +2740,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: List "Part" CompletedPart
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'CompletedMultipartUpload' constructor.
 --
@@ -2772,7 +2772,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data Condition = Condition
     { _cHttpErrorCodeReturnedEquals :: Maybe Text
     , _cKeyPrefixEquals             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Condition' constructor.
 --
@@ -2859,7 +2859,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data AccessControlPolicy = AccessControlPolicy
     { _acpGrants :: List "Grant" Grant
     , _acpOwner  :: Maybe Owner
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'AccessControlPolicy' constructor.
 --
@@ -2884,7 +2884,7 @@ acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
 
 instance FromXML AccessControlPolicy where
     parseXML x = AccessControlPolicy
-        <$> x .@ "AccessControlList"
+        <$> x .@  "AccessControlList"
         <*> x .@? "Owner"
 
 instance ToXMLRoot AccessControlPolicy where
@@ -2957,7 +2957,7 @@ data CloudFunctionConfiguration = CloudFunctionConfiguration
     , _cfcEvents         :: List "Event" Text
     , _cfcId             :: Maybe Text
     , _cfcInvocationRole :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CloudFunctionConfiguration' constructor.
 --
@@ -3025,7 +3025,7 @@ data Grantee = Grantee
     , _gID           :: Maybe Text
     , _gType         :: Text
     , _gURI          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Grantee' constructor.
 --
@@ -3076,7 +3076,7 @@ instance FromXML Grantee where
         <$> x .@? "DisplayName"
         <*> x .@? "EmailAddress"
         <*> x .@? "ID"
-        <*> x .@ "Type"
+        <*> x .@  "Type"
         <*> x .@? "URI"
 
 instance ToXML Grantee where
@@ -3093,7 +3093,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: List "Rule" Rule
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'LifecycleConfiguration' constructor.
 --
@@ -3126,7 +3126,7 @@ data LoggingEnabled = LoggingEnabled
     { _leTargetBucket :: Maybe Text
     , _leTargetGrants :: List "Grant" TargetGrant
     , _leTargetPrefix :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'LoggingEnabled' constructor.
 --
@@ -3165,7 +3165,7 @@ leTargetPrefix = lens _leTargetPrefix (\s a -> s { _leTargetPrefix = a })
 instance FromXML LoggingEnabled where
     parseXML x = LoggingEnabled
         <$> x .@? "TargetBucket"
-        <*> x .@ "TargetGrants"
+        <*> x .@  "TargetGrants"
         <*> x .@? "TargetPrefix"
 
 instance ToXML LoggingEnabled where
@@ -3201,7 +3201,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype IndexDocument = IndexDocument
     { _idSuffix :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'IndexDocument' constructor.
 --
@@ -3225,7 +3225,7 @@ idSuffix = lens _idSuffix (\s a -> s { _idSuffix = a })
 
 instance FromXML IndexDocument where
     parseXML x = IndexDocument
-        <$> x .@ "Suffix"
+        <$> x .@  "Suffix"
 
 instance ToXML IndexDocument where
     toXML IndexDocument{..} = nodes "IndexDocument"
@@ -3238,7 +3238,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data CopyObjectResult = CopyObjectResult
     { _corETag         :: Maybe Text
     , _corLastModified :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'CopyObjectResult' constructor.
 --
@@ -3277,7 +3277,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 data Delete = Delete
     { _dObjects :: List "Object" ObjectIdentifier
     , _dQuiet   :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Delete' constructor.
 --
@@ -3318,7 +3318,7 @@ How to deal with flattened? Should be merged directly into the current nodeset
 
 newtype RestoreRequest = RestoreRequest
     { _rDays :: Int
-    } deriving (Eq, Ord, Show, Generic, Enum, Num, Integral, Real)
+    } deriving (Eq, Ord, Show, Enum, Num, Integral, Real)
 
 -- | 'RestoreRequest' constructor.
 --
@@ -3338,7 +3338,7 @@ rDays = lens _rDays (\s a -> s { _rDays = a })
 
 instance FromXML RestoreRequest where
     parseXML x = RestoreRequest
-        <$> x .@ "Days"
+        <$> x .@  "Days"
 
 instance ToXML RestoreRequest where
     toXML RestoreRequest{..} = nodes "RestoreRequest"

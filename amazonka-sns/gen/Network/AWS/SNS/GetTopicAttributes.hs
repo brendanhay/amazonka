@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype GetTopicAttributes = GetTopicAttributes
     { _gtaTopicArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetTopicAttributes' constructor.
 --
@@ -68,7 +68,7 @@ gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map "entry" "key" "value" Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetTopicAttributesResponse' constructor.
 --
@@ -115,4 +115,4 @@ instance AWSRequest GetTopicAttributes where
 
 instance FromXML GetTopicAttributesResponse where
     parseXML = withElement "GetTopicAttributesResult" $ \x -> GetTopicAttributesResponse
-        <$> x .@ "Attributes"
+        <$> x .@  "Attributes"

@@ -65,7 +65,7 @@ data Publish = Publish
     , _pSubject           :: Maybe Text
     , _pTargetArn         :: Maybe Text
     , _pTopicArn          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Publish' constructor.
 --
@@ -157,7 +157,7 @@ pTopicArn = lens _pTopicArn (\s a -> s { _pTopicArn = a })
 
 newtype PublishResponse = PublishResponse
     { _prMessageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'PublishResponse' constructor.
 --
@@ -180,12 +180,12 @@ instance ToPath Publish where
 
 instance ToQuery Publish where
     toQuery Publish{..} = mconcat
-        [ "Message" =? _pMessage
+        [ "Message"           =? _pMessage
         , "MessageAttributes" =? _pMessageAttributes
-        , "MessageStructure" =? _pMessageStructure
-        , "Subject" =? _pSubject
-        , "TargetArn" =? _pTargetArn
-        , "TopicArn" =? _pTopicArn
+        , "MessageStructure"  =? _pMessageStructure
+        , "Subject"           =? _pSubject
+        , "TargetArn"         =? _pTargetArn
+        , "TopicArn"          =? _pTopicArn
         ]
 
 instance ToHeaders Publish

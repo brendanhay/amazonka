@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic
     { _lsbtNextToken :: Maybe Text
     , _lsbtTopicArn  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListSubscriptionsByTopic' constructor.
 --
@@ -81,7 +81,7 @@ lsbtTopicArn = lens _lsbtTopicArn (\s a -> s { _lsbtTopicArn = a })
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrNextToken     :: Maybe Text
     , _lsbtrSubscriptions :: List "Subscriptions" Subscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListSubscriptionsByTopicResponse' constructor.
 --
@@ -114,7 +114,7 @@ instance ToPath ListSubscriptionsByTopic where
 instance ToQuery ListSubscriptionsByTopic where
     toQuery ListSubscriptionsByTopic{..} = mconcat
         [ "NextToken" =? _lsbtNextToken
-        , "TopicArn" =? _lsbtTopicArn
+        , "TopicArn"  =? _lsbtTopicArn
         ]
 
 instance ToHeaders ListSubscriptionsByTopic
@@ -129,7 +129,7 @@ instance AWSRequest ListSubscriptionsByTopic where
 instance FromXML ListSubscriptionsByTopicResponse where
     parseXML = withElement "ListSubscriptionsByTopicResult" $ \x -> ListSubscriptionsByTopicResponse
         <$> x .@? "NextToken"
-        <*> x .@ "Subscriptions"
+        <*> x .@  "Subscriptions"
 
 instance AWSPager ListSubscriptionsByTopic where
     next rq rs = (\x -> rq & lsbtNextToken ?~ x)

@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype GetBucketTagging = GetBucketTagging
     { _gbtBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetBucketTagging' constructor.
 --
@@ -66,7 +66,7 @@ gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
 
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtrTagSet :: List "Tag" Tag
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetBucketTaggingResponse where
     type Item GetBucketTaggingResponse = Tag
@@ -113,4 +113,4 @@ instance AWSRequest GetBucketTagging where
 
 instance FromXML GetBucketTaggingResponse where
     parseXML x = GetBucketTaggingResponse
-        <$> x .@ "TagSet"
+        <$> x .@  "TagSet"

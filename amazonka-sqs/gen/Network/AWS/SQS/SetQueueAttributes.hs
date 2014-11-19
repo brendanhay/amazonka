@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data SetQueueAttributes = SetQueueAttributes
     { _sqaAttributes :: Map "Attribute" "Name" "Value" Text Text
     , _sqaQueueUrl   :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SetQueueAttributes' constructor.
 --
@@ -111,8 +111,8 @@ instance ToPath SetQueueAttributes where
 
 instance ToQuery SetQueueAttributes where
     toQuery SetQueueAttributes{..} = mconcat
-        [ toQuery _sqaAttributes
-        , "QueueUrl" =? _sqaQueueUrl
+        [ toQuery    _sqaAttributes
+        , "QueueUrl"  =? _sqaQueueUrl
         ]
 
 instance ToHeaders SetQueueAttributes

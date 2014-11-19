@@ -99,7 +99,7 @@ data PutObject = PutObject
     , _poServerSideEncryption    :: Maybe Text
     , _poStorageClass            :: Maybe Text
     , _poWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'PutObject' constructor.
 --
@@ -307,7 +307,7 @@ data PutObjectResponse = PutObjectResponse
     , _porSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _porServerSideEncryption :: Maybe Text
     , _porVersionId            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'PutObjectResponse' constructor.
 --

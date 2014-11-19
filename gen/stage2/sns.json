@@ -90,7 +90,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "listElement": null,
@@ -116,6 +115,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Topic",
+                "locationPad": 0,
                 "type": "newtype",
                 "optional": [
                     {
@@ -155,8 +155,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 15,
                 "ctor": "messageAttributeValue",
@@ -181,6 +180,7 @@
                 ],
                 "contentPad": 0,
                 "name": "MessageAttributeValue",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -265,8 +265,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "platformApplication",
@@ -275,6 +274,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "PlatformApplication",
+                "locationPad": 23,
                 "type": "record",
                 "optional": [
                     {
@@ -345,8 +345,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 18,
                 "ctor": "subscription",
@@ -355,6 +354,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Subscription",
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -514,8 +514,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 13,
                 "ctor": "endpoint",
@@ -524,6 +523,7 @@
                 "required": [],
                 "contentPad": 0,
                 "name": "Endpoint",
+                "locationPad": 12,
                 "type": "record",
                 "optional": [
                     {
@@ -639,8 +639,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -715,6 +714,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -821,7 +821,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -855,6 +854,7 @@
                 "contentPad": 0,
                 "name": "ConfirmSubscriptionResponse",
                 "resultWrapper": "ConfirmSubscriptionResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -908,8 +908,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -979,6 +978,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 26,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1055,7 +1055,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -1089,6 +1088,7 @@
                 "contentPad": 0,
                 "name": "CreatePlatformApplicationResponse",
                 "resultWrapper": "CreatePlatformApplicationResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1141,8 +1141,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1212,6 +1211,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1288,7 +1288,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -1322,6 +1321,7 @@
                 "contentPad": 0,
                 "name": "CreatePlatformEndpointResponse",
                 "resultWrapper": "CreatePlatformEndpointResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1374,8 +1374,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1450,6 +1449,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1556,7 +1556,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -1590,6 +1589,7 @@
                 "contentPad": 0,
                 "name": "CreateTopicResponse",
                 "resultWrapper": "CreateTopicResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -1644,7 +1644,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1707,6 +1706,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -1773,7 +1773,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1836,6 +1835,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -1902,7 +1902,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -1965,6 +1964,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -2031,7 +2031,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2094,6 +2093,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -2123,7 +2123,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2158,6 +2157,7 @@
                 "contentPad": 0,
                 "name": "GetEndpointAttributesResponse",
                 "resultWrapper": "GetEndpointAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2212,7 +2212,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2275,6 +2274,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -2304,7 +2304,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2339,6 +2338,7 @@
                 "contentPad": 0,
                 "name": "GetPlatformApplicationAttributesResponse",
                 "resultWrapper": "GetPlatformApplicationAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2393,7 +2393,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2456,6 +2455,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -2485,7 +2485,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2520,6 +2519,7 @@
                 "contentPad": 0,
                 "name": "GetSubscriptionAttributesResponse",
                 "resultWrapper": "GetSubscriptionAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2574,7 +2574,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2637,6 +2636,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -2666,7 +2666,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2701,6 +2700,7 @@
                 "contentPad": 0,
                 "name": "GetTopicAttributesResponse",
                 "resultWrapper": "GetTopicAttributesResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -2755,7 +2755,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2818,6 +2817,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -2846,8 +2846,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -2864,6 +2863,7 @@
                 "contentPad": 0,
                 "name": "ListEndpointsByPlatformApplicationResponse",
                 "resultWrapper": "ListEndpointsByPlatformApplicationResult",
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -2954,8 +2954,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3005,6 +3004,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3064,8 +3064,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3082,6 +3081,7 @@
                 "contentPad": 0,
                 "name": "ListPlatformApplicationsResponse",
                 "resultWrapper": "ListPlatformApplicationsResult",
+                "locationPad": 21,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3173,7 +3173,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3219,6 +3218,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3263,8 +3263,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3281,6 +3280,7 @@
                 "contentPad": 0,
                 "name": "ListSubscriptionsResponse",
                 "resultWrapper": "ListSubscriptionsResult",
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3372,7 +3372,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3418,6 +3417,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3462,8 +3462,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3480,6 +3479,7 @@
                 "contentPad": 0,
                 "name": "ListSubscriptionsByTopicResponse",
                 "resultWrapper": "ListSubscriptionsByTopicResult",
+                "locationPad": 14,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3570,8 +3570,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3621,6 +3620,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 10,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3680,8 +3680,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3698,6 +3697,7 @@
                 "contentPad": 0,
                 "name": "ListTopicsResponse",
                 "resultWrapper": "ListTopicsResult",
+                "locationPad": 10,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -3789,7 +3789,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3835,6 +3834,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,
@@ -3881,7 +3881,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3915,6 +3914,7 @@
                 "contentPad": 0,
                 "name": "PublishResponse",
                 "resultWrapper": "PublishResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -3967,8 +3967,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4038,6 +4037,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4254,8 +4254,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4320,6 +4319,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4399,8 +4399,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4450,6 +4449,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 12,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4545,8 +4545,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4596,6 +4595,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 23,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4692,8 +4692,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4763,6 +4762,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 16,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -4874,8 +4874,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4945,6 +4944,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 15,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5021,7 +5021,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -5055,6 +5054,7 @@
                 "contentPad": 0,
                 "name": "SubscribeResponse",
                 "resultWrapper": "SubscribeResult",
+                "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
                 "optional": [
@@ -5108,8 +5108,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -5179,6 +5178,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 9,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -5291,7 +5291,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -5354,6 +5353,7 @@
                         "type": "field"
                     }
                 ],
+                "locationPad": 0,
                 "type": "newtype",
                 "queryAll": true,
                 "headerAll": false,

@@ -64,7 +64,7 @@ data SendMessage = SendMessage
     , _smMessageAttributes :: Map "MessageAttribute" "Name" "Value" Text MessageAttributeValue
     , _smMessageBody       :: Text
     , _smQueueUrl          :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SendMessage' constructor.
 --
@@ -116,7 +116,7 @@ data SendMessageResponse = SendMessageResponse
     { _smrMD5OfMessageAttributes :: Maybe Text
     , _smrMD5OfMessageBody       :: Maybe Text
     , _smrMessageId              :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SendMessageResponse' constructor.
 --
@@ -163,10 +163,10 @@ instance ToPath SendMessage where
 
 instance ToQuery SendMessage where
     toQuery SendMessage{..} = mconcat
-        [ "DelaySeconds" =? _smDelaySeconds
-        , toQuery _smMessageAttributes
-        , "MessageBody" =? _smMessageBody
-        , "QueueUrl" =? _smQueueUrl
+        [ "DelaySeconds"     =? _smDelaySeconds
+        , toQuery           _smMessageAttributes
+        , "MessageBody"      =? _smMessageBody
+        , "QueueUrl"         =? _smQueueUrl
         ]
 
 instance ToHeaders SendMessage

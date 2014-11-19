@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype ListPlatformApplications = ListPlatformApplications
     { _lpaNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ListPlatformApplications' constructor.
 --
@@ -77,7 +77,7 @@ lpaNextToken = lens _lpaNextToken (\s a -> s { _lpaNextToken = a })
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparNextToken            :: Maybe Text
     , _lparPlatformApplications :: List "PlatformApplications" PlatformApplication
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListPlatformApplicationsResponse' constructor.
 --
@@ -126,7 +126,7 @@ instance AWSRequest ListPlatformApplications where
 instance FromXML ListPlatformApplicationsResponse where
     parseXML = withElement "ListPlatformApplicationsResult" $ \x -> ListPlatformApplicationsResponse
         <$> x .@? "NextToken"
-        <*> x .@ "PlatformApplications"
+        <*> x .@  "PlatformApplications"
 
 instance AWSPager ListPlatformApplications where
     next rq rs = (\x -> rq & lpaNextToken ?~ x)

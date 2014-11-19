@@ -73,7 +73,7 @@ import qualified GHC.Exts
 data GetQueueAttributes = GetQueueAttributes
     { _gqaAttributeNames :: List "AttributeName" Text
     , _gqaQueueUrl       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetQueueAttributes' constructor.
 --
@@ -103,7 +103,7 @@ gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
     { _gqarAttributes :: Map "Attribute" "Name" "Value" Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetQueueAttributesResponse' constructor.
 --
@@ -126,8 +126,8 @@ instance ToPath GetQueueAttributes where
 
 instance ToQuery GetQueueAttributes where
     toQuery GetQueueAttributes{..} = mconcat
-        [ toQuery _gqaAttributeNames
-        , "QueueUrl" =? _gqaQueueUrl
+        [ toQuery         _gqaAttributeNames
+        , "QueueUrl"       =? _gqaQueueUrl
         ]
 
 instance ToHeaders GetQueueAttributes

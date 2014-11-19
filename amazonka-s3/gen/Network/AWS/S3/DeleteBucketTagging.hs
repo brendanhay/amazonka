@@ -45,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteBucketTagging = DeleteBucketTagging
     { _dbtBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteBucketTagging' constructor.
 --

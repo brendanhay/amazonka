@@ -47,7 +47,7 @@ import qualified GHC.Exts
 data RemovePermission = RemovePermission
     { _rpLabel    :: Text
     , _rpTopicArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'RemovePermission' constructor.
 --
@@ -85,7 +85,7 @@ instance ToPath RemovePermission where
 
 instance ToQuery RemovePermission where
     toQuery RemovePermission{..} = mconcat
-        [ "Label" =? _rpLabel
+        [ "Label"    =? _rpLabel
         , "TopicArn" =? _rpTopicArn
         ]
 

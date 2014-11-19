@@ -102,7 +102,7 @@ data GetObject = GetObject
     , _goSSECustomerKeyMD5          :: Maybe Text
     , _goSSEKMSKeyId                :: Maybe (Sensitive Text)
     , _goVersionId                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'GetObject' constructor.
 --
@@ -290,7 +290,7 @@ data GetObjectResponse = GetObjectResponse
     , _gorServerSideEncryption    :: Maybe Text
     , _gorVersionId               :: Maybe Text
     , _gorWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetObjectResponse' constructor.
 --

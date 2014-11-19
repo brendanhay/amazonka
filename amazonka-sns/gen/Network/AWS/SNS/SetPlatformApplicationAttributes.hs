@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
     { _spaaAttributes             :: Map "entry" "key" "value" Text Text
     , _spaaPlatformApplicationArn :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SetPlatformApplicationAttributes' constructor.
 --
@@ -102,7 +102,7 @@ instance ToPath SetPlatformApplicationAttributes where
 
 instance ToQuery SetPlatformApplicationAttributes where
     toQuery SetPlatformApplicationAttributes{..} = mconcat
-        [ "Attributes" =? _spaaAttributes
+        [ "Attributes"             =? _spaaAttributes
         , "PlatformApplicationArn" =? _spaaPlatformApplicationArn
         ]
 

@@ -78,7 +78,7 @@ data ReceiveMessage = ReceiveMessage
     , _rmQueueUrl              :: Text
     , _rmVisibilityTimeout     :: Maybe Int
     , _rmWaitTimeSeconds       :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ReceiveMessage' constructor.
 --
@@ -161,7 +161,7 @@ rmWaitTimeSeconds =
 
 newtype ReceiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages :: List "Message" Message
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'ReceiveMessageResponse' constructor.
 --
@@ -184,12 +184,12 @@ instance ToPath ReceiveMessage where
 
 instance ToQuery ReceiveMessage where
     toQuery ReceiveMessage{..} = mconcat
-        [ toQuery _rmAttributeNames
-        , "MaxNumberOfMessages" =? _rmMaxNumberOfMessages
-        , toQuery _rmMessageAttributeNames
-        , "QueueUrl" =? _rmQueueUrl
-        , "VisibilityTimeout" =? _rmVisibilityTimeout
-        , "WaitTimeSeconds" =? _rmWaitTimeSeconds
+        [ toQuery                _rmAttributeNames
+        , "MaxNumberOfMessages"   =? _rmMaxNumberOfMessages
+        , toQuery                _rmMessageAttributeNames
+        , "QueueUrl"              =? _rmQueueUrl
+        , "VisibilityTimeout"     =? _rmVisibilityTimeout
+        , "WaitTimeSeconds"       =? _rmWaitTimeSeconds
         ]
 
 instance ToHeaders ReceiveMessage

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype Unsubscribe = Unsubscribe
     { _uSubscriptionArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'Unsubscribe' constructor.
 --

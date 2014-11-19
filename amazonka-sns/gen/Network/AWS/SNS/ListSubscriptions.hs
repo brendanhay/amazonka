@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype ListSubscriptions = ListSubscriptions
     { _lsNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ListSubscriptions' constructor.
 --
@@ -71,7 +71,7 @@ lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 data ListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrNextToken     :: Maybe Text
     , _lsrSubscriptions :: List "Subscriptions" Subscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListSubscriptionsResponse' constructor.
 --
@@ -116,7 +116,7 @@ instance AWSRequest ListSubscriptions where
 instance FromXML ListSubscriptionsResponse where
     parseXML = withElement "ListSubscriptionsResult" $ \x -> ListSubscriptionsResponse
         <$> x .@? "NextToken"
-        <*> x .@ "Subscriptions"
+        <*> x .@  "Subscriptions"
 
 instance AWSPager ListSubscriptions where
     next rq rs = (\x -> rq & lsNextToken ?~ x)

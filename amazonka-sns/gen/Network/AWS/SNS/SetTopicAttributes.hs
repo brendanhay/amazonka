@@ -49,7 +49,7 @@ data SetTopicAttributes = SetTopicAttributes
     { _staAttributeName  :: Text
     , _staAttributeValue :: Maybe Text
     , _staTopicArn       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SetTopicAttributes' constructor.
 --
@@ -97,9 +97,9 @@ instance ToPath SetTopicAttributes where
 
 instance ToQuery SetTopicAttributes where
     toQuery SetTopicAttributes{..} = mconcat
-        [ "AttributeName" =? _staAttributeName
+        [ "AttributeName"  =? _staAttributeName
         , "AttributeValue" =? _staAttributeValue
-        , "TopicArn" =? _staTopicArn
+        , "TopicArn"       =? _staTopicArn
         ]
 
 instance ToHeaders SetTopicAttributes

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype ListTopics = ListTopics
     { _ltNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'ListTopics' constructor.
 --
@@ -71,7 +71,7 @@ ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 data ListTopicsResponse = ListTopicsResponse
     { _ltrNextToken :: Maybe Text
     , _ltrTopics    :: List "Topics" Topic
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListTopicsResponse' constructor.
 --
@@ -116,7 +116,7 @@ instance AWSRequest ListTopics where
 instance FromXML ListTopicsResponse where
     parseXML = withElement "ListTopicsResult" $ \x -> ListTopicsResponse
         <$> x .@? "NextToken"
-        <*> x .@ "Topics"
+        <*> x .@  "Topics"
 
 instance AWSPager ListTopics where
     next rq rs = (\x -> rq & ltNextToken ?~ x)

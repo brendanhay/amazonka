@@ -56,7 +56,7 @@ data DeleteObject = DeleteObject
     , _doKey       :: Text
     , _doMFA       :: Maybe Text
     , _doVersionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteObject' constructor.
 --
@@ -98,7 +98,7 @@ doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
 data DeleteObjectResponse = DeleteObjectResponse
     { _dorDeleteMarker :: Maybe Bool
     , _dorVersionId    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteObjectResponse' constructor.
 --

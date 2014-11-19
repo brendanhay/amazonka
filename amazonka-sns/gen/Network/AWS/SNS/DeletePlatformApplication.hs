@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeletePlatformApplication = DeletePlatformApplication
     { _dpaPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeletePlatformApplication' constructor.
 --

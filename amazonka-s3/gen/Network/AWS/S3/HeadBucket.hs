@@ -46,7 +46,7 @@ import qualified GHC.Exts
 
 newtype HeadBucket = HeadBucket
     { _hbBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'HeadBucket' constructor.
 --

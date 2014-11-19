@@ -59,7 +59,7 @@ import qualified GHC.Exts
 data CreateQueue = CreateQueue
     { _cqAttributes :: Map "Attribute" "Name" "Value" Text Text
     , _cqQueueName  :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreateQueue' constructor.
 --
@@ -107,7 +107,7 @@ cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
 
 newtype CreateQueueResponse = CreateQueueResponse
     { _cqrQueueUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreateQueueResponse' constructor.
 --
@@ -129,7 +129,7 @@ instance ToPath CreateQueue where
 
 instance ToQuery CreateQueue where
     toQuery CreateQueue{..} = mconcat
-        [ toQuery _cqAttributes
+        [ toQuery    _cqAttributes
         , "QueueName" =? _cqQueueName
         ]
 

@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes
     { _gsaSubscriptionArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetSubscriptionAttributes' constructor.
 --
@@ -68,7 +68,7 @@ gsaSubscriptionArn =
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map "entry" "key" "value" Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetSubscriptionAttributesResponse' constructor.
 --
@@ -112,4 +112,4 @@ instance AWSRequest GetSubscriptionAttributes where
 
 instance FromXML GetSubscriptionAttributesResponse where
     parseXML = withElement "GetSubscriptionAttributesResult" $ \x -> GetSubscriptionAttributesResponse
-        <$> x .@ "Attributes"
+        <$> x .@  "Attributes"

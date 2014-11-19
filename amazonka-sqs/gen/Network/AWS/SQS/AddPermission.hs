@@ -56,7 +56,7 @@ data AddPermission = AddPermission
     , _apActions       :: List "ActionName" Text
     , _apLabel         :: Text
     , _apQueueUrl      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'AddPermission' constructor.
 --
@@ -123,10 +123,10 @@ instance ToPath AddPermission where
 
 instance ToQuery AddPermission where
     toQuery AddPermission{..} = mconcat
-        [ toQuery _apAWSAccountIds
-        , toQuery _apActions
-        , "Label" =? _apLabel
-        , "QueueUrl" =? _apQueueUrl
+        [ toQuery        _apAWSAccountIds
+        , toQuery        _apActions
+        , "Label"         =? _apLabel
+        , "QueueUrl"      =? _apQueueUrl
         ]
 
 instance ToHeaders AddPermission

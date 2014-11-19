@@ -54,7 +54,7 @@ data Subscribe = Subscribe
     { _sEndpoint :: Maybe Text
     , _sProtocol :: Text
     , _sTopicArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'Subscribe' constructor.
 --
@@ -103,7 +103,7 @@ sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
 
 newtype SubscribeResponse = SubscribeResponse
     { _srSubscriptionArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'SubscribeResponse' constructor.
 --

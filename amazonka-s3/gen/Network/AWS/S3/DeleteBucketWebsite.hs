@@ -45,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteBucketWebsite = DeleteBucketWebsite
     { _dbwBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteBucketWebsite' constructor.
 --

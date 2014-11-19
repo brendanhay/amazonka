@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
     { _lebpaNextToken              :: Maybe Text
     , _lebpaPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ListEndpointsByPlatformApplication' constructor.
 --
@@ -91,7 +91,7 @@ lebpaPlatformApplicationArn =
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
     { _lebparEndpoints :: List "Endpoints" Endpoint
     , _lebparNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'ListEndpointsByPlatformApplicationResponse' constructor.
 --
@@ -122,7 +122,7 @@ instance ToPath ListEndpointsByPlatformApplication where
 
 instance ToQuery ListEndpointsByPlatformApplication where
     toQuery ListEndpointsByPlatformApplication{..} = mconcat
-        [ "NextToken" =? _lebpaNextToken
+        [ "NextToken"              =? _lebpaNextToken
         , "PlatformApplicationArn" =? _lebpaPlatformApplicationArn
         ]
 
@@ -137,7 +137,7 @@ instance AWSRequest ListEndpointsByPlatformApplication where
 
 instance FromXML ListEndpointsByPlatformApplicationResponse where
     parseXML = withElement "ListEndpointsByPlatformApplicationResult" $ \x -> ListEndpointsByPlatformApplicationResponse
-        <$> x .@ "Endpoints"
+        <$> x .@  "Endpoints"
         <*> x .@? "NextToken"
 
 instance AWSPager ListEndpointsByPlatformApplication where

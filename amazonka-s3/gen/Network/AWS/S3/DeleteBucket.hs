@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteBucket = DeleteBucket
     { _dbBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteBucket' constructor.
 --

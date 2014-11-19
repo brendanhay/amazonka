@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
     { _gpaaPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetPlatformApplicationAttributes' constructor.
 --
@@ -71,7 +71,7 @@ gpaaPlatformApplicationArn =
 
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes :: Map "entry" "key" "value" Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+    } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetPlatformApplicationAttributesResponse' constructor.
 --
@@ -114,4 +114,4 @@ instance AWSRequest GetPlatformApplicationAttributes where
 
 instance FromXML GetPlatformApplicationAttributesResponse where
     parseXML = withElement "GetPlatformApplicationAttributesResult" $ \x -> GetPlatformApplicationAttributesResponse
-        <$> x .@ "Attributes"
+        <$> x .@  "Attributes"

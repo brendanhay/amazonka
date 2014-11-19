@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 newtype DeleteQueue = DeleteQueue
     { _dqQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteQueue' constructor.
 --

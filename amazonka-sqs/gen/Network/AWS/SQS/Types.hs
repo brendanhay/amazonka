@@ -179,7 +179,7 @@ instance ToQuery QueueAttributeName where
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
     { _dmbreId            :: Text
     , _dmbreReceiptHandle :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'DeleteMessageBatchRequestEntry' constructor.
 --
@@ -210,12 +210,12 @@ dmbreReceiptHandle =
 
 instance FromXML DeleteMessageBatchRequestEntry where
     parseXML x = DeleteMessageBatchRequestEntry
-        <$> x .@ "Id"
-        <*> x .@ "ReceiptHandle"
+        <$> x .@  "Id"
+        <*> x .@  "ReceiptHandle"
 
 instance ToQuery DeleteMessageBatchRequestEntry where
     toQuery DeleteMessageBatchRequestEntry{..} = mconcat
-        [ "Id" =? _dmbreId
+        [ "Id"            =? _dmbreId
         , "ReceiptHandle" =? _dmbreReceiptHandle
         ]
 
@@ -225,7 +225,7 @@ data MessageAttributeValue = MessageAttributeValue
     , _mavDataType         :: Text
     , _mavStringListValues :: List "StringListValue" Text
     , _mavStringValue      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'MessageAttributeValue' constructor.
 --
@@ -281,24 +281,24 @@ mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
     parseXML x = MessageAttributeValue
-        <$> x .@ "BinaryListValue"
+        <$> x .@  "BinaryListValue"
         <*> x .@? "BinaryValue"
-        <*> x .@ "DataType"
-        <*> x .@ "StringListValue"
+        <*> x .@  "DataType"
+        <*> x .@  "StringListValue"
         <*> x .@? "StringValue"
 
 instance ToQuery MessageAttributeValue where
     toQuery MessageAttributeValue{..} = mconcat
         [ "BinaryListValue" =? _mavBinaryListValues
-        , "BinaryValue" =? _mavBinaryValue
-        , "DataType" =? _mavDataType
+        , "BinaryValue"     =? _mavBinaryValue
+        , "DataType"        =? _mavDataType
         , "StringListValue" =? _mavStringListValues
-        , "StringValue" =? _mavStringValue
+        , "StringValue"     =? _mavStringValue
         ]
 
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry
     { _cmvbreId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'ChangeMessageVisibilityBatchResultEntry' constructor.
 --
@@ -319,7 +319,7 @@ cmvbreId = lens _cmvbreId (\s a -> s { _cmvbreId = a })
 
 instance FromXML ChangeMessageVisibilityBatchResultEntry where
     parseXML x = ChangeMessageVisibilityBatchResultEntry
-        <$> x .@ "Id"
+        <$> x .@  "Id"
 
 instance ToQuery ChangeMessageVisibilityBatchResultEntry where
     toQuery ChangeMessageVisibilityBatchResultEntry{..} = mconcat
@@ -330,7 +330,7 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
     { _cmvbre1Id                :: Text
     , _cmvbre1ReceiptHandle     :: Text
     , _cmvbre1VisibilityTimeout :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'ChangeMessageVisibilityBatchRequestEntry' constructor.
 --
@@ -370,20 +370,20 @@ cmvbre1VisibilityTimeout =
 
 instance FromXML ChangeMessageVisibilityBatchRequestEntry where
     parseXML x = ChangeMessageVisibilityBatchRequestEntry
-        <$> x .@ "Id"
-        <*> x .@ "ReceiptHandle"
+        <$> x .@  "Id"
+        <*> x .@  "ReceiptHandle"
         <*> x .@? "VisibilityTimeout"
 
 instance ToQuery ChangeMessageVisibilityBatchRequestEntry where
     toQuery ChangeMessageVisibilityBatchRequestEntry{..} = mconcat
-        [ "Id" =? _cmvbre1Id
-        , "ReceiptHandle" =? _cmvbre1ReceiptHandle
+        [ "Id"                =? _cmvbre1Id
+        , "ReceiptHandle"     =? _cmvbre1ReceiptHandle
         , "VisibilityTimeout" =? _cmvbre1VisibilityTimeout
         ]
 
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
     { _dmbre1Id :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteMessageBatchResultEntry' constructor.
 --
@@ -403,7 +403,7 @@ dmbre1Id = lens _dmbre1Id (\s a -> s { _dmbre1Id = a })
 
 instance FromXML DeleteMessageBatchResultEntry where
     parseXML x = DeleteMessageBatchResultEntry
-        <$> x .@ "Id"
+        <$> x .@  "Id"
 
 instance ToQuery DeleteMessageBatchResultEntry where
     toQuery DeleteMessageBatchResultEntry{..} = mconcat
@@ -418,7 +418,7 @@ data Message = Message
     , _mMessageAttributes      :: Map "MessageAttribute" "Name" "Value" Text MessageAttributeValue
     , _mMessageId              :: Maybe Text
     , _mReceiptHandle          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'Message' constructor.
 --
@@ -505,13 +505,13 @@ instance FromXML Message where
 
 instance ToQuery Message where
     toQuery Message{..} = mconcat
-        [ toQuery _mAttributes
-        , "Body" =? _mBody
-        , "MD5OfBody" =? _mMD5OfBody
+        [ toQuery                 _mAttributes
+        , "Body"                   =? _mBody
+        , "MD5OfBody"              =? _mMD5OfBody
         , "MD5OfMessageAttributes" =? _mMD5OfMessageAttributes
-        , toQuery _mMessageAttributes
-        , "MessageId" =? _mMessageId
-        , "ReceiptHandle" =? _mReceiptHandle
+        , toQuery                 _mMessageAttributes
+        , "MessageId"              =? _mMessageId
+        , "ReceiptHandle"          =? _mReceiptHandle
         ]
 
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
@@ -519,7 +519,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     , _smbreId                :: Text
     , _smbreMessageAttributes :: Map "MessageAttribute" "Name" "Value" Text MessageAttributeValue
     , _smbreMessageBody       :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SendMessageBatchRequestEntry' constructor.
 --
@@ -569,16 +569,16 @@ smbreMessageBody = lens _smbreMessageBody (\s a -> s { _smbreMessageBody = a })
 instance FromXML SendMessageBatchRequestEntry where
     parseXML x = SendMessageBatchRequestEntry
         <$> x .@? "DelaySeconds"
-        <*> x .@ "Id"
+        <*> x .@  "Id"
         <*> parseXML x
-        <*> x .@ "MessageBody"
+        <*> x .@  "MessageBody"
 
 instance ToQuery SendMessageBatchRequestEntry where
     toQuery SendMessageBatchRequestEntry{..} = mconcat
-        [ "DelaySeconds" =? _smbreDelaySeconds
-        , "Id" =? _smbreId
-        , toQuery _smbreMessageAttributes
-        , "MessageBody" =? _smbreMessageBody
+        [ "DelaySeconds"     =? _smbreDelaySeconds
+        , "Id"               =? _smbreId
+        , toQuery           _smbreMessageAttributes
+        , "MessageBody"      =? _smbreMessageBody
         ]
 
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry
@@ -586,7 +586,7 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry
     , _smbre1MD5OfMessageAttributes :: Maybe Text
     , _smbre1MD5OfMessageBody       :: Text
     , _smbre1MessageId              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'SendMessageBatchResultEntry' constructor.
 --
@@ -638,17 +638,17 @@ smbre1MessageId = lens _smbre1MessageId (\s a -> s { _smbre1MessageId = a })
 
 instance FromXML SendMessageBatchResultEntry where
     parseXML x = SendMessageBatchResultEntry
-        <$> x .@ "Id"
+        <$> x .@  "Id"
         <*> x .@? "MD5OfMessageAttributes"
-        <*> x .@ "MD5OfMessageBody"
-        <*> x .@ "MessageId"
+        <*> x .@  "MD5OfMessageBody"
+        <*> x .@  "MessageId"
 
 instance ToQuery SendMessageBatchResultEntry where
     toQuery SendMessageBatchResultEntry{..} = mconcat
-        [ "Id" =? _smbre1Id
+        [ "Id"                     =? _smbre1Id
         , "MD5OfMessageAttributes" =? _smbre1MD5OfMessageAttributes
-        , "MD5OfMessageBody" =? _smbre1MD5OfMessageBody
-        , "MessageId" =? _smbre1MessageId
+        , "MD5OfMessageBody"       =? _smbre1MD5OfMessageBody
+        , "MessageId"              =? _smbre1MessageId
         ]
 
 data BatchResultErrorEntry = BatchResultErrorEntry
@@ -656,7 +656,7 @@ data BatchResultErrorEntry = BatchResultErrorEntry
     , _breeId          :: Text
     , _breeMessage     :: Maybe Text
     , _breeSenderFault :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show)
 
 -- | 'BatchResultErrorEntry' constructor.
 --
@@ -699,15 +699,15 @@ breeSenderFault = lens _breeSenderFault (\s a -> s { _breeSenderFault = a })
 
 instance FromXML BatchResultErrorEntry where
     parseXML x = BatchResultErrorEntry
-        <$> x .@ "Code"
-        <*> x .@ "Id"
+        <$> x .@  "Code"
+        <*> x .@  "Id"
         <*> x .@? "Message"
-        <*> x .@ "SenderFault"
+        <*> x .@  "SenderFault"
 
 instance ToQuery BatchResultErrorEntry where
     toQuery BatchResultErrorEntry{..} = mconcat
-        [ "Code" =? _breeCode
-        , "Id" =? _breeId
-        , "Message" =? _breeMessage
+        [ "Code"        =? _breeCode
+        , "Id"          =? _breeId
+        , "Message"     =? _breeMessage
         , "SenderFault" =? _breeSenderFault
         ]

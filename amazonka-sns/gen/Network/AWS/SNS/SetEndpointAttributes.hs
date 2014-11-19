@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data SetEndpointAttributes = SetEndpointAttributes
     { _seaAttributes  :: Map "entry" "key" "value" Text Text
     , _seaEndpointArn :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'SetEndpointAttributes' constructor.
 --
@@ -95,7 +95,7 @@ instance ToPath SetEndpointAttributes where
 
 instance ToQuery SetEndpointAttributes where
     toQuery SetEndpointAttributes{..} = mconcat
-        [ "Attributes" =? _seaAttributes
+        [ "Attributes"  =? _seaAttributes
         , "EndpointArn" =? _seaEndpointArn
         ]
 

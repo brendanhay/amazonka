@@ -46,7 +46,7 @@ import qualified GHC.Exts
 
 newtype DeleteEndpoint = DeleteEndpoint
     { _deEndpointArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteEndpoint' constructor.
 --

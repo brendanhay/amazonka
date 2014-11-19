@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype GetBucketRequestPayment = GetBucketRequestPayment
     { _gbrpBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetBucketRequestPayment' constructor.
 --
@@ -66,7 +66,7 @@ gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
 
 newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     { _gbrprPayer :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'GetBucketRequestPaymentResponse' constructor.
 --

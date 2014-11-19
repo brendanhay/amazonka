@@ -99,8 +99,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 19,
                 "ctor": "deleteMessageBatchRequestEntry",
@@ -179,8 +178,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 20,
                 "ctor": "messageAttributeValue",
@@ -352,7 +350,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -420,8 +417,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 25,
                 "ctor": "changeMessageVisibilityBatchRequestEntry",
@@ -533,7 +529,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -600,8 +595,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 24,
                 "ctor": "message",
@@ -831,8 +825,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 23,
                 "ctor": "sendMessageBatchRequestEntry",
@@ -973,8 +966,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 29,
                 "ctor": "sendMessageBatchResultEntry",
@@ -1115,8 +1107,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "fieldPad": 16,
                 "ctor": "batchResultErrorEntry",
@@ -1302,8 +1293,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1519,8 +1509,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1664,8 +1653,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -1765,8 +1753,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -1877,7 +1864,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -1964,8 +1950,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2111,8 +2096,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2221,8 +2205,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -2322,8 +2305,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2470,7 +2452,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -2563,7 +2544,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -2652,8 +2632,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2764,7 +2743,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -2852,8 +2830,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -2965,7 +2942,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3055,7 +3031,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "IsString"
                 ],
@@ -3149,7 +3124,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3239,7 +3213,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
                     "Monoid"
                 ],
                 "streaming": false,
@@ -3331,7 +3304,6 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -3420,8 +3392,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3708,8 +3679,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -3819,8 +3789,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -3950,8 +3919,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4131,8 +4099,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "xml",
@@ -4232,8 +4199,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",
@@ -4378,8 +4344,7 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Show",
-                    "Generic"
+                    "Show"
                 ],
                 "streaming": false,
                 "style": "query",

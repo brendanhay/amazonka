@@ -45,7 +45,7 @@ import qualified GHC.Exts
 
 newtype DeleteBucketCors = DeleteBucketCors
     { _dbcBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'DeleteBucketCors' constructor.
 --

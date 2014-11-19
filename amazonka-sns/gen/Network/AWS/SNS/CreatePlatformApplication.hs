@@ -64,7 +64,7 @@ data CreatePlatformApplication = CreatePlatformApplication
     { _cpaAttributes :: Map "entry" "key" "value" Text Text
     , _cpaName       :: Text
     , _cpaPlatform   :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'CreatePlatformApplication' constructor.
 --
@@ -103,7 +103,7 @@ cpaPlatform = lens _cpaPlatform (\s a -> s { _cpaPlatform = a })
 
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Monoid)
 
 -- | 'CreatePlatformApplicationResponse' constructor.
 --
@@ -128,8 +128,8 @@ instance ToPath CreatePlatformApplication where
 instance ToQuery CreatePlatformApplication where
     toQuery CreatePlatformApplication{..} = mconcat
         [ "Attributes" =? _cpaAttributes
-        , "Name" =? _cpaName
-        , "Platform" =? _cpaPlatform
+        , "Name"       =? _cpaName
+        , "Platform"   =? _cpaPlatform
         ]
 
 instance ToHeaders CreatePlatformApplication

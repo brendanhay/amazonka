@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetBucketWebsite = GetBucketWebsite
     { _gbwBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetBucketWebsite' constructor.
 --
@@ -72,7 +72,7 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     , _gbwrIndexDocument         :: Maybe IndexDocument
     , _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _gbwrRoutingRules          :: List "RoutingRule" RoutingRule
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show)
 
 -- | 'GetBucketWebsiteResponse' constructor.
 --
@@ -138,4 +138,4 @@ instance FromXML GetBucketWebsiteResponse where
         <$> x .@? "ErrorDocument"
         <*> x .@? "IndexDocument"
         <*> x .@? "RedirectAllRequestsTo"
-        <*> x .@ "RoutingRules"
+        <*> x .@  "RoutingRules"

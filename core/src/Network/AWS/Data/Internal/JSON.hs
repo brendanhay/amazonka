@@ -29,9 +29,6 @@ module Network.AWS.Data.Internal.JSON
     , toJSONText
     , object
     , (.=)
-
-    -- * Types
-    , Value    (Null)
     ) where
 
 import           Data.Aeson                     (encode, withText)

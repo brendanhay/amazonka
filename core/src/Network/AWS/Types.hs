@@ -439,6 +439,9 @@ newtype Action = Action Text
 data Empty = Empty
     deriving (Eq, Show)
 
+instance ToJSON Empty where
+    toJSON = const Null
+
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
 

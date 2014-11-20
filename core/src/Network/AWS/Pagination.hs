@@ -16,12 +16,7 @@ import Control.Applicative
 import Control.Lens
 import Data.Text           (Text)
 import Network.AWS.Data
-import Network.AWS.Types
-
--- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
--- a subsequent request, if available.
-class AWSRequest a => AWSPager a where
-    page :: a -> Rs a -> Maybe a
+-- import Network.AWS.Types
 
 -- | Generalise IsTruncated and other optional/required
 -- response pagination fields.

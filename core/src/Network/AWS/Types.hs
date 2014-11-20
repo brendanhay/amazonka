@@ -72,6 +72,7 @@ module Network.AWS.Types
 
     -- * Requests
     , AWSRequest    (..)
+    , AWSPager      (..)
     , Request       (..)
     , rqMethod
     , rqHeaders
@@ -190,6 +191,11 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
              => a
              -> Either HttpException ClientResponse
              -> m (Response a)
+
+-- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
+-- a subsequent request, if available.
+class AWSRequest a => AWSPager a where
+    page :: a -> Rs a -> Maybe a
 
 -- | Signing metadata data specific to a signing algorithm.
 --

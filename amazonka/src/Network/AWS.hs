@@ -117,7 +117,7 @@ paginate e = go
         rs <- lift (send e rq)
         yield rs
         either (const (return ()))
-               (maybe (return ()) go . next rq)
+               (maybe (return ()) go . page rq)
                rs
 
 -- | Presign a URL with expiry to be used at a later time.

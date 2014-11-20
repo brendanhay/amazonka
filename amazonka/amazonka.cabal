@@ -1,0 +1,78 @@
+name:                  amazonka
+version:               0.0.0
+synopsis:              Amazon Web Service SDK
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Pending
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Control.Monad.Trans.AWS
+        , Network.AWS
+
+    build-depends:
+          amazonka-core         == 0.0.0
+        , base                  >= 4.7     && < 5
+        , conduit               == 1.2.*
+        , exceptions            == 0.6.*
+        , http-client           >= 0.3.6   && < 0.4
+        , http-conduit          == 2.1.4.*
+        , lens                  == 4.4.*
+        , mmorph
+        , monad-control
+        , mtl
+        , resourcet             == 1.1.*
+        , text
+        , time
+        , transformers-base
+
+-- , base16-bytestring
+        -- , base64-bytestring
+        -- , bifunctors
+        -- , bytestring
+        -- , case-insensitive
+        -- , conduit               == 1.2.*
+        -- , conduit-extra
+        -- , cryptohash
+        -- , cryptohash-conduit
+        -- , data-default-class
+        -- , exceptions            == 0.6.*
+        -- , hashable
+        -- , http-client           >= 0.3.6   && < 0.4
+        -- , http-conduit          == 2.1.4.*
+        -- , http-types
+        -- , lens                  == 4.4.*
+        -- , mmorph
+        -- , monad-control
+        -- , mtl
+        -- , nats
+        -- , old-locale
+        -- , resourcet             == 1.1.*
+        -- , semigroups
+        -- , tagged
+        -- , text
+        -- , time
+        -- , transformers          == 0.4.*
+        -- , transformers-base
+        -- , unordered-containers
+        -- , vector
+        -- , xml-conduit           == 1.2.*

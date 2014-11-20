@@ -81,7 +81,6 @@ import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
-import           Data.Bifunctor
 import           Data.Conduit
 import           Data.Text                    (Text)
 import           Data.Time

@@ -196,8 +196,6 @@ instance ToQuery PutLifecycleHook where
 
 instance ToHeaders PutLifecycleHook
 
-query
-
 instance AWSRequest PutLifecycleHook where
     type Sv PutLifecycleHook = AutoScaling
     type Rs PutLifecycleHook = PutLifecycleHookResponse

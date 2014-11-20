@@ -106,8 +106,6 @@ instance ToQuery CreateRouteTable where
 
 instance ToHeaders CreateRouteTable
 
-query
-
 instance AWSRequest CreateRouteTable where
     type Sv CreateRouteTable = EC2
     type Rs CreateRouteTable = CreateRouteTableResponse

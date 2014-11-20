@@ -112,8 +112,6 @@ instance ToXMLRoot GetStreamingDistribution where
 
 instance ToXML GetStreamingDistribution
 
-xml
-
 instance AWSRequest GetStreamingDistribution where
     type Sv GetStreamingDistribution = CloudFront
     type Rs GetStreamingDistribution = GetStreamingDistributionResponse

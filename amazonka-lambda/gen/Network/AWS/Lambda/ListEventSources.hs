@@ -142,8 +142,6 @@ instance ToHeaders ListEventSources
 instance ToJSON ListEventSources where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest ListEventSources where
     type Sv ListEventSources = Lambda
     type Rs ListEventSources = ListEventSourcesResponse

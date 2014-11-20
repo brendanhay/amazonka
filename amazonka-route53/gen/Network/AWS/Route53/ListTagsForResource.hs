@@ -115,8 +115,6 @@ instance ToXMLRoot ListTagsForResource where
 
 instance ToXML ListTagsForResource
 
-xml
-
 instance AWSRequest ListTagsForResource where
     type Sv ListTagsForResource = Route53
     type Rs ListTagsForResource = ListTagsForResourceResponse

@@ -158,8 +158,6 @@ instance ToQuery DescribeAlarmHistory where
 
 instance ToHeaders DescribeAlarmHistory
 
-query
-
 instance AWSRequest DescribeAlarmHistory where
     type Sv DescribeAlarmHistory = CloudWatch
     type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse

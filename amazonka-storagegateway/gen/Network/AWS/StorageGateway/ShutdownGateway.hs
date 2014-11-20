@@ -105,8 +105,6 @@ instance ToJSON ShutdownGateway where
         [ "GatewayARN" .= _sg1GatewayARN
         ]
 
-json
-
 instance AWSRequest ShutdownGateway where
     type Sv ShutdownGateway = StorageGateway
     type Rs ShutdownGateway = ShutdownGatewayResponse

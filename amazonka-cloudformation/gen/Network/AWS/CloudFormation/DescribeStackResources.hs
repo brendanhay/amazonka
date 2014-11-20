@@ -148,8 +148,6 @@ instance ToQuery DescribeStackResources where
 
 instance ToHeaders DescribeStackResources
 
-query
-
 instance AWSRequest DescribeStackResources where
     type Sv DescribeStackResources = CloudFormation
     type Rs DescribeStackResources = DescribeStackResourcesResponse

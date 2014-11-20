@@ -124,8 +124,6 @@ instance ToJSON DeleteDeploymentGroup where
         , "deploymentGroupName" .= _ddgDeploymentGroupName
         ]
 
-json
-
 instance AWSRequest DeleteDeploymentGroup where
     type Sv DeleteDeploymentGroup = CodeDeploy
     type Rs DeleteDeploymentGroup = DeleteDeploymentGroupResponse

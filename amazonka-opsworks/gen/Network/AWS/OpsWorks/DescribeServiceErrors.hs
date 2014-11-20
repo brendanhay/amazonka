@@ -134,8 +134,6 @@ instance ToJSON DescribeServiceErrors where
         , "ServiceErrorIds" .= _dseServiceErrorIds
         ]
 
-json
-
 instance AWSRequest DescribeServiceErrors where
     type Sv DescribeServiceErrors = OpsWorks
     type Rs DescribeServiceErrors = DescribeServiceErrorsResponse

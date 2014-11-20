@@ -137,8 +137,6 @@ instance ToQuery ResetClusterParameterGroup where
 
 instance ToHeaders ResetClusterParameterGroup
 
-query
-
 instance AWSRequest ResetClusterParameterGroup where
     type Sv ResetClusterParameterGroup = Redshift
     type Rs ResetClusterParameterGroup = ResetClusterParameterGroupResponse

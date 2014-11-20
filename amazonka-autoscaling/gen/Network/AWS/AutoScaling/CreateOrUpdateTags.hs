@@ -100,8 +100,6 @@ instance ToQuery CreateOrUpdateTags where
 
 instance ToHeaders CreateOrUpdateTags
 
-query
-
 instance AWSRequest CreateOrUpdateTags where
     type Sv CreateOrUpdateTags = AutoScaling
     type Rs CreateOrUpdateTags = CreateOrUpdateTagsResponse

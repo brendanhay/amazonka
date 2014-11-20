@@ -101,8 +101,6 @@ instance ToJSON AttachElasticLoadBalancer where
         , "LayerId"                 .= _aelbLayerId
         ]
 
-json
-
 instance AWSRequest AttachElasticLoadBalancer where
     type Sv AttachElasticLoadBalancer = OpsWorks
     type Rs AttachElasticLoadBalancer = AttachElasticLoadBalancerResponse

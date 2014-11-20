@@ -137,8 +137,6 @@ instance ToJSON PutLogEvents where
         , "sequenceToken" .= _pleSequenceToken
         ]
 
-json
-
 instance AWSRequest PutLogEvents where
     type Sv PutLogEvents = CloudWatchLogs
     type Rs PutLogEvents = PutLogEventsResponse

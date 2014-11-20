@@ -118,8 +118,6 @@ instance ToQuery ConfirmProductInstance where
 
 instance ToHeaders ConfirmProductInstance
 
-query
-
 instance AWSRequest ConfirmProductInstance where
     type Sv ConfirmProductInstance = EC2
     type Rs ConfirmProductInstance = ConfirmProductInstanceResponse

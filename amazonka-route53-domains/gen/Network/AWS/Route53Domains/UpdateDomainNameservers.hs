@@ -120,8 +120,6 @@ instance ToJSON UpdateDomainNameservers where
         , "Nameservers" .= _udnNameservers
         ]
 
-json
-
 instance AWSRequest UpdateDomainNameservers where
     type Sv UpdateDomainNameservers = Route53Domains
     type Rs UpdateDomainNameservers = UpdateDomainNameserversResponse

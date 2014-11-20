@@ -98,8 +98,6 @@ instance ToJSON RemoveTags where
         , "TagKeys"    .= _rtTagKeys
         ]
 
-json
-
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = EMR
     type Rs RemoveTags = RemoveTagsResponse

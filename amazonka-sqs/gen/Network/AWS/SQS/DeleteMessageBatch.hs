@@ -121,8 +121,6 @@ instance ToQuery DeleteMessageBatch where
 
 instance ToHeaders DeleteMessageBatch
 
-query
-
 instance AWSRequest DeleteMessageBatch where
     type Sv DeleteMessageBatch = SQS
     type Rs DeleteMessageBatch = DeleteMessageBatchResponse

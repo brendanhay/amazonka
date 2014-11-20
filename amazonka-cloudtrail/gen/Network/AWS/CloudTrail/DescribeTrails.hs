@@ -109,8 +109,6 @@ instance ToJSON DescribeTrails where
         [ "trailNameList" .= _dtTrailNameList
         ]
 
-json
-
 instance AWSRequest DescribeTrails where
     type Sv DescribeTrails = CloudTrail
     type Rs DescribeTrails = DescribeTrailsResponse

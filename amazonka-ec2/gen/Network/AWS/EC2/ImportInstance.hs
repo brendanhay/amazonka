@@ -137,8 +137,6 @@ instance ToQuery ImportInstance where
 
 instance ToHeaders ImportInstance
 
-query
-
 instance AWSRequest ImportInstance where
     type Sv ImportInstance = EC2
     type Rs ImportInstance = ImportInstanceResponse

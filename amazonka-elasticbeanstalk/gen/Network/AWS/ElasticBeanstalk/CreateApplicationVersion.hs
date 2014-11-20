@@ -158,8 +158,6 @@ instance ToQuery CreateApplicationVersion where
 
 instance ToHeaders CreateApplicationVersion
 
-query
-
 instance AWSRequest CreateApplicationVersion where
     type Sv CreateApplicationVersion = ElasticBeanstalk
     type Rs CreateApplicationVersion = CreateApplicationVersionResponse

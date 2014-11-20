@@ -90,8 +90,6 @@ instance ToQuery DeleteSubnet where
 
 instance ToHeaders DeleteSubnet
 
-query
-
 instance AWSRequest DeleteSubnet where
     type Sv DeleteSubnet = EC2
     type Rs DeleteSubnet = DeleteSubnetResponse

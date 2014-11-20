@@ -88,8 +88,6 @@ instance ToJSON DeregisterVolume where
         [ "VolumeId" .= _dvVolumeId
         ]
 
-json
-
 instance AWSRequest DeregisterVolume where
     type Sv DeregisterVolume = OpsWorks
     type Rs DeregisterVolume = DeregisterVolumeResponse

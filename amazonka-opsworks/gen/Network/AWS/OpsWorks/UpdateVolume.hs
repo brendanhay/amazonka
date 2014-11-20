@@ -107,8 +107,6 @@ instance ToJSON UpdateVolume where
         , "MountPoint" .= _uv1MountPoint
         ]
 
-json
-
 instance AWSRequest UpdateVolume where
     type Sv UpdateVolume = OpsWorks
     type Rs UpdateVolume = UpdateVolumeResponse

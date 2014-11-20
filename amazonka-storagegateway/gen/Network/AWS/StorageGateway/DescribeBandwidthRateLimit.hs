@@ -127,8 +127,6 @@ instance ToJSON DescribeBandwidthRateLimit where
         [ "GatewayARN" .= _dbrlGatewayARN
         ]
 
-json
-
 instance AWSRequest DescribeBandwidthRateLimit where
     type Sv DescribeBandwidthRateLimit = StorageGateway
     type Rs DescribeBandwidthRateLimit = DescribeBandwidthRateLimitResponse

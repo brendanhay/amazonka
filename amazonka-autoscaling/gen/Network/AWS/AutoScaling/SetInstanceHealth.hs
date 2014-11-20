@@ -113,8 +113,6 @@ instance ToQuery SetInstanceHealth where
 
 instance ToHeaders SetInstanceHealth
 
-query
-
 instance AWSRequest SetInstanceHealth where
     type Sv SetInstanceHealth = AutoScaling
     type Rs SetInstanceHealth = SetInstanceHealthResponse

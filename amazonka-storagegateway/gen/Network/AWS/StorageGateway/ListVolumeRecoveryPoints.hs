@@ -111,8 +111,6 @@ instance ToJSON ListVolumeRecoveryPoints where
         [ "GatewayARN" .= _lvrpGatewayARN
         ]
 
-json
-
 instance AWSRequest ListVolumeRecoveryPoints where
     type Sv ListVolumeRecoveryPoints = StorageGateway
     type Rs ListVolumeRecoveryPoints = ListVolumeRecoveryPointsResponse

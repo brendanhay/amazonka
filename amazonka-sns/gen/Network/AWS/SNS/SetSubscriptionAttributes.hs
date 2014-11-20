@@ -106,8 +106,6 @@ instance ToQuery SetSubscriptionAttributes where
 
 instance ToHeaders SetSubscriptionAttributes
 
-query
-
 instance AWSRequest SetSubscriptionAttributes where
     type Sv SetSubscriptionAttributes = SNS
     type Rs SetSubscriptionAttributes = SetSubscriptionAttributesResponse

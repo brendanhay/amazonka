@@ -166,8 +166,6 @@ instance ToJSON DeleteConnection where
         [ "connectionId" .= _dcConnectionId
         ]
 
-json
-
 instance AWSRequest DeleteConnection where
     type Sv DeleteConnection = DirectConnect
     type Rs DeleteConnection = DeleteConnectionResponse

@@ -178,8 +178,6 @@ instance ToJSON CreatePreset where
         , "Thumbnails"  .= _cpThumbnails
         ]
 
-json
-
 instance AWSRequest CreatePreset where
     type Sv CreatePreset = ElasticTranscoder
     type Rs CreatePreset = CreatePresetResponse

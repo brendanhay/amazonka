@@ -114,8 +114,6 @@ instance ToQuery GetIdentityDkimAttributes where
 
 instance ToHeaders GetIdentityDkimAttributes
 
-query
-
 instance AWSRequest GetIdentityDkimAttributes where
     type Sv GetIdentityDkimAttributes = SES
     type Rs GetIdentityDkimAttributes = GetIdentityDkimAttributesResponse

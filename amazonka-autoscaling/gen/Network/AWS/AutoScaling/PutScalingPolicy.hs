@@ -168,8 +168,6 @@ instance ToQuery PutScalingPolicy where
 
 instance ToHeaders PutScalingPolicy
 
-query
-
 instance AWSRequest PutScalingPolicy where
     type Sv PutScalingPolicy = AutoScaling
     type Rs PutScalingPolicy = PutScalingPolicyResponse

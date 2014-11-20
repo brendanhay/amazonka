@@ -138,8 +138,6 @@ instance ToQuery DescribeSubnets where
 
 instance ToHeaders DescribeSubnets
 
-query
-
 instance AWSRequest DescribeSubnets where
     type Sv DescribeSubnets = EC2
     type Rs DescribeSubnets = DescribeSubnetsResponse

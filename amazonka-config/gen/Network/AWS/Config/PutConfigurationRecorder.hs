@@ -89,8 +89,6 @@ instance ToJSON PutConfigurationRecorder where
         [ "ConfigurationRecorder" .= _pcrConfigurationRecorder
         ]
 
-json
-
 instance AWSRequest PutConfigurationRecorder where
     type Sv PutConfigurationRecorder = Config
     type Rs PutConfigurationRecorder = PutConfigurationRecorderResponse

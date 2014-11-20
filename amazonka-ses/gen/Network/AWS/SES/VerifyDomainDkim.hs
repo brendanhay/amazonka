@@ -117,8 +117,6 @@ instance ToQuery VerifyDomainDkim where
 
 instance ToHeaders VerifyDomainDkim
 
-query
-
 instance AWSRequest VerifyDomainDkim where
     type Sv VerifyDomainDkim = SES
     type Rs VerifyDomainDkim = VerifyDomainDkimResponse

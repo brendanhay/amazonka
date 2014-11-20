@@ -192,8 +192,6 @@ instance ToQuery DescribeDBEngineVersions where
 
 instance ToHeaders DescribeDBEngineVersions
 
-query
-
 instance AWSRequest DescribeDBEngineVersions where
     type Sv DescribeDBEngineVersions = RDS
     type Rs DescribeDBEngineVersions = DescribeDBEngineVersionsResponse

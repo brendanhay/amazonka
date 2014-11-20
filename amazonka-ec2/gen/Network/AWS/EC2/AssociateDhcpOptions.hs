@@ -109,8 +109,6 @@ instance ToQuery AssociateDhcpOptions where
 
 instance ToHeaders AssociateDhcpOptions
 
-query
-
 instance AWSRequest AssociateDhcpOptions where
     type Sv AssociateDhcpOptions = EC2
     type Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse

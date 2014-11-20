@@ -154,8 +154,6 @@ instance ToJSON DescribeVTLDevices where
         , "Limit"         .= _dvtldLimit
         ]
 
-json
-
 instance AWSRequest DescribeVTLDevices where
     type Sv DescribeVTLDevices = StorageGateway
     type Rs DescribeVTLDevices = DescribeVTLDevicesResponse

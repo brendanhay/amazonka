@@ -151,8 +151,6 @@ instance ToQuery ListInstanceProfiles where
 
 instance ToHeaders ListInstanceProfiles
 
-query
-
 instance AWSRequest ListInstanceProfiles where
     type Sv ListInstanceProfiles = IAM
     type Rs ListInstanceProfiles = ListInstanceProfilesResponse

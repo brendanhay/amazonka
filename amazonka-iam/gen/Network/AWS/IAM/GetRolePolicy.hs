@@ -130,8 +130,6 @@ instance ToQuery GetRolePolicy where
 
 instance ToHeaders GetRolePolicy
 
-query
-
 instance AWSRequest GetRolePolicy where
     type Sv GetRolePolicy = IAM
     type Rs GetRolePolicy = GetRolePolicyResponse

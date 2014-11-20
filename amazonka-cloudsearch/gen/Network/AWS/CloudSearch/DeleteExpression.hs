@@ -107,8 +107,6 @@ instance ToQuery DeleteExpression where
 
 instance ToHeaders DeleteExpression
 
-query
-
 instance AWSRequest DeleteExpression where
     type Sv DeleteExpression = CloudSearch
     type Rs DeleteExpression = DeleteExpressionResponse

@@ -120,8 +120,6 @@ instance ToJSON AddInstanceGroups where
         , "JobFlowId"      .= _aigJobFlowId
         ]
 
-json
-
 instance AWSRequest AddInstanceGroups where
     type Sv AddInstanceGroups = EMR
     type Rs AddInstanceGroups = AddInstanceGroupsResponse

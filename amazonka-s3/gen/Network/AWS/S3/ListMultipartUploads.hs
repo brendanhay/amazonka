@@ -278,8 +278,6 @@ instance ToXMLRoot ListMultipartUploads where
 
 instance ToXML ListMultipartUploads
 
-xml
-
 instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
     type Rs ListMultipartUploads = ListMultipartUploadsResponse

@@ -106,8 +106,6 @@ instance ToQuery DescribeEventCategories where
 
 instance ToHeaders DescribeEventCategories
 
-query
-
 instance AWSRequest DescribeEventCategories where
     type Sv DescribeEventCategories = Redshift
     type Rs DescribeEventCategories = DescribeEventCategoriesResponse

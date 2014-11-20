@@ -186,8 +186,6 @@ instance ToQuery DescribeReservedCacheNodesOfferings where
 
 instance ToHeaders DescribeReservedCacheNodesOfferings
 
-query
-
 instance AWSRequest DescribeReservedCacheNodesOfferings where
     type Sv DescribeReservedCacheNodesOfferings = ElastiCache
     type Rs DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferingsResponse

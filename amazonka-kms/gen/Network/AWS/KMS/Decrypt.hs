@@ -134,8 +134,6 @@ instance ToJSON Decrypt where
         , "GrantTokens"       .= _dGrantTokens
         ]
 
-json
-
 instance AWSRequest Decrypt where
     type Sv Decrypt = KMS
     type Rs Decrypt = DecryptResponse

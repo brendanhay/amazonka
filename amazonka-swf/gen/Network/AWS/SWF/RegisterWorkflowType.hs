@@ -210,8 +210,6 @@ instance ToJSON RegisterWorkflowType where
         , "defaultChildPolicy"                  .= _rwtDefaultChildPolicy
         ]
 
-json
-
 instance AWSRequest RegisterWorkflowType where
     type Sv RegisterWorkflowType = SWF
     type Rs RegisterWorkflowType = RegisterWorkflowTypeResponse

@@ -122,8 +122,6 @@ instance ToJSON SetLoadBasedAutoScaling where
         , "DownScaling" .= _slbasDownScaling
         ]
 
-json
-
 instance AWSRequest SetLoadBasedAutoScaling where
     type Sv SetLoadBasedAutoScaling = OpsWorks
     type Rs SetLoadBasedAutoScaling = SetLoadBasedAutoScalingResponse

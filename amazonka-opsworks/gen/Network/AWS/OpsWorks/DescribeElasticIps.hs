@@ -132,8 +132,6 @@ instance ToJSON DescribeElasticIps where
         , "Ips"        .= _deiIps
         ]
 
-json
-
 instance AWSRequest DescribeElasticIps where
     type Sv DescribeElasticIps = OpsWorks
     type Rs DescribeElasticIps = DescribeElasticIpsResponse

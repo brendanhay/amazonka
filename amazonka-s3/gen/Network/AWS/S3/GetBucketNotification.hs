@@ -118,8 +118,6 @@ instance ToXMLRoot GetBucketNotification where
 
 instance ToXML GetBucketNotification
 
-xml
-
 instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
     type Rs GetBucketNotification = GetBucketNotificationResponse

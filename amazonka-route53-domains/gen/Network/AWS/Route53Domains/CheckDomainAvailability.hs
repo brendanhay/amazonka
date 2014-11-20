@@ -121,8 +121,6 @@ instance ToJSON CheckDomainAvailability where
         , "IdnLangCode" .= _cdaIdnLangCode
         ]
 
-json
-
 instance AWSRequest CheckDomainAvailability where
     type Sv CheckDomainAvailability = Route53Domains
     type Rs CheckDomainAvailability = CheckDomainAvailabilityResponse

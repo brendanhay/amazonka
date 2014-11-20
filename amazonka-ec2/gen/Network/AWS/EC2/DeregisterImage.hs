@@ -90,8 +90,6 @@ instance ToQuery DeregisterImage where
 
 instance ToHeaders DeregisterImage
 
-query
-
 instance AWSRequest DeregisterImage where
     type Sv DeregisterImage = EC2
     type Rs DeregisterImage = DeregisterImageResponse

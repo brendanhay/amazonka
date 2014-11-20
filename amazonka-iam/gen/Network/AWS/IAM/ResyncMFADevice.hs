@@ -120,8 +120,6 @@ instance ToQuery ResyncMFADevice where
 
 instance ToHeaders ResyncMFADevice
 
-query
-
 instance AWSRequest ResyncMFADevice where
     type Sv ResyncMFADevice = IAM
     type Rs ResyncMFADevice = ResyncMFADeviceResponse

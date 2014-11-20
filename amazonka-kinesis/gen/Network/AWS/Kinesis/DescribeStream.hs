@@ -138,8 +138,6 @@ instance ToJSON DescribeStream where
         , "ExclusiveStartShardId" .= _ds1ExclusiveStartShardId
         ]
 
-json
-
 instance AWSRequest DescribeStream where
     type Sv DescribeStream = Kinesis
     type Rs DescribeStream = DescribeStreamResponse

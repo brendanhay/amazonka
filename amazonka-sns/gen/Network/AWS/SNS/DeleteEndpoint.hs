@@ -81,8 +81,6 @@ instance ToQuery DeleteEndpoint where
 
 instance ToHeaders DeleteEndpoint
 
-query
-
 instance AWSRequest DeleteEndpoint where
     type Sv DeleteEndpoint = SNS
     type Rs DeleteEndpoint = DeleteEndpointResponse

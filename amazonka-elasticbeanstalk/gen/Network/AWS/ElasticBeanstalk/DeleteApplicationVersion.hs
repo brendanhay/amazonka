@@ -106,8 +106,6 @@ instance ToQuery DeleteApplicationVersion where
 
 instance ToHeaders DeleteApplicationVersion
 
-query
-
 instance AWSRequest DeleteApplicationVersion where
     type Sv DeleteApplicationVersion = ElasticBeanstalk
     type Rs DeleteApplicationVersion = DeleteApplicationVersionResponse

@@ -487,8 +487,6 @@ instance ToQuery ModifyDBInstance where
 
 instance ToHeaders ModifyDBInstance
 
-query
-
 instance AWSRequest ModifyDBInstance where
     type Sv ModifyDBInstance = RDS
     type Rs ModifyDBInstance = ModifyDBInstanceResponse

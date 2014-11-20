@@ -134,8 +134,6 @@ instance ToQuery Subscribe where
 
 instance ToHeaders Subscribe
 
-query
-
 instance AWSRequest Subscribe where
     type Sv Subscribe = SNS
     type Rs Subscribe = SubscribeResponse

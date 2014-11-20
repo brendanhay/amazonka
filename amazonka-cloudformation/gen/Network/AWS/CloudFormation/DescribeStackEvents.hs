@@ -121,8 +121,6 @@ instance ToQuery DescribeStackEvents where
 
 instance ToHeaders DescribeStackEvents
 
-query
-
 instance AWSRequest DescribeStackEvents where
     type Sv DescribeStackEvents = CloudFormation
     type Rs DescribeStackEvents = DescribeStackEventsResponse

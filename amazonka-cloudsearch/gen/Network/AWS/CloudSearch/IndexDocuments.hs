@@ -101,8 +101,6 @@ instance ToQuery IndexDocuments where
 
 instance ToHeaders IndexDocuments
 
-query
-
 instance AWSRequest IndexDocuments where
     type Sv IndexDocuments = CloudSearch
     type Rs IndexDocuments = IndexDocumentsResponse

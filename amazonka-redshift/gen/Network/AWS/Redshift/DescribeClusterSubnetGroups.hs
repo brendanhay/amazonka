@@ -144,8 +144,6 @@ instance ToQuery DescribeClusterSubnetGroups where
 
 instance ToHeaders DescribeClusterSubnetGroups
 
-query
-
 instance AWSRequest DescribeClusterSubnetGroups where
     type Sv DescribeClusterSubnetGroups = Redshift
     type Rs DescribeClusterSubnetGroups = DescribeClusterSubnetGroupsResponse

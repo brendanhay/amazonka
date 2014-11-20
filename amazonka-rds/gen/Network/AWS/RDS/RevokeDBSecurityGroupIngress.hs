@@ -157,8 +157,6 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 
 instance ToHeaders RevokeDBSecurityGroupIngress
 
-query
-
 instance AWSRequest RevokeDBSecurityGroupIngress where
     type Sv RevokeDBSecurityGroupIngress = RDS
     type Rs RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngressResponse

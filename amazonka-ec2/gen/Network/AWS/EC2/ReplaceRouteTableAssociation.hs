@@ -122,8 +122,6 @@ instance ToQuery ReplaceRouteTableAssociation where
 
 instance ToHeaders ReplaceRouteTableAssociation
 
-query
-
 instance AWSRequest ReplaceRouteTableAssociation where
     type Sv ReplaceRouteTableAssociation = EC2
     type Rs ReplaceRouteTableAssociation = ReplaceRouteTableAssociationResponse

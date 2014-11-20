@@ -86,8 +86,6 @@ instance ToQuery Unsubscribe where
 
 instance ToHeaders Unsubscribe
 
-query
-
 instance AWSRequest Unsubscribe where
     type Sv Unsubscribe = SNS
     type Rs Unsubscribe = UnsubscribeResponse

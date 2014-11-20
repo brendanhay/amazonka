@@ -243,8 +243,6 @@ instance ToJSON CreatePrivateVirtualInterface where
         , "newPrivateVirtualInterface" .= _cpvi1NewPrivateVirtualInterface
         ]
 
-json
-
 instance AWSRequest CreatePrivateVirtualInterface where
     type Sv CreatePrivateVirtualInterface = DirectConnect
     type Rs CreatePrivateVirtualInterface = CreatePrivateVirtualInterfaceResponse

@@ -105,8 +105,6 @@ instance ToQuery CreateAccessKey where
 
 instance ToHeaders CreateAccessKey
 
-query
-
 instance AWSRequest CreateAccessKey where
     type Sv CreateAccessKey = IAM
     type Rs CreateAccessKey = CreateAccessKeyResponse

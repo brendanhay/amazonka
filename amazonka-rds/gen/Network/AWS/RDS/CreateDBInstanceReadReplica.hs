@@ -268,8 +268,6 @@ instance ToQuery CreateDBInstanceReadReplica where
 
 instance ToHeaders CreateDBInstanceReadReplica
 
-query
-
 instance AWSRequest CreateDBInstanceReadReplica where
     type Sv CreateDBInstanceReadReplica = RDS
     type Rs CreateDBInstanceReadReplica = CreateDBInstanceReadReplicaResponse

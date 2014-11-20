@@ -399,8 +399,6 @@ instance ToQuery CreateCacheCluster where
 
 instance ToHeaders CreateCacheCluster
 
-query
-
 instance AWSRequest CreateCacheCluster where
     type Sv CreateCacheCluster = ElastiCache
     type Rs CreateCacheCluster = CreateCacheClusterResponse

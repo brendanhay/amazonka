@@ -116,8 +116,6 @@ instance ToJSON DescribeTimeBasedAutoScaling where
         [ "InstanceIds" .= _dtbasInstanceIds
         ]
 
-json
-
 instance AWSRequest DescribeTimeBasedAutoScaling where
     type Sv DescribeTimeBasedAutoScaling = OpsWorks
     type Rs DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScalingResponse

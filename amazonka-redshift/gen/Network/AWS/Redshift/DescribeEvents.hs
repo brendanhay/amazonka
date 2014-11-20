@@ -202,8 +202,6 @@ instance ToQuery DescribeEvents where
 
 instance ToHeaders DescribeEvents
 
-query
-
 instance AWSRequest DescribeEvents where
     type Sv DescribeEvents = Redshift
     type Rs DescribeEvents = DescribeEventsResponse

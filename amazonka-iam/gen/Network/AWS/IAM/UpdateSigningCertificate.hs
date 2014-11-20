@@ -111,8 +111,6 @@ instance ToQuery UpdateSigningCertificate where
 
 instance ToHeaders UpdateSigningCertificate
 
-query
-
 instance AWSRequest UpdateSigningCertificate where
     type Sv UpdateSigningCertificate = IAM
     type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse

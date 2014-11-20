@@ -90,8 +90,6 @@ instance ToQuery DeleteServerCertificate where
 
 instance ToHeaders DeleteServerCertificate
 
-query
-
 instance AWSRequest DeleteServerCertificate where
     type Sv DeleteServerCertificate = IAM
     type Rs DeleteServerCertificate = DeleteServerCertificateResponse

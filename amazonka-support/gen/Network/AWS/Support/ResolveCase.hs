@@ -110,8 +110,6 @@ instance ToJSON ResolveCase where
         [ "caseId" .= _rcCaseId
         ]
 
-json
-
 instance AWSRequest ResolveCase where
     type Sv ResolveCase = Support
     type Rs ResolveCase = ResolveCaseResponse

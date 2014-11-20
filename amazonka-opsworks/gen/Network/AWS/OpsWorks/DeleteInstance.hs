@@ -109,8 +109,6 @@ instance ToJSON DeleteInstance where
         , "DeleteVolumes"   .= _diDeleteVolumes
         ]
 
-json
-
 instance AWSRequest DeleteInstance where
     type Sv DeleteInstance = OpsWorks
     type Rs DeleteInstance = DeleteInstanceResponse

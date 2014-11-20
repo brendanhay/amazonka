@@ -136,8 +136,6 @@ instance ToJSON ValidatePipelineDefinition where
         , "pipelineObjects" .= _vpdPipelineObjects
         ]
 
-json
-
 instance AWSRequest ValidatePipelineDefinition where
     type Sv ValidatePipelineDefinition = DataPipeline
     type Rs ValidatePipelineDefinition = ValidatePipelineDefinitionResponse

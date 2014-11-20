@@ -92,8 +92,6 @@ instance ToQuery DeletePlacementGroup where
 
 instance ToHeaders DeletePlacementGroup
 
-query
-
 instance AWSRequest DeletePlacementGroup where
     type Sv DeletePlacementGroup = EC2
     type Rs DeletePlacementGroup = DeletePlacementGroupResponse

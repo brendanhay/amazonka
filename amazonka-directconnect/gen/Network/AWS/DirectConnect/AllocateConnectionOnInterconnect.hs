@@ -218,8 +218,6 @@ instance ToJSON AllocateConnectionOnInterconnect where
         , "vlan"           .= _acoiVlan
         ]
 
-json
-
 instance AWSRequest AllocateConnectionOnInterconnect where
     type Sv AllocateConnectionOnInterconnect = DirectConnect
     type Rs AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnectResponse

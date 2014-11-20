@@ -106,8 +106,6 @@ instance ToQuery CopySnapshot where
 
 instance ToHeaders CopySnapshot
 
-query
-
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = ElastiCache
     type Rs CopySnapshot = CopySnapshotResponse

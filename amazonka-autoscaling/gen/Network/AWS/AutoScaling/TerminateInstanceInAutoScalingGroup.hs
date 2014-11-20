@@ -109,8 +109,6 @@ instance ToQuery TerminateInstanceInAutoScalingGroup where
 
 instance ToHeaders TerminateInstanceInAutoScalingGroup
 
-query
-
 instance AWSRequest TerminateInstanceInAutoScalingGroup where
     type Sv TerminateInstanceInAutoScalingGroup = AutoScaling
     type Rs TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroupResponse

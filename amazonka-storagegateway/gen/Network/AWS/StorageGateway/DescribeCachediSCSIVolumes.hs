@@ -117,8 +117,6 @@ instance ToJSON DescribeCachediSCSIVolumes where
         [ "VolumeARNs" .= _dcscsivVolumeARNs
         ]
 
-json
-
 instance AWSRequest DescribeCachediSCSIVolumes where
     type Sv DescribeCachediSCSIVolumes = StorageGateway
     type Rs DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumesResponse

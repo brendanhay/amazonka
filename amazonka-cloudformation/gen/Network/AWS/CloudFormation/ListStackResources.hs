@@ -123,8 +123,6 @@ instance ToQuery ListStackResources where
 
 instance ToHeaders ListStackResources
 
-query
-
 instance AWSRequest ListStackResources where
     type Sv ListStackResources = CloudFormation
     type Rs ListStackResources = ListStackResourcesResponse

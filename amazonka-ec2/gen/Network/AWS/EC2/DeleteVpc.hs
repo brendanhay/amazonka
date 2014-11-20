@@ -94,8 +94,6 @@ instance ToQuery DeleteVpc where
 
 instance ToHeaders DeleteVpc
 
-query
-
 instance AWSRequest DeleteVpc where
     type Sv DeleteVpc = EC2
     type Rs DeleteVpc = DeleteVpcResponse

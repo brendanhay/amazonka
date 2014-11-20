@@ -120,8 +120,6 @@ instance ToQuery DescribeKeyPairs where
 
 instance ToHeaders DescribeKeyPairs
 
-query
-
 instance AWSRequest DescribeKeyPairs where
     type Sv DescribeKeyPairs = EC2
     type Rs DescribeKeyPairs = DescribeKeyPairsResponse

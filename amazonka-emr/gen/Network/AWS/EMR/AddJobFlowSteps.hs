@@ -131,8 +131,6 @@ instance ToJSON AddJobFlowSteps where
         , "Steps"     .= _ajfsSteps
         ]
 
-json
-
 instance AWSRequest AddJobFlowSteps where
     type Sv AddJobFlowSteps = EMR
     type Rs AddJobFlowSteps = AddJobFlowStepsResponse

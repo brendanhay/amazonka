@@ -152,8 +152,6 @@ instance ToQuery GetGroup where
 
 instance ToHeaders GetGroup
 
-query
-
 instance AWSRequest GetGroup where
     type Sv GetGroup = IAM
     type Rs GetGroup = GetGroupResponse

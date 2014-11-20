@@ -84,8 +84,6 @@ instance ToQuery DeletePlatformApplication where
 
 instance ToHeaders DeletePlatformApplication
 
-query
-
 instance AWSRequest DeletePlatformApplication where
     type Sv DeletePlatformApplication = SNS
     type Rs DeletePlatformApplication = DeletePlatformApplicationResponse

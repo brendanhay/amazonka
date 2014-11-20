@@ -124,8 +124,6 @@ instance ToHeaders SubscribeToDataset
 instance ToJSON SubscribeToDataset where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest SubscribeToDataset where
     type Sv SubscribeToDataset = CognitoSync
     type Rs SubscribeToDataset = SubscribeToDatasetResponse

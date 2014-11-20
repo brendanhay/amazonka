@@ -93,8 +93,6 @@ instance ToQuery DisassociateRouteTable where
 
 instance ToHeaders DisassociateRouteTable
 
-query
-
 instance AWSRequest DisassociateRouteTable where
     type Sv DisassociateRouteTable = EC2
     type Rs DisassociateRouteTable = DisassociateRouteTableResponse

@@ -109,8 +109,6 @@ instance ToJSON DeleteVolume where
         [ "VolumeARN" .= _dvVolumeARN
         ]
 
-json
-
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = StorageGateway
     type Rs DeleteVolume = DeleteVolumeResponse

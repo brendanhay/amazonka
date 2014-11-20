@@ -111,8 +111,6 @@ instance ToJSON BatchGetDeployments where
         [ "deploymentIds" .= _bgdDeploymentIds
         ]
 
-json
-
 instance AWSRequest BatchGetDeployments where
     type Sv BatchGetDeployments = CodeDeploy
     type Rs BatchGetDeployments = BatchGetDeploymentsResponse

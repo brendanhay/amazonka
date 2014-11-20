@@ -144,8 +144,6 @@ instance ToQuery CreateSubnet where
 
 instance ToHeaders CreateSubnet
 
-query
-
 instance AWSRequest CreateSubnet where
     type Sv CreateSubnet = EC2
     type Rs CreateSubnet = CreateSubnetResponse

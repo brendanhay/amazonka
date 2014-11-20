@@ -110,8 +110,6 @@ instance ToJSON DeleteBandwidthRateLimit where
         , "BandwidthType" .= _dbrl1BandwidthType
         ]
 
-json
-
 instance AWSRequest DeleteBandwidthRateLimit where
     type Sv DeleteBandwidthRateLimit = StorageGateway
     type Rs DeleteBandwidthRateLimit = DeleteBandwidthRateLimitResponse

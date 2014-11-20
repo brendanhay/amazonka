@@ -276,8 +276,6 @@ instance ToJSON RunJobFlow where
         , "Tags"                 .= _rjfTags
         ]
 
-json
-
 instance AWSRequest RunJobFlow where
     type Sv RunJobFlow = EMR
     type Rs RunJobFlow = RunJobFlowResponse

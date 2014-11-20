@@ -121,8 +121,6 @@ instance ToQuery CancelSpotInstanceRequests where
 
 instance ToHeaders CancelSpotInstanceRequests
 
-query
-
 instance AWSRequest CancelSpotInstanceRequests where
     type Sv CancelSpotInstanceRequests = EC2
     type Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResponse

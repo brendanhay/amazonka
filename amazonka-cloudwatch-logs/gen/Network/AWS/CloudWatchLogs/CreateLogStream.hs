@@ -96,8 +96,6 @@ instance ToJSON CreateLogStream where
         , "logStreamName" .= _clsLogStreamName
         ]
 
-json
-
 instance AWSRequest CreateLogStream where
     type Sv CreateLogStream = CloudWatchLogs
     type Rs CreateLogStream = CreateLogStreamResponse

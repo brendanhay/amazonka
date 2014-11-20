@@ -100,8 +100,6 @@ instance ToQuery GetRole where
 
 instance ToHeaders GetRole
 
-query
-
 instance AWSRequest GetRole where
     type Sv GetRole = IAM
     type Rs GetRole = GetRoleResponse

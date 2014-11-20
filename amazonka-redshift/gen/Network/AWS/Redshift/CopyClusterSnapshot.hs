@@ -136,8 +136,6 @@ instance ToQuery CopyClusterSnapshot where
 
 instance ToHeaders CopyClusterSnapshot
 
-query
-
 instance AWSRequest CopyClusterSnapshot where
     type Sv CopyClusterSnapshot = Redshift
     type Rs CopyClusterSnapshot = CopyClusterSnapshotResponse

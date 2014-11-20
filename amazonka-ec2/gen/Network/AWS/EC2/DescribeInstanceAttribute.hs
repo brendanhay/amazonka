@@ -253,8 +253,6 @@ instance ToQuery DescribeInstanceAttribute where
 
 instance ToHeaders DescribeInstanceAttribute
 
-query
-
 instance AWSRequest DescribeInstanceAttribute where
     type Sv DescribeInstanceAttribute = EC2
     type Rs DescribeInstanceAttribute = DescribeInstanceAttributeResponse

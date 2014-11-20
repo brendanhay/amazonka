@@ -129,8 +129,6 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress where
 
 instance ToHeaders AuthorizeCacheSecurityGroupIngress
 
-query
-
 instance AWSRequest AuthorizeCacheSecurityGroupIngress where
     type Sv AuthorizeCacheSecurityGroupIngress = ElastiCache
     type Rs AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngressResponse

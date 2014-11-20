@@ -131,8 +131,6 @@ instance ToQuery AddPermission where
 
 instance ToHeaders AddPermission
 
-query
-
 instance AWSRequest AddPermission where
     type Sv AddPermission = SQS
     type Rs AddPermission = AddPermissionResponse

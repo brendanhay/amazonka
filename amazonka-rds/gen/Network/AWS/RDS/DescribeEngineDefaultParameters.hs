@@ -134,8 +134,6 @@ instance ToQuery DescribeEngineDefaultParameters where
 
 instance ToHeaders DescribeEngineDefaultParameters
 
-query
-
 instance AWSRequest DescribeEngineDefaultParameters where
     type Sv DescribeEngineDefaultParameters = RDS
     type Rs DescribeEngineDefaultParameters = DescribeEngineDefaultParametersResponse

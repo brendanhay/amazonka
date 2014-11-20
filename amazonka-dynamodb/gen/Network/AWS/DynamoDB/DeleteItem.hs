@@ -405,8 +405,6 @@ instance ToJSON DeleteItem where
         , "ExpressionAttributeValues"   .= _diExpressionAttributeValues
         ]
 
-json
-
 instance AWSRequest DeleteItem where
     type Sv DeleteItem = DynamoDB
     type Rs DeleteItem = DeleteItemResponse

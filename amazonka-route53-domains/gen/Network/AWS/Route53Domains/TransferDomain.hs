@@ -269,8 +269,6 @@ instance ToJSON TransferDomain where
         , "PrivacyProtectTechContact"       .= _tdPrivacyProtectTechContact
         ]
 
-json
-
 instance AWSRequest TransferDomain where
     type Sv TransferDomain = Route53Domains
     type Rs TransferDomain = TransferDomainResponse

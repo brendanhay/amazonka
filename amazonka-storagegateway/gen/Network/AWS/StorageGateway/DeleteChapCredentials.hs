@@ -122,8 +122,6 @@ instance ToJSON DeleteChapCredentials where
         , "InitiatorName" .= _dcc1InitiatorName
         ]
 
-json
-
 instance AWSRequest DeleteChapCredentials where
     type Sv DeleteChapCredentials = StorageGateway
     type Rs DeleteChapCredentials = DeleteChapCredentialsResponse

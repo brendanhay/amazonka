@@ -110,8 +110,6 @@ instance ToXMLRoot GetObjectTorrent where
 
 instance ToXML GetObjectTorrent
 
-xml
-
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
     type Rs GetObjectTorrent = GetObjectTorrentResponse

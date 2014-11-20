@@ -106,8 +106,6 @@ instance ToQuery ListSubscriptions where
 
 instance ToHeaders ListSubscriptions
 
-query
-
 instance AWSRequest ListSubscriptions where
     type Sv ListSubscriptions = SNS
     type Rs ListSubscriptions = ListSubscriptionsResponse

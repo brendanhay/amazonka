@@ -194,8 +194,6 @@ instance ToQuery CreateEventSubscription where
 
 instance ToHeaders CreateEventSubscription
 
-query
-
 instance AWSRequest CreateEventSubscription where
     type Sv CreateEventSubscription = RDS
     type Rs CreateEventSubscription = CreateEventSubscriptionResponse

@@ -146,8 +146,6 @@ instance ToQuery DescribeDBInstances where
 
 instance ToHeaders DescribeDBInstances
 
-query
-
 instance AWSRequest DescribeDBInstances where
     type Sv DescribeDBInstances = RDS
     type Rs DescribeDBInstances = DescribeDBInstancesResponse

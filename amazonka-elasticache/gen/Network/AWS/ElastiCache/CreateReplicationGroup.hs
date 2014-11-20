@@ -394,8 +394,6 @@ instance ToQuery CreateReplicationGroup where
 
 instance ToHeaders CreateReplicationGroup
 
-query
-
 instance AWSRequest CreateReplicationGroup where
     type Sv CreateReplicationGroup = ElastiCache
     type Rs CreateReplicationGroup = CreateReplicationGroupResponse

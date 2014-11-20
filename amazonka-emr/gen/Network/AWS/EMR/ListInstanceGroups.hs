@@ -118,8 +118,6 @@ instance ToJSON ListInstanceGroups where
         , "Marker"    .= _ligMarker
         ]
 
-json
-
 instance AWSRequest ListInstanceGroups where
     type Sv ListInstanceGroups = EMR
     type Rs ListInstanceGroups = ListInstanceGroupsResponse

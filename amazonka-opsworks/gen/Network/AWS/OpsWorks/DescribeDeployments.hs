@@ -130,8 +130,6 @@ instance ToJSON DescribeDeployments where
         , "DeploymentIds" .= _ddDeploymentIds
         ]
 
-json
-
 instance AWSRequest DescribeDeployments where
     type Sv DescribeDeployments = OpsWorks
     type Rs DescribeDeployments = DescribeDeploymentsResponse

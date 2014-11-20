@@ -86,8 +86,6 @@ instance ToQuery DeleteAlarms where
 
 instance ToHeaders DeleteAlarms
 
-query
-
 instance AWSRequest DeleteAlarms where
     type Sv DeleteAlarms = CloudWatch
     type Rs DeleteAlarms = DeleteAlarmsResponse

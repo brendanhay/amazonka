@@ -366,8 +366,6 @@ instance ToQuery ModifyCacheCluster where
 
 instance ToHeaders ModifyCacheCluster
 
-query
-
 instance AWSRequest ModifyCacheCluster where
     type Sv ModifyCacheCluster = ElastiCache
     type Rs ModifyCacheCluster = ModifyCacheClusterResponse

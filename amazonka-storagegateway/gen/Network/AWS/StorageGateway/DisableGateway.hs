@@ -100,8 +100,6 @@ instance ToJSON DisableGateway where
         [ "GatewayARN" .= _dg1GatewayARN
         ]
 
-json
-
 instance AWSRequest DisableGateway where
     type Sv DisableGateway = StorageGateway
     type Rs DisableGateway = DisableGatewayResponse

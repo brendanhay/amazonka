@@ -95,8 +95,6 @@ instance ToJSON RevokeGrant where
         , "GrantId" .= _rgGrantId
         ]
 
-json
-
 instance AWSRequest RevokeGrant where
     type Sv RevokeGrant = KMS
     type Rs RevokeGrant = RevokeGrantResponse

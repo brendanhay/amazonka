@@ -131,8 +131,6 @@ instance ToQuery SendMessageBatch where
 
 instance ToHeaders SendMessageBatch
 
-query
-
 instance AWSRequest SendMessageBatch where
     type Sv SendMessageBatch = SQS
     type Rs SendMessageBatch = SendMessageBatchResponse

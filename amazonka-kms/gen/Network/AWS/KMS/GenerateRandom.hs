@@ -97,8 +97,6 @@ instance ToJSON GenerateRandom where
         [ "NumberOfBytes" .= _grNumberOfBytes
         ]
 
-json
-
 instance AWSRequest GenerateRandom where
     type Sv GenerateRandom = KMS
     type Rs GenerateRandom = GenerateRandomResponse

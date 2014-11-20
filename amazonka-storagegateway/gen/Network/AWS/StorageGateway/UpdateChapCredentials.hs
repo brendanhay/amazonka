@@ -153,8 +153,6 @@ instance ToJSON UpdateChapCredentials where
         , "SecretToAuthenticateTarget"    .= _uccSecretToAuthenticateTarget
         ]
 
-json
-
 instance AWSRequest UpdateChapCredentials where
     type Sv UpdateChapCredentials = StorageGateway
     type Rs UpdateChapCredentials = UpdateChapCredentialsResponse

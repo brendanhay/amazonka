@@ -142,8 +142,6 @@ instance ToQuery DescribeAddresses where
 
 instance ToHeaders DescribeAddresses
 
-query
-
 instance AWSRequest DescribeAddresses where
     type Sv DescribeAddresses = EC2
     type Rs DescribeAddresses = DescribeAddressesResponse

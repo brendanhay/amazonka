@@ -410,8 +410,6 @@ instance ToQuery CreateCluster where
 
 instance ToHeaders CreateCluster
 
-query
-
 instance AWSRequest CreateCluster where
     type Sv CreateCluster = Redshift
     type Rs CreateCluster = CreateClusterResponse

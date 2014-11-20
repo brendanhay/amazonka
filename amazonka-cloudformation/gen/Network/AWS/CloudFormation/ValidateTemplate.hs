@@ -144,8 +144,6 @@ instance ToQuery ValidateTemplate where
 
 instance ToHeaders ValidateTemplate
 
-query
-
 instance AWSRequest ValidateTemplate where
     type Sv ValidateTemplate = CloudFormation
     type Rs ValidateTemplate = ValidateTemplateResponse

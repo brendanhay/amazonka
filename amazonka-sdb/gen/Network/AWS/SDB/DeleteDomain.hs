@@ -82,8 +82,6 @@ instance ToQuery DeleteDomain where
 
 instance ToHeaders DeleteDomain
 
-query
-
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = SDB
     type Rs DeleteDomain = DeleteDomainResponse

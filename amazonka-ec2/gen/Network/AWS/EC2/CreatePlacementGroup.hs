@@ -103,8 +103,6 @@ instance ToQuery CreatePlacementGroup where
 
 instance ToHeaders CreatePlacementGroup
 
-query
-
 instance AWSRequest CreatePlacementGroup where
     type Sv CreatePlacementGroup = EC2
     type Rs CreatePlacementGroup = CreatePlacementGroupResponse

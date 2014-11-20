@@ -201,8 +201,6 @@ instance ToXMLRoot UpdateHealthCheck where
 
 instance ToXML UpdateHealthCheck
 
-xml
-
 instance AWSRequest UpdateHealthCheck where
     type Sv UpdateHealthCheck = Route53
     type Rs UpdateHealthCheck = UpdateHealthCheckResponse

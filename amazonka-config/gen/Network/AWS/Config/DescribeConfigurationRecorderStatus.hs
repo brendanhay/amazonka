@@ -118,8 +118,6 @@ instance ToJSON DescribeConfigurationRecorderStatus where
         [ "ConfigurationRecorderNames" .= _dcrsConfigurationRecorderNames
         ]
 
-json
-
 instance AWSRequest DescribeConfigurationRecorderStatus where
     type Sv DescribeConfigurationRecorderStatus = Config
     type Rs DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatusResponse

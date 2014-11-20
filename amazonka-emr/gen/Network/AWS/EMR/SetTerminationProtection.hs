@@ -110,8 +110,6 @@ instance ToJSON SetTerminationProtection where
         , "TerminationProtected" .= _stpTerminationProtected
         ]
 
-json
-
 instance AWSRequest SetTerminationProtection where
     type Sv SetTerminationProtection = EMR
     type Rs SetTerminationProtection = SetTerminationProtectionResponse

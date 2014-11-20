@@ -93,8 +93,6 @@ instance ToQuery DeleteDhcpOptions where
 
 instance ToHeaders DeleteDhcpOptions
 
-query
-
 instance AWSRequest DeleteDhcpOptions where
     type Sv DeleteDhcpOptions = EC2
     type Rs DeleteDhcpOptions = DeleteDhcpOptionsResponse

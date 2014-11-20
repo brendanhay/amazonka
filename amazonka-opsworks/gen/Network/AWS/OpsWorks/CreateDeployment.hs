@@ -163,8 +163,6 @@ instance ToJSON CreateDeployment where
         , "CustomJson"  .= _cdCustomJson
         ]
 
-json
-
 instance AWSRequest CreateDeployment where
     type Sv CreateDeployment = OpsWorks
     type Rs CreateDeployment = CreateDeploymentResponse

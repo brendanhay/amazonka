@@ -114,8 +114,6 @@ instance ToJSON RegisterElasticIp where
         , "StackId"   .= _reiStackId
         ]
 
-json
-
 instance AWSRequest RegisterElasticIp where
     type Sv RegisterElasticIp = OpsWorks
     type Rs RegisterElasticIp = RegisterElasticIpResponse

@@ -145,8 +145,6 @@ instance ToQuery SendRawEmail where
 
 instance ToHeaders SendRawEmail
 
-query
-
 instance AWSRequest SendRawEmail where
     type Sv SendRawEmail = SES
     type Rs SendRawEmail = SendRawEmailResponse

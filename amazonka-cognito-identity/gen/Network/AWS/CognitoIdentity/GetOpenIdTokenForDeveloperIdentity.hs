@@ -169,8 +169,6 @@ instance ToJSON GetOpenIdTokenForDeveloperIdentity where
         , "TokenDuration"  .= _goitfdiTokenDuration
         ]
 
-json
-
 instance AWSRequest GetOpenIdTokenForDeveloperIdentity where
     type Sv GetOpenIdTokenForDeveloperIdentity = CognitoIdentity
     type Rs GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentityResponse

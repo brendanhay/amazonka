@@ -121,8 +121,6 @@ instance ToQuery UpdateApplicationVersion where
 
 instance ToHeaders UpdateApplicationVersion
 
-query
-
 instance AWSRequest UpdateApplicationVersion where
     type Sv UpdateApplicationVersion = ElasticBeanstalk
     type Rs UpdateApplicationVersion = UpdateApplicationVersionResponse

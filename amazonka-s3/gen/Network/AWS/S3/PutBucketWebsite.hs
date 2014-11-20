@@ -108,8 +108,6 @@ instance ToXMLRoot PutBucketWebsite where
 
 instance ToXML PutBucketWebsite
 
-xml-headers
-
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
     type Rs PutBucketWebsite = PutBucketWebsiteResponse

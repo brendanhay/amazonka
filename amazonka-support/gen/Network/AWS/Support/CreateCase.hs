@@ -215,8 +215,6 @@ instance ToJSON CreateCase where
         , "attachmentSetId"   .= _ccAttachmentSetId
         ]
 
-json
-
 instance AWSRequest CreateCase where
     type Sv CreateCase = Support
     type Rs CreateCase = CreateCaseResponse

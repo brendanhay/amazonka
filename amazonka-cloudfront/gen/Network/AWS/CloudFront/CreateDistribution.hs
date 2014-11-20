@@ -120,8 +120,6 @@ instance ToXMLRoot CreateDistribution where
 
 instance ToXML CreateDistribution
 
-xml
-
 instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront
     type Rs CreateDistribution = CreateDistributionResponse

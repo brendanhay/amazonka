@@ -85,8 +85,6 @@ instance ToJSON EnableKey where
         [ "KeyId" .= _ekKeyId
         ]
 
-json
-
 instance AWSRequest EnableKey where
     type Sv EnableKey = KMS
     type Rs EnableKey = EnableKeyResponse

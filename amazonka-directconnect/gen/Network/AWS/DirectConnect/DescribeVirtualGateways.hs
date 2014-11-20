@@ -92,8 +92,6 @@ instance ToHeaders DescribeVirtualGateways
 instance ToJSON DescribeVirtualGateways where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest DescribeVirtualGateways where
     type Sv DescribeVirtualGateways = DirectConnect
     type Rs DescribeVirtualGateways = DescribeVirtualGatewaysResponse

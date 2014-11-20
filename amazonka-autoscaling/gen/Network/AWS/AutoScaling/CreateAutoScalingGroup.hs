@@ -290,8 +290,6 @@ instance ToQuery CreateAutoScalingGroup where
 
 instance ToHeaders CreateAutoScalingGroup
 
-query
-
 instance AWSRequest CreateAutoScalingGroup where
     type Sv CreateAutoScalingGroup = AutoScaling
     type Rs CreateAutoScalingGroup = CreateAutoScalingGroupResponse

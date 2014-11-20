@@ -124,8 +124,6 @@ instance ToXMLRoot CreateStreamingDistribution where
 
 instance ToXML CreateStreamingDistribution
 
-xml
-
 instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront
     type Rs CreateStreamingDistribution = CreateStreamingDistributionResponse

@@ -128,8 +128,6 @@ instance ToQuery CopyDBSnapshot where
 
 instance ToHeaders CopyDBSnapshot
 
-query
-
 instance AWSRequest CopyDBSnapshot where
     type Sv CopyDBSnapshot = RDS
     type Rs CopyDBSnapshot = CopyDBSnapshotResponse

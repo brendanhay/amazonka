@@ -136,8 +136,6 @@ instance ToJSON CreateUserProfile where
         , "AllowSelfManagement" .= _cupAllowSelfManagement
         ]
 
-json
-
 instance AWSRequest CreateUserProfile where
     type Sv CreateUserProfile = OpsWorks
     type Rs CreateUserProfile = CreateUserProfileResponse

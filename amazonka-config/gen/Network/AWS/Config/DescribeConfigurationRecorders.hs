@@ -117,8 +117,6 @@ instance ToJSON DescribeConfigurationRecorders where
         [ "ConfigurationRecorderNames" .= _dcrConfigurationRecorderNames
         ]
 
-json
-
 instance AWSRequest DescribeConfigurationRecorders where
     type Sv DescribeConfigurationRecorders = Config
     type Rs DescribeConfigurationRecorders = DescribeConfigurationRecordersResponse

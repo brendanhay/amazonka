@@ -146,8 +146,6 @@ instance ToQuery CreateSecurityGroup where
 
 instance ToHeaders CreateSecurityGroup
 
-query
-
 instance AWSRequest CreateSecurityGroup where
     type Sv CreateSecurityGroup = EC2
     type Rs CreateSecurityGroup = CreateSecurityGroupResponse

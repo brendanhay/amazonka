@@ -124,8 +124,6 @@ instance ToXMLRoot CreateInvalidation where
 
 instance ToXML CreateInvalidation
 
-xml
-
 instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront
     type Rs CreateInvalidation = CreateInvalidationResponse

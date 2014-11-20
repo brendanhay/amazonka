@@ -82,8 +82,6 @@ instance ToQuery DeleteAccountAlias where
 
 instance ToHeaders DeleteAccountAlias
 
-query
-
 instance AWSRequest DeleteAccountAlias where
     type Sv DeleteAccountAlias = IAM
     type Rs DeleteAccountAlias = DeleteAccountAliasResponse

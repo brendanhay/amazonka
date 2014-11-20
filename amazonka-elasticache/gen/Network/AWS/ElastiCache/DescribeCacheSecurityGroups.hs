@@ -136,8 +136,6 @@ instance ToQuery DescribeCacheSecurityGroups where
 
 instance ToHeaders DescribeCacheSecurityGroups
 
-query
-
 instance AWSRequest DescribeCacheSecurityGroups where
     type Sv DescribeCacheSecurityGroups = ElastiCache
     type Rs DescribeCacheSecurityGroups = DescribeCacheSecurityGroupsResponse

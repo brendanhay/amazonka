@@ -84,8 +84,6 @@ instance ToJSON DisableKey where
         [ "KeyId" .= _dkKeyId
         ]
 
-json
-
 instance AWSRequest DisableKey where
     type Sv DisableKey = KMS
     type Rs DisableKey = DisableKeyResponse

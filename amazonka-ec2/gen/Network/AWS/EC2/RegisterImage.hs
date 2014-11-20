@@ -215,8 +215,6 @@ instance ToQuery RegisterImage where
 
 instance ToHeaders RegisterImage
 
-query
-
 instance AWSRequest RegisterImage where
     type Sv RegisterImage = EC2
     type Rs RegisterImage = RegisterImageResponse

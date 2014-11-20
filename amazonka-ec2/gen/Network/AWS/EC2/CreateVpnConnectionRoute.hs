@@ -99,8 +99,6 @@ instance ToQuery CreateVpnConnectionRoute where
 
 instance ToHeaders CreateVpnConnectionRoute
 
-query
-
 instance AWSRequest CreateVpnConnectionRoute where
     type Sv CreateVpnConnectionRoute = EC2
     type Rs CreateVpnConnectionRoute = CreateVpnConnectionRouteResponse

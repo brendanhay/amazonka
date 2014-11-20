@@ -170,8 +170,6 @@ instance ToQuery DescribeCacheEngineVersions where
 
 instance ToHeaders DescribeCacheEngineVersions
 
-query
-
 instance AWSRequest DescribeCacheEngineVersions where
     type Sv DescribeCacheEngineVersions = ElastiCache
     type Rs DescribeCacheEngineVersions = DescribeCacheEngineVersionsResponse

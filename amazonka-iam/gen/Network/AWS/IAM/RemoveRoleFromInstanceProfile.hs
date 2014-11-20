@@ -99,8 +99,6 @@ instance ToQuery RemoveRoleFromInstanceProfile where
 
 instance ToHeaders RemoveRoleFromInstanceProfile
 
-query
-
 instance AWSRequest RemoveRoleFromInstanceProfile where
     type Sv RemoveRoleFromInstanceProfile = IAM
     type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse

@@ -95,8 +95,6 @@ instance ToQuery BatchDeleteAttributes where
 
 instance ToHeaders BatchDeleteAttributes
 
-query
-
 instance AWSRequest BatchDeleteAttributes where
     type Sv BatchDeleteAttributes = SDB
     type Rs BatchDeleteAttributes = BatchDeleteAttributesResponse

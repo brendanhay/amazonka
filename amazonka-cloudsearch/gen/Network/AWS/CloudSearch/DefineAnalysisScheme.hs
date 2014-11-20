@@ -108,8 +108,6 @@ instance ToQuery DefineAnalysisScheme where
 
 instance ToHeaders DefineAnalysisScheme
 
-query
-
 instance AWSRequest DefineAnalysisScheme where
     type Sv DefineAnalysisScheme = CloudSearch
     type Rs DefineAnalysisScheme = DefineAnalysisSchemeResponse

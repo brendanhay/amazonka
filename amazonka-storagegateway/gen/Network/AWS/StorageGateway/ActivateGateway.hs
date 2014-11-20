@@ -185,8 +185,6 @@ instance ToJSON ActivateGateway where
         , "MediumChangerType" .= _agMediumChangerType
         ]
 
-json
-
 instance AWSRequest ActivateGateway where
     type Sv ActivateGateway = StorageGateway
     type Rs ActivateGateway = ActivateGatewayResponse

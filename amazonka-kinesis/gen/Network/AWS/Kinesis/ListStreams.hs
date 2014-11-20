@@ -131,8 +131,6 @@ instance ToJSON ListStreams where
         , "ExclusiveStartStreamName" .= _lsExclusiveStartStreamName
         ]
 
-json
-
 instance AWSRequest ListStreams where
     type Sv ListStreams = Kinesis
     type Rs ListStreams = ListStreamsResponse

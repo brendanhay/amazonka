@@ -162,8 +162,6 @@ instance ToJSON ListDomains where
         , "reverseOrder"       .= _ldReverseOrder
         ]
 
-json
-
 instance AWSRequest ListDomains where
     type Sv ListDomains = SWF
     type Rs ListDomains = ListDomainsResponse

@@ -84,8 +84,6 @@ instance ToQuery DescribeScalingProcessTypes where
 
 instance ToHeaders DescribeScalingProcessTypes
 
-query
-
 instance AWSRequest DescribeScalingProcessTypes where
     type Sv DescribeScalingProcessTypes = AutoScaling
     type Rs DescribeScalingProcessTypes = DescribeScalingProcessTypesResponse

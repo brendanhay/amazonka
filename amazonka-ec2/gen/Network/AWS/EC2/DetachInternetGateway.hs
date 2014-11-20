@@ -103,8 +103,6 @@ instance ToQuery DetachInternetGateway where
 
 instance ToHeaders DetachInternetGateway
 
-query
-
 instance AWSRequest DetachInternetGateway where
     type Sv DetachInternetGateway = EC2
     type Rs DetachInternetGateway = DetachInternetGatewayResponse

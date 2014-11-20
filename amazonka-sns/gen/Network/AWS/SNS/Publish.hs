@@ -190,8 +190,6 @@ instance ToQuery Publish where
 
 instance ToHeaders Publish
 
-query
-
 instance AWSRequest Publish where
     type Sv Publish = SNS
     type Rs Publish = PublishResponse

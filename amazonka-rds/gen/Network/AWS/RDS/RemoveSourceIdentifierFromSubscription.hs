@@ -110,8 +110,6 @@ instance ToQuery RemoveSourceIdentifierFromSubscription where
 
 instance ToHeaders RemoveSourceIdentifierFromSubscription
 
-query
-
 instance AWSRequest RemoveSourceIdentifierFromSubscription where
     type Sv RemoveSourceIdentifierFromSubscription = RDS
     type Rs RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscriptionResponse

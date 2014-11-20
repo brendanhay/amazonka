@@ -110,8 +110,6 @@ instance ToJSON GetHostnameSuggestion where
         [ "LayerId" .= _ghsLayerId
         ]
 
-json
-
 instance AWSRequest GetHostnameSuggestion where
     type Sv GetHostnameSuggestion = OpsWorks
     type Rs GetHostnameSuggestion = GetHostnameSuggestionResponse

@@ -121,8 +121,6 @@ instance ToQuery DescribeRegions where
 
 instance ToHeaders DescribeRegions
 
-query
-
 instance AWSRequest DescribeRegions where
     type Sv DescribeRegions = EC2
     type Rs DescribeRegions = DescribeRegionsResponse

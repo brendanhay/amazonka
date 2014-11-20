@@ -106,8 +106,6 @@ instance ToQuery ListTopics where
 
 instance ToHeaders ListTopics
 
-query
-
 instance AWSRequest ListTopics where
     type Sv ListTopics = SNS
     type Rs ListTopics = ListTopicsResponse

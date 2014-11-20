@@ -118,8 +118,6 @@ instance ToJSON ListIdentityPools where
         , "NextToken"  .= _lipNextToken
         ]
 
-json
-
 instance AWSRequest ListIdentityPools where
     type Sv ListIdentityPools = CognitoIdentity
     type Rs ListIdentityPools = ListIdentityPoolsResponse

@@ -130,8 +130,6 @@ instance ToQuery CreateKeyPair where
 
 instance ToHeaders CreateKeyPair
 
-query
-
 instance AWSRequest CreateKeyPair where
     type Sv CreateKeyPair = EC2
     type Rs CreateKeyPair = CreateKeyPairResponse

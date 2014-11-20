@@ -84,8 +84,6 @@ instance ToJSON DeregisterRdsDbInstance where
         [ "RdsDbInstanceArn" .= _drdiRdsDbInstanceArn
         ]
 
-json
-
 instance AWSRequest DeregisterRdsDbInstance where
     type Sv DeregisterRdsDbInstance = OpsWorks
     type Rs DeregisterRdsDbInstance = DeregisterRdsDbInstanceResponse

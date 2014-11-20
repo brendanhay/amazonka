@@ -134,8 +134,6 @@ instance ToXMLRoot CreateHealthCheck where
 
 instance ToXML CreateHealthCheck
 
-xml
-
 instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53
     type Rs CreateHealthCheck = CreateHealthCheckResponse

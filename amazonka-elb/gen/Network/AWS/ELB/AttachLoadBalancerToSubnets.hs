@@ -117,8 +117,6 @@ instance ToQuery AttachLoadBalancerToSubnets where
 
 instance ToHeaders AttachLoadBalancerToSubnets
 
-query
-
 instance AWSRequest AttachLoadBalancerToSubnets where
     type Sv AttachLoadBalancerToSubnets = ELB
     type Rs AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnetsResponse

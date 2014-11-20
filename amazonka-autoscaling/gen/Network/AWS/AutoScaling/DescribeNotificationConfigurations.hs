@@ -131,8 +131,6 @@ instance ToQuery DescribeNotificationConfigurations where
 
 instance ToHeaders DescribeNotificationConfigurations
 
-query
-
 instance AWSRequest DescribeNotificationConfigurations where
     type Sv DescribeNotificationConfigurations = AutoScaling
     type Rs DescribeNotificationConfigurations = DescribeNotificationConfigurationsResponse

@@ -99,8 +99,6 @@ instance ToJSON CreateApplication where
         [ "applicationName" .= _caApplicationName
         ]
 
-json
-
 instance AWSRequest CreateApplication where
     type Sv CreateApplication = CodeDeploy
     type Rs CreateApplication = CreateApplicationResponse

@@ -103,8 +103,6 @@ instance ToXMLRoot GetHealthCheck where
 
 instance ToXML GetHealthCheck
 
-xml
-
 instance AWSRequest GetHealthCheck where
     type Sv GetHealthCheck = Route53
     type Rs GetHealthCheck = GetHealthCheckResponse

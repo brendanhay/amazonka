@@ -289,8 +289,6 @@ instance ToQuery AssumeRoleWithWebIdentity where
 
 instance ToHeaders AssumeRoleWithWebIdentity
 
-query
-
 instance AWSRequest AssumeRoleWithWebIdentity where
     type Sv AssumeRoleWithWebIdentity = STS
     type Rs AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentityResponse

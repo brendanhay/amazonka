@@ -105,8 +105,6 @@ instance ToQuery UpdateUser where
 
 instance ToHeaders UpdateUser
 
-query
-
 instance AWSRequest UpdateUser where
     type Sv UpdateUser = IAM
     type Rs UpdateUser = UpdateUserResponse

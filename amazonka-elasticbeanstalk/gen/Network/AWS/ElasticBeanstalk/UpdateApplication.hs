@@ -107,8 +107,6 @@ instance ToQuery UpdateApplication where
 
 instance ToHeaders UpdateApplication
 
-query
-
 instance AWSRequest UpdateApplication where
     type Sv UpdateApplication = ElasticBeanstalk
     type Rs UpdateApplication = UpdateApplicationResponse

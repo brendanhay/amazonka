@@ -124,8 +124,6 @@ instance ToQuery ModifyReservedInstances where
 
 instance ToHeaders ModifyReservedInstances
 
-query
-
 instance AWSRequest ModifyReservedInstances where
     type Sv ModifyReservedInstances = EC2
     type Rs ModifyReservedInstances = ModifyReservedInstancesResponse

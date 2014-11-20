@@ -117,8 +117,6 @@ instance ToHeaders DescribeIdentityUsage
 instance ToJSON DescribeIdentityUsage where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest DescribeIdentityUsage where
     type Sv DescribeIdentityUsage = CognitoSync
     type Rs DescribeIdentityUsage = DescribeIdentityUsageResponse

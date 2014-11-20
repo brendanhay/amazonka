@@ -102,8 +102,6 @@ instance ToQuery DeleteRoute where
 
 instance ToHeaders DeleteRoute
 
-query
-
 instance AWSRequest DeleteRoute where
     type Sv DeleteRoute = EC2
     type Rs DeleteRoute = DeleteRouteResponse

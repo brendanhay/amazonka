@@ -186,8 +186,6 @@ instance ToJSON CreateDeploymentGroup where
         , "serviceRoleArn"       .= _cdgServiceRoleArn
         ]
 
-json
-
 instance AWSRequest CreateDeploymentGroup where
     type Sv CreateDeploymentGroup = CodeDeploy
     type Rs CreateDeploymentGroup = CreateDeploymentGroupResponse

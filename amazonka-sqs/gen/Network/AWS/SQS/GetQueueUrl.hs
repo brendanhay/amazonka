@@ -113,8 +113,6 @@ instance ToQuery GetQueueUrl where
 
 instance ToHeaders GetQueueUrl
 
-query
-
 instance AWSRequest GetQueueUrl where
     type Sv GetQueueUrl = SQS
     type Rs GetQueueUrl = GetQueueUrlResponse

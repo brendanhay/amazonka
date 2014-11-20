@@ -151,8 +151,6 @@ instance ToQuery DescribeSecurityGroups where
 
 instance ToHeaders DescribeSecurityGroups
 
-query
-
 instance AWSRequest DescribeSecurityGroups where
     type Sv DescribeSecurityGroups = EC2
     type Rs DescribeSecurityGroups = DescribeSecurityGroupsResponse

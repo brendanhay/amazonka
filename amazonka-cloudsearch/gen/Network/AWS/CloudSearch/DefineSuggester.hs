@@ -108,8 +108,6 @@ instance ToQuery DefineSuggester where
 
 instance ToHeaders DefineSuggester
 
-query
-
 instance AWSRequest DefineSuggester where
     type Sv DefineSuggester = CloudSearch
     type Rs DefineSuggester = DefineSuggesterResponse

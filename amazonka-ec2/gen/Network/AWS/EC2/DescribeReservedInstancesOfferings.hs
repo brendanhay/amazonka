@@ -270,8 +270,6 @@ instance ToQuery DescribeReservedInstancesOfferings where
 
 instance ToHeaders DescribeReservedInstancesOfferings
 
-query
-
 instance AWSRequest DescribeReservedInstancesOfferings where
     type Sv DescribeReservedInstancesOfferings = EC2
     type Rs DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferingsResponse

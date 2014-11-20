@@ -105,8 +105,6 @@ instance ToQuery DeleteTags where
 
 instance ToHeaders DeleteTags
 
-query
-
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = EC2
     type Rs DeleteTags = DeleteTagsResponse

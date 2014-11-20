@@ -99,8 +99,6 @@ instance ToXMLRoot GetBucketCors where
 
 instance ToXML GetBucketCors
 
-xml
-
 instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
     type Rs GetBucketCors = GetBucketCorsResponse

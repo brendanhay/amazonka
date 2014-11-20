@@ -110,8 +110,6 @@ instance ToXMLRoot GetDistribution where
 
 instance ToXML GetDistribution
 
-xml
-
 instance AWSRequest GetDistribution where
     type Sv GetDistribution = CloudFront
     type Rs GetDistribution = GetDistributionResponse

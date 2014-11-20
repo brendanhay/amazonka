@@ -85,8 +85,6 @@ instance ToQuery DescribeAdjustmentTypes where
 
 instance ToHeaders DescribeAdjustmentTypes
 
-query
-
 instance AWSRequest DescribeAdjustmentTypes where
     type Sv DescribeAdjustmentTypes = AutoScaling
     type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse

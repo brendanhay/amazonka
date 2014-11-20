@@ -84,8 +84,6 @@ instance ToQuery DeleteCacheParameterGroup where
 
 instance ToHeaders DeleteCacheParameterGroup
 
-query
-
 instance AWSRequest DeleteCacheParameterGroup where
     type Sv DeleteCacheParameterGroup = ElastiCache
     type Rs DeleteCacheParameterGroup = DeleteCacheParameterGroupResponse

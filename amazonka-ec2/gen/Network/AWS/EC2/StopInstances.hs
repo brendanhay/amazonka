@@ -144,8 +144,6 @@ instance ToQuery StopInstances where
 
 instance ToHeaders StopInstances
 
-query
-
 instance AWSRequest StopInstances where
     type Sv StopInstances = EC2
     type Rs StopInstances = StopInstancesResponse

@@ -146,8 +146,6 @@ instance ToQuery ModifySnapshotAttribute where
 
 instance ToHeaders ModifySnapshotAttribute
 
-query
-
 instance AWSRequest ModifySnapshotAttribute where
     type Sv ModifySnapshotAttribute = EC2
     type Rs ModifySnapshotAttribute = ModifySnapshotAttributeResponse

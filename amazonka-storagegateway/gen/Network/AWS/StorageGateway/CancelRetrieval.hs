@@ -111,8 +111,6 @@ instance ToJSON CancelRetrieval where
         , "TapeARN"    .= _crTapeARN
         ]
 
-json
-
 instance AWSRequest CancelRetrieval where
     type Sv CancelRetrieval = StorageGateway
     type Rs CancelRetrieval = CancelRetrievalResponse

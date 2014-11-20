@@ -100,8 +100,6 @@ instance ToJSON ConfirmPublicVirtualInterface where
         [ "virtualInterfaceId" .= _cpvi1VirtualInterfaceId
         ]
 
-json
-
 instance AWSRequest ConfirmPublicVirtualInterface where
     type Sv ConfirmPublicVirtualInterface = DirectConnect
     type Rs ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterfaceResponse

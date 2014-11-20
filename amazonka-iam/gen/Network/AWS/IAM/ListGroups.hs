@@ -143,8 +143,6 @@ instance ToQuery ListGroups where
 
 instance ToHeaders ListGroups
 
-query
-
 instance AWSRequest ListGroups where
     type Sv ListGroups = IAM
     type Rs ListGroups = ListGroupsResponse

@@ -122,8 +122,6 @@ instance ToJSON DescribePermissions where
         , "StackId"    .= _dpStackId
         ]
 
-json
-
 instance AWSRequest DescribePermissions where
     type Sv DescribePermissions = OpsWorks
     type Rs DescribePermissions = DescribePermissionsResponse

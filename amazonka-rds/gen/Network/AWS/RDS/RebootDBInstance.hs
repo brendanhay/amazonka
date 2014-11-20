@@ -125,8 +125,6 @@ instance ToQuery RebootDBInstance where
 
 instance ToHeaders RebootDBInstance
 
-query
-
 instance AWSRequest RebootDBInstance where
     type Sv RebootDBInstance = RDS
     type Rs RebootDBInstance = RebootDBInstanceResponse

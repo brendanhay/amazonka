@@ -104,8 +104,6 @@ instance ToQuery CreateTags where
 
 instance ToHeaders CreateTags
 
-query
-
 instance AWSRequest CreateTags where
     type Sv CreateTags = EC2
     type Rs CreateTags = CreateTagsResponse

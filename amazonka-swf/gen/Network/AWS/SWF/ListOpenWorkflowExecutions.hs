@@ -214,8 +214,6 @@ instance ToJSON ListOpenWorkflowExecutions where
         , "executionFilter" .= _loweExecutionFilter
         ]
 
-json
-
 instance AWSRequest ListOpenWorkflowExecutions where
     type Sv ListOpenWorkflowExecutions = SWF
     type Rs ListOpenWorkflowExecutions = ListOpenWorkflowExecutionsResponse

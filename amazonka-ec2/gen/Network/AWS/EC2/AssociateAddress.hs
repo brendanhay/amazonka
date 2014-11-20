@@ -176,8 +176,6 @@ instance ToQuery AssociateAddress where
 
 instance ToHeaders AssociateAddress
 
-query
-
 instance AWSRequest AssociateAddress where
     type Sv AssociateAddress = EC2
     type Rs AssociateAddress = AssociateAddressResponse

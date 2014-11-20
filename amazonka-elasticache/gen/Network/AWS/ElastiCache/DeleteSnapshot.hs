@@ -95,8 +95,6 @@ instance ToQuery DeleteSnapshot where
 
 instance ToHeaders DeleteSnapshot
 
-query
-
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = ElastiCache
     type Rs DeleteSnapshot = DeleteSnapshotResponse

@@ -146,8 +146,6 @@ instance ToJSON PollForTask where
         , "instanceIdentity" .= _pftInstanceIdentity
         ]
 
-json
-
 instance AWSRequest PollForTask where
     type Sv PollForTask = DataPipeline
     type Rs PollForTask = PollForTaskResponse

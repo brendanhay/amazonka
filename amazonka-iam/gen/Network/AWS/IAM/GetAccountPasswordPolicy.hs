@@ -79,8 +79,6 @@ instance ToQuery GetAccountPasswordPolicy where
 
 instance ToHeaders GetAccountPasswordPolicy
 
-query
-
 instance AWSRequest GetAccountPasswordPolicy where
     type Sv GetAccountPasswordPolicy = IAM
     type Rs GetAccountPasswordPolicy = GetAccountPasswordPolicyResponse

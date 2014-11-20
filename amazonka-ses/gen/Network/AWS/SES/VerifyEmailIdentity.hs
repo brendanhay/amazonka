@@ -82,8 +82,6 @@ instance ToQuery VerifyEmailIdentity where
 
 instance ToHeaders VerifyEmailIdentity
 
-query
-
 instance AWSRequest VerifyEmailIdentity where
     type Sv VerifyEmailIdentity = SES
     type Rs VerifyEmailIdentity = VerifyEmailIdentityResponse

@@ -108,8 +108,6 @@ instance ToJSON DescribeTrustedAdvisorChecks where
         [ "language" .= _dtacLanguage
         ]
 
-json
-
 instance AWSRequest DescribeTrustedAdvisorChecks where
     type Sv DescribeTrustedAdvisorChecks = Support
     type Rs DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecksResponse

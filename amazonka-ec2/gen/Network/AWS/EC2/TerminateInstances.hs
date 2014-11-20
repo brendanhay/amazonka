@@ -124,8 +124,6 @@ instance ToQuery TerminateInstances where
 
 instance ToHeaders TerminateInstances
 
-query
-
 instance AWSRequest TerminateInstances where
     type Sv TerminateInstances = EC2
     type Rs TerminateInstances = TerminateInstancesResponse

@@ -82,8 +82,6 @@ instance ToQuery DeleteCacheSecurityGroup where
 
 instance ToHeaders DeleteCacheSecurityGroup
 
-query
-
 instance AWSRequest DeleteCacheSecurityGroup where
     type Sv DeleteCacheSecurityGroup = ElastiCache
     type Rs DeleteCacheSecurityGroup = DeleteCacheSecurityGroupResponse

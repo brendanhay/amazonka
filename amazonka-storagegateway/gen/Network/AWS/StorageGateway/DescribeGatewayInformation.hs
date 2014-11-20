@@ -162,8 +162,6 @@ instance ToJSON DescribeGatewayInformation where
         [ "GatewayARN" .= _dgiGatewayARN
         ]
 
-json
-
 instance AWSRequest DescribeGatewayInformation where
     type Sv DescribeGatewayInformation = StorageGateway
     type Rs DescribeGatewayInformation = DescribeGatewayInformationResponse

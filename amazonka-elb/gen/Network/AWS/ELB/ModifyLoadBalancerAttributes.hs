@@ -125,8 +125,6 @@ instance ToQuery ModifyLoadBalancerAttributes where
 
 instance ToHeaders ModifyLoadBalancerAttributes
 
-query
-
 instance AWSRequest ModifyLoadBalancerAttributes where
     type Sv ModifyLoadBalancerAttributes = ELB
     type Rs ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributesResponse

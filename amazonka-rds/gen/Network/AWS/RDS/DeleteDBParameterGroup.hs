@@ -85,8 +85,6 @@ instance ToQuery DeleteDBParameterGroup where
 
 instance ToHeaders DeleteDBParameterGroup
 
-query
-
 instance AWSRequest DeleteDBParameterGroup where
     type Sv DeleteDBParameterGroup = RDS
     type Rs DeleteDBParameterGroup = DeleteDBParameterGroupResponse

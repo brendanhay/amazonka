@@ -87,8 +87,6 @@ instance ToJSON DeleteDeliveryChannel where
         [ "DeliveryChannelName" .= _ddcDeliveryChannelName
         ]
 
-json
-
 instance AWSRequest DeleteDeliveryChannel where
     type Sv DeleteDeliveryChannel = Config
     type Rs DeleteDeliveryChannel = DeleteDeliveryChannelResponse

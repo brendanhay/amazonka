@@ -107,8 +107,6 @@ instance ToJSON EnableDomainTransferLock where
         [ "DomainName" .= _edtlDomainName
         ]
 
-json
-
 instance AWSRequest EnableDomainTransferLock where
     type Sv EnableDomainTransferLock = Route53Domains
     type Rs EnableDomainTransferLock = EnableDomainTransferLockResponse

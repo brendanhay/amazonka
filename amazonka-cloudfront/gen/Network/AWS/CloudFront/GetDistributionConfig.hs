@@ -111,8 +111,6 @@ instance ToXMLRoot GetDistributionConfig where
 
 instance ToXML GetDistributionConfig
 
-xml
-
 instance AWSRequest GetDistributionConfig where
     type Sv GetDistributionConfig = CloudFront
     type Rs GetDistributionConfig = GetDistributionConfigResponse

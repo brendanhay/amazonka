@@ -112,8 +112,6 @@ instance ToQuery ListJobs where
 
 instance ToHeaders ListJobs
 
-query
-
 instance AWSRequest ListJobs where
     type Sv ListJobs = ImportExport
     type Rs ListJobs = ListJobsResponse

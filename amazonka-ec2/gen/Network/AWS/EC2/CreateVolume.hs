@@ -273,8 +273,6 @@ instance ToQuery CreateVolume where
 
 instance ToHeaders CreateVolume
 
-query
-
 instance AWSRequest CreateVolume where
     type Sv CreateVolume = EC2
     type Rs CreateVolume = CreateVolumeResponse

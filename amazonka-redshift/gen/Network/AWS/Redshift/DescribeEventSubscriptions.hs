@@ -143,8 +143,6 @@ instance ToQuery DescribeEventSubscriptions where
 
 instance ToHeaders DescribeEventSubscriptions
 
-query
-
 instance AWSRequest DescribeEventSubscriptions where
     type Sv DescribeEventSubscriptions = Redshift
     type Rs DescribeEventSubscriptions = DescribeEventSubscriptionsResponse

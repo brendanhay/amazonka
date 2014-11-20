@@ -169,8 +169,6 @@ instance ToXMLRoot PutBucketAcl where
 
 instance ToXML PutBucketAcl
 
-xml-headers
-
 instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3
     type Rs PutBucketAcl = PutBucketAclResponse

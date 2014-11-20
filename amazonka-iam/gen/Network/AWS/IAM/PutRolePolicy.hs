@@ -106,8 +106,6 @@ instance ToQuery PutRolePolicy where
 
 instance ToHeaders PutRolePolicy
 
-query
-
 instance AWSRequest PutRolePolicy where
     type Sv PutRolePolicy = IAM
     type Rs PutRolePolicy = PutRolePolicyResponse

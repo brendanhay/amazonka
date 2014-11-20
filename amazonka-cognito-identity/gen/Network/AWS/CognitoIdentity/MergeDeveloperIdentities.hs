@@ -150,8 +150,6 @@ instance ToJSON MergeDeveloperIdentities where
         , "IdentityPoolId"            .= _mdiIdentityPoolId
         ]
 
-json
-
 instance AWSRequest MergeDeveloperIdentities where
     type Sv MergeDeveloperIdentities = CognitoIdentity
     type Rs MergeDeveloperIdentities = MergeDeveloperIdentitiesResponse

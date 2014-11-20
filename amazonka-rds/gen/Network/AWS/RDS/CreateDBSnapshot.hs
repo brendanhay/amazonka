@@ -123,8 +123,6 @@ instance ToQuery CreateDBSnapshot where
 
 instance ToHeaders CreateDBSnapshot
 
-query
-
 instance AWSRequest CreateDBSnapshot where
     type Sv CreateDBSnapshot = RDS
     type Rs CreateDBSnapshot = CreateDBSnapshotResponse

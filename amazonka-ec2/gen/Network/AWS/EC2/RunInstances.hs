@@ -423,8 +423,6 @@ instance ToQuery RunInstances where
 
 instance ToHeaders RunInstances
 
-query
-
 instance AWSRequest RunInstances where
     type Sv RunInstances = EC2
     type Rs RunInstances = RunInstancesResponse

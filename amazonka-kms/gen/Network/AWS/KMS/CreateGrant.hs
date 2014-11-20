@@ -174,8 +174,6 @@ instance ToJSON CreateGrant where
         , "GrantTokens"       .= _cgGrantTokens
         ]
 
-json
-
 instance AWSRequest CreateGrant where
     type Sv CreateGrant = KMS
     type Rs CreateGrant = CreateGrantResponse

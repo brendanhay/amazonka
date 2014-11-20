@@ -205,8 +205,6 @@ instance ToQuery DescribeClusterSnapshots where
 
 instance ToHeaders DescribeClusterSnapshots
 
-query
-
 instance AWSRequest DescribeClusterSnapshots where
     type Sv DescribeClusterSnapshots = Redshift
     type Rs DescribeClusterSnapshots = DescribeClusterSnapshotsResponse

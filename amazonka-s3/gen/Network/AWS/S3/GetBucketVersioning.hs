@@ -111,8 +111,6 @@ instance ToXMLRoot GetBucketVersioning where
 
 instance ToXML GetBucketVersioning
 
-xml
-
 instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
     type Rs GetBucketVersioning = GetBucketVersioningResponse

@@ -105,8 +105,6 @@ instance ToQuery GetPlatformApplicationAttributes where
 
 instance ToHeaders GetPlatformApplicationAttributes
 
-query
-
 instance AWSRequest GetPlatformApplicationAttributes where
     type Sv GetPlatformApplicationAttributes = SNS
     type Rs GetPlatformApplicationAttributes = GetPlatformApplicationAttributesResponse

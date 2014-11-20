@@ -174,8 +174,6 @@ instance ToJSON GetWorkflowExecutionHistory where
         , "reverseOrder"    .= _gwehReverseOrder
         ]
 
-json
-
 instance AWSRequest GetWorkflowExecutionHistory where
     type Sv GetWorkflowExecutionHistory = SWF
     type Rs GetWorkflowExecutionHistory = GetWorkflowExecutionHistoryResponse

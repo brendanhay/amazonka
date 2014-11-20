@@ -395,8 +395,6 @@ instance ToXMLRoot CreateMultipartUpload where
 
 instance ToXML CreateMultipartUpload
 
-xml-headers
-
 instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
     type Rs CreateMultipartUpload = CreateMultipartUploadResponse

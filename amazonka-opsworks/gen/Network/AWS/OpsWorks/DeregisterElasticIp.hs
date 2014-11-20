@@ -88,8 +88,6 @@ instance ToJSON DeregisterElasticIp where
         [ "ElasticIp" .= _dei1ElasticIp
         ]
 
-json
-
 instance AWSRequest DeregisterElasticIp where
     type Sv DeregisterElasticIp = OpsWorks
     type Rs DeregisterElasticIp = DeregisterElasticIpResponse

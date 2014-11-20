@@ -124,8 +124,6 @@ instance ToJSON RegisterDomain where
         , "workflowExecutionRetentionPeriodInDays" .= _rdWorkflowExecutionRetentionPeriodInDays
         ]
 
-json
-
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = SWF
     type Rs RegisterDomain = RegisterDomainResponse

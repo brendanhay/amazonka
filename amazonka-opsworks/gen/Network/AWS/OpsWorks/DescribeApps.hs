@@ -119,8 +119,6 @@ instance ToJSON DescribeApps where
         , "AppIds"  .= _daAppIds
         ]
 
-json
-
 instance AWSRequest DescribeApps where
     type Sv DescribeApps = OpsWorks
     type Rs DescribeApps = DescribeAppsResponse

@@ -136,8 +136,6 @@ instance ToXMLRoot ChangeResourceRecordSets where
 
 instance ToXML ChangeResourceRecordSets
 
-xml
-
 instance AWSRequest ChangeResourceRecordSets where
     type Sv ChangeResourceRecordSets = Route53
     type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse

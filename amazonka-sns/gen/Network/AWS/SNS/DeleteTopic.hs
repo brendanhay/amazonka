@@ -83,8 +83,6 @@ instance ToQuery DeleteTopic where
 
 instance ToHeaders DeleteTopic
 
-query
-
 instance AWSRequest DeleteTopic where
     type Sv DeleteTopic = SNS
     type Rs DeleteTopic = DeleteTopicResponse

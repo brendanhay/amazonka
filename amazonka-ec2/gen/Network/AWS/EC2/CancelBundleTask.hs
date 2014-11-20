@@ -103,8 +103,6 @@ instance ToQuery CancelBundleTask where
 
 instance ToHeaders CancelBundleTask
 
-query
-
 instance AWSRequest CancelBundleTask where
     type Sv CancelBundleTask = EC2
     type Rs CancelBundleTask = CancelBundleTaskResponse

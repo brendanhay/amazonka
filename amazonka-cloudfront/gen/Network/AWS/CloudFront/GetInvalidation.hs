@@ -112,8 +112,6 @@ instance ToXMLRoot GetInvalidation where
 
 instance ToXML GetInvalidation
 
-xml
-
 instance AWSRequest GetInvalidation where
     type Sv GetInvalidation = CloudFront
     type Rs GetInvalidation = GetInvalidationResponse

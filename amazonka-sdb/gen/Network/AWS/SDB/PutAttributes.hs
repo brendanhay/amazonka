@@ -139,8 +139,6 @@ instance ToQuery PutAttributes where
 
 instance ToHeaders PutAttributes
 
-query
-
 instance AWSRequest PutAttributes where
     type Sv PutAttributes = SDB
     type Rs PutAttributes = PutAttributesResponse

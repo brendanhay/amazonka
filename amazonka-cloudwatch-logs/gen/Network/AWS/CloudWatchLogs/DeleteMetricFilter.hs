@@ -92,8 +92,6 @@ instance ToJSON DeleteMetricFilter where
         , "filterName"   .= _dmf1FilterName
         ]
 
-json
-
 instance AWSRequest DeleteMetricFilter where
     type Sv DeleteMetricFilter = CloudWatchLogs
     type Rs DeleteMetricFilter = DeleteMetricFilterResponse

@@ -117,8 +117,6 @@ instance ToJSON PutMetricFilter where
         , "metricTransformations" .= _pmfMetricTransformations
         ]
 
-json
-
 instance AWSRequest PutMetricFilter where
     type Sv PutMetricFilter = CloudWatchLogs
     type Rs PutMetricFilter = PutMetricFilterResponse

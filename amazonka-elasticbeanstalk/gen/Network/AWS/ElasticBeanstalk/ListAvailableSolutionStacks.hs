@@ -91,8 +91,6 @@ instance ToQuery ListAvailableSolutionStacks where
 
 instance ToHeaders ListAvailableSolutionStacks
 
-query
-
 instance AWSRequest ListAvailableSolutionStacks where
     type Sv ListAvailableSolutionStacks = ElasticBeanstalk
     type Rs ListAvailableSolutionStacks = ListAvailableSolutionStacksResponse

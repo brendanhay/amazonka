@@ -88,8 +88,6 @@ instance ToJSON DeleteLayer where
         [ "LayerId" .= _dlLayerId
         ]
 
-json
-
 instance AWSRequest DeleteLayer where
     type Sv DeleteLayer = OpsWorks
     type Rs DeleteLayer = DeleteLayerResponse

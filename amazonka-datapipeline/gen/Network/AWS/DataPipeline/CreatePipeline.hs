@@ -134,8 +134,6 @@ instance ToJSON CreatePipeline where
         , "description" .= _cpDescription
         ]
 
-json
-
 instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = DataPipeline
     type Rs CreatePipeline = CreatePipelineResponse

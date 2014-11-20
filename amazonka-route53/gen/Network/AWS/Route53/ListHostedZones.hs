@@ -181,8 +181,6 @@ instance ToXMLRoot ListHostedZones where
 
 instance ToXML ListHostedZones
 
-xml
-
 instance AWSRequest ListHostedZones where
     type Sv ListHostedZones = Route53
     type Rs ListHostedZones = ListHostedZonesResponse

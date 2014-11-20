@@ -142,8 +142,6 @@ instance ToJSON ListVolumes where
         , "Limit"      .= _lvLimit
         ]
 
-json
-
 instance AWSRequest ListVolumes where
     type Sv ListVolumes = StorageGateway
     type Rs ListVolumes = ListVolumesResponse

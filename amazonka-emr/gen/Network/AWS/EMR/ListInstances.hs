@@ -143,8 +143,6 @@ instance ToJSON ListInstances where
         , "Marker"             .= _liMarker
         ]
 
-json
-
 instance AWSRequest ListInstances where
     type Sv ListInstances = EMR
     type Rs ListInstances = ListInstancesResponse

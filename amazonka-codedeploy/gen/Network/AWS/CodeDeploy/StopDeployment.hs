@@ -107,8 +107,6 @@ instance ToJSON StopDeployment where
         [ "deploymentId" .= _sdDeploymentId
         ]
 
-json
-
 instance AWSRequest StopDeployment where
     type Sv StopDeployment = CodeDeploy
     type Rs StopDeployment = StopDeploymentResponse

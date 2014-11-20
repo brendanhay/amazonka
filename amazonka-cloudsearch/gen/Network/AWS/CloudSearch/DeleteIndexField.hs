@@ -108,8 +108,6 @@ instance ToQuery DeleteIndexField where
 
 instance ToHeaders DeleteIndexField
 
-query
-
 instance AWSRequest DeleteIndexField where
     type Sv DeleteIndexField = CloudSearch
     type Rs DeleteIndexField = DeleteIndexFieldResponse

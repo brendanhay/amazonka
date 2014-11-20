@@ -259,8 +259,6 @@ instance ToJSON AllocatePrivateVirtualInterface where
         , "newPrivateVirtualInterfaceAllocation" .= _apviNewPrivateVirtualInterfaceAllocation
         ]
 
-json
-
 instance AWSRequest AllocatePrivateVirtualInterface where
     type Sv AllocatePrivateVirtualInterface = DirectConnect
     type Rs AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterfaceResponse

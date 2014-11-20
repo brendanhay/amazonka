@@ -112,8 +112,6 @@ instance ToQuery DescribeDomains where
 
 instance ToHeaders DescribeDomains
 
-query
-
 instance AWSRequest DescribeDomains where
     type Sv DescribeDomains = CloudSearch
     type Rs DescribeDomains = DescribeDomainsResponse

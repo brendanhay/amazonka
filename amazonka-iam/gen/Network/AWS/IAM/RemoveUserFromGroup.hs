@@ -91,8 +91,6 @@ instance ToQuery RemoveUserFromGroup where
 
 instance ToHeaders RemoveUserFromGroup
 
-query
-
 instance AWSRequest RemoveUserFromGroup where
     type Sv RemoveUserFromGroup = IAM
     type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse

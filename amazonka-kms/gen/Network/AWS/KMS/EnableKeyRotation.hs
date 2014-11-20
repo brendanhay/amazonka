@@ -84,8 +84,6 @@ instance ToJSON EnableKeyRotation where
         [ "KeyId" .= _ekrKeyId
         ]
 
-json
-
 instance AWSRequest EnableKeyRotation where
     type Sv EnableKeyRotation = KMS
     type Rs EnableKeyRotation = EnableKeyRotationResponse

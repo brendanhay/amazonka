@@ -136,8 +136,6 @@ instance ToXMLRoot UpdateDistribution where
 
 instance ToXML UpdateDistribution
 
-xml-headers
-
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront
     type Rs UpdateDistribution = UpdateDistributionResponse

@@ -83,8 +83,6 @@ instance ToQuery CancelUpdateStack where
 
 instance ToHeaders CancelUpdateStack
 
-query
-
 instance AWSRequest CancelUpdateStack where
     type Sv CancelUpdateStack = CloudFormation
     type Rs CancelUpdateStack = CancelUpdateStackResponse

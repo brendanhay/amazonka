@@ -215,8 +215,6 @@ instance ToQuery GetFederationToken where
 
 instance ToHeaders GetFederationToken
 
-query
-
 instance AWSRequest GetFederationToken where
     type Sv GetFederationToken = STS
     type Rs GetFederationToken = GetFederationTokenResponse

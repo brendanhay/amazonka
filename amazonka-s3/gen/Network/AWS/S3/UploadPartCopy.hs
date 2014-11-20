@@ -367,8 +367,6 @@ instance ToXMLRoot UploadPartCopy where
 
 instance ToXML UploadPartCopy
 
-xml-headers
-
 instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
     type Rs UploadPartCopy = UploadPartCopyResponse

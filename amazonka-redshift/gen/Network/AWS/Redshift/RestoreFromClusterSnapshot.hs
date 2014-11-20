@@ -324,8 +324,6 @@ instance ToQuery RestoreFromClusterSnapshot where
 
 instance ToHeaders RestoreFromClusterSnapshot
 
-query
-
 instance AWSRequest RestoreFromClusterSnapshot where
     type Sv RestoreFromClusterSnapshot = Redshift
     type Rs RestoreFromClusterSnapshot = RestoreFromClusterSnapshotResponse

@@ -122,8 +122,6 @@ instance ToQuery ListDomains where
 
 instance ToHeaders ListDomains
 
-query
-
 instance AWSRequest ListDomains where
     type Sv ListDomains = SDB
     type Rs ListDomains = ListDomainsResponse

@@ -83,8 +83,6 @@ instance ToJSON DeleteAlias where
         [ "AliasName" .= _daAliasName
         ]
 
-json
-
 instance AWSRequest DeleteAlias where
     type Sv DeleteAlias = KMS
     type Rs DeleteAlias = DeleteAliasResponse

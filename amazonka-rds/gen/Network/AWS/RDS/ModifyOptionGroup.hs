@@ -136,8 +136,6 @@ instance ToQuery ModifyOptionGroup where
 
 instance ToHeaders ModifyOptionGroup
 
-query
-
 instance AWSRequest ModifyOptionGroup where
     type Sv ModifyOptionGroup = RDS
     type Rs ModifyOptionGroup = ModifyOptionGroupResponse

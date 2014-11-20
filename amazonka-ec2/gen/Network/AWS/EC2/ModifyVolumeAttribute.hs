@@ -105,8 +105,6 @@ instance ToQuery ModifyVolumeAttribute where
 
 instance ToHeaders ModifyVolumeAttribute
 
-query
-
 instance AWSRequest ModifyVolumeAttribute where
     type Sv ModifyVolumeAttribute = EC2
     type Rs ModifyVolumeAttribute = ModifyVolumeAttributeResponse

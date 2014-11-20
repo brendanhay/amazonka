@@ -163,8 +163,6 @@ instance ToQuery DescribeOrderableClusterOptions where
 
 instance ToHeaders DescribeOrderableClusterOptions
 
-query
-
 instance AWSRequest DescribeOrderableClusterOptions where
     type Sv DescribeOrderableClusterOptions = Redshift
     type Rs DescribeOrderableClusterOptions = DescribeOrderableClusterOptionsResponse

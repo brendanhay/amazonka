@@ -135,8 +135,6 @@ instance ToQuery DescribeInternetGateways where
 
 instance ToHeaders DescribeInternetGateways
 
-query
-
 instance AWSRequest DescribeInternetGateways where
     type Sv DescribeInternetGateways = EC2
     type Rs DescribeInternetGateways = DescribeInternetGatewaysResponse

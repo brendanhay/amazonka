@@ -106,8 +106,6 @@ instance ToQuery CreateSnapshot where
 
 instance ToHeaders CreateSnapshot
 
-query
-
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = ElastiCache
     type Rs CreateSnapshot = CreateSnapshotResponse

@@ -100,8 +100,6 @@ instance ToQuery AddClientIDToOpenIDConnectProvider where
 
 instance ToHeaders AddClientIDToOpenIDConnectProvider
 
-query
-
 instance AWSRequest AddClientIDToOpenIDConnectProvider where
     type Sv AddClientIDToOpenIDConnectProvider = IAM
     type Rs AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProviderResponse

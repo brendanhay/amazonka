@@ -121,8 +121,6 @@ instance ToQuery EnableMFADevice where
 
 instance ToHeaders EnableMFADevice
 
-query
-
 instance AWSRequest EnableMFADevice where
     type Sv EnableMFADevice = IAM
     type Rs EnableMFADevice = EnableMFADeviceResponse

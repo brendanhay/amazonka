@@ -102,8 +102,6 @@ instance ToQuery DeleteMessage where
 
 instance ToHeaders DeleteMessage
 
-query
-
 instance AWSRequest DeleteMessage where
     type Sv DeleteMessage = SQS
     type Rs DeleteMessage = DeleteMessageResponse

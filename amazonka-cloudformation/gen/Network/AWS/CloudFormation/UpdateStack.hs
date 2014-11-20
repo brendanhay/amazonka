@@ -256,8 +256,6 @@ instance ToQuery UpdateStack where
 
 instance ToHeaders UpdateStack
 
-query
-
 instance AWSRequest UpdateStack where
     type Sv UpdateStack = CloudFormation
     type Rs UpdateStack = UpdateStackResponse

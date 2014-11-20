@@ -96,8 +96,6 @@ instance ToJSON AddTagsToStream where
         , "Tags"       .= _attsTags
         ]
 
-json
-
 instance AWSRequest AddTagsToStream where
     type Sv AddTagsToStream = Kinesis
     type Rs AddTagsToStream = AddTagsToStreamResponse

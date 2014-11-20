@@ -93,8 +93,6 @@ instance ToQuery CancelJob where
 
 instance ToHeaders CancelJob
 
-query
-
 instance AWSRequest CancelJob where
     type Sv CancelJob = ImportExport
     type Rs CancelJob = CancelJobResponse

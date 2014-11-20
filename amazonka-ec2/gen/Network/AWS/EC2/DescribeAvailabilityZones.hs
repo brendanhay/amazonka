@@ -129,8 +129,6 @@ instance ToQuery DescribeAvailabilityZones where
 
 instance ToHeaders DescribeAvailabilityZones
 
-query
-
 instance AWSRequest DescribeAvailabilityZones where
     type Sv DescribeAvailabilityZones = EC2
     type Rs DescribeAvailabilityZones = DescribeAvailabilityZonesResponse

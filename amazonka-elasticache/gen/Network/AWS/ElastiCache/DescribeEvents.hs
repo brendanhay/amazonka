@@ -180,8 +180,6 @@ instance ToQuery DescribeEvents where
 
 instance ToHeaders DescribeEvents
 
-query
-
 instance AWSRequest DescribeEvents where
     type Sv DescribeEvents = ElastiCache
     type Rs DescribeEvents = DescribeEventsResponse

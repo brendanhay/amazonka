@@ -112,8 +112,6 @@ instance ToQuery DeleteNetworkAclEntry where
 
 instance ToHeaders DeleteNetworkAclEntry
 
-query
-
 instance AWSRequest DeleteNetworkAclEntry where
     type Sv DeleteNetworkAclEntry = EC2
     type Rs DeleteNetworkAclEntry = DeleteNetworkAclEntryResponse

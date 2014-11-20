@@ -157,8 +157,6 @@ instance ToJSON UploadDocuments where
         [ "documents" .= _udDocuments
         ]
 
-json-headers
-
 instance AWSRequest UploadDocuments where
     type Sv UploadDocuments = CloudSearchDomains
     type Rs UploadDocuments = UploadDocumentsResponse

@@ -104,8 +104,6 @@ instance ToQuery DescribeExportTasks where
 
 instance ToHeaders DescribeExportTasks
 
-query
-
 instance AWSRequest DescribeExportTasks where
     type Sv DescribeExportTasks = EC2
     type Rs DescribeExportTasks = DescribeExportTasksResponse

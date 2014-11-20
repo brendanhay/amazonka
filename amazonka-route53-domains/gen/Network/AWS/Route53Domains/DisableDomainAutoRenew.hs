@@ -83,8 +83,6 @@ instance ToJSON DisableDomainAutoRenew where
         [ "DomainName" .= _ddarDomainName
         ]
 
-json
-
 instance AWSRequest DisableDomainAutoRenew where
     type Sv DisableDomainAutoRenew = Route53Domains
     type Rs DisableDomainAutoRenew = DisableDomainAutoRenewResponse

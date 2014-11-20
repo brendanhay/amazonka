@@ -181,8 +181,6 @@ instance ToQuery CreateNetworkAclEntry where
 
 instance ToHeaders CreateNetworkAclEntry
 
-query
-
 instance AWSRequest CreateNetworkAclEntry where
     type Sv CreateNetworkAclEntry = EC2
     type Rs CreateNetworkAclEntry = CreateNetworkAclEntryResponse

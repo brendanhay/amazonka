@@ -126,8 +126,6 @@ instance ToJSON ListSteps where
         , "Marker"     .= _lsMarker
         ]
 
-json
-
 instance AWSRequest ListSteps where
     type Sv ListSteps = EMR
     type Rs ListSteps = ListStepsResponse

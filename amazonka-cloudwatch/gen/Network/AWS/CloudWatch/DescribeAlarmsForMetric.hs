@@ -154,8 +154,6 @@ instance ToQuery DescribeAlarmsForMetric where
 
 instance ToHeaders DescribeAlarmsForMetric
 
-query
-
 instance AWSRequest DescribeAlarmsForMetric where
     type Sv DescribeAlarmsForMetric = CloudWatch
     type Rs DescribeAlarmsForMetric = DescribeAlarmsForMetricResponse

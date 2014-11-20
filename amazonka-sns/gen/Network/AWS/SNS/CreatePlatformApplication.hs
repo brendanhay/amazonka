@@ -134,8 +134,6 @@ instance ToQuery CreatePlatformApplication where
 
 instance ToHeaders CreatePlatformApplication
 
-query
-
 instance AWSRequest CreatePlatformApplication where
     type Sv CreatePlatformApplication = SNS
     type Rs CreatePlatformApplication = CreatePlatformApplicationResponse

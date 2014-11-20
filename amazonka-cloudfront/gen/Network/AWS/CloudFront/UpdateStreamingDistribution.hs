@@ -139,8 +139,6 @@ instance ToXMLRoot UpdateStreamingDistribution where
 
 instance ToXML UpdateStreamingDistribution
 
-xml-headers
-
 instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront
     type Rs UpdateStreamingDistribution = UpdateStreamingDistributionResponse

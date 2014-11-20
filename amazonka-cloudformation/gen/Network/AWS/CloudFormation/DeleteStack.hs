@@ -82,8 +82,6 @@ instance ToQuery DeleteStack where
 
 instance ToHeaders DeleteStack
 
-query
-
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = CloudFormation
     type Rs DeleteStack = DeleteStackResponse

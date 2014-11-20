@@ -82,8 +82,6 @@ instance ToQuery DeleteHsmClientCertificate where
 
 instance ToHeaders DeleteHsmClientCertificate
 
-query
-
 instance AWSRequest DeleteHsmClientCertificate where
     type Sv DeleteHsmClientCertificate = Redshift
     type Rs DeleteHsmClientCertificate = DeleteHsmClientCertificateResponse

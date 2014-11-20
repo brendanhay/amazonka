@@ -140,8 +140,6 @@ instance ToJSON DescribeWorkflowType where
         , "workflowType" .= _dwtWorkflowType
         ]
 
-json
-
 instance AWSRequest DescribeWorkflowType where
     type Sv DescribeWorkflowType = SWF
     type Rs DescribeWorkflowType = DescribeWorkflowTypeResponse

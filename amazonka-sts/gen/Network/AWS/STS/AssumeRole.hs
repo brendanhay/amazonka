@@ -268,8 +268,6 @@ instance ToQuery AssumeRole where
 
 instance ToHeaders AssumeRole
 
-query
-
 instance AWSRequest AssumeRole where
     type Sv AssumeRole = STS
     type Rs AssumeRole = AssumeRoleResponse

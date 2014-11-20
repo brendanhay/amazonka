@@ -218,8 +218,6 @@ instance ToXMLRoot CreateHostedZone where
 
 instance ToXML CreateHostedZone
 
-xml
-
 instance AWSRequest CreateHostedZone where
     type Sv CreateHostedZone = Route53
     type Rs CreateHostedZone = CreateHostedZoneResponse

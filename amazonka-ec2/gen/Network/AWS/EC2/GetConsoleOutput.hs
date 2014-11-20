@@ -133,8 +133,6 @@ instance ToQuery GetConsoleOutput where
 
 instance ToHeaders GetConsoleOutput
 
-query
-
 instance AWSRequest GetConsoleOutput where
     type Sv GetConsoleOutput = EC2
     type Rs GetConsoleOutput = GetConsoleOutputResponse

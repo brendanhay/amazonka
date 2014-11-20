@@ -140,8 +140,6 @@ instance ToHeaders ListJobsByStatus
 instance ToJSON ListJobsByStatus where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest ListJobsByStatus where
     type Sv ListJobsByStatus = ElasticTranscoder
     type Rs ListJobsByStatus = ListJobsByStatusResponse

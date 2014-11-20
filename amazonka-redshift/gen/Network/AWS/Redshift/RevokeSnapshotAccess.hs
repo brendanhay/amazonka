@@ -127,8 +127,6 @@ instance ToQuery RevokeSnapshotAccess where
 
 instance ToHeaders RevokeSnapshotAccess
 
-query
-
 instance AWSRequest RevokeSnapshotAccess where
     type Sv RevokeSnapshotAccess = Redshift
     type Rs RevokeSnapshotAccess = RevokeSnapshotAccessResponse

@@ -109,8 +109,6 @@ instance ToQuery ReleaseAddress where
 
 instance ToHeaders ReleaseAddress
 
-query
-
 instance AWSRequest ReleaseAddress where
     type Sv ReleaseAddress = EC2
     type Rs ReleaseAddress = ReleaseAddressResponse

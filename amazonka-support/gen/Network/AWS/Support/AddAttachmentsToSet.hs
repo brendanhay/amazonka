@@ -132,8 +132,6 @@ instance ToJSON AddAttachmentsToSet where
         , "attachments"     .= _aatsAttachments
         ]
 
-json
-
 instance AWSRequest AddAttachmentsToSet where
     type Sv AddAttachmentsToSet = Support
     type Rs AddAttachmentsToSet = AddAttachmentsToSetResponse

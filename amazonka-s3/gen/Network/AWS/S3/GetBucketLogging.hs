@@ -100,8 +100,6 @@ instance ToXMLRoot GetBucketLogging where
 
 instance ToXML GetBucketLogging
 
-xml
-
 instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
     type Rs GetBucketLogging = GetBucketLoggingResponse

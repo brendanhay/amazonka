@@ -96,8 +96,6 @@ instance ToQuery RebuildEnvironment where
 
 instance ToHeaders RebuildEnvironment
 
-query
-
 instance AWSRequest RebuildEnvironment where
     type Sv RebuildEnvironment = ElasticBeanstalk
     type Rs RebuildEnvironment = RebuildEnvironmentResponse

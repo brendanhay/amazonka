@@ -116,8 +116,6 @@ instance ToQuery ListPlatformApplications where
 
 instance ToHeaders ListPlatformApplications
 
-query
-
 instance AWSRequest ListPlatformApplications where
     type Sv ListPlatformApplications = SNS
     type Rs ListPlatformApplications = ListPlatformApplicationsResponse

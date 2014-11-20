@@ -124,8 +124,6 @@ instance ToJSON CreateKey where
         , "KeyUsage"    .= _ckKeyUsage
         ]
 
-json
-
 instance AWSRequest CreateKey where
     type Sv CreateKey = KMS
     type Rs CreateKey = CreateKeyResponse

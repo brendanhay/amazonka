@@ -111,8 +111,6 @@ instance ToQuery UpdateScalingParameters where
 
 instance ToHeaders UpdateScalingParameters
 
-query
-
 instance AWSRequest UpdateScalingParameters where
     type Sv UpdateScalingParameters = CloudSearch
     type Rs UpdateScalingParameters = UpdateScalingParametersResponse

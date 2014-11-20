@@ -145,8 +145,6 @@ instance ToQuery DescribeVpcPeeringConnections where
 
 instance ToHeaders DescribeVpcPeeringConnections
 
-query
-
 instance AWSRequest DescribeVpcPeeringConnections where
     type Sv DescribeVpcPeeringConnections = EC2
     type Rs DescribeVpcPeeringConnections = DescribeVpcPeeringConnectionsResponse

@@ -114,8 +114,6 @@ instance ToQuery SetLoadBalancerListenerSSLCertificate where
 
 instance ToHeaders SetLoadBalancerListenerSSLCertificate
 
-query
-
 instance AWSRequest SetLoadBalancerListenerSSLCertificate where
     type Sv SetLoadBalancerListenerSSLCertificate = ELB
     type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse

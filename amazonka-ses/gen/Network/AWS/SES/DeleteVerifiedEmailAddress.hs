@@ -83,8 +83,6 @@ instance ToQuery DeleteVerifiedEmailAddress where
 
 instance ToHeaders DeleteVerifiedEmailAddress
 
-query
-
 instance AWSRequest DeleteVerifiedEmailAddress where
     type Sv DeleteVerifiedEmailAddress = SES
     type Rs DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddressResponse

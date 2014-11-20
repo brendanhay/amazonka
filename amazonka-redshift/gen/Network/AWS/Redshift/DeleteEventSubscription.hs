@@ -82,8 +82,6 @@ instance ToQuery DeleteEventSubscription where
 
 instance ToHeaders DeleteEventSubscription
 
-query
-
 instance AWSRequest DeleteEventSubscription where
     type Sv DeleteEventSubscription = Redshift
     type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse

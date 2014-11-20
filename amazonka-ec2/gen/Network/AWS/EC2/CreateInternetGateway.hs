@@ -96,8 +96,6 @@ instance ToQuery CreateInternetGateway where
 
 instance ToHeaders CreateInternetGateway
 
-query
-
 instance AWSRequest CreateInternetGateway where
     type Sv CreateInternetGateway = EC2
     type Rs CreateInternetGateway = CreateInternetGatewayResponse

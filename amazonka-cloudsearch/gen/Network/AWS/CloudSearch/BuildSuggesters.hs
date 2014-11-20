@@ -99,8 +99,6 @@ instance ToQuery BuildSuggesters where
 
 instance ToHeaders BuildSuggesters
 
-query
-
 instance AWSRequest BuildSuggesters where
     type Sv BuildSuggesters = CloudSearch
     type Rs BuildSuggesters = BuildSuggestersResponse

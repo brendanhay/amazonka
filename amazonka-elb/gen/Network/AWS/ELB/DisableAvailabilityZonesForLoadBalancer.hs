@@ -128,8 +128,6 @@ instance ToQuery DisableAvailabilityZonesForLoadBalancer where
 
 instance ToHeaders DisableAvailabilityZonesForLoadBalancer
 
-query
-
 instance AWSRequest DisableAvailabilityZonesForLoadBalancer where
     type Sv DisableAvailabilityZonesForLoadBalancer = ELB
     type Rs DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancerResponse

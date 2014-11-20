@@ -89,8 +89,6 @@ instance ToQuery DeleteKeyPair where
 
 instance ToHeaders DeleteKeyPair
 
-query
-
 instance AWSRequest DeleteKeyPair where
     type Sv DeleteKeyPair = EC2
     type Rs DeleteKeyPair = DeleteKeyPairResponse

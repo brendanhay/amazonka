@@ -94,8 +94,6 @@ instance ToJSON UpdateApplication where
         , "newApplicationName" .= _uaNewApplicationName
         ]
 
-json
-
 instance AWSRequest UpdateApplication where
     type Sv UpdateApplication = CodeDeploy
     type Rs UpdateApplication = UpdateApplicationResponse

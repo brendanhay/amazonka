@@ -112,8 +112,6 @@ instance ToXMLRoot GetCloudFrontOriginAccessIdentityConfig where
 
 instance ToXML GetCloudFrontOriginAccessIdentityConfig
 
-xml
-
 instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     type Sv GetCloudFrontOriginAccessIdentityConfig = CloudFront
     type Rs GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfigResponse

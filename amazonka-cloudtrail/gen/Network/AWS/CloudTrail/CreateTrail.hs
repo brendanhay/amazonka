@@ -237,8 +237,6 @@ instance ToJSON CreateTrail where
         , "CloudWatchLogsRoleArn"      .= _ctCloudWatchLogsRoleArn
         ]
 
-json
-
 instance AWSRequest CreateTrail where
     type Sv CreateTrail = CloudTrail
     type Rs CreateTrail = CreateTrailResponse

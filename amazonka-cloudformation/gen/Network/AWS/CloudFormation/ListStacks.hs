@@ -126,8 +126,6 @@ instance ToQuery ListStacks where
 
 instance ToHeaders ListStacks
 
-query
-
 instance AWSRequest ListStacks where
     type Sv ListStacks = CloudFormation
     type Rs ListStacks = ListStacksResponse

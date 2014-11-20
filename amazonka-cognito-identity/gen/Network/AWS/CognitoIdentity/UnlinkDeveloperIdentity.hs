@@ -126,8 +126,6 @@ instance ToJSON UnlinkDeveloperIdentity where
         , "DeveloperUserIdentifier" .= _udiDeveloperUserIdentifier
         ]
 
-json
-
 instance AWSRequest UnlinkDeveloperIdentity where
     type Sv UnlinkDeveloperIdentity = CognitoIdentity
     type Rs UnlinkDeveloperIdentity = UnlinkDeveloperIdentityResponse

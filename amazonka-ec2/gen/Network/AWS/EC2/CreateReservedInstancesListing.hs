@@ -160,8 +160,6 @@ instance ToQuery CreateReservedInstancesListing where
 
 instance ToHeaders CreateReservedInstancesListing
 
-query
-
 instance AWSRequest CreateReservedInstancesListing where
     type Sv CreateReservedInstancesListing = EC2
     type Rs CreateReservedInstancesListing = CreateReservedInstancesListingResponse

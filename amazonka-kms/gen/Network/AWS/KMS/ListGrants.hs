@@ -144,8 +144,6 @@ instance ToJSON ListGrants where
         , "Marker" .= _lgMarker
         ]
 
-json
-
 instance AWSRequest ListGrants where
     type Sv ListGrants = KMS
     type Rs ListGrants = ListGrantsResponse

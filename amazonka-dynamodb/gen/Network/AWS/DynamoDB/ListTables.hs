@@ -132,8 +132,6 @@ instance ToJSON ListTables where
         , "Limit"                   .= _ltLimit
         ]
 
-json
-
 instance AWSRequest ListTables where
     type Sv ListTables = DynamoDB
     type Rs ListTables = ListTablesResponse

@@ -227,8 +227,6 @@ instance ToQuery DescribeInstanceStatus where
 
 instance ToHeaders DescribeInstanceStatus
 
-query
-
 instance AWSRequest DescribeInstanceStatus where
     type Sv DescribeInstanceStatus = EC2
     type Rs DescribeInstanceStatus = DescribeInstanceStatusResponse

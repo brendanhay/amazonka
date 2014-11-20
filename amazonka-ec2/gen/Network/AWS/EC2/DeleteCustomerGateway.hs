@@ -91,8 +91,6 @@ instance ToQuery DeleteCustomerGateway where
 
 instance ToHeaders DeleteCustomerGateway
 
-query
-
 instance AWSRequest DeleteCustomerGateway where
     type Sv DeleteCustomerGateway = EC2
     type Rs DeleteCustomerGateway = DeleteCustomerGatewayResponse

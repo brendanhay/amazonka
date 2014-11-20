@@ -116,8 +116,6 @@ instance ToXMLRoot GetHealthCheckLastFailureReason where
 
 instance ToXML GetHealthCheckLastFailureReason
 
-xml
-
 instance AWSRequest GetHealthCheckLastFailureReason where
     type Sv GetHealthCheckLastFailureReason = Route53
     type Rs GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReasonResponse

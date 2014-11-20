@@ -278,8 +278,6 @@ instance ToQuery DescribeInstances where
 
 instance ToHeaders DescribeInstances
 
-query
-
 instance AWSRequest DescribeInstances where
     type Sv DescribeInstances = EC2
     type Rs DescribeInstances = DescribeInstancesResponse

@@ -97,8 +97,6 @@ instance ToJSON UpdateElasticIp where
         , "Name"      .= _ueiName
         ]
 
-json
-
 instance AWSRequest UpdateElasticIp where
     type Sv UpdateElasticIp = OpsWorks
     type Rs UpdateElasticIp = UpdateElasticIpResponse

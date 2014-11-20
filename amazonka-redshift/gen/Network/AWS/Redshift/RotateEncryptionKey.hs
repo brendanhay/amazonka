@@ -96,8 +96,6 @@ instance ToQuery RotateEncryptionKey where
 
 instance ToHeaders RotateEncryptionKey
 
-query
-
 instance AWSRequest RotateEncryptionKey where
     type Sv RotateEncryptionKey = Redshift
     type Rs RotateEncryptionKey = RotateEncryptionKeyResponse

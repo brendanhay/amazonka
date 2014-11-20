@@ -181,8 +181,6 @@ instance ToXMLRoot PutObjectAcl where
 
 instance ToXML PutObjectAcl
 
-xml-headers
-
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
     type Rs PutObjectAcl = PutObjectAclResponse

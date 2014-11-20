@@ -85,8 +85,6 @@ instance ToXMLRoot DeleteBucketTagging where
 
 instance ToXML DeleteBucketTagging
 
-xml
-
 instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
     type Rs DeleteBucketTagging = DeleteBucketTaggingResponse

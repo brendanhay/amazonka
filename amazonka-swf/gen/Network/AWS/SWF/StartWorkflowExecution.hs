@@ -243,8 +243,6 @@ instance ToJSON StartWorkflowExecution where
         , "childPolicy"                  .= _swe1ChildPolicy
         ]
 
-json
-
 instance AWSRequest StartWorkflowExecution where
     type Sv StartWorkflowExecution = SWF
     type Rs StartWorkflowExecution = StartWorkflowExecutionResponse

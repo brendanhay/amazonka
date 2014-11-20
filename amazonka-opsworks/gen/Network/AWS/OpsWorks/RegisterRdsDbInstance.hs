@@ -117,8 +117,6 @@ instance ToJSON RegisterRdsDbInstance where
         , "DbPassword"       .= _rrdiDbPassword
         ]
 
-json
-
 instance AWSRequest RegisterRdsDbInstance where
     type Sv RegisterRdsDbInstance = OpsWorks
     type Rs RegisterRdsDbInstance = RegisterRdsDbInstanceResponse

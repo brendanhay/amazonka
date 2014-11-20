@@ -242,8 +242,6 @@ instance ToJSON UpdateLayer where
         , "UseEbsOptimizedInstances" .= _ulUseEbsOptimizedInstances
         ]
 
-json
-
 instance AWSRequest UpdateLayer where
     type Sv UpdateLayer = OpsWorks
     type Rs UpdateLayer = UpdateLayerResponse

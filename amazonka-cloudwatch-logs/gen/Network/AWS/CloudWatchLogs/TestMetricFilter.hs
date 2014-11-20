@@ -115,8 +115,6 @@ instance ToJSON TestMetricFilter where
         , "logEventMessages" .= _tmfLogEventMessages
         ]
 
-json
-
 instance AWSRequest TestMetricFilter where
     type Sv TestMetricFilter = CloudWatchLogs
     type Rs TestMetricFilter = TestMetricFilterResponse

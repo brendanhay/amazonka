@@ -115,8 +115,6 @@ instance ToQuery DeleteCacheCluster where
 
 instance ToHeaders DeleteCacheCluster
 
-query
-
 instance AWSRequest DeleteCacheCluster where
     type Sv DeleteCacheCluster = ElastiCache
     type Rs DeleteCacheCluster = DeleteCacheClusterResponse

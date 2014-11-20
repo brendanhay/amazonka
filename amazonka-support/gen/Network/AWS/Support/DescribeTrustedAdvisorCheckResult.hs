@@ -117,8 +117,6 @@ instance ToJSON DescribeTrustedAdvisorCheckResult where
         , "language" .= _dtacrLanguage
         ]
 
-json
-
 instance AWSRequest DescribeTrustedAdvisorCheckResult where
     type Sv DescribeTrustedAdvisorCheckResult = Support
     type Rs DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResultResponse

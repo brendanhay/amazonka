@@ -129,8 +129,6 @@ instance ToQuery GetUserPolicy where
 
 instance ToHeaders GetUserPolicy
 
-query
-
 instance AWSRequest GetUserPolicy where
     type Sv GetUserPolicy = IAM
     type Rs GetUserPolicy = GetUserPolicyResponse

@@ -166,8 +166,6 @@ instance ToQuery CreateHsmConfiguration where
 
 instance ToHeaders CreateHsmConfiguration
 
-query
-
 instance AWSRequest CreateHsmConfiguration where
     type Sv CreateHsmConfiguration = Redshift
     type Rs CreateHsmConfiguration = CreateHsmConfigurationResponse

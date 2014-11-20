@@ -126,8 +126,6 @@ instance ToQuery ModifyClusterParameterGroup where
 
 instance ToHeaders ModifyClusterParameterGroup
 
-query
-
 instance AWSRequest ModifyClusterParameterGroup where
     type Sv ModifyClusterParameterGroup = Redshift
     type Rs ModifyClusterParameterGroup = ModifyClusterParameterGroupResponse

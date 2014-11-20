@@ -122,8 +122,6 @@ instance ToJSON UpdateUserProfile where
         , "AllowSelfManagement" .= _uupAllowSelfManagement
         ]
 
-json
-
 instance AWSRequest UpdateUserProfile where
     type Sv UpdateUserProfile = OpsWorks
     type Rs UpdateUserProfile = UpdateUserProfileResponse

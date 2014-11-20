@@ -441,8 +441,6 @@ instance ToHeaders Search
 instance ToJSON Search where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest Search where
     type Sv Search = CloudSearchDomains
     type Rs Search = SearchResponse

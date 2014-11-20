@@ -115,8 +115,6 @@ instance ToXMLRoot GetHealthCheckStatus where
 
 instance ToXML GetHealthCheckStatus
 
-xml
-
 instance AWSRequest GetHealthCheckStatus where
     type Sv GetHealthCheckStatus = Route53
     type Rs GetHealthCheckStatus = GetHealthCheckStatusResponse

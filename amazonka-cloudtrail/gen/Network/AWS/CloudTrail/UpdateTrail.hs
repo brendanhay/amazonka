@@ -239,8 +239,6 @@ instance ToJSON UpdateTrail where
         , "CloudWatchLogsRoleArn"      .= _utCloudWatchLogsRoleArn
         ]
 
-json
-
 instance AWSRequest UpdateTrail where
     type Sv UpdateTrail = CloudTrail
     type Rs UpdateTrail = UpdateTrailResponse

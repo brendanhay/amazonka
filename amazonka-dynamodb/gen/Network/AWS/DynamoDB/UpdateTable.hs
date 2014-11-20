@@ -133,8 +133,6 @@ instance ToJSON UpdateTable where
         , "GlobalSecondaryIndexUpdates" .= _utGlobalSecondaryIndexUpdates
         ]
 
-json
-
 instance AWSRequest UpdateTable where
     type Sv UpdateTable = DynamoDB
     type Rs UpdateTable = UpdateTableResponse

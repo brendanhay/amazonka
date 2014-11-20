@@ -238,8 +238,6 @@ instance ToXMLRoot ListObjects where
 
 instance ToXML ListObjects
 
-xml
-
 instance AWSRequest ListObjects where
     type Sv ListObjects = S3
     type Rs ListObjects = ListObjectsResponse

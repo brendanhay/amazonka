@@ -237,8 +237,6 @@ instance ToXMLRoot ListParts where
 
 instance ToXML ListParts
 
-xml
-
 instance AWSRequest ListParts where
     type Sv ListParts = S3
     type Rs ListParts = ListPartsResponse

@@ -149,8 +149,6 @@ instance ToJSON TestRole where
         , "Topics"       .= _trTopics
         ]
 
-json
-
 instance AWSRequest TestRole where
     type Sv TestRole = ElasticTranscoder
     type Rs TestRole = TestRoleResponse

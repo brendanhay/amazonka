@@ -122,8 +122,6 @@ instance ToQuery CreateLoginProfile where
 
 instance ToHeaders CreateLoginProfile
 
-query
-
 instance AWSRequest CreateLoginProfile where
     type Sv CreateLoginProfile = IAM
     type Rs CreateLoginProfile = CreateLoginProfileResponse

@@ -98,8 +98,6 @@ instance ToQuery DisableSnapshotCopy where
 
 instance ToHeaders DisableSnapshotCopy
 
-query
-
 instance AWSRequest DisableSnapshotCopy where
     type Sv DisableSnapshotCopy = Redshift
     type Rs DisableSnapshotCopy = DisableSnapshotCopyResponse

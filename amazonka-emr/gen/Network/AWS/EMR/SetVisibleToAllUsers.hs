@@ -103,8 +103,6 @@ instance ToJSON SetVisibleToAllUsers where
         , "VisibleToAllUsers" .= _svtauVisibleToAllUsers
         ]
 
-json
-
 instance AWSRequest SetVisibleToAllUsers where
     type Sv SetVisibleToAllUsers = EMR
     type Rs SetVisibleToAllUsers = SetVisibleToAllUsersResponse

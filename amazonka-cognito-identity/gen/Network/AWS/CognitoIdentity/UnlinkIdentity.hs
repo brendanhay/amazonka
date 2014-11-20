@@ -106,8 +106,6 @@ instance ToJSON UnlinkIdentity where
         , "LoginsToRemove" .= _uiLoginsToRemove
         ]
 
-json
-
 instance AWSRequest UnlinkIdentity where
     type Sv UnlinkIdentity = CognitoIdentity
     type Rs UnlinkIdentity = UnlinkIdentityResponse

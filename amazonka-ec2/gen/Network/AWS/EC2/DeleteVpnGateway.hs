@@ -93,8 +93,6 @@ instance ToQuery DeleteVpnGateway where
 
 instance ToHeaders DeleteVpnGateway
 
-query
-
 instance AWSRequest DeleteVpnGateway where
     type Sv DeleteVpnGateway = EC2
     type Rs DeleteVpnGateway = DeleteVpnGatewayResponse

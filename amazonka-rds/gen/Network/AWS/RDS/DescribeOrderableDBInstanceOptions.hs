@@ -193,8 +193,6 @@ instance ToQuery DescribeOrderableDBInstanceOptions where
 
 instance ToHeaders DescribeOrderableDBInstanceOptions
 
-query
-
 instance AWSRequest DescribeOrderableDBInstanceOptions where
     type Sv DescribeOrderableDBInstanceOptions = RDS
     type Rs DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptionsResponse

@@ -174,8 +174,6 @@ instance ToQuery DescribeDBSnapshots where
 
 instance ToHeaders DescribeDBSnapshots
 
-query
-
 instance AWSRequest DescribeDBSnapshots where
     type Sv DescribeDBSnapshots = RDS
     type Rs DescribeDBSnapshots = DescribeDBSnapshotsResponse

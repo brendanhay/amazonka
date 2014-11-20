@@ -519,8 +519,6 @@ instance ToXMLRoot GetObject where
 
 instance ToXML GetObject
 
-xml-headers
-
 instance AWSRequest GetObject where
     type Sv GetObject = S3
     type Rs GetObject = GetObjectResponse

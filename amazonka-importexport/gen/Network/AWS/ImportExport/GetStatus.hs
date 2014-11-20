@@ -222,8 +222,6 @@ instance ToQuery GetStatus where
 
 instance ToHeaders GetStatus
 
-query
-
 instance AWSRequest GetStatus where
     type Sv GetStatus = ImportExport
     type Rs GetStatus = GetStatusResponse

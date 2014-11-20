@@ -143,8 +143,6 @@ instance ToJSON DescribeMetricFilters where
         , "limit"            .= _dmfLimit
         ]
 
-json
-
 instance AWSRequest DescribeMetricFilters where
     type Sv DescribeMetricFilters = CloudWatchLogs
     type Rs DescribeMetricFilters = DescribeMetricFiltersResponse

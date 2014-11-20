@@ -241,8 +241,6 @@ instance ToJSON AddEventSource where
         , "Parameters"   .= _aesParameters
         ]
 
-json
-
 instance AWSRequest AddEventSource where
     type Sv AddEventSource = Lambda
     type Rs AddEventSource = AddEventSourceResponse

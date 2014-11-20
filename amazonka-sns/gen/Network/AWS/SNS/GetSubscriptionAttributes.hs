@@ -103,8 +103,6 @@ instance ToQuery GetSubscriptionAttributes where
 
 instance ToHeaders GetSubscriptionAttributes
 
-query
-
 instance AWSRequest GetSubscriptionAttributes where
     type Sv GetSubscriptionAttributes = SNS
     type Rs GetSubscriptionAttributes = GetSubscriptionAttributesResponse

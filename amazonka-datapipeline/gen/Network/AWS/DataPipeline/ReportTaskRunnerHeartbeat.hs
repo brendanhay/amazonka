@@ -133,8 +133,6 @@ instance ToJSON ReportTaskRunnerHeartbeat where
         , "hostname"     .= _rtrhHostname
         ]
 
-json
-
 instance AWSRequest ReportTaskRunnerHeartbeat where
     type Sv ReportTaskRunnerHeartbeat = DataPipeline
     type Rs ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeatResponse

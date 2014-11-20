@@ -187,8 +187,6 @@ instance ToJSON ListApplicationRevisions where
         , "nextToken"       .= _larNextToken
         ]
 
-json
-
 instance AWSRequest ListApplicationRevisions where
     type Sv ListApplicationRevisions = CodeDeploy
     type Rs ListApplicationRevisions = ListApplicationRevisionsResponse

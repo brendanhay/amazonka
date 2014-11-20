@@ -95,8 +95,6 @@ instance ToXMLRoot GetCheckerIpRanges where
 
 instance ToXML GetCheckerIpRanges
 
-xml
-
 instance AWSRequest GetCheckerIpRanges where
     type Sv GetCheckerIpRanges = Route53
     type Rs GetCheckerIpRanges = GetCheckerIpRangesResponse

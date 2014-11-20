@@ -160,8 +160,6 @@ instance ToJSON GetRecords where
         , "Limit"         .= _grLimit
         ]
 
-json
-
 instance AWSRequest GetRecords where
     type Sv GetRecords = Kinesis
     type Rs GetRecords = GetRecordsResponse

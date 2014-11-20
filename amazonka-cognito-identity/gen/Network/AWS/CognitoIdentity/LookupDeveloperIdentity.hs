@@ -183,8 +183,6 @@ instance ToJSON LookupDeveloperIdentity where
         , "NextToken"               .= _ldiNextToken
         ]
 
-json
-
 instance AWSRequest LookupDeveloperIdentity where
     type Sv LookupDeveloperIdentity = CognitoIdentity
     type Rs LookupDeveloperIdentity = LookupDeveloperIdentityResponse

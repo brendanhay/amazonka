@@ -130,8 +130,6 @@ instance ToXMLRoot ListInvalidations where
 
 instance ToXML ListInvalidations
 
-xml
-
 instance AWSRequest ListInvalidations where
     type Sv ListInvalidations = CloudFront
     type Rs ListInvalidations = ListInvalidationsResponse

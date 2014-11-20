@@ -82,8 +82,6 @@ instance ToQuery DeleteHsmConfiguration where
 
 instance ToHeaders DeleteHsmConfiguration
 
-query
-
 instance AWSRequest DeleteHsmConfiguration where
     type Sv DeleteHsmConfiguration = Redshift
     type Rs DeleteHsmConfiguration = DeleteHsmConfigurationResponse

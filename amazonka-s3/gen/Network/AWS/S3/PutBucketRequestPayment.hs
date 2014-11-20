@@ -112,8 +112,6 @@ instance ToXMLRoot PutBucketRequestPayment where
 
 instance ToXML PutBucketRequestPayment
 
-xml-headers
-
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
     type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse

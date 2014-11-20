@@ -91,8 +91,6 @@ instance ToQuery DeleteRolePolicy where
 
 instance ToHeaders DeleteRolePolicy
 
-query
-
 instance AWSRequest DeleteRolePolicy where
     type Sv DeleteRolePolicy = IAM
     type Rs DeleteRolePolicy = DeleteRolePolicyResponse

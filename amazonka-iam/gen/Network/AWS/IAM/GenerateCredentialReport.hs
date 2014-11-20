@@ -88,8 +88,6 @@ instance ToQuery GenerateCredentialReport where
 
 instance ToHeaders GenerateCredentialReport
 
-query
-
 instance AWSRequest GenerateCredentialReport where
     type Sv GenerateCredentialReport = IAM
     type Rs GenerateCredentialReport = GenerateCredentialReportResponse

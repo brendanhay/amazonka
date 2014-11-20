@@ -114,8 +114,6 @@ instance ToQuery UpdateSAMLProvider where
 
 instance ToHeaders UpdateSAMLProvider
 
-query
-
 instance AWSRequest UpdateSAMLProvider where
     type Sv UpdateSAMLProvider = IAM
     type Rs UpdateSAMLProvider = UpdateSAMLProviderResponse

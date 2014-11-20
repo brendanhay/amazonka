@@ -96,8 +96,6 @@ instance ToJSON DeprecateDomain where
         [ "name" .= _dd1Name
         ]
 
-json
-
 instance AWSRequest DeprecateDomain where
     type Sv DeprecateDomain = SWF
     type Rs DeprecateDomain = DeprecateDomainResponse

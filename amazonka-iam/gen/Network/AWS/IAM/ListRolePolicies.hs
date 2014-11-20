@@ -145,8 +145,6 @@ instance ToQuery ListRolePolicies where
 
 instance ToHeaders ListRolePolicies
 
-query
-
 instance AWSRequest ListRolePolicies where
     type Sv ListRolePolicies = IAM
     type Rs ListRolePolicies = ListRolePoliciesResponse

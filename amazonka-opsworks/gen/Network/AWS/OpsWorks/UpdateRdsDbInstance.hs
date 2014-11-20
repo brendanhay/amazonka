@@ -104,8 +104,6 @@ instance ToJSON UpdateRdsDbInstance where
         , "DbPassword"       .= _urdiDbPassword
         ]
 
-json
-
 instance AWSRequest UpdateRdsDbInstance where
     type Sv UpdateRdsDbInstance = OpsWorks
     type Rs UpdateRdsDbInstance = UpdateRdsDbInstanceResponse

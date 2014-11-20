@@ -78,8 +78,6 @@ instance ToQuery CreateStorageLocation where
 
 instance ToHeaders CreateStorageLocation
 
-query
-
 instance AWSRequest CreateStorageLocation where
     type Sv CreateStorageLocation = ElasticBeanstalk
     type Rs CreateStorageLocation = CreateStorageLocationResponse

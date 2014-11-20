@@ -96,8 +96,6 @@ instance ToQuery DeactivateMFADevice where
 
 instance ToHeaders DeactivateMFADevice
 
-query
-
 instance AWSRequest DeactivateMFADevice where
     type Sv DeactivateMFADevice = IAM
     type Rs DeactivateMFADevice = DeactivateMFADeviceResponse

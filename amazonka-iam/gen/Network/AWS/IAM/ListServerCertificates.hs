@@ -150,8 +150,6 @@ instance ToQuery ListServerCertificates where
 
 instance ToHeaders ListServerCertificates
 
-query
-
 instance AWSRequest ListServerCertificates where
     type Sv ListServerCertificates = IAM
     type Rs ListServerCertificates = ListServerCertificatesResponse

@@ -153,8 +153,6 @@ instance ToQuery DescribeNetworkInterfaceAttribute where
 
 instance ToHeaders DescribeNetworkInterfaceAttribute
 
-query
-
 instance AWSRequest DescribeNetworkInterfaceAttribute where
     type Sv DescribeNetworkInterfaceAttribute = EC2
     type Rs DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttributeResponse

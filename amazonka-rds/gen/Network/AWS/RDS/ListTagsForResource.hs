@@ -113,8 +113,6 @@ instance ToQuery ListTagsForResource where
 
 instance ToHeaders ListTagsForResource
 
-query
-
 instance AWSRequest ListTagsForResource where
     type Sv ListTagsForResource = RDS
     type Rs ListTagsForResource = ListTagsForResourceResponse

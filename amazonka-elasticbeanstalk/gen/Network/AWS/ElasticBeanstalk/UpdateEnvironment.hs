@@ -342,8 +342,6 @@ instance ToQuery UpdateEnvironment where
 
 instance ToHeaders UpdateEnvironment
 
-query
-
 instance AWSRequest UpdateEnvironment where
     type Sv UpdateEnvironment = ElasticBeanstalk
     type Rs UpdateEnvironment = UpdateEnvironmentResponse

@@ -276,8 +276,6 @@ instance ToQuery TerminateEnvironment where
 
 instance ToHeaders TerminateEnvironment
 
-query
-
 instance AWSRequest TerminateEnvironment where
     type Sv TerminateEnvironment = ElasticBeanstalk
     type Rs TerminateEnvironment = TerminateEnvironmentResponse

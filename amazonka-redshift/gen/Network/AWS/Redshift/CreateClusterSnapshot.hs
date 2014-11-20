@@ -113,8 +113,6 @@ instance ToQuery CreateClusterSnapshot where
 
 instance ToHeaders CreateClusterSnapshot
 
-query
-
 instance AWSRequest CreateClusterSnapshot where
     type Sv CreateClusterSnapshot = Redshift
     type Rs CreateClusterSnapshot = CreateClusterSnapshotResponse

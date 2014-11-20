@@ -134,8 +134,6 @@ instance ToQuery DescribeDhcpOptions where
 
 instance ToHeaders DescribeDhcpOptions
 
-query
-
 instance AWSRequest DescribeDhcpOptions where
     type Sv DescribeDhcpOptions = EC2
     type Rs DescribeDhcpOptions = DescribeDhcpOptionsResponse

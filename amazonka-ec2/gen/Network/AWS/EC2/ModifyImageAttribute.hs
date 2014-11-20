@@ -176,8 +176,6 @@ instance ToQuery ModifyImageAttribute where
 
 instance ToHeaders ModifyImageAttribute
 
-query
-
 instance AWSRequest ModifyImageAttribute where
     type Sv ModifyImageAttribute = EC2
     type Rs ModifyImageAttribute = ModifyImageAttributeResponse

@@ -129,8 +129,6 @@ instance ToQuery GetGroupPolicy where
 
 instance ToHeaders GetGroupPolicy
 
-query
-
 instance AWSRequest GetGroupPolicy where
     type Sv GetGroupPolicy = IAM
     type Rs GetGroupPolicy = GetGroupPolicyResponse

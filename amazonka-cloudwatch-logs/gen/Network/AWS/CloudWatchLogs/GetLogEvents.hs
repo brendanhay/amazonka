@@ -185,8 +185,6 @@ instance ToJSON GetLogEvents where
         , "startFromHead" .= _gleStartFromHead
         ]
 
-json
-
 instance AWSRequest GetLogEvents where
     type Sv GetLogEvents = CloudWatchLogs
     type Rs GetLogEvents = GetLogEventsResponse

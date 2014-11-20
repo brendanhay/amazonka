@@ -99,8 +99,6 @@ instance ToXMLRoot GetBucketPolicy where
 
 instance ToXML GetBucketPolicy
 
-xml
-
 instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
     type Rs GetBucketPolicy = GetBucketPolicyResponse

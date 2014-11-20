@@ -243,8 +243,6 @@ instance ToJSON UpdatePipeline where
         , "ThumbnailConfig" .= _upThumbnailConfig
         ]
 
-json
-
 instance AWSRequest UpdatePipeline where
     type Sv UpdatePipeline = ElasticTranscoder
     type Rs UpdatePipeline = UpdatePipelineResponse

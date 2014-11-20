@@ -109,8 +109,6 @@ instance ToXMLRoot PutBucketLifecycle where
 
 instance ToXML PutBucketLifecycle
 
-xml-headers
-
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
     type Rs PutBucketLifecycle = PutBucketLifecycleResponse

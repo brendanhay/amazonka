@@ -167,8 +167,6 @@ instance ToJSON CountOpenWorkflowExecutions where
         , "executionFilter" .= _coweExecutionFilter
         ]
 
-json
-
 instance AWSRequest CountOpenWorkflowExecutions where
     type Sv CountOpenWorkflowExecutions = SWF
     type Rs CountOpenWorkflowExecutions = CountOpenWorkflowExecutionsResponse

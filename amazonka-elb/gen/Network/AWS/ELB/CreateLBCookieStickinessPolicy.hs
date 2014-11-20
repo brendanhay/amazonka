@@ -120,8 +120,6 @@ instance ToQuery CreateLBCookieStickinessPolicy where
 
 instance ToHeaders CreateLBCookieStickinessPolicy
 
-query
-
 instance AWSRequest CreateLBCookieStickinessPolicy where
     type Sv CreateLBCookieStickinessPolicy = ELB
     type Rs CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicyResponse

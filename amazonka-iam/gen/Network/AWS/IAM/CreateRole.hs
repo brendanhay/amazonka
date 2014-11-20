@@ -126,8 +126,6 @@ instance ToQuery CreateRole where
 
 instance ToHeaders CreateRole
 
-query
-
 instance AWSRequest CreateRole where
     type Sv CreateRole = IAM
     type Rs CreateRole = CreateRoleResponse

@@ -169,8 +169,6 @@ instance ToQuery ReplaceNetworkAclEntry where
 
 instance ToHeaders ReplaceNetworkAclEntry
 
-query
-
 instance AWSRequest ReplaceNetworkAclEntry where
     type Sv ReplaceNetworkAclEntry = EC2
     type Rs ReplaceNetworkAclEntry = ReplaceNetworkAclEntryResponse

@@ -124,8 +124,6 @@ instance ToQuery EnableSnapshotCopy where
 
 instance ToHeaders EnableSnapshotCopy
 
-query
-
 instance AWSRequest EnableSnapshotCopy where
     type Sv EnableSnapshotCopy = Redshift
     type Rs EnableSnapshotCopy = EnableSnapshotCopyResponse

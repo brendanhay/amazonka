@@ -93,8 +93,6 @@ instance ToJSON DeleteLogStream where
         , "logStreamName" .= _dlsLogStreamName
         ]
 
-json
-
 instance AWSRequest DeleteLogStream where
     type Sv DeleteLogStream = CloudWatchLogs
     type Rs DeleteLogStream = DeleteLogStreamResponse

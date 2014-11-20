@@ -96,8 +96,6 @@ instance ToQuery CreateLoadBalancerListeners where
 
 instance ToHeaders CreateLoadBalancerListeners
 
-query
-
 instance AWSRequest CreateLoadBalancerListeners where
     type Sv CreateLoadBalancerListeners = ELB
     type Rs CreateLoadBalancerListeners = CreateLoadBalancerListenersResponse

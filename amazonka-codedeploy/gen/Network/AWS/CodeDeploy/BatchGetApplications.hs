@@ -113,8 +113,6 @@ instance ToJSON BatchGetApplications where
         [ "applicationNames" .= _bgaApplicationNames
         ]
 
-json
-
 instance AWSRequest BatchGetApplications where
     type Sv BatchGetApplications = CodeDeploy
     type Rs BatchGetApplications = BatchGetApplicationsResponse

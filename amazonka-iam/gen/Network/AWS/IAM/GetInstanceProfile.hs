@@ -100,8 +100,6 @@ instance ToQuery GetInstanceProfile where
 
 instance ToHeaders GetInstanceProfile
 
-query
-
 instance AWSRequest GetInstanceProfile where
     type Sv GetInstanceProfile = IAM
     type Rs GetInstanceProfile = GetInstanceProfileResponse

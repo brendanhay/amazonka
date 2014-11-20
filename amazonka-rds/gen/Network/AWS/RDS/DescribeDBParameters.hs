@@ -156,8 +156,6 @@ instance ToQuery DescribeDBParameters where
 
 instance ToHeaders DescribeDBParameters
 
-query
-
 instance AWSRequest DescribeDBParameters where
     type Sv DescribeDBParameters = RDS
     type Rs DescribeDBParameters = DescribeDBParametersResponse

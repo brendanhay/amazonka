@@ -124,8 +124,6 @@ instance ToQuery CreateCacheParameterGroup where
 
 instance ToHeaders CreateCacheParameterGroup
 
-query
-
 instance AWSRequest CreateCacheParameterGroup where
     type Sv CreateCacheParameterGroup = ElastiCache
     type Rs CreateCacheParameterGroup = CreateCacheParameterGroupResponse

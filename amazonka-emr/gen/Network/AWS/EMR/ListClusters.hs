@@ -139,8 +139,6 @@ instance ToJSON ListClusters where
         , "Marker"        .= _lcMarker
         ]
 
-json
-
 instance AWSRequest ListClusters where
     type Sv ListClusters = EMR
     type Rs ListClusters = ListClustersResponse

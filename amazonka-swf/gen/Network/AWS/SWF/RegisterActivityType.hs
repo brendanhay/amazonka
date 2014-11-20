@@ -225,8 +225,6 @@ instance ToJSON RegisterActivityType where
         , "defaultTaskScheduleToCloseTimeout" .= _ratDefaultTaskScheduleToCloseTimeout
         ]
 
-json
-
 instance AWSRequest RegisterActivityType where
     type Sv RegisterActivityType = SWF
     type Rs RegisterActivityType = RegisterActivityTypeResponse

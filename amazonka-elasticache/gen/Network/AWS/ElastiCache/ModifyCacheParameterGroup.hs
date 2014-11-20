@@ -114,8 +114,6 @@ instance ToQuery ModifyCacheParameterGroup where
 
 instance ToHeaders ModifyCacheParameterGroup
 
-query
-
 instance AWSRequest ModifyCacheParameterGroup where
     type Sv ModifyCacheParameterGroup = ElastiCache
     type Rs ModifyCacheParameterGroup = ModifyCacheParameterGroupResponse

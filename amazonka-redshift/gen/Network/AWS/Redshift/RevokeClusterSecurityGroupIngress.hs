@@ -144,8 +144,6 @@ instance ToQuery RevokeClusterSecurityGroupIngress where
 
 instance ToHeaders RevokeClusterSecurityGroupIngress
 
-query
-
 instance AWSRequest RevokeClusterSecurityGroupIngress where
     type Sv RevokeClusterSecurityGroupIngress = Redshift
     type Rs RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngressResponse

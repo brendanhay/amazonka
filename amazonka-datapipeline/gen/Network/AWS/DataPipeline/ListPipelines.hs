@@ -127,8 +127,6 @@ instance ToJSON ListPipelines where
         [ "marker" .= _lpMarker
         ]
 
-json
-
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = DataPipeline
     type Rs ListPipelines = ListPipelinesResponse

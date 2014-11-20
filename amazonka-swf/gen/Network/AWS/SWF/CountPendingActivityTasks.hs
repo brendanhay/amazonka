@@ -131,8 +131,6 @@ instance ToJSON CountPendingActivityTasks where
         , "taskList" .= _cpatTaskList
         ]
 
-json
-
 instance AWSRequest CountPendingActivityTasks where
     type Sv CountPendingActivityTasks = SWF
     type Rs CountPendingActivityTasks = CountPendingActivityTasksResponse

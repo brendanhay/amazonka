@@ -125,8 +125,6 @@ instance ToQuery AuthorizeSnapshotAccess where
 
 instance ToHeaders AuthorizeSnapshotAccess
 
-query
-
 instance AWSRequest AuthorizeSnapshotAccess where
     type Sv AuthorizeSnapshotAccess = Redshift
     type Rs AuthorizeSnapshotAccess = AuthorizeSnapshotAccessResponse

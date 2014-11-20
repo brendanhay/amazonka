@@ -100,8 +100,6 @@ instance ToJSON SetTimeBasedAutoScaling where
         , "AutoScalingSchedule" .= _stbasAutoScalingSchedule
         ]
 
-json
-
 instance AWSRequest SetTimeBasedAutoScaling where
     type Sv SetTimeBasedAutoScaling = OpsWorks
     type Rs SetTimeBasedAutoScaling = SetTimeBasedAutoScalingResponse

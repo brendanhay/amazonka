@@ -85,8 +85,6 @@ instance ToXMLRoot GetHealthCheckCount where
 
 instance ToXML GetHealthCheckCount
 
-xml
-
 instance AWSRequest GetHealthCheckCount where
     type Sv GetHealthCheckCount = Route53
     type Rs GetHealthCheckCount = GetHealthCheckCountResponse

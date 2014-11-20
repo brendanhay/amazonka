@@ -88,8 +88,6 @@ instance ToJSON UnassignVolume where
         [ "VolumeId" .= _uvVolumeId
         ]
 
-json
-
 instance AWSRequest UnassignVolume where
     type Sv UnassignVolume = OpsWorks
     type Rs UnassignVolume = UnassignVolumeResponse

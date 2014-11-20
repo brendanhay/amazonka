@@ -168,8 +168,6 @@ instance ToQuery DescribeScheduledActions where
 
 instance ToHeaders DescribeScheduledActions
 
-query
-
 instance AWSRequest DescribeScheduledActions where
     type Sv DescribeScheduledActions = AutoScaling
     type Rs DescribeScheduledActions = DescribeScheduledActionsResponse

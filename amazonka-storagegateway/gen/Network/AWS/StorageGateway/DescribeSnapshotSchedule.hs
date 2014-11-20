@@ -133,8 +133,6 @@ instance ToJSON DescribeSnapshotSchedule where
         [ "VolumeARN" .= _dssVolumeARN
         ]
 
-json
-
 instance AWSRequest DescribeSnapshotSchedule where
     type Sv DescribeSnapshotSchedule = StorageGateway
     type Rs DescribeSnapshotSchedule = DescribeSnapshotScheduleResponse

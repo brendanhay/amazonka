@@ -130,8 +130,6 @@ instance ToQuery GetPasswordData where
 
 instance ToHeaders GetPasswordData
 
-query
-
 instance AWSRequest GetPasswordData where
     type Sv GetPasswordData = EC2
     type Rs GetPasswordData = GetPasswordDataResponse

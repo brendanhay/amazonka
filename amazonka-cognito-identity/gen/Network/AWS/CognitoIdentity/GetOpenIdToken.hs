@@ -121,8 +121,6 @@ instance ToJSON GetOpenIdToken where
         , "Logins"     .= _goitLogins
         ]
 
-json
-
 instance AWSRequest GetOpenIdToken where
     type Sv GetOpenIdToken = CognitoIdentity
     type Rs GetOpenIdToken = GetOpenIdTokenResponse

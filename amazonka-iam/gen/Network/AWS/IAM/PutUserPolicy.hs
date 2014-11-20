@@ -107,8 +107,6 @@ instance ToQuery PutUserPolicy where
 
 instance ToHeaders PutUserPolicy
 
-query
-
 instance AWSRequest PutUserPolicy where
     type Sv PutUserPolicy = IAM
     type Rs PutUserPolicy = PutUserPolicyResponse

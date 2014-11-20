@@ -86,8 +86,6 @@ instance ToQuery ListOpenIDConnectProviders where
 
 instance ToHeaders ListOpenIDConnectProviders
 
-query
-
 instance AWSRequest ListOpenIDConnectProviders where
     type Sv ListOpenIDConnectProviders = IAM
     type Rs ListOpenIDConnectProviders = ListOpenIDConnectProvidersResponse

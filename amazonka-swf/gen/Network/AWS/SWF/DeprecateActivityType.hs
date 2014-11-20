@@ -108,8 +108,6 @@ instance ToJSON DeprecateActivityType where
         , "activityType" .= _dat1ActivityType
         ]
 
-json
-
 instance AWSRequest DeprecateActivityType where
     type Sv DeprecateActivityType = SWF
     type Rs DeprecateActivityType = DeprecateActivityTypeResponse

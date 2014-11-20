@@ -85,8 +85,6 @@ instance ToJSON DeleteApplication where
         [ "applicationName" .= _daApplicationName
         ]
 
-json
-
 instance AWSRequest DeleteApplication where
     type Sv DeleteApplication = CodeDeploy
     type Rs DeleteApplication = DeleteApplicationResponse

@@ -98,8 +98,6 @@ instance ToQuery ListDeadLetterSourceQueues where
 
 instance ToHeaders ListDeadLetterSourceQueues
 
-query
-
 instance AWSRequest ListDeadLetterSourceQueues where
     type Sv ListDeadLetterSourceQueues = SQS
     type Rs ListDeadLetterSourceQueues = ListDeadLetterSourceQueuesResponse

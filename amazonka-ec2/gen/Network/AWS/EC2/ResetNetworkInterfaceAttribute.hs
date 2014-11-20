@@ -102,8 +102,6 @@ instance ToQuery ResetNetworkInterfaceAttribute where
 
 instance ToHeaders ResetNetworkInterfaceAttribute
 
-query
-
 instance AWSRequest ResetNetworkInterfaceAttribute where
     type Sv ResetNetworkInterfaceAttribute = EC2
     type Rs ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttributeResponse

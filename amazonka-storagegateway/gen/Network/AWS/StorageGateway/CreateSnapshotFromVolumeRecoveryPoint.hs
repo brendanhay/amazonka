@@ -138,8 +138,6 @@ instance ToJSON CreateSnapshotFromVolumeRecoveryPoint where
         , "SnapshotDescription" .= _csfvrpSnapshotDescription
         ]
 
-json
-
 instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
     type Sv CreateSnapshotFromVolumeRecoveryPoint = StorageGateway
     type Rs CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPointResponse

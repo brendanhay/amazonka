@@ -139,8 +139,6 @@ instance ToHeaders ListJobsByPipeline
 instance ToJSON ListJobsByPipeline where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest ListJobsByPipeline where
     type Sv ListJobsByPipeline = ElasticTranscoder
     type Rs ListJobsByPipeline = ListJobsByPipelineResponse

@@ -151,8 +151,6 @@ instance ToQuery UploadServerCertificate where
 
 instance ToHeaders UploadServerCertificate
 
-query
-
 instance AWSRequest UploadServerCertificate where
     type Sv UploadServerCertificate = IAM
     type Rs UploadServerCertificate = UploadServerCertificateResponse

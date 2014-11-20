@@ -140,8 +140,6 @@ instance ToQuery ValidateConfigurationSettings where
 
 instance ToHeaders ValidateConfigurationSettings
 
-query
-
 instance AWSRequest ValidateConfigurationSettings where
     type Sv ValidateConfigurationSettings = ElasticBeanstalk
     type Rs ValidateConfigurationSettings = ValidateConfigurationSettingsResponse

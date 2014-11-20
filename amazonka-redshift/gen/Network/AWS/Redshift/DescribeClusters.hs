@@ -144,8 +144,6 @@ instance ToQuery DescribeClusters where
 
 instance ToHeaders DescribeClusters
 
-query
-
 instance AWSRequest DescribeClusters where
     type Sv DescribeClusters = Redshift
     type Rs DescribeClusters = DescribeClustersResponse

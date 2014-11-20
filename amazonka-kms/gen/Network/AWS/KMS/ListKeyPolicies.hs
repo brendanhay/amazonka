@@ -145,8 +145,6 @@ instance ToJSON ListKeyPolicies where
         , "Marker" .= _lkpMarker
         ]
 
-json
-
 instance AWSRequest ListKeyPolicies where
     type Sv ListKeyPolicies = KMS
     type Rs ListKeyPolicies = ListKeyPoliciesResponse

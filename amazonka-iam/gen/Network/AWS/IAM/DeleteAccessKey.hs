@@ -95,8 +95,6 @@ instance ToQuery DeleteAccessKey where
 
 instance ToHeaders DeleteAccessKey
 
-query
-
 instance AWSRequest DeleteAccessKey where
     type Sv DeleteAccessKey = IAM
     type Rs DeleteAccessKey = DeleteAccessKeyResponse

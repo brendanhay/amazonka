@@ -121,8 +121,6 @@ instance ToQuery AssociateRouteTable where
 
 instance ToHeaders AssociateRouteTable
 
-query
-
 instance AWSRequest AssociateRouteTable where
     type Sv AssociateRouteTable = EC2
     type Rs AssociateRouteTable = AssociateRouteTableResponse

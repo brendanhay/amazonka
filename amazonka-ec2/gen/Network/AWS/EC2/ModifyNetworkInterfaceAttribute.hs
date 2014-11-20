@@ -141,8 +141,6 @@ instance ToQuery ModifyNetworkInterfaceAttribute where
 
 instance ToHeaders ModifyNetworkInterfaceAttribute
 
-query
-
 instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Sv ModifyNetworkInterfaceAttribute = EC2
     type Rs ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttributeResponse

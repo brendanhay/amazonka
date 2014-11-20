@@ -127,8 +127,6 @@ instance ToQuery RevokeCacheSecurityGroupIngress where
 
 instance ToHeaders RevokeCacheSecurityGroupIngress
 
-query
-
 instance AWSRequest RevokeCacheSecurityGroupIngress where
     type Sv RevokeCacheSecurityGroupIngress = ElastiCache
     type Rs RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngressResponse

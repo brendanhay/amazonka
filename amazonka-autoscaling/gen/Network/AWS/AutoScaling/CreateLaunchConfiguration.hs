@@ -312,8 +312,6 @@ instance ToQuery CreateLaunchConfiguration where
 
 instance ToHeaders CreateLaunchConfiguration
 
-query
-
 instance AWSRequest CreateLaunchConfiguration where
     type Sv CreateLaunchConfiguration = AutoScaling
     type Rs CreateLaunchConfiguration = CreateLaunchConfigurationResponse

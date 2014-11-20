@@ -123,8 +123,6 @@ instance ToQuery CreateCacheSubnetGroup where
 
 instance ToHeaders CreateCacheSubnetGroup
 
-query
-
 instance AWSRequest CreateCacheSubnetGroup where
     type Sv CreateCacheSubnetGroup = ElastiCache
     type Rs CreateCacheSubnetGroup = CreateCacheSubnetGroupResponse

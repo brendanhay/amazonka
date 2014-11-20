@@ -84,8 +84,6 @@ instance ToQuery DeleteClusterSecurityGroup where
 
 instance ToHeaders DeleteClusterSecurityGroup
 
-query
-
 instance AWSRequest DeleteClusterSecurityGroup where
     type Sv DeleteClusterSecurityGroup = Redshift
     type Rs DeleteClusterSecurityGroup = DeleteClusterSecurityGroupResponse

@@ -105,8 +105,6 @@ instance ToQuery GetIdentityNotificationAttributes where
 
 instance ToHeaders GetIdentityNotificationAttributes
 
-query
-
 instance AWSRequest GetIdentityNotificationAttributes where
     type Sv GetIdentityNotificationAttributes = SES
     type Rs GetIdentityNotificationAttributes = GetIdentityNotificationAttributesResponse

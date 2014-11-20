@@ -116,8 +116,6 @@ instance ToJSON UpdateGatewayInformation where
         , "GatewayTimezone" .= _ugiGatewayTimezone
         ]
 
-json
-
 instance AWSRequest UpdateGatewayInformation where
     type Sv UpdateGatewayInformation = StorageGateway
     type Rs UpdateGatewayInformation = UpdateGatewayInformationResponse

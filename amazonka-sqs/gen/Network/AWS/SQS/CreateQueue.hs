@@ -135,8 +135,6 @@ instance ToQuery CreateQueue where
 
 instance ToHeaders CreateQueue
 
-query
-
 instance AWSRequest CreateQueue where
     type Sv CreateQueue = SQS
     type Rs CreateQueue = CreateQueueResponse

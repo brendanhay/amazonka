@@ -131,8 +131,6 @@ instance ToQuery PromoteReadReplica where
 
 instance ToHeaders PromoteReadReplica
 
-query
-
 instance AWSRequest PromoteReadReplica where
     type Sv PromoteReadReplica = RDS
     type Rs PromoteReadReplica = PromoteReadReplicaResponse

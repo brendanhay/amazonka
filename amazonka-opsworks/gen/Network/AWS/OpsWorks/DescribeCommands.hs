@@ -131,8 +131,6 @@ instance ToJSON DescribeCommands where
         , "CommandIds"   .= _dcCommandIds
         ]
 
-json
-
 instance AWSRequest DescribeCommands where
     type Sv DescribeCommands = OpsWorks
     type Rs DescribeCommands = DescribeCommandsResponse

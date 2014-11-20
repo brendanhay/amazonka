@@ -143,8 +143,6 @@ instance ToQuery DescribeTags where
 
 instance ToHeaders DescribeTags
 
-query
-
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = EC2
     type Rs DescribeTags = DescribeTagsResponse

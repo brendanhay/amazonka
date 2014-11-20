@@ -136,8 +136,6 @@ instance ToJSON ListDeploymentGroups where
         , "nextToken"       .= _ldgNextToken
         ]
 
-json
-
 instance AWSRequest ListDeploymentGroups where
     type Sv ListDeploymentGroups = CodeDeploy
     type Rs ListDeploymentGroups = ListDeploymentGroupsResponse

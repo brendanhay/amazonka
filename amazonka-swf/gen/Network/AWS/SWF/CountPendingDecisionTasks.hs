@@ -131,8 +131,6 @@ instance ToJSON CountPendingDecisionTasks where
         , "taskList" .= _cpdtTaskList
         ]
 
-json
-
 instance AWSRequest CountPendingDecisionTasks where
     type Sv CountPendingDecisionTasks = SWF
     type Rs CountPendingDecisionTasks = CountPendingDecisionTasksResponse

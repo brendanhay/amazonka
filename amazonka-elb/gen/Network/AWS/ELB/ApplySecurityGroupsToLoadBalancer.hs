@@ -122,8 +122,6 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer where
 
 instance ToHeaders ApplySecurityGroupsToLoadBalancer
 
-query
-
 instance AWSRequest ApplySecurityGroupsToLoadBalancer where
     type Sv ApplySecurityGroupsToLoadBalancer = ELB
     type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse

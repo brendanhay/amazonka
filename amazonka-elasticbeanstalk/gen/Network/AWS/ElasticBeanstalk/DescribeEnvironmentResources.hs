@@ -112,8 +112,6 @@ instance ToQuery DescribeEnvironmentResources where
 
 instance ToHeaders DescribeEnvironmentResources
 
-query
-
 instance AWSRequest DescribeEnvironmentResources where
     type Sv DescribeEnvironmentResources = ElasticBeanstalk
     type Rs DescribeEnvironmentResources = DescribeEnvironmentResourcesResponse

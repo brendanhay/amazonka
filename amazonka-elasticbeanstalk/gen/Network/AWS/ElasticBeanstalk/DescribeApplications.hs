@@ -108,8 +108,6 @@ instance ToQuery DescribeApplications where
 
 instance ToHeaders DescribeApplications
 
-query
-
 instance AWSRequest DescribeApplications where
     type Sv DescribeApplications = ElasticBeanstalk
     type Rs DescribeApplications = DescribeApplicationsResponse

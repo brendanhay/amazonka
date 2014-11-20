@@ -93,8 +93,6 @@ instance ToQuery UpdateAssumeRolePolicy where
 
 instance ToHeaders UpdateAssumeRolePolicy
 
-query
-
 instance AWSRequest UpdateAssumeRolePolicy where
     type Sv UpdateAssumeRolePolicy = IAM
     type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse

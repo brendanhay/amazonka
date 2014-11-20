@@ -134,8 +134,6 @@ instance ToJSON UpdateMaintenanceStartTime where
         , "DayOfWeek"    .= _umstDayOfWeek
         ]
 
-json
-
 instance AWSRequest UpdateMaintenanceStartTime where
     type Sv UpdateMaintenanceStartTime = StorageGateway
     type Rs UpdateMaintenanceStartTime = UpdateMaintenanceStartTimeResponse

@@ -111,8 +111,6 @@ instance ToQuery EnableMetricsCollection where
 
 instance ToHeaders EnableMetricsCollection
 
-query
-
 instance AWSRequest EnableMetricsCollection where
     type Sv EnableMetricsCollection = AutoScaling
     type Rs EnableMetricsCollection = EnableMetricsCollectionResponse

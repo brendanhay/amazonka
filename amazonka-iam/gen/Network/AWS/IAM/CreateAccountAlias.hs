@@ -82,8 +82,6 @@ instance ToQuery CreateAccountAlias where
 
 instance ToHeaders CreateAccountAlias
 
-query
-
 instance AWSRequest CreateAccountAlias where
     type Sv CreateAccountAlias = IAM
     type Rs CreateAccountAlias = CreateAccountAliasResponse

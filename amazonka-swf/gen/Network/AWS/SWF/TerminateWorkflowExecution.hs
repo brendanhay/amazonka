@@ -157,8 +157,6 @@ instance ToJSON TerminateWorkflowExecution where
         , "childPolicy" .= _tweChildPolicy
         ]
 
-json
-
 instance AWSRequest TerminateWorkflowExecution where
     type Sv TerminateWorkflowExecution = SWF
     type Rs TerminateWorkflowExecution = TerminateWorkflowExecutionResponse

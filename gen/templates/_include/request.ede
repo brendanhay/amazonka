@@ -15,5 +15,3 @@
 {% when "xml-headers" %}
   {% include "xml-to-root.ede" with type = request %}
 {% endcase %}
-
-{{ request.style }}

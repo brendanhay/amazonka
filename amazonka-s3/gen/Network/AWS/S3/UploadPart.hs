@@ -262,8 +262,6 @@ instance ToHeaders UploadPart where
 instance ToBody UploadPart where
     toBody = toBody . _upBody
 
-body-headers
-
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
     type Rs UploadPart = UploadPartResponse

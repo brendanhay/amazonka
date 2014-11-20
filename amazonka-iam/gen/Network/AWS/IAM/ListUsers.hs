@@ -148,8 +148,6 @@ instance ToQuery ListUsers where
 
 instance ToHeaders ListUsers
 
-query
-
 instance AWSRequest ListUsers where
     type Sv ListUsers = IAM
     type Rs ListUsers = ListUsersResponse

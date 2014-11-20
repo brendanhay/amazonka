@@ -166,8 +166,6 @@ instance ToJSON CreateJob where
         , "Playlists"       .= _cjPlaylists
         ]
 
-json
-
 instance AWSRequest CreateJob where
     type Sv CreateJob = ElasticTranscoder
     type Rs CreateJob = CreateJobResponse

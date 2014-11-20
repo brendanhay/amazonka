@@ -101,8 +101,6 @@ instance ToQuery SetEndpointAttributes where
 
 instance ToHeaders SetEndpointAttributes
 
-query
-
 instance AWSRequest SetEndpointAttributes where
     type Sv SetEndpointAttributes = SNS
     type Rs SetEndpointAttributes = SetEndpointAttributesResponse

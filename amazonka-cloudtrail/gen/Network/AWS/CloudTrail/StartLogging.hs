@@ -83,8 +83,6 @@ instance ToJSON StartLogging where
         [ "Name" .= _sl1Name
         ]
 
-json
-
 instance AWSRequest StartLogging where
     type Sv StartLogging = CloudTrail
     type Rs StartLogging = StartLoggingResponse

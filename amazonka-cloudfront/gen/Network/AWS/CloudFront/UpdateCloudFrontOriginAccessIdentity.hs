@@ -139,8 +139,6 @@ instance ToXMLRoot UpdateCloudFrontOriginAccessIdentity where
 
 instance ToXML UpdateCloudFrontOriginAccessIdentity
 
-xml-headers
-
 instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     type Sv UpdateCloudFrontOriginAccessIdentity = CloudFront
     type Rs UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentityResponse

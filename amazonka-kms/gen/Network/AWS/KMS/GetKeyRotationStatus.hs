@@ -100,8 +100,6 @@ instance ToJSON GetKeyRotationStatus where
         [ "KeyId" .= _gkrsKeyId
         ]
 
-json
-
 instance AWSRequest GetKeyRotationStatus where
     type Sv GetKeyRotationStatus = KMS
     type Rs GetKeyRotationStatus = GetKeyRotationStatusResponse

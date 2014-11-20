@@ -100,8 +100,6 @@ instance ToJSON AddTags where
         , "Tags"       .= _atTags
         ]
 
-json
-
 instance AWSRequest AddTags where
     type Sv AddTags = EMR
     type Rs AddTags = AddTagsResponse

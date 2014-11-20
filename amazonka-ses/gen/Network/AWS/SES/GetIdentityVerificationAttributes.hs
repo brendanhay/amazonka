@@ -104,8 +104,6 @@ instance ToQuery GetIdentityVerificationAttributes where
 
 instance ToHeaders GetIdentityVerificationAttributes
 
-query
-
 instance AWSRequest GetIdentityVerificationAttributes where
     type Sv GetIdentityVerificationAttributes = SES
     type Rs GetIdentityVerificationAttributes = GetIdentityVerificationAttributesResponse

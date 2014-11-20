@@ -158,8 +158,6 @@ instance ToQuery AuthorizeDBSecurityGroupIngress where
 
 instance ToHeaders AuthorizeDBSecurityGroupIngress
 
-query
-
 instance AWSRequest AuthorizeDBSecurityGroupIngress where
     type Sv AuthorizeDBSecurityGroupIngress = RDS
     type Rs AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngressResponse

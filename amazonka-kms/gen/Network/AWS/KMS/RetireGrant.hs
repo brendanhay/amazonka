@@ -85,8 +85,6 @@ instance ToJSON RetireGrant where
         [ "GrantToken" .= _rgGrantToken
         ]
 
-json
-
 instance AWSRequest RetireGrant where
     type Sv RetireGrant = KMS
     type Rs RetireGrant = RetireGrantResponse

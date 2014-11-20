@@ -122,8 +122,6 @@ instance ToJSON RespondActivityTaskFailed where
         , "details"   .= _ratfDetails
         ]
 
-json
-
 instance AWSRequest RespondActivityTaskFailed where
     type Sv RespondActivityTaskFailed = SWF
     type Rs RespondActivityTaskFailed = RespondActivityTaskFailedResponse

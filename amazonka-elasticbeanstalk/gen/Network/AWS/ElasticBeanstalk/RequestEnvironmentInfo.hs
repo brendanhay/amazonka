@@ -113,8 +113,6 @@ instance ToQuery RequestEnvironmentInfo where
 
 instance ToHeaders RequestEnvironmentInfo
 
-query
-
 instance AWSRequest RequestEnvironmentInfo where
     type Sv RequestEnvironmentInfo = ElasticBeanstalk
     type Rs RequestEnvironmentInfo = RequestEnvironmentInfoResponse

@@ -99,8 +99,6 @@ instance ToQuery DetachNetworkInterface where
 
 instance ToHeaders DetachNetworkInterface
 
-query
-
 instance AWSRequest DetachNetworkInterface where
     type Sv DetachNetworkInterface = EC2
     type Rs DetachNetworkInterface = DetachNetworkInterfaceResponse

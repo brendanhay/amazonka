@@ -93,8 +93,6 @@ instance ToQuery RemoveTags where
 
 instance ToHeaders RemoveTags
 
-query
-
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = ELB
     type Rs RemoveTags = RemoveTagsResponse

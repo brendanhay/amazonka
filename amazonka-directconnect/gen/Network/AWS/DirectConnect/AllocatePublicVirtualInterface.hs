@@ -262,8 +262,6 @@ instance ToJSON AllocatePublicVirtualInterface where
         , "newPublicVirtualInterfaceAllocation" .= _apvi1NewPublicVirtualInterfaceAllocation
         ]
 
-json
-
 instance AWSRequest AllocatePublicVirtualInterface where
     type Sv AllocatePublicVirtualInterface = DirectConnect
     type Rs AllocatePublicVirtualInterface = AllocatePublicVirtualInterfaceResponse

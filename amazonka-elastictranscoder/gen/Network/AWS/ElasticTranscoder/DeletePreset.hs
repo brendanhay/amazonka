@@ -86,8 +86,6 @@ instance ToHeaders DeletePreset
 instance ToJSON DeletePreset where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest DeletePreset where
     type Sv DeletePreset = ElasticTranscoder
     type Rs DeletePreset = DeletePresetResponse

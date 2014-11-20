@@ -189,8 +189,6 @@ instance ToQuery DescribeSpotInstanceRequests where
 
 instance ToHeaders DescribeSpotInstanceRequests
 
-query
-
 instance AWSRequest DescribeSpotInstanceRequests where
     type Sv DescribeSpotInstanceRequests = EC2
     type Rs DescribeSpotInstanceRequests = DescribeSpotInstanceRequestsResponse

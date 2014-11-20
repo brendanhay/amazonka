@@ -211,8 +211,6 @@ instance ToJSON GetItem where
         , "ExpressionAttributeNames" .= _giExpressionAttributeNames
         ]
 
-json
-
 instance AWSRequest GetItem where
     type Sv GetItem = DynamoDB
     type Rs GetItem = GetItemResponse

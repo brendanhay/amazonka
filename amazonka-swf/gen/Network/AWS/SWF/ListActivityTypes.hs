@@ -185,8 +185,6 @@ instance ToJSON ListActivityTypes where
         , "reverseOrder"       .= _latReverseOrder
         ]
 
-json
-
 instance AWSRequest ListActivityTypes where
     type Sv ListActivityTypes = SWF
     type Rs ListActivityTypes = ListActivityTypesResponse

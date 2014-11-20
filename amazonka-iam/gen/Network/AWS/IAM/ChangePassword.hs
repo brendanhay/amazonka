@@ -95,8 +95,6 @@ instance ToQuery ChangePassword where
 
 instance ToHeaders ChangePassword
 
-query
-
 instance AWSRequest ChangePassword where
     type Sv ChangePassword = IAM
     type Rs ChangePassword = ChangePasswordResponse

@@ -188,8 +188,6 @@ instance ToQuery AuthorizeSecurityGroupEgress where
 
 instance ToHeaders AuthorizeSecurityGroupEgress
 
-query
-
 instance AWSRequest AuthorizeSecurityGroupEgress where
     type Sv AuthorizeSecurityGroupEgress = EC2
     type Rs AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgressResponse

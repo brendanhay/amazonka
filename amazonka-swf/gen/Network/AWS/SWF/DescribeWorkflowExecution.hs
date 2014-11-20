@@ -172,8 +172,6 @@ instance ToJSON DescribeWorkflowExecution where
         , "execution" .= _dweExecution
         ]
 
-json
-
 instance AWSRequest DescribeWorkflowExecution where
     type Sv DescribeWorkflowExecution = SWF
     type Rs DescribeWorkflowExecution = DescribeWorkflowExecutionResponse

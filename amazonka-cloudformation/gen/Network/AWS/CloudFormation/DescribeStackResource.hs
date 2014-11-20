@@ -114,8 +114,6 @@ instance ToQuery DescribeStackResource where
 
 instance ToHeaders DescribeStackResource
 
-query
-
 instance AWSRequest DescribeStackResource where
     type Sv DescribeStackResource = CloudFormation
     type Rs DescribeStackResource = DescribeStackResourceResponse

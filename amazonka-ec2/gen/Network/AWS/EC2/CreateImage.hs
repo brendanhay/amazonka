@@ -159,8 +159,6 @@ instance ToQuery CreateImage where
 
 instance ToHeaders CreateImage
 
-query
-
 instance AWSRequest CreateImage where
     type Sv CreateImage = EC2
     type Rs CreateImage = CreateImageResponse

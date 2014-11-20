@@ -85,8 +85,6 @@ instance ToXMLRoot DeleteBucketLifecycle where
 
 instance ToXML DeleteBucketLifecycle
 
-xml
-
 instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3
     type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse

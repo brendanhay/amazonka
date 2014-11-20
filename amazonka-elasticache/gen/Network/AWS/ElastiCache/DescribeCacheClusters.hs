@@ -161,8 +161,6 @@ instance ToQuery DescribeCacheClusters where
 
 instance ToHeaders DescribeCacheClusters
 
-query
-
 instance AWSRequest DescribeCacheClusters where
     type Sv DescribeCacheClusters = ElastiCache
     type Rs DescribeCacheClusters = DescribeCacheClustersResponse

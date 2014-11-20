@@ -96,8 +96,6 @@ instance ToQuery DeleteLifecycleHook where
 
 instance ToHeaders DeleteLifecycleHook
 
-query
-
 instance AWSRequest DeleteLifecycleHook where
     type Sv DeleteLifecycleHook = AutoScaling
     type Rs DeleteLifecycleHook = DeleteLifecycleHookResponse

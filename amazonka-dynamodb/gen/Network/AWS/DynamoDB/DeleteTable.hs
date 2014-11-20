@@ -105,8 +105,6 @@ instance ToJSON DeleteTable where
         [ "TableName" .= _dtTableName
         ]
 
-json
-
 instance AWSRequest DeleteTable where
     type Sv DeleteTable = DynamoDB
     type Rs DeleteTable = DeleteTableResponse

@@ -158,8 +158,6 @@ instance ToHeaders ListDatasets
 instance ToJSON ListDatasets where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest ListDatasets where
     type Sv ListDatasets = CognitoSync
     type Rs ListDatasets = ListDatasetsResponse

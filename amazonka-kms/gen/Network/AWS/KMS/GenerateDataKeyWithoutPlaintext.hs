@@ -158,8 +158,6 @@ instance ToJSON GenerateDataKeyWithoutPlaintext where
         , "GrantTokens"       .= _gdkwpGrantTokens
         ]
 
-json
-
 instance AWSRequest GenerateDataKeyWithoutPlaintext where
     type Sv GenerateDataKeyWithoutPlaintext = KMS
     type Rs GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintextResponse

@@ -107,8 +107,6 @@ instance ToQuery SetLoadBalancerPoliciesOfListener where
 
 instance ToHeaders SetLoadBalancerPoliciesOfListener
 
-query
-
 instance AWSRequest SetLoadBalancerPoliciesOfListener where
     type Sv SetLoadBalancerPoliciesOfListener = ELB
     type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse

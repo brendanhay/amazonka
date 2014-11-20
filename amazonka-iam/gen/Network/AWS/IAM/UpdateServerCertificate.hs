@@ -109,8 +109,6 @@ instance ToQuery UpdateServerCertificate where
 
 instance ToHeaders UpdateServerCertificate
 
-query
-
 instance AWSRequest UpdateServerCertificate where
     type Sv UpdateServerCertificate = IAM
     type Rs UpdateServerCertificate = UpdateServerCertificateResponse

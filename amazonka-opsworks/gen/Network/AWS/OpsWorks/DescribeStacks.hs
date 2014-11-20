@@ -113,8 +113,6 @@ instance ToJSON DescribeStacks where
         [ "StackIds" .= _dsStackIds
         ]
 
-json
-
 instance AWSRequest DescribeStacks where
     type Sv DescribeStacks = OpsWorks
     type Rs DescribeStacks = DescribeStacksResponse

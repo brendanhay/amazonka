@@ -103,8 +103,6 @@ instance ToHeaders DescribeIdentityPoolUsage
 instance ToJSON DescribeIdentityPoolUsage where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest DescribeIdentityPoolUsage where
     type Sv DescribeIdentityPoolUsage = CognitoSync
     type Rs DescribeIdentityPoolUsage = DescribeIdentityPoolUsageResponse

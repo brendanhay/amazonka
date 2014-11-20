@@ -103,8 +103,6 @@ instance ToQuery AttachInternetGateway where
 
 instance ToHeaders AttachInternetGateway
 
-query
-
 instance AWSRequest AttachInternetGateway where
     type Sv AttachInternetGateway = EC2
     type Rs AttachInternetGateway = AttachInternetGatewayResponse

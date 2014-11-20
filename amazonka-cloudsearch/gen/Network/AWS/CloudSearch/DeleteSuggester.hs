@@ -106,8 +106,6 @@ instance ToQuery DeleteSuggester where
 
 instance ToHeaders DeleteSuggester
 
-query
-
 instance AWSRequest DeleteSuggester where
     type Sv DeleteSuggester = CloudSearch
     type Rs DeleteSuggester = DeleteSuggesterResponse

@@ -82,8 +82,6 @@ instance ToQuery DeleteClusterSubnetGroup where
 
 instance ToHeaders DeleteClusterSubnetGroup
 
-query
-
 instance AWSRequest DeleteClusterSubnetGroup where
     type Sv DeleteClusterSubnetGroup = Redshift
     type Rs DeleteClusterSubnetGroup = DeleteClusterSubnetGroupResponse

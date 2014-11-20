@@ -86,8 +86,6 @@ instance ToQuery DeleteInstanceProfile where
 
 instance ToHeaders DeleteInstanceProfile
 
-query
-
 instance AWSRequest DeleteInstanceProfile where
     type Sv DeleteInstanceProfile = IAM
     type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse

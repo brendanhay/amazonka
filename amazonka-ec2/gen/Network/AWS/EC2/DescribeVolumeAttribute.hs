@@ -134,8 +134,6 @@ instance ToQuery DescribeVolumeAttribute where
 
 instance ToHeaders DescribeVolumeAttribute
 
-query
-
 instance AWSRequest DescribeVolumeAttribute where
     type Sv DescribeVolumeAttribute = EC2
     type Rs DescribeVolumeAttribute = DescribeVolumeAttributeResponse

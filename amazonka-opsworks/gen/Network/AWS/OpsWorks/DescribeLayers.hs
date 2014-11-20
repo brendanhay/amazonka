@@ -118,8 +118,6 @@ instance ToJSON DescribeLayers where
         , "LayerIds" .= _dlLayerIds
         ]
 
-json
-
 instance AWSRequest DescribeLayers where
     type Sv DescribeLayers = OpsWorks
     type Rs DescribeLayers = DescribeLayersResponse

@@ -118,8 +118,6 @@ instance ToQuery DescribeStacks where
 
 instance ToHeaders DescribeStacks
 
-query
-
 instance AWSRequest DescribeStacks where
     type Sv DescribeStacks = CloudFormation
     type Rs DescribeStacks = DescribeStacksResponse

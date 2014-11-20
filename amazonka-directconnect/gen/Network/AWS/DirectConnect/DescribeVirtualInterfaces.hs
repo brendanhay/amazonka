@@ -122,8 +122,6 @@ instance ToJSON DescribeVirtualInterfaces where
         , "virtualInterfaceId" .= _dviVirtualInterfaceId
         ]
 
-json
-
 instance AWSRequest DescribeVirtualInterfaces where
     type Sv DescribeVirtualInterfaces = DirectConnect
     type Rs DescribeVirtualInterfaces = DescribeVirtualInterfacesResponse

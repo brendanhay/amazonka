@@ -102,8 +102,6 @@ instance ToJSON CreateAlias where
         , "TargetKeyId" .= _caTargetKeyId
         ]
 
-json
-
 instance AWSRequest CreateAlias where
     type Sv CreateAlias = KMS
     type Rs CreateAlias = CreateAliasResponse

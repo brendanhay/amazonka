@@ -85,8 +85,6 @@ instance ToJSON DeleteIdentityPool where
         [ "IdentityPoolId" .= _dip1IdentityPoolId
         ]
 
-json
-
 instance AWSRequest DeleteIdentityPool where
     type Sv DeleteIdentityPool = CognitoIdentity
     type Rs DeleteIdentityPool = DeleteIdentityPoolResponse

@@ -110,8 +110,6 @@ instance ToHeaders GetFunction
 instance ToJSON GetFunction where
     toJSON = const (toJSON Empty)
 
-json
-
 instance AWSRequest GetFunction where
     type Sv GetFunction = Lambda
     type Rs GetFunction = GetFunctionResponse

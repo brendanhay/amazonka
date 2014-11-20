@@ -504,8 +504,6 @@ instance ToXMLRoot CopyObject where
 
 instance ToXML CopyObject
 
-xml-headers
-
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3
     type Rs CopyObject = CopyObjectResponse

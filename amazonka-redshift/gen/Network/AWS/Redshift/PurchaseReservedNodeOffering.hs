@@ -112,8 +112,6 @@ instance ToQuery PurchaseReservedNodeOffering where
 
 instance ToHeaders PurchaseReservedNodeOffering
 
-query
-
 instance AWSRequest PurchaseReservedNodeOffering where
     type Sv PurchaseReservedNodeOffering = Redshift
     type Rs PurchaseReservedNodeOffering = PurchaseReservedNodeOfferingResponse

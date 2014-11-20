@@ -99,8 +99,6 @@ instance ToJSON DescribeCluster where
         [ "ClusterId" .= _dcClusterId
         ]
 
-json
-
 instance AWSRequest DescribeCluster where
     type Sv DescribeCluster = EMR
     type Rs DescribeCluster = DescribeClusterResponse

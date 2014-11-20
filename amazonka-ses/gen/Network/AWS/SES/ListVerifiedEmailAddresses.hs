@@ -89,8 +89,6 @@ instance ToQuery ListVerifiedEmailAddresses where
 
 instance ToHeaders ListVerifiedEmailAddresses
 
-query
-
 instance AWSRequest ListVerifiedEmailAddresses where
     type Sv ListVerifiedEmailAddresses = SES
     type Rs ListVerifiedEmailAddresses = ListVerifiedEmailAddressesResponse

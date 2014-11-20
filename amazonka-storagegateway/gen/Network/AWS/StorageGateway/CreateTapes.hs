@@ -158,8 +158,6 @@ instance ToJSON CreateTapes where
         , "TapeBarcodePrefix" .= _ctTapeBarcodePrefix
         ]
 
-json
-
 instance AWSRequest CreateTapes where
     type Sv CreateTapes = StorageGateway
     type Rs CreateTapes = CreateTapesResponse

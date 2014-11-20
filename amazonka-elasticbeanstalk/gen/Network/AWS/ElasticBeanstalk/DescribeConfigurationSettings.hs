@@ -140,8 +140,6 @@ instance ToQuery DescribeConfigurationSettings where
 
 instance ToHeaders DescribeConfigurationSettings
 
-query
-
 instance AWSRequest DescribeConfigurationSettings where
     type Sv DescribeConfigurationSettings = ElasticBeanstalk
     type Rs DescribeConfigurationSettings = DescribeConfigurationSettingsResponse

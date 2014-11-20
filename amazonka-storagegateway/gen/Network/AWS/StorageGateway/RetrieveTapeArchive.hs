@@ -118,8 +118,6 @@ instance ToJSON RetrieveTapeArchive where
         , "GatewayARN" .= _rtaGatewayARN
         ]
 
-json
-
 instance AWSRequest RetrieveTapeArchive where
     type Sv RetrieveTapeArchive = StorageGateway
     type Rs RetrieveTapeArchive = RetrieveTapeArchiveResponse

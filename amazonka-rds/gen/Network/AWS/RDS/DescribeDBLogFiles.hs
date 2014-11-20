@@ -181,8 +181,6 @@ instance ToQuery DescribeDBLogFiles where
 
 instance ToHeaders DescribeDBLogFiles
 
-query
-
 instance AWSRequest DescribeDBLogFiles where
     type Sv DescribeDBLogFiles = RDS
     type Rs DescribeDBLogFiles = DescribeDBLogFilesResponse

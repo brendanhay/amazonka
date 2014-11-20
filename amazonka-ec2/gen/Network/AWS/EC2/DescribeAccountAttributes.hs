@@ -112,8 +112,6 @@ instance ToQuery DescribeAccountAttributes where
 
 instance ToHeaders DescribeAccountAttributes
 
-query
-
 instance AWSRequest DescribeAccountAttributes where
     type Sv DescribeAccountAttributes = EC2
     type Rs DescribeAccountAttributes = DescribeAccountAttributesResponse

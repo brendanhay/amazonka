@@ -190,8 +190,6 @@ instance ToQuery CreateLoadBalancer where
 
 instance ToHeaders CreateLoadBalancer
 
-query
-
 instance AWSRequest CreateLoadBalancer where
     type Sv CreateLoadBalancer = ELB
     type Rs CreateLoadBalancer = CreateLoadBalancerResponse

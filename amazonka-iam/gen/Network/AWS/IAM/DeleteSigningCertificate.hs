@@ -94,8 +94,6 @@ instance ToQuery DeleteSigningCertificate where
 
 instance ToHeaders DeleteSigningCertificate
 
-query
-
 instance AWSRequest DeleteSigningCertificate where
     type Sv DeleteSigningCertificate = IAM
     type Rs DeleteSigningCertificate = DeleteSigningCertificateResponse

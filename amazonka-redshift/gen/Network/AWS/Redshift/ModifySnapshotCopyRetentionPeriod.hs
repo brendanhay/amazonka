@@ -115,8 +115,6 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod where
 
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
 
-query
-
 instance AWSRequest ModifySnapshotCopyRetentionPeriod where
     type Sv ModifySnapshotCopyRetentionPeriod = Redshift
     type Rs ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriodResponse

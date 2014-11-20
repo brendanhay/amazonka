@@ -85,8 +85,6 @@ instance ToXMLRoot DeleteBucketPolicy where
 
 instance ToXML DeleteBucketPolicy
 
-xml
-
 instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
     type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse

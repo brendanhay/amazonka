@@ -176,8 +176,6 @@ instance ToXMLRoot ListReusableDelegationSets where
 
 instance ToXML ListReusableDelegationSets
 
-xml
-
 instance AWSRequest ListReusableDelegationSets where
     type Sv ListReusableDelegationSets = Route53
     type Rs ListReusableDelegationSets = ListReusableDelegationSetsResponse

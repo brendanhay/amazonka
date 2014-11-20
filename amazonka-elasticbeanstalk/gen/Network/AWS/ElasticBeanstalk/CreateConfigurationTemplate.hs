@@ -282,8 +282,6 @@ instance ToQuery CreateConfigurationTemplate where
 
 instance ToHeaders CreateConfigurationTemplate
 
-query
-
 instance AWSRequest CreateConfigurationTemplate where
     type Sv CreateConfigurationTemplate = ElasticBeanstalk
     type Rs CreateConfigurationTemplate = CreateConfigurationTemplateResponse

@@ -305,8 +305,6 @@ instance ToJSON UpdateStack where
         , "UseOpsworksSecurityGroups" .= _usUseOpsworksSecurityGroups
         ]
 
-json
-
 instance AWSRequest UpdateStack where
     type Sv UpdateStack = OpsWorks
     type Rs UpdateStack = UpdateStackResponse

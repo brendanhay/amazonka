@@ -182,8 +182,6 @@ instance ToQuery DescribeImageAttribute where
 
 instance ToHeaders DescribeImageAttribute
 
-query
-
 instance AWSRequest DescribeImageAttribute where
     type Sv DescribeImageAttribute = EC2
     type Rs DescribeImageAttribute = DescribeImageAttributeResponse

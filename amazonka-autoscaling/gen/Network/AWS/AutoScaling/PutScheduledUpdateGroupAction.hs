@@ -181,8 +181,6 @@ instance ToQuery PutScheduledUpdateGroupAction where
 
 instance ToHeaders PutScheduledUpdateGroupAction
 
-query
-
 instance AWSRequest PutScheduledUpdateGroupAction where
     type Sv PutScheduledUpdateGroupAction = AutoScaling
     type Rs PutScheduledUpdateGroupAction = PutScheduledUpdateGroupActionResponse

@@ -132,8 +132,6 @@ instance ToQuery DescribeVpcs where
 
 instance ToHeaders DescribeVpcs
 
-query
-
 instance AWSRequest DescribeVpcs where
     type Sv DescribeVpcs = EC2
     type Rs DescribeVpcs = DescribeVpcsResponse

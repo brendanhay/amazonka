@@ -95,8 +95,6 @@ instance ToJSON RemoveTagsFromStream where
         , "TagKeys"    .= _rtfsTagKeys
         ]
 
-json
-
 instance AWSRequest RemoveTagsFromStream where
     type Sv RemoveTagsFromStream = Kinesis
     type Rs RemoveTagsFromStream = RemoveTagsFromStreamResponse

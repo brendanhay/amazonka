@@ -112,8 +112,6 @@ instance ToQuery UnmonitorInstances where
 
 instance ToHeaders UnmonitorInstances
 
-query
-
 instance AWSRequest UnmonitorInstances where
     type Sv UnmonitorInstances = EC2
     type Rs UnmonitorInstances = UnmonitorInstancesResponse

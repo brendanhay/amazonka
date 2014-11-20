@@ -330,8 +330,6 @@ instance ToQuery ModifyCluster where
 
 instance ToHeaders ModifyCluster
 
-query
-
 instance AWSRequest ModifyCluster where
     type Sv ModifyCluster = Redshift
     type Rs ModifyCluster = ModifyClusterResponse

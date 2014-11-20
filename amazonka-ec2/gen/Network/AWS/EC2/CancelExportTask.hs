@@ -84,8 +84,6 @@ instance ToQuery CancelExportTask where
 
 instance ToHeaders CancelExportTask
 
-query
-
 instance AWSRequest CancelExportTask where
     type Sv CancelExportTask = EC2
     type Rs CancelExportTask = CancelExportTaskResponse

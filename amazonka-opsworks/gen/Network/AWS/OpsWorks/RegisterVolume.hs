@@ -113,8 +113,6 @@ instance ToJSON RegisterVolume where
         , "StackId"     .= _rvStackId
         ]
 
-json
-
 instance AWSRequest RegisterVolume where
     type Sv RegisterVolume = OpsWorks
     type Rs RegisterVolume = RegisterVolumeResponse

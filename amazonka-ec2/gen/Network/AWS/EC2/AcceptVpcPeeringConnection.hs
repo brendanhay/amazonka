@@ -109,8 +109,6 @@ instance ToQuery AcceptVpcPeeringConnection where
 
 instance ToHeaders AcceptVpcPeeringConnection
 
-query
-
 instance AWSRequest AcceptVpcPeeringConnection where
     type Sv AcceptVpcPeeringConnection = EC2
     type Rs AcceptVpcPeeringConnection = AcceptVpcPeeringConnectionResponse

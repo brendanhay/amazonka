@@ -165,8 +165,6 @@ instance ToJSON CreateDeployment where
         , "ignoreApplicationStopFailures" .= _cdIgnoreApplicationStopFailures
         ]
 
-json
-
 instance AWSRequest CreateDeployment where
     type Sv CreateDeployment = CodeDeploy
     type Rs CreateDeployment = CreateDeploymentResponse

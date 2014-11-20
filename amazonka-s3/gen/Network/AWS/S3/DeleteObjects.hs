@@ -133,8 +133,6 @@ instance ToXMLRoot DeleteObjects where
 
 instance ToXML DeleteObjects
 
-xml-headers
-
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
     type Rs DeleteObjects = DeleteObjectsResponse

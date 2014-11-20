@@ -351,8 +351,6 @@ instance ToJSON CreateStack where
         , "DefaultRootDeviceType"     .= _csDefaultRootDeviceType
         ]
 
-json
-
 instance AWSRequest CreateStack where
     type Sv CreateStack = OpsWorks
     type Rs CreateStack = CreateStackResponse

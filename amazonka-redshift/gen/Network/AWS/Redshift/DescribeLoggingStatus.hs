@@ -149,8 +149,6 @@ instance ToQuery DescribeLoggingStatus where
 
 instance ToHeaders DescribeLoggingStatus
 
-query
-
 instance AWSRequest DescribeLoggingStatus where
     type Sv DescribeLoggingStatus = Redshift
     type Rs DescribeLoggingStatus = DescribeLoggingStatusResponse

@@ -115,8 +115,6 @@ instance ToJSON DescribeDomain where
         [ "name" .= _ddName
         ]
 
-json
-
 instance AWSRequest DescribeDomain where
     type Sv DescribeDomain = SWF
     type Rs DescribeDomain = DescribeDomainResponse

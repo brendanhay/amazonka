@@ -98,8 +98,6 @@ instance ToJSON DescribeTable where
         [ "TableName" .= _dt1TableName
         ]
 
-json
-
 instance AWSRequest DescribeTable where
     type Sv DescribeTable = DynamoDB
     type Rs DescribeTable = DescribeTableResponse

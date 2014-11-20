@@ -128,8 +128,6 @@ instance ToQuery CreateInstanceExportTask where
 
 instance ToHeaders CreateInstanceExportTask
 
-query
-
 instance AWSRequest CreateInstanceExportTask where
     type Sv CreateInstanceExportTask = EC2
     type Rs CreateInstanceExportTask = CreateInstanceExportTaskResponse

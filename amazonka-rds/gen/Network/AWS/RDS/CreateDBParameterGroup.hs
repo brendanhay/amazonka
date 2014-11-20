@@ -152,8 +152,6 @@ instance ToQuery CreateDBParameterGroup where
 
 instance ToHeaders CreateDBParameterGroup
 
-query
-
 instance AWSRequest CreateDBParameterGroup where
     type Sv CreateDBParameterGroup = RDS
     type Rs CreateDBParameterGroup = CreateDBParameterGroupResponse

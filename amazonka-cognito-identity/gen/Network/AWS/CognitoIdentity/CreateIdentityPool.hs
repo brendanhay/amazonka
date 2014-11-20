@@ -214,8 +214,6 @@ instance ToJSON CreateIdentityPool where
         , "OpenIdConnectProviderARNs"      .= _cipOpenIdConnectProviderARNs
         ]
 
-json
-
 instance AWSRequest CreateIdentityPool where
     type Sv CreateIdentityPool = CognitoIdentity
     type Rs CreateIdentityPool = CreateIdentityPoolResponse

@@ -93,8 +93,6 @@ instance ToQuery DeleteLoadBalancerPolicy where
 
 instance ToHeaders DeleteLoadBalancerPolicy
 
-query
-
 instance AWSRequest DeleteLoadBalancerPolicy where
     type Sv DeleteLoadBalancerPolicy = ELB
     type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse

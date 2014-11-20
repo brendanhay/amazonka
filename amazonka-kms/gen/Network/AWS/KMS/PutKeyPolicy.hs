@@ -107,8 +107,6 @@ instance ToJSON PutKeyPolicy where
         , "Policy"     .= _pkpPolicy
         ]
 
-json
-
 instance AWSRequest PutKeyPolicy where
     type Sv PutKeyPolicy = KMS
     type Rs PutKeyPolicy = PutKeyPolicyResponse

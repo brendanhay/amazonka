@@ -182,8 +182,6 @@ instance ToJSON UpdateDeploymentGroup where
         , "serviceRoleArn"             .= _udgServiceRoleArn
         ]
 
-json
-
 instance AWSRequest UpdateDeploymentGroup where
     type Sv UpdateDeploymentGroup = CodeDeploy
     type Rs UpdateDeploymentGroup = UpdateDeploymentGroupResponse

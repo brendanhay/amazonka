@@ -104,8 +104,6 @@ instance ToJSON DeliverConfigSnapshot where
         [ "deliveryChannelName" .= _dcsDeliveryChannelName
         ]
 
-json
-
 instance AWSRequest DeliverConfigSnapshot where
     type Sv DeliverConfigSnapshot = Config
     type Rs DeliverConfigSnapshot = DeliverConfigSnapshotResponse

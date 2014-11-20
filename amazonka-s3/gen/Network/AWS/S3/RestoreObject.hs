@@ -117,8 +117,6 @@ instance ToXMLRoot RestoreObject where
 
 instance ToXML RestoreObject
 
-xml
-
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
     type Rs RestoreObject = RestoreObjectResponse

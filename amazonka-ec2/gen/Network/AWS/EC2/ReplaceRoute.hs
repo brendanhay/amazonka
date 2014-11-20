@@ -149,8 +149,6 @@ instance ToQuery ReplaceRoute where
 
 instance ToHeaders ReplaceRoute
 
-query
-
 instance AWSRequest ReplaceRoute where
     type Sv ReplaceRoute = EC2
     type Rs ReplaceRoute = ReplaceRouteResponse

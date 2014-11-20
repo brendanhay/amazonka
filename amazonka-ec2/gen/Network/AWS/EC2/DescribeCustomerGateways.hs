@@ -139,8 +139,6 @@ instance ToQuery DescribeCustomerGateways where
 
 instance ToHeaders DescribeCustomerGateways
 
-query
-
 instance AWSRequest DescribeCustomerGateways where
     type Sv DescribeCustomerGateways = EC2
     type Rs DescribeCustomerGateways = DescribeCustomerGatewaysResponse

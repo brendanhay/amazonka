@@ -95,8 +95,6 @@ instance ToJSON TerminateJobFlows where
         [ "JobFlowIds" .= _tjfJobFlowIds
         ]
 
-json
-
 instance AWSRequest TerminateJobFlows where
     type Sv TerminateJobFlows = EMR
     type Rs TerminateJobFlows = TerminateJobFlowsResponse

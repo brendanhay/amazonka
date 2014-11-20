@@ -110,8 +110,6 @@ instance ToJSON DescribeTrustedAdvisorCheckRefreshStatuses where
         [ "checkIds" .= _dtacrsCheckIds
         ]
 
-json
-
 instance AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
     type Sv DescribeTrustedAdvisorCheckRefreshStatuses = Support
     type Rs DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatusesResponse

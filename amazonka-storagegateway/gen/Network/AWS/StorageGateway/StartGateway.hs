@@ -100,8 +100,6 @@ instance ToJSON StartGateway where
         [ "GatewayARN" .= _sgGatewayARN
         ]
 
-json
-
 instance AWSRequest StartGateway where
     type Sv StartGateway = StorageGateway
     type Rs StartGateway = StartGatewayResponse

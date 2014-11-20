@@ -84,8 +84,6 @@ instance ToQuery VerifyEmailAddress where
 
 instance ToHeaders VerifyEmailAddress
 
-query
-
 instance AWSRequest VerifyEmailAddress where
     type Sv VerifyEmailAddress = SES
     type Rs VerifyEmailAddress = VerifyEmailAddressResponse

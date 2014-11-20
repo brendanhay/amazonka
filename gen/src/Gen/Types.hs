@@ -462,6 +462,7 @@ data Templates = Templates
     { _tCabal    :: Template
     , _tService  :: Template
     , _tReadme   :: Template
+    , _tExample  :: Template
     , _tProtocol :: Protocol -> (Template, Template)
     }
 

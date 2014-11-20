@@ -179,5 +179,5 @@ instance AWSRequest CreateBucket where
     type Rs CreateBucket = CreateBucketResponse
 
     request  = put
-    response = xmlHeaderResponse $ \h x -> CreateBucketResponse
+    response = headerResponse $ \h -> CreateBucketResponse
         <$> h ~:? "Location"

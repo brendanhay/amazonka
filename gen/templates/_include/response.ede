@@ -4,6 +4,9 @@
 {% when "body" %}
     response = bodyResponse . const $ \b -> {{ response.name }}
 {% include "response-body.ede" %}
+{% when "headers" %}
+    response = headerResponse $ \h -> {{ response.name }}
+{% include "response-body.ede" %}
 {% when "body-headers" %}
     response = bodyResponse $ \h b -> {{ response.name }}
 {% include "response-body.ede" %}

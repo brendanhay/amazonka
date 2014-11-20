@@ -9849,7 +9849,7 @@
                 ],
                 "streaming": false,
                 "listElement": null,
-                "style": "xml-headers",
+                "style": "headers",
                 "fieldPad": 0,
                 "ctor": "createBucketResponse",
                 "headerPad": 9,
@@ -12172,7 +12172,7 @@
                     "Show"
                 ],
                 "streaming": false,
-                "style": "xml-headers",
+                "style": "headers",
                 "fieldPad": 16,
                 "ctor": "deleteObjectResponse",
                 "headerPad": 20,
@@ -12499,8 +12499,8 @@
                         "shape": "Errors",
                         "locationName": "Error",
                         "documentation": null,
-                        "typeExposed": "[Error]",
-                        "type": "List \"Error\" Error"
+                        "typeExposed": "[S3ServiceError]",
+                        "type": "List \"Error\" S3ServiceError"
                     }
                 ],
                 "wrapper": false,
@@ -12534,8 +12534,8 @@
                         "shape": "Errors",
                         "locationName": "Error",
                         "documentation": null,
-                        "typeExposed": "[Error]",
-                        "type": "List \"Error\" Error"
+                        "typeExposed": "[S3ServiceError]",
+                        "type": "List \"Error\" S3ServiceError"
                     }
                 ],
                 "shared": false,
@@ -12575,8 +12575,8 @@
                         "shape": "Errors",
                         "locationName": "Error",
                         "documentation": null,
-                        "typeExposed": "[Error]",
-                        "type": "List \"Error\" Error"
+                        "typeExposed": "[S3ServiceError]",
+                        "type": "List \"Error\" S3ServiceError"
                     }
                 ]
             },
@@ -17347,7 +17347,7 @@
                     "Show"
                 ],
                 "streaming": false,
-                "style": "xml-headers",
+                "style": "headers",
                 "fieldPad": 27,
                 "ctor": "headObjectResponse",
                 "headerPad": 48,
@@ -24437,7 +24437,7 @@
                     "Show"
                 ],
                 "streaming": false,
-                "style": "xml-headers",
+                "style": "headers",
                 "fieldPad": 24,
                 "ctor": "putObjectResponse",
                 "headerPad": 48,
@@ -26319,7 +26319,7 @@
                     "Show"
                 ],
                 "streaming": false,
-                "style": "xml-headers",
+                "style": "headers",
                 "fieldPad": 24,
                 "ctor": "uploadPartResponse",
                 "headerPad": 48,

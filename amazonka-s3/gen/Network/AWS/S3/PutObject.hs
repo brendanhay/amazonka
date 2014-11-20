@@ -421,7 +421,7 @@ instance AWSRequest PutObject where
     type Rs PutObject = PutObjectResponse
 
     request  = put
-    response = xmlHeaderResponse $ \h x -> PutObjectResponse
+    response = headerResponse $ \h -> PutObjectResponse
         <$> h ~:? "ETag"
         <*> h ~:? "x-amz-expiration"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"

@@ -444,7 +444,7 @@ instance AWSRequest HeadObject where
     type Rs HeadObject = HeadObjectResponse
 
     request  = head
-    response = xmlHeaderResponse $ \h x -> HeadObjectResponse
+    response = headerResponse $ \h -> HeadObjectResponse
         <$> h ~:? "accept-ranges"
         <*> h ~:? "Cache-Control"
         <*> h ~:? "Content-Disposition"

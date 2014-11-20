@@ -648,9 +648,11 @@ operationJSON p s rq n d = y <> x
         , "streaming" .= stream
         , "headers"   .= map fieldLocation hs
         , "headerPad" .= fieldPad hs
-        , "headerAll" .= (length hs == length fs && not (null fs))
+        , "headerAll" .= headerAll
         , "style"     .= style
         ]
+
+    headerAll = length hs == length fs && not (null fs)
 
     hs = filter isHeader fs
     fs = toListOf dataFields d
@@ -665,6 +667,7 @@ operationJSON p s rq n d = y <> x
     style :: Text
     style | Empty{} <- d
           , not rq         = "nullary"
+          | headerAll      = "headers"
           | s {- shared -} = k
           | stream         = h "body"
           | otherwise      = h (b k)

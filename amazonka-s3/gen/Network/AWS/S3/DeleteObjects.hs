@@ -87,7 +87,7 @@ do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 
 data DeleteObjectsResponse = DeleteObjectsResponse
     { _dorDeleted :: List "Deleted" DeletedObject
-    , _dorErrors  :: List "Error" Error
+    , _dorErrors  :: List "Error" S3ServiceError
     } deriving (Eq, Show)
 
 -- | 'DeleteObjectsResponse' constructor.
@@ -96,10 +96,10 @@ data DeleteObjectsResponse = DeleteObjectsResponse
 --
 -- * 'dorDeleted' @::@ ['DeletedObject']
 --
--- * 'dorErrors' @::@ ['Error']
+-- * 'dorErrors' @::@ ['S3ServiceError']
 --
 deleteObjectsResponse :: [DeletedObject] -- ^ 'dorDeleted'
-                      -> [Error] -- ^ 'dorErrors'
+                      -> [S3ServiceError] -- ^ 'dorErrors'
                       -> DeleteObjectsResponse
 deleteObjectsResponse p1 p2 = DeleteObjectsResponse
     { _dorDeleted = withIso _List (const id) p1
@@ -109,7 +109,7 @@ deleteObjectsResponse p1 p2 = DeleteObjectsResponse
 dorDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
 dorDeleted = lens _dorDeleted (\s a -> s { _dorDeleted = a }) . _List
 
-dorErrors :: Lens' DeleteObjectsResponse [Error]
+dorErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 dorErrors = lens _dorErrors (\s a -> s { _dorErrors = a }) . _List
 
 instance ToPath DeleteObjects where

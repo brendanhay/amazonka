@@ -150,6 +150,6 @@ instance AWSRequest DeleteObject where
     type Rs DeleteObject = DeleteObjectResponse
 
     request  = delete
-    response = xmlHeaderResponse $ \h x -> DeleteObjectResponse
+    response = headerResponse $ \h -> DeleteObjectResponse
         <$> h ~:? "x-amz-delete-marker"
         <*> h ~:? "x-amz-version-id"

@@ -169,6 +169,7 @@ data Type
     | TList      !Text !Type
     | TList1     !Text !Type
     | TMap       !(Text, Text, Text) !Type !Type
+    | THashMap   !Type !Type
     | TMaybe     !Type
     | TSensitive !Type
     | TFlatten   !Type
@@ -179,9 +180,10 @@ isRequired (TMaybe _) = False
 isRequired _          = True
 
 isMonoid :: Type -> Bool
-isMonoid (TList   _ _) = True
-isMonoid (TMap  _ _ _) = True
-isMonoid _             = False
+isMonoid (TList    _ _) = True
+isMonoid (TMap   _ _ _) = True
+isMonoid (THashMap _ _) = True
+isMonoid _              = False
 
 isFlattened :: Type -> Bool
 isFlattened = any f . universe
@@ -201,6 +203,7 @@ instance Plated Type where
         TList      e x   -> TList    e <$> f x
         TList1     e x   -> TList1   e <$> f x
         TMap       e k v -> TMap     e <$> f k <*> f v
+        THashMap     k v -> THashMap   <$> f k <*> f v
         x                -> pure x
 
 instance ToJSON (Exposed Type) where
@@ -216,6 +219,7 @@ instance ToJSON (Exposed Type) where
             TList  _ x   -> "[" <> wrap (go x) <> "]"
             TList1 _ x   -> "NonEmpty " <> wrap (go x)
             TMap   _ k v -> "HashMap "  <> wrap (go k) <> " " <> wrap (go v)
+            THashMap k v -> "HashMap "  <> wrap (go k) <> " " <> wrap (go v)
 
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
@@ -230,8 +234,9 @@ instance ToJSON (Internal Type) where
             TSensitive x -> "Sensitive " <> wrap (go x)
             TFlatten   x -> go x
 
-            TList  e x -> "List"  <> witness e <> " " <> wrap (go x)
-            TList1 e x -> "List1" <> witness e <> " " <> wrap (go x)
+            TList    e x -> "List"     <> witness e   <> " " <> wrap (go x)
+            TList1   e x -> "List1"    <> witness e   <> " " <> wrap (go x)
+            THashMap k v -> "HashMap " <> wrap (go k) <> " " <> wrap (go v)
 
             TMap  (e, i', j) k v ->
                 "Map" <> witness e
@@ -257,6 +262,7 @@ typeMapping t
         TList      _ _   -> maybeToList (typeIso y)
         TList1     _ _   -> maybeToList (typeIso y)
         TMap       _ _ _ -> maybeToList (typeIso y)
+        THashMap     _ _ -> []
         TMaybe     x     -> wrap (go x)
         TSensitive x     -> maybeToList (typeIso y) ++ go x
         TFlatten   x     -> go x
@@ -296,6 +302,7 @@ typesOf = typeOf . go
         TList      e x   -> TList    e <$> f x
         TList1     e x   -> TList1   e <$> f x
         TMap       e k v -> TMap     e <$> f k <*> f v
+        THashMap     k v -> THashMap   <$> f k <*> f v
         TMaybe     x     -> TMaybe     <$> f x
         TSensitive x     -> TSensitive <$> f x
         TFlatten   x     -> TFlatten   <$> f x
@@ -541,9 +548,12 @@ instance DerivingOf Type where
         TFlatten   x     -> derivingOf x
         TList      _ x   -> list (derivingOf x)
         TList1     _ x   -> Set.delete Monoid' . list $ derivingOf x
-        TMap       _ k v -> Set.delete Ord' . list $
-            derivingOf k `Set.intersection` derivingOf v
+        TMap       _ k v -> hmap k v
+        THashMap     k v -> hmap k v
       where
+        hmap k v = Set.delete Ord' . list $
+            derivingOf k `Set.intersection` derivingOf v
+
         list = prim . mappend
             [ Monoid'
             , Semigroup'

@@ -2,9 +2,9 @@
 instance ToJSON {{ type.name }} where
 {% case type.type %}
 {% when "void" %}
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 {% when "empty" %}
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 {% when "nullary" %}
     toJSON = toJSONText
 {% else %}

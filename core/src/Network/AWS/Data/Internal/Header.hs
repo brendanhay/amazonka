@@ -63,8 +63,15 @@ hMetaPrefix = "X-Amz-"
           (fmap Just . fromText . Text.decodeUtf8)
           (k `lookup` hs)
 
-(~:!) :: Functor f => f (Maybe a) -> a -> f a
-(~:!) p v = fromMaybe v <$> p
+-- (~:!) :: Functor f => f (Maybe a) -> a -> f a
+-- (~:!) p v = fromMaybe v <$> p
+
+(~::) :: FromText v => ResponseHeaders -> Text -> Either String (Map e Text v)
+(~::) hs p = Map.filterWithKey (const . Text.isPrefixOf p)
+    . Map.fromList <$> traverse f hs
+  where
+    f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
+        <$> fromText (Text.decodeUtf8 v)
 
 class ToHeaders a where
     toHeaders :: a -> [Header]

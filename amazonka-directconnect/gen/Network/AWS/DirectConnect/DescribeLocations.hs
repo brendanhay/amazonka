@@ -85,7 +85,7 @@ instance ToQuery DescribeLocations where
 instance ToHeaders DescribeLocations
 
 instance ToJSON DescribeLocations where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest DescribeLocations where
     type Sv DescribeLocations = DirectConnect

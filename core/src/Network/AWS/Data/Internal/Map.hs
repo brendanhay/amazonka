@@ -69,19 +69,6 @@ fromList = Map . Map.fromList
 toList :: Map e i j k v -> [(k, v)]
 toList = Map.toList . toHashMap
 
--- (~::) :: FromText v => [Header] -> Text -> Either String (Map e Text v)
--- (~::) hs p = Map
---     . Map.filterWithKey (const . Text.isPrefixOf p)
---     . Map.fromList <$> mapM f hs
---   where
---     f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
---         <$> fromText (Text.decodeUtf8 v)
-
--- instance (ToByteString k, ToByteString v) => ToHeader (Map e k v) where
---     toHeader k = map (bimap (mappend k . CI.mk . toBS) toBS) . toList
-
--- Move the x-amz-meta shit into Map witness?
-
 instance ( KnownSymbol e
          , KnownSymbol i
          , KnownSymbol j

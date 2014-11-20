@@ -543,11 +543,16 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
                 | isNatural x -> pure (TPrim PNatural)
                 | otherwise   -> pure (TPrim PInteger)
 
-        hmap x k' v' = flat flatten (TMap (ann, key, val) k' v')
+        hmap x k' v'
+            | r ^. refLocation == Just Headers =
+                THashMap k' v'
+            | otherwise =
+                flat flatten (TMap (ann, key, val) k' v')
           where
-            ann | fromMaybe False flatten = fromMaybe "entry" (r ^. refLocationName)
+            ann | fromMaybe False flatten = ent
                 | otherwise               = "entry"
 
+            ent = fromMaybe "entry" (r ^. refLocationName)
             key = fromMaybe "key"   (x ^. mapKey   . refLocationName)
             val = fromMaybe "value" (x ^. mapValue . refLocationName)
 

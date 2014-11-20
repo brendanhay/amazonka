@@ -21,53 +21,70 @@ module Network.AWS.Data.Internal.Map
     ( Map (..)
     , _Map
     ) where
-    -- ( Map (..)
-    -- , _Map
-    -- , (~::)
-    -- ) where
 
 import           Control.Applicative
 import           Control.Lens                         hiding (coerce, element)
 import           Data.Aeson
-import           Data.Bifunctor
 import qualified Data.ByteString.Char8                as BS
-import qualified Data.CaseInsensitive                 as CI
 import           Data.Coerce
-import           Data.Foldable                        (Foldable)
 import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
 import           Data.Hashable                        (Hashable)
-import           Data.List
 import           Data.Monoid
 import           Data.Proxy
 import           Data.Semigroup                       (Semigroup)
 import           Data.String
-import           Data.Text                            (Text)
-import qualified Data.Text                            as Text
-import qualified Data.Text.Encoding                   as Text
+import           GHC.Exts
 import           GHC.TypeLits
 import           Network.AWS.Data.Internal.ByteString
-import           Network.AWS.Data.Internal.Header
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
 import           Network.HTTP.Types.Header            (Header)
 import           Text.XML
 
-newtype Map (e :: Symbol) (i :: Symbol) (j :: Symbol) k v = Map
-    { toHashMap :: HashMap k v
+newtype Map k v = Map
+    { fromMap :: HashMap k v
     } deriving (Eq, Show, Monoid, Semigroup)
 
-type role Map phantom phantom phantom nominal representational
+type role Map nominal representational
 
-_Map :: (Coercible a b, Coercible b a) => Iso' (Map e i j k a) (HashMap k b)
-_Map = iso (coerce . toHashMap) (Map . coerce)
+_Map :: (Coercible a b, Coercible b a) => Iso' (Map k a) (HashMap k b)
+_Map = iso (coerce . fromMap) (Map . coerce)
 
-fromList :: (Eq k, Hashable k) => [(k, v)] -> Map e i j k v
-fromList = Map . Map.fromList
+instance (Eq k, Hashable k) => IsList (Map k v) where
+    type Item (Map k v) = (k, v)
 
-toList :: Map e i j k v -> [(k, v)]
-toList = Map.toList . toHashMap
+    fromList = Map . Map.fromList
+    toList   = Map.toList . fromMap
+
+instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
+    parseJSON = withObject "HashMap" $
+          fmap (Map . Map.fromList)
+        . traverse g
+        . Map.toList
+      where
+        g (k, v) = (,)
+            <$> either fail return (fromText k)
+            <*> parseJSON v
+
+instance (Eq k, Hashable k, ToText k, ToJSON v) => ToJSON (Map k v) where
+    toJSON = Object . Map.fromList . map (bimap toText toJSON) . toList
+
+newtype EMap (e :: Symbol) (i :: Symbol) (j :: Symbol) k v = EMap
+    { fromEMap :: HashMap k v
+    } deriving (Eq, Show, Monoid, Semigroup)
+
+type role EMap phantom phantom phantom nominal representational
+
+_EMap :: (Coercible a b, Coercible b a) => Iso' (EMap e i j k a) (HashMap k b)
+_EMap = iso (coerce . fromEMap) (EMap . coerce)
+
+instance (Eq k, Hashable k) => IsList (EMap e i j k v) where
+    type Item (EMap e i j k v) = (k, v)
+
+    fromList = EMap . Map.fromList
+    toList   = Map.toList . fromEMap
 
 instance ( KnownSymbol e
          , KnownSymbol i
@@ -76,7 +93,7 @@ instance ( KnownSymbol e
          , Hashable k
          , ToQuery k
          , ToQuery v
-         ) => ToQuery (Map e i j k v) where
+         ) => ToQuery (EMap e i j k v) where
     toQuery m = toBS e =? (mconcat . zipWith go idx $ toList m)
       where
         go n (k, v) = toBS n =? toQuery (i, k) <> toQuery (j, v)
@@ -87,24 +104,6 @@ instance ( KnownSymbol e
         j = BS.pack $ symbolVal (Proxy :: Proxy j)
         e = BS.pack $ symbolVal (Proxy :: Proxy e)
 
--- instance ( Eq k
---          , Hashable k
---          , FromText k
---          , FromJSON v
---          ) => FromJSON (Map e i j k v) where
---     parseJSON = withObject "HashMap" (fmap fromList . traverse g . Map.toList)
---       where
---         g (k, v) = (,)
---             <$> either fail return (fromText k)
---             <*> parseJSON v
-
--- instance ( Eq k
---          , Hashable k
---          , ToText k
---          , ToJSON v
---          ) => ToJSON (Map e i j k v) where
---     toJSON = Object . Map.fromList . map (bimap toText toJSON) . toList
-
 instance ( KnownSymbol e
          , KnownSymbol i
          , KnownSymbol j
@@ -112,7 +111,7 @@ instance ( KnownSymbol e
          , Hashable k
          , FromXML k
          , FromXML v
-         ) => FromXML (Map e i j k v) where
+         ) => FromXML (EMap e i j k v) where
     parseXML = fmap fromList . traverse (withElement e go . (:[]))
       where
         go ns
@@ -136,7 +135,7 @@ instance ( KnownSymbol e
          , Hashable k
          , ToXML k
          , ToXML v
-         ) => ToXML (Map e i j k v) where
+         ) => ToXML (EMap e i j k v) where
     toXML = map (uncurry go) . toList
       where
         go k v =
@@ -148,33 +147,3 @@ instance ( KnownSymbol e
         i = fromString $ symbolVal (Proxy :: Proxy i)
         j = fromString $ symbolVal (Proxy :: Proxy j)
         e = fromString $ symbolVal (Proxy :: Proxy e)
-
---    flattened: true
--- looks for many top-level element name
--- <Attribute>
---   <Name>ReceiveMessageWaitTimeSeconds</Name>
---   <Value>2</Value>
--- </Attribute>
--- <Attribute>
---   <Name>VisibilityTimeout</Name>
---   <Value>30</Value>
--- </Attribute>
--- <Attribute>
-
---    flattened: false
--- looks for top-level element name, then <entry>
-
--- <Attributes>
---   <entry>
---     <key>Owner</key>
---     <value>123456789012</value>
---   </entry>
---   <entry>
---     <key>Policy</key>
---     <value>x</value>
---   </entry>
---   <entry>
---     <key>TopicArn</key>
---     <value>arn:aws:sns:us-east-1:123456789012:My-Topic</value>
---   </entry>
--- </Attributes>

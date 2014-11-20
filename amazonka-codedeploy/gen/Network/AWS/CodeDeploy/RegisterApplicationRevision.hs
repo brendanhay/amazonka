@@ -113,3 +113,6 @@ instance AWSRequest RegisterApplicationRevision where
 
     request  = post "RegisterApplicationRevision"
     response = nullResponse RegisterApplicationRevisionResponse
+
+
+Some kind of operator / class to check the types whether to continue?

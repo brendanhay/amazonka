@@ -131,3 +131,6 @@ instance AWSRequest GetId where
 instance FromJSON GetIdResponse where
     parseJSON = withObject "GetIdResponse" $ \o -> GetIdResponse
         <$> o .:? "IdentityId"
+
+
+Some kind of operator / class to check the types whether to continue?

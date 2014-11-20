@@ -3534,8 +3534,9 @@
             "pager": {
                 "token": {
                     "input": "dseNextToken",
-                    "required": false,
-                    "output": "dserNextToken"
+                    "outputRequired": false,
+                    "output": "dseNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dserStackEvents"
@@ -4181,8 +4182,9 @@
             "pager": {
                 "token": {
                     "input": "ds1NextToken",
-                    "required": false,
-                    "output": "dsrNextToken"
+                    "outputRequired": false,
+                    "output": "ds1NextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dsrStacks"
@@ -5328,8 +5330,9 @@
             "pager": {
                 "token": {
                     "input": "lsrNextToken",
-                    "required": false,
-                    "output": "lsrrNextToken"
+                    "outputRequired": false,
+                    "output": "lsrNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lsrrStackResourceSummaries"
@@ -5547,8 +5550,9 @@
             "pager": {
                 "token": {
                     "input": "lsNextToken",
-                    "required": false,
-                    "output": "lsr1NextToken"
+                    "outputRequired": false,
+                    "output": "lsNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lsr1StackSummaries"

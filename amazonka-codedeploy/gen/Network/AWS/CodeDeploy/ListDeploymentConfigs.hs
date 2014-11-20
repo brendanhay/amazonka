@@ -125,3 +125,6 @@ instance FromJSON ListDeploymentConfigsResponse where
     parseJSON = withObject "ListDeploymentConfigsResponse" $ \o -> ListDeploymentConfigsResponse
         <$> o .:  "deploymentConfigsList"
         <*> o .:? "nextToken"
+
+
+Some kind of operator / class to check the types whether to continue?

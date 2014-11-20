@@ -99,3 +99,6 @@ instance AWSRequest RemovePermission where
 
     request  = post "RemovePermission"
     response = nullResponse RemovePermissionResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -127,3 +127,6 @@ instance AWSRequest VerifyDomainDkim where
 instance FromXML VerifyDomainDkimResponse where
     parseXML = withElement "VerifyDomainDkimResult" $ \x -> VerifyDomainDkimResponse
         <$> x .@  "DkimTokens"
+
+
+Some kind of operator / class to check the types whether to continue?

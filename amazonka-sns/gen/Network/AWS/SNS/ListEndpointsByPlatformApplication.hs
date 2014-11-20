@@ -141,3 +141,12 @@ instance FromXML ListEndpointsByPlatformApplicationResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager ListEndpointsByPlatformApplication where
+  next rq rs
+
+  = (\x -> rq & lebpaNextToken ?~ x)
+  <$> (rs ^. lebpaNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

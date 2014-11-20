@@ -196,3 +196,12 @@ instance FromJSON ListWorkflowTypesResponse where
         <*> o .:  "typeInfos"
 
 instance AWSPager ListWorkflowTypes where
+  next rq rs
+
+  = (\x -> rq & lwtNextPageToken ?~ x)
+  <$> (rs ^. lwtNextPageToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

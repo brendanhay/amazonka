@@ -98,3 +98,6 @@ instance AWSRequest DeleteConfigurationTemplate where
 
     request  = post "DeleteConfigurationTemplate"
     response = nullResponse DeleteConfigurationTemplateResponse
+
+
+Some kind of operator / class to check the types whether to continue?

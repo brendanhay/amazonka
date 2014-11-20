@@ -147,3 +147,6 @@ instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     response = xmlHeaderResponse $ \h x -> UpdateCloudFrontOriginAccessIdentityResponse
         <$> x .@? "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"
+
+
+Some kind of operator / class to check the types whether to continue?

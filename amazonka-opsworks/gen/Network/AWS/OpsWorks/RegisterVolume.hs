@@ -123,3 +123,6 @@ instance AWSRequest RegisterVolume where
 instance FromJSON RegisterVolumeResponse where
     parseJSON = withObject "RegisterVolumeResponse" $ \o -> RegisterVolumeResponse
         <$> o .:? "VolumeId"
+
+
+Some kind of operator / class to check the types whether to continue?

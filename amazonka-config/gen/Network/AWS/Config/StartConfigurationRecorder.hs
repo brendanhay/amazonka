@@ -94,3 +94,6 @@ instance AWSRequest StartConfigurationRecorder where
 
     request  = post "StartConfigurationRecorder"
     response = nullResponse StartConfigurationRecorderResponse
+
+
+Some kind of operator / class to check the types whether to continue?

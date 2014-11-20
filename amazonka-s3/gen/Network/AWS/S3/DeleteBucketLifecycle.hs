@@ -91,3 +91,6 @@ instance AWSRequest DeleteBucketLifecycle where
 
     request  = delete
     response = nullResponse DeleteBucketLifecycleResponse
+
+
+Some kind of operator / class to check the types whether to continue?

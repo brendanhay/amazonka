@@ -148,3 +148,12 @@ instance FromXML ListMetricsResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager ListMetrics where
+  next rq rs
+
+  = (\x -> rq & lmNextToken ?~ x)
+  <$> (rs ^. lmNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -118,3 +118,6 @@ instance FromXML GetBucketAclResponse where
     parseXML x = GetBucketAclResponse
         <$> x .@  "AccessControlList"
         <*> x .@? "Owner"
+
+
+Some kind of operator / class to check the types whether to continue?

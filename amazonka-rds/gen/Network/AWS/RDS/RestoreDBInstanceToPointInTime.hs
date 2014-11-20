@@ -373,3 +373,6 @@ instance AWSRequest RestoreDBInstanceToPointInTime where
 instance FromXML RestoreDBInstanceToPointInTimeResponse where
     parseXML = withElement "RestoreDBInstanceToPointInTimeResult" $ \x -> RestoreDBInstanceToPointInTimeResponse
         <$> x .@? "DBInstance"
+
+
+Some kind of operator / class to check the types whether to continue?

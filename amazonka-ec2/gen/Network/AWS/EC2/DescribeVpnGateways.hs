@@ -149,3 +149,6 @@ instance AWSRequest DescribeVpnGateways where
 instance FromXML DescribeVpnGatewaysResponse where
     parseXML x = DescribeVpnGatewaysResponse
         <$> x .@  "vpnGatewaySet"
+
+
+Some kind of operator / class to check the types whether to continue?

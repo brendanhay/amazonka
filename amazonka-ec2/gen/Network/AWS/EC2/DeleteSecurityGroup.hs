@@ -108,3 +108,6 @@ instance AWSRequest DeleteSecurityGroup where
 
     request  = post "DeleteSecurityGroup"
     response = nullResponse DeleteSecurityGroupResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -161,3 +161,12 @@ instance FromXML DescribeClusterParameterGroupsResponse where
         <*> x .@  "ParameterGroups"
 
 instance AWSPager DescribeClusterParameterGroups where
+  next rq rs
+
+  = (\x -> rq & dcpgMarker ?~ x)
+  <$> (rs ^. dcpgMarker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

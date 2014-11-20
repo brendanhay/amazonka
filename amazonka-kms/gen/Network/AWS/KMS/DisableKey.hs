@@ -90,3 +90,6 @@ instance AWSRequest DisableKey where
 
     request  = post "DisableKey"
     response = nullResponse DisableKeyResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -4679,8 +4679,9 @@
             "pager": {
                 "token": {
                     "input": "dcNextToken",
-                    "required": false,
-                    "output": "dcr1NextToken"
+                    "outputRequired": false,
+                    "output": "dcNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dcr1Cases"
@@ -5263,8 +5264,9 @@
             "pager": {
                 "token": {
                     "input": "dc1NextToken",
-                    "required": false,
-                    "output": "dcrNextToken"
+                    "outputRequired": false,
+                    "output": "dc1NextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dcrCommunications"

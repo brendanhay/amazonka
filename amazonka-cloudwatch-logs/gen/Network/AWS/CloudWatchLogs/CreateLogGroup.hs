@@ -93,3 +93,6 @@ instance AWSRequest CreateLogGroup where
 
     request  = post "CreateLogGroup"
     response = nullResponse CreateLogGroupResponse
+
+
+Some kind of operator / class to check the types whether to continue?

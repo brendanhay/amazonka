@@ -95,3 +95,6 @@ instance AWSRequest DescribeAdjustmentTypes where
 instance FromXML DescribeAdjustmentTypesResponse where
     parseXML = withElement "DescribeAdjustmentTypesResult" $ \x -> DescribeAdjustmentTypesResponse
         <$> x .@  "AdjustmentTypes"
+
+
+Some kind of operator / class to check the types whether to continue?

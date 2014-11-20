@@ -123,3 +123,6 @@ instance AWSRequest ListTagsForResource where
 instance FromXML ListTagsForResourceResponse where
     parseXML = withElement "ListTagsForResourceResult" $ \x -> ListTagsForResourceResponse
         <$> x .@  "TagList"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -145,3 +145,6 @@ instance AWSRequest DeleteDataset where
 instance FromJSON DeleteDatasetResponse where
     parseJSON = withObject "DeleteDatasetResponse" $ \o -> DeleteDatasetResponse
         <$> o .:? "Dataset"
+
+
+Some kind of operator / class to check the types whether to continue?

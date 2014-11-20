@@ -123,3 +123,6 @@ instance AWSRequest RestoreObject where
 
     request  = post
     response = nullResponse RestoreObjectResponse
+
+
+Some kind of operator / class to check the types whether to continue?

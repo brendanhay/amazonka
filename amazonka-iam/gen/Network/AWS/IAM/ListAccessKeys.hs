@@ -163,7 +163,10 @@ instance FromXML ListAccessKeysResponse where
         <*> x .@? "Marker"
 
 instance AWSPager ListAccessKeys where
-    page rq rs
+    next rq rs
         | stop (rs ^. lakrIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & lakMarker .~ rs ^. lakrMarker
+            & lakMarker .~ rs ^. lakMarker
+
+
+Some kind of operator / class to check the types whether to continue?

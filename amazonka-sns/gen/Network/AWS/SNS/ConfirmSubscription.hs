@@ -135,3 +135,6 @@ instance AWSRequest ConfirmSubscription where
 instance FromXML ConfirmSubscriptionResponse where
     parseXML = withElement "ConfirmSubscriptionResult" $ \x -> ConfirmSubscriptionResponse
         <$> x .@? "SubscriptionArn"
+
+
+Some kind of operator / class to check the types whether to continue?

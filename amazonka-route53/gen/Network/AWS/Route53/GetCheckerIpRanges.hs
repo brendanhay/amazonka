@@ -105,3 +105,6 @@ instance AWSRequest GetCheckerIpRanges where
 instance FromXML GetCheckerIpRangesResponse where
     parseXML x = GetCheckerIpRangesResponse
         <$> x .@  "CheckerIpRanges"
+
+
+Some kind of operator / class to check the types whether to continue?

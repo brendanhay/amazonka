@@ -99,3 +99,6 @@ instance AWSRequest ListVerifiedEmailAddresses where
 instance FromXML ListVerifiedEmailAddressesResponse where
     parseXML = withElement "ListVerifiedEmailAddressesResult" $ \x -> ListVerifiedEmailAddressesResponse
         <$> x .@  "VerifiedEmailAddresses"
+
+
+Some kind of operator / class to check the types whether to continue?

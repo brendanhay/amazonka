@@ -134,3 +134,6 @@ instance AWSRequest CreateCacheParameterGroup where
 instance FromXML CreateCacheParameterGroupResponse where
     parseXML = withElement "CreateCacheParameterGroupResult" $ \x -> CreateCacheParameterGroupResponse
         <$> x .@? "CacheParameterGroup"
+
+
+Some kind of operator / class to check the types whether to continue?

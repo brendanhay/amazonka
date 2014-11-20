@@ -121,3 +121,6 @@ instance AWSRequest CancelRetrieval where
 instance FromJSON CancelRetrievalResponse where
     parseJSON = withObject "CancelRetrievalResponse" $ \o -> CancelRetrievalResponse
         <$> o .:? "TapeARN"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -147,3 +147,6 @@ instance AWSRequest ModifyNetworkInterfaceAttribute where
 
     request  = post "ModifyNetworkInterfaceAttribute"
     response = nullResponse ModifyNetworkInterfaceAttributeResponse
+
+
+Some kind of operator / class to check the types whether to continue?

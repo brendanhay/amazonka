@@ -168,3 +168,6 @@ instance FromJSON DescribeCacheResponse where
         <*> o .:? "CacheUsedPercentage"
         <*> o .:  "DiskIds"
         <*> o .:? "GatewayARN"
+
+
+Some kind of operator / class to check the types whether to continue?

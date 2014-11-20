@@ -111,3 +111,6 @@ instance AWSRequest GetTemplate where
 instance FromXML GetTemplateResponse where
     parseXML = withElement "GetTemplateResult" $ \x -> GetTemplateResponse
         <$> x .@? "TemplateBody"
+
+
+Some kind of operator / class to check the types whether to continue?

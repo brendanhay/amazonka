@@ -152,3 +152,12 @@ instance FromJSON DescribeTapeArchivesResponse where
         <*> o .:  "TapeArchives"
 
 instance AWSPager DescribeTapeArchives where
+  next rq rs
+
+  = (\x -> rq & dtaMarker ?~ x)
+  <$> (rs ^. dtaMarker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

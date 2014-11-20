@@ -111,3 +111,6 @@ instance AWSRequest UpdateUser where
 
     request  = post "UpdateUser"
     response = nullResponse UpdateUserResponse
+
+
+Some kind of operator / class to check the types whether to continue?

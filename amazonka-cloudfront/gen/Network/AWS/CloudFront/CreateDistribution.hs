@@ -129,3 +129,6 @@ instance AWSRequest CreateDistribution where
         <$> x .@? "Distribution"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"
+
+
+Some kind of operator / class to check the types whether to continue?

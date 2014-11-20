@@ -117,3 +117,6 @@ instance AWSRequest DeleteExpression where
 instance FromXML DeleteExpressionResponse where
     parseXML = withElement "DeleteExpressionResult" $ \x -> DeleteExpressionResponse
         <$> x .@  "Expression"
+
+
+Some kind of operator / class to check the types whether to continue?

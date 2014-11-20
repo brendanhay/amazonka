@@ -260,3 +260,6 @@ instance AWSRequest PutMetricAlarm where
 
     request  = post "PutMetricAlarm"
     response = nullResponse PutMetricAlarmResponse
+
+
+Some kind of operator / class to check the types whether to continue?

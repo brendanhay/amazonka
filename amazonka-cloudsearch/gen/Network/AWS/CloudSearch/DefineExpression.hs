@@ -116,3 +116,6 @@ instance AWSRequest DefineExpression where
 instance FromXML DefineExpressionResponse where
     parseXML = withElement "DefineExpressionResult" $ \x -> DefineExpressionResponse
         <$> x .@  "Expression"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -176,3 +176,6 @@ instance AWSRequest CreateJob where
 instance FromJSON CreateJobResponse where
     parseJSON = withObject "CreateJobResponse" $ \o -> CreateJobResponse
         <$> o .:? "Job"
+
+
+Some kind of operator / class to check the types whether to continue?

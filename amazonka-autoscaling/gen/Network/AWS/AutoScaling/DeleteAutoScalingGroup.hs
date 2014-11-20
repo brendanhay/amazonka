@@ -102,3 +102,6 @@ instance AWSRequest DeleteAutoScalingGroup where
 
     request  = post "DeleteAutoScalingGroup"
     response = nullResponse DeleteAutoScalingGroupResponse
+
+
+Some kind of operator / class to check the types whether to continue?

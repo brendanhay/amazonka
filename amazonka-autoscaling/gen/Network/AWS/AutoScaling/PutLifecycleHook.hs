@@ -202,3 +202,6 @@ instance AWSRequest PutLifecycleHook where
 
     request  = post "PutLifecycleHook"
     response = nullResponse PutLifecycleHookResponse
+
+
+Some kind of operator / class to check the types whether to continue?

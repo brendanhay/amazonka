@@ -143,3 +143,12 @@ instance FromXML DescribeLaunchConfigurationsResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeLaunchConfigurations where
+  next rq rs
+
+  = (\x -> rq & dlcNextToken ?~ x)
+  <$> (rs ^. dlcNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

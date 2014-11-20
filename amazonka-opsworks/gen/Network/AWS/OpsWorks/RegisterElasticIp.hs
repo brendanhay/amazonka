@@ -124,3 +124,6 @@ instance AWSRequest RegisterElasticIp where
 instance FromJSON RegisterElasticIpResponse where
     parseJSON = withObject "RegisterElasticIpResponse" $ \o -> RegisterElasticIpResponse
         <$> o .:? "ElasticIp"
+
+
+Some kind of operator / class to check the types whether to continue?

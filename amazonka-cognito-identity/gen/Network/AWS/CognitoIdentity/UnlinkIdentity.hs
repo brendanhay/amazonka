@@ -112,3 +112,6 @@ instance AWSRequest UnlinkIdentity where
 
     request  = post "UnlinkIdentity"
     response = nullResponse UnlinkIdentityResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -240,3 +240,12 @@ instance FromXML DescribeInstanceStatusResponse where
         <*> x .@? "nextToken"
 
 instance AWSPager DescribeInstanceStatus where
+  next rq rs
+
+  = (\x -> rq & disNextToken ?~ x)
+  <$> (rs ^. disNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

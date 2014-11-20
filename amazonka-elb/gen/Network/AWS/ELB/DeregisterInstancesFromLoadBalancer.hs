@@ -128,3 +128,6 @@ instance AWSRequest DeregisterInstancesFromLoadBalancer where
 instance FromXML DeregisterInstancesFromLoadBalancerResponse where
     parseXML = withElement "DeregisterInstancesFromLoadBalancerResult" $ \x -> DeregisterInstancesFromLoadBalancerResponse
         <$> x .@  "Instances"
+
+
+Some kind of operator / class to check the types whether to continue?

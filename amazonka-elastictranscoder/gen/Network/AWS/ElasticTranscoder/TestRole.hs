@@ -160,3 +160,6 @@ instance FromJSON TestRoleResponse where
     parseJSON = withObject "TestRoleResponse" $ \o -> TestRoleResponse
         <$> o .:  "Messages"
         <*> o .:? "Success"
+
+
+Some kind of operator / class to check the types whether to continue?

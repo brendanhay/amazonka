@@ -117,3 +117,6 @@ instance AWSRequest UpdateSigningCertificate where
 
     request  = post "UpdateSigningCertificate"
     response = nullResponse UpdateSigningCertificateResponse
+
+
+Some kind of operator / class to check the types whether to continue?

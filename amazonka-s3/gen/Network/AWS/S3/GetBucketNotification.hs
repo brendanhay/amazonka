@@ -130,3 +130,6 @@ instance FromXML GetBucketNotificationResponse where
         <$> x .@? "CloudFunctionConfiguration"
         <*> x .@? "QueueConfiguration"
         <*> x .@? "TopicConfiguration"
+
+
+Some kind of operator / class to check the types whether to continue?

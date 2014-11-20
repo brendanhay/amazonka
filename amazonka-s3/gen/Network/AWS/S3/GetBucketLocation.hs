@@ -109,3 +109,6 @@ instance AWSRequest GetBucketLocation where
 instance FromXML GetBucketLocationResponse where
     parseXML x = GetBucketLocationResponse
         <$> x .@? "LocationConstraint"
+
+
+Some kind of operator / class to check the types whether to continue?

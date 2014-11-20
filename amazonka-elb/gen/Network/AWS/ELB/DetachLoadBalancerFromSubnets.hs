@@ -127,3 +127,6 @@ instance AWSRequest DetachLoadBalancerFromSubnets where
 instance FromXML DetachLoadBalancerFromSubnetsResponse where
     parseXML = withElement "DetachLoadBalancerFromSubnetsResult" $ \x -> DetachLoadBalancerFromSubnetsResponse
         <$> x .@  "Subnets"
+
+
+Some kind of operator / class to check the types whether to continue?

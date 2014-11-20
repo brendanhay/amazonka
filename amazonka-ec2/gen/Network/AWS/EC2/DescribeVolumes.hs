@@ -194,3 +194,6 @@ instance FromXML DescribeVolumesResponse where
     parseXML x = DescribeVolumesResponse
         <$> x .@? "nextToken"
         <*> x .@  "volumeSet"
+
+
+Some kind of operator / class to check the types whether to continue?

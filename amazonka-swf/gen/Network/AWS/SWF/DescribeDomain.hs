@@ -126,3 +126,6 @@ instance FromJSON DescribeDomainResponse where
     parseJSON = withObject "DescribeDomainResponse" $ \o -> DescribeDomainResponse
         <$> o .:  "configuration"
         <*> o .:  "domainInfo"
+
+
+Some kind of operator / class to check the types whether to continue?

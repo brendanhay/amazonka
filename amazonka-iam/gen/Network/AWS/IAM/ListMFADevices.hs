@@ -159,7 +159,10 @@ instance FromXML ListMFADevicesResponse where
         <*> x .@? "Marker"
 
 instance AWSPager ListMFADevices where
-    page rq rs
+    next rq rs
         | stop (rs ^. lmfadrIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & lmfadMarker .~ rs ^. lmfadrMarker
+            & lmfadMarker .~ rs ^. lmfadMarker
+
+
+Some kind of operator / class to check the types whether to continue?

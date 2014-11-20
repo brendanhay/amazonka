@@ -183,3 +183,12 @@ instance FromXML DescribeCacheEngineVersionsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheEngineVersions where
+  next rq rs
+
+  = (\x -> rq & dcevMarker ?~ x)
+  <$> (rs ^. dcevMarker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

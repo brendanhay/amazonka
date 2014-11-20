@@ -122,3 +122,6 @@ instance AWSRequest DescribeEnvironmentResources where
 instance FromXML DescribeEnvironmentResourcesResponse where
     parseXML = withElement "DescribeEnvironmentResourcesResult" $ \x -> DescribeEnvironmentResourcesResponse
         <$> x .@? "EnvironmentResources"
+
+
+Some kind of operator / class to check the types whether to continue?

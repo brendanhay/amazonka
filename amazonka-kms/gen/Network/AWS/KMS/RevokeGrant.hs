@@ -101,3 +101,6 @@ instance AWSRequest RevokeGrant where
 
     request  = post "RevokeGrant"
     response = nullResponse RevokeGrantResponse
+
+
+Some kind of operator / class to check the types whether to continue?

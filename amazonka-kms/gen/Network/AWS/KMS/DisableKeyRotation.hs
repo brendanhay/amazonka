@@ -90,3 +90,6 @@ instance AWSRequest DisableKeyRotation where
 
     request  = post "DisableKeyRotation"
     response = nullResponse DisableKeyRotationResponse
+
+
+Some kind of operator / class to check the types whether to continue?

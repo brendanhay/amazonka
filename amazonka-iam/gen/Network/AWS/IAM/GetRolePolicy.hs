@@ -142,3 +142,6 @@ instance FromXML GetRolePolicyResponse where
         <$> x .@  "PolicyDocument"
         <*> x .@  "PolicyName"
         <*> x .@  "RoleName"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -174,7 +174,10 @@ instance FromJSON DescribeObjectsResponse where
         <*> o .:  "pipelineObjects"
 
 instance AWSPager DescribeObjects where
-    page rq rs
+    next rq rs
         | stop (rs ^. dorHasMoreResults) = Nothing
         | otherwise = Just $ rq
-            & doMarker .~ rs ^. dorMarker
+            & doMarker .~ rs ^. doMarker
+
+
+Some kind of operator / class to check the types whether to continue?

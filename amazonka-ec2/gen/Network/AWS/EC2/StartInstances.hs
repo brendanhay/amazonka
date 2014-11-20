@@ -144,3 +144,6 @@ instance AWSRequest StartInstances where
 instance FromXML StartInstancesResponse where
     parseXML x = StartInstancesResponse
         <$> x .@  "instancesSet"
+
+
+Some kind of operator / class to check the types whether to continue?

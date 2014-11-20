@@ -168,3 +168,6 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress where
 instance FromXML AuthorizeDBSecurityGroupIngressResponse where
     parseXML = withElement "AuthorizeDBSecurityGroupIngressResult" $ \x -> AuthorizeDBSecurityGroupIngressResponse
         <$> x .@? "DBSecurityGroup"
+
+
+Some kind of operator / class to check the types whether to continue?

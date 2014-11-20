@@ -8539,8 +8539,9 @@
                 "more": "lhcrIsTruncated",
                 "token": {
                     "input": "lhcMarker",
-                    "required": false,
-                    "output": "lhcrNextMarker"
+                    "outputRequired": false,
+                    "output": "lhcMarker",
+                    "inputRequired": false
                 },
                 "type": "one"
             },
@@ -8924,8 +8925,9 @@
                 "more": "lhzrIsTruncated",
                 "token": {
                     "input": "lhzMarker",
-                    "required": false,
-                    "output": "lhzrNextMarker"
+                    "outputRequired": false,
+                    "output": "lhzMarker",
+                    "inputRequired": false
                 },
                 "type": "one"
             },
@@ -9390,18 +9392,21 @@
                 "tokens": {
                     "p1": {
                         "input": "lrrsStartRecordName",
-                        "required": false,
-                        "output": "lrrsrNextRecordName"
+                        "outputRequired": false,
+                        "output": "lrrsStartRecordName",
+                        "inputRequired": false
                     },
                     "p2": {
                         "input": "lrrsStartRecordType",
-                        "required": false,
-                        "output": "lrrsrNextRecordType"
+                        "outputRequired": false,
+                        "output": "lrrsStartRecordType",
+                        "inputRequired": false
                     },
                     "p3": {
                         "input": "lrrsStartRecordIdentifier",
-                        "required": false,
-                        "output": "lrrsrNextRecordIdentifier"
+                        "outputRequired": false,
+                        "output": "lrrsStartRecordIdentifier",
+                        "inputRequired": false
                     }
                 },
                 "negate": "isNothing p1 && isNothing p2 && isNothing p3",

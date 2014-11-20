@@ -111,3 +111,6 @@ instance AWSRequest IndexDocuments where
 instance FromXML IndexDocumentsResponse where
     parseXML = withElement "IndexDocumentsResult" $ \x -> IndexDocumentsResponse
         <$> x .@  "FieldNames"
+
+
+Some kind of operator / class to check the types whether to continue?

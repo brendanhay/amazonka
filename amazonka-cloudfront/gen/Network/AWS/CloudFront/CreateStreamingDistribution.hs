@@ -133,3 +133,6 @@ instance AWSRequest CreateStreamingDistribution where
         <$> h ~:? "ETag"
         <*> h ~:? "Location"
         <*> x .@? "StreamingDistribution"
+
+
+Some kind of operator / class to check the types whether to continue?

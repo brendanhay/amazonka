@@ -225,3 +225,6 @@ instance AWSRequest RegisterImage where
 instance FromXML RegisterImageResponse where
     parseXML x = RegisterImageResponse
         <$> x .@? "imageId"
+
+
+Some kind of operator / class to check the types whether to continue?

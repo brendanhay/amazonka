@@ -111,3 +111,6 @@ instance AWSRequest ModifyVolumeAttribute where
 
     request  = post "ModifyVolumeAttribute"
     response = nullResponse ModifyVolumeAttributeResponse
+
+
+Some kind of operator / class to check the types whether to continue?

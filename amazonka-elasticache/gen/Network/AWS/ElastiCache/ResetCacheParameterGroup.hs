@@ -139,3 +139,6 @@ instance AWSRequest ResetCacheParameterGroup where
 instance FromXML ResetCacheParameterGroupResponse where
     parseXML = withElement "ResetCacheParameterGroupResult" $ \x -> ResetCacheParameterGroupResponse
         <$> x .@? "CacheParameterGroupName"
+
+
+Some kind of operator / class to check the types whether to continue?

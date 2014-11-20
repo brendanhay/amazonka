@@ -109,3 +109,6 @@ instance AWSRequest GetStackPolicy where
 instance FromXML GetStackPolicyResponse where
     parseXML = withElement "GetStackPolicyResult" $ \x -> GetStackPolicyResponse
         <$> x .@? "StackPolicyBody"
+
+
+Some kind of operator / class to check the types whether to continue?

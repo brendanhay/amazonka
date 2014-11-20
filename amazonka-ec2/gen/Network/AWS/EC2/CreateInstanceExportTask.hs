@@ -138,3 +138,6 @@ instance AWSRequest CreateInstanceExportTask where
 instance FromXML CreateInstanceExportTaskResponse where
     parseXML x = CreateInstanceExportTaskResponse
         <$> x .@? "exportTask"
+
+
+Some kind of operator / class to check the types whether to continue?

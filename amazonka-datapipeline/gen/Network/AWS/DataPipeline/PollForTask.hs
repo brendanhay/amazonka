@@ -156,3 +156,6 @@ instance AWSRequest PollForTask where
 instance FromJSON PollForTaskResponse where
     parseJSON = withObject "PollForTaskResponse" $ \o -> PollForTaskResponse
         <$> o .:? "taskObject"
+
+
+Some kind of operator / class to check the types whether to continue?

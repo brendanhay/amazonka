@@ -119,3 +119,6 @@ instance AWSRequest TerminateInstanceInAutoScalingGroup where
 instance FromXML TerminateInstanceInAutoScalingGroupResponse where
     parseXML = withElement "TerminateInstanceInAutoScalingGroupResult" $ \x -> TerminateInstanceInAutoScalingGroupResponse
         <$> x .@? "Activity"
+
+
+Some kind of operator / class to check the types whether to continue?

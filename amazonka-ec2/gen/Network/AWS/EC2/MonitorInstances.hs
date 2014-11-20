@@ -122,3 +122,6 @@ instance AWSRequest MonitorInstances where
 instance FromXML MonitorInstancesResponse where
     parseXML x = MonitorInstancesResponse
         <$> x .@  "instancesSet"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -137,3 +137,6 @@ instance AWSRequest CreateVpc where
 instance FromXML CreateVpcResponse where
     parseXML x = CreateVpcResponse
         <$> x .@? "vpc"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -170,3 +170,6 @@ instance AWSRequest CreateReservedInstancesListing where
 instance FromXML CreateReservedInstancesListingResponse where
     parseXML x = CreateReservedInstancesListingResponse
         <$> x .@  "reservedInstancesListingsSet"
+
+
+Some kind of operator / class to check the types whether to continue?

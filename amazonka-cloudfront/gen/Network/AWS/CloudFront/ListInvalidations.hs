@@ -142,7 +142,10 @@ instance FromXML ListInvalidationsResponse where
         <$> x .@  "InvalidationList"
 
 instance AWSPager ListInvalidations where
-    page rq rs
+    next rq rs
         | stop (rs ^. lirInvalidationList . ilIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & liMarker .~ rs ^. lirInvalidationList . ilNextMarker
+            & liMarker .~ rs ^. liMarker
+
+
+Some kind of operator / class to check the types whether to continue?

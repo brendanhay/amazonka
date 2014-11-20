@@ -169,3 +169,6 @@ instance FromJSON GenerateDataKeyWithoutPlaintextResponse where
     parseJSON = withObject "GenerateDataKeyWithoutPlaintextResponse" $ \o -> GenerateDataKeyWithoutPlaintextResponse
         <$> o .:? "CiphertextBlob"
         <*> o .:? "KeyId"
+
+
+Some kind of operator / class to check the types whether to continue?

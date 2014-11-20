@@ -231,3 +231,6 @@ instance AWSRequest RegisterActivityType where
 
     request  = post "RegisterActivityType"
     response = nullResponse RegisterActivityTypeResponse
+
+
+Some kind of operator / class to check the types whether to continue?

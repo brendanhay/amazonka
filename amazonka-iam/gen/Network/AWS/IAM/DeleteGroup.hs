@@ -87,3 +87,6 @@ instance AWSRequest DeleteGroup where
 
     request  = post "DeleteGroup"
     response = nullResponse DeleteGroupResponse
+
+
+Some kind of operator / class to check the types whether to continue?

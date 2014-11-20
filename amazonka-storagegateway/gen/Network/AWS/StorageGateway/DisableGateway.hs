@@ -110,3 +110,6 @@ instance AWSRequest DisableGateway where
 instance FromJSON DisableGatewayResponse where
     parseJSON = withObject "DisableGatewayResponse" $ \o -> DisableGatewayResponse
         <$> o .:? "GatewayARN"
+
+
+Some kind of operator / class to check the types whether to continue?

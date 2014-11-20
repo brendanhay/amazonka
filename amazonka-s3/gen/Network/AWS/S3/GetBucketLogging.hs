@@ -110,3 +110,6 @@ instance AWSRequest GetBucketLogging where
 instance FromXML GetBucketLoggingResponse where
     parseXML x = GetBucketLoggingResponse
         <$> x .@? "LoggingEnabled"
+
+
+Some kind of operator / class to check the types whether to continue?

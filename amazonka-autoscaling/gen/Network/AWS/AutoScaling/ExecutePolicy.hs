@@ -112,3 +112,6 @@ instance AWSRequest ExecutePolicy where
 
     request  = post "ExecutePolicy"
     response = nullResponse ExecutePolicyResponse
+
+
+Some kind of operator / class to check the types whether to continue?

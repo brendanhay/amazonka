@@ -126,3 +126,6 @@ instance AWSRequest CreateLBCookieStickinessPolicy where
 
     request  = post "CreateLBCookieStickinessPolicy"
     response = nullResponse CreateLBCookieStickinessPolicyResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -9702,8 +9702,9 @@
             "pager": {
                 "token": {
                     "input": "dcc1Marker",
-                    "required": false,
-                    "output": "dccrMarker"
+                    "outputRequired": false,
+                    "output": "dcc1Marker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dccrCacheClusters"
@@ -9990,8 +9991,9 @@
             "pager": {
                 "token": {
                     "input": "dcevMarker",
-                    "required": false,
-                    "output": "dcevrMarker"
+                    "outputRequired": false,
+                    "output": "dcevMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dcevrCacheEngineVersions"
@@ -10348,8 +10350,9 @@
             "pager": {
                 "token": {
                     "input": "dcpgMarker",
-                    "required": false,
-                    "output": "dcpgrMarker"
+                    "outputRequired": false,
+                    "output": "dcpgMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dcpgrCacheParameterGroups"
@@ -10631,8 +10634,9 @@
             "pager": {
                 "token": {
                     "input": "dcpMarker",
-                    "required": false,
-                    "output": "dcprMarker"
+                    "outputRequired": false,
+                    "output": "dcpMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dcprParameters"
@@ -10920,8 +10924,9 @@
             "pager": {
                 "token": {
                     "input": "dcsg1Marker",
-                    "required": false,
-                    "output": "dcsgr1Marker"
+                    "outputRequired": false,
+                    "output": "dcsg1Marker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dcsgr1CacheSecurityGroups"
@@ -11173,8 +11178,9 @@
             "pager": {
                 "token": {
                     "input": "dcsgMarker",
-                    "required": false,
-                    "output": "dcsgrMarker"
+                    "outputRequired": false,
+                    "output": "dcsgMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dcsgrCacheSubnetGroups"
@@ -11412,8 +11418,9 @@
             "pager": {
                 "token": {
                     "input": "dedpMarker",
-                    "required": false,
-                    "output": "dedprEngineDefaults . edMarker"
+                    "outputRequired": false,
+                    "output": "dedpMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dedprEngineDefaults . edParameters"
@@ -11666,8 +11673,9 @@
             "pager": {
                 "token": {
                     "input": "deMarker",
-                    "required": false,
-                    "output": "derMarker"
+                    "outputRequired": false,
+                    "output": "deMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "derEvents"
@@ -12059,8 +12067,9 @@
             "pager": {
                 "token": {
                     "input": "drg1Marker",
-                    "required": false,
-                    "output": "drgrMarker"
+                    "outputRequired": false,
+                    "output": "drg1Marker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "drgrReplicationGroups"
@@ -12312,8 +12321,9 @@
             "pager": {
                 "token": {
                     "input": "drcnMarker",
-                    "required": false,
-                    "output": "drcnrMarker"
+                    "outputRequired": false,
+                    "output": "drcnMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "drcnrReservedCacheNodes"
@@ -12740,8 +12750,9 @@
             "pager": {
                 "token": {
                     "input": "drcnoMarker",
-                    "required": false,
-                    "output": "drcnorMarker"
+                    "outputRequired": false,
+                    "output": "drcnoMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "drcnorReservedCacheNodesOfferings"
@@ -13133,8 +13144,9 @@
             "pager": {
                 "token": {
                     "input": "dsMarker",
-                    "required": false,
-                    "output": "dsrMarker"
+                    "outputRequired": false,
+                    "output": "dsMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dsrSnapshots"

@@ -137,3 +137,6 @@ instance AWSRequest RevokeCacheSecurityGroupIngress where
 instance FromXML RevokeCacheSecurityGroupIngressResponse where
     parseXML = withElement "RevokeCacheSecurityGroupIngressResult" $ \x -> RevokeCacheSecurityGroupIngressResponse
         <$> x .@? "CacheSecurityGroup"
+
+
+Some kind of operator / class to check the types whether to continue?

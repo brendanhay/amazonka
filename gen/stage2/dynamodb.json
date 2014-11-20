@@ -7204,8 +7204,9 @@
             "pager": {
                 "token": {
                     "input": "ltExclusiveStartTableName",
-                    "required": false,
-                    "output": "ltrLastEvaluatedTableName"
+                    "outputRequired": false,
+                    "output": "ltrLastEvaluatedTableName",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ltrTableNames"
@@ -8274,8 +8275,9 @@
             "pager": {
                 "token": {
                     "input": "qExclusiveStartKey",
-                    "required": false,
-                    "output": "qrLastEvaluatedKey"
+                    "outputRequired": true,
+                    "output": "qrLastEvaluatedKey",
+                    "inputRequired": true
                 },
                 "type": "next",
                 "resultKey": "qrItems"
@@ -9308,8 +9310,9 @@
             "pager": {
                 "token": {
                     "input": "sExclusiveStartKey",
-                    "required": false,
-                    "output": "srLastEvaluatedKey"
+                    "outputRequired": true,
+                    "output": "srLastEvaluatedKey",
+                    "inputRequired": true
                 },
                 "type": "next",
                 "resultKey": "srItems"

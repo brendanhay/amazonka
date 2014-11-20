@@ -131,3 +131,6 @@ instance AWSRequest SignalResource where
 
     request  = post "SignalResource"
     response = nullResponse SignalResourceResponse
+
+
+Some kind of operator / class to check the types whether to continue?

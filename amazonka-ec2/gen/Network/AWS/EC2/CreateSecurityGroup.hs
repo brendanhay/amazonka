@@ -156,3 +156,6 @@ instance AWSRequest CreateSecurityGroup where
 instance FromXML CreateSecurityGroupResponse where
     parseXML x = CreateSecurityGroupResponse
         <$> x .@? "groupId"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -153,3 +153,6 @@ instance AWSRequest DeleteObject where
     response = xmlHeaderResponse $ \h x -> DeleteObjectResponse
         <$> h ~:? "x-amz-delete-marker"
         <*> h ~:? "x-amz-version-id"
+
+
+Some kind of operator / class to check the types whether to continue?

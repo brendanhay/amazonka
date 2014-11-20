@@ -110,3 +110,6 @@ instance AWSRequest CreateTags where
 
     request  = post "CreateTags"
     response = nullResponse CreateTagsResponse
+
+
+Some kind of operator / class to check the types whether to continue?

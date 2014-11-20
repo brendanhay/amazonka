@@ -143,3 +143,6 @@ instance FromJSON AddAttachmentsToSetResponse where
     parseJSON = withObject "AddAttachmentsToSetResponse" $ \o -> AddAttachmentsToSetResponse
         <$> o .:? "attachmentSetId"
         <*> o .:? "expiryTime"
+
+
+Some kind of operator / class to check the types whether to continue?

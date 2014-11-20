@@ -116,3 +116,6 @@ instance AWSRequest SetStatus where
 
     request  = post "SetStatus"
     response = nullResponse SetStatusResponse
+
+
+Some kind of operator / class to check the types whether to continue?

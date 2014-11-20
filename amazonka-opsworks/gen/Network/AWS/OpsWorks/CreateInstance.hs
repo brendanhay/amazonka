@@ -287,3 +287,6 @@ instance AWSRequest CreateInstance where
 instance FromJSON CreateInstanceResponse where
     parseJSON = withObject "CreateInstanceResponse" $ \o -> CreateInstanceResponse
         <$> o .:? "InstanceId"
+
+
+Some kind of operator / class to check the types whether to continue?

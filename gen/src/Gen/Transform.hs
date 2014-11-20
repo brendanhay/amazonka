@@ -19,6 +19,8 @@
 
 module Gen.Transform (transformS1ToS2) where
 
+import Debug.Trace
+
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
@@ -182,7 +184,7 @@ operation :: Abbrev
           -> Text
           -> [NS]
           -> HashSet Text
-          -> HashMap Text Pager
+          -> HashMap Text (Pager ())
           -> Text
           -> S1.Operation
           -> State (HashMap Text Data) Operation
@@ -251,8 +253,8 @@ operation a proto base ns ss pgs n o = do
 -- the state fields.
 pager :: Request
       -> Response
-      -> Maybe Pager
-      -> State (HashMap Text Data) (Maybe Pager)
+      -> Maybe (Pager ())
+      -> State (HashMap Text Data) (Maybe (Pager Type))
 pager _   _   Nothing   = return Nothing
 pager inp out (Just pg) = get >>= go
   where
@@ -263,20 +265,25 @@ pager inp out (Just pg) = get >>= go
       where
         ts = Map.fromList [(rq, _rqData inp), (rs, _rsData out)] <> ds
 
-        token t =
-            let l = label rq (t ^. tokInput)
-             in t & tokRequired .~ require rq l
-                  & tokInput    .~ l
-                  & tokOutput   %~ label rs
+        token (Token _ _ i o) =
+            let x = label rq i
+                y = label rs o
+             in Token (require (_rqData inp) x) (require (_rsData out) y) x y
 
         rq = _rqName inp
         rs = _rsName out
 
-        require _ NoKey           = False
-        require x (Key n)
-            | Just d <- Map.lookup x ts
-            , Just f <- field n d = isRequired (_fType f)
-        require _ _               = False
+        require d k
+            | Just n <- key k
+            , Just f <- find ((n ==) . _fName) (toListOf dataFields d)
+                = _fType f
+            | otherwise
+                = TType "Unknown"
+
+        key (Key    n)   = Just n
+        key (Index  n _) = Just n
+        key (Apply  n _) = Just n
+        key _            = Nothing
 
         label _ NoKey        = NoKey
         label x (Key    n)   = Key    (applied x n)

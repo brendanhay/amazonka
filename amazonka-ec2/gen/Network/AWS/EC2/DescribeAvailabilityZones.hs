@@ -139,3 +139,6 @@ instance AWSRequest DescribeAvailabilityZones where
 instance FromXML DescribeAvailabilityZonesResponse where
     parseXML x = DescribeAvailabilityZonesResponse
         <$> x .@  "availabilityZoneInfo"
+
+
+Some kind of operator / class to check the types whether to continue?

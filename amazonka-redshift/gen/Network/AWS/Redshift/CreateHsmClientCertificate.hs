@@ -116,3 +116,6 @@ instance AWSRequest CreateHsmClientCertificate where
 instance FromXML CreateHsmClientCertificateResponse where
     parseXML = withElement "CreateHsmClientCertificateResult" $ \x -> CreateHsmClientCertificateResponse
         <$> x .@? "HsmClientCertificate"
+
+
+Some kind of operator / class to check the types whether to continue?

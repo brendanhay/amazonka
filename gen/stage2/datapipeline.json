@@ -2312,8 +2312,9 @@
                 "more": "dorHasMoreResults",
                 "token": {
                     "input": "doMarker",
-                    "required": false,
-                    "output": "dorMarker"
+                    "outputRequired": false,
+                    "output": "doMarker",
+                    "inputRequired": false
                 },
                 "type": "one"
             },
@@ -3439,8 +3440,9 @@
                 "more": "lprHasMoreResults",
                 "token": {
                     "input": "lpMarker",
-                    "required": false,
-                    "output": "lprMarker"
+                    "outputRequired": false,
+                    "output": "lpMarker",
+                    "inputRequired": false
                 },
                 "type": "one"
             },
@@ -4310,8 +4312,9 @@
                 "more": "qorHasMoreResults",
                 "token": {
                     "input": "qoMarker",
-                    "required": false,
-                    "output": "qorMarker"
+                    "outputRequired": false,
+                    "output": "qoMarker",
+                    "inputRequired": false
                 },
                 "type": "one"
             },

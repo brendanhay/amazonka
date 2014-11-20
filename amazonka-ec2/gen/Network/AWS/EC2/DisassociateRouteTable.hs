@@ -99,3 +99,6 @@ instance AWSRequest DisassociateRouteTable where
 
     request  = post "DisassociateRouteTable"
     response = nullResponse DisassociateRouteTableResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -146,3 +146,6 @@ instance AWSRequest RecordActivityTaskHeartbeat where
 instance FromJSON RecordActivityTaskHeartbeatResponse where
     parseJSON = withObject "RecordActivityTaskHeartbeatResponse" $ \o -> RecordActivityTaskHeartbeatResponse
         <$> o .:  "cancelRequested"
+
+
+Some kind of operator / class to check the types whether to continue?

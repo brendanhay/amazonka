@@ -115,3 +115,6 @@ instance AWSRequest AssociateDhcpOptions where
 
     request  = post "AssociateDhcpOptions"
     response = nullResponse AssociateDhcpOptionsResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -121,3 +121,6 @@ instance AWSRequest DeleteHostedZone where
 instance FromXML DeleteHostedZoneResponse where
     parseXML x = DeleteHostedZoneResponse
         <$> x .@  "ChangeInfo"
+
+
+Some kind of operator / class to check the types whether to continue?

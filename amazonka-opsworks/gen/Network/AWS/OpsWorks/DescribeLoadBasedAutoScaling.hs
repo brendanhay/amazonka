@@ -126,3 +126,6 @@ instance AWSRequest DescribeLoadBasedAutoScaling where
 instance FromJSON DescribeLoadBasedAutoScalingResponse where
     parseJSON = withObject "DescribeLoadBasedAutoScalingResponse" $ \o -> DescribeLoadBasedAutoScalingResponse
         <$> o .:  "LoadBasedAutoScalingConfigurations"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -115,3 +115,6 @@ instance AWSRequest GetReusableDelegationSet where
 instance FromXML GetReusableDelegationSetResponse where
     parseXML x = GetReusableDelegationSetResponse
         <$> x .@  "DelegationSet"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -218,3 +218,6 @@ instance FromXML GetMetricStatisticsResponse where
     parseXML = withElement "GetMetricStatisticsResult" $ \x -> GetMetricStatisticsResponse
         <$> x .@  "Datapoints"
         <*> x .@? "Label"
+
+
+Some kind of operator / class to check the types whether to continue?

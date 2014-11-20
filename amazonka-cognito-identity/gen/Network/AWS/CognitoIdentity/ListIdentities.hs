@@ -149,3 +149,6 @@ instance FromJSON ListIdentitiesResponse where
         <$> o .:  "Identities"
         <*> o .:? "IdentityPoolId"
         <*> o .:? "NextToken"
+
+
+Some kind of operator / class to check the types whether to continue?

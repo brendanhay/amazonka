@@ -112,3 +112,6 @@ instance AWSRequest SetSubscriptionAttributes where
 
     request  = post "SetSubscriptionAttributes"
     response = nullResponse SetSubscriptionAttributesResponse
+
+
+Some kind of operator / class to check the types whether to continue?

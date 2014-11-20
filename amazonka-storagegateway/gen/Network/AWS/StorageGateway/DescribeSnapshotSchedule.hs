@@ -147,3 +147,6 @@ instance FromJSON DescribeSnapshotScheduleResponse where
         <*> o .:? "StartAt"
         <*> o .:? "Timezone"
         <*> o .:? "VolumeARN"
+
+
+Some kind of operator / class to check the types whether to continue?

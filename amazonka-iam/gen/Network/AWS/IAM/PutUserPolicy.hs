@@ -113,3 +113,6 @@ instance AWSRequest PutUserPolicy where
 
     request  = post "PutUserPolicy"
     response = nullResponse PutUserPolicyResponse
+
+
+Some kind of operator / class to check the types whether to continue?

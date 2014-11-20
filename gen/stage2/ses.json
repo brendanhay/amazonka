@@ -2236,8 +2236,9 @@
             "pager": {
                 "token": {
                     "input": "liNextToken",
-                    "required": false,
-                    "output": "lirNextToken"
+                    "outputRequired": false,
+                    "output": "liNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lirIdentities"

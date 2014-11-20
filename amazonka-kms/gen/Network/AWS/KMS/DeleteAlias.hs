@@ -89,3 +89,6 @@ instance AWSRequest DeleteAlias where
 
     request  = post "DeleteAlias"
     response = nullResponse DeleteAliasResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -107,3 +107,6 @@ instance AWSRequest GenerateRandom where
 instance FromJSON GenerateRandomResponse where
     parseJSON = withObject "GenerateRandomResponse" $ \o -> GenerateRandomResponse
         <$> o .:? "Plaintext"
+
+
+Some kind of operator / class to check the types whether to continue?

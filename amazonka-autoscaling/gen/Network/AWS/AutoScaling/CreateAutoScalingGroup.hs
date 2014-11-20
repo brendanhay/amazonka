@@ -296,3 +296,6 @@ instance AWSRequest CreateAutoScalingGroup where
 
     request  = post "CreateAutoScalingGroup"
     response = nullResponse CreateAutoScalingGroupResponse
+
+
+Some kind of operator / class to check the types whether to continue?

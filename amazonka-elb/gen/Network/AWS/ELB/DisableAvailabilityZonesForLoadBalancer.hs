@@ -138,3 +138,6 @@ instance AWSRequest DisableAvailabilityZonesForLoadBalancer where
 instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
     parseXML = withElement "DisableAvailabilityZonesForLoadBalancerResult" $ \x -> DisableAvailabilityZonesForLoadBalancerResponse
         <$> x .@  "AvailabilityZones"
+
+
+Some kind of operator / class to check the types whether to continue?

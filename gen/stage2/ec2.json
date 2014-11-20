@@ -42123,8 +42123,9 @@
             "pager": {
                 "token": {
                     "input": "disNextToken",
-                    "required": false,
-                    "output": "disrNextToken"
+                    "outputRequired": false,
+                    "output": "disNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "disrInstanceStatuses"
@@ -42480,8 +42481,9 @@
             "pager": {
                 "token": {
                     "input": "di1NextToken",
-                    "required": false,
-                    "output": "dirNextToken"
+                    "outputRequired": false,
+                    "output": "di1NextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dirReservations"
@@ -45029,8 +45031,9 @@
             "pager": {
                 "token": {
                     "input": "drimNextToken",
-                    "required": false,
-                    "output": "drimrNextToken"
+                    "outputRequired": false,
+                    "output": "drimNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "drimrReservedInstancesModifications"
@@ -45281,8 +45284,9 @@
             "pager": {
                 "token": {
                     "input": "drioNextToken",
-                    "required": false,
-                    "output": "driorNextToken"
+                    "outputRequired": false,
+                    "output": "drioNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "driorReservedInstancesOfferings"
@@ -47404,8 +47408,9 @@
             "pager": {
                 "token": {
                     "input": "dsphNextToken",
-                    "required": false,
-                    "output": "dsphrNextToken"
+                    "outputRequired": false,
+                    "output": "dsphNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dsphrSpotPriceHistory"
@@ -48098,8 +48103,9 @@
             "pager": {
                 "token": {
                     "input": "dtNextToken",
-                    "required": false,
-                    "output": "dtrNextToken"
+                    "outputRequired": false,
+                    "output": "dtNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dtrTags"
@@ -48661,8 +48667,9 @@
             "pager": {
                 "token": {
                     "input": "dvsNextToken",
-                    "required": false,
-                    "output": "dvsrNextToken"
+                    "outputRequired": false,
+                    "output": "dvsNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dvsrVolumeStatuses"

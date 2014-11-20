@@ -114,3 +114,6 @@ instance AWSRequest DeliverConfigSnapshot where
 instance FromJSON DeliverConfigSnapshotResponse where
     parseJSON = withObject "DeliverConfigSnapshotResponse" $ \o -> DeliverConfigSnapshotResponse
         <$> o .:? "configSnapshotId"
+
+
+Some kind of operator / class to check the types whether to continue?

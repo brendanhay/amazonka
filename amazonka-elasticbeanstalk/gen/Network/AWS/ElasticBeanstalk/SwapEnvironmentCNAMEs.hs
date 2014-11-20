@@ -135,3 +135,6 @@ instance AWSRequest SwapEnvironmentCNAMEs where
 
     request  = post "SwapEnvironmentCNAMEs"
     response = nullResponse SwapEnvironmentCNAMEsResponse
+
+
+Some kind of operator / class to check the types whether to continue?

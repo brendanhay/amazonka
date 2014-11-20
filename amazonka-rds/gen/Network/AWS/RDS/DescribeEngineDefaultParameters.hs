@@ -146,3 +146,12 @@ instance FromXML DescribeEngineDefaultParametersResponse where
         <$> x .@  "EngineDefaults"
 
 instance AWSPager DescribeEngineDefaultParameters where
+  next rq rs
+
+  = (\x -> rq & dedpMarker ?~ x)
+  <$> (rs ^. dedpMarker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

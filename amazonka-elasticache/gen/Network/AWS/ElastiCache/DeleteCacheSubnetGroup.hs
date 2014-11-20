@@ -89,3 +89,6 @@ instance AWSRequest DeleteCacheSubnetGroup where
 
     request  = post "DeleteCacheSubnetGroup"
     response = nullResponse DeleteCacheSubnetGroupResponse
+
+
+Some kind of operator / class to check the types whether to continue?

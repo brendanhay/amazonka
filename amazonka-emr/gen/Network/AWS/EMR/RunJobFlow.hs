@@ -286,3 +286,6 @@ instance AWSRequest RunJobFlow where
 instance FromJSON RunJobFlowResponse where
     parseJSON = withObject "RunJobFlowResponse" $ \o -> RunJobFlowResponse
         <$> o .:? "JobFlowId"
+
+
+Some kind of operator / class to check the types whether to continue?

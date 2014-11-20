@@ -148,3 +148,6 @@ instance AWSRequest ImportVolume where
 instance FromXML ImportVolumeResponse where
     parseXML x = ImportVolumeResponse
         <$> x .@? "conversionTask"
+
+
+Some kind of operator / class to check the types whether to continue?

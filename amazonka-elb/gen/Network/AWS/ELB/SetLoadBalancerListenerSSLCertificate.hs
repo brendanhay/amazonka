@@ -120,3 +120,6 @@ instance AWSRequest SetLoadBalancerListenerSSLCertificate where
 
     request  = post "SetLoadBalancerListenerSSLCertificate"
     response = nullResponse SetLoadBalancerListenerSSLCertificateResponse
+
+
+Some kind of operator / class to check the types whether to continue?

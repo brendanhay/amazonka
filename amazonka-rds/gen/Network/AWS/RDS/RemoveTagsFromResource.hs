@@ -99,3 +99,6 @@ instance AWSRequest RemoveTagsFromResource where
 
     request  = post "RemoveTagsFromResource"
     response = nullResponse RemoveTagsFromResourceResponse
+
+
+Some kind of operator / class to check the types whether to continue?

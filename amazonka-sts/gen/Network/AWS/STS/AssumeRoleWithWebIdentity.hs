@@ -304,3 +304,6 @@ instance FromXML AssumeRoleWithWebIdentityResponse where
         <*> x .@? "PackedPolicySize"
         <*> x .@? "Provider"
         <*> x .@? "SubjectFromWebIdentityToken"
+
+
+Some kind of operator / class to check the types whether to continue?

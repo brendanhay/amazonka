@@ -125,7 +125,10 @@ instance FromXML ListJobsResponse where
         <*> x .@  "Jobs"
 
 instance AWSPager ListJobs where
-    page rq rs
+    next rq rs
         | stop (rs ^. ljrIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & ljMarker .~ rs ^. index ljrJobs jobJobId
+            & ljMarker .~ rs ^. ljMarker
+
+
+Some kind of operator / class to check the types whether to continue?

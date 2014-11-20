@@ -8517,8 +8517,9 @@
             "pager": {
                 "token": {
                     "input": "deNextToken",
-                    "required": false,
-                    "output": "derNextToken"
+                    "outputRequired": false,
+                    "output": "deNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "derEvents"

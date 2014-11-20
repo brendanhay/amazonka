@@ -181,3 +181,6 @@ instance FromJSON GenerateDataKeyResponse where
         <$> o .:? "CiphertextBlob"
         <*> o .:? "KeyId"
         <*> o .:? "Plaintext"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -188,7 +188,10 @@ instance FromXML ListHealthChecksResponse where
         <*> x .@? "NextMarker"
 
 instance AWSPager ListHealthChecks where
-    page rq rs
+    next rq rs
         | stop (rs ^. lhcrIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & lhcMarker .~ rs ^. lhcrNextMarker
+            & lhcMarker .~ rs ^. lhcMarker
+
+
+Some kind of operator / class to check the types whether to continue?

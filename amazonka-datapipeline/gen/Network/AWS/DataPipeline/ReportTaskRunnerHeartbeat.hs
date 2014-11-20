@@ -143,3 +143,6 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
 instance FromJSON ReportTaskRunnerHeartbeatResponse where
     parseJSON = withObject "ReportTaskRunnerHeartbeatResponse" $ \o -> ReportTaskRunnerHeartbeatResponse
         <$> o .:  "terminate"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -112,3 +112,6 @@ instance AWSRequest DeleteApplicationVersion where
 
     request  = post "DeleteApplicationVersion"
     response = nullResponse DeleteApplicationVersionResponse
+
+
+Some kind of operator / class to check the types whether to continue?

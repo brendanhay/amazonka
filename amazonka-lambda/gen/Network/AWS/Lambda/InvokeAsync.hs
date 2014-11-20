@@ -126,3 +126,6 @@ instance AWSRequest InvokeAsync where
 instance FromJSON InvokeAsyncResponse where
     parseJSON = withObject "InvokeAsyncResponse" $ \o -> InvokeAsyncResponse
         <$> o .:  "Status"
+
+
+Some kind of operator / class to check the types whether to continue?

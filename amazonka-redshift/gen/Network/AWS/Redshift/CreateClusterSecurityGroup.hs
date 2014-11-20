@@ -125,3 +125,6 @@ instance AWSRequest CreateClusterSecurityGroup where
 instance FromXML CreateClusterSecurityGroupResponse where
     parseXML = withElement "CreateClusterSecurityGroupResult" $ \x -> CreateClusterSecurityGroupResponse
         <$> x .@? "ClusterSecurityGroup"
+
+
+Some kind of operator / class to check the types whether to continue?

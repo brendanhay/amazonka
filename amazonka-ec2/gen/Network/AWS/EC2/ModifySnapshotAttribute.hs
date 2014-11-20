@@ -152,3 +152,6 @@ instance AWSRequest ModifySnapshotAttribute where
 
     request  = post "ModifySnapshotAttribute"
     response = nullResponse ModifySnapshotAttributeResponse
+
+
+Some kind of operator / class to check the types whether to continue?

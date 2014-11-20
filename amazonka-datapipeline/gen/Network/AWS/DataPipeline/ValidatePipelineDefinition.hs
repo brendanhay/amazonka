@@ -148,3 +148,6 @@ instance FromJSON ValidatePipelineDefinitionResponse where
         <$> o .:  "errored"
         <*> o .:  "validationErrors"
         <*> o .:  "validationWarnings"
+
+
+Some kind of operator / class to check the types whether to continue?

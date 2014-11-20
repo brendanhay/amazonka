@@ -228,3 +228,12 @@ instance FromXML DescribeSpotPriceHistoryResponse where
         <*> x .@  "spotPriceHistorySet"
 
 instance AWSPager DescribeSpotPriceHistory where
+  next rq rs
+
+  = (\x -> rq & dsphNextToken ?~ x)
+  <$> (rs ^. dsphNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

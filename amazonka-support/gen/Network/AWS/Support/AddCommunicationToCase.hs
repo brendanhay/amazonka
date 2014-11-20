@@ -151,3 +151,6 @@ instance AWSRequest AddCommunicationToCase where
 instance FromJSON AddCommunicationToCaseResponse where
     parseJSON = withObject "AddCommunicationToCaseResponse" $ \o -> AddCommunicationToCaseResponse
         <$> o .:? "result"
+
+
+Some kind of operator / class to check the types whether to continue?

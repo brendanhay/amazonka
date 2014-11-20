@@ -120,3 +120,6 @@ instance AWSRequest GetKeyPolicy where
 instance FromJSON GetKeyPolicyResponse where
     parseJSON = withObject "GetKeyPolicyResponse" $ \o -> GetKeyPolicyResponse
         <$> o .:? "Policy"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -283,3 +283,12 @@ instance FromXML DescribeReservedInstancesOfferingsResponse where
         <*> x .@  "reservedInstancesOfferingsSet"
 
 instance AWSPager DescribeReservedInstancesOfferings where
+  next rq rs
+
+  = (\x -> rq & drioNextToken ?~ x)
+  <$> (rs ^. drioNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

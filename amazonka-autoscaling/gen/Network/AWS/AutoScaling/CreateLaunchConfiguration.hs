@@ -318,3 +318,6 @@ instance AWSRequest CreateLaunchConfiguration where
 
     request  = post "CreateLaunchConfiguration"
     response = nullResponse CreateLaunchConfigurationResponse
+
+
+Some kind of operator / class to check the types whether to continue?

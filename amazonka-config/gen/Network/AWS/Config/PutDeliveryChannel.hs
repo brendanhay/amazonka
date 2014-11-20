@@ -98,3 +98,6 @@ instance AWSRequest PutDeliveryChannel where
 
     request  = post "PutDeliveryChannel"
     response = nullResponse PutDeliveryChannelResponse
+
+
+Some kind of operator / class to check the types whether to continue?

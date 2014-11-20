@@ -105,3 +105,6 @@ instance AWSRequest DeleteEventSubscription where
 instance FromXML DeleteEventSubscriptionResponse where
     parseXML = withElement "DeleteEventSubscriptionResult" $ \x -> DeleteEventSubscriptionResponse
         <$> x .@? "EventSubscription"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -195,3 +195,6 @@ instance FromJSON LookupDeveloperIdentityResponse where
         <$> o .:  "DeveloperUserIdentifierList"
         <*> o .:? "IdentityId"
         <*> o .:? "NextToken"
+
+
+Some kind of operator / class to check the types whether to continue?

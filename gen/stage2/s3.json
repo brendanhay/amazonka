@@ -19329,13 +19329,15 @@
                 "tokens": {
                     "p1": {
                         "input": "lmuKeyMarker",
-                        "required": false,
-                        "output": "lmurNextKeyMarker"
+                        "outputRequired": false,
+                        "output": "lmuKeyMarker",
+                        "inputRequired": false
                     },
                     "p2": {
                         "input": "lmuUploadIdMarker",
-                        "required": false,
-                        "output": "lmurNextUploadIdMarker"
+                        "outputRequired": false,
+                        "output": "lmuUploadIdMarker",
+                        "inputRequired": false
                     }
                 },
                 "negate": "isNothing p1 && isNothing p2",
@@ -20261,13 +20263,15 @@
                 "tokens": {
                     "p1": {
                         "input": "lovKeyMarker",
-                        "required": false,
-                        "output": "lovrNextKeyMarker"
+                        "outputRequired": false,
+                        "output": "lovKeyMarker",
+                        "inputRequired": false
                     },
                     "p2": {
                         "input": "lovVersionIdMarker",
-                        "required": false,
-                        "output": "lovrNextVersionIdMarker"
+                        "outputRequired": false,
+                        "output": "lovVersionIdMarker",
+                        "inputRequired": false
                     }
                 },
                 "negate": "isNothing p1 && isNothing p2",
@@ -21057,8 +21061,9 @@
                 "more": "lorIsTruncated",
                 "token": {
                     "input": "loMarker",
-                    "required": false,
-                    "output": "lorNextMarker"
+                    "outputRequired": false,
+                    "output": "loMarker",
+                    "inputRequired": false
                 },
                 "type": "one"
             },
@@ -21852,8 +21857,9 @@
                 "more": "lprIsTruncated",
                 "token": {
                     "input": "lpPartNumberMarker",
-                    "required": false,
-                    "output": "lprNextPartNumberMarker"
+                    "outputRequired": false,
+                    "output": "lpPartNumberMarker",
+                    "inputRequired": false
                 },
                 "type": "one"
             },

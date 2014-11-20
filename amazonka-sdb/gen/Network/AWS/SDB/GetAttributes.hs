@@ -146,3 +146,6 @@ instance AWSRequest GetAttributes where
 instance FromXML GetAttributesResponse where
     parseXML = withElement "GetAttributesResult" $ \x -> GetAttributesResponse
         <$> parseXML x
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -113,3 +113,6 @@ instance AWSRequest CancelBundleTask where
 instance FromXML CancelBundleTaskResponse where
     parseXML x = CancelBundleTaskResponse
         <$> x .@? "bundleInstanceTask"
+
+
+Some kind of operator / class to check the types whether to continue?

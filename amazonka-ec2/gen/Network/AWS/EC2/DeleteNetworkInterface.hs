@@ -97,3 +97,6 @@ instance AWSRequest DeleteNetworkInterface where
 
     request  = post "DeleteNetworkInterface"
     response = nullResponse DeleteNetworkInterfaceResponse
+
+
+Some kind of operator / class to check the types whether to continue?

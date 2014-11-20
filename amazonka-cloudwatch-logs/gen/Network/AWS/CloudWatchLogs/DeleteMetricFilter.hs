@@ -98,3 +98,6 @@ instance AWSRequest DeleteMetricFilter where
 
     request  = post "DeleteMetricFilter"
     response = nullResponse DeleteMetricFilterResponse
+
+
+Some kind of operator / class to check the types whether to continue?

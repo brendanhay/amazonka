@@ -100,3 +100,6 @@ instance AWSRequest RebootInstances where
 
     request  = post "RebootInstances"
     response = nullResponse RebootInstancesResponse
+
+
+Some kind of operator / class to check the types whether to continue?

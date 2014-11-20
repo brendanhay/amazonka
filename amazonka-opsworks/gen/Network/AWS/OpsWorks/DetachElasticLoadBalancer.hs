@@ -107,3 +107,6 @@ instance AWSRequest DetachElasticLoadBalancer where
 
     request  = post "DetachElasticLoadBalancer"
     response = nullResponse DetachElasticLoadBalancerResponse
+
+
+Some kind of operator / class to check the types whether to continue?

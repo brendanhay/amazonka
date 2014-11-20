@@ -120,3 +120,6 @@ instance AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
 instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse where
     parseJSON = withObject "DescribeTrustedAdvisorCheckRefreshStatusesResponse" $ \o -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
         <$> o .:  "statuses"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -126,3 +126,6 @@ instance AWSRequest ExitStandby where
 instance FromXML ExitStandbyResponse where
     parseXML = withElement "ExitStandbyResult" $ \x -> ExitStandbyResponse
         <$> x .@  "Activities"
+
+
+Some kind of operator / class to check the types whether to continue?

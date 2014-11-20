@@ -93,3 +93,6 @@ instance AWSRequest DeleteBucket where
 
     request  = delete
     response = nullResponse DeleteBucketResponse
+
+
+Some kind of operator / class to check the types whether to continue?

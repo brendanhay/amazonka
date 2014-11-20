@@ -133,3 +133,6 @@ instance AWSRequest CreateDBSnapshot where
 instance FromXML CreateDBSnapshotResponse where
     parseXML = withElement "CreateDBSnapshotResult" $ \x -> CreateDBSnapshotResponse
         <$> x .@? "DBSnapshot"
+
+
+Some kind of operator / class to check the types whether to continue?

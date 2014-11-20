@@ -183,7 +183,10 @@ instance FromXML DownloadDBLogFilePortionResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DownloadDBLogFilePortion where
-    page rq rs
+    next rq rs
         | stop (rs ^. ddblfprAdditionalDataPending) = Nothing
         | otherwise = Just $ rq
-            & ddblfpMarker .~ rs ^. ddblfprMarker
+            & ddblfpMarker .~ rs ^. ddblfpMarker
+
+
+Some kind of operator / class to check the types whether to continue?

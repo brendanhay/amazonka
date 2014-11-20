@@ -104,3 +104,6 @@ instance AWSRequest ResumeProcesses where
 
     request  = post "ResumeProcesses"
     response = nullResponse ResumeProcessesResponse
+
+
+Some kind of operator / class to check the types whether to continue?

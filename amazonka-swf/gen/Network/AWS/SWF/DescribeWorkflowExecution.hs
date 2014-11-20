@@ -186,3 +186,6 @@ instance FromJSON DescribeWorkflowExecutionResponse where
         <*> o .:? "latestActivityTaskTimestamp"
         <*> o .:? "latestExecutionContext"
         <*> o .:  "openCounts"
+
+
+Some kind of operator / class to check the types whether to continue?

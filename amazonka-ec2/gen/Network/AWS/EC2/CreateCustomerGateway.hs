@@ -149,3 +149,6 @@ instance AWSRequest CreateCustomerGateway where
 instance FromXML CreateCustomerGatewayResponse where
     parseXML x = CreateCustomerGatewayResponse
         <$> x .@? "customerGateway"
+
+
+Some kind of operator / class to check the types whether to continue?

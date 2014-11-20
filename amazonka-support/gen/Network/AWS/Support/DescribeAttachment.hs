@@ -112,3 +112,6 @@ instance AWSRequest DescribeAttachment where
 instance FromJSON DescribeAttachmentResponse where
     parseJSON = withObject "DescribeAttachmentResponse" $ \o -> DescribeAttachmentResponse
         <$> o .:? "attachment"
+
+
+Some kind of operator / class to check the types whether to continue?

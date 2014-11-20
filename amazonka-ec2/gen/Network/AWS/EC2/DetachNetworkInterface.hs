@@ -105,3 +105,6 @@ instance AWSRequest DetachNetworkInterface where
 
     request  = post "DetachNetworkInterface"
     response = nullResponse DetachNetworkInterfaceResponse
+
+
+Some kind of operator / class to check the types whether to continue?

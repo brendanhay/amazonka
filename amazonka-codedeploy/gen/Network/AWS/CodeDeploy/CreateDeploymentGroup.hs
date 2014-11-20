@@ -196,3 +196,6 @@ instance AWSRequest CreateDeploymentGroup where
 instance FromJSON CreateDeploymentGroupResponse where
     parseJSON = withObject "CreateDeploymentGroupResponse" $ \o -> CreateDeploymentGroupResponse
         <$> o .:? "deploymentGroupId"
+
+
+Some kind of operator / class to check the types whether to continue?

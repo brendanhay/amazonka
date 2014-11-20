@@ -98,3 +98,6 @@ instance AWSRequest GetSendStatistics where
 instance FromXML GetSendStatisticsResponse where
     parseXML = withElement "GetSendStatisticsResult" $ \x -> GetSendStatisticsResponse
         <$> x .@  "SendDataPoints"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -197,7 +197,10 @@ instance FromXML ListHostedZonesResponse where
         <*> x .@? "NextMarker"
 
 instance AWSPager ListHostedZones where
-    page rq rs
+    next rq rs
         | stop (rs ^. lhzrIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & lhzMarker .~ rs ^. lhzrNextMarker
+            & lhzMarker .~ rs ^. lhzMarker
+
+
+Some kind of operator / class to check the types whether to continue?

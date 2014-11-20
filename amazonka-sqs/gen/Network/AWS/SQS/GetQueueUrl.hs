@@ -123,3 +123,6 @@ instance AWSRequest GetQueueUrl where
 instance FromXML GetQueueUrlResponse where
     parseXML = withElement "GetQueueUrlResult" $ \x -> GetQueueUrlResponse
         <$> x .@? "QueueUrl"
+
+
+Some kind of operator / class to check the types whether to continue?

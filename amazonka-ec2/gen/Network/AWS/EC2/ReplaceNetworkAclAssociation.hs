@@ -130,3 +130,6 @@ instance AWSRequest ReplaceNetworkAclAssociation where
 instance FromXML ReplaceNetworkAclAssociationResponse where
     parseXML x = ReplaceNetworkAclAssociationResponse
         <$> x .@? "newAssociationId"
+
+
+Some kind of operator / class to check the types whether to continue?

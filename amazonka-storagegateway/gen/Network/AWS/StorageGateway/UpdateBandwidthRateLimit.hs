@@ -138,3 +138,6 @@ instance AWSRequest UpdateBandwidthRateLimit where
 instance FromJSON UpdateBandwidthRateLimitResponse where
     parseJSON = withObject "UpdateBandwidthRateLimitResponse" $ \o -> UpdateBandwidthRateLimitResponse
         <$> o .:? "GatewayARN"
+
+
+Some kind of operator / class to check the types whether to continue?

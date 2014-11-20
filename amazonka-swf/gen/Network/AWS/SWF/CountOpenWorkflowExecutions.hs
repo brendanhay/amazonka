@@ -178,3 +178,6 @@ instance FromJSON CountOpenWorkflowExecutionsResponse where
     parseJSON = withObject "CountOpenWorkflowExecutionsResponse" $ \o -> CountOpenWorkflowExecutionsResponse
         <$> o .:  "count"
         <*> o .:? "truncated"
+
+
+Some kind of operator / class to check the types whether to continue?

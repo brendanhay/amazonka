@@ -121,3 +121,6 @@ instance AWSRequest DefineIndexField where
 instance FromXML DefineIndexFieldResponse where
     parseXML = withElement "DefineIndexFieldResult" $ \x -> DefineIndexFieldResponse
         <$> x .@  "IndexField"
+
+
+Some kind of operator / class to check the types whether to continue?

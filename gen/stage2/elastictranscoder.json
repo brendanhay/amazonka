@@ -8594,8 +8594,9 @@
             "pager": {
                 "token": {
                     "input": "ljbpPageToken",
-                    "required": false,
-                    "output": "ljbprNextPageToken"
+                    "outputRequired": false,
+                    "output": "ljbpPageToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ljbprJobs"
@@ -8878,8 +8879,9 @@
             "pager": {
                 "token": {
                     "input": "ljbsPageToken",
-                    "required": false,
-                    "output": "ljbsrNextPageToken"
+                    "outputRequired": false,
+                    "output": "ljbsPageToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ljbsrJobs"
@@ -9162,8 +9164,9 @@
             "pager": {
                 "token": {
                     "input": "lpPageToken",
-                    "required": false,
-                    "output": "lprNextPageToken"
+                    "outputRequired": false,
+                    "output": "lpPageToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lprPipelines"
@@ -9411,8 +9414,9 @@
             "pager": {
                 "token": {
                     "input": "lp1PageToken",
-                    "required": false,
-                    "output": "lpr1NextPageToken"
+                    "outputRequired": false,
+                    "output": "lp1PageToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lpr1Presets"

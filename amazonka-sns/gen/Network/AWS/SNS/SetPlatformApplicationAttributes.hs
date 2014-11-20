@@ -114,3 +114,6 @@ instance AWSRequest SetPlatformApplicationAttributes where
 
     request  = post "SetPlatformApplicationAttributes"
     response = nullResponse SetPlatformApplicationAttributesResponse
+
+
+Some kind of operator / class to check the types whether to continue?

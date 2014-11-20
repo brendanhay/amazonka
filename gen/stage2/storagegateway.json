@@ -11513,8 +11513,9 @@
             "pager": {
                 "token": {
                     "input": "dtaMarker",
-                    "required": false,
-                    "output": "dtarMarker"
+                    "outputRequired": false,
+                    "output": "dtaMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dtarTapeArchives"
@@ -11872,8 +11873,9 @@
             "pager": {
                 "token": {
                     "input": "dtrpMarker",
-                    "required": false,
-                    "output": "dtrprMarker"
+                    "outputRequired": false,
+                    "output": "dtrpMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dtrprTapeRecoveryPointInfos"
@@ -12187,8 +12189,9 @@
             "pager": {
                 "token": {
                     "input": "dtMarker",
-                    "required": false,
-                    "output": "dtrMarker"
+                    "outputRequired": false,
+                    "output": "dtMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dtrTapes"
@@ -12917,8 +12920,9 @@
             "pager": {
                 "token": {
                     "input": "dvtldMarker",
-                    "required": false,
-                    "output": "dvtldrMarker"
+                    "outputRequired": false,
+                    "output": "dvtldMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dvtldrVTLDevices"
@@ -13809,8 +13813,9 @@
             "pager": {
                 "token": {
                     "input": "lgMarker",
-                    "required": false,
-                    "output": "lgrMarker"
+                    "outputRequired": false,
+                    "output": "lgMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lgrGateways"
@@ -14591,8 +14596,9 @@
             "pager": {
                 "token": {
                     "input": "lvMarker",
-                    "required": false,
-                    "output": "lvrMarker"
+                    "outputRequired": false,
+                    "output": "lvMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lvrVolumeInfos"

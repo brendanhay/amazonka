@@ -131,3 +131,6 @@ instance AWSRequest UpdateApplicationVersion where
 instance FromXML UpdateApplicationVersionResponse where
     parseXML = withElement "UpdateApplicationVersionResult" $ \x -> UpdateApplicationVersionResponse
         <$> x .@? "ApplicationVersion"
+
+
+Some kind of operator / class to check the types whether to continue?

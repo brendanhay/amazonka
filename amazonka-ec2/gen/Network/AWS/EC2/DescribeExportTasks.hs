@@ -114,3 +114,6 @@ instance AWSRequest DescribeExportTasks where
 instance FromXML DescribeExportTasksResponse where
     parseXML x = DescribeExportTasksResponse
         <$> x .@  "exportTaskSet"
+
+
+Some kind of operator / class to check the types whether to continue?

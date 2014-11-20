@@ -149,3 +149,6 @@ instance FromJSON DescribeActivityTypeResponse where
     parseJSON = withObject "DescribeActivityTypeResponse" $ \o -> DescribeActivityTypeResponse
         <$> o .:  "configuration"
         <*> o .:  "typeInfo"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -131,3 +131,12 @@ instance FromJSON ListInstanceGroupsResponse where
         <*> o .:? "Marker"
 
 instance AWSPager ListInstanceGroups where
+  next rq rs
+
+  = (\x -> rq & ligMarker ?~ x)
+  <$> (rs ^. ligMarker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

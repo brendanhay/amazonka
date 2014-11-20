@@ -108,3 +108,6 @@ instance AWSRequest ListDeadLetterSourceQueues where
 instance FromXML ListDeadLetterSourceQueuesResponse where
     parseXML = withElement "ListDeadLetterSourceQueuesResult" $ \x -> ListDeadLetterSourceQueuesResponse
         <$> parseXML x
+
+
+Some kind of operator / class to check the types whether to continue?

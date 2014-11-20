@@ -157,3 +157,12 @@ instance FromXML DescribeHsmConfigurationsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeHsmConfigurations where
+  next rq rs
+
+  = (\x -> rq & dhc1Marker ?~ x)
+  <$> (rs ^. dhc1Marker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

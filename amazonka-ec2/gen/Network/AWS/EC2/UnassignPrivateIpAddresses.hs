@@ -102,3 +102,6 @@ instance AWSRequest UnassignPrivateIpAddresses where
 
     request  = post "UnassignPrivateIpAddresses"
     response = nullResponse UnassignPrivateIpAddressesResponse
+
+
+Some kind of operator / class to check the types whether to continue?

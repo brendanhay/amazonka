@@ -216,3 +216,6 @@ instance FromJSON CreateStorediSCSIVolumeResponse where
         <$> o .:? "TargetARN"
         <*> o .:? "VolumeARN"
         <*> o .:? "VolumeSizeInBytes"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -91,3 +91,6 @@ instance AWSRequest DeleteIdentityPool where
 
     request  = post "DeleteIdentityPool"
     response = nullResponse DeleteIdentityPoolResponse
+
+
+Some kind of operator / class to check the types whether to continue?

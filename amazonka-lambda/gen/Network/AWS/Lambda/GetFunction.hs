@@ -121,3 +121,6 @@ instance FromJSON GetFunctionResponse where
     parseJSON = withObject "GetFunctionResponse" $ \o -> GetFunctionResponse
         <$> o .:? "Code"
         <*> o .:? "Configuration"
+
+
+Some kind of operator / class to check the types whether to continue?

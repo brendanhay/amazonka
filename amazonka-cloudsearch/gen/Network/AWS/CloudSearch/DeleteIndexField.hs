@@ -118,3 +118,6 @@ instance AWSRequest DeleteIndexField where
 instance FromXML DeleteIndexFieldResponse where
     parseXML = withElement "DeleteIndexFieldResult" $ \x -> DeleteIndexFieldResponse
         <$> x .@  "IndexField"
+
+
+Some kind of operator / class to check the types whether to continue?

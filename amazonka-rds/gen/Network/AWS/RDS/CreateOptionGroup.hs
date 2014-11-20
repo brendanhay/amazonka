@@ -154,3 +154,6 @@ instance AWSRequest CreateOptionGroup where
 instance FromXML CreateOptionGroupResponse where
     parseXML = withElement "CreateOptionGroupResult" $ \x -> CreateOptionGroupResponse
         <$> x .@? "OptionGroup"
+
+
+Some kind of operator / class to check the types whether to continue?

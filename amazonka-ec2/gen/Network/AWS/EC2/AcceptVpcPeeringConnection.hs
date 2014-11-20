@@ -119,3 +119,6 @@ instance AWSRequest AcceptVpcPeeringConnection where
 instance FromXML AcceptVpcPeeringConnectionResponse where
     parseXML x = AcceptVpcPeeringConnectionResponse
         <$> x .@? "vpcPeeringConnection"
+
+
+Some kind of operator / class to check the types whether to continue?

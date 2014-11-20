@@ -255,3 +255,12 @@ instance FromJSON ListClosedWorkflowExecutionsResponse where
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListClosedWorkflowExecutions where
+  next rq rs
+
+  = (\x -> rq & lcweNextPageToken ?~ x)
+  <$> (rs ^. lcweNextPageToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -121,3 +121,6 @@ instance AWSRequest RespondActivityTaskCanceled where
 
     request  = post "RespondActivityTaskCanceled"
     response = nullResponse RespondActivityTaskCanceledResponse
+
+
+Some kind of operator / class to check the types whether to continue?

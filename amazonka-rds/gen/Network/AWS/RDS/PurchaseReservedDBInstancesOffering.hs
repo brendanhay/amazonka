@@ -141,3 +141,6 @@ instance AWSRequest PurchaseReservedDBInstancesOffering where
 instance FromXML PurchaseReservedDBInstancesOfferingResponse where
     parseXML = withElement "PurchaseReservedDBInstancesOfferingResult" $ \x -> PurchaseReservedDBInstancesOfferingResponse
         <$> x .@? "ReservedDBInstance"
+
+
+Some kind of operator / class to check the types whether to continue?

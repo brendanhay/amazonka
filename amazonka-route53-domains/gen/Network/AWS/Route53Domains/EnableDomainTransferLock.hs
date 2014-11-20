@@ -117,3 +117,6 @@ instance AWSRequest EnableDomainTransferLock where
 instance FromJSON EnableDomainTransferLockResponse where
     parseJSON = withObject "EnableDomainTransferLockResponse" $ \o -> EnableDomainTransferLockResponse
         <$> o .:  "OperationId"
+
+
+Some kind of operator / class to check the types whether to continue?

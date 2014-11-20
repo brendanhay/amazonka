@@ -143,3 +143,6 @@ instance AWSRequest GetGeoLocation where
 instance FromXML GetGeoLocationResponse where
     parseXML x = GetGeoLocationResponse
         <$> x .@  "GeoLocationDetails"
+
+
+Some kind of operator / class to check the types whether to continue?

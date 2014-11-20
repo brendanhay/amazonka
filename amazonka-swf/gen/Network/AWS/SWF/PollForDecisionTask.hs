@@ -285,3 +285,12 @@ instance FromJSON PollForDecisionTaskResponse where
         <*> o .:  "workflowType"
 
 instance AWSPager PollForDecisionTask where
+  next rq rs
+
+  = (\x -> rq & pfdtNextPageToken ?~ x)
+  <$> (rs ^. pfdtNextPageToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

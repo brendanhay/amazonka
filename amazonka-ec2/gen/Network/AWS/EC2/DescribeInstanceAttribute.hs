@@ -276,3 +276,6 @@ instance FromXML DescribeInstanceAttributeResponse where
         <*> x .@? "sourceDestCheck"
         <*> x .@? "sriovNetSupport"
         <*> x .@? "userData"
+
+
+Some kind of operator / class to check the types whether to continue?

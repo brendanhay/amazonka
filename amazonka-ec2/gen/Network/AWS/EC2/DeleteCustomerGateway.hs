@@ -97,3 +97,6 @@ instance AWSRequest DeleteCustomerGateway where
 
     request  = post "DeleteCustomerGateway"
     response = nullResponse DeleteCustomerGatewayResponse
+
+
+Some kind of operator / class to check the types whether to continue?

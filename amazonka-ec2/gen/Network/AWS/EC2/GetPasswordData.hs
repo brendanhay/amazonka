@@ -142,3 +142,6 @@ instance FromXML GetPasswordDataResponse where
         <$> x .@? "instanceId"
         <*> x .@? "passwordData"
         <*> x .@? "timestamp"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -108,3 +108,6 @@ instance AWSRequest DeleteVirtualInterface where
 instance FromJSON DeleteVirtualInterfaceResponse where
     parseJSON = withObject "DeleteVirtualInterfaceResponse" $ \o -> DeleteVirtualInterfaceResponse
         <$> o .:? "virtualInterfaceState"
+
+
+Some kind of operator / class to check the types whether to continue?

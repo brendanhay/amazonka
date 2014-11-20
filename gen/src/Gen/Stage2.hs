@@ -685,6 +685,14 @@ operationJSON p s rq n d = y <> x
             Ec2   | rq -> "query"
             Ec2        -> "xml"
 
+instance ToJSON (Token Type) where
+    toJSON Token{..} = object
+        [ "input"          .= _tokInput
+        , "inputRequired"  .= isRequired _tokInputAnn
+        , "output"         .= _tokOutput
+        , "outputRequired" .= isRequired _tokInputAnn
+        ]
+
 data Operation = Operation
     { _opName             :: !Text
     , _opUrl              :: !Text
@@ -697,7 +705,7 @@ data Operation = Operation
     , _opMethod           :: !Method
     , _opRequest          :: !Request
     , _opResponse         :: !Response
-    , _opPager            :: Maybe Pager
+    , _opPager            :: Maybe (Pager Type)
     } deriving (Eq, Show)
 
 record stage2 ''Operation

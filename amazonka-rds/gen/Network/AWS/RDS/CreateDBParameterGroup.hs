@@ -162,3 +162,6 @@ instance AWSRequest CreateDBParameterGroup where
 instance FromXML CreateDBParameterGroupResponse where
     parseXML = withElement "CreateDBParameterGroupResult" $ \x -> CreateDBParameterGroupResponse
         <$> x .@? "DBParameterGroup"
+
+
+Some kind of operator / class to check the types whether to continue?

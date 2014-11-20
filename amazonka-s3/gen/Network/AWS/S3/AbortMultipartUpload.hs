@@ -113,3 +113,6 @@ instance AWSRequest AbortMultipartUpload where
 
     request  = delete
     response = nullResponse AbortMultipartUploadResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -194,3 +194,6 @@ instance AWSRequest AuthorizeSecurityGroupEgress where
 
     request  = post "AuthorizeSecurityGroupEgress"
     response = nullResponse AuthorizeSecurityGroupEgressResponse
+
+
+Some kind of operator / class to check the types whether to continue?

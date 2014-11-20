@@ -113,3 +113,6 @@ instance AWSRequest DescribeIdentityPoolUsage where
 instance FromJSON DescribeIdentityPoolUsageResponse where
     parseJSON = withObject "DescribeIdentityPoolUsageResponse" $ \o -> DescribeIdentityPoolUsageResponse
         <$> o .:? "IdentityPoolUsage"
+
+
+Some kind of operator / class to check the types whether to continue?

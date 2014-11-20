@@ -88,3 +88,6 @@ instance AWSRequest CreateAccountAlias where
 
     request  = post "CreateAccountAlias"
     response = nullResponse CreateAccountAliasResponse
+
+
+Some kind of operator / class to check the types whether to continue?

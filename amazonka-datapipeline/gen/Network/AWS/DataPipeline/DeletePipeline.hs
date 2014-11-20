@@ -95,3 +95,6 @@ instance AWSRequest DeletePipeline where
 
     request  = post "DeletePipeline"
     response = nullResponse DeletePipelineResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -125,3 +125,6 @@ instance AWSRequest DeleteCacheCluster where
 instance FromXML DeleteCacheClusterResponse where
     parseXML = withElement "DeleteCacheClusterResult" $ \x -> DeleteCacheClusterResponse
         <$> x .@? "CacheCluster"
+
+
+Some kind of operator / class to check the types whether to continue?

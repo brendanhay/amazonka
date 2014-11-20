@@ -208,3 +208,12 @@ instance FromXML DescribeReservedCacheNodesResponse where
         <*> x .@  "ReservedCacheNodes"
 
 instance AWSPager DescribeReservedCacheNodes where
+  next rq rs
+
+  = (\x -> rq & drcnMarker ?~ x)
+  <$> (rs ^. drcnMarker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

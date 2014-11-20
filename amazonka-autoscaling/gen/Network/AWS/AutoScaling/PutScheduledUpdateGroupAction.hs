@@ -187,3 +187,6 @@ instance AWSRequest PutScheduledUpdateGroupAction where
 
     request  = post "PutScheduledUpdateGroupAction"
     response = nullResponse PutScheduledUpdateGroupActionResponse
+
+
+Some kind of operator / class to check the types whether to continue?

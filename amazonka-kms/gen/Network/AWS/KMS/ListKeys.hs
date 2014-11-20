@@ -144,3 +144,6 @@ instance FromJSON ListKeysResponse where
         <$> o .:  "Keys"
         <*> o .:? "NextMarker"
         <*> o .:? "Truncated"
+
+
+Some kind of operator / class to check the types whether to continue?

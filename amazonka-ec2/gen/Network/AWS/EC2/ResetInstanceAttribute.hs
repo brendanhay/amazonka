@@ -113,3 +113,6 @@ instance AWSRequest ResetInstanceAttribute where
 
     request  = post "ResetInstanceAttribute"
     response = nullResponse ResetInstanceAttributeResponse
+
+
+Some kind of operator / class to check the types whether to continue?

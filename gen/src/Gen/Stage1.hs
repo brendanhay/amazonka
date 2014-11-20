@@ -243,7 +243,7 @@ data Stage1 = Stage1
     , _s1Documentation     :: Text
     , _s1Operations        :: HashMap Text Operation
     , _s1Shapes            :: HashMap Text Shape
-    , _s1Pagination        :: HashMap Text Pager
+    , _s1Pagination        :: HashMap Text (Pager ())
     , _s1Waiters           :: HashMap Text Waiter
     } deriving (Eq, Show)
 

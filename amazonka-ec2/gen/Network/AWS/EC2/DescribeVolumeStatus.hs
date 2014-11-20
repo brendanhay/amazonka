@@ -196,3 +196,12 @@ instance FromXML DescribeVolumeStatusResponse where
         <*> x .@  "volumeStatusSet"
 
 instance AWSPager DescribeVolumeStatus where
+  next rq rs
+
+  = (\x -> rq & dvsNextToken ?~ x)
+  <$> (rs ^. dvsNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

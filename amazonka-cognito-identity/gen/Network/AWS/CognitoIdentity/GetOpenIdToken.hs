@@ -132,3 +132,6 @@ instance FromJSON GetOpenIdTokenResponse where
     parseJSON = withObject "GetOpenIdTokenResponse" $ \o -> GetOpenIdTokenResponse
         <$> o .:? "IdentityId"
         <*> o .:? "Token"
+
+
+Some kind of operator / class to check the types whether to continue?

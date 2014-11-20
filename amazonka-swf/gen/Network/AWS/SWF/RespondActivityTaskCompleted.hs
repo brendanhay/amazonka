@@ -123,3 +123,6 @@ instance AWSRequest RespondActivityTaskCompleted where
 
     request  = post "RespondActivityTaskCompleted"
     response = nullResponse RespondActivityTaskCompletedResponse
+
+
+Some kind of operator / class to check the types whether to continue?

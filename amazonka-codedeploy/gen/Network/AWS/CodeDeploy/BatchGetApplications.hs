@@ -123,3 +123,6 @@ instance AWSRequest BatchGetApplications where
 instance FromJSON BatchGetApplicationsResponse where
     parseJSON = withObject "BatchGetApplicationsResponse" $ \o -> BatchGetApplicationsResponse
         <$> o .:  "applicationsInfo"
+
+
+Some kind of operator / class to check the types whether to continue?

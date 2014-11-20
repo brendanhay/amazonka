@@ -120,3 +120,6 @@ instance AWSRequest DeleteBandwidthRateLimit where
 instance FromJSON DeleteBandwidthRateLimitResponse where
     parseJSON = withObject "DeleteBandwidthRateLimitResponse" $ \o -> DeleteBandwidthRateLimitResponse
         <$> o .:? "GatewayARN"
+
+
+Some kind of operator / class to check the types whether to continue?

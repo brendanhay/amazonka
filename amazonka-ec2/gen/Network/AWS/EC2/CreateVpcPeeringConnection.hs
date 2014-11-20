@@ -143,3 +143,6 @@ instance AWSRequest CreateVpcPeeringConnection where
 instance FromXML CreateVpcPeeringConnectionResponse where
     parseXML x = CreateVpcPeeringConnectionResponse
         <$> x .@? "vpcPeeringConnection"
+
+
+Some kind of operator / class to check the types whether to continue?

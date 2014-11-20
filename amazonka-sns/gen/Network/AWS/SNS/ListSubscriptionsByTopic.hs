@@ -132,3 +132,12 @@ instance FromXML ListSubscriptionsByTopicResponse where
         <*> x .@  "Subscriptions"
 
 instance AWSPager ListSubscriptionsByTopic where
+  next rq rs
+
+  = (\x -> rq & lsbtNextToken ?~ x)
+  <$> (rs ^. lsbtNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

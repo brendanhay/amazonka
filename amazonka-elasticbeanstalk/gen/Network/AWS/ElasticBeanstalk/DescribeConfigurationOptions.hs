@@ -166,3 +166,6 @@ instance FromXML DescribeConfigurationOptionsResponse where
     parseXML = withElement "DescribeConfigurationOptionsResult" $ \x -> DescribeConfigurationOptionsResponse
         <$> x .@  "Options"
         <*> x .@? "SolutionStackName"
+
+
+Some kind of operator / class to check the types whether to continue?

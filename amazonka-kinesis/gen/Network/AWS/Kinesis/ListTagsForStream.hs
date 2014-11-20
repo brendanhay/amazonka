@@ -147,3 +147,6 @@ instance FromJSON ListTagsForStreamResponse where
     parseJSON = withObject "ListTagsForStreamResponse" $ \o -> ListTagsForStreamResponse
         <$> o .:  "HasMoreTags"
         <*> o .:  "Tags"
+
+
+Some kind of operator / class to check the types whether to continue?

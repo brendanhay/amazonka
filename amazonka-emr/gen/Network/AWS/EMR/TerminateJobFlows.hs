@@ -101,3 +101,6 @@ instance AWSRequest TerminateJobFlows where
 
     request  = post "TerminateJobFlows"
     response = nullResponse TerminateJobFlowsResponse
+
+
+Some kind of operator / class to check the types whether to continue?

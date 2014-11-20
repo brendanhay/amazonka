@@ -144,3 +144,12 @@ instance FromXML DescribeTagsResponse where
         <*> x .@  "Tags"
 
 instance AWSPager DescribeTags where
+  next rq rs
+
+  = (\x -> rq & dtNextToken ?~ x)
+  <$> (rs ^. dtNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

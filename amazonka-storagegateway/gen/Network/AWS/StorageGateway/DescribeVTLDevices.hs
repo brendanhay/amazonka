@@ -168,3 +168,12 @@ instance FromJSON DescribeVTLDevicesResponse where
         <*> o .:  "VTLDevices"
 
 instance AWSPager DescribeVTLDevices where
+  next rq rs
+
+  = (\x -> rq & dvtldMarker ?~ x)
+  <$> (rs ^. dvtldMarker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

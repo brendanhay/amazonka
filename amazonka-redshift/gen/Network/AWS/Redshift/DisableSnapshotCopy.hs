@@ -108,3 +108,6 @@ instance AWSRequest DisableSnapshotCopy where
 instance FromXML DisableSnapshotCopyResponse where
     parseXML = withElement "DisableSnapshotCopyResult" $ \x -> DisableSnapshotCopyResponse
         <$> x .@? "Cluster"
+
+
+Some kind of operator / class to check the types whether to continue?

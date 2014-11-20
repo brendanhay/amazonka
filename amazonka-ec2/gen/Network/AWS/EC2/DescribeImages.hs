@@ -189,3 +189,6 @@ instance AWSRequest DescribeImages where
 instance FromXML DescribeImagesResponse where
     parseXML x = DescribeImagesResponse
         <$> x .@  "imagesSet"
+
+
+Some kind of operator / class to check the types whether to continue?

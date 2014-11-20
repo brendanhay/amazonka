@@ -126,7 +126,10 @@ instance FromXML ListDistributionsResponse where
         <$> x .@  "DistributionList"
 
 instance AWSPager ListDistributions where
-    page rq rs
+    next rq rs
         | stop (rs ^. ldrDistributionList . dlIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & ldMarker .~ rs ^. ldrDistributionList . dlNextMarker
+            & ldMarker .~ rs ^. ldMarker
+
+
+Some kind of operator / class to check the types whether to continue?

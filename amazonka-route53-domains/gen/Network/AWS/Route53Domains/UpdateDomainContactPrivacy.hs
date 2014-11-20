@@ -164,3 +164,6 @@ instance AWSRequest UpdateDomainContactPrivacy where
 instance FromJSON UpdateDomainContactPrivacyResponse where
     parseJSON = withObject "UpdateDomainContactPrivacyResponse" $ \o -> UpdateDomainContactPrivacyResponse
         <$> o .:  "OperationId"
+
+
+Some kind of operator / class to check the types whether to continue?

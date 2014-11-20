@@ -147,3 +147,6 @@ instance AWSRequest UpdateStreamingDistribution where
     response = xmlHeaderResponse $ \h x -> UpdateStreamingDistributionResponse
         <$> h ~:? "ETag"
         <*> x .@? "StreamingDistribution"
+
+
+Some kind of operator / class to check the types whether to continue?

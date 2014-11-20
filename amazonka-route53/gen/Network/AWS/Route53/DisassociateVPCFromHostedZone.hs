@@ -146,3 +146,6 @@ instance AWSRequest DisassociateVPCFromHostedZone where
 instance FromXML DisassociateVPCFromHostedZoneResponse where
     parseXML x = DisassociateVPCFromHostedZoneResponse
         <$> x .@  "ChangeInfo"
+
+
+Some kind of operator / class to check the types whether to continue?

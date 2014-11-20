@@ -7469,8 +7469,9 @@
             "pager": {
                 "token": {
                     "input": "dasgNextToken",
-                    "required": false,
-                    "output": "dasgrNextToken"
+                    "outputRequired": false,
+                    "output": "dasgNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dasgrAutoScalingGroups"
@@ -7722,8 +7723,9 @@
             "pager": {
                 "token": {
                     "input": "dasiNextToken",
-                    "required": false,
-                    "output": "dasirNextToken"
+                    "outputRequired": false,
+                    "output": "dasiNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dasirAutoScalingInstances"
@@ -8098,8 +8100,9 @@
             "pager": {
                 "token": {
                     "input": "dlcNextToken",
-                    "required": false,
-                    "output": "dlcrNextToken"
+                    "outputRequired": false,
+                    "output": "dlcNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dlcrLaunchConfigurations"
@@ -8807,8 +8810,9 @@
             "pager": {
                 "token": {
                     "input": "dncNextToken",
-                    "required": false,
-                    "output": "dncrNextToken"
+                    "outputRequired": false,
+                    "output": "dncNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dncrNotificationConfigurations"
@@ -9060,8 +9064,9 @@
             "pager": {
                 "token": {
                     "input": "dp1NextToken",
-                    "required": false,
-                    "output": "dprNextToken"
+                    "outputRequired": false,
+                    "output": "dp1NextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dprScalingPolicies"
@@ -9348,8 +9353,9 @@
             "pager": {
                 "token": {
                     "input": "dsa2NextToken",
-                    "required": false,
-                    "output": "dsar1NextToken"
+                    "outputRequired": false,
+                    "output": "dsa2NextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dsar1Activities"
@@ -9758,8 +9764,9 @@
             "pager": {
                 "token": {
                     "input": "dsa1NextToken",
-                    "required": false,
-                    "output": "dsarNextToken"
+                    "outputRequired": false,
+                    "output": "dsa1NextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dsarScheduledUpdateGroupActions"
@@ -10116,8 +10123,9 @@
             "pager": {
                 "token": {
                     "input": "dtNextToken",
-                    "required": false,
-                    "output": "dtrNextToken"
+                    "outputRequired": false,
+                    "output": "dtNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dtrTags"

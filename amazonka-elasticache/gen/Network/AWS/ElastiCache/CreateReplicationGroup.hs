@@ -404,3 +404,6 @@ instance AWSRequest CreateReplicationGroup where
 instance FromXML CreateReplicationGroupResponse where
     parseXML = withElement "CreateReplicationGroupResult" $ \x -> CreateReplicationGroupResponse
         <$> x .@? "ReplicationGroup"
+
+
+Some kind of operator / class to check the types whether to continue?

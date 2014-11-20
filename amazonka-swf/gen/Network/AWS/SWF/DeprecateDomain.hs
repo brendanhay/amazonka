@@ -102,3 +102,6 @@ instance AWSRequest DeprecateDomain where
 
     request  = post "DeprecateDomain"
     response = nullResponse DeprecateDomainResponse
+
+
+Some kind of operator / class to check the types whether to continue?

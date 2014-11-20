@@ -98,3 +98,6 @@ instance AWSRequest DisableVgwRoutePropagation where
 
     request  = post "DisableVgwRoutePropagation"
     response = nullResponse DisableVgwRoutePropagationResponse
+
+
+Some kind of operator / class to check the types whether to continue?

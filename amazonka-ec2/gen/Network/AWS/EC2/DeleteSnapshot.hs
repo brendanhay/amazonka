@@ -104,3 +104,6 @@ instance AWSRequest DeleteSnapshot where
 
     request  = post "DeleteSnapshot"
     response = nullResponse DeleteSnapshotResponse
+
+
+Some kind of operator / class to check the types whether to continue?

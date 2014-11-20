@@ -127,3 +127,6 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes where
 instance FromXML DescribeLoadBalancerPolicyTypesResponse where
     parseXML = withElement "DescribeLoadBalancerPolicyTypesResult" $ \x -> DescribeLoadBalancerPolicyTypesResponse
         <$> x .@  "PolicyTypeDescriptions"
+
+
+Some kind of operator / class to check the types whether to continue?

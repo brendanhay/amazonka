@@ -200,3 +200,6 @@ instance AWSRequest CreateLoadBalancer where
 instance FromXML CreateLoadBalancerResponse where
     parseXML = withElement "CreateLoadBalancerResult" $ \x -> CreateLoadBalancerResponse
         <$> x .@? "DNSName"
+
+
+Some kind of operator / class to check the types whether to continue?

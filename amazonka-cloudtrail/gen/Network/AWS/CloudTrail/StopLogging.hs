@@ -93,3 +93,6 @@ instance AWSRequest StopLogging where
 
     request  = post "StopLogging"
     response = nullResponse StopLoggingResponse
+
+
+Some kind of operator / class to check the types whether to continue?

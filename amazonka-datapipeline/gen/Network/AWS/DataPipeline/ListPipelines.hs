@@ -141,7 +141,10 @@ instance FromJSON ListPipelinesResponse where
         <*> o .:  "pipelineIdList"
 
 instance AWSPager ListPipelines where
-    page rq rs
+    next rq rs
         | stop (rs ^. lprHasMoreResults) = Nothing
         | otherwise = Just $ rq
-            & lpMarker .~ rs ^. lprMarker
+            & lpMarker .~ rs ^. lpMarker
+
+
+Some kind of operator / class to check the types whether to continue?

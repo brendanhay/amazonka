@@ -134,3 +134,6 @@ instance AWSRequest ModifyReservedInstances where
 instance FromXML ModifyReservedInstancesResponse where
     parseXML x = ModifyReservedInstancesResponse
         <$> x .@? "reservedInstancesModificationId"
+
+
+Some kind of operator / class to check the types whether to continue?

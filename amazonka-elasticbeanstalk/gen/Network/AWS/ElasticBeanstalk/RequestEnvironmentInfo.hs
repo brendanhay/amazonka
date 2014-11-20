@@ -119,3 +119,6 @@ instance AWSRequest RequestEnvironmentInfo where
 
     request  = post "RequestEnvironmentInfo"
     response = nullResponse RequestEnvironmentInfoResponse
+
+
+Some kind of operator / class to check the types whether to continue?

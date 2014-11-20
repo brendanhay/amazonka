@@ -267,3 +267,6 @@ instance AWSRequest ModifyInstanceAttribute where
 
     request  = post "ModifyInstanceAttribute"
     response = nullResponse ModifyInstanceAttributeResponse
+
+
+Some kind of operator / class to check the types whether to continue?

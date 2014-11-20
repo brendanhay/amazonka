@@ -361,3 +361,6 @@ instance AWSRequest CreateStack where
 instance FromJSON CreateStackResponse where
     parseJSON = withObject "CreateStackResponse" $ \o -> CreateStackResponse
         <$> o .:? "StackId"
+
+
+Some kind of operator / class to check the types whether to continue?

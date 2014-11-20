@@ -164,7 +164,10 @@ instance FromXML ListServerCertificatesResponse where
         <*> x .@  "ServerCertificateMetadataList"
 
 instance AWSPager ListServerCertificates where
-    page rq rs
+    next rq rs
         | stop (rs ^. lscrIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & lscMarker .~ rs ^. lscrMarker
+            & lscMarker .~ rs ^. lscMarker
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -1516,8 +1516,9 @@
                 "more": "ljrIsTruncated",
                 "token": {
                     "input": "ljMarker",
-                    "required": false,
-                    "output": "index ljrJobs jobJobId"
+                    "outputRequired": false,
+                    "output": "ljMarker",
+                    "inputRequired": false
                 },
                 "type": "one"
             },

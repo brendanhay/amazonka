@@ -116,3 +116,6 @@ instance AWSRequest SetTerminationProtection where
 
     request  = post "SetTerminationProtection"
     response = nullResponse SetTerminationProtectionResponse
+
+
+Some kind of operator / class to check the types whether to continue?

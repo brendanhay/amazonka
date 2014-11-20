@@ -262,3 +262,6 @@ instance AWSRequest CreateStack where
 instance FromXML CreateStackResponse where
     parseXML = withElement "CreateStackResult" $ \x -> CreateStackResponse
         <$> x .@? "StackId"
+
+
+Some kind of operator / class to check the types whether to continue?

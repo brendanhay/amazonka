@@ -89,3 +89,6 @@ instance AWSRequest DeleteDBSubnetGroup where
 
     request  = post "DeleteDBSubnetGroup"
     response = nullResponse DeleteDBSubnetGroupResponse
+
+
+Some kind of operator / class to check the types whether to continue?

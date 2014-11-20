@@ -126,3 +126,6 @@ instance AWSRequest ConfirmPrivateVirtualInterface where
 instance FromJSON ConfirmPrivateVirtualInterfaceResponse where
     parseJSON = withObject "ConfirmPrivateVirtualInterfaceResponse" $ \o -> ConfirmPrivateVirtualInterfaceResponse
         <$> o .:? "virtualInterfaceState"
+
+
+Some kind of operator / class to check the types whether to continue?

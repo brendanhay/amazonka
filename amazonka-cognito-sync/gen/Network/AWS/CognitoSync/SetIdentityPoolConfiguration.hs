@@ -136,3 +136,6 @@ instance FromJSON SetIdentityPoolConfigurationResponse where
     parseJSON = withObject "SetIdentityPoolConfigurationResponse" $ \o -> SetIdentityPoolConfigurationResponse
         <$> o .:? "IdentityPoolId"
         <*> o .:? "PushSync"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -109,3 +109,6 @@ instance AWSRequest GetServerCertificate where
 instance FromXML GetServerCertificateResponse where
     parseXML = withElement "GetServerCertificateResult" $ \x -> GetServerCertificateResponse
         <$> x .@  "ServerCertificate"
+
+
+Some kind of operator / class to check the types whether to continue?

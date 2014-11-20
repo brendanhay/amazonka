@@ -120,3 +120,6 @@ instance AWSRequest GetStreamingDistributionConfig where
     response = xmlHeaderResponse $ \h x -> GetStreamingDistributionConfigResponse
         <$> h ~:? "ETag"
         <*> x .@? "StreamingDistributionConfig"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -138,3 +138,6 @@ instance AWSRequest CompleteLifecycleAction where
 
     request  = post "CompleteLifecycleAction"
     response = nullResponse CompleteLifecycleActionResponse
+
+
+Some kind of operator / class to check the types whether to continue?

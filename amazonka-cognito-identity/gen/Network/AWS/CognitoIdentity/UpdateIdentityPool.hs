@@ -234,3 +234,6 @@ instance FromJSON UpdateIdentityPoolResponse where
         <*> o .:  "IdentityPoolName"
         <*> o .:  "OpenIdConnectProviderARNs"
         <*> o .:  "SupportedLoginProviders"
+
+
+Some kind of operator / class to check the types whether to continue?

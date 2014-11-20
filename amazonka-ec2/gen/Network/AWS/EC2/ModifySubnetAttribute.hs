@@ -96,3 +96,6 @@ instance AWSRequest ModifySubnetAttribute where
 
     request  = post "ModifySubnetAttribute"
     response = nullResponse ModifySubnetAttributeResponse
+
+
+Some kind of operator / class to check the types whether to continue?

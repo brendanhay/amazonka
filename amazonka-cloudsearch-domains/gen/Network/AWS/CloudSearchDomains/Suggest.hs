@@ -152,3 +152,6 @@ instance FromJSON SuggestResponse where
     parseJSON = withObject "SuggestResponse" $ \o -> SuggestResponse
         <$> o .:? "status"
         <*> o .:? "suggest"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -114,3 +114,6 @@ instance AWSRequest SetStackPolicy where
 
     request  = post "SetStackPolicy"
     response = nullResponse SetStackPolicyResponse
+
+
+Some kind of operator / class to check the types whether to continue?

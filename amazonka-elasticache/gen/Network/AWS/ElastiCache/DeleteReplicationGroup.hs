@@ -139,3 +139,6 @@ instance AWSRequest DeleteReplicationGroup where
 instance FromXML DeleteReplicationGroupResponse where
     parseXML = withElement "DeleteReplicationGroupResult" $ \x -> DeleteReplicationGroupResponse
         <$> x .@? "ReplicationGroup"
+
+
+Some kind of operator / class to check the types whether to continue?

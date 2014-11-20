@@ -109,3 +109,6 @@ instance AWSRequest CreatePlacementGroup where
 
     request  = post "CreatePlacementGroup"
     response = nullResponse CreatePlacementGroupResponse
+
+
+Some kind of operator / class to check the types whether to continue?

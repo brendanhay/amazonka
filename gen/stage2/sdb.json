@@ -2172,8 +2172,9 @@
             "pager": {
                 "token": {
                     "input": "ldNextToken",
-                    "required": false,
-                    "output": "ldrNextToken"
+                    "outputRequired": false,
+                    "output": "ldNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ldrDomainNames"
@@ -2607,8 +2608,9 @@
             "pager": {
                 "token": {
                     "input": "sNextToken",
-                    "required": false,
-                    "output": "srNextToken"
+                    "outputRequired": false,
+                    "output": "sNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "srItems"

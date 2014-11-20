@@ -132,3 +132,6 @@ instance FromXML DeleteMessageBatchResponse where
     parseXML = withElement "DeleteMessageBatchResult" $ \x -> DeleteMessageBatchResponse
         <$> parseXML x
         <*> parseXML x
+
+
+Some kind of operator / class to check the types whether to continue?

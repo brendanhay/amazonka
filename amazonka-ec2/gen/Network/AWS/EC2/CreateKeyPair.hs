@@ -142,3 +142,6 @@ instance FromXML CreateKeyPairResponse where
         <$> x .@? "keyFingerprint"
         <*> x .@? "keyMaterial"
         <*> x .@? "keyName"
+
+
+Some kind of operator / class to check the types whether to continue?

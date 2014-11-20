@@ -130,3 +130,6 @@ instance AWSRequest CreateVirtualMFADevice where
 instance FromXML CreateVirtualMFADeviceResponse where
     parseXML = withElement "CreateVirtualMFADeviceResult" $ \x -> CreateVirtualMFADeviceResponse
         <$> x .@  "VirtualMFADevice"
+
+
+Some kind of operator / class to check the types whether to continue?

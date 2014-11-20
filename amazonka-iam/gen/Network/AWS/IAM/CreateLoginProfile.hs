@@ -132,3 +132,6 @@ instance AWSRequest CreateLoginProfile where
 instance FromXML CreateLoginProfileResponse where
     parseXML = withElement "CreateLoginProfileResult" $ \x -> CreateLoginProfileResponse
         <$> x .@  "LoginProfile"
+
+
+Some kind of operator / class to check the types whether to continue?

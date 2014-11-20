@@ -113,3 +113,6 @@ instance AWSRequest SetDesiredCapacity where
 
     request  = post "SetDesiredCapacity"
     response = nullResponse SetDesiredCapacityResponse
+
+
+Some kind of operator / class to check the types whether to continue?

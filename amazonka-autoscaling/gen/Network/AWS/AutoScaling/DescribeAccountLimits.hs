@@ -106,3 +106,6 @@ instance FromXML DescribeAccountLimitsResponse where
     parseXML = withElement "DescribeAccountLimitsResult" $ \x -> DescribeAccountLimitsResponse
         <$> x .@? "MaxNumberOfAutoScalingGroups"
         <*> x .@? "MaxNumberOfLaunchConfigurations"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -189,3 +189,6 @@ instance FromJSON CreatePresetResponse where
     parseJSON = withObject "CreatePresetResponse" $ \o -> CreatePresetResponse
         <$> o .:? "Preset"
         <*> o .:? "Warning"
+
+
+Some kind of operator / class to check the types whether to continue?

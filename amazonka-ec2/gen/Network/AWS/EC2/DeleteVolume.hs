@@ -98,3 +98,6 @@ instance AWSRequest DeleteVolume where
 
     request  = post "DeleteVolume"
     response = nullResponse DeleteVolumeResponse
+
+
+Some kind of operator / class to check the types whether to continue?

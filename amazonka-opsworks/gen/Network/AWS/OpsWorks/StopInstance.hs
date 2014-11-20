@@ -96,3 +96,6 @@ instance AWSRequest StopInstance where
 
     request  = post "StopInstance"
     response = nullResponse StopInstanceResponse
+
+
+Some kind of operator / class to check the types whether to continue?

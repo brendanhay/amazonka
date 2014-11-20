@@ -187,7 +187,10 @@ instance FromJSON QueryObjectsResponse where
         <*> o .:? "marker"
 
 instance AWSPager QueryObjects where
-    page rq rs
+    next rq rs
         | stop (rs ^. qorHasMoreResults) = Nothing
         | otherwise = Just $ rq
-            & qoMarker .~ rs ^. qorMarker
+            & qoMarker .~ rs ^. qoMarker
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -120,3 +120,6 @@ instance AWSRequest DeleteTape where
 instance FromJSON DeleteTapeResponse where
     parseJSON = withObject "DeleteTapeResponse" $ \o -> DeleteTapeResponse
         <$> o .:? "TapeARN"
+
+
+Some kind of operator / class to check the types whether to continue?

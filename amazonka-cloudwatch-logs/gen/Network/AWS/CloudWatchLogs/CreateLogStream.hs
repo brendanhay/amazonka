@@ -102,3 +102,6 @@ instance AWSRequest CreateLogStream where
 
     request  = post "CreateLogStream"
     response = nullResponse CreateLogStreamResponse
+
+
+Some kind of operator / class to check the types whether to continue?

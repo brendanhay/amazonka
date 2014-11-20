@@ -175,3 +175,12 @@ instance FromJSON ListDomainsResponse where
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListDomains where
+  next rq rs
+
+  = (\x -> rq & ldNextPageToken ?~ x)
+  <$> (rs ^. ldNextPageToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

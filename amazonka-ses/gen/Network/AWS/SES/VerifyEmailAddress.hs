@@ -90,3 +90,6 @@ instance AWSRequest VerifyEmailAddress where
 
     request  = post "VerifyEmailAddress"
     response = nullResponse VerifyEmailAddressResponse
+
+
+Some kind of operator / class to check the types whether to continue?

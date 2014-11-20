@@ -102,3 +102,6 @@ instance AWSRequest RestartAppServer where
 
     request  = post "RestartAppServer"
     response = nullResponse RestartAppServerResponse
+
+
+Some kind of operator / class to check the types whether to continue?

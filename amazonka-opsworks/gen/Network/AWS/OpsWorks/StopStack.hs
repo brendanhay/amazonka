@@ -92,3 +92,6 @@ instance AWSRequest StopStack where
 
     request  = post "StopStack"
     response = nullResponse StopStackResponse
+
+
+Some kind of operator / class to check the types whether to continue?

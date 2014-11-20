@@ -2070,8 +2070,9 @@
             "pager": {
                 "token": {
                     "input": "dahNextToken",
-                    "required": false,
-                    "output": "dahrNextToken"
+                    "outputRequired": false,
+                    "output": "dahNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dahrAlarmHistoryItems"
@@ -2428,8 +2429,9 @@
             "pager": {
                 "token": {
                     "input": "daNextToken",
-                    "required": false,
-                    "output": "darNextToken"
+                    "outputRequired": false,
+                    "output": "daNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "darMetricAlarms"
@@ -3802,8 +3804,9 @@
             "pager": {
                 "token": {
                     "input": "lmNextToken",
-                    "required": false,
-                    "output": "lmrNextToken"
+                    "outputRequired": false,
+                    "output": "lmNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lmrMetrics"

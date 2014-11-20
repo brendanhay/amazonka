@@ -90,3 +90,6 @@ instance AWSRequest DeregisterRdsDbInstance where
 
     request  = post "DeregisterRdsDbInstance"
     response = nullResponse DeregisterRdsDbInstanceResponse
+
+
+Some kind of operator / class to check the types whether to continue?

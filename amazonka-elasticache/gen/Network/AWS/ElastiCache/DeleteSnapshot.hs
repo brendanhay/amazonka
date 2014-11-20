@@ -105,3 +105,6 @@ instance AWSRequest DeleteSnapshot where
 instance FromXML DeleteSnapshotResponse where
     parseXML = withElement "DeleteSnapshotResult" $ \x -> DeleteSnapshotResponse
         <$> x .@? "Snapshot"
+
+
+Some kind of operator / class to check the types whether to continue?

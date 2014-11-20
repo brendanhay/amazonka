@@ -109,3 +109,6 @@ instance AWSRequest ConfirmConnection where
 instance FromJSON ConfirmConnectionResponse where
     parseJSON = withObject "ConfirmConnectionResponse" $ \o -> ConfirmConnectionResponse
         <$> o .:? "connectionState"
+
+
+Some kind of operator / class to check the types whether to continue?

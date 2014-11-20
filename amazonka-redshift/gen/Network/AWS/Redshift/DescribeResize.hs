@@ -262,3 +262,6 @@ instance FromXML DescribeResizeResponse where
         <*> x .@? "TargetNodeType"
         <*> x .@? "TargetNumberOfNodes"
         <*> x .@? "TotalResizeDataInMegaBytes"
+
+
+Some kind of operator / class to check the types whether to continue?

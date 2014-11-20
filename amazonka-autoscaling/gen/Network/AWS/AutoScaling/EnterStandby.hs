@@ -142,3 +142,6 @@ instance AWSRequest EnterStandby where
 instance FromXML EnterStandbyResponse where
     parseXML = withElement "EnterStandbyResult" $ \x -> EnterStandbyResponse
         <$> x .@  "Activities"
+
+
+Some kind of operator / class to check the types whether to continue?

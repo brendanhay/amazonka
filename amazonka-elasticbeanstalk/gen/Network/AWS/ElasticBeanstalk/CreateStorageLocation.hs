@@ -88,3 +88,6 @@ instance AWSRequest CreateStorageLocation where
 instance FromXML CreateStorageLocationResponse where
     parseXML = withElement "CreateStorageLocationResult" $ \x -> CreateStorageLocationResponse
         <$> x .@? "S3Bucket"
+
+
+Some kind of operator / class to check the types whether to continue?

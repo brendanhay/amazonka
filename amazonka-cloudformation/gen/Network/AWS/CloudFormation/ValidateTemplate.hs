@@ -157,3 +157,6 @@ instance FromXML ValidateTemplateResponse where
         <*> x .@? "CapabilitiesReason"
         <*> x .@? "Description"
         <*> x .@  "Parameters"
+
+
+Some kind of operator / class to check the types whether to continue?

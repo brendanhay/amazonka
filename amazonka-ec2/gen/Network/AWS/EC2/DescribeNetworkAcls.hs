@@ -155,3 +155,6 @@ instance AWSRequest DescribeNetworkAcls where
 instance FromXML DescribeNetworkAclsResponse where
     parseXML x = DescribeNetworkAclsResponse
         <$> x .@  "networkAclSet"
+
+
+Some kind of operator / class to check the types whether to continue?

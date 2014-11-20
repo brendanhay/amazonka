@@ -155,3 +155,6 @@ instance AWSRequest ReplaceRoute where
 
     request  = post "ReplaceRoute"
     response = nullResponse ReplaceRouteResponse
+
+
+Some kind of operator / class to check the types whether to continue?

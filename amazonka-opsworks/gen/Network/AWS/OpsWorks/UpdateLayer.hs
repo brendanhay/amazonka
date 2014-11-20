@@ -248,3 +248,6 @@ instance AWSRequest UpdateLayer where
 
     request  = post "UpdateLayer"
     response = nullResponse UpdateLayerResponse
+
+
+Some kind of operator / class to check the types whether to continue?

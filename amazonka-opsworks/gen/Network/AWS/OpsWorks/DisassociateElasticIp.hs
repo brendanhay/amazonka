@@ -94,3 +94,6 @@ instance AWSRequest DisassociateElasticIp where
 
     request  = post "DisassociateElasticIp"
     response = nullResponse DisassociateElasticIpResponse
+
+
+Some kind of operator / class to check the types whether to continue?

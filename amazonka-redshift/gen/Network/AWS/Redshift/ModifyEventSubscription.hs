@@ -183,3 +183,6 @@ instance AWSRequest ModifyEventSubscription where
 instance FromXML ModifyEventSubscriptionResponse where
     parseXML = withElement "ModifyEventSubscriptionResult" $ \x -> ModifyEventSubscriptionResponse
         <$> x .@? "EventSubscription"
+
+
+Some kind of operator / class to check the types whether to continue?

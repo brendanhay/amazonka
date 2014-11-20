@@ -204,3 +204,6 @@ instance AWSRequest ReceiveMessage where
 instance FromXML ReceiveMessageResponse where
     parseXML = withElement "ReceiveMessageResult" $ \x -> ReceiveMessageResponse
         <$> parseXML x
+
+
+Some kind of operator / class to check the types whether to continue?

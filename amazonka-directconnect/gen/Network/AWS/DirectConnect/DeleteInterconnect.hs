@@ -107,3 +107,6 @@ instance AWSRequest DeleteInterconnect where
 instance FromJSON DeleteInterconnectResponse where
     parseJSON = withObject "DeleteInterconnectResponse" $ \o -> DeleteInterconnectResponse
         <$> o .:? "interconnectState"
+
+
+Some kind of operator / class to check the types whether to continue?

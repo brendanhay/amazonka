@@ -2941,8 +2941,9 @@
             "pager": {
                 "token": {
                     "input": "lebpaNextToken",
-                    "required": false,
-                    "output": "lebparNextToken"
+                    "outputRequired": false,
+                    "output": "lebpaNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lebparEndpoints"
@@ -3160,8 +3161,9 @@
             "pager": {
                 "token": {
                     "input": "lpaNextToken",
-                    "required": false,
-                    "output": "lparNextToken"
+                    "outputRequired": false,
+                    "output": "lpaNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lparPlatformApplications"
@@ -3360,8 +3362,9 @@
             "pager": {
                 "token": {
                     "input": "lsNextToken",
-                    "required": false,
-                    "output": "lsrNextToken"
+                    "outputRequired": false,
+                    "output": "lsNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lsrSubscriptions"
@@ -3560,8 +3563,9 @@
             "pager": {
                 "token": {
                     "input": "lsbtNextToken",
-                    "required": false,
-                    "output": "lsbtrNextToken"
+                    "outputRequired": false,
+                    "output": "lsbtNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lsbtrSubscriptions"
@@ -3779,8 +3783,9 @@
             "pager": {
                 "token": {
                     "input": "ltNextToken",
-                    "required": false,
-                    "output": "ltrNextToken"
+                    "outputRequired": false,
+                    "output": "ltNextToken",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ltrTopics"

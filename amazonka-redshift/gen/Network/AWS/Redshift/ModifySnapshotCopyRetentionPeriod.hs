@@ -125,3 +125,6 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod where
 instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
     parseXML = withElement "ModifySnapshotCopyRetentionPeriodResult" $ \x -> ModifySnapshotCopyRetentionPeriodResponse
         <$> x .@? "Cluster"
+
+
+Some kind of operator / class to check the types whether to continue?

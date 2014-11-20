@@ -128,3 +128,6 @@ instance AWSRequest CreateLoadBalancerPolicy where
 
     request  = post "CreateLoadBalancerPolicy"
     response = nullResponse CreateLoadBalancerPolicyResponse
+
+
+Some kind of operator / class to check the types whether to continue?

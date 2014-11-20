@@ -227,3 +227,6 @@ instance FromXML GetFederationTokenResponse where
         <$> x .@? "Credentials"
         <*> x .@? "FederatedUser"
         <*> x .@? "PackedPolicySize"
+
+
+Some kind of operator / class to check the types whether to continue?

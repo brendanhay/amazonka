@@ -88,3 +88,6 @@ instance AWSRequest DeleteHsmClientCertificate where
 
     request  = post "DeleteHsmClientCertificate"
     response = nullResponse DeleteHsmClientCertificateResponse
+
+
+Some kind of operator / class to check the types whether to continue?

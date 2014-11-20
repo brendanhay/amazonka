@@ -122,3 +122,6 @@ instance AWSRequest ReportTaskProgress where
 instance FromJSON ReportTaskProgressResponse where
     parseJSON = withObject "ReportTaskProgressResponse" $ \o -> ReportTaskProgressResponse
         <$> o .:  "canceled"
+
+
+Some kind of operator / class to check the types whether to continue?

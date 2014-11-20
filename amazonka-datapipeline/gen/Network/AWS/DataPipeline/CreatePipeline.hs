@@ -144,3 +144,6 @@ instance AWSRequest CreatePipeline where
 instance FromJSON CreatePipelineResponse where
     parseJSON = withObject "CreatePipelineResponse" $ \o -> CreatePipelineResponse
         <$> o .:  "pipelineId"
+
+
+Some kind of operator / class to check the types whether to continue?

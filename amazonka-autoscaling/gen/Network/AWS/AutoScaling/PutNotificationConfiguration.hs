@@ -118,3 +118,6 @@ instance AWSRequest PutNotificationConfiguration where
 
     request  = post "PutNotificationConfiguration"
     response = nullResponse PutNotificationConfigurationResponse
+
+
+Some kind of operator / class to check the types whether to continue?

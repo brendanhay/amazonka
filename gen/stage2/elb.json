@@ -6356,8 +6356,9 @@
             "pager": {
                 "token": {
                     "input": "dlbMarker",
-                    "required": false,
-                    "output": "dlbrNextMarker"
+                    "outputRequired": false,
+                    "output": "dlbMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dlbrLoadBalancerDescriptions"

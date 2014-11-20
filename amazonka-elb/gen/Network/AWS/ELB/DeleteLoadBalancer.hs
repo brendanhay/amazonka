@@ -95,3 +95,6 @@ instance AWSRequest DeleteLoadBalancer where
 
     request  = post "DeleteLoadBalancer"
     response = nullResponse DeleteLoadBalancerResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -145,3 +145,6 @@ instance AWSRequest CreateReusableDelegationSet where
     response = xmlHeaderResponse $ \h x -> CreateReusableDelegationSetResponse
         <$> x .@  "DelegationSet"
         <*> h ~: "Location"
+
+
+Some kind of operator / class to check the types whether to continue?

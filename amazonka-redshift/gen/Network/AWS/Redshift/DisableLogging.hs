@@ -164,3 +164,6 @@ instance FromXML DisableLoggingResponse where
         <*> x .@? "LastSuccessfulDeliveryTime"
         <*> x .@? "LoggingEnabled"
         <*> x .@? "S3KeyPrefix"
+
+
+Some kind of operator / class to check the types whether to continue?

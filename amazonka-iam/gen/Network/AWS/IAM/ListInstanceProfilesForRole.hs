@@ -163,7 +163,10 @@ instance FromXML ListInstanceProfilesForRoleResponse where
         <*> x .@? "Marker"
 
 instance AWSPager ListInstanceProfilesForRole where
-    page rq rs
+    next rq rs
         | stop (rs ^. lipfrrIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & lipfrMarker .~ rs ^. lipfrrMarker
+            & lipfrMarker .~ rs ^. lipfrMarker
+
+
+Some kind of operator / class to check the types whether to continue?

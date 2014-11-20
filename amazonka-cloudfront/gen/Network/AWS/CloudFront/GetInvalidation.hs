@@ -122,3 +122,6 @@ instance AWSRequest GetInvalidation where
 instance FromXML GetInvalidationResponse where
     parseXML x = GetInvalidationResponse
         <$> x .@? "Invalidation"
+
+
+Some kind of operator / class to check the types whether to continue?

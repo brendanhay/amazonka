@@ -120,3 +120,6 @@ instance AWSRequest RemoveSourceIdentifierFromSubscription where
 instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
     parseXML = withElement "RemoveSourceIdentifierFromSubscriptionResult" $ \x -> RemoveSourceIdentifierFromSubscriptionResponse
         <$> x .@? "EventSubscription"
+
+
+Some kind of operator / class to check the types whether to continue?

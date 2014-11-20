@@ -157,3 +157,6 @@ instance AWSRequest CreatePlatformEndpoint where
 instance FromXML CreatePlatformEndpointResponse where
     parseXML = withElement "CreatePlatformEndpointResult" $ \x -> CreatePlatformEndpointResponse
         <$> x .@? "EndpointArn"
+
+
+Some kind of operator / class to check the types whether to continue?

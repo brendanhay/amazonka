@@ -134,3 +134,6 @@ instance AWSRequest DeleteDeploymentGroup where
 instance FromJSON DeleteDeploymentGroupResponse where
     parseJSON = withObject "DeleteDeploymentGroupResponse" $ \o -> DeleteDeploymentGroupResponse
         <$> o .:  "hooksNotCleanedUp"
+
+
+Some kind of operator / class to check the types whether to continue?

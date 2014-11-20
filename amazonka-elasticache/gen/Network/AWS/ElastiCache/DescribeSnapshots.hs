@@ -173,3 +173,12 @@ instance FromXML DescribeSnapshotsResponse where
         <*> x .@  "Snapshots"
 
 instance AWSPager DescribeSnapshots where
+  next rq rs
+
+  = (\x -> rq & dsMarker ?~ x)
+  <$> (rs ^. dsMarker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

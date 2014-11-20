@@ -13761,8 +13761,9 @@
             "pager": {
                 "token": {
                     "input": "ddbevMarker",
-                    "required": false,
-                    "output": "ddbevrMarker"
+                    "outputRequired": false,
+                    "output": "ddbevMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ddbevrDBEngineVersions"
@@ -14188,8 +14189,9 @@
             "pager": {
                 "token": {
                     "input": "ddbi1Marker",
-                    "required": false,
-                    "output": "ddbirMarker"
+                    "outputRequired": false,
+                    "output": "ddbi1Marker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ddbirDBInstances"
@@ -14475,8 +14477,9 @@
             "pager": {
                 "token": {
                     "input": "ddblfMarker",
-                    "required": false,
-                    "output": "ddblfrMarker"
+                    "outputRequired": false,
+                    "output": "ddblfMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ddblfrDescribeDBLogFiles"
@@ -14868,8 +14871,9 @@
             "pager": {
                 "token": {
                     "input": "ddbpgMarker",
-                    "required": false,
-                    "output": "ddbpgrMarker"
+                    "outputRequired": false,
+                    "output": "ddbpgMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ddbpgrDBParameterGroups"
@@ -15155,8 +15159,9 @@
             "pager": {
                 "token": {
                     "input": "ddbpMarker",
-                    "required": false,
-                    "output": "ddbprMarker"
+                    "outputRequired": false,
+                    "output": "ddbpMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ddbprParameters"
@@ -15478,8 +15483,9 @@
             "pager": {
                 "token": {
                     "input": "ddbsg1Marker",
-                    "required": false,
-                    "output": "ddbsgr1Marker"
+                    "outputRequired": false,
+                    "output": "ddbsg1Marker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ddbsgr1DBSecurityGroups"
@@ -15765,8 +15771,9 @@
             "pager": {
                 "token": {
                     "input": "ddbsMarker",
-                    "required": false,
-                    "output": "ddbsrMarker"
+                    "outputRequired": false,
+                    "output": "ddbsMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ddbsrDBSnapshots"
@@ -16122,8 +16129,9 @@
             "pager": {
                 "token": {
                     "input": "ddbsgMarker",
-                    "required": false,
-                    "output": "ddbsgrMarker"
+                    "outputRequired": false,
+                    "output": "ddbsgMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ddbsgrDBSubnetGroups"
@@ -16395,8 +16403,9 @@
             "pager": {
                 "token": {
                     "input": "dedpMarker",
-                    "required": false,
-                    "output": "dedprEngineDefaults . edMarker"
+                    "outputRequired": false,
+                    "output": "dedpMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dedprEngineDefaults . edParameters"
@@ -16880,8 +16889,9 @@
             "pager": {
                 "token": {
                     "input": "des1Marker",
-                    "required": false,
-                    "output": "desrMarker"
+                    "outputRequired": false,
+                    "output": "des1Marker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "desrEventSubscriptionsList"
@@ -17167,8 +17177,9 @@
             "pager": {
                 "token": {
                     "input": "deMarker",
-                    "required": false,
-                    "output": "derMarker"
+                    "outputRequired": false,
+                    "output": "deMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "derEvents"
@@ -17629,8 +17640,9 @@
             "pager": {
                 "token": {
                     "input": "dogoMarker",
-                    "required": false,
-                    "output": "dogorMarker"
+                    "outputRequired": false,
+                    "output": "dogoMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dogorOptionGroupOptions"
@@ -17952,8 +17964,9 @@
             "pager": {
                 "token": {
                     "input": "dogMarker",
-                    "required": false,
-                    "output": "dogrMarker"
+                    "outputRequired": false,
+                    "output": "dogMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dogrOptionGroupsList"
@@ -18309,8 +18322,9 @@
             "pager": {
                 "token": {
                     "input": "dodbioMarker",
-                    "required": false,
-                    "output": "dodbiorMarker"
+                    "outputRequired": false,
+                    "output": "dodbioMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "dodbiorOrderableDBInstanceOptions"
@@ -18737,8 +18751,9 @@
             "pager": {
                 "token": {
                     "input": "drdbiMarker",
-                    "required": false,
-                    "output": "drdbirMarker"
+                    "outputRequired": false,
+                    "output": "drdbiMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "drdbirReservedDBInstances"
@@ -19234,8 +19249,9 @@
             "pager": {
                 "token": {
                     "input": "drdbioMarker",
-                    "required": false,
-                    "output": "drdbiorMarker"
+                    "outputRequired": false,
+                    "output": "drdbioMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "drdbiorReservedDBInstancesOfferings"
@@ -19728,8 +19744,9 @@
                 "more": "ddblfprAdditionalDataPending",
                 "token": {
                     "input": "ddblfpMarker",
-                    "required": false,
-                    "output": "ddblfprMarker"
+                    "outputRequired": false,
+                    "output": "ddblfpMarker",
+                    "inputRequired": false
                 },
                 "type": "one"
             },

@@ -161,3 +161,12 @@ instance FromJSON DescribeTapeRecoveryPointsResponse where
         <*> o .:  "TapeRecoveryPointInfos"
 
 instance AWSPager DescribeTapeRecoveryPoints where
+  next rq rs
+
+  = (\x -> rq & dtrpMarker ?~ x)
+  <$> (rs ^. dtrpMarker)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

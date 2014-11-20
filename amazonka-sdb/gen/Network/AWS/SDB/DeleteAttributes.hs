@@ -130,3 +130,6 @@ instance AWSRequest DeleteAttributes where
 
     request  = post "DeleteAttributes"
     response = nullResponse DeleteAttributesResponse
+
+
+Some kind of operator / class to check the types whether to continue?

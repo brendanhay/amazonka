@@ -124,3 +124,6 @@ instance AWSRequest UpdateSAMLProvider where
 instance FromXML UpdateSAMLProviderResponse where
     parseXML = withElement "UpdateSAMLProviderResult" $ \x -> UpdateSAMLProviderResponse
         <$> x .@? "SAMLProviderArn"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -144,3 +144,12 @@ instance FromXML DescribeNotificationConfigurationsResponse where
         <*> x .@  "NotificationConfigurations"
 
 instance AWSPager DescribeNotificationConfigurations where
+  next rq rs
+
+  = (\x -> rq & dncNextToken ?~ x)
+  <$> (rs ^. dncNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

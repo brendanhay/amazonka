@@ -109,3 +109,6 @@ instance AWSRequest GetBucketLifecycle where
 instance FromXML GetBucketLifecycleResponse where
     parseXML x = GetBucketLifecycleResponse
         <$> parseXML x
+
+
+Some kind of operator / class to check the types whether to continue?

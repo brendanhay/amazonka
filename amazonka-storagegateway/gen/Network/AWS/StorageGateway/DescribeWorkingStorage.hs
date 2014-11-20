@@ -149,3 +149,6 @@ instance FromJSON DescribeWorkingStorageResponse where
         <*> o .:? "GatewayARN"
         <*> o .:? "WorkingStorageAllocatedInBytes"
         <*> o .:? "WorkingStorageUsedInBytes"
+
+
+Some kind of operator / class to check the types whether to continue?

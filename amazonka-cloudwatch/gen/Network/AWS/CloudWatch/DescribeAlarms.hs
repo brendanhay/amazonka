@@ -170,3 +170,12 @@ instance FromXML DescribeAlarmsResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeAlarms where
+  next rq rs
+
+  = (\x -> rq & daNextToken ?~ x)
+  <$> (rs ^. daNextToken)
+
+    
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -2,12 +2,14 @@
 {-# LANGUAGE DeriveFunctor              #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE ExtendedDefaultRules       #-}
+{-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TupleSections              #-}
+{-# LANGUAGE UndecidableInstances       #-}
 {-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
@@ -337,28 +339,29 @@ instance A.ToJSON Key where
             Apply  n k           -> n <> " . " <> go k
             Choice n k           -> "choice (" <> go n <> ") (" <> go k <> ")"
 
-data Token = Token
-    { _tokRequired :: !Bool
-    , _tokInput    :: !Key
-    , _tokOutput   :: !Key
+data Token a = Token
+    { _tokInputAnn  :: !a
+    , _tokOutputAnn :: !a
+    , _tokInput     :: !Key
+    , _tokOutput    :: !Key
     } deriving (Eq, Show)
 
-record stage2 ''Token
+makeLenses ''Token
 
-tokenKeys :: Traversal' Token Key
-tokenKeys f (Token r a b) = Token r <$> f a <*> f b
+tokenKeys :: Traversal' (Token a) Key
+tokenKeys f (Token ar br a b) = Token ar br <$> f a <*> f b
 
-data Pager
-    = More !Key [Token]
-    | Next !Key !Token
+data Pager a
+    = More !Key [Token a]
+    | Next !Key !(Token a)
       deriving (Eq, Show)
 
-pagerKeys :: Traversal' Pager Key
+pagerKeys :: Traversal' (Pager a) Key
 pagerKeys f = \case
     More k ts -> More <$> f k <*> traverse (tokenKeys f) ts
     Next k t  -> Next <$> f k <*> tokenKeys f t
 
-instance FromJSON Pager where
+instance FromJSON (Pager ()) where
     parseJSON = withObject "pager" $ \o -> more o <|> next o
       where
         more o = do
@@ -369,15 +372,15 @@ instance FromJSON Pager where
                 fail "input_token and output_token don't contain same number of keys."
 
             More <$> o .: "more_results"
-                 <*> pure (zipWith (Token False) xs ys)
+                 <*> pure (zipWith (Token () ()) xs ys)
           where
             f k = o .: k <|> (:[]) <$> o .: k
 
         next o = Next
             <$> o .: "result_key"
-            <*> (Token False <$> o .: "input_token" <*> o .: "output_token")
+            <*> (Token () () <$> o .: "input_token" <*> o .: "output_token")
 
-instance A.ToJSON Pager where
+instance A.ToJSON (Token a) => A.ToJSON (Pager a) where
     toJSON = A.object . \case
         Next rk t ->
             [ "type"      A..= "next"

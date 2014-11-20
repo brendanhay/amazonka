@@ -114,3 +114,6 @@ instance AWSRequest GetBucketTagging where
 instance FromXML GetBucketTaggingResponse where
     parseXML x = GetBucketTaggingResponse
         <$> x .@  "TagSet"
+
+
+Some kind of operator / class to check the types whether to continue?

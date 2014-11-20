@@ -190,3 +190,6 @@ instance FromXML ListReusableDelegationSetsResponse where
         <*> x .@  "Marker"
         <*> x .@  "MaxItems"
         <*> x .@? "NextMarker"
+
+
+Some kind of operator / class to check the types whether to continue?

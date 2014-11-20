@@ -175,3 +175,6 @@ instance AWSRequest ReplaceNetworkAclEntry where
 
     request  = post "ReplaceNetworkAclEntry"
     response = nullResponse ReplaceNetworkAclEntryResponse
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -121,3 +121,6 @@ instance AWSRequest UpdateScalingParameters where
 instance FromXML UpdateScalingParametersResponse where
     parseXML = withElement "UpdateScalingParametersResult" $ \x -> UpdateScalingParametersResponse
         <$> x .@  "ScalingParameters"
+
+
+Some kind of operator / class to check the types whether to continue?

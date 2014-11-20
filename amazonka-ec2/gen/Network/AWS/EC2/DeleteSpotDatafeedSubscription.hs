@@ -85,3 +85,6 @@ instance AWSRequest DeleteSpotDatafeedSubscription where
 
     request  = post "DeleteSpotDatafeedSubscription"
     response = nullResponse DeleteSpotDatafeedSubscriptionResponse
+
+
+Some kind of operator / class to check the types whether to continue?

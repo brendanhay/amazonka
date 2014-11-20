@@ -10743,8 +10743,9 @@
             "pager": {
                 "token": {
                     "input": "lbaMarker",
-                    "required": false,
-                    "output": "lbarMarker"
+                    "outputRequired": false,
+                    "output": "lbaMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lbarBootstrapActions"
@@ -11013,8 +11014,9 @@
             "pager": {
                 "token": {
                     "input": "lcMarker",
-                    "required": false,
-                    "output": "lcrMarker"
+                    "outputRequired": false,
+                    "output": "lcMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lcrClusters"
@@ -11372,8 +11374,9 @@
             "pager": {
                 "token": {
                     "input": "ligMarker",
-                    "required": false,
-                    "output": "ligrMarker"
+                    "outputRequired": false,
+                    "output": "ligMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "ligrInstanceGroups"
@@ -11642,8 +11645,9 @@
             "pager": {
                 "token": {
                     "input": "liMarker",
-                    "required": false,
-                    "output": "lirMarker"
+                    "outputRequired": false,
+                    "output": "liMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lirInstances"
@@ -12002,8 +12006,9 @@
             "pager": {
                 "token": {
                     "input": "lsMarker",
-                    "required": false,
-                    "output": "lsrMarker"
+                    "outputRequired": false,
+                    "output": "lsMarker",
+                    "inputRequired": false
                 },
                 "type": "next",
                 "resultKey": "lsrSteps"

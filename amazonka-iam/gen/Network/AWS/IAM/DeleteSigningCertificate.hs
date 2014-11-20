@@ -100,3 +100,6 @@ instance AWSRequest DeleteSigningCertificate where
 
     request  = post "DeleteSigningCertificate"
     response = nullResponse DeleteSigningCertificateResponse
+
+
+Some kind of operator / class to check the types whether to continue?

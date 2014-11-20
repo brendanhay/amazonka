@@ -182,3 +182,6 @@ instance AWSRequest CreateNetworkInterface where
 instance FromXML CreateNetworkInterfaceResponse where
     parseXML x = CreateNetworkInterfaceResponse
         <$> x .@? "networkInterface"
+
+
+Some kind of operator / class to check the types whether to continue?

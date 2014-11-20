@@ -132,3 +132,6 @@ instance AWSRequest ReplaceRouteTableAssociation where
 instance FromXML ReplaceRouteTableAssociationResponse where
     parseXML x = ReplaceRouteTableAssociationResponse
         <$> x .@? "newAssociationId"
+
+
+Some kind of operator / class to check the types whether to continue?

@@ -40,7 +40,6 @@ import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
-import           Network.HTTP.Types.Header            (Header)
 import           Text.XML
 
 newtype Map k v = Map

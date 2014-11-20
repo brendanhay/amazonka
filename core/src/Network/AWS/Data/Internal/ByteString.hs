@@ -32,6 +32,8 @@ import           Data.ByteString.Builder        (Builder)
 import qualified Data.ByteString.Builder        as Build
 import qualified Data.ByteString.Char8          as BS
 import qualified Data.ByteString.Lazy.Char8     as LBS
+import           Data.CaseInsensitive           (CI)
+import qualified Data.CaseInsensitive           as CI
 import           Data.Char
 import           Data.Int
 import           Data.Text                      (Text)
@@ -63,6 +65,9 @@ instance ToByteString Double     where toBS = buildBS
 instance ToByteString StdMethod  where toBS = renderStdMethod
 instance ToByteString (Digest a) where toBS = digestToHexByteString
 instance ToByteString UTCTime    where toBS = BS.pack . show
+
+instance ToByteString a => ToByteString (CI a) where
+    toBS = toBS . CI.original
 
 buildBS :: ToBuilder a => a -> ByteString
 buildBS = LBS.toStrict . Build.toLazyByteString . build

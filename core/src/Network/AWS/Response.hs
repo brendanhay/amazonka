@@ -17,6 +17,7 @@ module Network.AWS.Response
     (
     -- * Responses
       nullResponse
+    , headerResponse
     , xmlResponse
     , xmlHeaderResponse
     , jsonResponse
@@ -46,6 +47,14 @@ nullResponse :: (MonadResource m, AWSService (Sv a))
 nullResponse rs = receive $ \_ _ bdy ->
     liftResourceT (bdy $$+- return (Right rs))
 {-# INLINE nullResponse #-}
+
+headerResponse :: (MonadResource m, AWSService (Sv a))
+               => (ResponseHeaders -> Either String (Rs a))
+               -> a
+               -> Either HttpException ClientResponse
+               -> m (Response a)
+headerResponse f = deserialise (const (Right ())) (const f)
+{-# INLINE headerResponse #-}
 
 xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))
             => a

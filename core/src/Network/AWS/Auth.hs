@@ -113,7 +113,7 @@ getAuth m = \case
 
 -- | Retrieve access and secret keys from the default environment variables.
 --
--- See: 'accessKey' and 'secretKey'
+-- /See:/ 'accessKey' and 'secretKey'
 fromEnv :: (Functor m, MonadIO m) => ExceptT String m Auth
 fromEnv = fromEnvVars accessKey secretKey
 

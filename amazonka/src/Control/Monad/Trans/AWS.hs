@@ -98,7 +98,7 @@ type AWS = AWST IO
 
 -- | Provides an alias for shortening type signatures if preferred.
 --
--- Note: requires the @ConstraintKinds@ extension.
+-- /Note:/ requires the @ConstraintKinds@ extension.
 type MonadAWS m =
     ( MonadBaseControl IO m
     , MonadCatch m
@@ -289,7 +289,7 @@ sendCatch rq = scoped (`AWS.send` rq)
 --
 -- Errors will be handle identically to 'send'.
 --
--- Note: The 'ResumableSource' will close when there are no more results or the
+-- /Note:/ The 'ResumableSource' will close when there are no more results or the
 -- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
 paginate :: ( MonadCatch m
             , MonadResource m
@@ -305,7 +305,7 @@ paginate rq = paginateCatch rq $= awaitForever (hoistEither >=> yield)
 -- the associated 'Rs' response type in the success case, or the related service's
 -- 'Er' type in the error case.
 --
--- Note: The 'ResumableSource' will close when there are no more results or the
+-- /Note:/ The 'ResumableSource' will close when there are no more results or the
 -- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
 paginateCatch :: ( MonadCatch m
                  , MonadResource m
@@ -318,7 +318,7 @@ paginateCatch rq = scoped (`AWS.paginate` rq)
 
 -- | Presign a URL with expiry to be used at a later time.
 --
--- Note: Requires the service's signer to be an instance of 'AWSPresigner'.
+-- /Note:/ Requires the service's signer to be an instance of 'AWSPresigner'.
 -- Not all signing process support this.
 presign :: ( MonadIO m
            , MonadReader Env m

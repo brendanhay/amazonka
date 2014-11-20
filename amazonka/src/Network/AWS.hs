@@ -105,7 +105,7 @@ send Env{..} x@(request -> rq) = go `catch` er >>= response x
 -- the associated 'Rs' response type in the success case, or the related service's
 -- 'Er' type in the error case.
 --
--- Note: The 'ResumableSource' will close when there are no more results or the
+-- /Note:/ The 'ResumableSource' will close when there are no more results or the
 -- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
 paginate :: (MonadCatch m, MonadResource m, AWSPager a)
          => Env
@@ -122,7 +122,7 @@ paginate e = go
 
 -- | Presign a URL with expiry to be used at a later time.
 --
--- Note: Requires the service's signer to be an instance of 'AWSPresigner'.
+-- /Note:/ Requires the service's signer to be an instance of 'AWSPresigner'.
 -- Not all signing process support this.
 presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         => Env

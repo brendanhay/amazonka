@@ -73,6 +73,7 @@ module Control.Monad.Trans.AWS
     ) where
 
 import           Control.Applicative
+import           Control.Arrow                (first)
 import           Control.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch

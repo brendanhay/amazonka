@@ -97,21 +97,22 @@ ddcpParameterGroupFamily =
         (\s a -> s { _ddcpParameterGroupFamily = a })
 
 newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
-    { _ddcprDefaultClusterParameters :: Maybe DefaultClusterParameters
+    { _ddcprDefaultClusterParameters :: DefaultClusterParameters
     } deriving (Eq, Show)
 
 -- | 'DescribeDefaultClusterParametersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcprDefaultClusterParameters' @::@ 'Maybe' 'DefaultClusterParameters'
+-- * 'ddcprDefaultClusterParameters' @::@ 'DefaultClusterParameters'
 --
-describeDefaultClusterParametersResponse :: DescribeDefaultClusterParametersResponse
-describeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
-    { _ddcprDefaultClusterParameters = Nothing
+describeDefaultClusterParametersResponse :: DefaultClusterParameters -- ^ 'ddcprDefaultClusterParameters'
+                                         -> DescribeDefaultClusterParametersResponse
+describeDefaultClusterParametersResponse p1 = DescribeDefaultClusterParametersResponse
+    { _ddcprDefaultClusterParameters = p1
     }
 
-ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse (Maybe DefaultClusterParameters)
+ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
 ddcprDefaultClusterParameters =
     lens _ddcprDefaultClusterParameters
         (\s a -> s { _ddcprDefaultClusterParameters = a })
@@ -137,7 +138,7 @@ instance AWSRequest DescribeDefaultClusterParameters where
 
 instance FromXML DescribeDefaultClusterParametersResponse where
     parseXML = withElement "DescribeDefaultClusterParametersResult" $ \x -> DescribeDefaultClusterParametersResponse
-        <$> x .@? "DefaultClusterParameters"
+        <$> x .@  "DefaultClusterParameters"
 
 instance AWSPager DescribeDefaultClusterParameters where
     page rq rs

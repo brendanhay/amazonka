@@ -13036,22 +13036,38 @@
                     "location": "querystring",
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "ddcprDefaultClusterParameters",
                     "name": "_ddcprDefaultClusterParameters",
                     "shape": "DefaultClusterParameters",
                     "locationName": "DefaultClusterParameters",
                     "documentation": null,
-                    "typeExposed": "Maybe DefaultClusterParameters",
-                    "type": "Maybe DefaultClusterParameters"
+                    "typeExposed": "DefaultClusterParameters",
+                    "type": "DefaultClusterParameters"
                 },
                 "contents": [],
                 "wrapper": true,
                 "protocol": "query",
                 "payload": null,
-                "required": [],
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ddcprDefaultClusterParameters",
+                        "name": "_ddcprDefaultClusterParameters",
+                        "shape": "DefaultClusterParameters",
+                        "locationName": "DefaultClusterParameters",
+                        "documentation": null,
+                        "typeExposed": "DefaultClusterParameters",
+                        "type": "DefaultClusterParameters"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -13060,38 +13076,22 @@
                 "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "ddcprDefaultClusterParameters",
-                        "name": "_ddcprDefaultClusterParameters",
-                        "shape": "DefaultClusterParameters",
-                        "locationName": "DefaultClusterParameters",
-                        "documentation": null,
-                        "typeExposed": "Maybe DefaultClusterParameters",
-                        "type": "Maybe DefaultClusterParameters"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "ddcprDefaultClusterParameters",
                         "name": "_ddcprDefaultClusterParameters",
                         "shape": "DefaultClusterParameters",
                         "locationName": "DefaultClusterParameters",
                         "documentation": null,
-                        "typeExposed": "Maybe DefaultClusterParameters",
-                        "type": "Maybe DefaultClusterParameters"
+                        "typeExposed": "DefaultClusterParameters",
+                        "type": "DefaultClusterParameters"
                     }
                 ]
             },

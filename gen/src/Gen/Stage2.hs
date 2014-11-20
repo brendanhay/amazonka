@@ -547,7 +547,7 @@ instance DerivingOf Prim where
 
 instance DerivingOf Type where
     derivingOf = \case
-        TType      _     -> [Eq', Show']
+        TType      _     -> [Eq', Show', Generic']
         TPrim      p     -> derivingOf p
         TMaybe     x     -> prim (derivingOf x)
         TSensitive x     -> derivingOf x

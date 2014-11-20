@@ -19,8 +19,6 @@
 
 module Gen.Transform (transformS1ToS2) where
 
-import Debug.Trace
-
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error

@@ -701,19 +701,19 @@ instance ToQuery ConfigurationOptionSetting where
         ]
 
 data ConfigurationOptionValueType
-    = List   -- ^ List
+    = List'  -- ^ List
     | Scalar -- ^ Scalar
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ConfigurationOptionValueType
 
 instance FromText ConfigurationOptionValueType where
-    parser = match "List"   List
+    parser = match "List"   List'
          <|> match "Scalar" Scalar
 
 instance ToText ConfigurationOptionValueType where
     toText = \case
-        List   -> "List"
+        List'  -> "List"
         Scalar -> "Scalar"
 
 instance FromXML ConfigurationOptionValueType where

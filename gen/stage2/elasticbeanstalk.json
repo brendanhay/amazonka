@@ -990,7 +990,7 @@
                     "Enum"
                 ],
                 "branches": {
-                    "List": "List",
+                    "List'": "List",
                     "Scalar": "Scalar"
                 },
                 "valuePad": 7,

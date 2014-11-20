@@ -87,23 +87,23 @@ instance ( KnownSymbol e
         j = BS.pack $ symbolVal (Proxy :: Proxy j)
         e = BS.pack $ symbolVal (Proxy :: Proxy e)
 
-instance ( Eq k
-         , Hashable k
-         , FromText k
-         , FromJSON v
-         ) => FromJSON (Map e i j k v) where
-    parseJSON = withObject "HashMap" (fmap fromList . traverse g . Map.toList)
-      where
-        g (k, v) = (,)
-            <$> either fail return (fromText k)
-            <*> parseJSON v
+-- instance ( Eq k
+--          , Hashable k
+--          , FromText k
+--          , FromJSON v
+--          ) => FromJSON (Map e i j k v) where
+--     parseJSON = withObject "HashMap" (fmap fromList . traverse g . Map.toList)
+--       where
+--         g (k, v) = (,)
+--             <$> either fail return (fromText k)
+--             <*> parseJSON v
 
-instance ( Eq k
-         , Hashable k
-         , ToText k
-         , ToJSON v
-         ) => ToJSON (Map e i j k v) where
-    toJSON = Object . Map.fromList . map (bimap toText toJSON) . toList
+-- instance ( Eq k
+--          , Hashable k
+--          , ToText k
+--          , ToJSON v
+--          ) => ToJSON (Map e i j k v) where
+--     toJSON = Object . Map.fromList . map (bimap toText toJSON) . toList
 
 instance ( KnownSymbol e
          , KnownSymbol i

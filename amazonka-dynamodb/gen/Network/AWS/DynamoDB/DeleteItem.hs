@@ -68,10 +68,10 @@ import qualified GHC.Exts
 data DeleteItem = DeleteItem
     { _diConditionExpression         :: Maybe Text
     , _diConditionalOperator         :: Maybe Text
-    , _diExpected                    :: Map "entry" "key" "value" Text ExpectedAttributeValue
-    , _diExpressionAttributeNames    :: Map "entry" "key" "value" Text Text
-    , _diExpressionAttributeValues   :: Map "entry" "key" "value" Text AttributeValue
-    , _diKey                         :: Map "entry" "key" "value" Text AttributeValue
+    , _diExpected                    :: HashMap Text ExpectedAttributeValue
+    , _diExpressionAttributeNames    :: HashMap Text Text
+    , _diExpressionAttributeValues   :: HashMap Text AttributeValue
+    , _diKey                         :: HashMap Text AttributeValue
     , _diReturnConsumedCapacity      :: Maybe Text
     , _diReturnItemCollectionMetrics :: Maybe Text
     , _diReturnValues                :: Maybe Text
@@ -263,7 +263,7 @@ diConditionalOperator =
 -- of parameters at once, DynamoDB will return a ValidationException
 -- exception.
 diExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
-diExpected = lens _diExpected (\s a -> s { _diExpected = a }) . _Map
+diExpected = lens _diExpected (\s a -> s { _diExpected = a })
 
 -- | One or more substitution tokens for simplifying complex expressions. The
 -- following are some use cases for an ExpressionAttributeNames value: To
@@ -281,7 +281,6 @@ diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
 diExpressionAttributeNames =
     lens _diExpressionAttributeNames
         (\s a -> s { _diExpressionAttributeNames = a })
-            . _Map
 
 -- | One or more values that can be substituted in an expression. Use the :
 -- character in an expression to dereference an attribute value. For
@@ -294,7 +293,6 @@ diExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
 diExpressionAttributeValues =
     lens _diExpressionAttributeValues
         (\s a -> s { _diExpressionAttributeValues = a })
-            . _Map
 
 -- | A map of attribute names to AttributeValue objects, representing the
 -- primary key of the item to delete. For the primary key, you must provide
@@ -303,7 +301,7 @@ diExpressionAttributeValues =
 -- primary key, you must specify both the hash attribute and the range
 -- attribute.
 diKey :: Lens' DeleteItem (HashMap Text AttributeValue)
-diKey = lens _diKey (\s a -> s { _diKey = a }) . _Map
+diKey = lens _diKey (\s a -> s { _diKey = a })
 
 diReturnConsumedCapacity :: Lens' DeleteItem (Maybe Text)
 diReturnConsumedCapacity =
@@ -332,7 +330,7 @@ diTableName :: Lens' DeleteItem Text
 diTableName = lens _diTableName (\s a -> s { _diTableName = a })
 
 data DeleteItemResponse = DeleteItemResponse
-    { _dirAttributes            :: Map "entry" "key" "value" Text AttributeValue
+    { _dirAttributes            :: HashMap Text AttributeValue
     , _dirConsumedCapacity      :: Maybe ConsumedCapacity
     , _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Eq, Show)
@@ -358,7 +356,7 @@ deleteItemResponse = DeleteItemResponse
 -- as it appeared before the DeleteItem operation. This map appears in the
 -- response only if ReturnValues was specified as ALL_OLD in the request.
 dirAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
-dirAttributes = lens _dirAttributes (\s a -> s { _dirAttributes = a }) . _Map
+dirAttributes = lens _dirAttributes (\s a -> s { _dirAttributes = a })
 
 dirConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
 dirConsumedCapacity =

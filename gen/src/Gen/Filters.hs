@@ -27,17 +27,21 @@ genFilters = Map.fromList
     , "below"        @: wrapHaddock "^ "
     , "description"  @: wrapDescription
     , "highlight"    @: highlightType
+    , "parens"       @: parens
     , "wrapped"      @: wrapped
     , "concat"       @: (mappend :: Text -> Text -> Text)
     , "joinedLength" @: joinedLength
     , "member"       @: (elem :: Text -> [Text] -> Bool)
     ]
 
+parens :: Text -> Text
+parens t = "(" <> t <> ")"
+
 wrapped :: Text -> Text
-wrapped t = parens (Text.any isSpace t)
-  where
-    parens True  = "(" <> t <> ")"
-    parens False = t
+wrapped t
+    | Text.null t        = t
+    | Text.head t == '[' = t
+    | otherwise          = maybe t (const (parens t)) (Text.findIndex isSpace t)
 
 joinedLength :: [Text] -> Text -> Int
 joinedLength xs sep = sum (map ((+n) . Text.length) xs)

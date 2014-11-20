@@ -413,7 +413,7 @@ data AttributeValue = AttributeValue
     , _avBOOL :: Maybe Bool
     , _avBS   :: List "BS" Base64
     , _avL    :: List "L" AttributeValue
-    , _avM    :: Map "entry" "key" "value" Text AttributeValue
+    , _avM    :: HashMap Text AttributeValue
     , _avN    :: Maybe Text
     , _avNS   :: List "NS" Text
     , _avNULL :: Maybe Bool
@@ -477,7 +477,7 @@ avL = lens _avL (\s a -> s { _avL = a }) . _List
 
 -- | A Map of attribute values.
 avM :: Lens' AttributeValue (HashMap Text AttributeValue)
-avM = lens _avM (\s a -> s { _avM = a }) . _Map
+avM = lens _avM (\s a -> s { _avM = a })
 
 -- | A Number data type.
 avN :: Lens' AttributeValue (Maybe Text)
@@ -861,8 +861,8 @@ instance ToJSON TableDescription where
 data KeysAndAttributes = KeysAndAttributes
     { _kaaAttributesToGet          :: List1 "AttributesToGet" Text
     , _kaaConsistentRead           :: Maybe Bool
-    , _kaaExpressionAttributeNames :: Map "entry" "key" "value" Text Text
-    , _kaaKeys                     :: List1 "Keys" (Map "entry" "key" "value" Text AttributeValue)
+    , _kaaExpressionAttributeNames :: HashMap Text Text
+    , _kaaKeys                     :: List1 "Keys" (HashMap Text AttributeValue)
     , _kaaProjectionExpression     :: Maybe Text
     } deriving (Eq, Show)
 
@@ -923,7 +923,6 @@ kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
 kaaExpressionAttributeNames =
     lens _kaaExpressionAttributeNames
         (\s a -> s { _kaaExpressionAttributeNames = a })
-            . _Map
 
 -- | The primary key attribute values that define the items and the attributes
 -- associated with the items.
@@ -1515,7 +1514,7 @@ instance ToJSON GlobalSecondaryIndexDescription where
         ]
 
 data ItemCollectionMetrics = ItemCollectionMetrics
-    { _icmItemCollectionKey   :: Map "entry" "key" "value" Text AttributeValue
+    { _icmItemCollectionKey   :: HashMap Text AttributeValue
     , _icmSizeEstimateRangeGB :: List "SizeEstimateRangeGB" Double
     } deriving (Eq, Show)
 
@@ -1538,7 +1537,6 @@ itemCollectionMetrics = ItemCollectionMetrics
 icmItemCollectionKey :: Lens' ItemCollectionMetrics (HashMap Text AttributeValue)
 icmItemCollectionKey =
     lens _icmItemCollectionKey (\s a -> s { _icmItemCollectionKey = a })
-        . _Map
 
 -- | An estimate of item collection size, in gigabytes. This value is a
 -- two-element array containing a lower bound and an upper bound for the
@@ -1594,8 +1592,8 @@ instance ToJSON Capacity where
 
 data ConsumedCapacity = ConsumedCapacity
     { _ccCapacityUnits          :: Maybe Double
-    , _ccGlobalSecondaryIndexes :: Map "entry" "key" "value" Text Capacity
-    , _ccLocalSecondaryIndexes  :: Map "entry" "key" "value" Text Capacity
+    , _ccGlobalSecondaryIndexes :: HashMap Text Capacity
+    , _ccLocalSecondaryIndexes  :: HashMap Text Capacity
     , _ccTable                  :: Maybe Capacity
     , _ccTableName              :: Maybe Text
     } deriving (Eq, Show)
@@ -1633,14 +1631,12 @@ ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
 ccGlobalSecondaryIndexes =
     lens _ccGlobalSecondaryIndexes
         (\s a -> s { _ccGlobalSecondaryIndexes = a })
-            . _Map
 
 -- | The amount of throughput consumed on each local index affected by the
 -- operation.
 ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
 ccLocalSecondaryIndexes =
     lens _ccLocalSecondaryIndexes (\s a -> s { _ccLocalSecondaryIndexes = a })
-        . _Map
 
 -- | The amount of throughput consumed on the table affected by the operation.
 ccTable :: Lens' ConsumedCapacity (Maybe Capacity)
@@ -1974,7 +1970,7 @@ instance ToJSON KeySchemaElement where
         ]
 
 newtype DeleteRequest = DeleteRequest
-    { _dKey :: Map "entry" "key" "value" Text AttributeValue
+    { _dKey :: HashMap Text AttributeValue
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'DeleteRequest' constructor.
@@ -1993,7 +1989,7 @@ deleteRequest = DeleteRequest
 -- specified, and their data types must match those of the table's key
 -- schema.
 dKey :: Lens' DeleteRequest (HashMap Text AttributeValue)
-dKey = lens _dKey (\s a -> s { _dKey = a }) . _Map
+dKey = lens _dKey (\s a -> s { _dKey = a })
 
 instance FromJSON DeleteRequest where
     parseJSON = withObject "DeleteRequest" $ \o -> DeleteRequest
@@ -2046,7 +2042,7 @@ instance ToJSON UpdateGlobalSecondaryIndexAction where
         ]
 
 newtype PutRequest = PutRequest
-    { _pItem :: Map "entry" "key" "value" Text AttributeValue
+    { _pItem :: HashMap Text AttributeValue
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'PutRequest' constructor.
@@ -2067,7 +2063,7 @@ putRequest = PutRequest
 -- are part of an index key schema for the table, their types must match the
 -- index key schema.
 pItem :: Lens' PutRequest (HashMap Text AttributeValue)
-pItem = lens _pItem (\s a -> s { _pItem = a }) . _Map
+pItem = lens _pItem (\s a -> s { _pItem = a })
 
 instance FromJSON PutRequest where
     parseJSON = withObject "PutRequest" $ \o -> PutRequest

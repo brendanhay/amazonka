@@ -32,7 +32,7 @@ module Gen.Stage2 where
 import           Control.Applicative
 import           Control.Arrow            ((&&&))
 import           Control.Error
-import           Control.Lens             hiding ((.=), (<.>), op)
+import           Control.Lens             hiding ((.=), (<.>), op, mapping)
 import           Control.Monad            (forM_)
 import           Data.Aeson
 import           Data.Aeson.Encode.Pretty
@@ -56,6 +56,7 @@ import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           Data.Text.Manipulate
 import           GHC.Generics
+import           Gen.Filters
 import           Gen.IO
 import           Gen.JSON                 ()
 import           Gen.Names
@@ -102,7 +103,7 @@ instance DerivingOf a => DerivingOf [a] where
 data Derived a = Derived !a !Value
 
 instance (DerivingOf a, ToJSON a) => ToJSON (Derived a) where
-    toJSON (Derived x v) = rewrap ("deriving", toJSON xs) v
+    toJSON (Derived x v) = rewrapped ("deriving", toJSON xs) v
       where
         xs = sort . Set.toList $ derivingOf x
 
@@ -128,8 +129,8 @@ newtype Doc = Doc Text
 documentation :: Maybe Text -> Doc
 documentation = Doc . fromMaybe ""
 
-rewrap :: Pair -> Value -> Value
-rewrap (k, v) = Object . \case
+rewrapped :: Pair -> Value -> Value
+rewrapped (k, v) = Object . \case
     Object o -> Map.insert    k v o
     _        -> Map.singleton k v
 
@@ -214,18 +215,15 @@ instance ToJSON (Exposed Type) where
         go = \case
             TType      t -> upperHead t
             TPrim      p -> primitive False p
-            TMaybe     x -> "Maybe " <> wrap (go x)
+            TMaybe     x -> "Maybe " <> wrapped (go x)
+            TCase      x -> "CI "    <> wrapped (go x)
             TSensitive x -> go x
             TFlatten   x -> go x
-            TCase      x -> "CI "    <> wrap (go x)
 
-            TList  _ x   -> "[" <> wrap (go x) <> "]"
-            TList1 _ x   -> "NonEmpty " <> wrap (go x)
-            TMap   _ k v -> "HashMap "  <> wrap (go k) <> " " <> wrap (go v)
-            THashMap k v -> "HashMap "  <> wrap (go k) <> " " <> wrap (go v)
-
-        wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
-        parens t = "(" <> t <> ")"
+            TList  _ x   -> "[" <> go x <> "]"
+            TList1 _ x   -> "NonEmpty " <> wrapped (go x)
+            TMap   _ k v -> "HashMap "  <> wrapped (go k) <> " " <> wrapped (go v)
+            THashMap k v -> "HashMap "  <> wrapped (go k) <> " " <> wrapped (go v)
 
 instance ToJSON (Internal Type) where
     toJSON (Internal i) = toJSON (go i)
@@ -233,27 +231,25 @@ instance ToJSON (Internal Type) where
         go = \case
             TType      t -> upperHead t
             TPrim      p -> primitive True p
-            TMaybe     x -> "Maybe "     <> wrap (go x)
-            TSensitive x -> "Sensitive " <> wrap (go x)
+            TMaybe     x -> "Maybe "     <> wrapped (go x)
+            TSensitive x -> "Sensitive " <> wrapped (go x)
+            TCase      x -> "CI "        <> wrapped (go x)
             TFlatten   x -> go x
-            TCase      x -> "CI "        <> wrap (go x)
 
-            TList    e x -> "List"     <> witness e   <> " " <> wrap (go x)
-            TList1   e x -> "List1"    <> witness e   <> " " <> wrap (go x)
-            THashMap k v -> "HashMap " <> wrap (go k) <> " " <> wrap (go v)
+            TList    e x -> "List"     <> witness e   <> " " <> wrapped (go x)
+            TList1   e x -> "List1"    <> witness e   <> " " <> wrapped (go x)
+            THashMap k v -> "HashMap " <> wrapped (go k) <> " " <> wrapped (go v)
 
             TMap  (e, i', j) k v ->
                 "Map" <> witness e
                       <> witness i'
                       <> witness j
                       <> " "
-                      <> wrap (go k)
+                      <> wrapped (go k)
                       <> " "
-                      <> wrap (go v)
+                      <> wrapped (go v)
 
-        wrap    t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         witness t = " \"" <> t <> "\""
-        parens  t = "("  <> t <> ")"
 
 typeMapping :: Type -> Maybe Text
 typeMapping t
@@ -263,7 +259,7 @@ typeMapping t
     go y = case y of
         TType      _     -> []
         TPrim      p     -> maybeToList (primIso p)
-        TMaybe     x     -> wrap (go x)
+        TMaybe     x     -> mapping (go x)
         TSensitive x     -> maybeToList (typeIso y) ++ go x
         TFlatten   x     -> go x
         TCase      x     -> go x
@@ -272,8 +268,8 @@ typeMapping t
         TMap       _ _ _ -> maybeToList (typeIso y)
         THashMap     _ _ -> []
 
-    wrap (x:xs) = "mapping " <> x : xs
-    wrap _      = []
+    mapping (x:xs) = "mapping " <> x : xs
+    mapping _      = []
 
 typeIso :: Type -> Maybe Text
 typeIso = \case

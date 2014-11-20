@@ -391,7 +391,7 @@ instance ToJSON DeviceiSCSIAttributes where
 
 data Error' = Error'
     { _eErrorCode    :: Maybe Text
-    , _eErrorDetails :: Map "entry" "key" "value" Text Text
+    , _eErrorDetails :: HashMap Text Text
     } deriving (Eq, Show)
 
 -- | 'Error'' constructor.
@@ -414,7 +414,7 @@ eErrorCode = lens _eErrorCode (\s a -> s { _eErrorCode = a })
 
 -- | Human-readable text that provides detail about the error that occurred.
 eErrorDetails :: Lens' Error' (HashMap Text Text)
-eErrorDetails = lens _eErrorDetails (\s a -> s { _eErrorDetails = a }) . _Map
+eErrorDetails = lens _eErrorDetails (\s a -> s { _eErrorDetails = a })
 
 instance FromJSON Error' where
     parseJSON = withObject "Error'" $ \o -> Error'

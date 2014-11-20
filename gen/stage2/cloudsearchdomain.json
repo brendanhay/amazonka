@@ -196,8 +196,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -207,12 +207,12 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eThe fields returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text [Text]",
-                        "type": "Map \"entry\" \"key\" \"value\" Text (List \"fields\" Text)"
+                        "type": "HashMap Text (List \"fields\" Text)"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -222,7 +222,7 @@
                         "locationName": "highlights",
                         "documentation": "\u003cp\u003eThe highlights returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "payload": null,
@@ -249,8 +249,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -260,12 +260,12 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eThe fields returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text [Text]",
-                        "type": "Map \"entry\" \"key\" \"value\" Text (List \"fields\" Text)"
+                        "type": "HashMap Text (List \"fields\" Text)"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -275,14 +275,14 @@
                         "locationName": "highlights",
                         "documentation": "\u003cp\u003eThe highlights returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -292,12 +292,12 @@
                         "locationName": "fields",
                         "documentation": "\u003cp\u003eThe fields returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text [Text]",
-                        "type": "Map \"entry\" \"key\" \"value\" Text (List \"fields\" Text)"
+                        "type": "HashMap Text (List \"fields\" Text)"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -307,7 +307,7 @@
                         "locationName": "highlights",
                         "documentation": "\u003cp\u003eThe highlights returned from a document that matches the search request.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -1292,8 +1292,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1303,7 +1303,7 @@
                         "locationName": "facets",
                         "documentation": "\u003cp\u003eThe requested facet information.\u003c/p\u003e",
                         "typeExposed": "HashMap Text BucketInfo",
-                        "type": "Map \"entry\" \"key\" \"value\" Text BucketInfo"
+                        "type": "HashMap Text BucketInfo"
                     }
                 ],
                 "wrapper": false,
@@ -1351,8 +1351,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1362,14 +1362,14 @@
                         "locationName": "facets",
                         "documentation": "\u003cp\u003eThe requested facet information.\u003c/p\u003e",
                         "typeExposed": "HashMap Text BucketInfo",
-                        "type": "Map \"entry\" \"key\" \"value\" Text BucketInfo"
+                        "type": "HashMap Text BucketInfo"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1379,7 +1379,7 @@
                         "locationName": "facets",
                         "documentation": "\u003cp\u003eThe requested facet information.\u003c/p\u003e",
                         "typeExposed": "HashMap Text BucketInfo",
-                        "type": "Map \"entry\" \"key\" \"value\" Text BucketInfo"
+                        "type": "HashMap Text BucketInfo"
                     },
                     {
                         "location": null,

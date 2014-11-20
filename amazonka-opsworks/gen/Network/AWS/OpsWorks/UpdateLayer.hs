@@ -60,7 +60,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data UpdateLayer = UpdateLayer
-    { _ulAttributes               :: Map "entry" "key" "value" Text Text
+    { _ulAttributes               :: HashMap Text Text
     , _ulAutoAssignElasticIps     :: Maybe Bool
     , _ulAutoAssignPublicIps      :: Maybe Bool
     , _ulCustomInstanceProfileArn :: Maybe Text
@@ -130,7 +130,7 @@ updateLayer p1 = UpdateLayer
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 ulAttributes :: Lens' UpdateLayer (HashMap Text Text)
-ulAttributes = lens _ulAttributes (\s a -> s { _ulAttributes = a }) . _Map
+ulAttributes = lens _ulAttributes (\s a -> s { _ulAttributes = a })
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.

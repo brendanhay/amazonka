@@ -1002,7 +1002,7 @@ instance ToJSON Tag where
         ]
 
 data Application = Application
-    { _aAdditionalInfo :: Map "entry" "key" "value" Text Text
+    { _aAdditionalInfo :: HashMap Text Text
     , _aArgs           :: List "Args" Text
     , _aName           :: Maybe Text
     , _aVersion        :: Maybe Text
@@ -1032,7 +1032,7 @@ application = Application
 -- third-party applications that third-party vendors use for testing
 -- purposes.
 aAdditionalInfo :: Lens' Application (HashMap Text Text)
-aAdditionalInfo = lens _aAdditionalInfo (\s a -> s { _aAdditionalInfo = a }) . _Map
+aAdditionalInfo = lens _aAdditionalInfo (\s a -> s { _aAdditionalInfo = a })
 
 -- | Arguments for Amazon EMR to pass to the application.
 aArgs :: Lens' Application [Text]
@@ -1540,7 +1540,7 @@ data HadoopStepConfig = HadoopStepConfig
     { _hscArgs       :: List "Args" Text
     , _hscJar        :: Maybe Text
     , _hscMainClass  :: Maybe Text
-    , _hscProperties :: Map "entry" "key" "value" Text Text
+    , _hscProperties :: HashMap Text Text
     } deriving (Eq, Show)
 
 -- | 'HadoopStepConfig' constructor.
@@ -1580,7 +1580,7 @@ hscMainClass = lens _hscMainClass (\s a -> s { _hscMainClass = a })
 -- | The list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
 hscProperties :: Lens' HadoopStepConfig (HashMap Text Text)
-hscProperties = lens _hscProperties (\s a -> s { _hscProperties = a }) . _Map
+hscProperties = lens _hscProperties (\s a -> s { _hscProperties = a })
 
 instance FromJSON HadoopStepConfig where
     parseJSON = withObject "HadoopStepConfig" $ \o -> HadoopStepConfig

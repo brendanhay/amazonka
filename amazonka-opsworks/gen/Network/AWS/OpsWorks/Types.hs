@@ -1597,7 +1597,7 @@ instance ToJSON AutoScalingThresholds where
 data App = App
     { _appAppId            :: Maybe Text
     , _appAppSource        :: Maybe Source
-    , _appAttributes       :: Map "entry" "key" "value" Text Text
+    , _appAttributes       :: HashMap Text Text
     , _appCreatedAt        :: Maybe Text
     , _appDataSources      :: List "DataSources" DataSource
     , _appDescription      :: Maybe Text
@@ -1667,7 +1667,7 @@ appAppSource = lens _appAppSource (\s a -> s { _appAppSource = a })
 
 -- | The stack attributes.
 appAttributes :: Lens' App (HashMap Text Text)
-appAttributes = lens _appAttributes (\s a -> s { _appAttributes = a }) . _Map
+appAttributes = lens _appAttributes (\s a -> s { _appAttributes = a })
 
 -- | When the app was created.
 appCreatedAt :: Lens' App (Maybe Text)
@@ -2341,7 +2341,7 @@ instance ToJSON Permission where
         ]
 
 data Layer = Layer
-    { _lAttributes                :: Map "entry" "key" "value" Text Text
+    { _lAttributes                :: HashMap Text Text
     , _lAutoAssignElasticIps      :: Maybe Bool
     , _lAutoAssignPublicIps       :: Maybe Bool
     , _lCreatedAt                 :: Maybe Text
@@ -2429,7 +2429,7 @@ layer = Layer
 
 -- | The layer attributes.
 lAttributes :: Lens' Layer (HashMap Text Text)
-lAttributes = lens _lAttributes (\s a -> s { _lAttributes = a }) . _Map
+lAttributes = lens _lAttributes (\s a -> s { _lAttributes = a })
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.
@@ -2763,7 +2763,7 @@ instance ToJSON RootDeviceType where
 
 data Stack = Stack
     { _sArn                       :: Maybe Text
-    , _sAttributes                :: Map "entry" "key" "value" Text Text
+    , _sAttributes                :: HashMap Text Text
     , _sChefConfiguration         :: Maybe ChefConfiguration
     , _sConfigurationManager      :: Maybe StackConfigurationManager
     , _sCreatedAt                 :: Maybe Text
@@ -2862,7 +2862,7 @@ sArn = lens _sArn (\s a -> s { _sArn = a })
 
 -- | The stack's attributes.
 sAttributes :: Lens' Stack (HashMap Text Text)
-sAttributes = lens _sAttributes (\s a -> s { _sAttributes = a }) . _Map
+sAttributes = lens _sAttributes (\s a -> s { _sAttributes = a })
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version. For more information, see Create a New Stack.
@@ -3016,7 +3016,7 @@ instance ToJSON Stack where
         ]
 
 data DeploymentCommand = DeploymentCommand
-    { _dcArgs :: Map "entry" "key" "value" Text (List "InstanceIds" Text)
+    { _dcArgs :: HashMap Text (List "InstanceIds" Text)
     , _dcName :: Text
     } deriving (Eq, Show)
 
@@ -3039,7 +3039,7 @@ deploymentCommand p1 = DeploymentCommand
 -- a JSON object with the following format: {"arg_name":["value1", "value2",
 -- ...]}.
 dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
-dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a }) . _Map
+dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a })
 
 -- | Specifies the operation. You can specify only one command. For stacks,
 -- the following commands are available: execute_recipes: Execute one or
@@ -3074,13 +3074,13 @@ instance ToJSON DeploymentCommand where
         ]
 
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
-    { _wassFriday    :: Map "entry" "key" "value" Text Text
-    , _wassMonday    :: Map "entry" "key" "value" Text Text
-    , _wassSaturday  :: Map "entry" "key" "value" Text Text
-    , _wassSunday    :: Map "entry" "key" "value" Text Text
-    , _wassThursday  :: Map "entry" "key" "value" Text Text
-    , _wassTuesday   :: Map "entry" "key" "value" Text Text
-    , _wassWednesday :: Map "entry" "key" "value" Text Text
+    { _wassFriday    :: HashMap Text Text
+    , _wassMonday    :: HashMap Text Text
+    , _wassSaturday  :: HashMap Text Text
+    , _wassSunday    :: HashMap Text Text
+    , _wassThursday  :: HashMap Text Text
+    , _wassTuesday   :: HashMap Text Text
+    , _wassWednesday :: HashMap Text Text
     } deriving (Eq, Show)
 
 -- | 'WeeklyAutoScalingSchedule' constructor.
@@ -3114,31 +3114,31 @@ weeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
 
 -- | The schedule for Friday.
 wassFriday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassFriday = lens _wassFriday (\s a -> s { _wassFriday = a }) . _Map
+wassFriday = lens _wassFriday (\s a -> s { _wassFriday = a })
 
 -- | The schedule for Monday.
 wassMonday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassMonday = lens _wassMonday (\s a -> s { _wassMonday = a }) . _Map
+wassMonday = lens _wassMonday (\s a -> s { _wassMonday = a })
 
 -- | The schedule for Saturday.
 wassSaturday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassSaturday = lens _wassSaturday (\s a -> s { _wassSaturday = a }) . _Map
+wassSaturday = lens _wassSaturday (\s a -> s { _wassSaturday = a })
 
 -- | The schedule for Sunday.
 wassSunday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassSunday = lens _wassSunday (\s a -> s { _wassSunday = a }) . _Map
+wassSunday = lens _wassSunday (\s a -> s { _wassSunday = a })
 
 -- | The schedule for Thursday.
 wassThursday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassThursday = lens _wassThursday (\s a -> s { _wassThursday = a }) . _Map
+wassThursday = lens _wassThursday (\s a -> s { _wassThursday = a })
 
 -- | The schedule for Tuesday.
 wassTuesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassTuesday = lens _wassTuesday (\s a -> s { _wassTuesday = a }) . _Map
+wassTuesday = lens _wassTuesday (\s a -> s { _wassTuesday = a })
 
 -- | The schedule for Wednesday.
 wassWednesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassWednesday = lens _wassWednesday (\s a -> s { _wassWednesday = a }) . _Map
+wassWednesday = lens _wassWednesday (\s a -> s { _wassWednesday = a })
 
 instance FromJSON WeeklyAutoScalingSchedule where
     parseJSON = withObject "WeeklyAutoScalingSchedule" $ \o -> WeeklyAutoScalingSchedule

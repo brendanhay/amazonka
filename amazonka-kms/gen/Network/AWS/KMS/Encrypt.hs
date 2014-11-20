@@ -50,7 +50,7 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 data Encrypt = Encrypt
-    { _eEncryptionContext :: Map "entry" "key" "value" Text Text
+    { _eEncryptionContext :: HashMap Text Text
     , _eGrantTokens       :: List "GrantTokens" Text
     , _eKeyId             :: Text
     , _ePlaintext         :: Base64
@@ -84,7 +84,6 @@ encrypt p1 p2 = Encrypt
 eEncryptionContext :: Lens' Encrypt (HashMap Text Text)
 eEncryptionContext =
     lens _eEncryptionContext (\s a -> s { _eEncryptionContext = a })
-        . _Map
 
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to perform encryption.

@@ -656,8 +656,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -667,7 +667,7 @@
                         "locationName": "objects",
                         "documentation": "\u003cp\u003eConnection information for the location where the task runner will publish the output of the task.\u003c/p\u003e",
                         "typeExposed": "HashMap Text PipelineObject",
-                        "type": "Map \"entry\" \"key\" \"value\" Text PipelineObject"
+                        "type": "HashMap Text PipelineObject"
                     }
                 ],
                 "payload": null,
@@ -724,8 +724,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -735,7 +735,7 @@
                         "locationName": "objects",
                         "documentation": "\u003cp\u003eConnection information for the location where the task runner will publish the output of the task.\u003c/p\u003e",
                         "typeExposed": "HashMap Text PipelineObject",
-                        "type": "Map \"entry\" \"key\" \"value\" Text PipelineObject"
+                        "type": "HashMap Text PipelineObject"
                     }
                 ],
                 "fields": [
@@ -756,8 +756,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -767,7 +767,7 @@
                         "locationName": "objects",
                         "documentation": "\u003cp\u003eConnection information for the location where the task runner will publish the output of the task.\u003c/p\u003e",
                         "typeExposed": "HashMap Text PipelineObject",
-                        "type": "Map \"entry\" \"key\" \"value\" Text PipelineObject"
+                        "type": "HashMap Text PipelineObject"
                     },
                     {
                         "location": null,

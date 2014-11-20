@@ -4237,8 +4237,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4248,7 +4248,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -4440,8 +4440,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4451,7 +4451,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -4502,8 +4502,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4513,7 +4513,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -6413,8 +6413,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6424,7 +6424,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe layer attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -6706,8 +6706,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6717,7 +6717,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe layer attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -6918,8 +6918,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6929,7 +6929,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe layer attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -7862,8 +7862,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7873,7 +7873,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack's attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -8185,8 +8185,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8196,7 +8196,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack's attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -8442,8 +8442,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8453,7 +8453,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack's attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -8767,8 +8767,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8778,7 +8778,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eThe arguments of those commands that take arguments. It should be set to a JSON object with the following format:\u003c/p\u003e \u003cp\u003e\u003ccode\u003e{\"arg_name\":[\"value1\", \"value2\", ...]}\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "HashMap Text [Text]",
-                        "type": "Map \"entry\" \"key\" \"value\" Text (List \"InstanceIds\" Text)"
+                        "type": "HashMap Text (List \"InstanceIds\" Text)"
                     }
                 ],
                 "payload": null,
@@ -8806,8 +8806,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8817,14 +8817,14 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eThe arguments of those commands that take arguments. It should be set to a JSON object with the following format:\u003c/p\u003e \u003cp\u003e\u003ccode\u003e{\"arg_name\":[\"value1\", \"value2\", ...]}\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "HashMap Text [Text]",
-                        "type": "Map \"entry\" \"key\" \"value\" Text (List \"InstanceIds\" Text)"
+                        "type": "HashMap Text (List \"InstanceIds\" Text)"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8834,7 +8834,7 @@
                         "locationName": "Args",
                         "documentation": "\u003cp\u003eThe arguments of those commands that take arguments. It should be set to a JSON object with the following format:\u003c/p\u003e \u003cp\u003e\u003ccode\u003e{\"arg_name\":[\"value1\", \"value2\", ...]}\u003c/code\u003e\u003c/p\u003e",
                         "typeExposed": "HashMap Text [Text]",
-                        "type": "Map \"entry\" \"key\" \"value\" Text (List \"InstanceIds\" Text)"
+                        "type": "HashMap Text (List \"InstanceIds\" Text)"
                     },
                     {
                         "location": null,
@@ -8863,8 +8863,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8874,12 +8874,12 @@
                         "locationName": "Monday",
                         "documentation": "\u003cp\u003eThe schedule for Monday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8889,12 +8889,12 @@
                         "locationName": "Tuesday",
                         "documentation": "\u003cp\u003eThe schedule for Tuesday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8904,12 +8904,12 @@
                         "locationName": "Wednesday",
                         "documentation": "\u003cp\u003eThe schedule for Wednesday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8919,12 +8919,12 @@
                         "locationName": "Thursday",
                         "documentation": "\u003cp\u003eThe schedule for Thursday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8934,12 +8934,12 @@
                         "locationName": "Friday",
                         "documentation": "\u003cp\u003eThe schedule for Friday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8949,12 +8949,12 @@
                         "locationName": "Saturday",
                         "documentation": "\u003cp\u003eThe schedule for Saturday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8964,7 +8964,7 @@
                         "locationName": "Sunday",
                         "documentation": "\u003cp\u003eThe schedule for Sunday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "payload": null,
@@ -8976,8 +8976,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8987,12 +8987,12 @@
                         "locationName": "Monday",
                         "documentation": "\u003cp\u003eThe schedule for Monday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9002,12 +9002,12 @@
                         "locationName": "Tuesday",
                         "documentation": "\u003cp\u003eThe schedule for Tuesday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9017,12 +9017,12 @@
                         "locationName": "Wednesday",
                         "documentation": "\u003cp\u003eThe schedule for Wednesday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9032,12 +9032,12 @@
                         "locationName": "Thursday",
                         "documentation": "\u003cp\u003eThe schedule for Thursday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9047,12 +9047,12 @@
                         "locationName": "Friday",
                         "documentation": "\u003cp\u003eThe schedule for Friday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9062,12 +9062,12 @@
                         "locationName": "Saturday",
                         "documentation": "\u003cp\u003eThe schedule for Saturday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9077,14 +9077,14 @@
                         "locationName": "Sunday",
                         "documentation": "\u003cp\u003eThe schedule for Sunday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9094,12 +9094,12 @@
                         "locationName": "Friday",
                         "documentation": "\u003cp\u003eThe schedule for Friday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9109,12 +9109,12 @@
                         "locationName": "Monday",
                         "documentation": "\u003cp\u003eThe schedule for Monday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9124,12 +9124,12 @@
                         "locationName": "Saturday",
                         "documentation": "\u003cp\u003eThe schedule for Saturday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9139,12 +9139,12 @@
                         "locationName": "Sunday",
                         "documentation": "\u003cp\u003eThe schedule for Sunday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9154,12 +9154,12 @@
                         "locationName": "Thursday",
                         "documentation": "\u003cp\u003eThe schedule for Thursday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9169,12 +9169,12 @@
                         "locationName": "Tuesday",
                         "documentation": "\u003cp\u003eThe schedule for Tuesday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9184,7 +9184,7 @@
                         "locationName": "Wednesday",
                         "documentation": "\u003cp\u003eThe schedule for Wednesday.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ]
             },
@@ -12508,8 +12508,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12519,7 +12519,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA list of stack attributes and values as key/value pairs to be added to the cloned stack.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -12860,8 +12860,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -12871,7 +12871,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA list of stack attributes and values as key/value pairs to be added to the cloned stack.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -13102,8 +13102,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13113,7 +13113,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA list of stack attributes and values as key/value pairs to be added to the cloned stack.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -13687,8 +13687,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13698,7 +13698,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "path": [
@@ -13874,8 +13874,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13885,7 +13885,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "fields": [
@@ -13906,8 +13906,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -13917,7 +13917,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -15470,8 +15470,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15481,7 +15481,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -15717,8 +15717,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15728,7 +15728,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -15884,8 +15884,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15895,7 +15895,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -16274,8 +16274,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -16285,7 +16285,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -16596,8 +16596,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -16607,7 +16607,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -16793,8 +16793,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -16804,7 +16804,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -25876,8 +25876,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -25887,7 +25887,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "path": [
@@ -26048,8 +26048,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -26059,7 +26059,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "fields": [
@@ -26095,8 +26095,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -26106,7 +26106,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -27051,8 +27051,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -27062,7 +27062,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -27283,8 +27283,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -27294,7 +27294,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -27450,8 +27450,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -27461,7 +27461,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -28092,8 +28092,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -28103,7 +28103,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -28369,8 +28369,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -28380,7 +28380,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -28596,8 +28596,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -28607,7 +28607,7 @@
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,

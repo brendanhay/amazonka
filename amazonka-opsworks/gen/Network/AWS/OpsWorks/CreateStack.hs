@@ -66,7 +66,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data CreateStack = CreateStack
-    { _csAttributes                :: Map "entry" "key" "value" Text Text
+    { _csAttributes                :: HashMap Text Text
     , _csChefConfiguration         :: Maybe ChefConfiguration
     , _csConfigurationManager      :: Maybe StackConfigurationManager
     , _csCustomCookbooksSource     :: Maybe Source
@@ -155,7 +155,7 @@ createStack p1 p2 p3 p4 = CreateStack
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 csAttributes :: Lens' CreateStack (HashMap Text Text)
-csAttributes = lens _csAttributes (\s a -> s { _csAttributes = a }) . _Map
+csAttributes = lens _csAttributes (\s a -> s { _csAttributes = a })
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see

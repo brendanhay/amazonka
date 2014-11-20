@@ -69,7 +69,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data CloneStack = CloneStack
-    { _cs1Attributes                :: Map "entry" "key" "value" Text Text
+    { _cs1Attributes                :: HashMap Text Text
     , _cs1ChefConfiguration         :: Maybe ChefConfiguration
     , _cs1CloneAppIds               :: List "InstanceIds" Text
     , _cs1ClonePermissions          :: Maybe Bool
@@ -168,7 +168,7 @@ cloneStack p1 p2 = CloneStack
 -- | A list of stack attributes and values as key/value pairs to be added to
 -- the cloned stack.
 cs1Attributes :: Lens' CloneStack (HashMap Text Text)
-cs1Attributes = lens _cs1Attributes (\s a -> s { _cs1Attributes = a }) . _Map
+cs1Attributes = lens _cs1Attributes (\s a -> s { _cs1Attributes = a })
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see

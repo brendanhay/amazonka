@@ -1082,8 +1082,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1093,7 +1093,7 @@
                         "locationName": "tags",
                         "documentation": "\u003cp\u003eA mapping of key value tags associated with the resource.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -1315,8 +1315,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1326,7 +1326,7 @@
                         "locationName": "tags",
                         "documentation": "\u003cp\u003eA mapping of key value tags associated with the resource.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -1572,8 +1572,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1583,7 +1583,7 @@
                         "locationName": "tags",
                         "documentation": "\u003cp\u003eA mapping of key value tags associated with the resource.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,

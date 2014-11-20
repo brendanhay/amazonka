@@ -85,7 +85,7 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data BatchGetItem = BatchGetItem
-    { _bgiRequestItems           :: Map "entry" "key" "value" Text KeysAndAttributes
+    { _bgiRequestItems           :: HashMap Text KeysAndAttributes
     , _bgiReturnConsumedCapacity :: Maybe Text
     } deriving (Eq, Show)
 
@@ -119,7 +119,7 @@ batchGetItem = BatchGetItem
 -- to an application. ConsistentRead - If true, a strongly consistent read
 -- is used; if false (the default), an eventually consistent read is used.
 bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
-bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a }) . _Map
+bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a })
 
 bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe Text)
 bgiReturnConsumedCapacity =
@@ -128,8 +128,8 @@ bgiReturnConsumedCapacity =
 
 data BatchGetItemResponse = BatchGetItemResponse
     { _bgirConsumedCapacity :: List "ConsumedCapacity" ConsumedCapacity
-    , _bgirResponses        :: Map "entry" "key" "value" Text (List "Items" (Map "entry" "key" "value" Text AttributeValue))
-    , _bgirUnprocessedKeys  :: Map "entry" "key" "value" Text KeysAndAttributes
+    , _bgirResponses        :: HashMap Text (List "Items" (HashMap Text AttributeValue))
+    , _bgirUnprocessedKeys  :: HashMap Text KeysAndAttributes
     } deriving (Eq, Show)
 
 -- | 'BatchGetItemResponse' constructor.
@@ -138,7 +138,7 @@ data BatchGetItemResponse = BatchGetItemResponse
 --
 -- * 'bgirConsumedCapacity' @::@ ['ConsumedCapacity']
 --
--- * 'bgirResponses' @::@ 'HashMap' 'Text' ('[(HashMap' 'Text' 'AttributeValue)]')
+-- * 'bgirResponses' @::@ 'HashMap' 'Text' ['HashMap' 'Text' 'AttributeValue']
 --
 -- * 'bgirUnprocessedKeys' @::@ 'HashMap' 'Text' 'KeysAndAttributes'
 --
@@ -160,8 +160,8 @@ bgirConsumedCapacity =
 -- | A map of table name to a list of items. Each object in Responses consists
 -- of a table name, along with a map of attribute data consisting of the
 -- data type and attribute value.
-bgirResponses :: Lens' BatchGetItemResponse (HashMap Text ([(HashMap Text AttributeValue)]))
-bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a }) . _Map
+bgirResponses :: Lens' BatchGetItemResponse (HashMap Text [HashMap Text AttributeValue])
+bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a })
 
 -- | A map of tables and their respective keys that were not processed with
 -- the current response. The UnprocessedKeys value is in the same form as
@@ -179,7 +179,6 @@ bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a }) . _Map
 bgirUnprocessedKeys :: Lens' BatchGetItemResponse (HashMap Text KeysAndAttributes)
 bgirUnprocessedKeys =
     lens _bgirUnprocessedKeys (\s a -> s { _bgirUnprocessedKeys = a })
-        . _Map
 
 instance ToPath BatchGetItem where
     toPath = const "/"

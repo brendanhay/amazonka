@@ -85,15 +85,15 @@ data Query = Query
     { _qAttributesToGet           :: List1 "AttributesToGet" Text
     , _qConditionalOperator       :: Maybe Text
     , _qConsistentRead            :: Maybe Bool
-    , _qExclusiveStartKey         :: Map "entry" "key" "value" Text AttributeValue
-    , _qExpressionAttributeNames  :: Map "entry" "key" "value" Text Text
-    , _qExpressionAttributeValues :: Map "entry" "key" "value" Text AttributeValue
+    , _qExclusiveStartKey         :: HashMap Text AttributeValue
+    , _qExpressionAttributeNames  :: HashMap Text Text
+    , _qExpressionAttributeValues :: HashMap Text AttributeValue
     , _qFilterExpression          :: Maybe Text
     , _qIndexName                 :: Maybe Text
-    , _qKeyConditions             :: Map "entry" "key" "value" Text Condition
+    , _qKeyConditions             :: HashMap Text Condition
     , _qLimit                     :: Maybe Nat
     , _qProjectionExpression      :: Maybe Text
-    , _qQueryFilter               :: Map "entry" "key" "value" Text Condition
+    , _qQueryFilter               :: HashMap Text Condition
     , _qReturnConsumedCapacity    :: Maybe Text
     , _qScanIndexForward          :: Maybe Bool
     , _qSelect                    :: Maybe Text
@@ -211,7 +211,6 @@ qConsistentRead = lens _qConsistentRead (\s a -> s { _qConsistentRead = a })
 qExclusiveStartKey :: Lens' Query (HashMap Text AttributeValue)
 qExclusiveStartKey =
     lens _qExclusiveStartKey (\s a -> s { _qExclusiveStartKey = a })
-        . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
 -- following are some use cases for an ExpressionAttributeNames value: To
@@ -229,7 +228,6 @@ qExpressionAttributeNames :: Lens' Query (HashMap Text Text)
 qExpressionAttributeNames =
     lens _qExpressionAttributeNames
         (\s a -> s { _qExpressionAttributeNames = a })
-            . _Map
 
 -- | One or more values that can be substituted in an expression. Use the :
 -- character in an expression to dereference an attribute value. For
@@ -242,7 +240,6 @@ qExpressionAttributeValues :: Lens' Query (HashMap Text AttributeValue)
 qExpressionAttributeValues =
     lens _qExpressionAttributeValues
         (\s a -> s { _qExpressionAttributeValues = a })
-            . _Map
 
 -- | A condition that evaluates the query results and returns only the desired
 -- values. The condition you specify is applied to the items queried; any
@@ -320,7 +317,7 @@ qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 -- of AttributeValueList and ComparisonOperator, see Legacy Conditional
 -- Parameters in the Amazon DynamoDB Developer Guide.
 qKeyConditions :: Lens' Query (HashMap Text Condition)
-qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a }) . _Map
+qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a })
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the
@@ -372,7 +369,7 @@ qProjectionExpression =
 -- | BETWEEN For complete descriptions of all comparison operators, see
 -- API_Condition.html.
 qQueryFilter :: Lens' Query (HashMap Text Condition)
-qQueryFilter = lens _qQueryFilter (\s a -> s { _qQueryFilter = a }) . _Map
+qQueryFilter = lens _qQueryFilter (\s a -> s { _qQueryFilter = a })
 
 qReturnConsumedCapacity :: Lens' Query (Maybe Text)
 qReturnConsumedCapacity =
@@ -430,8 +427,8 @@ qTableName = lens _qTableName (\s a -> s { _qTableName = a })
 data QueryResponse = QueryResponse
     { _qrConsumedCapacity :: Maybe ConsumedCapacity
     , _qrCount            :: Maybe Int
-    , _qrItems            :: List "Items" (Map "entry" "key" "value" Text AttributeValue)
-    , _qrLastEvaluatedKey :: Map "entry" "key" "value" Text AttributeValue
+    , _qrItems            :: List "Items" (HashMap Text AttributeValue)
+    , _qrLastEvaluatedKey :: HashMap Text AttributeValue
     , _qrScannedCount     :: Maybe Int
     } deriving (Eq, Show)
 
@@ -443,7 +440,7 @@ data QueryResponse = QueryResponse
 --
 -- * 'qrCount' @::@ 'Maybe' 'Int'
 --
--- * 'qrItems' @::@ ['(HashMap' 'Text' 'AttributeValue)']
+-- * 'qrItems' @::@ ['HashMap' 'Text' 'AttributeValue']
 --
 -- * 'qrLastEvaluatedKey' @::@ 'HashMap' 'Text' 'AttributeValue'
 --
@@ -473,7 +470,7 @@ qrCount = lens _qrCount (\s a -> s { _qrCount = a })
 -- | An array of item attributes that match the query criteria. Each element
 -- in this array consists of an attribute name and the value for that
 -- attribute.
-qrItems :: Lens' QueryResponse ([(HashMap Text AttributeValue)])
+qrItems :: Lens' QueryResponse [HashMap Text AttributeValue]
 qrItems = lens _qrItems (\s a -> s { _qrItems = a }) . _List
 
 -- | The primary key of the item where the operation stopped, inclusive of the
@@ -486,7 +483,6 @@ qrItems = lens _qrItems (\s a -> s { _qrItems = a }) . _List
 qrLastEvaluatedKey :: Lens' QueryResponse (HashMap Text AttributeValue)
 qrLastEvaluatedKey =
     lens _qrLastEvaluatedKey (\s a -> s { _qrLastEvaluatedKey = a })
-        . _Map
 
 -- | The number of items evaluated, before any QueryFilter is applied. A high
 -- ScannedCount value with few, or no, Count results indicates an

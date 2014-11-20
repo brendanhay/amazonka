@@ -304,8 +304,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -315,7 +315,7 @@
                         "locationName": "extractedValues",
                         "documentation": null,
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "payload": null,
@@ -357,8 +357,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -368,7 +368,7 @@
                         "locationName": "extractedValues",
                         "documentation": null,
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "fields": [
@@ -404,8 +404,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -415,7 +415,7 @@
                         "locationName": "extractedValues",
                         "documentation": null,
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ]
             },

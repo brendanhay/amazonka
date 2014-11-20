@@ -63,7 +63,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data UpdateStack = UpdateStack
-    { _usAttributes                :: Map "entry" "key" "value" Text Text
+    { _usAttributes                :: HashMap Text Text
     , _usChefConfiguration         :: Maybe ChefConfiguration
     , _usConfigurationManager      :: Maybe StackConfigurationManager
     , _usCustomCookbooksSource     :: Maybe Source
@@ -145,7 +145,7 @@ updateStack p1 = UpdateStack
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 usAttributes :: Lens' UpdateStack (HashMap Text Text)
-usAttributes = lens _usAttributes (\s a -> s { _usAttributes = a }) . _Map
+usAttributes = lens _usAttributes (\s a -> s { _usAttributes = a })
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see

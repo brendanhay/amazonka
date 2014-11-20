@@ -64,7 +64,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data CreateLayer = CreateLayer
-    { _clAttributes               :: Map "entry" "key" "value" Text Text
+    { _clAttributes               :: HashMap Text Text
     , _clAutoAssignElasticIps     :: Maybe Bool
     , _clAutoAssignPublicIps      :: Maybe Bool
     , _clCustomInstanceProfileArn :: Maybe Text
@@ -141,7 +141,7 @@ createLayer p1 p2 p3 p4 = CreateLayer
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 clAttributes :: Lens' CreateLayer (HashMap Text Text)
-clAttributes = lens _clAttributes (\s a -> s { _clAttributes = a }) . _Map
+clAttributes = lens _clAttributes (\s a -> s { _clAttributes = a })
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
 -- instances. For more information, see How to Edit a Layer.

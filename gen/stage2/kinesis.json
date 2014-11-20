@@ -1150,8 +1150,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1161,7 +1161,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "path": [
@@ -1202,8 +1202,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1213,7 +1213,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "fields": [
@@ -1234,8 +1234,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1245,7 +1245,7 @@
                         "locationName": "Tags",
                         "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ]
             }

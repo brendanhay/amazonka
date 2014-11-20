@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data UnlinkIdentity = UnlinkIdentity
     { _uiIdentityId     :: Text
-    , _uiLogins         :: Map "entry" "key" "value" Text Text
+    , _uiLogins         :: HashMap Text Text
     , _uiLoginsToRemove :: List "Logins" Text
     } deriving (Eq, Show)
 
@@ -78,7 +78,7 @@ uiIdentityId = lens _uiIdentityId (\s a -> s { _uiIdentityId = a })
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
 uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
-uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a }) . _Map
+uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a })
 
 -- | Provider names to unlink from this identity.
 uiLoginsToRemove :: Lens' UnlinkIdentity [Text]

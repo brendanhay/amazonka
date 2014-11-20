@@ -831,8 +831,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -842,7 +842,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -974,8 +974,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -985,7 +985,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -1126,8 +1126,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1137,7 +1137,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -1269,8 +1269,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1280,7 +1280,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -1418,8 +1418,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1429,7 +1429,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -1570,8 +1570,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1581,7 +1581,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -1715,8 +1715,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1726,7 +1726,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source. Currently, AWS Lambda supports only the \u003ccode\u003eInitialPositionInStream\u003c/code\u003e key. The valid values are: \"TRIM_HORIZON\" and \"LATEST\". The default value is \"TRIM_HORIZON\". For more information, go to \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\"\u003eShardIteratorType\u003c/a\u003e in the Amazon Kinesis Service API Reference. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "path": [
@@ -1812,8 +1812,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1823,7 +1823,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source. Currently, AWS Lambda supports only the \u003ccode\u003eInitialPositionInStream\u003c/code\u003e key. The valid values are: \"TRIM_HORIZON\" and \"LATEST\". The default value is \"TRIM_HORIZON\". For more information, go to \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\"\u003eShardIteratorType\u003c/a\u003e in the Amazon Kinesis Service API Reference. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     }
                 ],
                 "fields": [
@@ -1874,8 +1874,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1885,7 +1885,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eA map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source. Currently, AWS Lambda supports only the \u003ccode\u003eInitialPositionInStream\u003c/code\u003e key. The valid values are: \"TRIM_HORIZON\" and \"LATEST\". The default value is \"TRIM_HORIZON\". For more information, go to \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType\"\u003eShardIteratorType\u003c/a\u003e in the Amazon Kinesis Service API Reference. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -2107,8 +2107,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2118,7 +2118,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -2256,8 +2256,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2267,7 +2267,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,
@@ -2408,8 +2408,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2419,7 +2419,7 @@
                         "locationName": "Parameters",
                         "documentation": "\u003cp\u003eThe map (key-value pairs) defining the configuration for AWS Lambda to use when reading the event source.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "HashMap Text Text"
                     },
                     {
                         "location": null,

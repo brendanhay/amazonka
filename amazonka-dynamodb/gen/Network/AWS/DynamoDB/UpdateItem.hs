@@ -65,13 +65,13 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data UpdateItem = UpdateItem
-    { _uiAttributeUpdates            :: Map "entry" "key" "value" Text AttributeValueUpdate
+    { _uiAttributeUpdates            :: HashMap Text AttributeValueUpdate
     , _uiConditionExpression         :: Maybe Text
     , _uiConditionalOperator         :: Maybe Text
-    , _uiExpected                    :: Map "entry" "key" "value" Text ExpectedAttributeValue
-    , _uiExpressionAttributeNames    :: Map "entry" "key" "value" Text Text
-    , _uiExpressionAttributeValues   :: Map "entry" "key" "value" Text AttributeValue
-    , _uiKey                         :: Map "entry" "key" "value" Text AttributeValue
+    , _uiExpected                    :: HashMap Text ExpectedAttributeValue
+    , _uiExpressionAttributeNames    :: HashMap Text Text
+    , _uiExpressionAttributeValues   :: HashMap Text AttributeValue
+    , _uiKey                         :: HashMap Text AttributeValue
     , _uiReturnConsumedCapacity      :: Maybe Text
     , _uiReturnItemCollectionMetrics :: Maybe Text
     , _uiReturnValues                :: Maybe Text
@@ -175,7 +175,6 @@ updateItem p1 = UpdateItem
 uiAttributeUpdates :: Lens' UpdateItem (HashMap Text AttributeValueUpdate)
 uiAttributeUpdates =
     lens _uiAttributeUpdates (\s a -> s { _uiAttributeUpdates = a })
-        . _Map
 
 -- | A condition that must be satisfied in order for a conditional update to
 -- succeed. An expression can contain any of the following: Boolean
@@ -323,7 +322,7 @@ uiConditionalOperator =
 -- of parameters at once, DynamoDB will return a ValidationException
 -- exception.
 uiExpected :: Lens' UpdateItem (HashMap Text ExpectedAttributeValue)
-uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a }) . _Map
+uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a })
 
 -- | One or more substitution tokens for simplifying complex expressions. The
 -- following are some use cases for an ExpressionAttributeNames value: To
@@ -341,7 +340,6 @@ uiExpressionAttributeNames :: Lens' UpdateItem (HashMap Text Text)
 uiExpressionAttributeNames =
     lens _uiExpressionAttributeNames
         (\s a -> s { _uiExpressionAttributeNames = a })
-            . _Map
 
 -- | One or more values that can be substituted in an expression. Use the :
 -- character in an expression to dereference an attribute value. For
@@ -354,7 +352,6 @@ uiExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
 uiExpressionAttributeValues =
     lens _uiExpressionAttributeValues
         (\s a -> s { _uiExpressionAttributeValues = a })
-            . _Map
 
 -- | The primary key of the item to be updated. Each element consists of an
 -- attribute name and a value for that attribute. For the primary key, you
@@ -363,7 +360,7 @@ uiExpressionAttributeValues =
 -- type primary key, you must specify both the hash attribute and the range
 -- attribute.
 uiKey :: Lens' UpdateItem (HashMap Text AttributeValue)
-uiKey = lens _uiKey (\s a -> s { _uiKey = a }) . _Map
+uiKey = lens _uiKey (\s a -> s { _uiKey = a })
 
 uiReturnConsumedCapacity :: Lens' UpdateItem (Maybe Text)
 uiReturnConsumedCapacity =
@@ -441,7 +438,7 @@ uiUpdateExpression =
     lens _uiUpdateExpression (\s a -> s { _uiUpdateExpression = a })
 
 data UpdateItemResponse = UpdateItemResponse
-    { _uirAttributes            :: Map "entry" "key" "value" Text AttributeValue
+    { _uirAttributes            :: HashMap Text AttributeValue
     , _uirConsumedCapacity      :: Maybe ConsumedCapacity
     , _uirItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Eq, Show)
@@ -468,7 +465,7 @@ updateItemResponse = UpdateItemResponse
 -- something other than NONE in the request. Each element represents one
 -- attribute.
 uirAttributes :: Lens' UpdateItemResponse (HashMap Text AttributeValue)
-uirAttributes = lens _uirAttributes (\s a -> s { _uirAttributes = a }) . _Map
+uirAttributes = lens _uirAttributes (\s a -> s { _uirAttributes = a })
 
 uirConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
 uirConsumedCapacity =

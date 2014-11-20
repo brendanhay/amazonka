@@ -87,11 +87,11 @@ dsServiceCodeList =
         . _List
 
 newtype DescribeServicesResponse = DescribeServicesResponse
-    { _dsrServices :: List "services" Service
+    { _dsrServices :: List "services" SupportService
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeServicesResponse where
-    type Item DescribeServicesResponse = Service
+    type Item DescribeServicesResponse = SupportService
 
     fromList = DescribeServicesResponse . GHC.Exts.fromList
     toList   = GHC.Exts.toList . _dsrServices
@@ -100,7 +100,7 @@ instance GHC.Exts.IsList DescribeServicesResponse where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrServices' @::@ ['Service']
+-- * 'dsrServices' @::@ ['SupportService']
 --
 describeServicesResponse :: DescribeServicesResponse
 describeServicesResponse = DescribeServicesResponse
@@ -108,7 +108,7 @@ describeServicesResponse = DescribeServicesResponse
     }
 
 -- | A JSON-formatted list of AWS services.
-dsrServices :: Lens' DescribeServicesResponse [Service]
+dsrServices :: Lens' DescribeServicesResponse [SupportService]
 dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a }) . _List
 
 instance ToPath DescribeServices where

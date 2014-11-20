@@ -35,13 +35,6 @@ module Network.AWS.Support.Types
     , tarsResourcesProcessed
     , tarsResourcesSuppressed
 
-    -- * Service
-    , Service
-    , service
-    , sCategories
-    , sCode
-    , sName
-
     -- * TrustedAdvisorCategorySpecificSummary
     , TrustedAdvisorCategorySpecificSummary
     , trustedAdvisorCategorySpecificSummary
@@ -108,6 +101,13 @@ module Network.AWS.Support.Types
     , recentCaseCommunications
     , rccCommunications
     , rccNextToken
+
+    -- * SupportService
+    , SupportService
+    , supportService
+    , ssCategories
+    , ssCode
+    , ssName
 
     -- * TrustedAdvisorResourceDetail
     , TrustedAdvisorResourceDetail
@@ -246,59 +246,6 @@ instance ToJSON TrustedAdvisorResourcesSummary where
         , "resourcesFlagged"    .= _tarsResourcesFlagged
         , "resourcesIgnored"    .= _tarsResourcesIgnored
         , "resourcesSuppressed" .= _tarsResourcesSuppressed
-        ]
-
-data Service = Service
-    { _sCategories :: List "categories" Category
-    , _sCode       :: Maybe Text
-    , _sName       :: Maybe Text
-    } deriving (Eq, Show)
-
--- | 'Service' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sCategories' @::@ ['Category']
---
--- * 'sCode' @::@ 'Maybe' 'Text'
---
--- * 'sName' @::@ 'Maybe' 'Text'
---
-service :: Service
-service = Service
-    { _sCode       = Nothing
-    , _sName       = Nothing
-    , _sCategories = mempty
-    }
-
--- | A list of categories that describe the type of support issue a case
--- describes. Categories consist of a category name and a category code.
--- Category names and codes are passed to AWS Support when you call
--- CreateCase.
-sCategories :: Lens' Service [Category]
-sCategories = lens _sCategories (\s a -> s { _sCategories = a }) . _List
-
--- | The code for an AWS service returned by the DescribeServices response.
--- The Name element contains the corresponding friendly name.
-sCode :: Lens' Service (Maybe Text)
-sCode = lens _sCode (\s a -> s { _sCode = a })
-
--- | The friendly name for an AWS service. The Code element contains the
--- corresponding code.
-sName :: Lens' Service (Maybe Text)
-sName = lens _sName (\s a -> s { _sName = a })
-
-instance FromJSON Service where
-    parseJSON = withObject "Service" $ \o -> Service
-        <$> o .:  "categories"
-        <*> o .:? "code"
-        <*> o .:? "name"
-
-instance ToJSON Service where
-    toJSON Service{..} = object
-        [ "code"       .= _sCode
-        , "name"       .= _sName
-        , "categories" .= _sCategories
         ]
 
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
@@ -807,6 +754,59 @@ instance ToJSON RecentCaseCommunications where
     toJSON RecentCaseCommunications{..} = object
         [ "communications" .= _rccCommunications
         , "nextToken"      .= _rccNextToken
+        ]
+
+data SupportService = SupportService
+    { _ssCategories :: List "categories" Category
+    , _ssCode       :: Maybe Text
+    , _ssName       :: Maybe Text
+    } deriving (Eq, Show)
+
+-- | 'SupportService' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ssCategories' @::@ ['Category']
+--
+-- * 'ssCode' @::@ 'Maybe' 'Text'
+--
+-- * 'ssName' @::@ 'Maybe' 'Text'
+--
+supportService :: SupportService
+supportService = SupportService
+    { _ssCode       = Nothing
+    , _ssName       = Nothing
+    , _ssCategories = mempty
+    }
+
+-- | A list of categories that describe the type of support issue a case
+-- describes. Categories consist of a category name and a category code.
+-- Category names and codes are passed to AWS Support when you call
+-- CreateCase.
+ssCategories :: Lens' SupportService [Category]
+ssCategories = lens _ssCategories (\s a -> s { _ssCategories = a }) . _List
+
+-- | The code for an AWS service returned by the DescribeServices response.
+-- The Name element contains the corresponding friendly name.
+ssCode :: Lens' SupportService (Maybe Text)
+ssCode = lens _ssCode (\s a -> s { _ssCode = a })
+
+-- | The friendly name for an AWS service. The Code element contains the
+-- corresponding code.
+ssName :: Lens' SupportService (Maybe Text)
+ssName = lens _ssName (\s a -> s { _ssName = a })
+
+instance FromJSON SupportService where
+    parseJSON = withObject "SupportService" $ \o -> SupportService
+        <$> o .:  "categories"
+        <*> o .:? "code"
+        <*> o .:? "name"
+
+instance ToJSON SupportService where
+    toJSON SupportService{..} = object
+        [ "code"       .= _ssCode
+        , "name"       .= _ssName
+        , "categories" .= _ssCategories
         ]
 
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail

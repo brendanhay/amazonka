@@ -269,161 +269,6 @@
                     "Eq",
                     "Show"
                 ],
-                "fieldPad": 12,
-                "ctor": "service",
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "sCode",
-                        "name": "_sCode",
-                        "shape": "ServiceCode",
-                        "locationName": "code",
-                        "documentation": "\u003cp\u003eThe code for an AWS service returned by the \u003ca\u003eDescribeServices\u003c/a\u003e response. The \u003ccode\u003eName\u003c/code\u003e element contains the corresponding friendly name.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "sName",
-                        "name": "_sName",
-                        "shape": "ServiceName",
-                        "locationName": "name",
-                        "documentation": "\u003cp\u003eThe friendly name for an AWS service. The \u003ccode\u003eCode\u003c/code\u003e element contains the corresponding code.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "mempty",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "sCategories",
-                        "name": "_sCategories",
-                        "shape": "CategoryList",
-                        "locationName": "categories",
-                        "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "[Category]",
-                        "type": "List \"categories\" Category"
-                    }
-                ],
-                "payload": null,
-                "required": [],
-                "contentPad": 11,
-                "name": "Service",
-                "locationPad": 11,
-                "type": "record",
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "sCode",
-                        "name": "_sCode",
-                        "shape": "ServiceCode",
-                        "locationName": "code",
-                        "documentation": "\u003cp\u003eThe code for an AWS service returned by the \u003ca\u003eDescribeServices\u003c/a\u003e response. The \u003ccode\u003eName\u003c/code\u003e element contains the corresponding friendly name.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "sName",
-                        "name": "_sName",
-                        "shape": "ServiceName",
-                        "locationName": "name",
-                        "documentation": "\u003cp\u003eThe friendly name for an AWS service. The \u003ccode\u003eCode\u003c/code\u003e element contains the corresponding code.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "mempty",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "sCategories",
-                        "name": "_sCategories",
-                        "shape": "CategoryList",
-                        "locationName": "categories",
-                        "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "[Category]",
-                        "type": "List \"categories\" Category"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": null,
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "mempty",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "sCategories",
-                        "name": "_sCategories",
-                        "shape": "CategoryList",
-                        "locationName": "categories",
-                        "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "[Category]",
-                        "type": "List \"categories\" Category"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "sCode",
-                        "name": "_sCode",
-                        "shape": "ServiceCode",
-                        "locationName": "code",
-                        "documentation": "\u003cp\u003eThe code for an AWS service returned by the \u003ca\u003eDescribeServices\u003c/a\u003e response. The \u003ccode\u003eName\u003c/code\u003e element contains the corresponding friendly name.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "sName",
-                        "name": "_sName",
-                        "shape": "ServiceName",
-                        "locationName": "name",
-                        "documentation": "\u003cp\u003eThe friendly name for an AWS service. The \u003ccode\u003eCode\u003c/code\u003e element contains the corresponding code.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Show"
-                ],
                 "listElement": null,
                 "fieldPad": 0,
                 "ctor": "trustedAdvisorCategorySpecificSummary",
@@ -2011,6 +1856,161 @@
                         "shape": "NextToken",
                         "locationName": "nextToken",
                         "documentation": "\u003cp\u003eA resumption point for pagination.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "fieldPad": 13,
+                "ctor": "supportService",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssCode",
+                        "name": "_ssCode",
+                        "shape": "ServiceCode",
+                        "locationName": "code",
+                        "documentation": "\u003cp\u003eThe code for an AWS service returned by the \u003ca\u003eDescribeServices\u003c/a\u003e response. The \u003ccode\u003eName\u003c/code\u003e element contains the corresponding friendly name.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssName",
+                        "name": "_ssName",
+                        "shape": "ServiceName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe friendly name for an AWS service. The \u003ccode\u003eCode\u003c/code\u003e element contains the corresponding code.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ssCategories",
+                        "name": "_ssCategories",
+                        "shape": "CategoryList",
+                        "locationName": "categories",
+                        "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "[Category]",
+                        "type": "List \"categories\" Category"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 11,
+                "name": "SupportService",
+                "locationPad": 11,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssCode",
+                        "name": "_ssCode",
+                        "shape": "ServiceCode",
+                        "locationName": "code",
+                        "documentation": "\u003cp\u003eThe code for an AWS service returned by the \u003ca\u003eDescribeServices\u003c/a\u003e response. The \u003ccode\u003eName\u003c/code\u003e element contains the corresponding friendly name.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssName",
+                        "name": "_ssName",
+                        "shape": "ServiceName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe friendly name for an AWS service. The \u003ccode\u003eCode\u003c/code\u003e element contains the corresponding code.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ssCategories",
+                        "name": "_ssCategories",
+                        "shape": "CategoryList",
+                        "locationName": "categories",
+                        "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "[Category]",
+                        "type": "List \"categories\" Category"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ssCategories",
+                        "name": "_ssCategories",
+                        "shape": "CategoryList",
+                        "locationName": "categories",
+                        "documentation": "\u003cp\u003eA list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call \u003ca\u003eCreateCase\u003c/a\u003e.\u003c/p\u003e",
+                        "typeExposed": "[Category]",
+                        "type": "List \"categories\" Category"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssCode",
+                        "name": "_ssCode",
+                        "shape": "ServiceCode",
+                        "locationName": "code",
+                        "documentation": "\u003cp\u003eThe code for an AWS service returned by the \u003ca\u003eDescribeServices\u003c/a\u003e response. The \u003ccode\u003eName\u003c/code\u003e element contains the corresponding friendly name.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssName",
+                        "name": "_ssName",
+                        "shape": "ServiceName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe friendly name for an AWS service. The \u003ccode\u003eCode\u003c/code\u003e element contains the corresponding code.\u003c/p\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5549,7 +5549,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "Service",
+                "listElement": "SupportService",
                 "style": "json",
                 "fieldPad": 0,
                 "ctor": "describeServicesResponse",
@@ -5566,8 +5566,8 @@
                     "shape": "ServiceList",
                     "locationName": "services",
                     "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
-                    "typeExposed": "[Service]",
-                    "type": "List \"services\" Service"
+                    "typeExposed": "[SupportService]",
+                    "type": "List \"services\" SupportService"
                 },
                 "contents": [
                     {
@@ -5582,8 +5582,8 @@
                         "shape": "ServiceList",
                         "locationName": "services",
                         "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
-                        "typeExposed": "[Service]",
-                        "type": "List \"services\" Service"
+                        "typeExposed": "[SupportService]",
+                        "type": "List \"services\" SupportService"
                     }
                 ],
                 "wrapper": false,
@@ -5611,8 +5611,8 @@
                         "shape": "ServiceList",
                         "locationName": "services",
                         "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
-                        "typeExposed": "[Service]",
-                        "type": "List \"services\" Service"
+                        "typeExposed": "[SupportService]",
+                        "type": "List \"services\" SupportService"
                     }
                 ],
                 "fields": [
@@ -5628,8 +5628,8 @@
                         "shape": "ServiceList",
                         "locationName": "services",
                         "documentation": "\u003cp\u003eA JSON-formatted list of AWS services.\u003c/p\u003e",
-                        "typeExposed": "[Service]",
-                        "type": "List \"services\" Service"
+                        "typeExposed": "[SupportService]",
+                        "type": "List \"services\" SupportService"
                     }
                 ]
             },

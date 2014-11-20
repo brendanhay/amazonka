@@ -103,7 +103,7 @@ data CopyObject = CopyObject
     , _coGrantReadACP                   :: Maybe Text
     , _coGrantWriteACP                  :: Maybe Text
     , _coKey                            :: Text
-    , _coMetadata                       :: HashMap (CI Text) Text
+    , _coMetadata                       :: Map (CI Text) Text
     , _coMetadataDirective              :: Maybe Text
     , _coSSECustomerAlgorithm           :: Maybe Text
     , _coSSECustomerKey                 :: Maybe (Sensitive Text)
@@ -333,7 +333,7 @@ coKey = lens _coKey (\s a -> s { _coKey = a })
 
 -- | A map of metadata to store with the object in S3.
 coMetadata :: Lens' CopyObject (HashMap (CI Text) Text)
-coMetadata = lens _coMetadata (\s a -> s { _coMetadata = a })
+coMetadata = lens _coMetadata (\s a -> s { _coMetadata = a }) . _Map
 
 -- | Specifies whether the metadata is copied from the source object or
 -- replaced with metadata provided in the request.

@@ -411,11 +411,11 @@ instance ToQuery DeleteMessageBatchResultEntry where
         ]
 
 data Message = Message
-    { _mAttributes             :: Map "Attribute" "Name" "Value" Text Text
+    { _mAttributes             :: EMap "Attribute" "Name" "Value" Text Text
     , _mBody                   :: Maybe Text
     , _mMD5OfBody              :: Maybe Text
     , _mMD5OfMessageAttributes :: Maybe Text
-    , _mMessageAttributes      :: Map "MessageAttribute" "Name" "Value" Text MessageAttributeValue
+    , _mMessageAttributes      :: EMap "MessageAttribute" "Name" "Value" Text MessageAttributeValue
     , _mMessageId              :: Maybe Text
     , _mReceiptHandle          :: Maybe Text
     } deriving (Eq, Show)
@@ -442,8 +442,8 @@ message :: HashMap Text Text -- ^ 'mAttributes'
         -> HashMap Text MessageAttributeValue -- ^ 'mMessageAttributes'
         -> Message
 message p1 p2 = Message
-    { _mAttributes             = withIso _Map (const id) p1
-    , _mMessageAttributes      = withIso _Map (const id) p2
+    { _mAttributes             = withIso _EMap (const id) p1
+    , _mMessageAttributes      = withIso _EMap (const id) p2
     , _mMessageId              = Nothing
     , _mReceiptHandle          = Nothing
     , _mMD5OfBody              = Nothing
@@ -456,7 +456,7 @@ message p1 p2 = Message
 -- ApproximateFirstReceiveTimestamp are each returned as an integer
 -- representing the epoch time in milliseconds.
 mAttributes :: Lens' Message (HashMap Text Text)
-mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a }) . _Map
+mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a }) . _EMap
 
 -- | The message's contents (not URL-encoded).
 mBody :: Lens' Message (Maybe Text)
@@ -479,7 +479,7 @@ mMD5OfMessageAttributes =
 mMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
 mMessageAttributes =
     lens _mMessageAttributes (\s a -> s { _mMessageAttributes = a })
-        . _Map
+        . _EMap
 
 -- | A unique identifier for the message. Message IDs are considered unique
 -- across all AWS accounts for an extended period of time.
@@ -517,7 +517,7 @@ instance ToQuery Message where
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     { _smbreDelaySeconds      :: Maybe Int
     , _smbreId                :: Text
-    , _smbreMessageAttributes :: Map "MessageAttribute" "Name" "Value" Text MessageAttributeValue
+    , _smbreMessageAttributes :: EMap "MessageAttribute" "Name" "Value" Text MessageAttributeValue
     , _smbreMessageBody       :: Text
     } deriving (Eq, Show)
 
@@ -540,7 +540,7 @@ sendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
 sendMessageBatchRequestEntry p1 p2 p3 = SendMessageBatchRequestEntry
     { _smbreId                = p1
     , _smbreMessageBody       = p2
-    , _smbreMessageAttributes = withIso _Map (const id) p3
+    , _smbreMessageAttributes = withIso _EMap (const id) p3
     , _smbreDelaySeconds      = Nothing
     }
 
@@ -560,7 +560,7 @@ smbreId = lens _smbreId (\s a -> s { _smbreId = a })
 smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
 smbreMessageAttributes =
     lens _smbreMessageAttributes (\s a -> s { _smbreMessageAttributes = a })
-        . _Map
+        . _EMap
 
 -- | Body of the message.
 smbreMessageBody :: Lens' SendMessageBatchRequestEntry Text

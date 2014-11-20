@@ -61,7 +61,7 @@ data UpdateIdentityPool = UpdateIdentityPool
     , _uipIdentityPoolId                 :: Text
     , _uipIdentityPoolName               :: Text
     , _uipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
-    , _uipSupportedLoginProviders        :: HashMap Text Text
+    , _uipSupportedLoginProviders        :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'UpdateIdentityPool' constructor.
@@ -126,6 +126,7 @@ uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)
 uipSupportedLoginProviders =
     lens _uipSupportedLoginProviders
         (\s a -> s { _uipSupportedLoginProviders = a })
+            . _Map
 
 data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
     { _uiprAllowUnauthenticatedIdentities :: Bool
@@ -133,7 +134,7 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
     , _uiprIdentityPoolId                 :: Text
     , _uiprIdentityPoolName               :: Text
     , _uiprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
-    , _uiprSupportedLoginProviders        :: HashMap Text Text
+    , _uiprSupportedLoginProviders        :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'UpdateIdentityPoolResponse' constructor.
@@ -198,6 +199,7 @@ uiprSupportedLoginProviders :: Lens' UpdateIdentityPoolResponse (HashMap Text Te
 uiprSupportedLoginProviders =
     lens _uiprSupportedLoginProviders
         (\s a -> s { _uiprSupportedLoginProviders = a })
+            . _Map
 
 instance ToPath UpdateIdentityPool where
     toPath = const "/"

@@ -76,14 +76,14 @@ import qualified GHC.Exts
 data Scan = Scan
     { _sAttributesToGet           :: List1 "AttributesToGet" Text
     , _sConditionalOperator       :: Maybe Text
-    , _sExclusiveStartKey         :: HashMap Text AttributeValue
-    , _sExpressionAttributeNames  :: HashMap Text Text
-    , _sExpressionAttributeValues :: HashMap Text AttributeValue
+    , _sExclusiveStartKey         :: Map Text AttributeValue
+    , _sExpressionAttributeNames  :: Map Text Text
+    , _sExpressionAttributeValues :: Map Text AttributeValue
     , _sFilterExpression          :: Maybe Text
     , _sLimit                     :: Maybe Nat
     , _sProjectionExpression      :: Maybe Text
     , _sReturnConsumedCapacity    :: Maybe Text
-    , _sScanFilter                :: HashMap Text Condition
+    , _sScanFilter                :: Map Text Condition
     , _sSegment                   :: Maybe Nat
     , _sSelect                    :: Maybe Text
     , _sTableName                 :: Text
@@ -178,6 +178,7 @@ sConditionalOperator =
 sExclusiveStartKey :: Lens' Scan (HashMap Text AttributeValue)
 sExclusiveStartKey =
     lens _sExclusiveStartKey (\s a -> s { _sExclusiveStartKey = a })
+        . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
 -- following are some use cases for an ExpressionAttributeNames value: To
@@ -195,6 +196,7 @@ sExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
 sExpressionAttributeNames =
     lens _sExpressionAttributeNames
         (\s a -> s { _sExpressionAttributeNames = a })
+            . _Map
 
 -- | One or more values that can be substituted in an expression. Use the :
 -- character in an expression to dereference an attribute value. For
@@ -207,6 +209,7 @@ sExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
 sExpressionAttributeValues =
     lens _sExpressionAttributeValues
         (\s a -> s { _sExpressionAttributeValues = a })
+            . _Map
 
 -- | A condition that evaluates the scan results and returns only the desired
 -- values. The condition you specify is applied to the items scanned; any
@@ -269,7 +272,7 @@ sReturnConsumedCapacity =
 -- | BETWEEN For complete descriptions of all comparison operators, see
 -- Condition.
 sScanFilter :: Lens' Scan (HashMap Text Condition)
-sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a })
+sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a }) . _Map
 
 -- | For a parallel Scan request, Segment identifies an individual segment to
 -- be scanned by an application worker. Segment IDs are zero-based, so the
@@ -318,8 +321,8 @@ sTotalSegments = lens _sTotalSegments (\s a -> s { _sTotalSegments = a }) . mapp
 data ScanResponse = ScanResponse
     { _srConsumedCapacity :: Maybe ConsumedCapacity
     , _srCount            :: Maybe Int
-    , _srItems            :: List "Items" (HashMap Text AttributeValue)
-    , _srLastEvaluatedKey :: HashMap Text AttributeValue
+    , _srItems            :: List "Items" (Map Text AttributeValue)
+    , _srLastEvaluatedKey :: Map Text AttributeValue
     , _srScannedCount     :: Maybe Int
     } deriving (Eq, Show)
 
@@ -374,6 +377,7 @@ srItems = lens _srItems (\s a -> s { _srItems = a }) . _List
 srLastEvaluatedKey :: Lens' ScanResponse (HashMap Text AttributeValue)
 srLastEvaluatedKey =
     lens _srLastEvaluatedKey (\s a -> s { _srLastEvaluatedKey = a })
+        . _Map
 
 -- | The number of items evaluated, before any ScanFilter is applied. A high
 -- ScannedCount value with few, or no, Count results indicates an

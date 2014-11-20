@@ -56,10 +56,10 @@ import qualified GHC.Exts
 
 data ReEncrypt = ReEncrypt
     { _reCiphertextBlob               :: Base64
-    , _reDestinationEncryptionContext :: HashMap Text Text
+    , _reDestinationEncryptionContext :: Map Text Text
     , _reDestinationKeyId             :: Text
     , _reGrantTokens                  :: List "GrantTokens" Text
-    , _reSourceEncryptionContext      :: HashMap Text Text
+    , _reSourceEncryptionContext      :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'ReEncrypt' constructor.
@@ -96,6 +96,7 @@ reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reDestinationEncryptionContext =
     lens _reDestinationEncryptionContext
         (\s a -> s { _reDestinationEncryptionContext = a })
+            . _Map
 
 -- | Key identifier of the key used to re-encrypt the data.
 reDestinationKeyId :: Lens' ReEncrypt Text
@@ -113,6 +114,7 @@ reSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reSourceEncryptionContext =
     lens _reSourceEncryptionContext
         (\s a -> s { _reSourceEncryptionContext = a })
+            . _Map
 
 data ReEncryptResponse = ReEncryptResponse
     { _rerCiphertextBlob :: Maybe Base64

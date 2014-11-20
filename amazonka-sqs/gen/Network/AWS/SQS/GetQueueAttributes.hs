@@ -102,7 +102,7 @@ gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttributes :: Map "Attribute" "Name" "Value" Text Text
+    { _gqarAttributes :: EMap "Attribute" "Name" "Value" Text Text
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetQueueAttributesResponse' constructor.
@@ -114,12 +114,12 @@ newtype GetQueueAttributesResponse = GetQueueAttributesResponse
 getQueueAttributesResponse :: HashMap Text Text -- ^ 'gqarAttributes'
                            -> GetQueueAttributesResponse
 getQueueAttributesResponse p1 = GetQueueAttributesResponse
-    { _gqarAttributes = withIso _Map (const id) p1
+    { _gqarAttributes = withIso _EMap (const id) p1
     }
 
 -- | A map of attributes to the respective values.
 gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
-gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a }) . _Map
+gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a }) . _EMap
 
 instance ToPath GetQueueAttributes where
     toPath = const "/"

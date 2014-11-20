@@ -236,18 +236,18 @@ instance ToJSON (Internal Type) where
             TCase      x -> "CI "        <> wrapped (go x)
             TFlatten   x -> go x
 
-            TList    e x -> "List"     <> witness e   <> " " <> wrapped (go x)
-            TList1   e x -> "List1"    <> witness e   <> " " <> wrapped (go x)
-            THashMap k v -> "HashMap " <> wrapped (go k) <> " " <> wrapped (go v)
+            TList    e x -> "List"  <> witness e   <> " " <> wrapped (go x)
+            TList1   e x -> "List1" <> witness e   <> " " <> wrapped (go x)
+            THashMap k v -> "Map "  <> wrapped (go k) <> " " <> wrapped (go v)
 
             TMap  (e, i', j) k v ->
-                "Map" <> witness e
-                      <> witness i'
-                      <> witness j
-                      <> " "
-                      <> wrapped (go k)
-                      <> " "
-                      <> wrapped (go v)
+                "EMap" <> witness e
+                       <> witness i'
+                       <> witness j
+                       <> " "
+                       <> wrapped (go k)
+                       <> " "
+                       <> wrapped (go v)
 
         witness t = " \"" <> t <> "\""
 
@@ -266,7 +266,7 @@ typeMapping t
         TList      _ _   -> maybeToList (typeIso y)
         TList1     _ _   -> maybeToList (typeIso y)
         TMap       _ _ _ -> maybeToList (typeIso y)
-        THashMap     _ _ -> []
+        THashMap     _ _ -> maybeToList (typeIso y)
 
     mapping (x:xs) = "mapping " <> x : xs
     mapping _      = []
@@ -274,11 +274,12 @@ typeMapping t
 typeIso :: Type -> Maybe Text
 typeIso = \case
     TPrim      p     -> primIso p
-    TMap       _ _ _ -> Just "_Map"   -- No nested mappings, since it's Coercible.
     TSensitive _     -> Just "_Sensitive"
     TFlatten   x     -> typeIso x
     TList      _ _   -> Just "_List"  -- No nested mappings, since it's Coercible.
     TList1     _ _   -> Just "_List1" -- No nested mappings, since it's Coercible.
+    TMap       _ _ _ -> Just "_EMap"  -- No nested mappings, since it's Coercible.
+    THashMap     _ _ -> Just "_Map"   -- No nested mappings, since it's Coercible.
     _                -> Nothing
 
 primIso :: Prim -> Maybe Text

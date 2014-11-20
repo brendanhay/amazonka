@@ -64,7 +64,7 @@ import qualified GHC.Exts
 data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity
     { _goitfdiIdentityId     :: Maybe Text
     , _goitfdiIdentityPoolId :: Text
-    , _goitfdiLogins         :: HashMap Text Text
+    , _goitfdiLogins         :: Map Text Text
     , _goitfdiTokenDuration  :: Maybe Nat
     } deriving (Eq, Show)
 
@@ -109,7 +109,7 @@ goitfdiIdentityPoolId =
 -- identifier from your backend that uniquely identifies a user. When you
 -- create an identity pool, you can specify the supported logins.
 goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
-goitfdiLogins = lens _goitfdiLogins (\s a -> s { _goitfdiLogins = a })
+goitfdiLogins = lens _goitfdiLogins (\s a -> s { _goitfdiLogins = a }) . _Map
 
 -- | The expiration time of the token, in seconds. You can specify a custom
 -- expiration time for the token so that you can cache it. If you don't

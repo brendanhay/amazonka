@@ -119,7 +119,7 @@ data IdentityPool = IdentityPool
     , _ipIdentityPoolId                 :: Text
     , _ipIdentityPoolName               :: Text
     , _ipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
-    , _ipSupportedLoginProviders        :: HashMap Text Text
+    , _ipSupportedLoginProviders        :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'IdentityPool' constructor.
@@ -182,6 +182,7 @@ ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
 ipSupportedLoginProviders =
     lens _ipSupportedLoginProviders
         (\s a -> s { _ipSupportedLoginProviders = a })
+            . _Map
 
 instance FromJSON IdentityPool where
     parseJSON = withObject "IdentityPool" $ \o -> IdentityPool

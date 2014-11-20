@@ -57,7 +57,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data CreateQueue = CreateQueue
-    { _cqAttributes :: Map "Attribute" "Name" "Value" Text Text
+    { _cqAttributes :: EMap "Attribute" "Name" "Value" Text Text
     , _cqQueueName  :: Text
     } deriving (Eq, Show)
 
@@ -74,7 +74,7 @@ createQueue :: Text -- ^ 'cqQueueName'
             -> CreateQueue
 createQueue p1 p2 = CreateQueue
     { _cqQueueName  = p1
-    , _cqAttributes = withIso _Map (const id) p2
+    , _cqAttributes = withIso _EMap (const id) p2
     }
 
 -- | A map of attributes with their corresponding values. The following lists
@@ -99,7 +99,7 @@ createQueue p1 p2 = CreateQueue
 -- for this attribute is 30. For more information about visibility timeout,
 -- see Visibility Timeout in the Amazon SQS Developer Guide.
 cqAttributes :: Lens' CreateQueue (HashMap Text Text)
-cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a }) . _Map
+cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a }) . _EMap
 
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text

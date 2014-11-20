@@ -61,7 +61,7 @@ data CreateIdentityPool = CreateIdentityPool
     , _cipDeveloperProviderName          :: Maybe Text
     , _cipIdentityPoolName               :: Text
     , _cipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
-    , _cipSupportedLoginProviders        :: HashMap Text Text
+    , _cipSupportedLoginProviders        :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'CreateIdentityPool' constructor.
@@ -122,6 +122,7 @@ cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
 cipSupportedLoginProviders =
     lens _cipSupportedLoginProviders
         (\s a -> s { _cipSupportedLoginProviders = a })
+            . _Map
 
 data CreateIdentityPoolResponse = CreateIdentityPoolResponse
     { _ciprAllowUnauthenticatedIdentities :: Bool
@@ -129,7 +130,7 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
     , _ciprIdentityPoolId                 :: Text
     , _ciprIdentityPoolName               :: Text
     , _ciprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
-    , _ciprSupportedLoginProviders        :: HashMap Text Text
+    , _ciprSupportedLoginProviders        :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'CreateIdentityPoolResponse' constructor.
@@ -194,6 +195,7 @@ ciprSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (HashMap Text Te
 ciprSupportedLoginProviders =
     lens _ciprSupportedLoginProviders
         (\s a -> s { _ciprSupportedLoginProviders = a })
+            . _Map
 
 instance ToPath CreateIdentityPool where
     toPath = const "/"

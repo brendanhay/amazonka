@@ -81,7 +81,7 @@ data GetEventSourceResponse = GetEventSourceResponse
     , _gesrFunctionName :: Maybe Text
     , _gesrIsActive     :: Maybe Bool
     , _gesrLastModified :: Maybe RFC822
-    , _gesrParameters   :: HashMap Text Text
+    , _gesrParameters   :: Map Text Text
     , _gesrRole         :: Maybe Text
     , _gesrStatus       :: Maybe Text
     , _gesrUUID         :: Maybe Text
@@ -150,7 +150,7 @@ gesrLastModified = lens _gesrLastModified (\s a -> s { _gesrLastModified = a }) 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to
 -- use when reading the event source.
 gesrParameters :: Lens' GetEventSourceResponse (HashMap Text Text)
-gesrParameters = lens _gesrParameters (\s a -> s { _gesrParameters = a })
+gesrParameters = lens _gesrParameters (\s a -> s { _gesrParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to
 -- read from the stream and invoke the function.

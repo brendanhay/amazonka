@@ -165,7 +165,7 @@ instance ToQuery MessageAttributeValue where
         ]
 
 data PlatformApplication = PlatformApplication
-    { _paAttributes             :: Map "entry" "key" "value" Text Text
+    { _paAttributes             :: EMap "entry" "key" "value" Text Text
     , _paPlatformApplicationArn :: Maybe Text
     } deriving (Eq, Show)
 
@@ -185,7 +185,7 @@ platformApplication = PlatformApplication
 
 -- | Attributes for platform application object.
 paAttributes :: Lens' PlatformApplication (HashMap Text Text)
-paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a }) . _Map
+paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a }) . _EMap
 
 -- | PlatformApplicationArn for platform application object.
 paPlatformApplicationArn :: Lens' PlatformApplication (Maybe Text)
@@ -274,7 +274,7 @@ instance ToQuery Subscription where
         ]
 
 data Endpoint = Endpoint
-    { _eAttributes  :: Map "entry" "key" "value" Text Text
+    { _eAttributes  :: EMap "entry" "key" "value" Text Text
     , _eEndpointArn :: Maybe Text
     } deriving (Eq, Show)
 
@@ -294,7 +294,7 @@ endpoint = Endpoint
 
 -- | Attributes for endpoint.
 eAttributes :: Lens' Endpoint (HashMap Text Text)
-eAttributes = lens _eAttributes (\s a -> s { _eAttributes = a }) . _Map
+eAttributes = lens _eAttributes (\s a -> s { _eAttributes = a }) . _EMap
 
 -- | EndpointArn for mobile app and device.
 eEndpointArn :: Lens' Endpoint (Maybe Text)

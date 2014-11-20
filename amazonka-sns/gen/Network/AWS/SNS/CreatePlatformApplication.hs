@@ -61,7 +61,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data CreatePlatformApplication = CreatePlatformApplication
-    { _cpaAttributes :: Map "entry" "key" "value" Text Text
+    { _cpaAttributes :: EMap "entry" "key" "value" Text Text
     , _cpaName       :: Text
     , _cpaPlatform   :: Text
     } deriving (Eq, Show)
@@ -87,7 +87,7 @@ createPlatformApplication p1 p2 = CreatePlatformApplication
 
 -- | For a list of attributes, see SetPlatformApplicationAttributes.
 cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
-cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a }) . _Map
+cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a }) . _EMap
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between

@@ -1322,8 +1322,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_Map",
-                    "lensMapping": "_Map",
+                    "iso": "_EMap",
+                    "lensMapping": "_EMap",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1333,7 +1333,7 @@
                     "locationName": "DkimAttributes",
                     "documentation": "\u003cp\u003eThe DKIM attributes for an email address or a domain. \u003c/p\u003e",
                     "typeExposed": "HashMap Text IdentityDkimAttributes",
-                    "type": "Map \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
+                    "type": "EMap \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -1351,8 +1351,8 @@
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1362,14 +1362,14 @@
                         "locationName": "DkimAttributes",
                         "documentation": "\u003cp\u003eThe DKIM attributes for an email address or a domain. \u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityDkimAttributes",
-                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
+                        "type": "EMap \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1379,7 +1379,7 @@
                         "locationName": "DkimAttributes",
                         "documentation": "\u003cp\u003eThe DKIM attributes for an email address or a domain. \u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityDkimAttributes",
-                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
+                        "type": "EMap \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
                     }
                 ]
             },
@@ -1503,8 +1503,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_Map",
-                    "lensMapping": "_Map",
+                    "iso": "_EMap",
+                    "lensMapping": "_EMap",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1514,7 +1514,7 @@
                     "locationName": "NotificationAttributes",
                     "documentation": "\u003cp\u003eA map of Identity to IdentityNotificationAttributes.\u003c/p\u003e",
                     "typeExposed": "HashMap Text IdentityNotificationAttributes",
-                    "type": "Map \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
+                    "type": "EMap \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -1532,8 +1532,8 @@
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1543,14 +1543,14 @@
                         "locationName": "NotificationAttributes",
                         "documentation": "\u003cp\u003eA map of Identity to IdentityNotificationAttributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityNotificationAttributes",
-                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
+                        "type": "EMap \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1560,7 +1560,7 @@
                         "locationName": "NotificationAttributes",
                         "documentation": "\u003cp\u003eA map of Identity to IdentityNotificationAttributes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityNotificationAttributes",
-                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
+                        "type": "EMap \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
                     }
                 ]
             },
@@ -1684,8 +1684,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_Map",
-                    "lensMapping": "_Map",
+                    "iso": "_EMap",
+                    "lensMapping": "_EMap",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -1695,7 +1695,7 @@
                     "locationName": "VerificationAttributes",
                     "documentation": "\u003cp\u003eA map of Identities to IdentityVerificationAttributes objects.\u003c/p\u003e",
                     "typeExposed": "HashMap Text IdentityVerificationAttributes",
-                    "type": "Map \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
+                    "type": "EMap \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -1713,8 +1713,8 @@
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1724,14 +1724,14 @@
                         "locationName": "VerificationAttributes",
                         "documentation": "\u003cp\u003eA map of Identities to IdentityVerificationAttributes objects.\u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityVerificationAttributes",
-                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
+                        "type": "EMap \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1741,7 +1741,7 @@
                         "locationName": "VerificationAttributes",
                         "documentation": "\u003cp\u003eA map of Identities to IdentityVerificationAttributes objects.\u003c/p\u003e",
                         "typeExposed": "HashMap Text IdentityVerificationAttributes",
-                        "type": "Map \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
+                        "type": "EMap \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
                     }
                 ]
             },

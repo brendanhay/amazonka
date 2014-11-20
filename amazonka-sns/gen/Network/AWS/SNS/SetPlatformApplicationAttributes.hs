@@ -47,7 +47,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
-    { _spaaAttributes             :: Map "entry" "key" "value" Text Text
+    { _spaaAttributes             :: EMap "entry" "key" "value" Text Text
     , _spaaPlatformApplicationArn :: Text
     } deriving (Eq, Show)
 
@@ -82,7 +82,7 @@ setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributes
 -- notifications should be sent upon Direct Publish delivery failure
 -- (permanent) to one of the application's endpoints.
 spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
-spaaAttributes = lens _spaaAttributes (\s a -> s { _spaaAttributes = a }) . _Map
+spaaAttributes = lens _spaaAttributes (\s a -> s { _spaaAttributes = a }) . _EMap
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
 spaaPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes Text

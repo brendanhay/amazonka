@@ -67,7 +67,7 @@ gtaTopicArn :: Lens' GetTopicAttributes Text
 gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
-    { _gtarAttributes :: Map "entry" "key" "value" Text Text
+    { _gtarAttributes :: EMap "entry" "key" "value" Text Text
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetTopicAttributesResponse' constructor.
@@ -94,7 +94,7 @@ getTopicAttributesResponse = GetTopicAttributesResponse
 -- serialization of the effective delivery policy that takes into account
 -- system defaults.
 gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
-gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a }) . _Map
+gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a }) . _EMap
 
 instance ToPath GetTopicAttributes where
     toPath = const "/"

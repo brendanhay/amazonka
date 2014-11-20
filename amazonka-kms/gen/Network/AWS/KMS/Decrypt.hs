@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 data Decrypt = Decrypt
     { _dCiphertextBlob    :: Base64
-    , _dEncryptionContext :: HashMap Text Text
+    , _dEncryptionContext :: Map Text Text
     , _dGrantTokens       :: List "GrantTokens" Text
     } deriving (Eq, Show)
 
@@ -83,6 +83,7 @@ dCiphertextBlob = lens _dCiphertextBlob (\s a -> s { _dCiphertextBlob = a })
 dEncryptionContext :: Lens' Decrypt (HashMap Text Text)
 dEncryptionContext =
     lens _dEncryptionContext (\s a -> s { _dEncryptionContext = a })
+        . _Map
 
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to perform decryption.

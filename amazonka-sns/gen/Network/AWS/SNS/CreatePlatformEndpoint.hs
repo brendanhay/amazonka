@@ -61,7 +61,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data CreatePlatformEndpoint = CreatePlatformEndpoint
-    { _cpeAttributes             :: Map "entry" "key" "value" Text Text
+    { _cpeAttributes             :: EMap "entry" "key" "value" Text Text
     , _cpeCustomUserData         :: Maybe Text
     , _cpePlatformApplicationArn :: Text
     , _cpeToken                  :: Text
@@ -91,7 +91,7 @@ createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
 
 -- | For a list of attributes, see SetEndpointAttributes.
 cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
-cpeAttributes = lens _cpeAttributes (\s a -> s { _cpeAttributes = a }) . _Map
+cpeAttributes = lens _cpeAttributes (\s a -> s { _cpeAttributes = a }) . _EMap
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
 -- use this data. The data must be in UTF-8 format and less than 2KB.

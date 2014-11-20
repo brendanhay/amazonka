@@ -74,7 +74,7 @@ ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
 ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a }) . _List
 
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
-    { _ginarNotificationAttributes :: Map "entry" "key" "value" Text IdentityNotificationAttributes
+    { _ginarNotificationAttributes :: EMap "entry" "key" "value" Text IdentityNotificationAttributes
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetIdentityNotificationAttributesResponse' constructor.
@@ -93,7 +93,7 @@ ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (
 ginarNotificationAttributes =
     lens _ginarNotificationAttributes
         (\s a -> s { _ginarNotificationAttributes = a })
-            . _Map
+            . _EMap
 
 instance ToPath GetIdentityNotificationAttributes where
     toPath = const "/"

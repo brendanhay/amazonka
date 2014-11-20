@@ -73,7 +73,7 @@ givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
 givaIdentities = lens _givaIdentities (\s a -> s { _givaIdentities = a }) . _List
 
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
-    { _givarVerificationAttributes :: Map "entry" "key" "value" Text IdentityVerificationAttributes
+    { _givarVerificationAttributes :: EMap "entry" "key" "value" Text IdentityVerificationAttributes
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetIdentityVerificationAttributesResponse' constructor.
@@ -92,7 +92,7 @@ givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (
 givarVerificationAttributes =
     lens _givarVerificationAttributes
         (\s a -> s { _givarVerificationAttributes = a })
-            . _Map
+            . _EMap
 
 instance ToPath GetIdentityVerificationAttributes where
     toPath = const "/"

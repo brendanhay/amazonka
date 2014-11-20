@@ -382,7 +382,7 @@ s1Start :: Lens' Search (Maybe Integer)
 s1Start = lens _s1Start (\s a -> s { _s1Start = a })
 
 data SearchResponse = SearchResponse
-    { _sr1Facets :: HashMap Text BucketInfo
+    { _sr1Facets :: Map Text BucketInfo
     , _sr1Hits   :: Maybe Hits
     , _sr1Status :: Maybe SearchStatus
     } deriving (Eq, Show)
@@ -406,7 +406,7 @@ searchResponse = SearchResponse
 
 -- | The requested facet information.
 sr1Facets :: Lens' SearchResponse (HashMap Text BucketInfo)
-sr1Facets = lens _sr1Facets (\s a -> s { _sr1Facets = a })
+sr1Facets = lens _sr1Facets (\s a -> s { _sr1Facets = a }) . _Map
 
 -- | The documents that match the search criteria.
 sr1Hits :: Lens' SearchResponse (Maybe Hits)

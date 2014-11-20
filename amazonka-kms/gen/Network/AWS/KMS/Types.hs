@@ -231,8 +231,8 @@ instance ToJSON DataKeySpec where
     toJSON = toJSONText
 
 data GrantConstraints = GrantConstraints
-    { _gcEncryptionContextEquals :: HashMap Text Text
-    , _gcEncryptionContextSubset :: HashMap Text Text
+    { _gcEncryptionContextEquals :: Map Text Text
+    , _gcEncryptionContextSubset :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'GrantConstraints' constructor.
@@ -255,12 +255,14 @@ gcEncryptionContextEquals :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextEquals =
     lens _gcEncryptionContextEquals
         (\s a -> s { _gcEncryptionContextEquals = a })
+            . _Map
 
 -- | The constraint equals the full encryption context.
 gcEncryptionContextSubset :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextSubset =
     lens _gcEncryptionContextSubset
         (\s a -> s { _gcEncryptionContextSubset = a })
+            . _Map
 
 instance FromJSON GrantConstraints where
     parseJSON = withObject "GrantConstraints" $ \o -> GrantConstraints

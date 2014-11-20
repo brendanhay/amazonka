@@ -322,7 +322,7 @@ instance ToJSON Operator where
 
 data TaskObject = TaskObject
     { _toAttemptId  :: Maybe Text
-    , _toObjects    :: HashMap Text PipelineObject
+    , _toObjects    :: Map Text PipelineObject
     , _toPipelineId :: Maybe Text
     , _toTaskId     :: Maybe Text
     } deriving (Eq, Show)
@@ -355,7 +355,7 @@ toAttemptId = lens _toAttemptId (\s a -> s { _toAttemptId = a })
 -- | Connection information for the location where the task runner will
 -- publish the output of the task.
 toObjects :: Lens' TaskObject (HashMap Text PipelineObject)
-toObjects = lens _toObjects (\s a -> s { _toObjects = a })
+toObjects = lens _toObjects (\s a -> s { _toObjects = a }) . _Map
 
 -- | Identifier of the pipeline that provided the task.
 toPipelineId :: Lens' TaskObject (Maybe Text)

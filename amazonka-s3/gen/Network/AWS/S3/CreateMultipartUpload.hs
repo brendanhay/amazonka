@@ -90,7 +90,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmuGrantReadACP            :: Maybe Text
     , _cmuGrantWriteACP           :: Maybe Text
     , _cmuKey                     :: Text
-    , _cmuMetadata                :: HashMap (CI Text) Text
+    , _cmuMetadata                :: Map (CI Text) Text
     , _cmuSSECustomerAlgorithm    :: Maybe Text
     , _cmuSSECustomerKey          :: Maybe (Sensitive Text)
     , _cmuSSECustomerKeyMD5       :: Maybe Text
@@ -232,7 +232,7 @@ cmuKey = lens _cmuKey (\s a -> s { _cmuKey = a })
 
 -- | A map of metadata to store with the object in S3.
 cmuMetadata :: Lens' CreateMultipartUpload (HashMap (CI Text) Text)
-cmuMetadata = lens _cmuMetadata (\s a -> s { _cmuMetadata = a })
+cmuMetadata = lens _cmuMetadata (\s a -> s { _cmuMetadata = a }) . _Map
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256, aws:kms).

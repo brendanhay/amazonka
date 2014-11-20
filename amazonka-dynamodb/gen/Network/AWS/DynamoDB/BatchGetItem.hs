@@ -85,7 +85,7 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data BatchGetItem = BatchGetItem
-    { _bgiRequestItems           :: HashMap Text KeysAndAttributes
+    { _bgiRequestItems           :: Map Text KeysAndAttributes
     , _bgiReturnConsumedCapacity :: Maybe Text
     } deriving (Eq, Show)
 
@@ -119,7 +119,7 @@ batchGetItem = BatchGetItem
 -- to an application. ConsistentRead - If true, a strongly consistent read
 -- is used; if false (the default), an eventually consistent read is used.
 bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
-bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a })
+bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a }) . _Map
 
 bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe Text)
 bgiReturnConsumedCapacity =
@@ -128,8 +128,8 @@ bgiReturnConsumedCapacity =
 
 data BatchGetItemResponse = BatchGetItemResponse
     { _bgirConsumedCapacity :: List "ConsumedCapacity" ConsumedCapacity
-    , _bgirResponses        :: HashMap Text (List "Items" (HashMap Text AttributeValue))
-    , _bgirUnprocessedKeys  :: HashMap Text KeysAndAttributes
+    , _bgirResponses        :: Map Text (List "Items" (Map Text AttributeValue))
+    , _bgirUnprocessedKeys  :: Map Text KeysAndAttributes
     } deriving (Eq, Show)
 
 -- | 'BatchGetItemResponse' constructor.
@@ -161,7 +161,7 @@ bgirConsumedCapacity =
 -- of a table name, along with a map of attribute data consisting of the
 -- data type and attribute value.
 bgirResponses :: Lens' BatchGetItemResponse (HashMap Text [HashMap Text AttributeValue])
-bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a })
+bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a }) . _Map
 
 -- | A map of tables and their respective keys that were not processed with
 -- the current response. The UnprocessedKeys value is in the same form as
@@ -179,6 +179,7 @@ bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a })
 bgirUnprocessedKeys :: Lens' BatchGetItemResponse (HashMap Text KeysAndAttributes)
 bgirUnprocessedKeys =
     lens _bgirUnprocessedKeys (\s a -> s { _bgirUnprocessedKeys = a })
+        . _Map
 
 instance ToPath BatchGetItem where
     toPath = const "/"

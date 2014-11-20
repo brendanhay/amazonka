@@ -70,7 +70,7 @@ gpaaPlatformApplicationArn =
         (\s a -> s { _gpaaPlatformApplicationArn = a })
 
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
-    { _gpaarAttributes :: Map "entry" "key" "value" Text Text
+    { _gpaarAttributes :: EMap "entry" "key" "value" Text Text
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetPlatformApplicationAttributesResponse' constructor.
@@ -93,7 +93,7 @@ getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesRespo
 -- upon Direct Publish delivery failure (permanent) to one of the
 -- application's endpoints.
 gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
-gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a }) . _Map
+gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a }) . _EMap
 
 instance ToPath GetPlatformApplicationAttributes where
     toPath = const "/"

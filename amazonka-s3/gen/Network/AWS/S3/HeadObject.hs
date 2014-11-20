@@ -217,7 +217,7 @@ data HeadObjectResponse = HeadObjectResponse
     , _horExpiration              :: Maybe RFC822
     , _horExpires                 :: Maybe RFC822
     , _horLastModified            :: Maybe RFC822
-    , _horMetadata                :: HashMap (CI Text) Text
+    , _horMetadata                :: Map (CI Text) Text
     , _horMissingMeta             :: Maybe Int
     , _horRestore                 :: Maybe Text
     , _horSSECustomerAlgorithm    :: Maybe Text
@@ -359,7 +359,7 @@ horLastModified = lens _horLastModified (\s a -> s { _horLastModified = a }) . m
 
 -- | A map of metadata to store with the object in S3.
 horMetadata :: Lens' HeadObjectResponse (HashMap (CI Text) Text)
-horMetadata = lens _horMetadata (\s a -> s { _horMetadata = a })
+horMetadata = lens _horMetadata (\s a -> s { _horMetadata = a }) . _Map
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
 -- headers. This can happen if you create metadata using an API like SOAP

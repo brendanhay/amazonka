@@ -74,10 +74,10 @@ import qualified GHC.Exts
 data PutItem = PutItem
     { _piConditionExpression         :: Maybe Text
     , _piConditionalOperator         :: Maybe Text
-    , _piExpected                    :: HashMap Text ExpectedAttributeValue
-    , _piExpressionAttributeNames    :: HashMap Text Text
-    , _piExpressionAttributeValues   :: HashMap Text AttributeValue
-    , _piItem                        :: HashMap Text AttributeValue
+    , _piExpected                    :: Map Text ExpectedAttributeValue
+    , _piExpressionAttributeNames    :: Map Text Text
+    , _piExpressionAttributeValues   :: Map Text AttributeValue
+    , _piItem                        :: Map Text AttributeValue
     , _piReturnConsumedCapacity      :: Maybe Text
     , _piReturnItemCollectionMetrics :: Maybe Text
     , _piReturnValues                :: Maybe Text
@@ -269,7 +269,7 @@ piConditionalOperator =
 -- of parameters at once, DynamoDB will return a ValidationException
 -- exception.
 piExpected :: Lens' PutItem (HashMap Text ExpectedAttributeValue)
-piExpected = lens _piExpected (\s a -> s { _piExpected = a })
+piExpected = lens _piExpected (\s a -> s { _piExpected = a }) . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
 -- following are some use cases for an ExpressionAttributeNames value: To
@@ -287,6 +287,7 @@ piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
 piExpressionAttributeNames =
     lens _piExpressionAttributeNames
         (\s a -> s { _piExpressionAttributeNames = a })
+            . _Map
 
 -- | One or more values that can be substituted in an expression. Use the :
 -- character in an expression to dereference an attribute value. For
@@ -299,6 +300,7 @@ piExpressionAttributeValues :: Lens' PutItem (HashMap Text AttributeValue)
 piExpressionAttributeValues =
     lens _piExpressionAttributeValues
         (\s a -> s { _piExpressionAttributeValues = a })
+            . _Map
 
 -- | A map of attribute name/value pairs, one for each attribute. Only the
 -- primary key attributes are required; you can optionally provide other
@@ -312,7 +314,7 @@ piExpressionAttributeValues =
 -- keys, see Primary Key in the Amazon DynamoDB Developer Guide. Each
 -- element in the Item map is an AttributeValue object.
 piItem :: Lens' PutItem (HashMap Text AttributeValue)
-piItem = lens _piItem (\s a -> s { _piItem = a })
+piItem = lens _piItem (\s a -> s { _piItem = a }) . _Map
 
 piReturnConsumedCapacity :: Lens' PutItem (Maybe Text)
 piReturnConsumedCapacity =
@@ -342,7 +344,7 @@ piTableName :: Lens' PutItem Text
 piTableName = lens _piTableName (\s a -> s { _piTableName = a })
 
 data PutItemResponse = PutItemResponse
-    { _pirAttributes            :: HashMap Text AttributeValue
+    { _pirAttributes            :: Map Text AttributeValue
     , _pirConsumedCapacity      :: Maybe ConsumedCapacity
     , _pirItemCollectionMetrics :: Maybe ItemCollectionMetrics
     } deriving (Eq, Show)
@@ -368,7 +370,7 @@ putItemResponse = PutItemResponse
 -- only if ReturnValues is specified as ALL_OLD in the request. Each element
 -- consists of an attribute name and an attribute value.
 pirAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
-pirAttributes = lens _pirAttributes (\s a -> s { _pirAttributes = a })
+pirAttributes = lens _pirAttributes (\s a -> s { _pirAttributes = a }) . _Map
 
 pirConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
 pirConsumedCapacity =

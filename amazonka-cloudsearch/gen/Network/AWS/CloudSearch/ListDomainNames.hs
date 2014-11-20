@@ -51,7 +51,7 @@ listDomainNames :: ListDomainNames
 listDomainNames = ListDomainNames
 
 newtype ListDomainNamesResponse = ListDomainNamesResponse
-    { _ldnrDomainNames :: Map "entry" "key" "value" Text Text
+    { _ldnrDomainNames :: EMap "entry" "key" "value" Text Text
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'ListDomainNamesResponse' constructor.
@@ -67,7 +67,7 @@ listDomainNamesResponse = ListDomainNamesResponse
 
 -- | The names of the search domains owned by an account.
 ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
-ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a }) . _Map
+ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a }) . _EMap
 
 instance ToPath ListDomainNames where
     toPath = const "/"

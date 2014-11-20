@@ -84,7 +84,7 @@ gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
 gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a }) . _List
 
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
-    { _gidarDkimAttributes :: Map "entry" "key" "value" Text IdentityDkimAttributes
+    { _gidarDkimAttributes :: EMap "entry" "key" "value" Text IdentityDkimAttributes
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetIdentityDkimAttributesResponse' constructor.
@@ -102,7 +102,7 @@ getIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
 gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
 gidarDkimAttributes =
     lens _gidarDkimAttributes (\s a -> s { _gidarDkimAttributes = a })
-        . _Map
+        . _EMap
 
 instance ToPath GetIdentityDkimAttributes where
     toPath = const "/"

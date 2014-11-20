@@ -182,8 +182,8 @@ instance ToJSON QueryParser where
     toJSON = toJSONText
 
 data Hit = Hit
-    { _hitFields     :: HashMap Text (List "fields" Text)
-    , _hitHighlights :: HashMap Text Text
+    { _hitFields     :: Map Text (List "fields" Text)
+    , _hitHighlights :: Map Text Text
     , _hitId         :: Maybe Text
     } deriving (Eq, Show)
 
@@ -206,11 +206,11 @@ hit = Hit
 
 -- | The fields returned from a document that matches the search request.
 hitFields :: Lens' Hit (HashMap Text [Text])
-hitFields = lens _hitFields (\s a -> s { _hitFields = a })
+hitFields = lens _hitFields (\s a -> s { _hitFields = a }) . _Map
 
 -- | The highlights returned from a document that matches the search request.
 hitHighlights :: Lens' Hit (HashMap Text Text)
-hitHighlights = lens _hitHighlights (\s a -> s { _hitHighlights = a })
+hitHighlights = lens _hitHighlights (\s a -> s { _hitHighlights = a }) . _Map
 
 -- | The document ID of a document that matches the search request.
 hitId :: Lens' Hit (Maybe Text)

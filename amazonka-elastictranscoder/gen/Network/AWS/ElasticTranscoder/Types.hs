@@ -2285,7 +2285,7 @@ data VideoParameters = VideoParameters
     { _vpAspectRatio        :: Maybe Text
     , _vpBitRate            :: Maybe Text
     , _vpCodec              :: Maybe Text
-    , _vpCodecOptions       :: HashMap Text Text
+    , _vpCodecOptions       :: Map Text Text
     , _vpDisplayAspectRatio :: Maybe Text
     , _vpFixedGOP           :: Maybe Text
     , _vpFrameRate          :: Maybe Text
@@ -2414,7 +2414,7 @@ vpCodec = lens _vpCodec (\s a -> s { _vpCodec = a })
 -- MaxBitRate and omit BufferSize, Elastic Transcoder sets BufferSize to 10
 -- times the value of MaxBitRate.
 vpCodecOptions :: Lens' VideoParameters (HashMap Text Text)
-vpCodecOptions = lens _vpCodecOptions (\s a -> s { _vpCodecOptions = a })
+vpCodecOptions = lens _vpCodecOptions (\s a -> s { _vpCodecOptions = a }) . _Map
 
 -- | The value that Elastic Transcoder adds to the metadata in the output
 -- file.

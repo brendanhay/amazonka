@@ -47,7 +47,7 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data SetEndpointAttributes = SetEndpointAttributes
-    { _seaAttributes  :: Map "entry" "key" "value" Text Text
+    { _seaAttributes  :: EMap "entry" "key" "value" Text Text
     , _seaEndpointArn :: Text
     } deriving (Eq, Show)
 
@@ -77,7 +77,7 @@ setEndpointAttributes p1 = SetEndpointAttributes
 -- device. This is returned from the notification service when an app and
 -- mobile device are registered with the notification service.
 seaAttributes :: Lens' SetEndpointAttributes (HashMap Text Text)
-seaAttributes = lens _seaAttributes (\s a -> s { _seaAttributes = a }) . _Map
+seaAttributes = lens _seaAttributes (\s a -> s { _seaAttributes = a }) . _EMap
 
 -- | EndpointArn used for SetEndpointAttributes action.
 seaEndpointArn :: Lens' SetEndpointAttributes Text

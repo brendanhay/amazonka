@@ -61,7 +61,7 @@ import qualified GHC.Exts
 
 data SendMessage = SendMessage
     { _smDelaySeconds      :: Maybe Int
-    , _smMessageAttributes :: Map "MessageAttribute" "Name" "Value" Text MessageAttributeValue
+    , _smMessageAttributes :: EMap "MessageAttribute" "Name" "Value" Text MessageAttributeValue
     , _smMessageBody       :: Text
     , _smQueueUrl          :: Text
     } deriving (Eq, Show)
@@ -85,7 +85,7 @@ sendMessage :: Text -- ^ 'smQueueUrl'
 sendMessage p1 p2 p3 = SendMessage
     { _smQueueUrl          = p1
     , _smMessageBody       = p2
-    , _smMessageAttributes = withIso _Map (const id) p3
+    , _smMessageAttributes = withIso _EMap (const id) p3
     , _smDelaySeconds      = Nothing
     }
 
@@ -101,7 +101,7 @@ smDelaySeconds = lens _smDelaySeconds (\s a -> s { _smDelaySeconds = a })
 smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
 smMessageAttributes =
     lens _smMessageAttributes (\s a -> s { _smMessageAttributes = a })
-        . _Map
+        . _EMap
 
 -- | The message to send. String maximum 256 KB in size. For a list of allowed
 -- characters, see the preceding important note.

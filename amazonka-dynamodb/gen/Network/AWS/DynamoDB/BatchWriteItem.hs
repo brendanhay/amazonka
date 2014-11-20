@@ -98,7 +98,7 @@ import Network.AWS.DynamoDB.Types
 import qualified GHC.Exts
 
 data BatchWriteItem = BatchWriteItem
-    { _bwiRequestItems                :: HashMap Text (List1 "RequestItems" WriteRequest)
+    { _bwiRequestItems                :: Map Text (List1 "RequestItems" WriteRequest)
     , _bwiReturnConsumedCapacity      :: Maybe Text
     , _bwiReturnItemCollectionMetrics :: Maybe Text
     } deriving (Eq, Show)
@@ -141,7 +141,7 @@ batchWriteItem = BatchWriteItem
 -- for those attributes must match those of the schema in the table's
 -- attribute definition.
 bwiRequestItems :: Lens' BatchWriteItem (HashMap Text (NonEmpty WriteRequest))
-bwiRequestItems = lens _bwiRequestItems (\s a -> s { _bwiRequestItems = a })
+bwiRequestItems = lens _bwiRequestItems (\s a -> s { _bwiRequestItems = a }) . _Map
 
 bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe Text)
 bwiReturnConsumedCapacity =
@@ -159,8 +159,8 @@ bwiReturnItemCollectionMetrics =
 
 data BatchWriteItemResponse = BatchWriteItemResponse
     { _bwirConsumedCapacity      :: List "ConsumedCapacity" ConsumedCapacity
-    , _bwirItemCollectionMetrics :: HashMap Text (List "ItemCollectionMetrics" ItemCollectionMetrics)
-    , _bwirUnprocessedItems      :: HashMap Text (List1 "RequestItems" WriteRequest)
+    , _bwirItemCollectionMetrics :: Map Text (List "ItemCollectionMetrics" ItemCollectionMetrics)
+    , _bwirUnprocessedItems      :: Map Text (List1 "RequestItems" WriteRequest)
     } deriving (Eq, Show)
 
 -- | 'BatchWriteItemResponse' constructor.
@@ -205,6 +205,7 @@ bwirItemCollectionMetrics :: Lens' BatchWriteItemResponse (HashMap Text [ItemCol
 bwirItemCollectionMetrics =
     lens _bwirItemCollectionMetrics
         (\s a -> s { _bwirItemCollectionMetrics = a })
+            . _Map
 
 -- | A map of tables and requests against those tables that were not
 -- processed. The UnprocessedItems value is in the same form as
@@ -231,6 +232,7 @@ bwirItemCollectionMetrics =
 bwirUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty WriteRequest))
 bwirUnprocessedItems =
     lens _bwirUnprocessedItems (\s a -> s { _bwirUnprocessedItems = a })
+        . _Map
 
 instance ToPath BatchWriteItem where
     toPath = const "/"

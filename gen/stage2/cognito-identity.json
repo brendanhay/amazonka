@@ -227,8 +227,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -238,7 +238,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -326,8 +326,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -337,7 +337,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -448,8 +448,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -459,7 +459,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             },
@@ -641,8 +641,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -652,7 +652,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -746,8 +746,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -757,7 +757,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -868,8 +868,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -879,7 +879,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             },
@@ -938,8 +938,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -949,7 +949,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -1035,8 +1035,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1046,7 +1046,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -1142,8 +1142,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1153,7 +1153,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             }
@@ -1357,8 +1357,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1368,7 +1368,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -1462,8 +1462,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1473,7 +1473,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -1584,8 +1584,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1595,7 +1595,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             },
@@ -1861,8 +1861,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1872,7 +1872,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens.\u003c/p\u003e \u003cp\u003eThe available provider names for \u003ccode\u003eLogins\u003c/code\u003e are as follows: \u003cul\u003e \u003cli\u003eFacebook: \u003ccode\u003egraph.facebook.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eGoogle: \u003ccode\u003eaccounts.google.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eAmazon: \u003ccode\u003ewww.amazon.com\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "path": [
@@ -1928,8 +1928,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1939,7 +1939,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens.\u003c/p\u003e \u003cp\u003eThe available provider names for \u003ccode\u003eLogins\u003c/code\u003e are as follows: \u003cul\u003e \u003cli\u003eFacebook: \u003ccode\u003egraph.facebook.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eGoogle: \u003ccode\u003eaccounts.google.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eAmazon: \u003ccode\u003ewww.amazon.com\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "fields": [
@@ -1975,8 +1975,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1986,7 +1986,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens.\u003c/p\u003e \u003cp\u003eThe available provider names for \u003ccode\u003eLogins\u003c/code\u003e are as follows: \u003cul\u003e \u003cli\u003eFacebook: \u003ccode\u003egraph.facebook.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eGoogle: \u003ccode\u003eaccounts.google.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eAmazon: \u003ccode\u003ewww.amazon.com\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             }
@@ -2153,8 +2153,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2164,7 +2164,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "path": [
@@ -2205,8 +2205,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2216,7 +2216,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "fields": [
@@ -2237,8 +2237,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2248,7 +2248,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             }
@@ -2430,8 +2430,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2441,7 +2441,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax \u003ccode\u003e\"developer_provider_name\": \"developer_user_identifier\"\u003c/code\u003e. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -2512,8 +2512,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2523,7 +2523,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax \u003ccode\u003e\"developer_provider_name\": \"developer_user_identifier\"\u003c/code\u003e. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -2574,8 +2574,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2585,7 +2585,7 @@
                         "locationName": "Logins",
                         "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax \u003ccode\u003e\"developer_provider_name\": \"developer_user_identifier\"\u003c/code\u003e. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4308,8 +4308,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4319,7 +4319,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4375,8 +4375,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4386,7 +4386,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4422,8 +4422,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4433,7 +4433,7 @@
                         "locationName": "Logins",
                         "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4513,8 +4513,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4524,7 +4524,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4618,8 +4618,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4629,7 +4629,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4740,8 +4740,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4751,7 +4751,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             },
@@ -4825,8 +4825,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4836,7 +4836,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4937,8 +4937,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4948,7 +4948,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -5059,8 +5059,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -5070,7 +5070,7 @@
                         "locationName": "SupportedLoginProviders",
                         "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             }

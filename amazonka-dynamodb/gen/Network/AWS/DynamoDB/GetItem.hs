@@ -60,8 +60,8 @@ import qualified GHC.Exts
 data GetItem = GetItem
     { _giAttributesToGet          :: List1 "AttributesToGet" Text
     , _giConsistentRead           :: Maybe Bool
-    , _giExpressionAttributeNames :: HashMap Text Text
-    , _giKey                      :: HashMap Text AttributeValue
+    , _giExpressionAttributeNames :: Map Text Text
+    , _giKey                      :: Map Text AttributeValue
     , _giProjectionExpression     :: Maybe Text
     , _giReturnConsumedCapacity   :: Maybe Text
     , _giTableName                :: Text
@@ -135,6 +135,7 @@ giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
 giExpressionAttributeNames =
     lens _giExpressionAttributeNames
         (\s a -> s { _giExpressionAttributeNames = a })
+            . _Map
 
 -- | A map of attribute names to AttributeValue objects, representing the
 -- primary key of the item to retrieve. For the primary key, you must
@@ -143,7 +144,7 @@ giExpressionAttributeNames =
 -- primary key, you must specify both the hash attribute and the range
 -- attribute.
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
-giKey = lens _giKey (\s a -> s { _giKey = a })
+giKey = lens _giKey (\s a -> s { _giKey = a }) . _Map
 
 -- | One or more attributes to retrieve from the table. These attributes can
 -- include scalars, sets, or elements of a JSON document. The attributes in
@@ -165,7 +166,7 @@ giTableName = lens _giTableName (\s a -> s { _giTableName = a })
 
 data GetItemResponse = GetItemResponse
     { _girConsumedCapacity :: Maybe ConsumedCapacity
-    , _girItem             :: HashMap Text AttributeValue
+    , _girItem             :: Map Text AttributeValue
     } deriving (Eq, Show)
 
 -- | 'GetItemResponse' constructor.
@@ -189,7 +190,7 @@ girConsumedCapacity =
 -- | A map of attribute names to AttributeValue objects, as specified by
 -- AttributesToGet.
 girItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
-girItem = lens _girItem (\s a -> s { _girItem = a })
+girItem = lens _girItem (\s a -> s { _girItem = a }) . _Map
 
 instance ToPath GetItem where
     toPath = const "/"

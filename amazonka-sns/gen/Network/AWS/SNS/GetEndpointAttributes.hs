@@ -68,7 +68,7 @@ geaEndpointArn :: Lens' GetEndpointAttributes Text
 geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
-    { _gearAttributes :: Map "entry" "key" "value" Text Text
+    { _gearAttributes :: EMap "entry" "key" "value" Text Text
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetEndpointAttributesResponse' constructor.
@@ -93,7 +93,7 @@ getEndpointAttributesResponse = GetEndpointAttributesResponse
 -- service when an app and mobile device are registered with the
 -- notification service.
 gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
-gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a }) . _Map
+gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a }) . _EMap
 
 instance ToPath GetEndpointAttributes where
     toPath = const "/"

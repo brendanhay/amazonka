@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data GetId = GetId
     { _giAccountId      :: Text
     , _giIdentityPoolId :: Text
-    , _giLogins         :: HashMap Text Text
+    , _giLogins         :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'GetId' constructor.
@@ -85,7 +85,7 @@ giIdentityPoolId = lens _giIdentityPoolId (\s a -> s { _giIdentityPoolId = a })
 -- tokens. The available provider names for Logins are as follows: Facebook:
 -- graph.facebook.com Google: accounts.google.com Amazon: www.amazon.com.
 giLogins :: Lens' GetId (HashMap Text Text)
-giLogins = lens _giLogins (\s a -> s { _giLogins = a })
+giLogins = lens _giLogins (\s a -> s { _giLogins = a }) . _Map
 
 newtype GetIdResponse = GetIdResponse
     { _girIdentityId :: Maybe Text

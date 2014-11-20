@@ -60,7 +60,7 @@ import qualified GHC.Exts
 
 data Publish = Publish
     { _pMessage           :: Text
-    , _pMessageAttributes :: Map "entry" "Name" "Value" Text MessageAttributeValue
+    , _pMessageAttributes :: EMap "entry" "Name" "Value" Text MessageAttributeValue
     , _pMessageStructure  :: Maybe Text
     , _pSubject           :: Maybe Text
     , _pTargetArn         :: Maybe Text
@@ -120,7 +120,7 @@ pMessage = lens _pMessage (\s a -> s { _pMessage = a })
 pMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
 pMessageAttributes =
     lens _pMessageAttributes (\s a -> s { _pMessageAttributes = a })
-        . _Map
+        . _EMap
 
 -- | Set MessageStructure to json if you want to send a different message for
 -- each protocol. For example, using one publish action, you can send a

@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data UpdateApp = UpdateApp
     { _uaAppId            :: Text
     , _uaAppSource        :: Maybe Source
-    , _uaAttributes       :: HashMap Text Text
+    , _uaAttributes       :: Map Text Text
     , _uaDataSources      :: List "DataSources" DataSource
     , _uaDescription      :: Maybe Text
     , _uaDomains          :: List "InstanceIds" Text
@@ -118,7 +118,7 @@ uaAppSource = lens _uaAppSource (\s a -> s { _uaAppSource = a })
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 uaAttributes :: Lens' UpdateApp (HashMap Text Text)
-uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a })
+uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a }) . _Map
 
 -- | The app's data sources.
 uaDataSources :: Lens' UpdateApp [DataSource]

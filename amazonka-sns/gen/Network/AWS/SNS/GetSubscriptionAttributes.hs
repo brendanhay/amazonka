@@ -67,7 +67,7 @@ gsaSubscriptionArn =
     lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
-    { _gsarAttributes :: Map "entry" "key" "value" Text Text
+    { _gsarAttributes :: EMap "entry" "key" "value" Text Text
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetSubscriptionAttributesResponse' constructor.
@@ -91,7 +91,7 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 -- delivery policy that takes into account the topic delivery policy and
 -- account system defaults.
 gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
-gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a }) . _Map
+gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a }) . _EMap
 
 instance ToPath GetSubscriptionAttributes where
     toPath = const "/"

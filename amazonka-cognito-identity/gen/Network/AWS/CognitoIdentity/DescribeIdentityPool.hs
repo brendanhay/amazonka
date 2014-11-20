@@ -78,7 +78,7 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
     , _diprIdentityPoolId                 :: Text
     , _diprIdentityPoolName               :: Text
     , _diprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
-    , _diprSupportedLoginProviders        :: HashMap Text Text
+    , _diprSupportedLoginProviders        :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'DescribeIdentityPoolResponse' constructor.
@@ -143,6 +143,7 @@ diprSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (HashMap Text 
 diprSupportedLoginProviders =
     lens _diprSupportedLoginProviders
         (\s a -> s { _diprSupportedLoginProviders = a })
+            . _Map
 
 instance ToPath DescribeIdentityPool where
     toPath = const "/"

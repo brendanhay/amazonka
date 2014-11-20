@@ -71,7 +71,7 @@ data AddEventSource = AddEventSource
     { _aesBatchSize    :: Maybe Int
     , _aesEventSource  :: Text
     , _aesFunctionName :: Text
-    , _aesParameters   :: HashMap Text Text
+    , _aesParameters   :: Map Text Text
     , _aesRole         :: Text
     } deriving (Eq, Show)
 
@@ -124,7 +124,7 @@ aesFunctionName = lens _aesFunctionName (\s a -> s { _aesFunctionName = a })
 -- "LATEST". The default value is "TRIM_HORIZON". For more information, go
 -- to ShardIteratorType in the Amazon Kinesis Service API Reference.
 aesParameters :: Lens' AddEventSource (HashMap Text Text)
-aesParameters = lens _aesParameters (\s a -> s { _aesParameters = a })
+aesParameters = lens _aesParameters (\s a -> s { _aesParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to
 -- read from the stream and invoke the function.
@@ -137,7 +137,7 @@ data AddEventSourceResponse = AddEventSourceResponse
     , _aesrFunctionName :: Maybe Text
     , _aesrIsActive     :: Maybe Bool
     , _aesrLastModified :: Maybe RFC822
-    , _aesrParameters   :: HashMap Text Text
+    , _aesrParameters   :: Map Text Text
     , _aesrRole         :: Maybe Text
     , _aesrStatus       :: Maybe Text
     , _aesrUUID         :: Maybe Text
@@ -206,7 +206,7 @@ aesrLastModified = lens _aesrLastModified (\s a -> s { _aesrLastModified = a }) 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to
 -- use when reading the event source.
 aesrParameters :: Lens' AddEventSourceResponse (HashMap Text Text)
-aesrParameters = lens _aesrParameters (\s a -> s { _aesrParameters = a })
+aesrParameters = lens _aesrParameters (\s a -> s { _aesrParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to
 -- read from the stream and invoke the function.

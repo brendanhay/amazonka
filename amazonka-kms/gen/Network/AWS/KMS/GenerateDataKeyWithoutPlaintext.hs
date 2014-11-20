@@ -52,7 +52,7 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext
-    { _gdkwpEncryptionContext :: HashMap Text Text
+    { _gdkwpEncryptionContext :: Map Text Text
     , _gdkwpGrantTokens       :: List "GrantTokens" Text
     , _gdkwpKeyId             :: Text
     , _gdkwpKeySpec           :: Maybe Text
@@ -88,6 +88,7 @@ generateDataKeyWithoutPlaintext p1 = GenerateDataKeyWithoutPlaintext
 gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (HashMap Text Text)
 gdkwpEncryptionContext =
     lens _gdkwpEncryptionContext (\s a -> s { _gdkwpEncryptionContext = a })
+        . _Map
 
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to generate a key.

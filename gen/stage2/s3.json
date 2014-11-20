@@ -9206,8 +9206,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9217,7 +9217,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -9718,8 +9718,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -9729,7 +9729,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -10939,8 +10939,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -10950,7 +10950,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -11256,8 +11256,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -11267,7 +11267,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -15639,8 +15639,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15650,7 +15650,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -15896,8 +15896,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -15907,7 +15907,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -17729,8 +17729,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -17740,7 +17740,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -17971,8 +17971,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -17982,7 +17982,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -25111,8 +25111,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -25122,7 +25122,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -25473,8 +25473,8 @@
                     },
                     {
                         "location": "headers",
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -25484,7 +25484,7 @@
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
                         "typeExposed": "HashMap (CI Text) Text",
-                        "type": "HashMap (CI Text) Text"
+                        "type": "Map (CI Text) Text"
                     },
                     {
                         "location": "header",

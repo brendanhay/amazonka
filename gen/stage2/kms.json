@@ -465,8 +465,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -476,12 +476,12 @@
                         "locationName": "EncryptionContextSubset",
                         "documentation": "The constraint equals the full encryption context.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -491,7 +491,7 @@
                         "locationName": "EncryptionContextEquals",
                         "documentation": "The constraint contains additional key/value pairs that serve to further limit the grant.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "payload": null,
@@ -503,8 +503,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -514,12 +514,12 @@
                         "locationName": "EncryptionContextSubset",
                         "documentation": "The constraint equals the full encryption context.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -529,14 +529,14 @@
                         "locationName": "EncryptionContextEquals",
                         "documentation": "The constraint contains additional key/value pairs that serve to further limit the grant.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -546,12 +546,12 @@
                         "locationName": "EncryptionContextEquals",
                         "documentation": "The constraint contains additional key/value pairs that serve to further limit the grant.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -561,7 +561,7 @@
                         "locationName": "EncryptionContextSubset",
                         "documentation": "The constraint equals the full encryption context.",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             },
@@ -2198,8 +2198,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2209,7 +2209,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eThe encryption context. If this was specified in the \u003ca\u003eEncrypt\u003c/a\u003e function, it must be specified here or the decryption operation will fail. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html\"\u003eEncryption Context\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -2265,8 +2265,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2276,7 +2276,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eThe encryption context. If this was specified in the \u003ca\u003eEncrypt\u003c/a\u003e function, it must be specified here or the decryption operation will fail. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html\"\u003eEncryption Context\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -2312,8 +2312,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -2323,7 +2323,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eThe encryption context. If this was specified in the \u003ca\u003eEncrypt\u003c/a\u003e function, it must be specified here or the decryption operation will fail. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html\"\u003eEncryption Context\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -3419,8 +3419,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3430,7 +3430,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that specifies the encryption context to be used for authenticated encryption. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html\"\u003eAuthenticated Encryption\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -3501,8 +3501,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3512,7 +3512,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that specifies the encryption context to be used for authenticated encryption. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html\"\u003eAuthenticated Encryption\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -3533,8 +3533,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3544,7 +3544,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that specifies the encryption context to be used for authenticated encryption. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html\"\u003eAuthenticated Encryption\u003c/a\u003e. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -3800,8 +3800,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3811,7 +3811,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName/value pair that contains additional data to be authenticated during the encryption and decryption processes that use the key. This value is logged by AWS CloudTrail to provide context around the data encrypted by the key. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -3897,8 +3897,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3908,7 +3908,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName/value pair that contains additional data to be authenticated during the encryption and decryption processes that use the key. This value is logged by AWS CloudTrail to provide context around the data encrypted by the key. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -3959,8 +3959,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3970,7 +3970,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName/value pair that contains additional data to be authenticated during the encryption and decryption processes that use the key. This value is logged by AWS CloudTrail to provide context around the data encrypted by the key. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4196,8 +4196,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4207,7 +4207,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that contains additional data to be authenticated during the encryption and decryption processes. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4293,8 +4293,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4304,7 +4304,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that contains additional data to be authenticated during the encryption and decryption processes. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -4355,8 +4355,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -4366,7 +4366,7 @@
                         "locationName": "EncryptionContext",
                         "documentation": "\u003cp\u003eName:value pair that contains additional data to be authenticated during the encryption and decryption processes. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -6808,8 +6808,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6819,7 +6819,7 @@
                         "locationName": "SourceEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context used to encrypt and decrypt the data specified in the \u003ccode\u003eCiphertextBlob\u003c/code\u003e parameter. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -6838,8 +6838,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6849,7 +6849,7 @@
                         "locationName": "DestinationEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context to be used when the data is re-encrypted.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -6920,8 +6920,8 @@
                 "optional": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6931,12 +6931,12 @@
                         "locationName": "SourceEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context used to encrypt and decrypt the data specified in the \u003ccode\u003eCiphertextBlob\u003c/code\u003e parameter. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6946,7 +6946,7 @@
                         "locationName": "DestinationEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context to be used when the data is re-encrypted.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -6982,8 +6982,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -6993,7 +6993,7 @@
                         "locationName": "DestinationEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context to be used when the data is re-encrypted.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -7027,8 +7027,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -7038,7 +7038,7 @@
                         "locationName": "SourceEncryptionContext",
                         "documentation": "\u003cp\u003eEncryption context used to encrypt and decrypt the data specified in the \u003ccode\u003eCiphertextBlob\u003c/code\u003e parameter. \u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             }

@@ -321,7 +321,7 @@ data EventSourceConfiguration = EventSourceConfiguration
     , _escFunctionName :: Maybe Text
     , _escIsActive     :: Maybe Bool
     , _escLastModified :: Maybe RFC822
-    , _escParameters   :: HashMap Text Text
+    , _escParameters   :: Map Text Text
     , _escRole         :: Maybe Text
     , _escStatus       :: Maybe Text
     , _escUUID         :: Maybe Text
@@ -390,7 +390,7 @@ escLastModified = lens _escLastModified (\s a -> s { _escLastModified = a }) . m
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to
 -- use when reading the event source.
 escParameters :: Lens' EventSourceConfiguration (HashMap Text Text)
-escParameters = lens _escParameters (\s a -> s { _escParameters = a })
+escParameters = lens _escParameters (\s a -> s { _escParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to
 -- read from the stream and invoke the function.

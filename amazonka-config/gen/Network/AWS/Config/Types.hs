@@ -486,7 +486,7 @@ data ConfigurationItem = ConfigurationItem
     , _ciResourceCreationTime         :: Maybe RFC822
     , _ciResourceId                   :: Maybe Text
     , _ciResourceType                 :: Maybe Text
-    , _ciTags                         :: HashMap Text Text
+    , _ciTags                         :: Map Text Text
     , _ciVersion                      :: Maybe Text
     } deriving (Eq, Show)
 
@@ -615,7 +615,7 @@ ciResourceType = lens _ciResourceType (\s a -> s { _ciResourceType = a })
 
 -- | A mapping of key value tags associated with the resource.
 ciTags :: Lens' ConfigurationItem (HashMap Text Text)
-ciTags = lens _ciTags (\s a -> s { _ciTags = a })
+ciTags = lens _ciTags (\s a -> s { _ciTags = a }) . _Map
 
 -- | The version number of the resource configuration.
 ciVersion :: Lens' ConfigurationItem (Maybe Text)

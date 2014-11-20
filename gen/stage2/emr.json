@@ -1746,8 +1746,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1757,7 +1757,7 @@
                         "locationName": "AdditionalInfo",
                         "documentation": "\u003cp\u003eThis option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "payload": null,
@@ -1814,8 +1814,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1825,14 +1825,14 @@
                         "locationName": "AdditionalInfo",
                         "documentation": "\u003cp\u003eThis option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -1842,7 +1842,7 @@
                         "locationName": "AdditionalInfo",
                         "documentation": "\u003cp\u003eThis option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -3363,8 +3363,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3374,7 +3374,7 @@
                         "locationName": "Properties",
                         "documentation": "\u003cp\u003eThe list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -3431,8 +3431,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3442,7 +3442,7 @@
                         "locationName": "Properties",
                         "documentation": "\u003cp\u003eThe list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     },
                     {
                         "location": null,
@@ -3523,8 +3523,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -3534,7 +3534,7 @@
                         "locationName": "Properties",
                         "documentation": "\u003cp\u003eThe list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             },

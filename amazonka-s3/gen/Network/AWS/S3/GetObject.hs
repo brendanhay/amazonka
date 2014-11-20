@@ -281,7 +281,7 @@ data GetObjectResponse = GetObjectResponse
     , _gorExpiration              :: Maybe RFC822
     , _gorExpires                 :: Maybe RFC822
     , _gorLastModified            :: Maybe RFC822
-    , _gorMetadata                :: HashMap (CI Text) Text
+    , _gorMetadata                :: Map (CI Text) Text
     , _gorMissingMeta             :: Maybe Int
     , _gorRestore                 :: Maybe Text
     , _gorSSECustomerAlgorithm    :: Maybe Text
@@ -431,7 +431,7 @@ gorLastModified = lens _gorLastModified (\s a -> s { _gorLastModified = a }) . m
 
 -- | A map of metadata to store with the object in S3.
 gorMetadata :: Lens' GetObjectResponse (HashMap (CI Text) Text)
-gorMetadata = lens _gorMetadata (\s a -> s { _gorMetadata = a })
+gorMetadata = lens _gorMetadata (\s a -> s { _gorMetadata = a }) . _Map
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
 -- headers. This can happen if you create metadata using an API like SOAP

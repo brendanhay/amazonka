@@ -169,7 +169,7 @@ instance ToJSON MetricFilter where
 data MetricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventMessage    :: Maybe Text
     , _mfmrEventNumber     :: Maybe Integer
-    , _mfmrExtractedValues :: HashMap Text Text
+    , _mfmrExtractedValues :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'MetricFilterMatchRecord' constructor.
@@ -198,6 +198,7 @@ mfmrEventNumber = lens _mfmrEventNumber (\s a -> s { _mfmrEventNumber = a })
 mfmrExtractedValues :: Lens' MetricFilterMatchRecord (HashMap Text Text)
 mfmrExtractedValues =
     lens _mfmrExtractedValues (\s a -> s { _mfmrExtractedValues = a })
+        . _Map
 
 instance FromJSON MetricFilterMatchRecord where
     parseJSON = withObject "MetricFilterMatchRecord" $ \o -> MetricFilterMatchRecord

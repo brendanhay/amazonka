@@ -53,7 +53,7 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 data GenerateDataKey = GenerateDataKey
-    { _gdkEncryptionContext :: HashMap Text Text
+    { _gdkEncryptionContext :: Map Text Text
     , _gdkGrantTokens       :: List "GrantTokens" Text
     , _gdkKeyId             :: Text
     , _gdkKeySpec           :: Maybe Text
@@ -91,6 +91,7 @@ generateDataKey p1 = GenerateDataKey
 gdkEncryptionContext :: Lens' GenerateDataKey (HashMap Text Text)
 gdkEncryptionContext =
     lens _gdkEncryptionContext (\s a -> s { _gdkEncryptionContext = a })
+        . _Map
 
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to generate a key.

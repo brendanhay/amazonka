@@ -304,8 +304,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -315,7 +315,7 @@
                         "locationName": "extractedValues",
                         "documentation": null,
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "payload": null,
@@ -357,8 +357,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -368,7 +368,7 @@
                         "locationName": "extractedValues",
                         "documentation": null,
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ],
                 "fields": [
@@ -404,8 +404,8 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -415,7 +415,7 @@
                         "locationName": "extractedValues",
                         "documentation": null,
                         "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "type": "Map Text Text"
                     }
                 ]
             },

@@ -8636,8 +8636,8 @@
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
-                    "iso": "_Map",
-                    "lensMapping": "_Map",
+                    "iso": "_EMap",
+                    "lensMapping": "_EMap",
                     "default": "mempty",
                     "flattened": false,
                     "required": true,
@@ -8647,7 +8647,7 @@
                     "locationName": "DomainNames",
                     "documentation": "\u003cp\u003eThe names of the search domains owned by an account.\u003c/p\u003e",
                     "typeExposed": "HashMap Text Text",
-                    "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                    "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8665,8 +8665,8 @@
                 "optional": [
                     {
                         "location": "querystring",
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8676,14 +8676,14 @@
                         "locationName": "DomainNames",
                         "documentation": "\u003cp\u003eThe names of the search domains owned by an account.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": "_Map",
-                        "lensMapping": "_Map",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
                         "default": "mempty",
                         "flattened": false,
                         "required": true,
@@ -8693,7 +8693,7 @@
                         "locationName": "DomainNames",
                         "documentation": "\u003cp\u003eThe names of the search domains owned by an account.\u003c/p\u003e",
                         "typeExposed": "HashMap Text Text",
-                        "type": "Map \"entry\" \"key\" \"value\" Text Text"
+                        "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     }
                 ]
             },

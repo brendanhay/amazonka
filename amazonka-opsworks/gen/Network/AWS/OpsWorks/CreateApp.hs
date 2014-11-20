@@ -61,7 +61,7 @@ import qualified GHC.Exts
 
 data CreateApp = CreateApp
     { _caAppSource        :: Maybe Source
-    , _caAttributes       :: HashMap Text Text
+    , _caAttributes       :: Map Text Text
     , _caDataSources      :: List "DataSources" DataSource
     , _caDescription      :: Maybe Text
     , _caDomains          :: List "InstanceIds" Text
@@ -124,7 +124,7 @@ caAppSource = lens _caAppSource (\s a -> s { _caAppSource = a })
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
 caAttributes :: Lens' CreateApp (HashMap Text Text)
-caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a })
+caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a }) . _Map
 
 -- | The app's data source.
 caDataSources :: Lens' CreateApp [DataSource]

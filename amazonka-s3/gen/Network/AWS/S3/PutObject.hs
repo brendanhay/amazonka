@@ -91,7 +91,7 @@ data PutObject = PutObject
     , _poGrantReadACP            :: Maybe Text
     , _poGrantWriteACP           :: Maybe Text
     , _poKey                     :: Text
-    , _poMetadata                :: HashMap (CI Text) Text
+    , _poMetadata                :: Map (CI Text) Text
     , _poSSECustomerAlgorithm    :: Maybe Text
     , _poSSECustomerKey          :: Maybe (Sensitive Text)
     , _poSSECustomerKeyMD5       :: Maybe Text
@@ -255,7 +255,7 @@ poKey = lens _poKey (\s a -> s { _poKey = a })
 
 -- | A map of metadata to store with the object in S3.
 poMetadata :: Lens' PutObject (HashMap (CI Text) Text)
-poMetadata = lens _poMetadata (\s a -> s { _poMetadata = a })
+poMetadata = lens _poMetadata (\s a -> s { _poMetadata = a }) . _Map
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256, aws:kms).

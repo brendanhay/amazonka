@@ -116,5 +116,3 @@ instance AWSRequest GetObjectTorrent where
 
     request  = get
     response = bodyResponse . const $ \b -> GetObjectTorrentResponse
-{"location":null,"iso":null,"lensMapping":null,"default":"<error>","flattened":false,"required":true,"lens":"gotrBody","name":"_gotrBody","shape":"Body","locationName":"Body","documentation":null,"typeExposed":"RsBody","type":"RsBody"}
-{"location":null,"iso":null,"lensMapping":null,"default":"<error>","flattened":false,"required":true,"lens":"gotrBody","name":"_gotrBody","shape":"Body","locationName":"Body","documentation":null,"typeExposed":"RsBody","type":"RsBody"}

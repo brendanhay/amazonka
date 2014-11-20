@@ -161,5 +161,3 @@ instance FromJSON DescribeTapeRecoveryPointsResponse where
         <*> o .:  "TapeRecoveryPointInfos"
 
 instance AWSPager DescribeTapeRecoveryPoints where
-    next rq rs = (\x -> rq & dtrpMarker ?~ x)
-        <$> (rs ^. dtrprMarker)

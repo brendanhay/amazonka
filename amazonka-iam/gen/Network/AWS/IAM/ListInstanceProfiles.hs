@@ -165,7 +165,7 @@ instance FromXML ListInstanceProfilesResponse where
         <*> x .@? "Marker"
 
 instance AWSPager ListInstanceProfiles where
-    next rq rs
+    page rq rs
         | stop (rs ^. liprIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lipMarker .~ rs ^. liprMarker

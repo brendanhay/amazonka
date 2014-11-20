@@ -142,7 +142,7 @@ instance FromXML ListInvalidationsResponse where
         <$> x .@  "InvalidationList"
 
 instance AWSPager ListInvalidations where
-    next rq rs
+    page rq rs
         | stop (rs ^. lirInvalidationList . ilIsTruncated) = Nothing
         | otherwise = Just $ rq
             & liMarker .~ rs ^. lirInvalidationList . ilNextMarker

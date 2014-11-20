@@ -148,5 +148,3 @@ instance FromXML DescribeAutoScalingInstancesResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeAutoScalingInstances where
-    next rq rs = (\x -> rq & dasiNextToken ?~ x)
-        <$> (rs ^. dasirNextToken)

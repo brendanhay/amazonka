@@ -173,5 +173,3 @@ instance FromXML DescribeClusterParametersResponse where
         <*> x .@  "Parameters"
 
 instance AWSPager DescribeClusterParameters where
-    next rq rs = (\x -> rq & dcp1Marker ?~ x)
-        <$> (rs ^. dcprMarker)

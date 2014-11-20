@@ -173,5 +173,3 @@ instance FromXML DescribeSnapshotsResponse where
         <*> x .@  "Snapshots"
 
 instance AWSPager DescribeSnapshots where
-    next rq rs = (\x -> rq & dsMarker ?~ x)
-        <$> (rs ^. dsrMarker)

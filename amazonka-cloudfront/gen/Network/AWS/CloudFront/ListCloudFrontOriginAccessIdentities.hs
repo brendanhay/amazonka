@@ -128,7 +128,7 @@ instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
         <$> x .@  "CloudFrontOriginAccessIdentityList"
 
 instance AWSPager ListCloudFrontOriginAccessIdentities where
-    next rq rs
+    page rq rs
         | stop (rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lcfoaiMarker .~ rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker

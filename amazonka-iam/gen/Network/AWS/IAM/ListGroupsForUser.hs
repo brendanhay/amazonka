@@ -155,7 +155,7 @@ instance FromXML ListGroupsForUserResponse where
         <*> x .@? "Marker"
 
 instance AWSPager ListGroupsForUser where
-    next rq rs
+    page rq rs
         | stop (rs ^. lgfurIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lgfuMarker .~ rs ^. lgfurMarker

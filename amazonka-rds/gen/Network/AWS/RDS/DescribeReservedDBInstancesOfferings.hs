@@ -220,5 +220,3 @@ instance FromXML DescribeReservedDBInstancesOfferingsResponse where
         <*> x .@  "ReservedDBInstancesOfferings"
 
 instance AWSPager DescribeReservedDBInstancesOfferings where
-    next rq rs = (\x -> rq & drdbioMarker ?~ x)
-        <$> (rs ^. drdbiorMarker)

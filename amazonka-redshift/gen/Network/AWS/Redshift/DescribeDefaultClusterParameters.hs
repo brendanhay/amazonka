@@ -140,5 +140,3 @@ instance FromXML DescribeDefaultClusterParametersResponse where
         <$> x .@? "DefaultClusterParameters"
 
 instance AWSPager DescribeDefaultClusterParameters where
-    next rq rs = (\x -> rq & ddcpMarker ?~ x)
-        <$> (rs ^. ddcprDefaultClusterParameters . dcpMarker)

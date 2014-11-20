@@ -136,5 +136,3 @@ instance FromXML ListStackResourcesResponse where
         <*> x .@  "StackResourceSummaries"
 
 instance AWSPager ListStackResources where
-    next rq rs = (\x -> rq & lsrNextToken ?~ x)
-        <$> (rs ^. lsrrNextToken)

@@ -159,7 +159,7 @@ instance FromXML ListMFADevicesResponse where
         <*> x .@? "Marker"
 
 instance AWSPager ListMFADevices where
-    next rq rs
+    page rq rs
         | stop (rs ^. lmfadrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lmfadMarker .~ rs ^. lmfadrMarker

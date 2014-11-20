@@ -180,5 +180,3 @@ instance FromXML DescribeOptionGroupsResponse where
         <*> x .@  "OptionGroupsList"
 
 instance AWSPager DescribeOptionGroups where
-    next rq rs = (\x -> rq & dogMarker ?~ x)
-        <$> (rs ^. dogrMarker)

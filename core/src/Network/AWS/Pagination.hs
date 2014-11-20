@@ -16,6 +16,12 @@ import Control.Applicative
 import Control.Lens
 import Data.Text           (Text)
 import Network.AWS.Data
+import Network.AWS.Types
+
+-- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
+-- a subsequent request, if available.
+class AWSRequest a => AWSPager a where
+    page :: a -> Rs a -> Maybe a
 
 -- | Generalise IsTruncated and other optional/required
 -- response pagination fields.
@@ -31,6 +37,13 @@ instance AWSMore a => AWSMore (Maybe a) where
 
 stop :: AWSMore a => a -> Bool
 stop = not . more
+
+-- class AWSNext a where
+--     type Next a
+
+--     next :: a -> Next a
+
+-- instance AWSNext a => AWSNext (Maybe a) where
 
 index :: ToText c => Getter a [b] -> Getter b c -> Getter a (Maybe Text)
 index f g = f . to lastMay . to (fmap (toText . view g))

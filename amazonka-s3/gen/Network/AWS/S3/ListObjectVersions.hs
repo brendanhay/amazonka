@@ -302,7 +302,7 @@ instance FromXML ListObjectVersionsResponse where
         <*> parseXML x
 
 instance AWSPager ListObjectVersions where
-    next rq rs
+    page rq rs
         | stop (rs ^. lovrIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 = Nothing
         | otherwise = Just $ rq

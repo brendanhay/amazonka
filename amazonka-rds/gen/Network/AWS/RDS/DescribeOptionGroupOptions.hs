@@ -167,5 +167,3 @@ instance FromXML DescribeOptionGroupOptionsResponse where
         <*> x .@  "OptionGroupOptions"
 
 instance AWSPager DescribeOptionGroupOptions where
-    next rq rs = (\x -> rq & dogoMarker ?~ x)
-        <$> (rs ^. dogorMarker)

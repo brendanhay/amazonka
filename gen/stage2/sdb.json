@@ -2172,6 +2172,7 @@
             "pager": {
                 "token": {
                     "input": "ldNextToken",
+                    "required": false,
                     "output": "ldrNextToken"
                 },
                 "type": "next",
@@ -2606,6 +2607,7 @@
             "pager": {
                 "token": {
                     "input": "sNextToken",
+                    "required": false,
                     "output": "srNextToken"
                 },
                 "type": "next",

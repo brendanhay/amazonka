@@ -7204,6 +7204,7 @@
             "pager": {
                 "token": {
                     "input": "ltExclusiveStartTableName",
+                    "required": false,
                     "output": "ltrLastEvaluatedTableName"
                 },
                 "type": "next",
@@ -8273,6 +8274,7 @@
             "pager": {
                 "token": {
                     "input": "qExclusiveStartKey",
+                    "required": false,
                     "output": "qrLastEvaluatedKey"
                 },
                 "type": "next",
@@ -9306,6 +9308,7 @@
             "pager": {
                 "token": {
                     "input": "sExclusiveStartKey",
+                    "required": false,
                     "output": "srLastEvaluatedKey"
                 },
                 "type": "next",

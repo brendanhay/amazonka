@@ -172,5 +172,3 @@ instance FromJSON DescribeCommunicationsResponse where
         <*> o .:? "nextToken"
 
 instance AWSPager DescribeCommunications where
-    next rq rs = (\x -> rq & dc1NextToken ?~ x)
-        <$> (rs ^. dcrNextToken)

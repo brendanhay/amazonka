@@ -153,5 +153,3 @@ instance FromXML SelectResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager Select where
-    next rq rs = (\x -> rq & sNextToken ?~ x)
-        <$> (rs ^. srNextToken)

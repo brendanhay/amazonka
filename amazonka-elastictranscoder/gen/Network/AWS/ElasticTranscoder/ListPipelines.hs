@@ -135,5 +135,3 @@ instance FromJSON ListPipelinesResponse where
         <*> o .:  "Pipelines"
 
 instance AWSPager ListPipelines where
-    next rq rs = (\x -> rq & lpPageToken ?~ x)
-        <$> (rs ^. lprNextPageToken)

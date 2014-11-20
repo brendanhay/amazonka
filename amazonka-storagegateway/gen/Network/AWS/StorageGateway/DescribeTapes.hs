@@ -158,5 +158,3 @@ instance FromJSON DescribeTapesResponse where
         <*> o .:  "Tapes"
 
 instance AWSPager DescribeTapes where
-    next rq rs = (\x -> rq & dtMarker ?~ x)
-        <$> (rs ^. dtrMarker)

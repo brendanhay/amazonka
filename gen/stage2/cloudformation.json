@@ -3534,6 +3534,7 @@
             "pager": {
                 "token": {
                     "input": "dseNextToken",
+                    "required": false,
                     "output": "dserNextToken"
                 },
                 "type": "next",
@@ -4180,6 +4181,7 @@
             "pager": {
                 "token": {
                     "input": "ds1NextToken",
+                    "required": false,
                     "output": "dsrNextToken"
                 },
                 "type": "next",
@@ -5326,6 +5328,7 @@
             "pager": {
                 "token": {
                     "input": "lsrNextToken",
+                    "required": false,
                     "output": "lsrrNextToken"
                 },
                 "type": "next",
@@ -5544,6 +5547,7 @@
             "pager": {
                 "token": {
                     "input": "lsNextToken",
+                    "required": false,
                     "output": "lsr1NextToken"
                 },
                 "type": "next",

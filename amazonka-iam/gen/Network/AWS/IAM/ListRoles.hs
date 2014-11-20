@@ -162,7 +162,7 @@ instance FromXML ListRolesResponse where
         <*> x .@  "Roles"
 
 instance AWSPager ListRoles where
-    next rq rs
+    page rq rs
         | stop (rs ^. lrrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lrMarker .~ rs ^. lrrMarker

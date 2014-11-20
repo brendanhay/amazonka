@@ -170,5 +170,3 @@ instance FromXML DescribeCacheParametersResponse where
         <*> x .@  "Parameters"
 
 instance AWSPager DescribeCacheParameters where
-    next rq rs = (\x -> rq & dcpMarker ?~ x)
-        <$> (rs ^. dcprMarker)

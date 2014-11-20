@@ -139,5 +139,3 @@ instance FromJSON ListStepsResponse where
         <*> o .:  "Steps"
 
 instance AWSPager ListSteps where
-    next rq rs = (\x -> rq & lsMarker ?~ x)
-        <$> (rs ^. lsrMarker)

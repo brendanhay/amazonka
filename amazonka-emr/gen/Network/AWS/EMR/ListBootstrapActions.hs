@@ -131,5 +131,3 @@ instance FromJSON ListBootstrapActionsResponse where
         <*> o .:? "Marker"
 
 instance AWSPager ListBootstrapActions where
-    next rq rs = (\x -> rq & lbaMarker ?~ x)
-        <$> (rs ^. lbarMarker)

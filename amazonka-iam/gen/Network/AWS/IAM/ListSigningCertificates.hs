@@ -165,7 +165,7 @@ instance FromXML ListSigningCertificatesResponse where
         <*> x .@? "Marker"
 
 instance AWSPager ListSigningCertificates where
-    next rq rs
+    page rq rs
         | stop (rs ^. lscr1IsTruncated) = Nothing
         | otherwise = Just $ rq
             & lsc1Marker .~ rs ^. lscr1Marker

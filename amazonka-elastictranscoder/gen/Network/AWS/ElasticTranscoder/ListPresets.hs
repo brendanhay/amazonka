@@ -136,5 +136,3 @@ instance FromJSON ListPresetsResponse where
         <*> o .:  "Presets"
 
 instance AWSPager ListPresets where
-    next rq rs = (\x -> rq & lp1PageToken ?~ x)
-        <$> (rs ^. lpr1NextPageToken)

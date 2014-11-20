@@ -291,5 +291,3 @@ instance FromXML DescribeInstancesResponse where
         <*> x .@  "reservationSet"
 
 instance AWSPager DescribeInstances where
-    next rq rs = (\x -> rq & di1NextToken ?~ x)
-        <$> (rs ^. dirNextToken)

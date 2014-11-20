@@ -187,7 +187,7 @@ instance FromJSON QueryObjectsResponse where
         <*> o .:? "marker"
 
 instance AWSPager QueryObjects where
-    next rq rs
+    page rq rs
         | stop (rs ^. qorHasMoreResults) = Nothing
         | otherwise = Just $ rq
             & qoMarker .~ rs ^. qorMarker

@@ -259,7 +259,7 @@ instance FromXML ListPartsResponse where
         <*> x .@? "UploadId"
 
 instance AWSPager ListParts where
-    next rq rs
+    page rq rs
         | stop (rs ^. lprIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lpPartNumberMarker .~ rs ^. lprNextPartNumberMarker

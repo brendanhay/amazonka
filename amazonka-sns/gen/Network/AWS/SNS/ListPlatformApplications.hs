@@ -129,5 +129,3 @@ instance FromXML ListPlatformApplicationsResponse where
         <*> x .@  "PlatformApplications"
 
 instance AWSPager ListPlatformApplications where
-    next rq rs = (\x -> rq & lpaNextToken ?~ x)
-        <$> (rs ^. lparNextToken)

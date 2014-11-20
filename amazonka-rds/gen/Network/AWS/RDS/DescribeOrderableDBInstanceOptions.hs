@@ -206,5 +206,3 @@ instance FromXML DescribeOrderableDBInstanceOptionsResponse where
         <*> x .@  "OrderableDBInstanceOptions"
 
 instance AWSPager DescribeOrderableDBInstanceOptions where
-    next rq rs = (\x -> rq & dodbioMarker ?~ x)
-        <$> (rs ^. dodbiorMarker)

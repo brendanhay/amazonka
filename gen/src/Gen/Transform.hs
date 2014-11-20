@@ -258,21 +258,31 @@ pager inp out (Just pg) = get >>= go
   where
     go ds = return . Just $!
         case pg of
-            More m t -> More (labeled rs m) (map token t)
-            Next r t -> Next (labeled rs r) (token t)
+            More m t -> More (label rs m) (map token t)
+            Next r t -> Next (label rs r) (token t)
       where
         ts = Map.fromList [(rq, _rqData inp), (rs, _rsData out)] <> ds
 
-        token t = t & tokInput %~ labeled rq & tokOutput %~ labeled rs
+        token t =
+            let l = label rq (t ^. tokInput)
+             in t & tokRequired .~ require rq l
+                  & tokInput    .~ l
+                  & tokOutput   %~ label rs
 
         rq = _rqName inp
         rs = _rsName out
 
-        labeled _ NoKey        = NoKey
-        labeled x (Key    n)   = Key    (applied x n)
-        labeled x (Index  n k) = Index  (applied x n) (labeled (indexed x n) k)
-        labeled x (Apply  n k) = Apply  (applied x n) (labeled n k)
-        labeled x (Choice n k) = Choice (labeled x n) (labeled x k)
+        require _ NoKey           = False
+        require x (Key n)
+            | Just d <- Map.lookup x ts
+            , Just f <- field n d = isRequired (_fType f)
+        require _ _               = False
+
+        label _ NoKey        = NoKey
+        label x (Key    n)   = Key    (applied x n)
+        label x (Index  n k) = Index  (applied x n) (label (indexed x n) k)
+        label x (Apply  n k) = Apply  (applied x n) (label n k)
+        label x (Choice n k) = Choice (label x n)   (label x k)
 
         applied x n
             | Just d <- Map.lookup x ts

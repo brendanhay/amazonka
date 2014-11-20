@@ -12199,6 +12199,7 @@
                 "more": "lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated",
                 "token": {
                     "input": "lcfoaiMarker",
+                    "required": false,
                     "output": "lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker"
                 },
                 "type": "one"
@@ -12432,6 +12433,7 @@
                 "more": "ldrDistributionList . dlIsTruncated",
                 "token": {
                     "input": "ldMarker",
+                    "required": false,
                     "output": "ldrDistributionList . dlNextMarker"
                 },
                 "type": "one"
@@ -12665,6 +12667,7 @@
                 "more": "lirInvalidationList . ilIsTruncated",
                 "token": {
                     "input": "liMarker",
+                    "required": false,
                     "output": "lirInvalidationList . ilNextMarker"
                 },
                 "type": "one"
@@ -12937,6 +12940,7 @@
                 "more": "lsdrStreamingDistributionList . sdlIsTruncated",
                 "token": {
                     "input": "lsdMarker",
+                    "required": false,
                     "output": "lsdrStreamingDistributionList . sdlNextMarker"
                 },
                 "type": "one"

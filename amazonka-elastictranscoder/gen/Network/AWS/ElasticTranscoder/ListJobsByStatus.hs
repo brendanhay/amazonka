@@ -153,5 +153,3 @@ instance FromJSON ListJobsByStatusResponse where
         <*> o .:? "NextPageToken"
 
 instance AWSPager ListJobsByStatus where
-    next rq rs = (\x -> rq & ljbsPageToken ?~ x)
-        <$> (rs ^. ljbsrNextPageToken)

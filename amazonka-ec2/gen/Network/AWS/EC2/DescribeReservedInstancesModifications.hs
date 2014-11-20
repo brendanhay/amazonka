@@ -165,5 +165,3 @@ instance FromXML DescribeReservedInstancesModificationsResponse where
         <*> x .@  "reservedInstancesModificationsSet"
 
 instance AWSPager DescribeReservedInstancesModifications where
-    next rq rs = (\x -> rq & drimNextToken ?~ x)
-        <$> (rs ^. drimrNextToken)

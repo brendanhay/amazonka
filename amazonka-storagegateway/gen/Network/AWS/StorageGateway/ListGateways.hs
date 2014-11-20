@@ -135,5 +135,3 @@ instance FromJSON ListGatewaysResponse where
         <*> o .:? "Marker"
 
 instance AWSPager ListGateways where
-    next rq rs = (\x -> rq & lgMarker ?~ x)
-        <$> (rs ^. lgrMarker)

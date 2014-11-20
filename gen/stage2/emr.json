@@ -10743,6 +10743,7 @@
             "pager": {
                 "token": {
                     "input": "lbaMarker",
+                    "required": false,
                     "output": "lbarMarker"
                 },
                 "type": "next",
@@ -11012,6 +11013,7 @@
             "pager": {
                 "token": {
                     "input": "lcMarker",
+                    "required": false,
                     "output": "lcrMarker"
                 },
                 "type": "next",
@@ -11370,6 +11372,7 @@
             "pager": {
                 "token": {
                     "input": "ligMarker",
+                    "required": false,
                     "output": "ligrMarker"
                 },
                 "type": "next",
@@ -11639,6 +11642,7 @@
             "pager": {
                 "token": {
                     "input": "liMarker",
+                    "required": false,
                     "output": "lirMarker"
                 },
                 "type": "next",
@@ -11998,6 +12002,7 @@
             "pager": {
                 "token": {
                     "input": "lsMarker",
+                    "required": false,
                     "output": "lsrMarker"
                 },
                 "type": "next",

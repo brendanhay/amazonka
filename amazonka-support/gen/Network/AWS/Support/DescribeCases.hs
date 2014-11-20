@@ -214,5 +214,3 @@ instance FromJSON DescribeCasesResponse where
         <*> o .:? "nextToken"
 
 instance AWSPager DescribeCases where
-    next rq rs = (\x -> rq & dcNextToken ?~ x)
-        <$> (rs ^. dcr1NextToken)

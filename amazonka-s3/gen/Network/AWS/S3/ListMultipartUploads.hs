@@ -301,7 +301,7 @@ instance FromXML ListMultipartUploadsResponse where
         <*> parseXML x
 
 instance AWSPager ListMultipartUploads where
-    next rq rs
+    page rq rs
         | stop (rs ^. lmurIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 = Nothing
         | otherwise = Just $ rq

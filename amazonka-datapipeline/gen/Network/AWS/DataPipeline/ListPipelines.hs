@@ -141,7 +141,7 @@ instance FromJSON ListPipelinesResponse where
         <*> o .:  "pipelineIdList"
 
 instance AWSPager ListPipelines where
-    next rq rs
+    page rq rs
         | stop (rs ^. lprHasMoreResults) = Nothing
         | otherwise = Just $ rq
             & lpMarker .~ rs ^. lprMarker

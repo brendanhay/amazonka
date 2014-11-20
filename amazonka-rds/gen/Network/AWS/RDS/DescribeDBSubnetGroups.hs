@@ -159,5 +159,3 @@ instance FromXML DescribeDBSubnetGroupsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeDBSubnetGroups where
-    next rq rs = (\x -> rq & ddbsgMarker ?~ x)
-        <$> (rs ^. ddbsgrMarker)

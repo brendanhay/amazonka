@@ -159,5 +159,3 @@ instance FromXML DescribeDBInstancesResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeDBInstances where
-    next rq rs = (\x -> rq & ddbi1Marker ?~ x)
-        <$> (rs ^. ddbirMarker)

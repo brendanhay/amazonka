@@ -183,7 +183,7 @@ instance FromXML DownloadDBLogFilePortionResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DownloadDBLogFilePortion where
-    next rq rs
+    page rq rs
         | stop (rs ^. ddblfprAdditionalDataPending) = Nothing
         | otherwise = Just $ rq
             & ddblfpMarker .~ rs ^. ddblfprMarker

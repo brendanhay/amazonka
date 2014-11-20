@@ -176,5 +176,3 @@ instance FromXML DescribeOrderableClusterOptionsResponse where
         <*> x .@  "OrderableClusterOptions"
 
 instance AWSPager DescribeOrderableClusterOptions where
-    next rq rs = (\x -> rq & docoMarker ?~ x)
-        <$> (rs ^. docorMarker)

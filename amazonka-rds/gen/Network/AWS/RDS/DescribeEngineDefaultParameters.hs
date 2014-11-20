@@ -146,5 +146,3 @@ instance FromXML DescribeEngineDefaultParametersResponse where
         <$> x .@  "EngineDefaults"
 
 instance AWSPager DescribeEngineDefaultParameters where
-    next rq rs = (\x -> rq & dedpMarker ?~ x)
-        <$> (rs ^. dedprEngineDefaults . edMarker)

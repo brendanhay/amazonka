@@ -240,5 +240,3 @@ instance FromXML DescribeInstanceStatusResponse where
         <*> x .@? "nextToken"
 
 instance AWSPager DescribeInstanceStatus where
-    next rq rs = (\x -> rq & disNextToken ?~ x)
-        <$> (rs ^. disrNextToken)

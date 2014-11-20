@@ -126,7 +126,7 @@ instance FromXML ListDistributionsResponse where
         <$> x .@  "DistributionList"
 
 instance AWSPager ListDistributions where
-    next rq rs
+    page rq rs
         | stop (rs ^. ldrDistributionList . dlIsTruncated) = Nothing
         | otherwise = Just $ rq
             & ldMarker .~ rs ^. ldrDistributionList . dlNextMarker

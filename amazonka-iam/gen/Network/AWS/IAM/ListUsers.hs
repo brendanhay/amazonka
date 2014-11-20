@@ -162,7 +162,7 @@ instance FromXML ListUsersResponse where
         <*> x .@  "Users"
 
 instance AWSPager ListUsers where
-    next rq rs
+    page rq rs
         | stop (rs ^. lurIsTruncated) = Nothing
         | otherwise = Just $ rq
             & luMarker .~ rs ^. lurMarker

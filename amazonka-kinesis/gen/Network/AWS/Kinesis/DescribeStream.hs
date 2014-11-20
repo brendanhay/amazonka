@@ -150,7 +150,7 @@ instance FromJSON DescribeStreamResponse where
         <$> o .:  "StreamDescription"
 
 instance AWSPager DescribeStream where
-    next rq rs
+    page rq rs
         | stop (rs ^. dsrStreamDescription . sdHasMoreShards) = Nothing
         | otherwise = Just $ rq
             & ds1ExclusiveStartShardId .~ rs ^. index (dsrStreamDescription . sdShards) sShardId

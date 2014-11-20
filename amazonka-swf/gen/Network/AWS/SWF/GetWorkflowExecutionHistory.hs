@@ -187,5 +187,3 @@ instance FromJSON GetWorkflowExecutionHistoryResponse where
         <*> o .:? "nextPageToken"
 
 instance AWSPager GetWorkflowExecutionHistory where
-    next rq rs = (\x -> rq & gwehNextPageToken ?~ x)
-        <$> (rs ^. gwehrNextPageToken)

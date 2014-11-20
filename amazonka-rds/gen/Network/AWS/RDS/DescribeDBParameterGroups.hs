@@ -162,5 +162,3 @@ instance FromXML DescribeDBParameterGroupsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeDBParameterGroups where
-    next rq rs = (\x -> rq & ddbpgMarker ?~ x)
-        <$> (rs ^. ddbpgrMarker)

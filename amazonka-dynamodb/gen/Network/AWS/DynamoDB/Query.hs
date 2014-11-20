@@ -540,5 +540,3 @@ instance FromJSON QueryResponse where
         <*> o .:? "ScannedCount"
 
 instance AWSPager Query where
-    next rq rs = (\x -> rq & qExclusiveStartKey ?~ x)
-        <$> (rs ^. qrLastEvaluatedKey)

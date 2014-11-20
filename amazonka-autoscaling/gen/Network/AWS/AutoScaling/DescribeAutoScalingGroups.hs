@@ -145,5 +145,3 @@ instance FromXML DescribeAutoScalingGroupsResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeAutoScalingGroups where
-    next rq rs = (\x -> rq & dasgNextToken ?~ x)
-        <$> (rs ^. dasgrNextToken)

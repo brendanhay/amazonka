@@ -2236,6 +2236,7 @@
             "pager": {
                 "token": {
                     "input": "liNextToken",
+                    "required": false,
                     "output": "lirNextToken"
                 },
                 "type": "next",

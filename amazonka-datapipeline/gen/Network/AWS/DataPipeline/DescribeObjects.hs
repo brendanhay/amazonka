@@ -174,7 +174,7 @@ instance FromJSON DescribeObjectsResponse where
         <*> o .:  "pipelineObjects"
 
 instance AWSPager DescribeObjects where
-    next rq rs
+    page rq rs
         | stop (rs ^. dorHasMoreResults) = Nothing
         | otherwise = Just $ rq
             & doMarker .~ rs ^. dorMarker

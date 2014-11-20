@@ -144,5 +144,3 @@ instance FromXML DescribeNotificationConfigurationsResponse where
         <*> x .@  "NotificationConfigurations"
 
 instance AWSPager DescribeNotificationConfigurations where
-    next rq rs = (\x -> rq & dncNextToken ?~ x)
-        <$> (rs ^. dncrNextToken)

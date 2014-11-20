@@ -140,5 +140,3 @@ instance FromXML ListIdentitiesResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager ListIdentities where
-    next rq rs = (\x -> rq & liNextToken ?~ x)
-        <$> (rs ^. lirNextToken)

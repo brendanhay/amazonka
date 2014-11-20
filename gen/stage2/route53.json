@@ -8539,6 +8539,7 @@
                 "more": "lhcrIsTruncated",
                 "token": {
                     "input": "lhcMarker",
+                    "required": false,
                     "output": "lhcrNextMarker"
                 },
                 "type": "one"
@@ -8923,6 +8924,7 @@
                 "more": "lhzrIsTruncated",
                 "token": {
                     "input": "lhzMarker",
+                    "required": false,
                     "output": "lhzrNextMarker"
                 },
                 "type": "one"
@@ -9388,14 +9390,17 @@
                 "tokens": {
                     "p1": {
                         "input": "lrrsStartRecordName",
+                        "required": false,
                         "output": "lrrsrNextRecordName"
                     },
                     "p2": {
                         "input": "lrrsStartRecordType",
+                        "required": false,
                         "output": "lrrsrNextRecordType"
                     },
                     "p3": {
                         "input": "lrrsStartRecordIdentifier",
+                        "required": false,
                         "output": "lrrsrNextRecordIdentifier"
                     }
                 },

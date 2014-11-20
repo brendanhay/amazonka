@@ -163,7 +163,7 @@ instance FromXML ListAccessKeysResponse where
         <*> x .@? "Marker"
 
 instance AWSPager ListAccessKeys where
-    next rq rs
+    page rq rs
         | stop (rs ^. lakrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lakMarker .~ rs ^. lakrMarker

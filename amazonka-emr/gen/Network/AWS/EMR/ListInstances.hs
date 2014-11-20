@@ -156,5 +156,3 @@ instance FromJSON ListInstancesResponse where
         <*> o .:? "Marker"
 
 instance AWSPager ListInstances where
-    next rq rs = (\x -> rq & liMarker ?~ x)
-        <$> (rs ^. lirMarker)

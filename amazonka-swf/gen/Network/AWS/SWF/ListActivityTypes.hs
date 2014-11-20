@@ -198,5 +198,3 @@ instance FromJSON ListActivityTypesResponse where
         <*> o .:  "typeInfos"
 
 instance AWSPager ListActivityTypes where
-    next rq rs = (\x -> rq & latNextPageToken ?~ x)
-        <$> (rs ^. latrNextPageToken)

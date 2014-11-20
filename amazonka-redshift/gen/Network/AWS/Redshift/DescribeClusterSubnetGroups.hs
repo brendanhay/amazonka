@@ -157,5 +157,3 @@ instance FromXML DescribeClusterSubnetGroupsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeClusterSubnetGroups where
-    next rq rs = (\x -> rq & dcsg1Marker ?~ x)
-        <$> (rs ^. dcsgrMarker)

@@ -148,5 +148,3 @@ instance FromXML ListMetricsResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager ListMetrics where
-    next rq rs = (\x -> rq & lmNextToken ?~ x)
-        <$> (rs ^. lmrNextToken)

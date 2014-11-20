@@ -164,7 +164,7 @@ instance FromXML ListServerCertificatesResponse where
         <*> x .@  "ServerCertificateMetadataList"
 
 instance AWSPager ListServerCertificates where
-    next rq rs
+    page rq rs
         | stop (rs ^. lscrIsTruncated) = Nothing
         | otherwise = Just $ rq
             & lscMarker .~ rs ^. lscrMarker

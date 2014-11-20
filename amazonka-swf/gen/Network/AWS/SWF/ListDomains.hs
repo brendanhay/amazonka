@@ -175,5 +175,3 @@ instance FromJSON ListDomainsResponse where
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListDomains where
-    next rq rs = (\x -> rq & ldNextPageToken ?~ x)
-        <$> (rs ^. ldrNextPageToken)

@@ -338,18 +338,19 @@ instance A.ToJSON Key where
             Choice n k           -> "choice (" <> go n <> ") (" <> go k <> ")"
 
 data Token = Token
-    { _tokInput  :: Key
-    , _tokOutput :: Key
+    { _tokRequired :: !Bool
+    , _tokInput    :: !Key
+    , _tokOutput   :: !Key
     } deriving (Eq, Show)
 
 record stage2 ''Token
 
 tokenKeys :: Traversal' Token Key
-tokenKeys f (Token a b) = Token <$> f a <*> f b
+tokenKeys f (Token r a b) = Token r <$> f a <*> f b
 
 data Pager
-    = More Key [Token]
-    | Next Key Token
+    = More !Key [Token]
+    | Next !Key !Token
       deriving (Eq, Show)
 
 pagerKeys :: Traversal' Pager Key
@@ -368,13 +369,13 @@ instance FromJSON Pager where
                 fail "input_token and output_token don't contain same number of keys."
 
             More <$> o .: "more_results"
-                 <*> pure (zipWith Token xs ys)
+                 <*> pure (zipWith (Token False) xs ys)
           where
             f k = o .: k <|> (:[]) <$> o .: k
 
         next o = Next
             <$> o .: "result_key"
-            <*> (Token <$> o .: "input_token" <*> o .: "output_token")
+            <*> (Token False <$> o .: "input_token" <*> o .: "output_token")
 
 instance A.ToJSON Pager where
     toJSON = A.object . \case

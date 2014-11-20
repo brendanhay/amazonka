@@ -141,5 +141,3 @@ instance FromXML ListEndpointsByPlatformApplicationResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager ListEndpointsByPlatformApplication where
-    next rq rs = (\x -> rq & lebpaNextToken ?~ x)
-        <$> (rs ^. lebparNextToken)

@@ -145,5 +145,3 @@ instance FromJSON ListTablesResponse where
         <*> o .:  "TableNames"
 
 instance AWSPager ListTables where
-    next rq rs = (\x -> rq & ltExclusiveStartTableName ?~ x)
-        <$> (rs ^. ltrLastEvaluatedTableName)

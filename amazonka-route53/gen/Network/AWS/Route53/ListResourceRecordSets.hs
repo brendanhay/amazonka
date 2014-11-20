@@ -270,7 +270,7 @@ instance FromXML ListResourceRecordSetsResponse where
         <*> x .@  "ResourceRecordSets"
 
 instance AWSPager ListResourceRecordSets where
-    next rq rs
+    page rq rs
         | stop (rs ^. lrrsrIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 && isNothing p3 = Nothing
         | otherwise = Just $ rq

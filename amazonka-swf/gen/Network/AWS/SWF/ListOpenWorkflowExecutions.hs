@@ -227,5 +227,3 @@ instance FromJSON ListOpenWorkflowExecutionsResponse where
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListOpenWorkflowExecutions where
-    next rq rs = (\x -> rq & loweNextPageToken ?~ x)
-        <$> (rs ^. lowerNextPageToken)

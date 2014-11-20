@@ -199,5 +199,3 @@ instance FromXML DescribeReservedCacheNodesOfferingsResponse where
         <*> x .@  "ReservedCacheNodesOfferings"
 
 instance AWSPager DescribeReservedCacheNodesOfferings where
-    next rq rs = (\x -> rq & drcnoMarker ?~ x)
-        <$> (rs ^. drcnorMarker)

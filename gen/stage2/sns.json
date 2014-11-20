@@ -2941,6 +2941,7 @@
             "pager": {
                 "token": {
                     "input": "lebpaNextToken",
+                    "required": false,
                     "output": "lebparNextToken"
                 },
                 "type": "next",
@@ -3159,6 +3160,7 @@
             "pager": {
                 "token": {
                     "input": "lpaNextToken",
+                    "required": false,
                     "output": "lparNextToken"
                 },
                 "type": "next",
@@ -3358,6 +3360,7 @@
             "pager": {
                 "token": {
                     "input": "lsNextToken",
+                    "required": false,
                     "output": "lsrNextToken"
                 },
                 "type": "next",
@@ -3557,6 +3560,7 @@
             "pager": {
                 "token": {
                     "input": "lsbtNextToken",
+                    "required": false,
                     "output": "lsbtrNextToken"
                 },
                 "type": "next",
@@ -3775,6 +3779,7 @@
             "pager": {
                 "token": {
                     "input": "ltNextToken",
+                    "required": false,
                     "output": "ltrNextToken"
                 },
                 "type": "next",

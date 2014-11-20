@@ -148,5 +148,3 @@ instance FromXML DescribeCacheSubnetGroupsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheSubnetGroups where
-    next rq rs = (\x -> rq & dcsgMarker ?~ x)
-        <$> (rs ^. dcsgrMarker)

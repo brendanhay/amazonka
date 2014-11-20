@@ -253,6 +253,8 @@ instance ToXMLRoot ListResourceRecordSets where
 
 instance ToXML ListResourceRecordSets
 
+xml
+
 instance AWSRequest ListResourceRecordSets where
     type Sv ListResourceRecordSets = Route53
     type Rs ListResourceRecordSets = ListResourceRecordSetsResponse

@@ -496,6 +496,8 @@ instance ToQuery CreateDBInstance where
 
 instance ToHeaders CreateDBInstance
 
+query
+
 instance AWSRequest CreateDBInstance where
     type Sv CreateDBInstance = RDS
     type Rs CreateDBInstance = CreateDBInstanceResponse

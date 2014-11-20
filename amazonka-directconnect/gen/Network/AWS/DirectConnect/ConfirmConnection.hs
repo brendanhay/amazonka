@@ -99,6 +99,8 @@ instance ToJSON ConfirmConnection where
         [ "connectionId" .= _ccConnectionId
         ]
 
+json
+
 instance AWSRequest ConfirmConnection where
     type Sv ConfirmConnection = DirectConnect
     type Rs ConfirmConnection = ConfirmConnectionResponse

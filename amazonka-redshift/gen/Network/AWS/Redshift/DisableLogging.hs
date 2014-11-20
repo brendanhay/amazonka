@@ -149,6 +149,8 @@ instance ToQuery DisableLogging where
 
 instance ToHeaders DisableLogging
 
+query
+
 instance AWSRequest DisableLogging where
     type Sv DisableLogging = Redshift
     type Rs DisableLogging = DisableLoggingResponse

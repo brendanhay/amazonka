@@ -124,6 +124,8 @@ instance ToQuery DeleteAttributes where
 
 instance ToHeaders DeleteAttributes
 
+query
+
 instance AWSRequest DeleteAttributes where
     type Sv DeleteAttributes = SDB
     type Rs DeleteAttributes = DeleteAttributesResponse

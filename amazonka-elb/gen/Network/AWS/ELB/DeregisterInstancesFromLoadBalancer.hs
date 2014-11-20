@@ -118,6 +118,8 @@ instance ToQuery DeregisterInstancesFromLoadBalancer where
 
 instance ToHeaders DeregisterInstancesFromLoadBalancer
 
+query
+
 instance AWSRequest DeregisterInstancesFromLoadBalancer where
     type Sv DeregisterInstancesFromLoadBalancer = ELB
     type Rs DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancerResponse

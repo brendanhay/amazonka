@@ -195,6 +195,8 @@ instance ToJSON BatchGetItem where
         , "ReturnConsumedCapacity" .= _bgiReturnConsumedCapacity
         ]
 
+json
+
 instance AWSRequest BatchGetItem where
     type Sv BatchGetItem = DynamoDB
     type Rs BatchGetItem = BatchGetItemResponse

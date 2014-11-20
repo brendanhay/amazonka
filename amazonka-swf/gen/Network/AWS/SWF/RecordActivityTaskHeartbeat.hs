@@ -136,6 +136,8 @@ instance ToJSON RecordActivityTaskHeartbeat where
         , "details"   .= _rathDetails
         ]
 
+json
+
 instance AWSRequest RecordActivityTaskHeartbeat where
     type Sv RecordActivityTaskHeartbeat = SWF
     type Rs RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeatResponse

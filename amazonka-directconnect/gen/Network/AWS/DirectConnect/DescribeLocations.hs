@@ -87,6 +87,8 @@ instance ToHeaders DescribeLocations
 instance ToJSON DescribeLocations where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest DescribeLocations where
     type Sv DescribeLocations = DirectConnect
     type Rs DescribeLocations = DescribeLocationsResponse

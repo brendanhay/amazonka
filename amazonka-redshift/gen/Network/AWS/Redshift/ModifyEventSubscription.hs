@@ -173,6 +173,8 @@ instance ToQuery ModifyEventSubscription where
 
 instance ToHeaders ModifyEventSubscription
 
+query
+
 instance AWSRequest ModifyEventSubscription where
     type Sv ModifyEventSubscription = Redshift
     type Rs ModifyEventSubscription = ModifyEventSubscriptionResponse

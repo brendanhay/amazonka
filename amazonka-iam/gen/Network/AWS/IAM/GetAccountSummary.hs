@@ -100,6 +100,8 @@ instance ToQuery GetAccountSummary where
 
 instance ToHeaders GetAccountSummary
 
+query
+
 instance AWSRequest GetAccountSummary where
     type Sv GetAccountSummary = IAM
     type Rs GetAccountSummary = GetAccountSummaryResponse

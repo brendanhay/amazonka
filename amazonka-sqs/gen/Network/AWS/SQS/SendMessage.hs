@@ -171,6 +171,8 @@ instance ToQuery SendMessage where
 
 instance ToHeaders SendMessage
 
+query
+
 instance AWSRequest SendMessage where
     type Sv SendMessage = SQS
     type Rs SendMessage = SendMessageResponse

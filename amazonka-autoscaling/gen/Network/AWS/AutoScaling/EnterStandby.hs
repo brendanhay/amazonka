@@ -132,6 +132,8 @@ instance ToQuery EnterStandby where
 
 instance ToHeaders EnterStandby
 
+query
+
 instance AWSRequest EnterStandby where
     type Sv EnterStandby = AutoScaling
     type Rs EnterStandby = EnterStandbyResponse

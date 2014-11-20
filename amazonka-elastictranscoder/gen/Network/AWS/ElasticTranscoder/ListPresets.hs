@@ -123,6 +123,8 @@ instance ToHeaders ListPresets
 instance ToJSON ListPresets where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest ListPresets where
     type Sv ListPresets = ElasticTranscoder
     type Rs ListPresets = ListPresetsResponse

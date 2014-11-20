@@ -183,6 +183,8 @@ instance ToJSON ListWorkflowTypes where
         , "reverseOrder"       .= _lwtReverseOrder
         ]
 
+json
+
 instance AWSRequest ListWorkflowTypes where
     type Sv ListWorkflowTypes = SWF
     type Rs ListWorkflowTypes = ListWorkflowTypesResponse

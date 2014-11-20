@@ -144,6 +144,8 @@ instance ToQuery CreateOptionGroup where
 
 instance ToHeaders CreateOptionGroup
 
+query
+
 instance AWSRequest CreateOptionGroup where
     type Sv CreateOptionGroup = RDS
     type Rs CreateOptionGroup = CreateOptionGroupResponse

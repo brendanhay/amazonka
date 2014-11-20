@@ -128,6 +128,8 @@ instance ToQuery CreateSAMLProvider where
 
 instance ToHeaders CreateSAMLProvider
 
+query
+
 instance AWSRequest CreateSAMLProvider where
     type Sv CreateSAMLProvider = IAM
     type Rs CreateSAMLProvider = CreateSAMLProviderResponse

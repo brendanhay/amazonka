@@ -116,6 +116,8 @@ instance ToQuery ExitStandby where
 
 instance ToHeaders ExitStandby
 
+query
+
 instance AWSRequest ExitStandby where
     type Sv ExitStandby = AutoScaling
     type Rs ExitStandby = ExitStandbyResponse

@@ -99,6 +99,8 @@ instance ToJSON AssociateElasticIp where
         , "InstanceId" .= _aeiInstanceId
         ]
 
+json
+
 instance AWSRequest AssociateElasticIp where
     type Sv AssociateElasticIp = OpsWorks
     type Rs AssociateElasticIp = AssociateElasticIpResponse

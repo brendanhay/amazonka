@@ -125,6 +125,8 @@ instance ToQuery ChangeMessageVisibility where
 
 instance ToHeaders ChangeMessageVisibility
 
+query
+
 instance AWSRequest ChangeMessageVisibility where
     type Sv ChangeMessageVisibility = SQS
     type Rs ChangeMessageVisibility = ChangeMessageVisibilityResponse

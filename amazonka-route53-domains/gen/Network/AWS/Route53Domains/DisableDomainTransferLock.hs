@@ -109,6 +109,8 @@ instance ToJSON DisableDomainTransferLock where
         [ "DomainName" .= _ddtlDomainName
         ]
 
+json
+
 instance AWSRequest DisableDomainTransferLock where
     type Sv DisableDomainTransferLock = Route53Domains
     type Rs DisableDomainTransferLock = DisableDomainTransferLockResponse

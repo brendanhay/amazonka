@@ -109,6 +109,8 @@ instance ToXMLRoot PutBucketPolicy where
 
 instance ToXML PutBucketPolicy
 
+xml-headers
+
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
     type Rs PutBucketPolicy = PutBucketPolicyResponse

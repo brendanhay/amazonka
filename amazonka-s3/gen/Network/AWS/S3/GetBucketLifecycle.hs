@@ -99,6 +99,8 @@ instance ToXMLRoot GetBucketLifecycle where
 
 instance ToXML GetBucketLifecycle
 
+xml
+
 instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
     type Rs GetBucketLifecycle = GetBucketLifecycleResponse

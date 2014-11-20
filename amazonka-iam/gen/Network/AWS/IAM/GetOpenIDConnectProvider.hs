@@ -137,6 +137,8 @@ instance ToQuery GetOpenIDConnectProvider where
 
 instance ToHeaders GetOpenIDConnectProvider
 
+query
+
 instance AWSRequest GetOpenIDConnectProvider where
     type Sv GetOpenIDConnectProvider = IAM
     type Rs GetOpenIDConnectProvider = GetOpenIDConnectProviderResponse

@@ -135,6 +135,8 @@ instance ToQuery ResetDBParameterGroup where
 
 instance ToHeaders ResetDBParameterGroup
 
+query
+
 instance AWSRequest ResetDBParameterGroup where
     type Sv ResetDBParameterGroup = RDS
     type Rs ResetDBParameterGroup = ResetDBParameterGroupResponse

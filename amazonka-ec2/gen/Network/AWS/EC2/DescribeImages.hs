@@ -179,6 +179,8 @@ instance ToQuery DescribeImages where
 
 instance ToHeaders DescribeImages
 
+query
+
 instance AWSRequest DescribeImages where
     type Sv DescribeImages = EC2
     type Rs DescribeImages = DescribeImagesResponse

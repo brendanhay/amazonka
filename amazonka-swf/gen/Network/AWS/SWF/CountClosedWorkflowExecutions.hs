@@ -192,6 +192,8 @@ instance ToJSON CountClosedWorkflowExecutions where
         , "closeStatusFilter" .= _ccweCloseStatusFilter
         ]
 
+json
+
 instance AWSRequest CountClosedWorkflowExecutions where
     type Sv CountClosedWorkflowExecutions = SWF
     type Rs CountClosedWorkflowExecutions = CountClosedWorkflowExecutionsResponse

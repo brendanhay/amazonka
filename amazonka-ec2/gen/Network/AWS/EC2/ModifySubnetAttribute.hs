@@ -90,6 +90,8 @@ instance ToQuery ModifySubnetAttribute where
 
 instance ToHeaders ModifySubnetAttribute
 
+query
+
 instance AWSRequest ModifySubnetAttribute where
     type Sv ModifySubnetAttribute = EC2
     type Rs ModifySubnetAttribute = ModifySubnetAttributeResponse

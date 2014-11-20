@@ -176,6 +176,8 @@ instance ToQuery GetTemplateSummary where
 
 instance ToHeaders GetTemplateSummary
 
+query
+
 instance AWSRequest GetTemplateSummary where
     type Sv GetTemplateSummary = CloudFormation
     type Rs GetTemplateSummary = GetTemplateSummaryResponse

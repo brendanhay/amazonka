@@ -106,6 +106,8 @@ instance ToQuery ExecutePolicy where
 
 instance ToHeaders ExecutePolicy
 
+query
+
 instance AWSRequest ExecutePolicy where
     type Sv ExecutePolicy = AutoScaling
     type Rs ExecutePolicy = ExecutePolicyResponse

@@ -84,6 +84,8 @@ instance ToQuery DeleteRole where
 
 instance ToHeaders DeleteRole
 
+query
+
 instance AWSRequest DeleteRole where
     type Sv DeleteRole = IAM
     type Rs DeleteRole = DeleteRoleResponse

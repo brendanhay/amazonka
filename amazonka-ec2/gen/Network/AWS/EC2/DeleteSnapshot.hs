@@ -98,6 +98,8 @@ instance ToQuery DeleteSnapshot where
 
 instance ToHeaders DeleteSnapshot
 
+query
+
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = EC2
     type Rs DeleteSnapshot = DeleteSnapshotResponse

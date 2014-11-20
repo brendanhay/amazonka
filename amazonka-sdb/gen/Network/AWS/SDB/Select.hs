@@ -140,6 +140,8 @@ instance ToQuery Select where
 
 instance ToHeaders Select
 
+query
+
 instance AWSRequest Select where
     type Sv Select = SDB
     type Rs Select = SelectResponse

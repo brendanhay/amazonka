@@ -215,6 +215,8 @@ instance ToQuery DescribeSpotPriceHistory where
 
 instance ToHeaders DescribeSpotPriceHistory
 
+query
+
 instance AWSRequest DescribeSpotPriceHistory where
     type Sv DescribeSpotPriceHistory = EC2
     type Rs DescribeSpotPriceHistory = DescribeSpotPriceHistoryResponse

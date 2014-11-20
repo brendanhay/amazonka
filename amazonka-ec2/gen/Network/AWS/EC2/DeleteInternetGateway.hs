@@ -91,6 +91,8 @@ instance ToQuery DeleteInternetGateway where
 
 instance ToHeaders DeleteInternetGateway
 
+query
+
 instance AWSRequest DeleteInternetGateway where
     type Sv DeleteInternetGateway = EC2
     type Rs DeleteInternetGateway = DeleteInternetGatewayResponse

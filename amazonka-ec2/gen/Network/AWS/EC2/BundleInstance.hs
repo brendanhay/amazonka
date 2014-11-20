@@ -120,6 +120,8 @@ instance ToQuery BundleInstance where
 
 instance ToHeaders BundleInstance
 
+query
+
 instance AWSRequest BundleInstance where
     type Sv BundleInstance = EC2
     type Rs BundleInstance = BundleInstanceResponse

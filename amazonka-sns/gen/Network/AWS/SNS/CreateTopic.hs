@@ -100,6 +100,8 @@ instance ToQuery CreateTopic where
 
 instance ToHeaders CreateTopic
 
+query
+
 instance AWSRequest CreateTopic where
     type Sv CreateTopic = SNS
     type Rs CreateTopic = CreateTopicResponse

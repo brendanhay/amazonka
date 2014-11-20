@@ -87,6 +87,8 @@ instance ToJSON StopLogging where
         [ "Name" .= _slName
         ]
 
+json
+
 instance AWSRequest StopLogging where
     type Sv StopLogging = CloudTrail
     type Rs StopLogging = StopLoggingResponse

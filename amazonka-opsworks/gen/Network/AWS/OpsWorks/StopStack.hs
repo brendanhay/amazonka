@@ -86,6 +86,8 @@ instance ToJSON StopStack where
         [ "StackId" .= _ss1StackId
         ]
 
+json
+
 instance AWSRequest StopStack where
     type Sv StopStack = OpsWorks
     type Rs StopStack = StopStackResponse

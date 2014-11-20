@@ -183,6 +183,8 @@ instance ToQuery DescribeVolumes where
 
 instance ToHeaders DescribeVolumes
 
+query
+
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = EC2
     type Rs DescribeVolumes = DescribeVolumesResponse

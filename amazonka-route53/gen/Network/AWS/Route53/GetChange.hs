@@ -109,6 +109,8 @@ instance ToXMLRoot GetChange where
 
 instance ToXML GetChange
 
+xml
+
 instance AWSRequest GetChange where
     type Sv GetChange = Route53
     type Rs GetChange = GetChangeResponse

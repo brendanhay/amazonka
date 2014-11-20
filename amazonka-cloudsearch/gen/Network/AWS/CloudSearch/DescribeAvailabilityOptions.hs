@@ -111,6 +111,8 @@ instance ToQuery DescribeAvailabilityOptions where
 
 instance ToHeaders DescribeAvailabilityOptions
 
+query
+
 instance AWSRequest DescribeAvailabilityOptions where
     type Sv DescribeAvailabilityOptions = CloudSearch
     type Rs DescribeAvailabilityOptions = DescribeAvailabilityOptionsResponse

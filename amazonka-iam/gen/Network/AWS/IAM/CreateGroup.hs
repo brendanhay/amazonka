@@ -108,6 +108,8 @@ instance ToQuery CreateGroup where
 
 instance ToHeaders CreateGroup
 
+query
+
 instance AWSRequest CreateGroup where
     type Sv CreateGroup = IAM
     type Rs CreateGroup = CreateGroupResponse

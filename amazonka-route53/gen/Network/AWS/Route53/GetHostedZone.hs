@@ -128,6 +128,8 @@ instance ToXMLRoot GetHostedZone where
 
 instance ToXML GetHostedZone
 
+xml
+
 instance AWSRequest GetHostedZone where
     type Sv GetHostedZone = Route53
     type Rs GetHostedZone = GetHostedZoneResponse

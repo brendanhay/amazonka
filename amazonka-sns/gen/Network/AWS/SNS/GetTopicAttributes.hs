@@ -106,6 +106,8 @@ instance ToQuery GetTopicAttributes where
 
 instance ToHeaders GetTopicAttributes
 
+query
+
 instance AWSRequest GetTopicAttributes where
     type Sv GetTopicAttributes = SNS
     type Rs GetTopicAttributes = GetTopicAttributesResponse

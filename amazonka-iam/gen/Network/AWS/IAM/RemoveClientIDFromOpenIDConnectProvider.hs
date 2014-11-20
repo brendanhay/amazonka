@@ -101,6 +101,8 @@ instance ToQuery RemoveClientIDFromOpenIDConnectProvider where
 
 instance ToHeaders RemoveClientIDFromOpenIDConnectProvider
 
+query
+
 instance AWSRequest RemoveClientIDFromOpenIDConnectProvider where
     type Sv RemoveClientIDFromOpenIDConnectProvider = IAM
     type Rs RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProviderResponse

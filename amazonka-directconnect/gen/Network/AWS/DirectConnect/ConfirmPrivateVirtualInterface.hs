@@ -116,6 +116,8 @@ instance ToJSON ConfirmPrivateVirtualInterface where
         , "virtualGatewayId"   .= _cpviVirtualGatewayId
         ]
 
+json
+
 instance AWSRequest ConfirmPrivateVirtualInterface where
     type Sv ConfirmPrivateVirtualInterface = DirectConnect
     type Rs ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterfaceResponse

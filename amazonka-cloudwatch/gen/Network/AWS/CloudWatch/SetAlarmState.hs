@@ -119,6 +119,8 @@ instance ToQuery SetAlarmState where
 
 instance ToHeaders SetAlarmState
 
+query
+
 instance AWSRequest SetAlarmState where
     type Sv SetAlarmState = CloudWatch
     type Rs SetAlarmState = SetAlarmStateResponse

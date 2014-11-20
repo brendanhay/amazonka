@@ -99,6 +99,8 @@ instance ToJSON GetApplication where
         [ "applicationName" .= _gaApplicationName
         ]
 
+json
+
 instance AWSRequest GetApplication where
     type Sv GetApplication = CodeDeploy
     type Rs GetApplication = GetApplicationResponse

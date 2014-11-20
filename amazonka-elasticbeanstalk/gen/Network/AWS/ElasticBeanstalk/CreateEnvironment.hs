@@ -380,6 +380,8 @@ instance ToQuery CreateEnvironment where
 
 instance ToHeaders CreateEnvironment
 
+query
+
 instance AWSRequest CreateEnvironment where
     type Sv CreateEnvironment = ElasticBeanstalk
     type Rs CreateEnvironment = CreateEnvironmentResponse

@@ -114,6 +114,8 @@ instance ToHeaders GetIdentityPoolConfiguration
 instance ToJSON GetIdentityPoolConfiguration where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest GetIdentityPoolConfiguration where
     type Sv GetIdentityPoolConfiguration = CognitoSync
     type Rs GetIdentityPoolConfiguration = GetIdentityPoolConfigurationResponse

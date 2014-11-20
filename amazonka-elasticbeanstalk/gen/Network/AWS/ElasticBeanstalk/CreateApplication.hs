@@ -108,6 +108,8 @@ instance ToQuery CreateApplication where
 
 instance ToHeaders CreateApplication
 
+query
+
 instance AWSRequest CreateApplication where
     type Sv CreateApplication = ElasticBeanstalk
     type Rs CreateApplication = CreateApplicationResponse

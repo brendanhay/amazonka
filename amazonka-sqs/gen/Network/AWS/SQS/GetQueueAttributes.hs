@@ -132,6 +132,8 @@ instance ToQuery GetQueueAttributes where
 
 instance ToHeaders GetQueueAttributes
 
+query
+
 instance AWSRequest GetQueueAttributes where
     type Sv GetQueueAttributes = SQS
     type Rs GetQueueAttributes = GetQueueAttributesResponse

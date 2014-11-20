@@ -126,6 +126,8 @@ instance ToXMLRoot GetBucketWebsite where
 
 instance ToXML GetBucketWebsite
 
+xml
+
 instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
     type Rs GetBucketWebsite = GetBucketWebsiteResponse

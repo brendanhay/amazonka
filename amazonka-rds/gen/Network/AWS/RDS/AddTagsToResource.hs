@@ -96,6 +96,8 @@ instance ToQuery AddTagsToResource where
 
 instance ToHeaders AddTagsToResource
 
+query
+
 instance AWSRequest AddTagsToResource where
     type Sv AddTagsToResource = RDS
     type Rs AddTagsToResource = AddTagsToResourceResponse

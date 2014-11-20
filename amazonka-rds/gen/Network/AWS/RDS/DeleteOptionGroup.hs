@@ -81,6 +81,8 @@ instance ToQuery DeleteOptionGroup where
 
 instance ToHeaders DeleteOptionGroup
 
+query
+
 instance AWSRequest DeleteOptionGroup where
     type Sv DeleteOptionGroup = RDS
     type Rs DeleteOptionGroup = DeleteOptionGroupResponse

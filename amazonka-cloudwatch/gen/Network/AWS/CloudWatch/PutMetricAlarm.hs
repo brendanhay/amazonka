@@ -254,6 +254,8 @@ instance ToQuery PutMetricAlarm where
 
 instance ToHeaders PutMetricAlarm
 
+query
+
 instance AWSRequest PutMetricAlarm where
     type Sv PutMetricAlarm = CloudWatch
     type Rs PutMetricAlarm = PutMetricAlarmResponse

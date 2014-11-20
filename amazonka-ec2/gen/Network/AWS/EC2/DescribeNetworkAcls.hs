@@ -145,6 +145,8 @@ instance ToQuery DescribeNetworkAcls where
 
 instance ToHeaders DescribeNetworkAcls
 
+query
+
 instance AWSRequest DescribeNetworkAcls where
     type Sv DescribeNetworkAcls = EC2
     type Rs DescribeNetworkAcls = DescribeNetworkAclsResponse

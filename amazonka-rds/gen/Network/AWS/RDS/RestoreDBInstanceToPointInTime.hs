@@ -363,6 +363,8 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 
 instance ToHeaders RestoreDBInstanceToPointInTime
 
+query
+
 instance AWSRequest RestoreDBInstanceToPointInTime where
     type Sv RestoreDBInstanceToPointInTime = RDS
     type Rs RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTimeResponse

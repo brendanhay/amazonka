@@ -109,6 +109,8 @@ instance ToJSON DeprecateWorkflowType where
         , "workflowType" .= _dwt1WorkflowType
         ]
 
+json
+
 instance AWSRequest DeprecateWorkflowType where
     type Sv DeprecateWorkflowType = SWF
     type Rs DeprecateWorkflowType = DeprecateWorkflowTypeResponse

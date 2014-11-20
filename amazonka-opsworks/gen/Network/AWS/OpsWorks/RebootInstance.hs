@@ -87,6 +87,8 @@ instance ToJSON RebootInstance where
         [ "InstanceId" .= _riInstanceId
         ]
 
+json
+
 instance AWSRequest RebootInstance where
     type Sv RebootInstance = OpsWorks
     type Rs RebootInstance = RebootInstanceResponse

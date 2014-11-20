@@ -87,6 +87,8 @@ instance ToHeaders DeletePipeline
 instance ToJSON DeletePipeline where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = ElasticTranscoder
     type Rs DeletePipeline = DeletePipelineResponse

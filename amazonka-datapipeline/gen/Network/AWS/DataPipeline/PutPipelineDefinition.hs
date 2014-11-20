@@ -145,6 +145,8 @@ instance ToJSON PutPipelineDefinition where
         , "pipelineObjects" .= _ppdPipelineObjects
         ]
 
+json
+
 instance AWSRequest PutPipelineDefinition where
     type Sv PutPipelineDefinition = DataPipeline
     type Rs PutPipelineDefinition = PutPipelineDefinitionResponse

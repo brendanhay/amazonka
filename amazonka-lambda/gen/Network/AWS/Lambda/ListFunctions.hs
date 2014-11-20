@@ -121,6 +121,8 @@ instance ToHeaders ListFunctions
 instance ToJSON ListFunctions where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest ListFunctions where
     type Sv ListFunctions = Lambda
     type Rs ListFunctions = ListFunctionsResponse

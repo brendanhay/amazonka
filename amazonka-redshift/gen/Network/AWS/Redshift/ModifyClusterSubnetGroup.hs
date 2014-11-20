@@ -119,6 +119,8 @@ instance ToQuery ModifyClusterSubnetGroup where
 
 instance ToHeaders ModifyClusterSubnetGroup
 
+query
+
 instance AWSRequest ModifyClusterSubnetGroup where
     type Sv ModifyClusterSubnetGroup = Redshift
     type Rs ModifyClusterSubnetGroup = ModifyClusterSubnetGroupResponse

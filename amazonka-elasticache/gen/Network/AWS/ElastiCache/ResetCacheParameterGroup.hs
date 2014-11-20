@@ -129,6 +129,8 @@ instance ToQuery ResetCacheParameterGroup where
 
 instance ToHeaders ResetCacheParameterGroup
 
+query
+
 instance AWSRequest ResetCacheParameterGroup where
     type Sv ResetCacheParameterGroup = ElastiCache
     type Rs ResetCacheParameterGroup = ResetCacheParameterGroupResponse

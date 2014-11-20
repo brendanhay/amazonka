@@ -87,6 +87,8 @@ instance ToJSON StartInstance where
         [ "InstanceId" .= _si1InstanceId
         ]
 
+json
+
 instance AWSRequest StartInstance where
     type Sv StartInstance = OpsWorks
     type Rs StartInstance = StartInstanceResponse

@@ -120,6 +120,8 @@ instance ToQuery RecordLifecycleActionHeartbeat where
 
 instance ToHeaders RecordLifecycleActionHeartbeat
 
+query
+
 instance AWSRequest RecordLifecycleActionHeartbeat where
     type Sv RecordLifecycleActionHeartbeat = AutoScaling
     type Rs RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeatResponse

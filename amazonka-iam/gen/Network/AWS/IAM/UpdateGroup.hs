@@ -103,6 +103,8 @@ instance ToQuery UpdateGroup where
 
 instance ToHeaders UpdateGroup
 
+query
+
 instance AWSRequest UpdateGroup where
     type Sv UpdateGroup = IAM
     type Rs UpdateGroup = UpdateGroupResponse

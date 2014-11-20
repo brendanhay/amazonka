@@ -148,6 +148,8 @@ instance ToJSON UpdateDomainContact where
         , "TechContact"       .= _udcTechContact
         ]
 
+json
+
 instance AWSRequest UpdateDomainContact where
     type Sv UpdateDomainContact = Route53Domains
     type Rs UpdateDomainContact = UpdateDomainContactResponse

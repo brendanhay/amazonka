@@ -83,6 +83,8 @@ instance ToQuery DeleteDBSubnetGroup where
 
 instance ToHeaders DeleteDBSubnetGroup
 
+query
+
 instance AWSRequest DeleteDBSubnetGroup where
     type Sv DeleteDBSubnetGroup = RDS
     type Rs DeleteDBSubnetGroup = DeleteDBSubnetGroupResponse

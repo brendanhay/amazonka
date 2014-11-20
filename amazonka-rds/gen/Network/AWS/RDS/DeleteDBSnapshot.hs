@@ -97,6 +97,8 @@ instance ToQuery DeleteDBSnapshot where
 
 instance ToHeaders DeleteDBSnapshot
 
+query
+
 instance AWSRequest DeleteDBSnapshot where
     type Sv DeleteDBSnapshot = RDS
     type Rs DeleteDBSnapshot = DeleteDBSnapshotResponse

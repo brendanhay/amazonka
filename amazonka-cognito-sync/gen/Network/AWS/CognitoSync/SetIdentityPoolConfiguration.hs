@@ -125,6 +125,8 @@ instance ToJSON SetIdentityPoolConfiguration where
         [ "PushSync" .= _sipcPushSync
         ]
 
+json
+
 instance AWSRequest SetIdentityPoolConfiguration where
     type Sv SetIdentityPoolConfiguration = CognitoSync
     type Rs SetIdentityPoolConfiguration = SetIdentityPoolConfigurationResponse

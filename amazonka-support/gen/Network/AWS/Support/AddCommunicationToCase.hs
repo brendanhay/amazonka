@@ -141,6 +141,8 @@ instance ToJSON AddCommunicationToCase where
         , "attachmentSetId"   .= _actcAttachmentSetId
         ]
 
+json
+
 instance AWSRequest AddCommunicationToCase where
     type Sv AddCommunicationToCase = Support
     type Rs AddCommunicationToCase = AddCommunicationToCaseResponse

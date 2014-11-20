@@ -109,6 +109,8 @@ instance ToJSON AddCache where
         , "DiskIds"    .= _acDiskIds
         ]
 
+json
+
 instance AWSRequest AddCache where
     type Sv AddCache = StorageGateway
     type Rs AddCache = AddCacheResponse

@@ -159,6 +159,8 @@ instance ToJSON DescribeCommunications where
         , "maxResults" .= _dc1MaxResults
         ]
 
+json
+
 instance AWSRequest DescribeCommunications where
     type Sv DescribeCommunications = Support
     type Rs DescribeCommunications = DescribeCommunicationsResponse

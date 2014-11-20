@@ -130,6 +130,8 @@ instance ToJSON GetApplicationRevision where
         , "revision"        .= _garRevision
         ]
 
+json
+
 instance AWSRequest GetApplicationRevision where
     type Sv GetApplicationRevision = CodeDeploy
     type Rs GetApplicationRevision = GetApplicationRevisionResponse

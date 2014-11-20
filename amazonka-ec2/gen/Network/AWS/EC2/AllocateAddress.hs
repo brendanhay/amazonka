@@ -125,6 +125,8 @@ instance ToQuery AllocateAddress where
 
 instance ToHeaders AllocateAddress
 
+query
+
 instance AWSRequest AllocateAddress where
     type Sv AllocateAddress = EC2
     type Rs AllocateAddress = AllocateAddressResponse

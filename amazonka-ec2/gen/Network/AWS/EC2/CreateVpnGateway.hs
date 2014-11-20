@@ -118,6 +118,8 @@ instance ToQuery CreateVpnGateway where
 
 instance ToHeaders CreateVpnGateway
 
+query
+
 instance AWSRequest CreateVpnGateway where
     type Sv CreateVpnGateway = EC2
     type Rs CreateVpnGateway = CreateVpnGatewayResponse

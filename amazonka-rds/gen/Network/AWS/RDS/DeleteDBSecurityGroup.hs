@@ -85,6 +85,8 @@ instance ToQuery DeleteDBSecurityGroup where
 
 instance ToHeaders DeleteDBSecurityGroup
 
+query
+
 instance AWSRequest DeleteDBSecurityGroup where
     type Sv DeleteDBSecurityGroup = RDS
     type Rs DeleteDBSecurityGroup = DeleteDBSecurityGroupResponse

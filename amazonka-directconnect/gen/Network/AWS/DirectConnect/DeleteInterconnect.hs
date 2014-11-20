@@ -97,6 +97,8 @@ instance ToJSON DeleteInterconnect where
         [ "interconnectId" .= _di1InterconnectId
         ]
 
+json
+
 instance AWSRequest DeleteInterconnect where
     type Sv DeleteInterconnect = DirectConnect
     type Rs DeleteInterconnect = DeleteInterconnectResponse

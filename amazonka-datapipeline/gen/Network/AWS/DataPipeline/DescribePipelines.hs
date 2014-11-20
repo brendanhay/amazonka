@@ -120,6 +120,8 @@ instance ToJSON DescribePipelines where
         [ "pipelineIds" .= _dpPipelineIds
         ]
 
+json
+
 instance AWSRequest DescribePipelines where
     type Sv DescribePipelines = DataPipeline
     type Rs DescribePipelines = DescribePipelinesResponse

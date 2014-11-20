@@ -106,6 +106,8 @@ instance ToQuery DetachVpnGateway where
 
 instance ToHeaders DetachVpnGateway
 
+query
+
 instance AWSRequest DetachVpnGateway where
     type Sv DetachVpnGateway = EC2
     type Rs DetachVpnGateway = DetachVpnGatewayResponse

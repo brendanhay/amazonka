@@ -136,6 +136,8 @@ instance ToQuery GetAttributes where
 
 instance ToHeaders GetAttributes
 
+query
+
 instance AWSRequest GetAttributes where
     type Sv GetAttributes = SDB
     type Rs GetAttributes = GetAttributesResponse

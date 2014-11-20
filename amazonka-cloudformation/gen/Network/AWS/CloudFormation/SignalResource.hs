@@ -125,6 +125,8 @@ instance ToQuery SignalResource where
 
 instance ToHeaders SignalResource
 
+query
+
 instance AWSRequest SignalResource where
     type Sv SignalResource = CloudFormation
     type Rs SignalResource = SignalResourceResponse

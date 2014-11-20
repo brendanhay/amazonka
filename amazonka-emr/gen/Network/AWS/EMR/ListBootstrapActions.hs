@@ -118,6 +118,8 @@ instance ToJSON ListBootstrapActions where
         , "Marker"    .= _lbaMarker
         ]
 
+json
+
 instance AWSRequest ListBootstrapActions where
     type Sv ListBootstrapActions = EMR
     type Rs ListBootstrapActions = ListBootstrapActionsResponse

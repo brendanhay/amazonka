@@ -117,6 +117,8 @@ instance ToQuery AttachVpnGateway where
 
 instance ToHeaders AttachVpnGateway
 
+query
+
 instance AWSRequest AttachVpnGateway where
     type Sv AttachVpnGateway = EC2
     type Rs AttachVpnGateway = AttachVpnGatewayResponse

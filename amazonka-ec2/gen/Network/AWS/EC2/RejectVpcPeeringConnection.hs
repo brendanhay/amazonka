@@ -109,6 +109,8 @@ instance ToQuery RejectVpcPeeringConnection where
 
 instance ToHeaders RejectVpcPeeringConnection
 
+query
+
 instance AWSRequest RejectVpcPeeringConnection where
     type Sv RejectVpcPeeringConnection = EC2
     type Rs RejectVpcPeeringConnection = RejectVpcPeeringConnectionResponse

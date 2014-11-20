@@ -141,6 +141,8 @@ instance ToQuery ListGroupsForUser where
 
 instance ToHeaders ListGroupsForUser
 
+query
+
 instance AWSRequest ListGroupsForUser where
     type Sv ListGroupsForUser = IAM
     type Rs ListGroupsForUser = ListGroupsForUserResponse

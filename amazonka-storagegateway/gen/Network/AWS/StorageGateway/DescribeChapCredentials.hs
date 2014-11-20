@@ -119,6 +119,8 @@ instance ToJSON DescribeChapCredentials where
         [ "TargetARN" .= _dccTargetARN
         ]
 
+json
+
 instance AWSRequest DescribeChapCredentials where
     type Sv DescribeChapCredentials = StorageGateway
     type Rs DescribeChapCredentials = DescribeChapCredentialsResponse

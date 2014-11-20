@@ -151,6 +151,8 @@ instance ToQuery CopyImage where
 
 instance ToHeaders CopyImage
 
+query
+
 instance AWSRequest CopyImage where
     type Sv CopyImage = EC2
     type Rs CopyImage = CopyImageResponse

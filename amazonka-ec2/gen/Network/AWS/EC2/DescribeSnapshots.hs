@@ -183,6 +183,8 @@ instance ToQuery DescribeSnapshots where
 
 instance ToHeaders DescribeSnapshots
 
+query
+
 instance AWSRequest DescribeSnapshots where
     type Sv DescribeSnapshots = EC2
     type Rs DescribeSnapshots = DescribeSnapshotsResponse

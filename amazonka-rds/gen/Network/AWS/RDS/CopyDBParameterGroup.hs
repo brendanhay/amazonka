@@ -140,6 +140,8 @@ instance ToQuery CopyDBParameterGroup where
 
 instance ToHeaders CopyDBParameterGroup
 
+query
+
 instance AWSRequest CopyDBParameterGroup where
     type Sv CopyDBParameterGroup = RDS
     type Rs CopyDBParameterGroup = CopyDBParameterGroupResponse

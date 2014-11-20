@@ -96,6 +96,8 @@ instance ToQuery UnassignPrivateIpAddresses where
 
 instance ToHeaders UnassignPrivateIpAddresses
 
+query
+
 instance AWSRequest UnassignPrivateIpAddresses where
     type Sv UnassignPrivateIpAddresses = EC2
     type Rs UnassignPrivateIpAddresses = UnassignPrivateIpAddressesResponse

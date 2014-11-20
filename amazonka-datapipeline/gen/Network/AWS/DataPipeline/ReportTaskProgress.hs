@@ -112,6 +112,8 @@ instance ToJSON ReportTaskProgress where
         [ "taskId" .= _rtpTaskId
         ]
 
+json
+
 instance AWSRequest ReportTaskProgress where
     type Sv ReportTaskProgress = DataPipeline
     type Rs ReportTaskProgress = ReportTaskProgressResponse

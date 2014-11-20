@@ -132,6 +132,8 @@ instance ToQuery DescribeAutoScalingGroups where
 
 instance ToHeaders DescribeAutoScalingGroups
 
+query
+
 instance AWSRequest DescribeAutoScalingGroups where
     type Sv DescribeAutoScalingGroups = AutoScaling
     type Rs DescribeAutoScalingGroups = DescribeAutoScalingGroupsResponse

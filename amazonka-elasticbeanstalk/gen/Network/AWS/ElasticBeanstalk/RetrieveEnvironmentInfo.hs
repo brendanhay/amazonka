@@ -131,6 +131,8 @@ instance ToQuery RetrieveEnvironmentInfo where
 
 instance ToHeaders RetrieveEnvironmentInfo
 
+query
+
 instance AWSRequest RetrieveEnvironmentInfo where
     type Sv RetrieveEnvironmentInfo = ElasticBeanstalk
     type Rs RetrieveEnvironmentInfo = RetrieveEnvironmentInfoResponse

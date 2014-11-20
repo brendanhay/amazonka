@@ -136,6 +136,8 @@ instance ToJSON DescribeWorkingStorage where
         [ "GatewayARN" .= _dwsGatewayARN
         ]
 
+json
+
 instance AWSRequest DescribeWorkingStorage where
     type Sv DescribeWorkingStorage = StorageGateway
     type Rs DescribeWorkingStorage = DescribeWorkingStorageResponse

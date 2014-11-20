@@ -129,6 +129,8 @@ instance ToQuery DescribeDefaultClusterParameters where
 
 instance ToHeaders DescribeDefaultClusterParameters
 
+query
+
 instance AWSRequest DescribeDefaultClusterParameters where
     type Sv DescribeDefaultClusterParameters = Redshift
     type Rs DescribeDefaultClusterParameters = DescribeDefaultClusterParametersResponse

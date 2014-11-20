@@ -87,6 +87,8 @@ instance ToQuery DescribeLifecycleHookTypes where
 
 instance ToHeaders DescribeLifecycleHookTypes
 
+query
+
 instance AWSRequest DescribeLifecycleHookTypes where
     type Sv DescribeLifecycleHookTypes = AutoScaling
     type Rs DescribeLifecycleHookTypes = DescribeLifecycleHookTypesResponse

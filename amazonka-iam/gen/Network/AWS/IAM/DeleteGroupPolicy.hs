@@ -91,6 +91,8 @@ instance ToQuery DeleteGroupPolicy where
 
 instance ToHeaders DeleteGroupPolicy
 
+query
+
 instance AWSRequest DeleteGroupPolicy where
     type Sv DeleteGroupPolicy = IAM
     type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse

@@ -141,6 +141,8 @@ instance ToJSON DescribeLogStreams where
         , "limit"               .= _dls1Limit
         ]
 
+json
+
 instance AWSRequest DescribeLogStreams where
     type Sv DescribeLogStreams = CloudWatchLogs
     type Rs DescribeLogStreams = DescribeLogStreamsResponse

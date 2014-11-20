@@ -132,6 +132,8 @@ instance ToQuery AssignPrivateIpAddresses where
 
 instance ToHeaders AssignPrivateIpAddresses
 
+query
+
 instance AWSRequest AssignPrivateIpAddresses where
     type Sv AssignPrivateIpAddresses = EC2
     type Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse

@@ -242,6 +242,8 @@ instance ToJSON CreatePublicVirtualInterface where
         , "newPublicVirtualInterface" .= _cpviNewPublicVirtualInterface
         ]
 
+json
+
 instance AWSRequest CreatePublicVirtualInterface where
     type Sv CreatePublicVirtualInterface = DirectConnect
     type Rs CreatePublicVirtualInterface = CreatePublicVirtualInterfaceResponse

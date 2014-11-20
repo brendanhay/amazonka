@@ -85,6 +85,8 @@ instance ToXMLRoot DeleteBucketWebsite where
 
 instance ToXML DeleteBucketWebsite
 
+xml
+
 instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
     type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse

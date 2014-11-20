@@ -195,6 +195,8 @@ instance ToQuery DetachVolume where
 
 instance ToHeaders DetachVolume
 
+query
+
 instance AWSRequest DetachVolume where
     type Sv DetachVolume = EC2
     type Rs DetachVolume = DetachVolumeResponse

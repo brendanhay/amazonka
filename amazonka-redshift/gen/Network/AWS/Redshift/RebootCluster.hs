@@ -99,6 +99,8 @@ instance ToQuery RebootCluster where
 
 instance ToHeaders RebootCluster
 
+query
+
 instance AWSRequest RebootCluster where
     type Sv RebootCluster = Redshift
     type Rs RebootCluster = RebootClusterResponse

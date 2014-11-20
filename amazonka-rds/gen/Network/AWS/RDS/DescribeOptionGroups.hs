@@ -167,6 +167,8 @@ instance ToQuery DescribeOptionGroups where
 
 instance ToHeaders DescribeOptionGroups
 
+query
+
 instance AWSRequest DescribeOptionGroups where
     type Sv DescribeOptionGroups = RDS
     type Rs DescribeOptionGroups = DescribeOptionGroupsResponse

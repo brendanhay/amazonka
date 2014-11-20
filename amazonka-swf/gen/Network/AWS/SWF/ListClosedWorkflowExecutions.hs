@@ -242,6 +242,8 @@ instance ToJSON ListClosedWorkflowExecutions where
         , "reverseOrder"      .= _lcweReverseOrder
         ]
 
+json
+
 instance AWSRequest ListClosedWorkflowExecutions where
     type Sv ListClosedWorkflowExecutions = SWF
     type Rs ListClosedWorkflowExecutions = ListClosedWorkflowExecutionsResponse

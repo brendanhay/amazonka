@@ -224,6 +224,8 @@ instance ToQuery CreateSnapshot where
 
 instance ToHeaders CreateSnapshot
 
+query
+
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = EC2
     type Rs CreateSnapshot = CreateSnapshotResponse

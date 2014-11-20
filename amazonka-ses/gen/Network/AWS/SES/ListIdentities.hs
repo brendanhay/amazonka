@@ -127,6 +127,8 @@ instance ToQuery ListIdentities where
 
 instance ToHeaders ListIdentities
 
+query
+
 instance AWSRequest ListIdentities where
     type Sv ListIdentities = SES
     type Rs ListIdentities = ListIdentitiesResponse

@@ -148,6 +148,8 @@ instance ToQuery ListRoles where
 
 instance ToHeaders ListRoles
 
+query
+
 instance AWSRequest ListRoles where
     type Sv ListRoles = IAM
     type Rs ListRoles = ListRolesResponse

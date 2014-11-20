@@ -97,6 +97,8 @@ instance ToQuery GetLoginProfile where
 
 instance ToHeaders GetLoginProfile
 
+query
+
 instance AWSRequest GetLoginProfile where
     type Sv GetLoginProfile = IAM
     type Rs GetLoginProfile = GetLoginProfileResponse

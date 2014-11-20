@@ -129,6 +129,8 @@ instance ToQuery DescribeExpressions where
 
 instance ToHeaders DescribeExpressions
 
+query
+
 instance AWSRequest DescribeExpressions where
     type Sv DescribeExpressions = CloudSearch
     type Rs DescribeExpressions = DescribeExpressionsResponse

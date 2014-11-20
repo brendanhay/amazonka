@@ -127,6 +127,8 @@ instance ToQuery CreateVpc where
 
 instance ToHeaders CreateVpc
 
+query
+
 instance AWSRequest CreateVpc where
     type Sv CreateVpc = EC2
     type Rs CreateVpc = CreateVpcResponse

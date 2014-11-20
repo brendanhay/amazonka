@@ -138,6 +138,8 @@ instance ToQuery CreateClusterParameterGroup where
 
 instance ToHeaders CreateClusterParameterGroup
 
+query
+
 instance AWSRequest CreateClusterParameterGroup where
     type Sv CreateClusterParameterGroup = Redshift
     type Rs CreateClusterParameterGroup = CreateClusterParameterGroupResponse

@@ -101,6 +101,8 @@ instance ToJSON DetachElasticLoadBalancer where
         , "LayerId"                 .= _delbLayerId
         ]
 
+json
+
 instance AWSRequest DetachElasticLoadBalancer where
     type Sv DetachElasticLoadBalancer = OpsWorks
     type Rs DetachElasticLoadBalancer = DetachElasticLoadBalancerResponse

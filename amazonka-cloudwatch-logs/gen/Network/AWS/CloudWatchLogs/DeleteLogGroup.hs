@@ -83,6 +83,8 @@ instance ToJSON DeleteLogGroup where
         [ "logGroupName" .= _dlgLogGroupName
         ]
 
+json
+
 instance AWSRequest DeleteLogGroup where
     type Sv DeleteLogGroup = CloudWatchLogs
     type Rs DeleteLogGroup = DeleteLogGroupResponse

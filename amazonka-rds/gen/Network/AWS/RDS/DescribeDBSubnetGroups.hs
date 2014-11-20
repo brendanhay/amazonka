@@ -146,6 +146,8 @@ instance ToQuery DescribeDBSubnetGroups where
 
 instance ToHeaders DescribeDBSubnetGroups
 
+query
+
 instance AWSRequest DescribeDBSubnetGroups where
     type Sv DescribeDBSubnetGroups = RDS
     type Rs DescribeDBSubnetGroups = DescribeDBSubnetGroupsResponse

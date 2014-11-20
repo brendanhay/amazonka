@@ -97,6 +97,8 @@ instance ToQuery DisableMetricsCollection where
 
 instance ToHeaders DisableMetricsCollection
 
+query
+
 instance AWSRequest DisableMetricsCollection where
     type Sv DisableMetricsCollection = AutoScaling
     type Rs DisableMetricsCollection = DisableMetricsCollectionResponse

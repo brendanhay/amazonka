@@ -108,6 +108,8 @@ instance ToJSON DeleteGateway where
         [ "GatewayARN" .= _dgGatewayARN
         ]
 
+json
+
 instance AWSRequest DeleteGateway where
     type Sv DeleteGateway = StorageGateway
     type Rs DeleteGateway = DeleteGatewayResponse

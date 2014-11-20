@@ -108,6 +108,8 @@ instance ToJSON DescribeStep where
         , "StepId"    .= _dsStepId
         ]
 
+json
+
 instance AWSRequest DescribeStep where
     type Sv DescribeStep = EMR
     type Rs DescribeStep = DescribeStepResponse

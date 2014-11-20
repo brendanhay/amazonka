@@ -439,6 +439,8 @@ instance ToXMLRoot HeadObject where
 
 instance ToXML HeadObject
 
+xml-headers
+
 instance AWSRequest HeadObject where
     type Sv HeadObject = S3
     type Rs HeadObject = HeadObjectResponse

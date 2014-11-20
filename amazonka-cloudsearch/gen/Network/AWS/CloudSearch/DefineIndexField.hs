@@ -111,6 +111,8 @@ instance ToQuery DefineIndexField where
 
 instance ToHeaders DefineIndexField
 
+query
+
 instance AWSRequest DefineIndexField where
     type Sv DefineIndexField = CloudSearch
     type Rs DefineIndexField = DefineIndexFieldResponse

@@ -174,6 +174,8 @@ instance ToXMLRoot CreateBucket where
 
 instance ToXML CreateBucket
 
+xml-headers
+
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
     type Rs CreateBucket = CreateBucketResponse

@@ -191,6 +191,8 @@ instance ToQuery UpdateAccountPasswordPolicy where
 
 instance ToHeaders UpdateAccountPasswordPolicy
 
+query
+
 instance AWSRequest UpdateAccountPasswordPolicy where
     type Sv UpdateAccountPasswordPolicy = IAM
     type Rs UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicyResponse

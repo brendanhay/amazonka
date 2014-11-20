@@ -133,6 +133,8 @@ instance ToJSON MergeShards where
         , "AdjacentShardToMerge" .= _msAdjacentShardToMerge
         ]
 
+json
+
 instance AWSRequest MergeShards where
     type Sv MergeShards = Kinesis
     type Rs MergeShards = MergeShardsResponse

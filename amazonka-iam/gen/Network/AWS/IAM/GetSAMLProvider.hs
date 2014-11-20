@@ -122,6 +122,8 @@ instance ToQuery GetSAMLProvider where
 
 instance ToHeaders GetSAMLProvider
 
+query
+
 instance AWSRequest GetSAMLProvider where
     type Sv GetSAMLProvider = IAM
     type Rs GetSAMLProvider = GetSAMLProviderResponse

@@ -217,6 +217,8 @@ instance ToJSON CreateTable where
         , "ProvisionedThroughput"  .= _ctProvisionedThroughput
         ]
 
+json
+
 instance AWSRequest CreateTable where
     type Sv CreateTable = DynamoDB
     type Rs CreateTable = CreateTableResponse

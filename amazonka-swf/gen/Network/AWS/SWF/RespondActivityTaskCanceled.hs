@@ -115,6 +115,8 @@ instance ToJSON RespondActivityTaskCanceled where
         , "details"   .= _ratc1Details
         ]
 
+json
+
 instance AWSRequest RespondActivityTaskCanceled where
     type Sv RespondActivityTaskCanceled = SWF
     type Rs RespondActivityTaskCanceled = RespondActivityTaskCanceledResponse

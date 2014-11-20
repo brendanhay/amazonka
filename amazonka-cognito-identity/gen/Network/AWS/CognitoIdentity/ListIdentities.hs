@@ -137,6 +137,8 @@ instance ToJSON ListIdentities where
         , "NextToken"      .= _liNextToken
         ]
 
+json
+
 instance AWSRequest ListIdentities where
     type Sv ListIdentities = CognitoIdentity
     type Rs ListIdentities = ListIdentitiesResponse

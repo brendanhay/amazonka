@@ -85,6 +85,8 @@ instance ToXMLRoot DeleteBucketCors where
 
 instance ToXML DeleteBucketCors
 
+xml
+
 instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3
     type Rs DeleteBucketCors = DeleteBucketCorsResponse

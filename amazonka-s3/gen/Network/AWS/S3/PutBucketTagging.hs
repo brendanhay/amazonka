@@ -107,6 +107,8 @@ instance ToXMLRoot PutBucketTagging where
 
 instance ToXML PutBucketTagging
 
+xml-headers
+
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
     type Rs PutBucketTagging = PutBucketTaggingResponse

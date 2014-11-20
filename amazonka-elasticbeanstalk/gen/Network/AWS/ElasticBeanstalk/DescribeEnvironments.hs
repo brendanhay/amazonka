@@ -165,6 +165,8 @@ instance ToQuery DescribeEnvironments where
 
 instance ToHeaders DescribeEnvironments
 
+query
+
 instance AWSRequest DescribeEnvironments where
     type Sv DescribeEnvironments = ElasticBeanstalk
     type Rs DescribeEnvironments = DescribeEnvironmentsResponse

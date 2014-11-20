@@ -277,6 +277,8 @@ instance ToJSON CreateLayer where
         , "UseEbsOptimizedInstances" .= _clUseEbsOptimizedInstances
         ]
 
+json
+
 instance AWSRequest CreateLayer where
     type Sv CreateLayer = OpsWorks
     type Rs CreateLayer = CreateLayerResponse

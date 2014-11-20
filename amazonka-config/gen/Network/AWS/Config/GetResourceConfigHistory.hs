@@ -179,6 +179,8 @@ instance ToJSON GetResourceConfigHistory where
         , "nextToken"          .= _grchNextToken
         ]
 
+json
+
 instance AWSRequest GetResourceConfigHistory where
     type Sv GetResourceConfigHistory = Config
     type Rs GetResourceConfigHistory = GetResourceConfigHistoryResponse

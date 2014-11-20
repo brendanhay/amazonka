@@ -102,6 +102,8 @@ instance ToJSON RetrieveDomainAuthCode where
         [ "DomainName" .= _rdacDomainName
         ]
 
+json
+
 instance AWSRequest RetrieveDomainAuthCode where
     type Sv RetrieveDomainAuthCode = Route53Domains
     type Rs RetrieveDomainAuthCode = RetrieveDomainAuthCodeResponse

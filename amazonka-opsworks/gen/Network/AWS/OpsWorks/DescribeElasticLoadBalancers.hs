@@ -122,6 +122,8 @@ instance ToJSON DescribeElasticLoadBalancers where
         , "LayerIds" .= _delbLayerIds
         ]
 
+json
+
 instance AWSRequest DescribeElasticLoadBalancers where
     type Sv DescribeElasticLoadBalancers = OpsWorks
     type Rs DescribeElasticLoadBalancers = DescribeElasticLoadBalancersResponse

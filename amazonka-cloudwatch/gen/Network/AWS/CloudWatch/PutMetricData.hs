@@ -101,6 +101,8 @@ instance ToQuery PutMetricData where
 
 instance ToHeaders PutMetricData
 
+query
+
 instance AWSRequest PutMetricData where
     type Sv PutMetricData = CloudWatch
     type Rs PutMetricData = PutMetricDataResponse

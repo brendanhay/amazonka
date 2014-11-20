@@ -116,6 +116,8 @@ instance ToQuery DeleteClusterSnapshot where
 
 instance ToHeaders DeleteClusterSnapshot
 
+query
+
 instance AWSRequest DeleteClusterSnapshot where
     type Sv DeleteClusterSnapshot = Redshift
     type Rs DeleteClusterSnapshot = DeleteClusterSnapshotResponse

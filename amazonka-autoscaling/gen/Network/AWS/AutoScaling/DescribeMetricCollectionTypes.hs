@@ -92,6 +92,8 @@ instance ToQuery DescribeMetricCollectionTypes where
 
 instance ToHeaders DescribeMetricCollectionTypes
 
+query
+
 instance AWSRequest DescribeMetricCollectionTypes where
     type Sv DescribeMetricCollectionTypes = AutoScaling
     type Rs DescribeMetricCollectionTypes = DescribeMetricCollectionTypesResponse

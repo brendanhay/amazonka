@@ -88,6 +88,8 @@ instance ToQuery DeleteTags where
 
 instance ToHeaders DeleteTags
 
+query
+
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = AutoScaling
     type Rs DeleteTags = DeleteTagsResponse

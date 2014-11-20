@@ -93,6 +93,8 @@ instance ToQuery DeleteNotificationConfiguration where
 
 instance ToHeaders DeleteNotificationConfiguration
 
+query
+
 instance AWSRequest DeleteNotificationConfiguration where
     type Sv DeleteNotificationConfiguration = AutoScaling
     type Rs DeleteNotificationConfiguration = DeleteNotificationConfigurationResponse

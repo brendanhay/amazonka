@@ -98,6 +98,8 @@ instance ToQuery ResumeProcesses where
 
 instance ToHeaders ResumeProcesses
 
+query
+
 instance AWSRequest ResumeProcesses where
     type Sv ResumeProcesses = AutoScaling
     type Rs ResumeProcesses = ResumeProcessesResponse

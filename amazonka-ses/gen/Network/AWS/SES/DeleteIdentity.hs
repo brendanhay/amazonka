@@ -82,6 +82,8 @@ instance ToQuery DeleteIdentity where
 
 instance ToHeaders DeleteIdentity
 
+query
+
 instance AWSRequest DeleteIdentity where
     type Sv DeleteIdentity = SES
     type Rs DeleteIdentity = DeleteIdentityResponse

@@ -158,6 +158,8 @@ instance ToQuery DescribeClusterVersions where
 
 instance ToHeaders DescribeClusterVersions
 
+query
+
 instance AWSRequest DescribeClusterVersions where
     type Sv DescribeClusterVersions = Redshift
     type Rs DescribeClusterVersions = DescribeClusterVersionsResponse

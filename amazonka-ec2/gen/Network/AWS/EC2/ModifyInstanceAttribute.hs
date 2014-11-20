@@ -261,6 +261,8 @@ instance ToQuery ModifyInstanceAttribute where
 
 instance ToHeaders ModifyInstanceAttribute
 
+query
+
 instance AWSRequest ModifyInstanceAttribute where
     type Sv ModifyInstanceAttribute = EC2
     type Rs ModifyInstanceAttribute = ModifyInstanceAttributeResponse

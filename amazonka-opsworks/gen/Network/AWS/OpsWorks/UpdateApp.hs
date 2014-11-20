@@ -179,6 +179,8 @@ instance ToJSON UpdateApp where
         , "Attributes"       .= _uaAttributes
         ]
 
+json
+
 instance AWSRequest UpdateApp where
     type Sv UpdateApp = OpsWorks
     type Rs UpdateApp = UpdateAppResponse

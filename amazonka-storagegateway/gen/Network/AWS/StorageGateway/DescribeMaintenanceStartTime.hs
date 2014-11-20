@@ -131,6 +131,8 @@ instance ToJSON DescribeMaintenanceStartTime where
         [ "GatewayARN" .= _dmstGatewayARN
         ]
 
+json
+
 instance AWSRequest DescribeMaintenanceStartTime where
     type Sv DescribeMaintenanceStartTime = StorageGateway
     type Rs DescribeMaintenanceStartTime = DescribeMaintenanceStartTimeResponse

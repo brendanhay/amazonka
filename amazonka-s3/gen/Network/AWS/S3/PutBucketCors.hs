@@ -107,6 +107,8 @@ instance ToXMLRoot PutBucketCors where
 
 instance ToXML PutBucketCors
 
+xml-headers
+
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
     type Rs PutBucketCors = PutBucketCorsResponse

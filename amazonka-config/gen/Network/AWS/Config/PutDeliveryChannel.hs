@@ -92,6 +92,8 @@ instance ToJSON PutDeliveryChannel where
         [ "DeliveryChannel" .= _pdcDeliveryChannel
         ]
 
+json
+
 instance AWSRequest PutDeliveryChannel where
     type Sv PutDeliveryChannel = Config
     type Rs PutDeliveryChannel = PutDeliveryChannelResponse

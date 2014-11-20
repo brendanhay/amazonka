@@ -103,6 +103,8 @@ instance ToJSON DescribeInterconnects where
         [ "interconnectId" .= _diInterconnectId
         ]
 
+json
+
 instance AWSRequest DescribeInterconnects where
     type Sv DescribeInterconnects = DirectConnect
     type Rs DescribeInterconnects = DescribeInterconnectsResponse

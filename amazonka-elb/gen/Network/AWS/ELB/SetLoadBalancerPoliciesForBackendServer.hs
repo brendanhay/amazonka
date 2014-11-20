@@ -117,6 +117,8 @@ instance ToQuery SetLoadBalancerPoliciesForBackendServer where
 
 instance ToHeaders SetLoadBalancerPoliciesForBackendServer
 
+query
+
 instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
     type Sv SetLoadBalancerPoliciesForBackendServer = ELB
     type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse

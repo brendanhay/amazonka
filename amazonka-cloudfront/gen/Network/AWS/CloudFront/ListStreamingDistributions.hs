@@ -116,6 +116,8 @@ instance ToXMLRoot ListStreamingDistributions where
 
 instance ToXML ListStreamingDistributions
 
+xml
+
 instance AWSRequest ListStreamingDistributions where
     type Sv ListStreamingDistributions = CloudFront
     type Rs ListStreamingDistributions = ListStreamingDistributionsResponse

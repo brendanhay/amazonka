@@ -88,6 +88,8 @@ instance ToJSON DisassociateElasticIp where
         [ "ElasticIp" .= _deiElasticIp
         ]
 
+json
+
 instance AWSRequest DisassociateElasticIp where
     type Sv DisassociateElasticIp = OpsWorks
     type Rs DisassociateElasticIp = DisassociateElasticIpResponse

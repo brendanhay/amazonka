@@ -124,6 +124,8 @@ instance ToHeaders UnsubscribeFromDataset
 instance ToJSON UnsubscribeFromDataset where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest UnsubscribeFromDataset where
     type Sv UnsubscribeFromDataset = CognitoSync
     type Rs UnsubscribeFromDataset = UnsubscribeFromDatasetResponse

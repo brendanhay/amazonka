@@ -115,6 +115,8 @@ instance ToQuery AddPermission where
 
 instance ToHeaders AddPermission
 
+query
+
 instance AWSRequest AddPermission where
     type Sv AddPermission = SNS
     type Rs AddPermission = AddPermissionResponse

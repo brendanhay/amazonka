@@ -102,6 +102,8 @@ instance ToQuery DeleteSecurityGroup where
 
 instance ToHeaders DeleteSecurityGroup
 
+query
+
 instance AWSRequest DeleteSecurityGroup where
     type Sv DeleteSecurityGroup = EC2
     type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse

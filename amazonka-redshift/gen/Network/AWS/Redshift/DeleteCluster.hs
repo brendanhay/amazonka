@@ -140,6 +140,8 @@ instance ToQuery DeleteCluster where
 
 instance ToHeaders DeleteCluster
 
+query
+
 instance AWSRequest DeleteCluster where
     type Sv DeleteCluster = Redshift
     type Rs DeleteCluster = DeleteClusterResponse

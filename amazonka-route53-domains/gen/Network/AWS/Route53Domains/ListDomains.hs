@@ -128,6 +128,8 @@ instance ToJSON ListDomains where
         , "MaxItems" .= _ldMaxItems
         ]
 
+json
+
 instance AWSRequest ListDomains where
     type Sv ListDomains = Route53Domains
     type Rs ListDomains = ListDomainsResponse

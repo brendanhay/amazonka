@@ -172,6 +172,8 @@ instance ToQuery CreateNetworkInterface where
 
 instance ToHeaders CreateNetworkInterface
 
+query
+
 instance AWSRequest CreateNetworkInterface where
     type Sv CreateNetworkInterface = EC2
     type Rs CreateNetworkInterface = CreateNetworkInterfaceResponse

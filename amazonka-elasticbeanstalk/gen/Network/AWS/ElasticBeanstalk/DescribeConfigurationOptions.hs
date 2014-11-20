@@ -155,6 +155,8 @@ instance ToQuery DescribeConfigurationOptions where
 
 instance ToHeaders DescribeConfigurationOptions
 
+query
+
 instance AWSRequest DescribeConfigurationOptions where
     type Sv DescribeConfigurationOptions = ElasticBeanstalk
     type Rs DescribeConfigurationOptions = DescribeConfigurationOptionsResponse

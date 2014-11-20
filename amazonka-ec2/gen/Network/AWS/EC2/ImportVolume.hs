@@ -138,6 +138,8 @@ instance ToQuery ImportVolume where
 
 instance ToHeaders ImportVolume
 
+query
+
 instance AWSRequest ImportVolume where
     type Sv ImportVolume = EC2
     type Rs ImportVolume = ImportVolumeResponse

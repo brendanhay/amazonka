@@ -88,6 +88,8 @@ instance ToQuery GetSendStatistics where
 
 instance ToHeaders GetSendStatistics
 
+query
+
 instance AWSRequest GetSendStatistics where
     type Sv GetSendStatistics = SES
     type Rs GetSendStatistics = GetSendStatisticsResponse

@@ -87,6 +87,8 @@ instance ToJSON DeleteDeploymentConfig where
         [ "deploymentConfigName" .= _ddcDeploymentConfigName
         ]
 
+json
+
 instance AWSRequest DeleteDeploymentConfig where
     type Sv DeleteDeploymentConfig = CodeDeploy
     type Rs DeleteDeploymentConfig = DeleteDeploymentConfigResponse

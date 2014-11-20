@@ -193,6 +193,8 @@ instance ToQuery AttachVolume where
 
 instance ToHeaders AttachVolume
 
+query
+
 instance AWSRequest AttachVolume where
     type Sv AttachVolume = EC2
     type Rs AttachVolume = AttachVolumeResponse

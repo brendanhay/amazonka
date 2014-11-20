@@ -95,6 +95,8 @@ instance ToQuery AddRoleToInstanceProfile where
 
 instance ToHeaders AddRoleToInstanceProfile
 
+query
+
 instance AWSRequest AddRoleToInstanceProfile where
     type Sv AddRoleToInstanceProfile = IAM
     type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse

@@ -170,6 +170,8 @@ instance ToQuery CreateJob where
 
 instance ToHeaders CreateJob
 
+query
+
 instance AWSRequest CreateJob where
     type Sv CreateJob = ImportExport
     type Rs CreateJob = CreateJobResponse

@@ -113,6 +113,8 @@ instance ToQuery DecodeAuthorizationMessage where
 
 instance ToHeaders DecodeAuthorizationMessage
 
+query
+
 instance AWSRequest DecodeAuthorizationMessage where
     type Sv DecodeAuthorizationMessage = STS
     type Rs DecodeAuthorizationMessage = DecodeAuthorizationMessageResponse

@@ -138,6 +138,8 @@ instance ToQuery DescribeVpcAttribute where
 
 instance ToHeaders DescribeVpcAttribute
 
+query
+
 instance AWSRequest DescribeVpcAttribute where
     type Sv DescribeVpcAttribute = EC2
     type Rs DescribeVpcAttribute = DescribeVpcAttributeResponse

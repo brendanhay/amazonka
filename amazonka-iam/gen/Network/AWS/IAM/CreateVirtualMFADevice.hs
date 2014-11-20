@@ -120,6 +120,8 @@ instance ToQuery CreateVirtualMFADevice where
 
 instance ToHeaders CreateVirtualMFADevice
 
+query
+
 instance AWSRequest CreateVirtualMFADevice where
     type Sv CreateVirtualMFADevice = IAM
     type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse

@@ -146,6 +146,8 @@ instance ToQuery DescribeDBSecurityGroups where
 
 instance ToHeaders DescribeDBSecurityGroups
 
+query
+
 instance AWSRequest DescribeDBSecurityGroups where
     type Sv DescribeDBSecurityGroups = RDS
     type Rs DescribeDBSecurityGroups = DescribeDBSecurityGroupsResponse

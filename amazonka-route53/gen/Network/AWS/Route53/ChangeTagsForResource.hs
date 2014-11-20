@@ -126,6 +126,8 @@ instance ToXMLRoot ChangeTagsForResource where
 
 instance ToXML ChangeTagsForResource
 
+xml
+
 instance AWSRequest ChangeTagsForResource where
     type Sv ChangeTagsForResource = Route53
     type Rs ChangeTagsForResource = ChangeTagsForResourceResponse

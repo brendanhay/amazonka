@@ -99,6 +99,8 @@ instance ToXMLRoot GetBucketRequestPayment where
 
 instance ToXML GetBucketRequestPayment
 
+xml
+
 instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
     type Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse

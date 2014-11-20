@@ -149,6 +149,8 @@ instance ToQuery ListAccessKeys where
 
 instance ToHeaders ListAccessKeys
 
+query
+
 instance AWSRequest ListAccessKeys where
     type Sv ListAccessKeys = IAM
     type Rs ListAccessKeys = ListAccessKeysResponse

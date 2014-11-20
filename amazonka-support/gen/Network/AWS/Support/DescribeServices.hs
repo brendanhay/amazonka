@@ -125,6 +125,8 @@ instance ToJSON DescribeServices where
         , "language"        .= _dsLanguage
         ]
 
+json
+
 instance AWSRequest DescribeServices where
     type Sv DescribeServices = Support
     type Rs DescribeServices = DescribeServicesResponse

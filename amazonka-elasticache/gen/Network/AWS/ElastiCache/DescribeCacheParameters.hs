@@ -156,6 +156,8 @@ instance ToQuery DescribeCacheParameters where
 
 instance ToHeaders DescribeCacheParameters
 
+query
+
 instance AWSRequest DescribeCacheParameters where
     type Sv DescribeCacheParameters = ElastiCache
     type Rs DescribeCacheParameters = DescribeCacheParametersResponse

@@ -173,6 +173,8 @@ instance ToJSON QueryObjects where
         , "limit"      .= _qoLimit
         ]
 
+json
+
 instance AWSRequest QueryObjects where
     type Sv QueryObjects = DataPipeline
     type Rs QueryObjects = QueryObjectsResponse

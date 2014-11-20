@@ -104,6 +104,8 @@ instance ToQuery DescribeTags where
 
 instance ToHeaders DescribeTags
 
+query
+
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = ELB
     type Rs DescribeTags = DescribeTagsResponse

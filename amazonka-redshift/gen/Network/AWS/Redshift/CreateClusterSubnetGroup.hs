@@ -126,6 +126,8 @@ instance ToQuery CreateClusterSubnetGroup where
 
 instance ToHeaders CreateClusterSubnetGroup
 
+query
+
 instance AWSRequest CreateClusterSubnetGroup where
     type Sv CreateClusterSubnetGroup = Redshift
     type Rs CreateClusterSubnetGroup = CreateClusterSubnetGroupResponse

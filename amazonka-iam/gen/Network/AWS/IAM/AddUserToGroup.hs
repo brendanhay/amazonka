@@ -91,6 +91,8 @@ instance ToQuery AddUserToGroup where
 
 instance ToHeaders AddUserToGroup
 
+query
+
 instance AWSRequest AddUserToGroup where
     type Sv AddUserToGroup = IAM
     type Rs AddUserToGroup = AddUserToGroupResponse

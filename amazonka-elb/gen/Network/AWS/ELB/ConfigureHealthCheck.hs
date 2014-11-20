@@ -110,6 +110,8 @@ instance ToQuery ConfigureHealthCheck where
 
 instance ToHeaders ConfigureHealthCheck
 
+query
+
 instance AWSRequest ConfigureHealthCheck where
     type Sv ConfigureHealthCheck = ELB
     type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse

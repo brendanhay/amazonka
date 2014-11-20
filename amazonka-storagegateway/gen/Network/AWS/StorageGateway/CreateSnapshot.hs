@@ -138,6 +138,8 @@ instance ToJSON CreateSnapshot where
         , "SnapshotDescription" .= _csSnapshotDescription
         ]
 
+json
+
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = StorageGateway
     type Rs CreateSnapshot = CreateSnapshotResponse

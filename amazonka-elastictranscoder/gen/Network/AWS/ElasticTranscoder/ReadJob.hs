@@ -98,6 +98,8 @@ instance ToHeaders ReadJob
 instance ToJSON ReadJob where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest ReadJob where
     type Sv ReadJob = ElasticTranscoder
     type Rs ReadJob = ReadJobResponse

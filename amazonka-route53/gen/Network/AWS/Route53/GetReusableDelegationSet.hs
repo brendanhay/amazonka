@@ -105,6 +105,8 @@ instance ToXMLRoot GetReusableDelegationSet where
 
 instance ToXML GetReusableDelegationSet
 
+xml
+
 instance AWSRequest GetReusableDelegationSet where
     type Sv GetReusableDelegationSet = Route53
     type Rs GetReusableDelegationSet = GetReusableDelegationSetResponse

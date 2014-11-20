@@ -222,6 +222,8 @@ instance ToXMLRoot ListGeoLocations where
 
 instance ToXML ListGeoLocations
 
+xml
+
 instance AWSRequest ListGeoLocations where
     type Sv ListGeoLocations = Route53
     type Rs ListGeoLocations = ListGeoLocationsResponse

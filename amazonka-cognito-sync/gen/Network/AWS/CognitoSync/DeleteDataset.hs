@@ -135,6 +135,8 @@ instance ToHeaders DeleteDataset
 instance ToJSON DeleteDataset where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest DeleteDataset where
     type Sv DeleteDataset = CognitoSync
     type Rs DeleteDataset = DeleteDatasetResponse

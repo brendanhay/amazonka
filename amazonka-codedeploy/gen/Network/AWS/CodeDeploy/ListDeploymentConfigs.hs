@@ -114,6 +114,8 @@ instance ToJSON ListDeploymentConfigs where
         [ "nextToken" .= _ldcNextToken
         ]
 
+json
+
 instance AWSRequest ListDeploymentConfigs where
     type Sv ListDeploymentConfigs = CodeDeploy
     type Rs ListDeploymentConfigs = ListDeploymentConfigsResponse

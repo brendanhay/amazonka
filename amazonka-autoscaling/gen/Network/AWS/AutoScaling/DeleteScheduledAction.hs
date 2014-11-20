@@ -93,6 +93,8 @@ instance ToQuery DeleteScheduledAction where
 
 instance ToHeaders DeleteScheduledAction
 
+query
+
 instance AWSRequest DeleteScheduledAction where
     type Sv DeleteScheduledAction = AutoScaling
     type Rs DeleteScheduledAction = DeleteScheduledActionResponse

@@ -147,6 +147,8 @@ instance ToJSON DescribeTapeRecoveryPoints where
         , "Limit"      .= _dtrpLimit
         ]
 
+json
+
 instance AWSRequest DescribeTapeRecoveryPoints where
     type Sv DescribeTapeRecoveryPoints = StorageGateway
     type Rs DescribeTapeRecoveryPoints = DescribeTapeRecoveryPointsResponse

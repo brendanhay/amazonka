@@ -107,6 +107,8 @@ instance ToQuery SetDesiredCapacity where
 
 instance ToHeaders SetDesiredCapacity
 
+query
+
 instance AWSRequest SetDesiredCapacity where
     type Sv SetDesiredCapacity = AutoScaling
     type Rs SetDesiredCapacity = SetDesiredCapacityResponse

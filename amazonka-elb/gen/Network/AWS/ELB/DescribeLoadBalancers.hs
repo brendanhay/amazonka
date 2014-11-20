@@ -134,6 +134,8 @@ instance ToQuery DescribeLoadBalancers where
 
 instance ToHeaders DescribeLoadBalancers
 
+query
+
 instance AWSRequest DescribeLoadBalancers where
     type Sv DescribeLoadBalancers = ELB
     type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse

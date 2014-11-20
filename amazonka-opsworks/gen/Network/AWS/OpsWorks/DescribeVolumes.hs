@@ -141,6 +141,8 @@ instance ToJSON DescribeVolumes where
         , "VolumeIds"   .= _dvVolumeIds
         ]
 
+json
+
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = OpsWorks
     type Rs DescribeVolumes = DescribeVolumesResponse

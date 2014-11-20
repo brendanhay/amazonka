@@ -101,6 +101,8 @@ instance ToJSON GetDeploymentConfig where
         [ "deploymentConfigName" .= _gdcDeploymentConfigName
         ]
 
+json
+
 instance AWSRequest GetDeploymentConfig where
     type Sv GetDeploymentConfig = CodeDeploy
     type Rs GetDeploymentConfig = GetDeploymentConfigResponse

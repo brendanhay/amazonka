@@ -104,6 +104,8 @@ instance ToXMLRoot GetBucketTagging where
 
 instance ToXML GetBucketTagging
 
+xml
+
 instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
     type Rs GetBucketTagging = GetBucketTaggingResponse

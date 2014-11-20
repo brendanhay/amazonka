@@ -110,6 +110,8 @@ instance ToJSON GetDeploymentInstance where
         , "instanceId"   .= _gdiInstanceId
         ]
 
+json
+
 instance AWSRequest GetDeploymentInstance where
     type Sv GetDeploymentInstance = CodeDeploy
     type Rs GetDeploymentInstance = GetDeploymentInstanceResponse

@@ -130,6 +130,8 @@ instance ToJSON DescribeInstances where
         , "InstanceIds" .= _diInstanceIds
         ]
 
+json
+
 instance AWSRequest DescribeInstances where
     type Sv DescribeInstances = OpsWorks
     type Rs DescribeInstances = DescribeInstancesResponse

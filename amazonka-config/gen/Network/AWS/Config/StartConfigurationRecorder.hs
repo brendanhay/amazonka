@@ -88,6 +88,8 @@ instance ToJSON StartConfigurationRecorder where
         [ "ConfigurationRecorderName" .= _scr1ConfigurationRecorderName
         ]
 
+json
+
 instance AWSRequest StartConfigurationRecorder where
     type Sv StartConfigurationRecorder = Config
     type Rs StartConfigurationRecorder = StartConfigurationRecorderResponse

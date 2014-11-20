@@ -218,6 +218,8 @@ instance ToQuery DescribeEvents where
 
 instance ToHeaders DescribeEvents
 
+query
+
 instance AWSRequest DescribeEvents where
     type Sv DescribeEvents = ElasticBeanstalk
     type Rs DescribeEvents = DescribeEventsResponse

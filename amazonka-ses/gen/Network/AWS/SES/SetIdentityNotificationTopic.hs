@@ -111,6 +111,8 @@ instance ToQuery SetIdentityNotificationTopic where
 
 instance ToHeaders SetIdentityNotificationTopic
 
+query
+
 instance AWSRequest SetIdentityNotificationTopic where
     type Sv SetIdentityNotificationTopic = SES
     type Rs SetIdentityNotificationTopic = SetIdentityNotificationTopicResponse

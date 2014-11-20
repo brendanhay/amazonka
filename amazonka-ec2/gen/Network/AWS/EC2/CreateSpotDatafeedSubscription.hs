@@ -119,6 +119,8 @@ instance ToQuery CreateSpotDatafeedSubscription where
 
 instance ToHeaders CreateSpotDatafeedSubscription
 
+query
+
 instance AWSRequest CreateSpotDatafeedSubscription where
     type Sv CreateSpotDatafeedSubscription = EC2
     type Rs CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionResponse

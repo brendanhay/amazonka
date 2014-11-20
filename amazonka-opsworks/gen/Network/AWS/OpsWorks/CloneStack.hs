@@ -384,6 +384,8 @@ instance ToJSON CloneStack where
         , "DefaultRootDeviceType"     .= _cs1DefaultRootDeviceType
         ]
 
+json
+
 instance AWSRequest CloneStack where
     type Sv CloneStack = OpsWorks
     type Rs CloneStack = CloneStackResponse

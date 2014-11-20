@@ -149,6 +149,8 @@ instance ToJSON GetOperationDetail where
         [ "OperationId" .= _godOperationId
         ]
 
+json
+
 instance AWSRequest GetOperationDetail where
     type Sv GetOperationDetail = Route53Domains
     type Rs GetOperationDetail = GetOperationDetailResponse

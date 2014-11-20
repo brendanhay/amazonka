@@ -413,6 +413,8 @@ instance ToJSON Scan where
         , "ExpressionAttributeValues" .= _sExpressionAttributeValues
         ]
 
+json
+
 instance AWSRequest Scan where
     type Sv Scan = DynamoDB
     type Rs Scan = ScanResponse

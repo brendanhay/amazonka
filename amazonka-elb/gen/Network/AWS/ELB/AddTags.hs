@@ -98,6 +98,8 @@ instance ToQuery AddTags where
 
 instance ToHeaders AddTags
 
+query
+
 instance AWSRequest AddTags where
     type Sv AddTags = ELB
     type Rs AddTags = AddTagsResponse

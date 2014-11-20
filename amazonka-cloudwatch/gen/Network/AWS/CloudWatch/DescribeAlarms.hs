@@ -157,6 +157,8 @@ instance ToQuery DescribeAlarms where
 
 instance ToHeaders DescribeAlarms
 
+query
+
 instance AWSRequest DescribeAlarms where
     type Sv DescribeAlarms = CloudWatch
     type Rs DescribeAlarms = DescribeAlarmsResponse

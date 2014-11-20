@@ -95,6 +95,8 @@ instance ToQuery DescribeSpotDatafeedSubscription where
 
 instance ToHeaders DescribeSpotDatafeedSubscription
 
+query
+
 instance AWSRequest DescribeSpotDatafeedSubscription where
     type Sv DescribeSpotDatafeedSubscription = EC2
     type Rs DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscriptionResponse

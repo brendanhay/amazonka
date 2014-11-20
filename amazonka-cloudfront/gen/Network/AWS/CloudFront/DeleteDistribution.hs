@@ -99,6 +99,8 @@ instance ToXMLRoot DeleteDistribution where
 
 instance ToXML DeleteDistribution
 
+xml-headers
+
 instance AWSRequest DeleteDistribution where
     type Sv DeleteDistribution = CloudFront
     type Rs DeleteDistribution = DeleteDistributionResponse

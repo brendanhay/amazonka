@@ -116,6 +116,8 @@ instance ToJSON DescribeDeliveryChannelStatus where
         [ "DeliveryChannelNames" .= _ddcsDeliveryChannelNames
         ]
 
+json
+
 instance AWSRequest DescribeDeliveryChannelStatus where
     type Sv DescribeDeliveryChannelStatus = Config
     type Rs DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatusResponse

@@ -114,6 +114,8 @@ instance ToQuery CreateCacheSecurityGroup where
 
 instance ToHeaders CreateCacheSecurityGroup
 
+query
+
 instance AWSRequest CreateCacheSecurityGroup where
     type Sv CreateCacheSecurityGroup = ElastiCache
     type Rs CreateCacheSecurityGroup = CreateCacheSecurityGroupResponse

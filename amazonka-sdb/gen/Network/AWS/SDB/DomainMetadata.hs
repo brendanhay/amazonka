@@ -157,6 +157,8 @@ instance ToQuery DomainMetadata where
 
 instance ToHeaders DomainMetadata
 
+query
+
 instance AWSRequest DomainMetadata where
     type Sv DomainMetadata = SDB
     type Rs DomainMetadata = DomainMetadataResponse

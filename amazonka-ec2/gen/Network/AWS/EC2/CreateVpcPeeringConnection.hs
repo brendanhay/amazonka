@@ -133,6 +133,8 @@ instance ToQuery CreateVpcPeeringConnection where
 
 instance ToHeaders CreateVpcPeeringConnection
 
+query
+
 instance AWSRequest CreateVpcPeeringConnection where
     type Sv CreateVpcPeeringConnection = EC2
     type Rs CreateVpcPeeringConnection = CreateVpcPeeringConnectionResponse

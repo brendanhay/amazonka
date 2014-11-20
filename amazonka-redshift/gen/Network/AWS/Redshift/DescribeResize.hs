@@ -241,6 +241,8 @@ instance ToQuery DescribeResize where
 
 instance ToHeaders DescribeResize
 
+query
+
 instance AWSRequest DescribeResize where
     type Sv DescribeResize = Redshift
     type Rs DescribeResize = DescribeResizeResponse

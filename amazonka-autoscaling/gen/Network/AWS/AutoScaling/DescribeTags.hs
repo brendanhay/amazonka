@@ -131,6 +131,8 @@ instance ToQuery DescribeTags where
 
 instance ToHeaders DescribeTags
 
+query
+
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = AutoScaling
     type Rs DescribeTags = DescribeTagsResponse

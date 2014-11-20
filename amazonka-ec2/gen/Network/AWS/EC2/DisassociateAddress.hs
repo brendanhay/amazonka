@@ -103,6 +103,8 @@ instance ToQuery DisassociateAddress where
 
 instance ToHeaders DisassociateAddress
 
+query
+
 instance AWSRequest DisassociateAddress where
     type Sv DisassociateAddress = EC2
     type Rs DisassociateAddress = DisassociateAddressResponse

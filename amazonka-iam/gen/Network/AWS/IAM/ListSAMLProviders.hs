@@ -85,6 +85,8 @@ instance ToQuery ListSAMLProviders where
 
 instance ToHeaders ListSAMLProviders
 
+query
+
 instance AWSRequest ListSAMLProviders where
     type Sv ListSAMLProviders = IAM
     type Rs ListSAMLProviders = ListSAMLProvidersResponse

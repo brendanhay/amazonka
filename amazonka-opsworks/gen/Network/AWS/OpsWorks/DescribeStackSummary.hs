@@ -102,6 +102,8 @@ instance ToJSON DescribeStackSummary where
         [ "StackId" .= _dssStackId
         ]
 
+json
+
 instance AWSRequest DescribeStackSummary where
     type Sv DescribeStackSummary = OpsWorks
     type Rs DescribeStackSummary = DescribeStackSummaryResponse

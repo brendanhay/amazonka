@@ -128,6 +128,8 @@ instance ToQuery ListEndpointsByPlatformApplication where
 
 instance ToHeaders ListEndpointsByPlatformApplication
 
+query
+
 instance AWSRequest ListEndpointsByPlatformApplication where
     type Sv ListEndpointsByPlatformApplication = SNS
     type Rs ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplicationResponse

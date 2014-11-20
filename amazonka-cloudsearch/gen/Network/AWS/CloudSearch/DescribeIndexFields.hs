@@ -127,6 +127,8 @@ instance ToQuery DescribeIndexFields where
 
 instance ToHeaders DescribeIndexFields
 
+query
+
 instance AWSRequest DescribeIndexFields where
     type Sv DescribeIndexFields = CloudSearch
     type Rs DescribeIndexFields = DescribeIndexFieldsResponse

@@ -92,6 +92,8 @@ instance ToJSON UpdateKeyDescription where
         , "Description" .= _ukdDescription
         ]
 
+json
+
 instance AWSRequest UpdateKeyDescription where
     type Sv UpdateKeyDescription = KMS
     type Rs UpdateKeyDescription = UpdateKeyDescriptionResponse

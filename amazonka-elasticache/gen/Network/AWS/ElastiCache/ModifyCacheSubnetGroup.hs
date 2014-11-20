@@ -121,6 +121,8 @@ instance ToQuery ModifyCacheSubnetGroup where
 
 instance ToHeaders ModifyCacheSubnetGroup
 
+query
+
 instance AWSRequest ModifyCacheSubnetGroup where
     type Sv ModifyCacheSubnetGroup = ElastiCache
     type Rs ModifyCacheSubnetGroup = ModifyCacheSubnetGroupResponse

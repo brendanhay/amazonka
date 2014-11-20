@@ -135,6 +135,8 @@ instance ToQuery DeleteDBInstance where
 
 instance ToHeaders DeleteDBInstance
 
+query
+
 instance AWSRequest DeleteDBInstance where
     type Sv DeleteDBInstance = RDS
     type Rs DeleteDBInstance = DeleteDBInstanceResponse

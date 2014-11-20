@@ -99,6 +99,8 @@ instance ToJSON AssignVolume where
         , "InstanceId" .= _avInstanceId
         ]
 
+json
+
 instance AWSRequest AssignVolume where
     type Sv AssignVolume = OpsWorks
     type Rs AssignVolume = AssignVolumeResponse

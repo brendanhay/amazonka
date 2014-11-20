@@ -99,6 +99,8 @@ instance ToQuery GetSendQuota where
 
 instance ToHeaders GetSendQuota
 
+query
+
 instance AWSRequest GetSendQuota where
     type Sv GetSendQuota = SES
     type Rs GetSendQuota = GetSendQuotaResponse

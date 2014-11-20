@@ -143,6 +143,8 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress where
 
 instance ToHeaders AuthorizeClusterSecurityGroupIngress
 
+query
+
 instance AWSRequest AuthorizeClusterSecurityGroupIngress where
     type Sv AuthorizeClusterSecurityGroupIngress = Redshift
     type Rs AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngressResponse

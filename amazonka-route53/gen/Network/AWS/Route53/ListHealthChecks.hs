@@ -172,6 +172,8 @@ instance ToXMLRoot ListHealthChecks where
 
 instance ToXML ListHealthChecks
 
+xml
+
 instance AWSRequest ListHealthChecks where
     type Sv ListHealthChecks = Route53
     type Rs ListHealthChecks = ListHealthChecksResponse

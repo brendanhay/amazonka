@@ -95,6 +95,8 @@ instance ToJSON DeleteStream where
         [ "StreamName" .= _dsStreamName
         ]
 
+json
+
 instance AWSRequest DeleteStream where
     type Sv DeleteStream = Kinesis
     type Rs DeleteStream = DeleteStreamResponse

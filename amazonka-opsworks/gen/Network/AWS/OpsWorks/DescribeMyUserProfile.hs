@@ -83,6 +83,8 @@ instance ToHeaders DescribeMyUserProfile
 instance ToJSON DescribeMyUserProfile where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest DescribeMyUserProfile where
     type Sv DescribeMyUserProfile = OpsWorks
     type Rs DescribeMyUserProfile = DescribeMyUserProfileResponse

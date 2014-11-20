@@ -144,6 +144,8 @@ instance ToQuery DescribeReservedInstancesListings where
 
 instance ToHeaders DescribeReservedInstancesListings
 
+query
+
 instance AWSRequest DescribeReservedInstancesListings where
     type Sv DescribeReservedInstancesListings = EC2
     type Rs DescribeReservedInstancesListings = DescribeReservedInstancesListingsResponse

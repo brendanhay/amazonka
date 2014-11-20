@@ -162,6 +162,8 @@ instance ToQuery SendEmail where
 
 instance ToHeaders SendEmail
 
+query
+
 instance AWSRequest SendEmail where
     type Sv SendEmail = SES
     type Rs SendEmail = SendEmailResponse

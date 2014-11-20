@@ -254,6 +254,8 @@ instance ToHeaders ListRecords
 instance ToJSON ListRecords where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest ListRecords where
     type Sv ListRecords = CognitoSync
     type Rs ListRecords = ListRecordsResponse

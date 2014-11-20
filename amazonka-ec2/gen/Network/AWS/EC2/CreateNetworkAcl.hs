@@ -106,6 +106,8 @@ instance ToQuery CreateNetworkAcl where
 
 instance ToHeaders CreateNetworkAcl
 
+query
+
 instance AWSRequest CreateNetworkAcl where
     type Sv CreateNetworkAcl = EC2
     type Rs CreateNetworkAcl = CreateNetworkAclResponse

@@ -417,6 +417,8 @@ instance ToJSON PutItem where
         , "ExpressionAttributeValues"   .= _piExpressionAttributeValues
         ]
 
+json
+
 instance AWSRequest PutItem where
     type Sv PutItem = DynamoDB
     type Rs PutItem = PutItemResponse

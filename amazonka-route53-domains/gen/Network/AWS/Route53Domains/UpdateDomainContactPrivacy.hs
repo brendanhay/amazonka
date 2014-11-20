@@ -154,6 +154,8 @@ instance ToJSON UpdateDomainContactPrivacy where
         , "TechPrivacy"       .= _udcpTechPrivacy
         ]
 
+json
+
 instance AWSRequest UpdateDomainContactPrivacy where
     type Sv UpdateDomainContactPrivacy = Route53Domains
     type Rs UpdateDomainContactPrivacy = UpdateDomainContactPrivacyResponse

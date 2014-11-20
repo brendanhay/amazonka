@@ -13,5 +13,9 @@ instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
     type Rs {{ request.name }} = {{ response.name }}
 
+{% if request.streaming %}
+    request  = stream {{ method | toUpper }}
+{% else %}
     request  = {{ method }}
+{% endif %}
 {% include "_include/response.ede" %}

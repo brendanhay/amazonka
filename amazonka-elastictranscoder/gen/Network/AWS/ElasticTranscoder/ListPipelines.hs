@@ -122,6 +122,8 @@ instance ToHeaders ListPipelines
 instance ToJSON ListPipelines where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = ElasticTranscoder
     type Rs ListPipelines = ListPipelinesResponse

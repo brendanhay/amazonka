@@ -169,6 +169,8 @@ instance ToQuery DownloadDBLogFilePortion where
 
 instance ToHeaders DownloadDBLogFilePortion
 
+query
+
 instance AWSRequest DownloadDBLogFilePortion where
     type Sv DownloadDBLogFilePortion = RDS
     type Rs DownloadDBLogFilePortion = DownloadDBLogFilePortionResponse

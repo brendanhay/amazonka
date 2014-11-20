@@ -133,6 +133,8 @@ instance ToXMLRoot GetGeoLocation where
 
 instance ToXML GetGeoLocation
 
+xml
+
 instance AWSRequest GetGeoLocation where
     type Sv GetGeoLocation = Route53
     type Rs GetGeoLocation = GetGeoLocationResponse

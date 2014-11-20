@@ -91,6 +91,8 @@ instance ToQuery DeleteUserPolicy where
 
 instance ToHeaders DeleteUserPolicy
 
+query
+
 instance AWSRequest DeleteUserPolicy where
     type Sv DeleteUserPolicy = IAM
     type Rs DeleteUserPolicy = DeleteUserPolicyResponse

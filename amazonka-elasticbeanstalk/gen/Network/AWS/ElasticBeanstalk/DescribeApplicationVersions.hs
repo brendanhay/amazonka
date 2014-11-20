@@ -116,6 +116,8 @@ instance ToQuery DescribeApplicationVersions where
 
 instance ToHeaders DescribeApplicationVersions
 
+query
+
 instance AWSRequest DescribeApplicationVersions where
     type Sv DescribeApplicationVersions = ElasticBeanstalk
     type Rs DescribeApplicationVersions = DescribeApplicationVersionsResponse

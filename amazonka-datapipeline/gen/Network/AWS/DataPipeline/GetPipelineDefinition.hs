@@ -120,6 +120,8 @@ instance ToJSON GetPipelineDefinition where
         , "version"    .= _gpdVersion
         ]
 
+json
+
 instance AWSRequest GetPipelineDefinition where
     type Sv GetPipelineDefinition = DataPipeline
     type Rs GetPipelineDefinition = GetPipelineDefinitionResponse

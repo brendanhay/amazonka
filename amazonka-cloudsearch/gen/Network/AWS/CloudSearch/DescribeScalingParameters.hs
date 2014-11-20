@@ -97,6 +97,8 @@ instance ToQuery DescribeScalingParameters where
 
 instance ToHeaders DescribeScalingParameters
 
+query
+
 instance AWSRequest DescribeScalingParameters where
     type Sv DescribeScalingParameters = CloudSearch
     type Rs DescribeScalingParameters = DescribeScalingParametersResponse

@@ -138,6 +138,8 @@ instance ToJSON DescribeActivityType where
         , "activityType" .= _datActivityType
         ]
 
+json
+
 instance AWSRequest DescribeActivityType where
     type Sv DescribeActivityType = SWF
     type Rs DescribeActivityType = DescribeActivityTypeResponse

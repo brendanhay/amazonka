@@ -194,6 +194,8 @@ instance ToQuery ReceiveMessage where
 
 instance ToHeaders ReceiveMessage
 
+query
+
 instance AWSRequest ReceiveMessage where
     type Sv ReceiveMessage = SQS
     type Rs ReceiveMessage = ReceiveMessageResponse

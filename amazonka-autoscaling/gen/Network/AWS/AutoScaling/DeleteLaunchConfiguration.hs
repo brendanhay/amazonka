@@ -84,6 +84,8 @@ instance ToQuery DeleteLaunchConfiguration where
 
 instance ToHeaders DeleteLaunchConfiguration
 
+query
+
 instance AWSRequest DeleteLaunchConfiguration where
     type Sv DeleteLaunchConfiguration = AutoScaling
     type Rs DeleteLaunchConfiguration = DeleteLaunchConfigurationResponse

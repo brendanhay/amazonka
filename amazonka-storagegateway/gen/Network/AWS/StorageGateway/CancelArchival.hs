@@ -110,6 +110,8 @@ instance ToJSON CancelArchival where
         , "TapeARN"    .= _caTapeARN
         ]
 
+json
+
 instance AWSRequest CancelArchival where
     type Sv CancelArchival = StorageGateway
     type Rs CancelArchival = CancelArchivalResponse

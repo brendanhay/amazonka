@@ -143,6 +143,8 @@ instance ToJSON Encrypt where
         , "GrantTokens"       .= _eGrantTokens
         ]
 
+json
+
 instance AWSRequest Encrypt where
     type Sv Encrypt = KMS
     type Rs Encrypt = EncryptResponse

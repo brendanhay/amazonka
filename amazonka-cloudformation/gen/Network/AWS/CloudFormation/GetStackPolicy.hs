@@ -99,6 +99,8 @@ instance ToQuery GetStackPolicy where
 
 instance ToHeaders GetStackPolicy
 
+query
+
 instance AWSRequest GetStackPolicy where
     type Sv GetStackPolicy = CloudFormation
     type Rs GetStackPolicy = GetStackPolicyResponse

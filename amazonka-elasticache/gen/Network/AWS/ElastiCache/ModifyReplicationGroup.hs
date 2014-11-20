@@ -313,6 +313,8 @@ instance ToQuery ModifyReplicationGroup where
 
 instance ToHeaders ModifyReplicationGroup
 
+query
+
 instance AWSRequest ModifyReplicationGroup where
     type Sv ModifyReplicationGroup = ElastiCache
     type Rs ModifyReplicationGroup = ModifyReplicationGroupResponse

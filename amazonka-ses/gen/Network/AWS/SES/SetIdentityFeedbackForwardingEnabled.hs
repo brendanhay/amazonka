@@ -104,6 +104,8 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled where
 
 instance ToHeaders SetIdentityFeedbackForwardingEnabled
 
+query
+
 instance AWSRequest SetIdentityFeedbackForwardingEnabled where
     type Sv SetIdentityFeedbackForwardingEnabled = SES
     type Rs SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabledResponse

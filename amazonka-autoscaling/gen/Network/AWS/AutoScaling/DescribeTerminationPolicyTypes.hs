@@ -88,6 +88,8 @@ instance ToQuery DescribeTerminationPolicyTypes where
 
 instance ToHeaders DescribeTerminationPolicyTypes
 
+query
+
 instance AWSRequest DescribeTerminationPolicyTypes where
     type Sv DescribeTerminationPolicyTypes = AutoScaling
     type Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesResponse

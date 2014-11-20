@@ -248,6 +248,8 @@ instance ToJSON RegisterDomain where
         , "PrivacyProtectTechContact"       .= _rdPrivacyProtectTechContact
         ]
 
+json
+
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = Route53Domains
     type Rs RegisterDomain = RegisterDomainResponse

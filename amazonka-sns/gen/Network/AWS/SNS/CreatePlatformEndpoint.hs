@@ -147,6 +147,8 @@ instance ToQuery CreatePlatformEndpoint where
 
 instance ToHeaders CreatePlatformEndpoint
 
+query
+
 instance AWSRequest CreatePlatformEndpoint where
     type Sv CreatePlatformEndpoint = SNS
     type Rs CreatePlatformEndpoint = CreatePlatformEndpointResponse

@@ -102,6 +102,8 @@ instance ToJSON DescribeAttachment where
         [ "attachmentId" .= _daAttachmentId
         ]
 
+json
+
 instance AWSRequest DescribeAttachment where
     type Sv DescribeAttachment = Support
     type Rs DescribeAttachment = DescribeAttachmentResponse

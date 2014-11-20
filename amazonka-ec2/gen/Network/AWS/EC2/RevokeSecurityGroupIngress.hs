@@ -189,6 +189,8 @@ instance ToQuery RevokeSecurityGroupIngress where
 
 instance ToHeaders RevokeSecurityGroupIngress
 
+query
+
 instance AWSRequest RevokeSecurityGroupIngress where
     type Sv RevokeSecurityGroupIngress = EC2
     type Rs RevokeSecurityGroupIngress = RevokeSecurityGroupIngressResponse

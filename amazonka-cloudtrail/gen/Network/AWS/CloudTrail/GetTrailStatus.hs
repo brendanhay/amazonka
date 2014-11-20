@@ -199,6 +199,8 @@ instance ToJSON GetTrailStatus where
         [ "Name" .= _gtsName
         ]
 
+json
+
 instance AWSRequest GetTrailStatus where
     type Sv GetTrailStatus = CloudTrail
     type Rs GetTrailStatus = GetTrailStatusResponse

@@ -96,6 +96,8 @@ instance ToQuery AttachInstances where
 
 instance ToHeaders AttachInstances
 
+query
+
 instance AWSRequest AttachInstances where
     type Sv AttachInstances = AutoScaling
     type Rs AttachInstances = AttachInstancesResponse

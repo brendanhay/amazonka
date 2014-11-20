@@ -92,6 +92,8 @@ instance ToQuery EnableVgwRoutePropagation where
 
 instance ToHeaders EnableVgwRoutePropagation
 
+query
+
 instance AWSRequest EnableVgwRoutePropagation where
     type Sv EnableVgwRoutePropagation = EC2
     type Rs EnableVgwRoutePropagation = EnableVgwRoutePropagationResponse

@@ -275,6 +275,8 @@ instance ToJSON CreatePipeline where
         , "ThumbnailConfig" .= _cp1ThumbnailConfig
         ]
 
+json
+
 instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = ElasticTranscoder
     type Rs CreatePipeline = CreatePipelineResponse

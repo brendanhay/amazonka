@@ -122,6 +122,8 @@ instance ToQuery PurchaseReservedCacheNodesOffering where
 
 instance ToHeaders PurchaseReservedCacheNodesOffering
 
+query
+
 instance AWSRequest PurchaseReservedCacheNodesOffering where
     type Sv PurchaseReservedCacheNodesOffering = ElastiCache
     type Rs PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOfferingResponse

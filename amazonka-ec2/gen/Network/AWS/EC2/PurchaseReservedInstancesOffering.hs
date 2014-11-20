@@ -140,6 +140,8 @@ instance ToQuery PurchaseReservedInstancesOffering where
 
 instance ToHeaders PurchaseReservedInstancesOffering
 
+query
+
 instance AWSRequest PurchaseReservedInstancesOffering where
     type Sv PurchaseReservedInstancesOffering = EC2
     type Rs PurchaseReservedInstancesOffering = PurchaseReservedInstancesOfferingResponse

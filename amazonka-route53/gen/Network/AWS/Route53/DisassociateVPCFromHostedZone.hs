@@ -136,6 +136,8 @@ instance ToXMLRoot DisassociateVPCFromHostedZone where
 
 instance ToXML DisassociateVPCFromHostedZone
 
+xml
+
 instance AWSRequest DisassociateVPCFromHostedZone where
     type Sv DisassociateVPCFromHostedZone = Route53
     type Rs DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZoneResponse

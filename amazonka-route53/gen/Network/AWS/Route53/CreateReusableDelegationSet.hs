@@ -137,6 +137,8 @@ instance ToXMLRoot CreateReusableDelegationSet where
 
 instance ToXML CreateReusableDelegationSet
 
+xml
+
 instance AWSRequest CreateReusableDelegationSet where
     type Sv CreateReusableDelegationSet = Route53
     type Rs CreateReusableDelegationSet = CreateReusableDelegationSetResponse

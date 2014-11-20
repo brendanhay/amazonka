@@ -125,6 +125,8 @@ instance ToQuery DescribePlacementGroups where
 
 instance ToHeaders DescribePlacementGroups
 
+query
+
 instance AWSRequest DescribePlacementGroups where
     type Sv DescribePlacementGroups = EC2
     type Rs DescribePlacementGroups = DescribePlacementGroupsResponse

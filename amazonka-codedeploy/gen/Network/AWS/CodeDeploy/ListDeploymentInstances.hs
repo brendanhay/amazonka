@@ -143,6 +143,8 @@ instance ToJSON ListDeploymentInstances where
         , "instanceStatusFilter" .= _ldiInstanceStatusFilter
         ]
 
+json
+
 instance AWSRequest ListDeploymentInstances where
     type Sv ListDeploymentInstances = CodeDeploy
     type Rs ListDeploymentInstances = ListDeploymentInstancesResponse

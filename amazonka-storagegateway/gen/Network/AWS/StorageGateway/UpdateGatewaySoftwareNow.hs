@@ -101,6 +101,8 @@ instance ToJSON UpdateGatewaySoftwareNow where
         [ "GatewayARN" .= _ugsnGatewayARN
         ]
 
+json
+
 instance AWSRequest UpdateGatewaySoftwareNow where
     type Sv UpdateGatewaySoftwareNow = StorageGateway
     type Rs UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNowResponse

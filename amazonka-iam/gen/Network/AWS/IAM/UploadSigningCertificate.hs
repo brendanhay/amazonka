@@ -113,6 +113,8 @@ instance ToQuery UploadSigningCertificate where
 
 instance ToHeaders UploadSigningCertificate
 
+query
+
 instance AWSRequest UploadSigningCertificate where
     type Sv UploadSigningCertificate = IAM
     type Rs UploadSigningCertificate = UploadSigningCertificateResponse

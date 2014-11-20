@@ -114,6 +114,8 @@ instance ToQuery UpdateAvailabilityOptions where
 
 instance ToHeaders UpdateAvailabilityOptions
 
+query
+
 instance AWSRequest UpdateAvailabilityOptions where
     type Sv UpdateAvailabilityOptions = CloudSearch
     type Rs UpdateAvailabilityOptions = UpdateAvailabilityOptionsResponse

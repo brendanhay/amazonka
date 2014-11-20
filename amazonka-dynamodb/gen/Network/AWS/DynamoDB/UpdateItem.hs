@@ -503,6 +503,8 @@ instance ToJSON UpdateItem where
         , "ExpressionAttributeValues"   .= _uiExpressionAttributeValues
         ]
 
+json
+
 instance AWSRequest UpdateItem where
     type Sv UpdateItem = DynamoDB
     type Rs UpdateItem = UpdateItemResponse

@@ -129,6 +129,8 @@ instance ToQuery SwapEnvironmentCNAMEs where
 
 instance ToHeaders SwapEnvironmentCNAMEs
 
+query
+
 instance AWSRequest SwapEnvironmentCNAMEs where
     type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk
     type Rs SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEsResponse

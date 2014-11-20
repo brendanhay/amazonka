@@ -116,6 +116,8 @@ instance ToJSON DescribeLoadBasedAutoScaling where
         [ "LayerIds" .= _dlbasLayerIds
         ]
 
+json
+
 instance AWSRequest DescribeLoadBasedAutoScaling where
     type Sv DescribeLoadBasedAutoScaling = OpsWorks
     type Rs DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScalingResponse

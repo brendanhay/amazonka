@@ -112,6 +112,8 @@ instance ToQuery MonitorInstances where
 
 instance ToHeaders MonitorInstances
 
+query
+
 instance AWSRequest MonitorInstances where
     type Sv MonitorInstances = EC2
     type Rs MonitorInstances = MonitorInstancesResponse

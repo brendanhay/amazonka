@@ -90,6 +90,8 @@ instance ToXMLRoot ListBuckets where
 
 instance ToXML ListBuckets
 
+xml
+
 instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
     type Rs ListBuckets = ListBucketsResponse

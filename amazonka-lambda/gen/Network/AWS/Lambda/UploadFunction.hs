@@ -316,6 +316,8 @@ instance ToJSON UploadFunction where
         [ "FunctionZip" .= _ufFunctionZip
         ]
 
+json
+
 instance AWSRequest UploadFunction where
     type Sv UploadFunction = Lambda
     type Rs UploadFunction = UploadFunctionResponse

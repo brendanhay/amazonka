@@ -118,6 +118,8 @@ instance ToJSON DescribeRdsDbInstances where
         , "RdsDbInstanceArns" .= _drdiRdsDbInstanceArns
         ]
 
+json
+
 instance AWSRequest DescribeRdsDbInstances where
     type Sv DescribeRdsDbInstances = OpsWorks
     type Rs DescribeRdsDbInstances = DescribeRdsDbInstancesResponse

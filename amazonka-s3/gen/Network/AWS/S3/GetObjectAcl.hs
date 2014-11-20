@@ -130,6 +130,8 @@ instance ToXMLRoot GetObjectAcl where
 
 instance ToXML GetObjectAcl
 
+xml
+
 instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
     type Rs GetObjectAcl = GetObjectAclResponse

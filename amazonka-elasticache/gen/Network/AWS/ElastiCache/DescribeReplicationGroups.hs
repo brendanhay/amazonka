@@ -136,6 +136,8 @@ instance ToQuery DescribeReplicationGroups where
 
 instance ToHeaders DescribeReplicationGroups
 
+query
+
 instance AWSRequest DescribeReplicationGroups where
     type Sv DescribeReplicationGroups = ElastiCache
     type Rs DescribeReplicationGroups = DescribeReplicationGroupsResponse

@@ -101,6 +101,8 @@ instance ToQuery ResetImageAttribute where
 
 instance ToHeaders ResetImageAttribute
 
+query
+
 instance AWSRequest ResetImageAttribute where
     type Sv ResetImageAttribute = EC2
     type Rs ResetImageAttribute = ResetImageAttributeResponse

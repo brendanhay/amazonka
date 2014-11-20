@@ -105,6 +105,8 @@ instance ToQuery GetEndpointAttributes where
 
 instance ToHeaders GetEndpointAttributes
 
+query
+
 instance AWSRequest GetEndpointAttributes where
     type Sv GetEndpointAttributes = SNS
     type Rs GetEndpointAttributes = GetEndpointAttributesResponse

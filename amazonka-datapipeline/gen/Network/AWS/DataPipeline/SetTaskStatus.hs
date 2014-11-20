@@ -140,6 +140,8 @@ instance ToJSON SetTaskStatus where
         , "errorStackTrace" .= _stsErrorStackTrace
         ]
 
+json
+
 instance AWSRequest SetTaskStatus where
     type Sv SetTaskStatus = DataPipeline
     type Rs SetTaskStatus = SetTaskStatusResponse

@@ -90,6 +90,8 @@ instance ToQuery EnableVolumeIO where
 
 instance ToHeaders EnableVolumeIO
 
+query
+
 instance AWSRequest EnableVolumeIO where
     type Sv EnableVolumeIO = EC2
     type Rs EnableVolumeIO = EnableVolumeIOResponse

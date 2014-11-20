@@ -262,11 +262,13 @@ instance ToHeaders UploadPart where
 instance ToBody UploadPart where
     toBody = toBody . _upBody
 
+body-headers
+
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
     type Rs UploadPart = UploadPartResponse
 
-    request  = put
+    request  = stream PUT
     response = headerResponse $ \h -> UploadPartResponse
         <$> h ~:? "ETag"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"

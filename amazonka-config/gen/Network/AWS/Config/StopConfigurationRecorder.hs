@@ -87,6 +87,8 @@ instance ToJSON StopConfigurationRecorder where
         [ "ConfigurationRecorderName" .= _scrConfigurationRecorderName
         ]
 
+json
+
 instance AWSRequest StopConfigurationRecorder where
     type Sv StopConfigurationRecorder = Config
     type Rs StopConfigurationRecorder = StopConfigurationRecorderResponse

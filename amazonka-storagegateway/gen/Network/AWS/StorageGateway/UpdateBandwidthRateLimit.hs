@@ -128,6 +128,8 @@ instance ToJSON UpdateBandwidthRateLimit where
         , "AverageDownloadRateLimitInBitsPerSec" .= _ubrlAverageDownloadRateLimitInBitsPerSec
         ]
 
+json
+
 instance AWSRequest UpdateBandwidthRateLimit where
     type Sv UpdateBandwidthRateLimit = StorageGateway
     type Rs UpdateBandwidthRateLimit = UpdateBandwidthRateLimitResponse

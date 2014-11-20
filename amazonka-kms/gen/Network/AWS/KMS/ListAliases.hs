@@ -133,6 +133,8 @@ instance ToJSON ListAliases where
         , "Marker" .= _laMarker
         ]
 
+json
+
 instance AWSRequest ListAliases where
     type Sv ListAliases = KMS
     type Rs ListAliases = ListAliasesResponse

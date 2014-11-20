@@ -182,6 +182,8 @@ instance ToHeaders GetEventSource
 instance ToJSON GetEventSource where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest GetEventSource where
     type Sv GetEventSource = Lambda
     type Rs GetEventSource = GetEventSourceResponse

@@ -102,6 +102,8 @@ instance ToJSON DescribeConnections where
         [ "connectionId" .= _dc1ConnectionId
         ]
 
+json
+
 instance AWSRequest DescribeConnections where
     type Sv DescribeConnections = DirectConnect
     type Rs DescribeConnections = DescribeConnectionsResponse

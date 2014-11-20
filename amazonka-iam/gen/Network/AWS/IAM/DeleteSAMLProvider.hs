@@ -84,6 +84,8 @@ instance ToQuery DeleteSAMLProvider where
 
 instance ToHeaders DeleteSAMLProvider
 
+query
+
 instance AWSRequest DeleteSAMLProvider where
     type Sv DeleteSAMLProvider = IAM
     type Rs DeleteSAMLProvider = DeleteSAMLProviderResponse

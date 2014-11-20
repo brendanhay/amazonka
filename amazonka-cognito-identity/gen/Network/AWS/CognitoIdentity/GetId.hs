@@ -121,6 +121,8 @@ instance ToJSON GetId where
         , "Logins"         .= _giLogins
         ]
 
+json
+
 instance AWSRequest GetId where
     type Sv GetId = CognitoIdentity
     type Rs GetId = GetIdResponse

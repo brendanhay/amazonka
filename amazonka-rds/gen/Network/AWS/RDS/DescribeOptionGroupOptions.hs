@@ -154,6 +154,8 @@ instance ToQuery DescribeOptionGroupOptions where
 
 instance ToHeaders DescribeOptionGroupOptions
 
+query
+
 instance AWSRequest DescribeOptionGroupOptions where
     type Sv DescribeOptionGroupOptions = RDS
     type Rs DescribeOptionGroupOptions = DescribeOptionGroupOptionsResponse

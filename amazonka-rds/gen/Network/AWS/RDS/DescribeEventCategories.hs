@@ -115,6 +115,8 @@ instance ToQuery DescribeEventCategories where
 
 instance ToHeaders DescribeEventCategories
 
+query
+
 instance AWSRequest DescribeEventCategories where
     type Sv DescribeEventCategories = RDS
     type Rs DescribeEventCategories = DescribeEventCategoriesResponse

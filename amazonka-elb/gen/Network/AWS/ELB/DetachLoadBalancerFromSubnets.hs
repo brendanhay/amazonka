@@ -117,6 +117,8 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 
 instance ToHeaders DetachLoadBalancerFromSubnets
 
+query
+
 instance AWSRequest DetachLoadBalancerFromSubnets where
     type Sv DetachLoadBalancerFromSubnets = ELB
     type Rs DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnetsResponse

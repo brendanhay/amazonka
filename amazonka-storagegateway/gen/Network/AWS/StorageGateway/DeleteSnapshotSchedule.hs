@@ -99,6 +99,8 @@ instance ToJSON DeleteSnapshotSchedule where
         [ "VolumeARN" .= _dss1VolumeARN
         ]
 
+json
+
 instance AWSRequest DeleteSnapshotSchedule where
     type Sv DeleteSnapshotSchedule = StorageGateway
     type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse

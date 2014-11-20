@@ -91,6 +91,8 @@ instance ToQuery RemovePermission where
 
 instance ToHeaders RemovePermission
 
+query
+
 instance AWSRequest RemovePermission where
     type Sv RemovePermission = SNS
     type Rs RemovePermission = RemovePermissionResponse

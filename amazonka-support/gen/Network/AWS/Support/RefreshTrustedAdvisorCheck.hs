@@ -106,6 +106,8 @@ instance ToJSON RefreshTrustedAdvisorCheck where
         [ "checkId" .= _rtacCheckId
         ]
 
+json
+
 instance AWSRequest RefreshTrustedAdvisorCheck where
     type Sv RefreshTrustedAdvisorCheck = Support
     type Rs RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheckResponse

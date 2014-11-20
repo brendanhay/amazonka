@@ -132,6 +132,8 @@ instance ToJSON ListKeys where
         , "Marker" .= _lkMarker
         ]
 
+json
+
 instance AWSRequest ListKeys where
     type Sv ListKeys = KMS
     type Rs ListKeys = ListKeysResponse

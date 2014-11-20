@@ -416,11 +416,13 @@ instance ToHeaders PutObject where
 instance ToBody PutObject where
     toBody = toBody . _poBody
 
+body-headers
+
 instance AWSRequest PutObject where
     type Sv PutObject = S3
     type Rs PutObject = PutObjectResponse
 
-    request  = put
+    request  = stream PUT
     response = headerResponse $ \h -> PutObjectResponse
         <$> h ~:? "ETag"
         <*> h ~:? "x-amz-expiration"

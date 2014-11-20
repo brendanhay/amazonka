@@ -109,6 +109,8 @@ instance ToJSON DescribeSeverityLevels where
         [ "language" .= _dslLanguage
         ]
 
+json
+
 instance AWSRequest DescribeSeverityLevels where
     type Sv DescribeSeverityLevels = Support
     type Rs DescribeSeverityLevels = DescribeSeverityLevelsResponse

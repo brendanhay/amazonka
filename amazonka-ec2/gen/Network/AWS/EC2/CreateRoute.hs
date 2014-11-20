@@ -158,6 +158,8 @@ instance ToQuery CreateRoute where
 
 instance ToHeaders CreateRoute
 
+query
+
 instance AWSRequest CreateRoute where
     type Sv CreateRoute = EC2
     type Rs CreateRoute = CreateRouteResponse

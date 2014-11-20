@@ -241,6 +241,8 @@ instance ToQuery UpdateConfigurationTemplate where
 
 instance ToHeaders UpdateConfigurationTemplate
 
+query
+
 instance AWSRequest UpdateConfigurationTemplate where
     type Sv UpdateConfigurationTemplate = ElasticBeanstalk
     type Rs UpdateConfigurationTemplate = UpdateConfigurationTemplateResponse

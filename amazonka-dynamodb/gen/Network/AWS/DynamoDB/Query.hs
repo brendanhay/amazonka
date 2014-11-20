@@ -524,6 +524,8 @@ instance ToJSON Query where
         , "ExpressionAttributeValues" .= _qExpressionAttributeValues
         ]
 
+json
+
 instance AWSRequest Query where
     type Sv Query = DynamoDB
     type Rs Query = QueryResponse

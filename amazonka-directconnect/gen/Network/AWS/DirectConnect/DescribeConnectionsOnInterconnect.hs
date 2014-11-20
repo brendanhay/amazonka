@@ -106,6 +106,8 @@ instance ToJSON DescribeConnectionsOnInterconnect where
         [ "interconnectId" .= _dcoiInterconnectId
         ]
 
+json
+
 instance AWSRequest DescribeConnectionsOnInterconnect where
     type Sv DescribeConnectionsOnInterconnect = DirectConnect
     type Rs DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnectResponse

@@ -332,6 +332,8 @@ instance ToJSON GetDomainDetail where
         [ "DomainName" .= _gddDomainName
         ]
 
+json
+
 instance AWSRequest GetDomainDetail where
     type Sv GetDomainDetail = Route53Domains
     type Rs GetDomainDetail = GetDomainDetailResponse

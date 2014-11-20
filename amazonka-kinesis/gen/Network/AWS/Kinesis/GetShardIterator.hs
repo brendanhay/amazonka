@@ -173,6 +173,8 @@ instance ToJSON GetShardIterator where
         , "StartingSequenceNumber" .= _gsiStartingSequenceNumber
         ]
 
+json
+
 instance AWSRequest GetShardIterator where
     type Sv GetShardIterator = Kinesis
     type Rs GetShardIterator = GetShardIteratorResponse

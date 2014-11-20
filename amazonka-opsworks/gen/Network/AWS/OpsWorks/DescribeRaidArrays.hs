@@ -118,6 +118,8 @@ instance ToJSON DescribeRaidArrays where
         , "RaidArrayIds" .= _draRaidArrayIds
         ]
 
+json
+
 instance AWSRequest DescribeRaidArrays where
     type Sv DescribeRaidArrays = OpsWorks
     type Rs DescribeRaidArrays = DescribeRaidArraysResponse

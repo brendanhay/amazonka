@@ -185,6 +185,8 @@ instance ToJSON UpdateRecords where
         , "SyncSessionToken" .= _urSyncSessionToken
         ]
 
+json-headers
+
 instance AWSRequest UpdateRecords where
     type Sv UpdateRecords = CognitoSync
     type Rs UpdateRecords = UpdateRecordsResponse

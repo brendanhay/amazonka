@@ -117,6 +117,8 @@ instance ToQuery CreateAppCookieStickinessPolicy where
 
 instance ToHeaders CreateAppCookieStickinessPolicy
 
+query
+
 instance AWSRequest CreateAppCookieStickinessPolicy where
     type Sv CreateAppCookieStickinessPolicy = ELB
     type Rs CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicyResponse

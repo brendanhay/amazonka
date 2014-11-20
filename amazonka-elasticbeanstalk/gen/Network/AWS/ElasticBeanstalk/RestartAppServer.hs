@@ -96,6 +96,8 @@ instance ToQuery RestartAppServer where
 
 instance ToHeaders RestartAppServer
 
+query
+
 instance AWSRequest RestartAppServer where
     type Sv RestartAppServer = ElasticBeanstalk
     type Rs RestartAppServer = RestartAppServerResponse

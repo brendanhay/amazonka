@@ -104,6 +104,8 @@ instance ToQuery UpdateLoginProfile where
 
 instance ToHeaders UpdateLoginProfile
 
+query
+
 instance AWSRequest UpdateLoginProfile where
     type Sv UpdateLoginProfile = IAM
     type Rs UpdateLoginProfile = UpdateLoginProfileResponse

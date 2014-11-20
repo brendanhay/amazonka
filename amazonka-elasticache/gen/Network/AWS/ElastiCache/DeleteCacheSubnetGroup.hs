@@ -83,6 +83,8 @@ instance ToQuery DeleteCacheSubnetGroup where
 
 instance ToHeaders DeleteCacheSubnetGroup
 
+query
+
 instance AWSRequest DeleteCacheSubnetGroup where
     type Sv DeleteCacheSubnetGroup = ElastiCache
     type Rs DeleteCacheSubnetGroup = DeleteCacheSubnetGroupResponse

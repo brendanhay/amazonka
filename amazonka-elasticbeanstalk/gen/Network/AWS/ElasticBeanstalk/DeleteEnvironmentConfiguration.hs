@@ -99,6 +99,8 @@ instance ToQuery DeleteEnvironmentConfiguration where
 
 instance ToHeaders DeleteEnvironmentConfiguration
 
+query
+
 instance AWSRequest DeleteEnvironmentConfiguration where
     type Sv DeleteEnvironmentConfiguration = ElasticBeanstalk
     type Rs DeleteEnvironmentConfiguration = DeleteEnvironmentConfigurationResponse

@@ -131,6 +131,8 @@ instance ToQuery PurchaseReservedDBInstancesOffering where
 
 instance ToHeaders PurchaseReservedDBInstancesOffering
 
+query
+
 instance AWSRequest PurchaseReservedDBInstancesOffering where
     type Sv PurchaseReservedDBInstancesOffering = RDS
     type Rs PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOfferingResponse

@@ -108,6 +108,8 @@ instance ToQuery SetStackPolicy where
 
 instance ToHeaders SetStackPolicy
 
+query
+
 instance AWSRequest SetStackPolicy where
     type Sv SetStackPolicy = CloudFormation
     type Rs SetStackPolicy = SetStackPolicyResponse

@@ -86,6 +86,8 @@ instance ToJSON DeleteApp where
         [ "AppId" .= _daAppId
         ]
 
+json
+
 instance AWSRequest DeleteApp where
     type Sv DeleteApp = OpsWorks
     type Rs DeleteApp = DeleteAppResponse

@@ -158,6 +158,8 @@ instance ToJSON DescribeIdentityPool where
         [ "IdentityPoolId" .= _dipIdentityPoolId
         ]
 
+json
+
 instance AWSRequest DescribeIdentityPool where
     type Sv DescribeIdentityPool = CognitoIdentity
     type Rs DescribeIdentityPool = DescribeIdentityPoolResponse

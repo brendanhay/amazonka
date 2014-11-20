@@ -147,6 +147,8 @@ instance ToQuery DescribeScalingActivities where
 
 instance ToHeaders DescribeScalingActivities
 
+query
+
 instance AWSRequest DescribeScalingActivities where
     type Sv DescribeScalingActivities = AutoScaling
     type Rs DescribeScalingActivities = DescribeScalingActivitiesResponse

@@ -154,6 +154,8 @@ instance ToQuery GetSessionToken where
 
 instance ToHeaders GetSessionToken
 
+query
+
 instance AWSRequest GetSessionToken where
     type Sv GetSessionToken = STS
     type Rs GetSessionToken = GetSessionTokenResponse

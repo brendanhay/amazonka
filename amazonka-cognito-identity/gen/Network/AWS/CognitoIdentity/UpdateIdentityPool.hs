@@ -219,6 +219,8 @@ instance ToJSON UpdateIdentityPool where
         , "OpenIdConnectProviderARNs"      .= _uipOpenIdConnectProviderARNs
         ]
 
+json
+
 instance AWSRequest UpdateIdentityPool where
     type Sv UpdateIdentityPool = CognitoIdentity
     type Rs UpdateIdentityPool = UpdateIdentityPoolResponse

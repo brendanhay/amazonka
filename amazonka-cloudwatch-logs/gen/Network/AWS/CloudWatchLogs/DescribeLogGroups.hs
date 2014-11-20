@@ -131,6 +131,8 @@ instance ToJSON DescribeLogGroups where
         , "limit"              .= _dlgLimit
         ]
 
+json
+
 instance AWSRequest DescribeLogGroups where
     type Sv DescribeLogGroups = CloudWatchLogs
     type Rs DescribeLogGroups = DescribeLogGroupsResponse

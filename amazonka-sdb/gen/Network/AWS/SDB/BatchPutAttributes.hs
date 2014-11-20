@@ -123,6 +123,8 @@ instance ToQuery BatchPutAttributes where
 
 instance ToHeaders BatchPutAttributes
 
+query
+
 instance AWSRequest BatchPutAttributes where
     type Sv BatchPutAttributes = SDB
     type Rs BatchPutAttributes = BatchPutAttributesResponse

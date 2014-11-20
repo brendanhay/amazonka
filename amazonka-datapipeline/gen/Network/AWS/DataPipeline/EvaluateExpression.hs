@@ -122,6 +122,8 @@ instance ToJSON EvaluateExpression where
         , "expression" .= _eeExpression
         ]
 
+json
+
 instance AWSRequest EvaluateExpression where
     type Sv EvaluateExpression = DataPipeline
     type Rs EvaluateExpression = EvaluateExpressionResponse

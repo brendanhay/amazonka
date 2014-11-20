@@ -121,6 +121,8 @@ instance ToJSON CreateDeploymentConfig where
         , "minimumHealthyHosts"  .= _cdcMinimumHealthyHosts
         ]
 
+json
+
 instance AWSRequest CreateDeploymentConfig where
     type Sv CreateDeploymentConfig = CodeDeploy
     type Rs CreateDeploymentConfig = CreateDeploymentConfigResponse

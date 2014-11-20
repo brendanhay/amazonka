@@ -169,6 +169,8 @@ instance ToJSON ReEncrypt where
         , "GrantTokens"                  .= _reGrantTokens
         ]
 
+json
+
 instance AWSRequest ReEncrypt where
     type Sv ReEncrypt = KMS
     type Rs ReEncrypt = ReEncryptResponse

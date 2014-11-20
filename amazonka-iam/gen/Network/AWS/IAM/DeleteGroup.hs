@@ -81,6 +81,8 @@ instance ToQuery DeleteGroup where
 
 instance ToHeaders DeleteGroup
 
+query
+
 instance AWSRequest DeleteGroup where
     type Sv DeleteGroup = IAM
     type Rs DeleteGroup = DeleteGroupResponse

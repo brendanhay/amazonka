@@ -135,6 +135,8 @@ instance ToHeaders ListIdentityPoolUsage
 instance ToJSON ListIdentityPoolUsage where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest ListIdentityPoolUsage where
     type Sv ListIdentityPoolUsage = CognitoSync
     type Rs ListIdentityPoolUsage = ListIdentityPoolUsageResponse

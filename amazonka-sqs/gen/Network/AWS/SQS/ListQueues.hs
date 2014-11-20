@@ -99,6 +99,8 @@ instance ToQuery ListQueues where
 
 instance ToHeaders ListQueues
 
+query
+
 instance AWSRequest ListQueues where
     type Sv ListQueues = SQS
     type Rs ListQueues = ListQueuesResponse

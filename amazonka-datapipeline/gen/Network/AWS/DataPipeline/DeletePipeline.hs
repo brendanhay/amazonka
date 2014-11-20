@@ -89,6 +89,8 @@ instance ToJSON DeletePipeline where
         [ "pipelineId" .= _dpPipelineId
         ]
 
+json
+
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = DataPipeline
     type Rs DeletePipeline = DeletePipelineResponse

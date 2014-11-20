@@ -131,6 +131,8 @@ instance ToJSON SetPermission where
         , "Level"      .= _spLevel
         ]
 
+json
+
 instance AWSRequest SetPermission where
     type Sv SetPermission = OpsWorks
     type Rs SetPermission = SetPermissionResponse

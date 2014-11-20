@@ -96,6 +96,8 @@ instance ToQuery DeleteAutoScalingGroup where
 
 instance ToHeaders DeleteAutoScalingGroup
 
+query
+
 instance AWSRequest DeleteAutoScalingGroup where
     type Sv DeleteAutoScalingGroup = AutoScaling
     type Rs DeleteAutoScalingGroup = DeleteAutoScalingGroupResponse

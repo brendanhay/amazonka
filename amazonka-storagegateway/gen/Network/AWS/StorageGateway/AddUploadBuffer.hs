@@ -109,6 +109,8 @@ instance ToJSON AddUploadBuffer where
         , "DiskIds"    .= _aubDiskIds
         ]
 
+json
+
 instance AWSRequest AddUploadBuffer where
     type Sv AddUploadBuffer = StorageGateway
     type Rs AddUploadBuffer = AddUploadBufferResponse

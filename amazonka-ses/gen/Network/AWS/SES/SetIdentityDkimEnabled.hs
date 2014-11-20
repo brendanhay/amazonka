@@ -102,6 +102,8 @@ instance ToQuery SetIdentityDkimEnabled where
 
 instance ToHeaders SetIdentityDkimEnabled
 
+query
+
 instance AWSRequest SetIdentityDkimEnabled where
     type Sv SetIdentityDkimEnabled = SES
     type Rs SetIdentityDkimEnabled = SetIdentityDkimEnabledResponse

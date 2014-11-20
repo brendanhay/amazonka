@@ -160,6 +160,8 @@ instance ToQuery DescribeSnapshots where
 
 instance ToHeaders DescribeSnapshots
 
+query
+
 instance AWSRequest DescribeSnapshots where
     type Sv DescribeSnapshots = ElastiCache
     type Rs DescribeSnapshots = DescribeSnapshotsResponse

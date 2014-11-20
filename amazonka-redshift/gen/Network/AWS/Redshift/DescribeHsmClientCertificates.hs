@@ -147,6 +147,8 @@ instance ToQuery DescribeHsmClientCertificates where
 
 instance ToHeaders DescribeHsmClientCertificates
 
+query
+
 instance AWSRequest DescribeHsmClientCertificates where
     type Sv DescribeHsmClientCertificates = Redshift
     type Rs DescribeHsmClientCertificates = DescribeHsmClientCertificatesResponse

@@ -93,6 +93,8 @@ instance ToJSON ModifyInstanceGroups where
         [ "InstanceGroups" .= _migInstanceGroups
         ]
 
+json
+
 instance AWSRequest ModifyInstanceGroups where
     type Sv ModifyInstanceGroups = EMR
     type Rs ModifyInstanceGroups = ModifyInstanceGroupsResponse

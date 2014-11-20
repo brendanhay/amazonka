@@ -126,6 +126,8 @@ instance ToQuery AttachNetworkInterface where
 
 instance ToHeaders AttachNetworkInterface
 
+query
+
 instance AWSRequest AttachNetworkInterface where
     type Sv AttachNetworkInterface = EC2
     type Rs AttachNetworkInterface = AttachNetworkInterfaceResponse

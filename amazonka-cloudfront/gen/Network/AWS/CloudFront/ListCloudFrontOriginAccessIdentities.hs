@@ -116,6 +116,8 @@ instance ToXMLRoot ListCloudFrontOriginAccessIdentities where
 
 instance ToXML ListCloudFrontOriginAccessIdentities
 
+xml
+
 instance AWSRequest ListCloudFrontOriginAccessIdentities where
     type Sv ListCloudFrontOriginAccessIdentities = CloudFront
     type Rs ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentitiesResponse

@@ -90,6 +90,8 @@ instance ToJSON StopInstance where
         [ "InstanceId" .= _siInstanceId
         ]
 
+json
+
 instance AWSRequest StopInstance where
     type Sv StopInstance = OpsWorks
     type Rs StopInstance = StopInstanceResponse

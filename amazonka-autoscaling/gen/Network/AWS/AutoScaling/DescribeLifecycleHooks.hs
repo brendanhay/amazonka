@@ -117,6 +117,8 @@ instance ToQuery DescribeLifecycleHooks where
 
 instance ToHeaders DescribeLifecycleHooks
 
+query
+
 instance AWSRequest DescribeLifecycleHooks where
     type Sv DescribeLifecycleHooks = AutoScaling
     type Rs DescribeLifecycleHooks = DescribeLifecycleHooksResponse

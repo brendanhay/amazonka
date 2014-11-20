@@ -83,6 +83,8 @@ instance ToJSON DeleteRetentionPolicy where
         [ "logGroupName" .= _drpLogGroupName
         ]
 
+json
+
 instance AWSRequest DeleteRetentionPolicy where
     type Sv DeleteRetentionPolicy = CloudWatchLogs
     type Rs DeleteRetentionPolicy = DeleteRetentionPolicyResponse

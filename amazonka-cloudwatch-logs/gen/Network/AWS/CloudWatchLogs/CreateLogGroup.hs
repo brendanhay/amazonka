@@ -87,6 +87,8 @@ instance ToJSON CreateLogGroup where
         [ "logGroupName" .= _clgLogGroupName
         ]
 
+json
+
 instance AWSRequest CreateLogGroup where
     type Sv CreateLogGroup = CloudWatchLogs
     type Rs CreateLogGroup = CreateLogGroupResponse

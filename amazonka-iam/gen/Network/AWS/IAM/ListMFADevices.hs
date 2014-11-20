@@ -145,6 +145,8 @@ instance ToQuery ListMFADevices where
 
 instance ToHeaders ListMFADevices
 
+query
+
 instance AWSRequest ListMFADevices where
     type Sv ListMFADevices = IAM
     type Rs ListMFADevices = ListMFADevicesResponse

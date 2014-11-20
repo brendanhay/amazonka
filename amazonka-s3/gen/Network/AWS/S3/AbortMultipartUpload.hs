@@ -107,6 +107,8 @@ instance ToXMLRoot AbortMultipartUpload where
 
 instance ToXML AbortMultipartUpload
 
+xml
+
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse

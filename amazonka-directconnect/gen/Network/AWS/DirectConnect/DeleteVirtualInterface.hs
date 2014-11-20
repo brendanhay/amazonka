@@ -98,6 +98,8 @@ instance ToJSON DeleteVirtualInterface where
         [ "virtualInterfaceId" .= _dvi1VirtualInterfaceId
         ]
 
+json
+
 instance AWSRequest DeleteVirtualInterface where
     type Sv DeleteVirtualInterface = DirectConnect
     type Rs DeleteVirtualInterface = DeleteVirtualInterfaceResponse

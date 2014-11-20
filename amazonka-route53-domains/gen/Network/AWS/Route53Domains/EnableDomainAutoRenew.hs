@@ -90,6 +90,8 @@ instance ToJSON EnableDomainAutoRenew where
         [ "DomainName" .= _edarDomainName
         ]
 
+json
+
 instance AWSRequest EnableDomainAutoRenew where
     type Sv EnableDomainAutoRenew = Route53Domains
     type Rs EnableDomainAutoRenew = EnableDomainAutoRenewResponse

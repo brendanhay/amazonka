@@ -91,6 +91,8 @@ instance ToQuery DeleteNetworkInterface where
 
 instance ToHeaders DeleteNetworkInterface
 
+query
+
 instance AWSRequest DeleteNetworkInterface where
     type Sv DeleteNetworkInterface = EC2
     type Rs DeleteNetworkInterface = DeleteNetworkInterfaceResponse

@@ -141,6 +141,8 @@ instance ToHeaders Suggest
 instance ToJSON Suggest where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest Suggest where
     type Sv Suggest = CloudSearchDomains
     type Rs Suggest = SuggestResponse

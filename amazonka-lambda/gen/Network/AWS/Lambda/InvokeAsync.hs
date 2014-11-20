@@ -116,6 +116,8 @@ instance ToJSON InvokeAsync where
         [ "InvokeArgs" .= _iaInvokeArgs
         ]
 
+json
+
 instance AWSRequest InvokeAsync where
     type Sv InvokeAsync = Lambda
     type Rs InvokeAsync = InvokeAsyncResponse

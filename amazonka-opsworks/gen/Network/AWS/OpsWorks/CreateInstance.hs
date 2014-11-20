@@ -277,6 +277,8 @@ instance ToJSON CreateInstance where
         , "EbsOptimized"         .= _ciEbsOptimized
         ]
 
+json
+
 instance AWSRequest CreateInstance where
     type Sv CreateInstance = OpsWorks
     type Rs CreateInstance = CreateInstanceResponse

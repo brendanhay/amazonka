@@ -93,6 +93,8 @@ instance ToQuery DeleteLoadBalancerListeners where
 
 instance ToHeaders DeleteLoadBalancerListeners
 
+query
+
 instance AWSRequest DeleteLoadBalancerListeners where
     type Sv DeleteLoadBalancerListeners = ELB
     type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse

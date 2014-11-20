@@ -83,6 +83,8 @@ instance ToQuery DeleteClusterParameterGroup where
 
 instance ToHeaders DeleteClusterParameterGroup
 
+query
+
 instance AWSRequest DeleteClusterParameterGroup where
     type Sv DeleteClusterParameterGroup = Redshift
     type Rs DeleteClusterParameterGroup = DeleteClusterParameterGroupResponse

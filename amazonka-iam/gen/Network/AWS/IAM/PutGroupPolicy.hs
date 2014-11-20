@@ -107,6 +107,8 @@ instance ToQuery PutGroupPolicy where
 
 instance ToHeaders PutGroupPolicy
 
+query
+
 instance AWSRequest PutGroupPolicy where
     type Sv PutGroupPolicy = IAM
     type Rs PutGroupPolicy = PutGroupPolicyResponse

@@ -97,6 +97,8 @@ instance ToQuery DeleteVpnConnectionRoute where
 
 instance ToHeaders DeleteVpnConnectionRoute
 
+query
+
 instance AWSRequest DeleteVpnConnectionRoute where
     type Sv DeleteVpnConnectionRoute = EC2
     type Rs DeleteVpnConnectionRoute = DeleteVpnConnectionRouteResponse

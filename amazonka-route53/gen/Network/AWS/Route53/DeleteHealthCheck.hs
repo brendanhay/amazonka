@@ -94,6 +94,8 @@ instance ToXMLRoot DeleteHealthCheck where
 
 instance ToXML DeleteHealthCheck
 
+xml
+
 instance AWSRequest DeleteHealthCheck where
     type Sv DeleteHealthCheck = Route53
     type Rs DeleteHealthCheck = DeleteHealthCheckResponse

@@ -129,6 +129,8 @@ instance ToJSON CreateStream where
         , "ShardCount" .= _csShardCount
         ]
 
+json
+
 instance AWSRequest CreateStream where
     type Sv CreateStream = Kinesis
     type Rs CreateStream = CreateStreamResponse

@@ -82,6 +82,8 @@ instance ToQuery DeleteVirtualMFADevice where
 
 instance ToHeaders DeleteVirtualMFADevice
 
+query
+
 instance AWSRequest DeleteVirtualMFADevice where
     type Sv DeleteVirtualMFADevice = IAM
     type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse

@@ -104,6 +104,8 @@ instance ToQuery UpdateOpenIDConnectProviderThumbprint where
 
 instance ToHeaders UpdateOpenIDConnectProviderThumbprint
 
+query
+
 instance AWSRequest UpdateOpenIDConnectProviderThumbprint where
     type Sv UpdateOpenIDConnectProviderThumbprint = IAM
     type Rs UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprintResponse

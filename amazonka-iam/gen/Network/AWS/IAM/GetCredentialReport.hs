@@ -100,6 +100,8 @@ instance ToQuery GetCredentialReport where
 
 instance ToHeaders GetCredentialReport
 
+query
+
 instance AWSRequest GetCredentialReport where
     type Sv GetCredentialReport = IAM
     type Rs GetCredentialReport = GetCredentialReportResponse

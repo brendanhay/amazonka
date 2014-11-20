@@ -132,6 +132,8 @@ instance ToQuery RegisterInstancesWithLoadBalancer where
 
 instance ToHeaders RegisterInstancesWithLoadBalancer
 
+query
+
 instance AWSRequest RegisterInstancesWithLoadBalancer where
     type Sv RegisterInstancesWithLoadBalancer = ELB
     type Rs RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancerResponse

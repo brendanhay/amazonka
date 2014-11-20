@@ -103,6 +103,8 @@ instance ToQuery SuspendProcesses where
 
 instance ToHeaders SuspendProcesses
 
+query
+
 instance AWSRequest SuspendProcesses where
     type Sv SuspendProcesses = AutoScaling
     type Rs SuspendProcesses = SuspendProcessesResponse

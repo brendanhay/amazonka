@@ -99,6 +99,8 @@ instance ToXMLRoot DeleteStreamingDistribution where
 
 instance ToXML DeleteStreamingDistribution
 
+xml-headers
+
 instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront
     type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse

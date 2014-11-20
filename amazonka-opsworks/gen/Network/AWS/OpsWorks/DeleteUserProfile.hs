@@ -85,6 +85,8 @@ instance ToJSON DeleteUserProfile where
         [ "IamUserArn" .= _dupIamUserArn
         ]
 
+json
+
 instance AWSRequest DeleteUserProfile where
     type Sv DeleteUserProfile = OpsWorks
     type Rs DeleteUserProfile = DeleteUserProfileResponse

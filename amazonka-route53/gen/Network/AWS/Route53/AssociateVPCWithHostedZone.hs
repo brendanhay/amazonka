@@ -137,6 +137,8 @@ instance ToXMLRoot AssociateVPCWithHostedZone where
 
 instance ToXML AssociateVPCWithHostedZone
 
+xml
+
 instance AWSRequest AssociateVPCWithHostedZone where
     type Sv AssociateVPCWithHostedZone = Route53
     type Rs AssociateVPCWithHostedZone = AssociateVPCWithHostedZoneResponse

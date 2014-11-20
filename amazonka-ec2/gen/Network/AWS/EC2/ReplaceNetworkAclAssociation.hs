@@ -120,6 +120,8 @@ instance ToQuery ReplaceNetworkAclAssociation where
 
 instance ToHeaders ReplaceNetworkAclAssociation
 
+query
+
 instance AWSRequest ReplaceNetworkAclAssociation where
     type Sv ReplaceNetworkAclAssociation = EC2
     type Rs ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociationResponse

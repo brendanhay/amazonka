@@ -175,6 +175,8 @@ instance ToQuery EnableLogging where
 
 instance ToHeaders EnableLogging
 
+query
+
 instance AWSRequest EnableLogging where
     type Sv EnableLogging = Redshift
     type Rs EnableLogging = EnableLoggingResponse

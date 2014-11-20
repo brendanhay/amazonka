@@ -131,6 +131,8 @@ instance ToJSON UpdatePipelineNotifications where
         [ "Notifications" .= _upnNotifications
         ]
 
+json
+
 instance AWSRequest UpdatePipelineNotifications where
     type Sv UpdatePipelineNotifications = ElasticTranscoder
     type Rs UpdatePipelineNotifications = UpdatePipelineNotificationsResponse

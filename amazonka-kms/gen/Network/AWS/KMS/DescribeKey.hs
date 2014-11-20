@@ -98,6 +98,8 @@ instance ToJSON DescribeKey where
         [ "KeyId" .= _dk1KeyId
         ]
 
+json
+
 instance AWSRequest DescribeKey where
     type Sv DescribeKey = KMS
     type Rs DescribeKey = DescribeKeyResponse

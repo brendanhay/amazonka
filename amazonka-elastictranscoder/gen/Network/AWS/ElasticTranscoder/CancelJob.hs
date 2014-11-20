@@ -86,6 +86,8 @@ instance ToHeaders CancelJob
 instance ToJSON CancelJob where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest CancelJob where
     type Sv CancelJob = ElasticTranscoder
     type Rs CancelJob = CancelJobResponse

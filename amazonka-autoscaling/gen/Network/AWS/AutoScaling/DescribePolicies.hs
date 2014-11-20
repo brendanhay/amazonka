@@ -143,6 +143,8 @@ instance ToQuery DescribePolicies where
 
 instance ToHeaders DescribePolicies
 
+query
+
 instance AWSRequest DescribePolicies where
     type Sv DescribePolicies = AutoScaling
     type Rs DescribePolicies = DescribePoliciesResponse

@@ -152,6 +152,8 @@ instance ToJSON DescribeCache where
         [ "GatewayARN" .= _dcGatewayARN
         ]
 
+json
+
 instance AWSRequest DescribeCache where
     type Sv DescribeCache = StorageGateway
     type Rs DescribeCache = DescribeCacheResponse

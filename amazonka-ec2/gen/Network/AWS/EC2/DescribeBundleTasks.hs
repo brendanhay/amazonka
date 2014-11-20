@@ -127,6 +127,8 @@ instance ToQuery DescribeBundleTasks where
 
 instance ToHeaders DescribeBundleTasks
 
+query
+
 instance AWSRequest DescribeBundleTasks where
     type Sv DescribeBundleTasks = EC2
     type Rs DescribeBundleTasks = DescribeBundleTasksResponse

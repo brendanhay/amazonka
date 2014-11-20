@@ -117,6 +117,8 @@ instance ToJSON RequestCancelWorkflowExecution where
         , "runId"      .= _rcweRunId
         ]
 
+json
+
 instance AWSRequest RequestCancelWorkflowExecution where
     type Sv RequestCancelWorkflowExecution = SWF
     type Rs RequestCancelWorkflowExecution = RequestCancelWorkflowExecutionResponse

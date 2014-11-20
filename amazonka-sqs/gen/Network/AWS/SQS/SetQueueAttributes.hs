@@ -117,6 +117,8 @@ instance ToQuery SetQueueAttributes where
 
 instance ToHeaders SetQueueAttributes
 
+query
+
 instance AWSRequest SetQueueAttributes where
     type Sv SetQueueAttributes = SQS
     type Rs SetQueueAttributes = SetQueueAttributesResponse

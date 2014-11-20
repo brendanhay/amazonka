@@ -135,6 +135,8 @@ instance ToQuery ListMetrics where
 
 instance ToHeaders ListMetrics
 
+query
+
 instance AWSRequest ListMetrics where
     type Sv ListMetrics = CloudWatch
     type Rs ListMetrics = ListMetricsResponse

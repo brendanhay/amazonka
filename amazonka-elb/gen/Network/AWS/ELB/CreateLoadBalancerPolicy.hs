@@ -122,6 +122,8 @@ instance ToQuery CreateLoadBalancerPolicy where
 
 instance ToHeaders CreateLoadBalancerPolicy
 
+query
+
 instance AWSRequest CreateLoadBalancerPolicy where
     type Sv CreateLoadBalancerPolicy = ELB
     type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse

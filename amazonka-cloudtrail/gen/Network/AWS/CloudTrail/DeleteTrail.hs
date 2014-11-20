@@ -83,6 +83,8 @@ instance ToJSON DeleteTrail where
         [ "Name" .= _dtName
         ]
 
+json
+
 instance AWSRequest DeleteTrail where
     type Sv DeleteTrail = CloudTrail
     type Rs DeleteTrail = DeleteTrailResponse

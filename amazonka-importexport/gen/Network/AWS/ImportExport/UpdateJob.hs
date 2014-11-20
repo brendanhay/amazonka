@@ -135,6 +135,8 @@ instance ToQuery UpdateJob where
 
 instance ToHeaders UpdateJob
 
+query
+
 instance AWSRequest UpdateJob where
     type Sv UpdateJob = ImportExport
     type Rs UpdateJob = UpdateJobResponse

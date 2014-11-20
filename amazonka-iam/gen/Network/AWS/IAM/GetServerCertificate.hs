@@ -99,6 +99,8 @@ instance ToQuery GetServerCertificate where
 
 instance ToHeaders GetServerCertificate
 
+query
+
 instance AWSRequest GetServerCertificate where
     type Sv GetServerCertificate = IAM
     type Rs GetServerCertificate = GetServerCertificateResponse

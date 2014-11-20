@@ -120,6 +120,8 @@ instance ToQuery ModifyDBSubnetGroup where
 
 instance ToHeaders ModifyDBSubnetGroup
 
+query
+
 instance AWSRequest ModifyDBSubnetGroup where
     type Sv ModifyDBSubnetGroup = RDS
     type Rs ModifyDBSubnetGroup = ModifyDBSubnetGroupResponse

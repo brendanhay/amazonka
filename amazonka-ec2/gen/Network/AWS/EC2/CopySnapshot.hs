@@ -166,6 +166,8 @@ instance ToQuery CopySnapshot where
 
 instance ToHeaders CopySnapshot
 
+query
+
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = EC2
     type Rs CopySnapshot = CopySnapshotResponse

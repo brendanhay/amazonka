@@ -93,6 +93,8 @@ instance ToXMLRoot DeleteReusableDelegationSet where
 
 instance ToXML DeleteReusableDelegationSet
 
+xml
+
 instance AWSRequest DeleteReusableDelegationSet where
     type Sv DeleteReusableDelegationSet = Route53
     type Rs DeleteReusableDelegationSet = DeleteReusableDelegationSetResponse

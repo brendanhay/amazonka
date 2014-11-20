@@ -144,6 +144,8 @@ instance ToQuery DescribeVpnConnections where
 
 instance ToHeaders DescribeVpnConnections
 
+query
+
 instance AWSRequest DescribeVpnConnections where
     type Sv DescribeVpnConnections = EC2
     type Rs DescribeVpnConnections = DescribeVpnConnectionsResponse

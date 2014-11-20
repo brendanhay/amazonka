@@ -115,6 +115,8 @@ instance ToQuery RebootCacheCluster where
 
 instance ToHeaders RebootCacheCluster
 
+query
+
 instance AWSRequest RebootCacheCluster where
     type Sv RebootCacheCluster = ElastiCache
     type Rs RebootCacheCluster = RebootCacheClusterResponse

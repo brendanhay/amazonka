@@ -87,6 +87,8 @@ instance ToQuery DisableAlarmActions where
 
 instance ToHeaders DisableAlarmActions
 
+query
+
 instance AWSRequest DisableAlarmActions where
     type Sv DisableAlarmActions = CloudWatch
     type Rs DisableAlarmActions = DisableAlarmActionsResponse

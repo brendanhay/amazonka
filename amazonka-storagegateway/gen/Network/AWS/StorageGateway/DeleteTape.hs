@@ -110,6 +110,8 @@ instance ToJSON DeleteTape where
         , "TapeARN"    .= _dt1TapeARN
         ]
 
+json
+
 instance AWSRequest DeleteTape where
     type Sv DeleteTape = StorageGateway
     type Rs DeleteTape = DeleteTapeResponse

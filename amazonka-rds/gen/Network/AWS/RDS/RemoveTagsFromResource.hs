@@ -93,6 +93,8 @@ instance ToQuery RemoveTagsFromResource where
 
 instance ToHeaders RemoveTagsFromResource
 
+query
+
 instance AWSRequest RemoveTagsFromResource where
     type Sv RemoveTagsFromResource = RDS
     type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse

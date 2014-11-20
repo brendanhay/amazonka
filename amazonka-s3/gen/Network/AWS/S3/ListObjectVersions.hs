@@ -278,6 +278,8 @@ instance ToXMLRoot ListObjectVersions where
 
 instance ToXML ListObjectVersions
 
+xml
+
 instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
     type Rs ListObjectVersions = ListObjectVersionsResponse

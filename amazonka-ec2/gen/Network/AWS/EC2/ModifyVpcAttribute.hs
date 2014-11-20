@@ -109,6 +109,8 @@ instance ToQuery ModifyVpcAttribute where
 
 instance ToHeaders ModifyVpcAttribute
 
+query
+
 instance AWSRequest ModifyVpcAttribute where
     type Sv ModifyVpcAttribute = EC2
     type Rs ModifyVpcAttribute = ModifyVpcAttributeResponse

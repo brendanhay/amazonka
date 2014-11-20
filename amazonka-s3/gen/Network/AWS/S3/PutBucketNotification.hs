@@ -109,6 +109,8 @@ instance ToXMLRoot PutBucketNotification where
 
 instance ToXML PutBucketNotification
 
+xml-headers
+
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
     type Rs PutBucketNotification = PutBucketNotificationResponse

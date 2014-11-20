@@ -113,6 +113,8 @@ instance ToJSON AddWorkingStorage where
         , "DiskIds"    .= _awsDiskIds
         ]
 
+json
+
 instance AWSRequest AddWorkingStorage where
     type Sv AddWorkingStorage = StorageGateway
     type Rs AddWorkingStorage = AddWorkingStorageResponse

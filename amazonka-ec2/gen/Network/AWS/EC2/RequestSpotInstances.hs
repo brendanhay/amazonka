@@ -218,6 +218,8 @@ instance ToQuery RequestSpotInstances where
 
 instance ToHeaders RequestSpotInstances
 
+query
+
 instance AWSRequest RequestSpotInstances where
     type Sv RequestSpotInstances = EC2
     type Rs RequestSpotInstances = RequestSpotInstancesResponse

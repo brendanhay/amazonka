@@ -99,6 +99,8 @@ instance ToXMLRoot GetBucketLocation where
 
 instance ToXML GetBucketLocation
 
+xml
+
 instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
     type Rs GetBucketLocation = GetBucketLocationResponse

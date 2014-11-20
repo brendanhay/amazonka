@@ -87,6 +87,8 @@ instance ToJSON ActivatePipeline where
         [ "pipelineId" .= _apPipelineId
         ]
 
+json
+
 instance AWSRequest ActivatePipeline where
     type Sv ActivatePipeline = DataPipeline
     type Rs ActivatePipeline = ActivatePipelineResponse

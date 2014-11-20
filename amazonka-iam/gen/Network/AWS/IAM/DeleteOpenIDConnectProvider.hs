@@ -89,6 +89,8 @@ instance ToQuery DeleteOpenIDConnectProvider where
 
 instance ToHeaders DeleteOpenIDConnectProvider
 
+query
+
 instance AWSRequest DeleteOpenIDConnectProvider where
     type Sv DeleteOpenIDConnectProvider = IAM
     type Rs DeleteOpenIDConnectProvider = DeleteOpenIDConnectProviderResponse

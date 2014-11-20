@@ -201,6 +201,8 @@ instance ToJSON DescribeCases where
         , "includeCommunications" .= _dcIncludeCommunications
         ]
 
+json
+
 instance AWSRequest DescribeCases where
     type Sv DescribeCases = Support
     type Rs DescribeCases = DescribeCasesResponse

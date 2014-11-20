@@ -144,6 +144,8 @@ instance ToQuery ListUserPolicies where
 
 instance ToHeaders ListUserPolicies
 
+query
+
 instance AWSRequest ListUserPolicies where
     type Sv ListUserPolicies = IAM
     type Rs ListUserPolicies = ListUserPoliciesResponse

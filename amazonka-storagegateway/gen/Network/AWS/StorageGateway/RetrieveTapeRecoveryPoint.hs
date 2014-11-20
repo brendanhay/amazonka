@@ -112,6 +112,8 @@ instance ToJSON RetrieveTapeRecoveryPoint where
         , "GatewayARN" .= _rtrpGatewayARN
         ]
 
+json
+
 instance AWSRequest RetrieveTapeRecoveryPoint where
     type Sv RetrieveTapeRecoveryPoint = StorageGateway
     type Rs RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPointResponse

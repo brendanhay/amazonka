@@ -146,6 +146,8 @@ instance ToJSON SplitShard where
         , "NewStartingHashKey" .= _ssNewStartingHashKey
         ]
 
+json
+
 instance AWSRequest SplitShard where
     type Sv SplitShard = Kinesis
     type Rs SplitShard = SplitShardResponse

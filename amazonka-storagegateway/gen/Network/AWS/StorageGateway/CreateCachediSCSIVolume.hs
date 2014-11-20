@@ -169,6 +169,8 @@ instance ToJSON CreateCachediSCSIVolume where
         , "ClientToken"        .= _ccscsivClientToken
         ]
 
+json
+
 instance AWSRequest CreateCachediSCSIVolume where
     type Sv CreateCachediSCSIVolume = StorageGateway
     type Rs CreateCachediSCSIVolume = CreateCachediSCSIVolumeResponse

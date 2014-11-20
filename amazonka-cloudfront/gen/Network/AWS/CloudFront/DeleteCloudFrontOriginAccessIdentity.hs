@@ -99,6 +99,8 @@ instance ToXMLRoot DeleteCloudFrontOriginAccessIdentity where
 
 instance ToXML DeleteCloudFrontOriginAccessIdentity
 
+xml-headers
+
 instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront
     type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentityResponse

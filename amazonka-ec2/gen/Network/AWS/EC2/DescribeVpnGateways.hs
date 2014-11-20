@@ -139,6 +139,8 @@ instance ToQuery DescribeVpnGateways where
 
 instance ToHeaders DescribeVpnGateways
 
+query
+
 instance AWSRequest DescribeVpnGateways where
     type Sv DescribeVpnGateways = EC2
     type Rs DescribeVpnGateways = DescribeVpnGatewaysResponse

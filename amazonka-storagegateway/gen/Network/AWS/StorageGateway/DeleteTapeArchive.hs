@@ -99,6 +99,8 @@ instance ToJSON DeleteTapeArchive where
         [ "TapeARN" .= _dtaTapeARN
         ]
 
+json
+
 instance AWSRequest DeleteTapeArchive where
     type Sv DeleteTapeArchive = StorageGateway
     type Rs DeleteTapeArchive = DeleteTapeArchiveResponse

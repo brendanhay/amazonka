@@ -108,6 +108,8 @@ instance ToQuery CreateUser where
 
 instance ToHeaders CreateUser
 
+query
+
 instance AWSRequest CreateUser where
     type Sv CreateUser = IAM
     type Rs CreateUser = CreateUserResponse

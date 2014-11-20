@@ -131,6 +131,8 @@ instance ToQuery DescribeAnalysisSchemes where
 
 instance ToHeaders DescribeAnalysisSchemes
 
+query
+
 instance AWSRequest DescribeAnalysisSchemes where
     type Sv DescribeAnalysisSchemes = CloudSearch
     type Rs DescribeAnalysisSchemes = DescribeAnalysisSchemesResponse

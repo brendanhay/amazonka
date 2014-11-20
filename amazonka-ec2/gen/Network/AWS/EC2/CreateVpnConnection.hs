@@ -149,6 +149,8 @@ instance ToQuery CreateVpnConnection where
 
 instance ToHeaders CreateVpnConnection
 
+query
+
 instance AWSRequest CreateVpnConnection where
     type Sv CreateVpnConnection = EC2
     type Rs CreateVpnConnection = CreateVpnConnectionResponse

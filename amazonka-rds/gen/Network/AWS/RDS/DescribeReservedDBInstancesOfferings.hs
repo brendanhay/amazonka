@@ -207,6 +207,8 @@ instance ToQuery DescribeReservedDBInstancesOfferings where
 
 instance ToHeaders DescribeReservedDBInstancesOfferings
 
+query
+
 instance AWSRequest DescribeReservedDBInstancesOfferings where
     type Sv DescribeReservedDBInstancesOfferings = RDS
     type Rs DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferingsResponse

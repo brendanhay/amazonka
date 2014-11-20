@@ -111,6 +111,8 @@ instance ToJSON DescribeTrustedAdvisorCheckSummaries where
         [ "checkIds" .= _dtacsCheckIds
         ]
 
+json
+
 instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
     type Sv DescribeTrustedAdvisorCheckSummaries = Support
     type Rs DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummariesResponse

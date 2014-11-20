@@ -169,6 +169,8 @@ instance ToJSON GenerateDataKey where
         , "GrantTokens"       .= _gdkGrantTokens
         ]
 
+json
+
 instance AWSRequest GenerateDataKey where
     type Sv GenerateDataKey = KMS
     type Rs GenerateDataKey = GenerateDataKeyResponse

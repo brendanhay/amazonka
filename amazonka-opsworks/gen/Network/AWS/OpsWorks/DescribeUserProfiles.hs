@@ -110,6 +110,8 @@ instance ToJSON DescribeUserProfiles where
         [ "IamUserArns" .= _dupIamUserArns
         ]
 
+json
+
 instance AWSRequest DescribeUserProfiles where
     type Sv DescribeUserProfiles = OpsWorks
     type Rs DescribeUserProfiles = DescribeUserProfilesResponse

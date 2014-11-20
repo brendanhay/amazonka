@@ -136,6 +136,8 @@ instance ToJSON RegisterDevice where
         , "Token"    .= _rdToken
         ]
 
+json
+
 instance AWSRequest RegisterDevice where
     type Sv RegisterDevice = CognitoSync
     type Rs RegisterDevice = RegisterDeviceResponse

@@ -150,6 +150,8 @@ instance ToQuery DescribeClusterSecurityGroups where
 
 instance ToHeaders DescribeClusterSecurityGroups
 
+query
+
 instance AWSRequest DescribeClusterSecurityGroups where
     type Sv DescribeClusterSecurityGroups = Redshift
     type Rs DescribeClusterSecurityGroups = DescribeClusterSecurityGroupsResponse

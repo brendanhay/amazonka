@@ -132,6 +132,8 @@ instance ToQuery DetachInstances where
 
 instance ToHeaders DetachInstances
 
+query
+
 instance AWSRequest DetachInstances where
     type Sv DetachInstances = AutoScaling
     type Rs DetachInstances = DetachInstancesResponse

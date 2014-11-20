@@ -87,6 +87,8 @@ instance ToJSON DeleteStack where
         [ "StackId" .= _dsStackId
         ]
 
+json
+
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = OpsWorks
     type Rs DeleteStack = DeleteStackResponse

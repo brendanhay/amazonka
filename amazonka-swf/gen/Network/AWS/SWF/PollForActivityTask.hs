@@ -201,6 +201,8 @@ instance ToJSON PollForActivityTask where
         , "identity" .= _pfatIdentity
         ]
 
+json
+
 instance AWSRequest PollForActivityTask where
     type Sv PollForActivityTask = SWF
     type Rs PollForActivityTask = PollForActivityTaskResponse

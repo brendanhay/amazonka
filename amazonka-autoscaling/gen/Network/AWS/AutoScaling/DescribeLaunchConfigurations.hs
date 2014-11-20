@@ -130,6 +130,8 @@ instance ToQuery DescribeLaunchConfigurations where
 
 instance ToHeaders DescribeLaunchConfigurations
 
+query
+
 instance AWSRequest DescribeLaunchConfigurations where
     type Sv DescribeLaunchConfigurations = AutoScaling
     type Rs DescribeLaunchConfigurations = DescribeLaunchConfigurationsResponse

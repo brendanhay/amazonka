@@ -135,6 +135,8 @@ instance ToQuery DescribeCacheSubnetGroups where
 
 instance ToHeaders DescribeCacheSubnetGroups
 
+query
+
 instance AWSRequest DescribeCacheSubnetGroups where
     type Sv DescribeCacheSubnetGroups = ElastiCache
     type Rs DescribeCacheSubnetGroups = DescribeCacheSubnetGroupsResponse

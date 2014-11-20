@@ -139,6 +139,8 @@ instance ToJSON SignalWorkflowExecution where
         , "input"      .= _sweInput
         ]
 
+json
+
 instance AWSRequest SignalWorkflowExecution where
     type Sv SignalWorkflowExecution = SWF
     type Rs SignalWorkflowExecution = SignalWorkflowExecutionResponse

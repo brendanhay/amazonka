@@ -110,6 +110,8 @@ instance ToQuery UpdateServiceAccessPolicies where
 
 instance ToHeaders UpdateServiceAccessPolicies
 
+query
+
 instance AWSRequest UpdateServiceAccessPolicies where
     type Sv UpdateServiceAccessPolicies = CloudSearch
     type Rs UpdateServiceAccessPolicies = UpdateServiceAccessPoliciesResponse

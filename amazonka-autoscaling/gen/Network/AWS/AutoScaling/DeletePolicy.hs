@@ -91,6 +91,8 @@ instance ToQuery DeletePolicy where
 
 instance ToHeaders DeletePolicy
 
+query
+
 instance AWSRequest DeletePolicy where
     type Sv DeletePolicy = AutoScaling
     type Rs DeletePolicy = DeletePolicyResponse

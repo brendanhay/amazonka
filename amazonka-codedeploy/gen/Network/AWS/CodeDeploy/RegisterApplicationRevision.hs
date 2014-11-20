@@ -107,6 +107,8 @@ instance ToJSON RegisterApplicationRevision where
         , "revision"        .= _rarRevision
         ]
 
+json
+
 instance AWSRequest RegisterApplicationRevision where
     type Sv RegisterApplicationRevision = CodeDeploy
     type Rs RegisterApplicationRevision = RegisterApplicationRevisionResponse

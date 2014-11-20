@@ -95,6 +95,8 @@ instance ToQuery DeleteApplication where
 
 instance ToHeaders DeleteApplication
 
+query
+
 instance AWSRequest DeleteApplication where
     type Sv DeleteApplication = ElasticBeanstalk
     type Rs DeleteApplication = DeleteApplicationResponse

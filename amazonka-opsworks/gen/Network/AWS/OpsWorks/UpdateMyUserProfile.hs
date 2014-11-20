@@ -85,6 +85,8 @@ instance ToJSON UpdateMyUserProfile where
         [ "SshPublicKey" .= _umupSshPublicKey
         ]
 
+json
+
 instance AWSRequest UpdateMyUserProfile where
     type Sv UpdateMyUserProfile = OpsWorks
     type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse

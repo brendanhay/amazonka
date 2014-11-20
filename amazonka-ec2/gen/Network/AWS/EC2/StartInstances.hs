@@ -134,6 +134,8 @@ instance ToQuery StartInstances where
 
 instance ToHeaders StartInstances
 
+query
+
 instance AWSRequest StartInstances where
     type Sv StartInstances = EC2
     type Rs StartInstances = StartInstancesResponse

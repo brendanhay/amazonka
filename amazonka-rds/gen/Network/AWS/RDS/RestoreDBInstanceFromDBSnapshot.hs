@@ -336,6 +336,8 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot where
 
 instance ToHeaders RestoreDBInstanceFromDBSnapshot
 
+query
+
 instance AWSRequest RestoreDBInstanceFromDBSnapshot where
     type Sv RestoreDBInstanceFromDBSnapshot = RDS
     type Rs RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshotResponse

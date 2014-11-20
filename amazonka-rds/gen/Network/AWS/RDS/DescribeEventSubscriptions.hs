@@ -148,6 +148,8 @@ instance ToQuery DescribeEventSubscriptions where
 
 instance ToHeaders DescribeEventSubscriptions
 
+query
+
 instance AWSRequest DescribeEventSubscriptions where
     type Sv DescribeEventSubscriptions = RDS
     type Rs DescribeEventSubscriptions = DescribeEventSubscriptionsResponse

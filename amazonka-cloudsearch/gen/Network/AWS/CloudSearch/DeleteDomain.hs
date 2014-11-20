@@ -95,6 +95,8 @@ instance ToQuery DeleteDomain where
 
 instance ToHeaders DeleteDomain
 
+query
+
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = CloudSearch
     type Rs DeleteDomain = DeleteDomainResponse

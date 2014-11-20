@@ -112,6 +112,8 @@ instance ToJSON GetDeploymentGroup where
         , "deploymentGroupName" .= _gdgDeploymentGroupName
         ]
 
+json
+
 instance AWSRequest GetDeploymentGroup where
     type Sv GetDeploymentGroup = CodeDeploy
     type Rs GetDeploymentGroup = GetDeploymentGroupResponse

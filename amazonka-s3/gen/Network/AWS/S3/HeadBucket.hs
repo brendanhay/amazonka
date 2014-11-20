@@ -86,6 +86,8 @@ instance ToXMLRoot HeadBucket where
 
 instance ToXML HeadBucket
 
+xml
+
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
     type Rs HeadBucket = HeadBucketResponse

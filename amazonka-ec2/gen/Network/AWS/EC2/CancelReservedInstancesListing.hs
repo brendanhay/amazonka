@@ -107,6 +107,8 @@ instance ToQuery CancelReservedInstancesListing where
 
 instance ToHeaders CancelReservedInstancesListing
 
+query
+
 instance AWSRequest CancelReservedInstancesListing where
     type Sv CancelReservedInstancesListing = EC2
     type Rs CancelReservedInstancesListing = CancelReservedInstancesListingResponse

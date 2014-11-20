@@ -124,6 +124,8 @@ instance ToXMLRoot CreateCloudFrontOriginAccessIdentity where
 
 instance ToXML CreateCloudFrontOriginAccessIdentity
 
+xml
+
 instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     type Sv CreateCloudFrontOriginAccessIdentity = CloudFront
     type Rs CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentityResponse

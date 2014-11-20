@@ -127,6 +127,8 @@ instance ToQuery ModifyDBParameterGroup where
 
 instance ToHeaders ModifyDBParameterGroup
 
+query
+
 instance AWSRequest ModifyDBParameterGroup where
     type Sv ModifyDBParameterGroup = RDS
     type Rs ModifyDBParameterGroup = ModifyDBParameterGroupResponse

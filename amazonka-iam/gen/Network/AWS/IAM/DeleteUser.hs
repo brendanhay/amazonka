@@ -81,6 +81,8 @@ instance ToQuery DeleteUser where
 
 instance ToHeaders DeleteUser
 
+query
+
 instance AWSRequest DeleteUser where
     type Sv DeleteUser = IAM
     type Rs DeleteUser = DeleteUserResponse

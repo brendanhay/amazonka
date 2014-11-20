@@ -110,6 +110,8 @@ instance ToXMLRoot PutBucketLogging where
 
 instance ToXML PutBucketLogging
 
+xml-headers
+
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
     type Rs PutBucketLogging = PutBucketLoggingResponse

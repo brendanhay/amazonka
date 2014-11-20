@@ -123,6 +123,8 @@ instance ToQuery CreateDBSecurityGroup where
 
 instance ToHeaders CreateDBSecurityGroup
 
+query
+
 instance AWSRequest CreateDBSecurityGroup where
     type Sv CreateDBSecurityGroup = RDS
     type Rs CreateDBSecurityGroup = CreateDBSecurityGroupResponse

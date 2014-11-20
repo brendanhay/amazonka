@@ -115,6 +115,8 @@ instance ToQuery CreateClusterSecurityGroup where
 
 instance ToHeaders CreateClusterSecurityGroup
 
+query
+
 instance AWSRequest CreateClusterSecurityGroup where
     type Sv CreateClusterSecurityGroup = Redshift
     type Rs CreateClusterSecurityGroup = CreateClusterSecurityGroupResponse

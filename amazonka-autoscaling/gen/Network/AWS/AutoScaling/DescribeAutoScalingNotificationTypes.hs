@@ -90,6 +90,8 @@ instance ToQuery DescribeAutoScalingNotificationTypes where
 
 instance ToHeaders DescribeAutoScalingNotificationTypes
 
+query
+
 instance AWSRequest DescribeAutoScalingNotificationTypes where
     type Sv DescribeAutoScalingNotificationTypes = AutoScaling
     type Rs DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypesResponse

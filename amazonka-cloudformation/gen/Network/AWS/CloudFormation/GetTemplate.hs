@@ -101,6 +101,8 @@ instance ToQuery GetTemplate where
 
 instance ToHeaders GetTemplate
 
+query
+
 instance AWSRequest GetTemplate where
     type Sv GetTemplate = CloudFormation
     type Rs GetTemplate = GetTemplateResponse

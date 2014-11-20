@@ -79,6 +79,8 @@ instance ToQuery DeleteSpotDatafeedSubscription where
 
 instance ToHeaders DeleteSpotDatafeedSubscription
 
+query
+
 instance AWSRequest DeleteSpotDatafeedSubscription where
     type Sv DeleteSpotDatafeedSubscription = EC2
     type Rs DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscriptionResponse

@@ -108,6 +108,8 @@ instance ToQuery CheckDNSAvailability where
 
 instance ToHeaders CheckDNSAvailability
 
+query
+
 instance AWSRequest CheckDNSAvailability where
     type Sv CheckDNSAvailability = ElasticBeanstalk
     type Rs CheckDNSAvailability = CheckDNSAvailabilityResponse

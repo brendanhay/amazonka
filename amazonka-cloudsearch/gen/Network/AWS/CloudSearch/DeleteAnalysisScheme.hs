@@ -108,6 +108,8 @@ instance ToQuery DeleteAnalysisScheme where
 
 instance ToHeaders DeleteAnalysisScheme
 
+query
+
 instance AWSRequest DeleteAnalysisScheme where
     type Sv DeleteAnalysisScheme = CloudSearch
     type Rs DeleteAnalysisScheme = DeleteAnalysisSchemeResponse

@@ -106,6 +106,8 @@ instance ToQuery CreateHsmClientCertificate where
 
 instance ToHeaders CreateHsmClientCertificate
 
+query
+
 instance AWSRequest CreateHsmClientCertificate where
     type Sv CreateHsmClientCertificate = Redshift
     type Rs CreateHsmClientCertificate = CreateHsmClientCertificateResponse

@@ -110,6 +110,8 @@ instance ToJSON GetKeyPolicy where
         , "PolicyName" .= _gkpPolicyName
         ]
 
+json
+
 instance AWSRequest GetKeyPolicy where
     type Sv GetKeyPolicy = KMS
     type Rs GetKeyPolicy = GetKeyPolicyResponse

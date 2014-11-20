@@ -129,6 +129,8 @@ instance ToQuery DeleteReplicationGroup where
 
 instance ToHeaders DeleteReplicationGroup
 
+query
+
 instance AWSRequest DeleteReplicationGroup where
     type Sv DeleteReplicationGroup = ElastiCache
     type Rs DeleteReplicationGroup = DeleteReplicationGroupResponse

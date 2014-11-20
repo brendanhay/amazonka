@@ -125,6 +125,8 @@ instance ToQuery ConfirmSubscription where
 
 instance ToHeaders ConfirmSubscription
 
+query
+
 instance AWSRequest ConfirmSubscription where
     type Sv ConfirmSubscription = SNS
     type Rs ConfirmSubscription = ConfirmSubscriptionResponse

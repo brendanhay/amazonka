@@ -139,6 +139,8 @@ instance ToJSON DescribeTapeArchives where
         , "Limit"    .= _dtaLimit
         ]
 
+json
+
 instance AWSRequest DescribeTapeArchives where
     type Sv DescribeTapeArchives = StorageGateway
     type Rs DescribeTapeArchives = DescribeTapeArchivesResponse

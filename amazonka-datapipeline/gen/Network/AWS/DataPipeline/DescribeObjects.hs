@@ -160,6 +160,8 @@ instance ToJSON DescribeObjects where
         , "marker"              .= _doMarker
         ]
 
+json
+
 instance AWSRequest DescribeObjects where
     type Sv DescribeObjects = DataPipeline
     type Rs DescribeObjects = DescribeObjectsResponse

@@ -112,6 +112,8 @@ instance ToQuery CreateInstanceProfile where
 
 instance ToHeaders CreateInstanceProfile
 
+query
+
 instance AWSRequest CreateInstanceProfile where
     type Sv CreateInstanceProfile = IAM
     type Rs CreateInstanceProfile = CreateInstanceProfileResponse

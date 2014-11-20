@@ -63,6 +63,8 @@ instance ToQuery DeleteAccountPasswordPolicy where
 
 instance ToHeaders DeleteAccountPasswordPolicy
 
+query
+
 instance AWSRequest DeleteAccountPasswordPolicy where
     type Sv DeleteAccountPasswordPolicy = IAM
     type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse

@@ -123,6 +123,8 @@ instance ToQuery EnableAvailabilityZonesForLoadBalancer where
 
 instance ToHeaders EnableAvailabilityZonesForLoadBalancer
 
+query
+
 instance AWSRequest EnableAvailabilityZonesForLoadBalancer where
     type Sv EnableAvailabilityZonesForLoadBalancer = ELB
     type Rs EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancerResponse

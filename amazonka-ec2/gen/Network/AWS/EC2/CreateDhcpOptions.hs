@@ -127,6 +127,8 @@ instance ToQuery CreateDhcpOptions where
 
 instance ToHeaders CreateDhcpOptions
 
+query
+
 instance AWSRequest CreateDhcpOptions where
     type Sv CreateDhcpOptions = EC2
     type Rs CreateDhcpOptions = CreateDhcpOptionsResponse

@@ -106,6 +106,8 @@ instance ToQuery DefineExpression where
 
 instance ToHeaders DefineExpression
 
+query
+
 instance AWSRequest DefineExpression where
     type Sv DefineExpression = CloudSearch
     type Rs DefineExpression = DefineExpressionResponse

@@ -132,6 +132,8 @@ instance ToQuery CompleteLifecycleAction where
 
 instance ToHeaders CompleteLifecycleAction
 
+query
+
 instance AWSRequest CompleteLifecycleAction where
     type Sv CompleteLifecycleAction = AutoScaling
     type Rs CompleteLifecycleAction = CompleteLifecycleActionResponse

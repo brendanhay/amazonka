@@ -94,6 +94,8 @@ instance ToQuery RebootInstances where
 
 instance ToHeaders RebootInstances
 
+query
+
 instance AWSRequest RebootInstances where
     type Sv RebootInstances = EC2
     type Rs RebootInstances = RebootInstancesResponse

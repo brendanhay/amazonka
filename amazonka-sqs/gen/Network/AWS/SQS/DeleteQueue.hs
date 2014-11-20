@@ -91,6 +91,8 @@ instance ToQuery DeleteQueue where
 
 instance ToHeaders DeleteQueue
 
+query
+
 instance AWSRequest DeleteQueue where
     type Sv DeleteQueue = SQS
     type Rs DeleteQueue = DeleteQueueResponse

@@ -128,6 +128,8 @@ instance ToJSON ListOperations where
         , "MaxItems" .= _loMaxItems
         ]
 
+json
+
 instance AWSRequest ListOperations where
     type Sv ListOperations = Route53Domains
     type Rs ListOperations = ListOperationsResponse

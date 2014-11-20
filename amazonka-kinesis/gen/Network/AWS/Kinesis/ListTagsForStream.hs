@@ -136,6 +136,8 @@ instance ToJSON ListTagsForStream where
         , "Limit"                .= _ltfsLimit
         ]
 
+json
+
 instance AWSRequest ListTagsForStream where
     type Sv ListTagsForStream = Kinesis
     type Rs ListTagsForStream = ListTagsForStreamResponse

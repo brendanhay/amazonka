@@ -107,6 +107,8 @@ instance ToXMLRoot GetBucketAcl where
 
 instance ToXML GetBucketAcl
 
+xml
+
 instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
     type Rs GetBucketAcl = GetBucketAclResponse

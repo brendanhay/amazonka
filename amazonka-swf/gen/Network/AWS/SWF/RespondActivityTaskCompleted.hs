@@ -117,6 +117,8 @@ instance ToJSON RespondActivityTaskCompleted where
         , "result"    .= _ratcResult
         ]
 
+json
+
 instance AWSRequest RespondActivityTaskCompleted where
     type Sv RespondActivityTaskCompleted = SWF
     type Rs RespondActivityTaskCompleted = RespondActivityTaskCompletedResponse

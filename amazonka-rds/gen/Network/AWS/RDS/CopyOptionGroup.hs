@@ -138,6 +138,8 @@ instance ToQuery CopyOptionGroup where
 
 instance ToHeaders CopyOptionGroup
 
+query
+
 instance AWSRequest CopyOptionGroup where
     type Sv CopyOptionGroup = RDS
     type Rs CopyOptionGroup = CopyOptionGroupResponse

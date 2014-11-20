@@ -176,6 +176,8 @@ instance ToJSON CreateInterconnect where
         , "location"         .= _ciLocation
         ]
 
+json
+
 instance AWSRequest CreateInterconnect where
     type Sv CreateInterconnect = DirectConnect
     type Rs CreateInterconnect = CreateInterconnectResponse

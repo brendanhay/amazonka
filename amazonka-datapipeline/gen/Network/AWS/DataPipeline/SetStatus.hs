@@ -110,6 +110,8 @@ instance ToJSON SetStatus where
         , "status"     .= _ssStatus
         ]
 
+json
+
 instance AWSRequest SetStatus where
     type Sv SetStatus = DataPipeline
     type Rs SetStatus = SetStatusResponse

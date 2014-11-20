@@ -137,6 +137,8 @@ instance ToQuery ListAccountAliases where
 
 instance ToHeaders ListAccountAliases
 
+query
+
 instance AWSRequest ListAccountAliases where
     type Sv ListAccountAliases = IAM
     type Rs ListAccountAliases = ListAccountAliasesResponse

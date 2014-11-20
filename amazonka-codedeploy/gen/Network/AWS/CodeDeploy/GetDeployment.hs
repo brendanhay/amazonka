@@ -98,6 +98,8 @@ instance ToJSON GetDeployment where
         [ "deploymentId" .= _gdDeploymentId
         ]
 
+json
+
 instance AWSRequest GetDeployment where
     type Sv GetDeployment = CodeDeploy
     type Rs GetDeployment = GetDeploymentResponse

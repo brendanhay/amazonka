@@ -140,6 +140,8 @@ instance ToJSON UpdateSnapshotSchedule where
         , "Description"       .= _ussDescription
         ]
 
+json
+
 instance AWSRequest UpdateSnapshotSchedule where
     type Sv UpdateSnapshotSchedule = StorageGateway
     type Rs UpdateSnapshotSchedule = UpdateSnapshotScheduleResponse

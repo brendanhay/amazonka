@@ -132,6 +132,8 @@ instance ToQuery ImportKeyPair where
 
 instance ToHeaders ImportKeyPair
 
+query
+
 instance AWSRequest ImportKeyPair where
     type Sv ImportKeyPair = EC2
     type Rs ImportKeyPair = ImportKeyPairResponse

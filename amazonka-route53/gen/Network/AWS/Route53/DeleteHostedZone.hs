@@ -111,6 +111,8 @@ instance ToXMLRoot DeleteHostedZone where
 
 instance ToXML DeleteHostedZone
 
+xml
+
 instance AWSRequest DeleteHostedZone where
     type Sv DeleteHostedZone = Route53
     type Rs DeleteHostedZone = DeleteHostedZoneResponse

@@ -107,6 +107,8 @@ instance ToQuery ResetInstanceAttribute where
 
 instance ToHeaders ResetInstanceAttribute
 
+query
+
 instance AWSRequest ResetInstanceAttribute where
     type Sv ResetInstanceAttribute = EC2
     type Rs ResetInstanceAttribute = ResetInstanceAttributeResponse

@@ -117,6 +117,8 @@ instance ToQuery AddSourceIdentifierToSubscription where
 
 instance ToHeaders AddSourceIdentifierToSubscription
 
+query
+
 instance AWSRequest AddSourceIdentifierToSubscription where
     type Sv AddSourceIdentifierToSubscription = RDS
     type Rs AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscriptionResponse

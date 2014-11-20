@@ -117,6 +117,8 @@ instance ToQuery DescribeInstanceHealth where
 
 instance ToHeaders DescribeInstanceHealth
 
+query
+
 instance AWSRequest DescribeInstanceHealth where
     type Sv DescribeInstanceHealth = ELB
     type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse

@@ -108,6 +108,8 @@ instance ToQuery DeleteVpcPeeringConnection where
 
 instance ToHeaders DeleteVpcPeeringConnection
 
+query
+
 instance AWSRequest DeleteVpcPeeringConnection where
     type Sv DeleteVpcPeeringConnection = EC2
     type Rs DeleteVpcPeeringConnection = DeleteVpcPeeringConnectionResponse

@@ -227,6 +227,8 @@ instance ToQuery UpdateAutoScalingGroup where
 
 instance ToHeaders UpdateAutoScalingGroup
 
+query
+
 instance AWSRequest UpdateAutoScalingGroup where
     type Sv UpdateAutoScalingGroup = AutoScaling
     type Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse

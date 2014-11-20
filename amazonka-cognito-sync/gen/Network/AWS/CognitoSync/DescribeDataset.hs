@@ -135,6 +135,8 @@ instance ToHeaders DescribeDataset
 instance ToJSON DescribeDataset where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest DescribeDataset where
     type Sv DescribeDataset = CognitoSync
     type Rs DescribeDataset = DescribeDatasetResponse

@@ -119,6 +119,8 @@ instance ToJSON UpdatePipelineStatus where
         [ "Status" .= _upsStatus
         ]
 
+json
+
 instance AWSRequest UpdatePipelineStatus where
     type Sv UpdatePipelineStatus = ElasticTranscoder
     type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse

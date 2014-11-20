@@ -195,6 +195,8 @@ instance ToXMLRoot CompleteMultipartUpload where
 
 instance ToXML CompleteMultipartUpload
 
+xml
+
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
     type Rs CompleteMultipartUpload = CompleteMultipartUploadResponse

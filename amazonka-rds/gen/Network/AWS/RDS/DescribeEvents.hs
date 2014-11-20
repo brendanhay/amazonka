@@ -210,6 +210,8 @@ instance ToQuery DescribeEvents where
 
 instance ToHeaders DescribeEvents
 
+query
+
 instance AWSRequest DescribeEvents where
     type Sv DescribeEvents = RDS
     type Rs DescribeEvents = DescribeEventsResponse

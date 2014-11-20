@@ -144,6 +144,8 @@ instance ToQuery ListGroupPolicies where
 
 instance ToHeaders ListGroupPolicies
 
+query
+
 instance AWSRequest ListGroupPolicies where
     type Sv ListGroupPolicies = IAM
     type Rs ListGroupPolicies = ListGroupPoliciesResponse

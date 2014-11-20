@@ -112,6 +112,8 @@ instance ToQuery PutNotificationConfiguration where
 
 instance ToHeaders PutNotificationConfiguration
 
+query
+
 instance AWSRequest PutNotificationConfiguration where
     type Sv PutNotificationConfiguration = AutoScaling
     type Rs PutNotificationConfiguration = PutNotificationConfigurationResponse

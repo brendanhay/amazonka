@@ -138,6 +138,8 @@ instance ToQuery DescribeSnapshotAttribute where
 
 instance ToHeaders DescribeSnapshotAttribute
 
+query
+
 instance AWSRequest DescribeSnapshotAttribute where
     type Sv DescribeSnapshotAttribute = EC2
     type Rs DescribeSnapshotAttribute = DescribeSnapshotAttributeResponse

@@ -103,6 +103,8 @@ instance ToQuery ResetSnapshotAttribute where
 
 instance ToHeaders ResetSnapshotAttribute
 
+query
+
 instance AWSRequest ResetSnapshotAttribute where
     type Sv ResetSnapshotAttribute = EC2
     type Rs ResetSnapshotAttribute = ResetSnapshotAttributeResponse

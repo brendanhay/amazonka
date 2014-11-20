@@ -152,6 +152,8 @@ instance ToQuery DescribeReservedInstancesModifications where
 
 instance ToHeaders DescribeReservedInstancesModifications
 
+query
+
 instance AWSRequest DescribeReservedInstancesModifications where
     type Sv DescribeReservedInstancesModifications = EC2
     type Rs DescribeReservedInstancesModifications = DescribeReservedInstancesModificationsResponse

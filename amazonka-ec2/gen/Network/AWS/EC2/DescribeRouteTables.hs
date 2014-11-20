@@ -150,6 +150,8 @@ instance ToQuery DescribeRouteTables where
 
 instance ToHeaders DescribeRouteTables
 
+query
+
 instance AWSRequest DescribeRouteTables where
     type Sv DescribeRouteTables = EC2
     type Rs DescribeRouteTables = DescribeRouteTablesResponse

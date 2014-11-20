@@ -99,6 +99,8 @@ instance ToQuery GetUser where
 
 instance ToHeaders GetUser
 
+query
+
 instance AWSRequest GetUser where
     type Sv GetUser = IAM
     type Rs GetUser = GetUserResponse

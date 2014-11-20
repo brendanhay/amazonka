@@ -86,6 +86,8 @@ instance ToJSON StartStack where
         [ "StackId" .= _ss2StackId
         ]
 
+json
+
 instance AWSRequest StartStack where
     type Sv StartStack = OpsWorks
     type Rs StartStack = StartStackResponse

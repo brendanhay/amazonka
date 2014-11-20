@@ -105,6 +105,8 @@ instance ToQuery CancelConversionTask where
 
 instance ToHeaders CancelConversionTask
 
+query
+
 instance AWSRequest CancelConversionTask where
     type Sv CancelConversionTask = EC2
     type Rs CancelConversionTask = CancelConversionTaskResponse

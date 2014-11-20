@@ -92,6 +92,8 @@ instance ToQuery DisableVgwRoutePropagation where
 
 instance ToHeaders DisableVgwRoutePropagation
 
+query
+
 instance AWSRequest DisableVgwRoutePropagation where
     type Sv DisableVgwRoutePropagation = EC2
     type Rs DisableVgwRoutePropagation = DisableVgwRoutePropagationResponse

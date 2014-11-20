@@ -77,6 +77,8 @@ instance ToQuery ListDomainNames where
 
 instance ToHeaders ListDomainNames
 
+query
+
 instance AWSRequest ListDomainNames where
     type Sv ListDomainNames = CloudSearch
     type Rs ListDomainNames = ListDomainNamesResponse

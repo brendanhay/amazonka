@@ -144,6 +144,8 @@ instance ToQuery DescribeHsmConfigurations where
 
 instance ToHeaders DescribeHsmConfigurations
 
+query
+
 instance AWSRequest DescribeHsmConfigurations where
     type Sv DescribeHsmConfigurations = Redshift
     type Rs DescribeHsmConfigurations = DescribeHsmConfigurationsResponse

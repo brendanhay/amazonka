@@ -273,6 +273,8 @@ instance ToQuery AssumeRoleWithSAML where
 
 instance ToHeaders AssumeRoleWithSAML
 
+query
+
 instance AWSRequest AssumeRoleWithSAML where
     type Sv AssumeRoleWithSAML = STS
     type Rs AssumeRoleWithSAML = AssumeRoleWithSAMLResponse

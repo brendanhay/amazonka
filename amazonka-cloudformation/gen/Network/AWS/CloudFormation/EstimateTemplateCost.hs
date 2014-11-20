@@ -124,6 +124,8 @@ instance ToQuery EstimateTemplateCost where
 
 instance ToHeaders EstimateTemplateCost
 
+query
+
 instance AWSRequest EstimateTemplateCost where
     type Sv EstimateTemplateCost = CloudFormation
     type Rs EstimateTemplateCost = EstimateTemplateCostResponse

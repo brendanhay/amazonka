@@ -252,6 +252,8 @@ instance ToQuery CreateStack where
 
 instance ToHeaders CreateStack
 
+query
+
 instance AWSRequest CreateStack where
     type Sv CreateStack = CloudFormation
     type Rs CreateStack = CreateStackResponse

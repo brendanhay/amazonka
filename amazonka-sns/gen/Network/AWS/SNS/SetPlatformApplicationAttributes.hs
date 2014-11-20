@@ -108,6 +108,8 @@ instance ToQuery SetPlatformApplicationAttributes where
 
 instance ToHeaders SetPlatformApplicationAttributes
 
+query
+
 instance AWSRequest SetPlatformApplicationAttributes where
     type Sv SetPlatformApplicationAttributes = SNS
     type Rs SetPlatformApplicationAttributes = SetPlatformApplicationAttributesResponse

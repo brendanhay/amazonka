@@ -207,6 +207,8 @@ instance ToQuery GetMetricStatistics where
 
 instance ToHeaders GetMetricStatistics
 
+query
+
 instance AWSRequest GetMetricStatistics where
     type Sv GetMetricStatistics = CloudWatch
     type Rs GetMetricStatistics = GetMetricStatisticsResponse

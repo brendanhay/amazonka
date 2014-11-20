@@ -122,6 +122,8 @@ instance ToJSON ListGateways where
         , "Limit"  .= _lgLimit
         ]
 
+json
+
 instance AWSRequest ListGateways where
     type Sv ListGateways = StorageGateway
     type Rs ListGateways = ListGatewaysResponse

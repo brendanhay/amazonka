@@ -143,6 +143,8 @@ instance ToJSON DescribeJobFlows where
         , "JobFlowStates" .= _djfJobFlowStates
         ]
 
+json
+
 instance AWSRequest DescribeJobFlows where
     type Sv DescribeJobFlows = EMR
     type Rs DescribeJobFlows = DescribeJobFlowsResponse

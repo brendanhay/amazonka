@@ -139,6 +139,8 @@ instance ToQuery CreateCustomerGateway where
 
 instance ToHeaders CreateCustomerGateway
 
+query
+
 instance AWSRequest CreateCustomerGateway where
     type Sv CreateCustomerGateway = EC2
     type Rs CreateCustomerGateway = CreateCustomerGatewayResponse

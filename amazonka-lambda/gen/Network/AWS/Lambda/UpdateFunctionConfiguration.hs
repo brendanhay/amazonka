@@ -272,6 +272,8 @@ instance ToHeaders UpdateFunctionConfiguration
 instance ToJSON UpdateFunctionConfiguration where
     toJSON = const (toJSON Empty)
 
+json
+
 instance AWSRequest UpdateFunctionConfiguration where
     type Sv UpdateFunctionConfiguration = Lambda
     type Rs UpdateFunctionConfiguration = UpdateFunctionConfigurationResponse

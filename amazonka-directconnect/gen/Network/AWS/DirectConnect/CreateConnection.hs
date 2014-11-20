@@ -191,6 +191,8 @@ instance ToJSON CreateConnection where
         , "connectionName" .= _ccConnectionName
         ]
 
+json
+
 instance AWSRequest CreateConnection where
     type Sv CreateConnection = DirectConnect
     type Rs CreateConnection = CreateConnectionResponse

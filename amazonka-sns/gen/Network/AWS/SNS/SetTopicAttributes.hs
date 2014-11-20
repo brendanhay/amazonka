@@ -104,6 +104,8 @@ instance ToQuery SetTopicAttributes where
 
 instance ToHeaders SetTopicAttributes
 
+query
+
 instance AWSRequest SetTopicAttributes where
     type Sv SetTopicAttributes = SNS
     type Rs SetTopicAttributes = SetTopicAttributesResponse

@@ -97,6 +97,8 @@ instance ToQuery VerifyDomainIdentity where
 
 instance ToHeaders VerifyDomainIdentity
 
+query
+
 instance AWSRequest VerifyDomainIdentity where
     type Sv VerifyDomainIdentity = SES
     type Rs VerifyDomainIdentity = VerifyDomainIdentityResponse

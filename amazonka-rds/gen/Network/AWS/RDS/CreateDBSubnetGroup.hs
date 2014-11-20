@@ -130,6 +130,8 @@ instance ToQuery CreateDBSubnetGroup where
 
 instance ToHeaders CreateDBSubnetGroup
 
+query
+
 instance AWSRequest CreateDBSubnetGroup where
     type Sv CreateDBSubnetGroup = RDS
     type Rs CreateDBSubnetGroup = CreateDBSubnetGroupResponse

@@ -92,6 +92,8 @@ instance ToQuery DeleteVolume where
 
 instance ToHeaders DeleteVolume
 
+query
+
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = EC2
     type Rs DeleteVolume = DeleteVolumeResponse

@@ -149,6 +149,8 @@ instance ToQuery ListInstanceProfilesForRole where
 
 instance ToHeaders ListInstanceProfilesForRole
 
+query
+
 instance AWSRequest ListInstanceProfilesForRole where
     type Sv ListInstanceProfilesForRole = IAM
     type Rs ListInstanceProfilesForRole = ListInstanceProfilesForRoleResponse

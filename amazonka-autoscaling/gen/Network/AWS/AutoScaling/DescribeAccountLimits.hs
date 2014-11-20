@@ -95,6 +95,8 @@ instance ToQuery DescribeAccountLimits where
 
 instance ToHeaders DescribeAccountLimits
 
+query
+
 instance AWSRequest DescribeAccountLimits where
     type Sv DescribeAccountLimits = AutoScaling
     type Rs DescribeAccountLimits = DescribeAccountLimitsResponse

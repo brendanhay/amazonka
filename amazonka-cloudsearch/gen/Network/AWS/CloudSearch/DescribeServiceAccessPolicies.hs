@@ -112,6 +112,8 @@ instance ToQuery DescribeServiceAccessPolicies where
 
 instance ToHeaders DescribeServiceAccessPolicies
 
+query
+
 instance AWSRequest DescribeServiceAccessPolicies where
     type Sv DescribeServiceAccessPolicies = CloudSearch
     type Rs DescribeServiceAccessPolicies = DescribeServiceAccessPoliciesResponse

@@ -107,6 +107,8 @@ instance ToJSON ListLocalDisks where
         [ "GatewayARN" .= _lldGatewayARN
         ]
 
+json
+
 instance AWSRequest ListLocalDisks where
     type Sv ListLocalDisks = StorageGateway
     type Rs ListLocalDisks = ListLocalDisksResponse

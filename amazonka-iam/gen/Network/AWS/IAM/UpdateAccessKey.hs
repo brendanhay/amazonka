@@ -110,6 +110,8 @@ instance ToQuery UpdateAccessKey where
 
 instance ToHeaders UpdateAccessKey
 
+query
+
 instance AWSRequest UpdateAccessKey where
     type Sv UpdateAccessKey = IAM
     type Rs UpdateAccessKey = UpdateAccessKeyResponse

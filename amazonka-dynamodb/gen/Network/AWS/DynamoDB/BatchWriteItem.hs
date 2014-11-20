@@ -249,6 +249,8 @@ instance ToJSON BatchWriteItem where
         , "ReturnItemCollectionMetrics" .= _bwiReturnItemCollectionMetrics
         ]
 
+json
+
 instance AWSRequest BatchWriteItem where
     type Sv BatchWriteItem = DynamoDB
     type Rs BatchWriteItem = BatchWriteItemResponse

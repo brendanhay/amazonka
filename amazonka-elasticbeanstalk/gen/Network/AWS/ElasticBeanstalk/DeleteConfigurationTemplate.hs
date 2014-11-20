@@ -92,6 +92,8 @@ instance ToQuery DeleteConfigurationTemplate where
 
 instance ToHeaders DeleteConfigurationTemplate
 
+query
+
 instance AWSRequest DeleteConfigurationTemplate where
     type Sv DeleteConfigurationTemplate = ElasticBeanstalk
     type Rs DeleteConfigurationTemplate = DeleteConfigurationTemplateResponse

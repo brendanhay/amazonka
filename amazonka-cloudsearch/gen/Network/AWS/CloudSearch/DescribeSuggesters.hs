@@ -129,6 +129,8 @@ instance ToQuery DescribeSuggesters where
 
 instance ToHeaders DescribeSuggesters
 
+query
+
 instance AWSRequest DescribeSuggesters where
     type Sv DescribeSuggesters = CloudSearch
     type Rs DescribeSuggesters = DescribeSuggestersResponse

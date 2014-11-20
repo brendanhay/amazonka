@@ -98,6 +98,8 @@ instance ToQuery DescribeLoadBalancerAttributes where
 
 instance ToHeaders DescribeLoadBalancerAttributes
 
+query
+
 instance AWSRequest DescribeLoadBalancerAttributes where
     type Sv DescribeLoadBalancerAttributes = ELB
     type Rs DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributesResponse

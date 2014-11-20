@@ -267,6 +267,8 @@ instance ToJSON PollForDecisionTask where
         , "reverseOrder"    .= _pfdtReverseOrder
         ]
 
+json
+
 instance AWSRequest PollForDecisionTask where
     type Sv PollForDecisionTask = SWF
     type Rs PollForDecisionTask = PollForDecisionTaskResponse

@@ -151,6 +151,8 @@ instance ToQuery ListSigningCertificates where
 
 instance ToHeaders ListSigningCertificates
 
+query
+
 instance AWSRequest ListSigningCertificates where
     type Sv ListSigningCertificates = IAM
     type Rs ListSigningCertificates = ListSigningCertificatesResponse

@@ -127,6 +127,8 @@ instance ToJSON DescribeUploadBuffer where
         [ "GatewayARN" .= _dubGatewayARN
         ]
 
+json
+
 instance AWSRequest DescribeUploadBuffer where
     type Sv DescribeUploadBuffer = StorageGateway
     type Rs DescribeUploadBuffer = DescribeUploadBufferResponse

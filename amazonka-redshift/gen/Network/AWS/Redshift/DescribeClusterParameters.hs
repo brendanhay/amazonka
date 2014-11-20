@@ -160,6 +160,8 @@ instance ToQuery DescribeClusterParameters where
 
 instance ToHeaders DescribeClusterParameters
 
+query
+
 instance AWSRequest DescribeClusterParameters where
     type Sv DescribeClusterParameters = Redshift
     type Rs DescribeClusterParameters = DescribeClusterParametersResponse

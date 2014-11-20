@@ -121,6 +121,8 @@ instance ToXMLRoot PutBucketVersioning where
 
 instance ToXML PutBucketVersioning
 
+xml-headers
+
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
     type Rs PutBucketVersioning = PutBucketVersioningResponse

@@ -183,6 +183,8 @@ instance ToQuery DescribeVolumeStatus where
 
 instance ToHeaders DescribeVolumeStatus
 
+query
+
 instance AWSRequest DescribeVolumeStatus where
     type Sv DescribeVolumeStatus = EC2
     type Rs DescribeVolumeStatus = DescribeVolumeStatusResponse

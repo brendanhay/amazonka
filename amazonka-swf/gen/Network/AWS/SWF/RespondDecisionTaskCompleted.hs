@@ -121,6 +121,8 @@ instance ToJSON RespondDecisionTaskCompleted where
         , "executionContext" .= _rdtcExecutionContext
         ]
 
+json
+
 instance AWSRequest RespondDecisionTaskCompleted where
     type Sv RespondDecisionTaskCompleted = SWF
     type Rs RespondDecisionTaskCompleted = RespondDecisionTaskCompletedResponse

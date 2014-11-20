@@ -87,6 +87,8 @@ instance ToQuery CreateDomain where
 
 instance ToHeaders CreateDomain
 
+query
+
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = SDB
     type Rs CreateDomain = CreateDomainResponse

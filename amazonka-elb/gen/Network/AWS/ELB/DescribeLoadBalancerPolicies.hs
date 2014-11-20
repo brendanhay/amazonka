@@ -122,6 +122,8 @@ instance ToQuery DescribeLoadBalancerPolicies where
 
 instance ToHeaders DescribeLoadBalancerPolicies
 
+query
+
 instance AWSRequest DescribeLoadBalancerPolicies where
     type Sv DescribeLoadBalancerPolicies = ELB
     type Rs DescribeLoadBalancerPolicies = DescribeLoadBalancerPoliciesResponse

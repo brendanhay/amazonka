@@ -156,6 +156,8 @@ instance ToQuery ReportInstanceStatus where
 
 instance ToHeaders ReportInstanceStatus
 
+query
+
 instance AWSRequest ReportInstanceStatus where
     type Sv ReportInstanceStatus = EC2
     type Rs ReportInstanceStatus = ReportInstanceStatusResponse

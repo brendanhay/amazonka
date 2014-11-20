@@ -209,6 +209,8 @@ instance ToJSON CreateApp where
         , "Attributes"       .= _caAttributes
         ]
 
+json
+
 instance AWSRequest CreateApp where
     type Sv CreateApp = OpsWorks
     type Rs CreateApp = CreateAppResponse

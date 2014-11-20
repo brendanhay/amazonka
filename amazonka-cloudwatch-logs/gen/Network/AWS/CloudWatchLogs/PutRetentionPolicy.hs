@@ -95,6 +95,8 @@ instance ToJSON PutRetentionPolicy where
         , "retentionInDays" .= _prpRetentionInDays
         ]
 
+json
+
 instance AWSRequest PutRetentionPolicy where
     type Sv PutRetentionPolicy = CloudWatchLogs
     type Rs PutRetentionPolicy = PutRetentionPolicyResponse

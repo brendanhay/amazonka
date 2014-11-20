@@ -148,6 +148,8 @@ instance ToQuery DescribeReservedNodeOfferings where
 
 instance ToHeaders DescribeReservedNodeOfferings
 
+query
+
 instance AWSRequest DescribeReservedNodeOfferings where
     type Sv DescribeReservedNodeOfferings = Redshift
     type Rs DescribeReservedNodeOfferings = DescribeReservedNodeOfferingsResponse

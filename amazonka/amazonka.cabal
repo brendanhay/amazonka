@@ -43,35 +43,3 @@ library
         , text
         , time
         , transformers-base
-
--- , base16-bytestring
-        -- , base64-bytestring
-        -- , bifunctors
-        -- , bytestring
-        -- , case-insensitive
-        -- , conduit               == 1.2.*
-        -- , conduit-extra
-        -- , cryptohash
-        -- , cryptohash-conduit
-        -- , data-default-class
-        -- , exceptions            == 0.6.*
-        -- , hashable
-        -- , http-client           >= 0.3.6   && < 0.4
-        -- , http-conduit          == 2.1.4.*
-        -- , http-types
-        -- , lens                  == 4.4.*
-        -- , mmorph
-        -- , monad-control
-        -- , mtl
-        -- , nats
-        -- , old-locale
-        -- , resourcet             == 1.1.*
-        -- , semigroups
-        -- , tagged
-        -- , text
-        -- , time
-        -- , transformers          == 0.4.*
-        -- , transformers-base
-        -- , unordered-containers
-        -- , vector
-        -- , xml-conduit           == 1.2.*

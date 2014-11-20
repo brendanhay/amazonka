@@ -97,7 +97,7 @@ instance ToQuery ReadPipeline where
 instance ToHeaders ReadPipeline
 
 instance ToJSON ReadPipeline where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ReadPipeline where
     type Sv ReadPipeline = ElasticTranscoder

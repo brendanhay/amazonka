@@ -439,7 +439,7 @@ instance ToQuery Search where
 instance ToHeaders Search
 
 instance ToJSON Search where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest Search where
     type Sv Search = CloudSearchDomains

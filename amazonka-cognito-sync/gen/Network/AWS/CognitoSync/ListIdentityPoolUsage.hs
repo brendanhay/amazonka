@@ -133,7 +133,7 @@ instance ToQuery ListIdentityPoolUsage where
 instance ToHeaders ListIdentityPoolUsage
 
 instance ToJSON ListIdentityPoolUsage where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ListIdentityPoolUsage where
     type Sv ListIdentityPoolUsage = CognitoSync

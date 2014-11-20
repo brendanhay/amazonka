@@ -84,7 +84,7 @@ instance ToQuery RemoveEventSource where
 instance ToHeaders RemoveEventSource
 
 instance ToJSON RemoveEventSource where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest RemoveEventSource where
     type Sv RemoveEventSource = Lambda

@@ -133,7 +133,7 @@ instance ToQuery DeleteDataset where
 instance ToHeaders DeleteDataset
 
 instance ToJSON DeleteDataset where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest DeleteDataset where
     type Sv DeleteDataset = CognitoSync

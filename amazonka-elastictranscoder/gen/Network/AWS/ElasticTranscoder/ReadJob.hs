@@ -96,7 +96,7 @@ instance ToQuery ReadJob where
 instance ToHeaders ReadJob
 
 instance ToJSON ReadJob where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ReadJob where
     type Sv ReadJob = ElasticTranscoder

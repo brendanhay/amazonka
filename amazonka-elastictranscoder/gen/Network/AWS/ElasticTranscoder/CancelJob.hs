@@ -84,7 +84,7 @@ instance ToQuery CancelJob where
 instance ToHeaders CancelJob
 
 instance ToJSON CancelJob where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest CancelJob where
     type Sv CancelJob = ElasticTranscoder

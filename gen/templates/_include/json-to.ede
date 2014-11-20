@@ -9,7 +9,7 @@ instance ToJSON {{ type.name }} where
     toJSON = toJSONText
 {% else %}
   {% if type.contents | empty %}
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
   {% else %}
     toJSON {{ type.name }}{..} = object
     {% for field in type.contents %}

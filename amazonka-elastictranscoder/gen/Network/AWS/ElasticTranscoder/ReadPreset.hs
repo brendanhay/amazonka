@@ -98,7 +98,7 @@ instance ToQuery ReadPreset where
 instance ToHeaders ReadPreset
 
 instance ToJSON ReadPreset where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ReadPreset where
     type Sv ReadPreset = ElasticTranscoder

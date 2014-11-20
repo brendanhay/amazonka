@@ -119,7 +119,7 @@ instance ToQuery ListFunctions where
 instance ToHeaders ListFunctions
 
 instance ToJSON ListFunctions where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ListFunctions where
     type Sv ListFunctions = Lambda

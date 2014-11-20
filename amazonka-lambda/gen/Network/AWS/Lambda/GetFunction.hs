@@ -108,7 +108,7 @@ instance ToQuery GetFunction where
 instance ToHeaders GetFunction
 
 instance ToJSON GetFunction where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest GetFunction where
     type Sv GetFunction = Lambda

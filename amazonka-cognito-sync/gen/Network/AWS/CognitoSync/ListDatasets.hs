@@ -156,7 +156,7 @@ instance ToQuery ListDatasets where
 instance ToHeaders ListDatasets
 
 instance ToJSON ListDatasets where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ListDatasets where
     type Sv ListDatasets = CognitoSync

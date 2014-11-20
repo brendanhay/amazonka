@@ -208,7 +208,7 @@ instance ToQuery GetFunctionConfiguration where
 instance ToHeaders GetFunctionConfiguration
 
 instance ToJSON GetFunctionConfiguration where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest GetFunctionConfiguration where
     type Sv GetFunctionConfiguration = Lambda

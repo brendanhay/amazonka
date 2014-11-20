@@ -121,7 +121,7 @@ instance ToQuery ListPresets where
 instance ToHeaders ListPresets
 
 instance ToJSON ListPresets where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ListPresets where
     type Sv ListPresets = ElasticTranscoder

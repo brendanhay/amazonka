@@ -180,7 +180,7 @@ instance ToQuery GetEventSource where
 instance ToHeaders GetEventSource
 
 instance ToJSON GetEventSource where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest GetEventSource where
     type Sv GetEventSource = Lambda

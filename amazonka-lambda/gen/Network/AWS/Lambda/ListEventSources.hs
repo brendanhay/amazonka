@@ -140,7 +140,7 @@ instance ToQuery ListEventSources where
 instance ToHeaders ListEventSources
 
 instance ToJSON ListEventSources where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ListEventSources where
     type Sv ListEventSources = Lambda

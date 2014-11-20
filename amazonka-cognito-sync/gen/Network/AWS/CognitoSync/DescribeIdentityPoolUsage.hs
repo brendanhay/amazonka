@@ -101,7 +101,7 @@ instance ToQuery DescribeIdentityPoolUsage where
 instance ToHeaders DescribeIdentityPoolUsage
 
 instance ToJSON DescribeIdentityPoolUsage where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest DescribeIdentityPoolUsage where
     type Sv DescribeIdentityPoolUsage = CognitoSync

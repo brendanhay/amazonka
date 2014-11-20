@@ -133,7 +133,7 @@ instance ToQuery DescribeDataset where
 instance ToHeaders DescribeDataset
 
 instance ToJSON DescribeDataset where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest DescribeDataset where
     type Sv DescribeDataset = CognitoSync

@@ -138,7 +138,7 @@ instance ToQuery ListJobsByStatus where
 instance ToHeaders ListJobsByStatus
 
 instance ToJSON ListJobsByStatus where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ListJobsByStatus where
     type Sv ListJobsByStatus = ElasticTranscoder

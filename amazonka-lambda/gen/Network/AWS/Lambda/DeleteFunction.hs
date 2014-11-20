@@ -83,7 +83,7 @@ instance ToQuery DeleteFunction where
 instance ToHeaders DeleteFunction
 
 instance ToJSON DeleteFunction where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest DeleteFunction where
     type Sv DeleteFunction = Lambda

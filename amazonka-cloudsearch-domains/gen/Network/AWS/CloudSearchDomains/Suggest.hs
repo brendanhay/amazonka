@@ -139,7 +139,7 @@ instance ToQuery Suggest where
 instance ToHeaders Suggest
 
 instance ToJSON Suggest where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest Suggest where
     type Sv Suggest = CloudSearchDomains

@@ -122,7 +122,7 @@ instance ToQuery SubscribeToDataset where
 instance ToHeaders SubscribeToDataset
 
 instance ToJSON SubscribeToDataset where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest SubscribeToDataset where
     type Sv SubscribeToDataset = CognitoSync

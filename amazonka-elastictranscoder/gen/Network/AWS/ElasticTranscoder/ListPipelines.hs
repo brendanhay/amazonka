@@ -120,7 +120,7 @@ instance ToQuery ListPipelines where
 instance ToHeaders ListPipelines
 
 instance ToJSON ListPipelines where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest ListPipelines where
     type Sv ListPipelines = ElasticTranscoder

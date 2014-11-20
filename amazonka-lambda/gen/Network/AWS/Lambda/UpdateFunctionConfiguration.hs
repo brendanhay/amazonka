@@ -270,7 +270,7 @@ instance ToQuery UpdateFunctionConfiguration where
 instance ToHeaders UpdateFunctionConfiguration
 
 instance ToJSON UpdateFunctionConfiguration where
-    toJSON = const Null
+    toJSON = const (toJSON Empty)
 
 instance AWSRequest UpdateFunctionConfiguration where
     type Sv UpdateFunctionConfiguration = Lambda

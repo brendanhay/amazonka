@@ -2,8 +2,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Data.Internal.Header
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,22 +15,17 @@
 
 module Network.AWS.Data.Internal.Header where
 
-import           Control.Applicative
 import           Data.ByteString.Char8                (ByteString)
 import qualified Data.ByteString.Char8                as BS
 import qualified Data.CaseInsensitive                 as CI
-import           Data.CaseInsensitive                 (CI)
 import           Data.Foldable                        as Fold
 import           Data.Function                        (on)
 import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
 import           Data.List                            (deleteBy)
-import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                            (Text)
-import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
-import           Data.Traversable                     (sequenceA, traverse)
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types
@@ -66,19 +59,6 @@ hs ~:? k =
     maybe (Right Nothing)
           (fmap Just . fromText . Text.decodeUtf8)
           (k `lookup` hs)
-
-(~::) :: FromText v
-      => ResponseHeaders
-      -> CI Text
-      -> Either String (HashMap (CI Text) v)
-hs ~:: (CI.foldedCase -> p) = Map.fromList . catMaybes <$> traverse f hs
-  where
-    f (CI.map Text.decodeUtf8 -> k, Text.decodeUtf8 -> v) =
-        case Text.stripPrefix p (CI.foldedCase k) of
-            Nothing -> Right Nothing
-            Just x  -> Just <$> g x v
-
-    g k v = (CI.mk k,) <$> fromText v
 
 class ToHeaders a where
     toHeaders :: a -> [Header]

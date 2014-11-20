@@ -6,6 +6,7 @@
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
 {-# LANGUAGE ScopedTypeVariables        #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 -- Module      : Network.AWS.Data.Internal.Map
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,6 +21,7 @@
 module Network.AWS.Data.Internal.Map
     ( Map  (..)
     , _Map
+    , (~::)
 
     , EMap (..)
     , _EMap
@@ -29,20 +31,27 @@ import           Control.Applicative
 import           Control.Lens                         hiding (coerce, element)
 import           Data.Aeson
 import qualified Data.ByteString.Char8                as BS
+import           Data.CaseInsensitive                 (CI)
+import qualified Data.CaseInsensitive                 as CI
 import           Data.Coerce
 import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
 import           Data.Hashable                        (Hashable)
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Proxy
 import           Data.Semigroup                       (Semigroup)
 import           Data.String
+import           Data.Text                            (Text)
+import qualified Data.Text                            as Text
+import qualified Data.Text.Encoding                   as Text
 import           GHC.Exts
 import           GHC.TypeLits
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
+import           Network.HTTP.Types.Header
 import           Text.XML
 
 newtype Map k v = Map
@@ -72,6 +81,14 @@ instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
 
 instance (Eq k, Hashable k, ToText k, ToJSON v) => ToJSON (Map k v) where
     toJSON = Object . Map.fromList . map (bimap toText toJSON) . toList
+
+(~::) :: ResponseHeaders
+      -> CI Text
+      -> Either String (Map (CI Text) Text)
+hs ~:: (CI.foldedCase -> p) = Right . fromList $ mapMaybe f hs
+  where
+    f (CI.map Text.decodeUtf8 -> k, Text.decodeUtf8 -> v) =
+        (,v) . CI.mk <$> Text.stripPrefix p (CI.foldedCase k)
 
 newtype EMap (e :: Symbol) (i :: Symbol) (j :: Symbol) k v = EMap
     { fromEMap :: HashMap k v

@@ -15225,7 +15225,6 @@
             "service": "S3",
             "response": {
                 "deriving": [
-                    "Eq",
                     "Show"
                 ],
                 "streaming": true,
@@ -15238,16 +15237,16 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "gorBody",
                         "name": "_gorBody",
                         "shape": "Body",
                         "locationName": "Body",
                         "documentation": "Object data.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RsBody",
+                        "type": "RsBody"
                     }
                 ],
                 "wrapper": false,
@@ -15256,18 +15255,34 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "gorBody",
                     "name": "_gorBody",
                     "shape": "Body",
                     "locationName": "Body",
                     "documentation": "Object data.",
-                    "typeExposed": "Maybe Base64",
-                    "type": "Maybe Base64"
+                    "typeExposed": "RsBody",
+                    "type": "RsBody"
                 },
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gorBody",
+                        "name": "_gorBody",
+                        "shape": "Body",
+                        "locationName": "Body",
+                        "documentation": "Object data.",
+                        "typeExposed": "RsBody",
+                        "type": "RsBody"
+                    }
+                ],
                 "shared": false,
                 "headers": [
                     {
@@ -15383,21 +15398,6 @@
                 "type": "record",
                 "headerAll": false,
                 "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "gorBody",
-                        "name": "_gorBody",
-                        "shape": "Body",
-                        "locationName": "Body",
-                        "documentation": "Object data.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
-                    },
                     {
                         "location": "header",
                         "iso": null,
@@ -15734,16 +15734,16 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "gorBody",
                         "name": "_gorBody",
                         "shape": "Body",
                         "locationName": "Body",
                         "documentation": "Object data.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RsBody",
+                        "type": "RsBody"
                     },
                     {
                         "location": "header",
@@ -17018,7 +17018,6 @@
             "service": "S3",
             "response": {
                 "deriving": [
-                    "Eq",
                     "Show"
                 ],
                 "streaming": true,
@@ -17031,32 +17030,32 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "gotrBody",
                     "name": "_gotrBody",
                     "shape": "Body",
                     "locationName": "Body",
                     "documentation": null,
-                    "typeExposed": "Maybe Base64",
-                    "type": "Maybe Base64"
+                    "typeExposed": "RsBody",
+                    "type": "RsBody"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "gotrBody",
                         "name": "_gotrBody",
                         "shape": "Body",
                         "locationName": "Body",
                         "documentation": null,
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RsBody",
+                        "type": "RsBody"
                     }
                 ],
                 "wrapper": false,
@@ -17065,18 +17064,34 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "gotrBody",
                     "name": "_gotrBody",
                     "shape": "Body",
                     "locationName": "Body",
                     "documentation": null,
-                    "typeExposed": "Maybe Base64",
-                    "type": "Maybe Base64"
+                    "typeExposed": "RsBody",
+                    "type": "RsBody"
                 },
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gotrBody",
+                        "name": "_gotrBody",
+                        "shape": "Body",
+                        "locationName": "Body",
+                        "documentation": null,
+                        "typeExposed": "RsBody",
+                        "type": "RsBody"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -17085,38 +17100,22 @@
                 "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "gotrBody",
-                        "name": "_gotrBody",
-                        "shape": "Body",
-                        "locationName": "Body",
-                        "documentation": null,
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "gotrBody",
                         "name": "_gotrBody",
                         "shape": "Body",
                         "locationName": "Body",
                         "documentation": null,
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RsBody",
+                        "type": "RsBody"
                     }
                 ]
             },
@@ -24741,7 +24740,6 @@
             "documentationUrl": "http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPUT.html",
             "request": {
                 "deriving": [
-                    "Eq",
                     "Show"
                 ],
                 "streaming": true,
@@ -24754,16 +24752,16 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "poBody",
                         "name": "_poBody",
                         "shape": "Body",
                         "locationName": "Body",
                         "documentation": "Object data.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     }
                 ],
                 "path": [
@@ -24789,18 +24787,33 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "poBody",
                     "name": "_poBody",
                     "shape": "Body",
                     "locationName": "Body",
                     "documentation": "Object data.",
-                    "typeExposed": "Maybe Base64",
-                    "type": "Maybe Base64"
+                    "typeExposed": "RqBody",
+                    "type": "RqBody"
                 },
                 "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "poBody",
+                        "name": "_poBody",
+                        "shape": "Body",
+                        "locationName": "Body",
+                        "documentation": "Object data.",
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
+                    },
                     {
                         "location": "uri",
                         "iso": null,
@@ -24963,21 +24976,6 @@
                         "documentation": "The canned ACL to apply to the object.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "poBody",
-                        "name": "_poBody",
-                        "shape": "Body",
-                        "locationName": "Body",
-                        "documentation": "Object data.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
                     },
                     {
                         "location": "header",
@@ -25300,16 +25298,16 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "poBody",
                         "name": "_poBody",
                         "shape": "Body",
                         "locationName": "Body",
                         "documentation": "Object data.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     },
                     {
                         "location": "uri",
@@ -26570,7 +26568,6 @@
             "documentationUrl": "http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadUploadPart.html",
             "request": {
                 "deriving": [
-                    "Eq",
                     "Show"
                 ],
                 "streaming": true,
@@ -26583,16 +26580,16 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "upBody",
                         "name": "_upBody",
                         "shape": "Body",
                         "locationName": "Body",
                         "documentation": null,
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     }
                 ],
                 "path": [
@@ -26618,18 +26615,33 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "upBody",
                     "name": "_upBody",
                     "shape": "Body",
                     "locationName": "Body",
                     "documentation": null,
-                    "typeExposed": "Maybe Base64",
-                    "type": "Maybe Base64"
+                    "typeExposed": "RqBody",
+                    "type": "RqBody"
                 },
                 "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "upBody",
+                        "name": "_upBody",
+                        "shape": "Body",
+                        "locationName": "Body",
+                        "documentation": null,
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
+                    },
                     {
                         "location": "uri",
                         "iso": null,
@@ -26745,21 +26757,6 @@
                 "headerAll": false,
                 "optional": [
                     {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "upBody",
-                        "name": "_upBody",
-                        "shape": "Body",
-                        "locationName": "Body",
-                        "documentation": null,
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
-                    },
-                    {
                         "location": "header",
                         "iso": null,
                         "lensMapping": null,
@@ -26855,16 +26852,16 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "upBody",
                         "name": "_upBody",
                         "shape": "Body",
                         "locationName": "Body",
                         "documentation": null,
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     },
                     {
                         "location": "uri",

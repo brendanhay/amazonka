@@ -499,17 +499,20 @@ mapFieldNames f d             = d & dataFields %~ nameOf %~ f
 setStreaming :: Bool -> Data -> Data
 setStreaming rq = dataFields %~ go
   where
-    go x = x & typeOf %~ transform (body (x ^. fLocation))
+    go x = x & typeOf %~ transform (body (x ^. fStream) (x ^. fLocation))
 
-    body :: Maybe Location -> Type -> Type
-    body (Just Body) (TMaybe x@(TPrim y))
+    body :: Bool -> Maybe Location -> Type -> Type
+    body True _ _
+        | rq        = TPrim PReq
+        | otherwise = TPrim PRes
+    body _ (Just Body) (TMaybe x@(TPrim y))
         | PReq <- y = x
         | PRes <- y = x
-        | otherwise = body (Just Body) x
-    body (Just Body) (TPrim _)
-        | rq         = TPrim PReq
-        | otherwise  = TPrim PRes
-    body _    x      = x
+        | otherwise = body False (Just Body) x
+    body _ (Just Body) (TPrim _)
+        | rq        = TPrim PReq
+        | otherwise = TPrim PRes
+    body _ _ x      = x
 
 isVoid :: Data -> Bool
 isVoid Void = True

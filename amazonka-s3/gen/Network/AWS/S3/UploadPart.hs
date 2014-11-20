@@ -65,7 +65,7 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data UploadPart = UploadPart
-    { _upBody                 :: Maybe Base64
+    { _upBody                 :: RqBody
     , _upBucket               :: Text
     , _upContentLength        :: Maybe Int
     , _upContentMD5           :: Maybe Text
@@ -76,13 +76,13 @@ data UploadPart = UploadPart
     , _upSSECustomerKeyMD5    :: Maybe Text
     , _upSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _upUploadId             :: Text
-    } deriving (Eq, Show)
+    } deriving (Show)
 
 -- | 'UploadPart' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upBody' @::@ 'Maybe' 'Base64'
+-- * 'upBody' @::@ 'RqBody'
 --
 -- * 'upBucket' @::@ 'Text'
 --
@@ -104,17 +104,18 @@ data UploadPart = UploadPart
 --
 -- * 'upUploadId' @::@ 'Text'
 --
-uploadPart :: Text -- ^ 'upBucket'
+uploadPart :: RqBody -- ^ 'upBody'
+           -> Text -- ^ 'upBucket'
            -> Text -- ^ 'upKey'
            -> Int -- ^ 'upPartNumber'
            -> Text -- ^ 'upUploadId'
            -> UploadPart
-uploadPart p1 p2 p3 p4 = UploadPart
-    { _upBucket               = p1
-    , _upKey                  = p2
-    , _upPartNumber           = p3
-    , _upUploadId             = p4
-    , _upBody                 = Nothing
+uploadPart p1 p2 p3 p4 p5 = UploadPart
+    { _upBody                 = p1
+    , _upBucket               = p2
+    , _upKey                  = p3
+    , _upPartNumber           = p4
+    , _upUploadId             = p5
     , _upContentLength        = Nothing
     , _upContentMD5           = Nothing
     , _upSSECustomerAlgorithm = Nothing
@@ -123,7 +124,7 @@ uploadPart p1 p2 p3 p4 = UploadPart
     , _upSSEKMSKeyId          = Nothing
     }
 
-upBody :: Lens' UploadPart (Maybe Base64)
+upBody :: Lens' UploadPart RqBody
 upBody = lens _upBody (\s a -> s { _upBody = a })
 
 upBucket :: Lens' UploadPart Text

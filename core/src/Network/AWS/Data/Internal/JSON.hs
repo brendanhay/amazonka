@@ -16,6 +16,7 @@ module Network.AWS.Data.Internal.JSON
       FromJSON (..)
     , parseJSONText
     -- ** Parser a
+    , withObject
     , (.:)
     , (.:?)
     -- ** Either String a

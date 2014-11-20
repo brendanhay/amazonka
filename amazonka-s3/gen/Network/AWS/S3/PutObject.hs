@@ -76,7 +76,7 @@ import qualified GHC.Exts
 
 data PutObject = PutObject
     { _poACL                     :: Maybe Text
-    , _poBody                    :: Maybe Base64
+    , _poBody                    :: RqBody
     , _poBucket                  :: Text
     , _poCacheControl            :: Maybe Text
     , _poContentDisposition      :: Maybe Text
@@ -99,7 +99,7 @@ data PutObject = PutObject
     , _poServerSideEncryption    :: Maybe Text
     , _poStorageClass            :: Maybe Text
     , _poWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Show)
 
 -- | 'PutObject' constructor.
 --
@@ -107,7 +107,7 @@ data PutObject = PutObject
 --
 -- * 'poACL' @::@ 'Maybe' 'Text'
 --
--- * 'poBody' @::@ 'Maybe' 'Base64'
+-- * 'poBody' @::@ 'RqBody'
 --
 -- * 'poBucket' @::@ 'Text'
 --
@@ -153,14 +153,15 @@ data PutObject = PutObject
 --
 -- * 'poWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-putObject :: Text -- ^ 'poBucket'
+putObject :: RqBody -- ^ 'poBody'
+          -> Text -- ^ 'poBucket'
           -> Text -- ^ 'poKey'
           -> PutObject
-putObject p1 p2 = PutObject
-    { _poBucket                  = p1
-    , _poKey                     = p2
+putObject p1 p2 p3 = PutObject
+    { _poBody                    = p1
+    , _poBucket                  = p2
+    , _poKey                     = p3
     , _poACL                     = Nothing
-    , _poBody                    = Nothing
     , _poCacheControl            = Nothing
     , _poContentDisposition      = Nothing
     , _poContentEncoding         = Nothing
@@ -188,7 +189,7 @@ poACL :: Lens' PutObject (Maybe Text)
 poACL = lens _poACL (\s a -> s { _poACL = a })
 
 -- | Object data.
-poBody :: Lens' PutObject (Maybe Base64)
+poBody :: Lens' PutObject RqBody
 poBody = lens _poBody (\s a -> s { _poBody = a })
 
 poBucket :: Lens' PutObject Text

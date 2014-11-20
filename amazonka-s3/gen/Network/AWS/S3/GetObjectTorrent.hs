@@ -74,21 +74,22 @@ gotKey :: Lens' GetObjectTorrent Text
 gotKey = lens _gotKey (\s a -> s { _gotKey = a })
 
 newtype GetObjectTorrentResponse = GetObjectTorrentResponse
-    { _gotrBody :: Maybe Base64
-    } deriving (Eq, Show)
+    { _gotrBody :: RsBody
+    } deriving (Show)
 
 -- | 'GetObjectTorrentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gotrBody' @::@ 'Maybe' 'Base64'
+-- * 'gotrBody' @::@ 'RsBody'
 --
-getObjectTorrentResponse :: GetObjectTorrentResponse
-getObjectTorrentResponse = GetObjectTorrentResponse
-    { _gotrBody = Nothing
+getObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
+                         -> GetObjectTorrentResponse
+getObjectTorrentResponse p1 = GetObjectTorrentResponse
+    { _gotrBody = p1
     }
 
-gotrBody :: Lens' GetObjectTorrentResponse (Maybe Base64)
+gotrBody :: Lens' GetObjectTorrentResponse RsBody
 gotrBody = lens _gotrBody (\s a -> s { _gotrBody = a })
 
 instance ToPath GetObjectTorrent where
@@ -115,3 +116,5 @@ instance AWSRequest GetObjectTorrent where
 
     request  = get
     response = bodyResponse . const $ \b -> GetObjectTorrentResponse
+{"location":null,"iso":null,"lensMapping":null,"default":"<error>","flattened":false,"required":true,"lens":"gotrBody","name":"_gotrBody","shape":"Body","locationName":"Body","documentation":null,"typeExposed":"RsBody","type":"RsBody"}
+{"location":null,"iso":null,"lensMapping":null,"default":"<error>","flattened":false,"required":true,"lens":"gotrBody","name":"_gotrBody","shape":"Body","locationName":"Body","documentation":null,"typeExposed":"RsBody","type":"RsBody"}

@@ -229,6 +229,3 @@ instance AWSRequest CreateHostedZone where
         <*> x .@  "HostedZone"
         <*> h ~: "Location"
         <*> x .@? "VPC"
-
-
-Some kind of operator / class to check the types whether to continue?

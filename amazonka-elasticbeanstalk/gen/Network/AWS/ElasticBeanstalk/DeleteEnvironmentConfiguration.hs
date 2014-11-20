@@ -105,6 +105,3 @@ instance AWSRequest DeleteEnvironmentConfiguration where
 
     request  = post "DeleteEnvironmentConfiguration"
     response = nullResponse DeleteEnvironmentConfigurationResponse
-
-
-Some kind of operator / class to check the types whether to continue?

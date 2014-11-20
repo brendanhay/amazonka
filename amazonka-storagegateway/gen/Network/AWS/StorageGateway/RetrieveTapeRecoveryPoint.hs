@@ -122,6 +122,3 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
 instance FromJSON RetrieveTapeRecoveryPointResponse where
     parseJSON = withObject "RetrieveTapeRecoveryPointResponse" $ \o -> RetrieveTapeRecoveryPointResponse
         <$> o .:? "TapeARN"
-
-
-Some kind of operator / class to check the types whether to continue?

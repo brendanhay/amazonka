@@ -107,6 +107,3 @@ instance AWSRequest SetEndpointAttributes where
 
     request  = post "SetEndpointAttributes"
     response = nullResponse SetEndpointAttributesResponse
-
-
-Some kind of operator / class to check the types whether to continue?

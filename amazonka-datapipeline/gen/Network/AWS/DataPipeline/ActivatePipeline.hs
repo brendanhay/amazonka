@@ -93,6 +93,3 @@ instance AWSRequest ActivatePipeline where
 
     request  = post "ActivatePipeline"
     response = nullResponse ActivatePipelineResponse
-
-
-Some kind of operator / class to check the types whether to continue?

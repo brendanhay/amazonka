@@ -186,6 +186,3 @@ instance AWSRequest DescribeNetworkInterfaces where
 instance FromXML DescribeNetworkInterfacesResponse where
     parseXML x = DescribeNetworkInterfacesResponse
         <$> x .@  "networkInterfaceSet"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -187,12 +187,7 @@ instance FromJSON GetWorkflowExecutionHistoryResponse where
         <*> o .:? "nextPageToken"
 
 instance AWSPager GetWorkflowExecutionHistory where
-  next rq rs
-
-  = (\x -> rq & gwehNextPageToken ?~ x)
-  <$> (rs ^. gwehNextPageToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. gwehNextPageToken) = Nothing
+        | otherwise = (\x -> rq & gwehNextPageToken ?~ x)
+            <$> (rs ^. gwehrNextPageToken)

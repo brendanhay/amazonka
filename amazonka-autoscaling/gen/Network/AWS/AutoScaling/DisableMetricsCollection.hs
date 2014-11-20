@@ -103,6 +103,3 @@ instance AWSRequest DisableMetricsCollection where
 
     request  = post "DisableMetricsCollection"
     response = nullResponse DisableMetricsCollectionResponse
-
-
-Some kind of operator / class to check the types whether to continue?

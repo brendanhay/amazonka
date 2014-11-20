@@ -208,6 +208,3 @@ instance FromJSON PutRecordResponse where
     parseJSON = withObject "PutRecordResponse" $ \o -> PutRecordResponse
         <$> o .:  "SequenceNumber"
         <*> o .:  "ShardId"
-
-
-Some kind of operator / class to check the types whether to continue?

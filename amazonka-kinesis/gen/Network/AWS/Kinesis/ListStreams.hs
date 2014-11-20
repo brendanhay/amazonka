@@ -144,10 +144,7 @@ instance FromJSON ListStreamsResponse where
         <*> o .:  "StreamNames"
 
 instance AWSPager ListStreams where
-    next rq rs
+    page rq rs
         | stop (rs ^. lsrHasMoreStreams) = Nothing
         | otherwise = Just $ rq
-            & lsExclusiveStartStreamName .~ rs ^. lsExclusiveStartStreamName
-
-
-Some kind of operator / class to check the types whether to continue?
+            & lsExclusiveStartStreamName .~ rs ^. index lsrStreamNames (to id)

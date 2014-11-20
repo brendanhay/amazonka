@@ -119,6 +119,3 @@ instance FromXML CheckDNSAvailabilityResponse where
     parseXML = withElement "CheckDNSAvailabilityResult" $ \x -> CheckDNSAvailabilityResponse
         <$> x .@? "Available"
         <*> x .@? "FullyQualifiedCNAME"
-
-
-Some kind of operator / class to check the types whether to continue?

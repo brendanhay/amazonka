@@ -161,6 +161,3 @@ instance AWSRequest DescribeSecurityGroups where
 instance FromXML DescribeSecurityGroupsResponse where
     parseXML x = DescribeSecurityGroupsResponse
         <$> x .@  "securityGroupInfo"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -150,6 +150,3 @@ instance FromXML GetOpenIDConnectProviderResponse where
         <*> x .@? "CreateDate"
         <*> x .@  "ThumbprintList"
         <*> x .@? "Url"
-
-
-Some kind of operator / class to check the types whether to continue?

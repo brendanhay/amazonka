@@ -175,6 +175,3 @@ instance AWSRequest PutBucketAcl where
 
     request  = put
     response = nullResponse PutBucketAclResponse
-
-
-Some kind of operator / class to check the types whether to continue?

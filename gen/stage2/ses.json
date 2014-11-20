@@ -2237,7 +2237,7 @@
                 "token": {
                     "input": "liNextToken",
                     "outputRequired": false,
-                    "output": "liNextToken",
+                    "output": "lirNextToken",
                     "inputRequired": false
                 },
                 "type": "next",

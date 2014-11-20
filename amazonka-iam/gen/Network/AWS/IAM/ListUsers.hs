@@ -162,10 +162,7 @@ instance FromXML ListUsersResponse where
         <*> x .@  "Users"
 
 instance AWSPager ListUsers where
-    next rq rs
+    page rq rs
         | stop (rs ^. lurIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & luMarker .~ rs ^. luMarker
-
-
-Some kind of operator / class to check the types whether to continue?
+            & luMarker .~ rs ^. lurMarker

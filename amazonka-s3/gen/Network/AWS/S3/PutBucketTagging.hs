@@ -113,6 +113,3 @@ instance AWSRequest PutBucketTagging where
 
     request  = put
     response = nullResponse PutBucketTaggingResponse
-
-
-Some kind of operator / class to check the types whether to continue?

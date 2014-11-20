@@ -110,6 +110,3 @@ instance AWSRequest SetIdentityFeedbackForwardingEnabled where
 
     request  = post "SetIdentityFeedbackForwardingEnabled"
     response = nullResponse SetIdentityFeedbackForwardingEnabledResponse
-
-
-Some kind of operator / class to check the types whether to continue?

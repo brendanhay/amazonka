@@ -148,6 +148,3 @@ instance AWSRequest DescribeSubnets where
 instance FromXML DescribeSubnetsResponse where
     parseXML x = DescribeSubnetsResponse
         <$> x .@  "subnetSet"
-
-
-Some kind of operator / class to check the types whether to continue?

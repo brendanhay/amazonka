@@ -164,6 +164,3 @@ instance AWSRequest DescribeAlarmsForMetric where
 instance FromXML DescribeAlarmsForMetricResponse where
     parseXML = withElement "DescribeAlarmsForMetricResult" $ \x -> DescribeAlarmsForMetricResponse
         <$> x .@  "MetricAlarms"
-
-
-Some kind of operator / class to check the types whether to continue?

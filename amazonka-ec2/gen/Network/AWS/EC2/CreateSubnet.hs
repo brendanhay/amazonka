@@ -154,6 +154,3 @@ instance AWSRequest CreateSubnet where
 instance FromXML CreateSubnetResponse where
     parseXML x = CreateSubnetResponse
         <$> x .@? "subnet"
-
-
-Some kind of operator / class to check the types whether to continue?

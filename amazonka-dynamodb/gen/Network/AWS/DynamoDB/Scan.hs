@@ -429,6 +429,7 @@ instance FromJSON ScanResponse where
         <*> o .:? "ScannedCount"
 
 instance AWSPager Scan where
-  next rq rs
-      | stop (rq ^. sExclusiveStartKey) = Nothing
-      | otherwise = Just $ rq & sExclusiveStartKey .~ rs ^. srLastEvaluatedKey
+    page rq rs
+        | stop (rq ^. sExclusiveStartKey) = Nothing
+        | otherwise = Just $ rq
+            & sExclusiveStartKey .~ rs ^. srLastEvaluatedKey

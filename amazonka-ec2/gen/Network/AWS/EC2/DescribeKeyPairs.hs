@@ -130,6 +130,3 @@ instance AWSRequest DescribeKeyPairs where
 instance FromXML DescribeKeyPairsResponse where
     parseXML x = DescribeKeyPairsResponse
         <$> x .@  "keySet"
-
-
-Some kind of operator / class to check the types whether to continue?

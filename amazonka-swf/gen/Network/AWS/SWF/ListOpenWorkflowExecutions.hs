@@ -227,12 +227,7 @@ instance FromJSON ListOpenWorkflowExecutionsResponse where
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListOpenWorkflowExecutions where
-  next rq rs
-
-  = (\x -> rq & loweNextPageToken ?~ x)
-  <$> (rs ^. loweNextPageToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. loweNextPageToken) = Nothing
+        | otherwise = (\x -> rq & loweNextPageToken ?~ x)
+            <$> (rs ^. lowerNextPageToken)

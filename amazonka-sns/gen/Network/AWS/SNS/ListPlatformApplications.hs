@@ -129,12 +129,7 @@ instance FromXML ListPlatformApplicationsResponse where
         <*> x .@  "PlatformApplications"
 
 instance AWSPager ListPlatformApplications where
-  next rq rs
-
-  = (\x -> rq & lpaNextToken ?~ x)
-  <$> (rs ^. lpaNextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. lpaNextToken) = Nothing
+        | otherwise = (\x -> rq & lpaNextToken ?~ x)
+            <$> (rs ^. lparNextToken)

@@ -132,6 +132,3 @@ instance AWSRequest CreateInvalidation where
     response = xmlHeaderResponse $ \h x -> CreateInvalidationResponse
         <$> x .@? "Invalidation"
         <*> h ~:? "Location"
-
-
-Some kind of operator / class to check the types whether to continue?

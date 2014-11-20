@@ -93,6 +93,3 @@ instance AWSRequest DeleteDeploymentConfig where
 
     request  = post "DeleteDeploymentConfig"
     response = nullResponse DeleteDeploymentConfigResponse
-
-
-Some kind of operator / class to check the types whether to continue?

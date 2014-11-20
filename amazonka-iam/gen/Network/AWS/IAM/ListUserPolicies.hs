@@ -158,10 +158,7 @@ instance FromXML ListUserPoliciesResponse where
         <*> x .@  "PolicyNames"
 
 instance AWSPager ListUserPolicies where
-    next rq rs
+    page rq rs
         | stop (rs ^. luprIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & lupMarker .~ rs ^. lupMarker
-
-
-Some kind of operator / class to check the types whether to continue?
+            & lupMarker .~ rs ^. luprMarker

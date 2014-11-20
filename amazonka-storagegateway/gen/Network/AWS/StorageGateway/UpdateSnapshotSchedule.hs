@@ -150,6 +150,3 @@ instance AWSRequest UpdateSnapshotSchedule where
 instance FromJSON UpdateSnapshotScheduleResponse where
     parseJSON = withObject "UpdateSnapshotScheduleResponse" $ \o -> UpdateSnapshotScheduleResponse
         <$> o .:? "VolumeARN"
-
-
-Some kind of operator / class to check the types whether to continue?

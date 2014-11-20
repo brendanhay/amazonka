@@ -125,6 +125,3 @@ instance AWSRequest DescribeEventCategories where
 instance FromXML DescribeEventCategoriesResponse where
     parseXML = withElement "DescribeEventCategoriesResult" $ \x -> DescribeEventCategoriesResponse
         <$> x .@  "EventCategoriesMapList"
-
-
-Some kind of operator / class to check the types whether to continue?

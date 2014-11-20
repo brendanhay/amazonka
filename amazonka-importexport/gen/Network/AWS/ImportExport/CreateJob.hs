@@ -185,6 +185,3 @@ instance FromXML CreateJobResponse where
         <*> x .@? "Signature"
         <*> x .@? "SignatureFileContents"
         <*> x .@? "WarningMessage"
-
-
-Some kind of operator / class to check the types whether to continue?

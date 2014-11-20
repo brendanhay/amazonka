@@ -259,6 +259,3 @@ instance FromJSON AddEventSourceResponse where
         <*> o .:? "Role"
         <*> o .:? "Status"
         <*> o .:? "UUID"
-
-
-Some kind of operator / class to check the types whether to continue?

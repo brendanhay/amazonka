@@ -88,6 +88,3 @@ instance AWSRequest DeleteHsmConfiguration where
 
     request  = post "DeleteHsmConfiguration"
     response = nullResponse DeleteHsmConfigurationResponse
-
-
-Some kind of operator / class to check the types whether to continue?

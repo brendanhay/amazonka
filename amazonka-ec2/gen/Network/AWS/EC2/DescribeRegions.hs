@@ -131,6 +131,3 @@ instance AWSRequest DescribeRegions where
 instance FromXML DescribeRegionsResponse where
     parseXML x = DescribeRegionsResponse
         <$> x .@  "regionInfo"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -101,6 +101,3 @@ instance AWSRequest PutRetentionPolicy where
 
     request  = post "PutRetentionPolicy"
     response = nullResponse PutRetentionPolicyResponse
-
-
-Some kind of operator / class to check the types whether to continue?

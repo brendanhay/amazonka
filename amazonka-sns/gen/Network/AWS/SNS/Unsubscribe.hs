@@ -92,6 +92,3 @@ instance AWSRequest Unsubscribe where
 
     request  = post "Unsubscribe"
     response = nullResponse UnsubscribeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

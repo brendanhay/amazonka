@@ -139,6 +139,3 @@ instance AWSRequest AuthorizeCacheSecurityGroupIngress where
 instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
     parseXML = withElement "AuthorizeCacheSecurityGroupIngressResult" $ \x -> AuthorizeCacheSecurityGroupIngressResponse
         <$> x .@? "CacheSecurityGroup"
-
-
-Some kind of operator / class to check the types whether to continue?

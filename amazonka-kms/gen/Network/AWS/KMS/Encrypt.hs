@@ -154,6 +154,3 @@ instance FromJSON EncryptResponse where
     parseJSON = withObject "EncryptResponse" $ \o -> EncryptResponse
         <$> o .:? "CiphertextBlob"
         <*> o .:? "KeyId"
-
-
-Some kind of operator / class to check the types whether to continue?

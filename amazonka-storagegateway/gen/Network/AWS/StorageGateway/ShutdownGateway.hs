@@ -115,6 +115,3 @@ instance AWSRequest ShutdownGateway where
 instance FromJSON ShutdownGatewayResponse where
     parseJSON = withObject "ShutdownGatewayResponse" $ \o -> ShutdownGatewayResponse
         <$> o .:? "GatewayARN"
-
-
-Some kind of operator / class to check the types whether to continue?

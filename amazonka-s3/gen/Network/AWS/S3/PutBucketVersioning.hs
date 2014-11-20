@@ -127,6 +127,3 @@ instance AWSRequest PutBucketVersioning where
 
     request  = put
     response = nullResponse PutBucketVersioningResponse
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -101,6 +101,3 @@ instance FromXML ListBucketsResponse where
     parseXML x = ListBucketsResponse
         <$> x .@  "Buckets"
         <*> x .@? "Owner"
-
-
-Some kind of operator / class to check the types whether to continue?

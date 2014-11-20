@@ -105,6 +105,3 @@ instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
 
     request  = delete
     response = nullResponse DeleteCloudFrontOriginAccessIdentityResponse
-
-
-Some kind of operator / class to check the types whether to continue?

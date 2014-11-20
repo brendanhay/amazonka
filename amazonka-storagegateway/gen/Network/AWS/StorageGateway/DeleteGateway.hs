@@ -118,6 +118,3 @@ instance AWSRequest DeleteGateway where
 instance FromJSON DeleteGatewayResponse where
     parseJSON = withObject "DeleteGatewayResponse" $ \o -> DeleteGatewayResponse
         <$> o .:? "GatewayARN"
-
-
-Some kind of operator / class to check the types whether to continue?

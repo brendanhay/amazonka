@@ -145,6 +145,3 @@ instance AWSRequest SignalWorkflowExecution where
 
     request  = post "SignalWorkflowExecution"
     response = nullResponse SignalWorkflowExecutionResponse
-
-
-Some kind of operator / class to check the types whether to continue?

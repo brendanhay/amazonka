@@ -466,6 +466,3 @@ instance AWSRequest HeadObject where
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"
         <*> h ~:? "x-amz-website-redirect-location"
-
-
-Some kind of operator / class to check the types whether to continue?

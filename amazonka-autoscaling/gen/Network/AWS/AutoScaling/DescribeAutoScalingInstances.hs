@@ -148,12 +148,7 @@ instance FromXML DescribeAutoScalingInstancesResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeAutoScalingInstances where
-  next rq rs
-
-  = (\x -> rq & dasiNextToken ?~ x)
-  <$> (rs ^. dasiNextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dasiNextToken) = Nothing
+        | otherwise = (\x -> rq & dasiNextToken ?~ x)
+            <$> (rs ^. dasirNextToken)

@@ -4680,7 +4680,7 @@
                 "token": {
                     "input": "dcNextToken",
                     "outputRequired": false,
-                    "output": "dcNextToken",
+                    "output": "dcr1NextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -5265,7 +5265,7 @@
                 "token": {
                     "input": "dc1NextToken",
                     "outputRequired": false,
-                    "output": "dc1NextToken",
+                    "output": "dcrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",

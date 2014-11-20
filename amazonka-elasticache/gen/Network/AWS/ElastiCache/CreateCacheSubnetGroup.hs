@@ -133,6 +133,3 @@ instance AWSRequest CreateCacheSubnetGroup where
 instance FromXML CreateCacheSubnetGroupResponse where
     parseXML = withElement "CreateCacheSubnetGroupResult" $ \x -> CreateCacheSubnetGroupResponse
         <$> x .@? "CacheSubnetGroup"
-
-
-Some kind of operator / class to check the types whether to continue?

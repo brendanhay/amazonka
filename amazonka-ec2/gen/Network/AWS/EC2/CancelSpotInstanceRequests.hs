@@ -131,6 +131,3 @@ instance AWSRequest CancelSpotInstanceRequests where
 instance FromXML CancelSpotInstanceRequestsResponse where
     parseXML x = CancelSpotInstanceRequestsResponse
         <$> x .@  "spotInstanceRequestSet"
-
-
-Some kind of operator / class to check the types whether to continue?

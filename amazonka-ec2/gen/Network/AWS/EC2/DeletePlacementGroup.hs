@@ -98,6 +98,3 @@ instance AWSRequest DeletePlacementGroup where
 
     request  = post "DeletePlacementGroup"
     response = nullResponse DeletePlacementGroupResponse
-
-
-Some kind of operator / class to check the types whether to continue?

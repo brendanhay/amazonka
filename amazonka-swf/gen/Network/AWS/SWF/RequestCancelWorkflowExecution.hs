@@ -123,6 +123,3 @@ instance AWSRequest RequestCancelWorkflowExecution where
 
     request  = post "RequestCancelWorkflowExecution"
     response = nullResponse RequestCancelWorkflowExecutionResponse
-
-
-Some kind of operator / class to check the types whether to continue?

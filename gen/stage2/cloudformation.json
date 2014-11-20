@@ -3535,7 +3535,7 @@
                 "token": {
                     "input": "dseNextToken",
                     "outputRequired": false,
-                    "output": "dseNextToken",
+                    "output": "dserNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -4183,7 +4183,7 @@
                 "token": {
                     "input": "ds1NextToken",
                     "outputRequired": false,
-                    "output": "ds1NextToken",
+                    "output": "dsrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -5331,7 +5331,7 @@
                 "token": {
                     "input": "lsrNextToken",
                     "outputRequired": false,
-                    "output": "lsrNextToken",
+                    "output": "lsrrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -5551,7 +5551,7 @@
                 "token": {
                     "input": "lsNextToken",
                     "outputRequired": false,
-                    "output": "lsNextToken",
+                    "output": "lsr1NextToken",
                     "inputRequired": false
                 },
                 "type": "next",

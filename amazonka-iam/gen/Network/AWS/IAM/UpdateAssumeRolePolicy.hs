@@ -99,6 +99,3 @@ instance AWSRequest UpdateAssumeRolePolicy where
 
     request  = post "UpdateAssumeRolePolicy"
     response = nullResponse UpdateAssumeRolePolicyResponse
-
-
-Some kind of operator / class to check the types whether to continue?

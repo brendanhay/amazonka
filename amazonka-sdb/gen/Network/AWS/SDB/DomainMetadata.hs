@@ -173,6 +173,3 @@ instance FromXML DomainMetadataResponse where
         <*> x .@? "ItemCount"
         <*> x .@? "ItemNamesSizeBytes"
         <*> x .@? "Timestamp"
-
-
-Some kind of operator / class to check the types whether to continue?

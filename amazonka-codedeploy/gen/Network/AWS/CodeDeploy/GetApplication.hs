@@ -109,6 +109,3 @@ instance AWSRequest GetApplication where
 instance FromJSON GetApplicationResponse where
     parseJSON = withObject "GetApplicationResponse" $ \o -> GetApplicationResponse
         <$> o .:? "application"
-
-
-Some kind of operator / class to check the types whether to continue?

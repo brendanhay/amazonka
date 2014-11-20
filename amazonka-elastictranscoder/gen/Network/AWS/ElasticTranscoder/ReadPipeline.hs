@@ -109,6 +109,3 @@ instance AWSRequest ReadPipeline where
 instance FromJSON ReadPipelineResponse where
     parseJSON = withObject "ReadPipelineResponse" $ \o -> ReadPipelineResponse
         <$> o .:? "Pipeline"
-
-
-Some kind of operator / class to check the types whether to continue?

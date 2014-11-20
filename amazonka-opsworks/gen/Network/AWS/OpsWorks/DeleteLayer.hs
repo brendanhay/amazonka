@@ -94,6 +94,3 @@ instance AWSRequest DeleteLayer where
 
     request  = post "DeleteLayer"
     response = nullResponse DeleteLayerResponse
-
-
-Some kind of operator / class to check the types whether to continue?

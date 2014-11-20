@@ -175,6 +175,3 @@ instance AWSRequest CreateDeployment where
 instance FromJSON CreateDeploymentResponse where
     parseJSON = withObject "CreateDeploymentResponse" $ \o -> CreateDeploymentResponse
         <$> o .:? "deploymentId"
-
-
-Some kind of operator / class to check the types whether to continue?

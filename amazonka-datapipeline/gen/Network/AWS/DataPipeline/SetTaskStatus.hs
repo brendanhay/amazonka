@@ -146,6 +146,3 @@ instance AWSRequest SetTaskStatus where
 
     request  = post "SetTaskStatus"
     response = nullResponse SetTaskStatusResponse
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -111,6 +111,3 @@ instance AWSRequest DeleteTags where
 
     request  = post "DeleteTags"
     response = nullResponse DeleteTagsResponse
-
-
-Some kind of operator / class to check the types whether to continue?

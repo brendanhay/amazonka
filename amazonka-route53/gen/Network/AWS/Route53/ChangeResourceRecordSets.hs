@@ -146,6 +146,3 @@ instance AWSRequest ChangeResourceRecordSets where
 instance FromXML ChangeResourceRecordSetsResponse where
     parseXML x = ChangeResourceRecordSetsResponse
         <$> x .@  "ChangeInfo"
-
-
-Some kind of operator / class to check the types whether to continue?

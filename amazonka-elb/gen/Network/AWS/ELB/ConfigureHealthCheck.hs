@@ -120,6 +120,3 @@ instance AWSRequest ConfigureHealthCheck where
 instance FromXML ConfigureHealthCheckResponse where
     parseXML = withElement "ConfigureHealthCheckResult" $ \x -> ConfigureHealthCheckResponse
         <$> x .@? "HealthCheck"
-
-
-Some kind of operator / class to check the types whether to continue?

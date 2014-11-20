@@ -404,6 +404,3 @@ instance FromXML CreateEnvironmentResponse where
         <*> x .@? "TemplateName"
         <*> x .@? "Tier"
         <*> x .@? "VersionLabel"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -119,6 +119,3 @@ instance AWSRequest SetInstanceHealth where
 
     request  = post "SetInstanceHealth"
     response = nullResponse SetInstanceHealthResponse
-
-
-Some kind of operator / class to check the types whether to continue?

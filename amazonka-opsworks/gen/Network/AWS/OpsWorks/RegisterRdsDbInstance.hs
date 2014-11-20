@@ -123,6 +123,3 @@ instance AWSRequest RegisterRdsDbInstance where
 
     request  = post "RegisterRdsDbInstance"
     response = nullResponse RegisterRdsDbInstanceResponse
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -130,6 +130,3 @@ instance AWSRequest ModifyDBSubnetGroup where
 instance FromXML ModifyDBSubnetGroupResponse where
     parseXML = withElement "ModifyDBSubnetGroupResult" $ \x -> ModifyDBSubnetGroupResponse
         <$> x .@? "DBSubnetGroup"
-
-
-Some kind of operator / class to check the types whether to continue?

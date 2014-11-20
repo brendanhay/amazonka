@@ -99,6 +99,3 @@ instance AWSRequest ModifyInstanceGroups where
 
     request  = post "ModifyInstanceGroups"
     response = nullResponse ModifyInstanceGroupsResponse
-
-
-Some kind of operator / class to check the types whether to continue?

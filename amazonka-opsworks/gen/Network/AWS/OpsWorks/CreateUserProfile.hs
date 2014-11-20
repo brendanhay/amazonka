@@ -146,6 +146,3 @@ instance AWSRequest CreateUserProfile where
 instance FromJSON CreateUserProfileResponse where
     parseJSON = withObject "CreateUserProfileResponse" $ \o -> CreateUserProfileResponse
         <$> o .:? "IamUserArn"
-
-
-Some kind of operator / class to check the types whether to continue?

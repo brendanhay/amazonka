@@ -131,12 +131,7 @@ instance FromXML DescribeStacksResponse where
         <*> x .@  "Stacks"
 
 instance AWSPager DescribeStacks where
-  next rq rs
-
-  = (\x -> rq & ds1NextToken ?~ x)
-  <$> (rs ^. ds1NextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. ds1NextToken) = Nothing
+        | otherwise = (\x -> rq & ds1NextToken ?~ x)
+            <$> (rs ^. dsrNextToken)

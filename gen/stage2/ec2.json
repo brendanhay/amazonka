@@ -42124,7 +42124,7 @@
                 "token": {
                     "input": "disNextToken",
                     "outputRequired": false,
-                    "output": "disNextToken",
+                    "output": "disrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -42482,7 +42482,7 @@
                 "token": {
                     "input": "di1NextToken",
                     "outputRequired": false,
-                    "output": "di1NextToken",
+                    "output": "dirNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -45032,7 +45032,7 @@
                 "token": {
                     "input": "drimNextToken",
                     "outputRequired": false,
-                    "output": "drimNextToken",
+                    "output": "drimrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -45285,7 +45285,7 @@
                 "token": {
                     "input": "drioNextToken",
                     "outputRequired": false,
-                    "output": "drioNextToken",
+                    "output": "driorNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -47409,7 +47409,7 @@
                 "token": {
                     "input": "dsphNextToken",
                     "outputRequired": false,
-                    "output": "dsphNextToken",
+                    "output": "dsphrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -48104,7 +48104,7 @@
                 "token": {
                     "input": "dtNextToken",
                     "outputRequired": false,
-                    "output": "dtNextToken",
+                    "output": "dtrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -48668,7 +48668,7 @@
                 "token": {
                     "input": "dvsNextToken",
                     "outputRequired": false,
-                    "output": "dvsNextToken",
+                    "output": "dvsrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",

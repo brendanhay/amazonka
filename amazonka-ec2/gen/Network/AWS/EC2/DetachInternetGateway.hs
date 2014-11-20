@@ -109,6 +109,3 @@ instance AWSRequest DetachInternetGateway where
 
     request  = post "DetachInternetGateway"
     response = nullResponse DetachInternetGatewayResponse
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -497,6 +497,3 @@ instance AWSRequest ModifyDBInstance where
 instance FromXML ModifyDBInstanceResponse where
     parseXML = withElement "ModifyDBInstanceResult" $ \x -> ModifyDBInstanceResponse
         <$> x .@? "DBInstance"
-
-
-Some kind of operator / class to check the types whether to continue?

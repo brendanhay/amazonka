@@ -142,6 +142,3 @@ instance AWSRequest GetQueueAttributes where
 instance FromXML GetQueueAttributesResponse where
     parseXML = withElement "GetQueueAttributesResult" $ \x -> GetQueueAttributesResponse
         <$> parseXML x
-
-
-Some kind of operator / class to check the types whether to continue?

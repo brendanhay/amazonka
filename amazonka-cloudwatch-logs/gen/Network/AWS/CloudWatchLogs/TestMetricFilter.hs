@@ -125,6 +125,3 @@ instance AWSRequest TestMetricFilter where
 instance FromJSON TestMetricFilterResponse where
     parseJSON = withObject "TestMetricFilterResponse" $ \o -> TestMetricFilterResponse
         <$> o .:  "matches"
-
-
-Some kind of operator / class to check the types whether to continue?

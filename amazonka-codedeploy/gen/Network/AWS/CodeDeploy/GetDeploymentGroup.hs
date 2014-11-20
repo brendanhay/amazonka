@@ -122,6 +122,3 @@ instance AWSRequest GetDeploymentGroup where
 instance FromJSON GetDeploymentGroupResponse where
     parseJSON = withObject "GetDeploymentGroupResponse" $ \o -> GetDeploymentGroupResponse
         <$> o .:? "deploymentGroupInfo"
-
-
-Some kind of operator / class to check the types whether to continue?

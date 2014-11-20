@@ -2942,7 +2942,7 @@
                 "token": {
                     "input": "lebpaNextToken",
                     "outputRequired": false,
-                    "output": "lebpaNextToken",
+                    "output": "lebparNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -3162,7 +3162,7 @@
                 "token": {
                     "input": "lpaNextToken",
                     "outputRequired": false,
-                    "output": "lpaNextToken",
+                    "output": "lparNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -3363,7 +3363,7 @@
                 "token": {
                     "input": "lsNextToken",
                     "outputRequired": false,
-                    "output": "lsNextToken",
+                    "output": "lsrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -3564,7 +3564,7 @@
                 "token": {
                     "input": "lsbtNextToken",
                     "outputRequired": false,
-                    "output": "lsbtNextToken",
+                    "output": "lsbtrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -3784,7 +3784,7 @@
                 "token": {
                     "input": "ltNextToken",
                     "outputRequired": false,
-                    "output": "ltNextToken",
+                    "output": "ltrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",

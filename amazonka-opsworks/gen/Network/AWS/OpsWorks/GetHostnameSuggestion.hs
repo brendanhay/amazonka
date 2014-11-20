@@ -121,6 +121,3 @@ instance FromJSON GetHostnameSuggestionResponse where
     parseJSON = withObject "GetHostnameSuggestionResponse" $ \o -> GetHostnameSuggestionResponse
         <$> o .:? "Hostname"
         <*> o .:? "LayerId"
-
-
-Some kind of operator / class to check the types whether to continue?

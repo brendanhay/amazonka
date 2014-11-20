@@ -99,6 +99,3 @@ instance AWSRequest DeleteLoadBalancerPolicy where
 
     request  = post "DeleteLoadBalancerPolicy"
     response = nullResponse DeleteLoadBalancerPolicyResponse
-
-
-Some kind of operator / class to check the types whether to continue?

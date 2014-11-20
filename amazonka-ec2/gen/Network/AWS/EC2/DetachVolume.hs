@@ -210,6 +210,3 @@ instance FromXML DetachVolumeResponse where
         <*> x .@? "instanceId"
         <*> x .@? "status"
         <*> x .@? "volumeId"
-
-
-Some kind of operator / class to check the types whether to continue?

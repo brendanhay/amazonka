@@ -286,6 +286,3 @@ instance FromJSON AllocatePublicVirtualInterfaceResponse where
         <*> o .:? "virtualInterfaceState"
         <*> o .:? "virtualInterfaceType"
         <*> o .:? "vlan"
-
-
-Some kind of operator / class to check the types whether to continue?

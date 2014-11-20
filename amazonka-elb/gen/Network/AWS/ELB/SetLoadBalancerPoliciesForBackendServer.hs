@@ -123,6 +123,3 @@ instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
 
     request  = post "SetLoadBalancerPoliciesForBackendServer"
     response = nullResponse SetLoadBalancerPoliciesForBackendServerResponse
-
-
-Some kind of operator / class to check the types whether to continue?

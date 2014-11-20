@@ -95,6 +95,3 @@ instance AWSRequest DeleteOpenIDConnectProvider where
 
     request  = post "DeleteOpenIDConnectProvider"
     response = nullResponse DeleteOpenIDConnectProviderResponse
-
-
-Some kind of operator / class to check the types whether to continue?

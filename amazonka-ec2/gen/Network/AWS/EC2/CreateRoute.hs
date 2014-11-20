@@ -164,6 +164,3 @@ instance AWSRequest CreateRoute where
 
     request  = post "CreateRoute"
     response = nullResponse CreateRouteResponse
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -110,6 +110,3 @@ instance AWSRequest ReadPreset where
 instance FromJSON ReadPresetResponse where
     parseJSON = withObject "ReadPresetResponse" $ \o -> ReadPresetResponse
         <$> o .:? "Preset"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -103,6 +103,3 @@ instance AWSRequest DeleteVpnConnectionRoute where
 
     request  = post "DeleteVpnConnectionRoute"
     response = nullResponse DeleteVpnConnectionRouteResponse
-
-
-Some kind of operator / class to check the types whether to continue?

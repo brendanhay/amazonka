@@ -92,6 +92,3 @@ instance AWSRequest DeleteApp where
 
     request  = post "DeleteApp"
     response = nullResponse DeleteAppResponse
-
-
-Some kind of operator / class to check the types whether to continue?

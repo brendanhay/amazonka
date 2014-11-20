@@ -126,6 +126,3 @@ instance AWSRequest ResyncMFADevice where
 
     request  = post "ResyncMFADevice"
     response = nullResponse ResyncMFADeviceResponse
-
-
-Some kind of operator / class to check the types whether to continue?

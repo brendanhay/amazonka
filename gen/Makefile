@@ -48,7 +48,7 @@ JSON := \
  cloudsearchdomain \
  lambda
 
-MODELS ?= dynamodb # $(QUERY) $(XML) $(JSON)
+MODELS ?= $(QUERY) $(XML) $(JSON)
 
 .PHONY: gen
 

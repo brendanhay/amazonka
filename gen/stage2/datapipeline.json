@@ -2313,7 +2313,7 @@
                 "token": {
                     "input": "doMarker",
                     "outputRequired": false,
-                    "output": "doMarker",
+                    "output": "dorMarker",
                     "inputRequired": false
                 },
                 "type": "one"
@@ -3441,7 +3441,7 @@
                 "token": {
                     "input": "lpMarker",
                     "outputRequired": false,
-                    "output": "lpMarker",
+                    "output": "lprMarker",
                     "inputRequired": false
                 },
                 "type": "one"
@@ -4313,7 +4313,7 @@
                 "token": {
                     "input": "qoMarker",
                     "outputRequired": false,
-                    "output": "qoMarker",
+                    "output": "qorMarker",
                     "inputRequired": false
                 },
                 "type": "one"

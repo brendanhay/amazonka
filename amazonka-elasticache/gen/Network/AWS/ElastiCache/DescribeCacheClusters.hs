@@ -174,12 +174,7 @@ instance FromXML DescribeCacheClustersResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheClusters where
-  next rq rs
-
-  = (\x -> rq & dcc1Marker ?~ x)
-  <$> (rs ^. dcc1Marker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dcc1Marker) = Nothing
+        | otherwise = (\x -> rq & dcc1Marker ?~ x)
+            <$> (rs ^. dccrMarker)

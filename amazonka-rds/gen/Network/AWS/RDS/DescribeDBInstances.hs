@@ -159,12 +159,7 @@ instance FromXML DescribeDBInstancesResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeDBInstances where
-  next rq rs
-
-  = (\x -> rq & ddbi1Marker ?~ x)
-  <$> (rs ^. ddbi1Marker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. ddbi1Marker) = Nothing
+        | otherwise = (\x -> rq & ddbi1Marker ?~ x)
+            <$> (rs ^. ddbirMarker)

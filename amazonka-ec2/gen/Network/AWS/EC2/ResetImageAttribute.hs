@@ -107,6 +107,3 @@ instance AWSRequest ResetImageAttribute where
 
     request  = post "ResetImageAttribute"
     response = nullResponse ResetImageAttributeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

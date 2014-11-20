@@ -90,6 +90,3 @@ instance AWSRequest DeleteCacheParameterGroup where
 
     request  = post "DeleteCacheParameterGroup"
     response = nullResponse DeleteCacheParameterGroupResponse
-
-
-Some kind of operator / class to check the types whether to continue?

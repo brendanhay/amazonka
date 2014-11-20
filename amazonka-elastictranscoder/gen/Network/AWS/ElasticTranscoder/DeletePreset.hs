@@ -92,6 +92,3 @@ instance AWSRequest DeletePreset where
 
     request  = delete
     response = nullResponse DeletePresetResponse
-
-
-Some kind of operator / class to check the types whether to continue?

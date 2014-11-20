@@ -145,6 +145,3 @@ instance AWSRequest CreateQueue where
 instance FromXML CreateQueueResponse where
     parseXML = withElement "CreateQueueResult" $ \x -> CreateQueueResponse
         <$> x .@? "QueueUrl"
-
-
-Some kind of operator / class to check the types whether to continue?

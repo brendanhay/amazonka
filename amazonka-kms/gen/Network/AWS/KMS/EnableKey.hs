@@ -91,6 +91,3 @@ instance AWSRequest EnableKey where
 
     request  = post "EnableKey"
     response = nullResponse EnableKeyResponse
-
-
-Some kind of operator / class to check the types whether to continue?

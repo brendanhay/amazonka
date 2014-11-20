@@ -109,6 +109,3 @@ instance AWSRequest DescribeCluster where
 instance FromJSON DescribeClusterResponse where
     parseJSON = withObject "DescribeClusterResponse" $ \o -> DescribeClusterResponse
         <$> o .:? "Cluster"
-
-
-Some kind of operator / class to check the types whether to continue?

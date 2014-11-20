@@ -116,6 +116,3 @@ instance AWSRequest DeleteSuggester where
 instance FromXML DeleteSuggesterResponse where
     parseXML = withElement "DeleteSuggesterResult" $ \x -> DeleteSuggesterResponse
         <$> x .@  "Suggester"
-
-
-Some kind of operator / class to check the types whether to continue?

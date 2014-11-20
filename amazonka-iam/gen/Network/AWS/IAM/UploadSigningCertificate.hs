@@ -123,6 +123,3 @@ instance AWSRequest UploadSigningCertificate where
 instance FromXML UploadSigningCertificateResponse where
     parseXML = withElement "UploadSigningCertificateResult" $ \x -> UploadSigningCertificateResponse
         <$> x .@  "Certificate"
-
-
-Some kind of operator / class to check the types whether to continue?

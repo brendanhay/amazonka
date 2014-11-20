@@ -165,12 +165,7 @@ instance FromXML DescribeReservedInstancesModificationsResponse where
         <*> x .@  "reservedInstancesModificationsSet"
 
 instance AWSPager DescribeReservedInstancesModifications where
-  next rq rs
-
-  = (\x -> rq & drimNextToken ?~ x)
-  <$> (rs ^. drimNextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. drimNextToken) = Nothing
+        | otherwise = (\x -> rq & drimNextToken ?~ x)
+            <$> (rs ^. drimrNextToken)

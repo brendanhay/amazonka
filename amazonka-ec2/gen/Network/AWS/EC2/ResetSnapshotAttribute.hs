@@ -109,6 +109,3 @@ instance AWSRequest ResetSnapshotAttribute where
 
     request  = post "ResetSnapshotAttribute"
     response = nullResponse ResetSnapshotAttributeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

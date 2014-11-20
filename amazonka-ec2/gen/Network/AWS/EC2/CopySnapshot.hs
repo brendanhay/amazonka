@@ -176,6 +176,3 @@ instance AWSRequest CopySnapshot where
 instance FromXML CopySnapshotResponse where
     parseXML x = CopySnapshotResponse
         <$> x .@? "snapshotId"
-
-
-Some kind of operator / class to check the types whether to continue?

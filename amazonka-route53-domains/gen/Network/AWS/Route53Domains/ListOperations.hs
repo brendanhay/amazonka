@@ -139,6 +139,3 @@ instance FromJSON ListOperationsResponse where
     parseJSON = withObject "ListOperationsResponse" $ \o -> ListOperationsResponse
         <$> o .:? "NextPageMarker"
         <*> o .:  "Operations"
-
-
-Some kind of operator / class to check the types whether to continue?

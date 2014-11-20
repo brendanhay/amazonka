@@ -130,6 +130,3 @@ instance AWSRequest UnsubscribeFromDataset where
 
     request  = delete
     response = nullResponse UnsubscribeFromDatasetResponse
-
-
-Some kind of operator / class to check the types whether to continue?

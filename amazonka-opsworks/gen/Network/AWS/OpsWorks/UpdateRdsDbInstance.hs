@@ -110,6 +110,3 @@ instance AWSRequest UpdateRdsDbInstance where
 
     request  = post "UpdateRdsDbInstance"
     response = nullResponse UpdateRdsDbInstanceResponse
-
-
-Some kind of operator / class to check the types whether to continue?

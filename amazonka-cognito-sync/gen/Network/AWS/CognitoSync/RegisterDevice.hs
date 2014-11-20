@@ -146,6 +146,3 @@ instance AWSRequest RegisterDevice where
 instance FromJSON RegisterDeviceResponse where
     parseJSON = withObject "RegisterDeviceResponse" $ \o -> RegisterDeviceResponse
         <$> o .:? "DeviceId"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -159,6 +159,3 @@ instance AWSRequest CreateVpnConnection where
 instance FromXML CreateVpnConnectionResponse where
     parseXML x = CreateVpnConnectionResponse
         <$> x .@? "vpnConnection"
-
-
-Some kind of operator / class to check the types whether to continue?

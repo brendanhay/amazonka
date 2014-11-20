@@ -89,6 +89,3 @@ instance AWSRequest DisableDomainAutoRenew where
 
     request  = post "DisableDomainAutoRenew"
     response = nullResponse DisableDomainAutoRenewResponse
-
-
-Some kind of operator / class to check the types whether to continue?

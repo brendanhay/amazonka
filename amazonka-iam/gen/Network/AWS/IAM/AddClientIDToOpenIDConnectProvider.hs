@@ -106,6 +106,3 @@ instance AWSRequest AddClientIDToOpenIDConnectProvider where
 
     request  = post "AddClientIDToOpenIDConnectProvider"
     response = nullResponse AddClientIDToOpenIDConnectProviderResponse
-
-
-Some kind of operator / class to check the types whether to continue?

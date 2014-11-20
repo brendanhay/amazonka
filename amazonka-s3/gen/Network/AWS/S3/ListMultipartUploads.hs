@@ -301,15 +301,12 @@ instance FromXML ListMultipartUploadsResponse where
         <*> parseXML x
 
 instance AWSPager ListMultipartUploads where
-    next rq rs
+    page rq rs
         | stop (rs ^. lmurIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 = Nothing
         | otherwise = Just $ rq
             & lmuKeyMarker .~ p1
             & lmuUploadIdMarker .~ p2
       where
-        p1 = rs ^. lmuKeyMarker
-        p2 = rs ^. lmuUploadIdMarker
-
-
-Some kind of operator / class to check the types whether to continue?
+        p1 = rs ^. lmurNextKeyMarker
+        p2 = rs ^. lmurNextUploadIdMarker

@@ -99,6 +99,3 @@ instance AWSRequest DeleteVpnGateway where
 
     request  = post "DeleteVpnGateway"
     response = nullResponse DeleteVpnGatewayResponse
-
-
-Some kind of operator / class to check the types whether to continue?

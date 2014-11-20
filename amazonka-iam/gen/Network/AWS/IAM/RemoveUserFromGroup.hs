@@ -97,6 +97,3 @@ instance AWSRequest RemoveUserFromGroup where
 
     request  = post "RemoveUserFromGroup"
     response = nullResponse RemoveUserFromGroupResponse
-
-
-Some kind of operator / class to check the types whether to continue?

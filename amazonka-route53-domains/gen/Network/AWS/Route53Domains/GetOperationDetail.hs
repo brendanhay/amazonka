@@ -164,6 +164,3 @@ instance FromJSON GetOperationDetailResponse where
         <*> o .:? "Status"
         <*> o .:? "SubmittedDate"
         <*> o .:? "Type"
-
-
-Some kind of operator / class to check the types whether to continue?

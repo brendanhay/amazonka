@@ -97,6 +97,3 @@ instance AWSRequest DeletePolicy where
 
     request  = post "DeletePolicy"
     response = nullResponse DeletePolicyResponse
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -148,6 +148,3 @@ instance FromJSON ListIdentityPoolUsageResponse where
         <*> o .:  "IdentityPoolUsages"
         <*> o .:? "MaxResults"
         <*> o .:? "NextToken"
-
-
-Some kind of operator / class to check the types whether to continue?

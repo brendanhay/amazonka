@@ -187,6 +187,3 @@ instance AWSRequest RevokeSecurityGroupEgress where
 
     request  = post "RevokeSecurityGroupEgress"
     response = nullResponse RevokeSecurityGroupEgressResponse
-
-
-Some kind of operator / class to check the types whether to continue?

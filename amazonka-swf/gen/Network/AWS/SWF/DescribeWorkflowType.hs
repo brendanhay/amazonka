@@ -151,6 +151,3 @@ instance FromJSON DescribeWorkflowTypeResponse where
     parseJSON = withObject "DescribeWorkflowTypeResponse" $ \o -> DescribeWorkflowTypeResponse
         <$> o .:  "configuration"
         <*> o .:  "typeInfo"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -91,6 +91,3 @@ instance AWSRequest DeleteUserProfile where
 
     request  = post "DeleteUserProfile"
     response = nullResponse DeleteUserProfileResponse
-
-
-Some kind of operator / class to check the types whether to continue?

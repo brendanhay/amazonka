@@ -147,12 +147,7 @@ instance FromXML DescribeLoadBalancersResponse where
         <*> x .@? "NextMarker"
 
 instance AWSPager DescribeLoadBalancers where
-  next rq rs
-
-  = (\x -> rq & dlbMarker ?~ x)
-  <$> (rs ^. dlbMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dlbMarker) = Nothing
+        | otherwise = (\x -> rq & dlbMarker ?~ x)
+            <$> (rs ^. dlbrNextMarker)

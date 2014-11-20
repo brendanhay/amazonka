@@ -135,6 +135,3 @@ instance AWSRequest CreateStream where
 
     request  = post "CreateStream"
     response = nullResponse CreateStreamResponse
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -159,12 +159,7 @@ instance FromXML DescribeDBSecurityGroupsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeDBSecurityGroups where
-  next rq rs
-
-  = (\x -> rq & ddbsg1Marker ?~ x)
-  <$> (rs ^. ddbsg1Marker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. ddbsg1Marker) = Nothing
+        | otherwise = (\x -> rq & ddbsg1Marker ?~ x)
+            <$> (rs ^. ddbsgr1Marker)

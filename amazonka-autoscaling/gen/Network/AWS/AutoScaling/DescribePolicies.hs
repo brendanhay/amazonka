@@ -156,12 +156,7 @@ instance FromXML DescribePoliciesResponse where
         <*> x .@  "ScalingPolicies"
 
 instance AWSPager DescribePolicies where
-  next rq rs
-
-  = (\x -> rq & dp1NextToken ?~ x)
-  <$> (rs ^. dp1NextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dp1NextToken) = Nothing
+        | otherwise = (\x -> rq & dp1NextToken ?~ x)
+            <$> (rs ^. dprNextToken)

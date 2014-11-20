@@ -12200,7 +12200,7 @@
                 "token": {
                     "input": "lcfoaiMarker",
                     "outputRequired": false,
-                    "output": "lcfoaiMarker",
+                    "output": "lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker",
                     "inputRequired": false
                 },
                 "type": "one"
@@ -12435,7 +12435,7 @@
                 "token": {
                     "input": "ldMarker",
                     "outputRequired": false,
-                    "output": "ldMarker",
+                    "output": "ldrDistributionList . dlNextMarker",
                     "inputRequired": false
                 },
                 "type": "one"
@@ -12670,7 +12670,7 @@
                 "token": {
                     "input": "liMarker",
                     "outputRequired": false,
-                    "output": "liMarker",
+                    "output": "lirInvalidationList . ilNextMarker",
                     "inputRequired": false
                 },
                 "type": "one"
@@ -12944,7 +12944,7 @@
                 "token": {
                     "input": "lsdMarker",
                     "outputRequired": false,
-                    "output": "lsdMarker",
+                    "output": "lsdrStreamingDistributionList . sdlNextMarker",
                     "inputRequired": false
                 },
                 "type": "one"

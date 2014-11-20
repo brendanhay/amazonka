@@ -1,4 +1,5 @@
-{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE RankNTypes        #-}
 
 -- Module      : Network.AWS.Pagination
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -10,13 +11,19 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Pagination where
+module Network.AWS.Pagination
+    ( more
+    , stop
+    , index
+    , choice
+    ) where
 
-import Control.Applicative
-import Control.Lens
-import Data.Text           (Text)
-import Network.AWS.Data
--- import Network.AWS.Types
+import           Control.Applicative
+import           Control.Lens        hiding (index)
+import           Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as Map
+import           Data.Text           (Text)
+import           Network.AWS.Data    (ToText(..))
 
 -- | Generalise IsTruncated and other optional/required
 -- response pagination fields.
@@ -26,19 +33,22 @@ class AWSMore a where
 instance AWSMore Bool where
     more = id
 
-instance AWSMore a => AWSMore (Maybe a) where
-    more (Just x) = more x
+instance AWSMore (Maybe Bool) where
+    more (Just x) = x
     more Nothing  = False
+
+instance AWSMore (Maybe Text) where
+    more (Just _) = True
+    more Nothing  = False
+
+instance AWSMore [a] where
+    more = not . null
+
+instance AWSMore (HashMap k v) where
+    more = not . Map.null
 
 stop :: AWSMore a => a -> Bool
 stop = not . more
-
--- class AWSNext a where
---     type Next a
-
---     next :: a -> Next a
-
--- instance AWSNext a => AWSNext (Maybe a) where
 
 index :: ToText c => Getter a [b] -> Getter b c -> Getter a (Maybe Text)
 index f g = f . to lastMay . to (fmap (toText . view g))

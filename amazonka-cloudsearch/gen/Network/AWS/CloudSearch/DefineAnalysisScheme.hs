@@ -118,6 +118,3 @@ instance AWSRequest DefineAnalysisScheme where
 instance FromXML DefineAnalysisSchemeResponse where
     parseXML = withElement "DefineAnalysisSchemeResult" $ \x -> DefineAnalysisSchemeResponse
         <$> x .@  "AnalysisScheme"
-
-
-Some kind of operator / class to check the types whether to continue?

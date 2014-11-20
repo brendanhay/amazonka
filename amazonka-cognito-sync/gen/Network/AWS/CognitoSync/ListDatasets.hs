@@ -170,6 +170,3 @@ instance FromJSON ListDatasetsResponse where
         <$> o .:? "Count"
         <*> o .:  "Datasets"
         <*> o .:? "NextToken"
-
-
-Some kind of operator / class to check the types whether to continue?

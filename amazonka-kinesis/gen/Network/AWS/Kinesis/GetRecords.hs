@@ -171,6 +171,3 @@ instance FromJSON GetRecordsResponse where
     parseJSON = withObject "GetRecordsResponse" $ \o -> GetRecordsResponse
         <$> o .:? "NextShardIterator"
         <*> o .:  "Records"
-
-
-Some kind of operator / class to check the types whether to continue?

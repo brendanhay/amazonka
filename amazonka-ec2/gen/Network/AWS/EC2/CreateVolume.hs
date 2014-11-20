@@ -293,6 +293,3 @@ instance FromXML CreateVolumeResponse where
         <*> x .@  "tagSet"
         <*> x .@? "volumeId"
         <*> x .@? "volumeType"
-
-
-Some kind of operator / class to check the types whether to continue?

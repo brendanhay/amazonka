@@ -110,6 +110,3 @@ instance AWSRequest CreateTopic where
 instance FromXML CreateTopicResponse where
     parseXML = withElement "CreateTopicResult" $ \x -> CreateTopicResponse
         <$> x .@? "TopicArn"
-
-
-Some kind of operator / class to check the types whether to continue?

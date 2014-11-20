@@ -131,6 +131,3 @@ instance FromJSON AddInstanceGroupsResponse where
     parseJSON = withObject "AddInstanceGroupsResponse" $ \o -> AddInstanceGroupsResponse
         <$> o .:  "InstanceGroupIds"
         <*> o .:? "JobFlowId"
-
-
-Some kind of operator / class to check the types whether to continue?

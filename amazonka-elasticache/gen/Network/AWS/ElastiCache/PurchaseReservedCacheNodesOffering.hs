@@ -132,6 +132,3 @@ instance AWSRequest PurchaseReservedCacheNodesOffering where
 instance FromXML PurchaseReservedCacheNodesOfferingResponse where
     parseXML = withElement "PurchaseReservedCacheNodesOfferingResult" $ \x -> PurchaseReservedCacheNodesOfferingResponse
         <$> x .@? "ReservedCacheNode"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -115,6 +115,3 @@ instance AWSRequest UpdateServerCertificate where
 
     request  = post "UpdateServerCertificate"
     response = nullResponse UpdateServerCertificateResponse
-
-
-Some kind of operator / class to check the types whether to continue?

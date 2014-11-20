@@ -107,6 +107,3 @@ instance AWSRequest DescribeScalingParameters where
 instance FromXML DescribeScalingParametersResponse where
     parseXML = withElement "DescribeScalingParametersResult" $ \x -> DescribeScalingParametersResponse
         <$> x .@  "ScalingParameters"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -119,12 +119,7 @@ instance FromXML ListTopicsResponse where
         <*> x .@  "Topics"
 
 instance AWSPager ListTopics where
-  next rq rs
-
-  = (\x -> rq & ltNextToken ?~ x)
-  <$> (rs ^. ltNextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. ltNextToken) = Nothing
+        | otherwise = (\x -> rq & ltNextToken ?~ x)
+            <$> (rs ^. ltrNextToken)

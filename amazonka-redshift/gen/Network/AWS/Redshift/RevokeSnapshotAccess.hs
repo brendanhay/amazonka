@@ -137,6 +137,3 @@ instance AWSRequest RevokeSnapshotAccess where
 instance FromXML RevokeSnapshotAccessResponse where
     parseXML = withElement "RevokeSnapshotAccessResult" $ \x -> RevokeSnapshotAccessResponse
         <$> x .@? "Snapshot"
-
-
-Some kind of operator / class to check the types whether to continue?

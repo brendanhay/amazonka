@@ -149,12 +149,7 @@ instance FromXML DescribeReplicationGroupsResponse where
         <*> x .@  "ReplicationGroups"
 
 instance AWSPager DescribeReplicationGroups where
-  next rq rs
-
-  = (\x -> rq & drg1Marker ?~ x)
-  <$> (rs ^. drg1Marker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. drg1Marker) = Nothing
+        | otherwise = (\x -> rq & drg1Marker ?~ x)
+            <$> (rs ^. drgrMarker)

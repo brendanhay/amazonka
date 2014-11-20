@@ -140,12 +140,7 @@ instance FromXML ListIdentitiesResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager ListIdentities where
-  next rq rs
-
-  = (\x -> rq & liNextToken ?~ x)
-  <$> (rs ^. liNextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. liNextToken) = Nothing
+        | otherwise = (\x -> rq & liNextToken ?~ x)
+            <$> (rs ^. lirNextToken)

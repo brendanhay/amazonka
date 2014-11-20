@@ -112,6 +112,3 @@ instance FromXML GetCredentialReportResponse where
         <$> x .@? "Content"
         <*> x .@? "GeneratedTime"
         <*> x .@? "ReportFormat"
-
-
-Some kind of operator / class to check the types whether to continue?

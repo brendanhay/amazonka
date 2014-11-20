@@ -123,6 +123,3 @@ instance AWSRequest PutMetricFilter where
 
     request  = post "PutMetricFilter"
     response = nullResponse PutMetricFilterResponse
-
-
-Some kind of operator / class to check the types whether to continue?

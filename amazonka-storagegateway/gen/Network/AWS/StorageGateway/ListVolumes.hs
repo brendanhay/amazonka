@@ -156,12 +156,7 @@ instance FromJSON ListVolumesResponse where
         <*> o .:  "VolumeInfos"
 
 instance AWSPager ListVolumes where
-  next rq rs
-
-  = (\x -> rq & lvMarker ?~ x)
-  <$> (rs ^. lvMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. lvMarker) = Nothing
+        | otherwise = (\x -> rq & lvMarker ?~ x)
+            <$> (rs ^. lvrMarker)

@@ -119,6 +119,3 @@ instance AWSRequest AddCache where
 instance FromJSON AddCacheResponse where
     parseJSON = withObject "AddCacheResponse" $ \o -> AddCacheResponse
         <$> o .:? "GatewayARN"
-
-
-Some kind of operator / class to check the types whether to continue?

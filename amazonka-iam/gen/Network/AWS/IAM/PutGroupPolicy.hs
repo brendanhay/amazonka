@@ -113,6 +113,3 @@ instance AWSRequest PutGroupPolicy where
 
     request  = post "PutGroupPolicy"
     response = nullResponse PutGroupPolicyResponse
-
-
-Some kind of operator / class to check the types whether to continue?

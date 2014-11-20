@@ -101,6 +101,3 @@ instance AWSRequest RemoveTagsFromStream where
 
     request  = post "RemoveTagsFromStream"
     response = nullResponse RemoveTagsFromStreamResponse
-
-
-Some kind of operator / class to check the types whether to continue?

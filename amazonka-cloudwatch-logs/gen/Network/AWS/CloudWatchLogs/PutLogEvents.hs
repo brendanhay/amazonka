@@ -147,6 +147,3 @@ instance AWSRequest PutLogEvents where
 instance FromJSON PutLogEventsResponse where
     parseJSON = withObject "PutLogEventsResponse" $ \o -> PutLogEventsResponse
         <$> o .:? "nextSequenceToken"
-
-
-Some kind of operator / class to check the types whether to continue?

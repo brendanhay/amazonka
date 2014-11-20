@@ -144,6 +144,3 @@ instance AWSRequest DescribeDhcpOptions where
 instance FromXML DescribeDhcpOptionsResponse where
     parseXML x = DescribeDhcpOptionsResponse
         <$> x .@  "dhcpOptionsSet"
-
-
-Some kind of operator / class to check the types whether to continue?

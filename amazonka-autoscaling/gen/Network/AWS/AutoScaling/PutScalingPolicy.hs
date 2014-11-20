@@ -178,6 +178,3 @@ instance AWSRequest PutScalingPolicy where
 instance FromXML PutScalingPolicyResponse where
     parseXML = withElement "PutScalingPolicyResult" $ \x -> PutScalingPolicyResponse
         <$> x .@? "PolicyARN"
-
-
-Some kind of operator / class to check the types whether to continue?

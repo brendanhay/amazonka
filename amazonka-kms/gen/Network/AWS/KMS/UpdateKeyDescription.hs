@@ -98,6 +98,3 @@ instance AWSRequest UpdateKeyDescription where
 
     request  = post "UpdateKeyDescription"
     response = nullResponse UpdateKeyDescriptionResponse
-
-
-Some kind of operator / class to check the types whether to continue?

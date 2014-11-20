@@ -106,6 +106,3 @@ instance AWSRequest RotateEncryptionKey where
 instance FromXML RotateEncryptionKeyResponse where
     parseXML = withElement "RotateEncryptionKeyResult" $ \x -> RotateEncryptionKeyResponse
         <$> x .@? "Cluster"
-
-
-Some kind of operator / class to check the types whether to continue?

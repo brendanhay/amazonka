@@ -95,6 +95,3 @@ instance AWSRequest ListSAMLProviders where
 instance FromXML ListSAMLProvidersResponse where
     parseXML = withElement "ListSAMLProvidersResult" $ \x -> ListSAMLProvidersResponse
         <$> x .@  "SAMLProviderList"
-
-
-Some kind of operator / class to check the types whether to continue?

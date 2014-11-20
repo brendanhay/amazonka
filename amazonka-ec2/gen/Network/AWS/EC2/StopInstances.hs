@@ -154,6 +154,3 @@ instance AWSRequest StopInstances where
 instance FromXML StopInstancesResponse where
     parseXML x = StopInstancesResponse
         <$> x .@  "instancesSet"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -437,6 +437,3 @@ instance FromXML RunInstancesResponse where
         <*> x .@? "ownerId"
         <*> x .@? "requesterId"
         <*> x .@? "reservationId"
-
-
-Some kind of operator / class to check the types whether to continue?

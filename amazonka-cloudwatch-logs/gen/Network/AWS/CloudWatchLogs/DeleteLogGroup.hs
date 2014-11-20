@@ -89,6 +89,3 @@ instance AWSRequest DeleteLogGroup where
 
     request  = post "DeleteLogGroup"
     response = nullResponse DeleteLogGroupResponse
-
-
-Some kind of operator / class to check the types whether to continue?

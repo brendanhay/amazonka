@@ -199,6 +199,3 @@ instance AWSRequest DescribeSpotInstanceRequests where
 instance FromXML DescribeSpotInstanceRequestsResponse where
     parseXML x = DescribeSpotInstanceRequestsResponse
         <$> x .@  "spotInstanceRequestSet"
-
-
-Some kind of operator / class to check the types whether to continue?

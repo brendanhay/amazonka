@@ -90,6 +90,3 @@ instance AWSRequest DeleteRole where
 
     request  = post "DeleteRole"
     response = nullResponse DeleteRoleResponse
-
-
-Some kind of operator / class to check the types whether to continue?

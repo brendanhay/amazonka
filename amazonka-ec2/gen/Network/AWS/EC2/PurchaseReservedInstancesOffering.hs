@@ -150,6 +150,3 @@ instance AWSRequest PurchaseReservedInstancesOffering where
 instance FromXML PurchaseReservedInstancesOfferingResponse where
     parseXML x = PurchaseReservedInstancesOfferingResponse
         <$> x .@? "reservedInstancesId"
-
-
-Some kind of operator / class to check the types whether to continue?

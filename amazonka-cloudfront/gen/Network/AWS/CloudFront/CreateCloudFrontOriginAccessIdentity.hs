@@ -133,6 +133,3 @@ instance AWSRequest CreateCloudFrontOriginAccessIdentity where
         <$> x .@? "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"
-
-
-Some kind of operator / class to check the types whether to continue?

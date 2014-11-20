@@ -128,6 +128,3 @@ instance AWSRequest RetrieveTapeArchive where
 instance FromJSON RetrieveTapeArchiveResponse where
     parseJSON = withObject "RetrieveTapeArchiveResponse" $ \o -> RetrieveTapeArchiveResponse
         <$> o .:? "TapeARN"
-
-
-Some kind of operator / class to check the types whether to continue?

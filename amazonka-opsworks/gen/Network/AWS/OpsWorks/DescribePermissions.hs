@@ -132,6 +132,3 @@ instance AWSRequest DescribePermissions where
 instance FromJSON DescribePermissionsResponse where
     parseJSON = withObject "DescribePermissionsResponse" $ \o -> DescribePermissionsResponse
         <$> o .:  "Permissions"
-
-
-Some kind of operator / class to check the types whether to continue?

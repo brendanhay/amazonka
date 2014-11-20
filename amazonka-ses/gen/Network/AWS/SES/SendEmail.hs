@@ -172,6 +172,3 @@ instance AWSRequest SendEmail where
 instance FromXML SendEmailResponse where
     parseXML = withElement "SendEmailResult" $ \x -> SendEmailResponse
         <$> x .@  "MessageId"
-
-
-Some kind of operator / class to check the types whether to continue?

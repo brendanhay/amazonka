@@ -291,12 +291,7 @@ instance FromXML DescribeInstancesResponse where
         <*> x .@  "reservationSet"
 
 instance AWSPager DescribeInstances where
-  next rq rs
-
-  = (\x -> rq & di1NextToken ?~ x)
-  <$> (rs ^. di1NextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. di1NextToken) = Nothing
+        | otherwise = (\x -> rq & di1NextToken ?~ x)
+            <$> (rs ^. dirNextToken)

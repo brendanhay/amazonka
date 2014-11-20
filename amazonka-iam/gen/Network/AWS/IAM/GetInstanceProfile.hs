@@ -110,6 +110,3 @@ instance AWSRequest GetInstanceProfile where
 instance FromXML GetInstanceProfileResponse where
     parseXML = withElement "GetInstanceProfileResult" $ \x -> GetInstanceProfileResponse
         <$> x .@  "InstanceProfile"
-
-
-Some kind of operator / class to check the types whether to continue?

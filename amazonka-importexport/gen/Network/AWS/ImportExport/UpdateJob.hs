@@ -146,6 +146,3 @@ instance FromXML UpdateJobResponse where
     parseXML = withElement "UpdateJobResult" $ \x -> UpdateJobResponse
         <$> x .@? "Success"
         <*> x .@? "WarningMessage"
-
-
-Some kind of operator / class to check the types whether to continue?

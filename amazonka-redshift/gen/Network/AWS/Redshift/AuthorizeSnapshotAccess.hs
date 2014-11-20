@@ -135,6 +135,3 @@ instance AWSRequest AuthorizeSnapshotAccess where
 instance FromXML AuthorizeSnapshotAccessResponse where
     parseXML = withElement "AuthorizeSnapshotAccessResult" $ \x -> AuthorizeSnapshotAccessResponse
         <$> x .@? "Snapshot"
-
-
-Some kind of operator / class to check the types whether to continue?

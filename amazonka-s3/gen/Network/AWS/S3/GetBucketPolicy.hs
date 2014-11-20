@@ -109,6 +109,3 @@ instance AWSRequest GetBucketPolicy where
 instance FromXML GetBucketPolicyResponse where
     parseXML x = GetBucketPolicyResponse
         <$> x .@? "Policy"
-
-
-Some kind of operator / class to check the types whether to continue?

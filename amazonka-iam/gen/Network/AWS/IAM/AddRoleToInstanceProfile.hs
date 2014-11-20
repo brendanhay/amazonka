@@ -101,6 +101,3 @@ instance AWSRequest AddRoleToInstanceProfile where
 
     request  = post "AddRoleToInstanceProfile"
     response = nullResponse AddRoleToInstanceProfileResponse
-
-
-Some kind of operator / class to check the types whether to continue?

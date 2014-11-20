@@ -138,6 +138,3 @@ instance AWSRequest CreateSAMLProvider where
 instance FromXML CreateSAMLProviderResponse where
     parseXML = withElement "CreateSAMLProviderResult" $ \x -> CreateSAMLProviderResponse
         <$> x .@? "SAMLProviderArn"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -118,6 +118,3 @@ instance FromJSON StopDeploymentResponse where
     parseJSON = withObject "StopDeploymentResponse" $ \o -> StopDeploymentResponse
         <$> o .:? "status"
         <*> o .:? "statusMessage"
-
-
-Some kind of operator / class to check the types whether to continue?

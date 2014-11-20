@@ -137,6 +137,3 @@ instance AWSRequest SetPermission where
 
     request  = post "SetPermission"
     response = nullResponse SetPermissionResponse
-
-
-Some kind of operator / class to check the types whether to continue?

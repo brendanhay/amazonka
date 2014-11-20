@@ -148,6 +148,3 @@ instance FromXML ResetClusterParameterGroupResponse where
     parseXML = withElement "ResetClusterParameterGroupResult" $ \x -> ResetClusterParameterGroupResponse
         <$> x .@? "ParameterGroupName"
         <*> x .@? "ParameterGroupStatus"
-
-
-Some kind of operator / class to check the types whether to continue?

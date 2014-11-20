@@ -140,6 +140,3 @@ instance FromXML GetHostedZoneResponse where
         <$> x .@? "DelegationSet"
         <*> x .@  "HostedZone"
         <*> x .@  "VPCs"
-
-
-Some kind of operator / class to check the types whether to continue?

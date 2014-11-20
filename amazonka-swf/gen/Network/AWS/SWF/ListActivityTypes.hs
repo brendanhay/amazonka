@@ -198,12 +198,7 @@ instance FromJSON ListActivityTypesResponse where
         <*> o .:  "typeInfos"
 
 instance AWSPager ListActivityTypes where
-  next rq rs
-
-  = (\x -> rq & latNextPageToken ?~ x)
-  <$> (rs ^. latNextPageToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. latNextPageToken) = Nothing
+        | otherwise = (\x -> rq & latNextPageToken ?~ x)
+            <$> (rs ^. latrNextPageToken)

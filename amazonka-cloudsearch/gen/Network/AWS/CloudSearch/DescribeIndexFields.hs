@@ -137,6 +137,3 @@ instance AWSRequest DescribeIndexFields where
 instance FromXML DescribeIndexFieldsResponse where
     parseXML = withElement "DescribeIndexFieldsResult" $ \x -> DescribeIndexFieldsResponse
         <$> x .@  "IndexFields"
-
-
-Some kind of operator / class to check the types whether to continue?

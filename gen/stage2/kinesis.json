@@ -1659,7 +1659,7 @@
                 "token": {
                     "input": "ds1ExclusiveStartShardId",
                     "outputRequired": false,
-                    "output": "ds1ExclusiveStartShardId",
+                    "output": "index (dsrStreamDescription . sdShards) sShardId",
                     "inputRequired": false
                 },
                 "type": "one"
@@ -2564,7 +2564,7 @@
                 "token": {
                     "input": "lsExclusiveStartStreamName",
                     "outputRequired": false,
-                    "output": "lsExclusiveStartStreamName",
+                    "output": "index lsrStreamNames (to id)",
                     "inputRequired": false
                 },
                 "type": "one"

@@ -146,6 +146,3 @@ instance AWSRequest ModifyOptionGroup where
 instance FromXML ModifyOptionGroupResponse where
     parseXML = withElement "ModifyOptionGroupResult" $ \x -> ModifyOptionGroupResponse
         <$> x .@? "OptionGroup"
-
-
-Some kind of operator / class to check the types whether to continue?

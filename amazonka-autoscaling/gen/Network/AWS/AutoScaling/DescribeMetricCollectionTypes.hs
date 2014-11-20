@@ -103,6 +103,3 @@ instance FromXML DescribeMetricCollectionTypesResponse where
     parseXML = withElement "DescribeMetricCollectionTypesResult" $ \x -> DescribeMetricCollectionTypesResponse
         <$> x .@  "Granularities"
         <*> x .@  "Metrics"
-
-
-Some kind of operator / class to check the types whether to continue?

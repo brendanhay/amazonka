@@ -91,6 +91,3 @@ instance AWSRequest EnableAlarmActions where
 
     request  = post "EnableAlarmActions"
     response = nullResponse EnableAlarmActionsResponse
-
-
-Some kind of operator / class to check the types whether to continue?

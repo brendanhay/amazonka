@@ -135,6 +135,3 @@ instance FromXML ChangeMessageVisibilityBatchResponse where
     parseXML = withElement "ChangeMessageVisibilityBatchResult" $ \x -> ChangeMessageVisibilityBatchResponse
         <$> parseXML x
         <*> parseXML x
-
-
-Some kind of operator / class to check the types whether to continue?

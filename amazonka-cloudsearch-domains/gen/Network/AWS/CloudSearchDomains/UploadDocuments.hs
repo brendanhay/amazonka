@@ -170,6 +170,3 @@ instance FromJSON UploadDocumentsResponse where
         <*> o .:? "deletes"
         <*> o .:? "status"
         <*> o .:  "warnings"
-
-
-Some kind of operator / class to check the types whether to continue?

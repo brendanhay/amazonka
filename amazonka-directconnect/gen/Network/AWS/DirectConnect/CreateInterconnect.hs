@@ -191,6 +191,3 @@ instance FromJSON CreateInterconnectResponse where
         <*> o .:? "interconnectState"
         <*> o .:? "location"
         <*> o .:? "region"
-
-
-Some kind of operator / class to check the types whether to continue?

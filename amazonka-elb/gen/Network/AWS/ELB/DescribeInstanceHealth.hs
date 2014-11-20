@@ -127,6 +127,3 @@ instance AWSRequest DescribeInstanceHealth where
 instance FromXML DescribeInstanceHealthResponse where
     parseXML = withElement "DescribeInstanceHealthResult" $ \x -> DescribeInstanceHealthResponse
         <$> x .@  "InstanceStates"
-
-
-Some kind of operator / class to check the types whether to continue?

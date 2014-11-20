@@ -125,6 +125,3 @@ instance AWSRequest SetAlarmState where
 
     request  = post "SetAlarmState"
     response = nullResponse SetAlarmStateResponse
-
-
-Some kind of operator / class to check the types whether to continue?

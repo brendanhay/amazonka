@@ -10744,7 +10744,7 @@
                 "token": {
                     "input": "lbaMarker",
                     "outputRequired": false,
-                    "output": "lbaMarker",
+                    "output": "lbarMarker",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -11015,7 +11015,7 @@
                 "token": {
                     "input": "lcMarker",
                     "outputRequired": false,
-                    "output": "lcMarker",
+                    "output": "lcrMarker",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -11375,7 +11375,7 @@
                 "token": {
                     "input": "ligMarker",
                     "outputRequired": false,
-                    "output": "ligMarker",
+                    "output": "ligrMarker",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -11646,7 +11646,7 @@
                 "token": {
                     "input": "liMarker",
                     "outputRequired": false,
-                    "output": "liMarker",
+                    "output": "lirMarker",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -12007,7 +12007,7 @@
                 "token": {
                     "input": "lsMarker",
                     "outputRequired": false,
-                    "output": "lsMarker",
+                    "output": "lsrMarker",
                     "inputRequired": false
                 },
                 "type": "next",

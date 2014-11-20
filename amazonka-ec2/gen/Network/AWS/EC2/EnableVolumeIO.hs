@@ -96,6 +96,3 @@ instance AWSRequest EnableVolumeIO where
 
     request  = post "EnableVolumeIO"
     response = nullResponse EnableVolumeIOResponse
-
-
-Some kind of operator / class to check the types whether to continue?

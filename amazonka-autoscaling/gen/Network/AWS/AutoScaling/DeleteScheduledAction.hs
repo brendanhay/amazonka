@@ -99,6 +99,3 @@ instance AWSRequest DeleteScheduledAction where
 
     request  = post "DeleteScheduledAction"
     response = nullResponse DeleteScheduledActionResponse
-
-
-Some kind of operator / class to check the types whether to continue?

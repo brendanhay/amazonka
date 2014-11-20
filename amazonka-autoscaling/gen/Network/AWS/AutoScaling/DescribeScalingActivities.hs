@@ -160,12 +160,7 @@ instance FromXML DescribeScalingActivitiesResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeScalingActivities where
-  next rq rs
-
-  = (\x -> rq & dsa2NextToken ?~ x)
-  <$> (rs ^. dsa2NextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dsa2NextToken) = Nothing
+        | otherwise = (\x -> rq & dsa2NextToken ?~ x)
+            <$> (rs ^. dsar1NextToken)

@@ -3,26 +3,28 @@
 instance AWSPager {{ request.name }} where
   {% case pager.type %}
   {% when "next" %}
-  next rq rs
-      | stop (rq ^. {{ pager.token.input }}) = Nothing
-    {% if pager.token.outputRequired && pager.token.inputRequired %}
-      | otherwise = Just $ rq & {{ pager.token.input }} .~ rs ^. {{ pager.token.output }}
-    {% elif !pager.token.outputRequired && pager.token.inputRequired %}
-      | otherwise = (\x -> rq & {{ pager.token.input }} .~ x)
-          <$> (rs ^. {{ pager.token.output }})
-    {% elif pager.token.outputRequired && !pager.token.inputRequired %}
-      | otherwise = Just $ rq & {{ pager.token.input }} ?~ rs ^. {{ pager.token.output }}
-    {% else %}
-      | otherwise = (\x -> rq & {{ pager.token.input }} ?~ x)
-          <$> (rs ^. {{ pager.token.output }})
-    {% endif %}
+    page rq rs
+        | stop (rq ^. {{ pager.token.input }}) = Nothing
+      {% if pager.token.outputRequired && pager.token.inputRequired %}
+        | otherwise = Just $ rq
+            & {{ pager.token.input }} .~ rs ^. {{ pager.token.output }}
+      {% elif !pager.token.outputRequired && pager.token.inputRequired %}
+        | otherwise = (\x -> rq & {{ pager.token.input }} .~ x)
+            <$> (rs ^. {{ pager.token.output }})
+      {% elif pager.token.outputRequired && !pager.token.inputRequired %}
+        | otherwise = Just $ rq
+            & {{ pager.token.input }} ?~ rs ^. {{ pager.token.output }}
+      {% else %}
+        | otherwise = (\x -> rq & {{ pager.token.input }} ?~ x)
+            <$> (rs ^. {{ pager.token.output }})
+      {% endif %}
   {% when "one" %}
-    next rq rs
+    page rq rs
         | stop (rs ^. {{ pager.more }}) = Nothing
         | otherwise = Just $ rq
             & {{ pager.token.input }} .~ rs ^. {{ pager.token.output }}
   {% when "many" %}
-    next rq rs
+    page rq rs
         | stop (rs ^. {{ pager.more }}) = Nothing
         | {{ pager.negate }} = Nothing
         | otherwise = Just $ rq

@@ -130,6 +130,3 @@ instance AWSRequest BundleInstance where
 instance FromXML BundleInstanceResponse where
     parseXML x = BundleInstanceResponse
         <$> x .@? "bundleInstanceTask"
-
-
-Some kind of operator / class to check the types whether to continue?

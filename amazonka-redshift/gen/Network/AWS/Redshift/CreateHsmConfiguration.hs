@@ -176,6 +176,3 @@ instance AWSRequest CreateHsmConfiguration where
 instance FromXML CreateHsmConfigurationResponse where
     parseXML = withElement "CreateHsmConfigurationResult" $ \x -> CreateHsmConfigurationResponse
         <$> x .@? "HsmConfiguration"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -168,6 +168,3 @@ instance AWSRequest CreateApplicationVersion where
 instance FromXML CreateApplicationVersionResponse where
     parseXML = withElement "CreateApplicationVersionResult" $ \x -> CreateApplicationVersionResponse
         <$> x .@? "ApplicationVersion"
-
-
-Some kind of operator / class to check the types whether to continue?

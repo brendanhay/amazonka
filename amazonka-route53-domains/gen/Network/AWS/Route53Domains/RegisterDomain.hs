@@ -258,6 +258,3 @@ instance AWSRequest RegisterDomain where
 instance FromJSON RegisterDomainResponse where
     parseJSON = withObject "RegisterDomainResponse" $ \o -> RegisterDomainResponse
         <$> o .:  "OperationId"
-
-
-Some kind of operator / class to check the types whether to continue?

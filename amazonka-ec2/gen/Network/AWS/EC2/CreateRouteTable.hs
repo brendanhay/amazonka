@@ -116,6 +116,3 @@ instance AWSRequest CreateRouteTable where
 instance FromXML CreateRouteTableResponse where
     parseXML x = CreateRouteTableResponse
         <$> x .@? "routeTable"
-
-
-Some kind of operator / class to check the types whether to continue?

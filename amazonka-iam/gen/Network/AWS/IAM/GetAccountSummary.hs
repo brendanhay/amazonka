@@ -110,6 +110,3 @@ instance AWSRequest GetAccountSummary where
 instance FromXML GetAccountSummaryResponse where
     parseXML = withElement "GetAccountSummaryResult" $ \x -> GetAccountSummaryResponse
         <$> x .@  "SummaryMap"
-
-
-Some kind of operator / class to check the types whether to continue?

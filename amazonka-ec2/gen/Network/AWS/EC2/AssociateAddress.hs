@@ -186,6 +186,3 @@ instance AWSRequest AssociateAddress where
 instance FromXML AssociateAddressResponse where
     parseXML x = AssociateAddressResponse
         <$> x .@? "associationId"
-
-
-Some kind of operator / class to check the types whether to continue?

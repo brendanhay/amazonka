@@ -190,6 +190,3 @@ instance FromXML GetTemplateSummaryResponse where
         <*> x .@? "Description"
         <*> x .@  "Parameters"
         <*> x .@? "Version"
-
-
-Some kind of operator / class to check the types whether to continue?

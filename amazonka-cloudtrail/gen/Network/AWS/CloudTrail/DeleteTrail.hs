@@ -89,6 +89,3 @@ instance AWSRequest DeleteTrail where
 
     request  = post "DeleteTrail"
     response = nullResponse DeleteTrailResponse
-
-
-Some kind of operator / class to check the types whether to continue?

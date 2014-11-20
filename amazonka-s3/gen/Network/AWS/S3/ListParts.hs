@@ -259,10 +259,7 @@ instance FromXML ListPartsResponse where
         <*> x .@? "UploadId"
 
 instance AWSPager ListParts where
-    next rq rs
+    page rq rs
         | stop (rs ^. lprIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & lpPartNumberMarker .~ rs ^. lpPartNumberMarker
-
-
-Some kind of operator / class to check the types whether to continue?
+            & lpPartNumberMarker .~ rs ^. lprNextPartNumberMarker

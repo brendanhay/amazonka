@@ -164,6 +164,3 @@ instance AWSRequest GetSessionToken where
 instance FromXML GetSessionTokenResponse where
     parseXML = withElement "GetSessionTokenResult" $ \x -> GetSessionTokenResponse
         <$> x .@? "Credentials"
-
-
-Some kind of operator / class to check the types whether to continue?

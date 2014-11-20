@@ -105,6 +105,3 @@ instance AWSRequest DeleteStreamingDistribution where
 
     request  = delete
     response = nullResponse DeleteStreamingDistributionResponse
-
-
-Some kind of operator / class to check the types whether to continue?

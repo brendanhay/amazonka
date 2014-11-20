@@ -118,6 +118,3 @@ instance FromJSON ListLocalDisksResponse where
     parseJSON = withObject "ListLocalDisksResponse" $ \o -> ListLocalDisksResponse
         <$> o .:  "Disks"
         <*> o .:? "GatewayARN"
-
-
-Some kind of operator / class to check the types whether to continue?

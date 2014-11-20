@@ -167,10 +167,7 @@ instance FromXML GetGroupResponse where
         <*> x .@  "Users"
 
 instance AWSPager GetGroup where
-    next rq rs
+    page rq rs
         | stop (rs ^. ggrIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & ggMarker .~ rs ^. ggMarker
-
-
-Some kind of operator / class to check the types whether to continue?
+            & ggMarker .~ rs ^. ggrMarker

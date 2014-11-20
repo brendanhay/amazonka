@@ -6357,7 +6357,7 @@
                 "token": {
                     "input": "dlbMarker",
                     "outputRequired": false,
-                    "output": "dlbMarker",
+                    "output": "dlbrNextMarker",
                     "inputRequired": false
                 },
                 "type": "next",

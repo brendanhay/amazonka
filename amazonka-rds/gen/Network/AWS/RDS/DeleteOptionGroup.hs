@@ -87,6 +87,3 @@ instance AWSRequest DeleteOptionGroup where
 
     request  = post "DeleteOptionGroup"
     response = nullResponse DeleteOptionGroupResponse
-
-
-Some kind of operator / class to check the types whether to continue?

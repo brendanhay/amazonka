@@ -279,6 +279,3 @@ instance AWSRequest TransferDomain where
 instance FromJSON TransferDomainResponse where
     parseJSON = withObject "TransferDomainResponse" $ \o -> TransferDomainResponse
         <$> o .:  "OperationId"
-
-
-Some kind of operator / class to check the types whether to continue?

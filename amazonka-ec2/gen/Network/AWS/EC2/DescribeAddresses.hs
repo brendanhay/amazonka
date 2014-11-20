@@ -152,6 +152,3 @@ instance AWSRequest DescribeAddresses where
 instance FromXML DescribeAddressesResponse where
     parseXML x = DescribeAddressesResponse
         <$> x .@  "addressesSet"
-
-
-Some kind of operator / class to check the types whether to continue?

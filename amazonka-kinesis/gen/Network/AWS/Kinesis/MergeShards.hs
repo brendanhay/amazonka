@@ -139,6 +139,3 @@ instance AWSRequest MergeShards where
 
     request  = post "MergeShards"
     response = nullResponse MergeShardsResponse
-
-
-Some kind of operator / class to check the types whether to continue?

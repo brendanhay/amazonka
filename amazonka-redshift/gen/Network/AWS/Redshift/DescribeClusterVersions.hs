@@ -171,12 +171,7 @@ instance FromXML DescribeClusterVersionsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeClusterVersions where
-  next rq rs
-
-  = (\x -> rq & dcvMarker ?~ x)
-  <$> (rs ^. dcvMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dcvMarker) = Nothing
+        | otherwise = (\x -> rq & dcvMarker ?~ x)
+            <$> (rs ^. dcvrMarker)

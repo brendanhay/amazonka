@@ -99,6 +99,3 @@ instance FromXML GenerateCredentialReportResponse where
     parseXML = withElement "GenerateCredentialReportResult" $ \x -> GenerateCredentialReportResponse
         <$> x .@? "Description"
         <*> x .@? "State"
-
-
-Some kind of operator / class to check the types whether to continue?

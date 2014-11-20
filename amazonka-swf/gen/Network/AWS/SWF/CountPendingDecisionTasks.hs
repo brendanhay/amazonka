@@ -142,6 +142,3 @@ instance FromJSON CountPendingDecisionTasksResponse where
     parseJSON = withObject "CountPendingDecisionTasksResponse" $ \o -> CountPendingDecisionTasksResponse
         <$> o .:  "count"
         <*> o .:? "truncated"
-
-
-Some kind of operator / class to check the types whether to continue?

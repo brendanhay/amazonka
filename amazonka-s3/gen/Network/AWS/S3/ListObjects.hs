@@ -259,10 +259,7 @@ instance FromXML ListObjectsResponse where
         <*> x .@? "Prefix"
 
 instance AWSPager ListObjects where
-    next rq rs
+    page rq rs
         | stop (rs ^. lorIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & loMarker .~ rs ^. loMarker
-
-
-Some kind of operator / class to check the types whether to continue?
+            & loMarker .~ rs ^. lorNextMarker

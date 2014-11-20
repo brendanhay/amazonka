@@ -233,6 +233,3 @@ instance AWSRequest UpdateAutoScalingGroup where
 
     request  = post "UpdateAutoScalingGroup"
     response = nullResponse UpdateAutoScalingGroupResponse
-
-
-Some kind of operator / class to check the types whether to continue?

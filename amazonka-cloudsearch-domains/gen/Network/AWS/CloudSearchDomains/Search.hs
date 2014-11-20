@@ -453,6 +453,3 @@ instance FromJSON SearchResponse where
         <$> o .:  "facets"
         <*> o .:? "hits"
         <*> o .:? "status"
-
-
-Some kind of operator / class to check the types whether to continue?

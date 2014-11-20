@@ -97,6 +97,3 @@ instance AWSRequest AddUserToGroup where
 
     request  = post "AddUserToGroup"
     response = nullResponse AddUserToGroupResponse
-
-
-Some kind of operator / class to check the types whether to continue?

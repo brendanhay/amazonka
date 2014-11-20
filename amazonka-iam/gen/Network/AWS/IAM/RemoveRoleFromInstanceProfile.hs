@@ -105,6 +105,3 @@ instance AWSRequest RemoveRoleFromInstanceProfile where
 
     request  = post "RemoveRoleFromInstanceProfile"
     response = nullResponse RemoveRoleFromInstanceProfileResponse
-
-
-Some kind of operator / class to check the types whether to continue?

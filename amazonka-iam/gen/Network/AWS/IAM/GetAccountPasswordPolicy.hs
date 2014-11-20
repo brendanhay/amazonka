@@ -89,6 +89,3 @@ instance AWSRequest GetAccountPasswordPolicy where
 instance FromXML GetAccountPasswordPolicyResponse where
     parseXML = withElement "GetAccountPasswordPolicyResult" $ \x -> GetAccountPasswordPolicyResponse
         <$> x .@  "PasswordPolicy"
-
-
-Some kind of operator / class to check the types whether to continue?

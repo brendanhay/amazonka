@@ -114,6 +114,3 @@ instance AWSRequest DeprecateActivityType where
 
     request  = post "DeprecateActivityType"
     response = nullResponse DeprecateActivityTypeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -136,6 +136,3 @@ instance AWSRequest CreateRole where
 instance FromXML CreateRoleResponse where
     parseXML = withElement "CreateRoleResult" $ \x -> CreateRoleResponse
         <$> x .@  "Role"
-
-
-Some kind of operator / class to check the types whether to continue?

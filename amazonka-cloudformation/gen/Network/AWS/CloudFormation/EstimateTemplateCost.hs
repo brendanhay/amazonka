@@ -134,6 +134,3 @@ instance AWSRequest EstimateTemplateCost where
 instance FromXML EstimateTemplateCostResponse where
     parseXML = withElement "EstimateTemplateCostResult" $ \x -> EstimateTemplateCostResponse
         <$> x .@? "Url"
-
-
-Some kind of operator / class to check the types whether to continue?

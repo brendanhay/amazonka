@@ -102,6 +102,3 @@ instance FromXML ListAvailableSolutionStacksResponse where
     parseXML = withElement "ListAvailableSolutionStacksResult" $ \x -> ListAvailableSolutionStacksResponse
         <$> x .@  "SolutionStackDetails"
         <*> x .@  "SolutionStacks"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -178,6 +178,3 @@ instance FromJSON DescribeGatewayInformationResponse where
         <*> o .:? "GatewayTimezone"
         <*> o .:? "GatewayType"
         <*> o .:? "NextUpdateAvailabilityDate"
-
-
-Some kind of operator / class to check the types whether to continue?

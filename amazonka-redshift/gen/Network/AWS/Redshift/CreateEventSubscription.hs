@@ -207,6 +207,3 @@ instance AWSRequest CreateEventSubscription where
 instance FromXML CreateEventSubscriptionResponse where
     parseXML = withElement "CreateEventSubscriptionResult" $ \x -> CreateEventSubscriptionResponse
         <$> x .@? "EventSubscription"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -167,12 +167,7 @@ instance FromXML DescribeOptionGroupOptionsResponse where
         <*> x .@  "OptionGroupOptions"
 
 instance AWSPager DescribeOptionGroupOptions where
-  next rq rs
-
-  = (\x -> rq & dogoMarker ?~ x)
-  <$> (rs ^. dogoMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dogoMarker) = Nothing
+        | otherwise = (\x -> rq & dogoMarker ?~ x)
+            <$> (rs ^. dogorMarker)

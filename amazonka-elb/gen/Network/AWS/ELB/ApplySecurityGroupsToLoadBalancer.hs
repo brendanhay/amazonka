@@ -132,6 +132,3 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer where
 instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
     parseXML = withElement "ApplySecurityGroupsToLoadBalancerResult" $ \x -> ApplySecurityGroupsToLoadBalancerResponse
         <$> x .@  "SecurityGroups"
-
-
-Some kind of operator / class to check the types whether to continue?

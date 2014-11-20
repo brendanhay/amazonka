@@ -111,6 +111,3 @@ instance AWSRequest UpdateGatewaySoftwareNow where
 instance FromJSON UpdateGatewaySoftwareNowResponse where
     parseJSON = withObject "UpdateGatewaySoftwareNowResponse" $ \o -> UpdateGatewaySoftwareNowResponse
         <$> o .:? "GatewayARN"
-
-
-Some kind of operator / class to check the types whether to continue?

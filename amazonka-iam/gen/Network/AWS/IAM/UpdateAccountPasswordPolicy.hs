@@ -197,6 +197,3 @@ instance AWSRequest UpdateAccountPasswordPolicy where
 
     request  = post "UpdateAccountPasswordPolicy"
     response = nullResponse UpdateAccountPasswordPolicyResponse
-
-
-Some kind of operator / class to check the types whether to continue?

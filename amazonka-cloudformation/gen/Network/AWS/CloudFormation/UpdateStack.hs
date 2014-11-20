@@ -266,6 +266,3 @@ instance AWSRequest UpdateStack where
 instance FromXML UpdateStackResponse where
     parseXML = withElement "UpdateStackResult" $ \x -> UpdateStackResponse
         <$> x .@? "StackId"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -91,6 +91,3 @@ instance AWSRequest DeleteDBParameterGroup where
 
     request  = post "DeleteDBParameterGroup"
     response = nullResponse DeleteDBParameterGroupResponse
-
-
-Some kind of operator / class to check the types whether to continue?

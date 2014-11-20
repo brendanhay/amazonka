@@ -183,6 +183,3 @@ instance AWSRequest GetShardIterator where
 instance FromJSON GetShardIteratorResponse where
     parseJSON = withObject "GetShardIteratorResponse" $ \o -> GetShardIteratorResponse
         <$> o .:? "ShardIterator"
-
-
-Some kind of operator / class to check the types whether to continue?

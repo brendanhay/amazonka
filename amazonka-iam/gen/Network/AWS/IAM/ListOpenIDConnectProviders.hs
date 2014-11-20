@@ -96,6 +96,3 @@ instance AWSRequest ListOpenIDConnectProviders where
 instance FromXML ListOpenIDConnectProvidersResponse where
     parseXML = withElement "ListOpenIDConnectProvidersResult" $ \x -> ListOpenIDConnectProvidersResponse
         <$> x .@  "OpenIDConnectProviderList"
-
-
-Some kind of operator / class to check the types whether to continue?

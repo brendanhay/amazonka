@@ -99,6 +99,3 @@ instance AWSRequest DeleteReusableDelegationSet where
 
     request  = delete
     response = nullResponse DeleteReusableDelegationSetResponse
-
-
-Some kind of operator / class to check the types whether to continue?

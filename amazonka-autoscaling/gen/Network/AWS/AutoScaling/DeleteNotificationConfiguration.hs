@@ -99,6 +99,3 @@ instance AWSRequest DeleteNotificationConfiguration where
 
     request  = post "DeleteNotificationConfiguration"
     response = nullResponse DeleteNotificationConfigurationResponse
-
-
-Some kind of operator / class to check the types whether to continue?

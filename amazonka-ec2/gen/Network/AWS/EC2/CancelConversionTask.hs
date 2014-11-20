@@ -111,6 +111,3 @@ instance AWSRequest CancelConversionTask where
 
     request  = post "CancelConversionTask"
     response = nullResponse CancelConversionTaskResponse
-
-
-Some kind of operator / class to check the types whether to continue?

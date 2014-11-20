@@ -122,6 +122,3 @@ instance FromJSON ListVolumeRecoveryPointsResponse where
     parseJSON = withObject "ListVolumeRecoveryPointsResponse" $ \o -> ListVolumeRecoveryPointsResponse
         <$> o .:? "GatewayARN"
         <*> o .:  "VolumeRecoveryPointInfos"
-
-
-Some kind of operator / class to check the types whether to continue?

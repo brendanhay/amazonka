@@ -145,6 +145,3 @@ instance FromXML GetConsoleOutputResponse where
         <$> x .@? "instanceId"
         <*> x .@? "output"
         <*> x .@? "timestamp"
-
-
-Some kind of operator / class to check the types whether to continue?

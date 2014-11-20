@@ -8540,7 +8540,7 @@
                 "token": {
                     "input": "lhcMarker",
                     "outputRequired": false,
-                    "output": "lhcMarker",
+                    "output": "lhcrNextMarker",
                     "inputRequired": false
                 },
                 "type": "one"
@@ -8926,7 +8926,7 @@
                 "token": {
                     "input": "lhzMarker",
                     "outputRequired": false,
-                    "output": "lhzMarker",
+                    "output": "lhzrNextMarker",
                     "inputRequired": false
                 },
                 "type": "one"
@@ -9393,19 +9393,19 @@
                     "p1": {
                         "input": "lrrsStartRecordName",
                         "outputRequired": false,
-                        "output": "lrrsStartRecordName",
+                        "output": "lrrsrNextRecordName",
                         "inputRequired": false
                     },
                     "p2": {
                         "input": "lrrsStartRecordType",
                         "outputRequired": false,
-                        "output": "lrrsStartRecordType",
+                        "output": "lrrsrNextRecordType",
                         "inputRequired": false
                     },
                     "p3": {
                         "input": "lrrsStartRecordIdentifier",
                         "outputRequired": false,
-                        "output": "lrrsStartRecordIdentifier",
+                        "output": "lrrsrNextRecordIdentifier",
                         "inputRequired": false
                     }
                 },

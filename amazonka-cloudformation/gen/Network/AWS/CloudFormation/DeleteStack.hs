@@ -88,6 +88,3 @@ instance AWSRequest DeleteStack where
 
     request  = post "DeleteStack"
     response = nullResponse DeleteStackResponse
-
-
-Some kind of operator / class to check the types whether to continue?

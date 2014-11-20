@@ -302,15 +302,12 @@ instance FromXML ListObjectVersionsResponse where
         <*> parseXML x
 
 instance AWSPager ListObjectVersions where
-    next rq rs
+    page rq rs
         | stop (rs ^. lovrIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 = Nothing
         | otherwise = Just $ rq
             & lovKeyMarker .~ p1
             & lovVersionIdMarker .~ p2
       where
-        p1 = rs ^. lovKeyMarker
-        p2 = rs ^. lovVersionIdMarker
-
-
-Some kind of operator / class to check the types whether to continue?
+        p1 = rs ^. lovrNextKeyMarker
+        p2 = rs ^. lovrNextVersionIdMarker

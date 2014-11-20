@@ -135,6 +135,3 @@ instance AWSRequest DescribePlacementGroups where
 instance FromXML DescribePlacementGroupsResponse where
     parseXML x = DescribePlacementGroupsResponse
         <$> x .@  "placementGroupSet"
-
-
-Some kind of operator / class to check the types whether to continue?

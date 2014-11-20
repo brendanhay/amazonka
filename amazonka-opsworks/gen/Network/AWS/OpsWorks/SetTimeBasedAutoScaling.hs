@@ -106,6 +106,3 @@ instance AWSRequest SetTimeBasedAutoScaling where
 
     request  = post "SetTimeBasedAutoScaling"
     response = nullResponse SetTimeBasedAutoScalingResponse
-
-
-Some kind of operator / class to check the types whether to continue?

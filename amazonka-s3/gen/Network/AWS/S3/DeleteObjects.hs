@@ -144,6 +144,3 @@ instance FromXML DeleteObjectsResponse where
     parseXML x = DeleteObjectsResponse
         <$> parseXML x
         <*> parseXML x
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -273,6 +273,3 @@ instance AWSRequest UploadPart where
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
-
-
-Some kind of operator / class to check the types whether to continue?

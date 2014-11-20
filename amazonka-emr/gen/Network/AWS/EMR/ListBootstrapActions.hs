@@ -131,12 +131,7 @@ instance FromJSON ListBootstrapActionsResponse where
         <*> o .:? "Marker"
 
 instance AWSPager ListBootstrapActions where
-  next rq rs
-
-  = (\x -> rq & lbaMarker ?~ x)
-  <$> (rs ^. lbaMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. lbaMarker) = Nothing
+        | otherwise = (\x -> rq & lbaMarker ?~ x)
+            <$> (rs ^. lbarMarker)

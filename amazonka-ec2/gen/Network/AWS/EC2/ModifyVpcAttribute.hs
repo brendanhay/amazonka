@@ -115,6 +115,3 @@ instance AWSRequest ModifyVpcAttribute where
 
     request  = post "ModifyVpcAttribute"
     response = nullResponse ModifyVpcAttributeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

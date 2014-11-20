@@ -133,6 +133,3 @@ instance FromJSON DeleteChapCredentialsResponse where
     parseJSON = withObject "DeleteChapCredentialsResponse" $ \o -> DeleteChapCredentialsResponse
         <$> o .:? "InitiatorName"
         <*> o .:? "TargetARN"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -124,6 +124,3 @@ instance AWSRequest CreateCacheSecurityGroup where
 instance FromXML CreateCacheSecurityGroupResponse where
     parseXML = withElement "CreateCacheSecurityGroupResult" $ \x -> CreateCacheSecurityGroupResponse
         <$> x .@? "CacheSecurityGroup"
-
-
-Some kind of operator / class to check the types whether to continue?

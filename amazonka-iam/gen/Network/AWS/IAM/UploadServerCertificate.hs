@@ -161,6 +161,3 @@ instance AWSRequest UploadServerCertificate where
 instance FromXML UploadServerCertificateResponse where
     parseXML = withElement "UploadServerCertificateResult" $ \x -> UploadServerCertificateResponse
         <$> x .@? "ServerCertificateMetadata"
-
-
-Some kind of operator / class to check the types whether to continue?

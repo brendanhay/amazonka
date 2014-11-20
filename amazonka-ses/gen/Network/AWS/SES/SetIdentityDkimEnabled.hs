@@ -108,6 +108,3 @@ instance AWSRequest SetIdentityDkimEnabled where
 
     request  = post "SetIdentityDkimEnabled"
     response = nullResponse SetIdentityDkimEnabledResponse
-
-
-Some kind of operator / class to check the types whether to continue?

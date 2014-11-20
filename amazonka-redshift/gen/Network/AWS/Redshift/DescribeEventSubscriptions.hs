@@ -156,12 +156,7 @@ instance FromXML DescribeEventSubscriptionsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeEventSubscriptions where
-  next rq rs
-
-  = (\x -> rq & des1Marker ?~ x)
-  <$> (rs ^. des1Marker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. des1Marker) = Nothing
+        | otherwise = (\x -> rq & des1Marker ?~ x)
+            <$> (rs ^. desrMarker)

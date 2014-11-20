@@ -171,12 +171,7 @@ instance FromXML DescribeAlarmHistoryResponse where
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeAlarmHistory where
-  next rq rs
-
-  = (\x -> rq & dahNextToken ?~ x)
-  <$> (rs ^. dahNextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dahNextToken) = Nothing
+        | otherwise = (\x -> rq & dahNextToken ?~ x)
+            <$> (rs ^. dahrNextToken)

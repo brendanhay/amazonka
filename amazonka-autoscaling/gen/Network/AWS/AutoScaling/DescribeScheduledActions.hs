@@ -181,12 +181,7 @@ instance FromXML DescribeScheduledActionsResponse where
         <*> x .@  "ScheduledUpdateGroupActions"
 
 instance AWSPager DescribeScheduledActions where
-  next rq rs
-
-  = (\x -> rq & dsa1NextToken ?~ x)
-  <$> (rs ^. dsa1NextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dsa1NextToken) = Nothing
+        | otherwise = (\x -> rq & dsa1NextToken ?~ x)
+            <$> (rs ^. dsarNextToken)

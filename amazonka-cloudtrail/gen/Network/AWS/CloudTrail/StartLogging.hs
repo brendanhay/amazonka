@@ -89,6 +89,3 @@ instance AWSRequest StartLogging where
 
     request  = post "StartLogging"
     response = nullResponse StartLoggingResponse
-
-
-Some kind of operator / class to check the types whether to continue?

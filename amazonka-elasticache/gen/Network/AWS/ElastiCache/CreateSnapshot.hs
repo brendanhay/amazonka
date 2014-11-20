@@ -116,6 +116,3 @@ instance AWSRequest CreateSnapshot where
 instance FromXML CreateSnapshotResponse where
     parseXML = withElement "CreateSnapshotResult" $ \x -> CreateSnapshotResponse
         <$> x .@? "Snapshot"
-
-
-Some kind of operator / class to check the types whether to continue?

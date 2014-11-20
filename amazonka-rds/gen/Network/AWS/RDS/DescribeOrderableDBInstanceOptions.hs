@@ -206,12 +206,7 @@ instance FromXML DescribeOrderableDBInstanceOptionsResponse where
         <*> x .@  "OrderableDBInstanceOptions"
 
 instance AWSPager DescribeOrderableDBInstanceOptions where
-  next rq rs
-
-  = (\x -> rq & dodbioMarker ?~ x)
-  <$> (rs ^. dodbioMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dodbioMarker) = Nothing
+        | otherwise = (\x -> rq & dodbioMarker ?~ x)
+            <$> (rs ^. dodbiorMarker)

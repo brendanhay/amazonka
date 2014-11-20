@@ -115,6 +115,3 @@ instance AWSRequest DeprecateWorkflowType where
 
     request  = post "DeprecateWorkflowType"
     response = nullResponse DeprecateWorkflowTypeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

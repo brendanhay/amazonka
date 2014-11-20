@@ -135,12 +135,7 @@ instance FromJSON ListPipelinesResponse where
         <*> o .:  "Pipelines"
 
 instance AWSPager ListPipelines where
-  next rq rs
-
-  = (\x -> rq & lpPageToken ?~ x)
-  <$> (rs ^. lpPageToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. lpPageToken) = Nothing
+        | otherwise = (\x -> rq & lpPageToken ?~ x)
+            <$> (rs ^. lprNextPageToken)

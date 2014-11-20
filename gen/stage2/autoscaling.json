@@ -7470,7 +7470,7 @@
                 "token": {
                     "input": "dasgNextToken",
                     "outputRequired": false,
-                    "output": "dasgNextToken",
+                    "output": "dasgrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -7724,7 +7724,7 @@
                 "token": {
                     "input": "dasiNextToken",
                     "outputRequired": false,
-                    "output": "dasiNextToken",
+                    "output": "dasirNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -8101,7 +8101,7 @@
                 "token": {
                     "input": "dlcNextToken",
                     "outputRequired": false,
-                    "output": "dlcNextToken",
+                    "output": "dlcrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -8811,7 +8811,7 @@
                 "token": {
                     "input": "dncNextToken",
                     "outputRequired": false,
-                    "output": "dncNextToken",
+                    "output": "dncrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -9065,7 +9065,7 @@
                 "token": {
                     "input": "dp1NextToken",
                     "outputRequired": false,
-                    "output": "dp1NextToken",
+                    "output": "dprNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -9354,7 +9354,7 @@
                 "token": {
                     "input": "dsa2NextToken",
                     "outputRequired": false,
-                    "output": "dsa2NextToken",
+                    "output": "dsar1NextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -9765,7 +9765,7 @@
                 "token": {
                     "input": "dsa1NextToken",
                     "outputRequired": false,
-                    "output": "dsa1NextToken",
+                    "output": "dsarNextToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -10124,7 +10124,7 @@
                 "token": {
                     "input": "dtNextToken",
                     "outputRequired": false,
-                    "output": "dtNextToken",
+                    "output": "dtrNextToken",
                     "inputRequired": false
                 },
                 "type": "next",

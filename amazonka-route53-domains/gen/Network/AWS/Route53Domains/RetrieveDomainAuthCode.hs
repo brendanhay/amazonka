@@ -112,6 +112,3 @@ instance AWSRequest RetrieveDomainAuthCode where
 instance FromJSON RetrieveDomainAuthCodeResponse where
     parseJSON = withObject "RetrieveDomainAuthCodeResponse" $ \o -> RetrieveDomainAuthCodeResponse
         <$> o .:  "AuthCode"
-
-
-Some kind of operator / class to check the types whether to continue?

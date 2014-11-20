@@ -91,6 +91,3 @@ instance AWSRequest DeleteBucketPolicy where
 
     request  = delete
     response = nullResponse DeleteBucketPolicyResponse
-
-
-Some kind of operator / class to check the types whether to continue?

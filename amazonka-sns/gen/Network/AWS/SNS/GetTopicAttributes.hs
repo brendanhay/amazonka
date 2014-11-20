@@ -116,6 +116,3 @@ instance AWSRequest GetTopicAttributes where
 instance FromXML GetTopicAttributesResponse where
     parseXML = withElement "GetTopicAttributesResult" $ \x -> GetTopicAttributesResponse
         <$> x .@  "Attributes"
-
-
-Some kind of operator / class to check the types whether to continue?

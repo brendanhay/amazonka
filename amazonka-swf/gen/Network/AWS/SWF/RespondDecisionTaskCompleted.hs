@@ -127,6 +127,3 @@ instance AWSRequest RespondDecisionTaskCompleted where
 
     request  = post "RespondDecisionTaskCompleted"
     response = nullResponse RespondDecisionTaskCompletedResponse
-
-
-Some kind of operator / class to check the types whether to continue?

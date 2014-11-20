@@ -149,12 +149,7 @@ instance FromXML DescribeCacheParameterGroupsResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheParameterGroups where
-  next rq rs
-
-  = (\x -> rq & dcpgMarker ?~ x)
-  <$> (rs ^. dcpgMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dcpgMarker) = Nothing
+        | otherwise = (\x -> rq & dcpgMarker ?~ x)
+            <$> (rs ^. dcpgrMarker)

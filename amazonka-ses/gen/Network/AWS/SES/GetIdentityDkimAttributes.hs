@@ -124,6 +124,3 @@ instance AWSRequest GetIdentityDkimAttributes where
 instance FromXML GetIdentityDkimAttributesResponse where
     parseXML = withElement "GetIdentityDkimAttributesResult" $ \x -> GetIdentityDkimAttributesResponse
         <$> x .@  "DkimAttributes"
-
-
-Some kind of operator / class to check the types whether to continue?

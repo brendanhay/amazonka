@@ -118,6 +118,3 @@ instance AWSRequest GetDistribution where
     response = xmlHeaderResponse $ \h x -> GetDistributionResponse
         <$> x .@? "Distribution"
         <*> h ~:? "ETag"
-
-
-Some kind of operator / class to check the types whether to continue?

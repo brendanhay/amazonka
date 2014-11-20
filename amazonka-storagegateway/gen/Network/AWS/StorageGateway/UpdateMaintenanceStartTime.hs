@@ -144,6 +144,3 @@ instance AWSRequest UpdateMaintenanceStartTime where
 instance FromJSON UpdateMaintenanceStartTimeResponse where
     parseJSON = withObject "UpdateMaintenanceStartTimeResponse" $ \o -> UpdateMaintenanceStartTimeResponse
         <$> o .:? "GatewayARN"
-
-
-Some kind of operator / class to check the types whether to continue?

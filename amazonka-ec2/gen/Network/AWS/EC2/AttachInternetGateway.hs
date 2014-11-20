@@ -109,6 +109,3 @@ instance AWSRequest AttachInternetGateway where
 
     request  = post "AttachInternetGateway"
     response = nullResponse AttachInternetGatewayResponse
-
-
-Some kind of operator / class to check the types whether to continue?

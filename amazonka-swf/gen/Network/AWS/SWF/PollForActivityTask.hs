@@ -216,6 +216,3 @@ instance FromJSON PollForActivityTaskResponse where
         <*> o .:  "startedEventId"
         <*> o .:  "taskToken"
         <*> o .:  "workflowExecution"
-
-
-Some kind of operator / class to check the types whether to continue?

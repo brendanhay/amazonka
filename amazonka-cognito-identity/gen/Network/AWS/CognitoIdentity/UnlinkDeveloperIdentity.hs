@@ -132,6 +132,3 @@ instance AWSRequest UnlinkDeveloperIdentity where
 
     request  = post "UnlinkDeveloperIdentity"
     response = nullResponse UnlinkDeveloperIdentityResponse
-
-
-Some kind of operator / class to check the types whether to continue?

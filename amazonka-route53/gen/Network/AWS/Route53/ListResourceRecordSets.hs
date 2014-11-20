@@ -270,7 +270,7 @@ instance FromXML ListResourceRecordSetsResponse where
         <*> x .@  "ResourceRecordSets"
 
 instance AWSPager ListResourceRecordSets where
-    next rq rs
+    page rq rs
         | stop (rs ^. lrrsrIsTruncated) = Nothing
         | isNothing p1 && isNothing p2 && isNothing p3 = Nothing
         | otherwise = Just $ rq
@@ -278,9 +278,6 @@ instance AWSPager ListResourceRecordSets where
             & lrrsStartRecordType .~ p2
             & lrrsStartRecordIdentifier .~ p3
       where
-        p1 = rs ^. lrrsStartRecordName
-        p2 = rs ^. lrrsStartRecordType
-        p3 = rs ^. lrrsStartRecordIdentifier
-
-
-Some kind of operator / class to check the types whether to continue?
+        p1 = rs ^. lrrsrNextRecordName
+        p2 = rs ^. lrrsrNextRecordType
+        p3 = rs ^. lrrsrNextRecordIdentifier

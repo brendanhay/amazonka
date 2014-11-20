@@ -118,6 +118,3 @@ instance AWSRequest DeleteAnalysisScheme where
 instance FromXML DeleteAnalysisSchemeResponse where
     parseXML = withElement "DeleteAnalysisSchemeResult" $ \x -> DeleteAnalysisSchemeResponse
         <$> x .@  "AnalysisScheme"
-
-
-Some kind of operator / class to check the types whether to continue?

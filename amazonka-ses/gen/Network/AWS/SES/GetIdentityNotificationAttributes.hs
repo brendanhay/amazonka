@@ -115,6 +115,3 @@ instance AWSRequest GetIdentityNotificationAttributes where
 instance FromXML GetIdentityNotificationAttributesResponse where
     parseXML = withElement "GetIdentityNotificationAttributesResult" $ \x -> GetIdentityNotificationAttributesResponse
         <$> x .@  "NotificationAttributes"
-
-
-Some kind of operator / class to check the types whether to continue?

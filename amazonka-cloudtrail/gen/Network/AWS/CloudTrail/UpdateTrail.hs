@@ -255,6 +255,3 @@ instance FromJSON UpdateTrailResponse where
         <*> o .:? "S3BucketName"
         <*> o .:? "S3KeyPrefix"
         <*> o .:? "SnsTopicName"
-
-
-Some kind of operator / class to check the types whether to continue?

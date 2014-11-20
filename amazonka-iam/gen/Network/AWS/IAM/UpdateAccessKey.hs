@@ -116,6 +116,3 @@ instance AWSRequest UpdateAccessKey where
 
     request  = post "UpdateAccessKey"
     response = nullResponse UpdateAccessKeyResponse
-
-
-Some kind of operator / class to check the types whether to continue?

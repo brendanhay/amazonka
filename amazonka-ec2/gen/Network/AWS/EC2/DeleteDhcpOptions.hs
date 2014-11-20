@@ -99,6 +99,3 @@ instance AWSRequest DeleteDhcpOptions where
 
     request  = post "DeleteDhcpOptions"
     response = nullResponse DeleteDhcpOptionsResponse
-
-
-Some kind of operator / class to check the types whether to continue?

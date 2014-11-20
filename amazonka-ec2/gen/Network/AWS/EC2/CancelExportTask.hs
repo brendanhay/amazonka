@@ -90,6 +90,3 @@ instance AWSRequest CancelExportTask where
 
     request  = post "CancelExportTask"
     response = nullResponse CancelExportTaskResponse
-
-
-Some kind of operator / class to check the types whether to continue?

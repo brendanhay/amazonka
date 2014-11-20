@@ -323,6 +323,3 @@ instance AWSRequest ModifyReplicationGroup where
 instance FromXML ModifyReplicationGroupResponse where
     parseXML = withElement "ModifyReplicationGroupResult" $ \x -> ModifyReplicationGroupResponse
         <$> x .@? "ReplicationGroup"
-
-
-Some kind of operator / class to check the types whether to continue?

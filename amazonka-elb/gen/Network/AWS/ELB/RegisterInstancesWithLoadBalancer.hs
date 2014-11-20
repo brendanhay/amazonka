@@ -142,6 +142,3 @@ instance AWSRequest RegisterInstancesWithLoadBalancer where
 instance FromXML RegisterInstancesWithLoadBalancerResponse where
     parseXML = withElement "RegisterInstancesWithLoadBalancerResult" $ \x -> RegisterInstancesWithLoadBalancerResponse
         <$> x .@  "Instances"
-
-
-Some kind of operator / class to check the types whether to continue?

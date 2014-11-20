@@ -214,12 +214,7 @@ instance FromJSON DescribeCasesResponse where
         <*> o .:? "nextToken"
 
 instance AWSPager DescribeCases where
-  next rq rs
-
-  = (\x -> rq & dcNextToken ?~ x)
-  <$> (rs ^. dcNextToken)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. dcNextToken) = Nothing
+        | otherwise = (\x -> rq & dcNextToken ?~ x)
+            <$> (rs ^. dcr1NextToken)

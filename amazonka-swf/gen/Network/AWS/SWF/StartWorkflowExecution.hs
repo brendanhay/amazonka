@@ -253,6 +253,3 @@ instance AWSRequest StartWorkflowExecution where
 instance FromJSON StartWorkflowExecutionResponse where
     parseJSON = withObject "StartWorkflowExecutionResponse" $ \o -> StartWorkflowExecutionResponse
         <$> o .:? "runId"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -19330,13 +19330,13 @@
                     "p1": {
                         "input": "lmuKeyMarker",
                         "outputRequired": false,
-                        "output": "lmuKeyMarker",
+                        "output": "lmurNextKeyMarker",
                         "inputRequired": false
                     },
                     "p2": {
                         "input": "lmuUploadIdMarker",
                         "outputRequired": false,
-                        "output": "lmuUploadIdMarker",
+                        "output": "lmurNextUploadIdMarker",
                         "inputRequired": false
                     }
                 },
@@ -20264,13 +20264,13 @@
                     "p1": {
                         "input": "lovKeyMarker",
                         "outputRequired": false,
-                        "output": "lovKeyMarker",
+                        "output": "lovrNextKeyMarker",
                         "inputRequired": false
                     },
                     "p2": {
                         "input": "lovVersionIdMarker",
                         "outputRequired": false,
-                        "output": "lovVersionIdMarker",
+                        "output": "lovrNextVersionIdMarker",
                         "inputRequired": false
                     }
                 },
@@ -21062,7 +21062,7 @@
                 "token": {
                     "input": "loMarker",
                     "outputRequired": false,
-                    "output": "loMarker",
+                    "output": "lorNextMarker",
                     "inputRequired": false
                 },
                 "type": "one"
@@ -21858,7 +21858,7 @@
                 "token": {
                     "input": "lpPartNumberMarker",
                     "outputRequired": false,
-                    "output": "lpPartNumberMarker",
+                    "output": "lprNextPartNumberMarker",
                     "inputRequired": false
                 },
                 "type": "one"

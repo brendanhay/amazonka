@@ -119,6 +119,3 @@ instance AWSRequest RejectVpcPeeringConnection where
 instance FromXML RejectVpcPeeringConnectionResponse where
     parseXML x = RejectVpcPeeringConnectionResponse
         <$> x .@? "return"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -105,6 +105,3 @@ instance AWSRequest AssignVolume where
 
     request  = post "AssignVolume"
     response = nullResponse AssignVolumeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

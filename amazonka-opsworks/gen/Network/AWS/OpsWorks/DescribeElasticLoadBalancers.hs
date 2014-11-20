@@ -132,6 +132,3 @@ instance AWSRequest DescribeElasticLoadBalancers where
 instance FromJSON DescribeElasticLoadBalancersResponse where
     parseJSON = withObject "DescribeElasticLoadBalancersResponse" $ \o -> DescribeElasticLoadBalancersResponse
         <$> o .:  "ElasticLoadBalancers"
-
-
-Some kind of operator / class to check the types whether to continue?

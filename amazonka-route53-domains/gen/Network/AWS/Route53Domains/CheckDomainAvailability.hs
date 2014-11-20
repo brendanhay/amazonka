@@ -131,6 +131,3 @@ instance AWSRequest CheckDomainAvailability where
 instance FromJSON CheckDomainAvailabilityResponse where
     parseJSON = withObject "CheckDomainAvailabilityResponse" $ \o -> CheckDomainAvailabilityResponse
         <$> o .:  "Availability"
-
-
-Some kind of operator / class to check the types whether to continue?

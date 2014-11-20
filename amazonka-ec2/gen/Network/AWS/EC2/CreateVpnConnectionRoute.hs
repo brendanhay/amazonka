@@ -105,6 +105,3 @@ instance AWSRequest CreateVpnConnectionRoute where
 
     request  = post "CreateVpnConnectionRoute"
     response = nullResponse CreateVpnConnectionRouteResponse
-
-
-Some kind of operator / class to check the types whether to continue?

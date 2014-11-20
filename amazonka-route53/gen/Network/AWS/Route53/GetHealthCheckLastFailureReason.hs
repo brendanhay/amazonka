@@ -126,6 +126,3 @@ instance AWSRequest GetHealthCheckLastFailureReason where
 instance FromXML GetHealthCheckLastFailureReasonResponse where
     parseXML x = GetHealthCheckLastFailureReasonResponse
         <$> x .@  "HealthCheckObservations"
-
-
-Some kind of operator / class to check the types whether to continue?

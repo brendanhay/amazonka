@@ -180,6 +180,3 @@ instance FromJSON CreateCachediSCSIVolumeResponse where
     parseJSON = withObject "CreateCachediSCSIVolumeResponse" $ \o -> CreateCachediSCSIVolumeResponse
         <$> o .:? "TargetARN"
         <*> o .:? "VolumeARN"
-
-
-Some kind of operator / class to check the types whether to continue?

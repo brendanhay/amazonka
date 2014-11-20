@@ -110,6 +110,3 @@ instance AWSRequest GetKeyRotationStatus where
 instance FromJSON GetKeyRotationStatusResponse where
     parseJSON = withObject "GetKeyRotationStatusResponse" $ \o -> GetKeyRotationStatusResponse
         <$> o .:? "KeyRotationEnabled"
-
-
-Some kind of operator / class to check the types whether to continue?

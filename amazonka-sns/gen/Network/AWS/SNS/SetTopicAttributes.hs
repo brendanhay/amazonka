@@ -110,6 +110,3 @@ instance AWSRequest SetTopicAttributes where
 
     request  = post "SetTopicAttributes"
     response = nullResponse SetTopicAttributesResponse
-
-
-Some kind of operator / class to check the types whether to continue?

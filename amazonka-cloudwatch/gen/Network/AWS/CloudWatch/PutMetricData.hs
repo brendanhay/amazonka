@@ -107,6 +107,3 @@ instance AWSRequest PutMetricData where
 
     request  = post "PutMetricData"
     response = nullResponse PutMetricDataResponse
-
-
-Some kind of operator / class to check the types whether to continue?

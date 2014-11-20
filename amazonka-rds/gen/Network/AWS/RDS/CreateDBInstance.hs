@@ -506,6 +506,3 @@ instance AWSRequest CreateDBInstance where
 instance FromXML CreateDBInstanceResponse where
     parseXML = withElement "CreateDBInstanceResult" $ \x -> CreateDBInstanceResponse
         <$> x .@? "DBInstance"
-
-
-Some kind of operator / class to check the types whether to continue?

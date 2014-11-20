@@ -409,6 +409,3 @@ instance AWSRequest CreateCacheCluster where
 instance FromXML CreateCacheClusterResponse where
     parseXML = withElement "CreateCacheClusterResult" $ \x -> CreateCacheClusterResponse
         <$> x .@? "CacheCluster"
-
-
-Some kind of operator / class to check the types whether to continue?

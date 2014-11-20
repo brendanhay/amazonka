@@ -93,6 +93,3 @@ instance AWSRequest CreateDomain where
 
     request  = post "CreateDomain"
     response = nullResponse CreateDomainResponse
-
-
-Some kind of operator / class to check the types whether to continue?

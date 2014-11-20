@@ -147,6 +147,3 @@ instance AWSRequest AssociateVPCWithHostedZone where
 instance FromXML AssociateVPCWithHostedZoneResponse where
     parseXML x = AssociateVPCWithHostedZoneResponse
         <$> x .@  "ChangeInfo"
-
-
-Some kind of operator / class to check the types whether to continue?

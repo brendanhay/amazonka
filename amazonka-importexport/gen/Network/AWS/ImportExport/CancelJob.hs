@@ -103,6 +103,3 @@ instance AWSRequest CancelJob where
 instance FromXML CancelJobResponse where
     parseXML = withElement "CancelJobResult" $ \x -> CancelJobResponse
         <$> x .@? "Success"
-
-
-Some kind of operator / class to check the types whether to continue?

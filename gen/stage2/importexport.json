@@ -1517,7 +1517,7 @@
                 "token": {
                     "input": "ljMarker",
                     "outputRequired": false,
-                    "output": "ljMarker",
+                    "output": "index ljrJobs jobJobId",
                     "inputRequired": false
                 },
                 "type": "one"

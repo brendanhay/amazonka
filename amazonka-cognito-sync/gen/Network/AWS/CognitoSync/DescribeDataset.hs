@@ -145,6 +145,3 @@ instance AWSRequest DescribeDataset where
 instance FromJSON DescribeDatasetResponse where
     parseJSON = withObject "DescribeDatasetResponse" $ \o -> DescribeDatasetResponse
         <$> o .:? "Dataset"
-
-
-Some kind of operator / class to check the types whether to continue?

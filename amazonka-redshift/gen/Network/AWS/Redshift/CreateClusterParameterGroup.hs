@@ -148,6 +148,3 @@ instance AWSRequest CreateClusterParameterGroup where
 instance FromXML CreateClusterParameterGroupResponse where
     parseXML = withElement "CreateClusterParameterGroupResult" $ \x -> CreateClusterParameterGroupResponse
         <$> x .@? "ClusterParameterGroup"
-
-
-Some kind of operator / class to check the types whether to continue?

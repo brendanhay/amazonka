@@ -114,6 +114,3 @@ instance AWSRequest GetIdentityVerificationAttributes where
 instance FromXML GetIdentityVerificationAttributesResponse where
     parseXML = withElement "GetIdentityVerificationAttributesResult" $ \x -> GetIdentityVerificationAttributesResponse
         <$> x .@  "VerificationAttributes"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -168,6 +168,3 @@ instance AWSRequest CreateTapes where
 instance FromJSON CreateTapesResponse where
     parseJSON = withObject "CreateTapesResponse" $ \o -> CreateTapesResponse
         <$> o .:  "TapeARNs"
-
-
-Some kind of operator / class to check the types whether to continue?

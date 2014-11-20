@@ -121,6 +121,3 @@ instance FromJSON ResolveCaseResponse where
     parseJSON = withObject "ResolveCaseResponse" $ \o -> ResolveCaseResponse
         <$> o .:? "finalCaseStatus"
         <*> o .:? "initialCaseStatus"
-
-
-Some kind of operator / class to check the types whether to continue?

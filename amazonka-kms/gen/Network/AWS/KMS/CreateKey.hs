@@ -134,6 +134,3 @@ instance AWSRequest CreateKey where
 instance FromJSON CreateKeyResponse where
     parseJSON = withObject "CreateKeyResponse" $ \o -> CreateKeyResponse
         <$> o .:? "KeyMetadata"
-
-
-Some kind of operator / class to check the types whether to continue?

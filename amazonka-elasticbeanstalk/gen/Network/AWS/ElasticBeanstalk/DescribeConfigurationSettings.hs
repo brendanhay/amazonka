@@ -150,6 +150,3 @@ instance AWSRequest DescribeConfigurationSettings where
 instance FromXML DescribeConfigurationSettingsResponse where
     parseXML = withElement "DescribeConfigurationSettingsResult" $ \x -> DescribeConfigurationSettingsResponse
         <$> x .@  "ConfigurationSettings"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -142,6 +142,3 @@ instance AWSRequest DescribeVpcs where
 instance FromXML DescribeVpcsResponse where
     parseXML x = DescribeVpcsResponse
         <$> x .@  "vpcSet"
-
-
-Some kind of operator / class to check the types whether to continue?

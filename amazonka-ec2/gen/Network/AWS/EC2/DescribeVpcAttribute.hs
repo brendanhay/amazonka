@@ -150,6 +150,3 @@ instance FromXML DescribeVpcAttributeResponse where
         <$> x .@? "enableDnsHostnames"
         <*> x .@? "enableDnsSupport"
         <*> x .@? "vpcId"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -140,12 +140,7 @@ instance FromXML DescribeDefaultClusterParametersResponse where
         <$> x .@? "DefaultClusterParameters"
 
 instance AWSPager DescribeDefaultClusterParameters where
-  next rq rs
-
-  = (\x -> rq & ddcpMarker ?~ x)
-  <$> (rs ^. ddcpMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. ddcpMarker) = Nothing
+        | otherwise = (\x -> rq & ddcpMarker ?~ x)
+            <$> (rs ^. ddcprDefaultClusterParameters . dcpMarker)

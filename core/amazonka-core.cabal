@@ -64,7 +64,7 @@ library
     build-depends:
           aeson                 == 0.8.*
         , attoparsec            == 0.12.*
-        , base                  >= 4.7     && < 5
+        , base                  >= 4.7    && < 5
         , base16-bytestring
         , base64-bytestring
         , bifunctors
@@ -76,7 +76,7 @@ library
         , cryptohash-conduit
         , data-default-class
         , hashable
-        , http-client           >= 0.3.6   && < 0.4
+        , http-client           >= 0.3.6  && < 0.4
         , http-types
         , lens                  == 4.4.*
         , mmorph

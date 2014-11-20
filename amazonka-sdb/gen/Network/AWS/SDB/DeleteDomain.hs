@@ -88,6 +88,3 @@ instance AWSRequest DeleteDomain where
 
     request  = post "DeleteDomain"
     response = nullResponse DeleteDomainResponse
-
-
-Some kind of operator / class to check the types whether to continue?

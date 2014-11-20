@@ -109,6 +109,3 @@ instance AWSRequest BuildSuggesters where
 instance FromXML BuildSuggestersResponse where
     parseXML = withElement "BuildSuggestersResult" $ \x -> BuildSuggestersResponse
         <$> x .@  "FieldNames"
-
-
-Some kind of operator / class to check the types whether to continue?

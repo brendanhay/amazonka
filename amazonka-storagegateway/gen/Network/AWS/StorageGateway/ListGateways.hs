@@ -135,12 +135,7 @@ instance FromJSON ListGatewaysResponse where
         <*> o .:? "Marker"
 
 instance AWSPager ListGateways where
-  next rq rs
-
-  = (\x -> rq & lgMarker ?~ x)
-  <$> (rs ^. lgMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. lgMarker) = Nothing
+        | otherwise = (\x -> rq & lgMarker ?~ x)
+            <$> (rs ^. lgrMarker)

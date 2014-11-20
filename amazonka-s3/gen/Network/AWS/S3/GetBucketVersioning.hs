@@ -122,6 +122,3 @@ instance FromXML GetBucketVersioningResponse where
     parseXML x = GetBucketVersioningResponse
         <$> x .@? "MfaDelete"
         <*> x .@? "Status"
-
-
-Some kind of operator / class to check the types whether to continue?

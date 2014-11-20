@@ -95,6 +95,3 @@ instance AWSRequest DeleteKeyPair where
 
     request  = post "DeleteKeyPair"
     response = nullResponse DeleteKeyPairResponse
-
-
-Some kind of operator / class to check the types whether to continue?

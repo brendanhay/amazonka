@@ -100,6 +100,3 @@ instance AWSRequest DeleteVpc where
 
     request  = post "DeleteVpc"
     response = nullResponse DeleteVpcResponse
-
-
-Some kind of operator / class to check the types whether to continue?

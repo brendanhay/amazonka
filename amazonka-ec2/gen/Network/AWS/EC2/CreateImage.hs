@@ -169,6 +169,3 @@ instance AWSRequest CreateImage where
 instance FromXML CreateImageResponse where
     parseXML x = CreateImageResponse
         <$> x .@? "imageId"
-
-
-Some kind of operator / class to check the types whether to continue?

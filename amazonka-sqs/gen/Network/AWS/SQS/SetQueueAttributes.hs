@@ -123,6 +123,3 @@ instance AWSRequest SetQueueAttributes where
 
     request  = post "SetQueueAttributes"
     response = nullResponse SetQueueAttributesResponse
-
-
-Some kind of operator / class to check the types whether to continue?

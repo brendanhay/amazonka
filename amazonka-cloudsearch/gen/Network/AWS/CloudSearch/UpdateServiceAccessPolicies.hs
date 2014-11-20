@@ -120,6 +120,3 @@ instance AWSRequest UpdateServiceAccessPolicies where
 instance FromXML UpdateServiceAccessPoliciesResponse where
     parseXML = withElement "UpdateServiceAccessPoliciesResult" $ \x -> UpdateServiceAccessPoliciesResponse
         <$> x .@  "AccessPolicies"
-
-
-Some kind of operator / class to check the types whether to continue?

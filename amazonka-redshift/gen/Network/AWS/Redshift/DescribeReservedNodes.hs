@@ -152,12 +152,7 @@ instance FromXML DescribeReservedNodesResponse where
         <*> x .@  "ReservedNodes"
 
 instance AWSPager DescribeReservedNodes where
-  next rq rs
-
-  = (\x -> rq & drnMarker ?~ x)
-  <$> (rs ^. drnMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. drnMarker) = Nothing
+        | otherwise = (\x -> rq & drnMarker ?~ x)
+            <$> (rs ^. drnrMarker)

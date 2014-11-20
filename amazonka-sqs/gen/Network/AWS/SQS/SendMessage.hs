@@ -183,6 +183,3 @@ instance FromXML SendMessageResponse where
         <$> x .@? "MD5OfMessageAttributes"
         <*> x .@? "MD5OfMessageBody"
         <*> x .@? "MessageId"
-
-
-Some kind of operator / class to check the types whether to continue?

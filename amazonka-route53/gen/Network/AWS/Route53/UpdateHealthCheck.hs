@@ -211,6 +211,3 @@ instance AWSRequest UpdateHealthCheck where
 instance FromXML UpdateHealthCheckResponse where
     parseXML x = UpdateHealthCheckResponse
         <$> x .@  "HealthCheck"
-
-
-Some kind of operator / class to check the types whether to continue?

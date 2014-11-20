@@ -142,6 +142,3 @@ instance FromJSON GetApplicationRevisionResponse where
         <$> o .:? "applicationName"
         <*> o .:? "revision"
         <*> o .:? "revisionInfo"
-
-
-Some kind of operator / class to check the types whether to continue?

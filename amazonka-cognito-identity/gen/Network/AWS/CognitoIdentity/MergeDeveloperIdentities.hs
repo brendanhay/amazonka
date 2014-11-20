@@ -160,6 +160,3 @@ instance AWSRequest MergeDeveloperIdentities where
 instance FromJSON MergeDeveloperIdentitiesResponse where
     parseJSON = withObject "MergeDeveloperIdentitiesResponse" $ \o -> MergeDeveloperIdentitiesResponse
         <$> o .:? "IdentityId"
-
-
-Some kind of operator / class to check the types whether to continue?

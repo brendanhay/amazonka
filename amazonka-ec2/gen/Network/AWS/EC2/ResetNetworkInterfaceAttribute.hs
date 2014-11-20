@@ -108,6 +108,3 @@ instance AWSRequest ResetNetworkInterfaceAttribute where
 
     request  = post "ResetNetworkInterfaceAttribute"
     response = nullResponse ResetNetworkInterfaceAttributeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

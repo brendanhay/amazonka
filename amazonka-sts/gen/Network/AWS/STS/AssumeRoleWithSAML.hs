@@ -290,6 +290,3 @@ instance FromXML AssumeRoleWithSAMLResponse where
         <*> x .@? "PackedPolicySize"
         <*> x .@? "Subject"
         <*> x .@? "SubjectType"
-
-
-Some kind of operator / class to check the types whether to continue?

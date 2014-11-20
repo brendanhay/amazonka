@@ -100,6 +100,3 @@ instance AWSRequest DescribeAutoScalingNotificationTypes where
 instance FromXML DescribeAutoScalingNotificationTypesResponse where
     parseXML = withElement "DescribeAutoScalingNotificationTypesResult" $ \x -> DescribeAutoScalingNotificationTypesResponse
         <$> x .@  "AutoScalingNotificationTypes"
-
-
-Some kind of operator / class to check the types whether to continue?

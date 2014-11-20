@@ -102,6 +102,3 @@ instance AWSRequest CreateLoadBalancerListeners where
 
     request  = post "CreateLoadBalancerListeners"
     response = nullResponse CreateLoadBalancerListenersResponse
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -111,6 +111,3 @@ instance FromXML GetSendQuotaResponse where
         <$> x .@? "Max24HourSend"
         <*> x .@? "MaxSendRate"
         <*> x .@? "SentLast24Hours"
-
-
-Some kind of operator / class to check the types whether to continue?

@@ -125,6 +125,3 @@ instance AWSRequest RebootCacheCluster where
 instance FromXML RebootCacheClusterResponse where
     parseXML = withElement "RebootCacheClusterResult" $ \x -> RebootCacheClusterResponse
         <$> x .@? "CacheCluster"
-
-
-Some kind of operator / class to check the types whether to continue?

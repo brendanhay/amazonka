@@ -8595,7 +8595,7 @@
                 "token": {
                     "input": "ljbpPageToken",
                     "outputRequired": false,
-                    "output": "ljbpPageToken",
+                    "output": "ljbprNextPageToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -8880,7 +8880,7 @@
                 "token": {
                     "input": "ljbsPageToken",
                     "outputRequired": false,
-                    "output": "ljbsPageToken",
+                    "output": "ljbsrNextPageToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -9165,7 +9165,7 @@
                 "token": {
                     "input": "lpPageToken",
                     "outputRequired": false,
-                    "output": "lpPageToken",
+                    "output": "lprNextPageToken",
                     "inputRequired": false
                 },
                 "type": "next",
@@ -9415,7 +9415,7 @@
                 "token": {
                     "input": "lp1PageToken",
                     "outputRequired": false,
-                    "output": "lp1PageToken",
+                    "output": "lpr1NextPageToken",
                     "inputRequired": false
                 },
                 "type": "next",

@@ -146,6 +146,3 @@ instance AWSRequest CopyClusterSnapshot where
 instance FromXML CopyClusterSnapshotResponse where
     parseXML = withElement "CopyClusterSnapshotResult" $ \x -> CopyClusterSnapshotResponse
         <$> x .@? "Snapshot"
-
-
-Some kind of operator / class to check the types whether to continue?

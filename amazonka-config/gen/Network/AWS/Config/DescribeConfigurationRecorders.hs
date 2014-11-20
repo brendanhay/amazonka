@@ -127,6 +127,3 @@ instance AWSRequest DescribeConfigurationRecorders where
 instance FromJSON DescribeConfigurationRecordersResponse where
     parseJSON = withObject "DescribeConfigurationRecordersResponse" $ \o -> DescribeConfigurationRecordersResponse
         <$> o .:  "ConfigurationRecorders"
-
-
-Some kind of operator / class to check the types whether to continue?

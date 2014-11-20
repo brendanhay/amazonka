@@ -100,6 +100,3 @@ instance AWSRequest UpdateApplication where
 
     request  = post "UpdateApplication"
     response = nullResponse UpdateApplicationResponse
-
-
-Some kind of operator / class to check the types whether to continue?

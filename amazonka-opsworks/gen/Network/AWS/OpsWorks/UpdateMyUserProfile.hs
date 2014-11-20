@@ -91,6 +91,3 @@ instance AWSRequest UpdateMyUserProfile where
 
     request  = post "UpdateMyUserProfile"
     response = nullResponse UpdateMyUserProfileResponse
-
-
-Some kind of operator / class to check the types whether to continue?

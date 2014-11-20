@@ -194,12 +194,7 @@ instance FromXML DescribeDBLogFilesResponse where
         <*> x .@? "Marker"
 
 instance AWSPager DescribeDBLogFiles where
-  next rq rs
-
-  = (\x -> rq & ddblfMarker ?~ x)
-  <$> (rs ^. ddblfMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. ddblfMarker) = Nothing
+        | otherwise = (\x -> rq & ddblfMarker ?~ x)
+            <$> (rs ^. ddblfrMarker)

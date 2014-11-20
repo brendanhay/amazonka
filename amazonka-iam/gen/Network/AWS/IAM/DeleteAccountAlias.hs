@@ -88,6 +88,3 @@ instance AWSRequest DeleteAccountAlias where
 
     request  = post "DeleteAccountAlias"
     response = nullResponse DeleteAccountAliasResponse
-
-
-Some kind of operator / class to check the types whether to continue?

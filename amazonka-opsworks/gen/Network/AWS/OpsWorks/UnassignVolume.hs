@@ -94,6 +94,3 @@ instance AWSRequest UnassignVolume where
 
     request  = post "UnassignVolume"
     response = nullResponse UnassignVolumeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

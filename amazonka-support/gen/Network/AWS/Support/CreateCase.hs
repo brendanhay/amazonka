@@ -225,6 +225,3 @@ instance AWSRequest CreateCase where
 instance FromJSON CreateCaseResponse where
     parseJSON = withObject "CreateCaseResponse" $ \o -> CreateCaseResponse
         <$> o .:? "caseId"
-
-
-Some kind of operator / class to check the types whether to continue?

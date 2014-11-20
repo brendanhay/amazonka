@@ -115,6 +115,3 @@ instance AWSRequest CreateAccessKey where
 instance FromXML CreateAccessKeyResponse where
     parseXML = withElement "CreateAccessKeyResult" $ \x -> CreateAccessKeyResponse
         <$> x .@  "AccessKey"
-
-
-Some kind of operator / class to check the types whether to continue?

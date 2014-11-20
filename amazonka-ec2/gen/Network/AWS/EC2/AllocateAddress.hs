@@ -137,6 +137,3 @@ instance FromXML AllocateAddressResponse where
         <$> x .@? "allocationId"
         <*> x .@? "domain"
         <*> x .@? "publicIp"
-
-
-Some kind of operator / class to check the types whether to continue?

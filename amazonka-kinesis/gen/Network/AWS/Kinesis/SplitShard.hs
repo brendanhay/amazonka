@@ -152,6 +152,3 @@ instance AWSRequest SplitShard where
 
     request  = post "SplitShard"
     response = nullResponse SplitShardResponse
-
-
-Some kind of operator / class to check the types whether to continue?

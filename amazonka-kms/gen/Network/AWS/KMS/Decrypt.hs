@@ -145,6 +145,3 @@ instance FromJSON DecryptResponse where
     parseJSON = withObject "DecryptResponse" $ \o -> DecryptResponse
         <$> o .:? "KeyId"
         <*> o .:? "Plaintext"
-
-
-Some kind of operator / class to check the types whether to continue?

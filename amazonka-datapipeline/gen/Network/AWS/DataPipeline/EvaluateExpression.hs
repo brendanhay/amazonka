@@ -132,6 +132,3 @@ instance AWSRequest EvaluateExpression where
 instance FromJSON EvaluateExpressionResponse where
     parseJSON = withObject "EvaluateExpressionResponse" $ \o -> EvaluateExpressionResponse
         <$> o .:  "evaluatedExpression"
-
-
-Some kind of operator / class to check the types whether to continue?

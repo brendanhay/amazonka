@@ -127,6 +127,3 @@ instance AWSRequest DescribeLifecycleHooks where
 instance FromXML DescribeLifecycleHooksResponse where
     parseXML = withElement "DescribeLifecycleHooksResult" $ \x -> DescribeLifecycleHooksResponse
         <$> x .@  "LifecycleHooks"
-
-
-Some kind of operator / class to check the types whether to continue?

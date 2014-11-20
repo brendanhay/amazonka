@@ -150,6 +150,3 @@ instance FromXML DescribeSnapshotAttributeResponse where
         <$> x .@  "createVolumePermission"
         <*> x .@  "productCodes"
         <*> x .@? "snapshotId"
-
-
-Some kind of operator / class to check the types whether to continue?

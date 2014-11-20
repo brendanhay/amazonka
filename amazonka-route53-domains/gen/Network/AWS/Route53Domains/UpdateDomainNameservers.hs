@@ -130,6 +130,3 @@ instance AWSRequest UpdateDomainNameservers where
 instance FromJSON UpdateDomainNameserversResponse where
     parseJSON = withObject "UpdateDomainNameserversResponse" $ \o -> UpdateDomainNameserversResponse
         <$> o .:  "OperationId"
-
-
-Some kind of operator / class to check the types whether to continue?

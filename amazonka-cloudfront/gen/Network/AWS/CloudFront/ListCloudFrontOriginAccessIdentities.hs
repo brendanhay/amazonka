@@ -128,10 +128,7 @@ instance FromXML ListCloudFrontOriginAccessIdentitiesResponse where
         <$> x .@  "CloudFrontOriginAccessIdentityList"
 
 instance AWSPager ListCloudFrontOriginAccessIdentities where
-    next rq rs
+    page rq rs
         | stop (rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated) = Nothing
         | otherwise = Just $ rq
-            & lcfoaiMarker .~ rs ^. lcfoaiMarker
-
-
-Some kind of operator / class to check the types whether to continue?
+            & lcfoaiMarker .~ rs ^. lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker

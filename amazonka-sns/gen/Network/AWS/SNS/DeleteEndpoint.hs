@@ -87,6 +87,3 @@ instance AWSRequest DeleteEndpoint where
 
     request  = post "DeleteEndpoint"
     response = nullResponse DeleteEndpointResponse
-
-
-Some kind of operator / class to check the types whether to continue?

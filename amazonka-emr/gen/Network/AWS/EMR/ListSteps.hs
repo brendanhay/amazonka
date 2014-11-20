@@ -139,12 +139,7 @@ instance FromJSON ListStepsResponse where
         <*> o .:  "Steps"
 
 instance AWSPager ListSteps where
-  next rq rs
-
-  = (\x -> rq & lsMarker ?~ x)
-  <$> (rs ^. lsMarker)
-
-    
-
-
-Some kind of operator / class to check the types whether to continue?
+    page rq rs
+        | stop (rq ^. lsMarker) = Nothing
+        | otherwise = (\x -> rq & lsMarker ?~ x)
+            <$> (rs ^. lsrMarker)

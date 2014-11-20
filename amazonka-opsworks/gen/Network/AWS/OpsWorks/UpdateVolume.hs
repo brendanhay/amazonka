@@ -113,6 +113,3 @@ instance AWSRequest UpdateVolume where
 
     request  = post "UpdateVolume"
     response = nullResponse UpdateVolumeResponse
-
-
-Some kind of operator / class to check the types whether to continue?

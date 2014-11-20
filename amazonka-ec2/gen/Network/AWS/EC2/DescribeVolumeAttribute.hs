@@ -146,6 +146,3 @@ instance FromXML DescribeVolumeAttributeResponse where
         <$> x .@? "autoEnableIO"
         <*> x .@  "productCodes"
         <*> x .@? "volumeId"
-
-
-Some kind of operator / class to check the types whether to continue?

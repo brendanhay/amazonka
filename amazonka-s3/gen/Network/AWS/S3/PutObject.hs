@@ -414,6 +414,7 @@ instance ToHeaders PutObject where
         ]
 
 instance ToBody PutObject where
+    toBody = toBody . _poBody
 
 instance AWSRequest PutObject where
     type Sv PutObject = S3

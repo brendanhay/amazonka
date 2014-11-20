@@ -260,6 +260,7 @@ instance ToHeaders UploadPart where
         ]
 
 instance ToBody UploadPart where
+    toBody = toBody . _upBody
 
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3

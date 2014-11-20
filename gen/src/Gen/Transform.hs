@@ -485,7 +485,7 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
             { _fName          = fld
             , _fShape         = r ^. refShape
             , _fType          = t
-            , _fLocation      = location proto (r ^. refLocation)
+            , _fLocation      = location proto (r ^. refStreaming) (r ^. refLocation)
             , _fLocationName  = fromMaybe fld (r ^. refLocationName)
             , _fPayload       = Just fld == pay
             , _fStream        = fromMaybe False (r ^. refStreaming)

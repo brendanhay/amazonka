@@ -526,6 +526,7 @@ instance AWSRequest GetObject where
     request  = get
     response = bodyResponse $ \h b -> GetObjectResponse
         <$> h ~:? "accept-ranges"
+        <*> pure (RsBody b)
         <*> h ~:? "Cache-Control"
         <*> h ~:? "Content-Disposition"
         <*> h ~:? "Content-Encoding"

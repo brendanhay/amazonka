@@ -15232,27 +15232,11 @@
                 "fieldPad": 27,
                 "ctor": "getObjectResponse",
                 "headerPad": 48,
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "\u003cerror\u003e",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "gorBody",
-                        "name": "_gorBody",
-                        "shape": "Body",
-                        "locationName": "Body",
-                        "documentation": "Object data.",
-                        "typeExposed": "RsBody",
-                        "type": "RsBody"
-                    }
-                ],
+                "contents": [],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -15268,7 +15252,7 @@
                 },
                 "required": [
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -15391,7 +15375,7 @@
                         "type": "field"
                     }
                 ],
-                "contentPad": 5,
+                "contentPad": 0,
                 "name": "GetObjectResponse",
                 "resultWrapper": null,
                 "locationPad": 48,
@@ -15731,7 +15715,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -17027,7 +17011,7 @@
                 "ctor": "getObjectTorrentResponse",
                 "headerPad": 0,
                 "field": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -17041,27 +17025,11 @@
                     "typeExposed": "RsBody",
                     "type": "RsBody"
                 },
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "\u003cerror\u003e",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "gotrBody",
-                        "name": "_gotrBody",
-                        "shape": "Body",
-                        "locationName": "Body",
-                        "documentation": null,
-                        "typeExposed": "RsBody",
-                        "type": "RsBody"
-                    }
-                ],
+                "contents": [],
                 "wrapper": false,
                 "protocol": "rest-xml",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -17077,7 +17045,7 @@
                 },
                 "required": [
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -17103,7 +17071,7 @@
                 "optional": [],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -24747,23 +24715,7 @@
                 "fieldPad": 26,
                 "ctor": "putObject",
                 "headerPad": 48,
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "\u003cerror\u003e",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "poBody",
-                        "name": "_poBody",
-                        "shape": "Body",
-                        "locationName": "Body",
-                        "documentation": "Object data.",
-                        "typeExposed": "RqBody",
-                        "type": "RqBody"
-                    }
-                ],
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -24784,7 +24736,7 @@
                 ],
                 "protocol": "rest-xml",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -24800,7 +24752,7 @@
                 },
                 "required": [
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -24953,7 +24905,7 @@
                         "type": "field"
                     }
                 ],
-                "contentPad": 5,
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "PutObject",
                 "query": [],
@@ -25295,7 +25247,7 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -26575,23 +26527,7 @@
                 "fieldPad": 23,
                 "ctor": "uploadPart",
                 "headerPad": 48,
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "\u003cerror\u003e",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "upBody",
-                        "name": "_upBody",
-                        "shape": "Body",
-                        "locationName": "Body",
-                        "documentation": null,
-                        "typeExposed": "RqBody",
-                        "type": "RqBody"
-                    }
-                ],
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -26612,7 +26548,7 @@
                 ],
                 "protocol": "rest-xml",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
                     "default": "\u003cerror\u003e",
@@ -26628,7 +26564,7 @@
                 },
                 "required": [
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
@@ -26736,7 +26672,7 @@
                         "type": "field"
                     }
                 ],
-                "contentPad": 5,
+                "contentPad": 0,
                 "queryPad": 11,
                 "name": "UploadPart",
                 "query": [
@@ -26849,7 +26785,7 @@
                 ],
                 "fields": [
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",

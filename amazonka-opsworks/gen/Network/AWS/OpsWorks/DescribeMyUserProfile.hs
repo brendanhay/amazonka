@@ -81,7 +81,7 @@ instance ToQuery DescribeMyUserProfile where
 instance ToHeaders DescribeMyUserProfile
 
 instance ToJSON DescribeMyUserProfile where
-    toXML = const Null
+    toJSON = const Null
 
 instance AWSRequest DescribeMyUserProfile where
     type Sv DescribeMyUserProfile = OpsWorks

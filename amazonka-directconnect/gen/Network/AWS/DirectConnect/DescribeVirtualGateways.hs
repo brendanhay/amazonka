@@ -90,7 +90,7 @@ instance ToQuery DescribeVirtualGateways where
 instance ToHeaders DescribeVirtualGateways
 
 instance ToJSON DescribeVirtualGateways where
-    toXML = const Null
+    toJSON = const Null
 
 instance AWSRequest DescribeVirtualGateways where
     type Sv DescribeVirtualGateways = DirectConnect

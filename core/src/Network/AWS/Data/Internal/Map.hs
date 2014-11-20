@@ -18,8 +18,11 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Internal.Map
-    ( Map (..)
+    ( Map  (..)
     , _Map
+
+    , EMap (..)
+    , _EMap
     ) where
 
 import           Control.Applicative

@@ -281,7 +281,7 @@ data GetObjectResponse = GetObjectResponse
     , _gorExpiration              :: Maybe RFC822
     , _gorExpires                 :: Maybe RFC822
     , _gorLastModified            :: Maybe RFC822
-    , _gorMetadata                :: HashMap Text Text
+    , _gorMetadata                :: HashMap (CI Text) Text
     , _gorMissingMeta             :: Maybe Int
     , _gorRestore                 :: Maybe Text
     , _gorSSECustomerAlgorithm    :: Maybe Text
@@ -322,7 +322,7 @@ data GetObjectResponse = GetObjectResponse
 --
 -- * 'gorLastModified' @::@ 'Maybe' 'UTCTime'
 --
--- * 'gorMetadata' @::@ 'HashMap' 'Text' 'Text'
+-- * 'gorMetadata' @::@ 'HashMap' ('CI' 'Text') 'Text'
 --
 -- * 'gorMissingMeta' @::@ 'Maybe' 'Int'
 --
@@ -430,7 +430,7 @@ gorLastModified :: Lens' GetObjectResponse (Maybe UTCTime)
 gorLastModified = lens _gorLastModified (\s a -> s { _gorLastModified = a }) . mapping _Time
 
 -- | A map of metadata to store with the object in S3.
-gorMetadata :: Lens' GetObjectResponse (HashMap Text Text)
+gorMetadata :: Lens' GetObjectResponse (HashMap (CI Text) Text)
 gorMetadata = lens _gorMetadata (\s a -> s { _gorMetadata = a })
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta

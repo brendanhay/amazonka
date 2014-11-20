@@ -90,7 +90,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmuGrantReadACP            :: Maybe Text
     , _cmuGrantWriteACP           :: Maybe Text
     , _cmuKey                     :: Text
-    , _cmuMetadata                :: HashMap Text Text
+    , _cmuMetadata                :: HashMap (CI Text) Text
     , _cmuSSECustomerAlgorithm    :: Maybe Text
     , _cmuSSECustomerKey          :: Maybe (Sensitive Text)
     , _cmuSSECustomerKeyMD5       :: Maybe Text
@@ -130,7 +130,7 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * 'cmuKey' @::@ 'Text'
 --
--- * 'cmuMetadata' @::@ 'HashMap' 'Text' 'Text'
+-- * 'cmuMetadata' @::@ 'HashMap' ('CI' 'Text') 'Text'
 --
 -- * 'cmuSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -231,7 +231,7 @@ cmuKey :: Lens' CreateMultipartUpload Text
 cmuKey = lens _cmuKey (\s a -> s { _cmuKey = a })
 
 -- | A map of metadata to store with the object in S3.
-cmuMetadata :: Lens' CreateMultipartUpload (HashMap Text Text)
+cmuMetadata :: Lens' CreateMultipartUpload (HashMap (CI Text) Text)
 cmuMetadata = lens _cmuMetadata (\s a -> s { _cmuMetadata = a })
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,

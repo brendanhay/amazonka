@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Data.Internal.Header
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,6 +21,7 @@ import           Control.Applicative
 import           Data.ByteString.Char8                (ByteString)
 import qualified Data.ByteString.Char8                as BS
 import qualified Data.CaseInsensitive                 as CI
+import           Data.CaseInsensitive                 (CI)
 import           Data.Foldable                        as Fold
 import           Data.Function                        (on)
 import           Data.HashMap.Strict                  (HashMap)
@@ -28,7 +30,9 @@ import           Data.List                            (deleteBy)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                            (Text)
+import qualified Data.Text                            as Text
 import qualified Data.Text.Encoding                   as Text
+import           Data.Traversable                     (sequenceA, traverse)
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types
@@ -52,26 +56,29 @@ hMetaPrefix :: HeaderName
 hMetaPrefix = "X-Amz-"
 
 (~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
-(~:) hs k = hs ~:? k >>= note
+hs ~: k = hs ~:? k >>= note
   where
     note Nothing  = Left (BS.unpack $ "Unable to find header: " <> CI.original k)
     note (Just x) = Right x
 
 (~:?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
-(~:?) hs k =
+hs ~:? k =
     maybe (Right Nothing)
           (fmap Just . fromText . Text.decodeUtf8)
           (k `lookup` hs)
 
--- (~:!) :: Functor f => f (Maybe a) -> a -> f a
--- (~:!) p v = fromMaybe v <$> p
-
-(~::) :: FromText v => ResponseHeaders -> Text -> Either String (Map e Text v)
-(~::) hs p = Map.filterWithKey (const . Text.isPrefixOf p)
-    . Map.fromList <$> traverse f hs
+(~::) :: FromText v
+      => ResponseHeaders
+      -> CI Text
+      -> Either String (HashMap (CI Text) v)
+hs ~:: (CI.foldedCase -> p) = Map.fromList . catMaybes <$> traverse f hs
   where
-    f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
-        <$> fromText (Text.decodeUtf8 v)
+    f (CI.map Text.decodeUtf8 -> k, Text.decodeUtf8 -> v) =
+        case Text.stripPrefix p (CI.foldedCase k) of
+            Nothing -> Right Nothing
+            Just x  -> Just <$> g x v
+
+    g k v = (CI.mk k,) <$> fromText v
 
 class ToHeaders a where
     toHeaders :: a -> [Header]

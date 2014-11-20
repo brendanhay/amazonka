@@ -217,7 +217,7 @@ data HeadObjectResponse = HeadObjectResponse
     , _horExpiration              :: Maybe RFC822
     , _horExpires                 :: Maybe RFC822
     , _horLastModified            :: Maybe RFC822
-    , _horMetadata                :: HashMap Text Text
+    , _horMetadata                :: HashMap (CI Text) Text
     , _horMissingMeta             :: Maybe Int
     , _horRestore                 :: Maybe Text
     , _horSSECustomerAlgorithm    :: Maybe Text
@@ -256,7 +256,7 @@ data HeadObjectResponse = HeadObjectResponse
 --
 -- * 'horLastModified' @::@ 'Maybe' 'UTCTime'
 --
--- * 'horMetadata' @::@ 'HashMap' 'Text' 'Text'
+-- * 'horMetadata' @::@ 'HashMap' ('CI' 'Text') 'Text'
 --
 -- * 'horMissingMeta' @::@ 'Maybe' 'Int'
 --
@@ -358,7 +358,7 @@ horLastModified :: Lens' HeadObjectResponse (Maybe UTCTime)
 horLastModified = lens _horLastModified (\s a -> s { _horLastModified = a }) . mapping _Time
 
 -- | A map of metadata to store with the object in S3.
-horMetadata :: Lens' HeadObjectResponse (HashMap Text Text)
+horMetadata :: Lens' HeadObjectResponse (HashMap (CI Text) Text)
 horMetadata = lens _horMetadata (\s a -> s { _horMetadata = a })
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta

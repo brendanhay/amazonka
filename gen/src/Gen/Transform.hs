@@ -545,7 +545,7 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
 
         hmap x k' v'
             | r ^. refLocation == Just Headers =
-                THashMap k' v'
+                THashMap (TCase k') v'
             | otherwise =
                 flat flatten (TMap (ann, key, val) k' v')
           where

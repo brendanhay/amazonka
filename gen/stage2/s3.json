@@ -9216,8 +9216,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -9728,8 +9728,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -10949,8 +10949,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -11266,8 +11266,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -15649,8 +15649,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -15906,8 +15906,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -17739,8 +17739,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -17981,8 +17981,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -25121,8 +25121,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",
@@ -25483,8 +25483,8 @@
                         "shape": "Metadata",
                         "locationName": "x-amz-meta-",
                         "documentation": "A map of metadata to store with the object in S3.",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "HashMap Text Text"
+                        "typeExposed": "HashMap (CI Text) Text",
+                        "type": "HashMap (CI Text) Text"
                     },
                     {
                         "location": "header",

@@ -17,6 +17,7 @@ module Network.AWS.Prelude
 
     -- * Primitives
     , ByteString
+    , CI
     , ClientRequest
     , ClientResponse
     , Exception
@@ -58,6 +59,7 @@ import Network.AWS.Types
 
 import Control.Exception         (Exception)
 import Data.ByteString           (ByteString)
+import Data.CaseInsensitive      (CI)
 import Data.HashMap.Strict       (HashMap)
 import Data.List.NonEmpty        (NonEmpty)
 import Data.Semigroup            (Semigroup)

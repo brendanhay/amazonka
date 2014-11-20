@@ -53,7 +53,7 @@ headerResponse :: (MonadResource m, AWSService (Sv a))
                -> a
                -> Either HttpException ClientResponse
                -> m (Response a)
-headerResponse f = deserialise (const (Right ())) (const f)
+headerResponse f = deserialise (const (Right ())) (const . f)
 {-# INLINE headerResponse #-}
 
 xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))

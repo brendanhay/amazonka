@@ -1,11 +1,12 @@
 {-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RoleAnnotations            #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
-{-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE ViewPatterns               #-}
 
 -- Module      : Network.AWS.Data.Internal.Map
@@ -30,6 +31,7 @@ module Network.AWS.Data.Internal.Map
 import           Control.Applicative
 import           Control.Lens                         hiding (coerce, element)
 import           Data.Aeson
+import           Data.Bifunctor
 import qualified Data.ByteString.Char8                as BS
 import           Data.CaseInsensitive                 (CI)
 import qualified Data.CaseInsensitive                 as CI
@@ -48,6 +50,7 @@ import qualified Data.Text.Encoding                   as Text
 import           GHC.Exts
 import           GHC.TypeLits
 import           Network.AWS.Data.Internal.ByteString
+import           Network.AWS.Data.Internal.Header
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
@@ -89,6 +92,13 @@ hs ~:: (CI.foldedCase -> p) = Right . fromList $ mapMaybe f hs
   where
     f (CI.map Text.decodeUtf8 -> k, Text.decodeUtf8 -> v) =
         (,v) . CI.mk <$> Text.stripPrefix p (CI.foldedCase k)
+
+instance ToHeader (Map (CI Text) Text) where
+    toHeader (CI.foldedCase -> p) = map (first CI.mk . f) . toList
+      where
+        f (CI.foldedCase -> toBS -> k, toBS -> v)
+            | BS.isPrefixOf p k = (k, v)
+            | otherwise         = (p <> k, v)
 
 newtype EMap (e :: Symbol) (i :: Symbol) (j :: Symbol) k v = EMap
     { fromEMap :: HashMap k v

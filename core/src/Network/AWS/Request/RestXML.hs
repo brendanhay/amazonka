@@ -14,6 +14,7 @@ module Network.AWS.Request.RestXML
     , delete
     , post
     , put
+    , stream
     ) where
 
 import Control.Lens
@@ -42,3 +43,10 @@ post x = put x & rqMethod .~ POST
 put :: (ToPath a, ToQuery a, ToHeaders a, ToXMLRoot a) => a -> Request a
 put x = get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x)
 {-# INLINE put #-}
+
+stream :: (ToPath a, ToQuery a, ToHeaders a, ToBody a)
+       => StdMethod
+       -> a
+       -> Request a
+stream m x = get x & rqMethod .~ m & rqBody .~ toBody x
+{-# INLINE stream #-}

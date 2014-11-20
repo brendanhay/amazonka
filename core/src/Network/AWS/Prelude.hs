@@ -52,6 +52,7 @@ module Network.AWS.Prelude
     , ServiceError    (..)
 
     -- * HTTP
+    , StdMethod (..)
     , Status
     ) where
 
@@ -67,6 +68,7 @@ import Data.String               (IsString(..))
 import Data.Text                 (Text)
 import GHC.Generics              (Generic)
 import Network.HTTP.Client       (HttpException, RequestBody)
+import Network.HTTP.Types.Method (StdMethod(..))
 import Network.HTTP.Types.Status (Status)
 import Numeric.Natural           (Natural, Whole)
 

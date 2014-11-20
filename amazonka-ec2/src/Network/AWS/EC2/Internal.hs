@@ -1,4 +1,6 @@
-{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DataKinds      #-}
+{-# LANGUAGE DeriveGeneric  #-}
+{-# LANGUAGE KindSignatures #-}
 
 -- Module      : Network.AWS.EC2.Internal
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,14 +23,23 @@ data Message = Message
     , _msgMessage :: Text
     } deriving (Eq, Ord, Show, Generic)
 
-instance FromXML Message
+instance FromXML Message where
+    parseXML x = Message
+        <$> x .@ "Code"
+        <*> x .@ "Message"
 
 data EC2Error = EC2Error
-    { _errErrors    :: [Message]
-    , _errRequestID :: Text
+    { _errRequestID :: Text
+    , _errErrors    :: [Message]
     } deriving (Eq, Ord, Show, Generic)
 
-instance FromXML EC2Error
+instance FromXML EC2Error where
+    parseXML x = EC2Error
+        <$> x .@ "RequestId"
+        <*> err (x .@ "Errors")
+      where
+        err :: Functor f => f (List "Error" Message) -> f [Message]
+        err = fmap list
 
 -- <Response>
 --     <Errors>

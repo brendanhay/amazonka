@@ -8503,8 +8503,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Job'",
-                        "type": "Maybe Job'"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "wrapper": false,
@@ -8547,8 +8547,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Job'",
-                        "type": "Maybe Job'"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -8579,8 +8579,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Job'",
-                        "type": "Maybe Job'"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -8788,8 +8788,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Job'",
-                        "type": "Maybe Job'"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "wrapper": false,
@@ -8832,8 +8832,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Job'",
-                        "type": "Maybe Job'"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -8864,8 +8864,8 @@
                         "shape": "Id",
                         "locationName": "NextPageToken",
                         "documentation": "\u003cp\u003e A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of \u003ccode\u003eNextPageToken\u003c/code\u003e is \u003ccode\u003enull\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Job'",
-                        "type": "Maybe Job'"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ]
             },

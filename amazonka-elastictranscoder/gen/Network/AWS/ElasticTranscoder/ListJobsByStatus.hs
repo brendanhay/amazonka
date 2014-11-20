@@ -94,7 +94,7 @@ ljbsStatus = lens _ljbsStatus (\s a -> s { _ljbsStatus = a })
 
 data ListJobsByStatusResponse = ListJobsByStatusResponse
     { _ljbsrJobs          :: List "Jobs" Job'
-    , _ljbsrNextPageToken :: Maybe Job'
+    , _ljbsrNextPageToken :: Maybe Text
     } deriving (Eq, Show)
 
 -- | 'ListJobsByStatusResponse' constructor.
@@ -103,7 +103,7 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse
 --
 -- * 'ljbsrJobs' @::@ ['Job'']
 --
--- * 'ljbsrNextPageToken' @::@ 'Maybe' 'Job''
+-- * 'ljbsrNextPageToken' @::@ 'Maybe' 'Text'
 --
 listJobsByStatusResponse :: ListJobsByStatusResponse
 listJobsByStatusResponse = ListJobsByStatusResponse
@@ -119,7 +119,7 @@ ljbsrJobs = lens _ljbsrJobs (\s a -> s { _ljbsrJobs = a }) . _List
 -- results, if any. When the jobs in the specified pipeline fit on one page
 -- or when you've reached the last page of results, the value of
 -- NextPageToken is null.
-ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Job')
+ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
 ljbsrNextPageToken =
     lens _ljbsrNextPageToken (\s a -> s { _ljbsrNextPageToken = a })
 

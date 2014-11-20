@@ -1007,15 +1007,13 @@ instance FromXML S3ServiceError where
         <*> x .@? "Message"
         <*> x .@? "VersionId"
 
-instance ToXMLRoot S3ServiceError where
-    toXMLRoot S3ServiceError{..} = element "S3ServiceError"
+instance ToXML S3ServiceError where
+    toXML S3ServiceError{..} = nodes "S3ServiceError"
         [ "Key"       =@ _sseKey
         , "VersionId" =@ _sseVersionId
         , "Code"      =@ _sseCode
         , "Message"   =@ _sseMessage
         ]
-
-instance ToXML S3ServiceError
 
 data ObjectCannedACL
     = AuthenticatedRead      -- ^ authenticated-read

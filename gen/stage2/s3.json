@@ -7675,7 +7675,6 @@
             "Network.AWS.S3.Internal"
         ],
         "shared": [
-            "S3ServiceError",
             "Grant",
             "Owner",
             "CommonPrefix",
@@ -12475,8 +12474,8 @@
                 "contents": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12485,13 +12484,13 @@
                         "shape": "DeletedObjects",
                         "locationName": "Deleted",
                         "documentation": null,
-                        "typeExposed": "S3ServiceError",
-                        "type": "S3ServiceError"
+                        "typeExposed": "[DeletedObject]",
+                        "type": "List \"Deleted\" DeletedObject"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12500,8 +12499,8 @@
                         "shape": "Errors",
                         "locationName": "Error",
                         "documentation": null,
-                        "typeExposed": "S3ServiceError",
-                        "type": "S3ServiceError"
+                        "typeExposed": "[Error]",
+                        "type": "List \"Error\" Error"
                     }
                 ],
                 "wrapper": false,
@@ -12510,8 +12509,8 @@
                 "required": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12520,13 +12519,13 @@
                         "shape": "DeletedObjects",
                         "locationName": "Deleted",
                         "documentation": null,
-                        "typeExposed": "S3ServiceError",
-                        "type": "S3ServiceError"
+                        "typeExposed": "[DeletedObject]",
+                        "type": "List \"Deleted\" DeletedObject"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12535,8 +12534,8 @@
                         "shape": "Errors",
                         "locationName": "Error",
                         "documentation": null,
-                        "typeExposed": "S3ServiceError",
-                        "type": "S3ServiceError"
+                        "typeExposed": "[Error]",
+                        "type": "List \"Error\" Error"
                     }
                 ],
                 "shared": false,
@@ -12551,8 +12550,8 @@
                 "fields": [
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12561,13 +12560,13 @@
                         "shape": "DeletedObjects",
                         "locationName": "Deleted",
                         "documentation": null,
-                        "typeExposed": "S3ServiceError",
-                        "type": "S3ServiceError"
+                        "typeExposed": "[DeletedObject]",
+                        "type": "List \"Deleted\" DeletedObject"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
                         "default": "\u003cerror\u003e",
                         "flattened": true,
                         "required": true,
@@ -12576,8 +12575,8 @@
                         "shape": "Errors",
                         "locationName": "Error",
                         "documentation": null,
-                        "typeExposed": "S3ServiceError",
-                        "type": "S3ServiceError"
+                        "typeExposed": "[Error]",
+                        "type": "List \"Error\" Error"
                     }
                 ]
             },

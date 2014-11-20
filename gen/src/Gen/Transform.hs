@@ -433,23 +433,12 @@ overriden = flip (Map.foldlWithKey' run)
     replacedBy x (Just y) = Map.filterWithKey (const . (/= x)) . replaced x y
 
     replaced :: Text -> Text -> HashMap Text Data -> HashMap Text Data
-    replaced x y = Map.map (\d -> let p = exists d in d & dataFields %~ go p)
+    replaced x y = Map.map (dataFields . typesOf %~ retype)
       where
-        exists = any (== TType x) . nestedTypes
-
-        go True  = typeOf %~ retype
-        go False = id
-
         retype :: Type -> Type
-        retype TMaybe   {}  = TMaybe   z
-        retype (TList  i _) = TList  i z
-        retype (TList1 i _) = TList1 i z
-        retype TFlatten {}  = TFlatten z
-        retype TType    {}  = z
-        retype TPrim    {}  = z
-        retype e            = error $ "Unsupported retyping of: " ++ show (e, y)
-
-        z = TType y
+        retype (TType z)
+            | z == x = TType y
+        retype z     = z
 
     sumPrefix :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     sumPrefix _ Nothing  = id

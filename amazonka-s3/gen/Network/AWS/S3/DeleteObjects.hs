@@ -86,31 +86,31 @@ do1MFA :: Lens' DeleteObjects (Maybe Text)
 do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 
 data DeleteObjectsResponse = DeleteObjectsResponse
-    { _dorDeleted :: S3ServiceError
-    , _dorErrors  :: S3ServiceError
+    { _dorDeleted :: List "Deleted" DeletedObject
+    , _dorErrors  :: List "Error" Error
     } deriving (Eq, Show)
 
 -- | 'DeleteObjectsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dorDeleted' @::@ 'S3ServiceError'
+-- * 'dorDeleted' @::@ ['DeletedObject']
 --
--- * 'dorErrors' @::@ 'S3ServiceError'
+-- * 'dorErrors' @::@ ['Error']
 --
-deleteObjectsResponse :: S3ServiceError -- ^ 'dorDeleted'
-                      -> S3ServiceError -- ^ 'dorErrors'
+deleteObjectsResponse :: [DeletedObject] -- ^ 'dorDeleted'
+                      -> [Error] -- ^ 'dorErrors'
                       -> DeleteObjectsResponse
 deleteObjectsResponse p1 p2 = DeleteObjectsResponse
-    { _dorDeleted = p1
-    , _dorErrors  = p2
+    { _dorDeleted = withIso _List (const id) p1
+    , _dorErrors  = withIso _List (const id) p2
     }
 
-dorDeleted :: Lens' DeleteObjectsResponse S3ServiceError
-dorDeleted = lens _dorDeleted (\s a -> s { _dorDeleted = a })
+dorDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
+dorDeleted = lens _dorDeleted (\s a -> s { _dorDeleted = a }) . _List
 
-dorErrors :: Lens' DeleteObjectsResponse S3ServiceError
-dorErrors = lens _dorErrors (\s a -> s { _dorErrors = a })
+dorErrors :: Lens' DeleteObjectsResponse [Error]
+dorErrors = lens _dorErrors (\s a -> s { _dorErrors = a }) . _List
 
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat

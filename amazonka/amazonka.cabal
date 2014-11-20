@@ -34,7 +34,6 @@ library
         , base                  >= 4.7     && < 5
         , conduit               == 1.2.*
         , exceptions            == 0.6.*
-        , http-client           >= 0.3.6   && < 0.4
         , http-conduit          == 2.1.4.*
         , lens                  == 4.4.*
         , mmorph

@@ -120,7 +120,7 @@ instance AWSService SES where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://ses.amazonaws.com/doc/2010-12-01/"

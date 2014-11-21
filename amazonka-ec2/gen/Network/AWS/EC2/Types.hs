@@ -1416,7 +1416,7 @@ instance AWSService EC2 where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://ec2.amazonaws.com/doc/2014-09-01"
@@ -6454,39 +6454,39 @@ instance ToQuery InstanceStatusEvent where
 
 data InstanceType
     = C1Medium   -- ^ c1.medium
-    | C1Xlarge   -- ^ c1.xlarge
-    | C32xlarge  -- ^ c3.2xlarge
-    | C34xlarge  -- ^ c3.4xlarge
-    | C38xlarge  -- ^ c3.8xlarge
+    | C1XLarge   -- ^ c1.xlarge
+    | C32XLarge  -- ^ c3.2xlarge
+    | C34XLarge  -- ^ c3.4xlarge
+    | C38XLarge  -- ^ c3.8xlarge
     | C3Large    -- ^ c3.large
-    | C3Xlarge   -- ^ c3.xlarge
-    | Cc14xlarge -- ^ cc1.4xlarge
-    | Cc28xlarge -- ^ cc2.8xlarge
-    | Cg14xlarge -- ^ cg1.4xlarge
-    | Cr18xlarge -- ^ cr1.8xlarge
-    | G22xlarge  -- ^ g2.2xlarge
-    | Hi14xlarge -- ^ hi1.4xlarge
-    | Hs18xlarge -- ^ hs1.8xlarge
-    | I22xlarge  -- ^ i2.2xlarge
-    | I24xlarge  -- ^ i2.4xlarge
-    | I28xlarge  -- ^ i2.8xlarge
-    | I2Xlarge   -- ^ i2.xlarge
+    | C3XLarge   -- ^ c3.xlarge
+    | Cc14XLarge -- ^ cc1.4xlarge
+    | Cc28XLarge -- ^ cc2.8xlarge
+    | Cg14XLarge -- ^ cg1.4xlarge
+    | Cr18XLarge -- ^ cr1.8xlarge
+    | G22XLarge  -- ^ g2.2xlarge
+    | Hi14XLarge -- ^ hi1.4xlarge
+    | Hs18XLarge -- ^ hs1.8xlarge
+    | I22XLarge  -- ^ i2.2xlarge
+    | I24XLarge  -- ^ i2.4xlarge
+    | I28XLarge  -- ^ i2.8xlarge
+    | I2XLarge   -- ^ i2.xlarge
     | M1Large    -- ^ m1.large
     | M1Medium   -- ^ m1.medium
     | M1Small    -- ^ m1.small
-    | M1Xlarge   -- ^ m1.xlarge
-    | M22xlarge  -- ^ m2.2xlarge
-    | M24xlarge  -- ^ m2.4xlarge
-    | M2Xlarge   -- ^ m2.xlarge
-    | M32xlarge  -- ^ m3.2xlarge
+    | M1XLarge   -- ^ m1.xlarge
+    | M22XLarge  -- ^ m2.2xlarge
+    | M24XLarge  -- ^ m2.4xlarge
+    | M2XLarge   -- ^ m2.xlarge
+    | M32XLarge  -- ^ m3.2xlarge
     | M3Large    -- ^ m3.large
     | M3Medium   -- ^ m3.medium
-    | M3Xlarge   -- ^ m3.xlarge
-    | R32xlarge  -- ^ r3.2xlarge
-    | R34xlarge  -- ^ r3.4xlarge
-    | R38xlarge  -- ^ r3.8xlarge
+    | M3XLarge   -- ^ m3.xlarge
+    | R32XLarge  -- ^ r3.2xlarge
+    | R34XLarge  -- ^ r3.4xlarge
+    | R38XLarge  -- ^ r3.8xlarge
     | R3Large    -- ^ r3.large
-    | R3Xlarge   -- ^ r3.xlarge
+    | R3XLarge   -- ^ r3.xlarge
     | T1Micro    -- ^ t1.micro
     | T2Medium   -- ^ t2.medium
     | T2Micro    -- ^ t2.micro
@@ -6497,39 +6497,39 @@ instance Hashable InstanceType
 
 instance FromText InstanceType where
     parser = match "c1.medium"   C1Medium
-         <|> match "c1.xlarge"   C1Xlarge
-         <|> match "c3.2xlarge"  C32xlarge
-         <|> match "c3.4xlarge"  C34xlarge
-         <|> match "c3.8xlarge"  C38xlarge
+         <|> match "c1.xlarge"   C1XLarge
+         <|> match "c3.2xlarge"  C32XLarge
+         <|> match "c3.4xlarge"  C34XLarge
+         <|> match "c3.8xlarge"  C38XLarge
          <|> match "c3.large"    C3Large
-         <|> match "c3.xlarge"   C3Xlarge
-         <|> match "cc1.4xlarge" Cc14xlarge
-         <|> match "cc2.8xlarge" Cc28xlarge
-         <|> match "cg1.4xlarge" Cg14xlarge
-         <|> match "cr1.8xlarge" Cr18xlarge
-         <|> match "g2.2xlarge"  G22xlarge
-         <|> match "hi1.4xlarge" Hi14xlarge
-         <|> match "hs1.8xlarge" Hs18xlarge
-         <|> match "i2.2xlarge"  I22xlarge
-         <|> match "i2.4xlarge"  I24xlarge
-         <|> match "i2.8xlarge"  I28xlarge
-         <|> match "i2.xlarge"   I2Xlarge
+         <|> match "c3.xlarge"   C3XLarge
+         <|> match "cc1.4xlarge" Cc14XLarge
+         <|> match "cc2.8xlarge" Cc28XLarge
+         <|> match "cg1.4xlarge" Cg14XLarge
+         <|> match "cr1.8xlarge" Cr18XLarge
+         <|> match "g2.2xlarge"  G22XLarge
+         <|> match "hi1.4xlarge" Hi14XLarge
+         <|> match "hs1.8xlarge" Hs18XLarge
+         <|> match "i2.2xlarge"  I22XLarge
+         <|> match "i2.4xlarge"  I24XLarge
+         <|> match "i2.8xlarge"  I28XLarge
+         <|> match "i2.xlarge"   I2XLarge
          <|> match "m1.large"    M1Large
          <|> match "m1.medium"   M1Medium
          <|> match "m1.small"    M1Small
-         <|> match "m1.xlarge"   M1Xlarge
-         <|> match "m2.2xlarge"  M22xlarge
-         <|> match "m2.4xlarge"  M24xlarge
-         <|> match "m2.xlarge"   M2Xlarge
-         <|> match "m3.2xlarge"  M32xlarge
+         <|> match "m1.xlarge"   M1XLarge
+         <|> match "m2.2xlarge"  M22XLarge
+         <|> match "m2.4xlarge"  M24XLarge
+         <|> match "m2.xlarge"   M2XLarge
+         <|> match "m3.2xlarge"  M32XLarge
          <|> match "m3.large"    M3Large
          <|> match "m3.medium"   M3Medium
-         <|> match "m3.xlarge"   M3Xlarge
-         <|> match "r3.2xlarge"  R32xlarge
-         <|> match "r3.4xlarge"  R34xlarge
-         <|> match "r3.8xlarge"  R38xlarge
+         <|> match "m3.xlarge"   M3XLarge
+         <|> match "r3.2xlarge"  R32XLarge
+         <|> match "r3.4xlarge"  R34XLarge
+         <|> match "r3.8xlarge"  R38XLarge
          <|> match "r3.large"    R3Large
-         <|> match "r3.xlarge"   R3Xlarge
+         <|> match "r3.xlarge"   R3XLarge
          <|> match "t1.micro"    T1Micro
          <|> match "t2.medium"   T2Medium
          <|> match "t2.micro"    T2Micro
@@ -6538,39 +6538,39 @@ instance FromText InstanceType where
 instance ToText InstanceType where
     toText = \case
         C1Medium   -> "c1.medium"
-        C1Xlarge   -> "c1.xlarge"
-        C32xlarge  -> "c3.2xlarge"
-        C34xlarge  -> "c3.4xlarge"
-        C38xlarge  -> "c3.8xlarge"
+        C1XLarge   -> "c1.xlarge"
+        C32XLarge  -> "c3.2xlarge"
+        C34XLarge  -> "c3.4xlarge"
+        C38XLarge  -> "c3.8xlarge"
         C3Large    -> "c3.large"
-        C3Xlarge   -> "c3.xlarge"
-        Cc14xlarge -> "cc1.4xlarge"
-        Cc28xlarge -> "cc2.8xlarge"
-        Cg14xlarge -> "cg1.4xlarge"
-        Cr18xlarge -> "cr1.8xlarge"
-        G22xlarge  -> "g2.2xlarge"
-        Hi14xlarge -> "hi1.4xlarge"
-        Hs18xlarge -> "hs1.8xlarge"
-        I22xlarge  -> "i2.2xlarge"
-        I24xlarge  -> "i2.4xlarge"
-        I28xlarge  -> "i2.8xlarge"
-        I2Xlarge   -> "i2.xlarge"
+        C3XLarge   -> "c3.xlarge"
+        Cc14XLarge -> "cc1.4xlarge"
+        Cc28XLarge -> "cc2.8xlarge"
+        Cg14XLarge -> "cg1.4xlarge"
+        Cr18XLarge -> "cr1.8xlarge"
+        G22XLarge  -> "g2.2xlarge"
+        Hi14XLarge -> "hi1.4xlarge"
+        Hs18XLarge -> "hs1.8xlarge"
+        I22XLarge  -> "i2.2xlarge"
+        I24XLarge  -> "i2.4xlarge"
+        I28XLarge  -> "i2.8xlarge"
+        I2XLarge   -> "i2.xlarge"
         M1Large    -> "m1.large"
         M1Medium   -> "m1.medium"
         M1Small    -> "m1.small"
-        M1Xlarge   -> "m1.xlarge"
-        M22xlarge  -> "m2.2xlarge"
-        M24xlarge  -> "m2.4xlarge"
-        M2Xlarge   -> "m2.xlarge"
-        M32xlarge  -> "m3.2xlarge"
+        M1XLarge   -> "m1.xlarge"
+        M22XLarge  -> "m2.2xlarge"
+        M24XLarge  -> "m2.4xlarge"
+        M2XLarge   -> "m2.xlarge"
+        M32XLarge  -> "m3.2xlarge"
         M3Large    -> "m3.large"
         M3Medium   -> "m3.medium"
-        M3Xlarge   -> "m3.xlarge"
-        R32xlarge  -> "r3.2xlarge"
-        R34xlarge  -> "r3.4xlarge"
-        R38xlarge  -> "r3.8xlarge"
+        M3XLarge   -> "m3.xlarge"
+        R32XLarge  -> "r3.2xlarge"
+        R34XLarge  -> "r3.4xlarge"
+        R38XLarge  -> "r3.8xlarge"
         R3Large    -> "r3.large"
-        R3Xlarge   -> "r3.xlarge"
+        R3XLarge   -> "r3.xlarge"
         T1Micro    -> "t1.micro"
         T2Medium   -> "t2.medium"
         T2Micro    -> "t2.micro"

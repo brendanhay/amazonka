@@ -166,7 +166,7 @@ instance AWSService DirectConnect where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data VirtualInterface = VirtualInterface
     { _viAmazonAddress         :: Maybe Text

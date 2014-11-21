@@ -230,7 +230,7 @@ instance AWSService ELB where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/"

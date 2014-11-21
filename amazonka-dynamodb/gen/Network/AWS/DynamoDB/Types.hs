@@ -258,7 +258,7 @@ instance AWSService DynamoDB where
         , _svcJSONVersion  = Just "1.0"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data WriteRequest = WriteRequest
     { _wDeleteRequest :: Maybe DeleteRequest

@@ -61,7 +61,7 @@ instance AWSService CloudTrail where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data Trail = Trail
     { _tCloudWatchLogsLogGroupArn  :: Maybe Text

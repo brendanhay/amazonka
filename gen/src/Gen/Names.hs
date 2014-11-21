@@ -27,8 +27,9 @@ import           Text.Parsec.Token    (reservedNames)
 operationName :: Text -> Text
 operationName t = fromMaybe t (Text.stripSuffix "Request" t)
 
+
 enumName :: Bool -> Text -> Text -> Text
-enumName u k1 v1 = k2 <> reserved (toPascal v3)
+enumName u k1 v1 = k2 <> reserved (hack (toPascal v3))
   where
     k2 | u         = Text.toUpper k1
        | otherwise = k1
@@ -39,6 +40,8 @@ enumName u k1 v1 = k2 <> reserved (toPascal v3)
     v2 = Text.replace ":" "-" v1
 
     f c = isUpper c || c `elem` "-_/"
+
+    hack = Text.replace "xlarge" "XLarge" . Text.replace "Xlarge" "XLarge"
 
 lensName :: Text -> Text
 lensName = stripText "_"

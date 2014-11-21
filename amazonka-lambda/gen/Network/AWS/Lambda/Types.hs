@@ -91,7 +91,7 @@ instance AWSService Lambda where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 data Runtime
     = Nodejs -- ^ nodejs

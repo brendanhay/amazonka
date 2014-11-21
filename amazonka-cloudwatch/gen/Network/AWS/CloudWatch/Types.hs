@@ -148,7 +148,7 @@ instance AWSService CloudWatch where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://monitoring.amazonaws.com/doc/2010-08-01/"

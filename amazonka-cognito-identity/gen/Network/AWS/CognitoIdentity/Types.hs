@@ -72,7 +72,7 @@ instance AWSService CognitoIdentity where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text

@@ -271,7 +271,7 @@ instance AWSService AutoScaling where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://autoscaling.amazonaws.com/doc/2011-01-01/"

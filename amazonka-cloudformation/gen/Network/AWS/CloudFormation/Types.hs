@@ -184,7 +184,7 @@ instance AWSService CloudFormation where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://cloudformation.amazonaws.com/doc/2010-05-15/"

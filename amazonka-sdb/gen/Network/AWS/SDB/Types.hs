@@ -92,7 +92,7 @@ instance AWSService SDB where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://sdb.amazonaws.com/doc/2009-04-15/"

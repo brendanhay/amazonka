@@ -413,7 +413,7 @@ instance AWSService CloudFront where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://cloudfront.amazonaws.com/doc/2014-05-31/"

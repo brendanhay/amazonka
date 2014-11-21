@@ -798,7 +798,7 @@ instance AWSService SWF where
         , _svcJSONVersion  = Just "1.0"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes
     { _wecreaCause                     :: Maybe Text

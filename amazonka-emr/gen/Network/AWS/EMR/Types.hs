@@ -429,7 +429,7 @@ instance AWSService EMR where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data MarketType
     = OnDemand -- ^ ON_DEMAND

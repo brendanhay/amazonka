@@ -4067,8 +4067,8 @@
                     "Enum"
                 ],
                 "branches": {
-                    "SearchM22xlarge": "search.m2.2xlarge",
-                    "SearchM2Xlarge": "search.m2.xlarge",
+                    "SearchM22XLarge": "search.m2.2xlarge",
+                    "SearchM2XLarge": "search.m2.xlarge",
                     "SearchM1Large": "search.m1.large",
                     "SearchM1Small": "search.m1.small"
                 },

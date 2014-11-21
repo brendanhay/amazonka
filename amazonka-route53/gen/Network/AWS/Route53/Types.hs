@@ -206,7 +206,7 @@ instance AWSService Route53 where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://route53.amazonaws.com/doc/2013-04-01/"

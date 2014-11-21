@@ -312,7 +312,7 @@ instance AWSService CloudSearch where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://cloudsearch.amazonaws.com/doc/2013-01-01/"
@@ -2218,8 +2218,8 @@ instance ToQuery AnalysisSchemeLanguage where
 data PartitionInstanceType
     = SearchM1Large   -- ^ search.m1.large
     | SearchM1Small   -- ^ search.m1.small
-    | SearchM22xlarge -- ^ search.m2.2xlarge
-    | SearchM2Xlarge  -- ^ search.m2.xlarge
+    | SearchM22XLarge -- ^ search.m2.2xlarge
+    | SearchM2XLarge  -- ^ search.m2.xlarge
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable PartitionInstanceType
@@ -2227,15 +2227,15 @@ instance Hashable PartitionInstanceType
 instance FromText PartitionInstanceType where
     parser = match "search.m1.large"   SearchM1Large
          <|> match "search.m1.small"   SearchM1Small
-         <|> match "search.m2.2xlarge" SearchM22xlarge
-         <|> match "search.m2.xlarge"  SearchM2Xlarge
+         <|> match "search.m2.2xlarge" SearchM22XLarge
+         <|> match "search.m2.xlarge"  SearchM2XLarge
 
 instance ToText PartitionInstanceType where
     toText = \case
         SearchM1Large   -> "search.m1.large"
         SearchM1Small   -> "search.m1.small"
-        SearchM22xlarge -> "search.m2.2xlarge"
-        SearchM2Xlarge  -> "search.m2.xlarge"
+        SearchM22XLarge -> "search.m2.2xlarge"
+        SearchM2XLarge  -> "search.m2.xlarge"
 
 instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"

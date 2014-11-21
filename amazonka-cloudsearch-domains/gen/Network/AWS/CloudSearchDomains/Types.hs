@@ -113,7 +113,7 @@ instance AWSService CloudSearchDomains where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 data SearchStatus = SearchStatus
     { _ssRid    :: Maybe Text

@@ -403,7 +403,7 @@ instance AWSService Redshift where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://redshift.amazonaws.com/doc/2012-12-01/"

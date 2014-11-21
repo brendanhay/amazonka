@@ -107,7 +107,7 @@ instance AWSService CloudWatchLogs where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data MetricFilter = MetricFilter
     { _mfCreationTime          :: Maybe Nat

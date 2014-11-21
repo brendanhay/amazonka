@@ -287,7 +287,7 @@ instance AWSService ElasticBeanstalk where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/"

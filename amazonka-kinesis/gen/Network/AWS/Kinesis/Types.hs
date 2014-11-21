@@ -99,7 +99,7 @@ instance AWSService Kinesis where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data Shard = Shard
     { _sAdjacentParentShardId :: Maybe Text

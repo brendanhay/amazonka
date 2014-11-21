@@ -71,7 +71,7 @@ instance AWSService STS where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "https://sts.amazonaws.com/doc/2011-06-15/"

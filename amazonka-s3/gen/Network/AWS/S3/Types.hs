@@ -437,7 +437,7 @@ instance AWSService S3 where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://s3.amazonaws.com/doc/2006-03-01/"

@@ -127,7 +127,7 @@ instance AWSService DataPipeline where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data PipelineObject = PipelineObject
     { _poFields :: List "fields" Field

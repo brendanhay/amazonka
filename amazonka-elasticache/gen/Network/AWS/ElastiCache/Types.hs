@@ -346,7 +346,7 @@ instance AWSService ElastiCache where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://elasticache.amazonaws.com/doc/2014-09-30/"

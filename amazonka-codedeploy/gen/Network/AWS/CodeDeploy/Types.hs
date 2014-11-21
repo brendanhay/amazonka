@@ -235,7 +235,7 @@ instance AWSService CodeDeploy where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data GenericRevisionInfo = GenericRevisionInfo
     { _griDeploymentGroups :: List "deploymentGroups" Text

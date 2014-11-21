@@ -114,7 +114,7 @@ instance AWSService Route53Domains where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data DomainSummary = DomainSummary
     { _dsAutoRenew    :: Maybe Bool

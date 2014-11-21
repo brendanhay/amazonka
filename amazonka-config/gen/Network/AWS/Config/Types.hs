@@ -142,7 +142,7 @@ instance AWSService Config where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     { _cediLastAttemptTime    :: Maybe RFC822

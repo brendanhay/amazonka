@@ -197,7 +197,7 @@ instance AWSService IAM where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "https://iam.amazonaws.com/doc/2010-05-08/"

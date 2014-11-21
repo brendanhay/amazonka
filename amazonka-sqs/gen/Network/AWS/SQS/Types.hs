@@ -121,7 +121,7 @@ instance AWSService SQS where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://queue.amazonaws.com/doc/2012-11-05/"

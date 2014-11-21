@@ -99,7 +99,7 @@ instance AWSService KMS where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
 
 data KeyUsageType
     = EncryptDecrypt -- ^ ENCRYPT_DECRYPT

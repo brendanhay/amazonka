@@ -84,7 +84,7 @@ instance AWSService SNS where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 ns :: Text
 ns = "http://sns.amazonaws.com/doc/2010-03-31/"

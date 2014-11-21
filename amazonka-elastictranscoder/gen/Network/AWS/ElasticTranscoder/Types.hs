@@ -283,7 +283,7 @@ instance AWSService ElasticTranscoder where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text

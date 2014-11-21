@@ -109,7 +109,7 @@ instance AWSService CognitoSync where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 
 data IdentityPoolUsage = IdentityPoolUsage
     { _ipuDataStorage       :: Maybe Integer

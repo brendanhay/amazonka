@@ -40,8 +40,8 @@ module Control.Monad.Trans.AWS
     , scoped
     -- ** Creating the environment
     , Credentials (..)
-    , newEnv
-    , getEnv
+    , AWS.newEnv
+    , AWS.getEnv
 
     -- * Debugging
     , debug
@@ -86,7 +86,7 @@ import           Control.Monad.Trans.Resource
 import           Data.Conduit
 import           Data.Text                    (Text)
 import           Data.Time
-import           Network.AWS                  (Env, newEnv, envRegion, envLogger, envAuth, envManager)
+import           Network.AWS                  (Env, envRegion, envLogger, envAuth, envManager)
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
 import qualified Network.AWS.Types            as Types

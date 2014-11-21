@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Network.AWS.Data.Internal.Body
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -12,6 +13,7 @@
 
 module Network.AWS.Data.Internal.Body where
 
+import           Control.Lens
 import           Control.Applicative
 import           Control.Monad.IO.Class
 import           Control.Monad.Morph
@@ -36,6 +38,8 @@ import           System.IO
 
 data RsBody = RsBody (ResumableSource (ResourceT IO) ByteString)
 
+makePrisms ''RsBody
+
 connectBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
 connectBody (RsBody src) sink = hoist liftResourceT src $$+- sink
 
@@ -49,6 +53,8 @@ data RqBody = RqBody
     { _bdyHash :: Digest SHA256
     , _bdyBody :: RequestBody
     }
+
+makeLenses ''RqBody
 
 instance ToText RqBody where
     toText (RqBody h _) = "RqBody " <> toText h <> " <body>"

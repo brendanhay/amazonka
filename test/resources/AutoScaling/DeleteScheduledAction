@@ -1,6 +1,0 @@
-GET /
-Action=DeleteScheduledAction
-{% if dsaAutoScalingGroupName %}
-AutoScalingGroupName={{ dsaAutoScalingGroupName }}
-{% endif %}
-ScheduledActionName={{ dsaScheduledActionName }}

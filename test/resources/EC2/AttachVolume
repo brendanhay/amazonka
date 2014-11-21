@@ -1,5 +1,0 @@
-GET /
-Action=AttachVolume
-Device={{ avDevice }}
-InstanceId={{ avInstanceId }}
-VolumeId={{ avVolumeId }}

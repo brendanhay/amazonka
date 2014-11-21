@@ -1,36 +1,22 @@
-SHELL := /usr/bin/env bash
-FLAGS := -j --disable-documentation --disable-library-coverage
-DEPS  := vendor/ede
+DEPS := $(wildcard amazonka-*)
 
-.PHONY: test lint doc
+.PHONY: install clean
 
-all: build
+build: $(addprefix build-,$(DEPS)) build-amazonka
 
-build:
-	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
+build-%:
+	make -C $* build
 
-install: cabal.sandbox.config add-sources
-	cabal install $(FLAGS)
+install: cabal.sandbox.config $(addprefix install-,$(DEPS)) install-amazonka
 
-clean:
-	-rm -rf dist cabal.sandbox.config .cabal-sandbox vendor
-	cabal clean
+install-%:
+	make -C $* install
 
-test:
-	cabal test --test-options=\
-	"--num-threads=4 +RTS -N4 -RTS --quickcheck-tests=20 --quickcheck-max-size=50"
+clean: $(addprefix clean-,$(DEPS)) clean-amazonka
+#	rm -rf .cabal-sandbox cabal.sandbox.config
 
-lint:
-	hlint src
-
-doc:
-	cabal haddock
+clean-%:
+	make -C $* clean
 
 cabal.sandbox.config:
 	cabal sandbox init
-
-add-sources: cabal.sandbox.config $(DEPS)
-	$(foreach dir,$(DEPS),cabal sandbox add-source $(dir);)
-
-vendor/%:
-	git clone https://github.com/brendanhay/$*.git $@

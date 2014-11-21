@@ -1,6 +1,0 @@
-GET /
-Action=DeletePolicy
-{% if dpAutoScalingGroupName %}
-AutoScalingGroupName={{ dpAutoScalingGroupName }}
-{% endif %}
-PolicyName={{ dpPolicyName }}

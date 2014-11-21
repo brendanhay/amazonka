@@ -1,7 +1,0 @@
-GET /
-Action=SetInstanceHealth
-HealthStatus={{ sihHealthStatus }}
-InstanceId={{ sihInstanceId }}
-{% if sihShouldRespectGracePeriod %}
-ShouldRespectGracePeriod={{ sihShouldRespectGracePeriod }}
-{% endif %}

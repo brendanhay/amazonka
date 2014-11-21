@@ -1,7 +1,0 @@
-GET /2012-12-12/healthcheck
-{% if lhcMarker %}
-marker={{ lhcMarker }}
-{% endif %}
-{% if lhcMaxItems %}
-maxitems={{ lhcMaxItems }}
-{% endif %}

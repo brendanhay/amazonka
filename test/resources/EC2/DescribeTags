@@ -1,8 +1,0 @@
-GET /
-Action=DescribeTags
-{% if dvFilter %}
-Filter.{{ n }}.Name={{ filterName }}
-{% if filterValue %}
-Filter.{{ n }}.Value.{{ o }}={{.}}
-{% endif %}
-{% endif %}

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<DeleteLaunchConfigurationResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {% if dlcrResponseMetadata %}
-  <ResponseMetadata>
-    <RequestId>{{ rmRequestId }}</RequestId>
-  </ResponseMetadata>
-  {% endif %}
-</DeleteLaunchConfigurationResponse>

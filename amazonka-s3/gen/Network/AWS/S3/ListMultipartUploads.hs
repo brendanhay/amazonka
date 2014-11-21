@@ -274,7 +274,7 @@ instance ToQuery ListMultipartUploads where
 instance ToHeaders ListMultipartUploads
 
 instance ToXMLRoot ListMultipartUploads where
-    toXMLRoot = const (element "ListMultipartUploads" [])
+    toXMLRoot = const (namespace ns "ListMultipartUploads" [])
 
 instance ToXML ListMultipartUploads
 

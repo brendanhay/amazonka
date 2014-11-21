@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates or updates a policy for an Auto Scaling group. To update an
--- existing policy, use the existing policy name and set the parameter(s) you
+-- existing policy, use the existing policy name and set the parameters you
 -- want to change. Any existing parameter not changed in an update to an
 -- existing policy is not changed in this update request.
 --
@@ -94,21 +94,20 @@ putScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
 
 -- | Specifies whether the ScalingAdjustment is an absolute number or a
 -- percentage of the current capacity. Valid values are ChangeInCapacity,
--- ExactCapacity, and PercentChangeInCapacity. For more information about
--- the adjustment types supported by Auto Scaling, see Scale Based on
--- Demand.
+-- ExactCapacity, and PercentChangeInCapacity. For more information, see
+-- Dynamic Scaling in the Auto Scaling Developer Guide.
 pspAdjustmentType :: Lens' PutScalingPolicy Text
 pspAdjustmentType =
     lens _pspAdjustmentType (\s a -> s { _pspAdjustmentType = a })
 
--- | The name or ARN of the Auto Scaling group.
+-- | The name or ARN of the group.
 pspAutoScalingGroupName :: Lens' PutScalingPolicy Text
 pspAutoScalingGroupName =
     lens _pspAutoScalingGroupName (\s a -> s { _pspAutoScalingGroupName = a })
 
 -- | The amount of time, in seconds, after a scaling activity completes and
 -- before the next scaling activity can start. For more information, see
--- Cooldown Period.
+-- Understanding Auto Scaling Cooldowns in the Auto Scaling Developer Guide.
 pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
 pspCooldown = lens _pspCooldown (\s a -> s { _pspCooldown = a })
 
@@ -121,7 +120,7 @@ pspMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Int)
 pspMinAdjustmentStep =
     lens _pspMinAdjustmentStep (\s a -> s { _pspMinAdjustmentStep = a })
 
--- | The name of the policy you want to create or update.
+-- | The name of the policy.
 pspPolicyName :: Lens' PutScalingPolicy Text
 pspPolicyName = lens _pspPolicyName (\s a -> s { _pspPolicyName = a })
 
@@ -149,7 +148,7 @@ putScalingPolicyResponse = PutScalingPolicyResponse
     { _psprPolicyARN = Nothing
     }
 
--- | A policy's Amazon Resource Name (ARN).
+-- | The Amazon Resource Name (ARN) of the policy.
 psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprPolicyARN = lens _psprPolicyARN (\s a -> s { _psprPolicyARN = a })
 

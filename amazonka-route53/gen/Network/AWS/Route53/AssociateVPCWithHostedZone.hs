@@ -130,7 +130,7 @@ instance ToQuery AssociateVPCWithHostedZone where
 instance ToHeaders AssociateVPCWithHostedZone
 
 instance ToXMLRoot AssociateVPCWithHostedZone where
-    toXMLRoot AssociateVPCWithHostedZone{..} = element "AssociateVPCWithHostedZone"
+    toXMLRoot AssociateVPCWithHostedZone{..} = namespace ns "AssociateVPCWithHostedZone"
         [ "VPC"     =@ _avpcwhzVPC
         , "Comment" =@ _avpcwhzComment
         ]

@@ -28,7 +28,7 @@
 -- parameters that were modified by a user action such as from
 -- ModifyClusterParameterGroup, you can specify source equal to user. For more
 -- information about managing parameter groups, go to Amazon Redshift
--- Parameter Groups in the Amazon Redshift Management Guide.
+-- Parameter Groups in the Amazon Redshift Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html>
 module Network.AWS.Redshift.DescribeClusterParameters

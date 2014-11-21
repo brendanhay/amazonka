@@ -40,7 +40,7 @@
         "name": "Amazon Route 53",
         "version": "2013-04-01",
         "documentation": "Amazon Route 53 is a scalable Domain Name System (DNS) web service. It provides secure and reliable routing to your infrastructure that uses Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service (Amazon S3). You can also use Amazon Route 53 to route users to your infrastructure outside of AWS.",
-        "xmlNamespace": "https://route53.amazonaws.com/doc/2013-04-01/",
+        "xmlNamespace": "http://route53.amazonaws.com/doc/2013-04-01/",
         "jsonVersion": null,
         "endpoint": "Global",
         "endpointPrefix": "route53",
@@ -2306,7 +2306,7 @@
                         "name": "_hzcPrivateZone",
                         "shape": "IsPrivateZone",
                         "locationName": "PrivateZone",
-                        "documentation": null,
+                        "documentation": "\u003cp\u003eA value that indicates whether this is a private hosted zone. The value is returned in the response; do not specify it in the request.\u003c/p\u003e",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -2344,7 +2344,7 @@
                         "name": "_hzcPrivateZone",
                         "shape": "IsPrivateZone",
                         "locationName": "PrivateZone",
-                        "documentation": null,
+                        "documentation": "\u003cp\u003eA value that indicates whether this is a private hosted zone. The value is returned in the response; do not specify it in the request.\u003c/p\u003e",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -2376,7 +2376,7 @@
                         "name": "_hzcPrivateZone",
                         "shape": "IsPrivateZone",
                         "locationName": "PrivateZone",
-                        "documentation": null,
+                        "documentation": "\u003cp\u003eA value that indicates whether this is a private hosted zone. The value is returned in the response; do not specify it in the request.\u003c/p\u003e",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }

@@ -20,9 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Disables monitoring of group metrics for the Auto Scaling group specified
--- in AutoScalingGroupName. You can specify the list of affected metrics with
--- the Metrics parameter.
+-- | Disables monitoring of the specified metrics for the specified Auto Scaling
+-- group.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DisableMetricsCollection.html>
 module Network.AWS.AutoScaling.DisableMetricsCollection
@@ -66,16 +65,15 @@ disableMetricsCollection p1 = DisableMetricsCollection
     , _dmcMetrics              = mempty
     }
 
--- | The name or ARN of the Auto Scaling Group.
+-- | The name or Amazon Resource Name (ARN) of the group.
 dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
 dmcAutoScalingGroupName =
     lens _dmcAutoScalingGroupName (\s a -> s { _dmcAutoScalingGroupName = a })
 
--- | The list of metrics to disable. If no metrics are specified, all metrics
--- are disabled. The following metrics are supported: GroupMinSize
--- GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
--- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
--- GroupTotalInstances.
+-- | One or more of the following metrics: GroupMinSize GroupMaxSize
+-- GroupDesiredCapacity GroupInServiceInstances GroupPendingInstances
+-- GroupStandbyInstances GroupTerminatingInstances GroupTotalInstances If
+-- you omit this parameter, all metrics are disabled.
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
 dmcMetrics = lens _dmcMetrics (\s a -> s { _dmcMetrics = a }) . _List
 

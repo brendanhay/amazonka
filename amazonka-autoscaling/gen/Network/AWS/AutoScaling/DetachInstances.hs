@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Using DetachInstances, you can remove an instance from an Auto Scaling
--- group. After the instances are detached, you can manage them independently
--- from the rest of the Auto Scaling group. To learn more about detaching
--- instances, see Detach Amazon EC2 Instances From Your Auto Scaling Group.
+-- | Removes one or more instances from the specified Auto Scaling group. After
+-- the instances are detached, you can manage them independently from the rest
+-- of the Auto Scaling group. For more information, see Detach EC2 Instances
+-- from Your Auto Scaling Group in the Auto Scaling Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html>
 module Network.AWS.AutoScaling.DetachInstances
@@ -75,20 +75,17 @@ detachInstances p1 p2 = DetachInstances
     , _diInstanceIds                    = mempty
     }
 
--- | The name of the Auto Scaling group from which to detach instances.
+-- | The name of the group.
 diAutoScalingGroupName :: Lens' DetachInstances Text
 diAutoScalingGroupName =
     lens _diAutoScalingGroupName (\s a -> s { _diAutoScalingGroupName = a })
 
--- | A list of instances to detach from the Auto Scaling group. You must
--- specify at least one instance ID.
+-- | One or more instance IDs.
 diInstanceIds :: Lens' DetachInstances [Text]
 diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
 
--- | Specifies if the detached instance should decrement the desired capacity
--- value for the Auto Scaling group. If set to True, the Auto Scaling group
--- decrements the desired capacity value by the number of instances
--- detached.
+-- | If True, the Auto Scaling group decrements the desired capacity value by
+-- the number of instances detached.
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity =
     lens _diShouldDecrementDesiredCapacity
@@ -115,8 +112,8 @@ detachInstancesResponse = DetachInstancesResponse
     { _dirActivities = mempty
     }
 
--- | A list describing the activities related to detaching the instances from
--- the Auto Scaling group.
+-- | The activities related to detaching the instances from the Auto Scaling
+-- group.
 dirActivities :: Lens' DetachInstancesResponse [Activity]
 dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a }) . _List
 

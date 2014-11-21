@@ -95,7 +95,7 @@ instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
         ]
 
 instance ToXMLRoot DeleteCloudFrontOriginAccessIdentity where
-    toXMLRoot = const (element "DeleteCloudFrontOriginAccessIdentity" [])
+    toXMLRoot = const (namespace ns "DeleteCloudFrontOriginAccessIdentity" [])
 
 instance ToXML DeleteCloudFrontOriginAccessIdentity
 

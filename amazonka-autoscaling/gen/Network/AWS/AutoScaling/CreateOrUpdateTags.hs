@@ -20,9 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates new tags or updates existing tags for an Auto Scaling group. For
--- information on creating tags for your Auto Scaling group, see Tag Your Auto
--- Scaling Groups and Amazon EC2 Instances.
+-- | Creates or updates tags for the specified Auto Scaling group. A tag's
+-- definition is composed of a resource ID, resource type, key and value, and
+-- the propagate flag. Value and the propagate flag are optional parameters.
+-- See the Request Parameters for more information. For more information, see
+-- Add, Modify, or Remove Auto Scaling Group Tags in the Auto Scaling
+-- Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
 module Network.AWS.AutoScaling.CreateOrUpdateTags
@@ -72,14 +75,14 @@ createOrUpdateTags = CreateOrUpdateTags
 -- which the tag is created. Currently, auto-scaling-group is the only
 -- supported resource type. The valid value for the resource ID is
 -- groupname. The PropagateAtLaunch flag defines whether the new tag will be
--- applied to instances launched by the Auto Scaling group. Valid values are
--- true or false. However, instances that are already running will not get
--- the new or updated tag. Likewise, when you modify a tag, the updated
--- version will be applied only to new instances launched by the Auto
--- Scaling group after the change. Running instances that had the previous
--- version of the tag will continue to have the older tag. When you create a
--- tag and a tag of the same name already exists, the operation overwrites
--- the previous tag definition, but you will not get an error message.
+-- applied to instances launched by the group. Valid values are true or
+-- false. However, instances that are already running will not get the new
+-- or updated tag. Likewise, when you modify a tag, the updated version will
+-- be applied only to new instances launched by the group after the change.
+-- Running instances that had the previous version of the tag will continue
+-- to have the older tag. When you create a tag and a tag of the same name
+-- already exists, the operation overwrites the previous tag definition, but
+-- you will not get an error message.
 coutTags :: Lens' CreateOrUpdateTags [Tag]
 coutTags = lens _coutTags (\s a -> s { _coutTags = a }) . _List
 

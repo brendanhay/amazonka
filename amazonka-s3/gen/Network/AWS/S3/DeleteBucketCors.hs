@@ -81,7 +81,7 @@ instance ToQuery DeleteBucketCors where
 instance ToHeaders DeleteBucketCors
 
 instance ToXMLRoot DeleteBucketCors where
-    toXMLRoot = const (element "DeleteBucketCors" [])
+    toXMLRoot = const (namespace ns "DeleteBucketCors" [])
 
 instance ToXML DeleteBucketCors
 

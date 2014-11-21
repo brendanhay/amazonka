@@ -20,9 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Move an instance out of Standby mode. To learn more about how to put
--- instances that are in a Standby mode back into service, see Auto Scaling
--- InService State.
+-- | Moves the specified instances out of Standby mode. For more information,
+-- see Auto Scaling InService State in the Auto Scaling Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExitStandby.html>
 module Network.AWS.AutoScaling.ExitStandby
@@ -68,14 +67,12 @@ exitStandby p1 = ExitStandby
     , _es1InstanceIds          = mempty
     }
 
--- | The name of the Auto Scaling group from which to move instances out of
--- Standby mode.
+-- | The name of the Auto Scaling group.
 es1AutoScalingGroupName :: Lens' ExitStandby Text
 es1AutoScalingGroupName =
     lens _es1AutoScalingGroupName (\s a -> s { _es1AutoScalingGroupName = a })
 
--- | A list of instances to move out of Standby mode. You must specify at
--- least one instance ID.
+-- | One or more instance IDs. You must specify at least one instance ID.
 es1InstanceIds :: Lens' ExitStandby [Text]
 es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a }) . _List
 
@@ -100,8 +97,7 @@ exitStandbyResponse = ExitStandbyResponse
     { _esrActivities = mempty
     }
 
--- | A list describing the activities related to moving instances out of
--- Standby mode.
+-- | The activities related to moving instances out of Standby mode.
 esrActivities :: Lens' ExitStandbyResponse [Activity]
 esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a }) . _List
 

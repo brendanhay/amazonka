@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.CloudFormation.Types
       CloudFormation
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * Tag
     , Tag
@@ -183,6 +185,9 @@ instance AWSService CloudFormation where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://cloudformation.amazonaws.com/doc/2010-05-15/"
 
 data Tag = Tag
     { _tagKey   :: Maybe Text

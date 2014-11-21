@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.CloudSearch.Types
       CloudSearch
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * DomainStatus
     , DomainStatus
@@ -311,6 +313,9 @@ instance AWSService CloudSearch where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://cloudsearch.amazonaws.com/doc/2013-01-01/"
 
 data DomainStatus = DomainStatus
     { _dsARN                    :: Maybe Text

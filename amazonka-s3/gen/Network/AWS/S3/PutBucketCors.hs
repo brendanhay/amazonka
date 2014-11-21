@@ -101,7 +101,7 @@ instance ToHeaders PutBucketCors where
         ]
 
 instance ToXMLRoot PutBucketCors where
-    toXMLRoot PutBucketCors{..} = element "PutBucketCors"
+    toXMLRoot PutBucketCors{..} = namespace ns "PutBucketCors"
         [ "CORSConfiguration" =@ _pbcCORSConfiguration
         ]
 

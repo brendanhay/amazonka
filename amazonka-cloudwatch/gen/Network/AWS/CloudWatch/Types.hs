@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.CloudWatch.Types
       CloudWatch
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * StatisticSet
     , StatisticSet
@@ -147,6 +149,9 @@ instance AWSService CloudWatch where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://monitoring.amazonaws.com/doc/2010-08-01/"
 
 data StatisticSet = StatisticSet
     { _ssMaximum     :: Double

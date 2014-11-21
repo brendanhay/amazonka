@@ -22,16 +22,16 @@
 
 -- | Records a heartbeat for the lifecycle action associated with a specific
 -- token. This extends the timeout by the length of time defined by the
--- HeartbeatTimeout parameter of the PutLifecycleHook operation. This
--- operation is a part of the basic sequence for adding a lifecycle hook to an
--- Auto Scaling group: Create a notification target. A target can be either an
--- Amazon SQS queue or an Amazon SNS topic. Create an IAM role. This role
--- allows Auto Scaling to publish lifecycle notifications to the designated
--- SQS queue or SNS topic. Create the lifecycle hook. You can create a hook
--- that acts when instances launch or when instances terminate. If necessary,
--- record the lifecycle action heartbeat to keep the instance in a pending
--- state. Complete the lifecycle action. To learn more, see Auto Scaling
--- Pending State and Auto Scaling Terminating State.
+-- HeartbeatTimeout parameter of PutLifecycleHook. This operation is a part of
+-- the basic sequence for adding a lifecycle hook to an Auto Scaling group:
+-- Create a notification target. A target can be either an Amazon SQS queue or
+-- an Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to
+-- publish lifecycle notifications to the designated SQS queue or SNS topic.
+-- Create the lifecycle hook. You can create a hook that acts when instances
+-- launch or when instances terminate. If necessary, record the lifecycle
+-- action heartbeat to keep the instance in a pending state. Complete the
+-- lifecycle action. For more information, see Auto Scaling Pending State and
+-- Auto Scaling Terminating State in the Auto Scaling Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_RecordLifecycleActionHeartbeat.html>
 module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
@@ -82,7 +82,7 @@ recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeat
     , _rlahLifecycleActionToken = p3
     }
 
--- | The name of the Auto Scaling group to which the hook belongs.
+-- | The name of the Auto Scaling group for the hook.
 rlahAutoScalingGroupName :: Lens' RecordLifecycleActionHeartbeat Text
 rlahAutoScalingGroupName =
     lens _rlahAutoScalingGroupName

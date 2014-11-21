@@ -29,8 +29,8 @@
 -- Create the lifecycle hook. You can create a hook that acts when instances
 -- launch or when instances terminate. If necessary, record the lifecycle
 -- action heartbeat to keep the instance in a pending state. Complete the
--- lifecycle action. To learn more, see Auto Scaling Pending State and Auto
--- Scaling Terminating State.
+-- lifecycle action. For more information, see Auto Scaling Pending State and
+-- Auto Scaling Terminating State in the Auto Scaling Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CompleteLifecycleAction.html>
 module Network.AWS.AutoScaling.CompleteLifecycleAction
@@ -87,13 +87,13 @@ completeLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
     , _claLifecycleActionResult = p4
     }
 
--- | The name of the Auto Scaling group to which the lifecycle hook belongs.
+-- | The name of the group for the lifecycle hook.
 claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
 claAutoScalingGroupName =
     lens _claAutoScalingGroupName (\s a -> s { _claAutoScalingGroupName = a })
 
--- | The action the Auto Scaling group should take. The value for this
--- parameter can be either CONTINUE or ABANDON.
+-- | The action for the group to take. This parameter can be either CONTINUE
+-- or ABANDON.
 claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
 claLifecycleActionResult =
     lens _claLifecycleActionResult

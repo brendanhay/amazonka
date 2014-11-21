@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.STS.Types
       STS
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * Credentials
     , Credentials
@@ -70,6 +72,9 @@ instance AWSService STS where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "https://sts.amazonaws.com/doc/2011-06-15/"
 
 data Credentials = Credentials
     { _cAccessKeyId     :: Text

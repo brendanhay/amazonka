@@ -24,7 +24,7 @@
 -- previously authorized IP range or Amazon EC2 security group. To add an
 -- ingress rule, see AuthorizeClusterSecurityGroupIngress. For information
 -- about managing security groups, go to Amazon Redshift Cluster Security
--- Groups in the Amazon Redshift Management Guide.
+-- Groups in the Amazon Redshift Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeClusterSecurityGroupIngress.html>
 module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress

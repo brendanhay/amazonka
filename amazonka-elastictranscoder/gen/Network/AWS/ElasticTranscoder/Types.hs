@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}

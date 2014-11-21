@@ -29,7 +29,7 @@
         "name": "Amazon Data Pipeline",
         "version": "2012-10-29",
         "documentation": "AWS Data Pipeline is a web service that you can use to automate the movement and transformation of data. With AWS Data Pipeline, you can define data-driven workflows, so that tasks can be dependent on the successful completion of previous tasks.",
-        "xmlNamespace": "https://datapipeline.amazonaws.com/doc/2012-10-29/",
+        "xmlNamespace": null,
         "jsonVersion": "1.1",
         "endpoint": "Regional",
         "endpointPrefix": "datapipeline",

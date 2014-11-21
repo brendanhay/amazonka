@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.ELB.Types
       ELB
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * SourceSecurityGroup
     , SourceSecurityGroup
@@ -229,6 +231,9 @@ instance AWSService ELB where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/"
 
 data SourceSecurityGroup = SourceSecurityGroup
     { _ssgGroupName  :: Maybe Text

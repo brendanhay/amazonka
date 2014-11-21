@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.ElasticBeanstalk.Types
       ElasticBeanstalk
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * ApplicationDescription
     , ApplicationDescription
@@ -286,6 +288,9 @@ instance AWSService ElasticBeanstalk where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/"
 
 data ApplicationDescription = ApplicationDescription
     { _adApplicationName        :: Maybe Text

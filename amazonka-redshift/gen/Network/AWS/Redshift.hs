@@ -26,6 +26,7 @@ module Network.AWS.Redshift
     , module Network.AWS.Redshift.CreateEventSubscription
     , module Network.AWS.Redshift.CreateHsmClientCertificate
     , module Network.AWS.Redshift.CreateHsmConfiguration
+    , module Network.AWS.Redshift.CreateTags
     , module Network.AWS.Redshift.DeleteCluster
     , module Network.AWS.Redshift.DeleteClusterParameterGroup
     , module Network.AWS.Redshift.DeleteClusterSecurityGroup
@@ -34,6 +35,7 @@ module Network.AWS.Redshift
     , module Network.AWS.Redshift.DeleteEventSubscription
     , module Network.AWS.Redshift.DeleteHsmClientCertificate
     , module Network.AWS.Redshift.DeleteHsmConfiguration
+    , module Network.AWS.Redshift.DeleteTags
     , module Network.AWS.Redshift.DescribeClusterParameterGroups
     , module Network.AWS.Redshift.DescribeClusterParameters
     , module Network.AWS.Redshift.DescribeClusterSecurityGroups
@@ -52,6 +54,7 @@ module Network.AWS.Redshift
     , module Network.AWS.Redshift.DescribeReservedNodeOfferings
     , module Network.AWS.Redshift.DescribeReservedNodes
     , module Network.AWS.Redshift.DescribeResize
+    , module Network.AWS.Redshift.DescribeTags
     , module Network.AWS.Redshift.DisableLogging
     , module Network.AWS.Redshift.DisableSnapshotCopy
     , module Network.AWS.Redshift.EnableLogging
@@ -82,6 +85,7 @@ import Network.AWS.Redshift.CreateClusterSubnetGroup
 import Network.AWS.Redshift.CreateEventSubscription
 import Network.AWS.Redshift.CreateHsmClientCertificate
 import Network.AWS.Redshift.CreateHsmConfiguration
+import Network.AWS.Redshift.CreateTags
 import Network.AWS.Redshift.DeleteCluster
 import Network.AWS.Redshift.DeleteClusterParameterGroup
 import Network.AWS.Redshift.DeleteClusterSecurityGroup
@@ -90,6 +94,7 @@ import Network.AWS.Redshift.DeleteClusterSubnetGroup
 import Network.AWS.Redshift.DeleteEventSubscription
 import Network.AWS.Redshift.DeleteHsmClientCertificate
 import Network.AWS.Redshift.DeleteHsmConfiguration
+import Network.AWS.Redshift.DeleteTags
 import Network.AWS.Redshift.DescribeClusterParameterGroups
 import Network.AWS.Redshift.DescribeClusterParameters
 import Network.AWS.Redshift.DescribeClusterSecurityGroups
@@ -108,6 +113,7 @@ import Network.AWS.Redshift.DescribeOrderableClusterOptions
 import Network.AWS.Redshift.DescribeReservedNodeOfferings
 import Network.AWS.Redshift.DescribeReservedNodes
 import Network.AWS.Redshift.DescribeResize
+import Network.AWS.Redshift.DescribeTags
 import Network.AWS.Redshift.DisableLogging
 import Network.AWS.Redshift.DisableSnapshotCopy
 import Network.AWS.Redshift.EnableLogging

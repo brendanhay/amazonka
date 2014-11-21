@@ -82,7 +82,7 @@ instance ToQuery HeadBucket where
 instance ToHeaders HeadBucket
 
 instance ToXMLRoot HeadBucket where
-    toXMLRoot = const (element "HeadBucket" [])
+    toXMLRoot = const (namespace ns "HeadBucket" [])
 
 instance ToXML HeadBucket
 

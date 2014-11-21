@@ -95,7 +95,7 @@ instance ToQuery GetBucketLocation where
 instance ToHeaders GetBucketLocation
 
 instance ToXMLRoot GetBucketLocation where
-    toXMLRoot = const (element "GetBucketLocation" [])
+    toXMLRoot = const (namespace ns "GetBucketLocation" [])
 
 instance ToXML GetBucketLocation
 

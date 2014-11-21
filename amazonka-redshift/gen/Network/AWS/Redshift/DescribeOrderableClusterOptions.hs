@@ -27,8 +27,8 @@
 -- available storage, memory, CPU and price. With the cost involved you might
 -- want to obtain a list of cluster options in the specific region and specify
 -- values when creating a cluster. For more information about managing
--- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Management
--- Guide.
+-- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Cluster
+-- Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeOrderableClusterOptions.html>
 module Network.AWS.Redshift.DescribeOrderableClusterOptions

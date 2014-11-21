@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.SES.Types
       SES
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * Destination
     , Destination
@@ -119,6 +121,9 @@ instance AWSService SES where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://ses.amazonaws.com/doc/2010-12-01/"
 
 data Destination = Destination
     { _dBccAddresses :: List "ToAddresses" Text

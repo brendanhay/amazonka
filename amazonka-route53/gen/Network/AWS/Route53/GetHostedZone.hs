@@ -124,7 +124,7 @@ instance ToQuery GetHostedZone where
 instance ToHeaders GetHostedZone
 
 instance ToXMLRoot GetHostedZone where
-    toXMLRoot = const (element "GetHostedZone" [])
+    toXMLRoot = const (namespace ns "GetHostedZone" [])
 
 instance ToXML GetHostedZone
 

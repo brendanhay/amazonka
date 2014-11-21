@@ -175,7 +175,7 @@ instance ToHeaders PutObjectAcl where
         ]
 
 instance ToXMLRoot PutObjectAcl where
-    toXMLRoot PutObjectAcl{..} = element "PutObjectAcl"
+    toXMLRoot PutObjectAcl{..} = namespace ns "PutObjectAcl"
         [ "AccessControlPolicy" =@ _poaAccessControlPolicy
         ]
 

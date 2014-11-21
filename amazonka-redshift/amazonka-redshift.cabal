@@ -48,6 +48,7 @@ library
         , Network.AWS.Redshift.CreateEventSubscription
         , Network.AWS.Redshift.CreateHsmClientCertificate
         , Network.AWS.Redshift.CreateHsmConfiguration
+        , Network.AWS.Redshift.CreateTags
         , Network.AWS.Redshift.DeleteCluster
         , Network.AWS.Redshift.DeleteClusterParameterGroup
         , Network.AWS.Redshift.DeleteClusterSecurityGroup
@@ -56,6 +57,7 @@ library
         , Network.AWS.Redshift.DeleteEventSubscription
         , Network.AWS.Redshift.DeleteHsmClientCertificate
         , Network.AWS.Redshift.DeleteHsmConfiguration
+        , Network.AWS.Redshift.DeleteTags
         , Network.AWS.Redshift.DescribeClusterParameterGroups
         , Network.AWS.Redshift.DescribeClusterParameters
         , Network.AWS.Redshift.DescribeClusterSecurityGroups
@@ -74,6 +76,7 @@ library
         , Network.AWS.Redshift.DescribeReservedNodeOfferings
         , Network.AWS.Redshift.DescribeReservedNodes
         , Network.AWS.Redshift.DescribeResize
+        , Network.AWS.Redshift.DescribeTags
         , Network.AWS.Redshift.DisableLogging
         , Network.AWS.Redshift.DisableSnapshotCopy
         , Network.AWS.Redshift.EnableLogging

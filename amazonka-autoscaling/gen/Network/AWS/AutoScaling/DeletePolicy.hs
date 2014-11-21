@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a policy created by PutScalingPolicy.
+-- | Deletes the specified Auto Scaling policy.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html>
 module Network.AWS.AutoScaling.DeletePolicy
@@ -69,7 +69,7 @@ dpAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
 dpAutoScalingGroupName =
     lens _dpAutoScalingGroupName (\s a -> s { _dpAutoScalingGroupName = a })
 
--- | The name or PolicyARN of the policy you want to delete.
+-- | The name or Amazon Resource Name (ARN) of the policy.
 dpPolicyName :: Lens' DeletePolicy Text
 dpPolicyName = lens _dpPolicyName (\s a -> s { _dpPolicyName = a })
 

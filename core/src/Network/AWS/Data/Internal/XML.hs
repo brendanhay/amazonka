@@ -33,6 +33,7 @@ module Network.AWS.Data.Internal.XML
     , ToXMLRoot (..)
     , encodeXML
     , toXMLText
+    , namespaced
     , element
     , nodes
     , (=@)
@@ -41,10 +42,7 @@ module Network.AWS.Data.Internal.XML
 
 import           Control.Applicative
 import           Control.Monad
-import           Data.Bifunctor
-import qualified Data.ByteString                      as BS
 import           Data.Default.Class
-import           Data.Foldable                        (foldr', foldrM)
 import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
 import           Data.Hashable
@@ -72,15 +70,15 @@ decodeXML = either failure success . parseLBS def
     success = Right . elementNodes . documentRoot
 
 encodeXML :: ToXMLRoot a => a -> LazyByteString
-encodeXML x = renderLBS def doc
+encodeXML x = renderLBS def d
   where
-    doc = Document
-        { documentPrologue = pro
+    d = Document
+        { documentPrologue = p
         , documentRoot     = toXMLRoot x
         , documentEpilogue = []
         }
 
-    pro = Prologue
+    p = Prologue
         { prologueBefore  = []
         , prologueDoctype = Nothing
         , prologueAfter   = []
@@ -105,6 +103,10 @@ ns .@? n =
         Right xs -> parseXML xs
 {-# INLINE (.@?) #-}
 
+namespaced :: Text -> Text -> [Node] -> Element
+namespaced g l = element (Name l (Just g) Nothing)
+{-# INLINE namespaced #-}
+
 element :: Name -> [Node] -> Element
 element n = Element n mempty
 {-# INLINE element #-}
@@ -124,6 +126,7 @@ unsafeToXML :: (Show a, ToXML a) => a -> Node
 unsafeToXML x =
     fromMaybe (error $ "Failed to unflatten node-list for: " ++ show x)
               (listToMaybe (toXML x))
+{-# INLINE unsafeToXML #-}
 
 withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a
 withContent n f = withNode n (join . fmap f . g)
@@ -156,6 +159,7 @@ childNodes :: Text -> Node -> Maybe [Node]
 childNodes n (NodeElement e)
     | nameLocalName (elementName e) == n = Just (elementNodes e)
 childNodes _ _ = Nothing
+{-# INLINE childNodes #-}
 
 class FromXML a where
     parseXML :: [Node] -> Either String a
@@ -180,6 +184,7 @@ class ToXML a where
 
     default toXML :: ToXMLRoot a => a -> [Node]
     toXML = (:[]) . NodeElement . toXMLRoot
+    {-# INLINE toXML #-}
 
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x

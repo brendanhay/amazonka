@@ -24,7 +24,7 @@
 -- or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC)
 -- when creating Amazon Redshift subnet group. For information about subnet
 -- groups, go to Amazon Redshift Cluster Subnet Groups in the Amazon Redshift
--- Management Guide.
+-- Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSubnetGroup.html>
 module Network.AWS.Redshift.CreateClusterSubnetGroup
@@ -37,6 +37,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     , ccsgClusterSubnetGroupName
     , ccsgDescription
     , ccsgSubnetIds
+    , ccsgTags
 
     -- * Response
     , CreateClusterSubnetGroupResponse
@@ -55,7 +56,8 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
     { _ccsgClusterSubnetGroupName :: Text
     , _ccsgDescription            :: Text
     , _ccsgSubnetIds              :: List "SubnetIdentifier" Text
-    } deriving (Eq, Ord, Show)
+    , _ccsgTags                   :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateClusterSubnetGroup' constructor.
 --
@@ -67,6 +69,8 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
 --
 -- * 'ccsgSubnetIds' @::@ ['Text']
 --
+-- * 'ccsgTags' @::@ ['Tag']
+--
 createClusterSubnetGroup :: Text -- ^ 'ccsgClusterSubnetGroupName'
                          -> Text -- ^ 'ccsgDescription'
                          -> CreateClusterSubnetGroup
@@ -74,6 +78,7 @@ createClusterSubnetGroup p1 p2 = CreateClusterSubnetGroup
     { _ccsgClusterSubnetGroupName = p1
     , _ccsgDescription            = p2
     , _ccsgSubnetIds              = mempty
+    , _ccsgTags                   = mempty
     }
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a
@@ -94,6 +99,10 @@ ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
 -- single request.
 ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a }) . _List
+
+-- | A list of tag instances.
+ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
+ccsgTags = lens _ccsgTags (\s a -> s { _ccsgTags = a }) . _List
 
 newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
     { _ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
@@ -122,6 +131,7 @@ instance ToQuery CreateClusterSubnetGroup where
         [ "ClusterSubnetGroupName" =? _ccsgClusterSubnetGroupName
         , "Description"            =? _ccsgDescription
         , "SubnetIds"              =? _ccsgSubnetIds
+        , "Tags"                   =? _ccsgTags
         ]
 
 instance ToHeaders CreateClusterSubnetGroup

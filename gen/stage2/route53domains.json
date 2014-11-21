@@ -28,7 +28,7 @@
         "name": "Amazon Route 53 Domains",
         "version": "2014-05-15",
         "documentation": "Pending",
-        "xmlNamespace": "https://route53domains.amazonaws.com/doc/2014-05-15/",
+        "xmlNamespace": null,
         "jsonVersion": "1.1",
         "endpoint": "Regional",
         "endpointPrefix": "route53domains",

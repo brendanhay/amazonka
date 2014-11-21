@@ -26,10 +26,10 @@
 -- the security groups associated with a cluster do not need a reboot.
 -- However, modifying a parameter group requires a reboot for parameters to
 -- take effect. For more information about managing clusters, go to Amazon
--- Redshift Clusters in the Amazon Redshift Management Guide . You can also
--- change node type and the number of nodes to scale up or down the cluster.
--- When resizing a cluster, you must specify both the number of nodes and the
--- node type even if one of the parameters does not change.
+-- Redshift Clusters in the Amazon Redshift Cluster Management Guide . You can
+-- also change node type and the number of nodes to scale up or down the
+-- cluster. When resizing a cluster, you must specify both the number of nodes
+-- and the node type even if one of the parameters does not change.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html>
 module Network.AWS.Redshift.ModifyCluster
@@ -200,8 +200,8 @@ mcClusterType = lens _mcClusterType (\s a -> s { _mcClusterType = a })
 -- group family for the new version must be specified. The new cluster
 -- parameter group can be the default for that cluster parameter group
 -- family. For more information about managing parameter groups, go to
--- Amazon Redshift Parameter Groups in the Amazon Redshift Management Guide.
--- Example: 1.0.
+-- Amazon Redshift Parameter Groups in the Amazon Redshift Cluster
+-- Management Guide. Example: 1.0.
 mcClusterVersion :: Lens' ModifyCluster (Maybe Text)
 mcClusterVersion = lens _mcClusterVersion (\s a -> s { _mcClusterVersion = a })
 
@@ -223,8 +223,10 @@ mcHsmConfigurationIdentifier =
 -- asynchronously applied as soon as possible. Between the time of the
 -- request and the completion of the request, the MasterUserPassword element
 -- exists in the PendingModifiedValues element of the operation response.
--- Default: Uses existing setting. Constraints: Must be between 8 and 64
--- characters in length. Must contain at least one uppercase letter. Must
+-- Operations never return the password, so this operation provides a way to
+-- regain access to the master user account for a cluster if the password is
+-- lost. Default: Uses existing setting. Constraints: Must be between 8 and
+-- 64 characters in length. Must contain at least one uppercase letter. Must
 -- contain at least one lowercase letter. Must contain one number. Can be
 -- any printable ASCII character (ASCII code 33 to 126) except ' (single
 -- quote), " (double quote), \, /, @, or space.

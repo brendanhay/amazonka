@@ -71,7 +71,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         , _svEndpointPrefix = endpointPrefix
         , _svSignature      = s1 ^. mSignatureVersion
         , _svChecksum       = checksum
-        , _svXmlNamespace   = fromMaybe xmlNamespace (s1 ^. mXmlNamespace)
+        , _svXmlNamespace   = xmlNamespace
         , _svTargetPrefix   = s1 ^. mTargetPrefix
         , _svJsonVersion    = s1 ^. mJsonVersion
         , _svError          = errorType protocol abbrev
@@ -103,16 +103,18 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
     endpointPrefix = s1 ^. mEndpointPrefix
 
     overrides = m ^. mOverrides
+    endpoint  = maybe Regional (const Global) (s1 ^. mGlobalEndpoint)
+    checksum  = fromMaybe SHA256 (s1 ^. mChecksumFormat)
 
-    endpoint = maybe Regional (const Global) (s1 ^. mGlobalEndpoint)
-
-    checksum = fromMaybe SHA256 (s1 ^. mChecksumFormat)
-
-    xmlNamespace = "https://"
-        <> endpointPrefix
-        <> ".amazonaws.com/doc/"
-        <> version
-        <> "/"
+    xmlNamespace
+        | Just x <- s1 ^. mXmlNamespace         = Just x
+        | protocol `elem` [Query, Xml, RestXml] = Just $
+               "http://"
+            <> endpointPrefix
+            <> ".amazonaws.com/doc/"
+            <> version
+            <> "/"
+        | otherwise                             = Nothing
 
 dataTypes :: Overrides
           -> Abbrev

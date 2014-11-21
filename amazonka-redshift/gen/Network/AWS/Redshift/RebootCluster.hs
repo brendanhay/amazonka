@@ -25,7 +25,7 @@
 -- to rebooting. A cluster event is created when the reboot is completed. Any
 -- pending cluster modifications (see ModifyCluster) are applied at this
 -- reboot. For more information about managing clusters, go to Amazon Redshift
--- Clusters in the Amazon Redshift Management Guide.
+-- Clusters in the Amazon Redshift Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html>
 module Network.AWS.Redshift.RebootCluster

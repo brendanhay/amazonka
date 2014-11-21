@@ -13,10 +13,16 @@ instance AWSService {{ service.abbrev }} where
         , _svcTargetPrefix = {% if service.targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
         , _svcJSONVersion  = {% if service.jsonVersion %}Just "{{ service.jsonVersion }}"{% else %}Nothing{% endif %}
         }
-
 {% case service.error %}
   {% when "JSONError" %}
+
     handle = jsonError alwaysFail
   {% else %}
+
     handle = restError alwaysFail
 {% endcase %}
+{% if service.xmlNamespace %}
+
+ns :: Text
+ns = "{{ service.xmlNamespace }}"
+{% endif %}

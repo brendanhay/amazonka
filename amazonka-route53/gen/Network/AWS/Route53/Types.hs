@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.Route53.Types
       Route53
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * AliasTarget
     , AliasTarget
@@ -205,6 +207,9 @@ instance AWSService Route53 where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://route53.amazonaws.com/doc/2013-04-01/"
 
 data AliasTarget = AliasTarget
     { _atDNSName              :: Text
@@ -1057,7 +1062,7 @@ instance FromXML VPC where
         <*> x .@? "VPCRegion"
 
 instance ToXMLRoot VPC where
-    toXMLRoot VPC{..} = element "VPC"
+    toXMLRoot VPC{..} = namespace ns "VPC"
         [ "VPCRegion" =@ _vpcVPCRegion
         , "VPCId"     =@ _vpcVPCId
         ]
@@ -1089,6 +1094,8 @@ hostedZoneConfig = HostedZoneConfig
 hzcComment :: Lens' HostedZoneConfig (Maybe Text)
 hzcComment = lens _hzcComment (\s a -> s { _hzcComment = a })
 
+-- | A value that indicates whether this is a private hosted zone. The value
+-- is returned in the response; do not specify it in the request.
 hzcPrivateZone :: Lens' HostedZoneConfig (Maybe Bool)
 hzcPrivateZone = lens _hzcPrivateZone (\s a -> s { _hzcPrivateZone = a })
 
@@ -1308,7 +1315,7 @@ instance FromXML DelegationSet where
         <*> x .@  "NameServers"
 
 instance ToXMLRoot DelegationSet where
-    toXMLRoot DelegationSet{..} = element "DelegationSet"
+    toXMLRoot DelegationSet{..} = namespace ns "DelegationSet"
         [ "Id"              =@ _dsId
         , "CallerReference" =@ _dsCallerReference
         , "NameServers"     =@ _dsNameServers
@@ -1480,7 +1487,7 @@ instance FromXML HealthCheckObservation where
         <*> x .@? "StatusReport"
 
 instance ToXMLRoot HealthCheckObservation where
-    toXMLRoot HealthCheckObservation{..} = element "HealthCheckObservation"
+    toXMLRoot HealthCheckObservation{..} = namespace ns "HealthCheckObservation"
         [ "IPAddress"    =@ _hcoIPAddress
         , "StatusReport" =@ _hcoStatusReport
         ]

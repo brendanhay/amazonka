@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.SNS.Types
       SNS
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * Topic
     , Topic
@@ -83,6 +85,9 @@ instance AWSService SNS where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://sns.amazonaws.com/doc/2010-03-31/"
 
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text

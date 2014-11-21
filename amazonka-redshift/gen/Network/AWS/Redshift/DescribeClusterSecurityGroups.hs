@@ -24,7 +24,14 @@
 -- security group is specified, the response will contain only information
 -- about only that security group. For information about managing security
 -- groups, go to Amazon Redshift Cluster Security Groups in the Amazon
--- Redshift Management Guide.
+-- Redshift Cluster Management Guide. If you specify both tag keys and tag
+-- values in the same request, Amazon Redshift returns all security groups
+-- that match any combination of the specified keys and values. For example,
+-- if you have owner and environment for tag keys, and admin and test for tag
+-- values, all security groups that have any combination of those values are
+-- returned. If both tag keys and values are omitted from the request,
+-- security groups are returned regardless of whether they have tag keys or
+-- values associated with them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html>
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
@@ -37,6 +44,8 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     , dcsgClusterSecurityGroupName
     , dcsgMarker
     , dcsgMaxRecords
+    , dcsgTagKeys
+    , dcsgTagValues
 
     -- * Response
     , DescribeClusterSecurityGroupsResponse
@@ -56,6 +65,8 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsgClusterSecurityGroupName :: Maybe Text
     , _dcsgMarker                   :: Maybe Text
     , _dcsgMaxRecords               :: Maybe Int
+    , _dcsgTagKeys                  :: List "TagKey" Text
+    , _dcsgTagValues                :: List "TagValue" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterSecurityGroups' constructor.
@@ -68,11 +79,17 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
 --
 -- * 'dcsgMaxRecords' @::@ 'Maybe' 'Int'
 --
+-- * 'dcsgTagKeys' @::@ ['Text']
+--
+-- * 'dcsgTagValues' @::@ ['Text']
+--
 describeClusterSecurityGroups :: DescribeClusterSecurityGroups
 describeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsgClusterSecurityGroupName = Nothing
     , _dcsgMaxRecords               = Nothing
     , _dcsgMarker                   = Nothing
+    , _dcsgTagKeys                  = mempty
+    , _dcsgTagValues                = mempty
     }
 
 -- | The name of a cluster security group for which you are requesting
@@ -102,6 +119,25 @@ dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
+
+-- | A tag key or keys for which you want to return all matching cluster
+-- security groups that are associated with the specified key or keys. For
+-- example, suppose that you have security groups that are tagged with keys
+-- called owner and environment. If you specify both of these tag keys in
+-- the request, Amazon Redshift returns a response with the security groups
+-- that have either or both of these tag keys associated with them.
+dcsgTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgTagKeys = lens _dcsgTagKeys (\s a -> s { _dcsgTagKeys = a }) . _List
+
+-- | A tag value or values for which you want to return all matching cluster
+-- security groups that are associated with the specified tag value or
+-- values. For example, suppose that you have security groups that are
+-- tagged with values called admin and test. If you specify both of these
+-- tag values in the request, Amazon Redshift returns a response with the
+-- security groups that have either or both of these tag values associated
+-- with them.
+dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgTagValues = lens _dcsgTagValues (\s a -> s { _dcsgTagValues = a }) . _List
 
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     { _dcsgr1ClusterSecurityGroups :: List "ClusterSecurityGroup" ClusterSecurityGroup
@@ -146,6 +182,8 @@ instance ToQuery DescribeClusterSecurityGroups where
         [ "ClusterSecurityGroupName" =? _dcsgClusterSecurityGroupName
         , "Marker"                   =? _dcsgMarker
         , "MaxRecords"               =? _dcsgMaxRecords
+        , "TagKeys"                  =? _dcsgTagKeys
+        , "TagValues"                =? _dcsgTagValues
         ]
 
 instance ToHeaders DescribeClusterSecurityGroups

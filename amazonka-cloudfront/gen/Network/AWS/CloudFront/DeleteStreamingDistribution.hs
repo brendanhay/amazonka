@@ -95,7 +95,7 @@ instance ToHeaders DeleteStreamingDistribution where
         ]
 
 instance ToXMLRoot DeleteStreamingDistribution where
-    toXMLRoot = const (element "DeleteStreamingDistribution" [])
+    toXMLRoot = const (namespace ns "DeleteStreamingDistribution" [])
 
 instance ToXML DeleteStreamingDistribution
 

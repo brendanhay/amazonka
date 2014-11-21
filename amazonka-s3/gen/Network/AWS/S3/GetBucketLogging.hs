@@ -96,7 +96,7 @@ instance ToQuery GetBucketLogging where
 instance ToHeaders GetBucketLogging
 
 instance ToXMLRoot GetBucketLogging where
-    toXMLRoot = const (element "GetBucketLogging" [])
+    toXMLRoot = const (namespace ns "GetBucketLogging" [])
 
 instance ToXML GetBucketLogging
 

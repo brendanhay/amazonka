@@ -20,8 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a list of all notification types that are supported by Auto
--- Scaling.
+-- | Lists the notification types that are supported by Auto Scaling.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypes.html>
 module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
@@ -72,9 +71,9 @@ describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTy
     { _dasntrAutoScalingNotificationTypes = mempty
     }
 
--- | Returns a list of all notification types supported by Auto Scaling. They
--- are: autoscaling:EC2_INSTANCE_LAUNCH
--- autoscaling:EC2_INSTANCE_LAUNCH_ERROR autoscaling:EC2_INSTANCE_TERMINATE
+-- | One or more of the following notification types:
+-- autoscaling:EC2_INSTANCE_LAUNCH autoscaling:EC2_INSTANCE_LAUNCH_ERROR
+-- autoscaling:EC2_INSTANCE_TERMINATE
 -- autoscaling:EC2_INSTANCE_TERMINATE_ERROR autoscaling:TEST_NOTIFICATION.
 dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
 dasntrAutoScalingNotificationTypes =

@@ -122,7 +122,7 @@ instance ToQuery GetBucketWebsite where
 instance ToHeaders GetBucketWebsite
 
 instance ToXMLRoot GetBucketWebsite where
-    toXMLRoot = const (element "GetBucketWebsite" [])
+    toXMLRoot = const (namespace ns "GetBucketWebsite" [])
 
 instance ToXML GetBucketWebsite
 

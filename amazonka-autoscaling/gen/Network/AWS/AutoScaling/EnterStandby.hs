@@ -20,9 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Move instances in an Auto Scaling group into a Standby mode. To learn more
--- about how to put instances into a Standby mode, see Auto Scaling InService
--- State.
+-- | Moves the specified instances into Standby mode. For more information, see
+-- Auto Scaling InService State in the Auto Scaling Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnterStandby.html>
 module Network.AWS.AutoScaling.EnterStandby
@@ -74,14 +73,13 @@ enterStandby p1 p2 = EnterStandby
     , _esInstanceIds                    = mempty
     }
 
--- | The name of the Auto Scaling group from which to move instances into
--- Standby mode.
+-- | The name of the Auto Scaling group.
 esAutoScalingGroupName :: Lens' EnterStandby Text
 esAutoScalingGroupName =
     lens _esAutoScalingGroupName (\s a -> s { _esAutoScalingGroupName = a })
 
--- | The instances to move into Standby mode. You must specify at least one
--- instance ID.
+-- | One or more instances to move into Standby mode. You must specify at
+-- least one instance ID.
 esInstanceIds :: Lens' EnterStandby [Text]
 esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a }) . _List
 
@@ -115,8 +113,7 @@ enterStandbyResponse = EnterStandbyResponse
     { _esr1Activities = mempty
     }
 
--- | A list describing the activities related to moving instances into Standby
--- mode.
+-- | The activities related to moving instances into Standby mode.
 esr1Activities :: Lens' EnterStandbyResponse [Activity]
 esr1Activities = lens _esr1Activities (\s a -> s { _esr1Activities = a }) . _List
 

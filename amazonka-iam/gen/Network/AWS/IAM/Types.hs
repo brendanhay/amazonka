@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.IAM.Types
       IAM
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * AssignmentStatusType
     , AssignmentStatusType (..)
@@ -196,6 +198,9 @@ instance AWSService IAM where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "https://iam.amazonaws.com/doc/2010-05-08/"
 
 data AssignmentStatusType
     = Any        -- ^ Any

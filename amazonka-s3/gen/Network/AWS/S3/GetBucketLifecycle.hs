@@ -95,7 +95,7 @@ instance ToQuery GetBucketLifecycle where
 instance ToHeaders GetBucketLifecycle
 
 instance ToXMLRoot GetBucketLifecycle where
-    toXMLRoot = const (element "GetBucketLifecycle" [])
+    toXMLRoot = const (namespace ns "GetBucketLifecycle" [])
 
 instance ToXML GetBucketLifecycle
 

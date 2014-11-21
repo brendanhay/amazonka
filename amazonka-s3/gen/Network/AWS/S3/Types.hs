@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.S3.Types
       S3
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * Event
     , Event (..)
@@ -436,6 +438,9 @@ instance AWSService S3 where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://s3.amazonaws.com/doc/2006-03-01/"
 
 data Event
     = S3ObjectCreatedCompleteMultipartUpload -- ^ s3:ObjectCreated:CompleteMultipartUpload
@@ -1585,7 +1590,7 @@ instance FromXML Grant where
         <*> x .@? "Permission"
 
 instance ToXMLRoot Grant where
-    toXMLRoot Grant{..} = element "Grant"
+    toXMLRoot Grant{..} = namespace ns "Grant"
         [ "Grantee"    =@ _gGrantee
         , "Permission" =@ _gPermission
         ]
@@ -1828,7 +1833,7 @@ instance FromXML Owner where
         <*> x .@? "ID"
 
 instance ToXMLRoot Owner where
-    toXMLRoot Owner{..} = element "Owner"
+    toXMLRoot Owner{..} = namespace ns "Owner"
         [ "DisplayName" =@ _oDisplayName
         , "ID"          =@ _oID
         ]
@@ -2466,7 +2471,7 @@ instance FromXML CommonPrefix where
         <$> x .@? "Prefix"
 
 instance ToXMLRoot CommonPrefix where
-    toXMLRoot CommonPrefix{..} = element "CommonPrefix"
+    toXMLRoot CommonPrefix{..} = namespace ns "CommonPrefix"
         [ "Prefix" =@ _cpPrefix
         ]
 
@@ -2733,7 +2738,7 @@ instance FromXML AccessControlPolicy where
         <*> x .@? "Owner"
 
 instance ToXMLRoot AccessControlPolicy where
-    toXMLRoot AccessControlPolicy{..} = element "AccessControlPolicy"
+    toXMLRoot AccessControlPolicy{..} = namespace ns "AccessControlPolicy"
         [ "AccessControlList" =@ _acpGrants
         , "Owner"             =@ _acpOwner
         ]

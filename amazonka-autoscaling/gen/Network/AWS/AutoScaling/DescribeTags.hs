@@ -20,13 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Lists the Auto Scaling group tags. You can use filters to limit results
--- when describing tags. For example, you can query for tags of a particular
--- Auto Scaling group. You can specify multiple values for a filter. A tag
--- must match at least one of the specified values for it to be included in
--- the results. You can also specify multiple filters. The result includes
--- information for a particular tag only if it matches all your filters. If
--- there's no match, no special message is returned.
+-- | Describes the specified tags. You can use filters to limit the results. For
+-- example, you can query for the tags for a specific Auto Scaling group. You
+-- can specify multiple values for a filter. A tag must match at least one of
+-- the specified values for it to be included in the results. You can also
+-- specify multiple filters. The result includes information for a particular
+-- tag only if it matches all the filters. If there's no match, no special
+-- message is returned.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTags.html>
 module Network.AWS.AutoScaling.DescribeTags
@@ -84,11 +84,12 @@ describeTags = DescribeTags
 dtFilters :: Lens' DescribeTags [Filter]
 dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a }) . _List
 
--- | The maximum number of records to return.
+-- | The maximum number of items to return with this call.
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
 dtMaxRecords = lens _dtMaxRecords (\s a -> s { _dtMaxRecords = a })
 
--- | A string that marks the start of the next batch of returned results.
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.).
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
@@ -111,11 +112,12 @@ describeTagsResponse = DescribeTagsResponse
     , _dtrNextToken = Nothing
     }
 
--- | A string used to mark the start of the next batch of returned results.
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
 dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
--- | The list of tags.
+-- | The tags.
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a }) . _List
 

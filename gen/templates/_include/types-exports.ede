@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -21,6 +21,10 @@ module {{ namespace }}
       {{ service.abbrev }}
     -- ** Error
     , {{ service.error }}
+{% if service.xmlNamespace %}
+    -- ** XML
+    , ns
+{% endif %}
 
 {% for type in types %}
     -- * {{ type.value.name }}

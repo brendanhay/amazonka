@@ -20,9 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Sets the health status of a specified instance that belongs to any of your
--- Auto Scaling groups. For more information, see Configure Health Checks for
--- Your Auto Scaling group.
+-- | Sets the health status of the specified instance. For more information, see
+-- Health Checks in the Auto Scaling Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetInstanceHealth.html>
 module Network.AWS.AutoScaling.SetInstanceHealth
@@ -79,7 +78,7 @@ setInstanceHealth p1 p2 = SetInstanceHealth
 sihHealthStatus :: Lens' SetInstanceHealth Text
 sihHealthStatus = lens _sihHealthStatus (\s a -> s { _sihHealthStatus = a })
 
--- | The identifier of the Amazon EC2 instance.
+-- | The ID of the EC2 instance.
 sihInstanceId :: Lens' SetInstanceHealth Text
 sihInstanceId = lens _sihInstanceId (\s a -> s { _sihInstanceId = a })
 
@@ -87,8 +86,8 @@ sihInstanceId = lens _sihInstanceId (\s a -> s { _sihInstanceId = a })
 -- HealthCheckGracePeriod specified for the group, by default, this call
 -- will respect the grace period. Set this to False, if you do not want the
 -- call to respect the grace period associated with the group. For more
--- information, see the HealthCheckGracePeriod parameter description in the
--- CreateAutoScalingGroup action.
+-- information, see the HealthCheckGracePeriod parameter description for
+-- CreateAutoScalingGroup.
 sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
 sihShouldRespectGracePeriod =
     lens _sihShouldRespectGracePeriod

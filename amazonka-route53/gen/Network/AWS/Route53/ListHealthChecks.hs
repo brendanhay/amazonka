@@ -168,7 +168,7 @@ instance ToQuery ListHealthChecks where
 instance ToHeaders ListHealthChecks
 
 instance ToXMLRoot ListHealthChecks where
-    toXMLRoot = const (element "ListHealthChecks" [])
+    toXMLRoot = const (namespace ns "ListHealthChecks" [])
 
 instance ToXML ListHealthChecks
 

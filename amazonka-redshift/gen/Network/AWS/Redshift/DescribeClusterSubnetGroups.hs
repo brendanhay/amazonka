@@ -23,7 +23,13 @@
 -- | Returns one or more cluster subnet group objects, which contain metadata
 -- about your cluster subnet groups. By default, this operation returns
 -- information about all cluster subnet groups that are defined in you AWS
--- account.
+-- account. If you specify both tag keys and tag values in the same request,
+-- Amazon Redshift returns all subnet groups that match any combination of the
+-- specified keys and values. For example, if you have owner and environment
+-- for tag keys, and admin and test for tag values, all subnet groups that
+-- have any combination of those values are returned. If both tag keys and
+-- values are omitted from the request, subnet groups are returned regardless
+-- of whether they have tag keys or values associated with them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSubnetGroups.html>
 module Network.AWS.Redshift.DescribeClusterSubnetGroups
@@ -36,6 +42,8 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     , dcsg1ClusterSubnetGroupName
     , dcsg1Marker
     , dcsg1MaxRecords
+    , dcsg1TagKeys
+    , dcsg1TagValues
 
     -- * Response
     , DescribeClusterSubnetGroupsResponse
@@ -55,6 +63,8 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsg1ClusterSubnetGroupName :: Maybe Text
     , _dcsg1Marker                 :: Maybe Text
     , _dcsg1MaxRecords             :: Maybe Int
+    , _dcsg1TagKeys                :: List "TagKey" Text
+    , _dcsg1TagValues              :: List "TagValue" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterSubnetGroups' constructor.
@@ -67,11 +77,17 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
 --
 -- * 'dcsg1MaxRecords' @::@ 'Maybe' 'Int'
 --
+-- * 'dcsg1TagKeys' @::@ ['Text']
+--
+-- * 'dcsg1TagValues' @::@ ['Text']
+--
 describeClusterSubnetGroups :: DescribeClusterSubnetGroups
 describeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsg1ClusterSubnetGroupName = Nothing
     , _dcsg1MaxRecords             = Nothing
     , _dcsg1Marker                 = Nothing
+    , _dcsg1TagKeys                = mempty
+    , _dcsg1TagValues              = mempty
     }
 
 -- | The name of the cluster subnet group for which information is requested.
@@ -96,6 +112,24 @@ dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcsg1MaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
+
+-- | A tag key or keys for which you want to return all matching cluster
+-- subnet groups that are associated with the specified key or keys. For
+-- example, suppose that you have subnet groups that are tagged with keys
+-- called owner and environment. If you specify both of these tag keys in
+-- the request, Amazon Redshift returns a response with the subnet groups
+-- that have either or both of these tag keys associated with them.
+dcsg1TagKeys :: Lens' DescribeClusterSubnetGroups [Text]
+dcsg1TagKeys = lens _dcsg1TagKeys (\s a -> s { _dcsg1TagKeys = a }) . _List
+
+-- | A tag value or values for which you want to return all matching cluster
+-- subnet groups that are associated with the specified tag value or values.
+-- For example, suppose that you have subnet groups that are tagged with
+-- values called admin and test. If you specify both of these tag values in
+-- the request, Amazon Redshift returns a response with the subnet groups
+-- that have either or both of these tag values associated with them.
+dcsg1TagValues :: Lens' DescribeClusterSubnetGroups [Text]
+dcsg1TagValues = lens _dcsg1TagValues (\s a -> s { _dcsg1TagValues = a }) . _List
 
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     { _dcsgrClusterSubnetGroups :: List "ClusterSubnetGroup" ClusterSubnetGroup
@@ -140,6 +174,8 @@ instance ToQuery DescribeClusterSubnetGroups where
         [ "ClusterSubnetGroupName" =? _dcsg1ClusterSubnetGroupName
         , "Marker"                 =? _dcsg1Marker
         , "MaxRecords"             =? _dcsg1MaxRecords
+        , "TagKeys"                =? _dcsg1TagKeys
+        , "TagValues"              =? _dcsg1TagValues
         ]
 
 instance ToHeaders DescribeClusterSubnetGroups

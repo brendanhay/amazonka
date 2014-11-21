@@ -435,7 +435,7 @@ instance ToHeaders HeadObject where
         ]
 
 instance ToXMLRoot HeadObject where
-    toXMLRoot = const (element "HeadObject" [])
+    toXMLRoot = const (namespace ns "HeadObject" [])
 
 instance ToXML HeadObject
 

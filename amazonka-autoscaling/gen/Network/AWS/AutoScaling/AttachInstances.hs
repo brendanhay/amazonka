@@ -20,10 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Attaches one or more Amazon EC2 instances to an existing Auto Scaling
--- group. After the instance(s) is attached, it becomes a part of the Auto
--- Scaling group. For more information, see Attach Amazon EC2 Instances to
--- Your Existing Auto Scaling Group in the Auto Scaling Developer Guide.
+-- | Attaches one or more EC2 instances to the specified Auto Scaling group. For
+-- more information, see Attach Amazon EC2 Instances to Your Existing Auto
+-- Scaling Group in the Auto Scaling Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html>
 module Network.AWS.AutoScaling.AttachInstances
@@ -67,14 +66,12 @@ attachInstances p1 = AttachInstances
     , _aiInstanceIds          = mempty
     }
 
--- | The name of the Auto Scaling group to which to attach the specified
--- instance(s).
+-- | The name of the group.
 aiAutoScalingGroupName :: Lens' AttachInstances Text
 aiAutoScalingGroupName =
     lens _aiAutoScalingGroupName (\s a -> s { _aiAutoScalingGroupName = a })
 
--- | One or more IDs of the Amazon EC2 instances to attach to the specified
--- Auto Scaling group. You must specify at least one instance ID.
+-- | One or more EC2 instance IDs. You must specify at least one ID.
 aiInstanceIds :: Lens' AttachInstances [Text]
 aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a }) . _List
 

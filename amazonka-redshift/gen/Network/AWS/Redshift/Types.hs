@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.Redshift.Types
       Redshift
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * Snapshot
     , Snapshot
@@ -43,6 +45,7 @@ module Network.AWS.Redshift.Types
     , sEncrypted
     , sEncryptedWithHSM
     , sEstimatedSecondsToCompletion
+    , sKmsKeyId
     , sMasterUsername
     , sNodeType
     , sNumberOfNodes
@@ -53,6 +56,7 @@ module Network.AWS.Redshift.Types
     , sSnapshotType
     , sSourceRegion
     , sStatus
+    , sTags
     , sTotalBackupSizeInMegaBytes
     , sVpcId
 
@@ -62,6 +66,7 @@ module Network.AWS.Redshift.Types
     , cpgDescription
     , cpgParameterGroupFamily
     , cpgParameterGroupName
+    , cpgTags
 
     -- * RestoreStatus
     , RestoreStatus
@@ -90,11 +95,18 @@ module Network.AWS.Redshift.Types
     , cscsDestinationRegion
     , cscsRetentionPeriod
 
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
     -- * HsmClientCertificate
     , HsmClientCertificate
     , hsmClientCertificate
     , hccHsmClientCertificateIdentifier
     , hccHsmClientCertificatePublicKey
+    , hccTags
 
     -- * Cluster
     , Cluster
@@ -118,6 +130,7 @@ module Network.AWS.Redshift.Types
     , cEncrypted
     , cEndpoint
     , cHsmStatus
+    , cKmsKeyId
     , cMasterUsername
     , cModifyStatus
     , cNodeType
@@ -126,6 +139,7 @@ module Network.AWS.Redshift.Types
     , cPreferredMaintenanceWindow
     , cPubliclyAccessible
     , cRestoreStatus
+    , cTags
     , cVpcId
     , cVpcSecurityGroups
 
@@ -142,6 +156,7 @@ module Network.AWS.Redshift.Types
     , ecsgEC2SecurityGroupName
     , ecsgEC2SecurityGroupOwnerId
     , ecsgStatus
+    , ecsgTags
 
     -- * OrderableClusterOption
     , OrderableClusterOption
@@ -174,6 +189,7 @@ module Network.AWS.Redshift.Types
     , csgDescription
     , csgEC2SecurityGroups
     , csgIPRanges
+    , csgTags
 
     -- * DefaultClusterParameters
     , DefaultClusterParameters
@@ -189,6 +205,7 @@ module Network.AWS.Redshift.Types
     , csg1Description
     , csg1SubnetGroupStatus
     , csg1Subnets
+    , csg1Tags
     , csg1VpcId
 
     -- * EventInfoMap
@@ -266,6 +283,7 @@ module Network.AWS.Redshift.Types
     , esSourceType
     , esStatus
     , esSubscriptionCreationTime
+    , esTags
 
     -- * HsmStatus
     , HsmStatus
@@ -310,6 +328,14 @@ module Network.AWS.Redshift.Types
     , iprange
     , iprCIDRIP
     , iprStatus
+    , iprTags
+
+    -- * TaggedResource
+    , TaggedResource
+    , taggedResource
+    , trResourceName
+    , trResourceType
+    , trTag
 
     -- * EventCategoriesMap
     , EventCategoriesMap
@@ -324,6 +350,7 @@ module Network.AWS.Redshift.Types
     , hcHsmConfigurationIdentifier
     , hcHsmIpAddress
     , hcHsmPartitionName
+    , hcTags
 
     -- * PendingModifiedValues
     , PendingModifiedValues
@@ -378,6 +405,9 @@ instance AWSService Redshift where
 
     handle = restError alwaysFail
 
+ns :: Text
+ns = "http://redshift.amazonaws.com/doc/2012-12-01/"
+
 data Snapshot = Snapshot
     { _sAccountsWithRestoreAccess              :: List "AccountWithRestoreAccess" AccountWithRestoreAccess
     , _sActualIncrementalBackupSizeInMegaBytes :: Maybe Double
@@ -392,6 +422,7 @@ data Snapshot = Snapshot
     , _sEncrypted                              :: Maybe Bool
     , _sEncryptedWithHSM                       :: Maybe Bool
     , _sEstimatedSecondsToCompletion           :: Maybe Integer
+    , _sKmsKeyId                               :: Maybe Text
     , _sMasterUsername                         :: Maybe Text
     , _sNodeType                               :: Maybe Text
     , _sNumberOfNodes                          :: Maybe Int
@@ -402,6 +433,7 @@ data Snapshot = Snapshot
     , _sSnapshotType                           :: Maybe Text
     , _sSourceRegion                           :: Maybe Text
     , _sStatus                                 :: Maybe Text
+    , _sTags                                   :: List "Tag" Tag
     , _sTotalBackupSizeInMegaBytes             :: Maybe Double
     , _sVpcId                                  :: Maybe Text
     } deriving (Eq, Show)
@@ -436,6 +468,8 @@ data Snapshot = Snapshot
 --
 -- * 'sEstimatedSecondsToCompletion' @::@ 'Maybe' 'Integer'
 --
+-- * 'sKmsKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'sMasterUsername' @::@ 'Maybe' 'Text'
 --
 -- * 'sNodeType' @::@ 'Maybe' 'Text'
@@ -455,6 +489,8 @@ data Snapshot = Snapshot
 -- * 'sSourceRegion' @::@ 'Maybe' 'Text'
 --
 -- * 'sStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'sTags' @::@ ['Tag']
 --
 -- * 'sTotalBackupSizeInMegaBytes' @::@ 'Maybe' 'Double'
 --
@@ -477,6 +513,7 @@ snapshot = Snapshot
     , _sDBName                                 = Nothing
     , _sVpcId                                  = Nothing
     , _sEncrypted                              = Nothing
+    , _sKmsKeyId                               = Nothing
     , _sEncryptedWithHSM                       = Nothing
     , _sAccountsWithRestoreAccess              = mempty
     , _sOwnerAccount                           = Nothing
@@ -487,6 +524,7 @@ snapshot = Snapshot
     , _sEstimatedSecondsToCompletion           = Nothing
     , _sElapsedTimeInSeconds                   = Nothing
     , _sSourceRegion                           = Nothing
+    , _sTags                                   = mempty
     }
 
 -- | A list of the AWS customer accounts authorized to restore the snapshot.
@@ -567,6 +605,12 @@ sEstimatedSecondsToCompletion =
     lens _sEstimatedSecondsToCompletion
         (\s a -> s { _sEstimatedSecondsToCompletion = a })
 
+-- | The AWS Key Management Service (KMS) key ID of the encryption key that
+-- was used to encrypt data in the cluster from which the snapshot was
+-- taken.
+sKmsKeyId :: Lens' Snapshot (Maybe Text)
+sKmsKeyId = lens _sKmsKeyId (\s a -> s { _sKmsKeyId = a })
+
 -- | The master user name for the cluster.
 sMasterUsername :: Lens' Snapshot (Maybe Text)
 sMasterUsername = lens _sMasterUsername (\s a -> s { _sMasterUsername = a })
@@ -618,6 +662,10 @@ sSourceRegion = lens _sSourceRegion (\s a -> s { _sSourceRegion = a })
 sStatus :: Lens' Snapshot (Maybe Text)
 sStatus = lens _sStatus (\s a -> s { _sStatus = a })
 
+-- | The list of tags for the cluster snapshot.
+sTags :: Lens' Snapshot [Tag]
+sTags = lens _sTags (\s a -> s { _sTags = a }) . _List
+
 -- | The size of the complete set of backup data that would be used to restore
 -- the cluster.
 sTotalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
@@ -645,6 +693,7 @@ instance FromXML Snapshot where
         <*> x .@? "Encrypted"
         <*> x .@? "EncryptedWithHSM"
         <*> x .@? "EstimatedSecondsToCompletion"
+        <*> x .@? "KmsKeyId"
         <*> x .@? "MasterUsername"
         <*> x .@? "NodeType"
         <*> x .@? "NumberOfNodes"
@@ -655,6 +704,7 @@ instance FromXML Snapshot where
         <*> x .@? "SnapshotType"
         <*> x .@? "SourceRegion"
         <*> x .@? "Status"
+        <*> x .@  "Tags"
         <*> x .@? "TotalBackupSizeInMegaBytes"
         <*> x .@? "VpcId"
 
@@ -673,6 +723,7 @@ instance ToQuery Snapshot where
         , "Encrypted"                              =? _sEncrypted
         , "EncryptedWithHSM"                       =? _sEncryptedWithHSM
         , "EstimatedSecondsToCompletion"           =? _sEstimatedSecondsToCompletion
+        , "KmsKeyId"                               =? _sKmsKeyId
         , "MasterUsername"                         =? _sMasterUsername
         , "NodeType"                               =? _sNodeType
         , "NumberOfNodes"                          =? _sNumberOfNodes
@@ -683,6 +734,7 @@ instance ToQuery Snapshot where
         , "SnapshotType"                           =? _sSnapshotType
         , "SourceRegion"                           =? _sSourceRegion
         , "Status"                                 =? _sStatus
+        , "Tags"                                   =? _sTags
         , "TotalBackupSizeInMegaBytes"             =? _sTotalBackupSizeInMegaBytes
         , "VpcId"                                  =? _sVpcId
         ]
@@ -691,7 +743,8 @@ data ClusterParameterGroup = ClusterParameterGroup
     { _cpgDescription          :: Maybe Text
     , _cpgParameterGroupFamily :: Maybe Text
     , _cpgParameterGroupName   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _cpgTags                 :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'ClusterParameterGroup' constructor.
 --
@@ -703,11 +756,14 @@ data ClusterParameterGroup = ClusterParameterGroup
 --
 -- * 'cpgParameterGroupName' @::@ 'Maybe' 'Text'
 --
+-- * 'cpgTags' @::@ ['Tag']
+--
 clusterParameterGroup :: ClusterParameterGroup
 clusterParameterGroup = ClusterParameterGroup
     { _cpgParameterGroupName   = Nothing
     , _cpgParameterGroupFamily = Nothing
     , _cpgDescription          = Nothing
+    , _cpgTags                 = mempty
     }
 
 -- | The description of the parameter group.
@@ -725,17 +781,23 @@ cpgParameterGroupName :: Lens' ClusterParameterGroup (Maybe Text)
 cpgParameterGroupName =
     lens _cpgParameterGroupName (\s a -> s { _cpgParameterGroupName = a })
 
+-- | The list of tags for the cluster parameter group.
+cpgTags :: Lens' ClusterParameterGroup [Tag]
+cpgTags = lens _cpgTags (\s a -> s { _cpgTags = a }) . _List
+
 instance FromXML ClusterParameterGroup where
     parseXML x = ClusterParameterGroup
         <$> x .@? "Description"
         <*> x .@? "ParameterGroupFamily"
         <*> x .@? "ParameterGroupName"
+        <*> x .@  "Tags"
 
 instance ToQuery ClusterParameterGroup where
     toQuery ClusterParameterGroup{..} = mconcat
         [ "Description"          =? _cpgDescription
         , "ParameterGroupFamily" =? _cpgParameterGroupFamily
         , "ParameterGroupName"   =? _cpgParameterGroupName
+        , "Tags"                 =? _cpgTags
         ]
 
 data RestoreStatus = RestoreStatus
@@ -959,10 +1021,49 @@ instance ToQuery ClusterSnapshotCopyStatus where
         , "RetentionPeriod"   =? _cscsRetentionPeriod
         ]
 
+data Tag = Tag
+    { _tagKey   :: Maybe Text
+    , _tagValue :: Maybe Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'Tag' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tagKey' @::@ 'Maybe' 'Text'
+--
+-- * 'tagValue' @::@ 'Maybe' 'Text'
+--
+tag :: Tag
+tag = Tag
+    { _tagKey   = Nothing
+    , _tagValue = Nothing
+    }
+
+-- | The key, or name, for the resource tag.
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
+
+-- | The value for the resource tag.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
+
+instance FromXML Tag where
+    parseXML x = Tag
+        <$> x .@? "Key"
+        <*> x .@? "Value"
+
+instance ToQuery Tag where
+    toQuery Tag{..} = mconcat
+        [ "Key"   =? _tagKey
+        , "Value" =? _tagValue
+        ]
+
 data HsmClientCertificate = HsmClientCertificate
     { _hccHsmClientCertificateIdentifier :: Maybe Text
     , _hccHsmClientCertificatePublicKey  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _hccTags                           :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'HsmClientCertificate' constructor.
 --
@@ -972,10 +1073,13 @@ data HsmClientCertificate = HsmClientCertificate
 --
 -- * 'hccHsmClientCertificatePublicKey' @::@ 'Maybe' 'Text'
 --
+-- * 'hccTags' @::@ ['Tag']
+--
 hsmClientCertificate :: HsmClientCertificate
 hsmClientCertificate = HsmClientCertificate
     { _hccHsmClientCertificateIdentifier = Nothing
     , _hccHsmClientCertificatePublicKey  = Nothing
+    , _hccTags                           = mempty
     }
 
 -- | The identifier of the HSM client certificate.
@@ -991,15 +1095,21 @@ hccHsmClientCertificatePublicKey =
     lens _hccHsmClientCertificatePublicKey
         (\s a -> s { _hccHsmClientCertificatePublicKey = a })
 
+-- | The list of tags for the HSM client certificate.
+hccTags :: Lens' HsmClientCertificate [Tag]
+hccTags = lens _hccTags (\s a -> s { _hccTags = a }) . _List
+
 instance FromXML HsmClientCertificate where
     parseXML x = HsmClientCertificate
         <$> x .@? "HsmClientCertificateIdentifier"
         <*> x .@? "HsmClientCertificatePublicKey"
+        <*> x .@  "Tags"
 
 instance ToQuery HsmClientCertificate where
     toQuery HsmClientCertificate{..} = mconcat
         [ "HsmClientCertificateIdentifier" =? _hccHsmClientCertificateIdentifier
         , "HsmClientCertificatePublicKey"  =? _hccHsmClientCertificatePublicKey
+        , "Tags"                           =? _hccTags
         ]
 
 data Cluster = Cluster
@@ -1022,6 +1132,7 @@ data Cluster = Cluster
     , _cEncrypted                        :: Maybe Bool
     , _cEndpoint                         :: Maybe Endpoint
     , _cHsmStatus                        :: Maybe HsmStatus
+    , _cKmsKeyId                         :: Maybe Text
     , _cMasterUsername                   :: Maybe Text
     , _cModifyStatus                     :: Maybe Text
     , _cNodeType                         :: Maybe Text
@@ -1030,6 +1141,7 @@ data Cluster = Cluster
     , _cPreferredMaintenanceWindow       :: Maybe Text
     , _cPubliclyAccessible               :: Maybe Bool
     , _cRestoreStatus                    :: Maybe RestoreStatus
+    , _cTags                             :: List "Tag" Tag
     , _cVpcId                            :: Maybe Text
     , _cVpcSecurityGroups                :: List "VpcSecurityGroup" VpcSecurityGroupMembership
     } deriving (Eq, Show)
@@ -1076,6 +1188,8 @@ data Cluster = Cluster
 --
 -- * 'cHsmStatus' @::@ 'Maybe' 'HsmStatus'
 --
+-- * 'cKmsKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'cMasterUsername' @::@ 'Maybe' 'Text'
 --
 -- * 'cModifyStatus' @::@ 'Maybe' 'Text'
@@ -1091,6 +1205,8 @@ data Cluster = Cluster
 -- * 'cPubliclyAccessible' @::@ 'Maybe' 'Bool'
 --
 -- * 'cRestoreStatus' @::@ 'Maybe' 'RestoreStatus'
+--
+-- * 'cTags' @::@ ['Tag']
 --
 -- * 'cVpcId' @::@ 'Maybe' 'Text'
 --
@@ -1127,6 +1243,8 @@ cluster = Cluster
     , _cClusterNodes                     = mempty
     , _cElasticIpStatus                  = Nothing
     , _cClusterRevisionNumber            = Nothing
+    , _cTags                             = mempty
+    , _cKmsKeyId                         = Nothing
     }
 
 -- | If true, major version upgrades will be applied automatically to the
@@ -1237,6 +1355,11 @@ cEndpoint = lens _cEndpoint (\s a -> s { _cEndpoint = a })
 cHsmStatus :: Lens' Cluster (Maybe HsmStatus)
 cHsmStatus = lens _cHsmStatus (\s a -> s { _cHsmStatus = a })
 
+-- | The AWS Key Management Service (KMS) key ID of the encryption key used to
+-- encrypt data in the cluster.
+cKmsKeyId :: Lens' Cluster (Maybe Text)
+cKmsKeyId = lens _cKmsKeyId (\s a -> s { _cKmsKeyId = a })
+
 -- | The master user name for the cluster. This name is used to connect to the
 -- database that is specified in DBName.
 cMasterUsername :: Lens' Cluster (Maybe Text)
@@ -1276,6 +1399,10 @@ cPubliclyAccessible =
 cRestoreStatus :: Lens' Cluster (Maybe RestoreStatus)
 cRestoreStatus = lens _cRestoreStatus (\s a -> s { _cRestoreStatus = a })
 
+-- | The list of tags for the cluster.
+cTags :: Lens' Cluster [Tag]
+cTags = lens _cTags (\s a -> s { _cTags = a }) . _List
+
 -- | The identifier of the VPC the cluster is in, if the cluster is in a VPC.
 cVpcId :: Lens' Cluster (Maybe Text)
 cVpcId = lens _cVpcId (\s a -> s { _cVpcId = a })
@@ -1309,6 +1436,7 @@ instance FromXML Cluster where
         <*> x .@? "Encrypted"
         <*> x .@? "Endpoint"
         <*> x .@? "HsmStatus"
+        <*> x .@? "KmsKeyId"
         <*> x .@? "MasterUsername"
         <*> x .@? "ModifyStatus"
         <*> x .@? "NodeType"
@@ -1317,6 +1445,7 @@ instance FromXML Cluster where
         <*> x .@? "PreferredMaintenanceWindow"
         <*> x .@? "PubliclyAccessible"
         <*> x .@? "RestoreStatus"
+        <*> x .@  "Tags"
         <*> x .@? "VpcId"
         <*> x .@  "VpcSecurityGroups"
 
@@ -1341,6 +1470,7 @@ instance ToQuery Cluster where
         , "Encrypted"                        =? _cEncrypted
         , "Endpoint"                         =? _cEndpoint
         , "HsmStatus"                        =? _cHsmStatus
+        , "KmsKeyId"                         =? _cKmsKeyId
         , "MasterUsername"                   =? _cMasterUsername
         , "ModifyStatus"                     =? _cModifyStatus
         , "NodeType"                         =? _cNodeType
@@ -1349,6 +1479,7 @@ instance ToQuery Cluster where
         , "PreferredMaintenanceWindow"       =? _cPreferredMaintenanceWindow
         , "PubliclyAccessible"               =? _cPubliclyAccessible
         , "RestoreStatus"                    =? _cRestoreStatus
+        , "Tags"                             =? _cTags
         , "VpcId"                            =? _cVpcId
         , "VpcSecurityGroups"                =? _cVpcSecurityGroups
         ]
@@ -1407,7 +1538,8 @@ data EC2SecurityGroup = EC2SecurityGroup
     { _ecsgEC2SecurityGroupName    :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
     , _ecsgStatus                  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _ecsgTags                    :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'EC2SecurityGroup' constructor.
 --
@@ -1419,11 +1551,14 @@ data EC2SecurityGroup = EC2SecurityGroup
 --
 -- * 'ecsgStatus' @::@ 'Maybe' 'Text'
 --
+-- * 'ecsgTags' @::@ ['Tag']
+--
 ec2SecurityGroup :: EC2SecurityGroup
 ec2SecurityGroup = EC2SecurityGroup
     { _ecsgStatus                  = Nothing
     , _ecsgEC2SecurityGroupName    = Nothing
     , _ecsgEC2SecurityGroupOwnerId = Nothing
+    , _ecsgTags                    = mempty
     }
 
 -- | The name of the EC2 Security Group.
@@ -1443,17 +1578,23 @@ ecsgEC2SecurityGroupOwnerId =
 ecsgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
+-- | The list of tags for the EC2 security group.
+ecsgTags :: Lens' EC2SecurityGroup [Tag]
+ecsgTags = lens _ecsgTags (\s a -> s { _ecsgTags = a }) . _List
+
 instance FromXML EC2SecurityGroup where
     parseXML x = EC2SecurityGroup
         <$> x .@? "EC2SecurityGroupName"
         <*> x .@? "EC2SecurityGroupOwnerId"
         <*> x .@? "Status"
+        <*> x .@  "Tags"
 
 instance ToQuery EC2SecurityGroup where
     toQuery EC2SecurityGroup{..} = mconcat
         [ "EC2SecurityGroupName"    =? _ecsgEC2SecurityGroupName
         , "EC2SecurityGroupOwnerId" =? _ecsgEC2SecurityGroupOwnerId
         , "Status"                  =? _ecsgStatus
+        , "Tags"                    =? _ecsgTags
         ]
 
 data OrderableClusterOption = OrderableClusterOption
@@ -1640,6 +1781,7 @@ data ClusterSecurityGroup = ClusterSecurityGroup
     , _csgDescription              :: Maybe Text
     , _csgEC2SecurityGroups        :: List "EC2SecurityGroup" EC2SecurityGroup
     , _csgIPRanges                 :: List "IPRange" IPRange
+    , _csgTags                     :: List "Tag" Tag
     } deriving (Eq, Show)
 
 -- | 'ClusterSecurityGroup' constructor.
@@ -1654,12 +1796,15 @@ data ClusterSecurityGroup = ClusterSecurityGroup
 --
 -- * 'csgIPRanges' @::@ ['IPRange']
 --
+-- * 'csgTags' @::@ ['Tag']
+--
 clusterSecurityGroup :: ClusterSecurityGroup
 clusterSecurityGroup = ClusterSecurityGroup
     { _csgClusterSecurityGroupName = Nothing
     , _csgDescription              = Nothing
     , _csgEC2SecurityGroups        = mempty
     , _csgIPRanges                 = mempty
+    , _csgTags                     = mempty
     }
 
 -- | The name of the cluster security group to which the operation was
@@ -1685,12 +1830,17 @@ csgEC2SecurityGroups =
 csgIPRanges :: Lens' ClusterSecurityGroup [IPRange]
 csgIPRanges = lens _csgIPRanges (\s a -> s { _csgIPRanges = a }) . _List
 
+-- | The list of tags for the cluster security group.
+csgTags :: Lens' ClusterSecurityGroup [Tag]
+csgTags = lens _csgTags (\s a -> s { _csgTags = a }) . _List
+
 instance FromXML ClusterSecurityGroup where
     parseXML x = ClusterSecurityGroup
         <$> x .@? "ClusterSecurityGroupName"
         <*> x .@? "Description"
         <*> x .@  "EC2SecurityGroups"
         <*> x .@  "IPRanges"
+        <*> x .@  "Tags"
 
 instance ToQuery ClusterSecurityGroup where
     toQuery ClusterSecurityGroup{..} = mconcat
@@ -1698,6 +1848,7 @@ instance ToQuery ClusterSecurityGroup where
         , "Description"              =? _csgDescription
         , "EC2SecurityGroups"        =? _csgEC2SecurityGroups
         , "IPRanges"                 =? _csgIPRanges
+        , "Tags"                     =? _csgTags
         ]
 
 data DefaultClusterParameters = DefaultClusterParameters
@@ -1760,6 +1911,7 @@ data ClusterSubnetGroup = ClusterSubnetGroup
     , _csg1Description            :: Maybe Text
     , _csg1SubnetGroupStatus      :: Maybe Text
     , _csg1Subnets                :: List "Subnet" Subnet
+    , _csg1Tags                   :: List "Tag" Tag
     , _csg1VpcId                  :: Maybe Text
     } deriving (Eq, Show)
 
@@ -1775,6 +1927,8 @@ data ClusterSubnetGroup = ClusterSubnetGroup
 --
 -- * 'csg1Subnets' @::@ ['Subnet']
 --
+-- * 'csg1Tags' @::@ ['Tag']
+--
 -- * 'csg1VpcId' @::@ 'Maybe' 'Text'
 --
 clusterSubnetGroup :: ClusterSubnetGroup
@@ -1784,6 +1938,7 @@ clusterSubnetGroup = ClusterSubnetGroup
     , _csg1VpcId                  = Nothing
     , _csg1SubnetGroupStatus      = Nothing
     , _csg1Subnets                = mempty
+    , _csg1Tags                   = mempty
     }
 
 -- | The name of the cluster subnet group.
@@ -1806,6 +1961,10 @@ csg1SubnetGroupStatus =
 csg1Subnets :: Lens' ClusterSubnetGroup [Subnet]
 csg1Subnets = lens _csg1Subnets (\s a -> s { _csg1Subnets = a }) . _List
 
+-- | The list of tags for the cluster subnet group.
+csg1Tags :: Lens' ClusterSubnetGroup [Tag]
+csg1Tags = lens _csg1Tags (\s a -> s { _csg1Tags = a }) . _List
+
 -- | The VPC ID of the cluster subnet group.
 csg1VpcId :: Lens' ClusterSubnetGroup (Maybe Text)
 csg1VpcId = lens _csg1VpcId (\s a -> s { _csg1VpcId = a })
@@ -1816,6 +1975,7 @@ instance FromXML ClusterSubnetGroup where
         <*> x .@? "Description"
         <*> x .@? "SubnetGroupStatus"
         <*> x .@  "Subnets"
+        <*> x .@  "Tags"
         <*> x .@? "VpcId"
 
 instance ToQuery ClusterSubnetGroup where
@@ -1824,6 +1984,7 @@ instance ToQuery ClusterSubnetGroup where
         , "Description"            =? _csg1Description
         , "SubnetGroupStatus"      =? _csg1SubnetGroupStatus
         , "Subnets"                =? _csg1Subnets
+        , "Tags"                   =? _csg1Tags
         , "VpcId"                  =? _csg1VpcId
         ]
 
@@ -2140,7 +2301,7 @@ rnReservedNodeOfferingId =
 rnStartTime :: Lens' ReservedNode (Maybe UTCTime)
 rnStartTime = lens _rnStartTime (\s a -> s { _rnStartTime = a }) . mapping _Time
 
--- | The state of the reserved Compute Node. Possible Values:
+-- | The state of the reserved compute node. Possible Values:
 -- pending-payment-This reserved node has recently been purchased, and the
 -- sale has been approved, but payment has not yet been confirmed.
 -- active-This reserved node is owned by the caller and is available for
@@ -2335,7 +2496,8 @@ data EventSubscription = EventSubscription
     , _esSourceType               :: Maybe Text
     , _esStatus                   :: Maybe Text
     , _esSubscriptionCreationTime :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    , _esTags                     :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'EventSubscription' constructor.
 --
@@ -2361,6 +2523,8 @@ data EventSubscription = EventSubscription
 --
 -- * 'esSubscriptionCreationTime' @::@ 'Maybe' 'UTCTime'
 --
+-- * 'esTags' @::@ ['Tag']
+--
 eventSubscription :: EventSubscription
 eventSubscription = EventSubscription
     { _esCustomerAwsId            = Nothing
@@ -2373,6 +2537,7 @@ eventSubscription = EventSubscription
     , _esEventCategoriesList      = mempty
     , _esSeverity                 = Nothing
     , _esEnabled                  = Nothing
+    , _esTags                     = mempty
     }
 
 -- | The name of the Amazon Redshift event notification subscription.
@@ -2435,6 +2600,10 @@ esSubscriptionCreationTime =
         (\s a -> s { _esSubscriptionCreationTime = a })
             . mapping _Time
 
+-- | The list of tags for the event subscription.
+esTags :: Lens' EventSubscription [Tag]
+esTags = lens _esTags (\s a -> s { _esTags = a }) . _List
+
 instance FromXML EventSubscription where
     parseXML x = EventSubscription
         <$> x .@? "CustSubscriptionId"
@@ -2447,6 +2616,7 @@ instance FromXML EventSubscription where
         <*> x .@? "SourceType"
         <*> x .@? "Status"
         <*> x .@? "SubscriptionCreationTime"
+        <*> x .@  "Tags"
 
 instance ToQuery EventSubscription where
     toQuery EventSubscription{..} = mconcat
@@ -2460,6 +2630,7 @@ instance ToQuery EventSubscription where
         , "SourceType"               =? _esSourceType
         , "Status"                   =? _esStatus
         , "SubscriptionCreationTime" =? _esSubscriptionCreationTime
+        , "Tags"                     =? _esTags
         ]
 
 data HsmStatus = HsmStatus
@@ -2732,7 +2903,8 @@ instance ToQuery Endpoint where
 data IPRange = IPRange
     { _iprCIDRIP :: Maybe Text
     , _iprStatus :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _iprTags   :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'IPRange' constructor.
 --
@@ -2742,10 +2914,13 @@ data IPRange = IPRange
 --
 -- * 'iprStatus' @::@ 'Maybe' 'Text'
 --
+-- * 'iprTags' @::@ ['Tag']
+--
 iprange :: IPRange
 iprange = IPRange
     { _iprStatus = Nothing
     , _iprCIDRIP = Nothing
+    , _iprTags   = mempty
     }
 
 -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
@@ -2756,15 +2931,75 @@ iprCIDRIP = lens _iprCIDRIP (\s a -> s { _iprCIDRIP = a })
 iprStatus :: Lens' IPRange (Maybe Text)
 iprStatus = lens _iprStatus (\s a -> s { _iprStatus = a })
 
+-- | The list of tags for the IP range.
+iprTags :: Lens' IPRange [Tag]
+iprTags = lens _iprTags (\s a -> s { _iprTags = a }) . _List
+
 instance FromXML IPRange where
     parseXML x = IPRange
         <$> x .@? "CIDRIP"
         <*> x .@? "Status"
+        <*> x .@  "Tags"
 
 instance ToQuery IPRange where
     toQuery IPRange{..} = mconcat
         [ "CIDRIP" =? _iprCIDRIP
         , "Status" =? _iprStatus
+        , "Tags"   =? _iprTags
+        ]
+
+data TaggedResource = TaggedResource
+    { _trResourceName :: Maybe Text
+    , _trResourceType :: Maybe Text
+    , _trTag          :: Maybe Tag
+    } deriving (Eq, Show)
+
+-- | 'TaggedResource' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'trResourceName' @::@ 'Maybe' 'Text'
+--
+-- * 'trResourceType' @::@ 'Maybe' 'Text'
+--
+-- * 'trTag' @::@ 'Maybe' 'Tag'
+--
+taggedResource :: TaggedResource
+taggedResource = TaggedResource
+    { _trTag          = Nothing
+    , _trResourceName = Nothing
+    , _trResourceType = Nothing
+    }
+
+-- | The Amazon Resource Name (ARN) with which the tag is associated. For
+-- example, arn:aws:redshift:us-east-1:123456789:cluster:t1.
+trResourceName :: Lens' TaggedResource (Maybe Text)
+trResourceName = lens _trResourceName (\s a -> s { _trResourceName = a })
+
+-- | The type of resource with which the tag is associated. Valid resource
+-- types are: Cluster CIDR/IP EC2 security group Snapshot Cluster security
+-- group Subnet group HSM connection HSM certificate Parameter group For
+-- more information about Amazon Redshift resource types and constructing
+-- ARNs, go to Constructing an Amazon Redshift Amazon Resource Name (ARN) in
+-- the Amazon Redshift Cluster Management Guide.
+trResourceType :: Lens' TaggedResource (Maybe Text)
+trResourceType = lens _trResourceType (\s a -> s { _trResourceType = a })
+
+-- | The tag for the resource.
+trTag :: Lens' TaggedResource (Maybe Tag)
+trTag = lens _trTag (\s a -> s { _trTag = a })
+
+instance FromXML TaggedResource where
+    parseXML x = TaggedResource
+        <$> x .@? "ResourceName"
+        <*> x .@? "ResourceType"
+        <*> x .@? "Tag"
+
+instance ToQuery TaggedResource where
+    toQuery TaggedResource{..} = mconcat
+        [ "ResourceName" =? _trResourceName
+        , "ResourceType" =? _trResourceType
+        , "Tag"          =? _trTag
         ]
 
 data EventCategoriesMap = EventCategoriesMap
@@ -2811,7 +3046,8 @@ data HsmConfiguration = HsmConfiguration
     , _hcHsmConfigurationIdentifier :: Maybe Text
     , _hcHsmIpAddress               :: Maybe Text
     , _hcHsmPartitionName           :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _hcTags                       :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'HsmConfiguration' constructor.
 --
@@ -2825,12 +3061,15 @@ data HsmConfiguration = HsmConfiguration
 --
 -- * 'hcHsmPartitionName' @::@ 'Maybe' 'Text'
 --
+-- * 'hcTags' @::@ ['Tag']
+--
 hsmConfiguration :: HsmConfiguration
 hsmConfiguration = HsmConfiguration
     { _hcHsmConfigurationIdentifier = Nothing
     , _hcDescription                = Nothing
     , _hcHsmIpAddress               = Nothing
     , _hcHsmPartitionName           = Nothing
+    , _hcTags                       = mempty
     }
 
 -- | A text description of the HSM configuration.
@@ -2854,12 +3093,17 @@ hcHsmPartitionName :: Lens' HsmConfiguration (Maybe Text)
 hcHsmPartitionName =
     lens _hcHsmPartitionName (\s a -> s { _hcHsmPartitionName = a })
 
+-- | The list of tags for the HSM configuration.
+hcTags :: Lens' HsmConfiguration [Tag]
+hcTags = lens _hcTags (\s a -> s { _hcTags = a }) . _List
+
 instance FromXML HsmConfiguration where
     parseXML x = HsmConfiguration
         <$> x .@? "Description"
         <*> x .@? "HsmConfigurationIdentifier"
         <*> x .@? "HsmIpAddress"
         <*> x .@? "HsmPartitionName"
+        <*> x .@  "Tags"
 
 instance ToQuery HsmConfiguration where
     toQuery HsmConfiguration{..} = mconcat
@@ -2867,6 +3111,7 @@ instance ToQuery HsmConfiguration where
         , "HsmConfigurationIdentifier" =? _hcHsmConfigurationIdentifier
         , "HsmIpAddress"               =? _hcHsmIpAddress
         , "HsmPartitionName"           =? _hcHsmPartitionName
+        , "Tags"                       =? _hcTags
         ]
 
 data PendingModifiedValues = PendingModifiedValues

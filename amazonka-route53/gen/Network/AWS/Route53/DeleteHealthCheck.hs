@@ -90,7 +90,7 @@ instance ToQuery DeleteHealthCheck where
 instance ToHeaders DeleteHealthCheck
 
 instance ToXMLRoot DeleteHealthCheck where
-    toXMLRoot = const (element "DeleteHealthCheck" [])
+    toXMLRoot = const (namespace ns "DeleteHealthCheck" [])
 
 instance ToXML DeleteHealthCheck
 

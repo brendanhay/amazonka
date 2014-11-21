@@ -23,9 +23,9 @@
 -- | Configures an Auto Scaling group to send notifications when specified
 -- events take place. Subscribers to this topic can have messages for events
 -- delivered to an endpoint such as a web server or email address. For more
--- information see Get Email Notifications When Your Auto Scaling Group
--- Changes A new PutNotificationConfiguration overwrites an existing
--- configuration.
+-- information see Getting Notifications When Your Auto Scaling Group Changes
+-- in the Auto Scaling Developer Guide. This configuration overwrites an
+-- existing configuration.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutNotificationConfiguration.html>
 module Network.AWS.AutoScaling.PutNotificationConfiguration

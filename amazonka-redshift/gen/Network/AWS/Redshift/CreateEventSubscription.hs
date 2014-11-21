@@ -56,6 +56,7 @@ module Network.AWS.Redshift.CreateEventSubscription
     , cesSourceIds
     , cesSourceType
     , cesSubscriptionName
+    , cesTags
 
     -- * Response
     , CreateEventSubscriptionResponse
@@ -78,7 +79,8 @@ data CreateEventSubscription = CreateEventSubscription
     , _cesSourceIds        :: List "SourceId" Text
     , _cesSourceType       :: Maybe Text
     , _cesSubscriptionName :: Text
-    } deriving (Eq, Ord, Show)
+    , _cesTags             :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateEventSubscription' constructor.
 --
@@ -98,6 +100,8 @@ data CreateEventSubscription = CreateEventSubscription
 --
 -- * 'cesSubscriptionName' @::@ 'Text'
 --
+-- * 'cesTags' @::@ ['Tag']
+--
 createEventSubscription :: Text -- ^ 'cesSubscriptionName'
                         -> Text -- ^ 'cesSnsTopicArn'
                         -> CreateEventSubscription
@@ -109,6 +113,7 @@ createEventSubscription p1 p2 = CreateEventSubscription
     , _cesEventCategories  = mempty
     , _cesSeverity         = Nothing
     , _cesEnabled          = Nothing
+    , _cesTags             = mempty
     }
 
 -- | A Boolean value; set to true to activate the subscription, set to false
@@ -162,6 +167,10 @@ cesSubscriptionName :: Lens' CreateEventSubscription Text
 cesSubscriptionName =
     lens _cesSubscriptionName (\s a -> s { _cesSubscriptionName = a })
 
+-- | A list of tag instances.
+cesTags :: Lens' CreateEventSubscription [Tag]
+cesTags = lens _cesTags (\s a -> s { _cesTags = a }) . _List
+
 newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription :: Maybe EventSubscription
     } deriving (Eq, Show)
@@ -193,6 +202,7 @@ instance ToQuery CreateEventSubscription where
         , "SourceIds"        =? _cesSourceIds
         , "SourceType"       =? _cesSourceType
         , "SubscriptionName" =? _cesSubscriptionName
+        , "Tags"             =? _cesTags
         ]
 
 instance ToHeaders CreateEventSubscription

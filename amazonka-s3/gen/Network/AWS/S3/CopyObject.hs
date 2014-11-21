@@ -500,7 +500,7 @@ instance ToHeaders CopyObject where
         ]
 
 instance ToXMLRoot CopyObject where
-    toXMLRoot = const (element "CopyObject" [])
+    toXMLRoot = const (namespace ns "CopyObject" [])
 
 instance ToXML CopyObject
 

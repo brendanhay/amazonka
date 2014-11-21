@@ -20,14 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Suspends Auto Scaling processes for an Auto Scaling group. To suspend
--- specific process types, specify them by name with the
--- ScalingProcesses.member.N parameter. To suspend all process types, omit the
--- ScalingProcesses.member.N parameter. Suspending either of the two primary
--- process types, Launch or Terminate, can prevent other process types from
--- functioning properly. To resume processes that have been suspended, use
--- ResumeProcesses For more information on suspending and resuming Auto
--- Scaling process, see Suspend and Resume Auto Scaling Process.
+-- | Suspends the specified Auto Scaling processes for the specified Auto
+-- Scaling group. To suspend specific processes, use the ScalingProcesses
+-- parameter. To suspend all processes, omit the ScalingProcesses parameter.
+-- Note that if you suspend either the Launch or Terminate process types, it
+-- can prevent other process types from functioning properly. To resume
+-- processes that have been suspended, use ResumeProcesses. For more
+-- information, see Suspend and Resume Auto Scaling Processes in the Auto
+-- Scaling Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SuspendProcesses.html>
 module Network.AWS.AutoScaling.SuspendProcesses
@@ -76,10 +76,9 @@ spAutoScalingGroupName :: Lens' SuspendProcesses Text
 spAutoScalingGroupName =
     lens _spAutoScalingGroupName (\s a -> s { _spAutoScalingGroupName = a })
 
--- | The processes that you want to suspend or resume, which can include one
--- or more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
--- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To
--- suspend all process types, omit this parameter.
+-- | One or more of the following processes: Launch Terminate HealthCheck
+-- ReplaceUnhealthy AZRebalance AlarmNotification ScheduledActions
+-- AddToLoadBalancer.
 spScalingProcesses :: Lens' SuspendProcesses [Text]
 spScalingProcesses =
     lens _spScalingProcesses (\s a -> s { _spScalingProcesses = a })

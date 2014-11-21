@@ -95,7 +95,7 @@ instance ToQuery GetBucketCors where
 instance ToHeaders GetBucketCors
 
 instance ToXMLRoot GetBucketCors where
-    toXMLRoot = const (element "GetBucketCors" [])
+    toXMLRoot = const (namespace ns "GetBucketCors" [])
 
 instance ToXML GetBucketCors
 

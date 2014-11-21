@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.ElastiCache.Types
       ElastiCache
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * NodeSnapshot
     , NodeSnapshot
@@ -345,6 +347,9 @@ instance AWSService ElastiCache where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://elasticache.amazonaws.com/doc/2014-09-30/"
 
 data NodeSnapshot = NodeSnapshot
     { _nsCacheNodeCreateTime :: Maybe RFC822

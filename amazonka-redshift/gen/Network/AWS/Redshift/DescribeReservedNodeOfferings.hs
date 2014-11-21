@@ -27,7 +27,8 @@
 -- to purchase. You then use the unique offering ID in you call to
 -- PurchaseReservedNodeOffering to reserve one or more nodes for your Amazon
 -- Redshift cluster. For more information about managing parameter groups, go
--- to Purchasing Reserved Nodes in the Amazon Redshift Management Guide.
+-- to Purchasing Reserved Nodes in the Amazon Redshift Cluster Management
+-- Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html>
 module Network.AWS.Redshift.DescribeReservedNodeOfferings

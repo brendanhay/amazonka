@@ -25,14 +25,15 @@
 -- DescribeClusters to monitor the status of the deletion. The delete
 -- operation cannot be canceled or reverted once submitted. For more
 -- information about managing clusters, go to Amazon Redshift Clusters in the
--- Amazon Redshift Management Guide . If you want to shut down the cluster and
--- retain it for future use, set SkipFinalClusterSnapshot to false and specify
--- a name for FinalClusterSnapshotIdentifier. You can later restore this
--- snapshot to resume using the cluster. If a final cluster snapshot is
--- requested, the status of the cluster will be "final-snapshot" while the
--- snapshot is being taken, then it's "deleting" once Amazon Redshift begins
--- deleting the cluster. For more information about managing clusters, go to
--- Amazon Redshift Clusters in the Amazon Redshift Management Guide .
+-- Amazon Redshift Cluster Management Guide . If you want to shut down the
+-- cluster and retain it for future use, set SkipFinalClusterSnapshot to false
+-- and specify a name for FinalClusterSnapshotIdentifier. You can later
+-- restore this snapshot to resume using the cluster. If a final cluster
+-- snapshot is requested, the status of the cluster will be "final-snapshot"
+-- while the snapshot is being taken, then it's "deleting" once Amazon
+-- Redshift begins deleting the cluster. For more information about managing
+-- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Cluster
+-- Management Guide .
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html>
 module Network.AWS.Redshift.DeleteCluster
@@ -104,7 +105,8 @@ dc1FinalClusterSnapshotIdentifier =
 -- | Determines whether a final snapshot of the cluster is created before
 -- Amazon Redshift deletes the cluster. If true, a final cluster snapshot is
 -- not created. If false, a final cluster snapshot is created before the
--- cluster is deleted. Default: false.
+-- cluster is deleted. The FinalClusterSnapshotIdentifier parameter must be
+-- specified if SkipFinalClusterSnapshot is false. Default: false.
 dc1SkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 dc1SkipFinalClusterSnapshot =
     lens _dc1SkipFinalClusterSnapshot

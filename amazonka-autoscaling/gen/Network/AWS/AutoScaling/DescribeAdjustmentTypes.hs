@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns policy adjustment types for use in the PutScalingPolicy action.
+-- | Lists the policy adjustment types for use with PutScalingPolicy.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAdjustmentTypes.html>
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
@@ -71,7 +71,7 @@ describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes = mempty
     }
 
--- | A list of specific policy adjustment types.
+-- | The policy adjustment types.
 datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrAdjustmentTypes =
     lens _datrAdjustmentTypes (\s a -> s { _datrAdjustmentTypes = a })

@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of metrics and a corresponding list of granularities for
--- each metric.
+-- each metric. The GroupStandbyInstances metric is not returned by default.
+-- You must explicitly request it when calling EnableMetricsCollection.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html>
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
@@ -71,16 +72,17 @@ describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
     , _dmctrGranularities = mempty
     }
 
--- | A list of granularities for the listed Metrics.
+-- | The granularities for the listed metrics.
 dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
 dmctrGranularities =
     lens _dmctrGranularities (\s a -> s { _dmctrGranularities = a })
         . _List
 
--- | The list of Metrics collected. The following metrics are supported:
--- GroupMinSize GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
--- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
--- GroupTotalInstances.
+-- | One or more of the following metrics: GroupMinSize GroupMaxSize
+-- GroupDesiredCapacity GroupInServiceInstances GroupPendingInstances
+-- GroupStandbyInstances GroupTerminatingInstances GroupTotalInstances The
+-- GroupStandbyInstances metric is not returned by default. You must
+-- explicitly request it when calling EnableMetricsCollection.
 dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
 dmctrMetrics = lens _dmctrMetrics (\s a -> s { _dmctrMetrics = a }) . _List
 

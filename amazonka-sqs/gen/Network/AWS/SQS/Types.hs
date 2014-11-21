@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.SQS.Types
       SQS
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * QueueAttributeName
     , QueueAttributeName (..)
@@ -120,6 +122,9 @@ instance AWSService SQS where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://queue.amazonaws.com/doc/2012-11-05/"
 
 data QueueAttributeName
     = ApproximateNumberOfMessages           -- ^ ApproximateNumberOfMessages

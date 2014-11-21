@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Lists all the actions scheduled for your Auto Scaling group that haven't
--- been executed. To see a list of actions already executed, see the activity
--- record returned in DescribeScalingActivities.
+-- | Lists the actions scheduled for your Auto Scaling group that haven't been
+-- executed. To list the actions that were already executed, use
+-- DescribeScalingActivities.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html>
 module Network.AWS.AutoScaling.DescribeScheduledActions
@@ -88,30 +88,32 @@ describeScheduledActions = DescribeScheduledActions
     , _dsa1MaxRecords           = Nothing
     }
 
--- | The name of the Auto Scaling group.
+-- | The name of the group.
 dsa1AutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
 dsa1AutoScalingGroupName =
     lens _dsa1AutoScalingGroupName
         (\s a -> s { _dsa1AutoScalingGroupName = a })
 
 -- | The latest scheduled start time to return. If scheduled action names are
--- provided, this field is ignored.
+-- provided, this parameter is ignored.
 dsa1EndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsa1EndTime = lens _dsa1EndTime (\s a -> s { _dsa1EndTime = a }) . mapping _Time
 
--- | The maximum number of scheduled actions to return.
+-- | The maximum number of items to return with this call.
 dsa1MaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
 dsa1MaxRecords = lens _dsa1MaxRecords (\s a -> s { _dsa1MaxRecords = a })
 
--- | A string that marks the start of the next batch of returned results.
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.).
 dsa1NextToken :: Lens' DescribeScheduledActions (Maybe Text)
 dsa1NextToken = lens _dsa1NextToken (\s a -> s { _dsa1NextToken = a })
 
--- | A list of scheduled actions to be described. If this list is omitted, all
--- scheduled actions are described. The list of requested scheduled actions
--- cannot contain more than 50 items. If an auto scaling group name is
--- provided, the results are limited to that group. If unknown scheduled
--- actions are requested, they are ignored with no error.
+-- | Describes one or more scheduled actions. If you omit this list, the call
+-- describes all scheduled actions. If you specify an unknown scheduled
+-- action it is ignored with no error. You can describe up to a maximum of
+-- 50 instances with a single call. If there are more items to return, the
+-- call returns a token. To get the next set of items, repeat the call with
+-- the returned token in the NextToken parameter.
 dsa1ScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 dsa1ScheduledActionNames =
     lens _dsa1ScheduledActionNames
@@ -119,7 +121,7 @@ dsa1ScheduledActionNames =
             . _List
 
 -- | The earliest scheduled start time to return. If scheduled action names
--- are provided, this field will be ignored.
+-- are provided, this parameter is ignored.
 dsa1StartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsa1StartTime = lens _dsa1StartTime (\s a -> s { _dsa1StartTime = a }) . mapping _Time
 
@@ -142,11 +144,12 @@ describeScheduledActionsResponse = DescribeScheduledActionsResponse
     , _dsarNextToken                   = Nothing
     }
 
--- | A string that marks the start of the next batch of returned results.
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
 dsarNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarNextToken = lens _dsarNextToken (\s a -> s { _dsarNextToken = a })
 
--- | A list of scheduled actions designed to update an Auto Scaling group.
+-- | The scheduled actions.
 dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
 dsarScheduledUpdateGroupActions =
     lens _dsarScheduledUpdateGroupActions

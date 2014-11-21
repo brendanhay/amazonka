@@ -22,7 +22,14 @@
 
 -- | Returns information about the specified HSM client certificate. If no
 -- certificate ID is specified, returns information about all the HSM
--- certificates owned by your AWS customer account.
+-- certificates owned by your AWS customer account. If you specify both tag
+-- keys and tag values in the same request, Amazon Redshift returns all HSM
+-- client certificates that match any combination of the specified keys and
+-- values. For example, if you have owner and environment for tag keys, and
+-- admin and test for tag values, all HSM client certificates that have any
+-- combination of those values are returned. If both tag keys and values are
+-- omitted from the request, HSM client certificates are returned regardless
+-- of whether they have tag keys or values associated with them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmClientCertificates.html>
 module Network.AWS.Redshift.DescribeHsmClientCertificates
@@ -35,6 +42,8 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
     , dhccHsmClientCertificateIdentifier
     , dhccMarker
     , dhccMaxRecords
+    , dhccTagKeys
+    , dhccTagValues
 
     -- * Response
     , DescribeHsmClientCertificatesResponse
@@ -54,6 +63,8 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates
     { _dhccHsmClientCertificateIdentifier :: Maybe Text
     , _dhccMarker                         :: Maybe Text
     , _dhccMaxRecords                     :: Maybe Int
+    , _dhccTagKeys                        :: List "TagKey" Text
+    , _dhccTagValues                      :: List "TagValue" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeHsmClientCertificates' constructor.
@@ -66,11 +77,17 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates
 --
 -- * 'dhccMaxRecords' @::@ 'Maybe' 'Int'
 --
+-- * 'dhccTagKeys' @::@ ['Text']
+--
+-- * 'dhccTagValues' @::@ ['Text']
+--
 describeHsmClientCertificates :: DescribeHsmClientCertificates
 describeHsmClientCertificates = DescribeHsmClientCertificates
     { _dhccHsmClientCertificateIdentifier = Nothing
     , _dhccMaxRecords                     = Nothing
     , _dhccMarker                         = Nothing
+    , _dhccTagKeys                        = mempty
+    , _dhccTagValues                      = mempty
     }
 
 -- | The identifier of a specific HSM client certificate for which you want
@@ -97,6 +114,26 @@ dhccMarker = lens _dhccMarker (\s a -> s { _dhccMarker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dhccMaxRecords :: Lens' DescribeHsmClientCertificates (Maybe Int)
 dhccMaxRecords = lens _dhccMaxRecords (\s a -> s { _dhccMaxRecords = a })
+
+-- | A tag key or keys for which you want to return all matching HSM client
+-- certificates that are associated with the specified key or keys. For
+-- example, suppose that you have HSM client certificates that are tagged
+-- with keys called owner and environment. If you specify both of these tag
+-- keys in the request, Amazon Redshift returns a response with the HSM
+-- client certificates that have either or both of these tag keys associated
+-- with them.
+dhccTagKeys :: Lens' DescribeHsmClientCertificates [Text]
+dhccTagKeys = lens _dhccTagKeys (\s a -> s { _dhccTagKeys = a }) . _List
+
+-- | A tag value or values for which you want to return all matching HSM
+-- client certificates that are associated with the specified tag value or
+-- values. For example, suppose that you have HSM client certificates that
+-- are tagged with values called admin and test. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the HSM client certificates that have either or both of these tag values
+-- associated with them.
+dhccTagValues :: Lens' DescribeHsmClientCertificates [Text]
+dhccTagValues = lens _dhccTagValues (\s a -> s { _dhccTagValues = a }) . _List
 
 data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
     { _dhccrHsmClientCertificates :: List "HsmClientCertificate" HsmClientCertificate
@@ -143,6 +180,8 @@ instance ToQuery DescribeHsmClientCertificates where
         [ "HsmClientCertificateIdentifier" =? _dhccHsmClientCertificateIdentifier
         , "Marker"                         =? _dhccMarker
         , "MaxRecords"                     =? _dhccMaxRecords
+        , "TagKeys"                        =? _dhccTagKeys
+        , "TagValues"                      =? _dhccTagValues
         ]
 
 instance ToHeaders DescribeHsmClientCertificates

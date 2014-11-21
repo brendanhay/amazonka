@@ -86,7 +86,7 @@ instance ToQuery ListBuckets where
 instance ToHeaders ListBuckets
 
 instance ToXMLRoot ListBuckets where
-    toXMLRoot = const (element "ListBuckets" [])
+    toXMLRoot = const (namespace ns "ListBuckets" [])
 
 instance ToXML ListBuckets
 

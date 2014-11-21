@@ -20,19 +20,20 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates or updates a lifecycle hook for an Auto Scaling Group. A lifecycle
--- hook tells Auto Scaling that you want to perform an action on an instance
--- that is not actively in service; for example, either when the instance
--- launches or before the instance terminates. This operation is a part of the
--- basic sequence for adding a lifecycle hook to an Auto Scaling group: Create
--- a notification target. A target can be either an Amazon SQS queue or an
--- Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to
--- publish lifecycle notifications to the designated SQS queue or SNS topic.
--- Create the lifecycle hook. You can create a hook that acts when instances
--- launch or when instances terminate. If necessary, record the lifecycle
--- action heartbeat to keep the instance in a pending state. Complete the
--- lifecycle action. To learn more, see Auto Scaling Pending State and Auto
--- Scaling Terminating State.
+-- | Creates or updates a lifecycle hook for the specified Auto Scaling Group. A
+-- lifecycle hook tells Auto Scaling that you want to perform an action on an
+-- instance that is not actively in service; for example, either when the
+-- instance launches or before the instance terminates. This operation is a
+-- part of the basic sequence for adding a lifecycle hook to an Auto Scaling
+-- group: Create a notification target. A target can be either an Amazon SQS
+-- queue or an Amazon SNS topic. Create an IAM role. This role allows Auto
+-- Scaling to publish lifecycle notifications to the designated SQS queue or
+-- SNS topic. Create the lifecycle hook. You can create a hook that acts when
+-- instances launch or when instances terminate. If necessary, record the
+-- lifecycle action heartbeat to keep the instance in a pending state.
+-- Complete the lifecycle action. For more information, see Auto Scaling
+-- Pending State and Auto Scaling Terminating State in the Auto Scaling
+-- Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutLifecycleHook.html>
 module Network.AWS.AutoScaling.PutLifecycleHook
@@ -137,7 +138,8 @@ plhLifecycleHookName =
 
 -- | The Amazon EC2 instance state to which you want to attach the lifecycle
 -- hook. See DescribeLifecycleHookTypes for a list of available lifecycle
--- hook types.
+-- hook types. This parameter is required for new lifecycle hooks, but
+-- optional when updating existing hooks.
 plhLifecycleTransition :: Lens' PutLifecycleHook (Maybe Text)
 plhLifecycleTransition =
     lens _plhLifecycleTransition (\s a -> s { _plhLifecycleTransition = a })
@@ -150,8 +152,9 @@ plhNotificationMetadata =
 
 -- | The ARN of the notification target that Auto Scaling will use to notify
 -- you when an instance is in the transition state for the lifecycle hook.
--- This ARN target can be either an SQS queue or an SNS topic. The
--- notification message sent to the target will include:
+-- This ARN target can be either an SQS queue or an SNS topic. This
+-- parameter is required for new lifecycle hooks, but optional when updating
+-- existing hooks. The notification message sent to the target will include:
 -- LifecycleActionToken. The Lifecycle action token. AccountId. The user
 -- account ID. AutoScalingGroupName. The name of the Auto Scaling group.
 -- LifecycleHookName. The lifecycle hook name. EC2InstanceId. The EC2
@@ -167,8 +170,9 @@ plhNotificationTargetARN =
     lens _plhNotificationTargetARN
         (\s a -> s { _plhNotificationTargetARN = a })
 
--- | The ARN of the Amazon IAM role that allows the Auto Scaling group to
--- publish to the specified notification target.
+-- | The ARN of the IAM role that allows the Auto Scaling group to publish to
+-- the specified notification target. This parameter is required for new
+-- lifecycle hooks, but optional when updating existing hooks.
 plhRoleARN :: Lens' PutLifecycleHook (Maybe Text)
 plhRoleARN = lens _plhRoleARN (\s a -> s { _plhRoleARN = a })
 

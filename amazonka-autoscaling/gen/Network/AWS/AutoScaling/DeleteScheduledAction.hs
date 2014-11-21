@@ -20,8 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a scheduled action previously created using the
--- PutScheduledUpdateGroupAction.
+-- | Deletes the specified scheduled action.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html>
 module Network.AWS.AutoScaling.DeleteScheduledAction
@@ -70,7 +69,7 @@ dsaAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
 dsaAutoScalingGroupName =
     lens _dsaAutoScalingGroupName (\s a -> s { _dsaAutoScalingGroupName = a })
 
--- | The name of the action you want to delete.
+-- | The name of the action to delete.
 dsaScheduledActionName :: Lens' DeleteScheduledAction Text
 dsaScheduledActionName =
     lens _dsaScheduledActionName (\s a -> s { _dsaScheduledActionName = a })

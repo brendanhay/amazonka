@@ -103,7 +103,7 @@ instance ToHeaders PutBucketNotification where
         ]
 
 instance ToXMLRoot PutBucketNotification where
-    toXMLRoot PutBucketNotification{..} = element "PutBucketNotification"
+    toXMLRoot PutBucketNotification{..} = namespace ns "PutBucketNotification"
         [ "NotificationConfiguration" =@ _pbnNotificationConfiguration
         ]
 

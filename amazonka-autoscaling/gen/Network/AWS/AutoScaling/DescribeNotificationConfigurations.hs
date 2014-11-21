@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a list of notification actions associated with Auto Scaling groups
--- for specified events.
+-- | Describes the notification actions associated with the specified Auto
+-- Scaling group.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html>
 module Network.AWS.AutoScaling.DescribeNotificationConfigurations
@@ -72,19 +72,19 @@ describeNotificationConfigurations = DescribeNotificationConfigurations
     , _dncMaxRecords            = Nothing
     }
 
--- | The name of the Auto Scaling group.
+-- | The name of the group.
 dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
 dncAutoScalingGroupNames =
     lens _dncAutoScalingGroupNames
         (\s a -> s { _dncAutoScalingGroupNames = a })
             . _List
 
--- | Maximum number of records to be returned.
+-- | The maximum number of items to return with this call.
 dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
 dncMaxRecords = lens _dncMaxRecords (\s a -> s { _dncMaxRecords = a })
 
--- | A string that is used to mark the start of the next batch of returned
--- results for pagination.
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.).
 dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
 dncNextToken = lens _dncNextToken (\s a -> s { _dncNextToken = a })
 
@@ -107,12 +107,12 @@ describeNotificationConfigurationsResponse = DescribeNotificationConfigurationsR
     , _dncrNextToken                  = Nothing
     }
 
--- | A string that is used to mark the start of the next batch of returned
--- results for pagination.
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
 dncrNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrNextToken = lens _dncrNextToken (\s a -> s { _dncrNextToken = a })
 
--- | The list of notification configurations.
+-- | The notification configurations.
 dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
 dncrNotificationConfigurations =
     lens _dncrNotificationConfigurations

@@ -22,7 +22,8 @@
 
 -- | Creates a manual snapshot of the specified cluster. The cluster must be in
 -- the available state. For more information about working with snapshots, go
--- to Amazon Redshift Snapshots in the Amazon Redshift Management Guide.
+-- to Amazon Redshift Snapshots in the Amazon Redshift Cluster Management
+-- Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html>
 module Network.AWS.Redshift.CreateClusterSnapshot
@@ -34,6 +35,7 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- ** Request lenses
     , ccsClusterIdentifier
     , ccsSnapshotIdentifier
+    , ccsTags
 
     -- * Response
     , CreateClusterSnapshotResponse
@@ -51,7 +53,8 @@ import qualified GHC.Exts
 data CreateClusterSnapshot = CreateClusterSnapshot
     { _ccsClusterIdentifier  :: Text
     , _ccsSnapshotIdentifier :: Text
-    } deriving (Eq, Ord, Show)
+    , _ccsTags               :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateClusterSnapshot' constructor.
 --
@@ -61,12 +64,15 @@ data CreateClusterSnapshot = CreateClusterSnapshot
 --
 -- * 'ccsSnapshotIdentifier' @::@ 'Text'
 --
+-- * 'ccsTags' @::@ ['Tag']
+--
 createClusterSnapshot :: Text -- ^ 'ccsSnapshotIdentifier'
                       -> Text -- ^ 'ccsClusterIdentifier'
                       -> CreateClusterSnapshot
 createClusterSnapshot p1 p2 = CreateClusterSnapshot
     { _ccsSnapshotIdentifier = p1
     , _ccsClusterIdentifier  = p2
+    , _ccsTags               = mempty
     }
 
 -- | The cluster identifier for which you want a snapshot.
@@ -83,6 +89,10 @@ ccsClusterIdentifier =
 ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
 ccsSnapshotIdentifier =
     lens _ccsSnapshotIdentifier (\s a -> s { _ccsSnapshotIdentifier = a })
+
+-- | A list of tag instances.
+ccsTags :: Lens' CreateClusterSnapshot [Tag]
+ccsTags = lens _ccsTags (\s a -> s { _ccsTags = a }) . _List
 
 newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsr1Snapshot :: Maybe Snapshot
@@ -109,6 +119,7 @@ instance ToQuery CreateClusterSnapshot where
     toQuery CreateClusterSnapshot{..} = mconcat
         [ "ClusterIdentifier"  =? _ccsClusterIdentifier
         , "SnapshotIdentifier" =? _ccsSnapshotIdentifier
+        , "Tags"               =? _ccsTags
         ]
 
 instance ToHeaders CreateClusterSnapshot

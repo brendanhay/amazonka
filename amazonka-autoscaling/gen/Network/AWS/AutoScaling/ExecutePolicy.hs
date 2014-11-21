@@ -69,7 +69,7 @@ executePolicy p1 = ExecutePolicy
     , _epHonorCooldown        = Nothing
     }
 
--- | The name or the Amazon Resource Name (ARN) of the Auto Scaling group.
+-- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 epAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
 epAutoScalingGroupName =
     lens _epAutoScalingGroupName (\s a -> s { _epAutoScalingGroupName = a })
@@ -78,12 +78,12 @@ epAutoScalingGroupName =
 -- associated with the Auto Scaling group to complete before executing the
 -- policy. Set to False if you want Auto Scaling to circumvent the cooldown
 -- period associated with the Auto Scaling group and execute the policy
--- before the cooldown period ends. For information about cooldown period,
--- see Cooldown Period in the Auto Scaling Developer Guide.
+-- before the cooldown period ends. For more information, see Understanding
+-- Auto Scaling Cooldowns in the Auto Scaling Developer Guide.
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
 epHonorCooldown = lens _epHonorCooldown (\s a -> s { _epHonorCooldown = a })
 
--- | The name or ARN of the policy you want to run.
+-- | The name or ARN of the policy.
 epPolicyName :: Lens' ExecutePolicy Text
 epPolicyName = lens _epPolicyName (\s a -> s { _epPolicyName = a })
 

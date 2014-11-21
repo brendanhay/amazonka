@@ -107,7 +107,7 @@ instance ToQuery GetBucketVersioning where
 instance ToHeaders GetBucketVersioning
 
 instance ToXMLRoot GetBucketVersioning where
-    toXMLRoot = const (element "GetBucketVersioning" [])
+    toXMLRoot = const (namespace ns "GetBucketVersioning" [])
 
 instance ToXML GetBucketVersioning
 

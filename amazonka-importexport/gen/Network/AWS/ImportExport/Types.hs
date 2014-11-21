@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.ImportExport.Types
       ImportExport
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * JobType
     , JobType (..)
@@ -61,6 +63,9 @@ instance AWSService ImportExport where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://importexport.amazonaws.com/doc/2010-06-01/"
 
 data JobType
     = Export' -- ^ Export

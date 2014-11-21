@@ -126,7 +126,7 @@ instance ToQuery GetObjectAcl where
 instance ToHeaders GetObjectAcl
 
 instance ToXMLRoot GetObjectAcl where
-    toXMLRoot = const (element "GetObjectAcl" [])
+    toXMLRoot = const (namespace ns "GetObjectAcl" [])
 
 instance ToXML GetObjectAcl
 

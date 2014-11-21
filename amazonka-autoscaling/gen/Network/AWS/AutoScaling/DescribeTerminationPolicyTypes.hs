@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a list of all termination policies supported by Auto Scaling.
+-- | Lists the termination policies supported by Auto Scaling.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypes.html>
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
@@ -71,9 +71,9 @@ describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { _dtptrTerminationPolicyTypes = mempty
     }
 
--- | Termination policies supported by Auto Scaling. They are: OldestInstance,
--- OldestLaunchConfiguration, NewestInstance, ClosestToNextInstanceHour,
--- Default.
+-- | The Termination policies supported by Auto Scaling. They are:
+-- OldestInstance, OldestLaunchConfiguration, NewestInstance,
+-- ClosestToNextInstanceHour, and Default.
 dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrTerminationPolicyTypes =
     lens _dtptrTerminationPolicyTypes

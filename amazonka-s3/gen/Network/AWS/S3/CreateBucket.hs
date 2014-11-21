@@ -168,7 +168,7 @@ instance ToHeaders CreateBucket where
         ]
 
 instance ToXMLRoot CreateBucket where
-    toXMLRoot CreateBucket{..} = element "CreateBucket"
+    toXMLRoot CreateBucket{..} = namespace ns "CreateBucket"
         [ "CreateBucketConfiguration" =@ _cbCreateBucketConfiguration
         ]
 

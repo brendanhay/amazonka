@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Sets the desired size of the specified AutoScalingGroup.
+-- | Sets the size of the specified AutoScalingGroup.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetDesiredCapacity.html>
 module Network.AWS.AutoScaling.SetDesiredCapacity
@@ -75,16 +75,17 @@ sdcAutoScalingGroupName :: Lens' SetDesiredCapacity Text
 sdcAutoScalingGroupName =
     lens _sdcAutoScalingGroupName (\s a -> s { _sdcAutoScalingGroupName = a })
 
--- | The new capacity setting for the Auto Scaling group.
+-- | The number of EC2 instances that should be running in the Auto Scaling
+-- group.
 sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
 sdcDesiredCapacity =
     lens _sdcDesiredCapacity (\s a -> s { _sdcDesiredCapacity = a })
 
 -- | By default, SetDesiredCapacity overrides any cooldown period associated
--- with the Auto Scaling group. Set to True if you want Auto Scaling to wait
--- for the cooldown period associated with the Auto Scaling group to
+-- with the Auto Scaling group. Specify True to make Auto Scaling to wait
+-- for the cool-down period associated with the Auto Scaling group to
 -- complete before initiating a scaling activity to set your Auto Scaling
--- group to the new capacity setting.
+-- group to its new capacity.
 sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
 sdcHonorCooldown = lens _sdcHonorCooldown (\s a -> s { _sdcHonorCooldown = a })
 

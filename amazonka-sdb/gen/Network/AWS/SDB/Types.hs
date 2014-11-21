@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.SDB.Types
       SDB
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * Attribute
     , Attribute
@@ -91,6 +93,9 @@ instance AWSService SDB where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://sdb.amazonaws.com/doc/2009-04-15/"
 
 data Attribute = Attribute
     { _aAlternateNameEncoding  :: Maybe Text

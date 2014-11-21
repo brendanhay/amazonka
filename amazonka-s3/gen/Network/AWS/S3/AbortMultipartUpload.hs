@@ -103,7 +103,7 @@ instance ToQuery AbortMultipartUpload where
 instance ToHeaders AbortMultipartUpload
 
 instance ToXMLRoot AbortMultipartUpload where
-    toXMLRoot = const (element "AbortMultipartUpload" [])
+    toXMLRoot = const (namespace ns "AbortMultipartUpload" [])
 
 instance ToXML AbortMultipartUpload
 

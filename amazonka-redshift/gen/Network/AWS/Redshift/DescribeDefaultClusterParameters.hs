@@ -22,7 +22,7 @@
 
 -- | Returns a list of parameter settings for the specified parameter group
 -- family. For more information about managing parameter groups, go to Amazon
--- Redshift Parameter Groups in the Amazon Redshift Management Guide.
+-- Redshift Parameter Groups in the Amazon Redshift Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDefaultClusterParameters.html>
 module Network.AWS.Redshift.DescribeDefaultClusterParameters

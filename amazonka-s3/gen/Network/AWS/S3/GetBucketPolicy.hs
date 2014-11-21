@@ -95,7 +95,7 @@ instance ToQuery GetBucketPolicy where
 instance ToHeaders GetBucketPolicy
 
 instance ToXMLRoot GetBucketPolicy where
-    toXMLRoot = const (element "GetBucketPolicy" [])
+    toXMLRoot = const (namespace ns "GetBucketPolicy" [])
 
 instance ToXML GetBucketPolicy
 

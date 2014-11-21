@@ -103,7 +103,7 @@ instance ToQuery GetBucketAcl where
 instance ToHeaders GetBucketAcl
 
 instance ToXMLRoot GetBucketAcl where
-    toXMLRoot = const (element "GetBucketAcl" [])
+    toXMLRoot = const (namespace ns "GetBucketAcl" [])
 
 instance ToXML GetBucketAcl
 

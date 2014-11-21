@@ -27,7 +27,7 @@
 -- must create an Amazon Redshift HSM configuration that provides a cluster
 -- the information needed to store and use encryption keys in the HSM. For
 -- more information, go to Hardware Security Modules in the Amazon Redshift
--- Management Guide.
+-- Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmClientCertificate.html>
 module Network.AWS.Redshift.CreateHsmClientCertificate
@@ -38,6 +38,7 @@ module Network.AWS.Redshift.CreateHsmClientCertificate
     , createHsmClientCertificate
     -- ** Request lenses
     , chccHsmClientCertificateIdentifier
+    , chccTags
 
     -- * Response
     , CreateHsmClientCertificateResponse
@@ -52,9 +53,10 @@ import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 import qualified GHC.Exts
 
-newtype CreateHsmClientCertificate = CreateHsmClientCertificate
+data CreateHsmClientCertificate = CreateHsmClientCertificate
     { _chccHsmClientCertificateIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    , _chccTags                           :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateHsmClientCertificate' constructor.
 --
@@ -62,10 +64,13 @@ newtype CreateHsmClientCertificate = CreateHsmClientCertificate
 --
 -- * 'chccHsmClientCertificateIdentifier' @::@ 'Text'
 --
+-- * 'chccTags' @::@ ['Tag']
+--
 createHsmClientCertificate :: Text -- ^ 'chccHsmClientCertificateIdentifier'
                            -> CreateHsmClientCertificate
 createHsmClientCertificate p1 = CreateHsmClientCertificate
     { _chccHsmClientCertificateIdentifier = p1
+    , _chccTags                           = mempty
     }
 
 -- | The identifier to be assigned to the new HSM client certificate that the
@@ -75,6 +80,10 @@ chccHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificate Text
 chccHsmClientCertificateIdentifier =
     lens _chccHsmClientCertificateIdentifier
         (\s a -> s { _chccHsmClientCertificateIdentifier = a })
+
+-- | A list of tag instances.
+chccTags :: Lens' CreateHsmClientCertificate [Tag]
+chccTags = lens _chccTags (\s a -> s { _chccTags = a }) . _List
 
 newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
@@ -102,6 +111,7 @@ instance ToPath CreateHsmClientCertificate where
 instance ToQuery CreateHsmClientCertificate where
     toQuery CreateHsmClientCertificate{..} = mconcat
         [ "HsmClientCertificateIdentifier" =? _chccHsmClientCertificateIdentifier
+        , "Tags"                           =? _chccTags
         ]
 
 instance ToHeaders CreateHsmClientCertificate

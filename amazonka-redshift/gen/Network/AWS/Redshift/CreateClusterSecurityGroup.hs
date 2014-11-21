@@ -23,7 +23,7 @@
 -- | Creates a new Amazon Redshift security group. You use security groups to
 -- control access to non-VPC clusters. For information about managing security
 -- groups, go to Amazon Redshift Cluster Security Groups in the Amazon
--- Redshift Management Guide.
+-- Redshift Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html>
 module Network.AWS.Redshift.CreateClusterSecurityGroup
@@ -35,6 +35,7 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     -- ** Request lenses
     , ccsg1ClusterSecurityGroupName
     , ccsg1Description
+    , ccsg1Tags
 
     -- * Response
     , CreateClusterSecurityGroupResponse
@@ -52,7 +53,8 @@ import qualified GHC.Exts
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup
     { _ccsg1ClusterSecurityGroupName :: Text
     , _ccsg1Description              :: Text
-    } deriving (Eq, Ord, Show)
+    , _ccsg1Tags                     :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateClusterSecurityGroup' constructor.
 --
@@ -62,12 +64,15 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup
 --
 -- * 'ccsg1Description' @::@ 'Text'
 --
+-- * 'ccsg1Tags' @::@ ['Tag']
+--
 createClusterSecurityGroup :: Text -- ^ 'ccsg1ClusterSecurityGroupName'
                            -> Text -- ^ 'ccsg1Description'
                            -> CreateClusterSecurityGroup
 createClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
     { _ccsg1ClusterSecurityGroupName = p1
     , _ccsg1Description              = p2
+    , _ccsg1Tags                     = mempty
     }
 
 -- | The name for the security group. Amazon Redshift stores the value as a
@@ -83,6 +88,10 @@ ccsg1ClusterSecurityGroupName =
 -- | A description for the security group.
 ccsg1Description :: Lens' CreateClusterSecurityGroup Text
 ccsg1Description = lens _ccsg1Description (\s a -> s { _ccsg1Description = a })
+
+-- | A list of tag instances.
+ccsg1Tags :: Lens' CreateClusterSecurityGroup [Tag]
+ccsg1Tags = lens _ccsg1Tags (\s a -> s { _ccsg1Tags = a }) . _List
 
 newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
@@ -111,6 +120,7 @@ instance ToQuery CreateClusterSecurityGroup where
     toQuery CreateClusterSecurityGroup{..} = mconcat
         [ "ClusterSecurityGroupName" =? _ccsg1ClusterSecurityGroupName
         , "Description"              =? _ccsg1Description
+        , "Tags"                     =? _ccsg1Tags
         ]
 
 instance ToHeaders CreateClusterSecurityGroup

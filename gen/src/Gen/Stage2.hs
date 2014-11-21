@@ -402,11 +402,11 @@ instance Ord Data where
 instance ToJSON Data where
     toJSON d = toJSON . Derived d $
         case d of
-            Void         -> object
+            Void -> object
                 [ "type"        .= "void"
                 ]
 
-            Empty   n    -> object
+            Empty n -> object
                 [ "type"        .= "empty"
                 , "name"        .= typeName n
                 , "ctor"        .= constructor n
@@ -430,7 +430,7 @@ instance ToJSON Data where
                 , "valuePad"    .= (maximum (map Text.length $ Map.elems fs) + 1)
                 ]
 
-            Newtype n f  -> object
+            Newtype n f -> object
                 [ "type"        .= "newtype"
                 , "name"        .= typeName n
                 , "ctor"        .= constructor n
@@ -448,7 +448,7 @@ instance ToJSON Data where
               where
                 (req, opt) = parameters [f]
 
-            Record  n fs -> object
+            Record n fs -> object
                 [ "type"        .= "record"
                 , "name"        .= typeName n
                 , "ctor"        .= constructor n
@@ -740,7 +740,7 @@ data Service = Service
     , _svEndpointPrefix :: !Text
     , _svSignature      :: !Signature
     , _svChecksum       :: !Checksum
-    , _svXmlNamespace   :: !Text
+    , _svXmlNamespace   :: Maybe Text
     , _svTargetPrefix   :: Maybe Text
     , _svJsonVersion    :: Maybe Text
     , _svError          :: !Text

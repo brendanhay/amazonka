@@ -363,7 +363,7 @@ instance ToHeaders UploadPartCopy where
         ]
 
 instance ToXMLRoot UploadPartCopy where
-    toXMLRoot = const (element "UploadPartCopy" [])
+    toXMLRoot = const (namespace ns "UploadPartCopy" [])
 
 instance ToXML UploadPartCopy
 

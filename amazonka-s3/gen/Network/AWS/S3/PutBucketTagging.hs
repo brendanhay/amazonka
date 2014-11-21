@@ -101,7 +101,7 @@ instance ToHeaders PutBucketTagging where
         ]
 
 instance ToXMLRoot PutBucketTagging where
-    toXMLRoot PutBucketTagging{..} = element "PutBucketTagging"
+    toXMLRoot PutBucketTagging{..} = namespace ns "PutBucketTagging"
         [ "Tagging" =@ _pbtTagging
         ]
 

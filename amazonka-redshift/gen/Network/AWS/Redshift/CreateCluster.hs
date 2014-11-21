@@ -25,8 +25,8 @@
 -- cluster subnet group name or the cluster security group parameter, Amazon
 -- Redshift creates a non-VPC cluster, it associates the default cluster
 -- security group with the cluster. For more information about managing
--- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Management
--- Guide .
+-- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Cluster
+-- Management Guide .
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateCluster.html>
 module Network.AWS.Redshift.CreateCluster
@@ -50,6 +50,7 @@ module Network.AWS.Redshift.CreateCluster
     , ccEncrypted
     , ccHsmClientCertificateIdentifier
     , ccHsmConfigurationIdentifier
+    , ccKmsKeyId
     , ccMasterUserPassword
     , ccMasterUsername
     , ccNodeType
@@ -57,6 +58,7 @@ module Network.AWS.Redshift.CreateCluster
     , ccPort
     , ccPreferredMaintenanceWindow
     , ccPubliclyAccessible
+    , ccTags
     , ccVpcSecurityGroupIds
 
     -- * Response
@@ -87,6 +89,7 @@ data CreateCluster = CreateCluster
     , _ccEncrypted                        :: Maybe Bool
     , _ccHsmClientCertificateIdentifier   :: Maybe Text
     , _ccHsmConfigurationIdentifier       :: Maybe Text
+    , _ccKmsKeyId                         :: Maybe Text
     , _ccMasterUserPassword               :: Text
     , _ccMasterUsername                   :: Text
     , _ccNodeType                         :: Text
@@ -94,8 +97,9 @@ data CreateCluster = CreateCluster
     , _ccPort                             :: Maybe Int
     , _ccPreferredMaintenanceWindow       :: Maybe Text
     , _ccPubliclyAccessible               :: Maybe Bool
+    , _ccTags                             :: List "Tag" Tag
     , _ccVpcSecurityGroupIds              :: List "VpcSecurityGroupId" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateCluster' constructor.
 --
@@ -129,6 +133,8 @@ data CreateCluster = CreateCluster
 --
 -- * 'ccHsmConfigurationIdentifier' @::@ 'Maybe' 'Text'
 --
+-- * 'ccKmsKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'ccMasterUserPassword' @::@ 'Text'
 --
 -- * 'ccMasterUsername' @::@ 'Text'
@@ -142,6 +148,8 @@ data CreateCluster = CreateCluster
 -- * 'ccPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
 --
 -- * 'ccPubliclyAccessible' @::@ 'Maybe' 'Bool'
+--
+-- * 'ccTags' @::@ ['Tag']
 --
 -- * 'ccVpcSecurityGroupIds' @::@ ['Text']
 --
@@ -173,6 +181,8 @@ createCluster p1 p2 p3 p4 = CreateCluster
     , _ccHsmClientCertificateIdentifier   = Nothing
     , _ccHsmConfigurationIdentifier       = Nothing
     , _ccElasticIp                        = Nothing
+    , _ccTags                             = mempty
+    , _ccKmsKeyId                         = Nothing
     }
 
 -- | If true, major version upgrades can be applied during the maintenance
@@ -273,7 +283,7 @@ ccDBName = lens _ccDBName (\s a -> s { _ccDBName = a })
 -- must be provisioned in EC2-VPC and publicly-accessible through an
 -- Internet gateway. For more information about provisioning clusters in
 -- EC2-VPC, go to Supported Platforms to Launch Your Cluster in the Amazon
--- Redshift Management Guide.
+-- Redshift Cluster Management Guide.
 ccElasticIp :: Lens' CreateCluster (Maybe Text)
 ccElasticIp = lens _ccElasticIp (\s a -> s { _ccElasticIp = a })
 
@@ -295,6 +305,11 @@ ccHsmConfigurationIdentifier =
     lens _ccHsmConfigurationIdentifier
         (\s a -> s { _ccHsmConfigurationIdentifier = a })
 
+-- | The AWS Key Management Service (KMS) key ID of the encryption key that
+-- you want to use to encrypt data in the cluster.
+ccKmsKeyId :: Lens' CreateCluster (Maybe Text)
+ccKmsKeyId = lens _ccKmsKeyId (\s a -> s { _ccKmsKeyId = a })
+
 -- | The password associated with the master user account for the cluster that
 -- is being created. Constraints: Must be between 8 and 64 characters in
 -- length. Must contain at least one uppercase letter. Must contain at least
@@ -314,16 +329,17 @@ ccMasterUsername :: Lens' CreateCluster Text
 ccMasterUsername = lens _ccMasterUsername (\s a -> s { _ccMasterUsername = a })
 
 -- | The node type to be provisioned for the cluster. For information about
--- node types, go to Working with Clusters in the Amazon Redshift Management
--- Guide. Valid Values: dw1.xlarge | dw1.8xlarge | dw2.large | dw2.8xlarge.
+-- node types, go to Working with Clusters in the Amazon Redshift Cluster
+-- Management Guide. Valid Values: dw1.xlarge | dw1.8xlarge | dw2.large |
+-- dw2.8xlarge.
 ccNodeType :: Lens' CreateCluster Text
 ccNodeType = lens _ccNodeType (\s a -> s { _ccNodeType = a })
 
 -- | The number of compute nodes in the cluster. This parameter is required
 -- when the ClusterType parameter is specified as multi-node. For
 -- information about determining how many nodes you need, go to Working with
--- Clusters in the Amazon Redshift Management Guide. If you don't specify
--- this parameter, you get a single-node cluster. When requesting a
+-- Clusters in the Amazon Redshift Cluster Management Guide. If you don't
+-- specify this parameter, you get a single-node cluster. When requesting a
 -- multi-node cluster, you must specify the number of nodes that you want in
 -- the cluster. Default: 1 Constraints: Value must be at least 1 and no more
 -- than 100.
@@ -338,11 +354,12 @@ ccPort :: Lens' CreateCluster (Maybe Int)
 ccPort = lens _ccPort (\s a -> s { _ccPort = a })
 
 -- | The weekly time range (in UTC) during which automated cluster maintenance
--- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: The value selected
--- for the cluster from which the snapshot was taken. For more information
--- about the time blocks for each region, see Maintenance Windows in Amazon
--- Redshift Management Guide. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat
--- | Sun Constraints: Minimum 30-minute window.
+-- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: A 30-minute window
+-- selected at random from an 8-hour block of time per region, occurring on
+-- a random day of the week. For more information about the time blocks for
+-- each region, see Maintenance Windows in Amazon Redshift Cluster
+-- Management Guide. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+-- Constraints: Minimum 30-minute window.
 ccPreferredMaintenanceWindow :: Lens' CreateCluster (Maybe Text)
 ccPreferredMaintenanceWindow =
     lens _ccPreferredMaintenanceWindow
@@ -352,6 +369,10 @@ ccPreferredMaintenanceWindow =
 ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
 ccPubliclyAccessible =
     lens _ccPubliclyAccessible (\s a -> s { _ccPubliclyAccessible = a })
+
+-- | A list of tag instances.
+ccTags :: Lens' CreateCluster [Tag]
+ccTags = lens _ccTags (\s a -> s { _ccTags = a }) . _List
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated
 -- with the cluster. Default: The default VPC security group is associated
@@ -398,6 +419,7 @@ instance ToQuery CreateCluster where
         , "Encrypted"                        =? _ccEncrypted
         , "HsmClientCertificateIdentifier"   =? _ccHsmClientCertificateIdentifier
         , "HsmConfigurationIdentifier"       =? _ccHsmConfigurationIdentifier
+        , "KmsKeyId"                         =? _ccKmsKeyId
         , "MasterUserPassword"               =? _ccMasterUserPassword
         , "MasterUsername"                   =? _ccMasterUsername
         , "NodeType"                         =? _ccNodeType
@@ -405,6 +427,7 @@ instance ToQuery CreateCluster where
         , "Port"                             =? _ccPort
         , "PreferredMaintenanceWindow"       =? _ccPreferredMaintenanceWindow
         , "PubliclyAccessible"               =? _ccPubliclyAccessible
+        , "Tags"                             =? _ccTags
         , "VpcSecurityGroupIds"              =? _ccVpcSecurityGroupIds
         ]
 

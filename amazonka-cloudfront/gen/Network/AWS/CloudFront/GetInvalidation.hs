@@ -108,7 +108,7 @@ instance ToQuery GetInvalidation where
 instance ToHeaders GetInvalidation
 
 instance ToXMLRoot GetInvalidation where
-    toXMLRoot = const (element "GetInvalidation" [])
+    toXMLRoot = const (namespace ns "GetInvalidation" [])
 
 instance ToXML GetInvalidation
 

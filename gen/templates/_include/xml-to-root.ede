@@ -2,16 +2,16 @@
 instance ToXMLRoot {{ type.name }} where
 {% case type.type %}
 {% when "void" %}
-    toXMLRoot = const (element "{{ type.name }}" [])
+    toXMLRoot = const (namespace ns "{{ type.name }}" [])
 {% when "empty" %}
-    toXMLRoot = const (element "{{ type.name }}" [])
+    toXMLRoot = const (namespace ns "{{ type.name }}" [])
 {% when "nullary" %}
-    toXMLRoot = ?
+    toXMLRoot = not implemented
 {% else %}
   {% if type.contents | empty %}
-    toXMLRoot = const (element "{{ type.name }}" [])
+    toXMLRoot = const (namespace ns "{{ type.name }}" [])
   {% else %}
-    toXMLRoot {{ type.name }}{..} = element "{{ type.name }}"
+    toXMLRoot {{ type.name }}{..} = namespace ns "{{ type.name }}"
     {% for field in type.contents %}
         {% include "list.ede" %} "{{ field.value.locationName | concat("\"") | justifyLeft(type.contentPad) }} =@ {{ field.value.name }}
     {% endfor %}

@@ -26,7 +26,7 @@
 -- can specify it as a parameter when creating a cluster. The cluster will
 -- then store its encryption keys in the HSM. In addition to creating an HSM
 -- configuration, you must also create an HSM client certificate. For more
--- information, go to Hardware Security Modules in the Amazon Redshift
+-- information, go to Hardware Security Modules in the Amazon Redshift Cluster
 -- Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmConfiguration.html>
@@ -43,6 +43,7 @@ module Network.AWS.Redshift.CreateHsmConfiguration
     , chcHsmPartitionName
     , chcHsmPartitionPassword
     , chcHsmServerPublicCertificate
+    , chcTags
 
     -- * Response
     , CreateHsmConfigurationResponse
@@ -64,7 +65,8 @@ data CreateHsmConfiguration = CreateHsmConfiguration
     , _chcHsmPartitionName           :: Text
     , _chcHsmPartitionPassword       :: Text
     , _chcHsmServerPublicCertificate :: Text
-    } deriving (Eq, Ord, Show)
+    , _chcTags                       :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateHsmConfiguration' constructor.
 --
@@ -82,6 +84,8 @@ data CreateHsmConfiguration = CreateHsmConfiguration
 --
 -- * 'chcHsmServerPublicCertificate' @::@ 'Text'
 --
+-- * 'chcTags' @::@ ['Tag']
+--
 createHsmConfiguration :: Text -- ^ 'chcHsmConfigurationIdentifier'
                        -> Text -- ^ 'chcDescription'
                        -> Text -- ^ 'chcHsmIpAddress'
@@ -96,6 +100,7 @@ createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
     , _chcHsmPartitionName           = p4
     , _chcHsmPartitionPassword       = p5
     , _chcHsmServerPublicCertificate = p6
+    , _chcTags                       = mempty
     }
 
 -- | A text description of the HSM configuration to be created.
@@ -132,6 +137,10 @@ chcHsmServerPublicCertificate =
     lens _chcHsmServerPublicCertificate
         (\s a -> s { _chcHsmServerPublicCertificate = a })
 
+-- | A list of tag instances.
+chcTags :: Lens' CreateHsmConfiguration [Tag]
+chcTags = lens _chcTags (\s a -> s { _chcTags = a }) . _List
+
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
     } deriving (Eq, Show)
@@ -162,6 +171,7 @@ instance ToQuery CreateHsmConfiguration where
         , "HsmPartitionName"           =? _chcHsmPartitionName
         , "HsmPartitionPassword"       =? _chcHsmPartitionPassword
         , "HsmServerPublicCertificate" =? _chcHsmServerPublicCertificate
+        , "Tags"                       =? _chcTags
         ]
 
 instance ToHeaders CreateHsmConfiguration

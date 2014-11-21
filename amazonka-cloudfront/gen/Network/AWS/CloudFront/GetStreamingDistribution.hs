@@ -108,7 +108,7 @@ instance ToQuery GetStreamingDistribution where
 instance ToHeaders GetStreamingDistribution
 
 instance ToXMLRoot GetStreamingDistribution where
-    toXMLRoot = const (element "GetStreamingDistribution" [])
+    toXMLRoot = const (namespace ns "GetStreamingDistribution" [])
 
 instance ToXML GetStreamingDistribution
 

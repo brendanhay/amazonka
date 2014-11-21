@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.EC2.Types
       EC2
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * ImageAttributeName
     , ImageAttributeName (..)
@@ -1415,6 +1417,9 @@ instance AWSService EC2 where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://ec2.amazonaws.com/doc/2014-09-01"
 
 data ImageAttributeName
     = ImageBlockDeviceMapping -- ^ blockDeviceMapping

@@ -25,12 +25,13 @@
 -- the Internet or an EC2 instance, you can authorize inbound access to either
 -- a Classless Interdomain Routing (CIDR) IP address range or an EC2 security
 -- group. You can add as many as 20 ingress rules to an Amazon Redshift
--- security group. For an overview of CIDR blocks, see the Wikipedia article
--- on Classless Inter-Domain Routing. You must also associate the security
--- group with a cluster so that clients running on these IP addresses or the
--- EC2 instance are authorized to connect to the cluster. For information
--- about managing security groups, go to Working with Security Groups in the
--- Amazon Redshift Management Guide.
+-- security group. The EC2 security group must be defined in the AWS region
+-- where the cluster resides. For an overview of CIDR blocks, see the
+-- Wikipedia article on Classless Inter-Domain Routing. You must also
+-- associate the security group with a cluster so that clients running on
+-- these IP addresses or the EC2 instance are authorized to connect to the
+-- cluster. For information about managing security groups, go to Working with
+-- Security Groups in the Amazon Redshift Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html>
 module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress

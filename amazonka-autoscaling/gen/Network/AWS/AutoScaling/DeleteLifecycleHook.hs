@@ -67,7 +67,7 @@ deleteLifecycleHook p1 p2 = DeleteLifecycleHook
     , _dlh1AutoScalingGroupName = p2
     }
 
--- | The name of the Auto Scaling group to which the lifecycle hook belongs.
+-- | The name of the Auto Scaling group for the lifecycle hook.
 dlh1AutoScalingGroupName :: Lens' DeleteLifecycleHook Text
 dlh1AutoScalingGroupName =
     lens _dlh1AutoScalingGroupName

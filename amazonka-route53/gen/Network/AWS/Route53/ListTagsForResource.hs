@@ -111,7 +111,7 @@ instance ToQuery ListTagsForResource where
 instance ToHeaders ListTagsForResource
 
 instance ToXMLRoot ListTagsForResource where
-    toXMLRoot = const (element "ListTagsForResource" [])
+    toXMLRoot = const (namespace ns "ListTagsForResource" [])
 
 instance ToXML ListTagsForResource
 

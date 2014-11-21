@@ -26,7 +26,14 @@
 -- parameter group family name. You can optionally specify a name to retrieve
 -- the description of a specific parameter group. For more information about
 -- managing parameter groups, go to Amazon Redshift Parameter Groups in the
--- Amazon Redshift Management Guide.
+-- Amazon Redshift Cluster Management Guide. If you specify both tag keys and
+-- tag values in the same request, Amazon Redshift returns all parameter
+-- groups that match any combination of the specified keys and values. For
+-- example, if you have owner and environment for tag keys, and admin and test
+-- for tag values, all parameter groups that have any combination of those
+-- values are returned. If both tag keys and values are omitted from the
+-- request, parameter groups are returned regardless of whether they have tag
+-- keys or values associated with them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameterGroups.html>
 module Network.AWS.Redshift.DescribeClusterParameterGroups
@@ -39,6 +46,8 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     , dcpgMarker
     , dcpgMaxRecords
     , dcpgParameterGroupName
+    , dcpgTagKeys
+    , dcpgTagValues
 
     -- * Response
     , DescribeClusterParameterGroupsResponse
@@ -58,6 +67,8 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpgMarker             :: Maybe Text
     , _dcpgMaxRecords         :: Maybe Int
     , _dcpgParameterGroupName :: Maybe Text
+    , _dcpgTagKeys            :: List "TagKey" Text
+    , _dcpgTagValues          :: List "TagValue" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterParameterGroups' constructor.
@@ -70,11 +81,17 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
 --
 -- * 'dcpgParameterGroupName' @::@ 'Maybe' 'Text'
 --
+-- * 'dcpgTagKeys' @::@ ['Text']
+--
+-- * 'dcpgTagValues' @::@ ['Text']
+--
 describeClusterParameterGroups :: DescribeClusterParameterGroups
 describeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpgParameterGroupName = Nothing
     , _dcpgMaxRecords         = Nothing
     , _dcpgMarker             = Nothing
+    , _dcpgTagKeys            = mempty
+    , _dcpgTagValues          = mempty
     }
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -100,6 +117,25 @@ dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 dcpgParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpgParameterGroupName =
     lens _dcpgParameterGroupName (\s a -> s { _dcpgParameterGroupName = a })
+
+-- | A tag key or keys for which you want to return all matching cluster
+-- parameter groups that are associated with the specified key or keys. For
+-- example, suppose that you have parameter groups that are tagged with keys
+-- called owner and environment. If you specify both of these tag keys in
+-- the request, Amazon Redshift returns a response with the parameter groups
+-- that have either or both of these tag keys associated with them.
+dcpgTagKeys :: Lens' DescribeClusterParameterGroups [Text]
+dcpgTagKeys = lens _dcpgTagKeys (\s a -> s { _dcpgTagKeys = a }) . _List
+
+-- | A tag value or values for which you want to return all matching cluster
+-- parameter groups that are associated with the specified tag value or
+-- values. For example, suppose that you have parameter groups that are
+-- tagged with values called admin and test. If you specify both of these
+-- tag values in the request, Amazon Redshift returns a response with the
+-- parameter groups that have either or both of these tag values associated
+-- with them.
+dcpgTagValues :: Lens' DescribeClusterParameterGroups [Text]
+dcpgTagValues = lens _dcpgTagValues (\s a -> s { _dcpgTagValues = a }) . _List
 
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
     { _dcpgrMarker          :: Maybe Text
@@ -144,6 +180,8 @@ instance ToQuery DescribeClusterParameterGroups where
         [ "Marker"             =? _dcpgMarker
         , "MaxRecords"         =? _dcpgMaxRecords
         , "ParameterGroupName" =? _dcpgParameterGroupName
+        , "TagKeys"            =? _dcpgTagKeys
+        , "TagValues"          =? _dcpgTagValues
         ]
 
 instance ToHeaders DescribeClusterParameterGroups

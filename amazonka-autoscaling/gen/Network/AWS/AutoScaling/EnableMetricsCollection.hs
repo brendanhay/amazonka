@@ -20,11 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Enables monitoring of group metrics for the Auto Scaling group specified in
--- AutoScalingGroupName. You can specify the list of enabled metrics with the
--- Metrics parameter. Auto Scaling metrics collection can be turned on only if
--- the InstanceMonitoring flag, in the Auto Scaling group's launch
--- configuration, is set to True.
+-- | Enables monitoring of the specified metrics for the specified Auto Scaling
+-- group. You can only enable metrics collection if InstanceMonitoring in the
+-- launch configuration for the group is set to True.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html>
 module Network.AWS.AutoScaling.EnableMetricsCollection
@@ -80,15 +78,16 @@ emcAutoScalingGroupName =
     lens _emcAutoScalingGroupName (\s a -> s { _emcAutoScalingGroupName = a })
 
 -- | The granularity to associate with the metrics to collect. Currently, the
--- only legal granularity is "1Minute".
+-- only valid value is "1Minute".
 emcGranularity :: Lens' EnableMetricsCollection Text
 emcGranularity = lens _emcGranularity (\s a -> s { _emcGranularity = a })
 
--- | The list of metrics to collect. If no metrics are specified, all metrics
--- are enabled. The following metrics are supported: GroupMinSize
--- GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
--- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
--- GroupTotalInstances.
+-- | One or more of the following metrics: GroupMinSize GroupMaxSize
+-- GroupDesiredCapacity GroupInServiceInstances GroupPendingInstances
+-- GroupStandbyInstances GroupTerminatingInstances GroupTotalInstances If
+-- you omit this parameter, all metrics are enabled. The
+-- GroupStandbyInstances metric is not returned by default. You must
+-- explicitly request it when calling EnableMetricsCollection.
 emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a }) . _List
 

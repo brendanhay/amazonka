@@ -24,7 +24,14 @@
 -- properties, cluster database properties, maintenance and backup properties,
 -- and security and access properties. This operation supports pagination. For
 -- more information about managing clusters, go to Amazon Redshift Clusters in
--- the Amazon Redshift Management Guide .
+-- the Amazon Redshift Cluster Management Guide . If you specify both tag keys
+-- and tag values in the same request, Amazon Redshift returns all clusters
+-- that match any combination of the specified keys and values. For example,
+-- if you have owner and environment for tag keys, and admin and test for tag
+-- values, all clusters that have any combination of those values are
+-- returned. If both tag keys and values are omitted from the request,
+-- clusters are returned regardless of whether they have tag keys or values
+-- associated with them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html>
 module Network.AWS.Redshift.DescribeClusters
@@ -37,6 +44,8 @@ module Network.AWS.Redshift.DescribeClusters
     , dcClusterIdentifier
     , dcMarker
     , dcMaxRecords
+    , dcTagKeys
+    , dcTagValues
 
     -- * Response
     , DescribeClustersResponse
@@ -56,6 +65,8 @@ data DescribeClusters = DescribeClusters
     { _dcClusterIdentifier :: Maybe Text
     , _dcMarker            :: Maybe Text
     , _dcMaxRecords        :: Maybe Int
+    , _dcTagKeys           :: List "TagKey" Text
+    , _dcTagValues         :: List "TagValue" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusters' constructor.
@@ -68,11 +79,17 @@ data DescribeClusters = DescribeClusters
 --
 -- * 'dcMaxRecords' @::@ 'Maybe' 'Int'
 --
+-- * 'dcTagKeys' @::@ ['Text']
+--
+-- * 'dcTagValues' @::@ ['Text']
+--
 describeClusters :: DescribeClusters
 describeClusters = DescribeClusters
     { _dcClusterIdentifier = Nothing
     , _dcMaxRecords        = Nothing
     , _dcMarker            = Nothing
+    , _dcTagKeys           = mempty
+    , _dcTagValues         = mempty
     }
 
 -- | The unique identifier of a cluster whose properties you are requesting.
@@ -99,6 +116,24 @@ dcMarker = lens _dcMarker (\s a -> s { _dcMarker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcMaxRecords :: Lens' DescribeClusters (Maybe Int)
 dcMaxRecords = lens _dcMaxRecords (\s a -> s { _dcMaxRecords = a })
+
+-- | A tag key or keys for which you want to return all matching clusters that
+-- are associated with the specified key or keys. For example, suppose that
+-- you have clusters that are tagged with keys called owner and environment.
+-- If you specify both of these tag keys in the request, Amazon Redshift
+-- returns a response with the clusters that have either or both of these
+-- tag keys associated with them.
+dcTagKeys :: Lens' DescribeClusters [Text]
+dcTagKeys = lens _dcTagKeys (\s a -> s { _dcTagKeys = a }) . _List
+
+-- | A tag value or values for which you want to return all matching clusters
+-- that are associated with the specified tag value or values. For example,
+-- suppose that you have clusters that are tagged with values called admin
+-- and test. If you specify both of these tag values in the request, Amazon
+-- Redshift returns a response with the clusters that have either or both of
+-- these tag values associated with them.
+dcTagValues :: Lens' DescribeClusters [Text]
+dcTagValues = lens _dcTagValues (\s a -> s { _dcTagValues = a }) . _List
 
 data DescribeClustersResponse = DescribeClustersResponse
     { _dcrClusters :: List "Cluster" Cluster
@@ -140,6 +175,8 @@ instance ToQuery DescribeClusters where
         [ "ClusterIdentifier" =? _dcClusterIdentifier
         , "Marker"            =? _dcMarker
         , "MaxRecords"        =? _dcMaxRecords
+        , "TagKeys"           =? _dcTagKeys
+        , "TagValues"         =? _dcTagValues
         ]
 
 instance ToHeaders DescribeClusters

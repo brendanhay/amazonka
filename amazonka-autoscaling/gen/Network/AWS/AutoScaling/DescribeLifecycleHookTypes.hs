@@ -71,9 +71,8 @@ describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes = mempty
     }
 
--- | Returns a list of all notification types supported by Auto Scaling. They
--- are: autoscaling:EC2_INSTANCE_LAUNCHING
--- autoscaling:EC2_INSTANCE_TERMINATING.
+-- | One or more of the following notification types:
+-- autoscaling:EC2_INSTANCE_LAUNCHING autoscaling:EC2_INSTANCE_TERMINATING.
 dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrLifecycleHookTypes =
     lens _dlhtrLifecycleHookTypes (\s a -> s { _dlhtrLifecycleHookTypes = a })

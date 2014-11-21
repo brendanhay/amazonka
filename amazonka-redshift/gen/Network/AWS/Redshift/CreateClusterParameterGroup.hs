@@ -27,7 +27,7 @@
 -- using ModifyCluster. Parameters in the parameter group define specific
 -- behavior that applies to the databases you create on the cluster. For more
 -- information about managing parameter groups, go to Amazon Redshift
--- Parameter Groups in the Amazon Redshift Management Guide.
+-- Parameter Groups in the Amazon Redshift Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterParameterGroup.html>
 module Network.AWS.Redshift.CreateClusterParameterGroup
@@ -40,6 +40,7 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     , ccpgDescription
     , ccpgParameterGroupFamily
     , ccpgParameterGroupName
+    , ccpgTags
 
     -- * Response
     , CreateClusterParameterGroupResponse
@@ -58,7 +59,8 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
     { _ccpgDescription          :: Text
     , _ccpgParameterGroupFamily :: Text
     , _ccpgParameterGroupName   :: Text
-    } deriving (Eq, Ord, Show)
+    , _ccpgTags                 :: List "Tag" Tag
+    } deriving (Eq, Show)
 
 -- | 'CreateClusterParameterGroup' constructor.
 --
@@ -70,6 +72,8 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
 --
 -- * 'ccpgParameterGroupName' @::@ 'Text'
 --
+-- * 'ccpgTags' @::@ ['Tag']
+--
 createClusterParameterGroup :: Text -- ^ 'ccpgParameterGroupName'
                             -> Text -- ^ 'ccpgParameterGroupFamily'
                             -> Text -- ^ 'ccpgDescription'
@@ -78,6 +82,7 @@ createClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
     { _ccpgParameterGroupName   = p1
     , _ccpgParameterGroupFamily = p2
     , _ccpgDescription          = p3
+    , _ccpgTags                 = mempty
     }
 
 -- | A description of the parameter group.
@@ -101,10 +106,15 @@ ccpgParameterGroupFamily =
 -- | The name of the cluster parameter group. Constraints: Must be 1 to 255
 -- alphanumeric characters or hyphens First character must be a letter.
 -- Cannot end with a hyphen or contain two consecutive hyphens. Must be
--- unique withing your AWS account.
+-- unique withing your AWS account. This value is stored as a lower-case
+-- string.
 ccpgParameterGroupName :: Lens' CreateClusterParameterGroup Text
 ccpgParameterGroupName =
     lens _ccpgParameterGroupName (\s a -> s { _ccpgParameterGroupName = a })
+
+-- | A list of tag instances.
+ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
+ccpgTags = lens _ccpgTags (\s a -> s { _ccpgTags = a }) . _List
 
 newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
@@ -134,6 +144,7 @@ instance ToQuery CreateClusterParameterGroup where
         [ "Description"          =? _ccpgDescription
         , "ParameterGroupFamily" =? _ccpgParameterGroupFamily
         , "ParameterGroupName"   =? _ccpgParameterGroupName
+        , "Tags"                 =? _ccpgTags
         ]
 
 instance ToHeaders CreateClusterParameterGroup

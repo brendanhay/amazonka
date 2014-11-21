@@ -112,7 +112,7 @@ instance ToQuery GetHealthCheckLastFailureReason where
 instance ToHeaders GetHealthCheckLastFailureReason
 
 instance ToXMLRoot GetHealthCheckLastFailureReason where
-    toXMLRoot = const (element "GetHealthCheckLastFailureReason" [])
+    toXMLRoot = const (namespace ns "GetHealthCheckLastFailureReason" [])
 
 instance ToXML GetHealthCheckLastFailureReason
 

@@ -20,10 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns descriptions of what each policy does. This action supports
--- pagination. If the response includes a token, there are more records
--- available. To get the additional records, repeat the request with the
--- response token as the NextToken parameter.
+-- | Describes the policies for the specified Auto Scaling group. You can
+-- specify a maximum number of items to be returned with a single call. If
+-- there are more items to return, the call returns a token. To get the next
+-- set of items, repeat the call with the returned token in the NextToken
+-- parameter.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html>
 module Network.AWS.AutoScaling.DescribePolicies
@@ -79,25 +80,24 @@ describePolicies = DescribePolicies
     , _dp1MaxRecords           = Nothing
     }
 
--- | The name of the Auto Scaling group.
+-- | The name of the group.
 dp1AutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 dp1AutoScalingGroupName =
     lens _dp1AutoScalingGroupName (\s a -> s { _dp1AutoScalingGroupName = a })
 
--- | The maximum number of policies that will be described with each call.
+-- | The maximum number of items to be returned with each call.
 dp1MaxRecords :: Lens' DescribePolicies (Maybe Int)
 dp1MaxRecords = lens _dp1MaxRecords (\s a -> s { _dp1MaxRecords = a })
 
--- | A string that is used to mark the start of the next batch of returned
--- results for pagination.
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.).
 dp1NextToken :: Lens' DescribePolicies (Maybe Text)
 dp1NextToken = lens _dp1NextToken (\s a -> s { _dp1NextToken = a })
 
--- | A list of policy names or policy ARNs to be described. If this list is
--- omitted, all policy names are described. If an auto scaling group name is
--- provided, the results are limited to that group. The list of requested
--- policy names cannot contain more than 50 items. If unknown policy names
--- are requested, they are ignored with no error.
+-- | One or more policy names or policy ARNs to be described. If you omit this
+-- list, all policy names are described. If an group name is provided, the
+-- results are limited to that group. This list is limited to 50 items. If
+-- you specify an unknown policy name, it is ignored with no error.
 dp1PolicyNames :: Lens' DescribePolicies [Text]
 dp1PolicyNames = lens _dp1PolicyNames (\s a -> s { _dp1PolicyNames = a }) . _List
 
@@ -120,11 +120,12 @@ describePoliciesResponse = DescribePoliciesResponse
     , _dprNextToken       = Nothing
     }
 
--- | A string that marks the start of the next batch of returned results.
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
 dprNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
 dprNextToken = lens _dprNextToken (\s a -> s { _dprNextToken = a })
 
--- | A list of scaling policies.
+-- | The scaling policies.
 dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprScalingPolicies =
     lens _dprScalingPolicies (\s a -> s { _dprScalingPolicies = a })

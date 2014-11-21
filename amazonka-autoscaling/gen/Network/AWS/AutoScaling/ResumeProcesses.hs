@@ -20,9 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Resumes all suspended Auto Scaling processes for an Auto Scaling group. For
--- information on suspending and resuming Auto Scaling process, see Suspend
--- and Resume Auto Scaling Process.
+-- | Resumes the specified suspended Auto Scaling processes for the specified
+-- Auto Scaling group. To resume specific processes, use the ScalingProcesses
+-- parameter. To resume all processes, omit the ScalingProcesses parameter.
+-- For more information, see Suspend and Resume Auto Scaling Processes in the
+-- Auto Scaling Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html>
 module Network.AWS.AutoScaling.ResumeProcesses
@@ -71,10 +73,9 @@ rpAutoScalingGroupName :: Lens' ResumeProcesses Text
 rpAutoScalingGroupName =
     lens _rpAutoScalingGroupName (\s a -> s { _rpAutoScalingGroupName = a })
 
--- | The processes that you want to suspend or resume, which can include one
--- or more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
--- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To
--- suspend all process types, omit this parameter.
+-- | One or more of the following processes: Launch Terminate HealthCheck
+-- ReplaceUnhealthy AZRebalance AlarmNotification ScheduledActions
+-- AddToLoadBalancer.
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses =
     lens _rpScalingProcesses (\s a -> s { _rpScalingProcesses = a })

@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.RDS.Types
       RDS
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * OptionGroup
     , OptionGroup
@@ -433,6 +435,9 @@ instance AWSService RDS where
         }
 
     handle = restError alwaysFail
+
+ns :: Text
+ns = "http://rds.amazonaws.com/doc/2014-09-01/"
 
 data OptionGroup = OptionGroup
     { _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool

@@ -20,12 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns the limits for the Auto Scaling resources currently allowed for
--- your AWS account. Your AWS account comes with default limits on resources
--- for Auto Scaling. There is a default limit of 20 Auto Scaling groups and
--- 100 launch configurations per region. If you reach the limits for the
--- number of Auto Scaling groups or the launch configurations, you can go to
--- the Support Center and place a request to raise the limits.
+-- | Describes the current Auto Scaling resource limits for your AWS account.
+-- For information about requesting an increase in these limits, see AWS
+-- Service Limits.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAccountLimits.html>
 module Network.AWS.AutoScaling.DescribeAccountLimits
@@ -75,13 +72,15 @@ describeAccountLimitsResponse = DescribeAccountLimitsResponse
     , _dalrMaxNumberOfLaunchConfigurations = Nothing
     }
 
--- | The maximum number of Auto Scaling groups allowed for your AWS account.
+-- | The maximum number of groups allowed for your AWS account. The default
+-- limit is 20 per region.
 dalrMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
 dalrMaxNumberOfAutoScalingGroups =
     lens _dalrMaxNumberOfAutoScalingGroups
         (\s a -> s { _dalrMaxNumberOfAutoScalingGroups = a })
 
 -- | The maximum number of launch configurations allowed for your AWS account.
+-- The default limit is 100 per region.
 dalrMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Int)
 dalrMaxNumberOfLaunchConfigurations =
     lens _dalrMaxNumberOfLaunchConfigurations

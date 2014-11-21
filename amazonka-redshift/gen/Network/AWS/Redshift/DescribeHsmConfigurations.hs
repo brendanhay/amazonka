@@ -22,7 +22,14 @@
 
 -- | Returns information about the specified Amazon Redshift HSM configuration.
 -- If no configuration ID is specified, returns information about all the HSM
--- configurations owned by your AWS customer account.
+-- configurations owned by your AWS customer account. If you specify both tag
+-- keys and tag values in the same request, Amazon Redshift returns all HSM
+-- connections that match any combination of the specified keys and values.
+-- For example, if you have owner and environment for tag keys, and admin and
+-- test for tag values, all HSM connections that have any combination of those
+-- values are returned. If both tag keys and values are omitted from the
+-- request, HSM connections are returned regardless of whether they have tag
+-- keys or values associated with them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmConfigurations.html>
 module Network.AWS.Redshift.DescribeHsmConfigurations
@@ -35,6 +42,8 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
     , dhc1HsmConfigurationIdentifier
     , dhc1Marker
     , dhc1MaxRecords
+    , dhc1TagKeys
+    , dhc1TagValues
 
     -- * Response
     , DescribeHsmConfigurationsResponse
@@ -54,6 +63,8 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
     { _dhc1HsmConfigurationIdentifier :: Maybe Text
     , _dhc1Marker                     :: Maybe Text
     , _dhc1MaxRecords                 :: Maybe Int
+    , _dhc1TagKeys                    :: List "TagKey" Text
+    , _dhc1TagValues                  :: List "TagValue" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeHsmConfigurations' constructor.
@@ -66,11 +77,17 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
 --
 -- * 'dhc1MaxRecords' @::@ 'Maybe' 'Int'
 --
+-- * 'dhc1TagKeys' @::@ ['Text']
+--
+-- * 'dhc1TagValues' @::@ ['Text']
+--
 describeHsmConfigurations :: DescribeHsmConfigurations
 describeHsmConfigurations = DescribeHsmConfigurations
     { _dhc1HsmConfigurationIdentifier = Nothing
     , _dhc1MaxRecords                 = Nothing
     , _dhc1Marker                     = Nothing
+    , _dhc1TagKeys                    = mempty
+    , _dhc1TagValues                  = mempty
     }
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
@@ -97,6 +114,26 @@ dhc1Marker = lens _dhc1Marker (\s a -> s { _dhc1Marker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dhc1MaxRecords :: Lens' DescribeHsmConfigurations (Maybe Int)
 dhc1MaxRecords = lens _dhc1MaxRecords (\s a -> s { _dhc1MaxRecords = a })
+
+-- | A tag key or keys for which you want to return all matching HSM
+-- configurations that are associated with the specified key or keys. For
+-- example, suppose that you have HSM configurations that are tagged with
+-- keys called owner and environment. If you specify both of these tag keys
+-- in the request, Amazon Redshift returns a response with the HSM
+-- configurations that have either or both of these tag keys associated with
+-- them.
+dhc1TagKeys :: Lens' DescribeHsmConfigurations [Text]
+dhc1TagKeys = lens _dhc1TagKeys (\s a -> s { _dhc1TagKeys = a }) . _List
+
+-- | A tag value or values for which you want to return all matching HSM
+-- configurations that are associated with the specified tag value or
+-- values. For example, suppose that you have HSM configurations that are
+-- tagged with values called admin and test. If you specify both of these
+-- tag values in the request, Amazon Redshift returns a response with the
+-- HSM configurations that have either or both of these tag values
+-- associated with them.
+dhc1TagValues :: Lens' DescribeHsmConfigurations [Text]
+dhc1TagValues = lens _dhc1TagValues (\s a -> s { _dhc1TagValues = a }) . _List
 
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     { _dhcrHsmConfigurations :: List "HsmConfiguration" HsmConfiguration
@@ -140,6 +177,8 @@ instance ToQuery DescribeHsmConfigurations where
         [ "HsmConfigurationIdentifier" =? _dhc1HsmConfigurationIdentifier
         , "Marker"                     =? _dhc1Marker
         , "MaxRecords"                 =? _dhc1MaxRecords
+        , "TagKeys"                    =? _dhc1TagKeys
+        , "TagValues"                  =? _dhc1TagValues
         ]
 
 instance ToHeaders DescribeHsmConfigurations

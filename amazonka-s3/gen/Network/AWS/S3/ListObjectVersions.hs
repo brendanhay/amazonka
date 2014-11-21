@@ -274,7 +274,7 @@ instance ToQuery ListObjectVersions where
 instance ToHeaders ListObjectVersions
 
 instance ToXMLRoot ListObjectVersions where
-    toXMLRoot = const (element "ListObjectVersions" [])
+    toXMLRoot = const (namespace ns "ListObjectVersions" [])
 
 instance ToXML ListObjectVersions
 

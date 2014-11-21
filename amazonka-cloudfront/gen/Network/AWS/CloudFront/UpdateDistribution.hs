@@ -130,7 +130,7 @@ instance ToHeaders UpdateDistribution where
         ]
 
 instance ToXMLRoot UpdateDistribution where
-    toXMLRoot UpdateDistribution{..} = element "UpdateDistribution"
+    toXMLRoot UpdateDistribution{..} = namespace ns "UpdateDistribution"
         [ "DistributionConfig" =@ _udDistributionConfig
         ]
 

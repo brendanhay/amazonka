@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DataKinds                   #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving  #-}
@@ -26,6 +26,8 @@ module Network.AWS.CloudFront.Types
       CloudFront
     -- ** Error
     , RESTError
+    -- ** XML
+    , ns
 
     -- * CloudFrontOriginAccessIdentityList
     , CloudFrontOriginAccessIdentityList
@@ -413,6 +415,9 @@ instance AWSService CloudFront where
 
     handle = restError alwaysFail
 
+ns :: Text
+ns = "http://cloudfront.amazonaws.com/doc/2014-05-31/"
+
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
     { _cfoailIsTruncated :: Bool
     , _cfoailItems       :: List "CloudFrontOriginAccessIdentitySummary" CloudFrontOriginAccessIdentitySummary
@@ -562,7 +567,7 @@ instance FromXML Invalidation where
         <*> x .@  "Status"
 
 instance ToXMLRoot Invalidation where
-    toXMLRoot Invalidation{..} = element "Invalidation"
+    toXMLRoot Invalidation{..} = namespace ns "Invalidation"
         [ "Id"                =@ _iId
         , "Status"            =@ _iStatus
         , "CreateTime"        =@ _iCreateTime
@@ -1217,7 +1222,7 @@ instance FromXML Distribution where
         <*> x .@  "Status"
 
 instance ToXMLRoot Distribution where
-    toXMLRoot Distribution{..} = element "Distribution"
+    toXMLRoot Distribution{..} = namespace ns "Distribution"
         [ "Id"                            =@ _dId
         , "Status"                        =@ _dStatus
         , "LastModifiedTime"              =@ _dLastModifiedTime
@@ -3163,7 +3168,7 @@ instance FromXML StreamingDistribution where
         <*> x .@  "StreamingDistributionConfig"
 
 instance ToXMLRoot StreamingDistribution where
-    toXMLRoot StreamingDistribution{..} = element "StreamingDistribution"
+    toXMLRoot StreamingDistribution{..} = namespace ns "StreamingDistribution"
         [ "Id"                          =@ _sdId
         , "Status"                      =@ _sdStatus
         , "LastModifiedTime"            =@ _sdLastModifiedTime
@@ -3263,7 +3268,7 @@ instance FromXML CloudFrontOriginAccessIdentity where
         <*> x .@  "S3CanonicalUserId"
 
 instance ToXMLRoot CloudFrontOriginAccessIdentity where
-    toXMLRoot CloudFrontOriginAccessIdentity{..} = element "CloudFrontOriginAccessIdentity"
+    toXMLRoot CloudFrontOriginAccessIdentity{..} = namespace ns "CloudFrontOriginAccessIdentity"
         [ "Id"                                   =@ _cfoaiId
         , "S3CanonicalUserId"                    =@ _cfoaiS3CanonicalUserId
         , "CloudFrontOriginAccessIdentityConfig" =@ _cfoaiCloudFrontOriginAccessIdentityConfig

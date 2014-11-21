@@ -233,7 +233,7 @@ instance ToQuery ListParts where
 instance ToHeaders ListParts
 
 instance ToXMLRoot ListParts where
-    toXMLRoot = const (element "ListParts" [])
+    toXMLRoot = const (namespace ns "ListParts" [])
 
 instance ToXML ListParts
 

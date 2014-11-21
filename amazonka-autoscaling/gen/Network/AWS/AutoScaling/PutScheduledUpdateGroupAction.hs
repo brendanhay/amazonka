@@ -23,8 +23,9 @@
 -- | Creates or updates a scheduled scaling action for an Auto Scaling group.
 -- When updating a scheduled scaling action, if you leave a parameter
 -- unspecified, the corresponding value remains unchanged in the affected Auto
--- Scaling group. For information on creating or updating a scheduled action
--- for your Auto Scaling group, see Scale Based on a Schedule.
+-- Scaling group. For more information, see Scheduled Scaling in the Auto
+-- Scaling Developer Guide. Auto Scaling supports the date and time expressed
+-- in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html>
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
@@ -104,7 +105,7 @@ putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
     , _psugaDesiredCapacity      = Nothing
     }
 
--- | The name or ARN of the Auto Scaling group.
+-- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 psugaAutoScalingGroupName :: Lens' PutScheduledUpdateGroupAction Text
 psugaAutoScalingGroupName =
     lens _psugaAutoScalingGroupName

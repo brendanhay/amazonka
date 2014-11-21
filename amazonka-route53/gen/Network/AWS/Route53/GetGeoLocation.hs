@@ -129,7 +129,7 @@ instance ToQuery GetGeoLocation where
 instance ToHeaders GetGeoLocation
 
 instance ToXMLRoot GetGeoLocation where
-    toXMLRoot = const (element "GetGeoLocation" [])
+    toXMLRoot = const (namespace ns "GetGeoLocation" [])
 
 instance ToXML GetGeoLocation
 

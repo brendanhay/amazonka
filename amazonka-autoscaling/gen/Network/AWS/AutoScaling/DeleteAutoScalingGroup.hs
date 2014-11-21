@@ -20,8 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the specified Auto Scaling group if the group has no instances and
--- no scaling activities in progress.
+-- | Deletes the specified Auto Scaling group. The group must have no instances
+-- and no scaling activities in progress. To remove all instances before
+-- calling DeleteAutoScalingGroup, you can call UpdateAutoScalingGroup to set
+-- the minimum and maximum size of the AutoScalingGroup to zero.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup
@@ -65,16 +67,16 @@ deleteAutoScalingGroup p1 = DeleteAutoScalingGroup
     , _dasgForceDelete          = Nothing
     }
 
--- | The name of the Auto Scaling group to delete.
+-- | The name of the group to delete.
 dasgAutoScalingGroupName :: Lens' DeleteAutoScalingGroup Text
 dasgAutoScalingGroupName =
     lens _dasgAutoScalingGroupName
         (\s a -> s { _dasgAutoScalingGroupName = a })
 
--- | Starting with API version 2011-01-01, specifies that the Auto Scaling
--- group will be deleted along with all instances associated with the group,
--- without waiting for all instances to be terminated. This parameter also
--- deletes any lifecycle actions associated with the group.
+-- | Specifies that the group will be deleted along with all instances
+-- associated with the group, without waiting for all instances to be
+-- terminated. This parameter also deletes any lifecycle actions associated
+-- with the group.
 dasgForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
 dasgForceDelete = lens _dasgForceDelete (\s a -> s { _dasgForceDelete = a })
 

@@ -208,7 +208,7 @@ instance ToQuery CreateHostedZone where
 instance ToHeaders CreateHostedZone
 
 instance ToXMLRoot CreateHostedZone where
-    toXMLRoot CreateHostedZone{..} = element "CreateHostedZone"
+    toXMLRoot CreateHostedZone{..} = namespace ns "CreateHostedZone"
         [ "Name"             =@ _chzName
         , "VPC"              =@ _chzVPC
         , "CallerReference"  =@ _chzCallerReference

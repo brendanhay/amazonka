@@ -20,13 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns the scaling activities for the specified Auto Scaling group. If the
--- specified ActivityIds list is empty, all the activities from the past six
--- weeks are returned. Activities are sorted by the start time. Activities
--- still in progress appear first on the list. This action supports
--- pagination. If the response includes a token, there are more records
--- available. To get the additional records, repeat the request with the
--- response token as the NextToken parameter.
+-- | Describes one or more scaling activities for the specified Auto Scaling
+-- group. If you omit the ActivityIds, the call returns all activities from
+-- the past six weeks. Activities are sorted by the start time. Activities
+-- still in progress appear first on the list. You can specify a maximum
+-- number of items to be returned with a single call. If there are more items
+-- to return, the call returns a token. To get the next set of items, repeat
+-- the call with the returned token in the NextToken parameter.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html>
 module Network.AWS.AutoScaling.DescribeScalingActivities
@@ -90,18 +90,18 @@ describeScalingActivities = DescribeScalingActivities
 dsa2ActivityIds :: Lens' DescribeScalingActivities [Text]
 dsa2ActivityIds = lens _dsa2ActivityIds (\s a -> s { _dsa2ActivityIds = a }) . _List
 
--- | The name of the AutoScalingGroup.
+-- | The name of the group.
 dsa2AutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
 dsa2AutoScalingGroupName =
     lens _dsa2AutoScalingGroupName
         (\s a -> s { _dsa2AutoScalingGroupName = a })
 
--- | The maximum number of scaling activities to return.
+-- | The maximum number of items to return with this call.
 dsa2MaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
 dsa2MaxRecords = lens _dsa2MaxRecords (\s a -> s { _dsa2MaxRecords = a })
 
--- | A string that marks the start of the next batch of returned results for
--- pagination.
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.).
 dsa2NextToken :: Lens' DescribeScalingActivities (Maybe Text)
 dsa2NextToken = lens _dsa2NextToken (\s a -> s { _dsa2NextToken = a })
 
@@ -124,13 +124,12 @@ describeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     , _dsar1NextToken  = Nothing
     }
 
--- | A list of the requested scaling activities.
+-- | The scaling activities.
 dsar1Activities :: Lens' DescribeScalingActivitiesResponse [Activity]
 dsar1Activities = lens _dsar1Activities (\s a -> s { _dsar1Activities = a }) . _List
 
--- | Acts as a paging mechanism for large result sets. Set to a non-empty
--- string if there are additional results waiting to be returned. Pass this
--- in to subsequent calls to return additional results.
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
 dsar1NextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsar1NextToken = lens _dsar1NextToken (\s a -> s { _dsar1NextToken = a })
 

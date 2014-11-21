@@ -29,7 +29,7 @@
 -- cluster. If you restore a cluster into a VPC, you must provide a cluster
 -- subnet group where you want the cluster restored. For more information
 -- about working with snapshots, go to Amazon Redshift Snapshots in the Amazon
--- Redshift Management Guide.
+-- Redshift Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreFromClusterSnapshot.html>
 module Network.AWS.Redshift.RestoreFromClusterSnapshot
@@ -49,6 +49,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , rfcsElasticIp
     , rfcsHsmClientCertificateIdentifier
     , rfcsHsmConfigurationIdentifier
+    , rfcsKmsKeyId
     , rfcsOwnerAccount
     , rfcsPort
     , rfcsPreferredMaintenanceWindow
@@ -81,6 +82,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsElasticIp                        :: Maybe Text
     , _rfcsHsmClientCertificateIdentifier   :: Maybe Text
     , _rfcsHsmConfigurationIdentifier       :: Maybe Text
+    , _rfcsKmsKeyId                         :: Maybe Text
     , _rfcsOwnerAccount                     :: Maybe Text
     , _rfcsPort                             :: Maybe Int
     , _rfcsPreferredMaintenanceWindow       :: Maybe Text
@@ -113,6 +115,8 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
 -- * 'rfcsHsmClientCertificateIdentifier' @::@ 'Maybe' 'Text'
 --
 -- * 'rfcsHsmConfigurationIdentifier' @::@ 'Maybe' 'Text'
+--
+-- * 'rfcsKmsKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'rfcsOwnerAccount' @::@ 'Maybe' 'Text'
 --
@@ -149,6 +153,7 @@ restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
     , _rfcsVpcSecurityGroupIds              = mempty
     , _rfcsPreferredMaintenanceWindow       = Nothing
     , _rfcsAutomatedSnapshotRetentionPeriod = Nothing
+    , _rfcsKmsKeyId                         = Nothing
     }
 
 -- | If true, major version upgrades can be applied during the maintenance
@@ -229,6 +234,12 @@ rfcsHsmConfigurationIdentifier =
     lens _rfcsHsmConfigurationIdentifier
         (\s a -> s { _rfcsHsmConfigurationIdentifier = a })
 
+-- | The AWS Key Management Service (KMS) key ID of the encryption key that
+-- you want to use to encrypt data in the cluster that you restore from a
+-- shared snapshot.
+rfcsKmsKeyId :: Lens' RestoreFromClusterSnapshot (Maybe Text)
+rfcsKmsKeyId = lens _rfcsKmsKeyId (\s a -> s { _rfcsKmsKeyId = a })
+
 -- | The AWS customer account used to create or copy the snapshot. Required if
 -- you are restoring a snapshot you do not own, optional if you own the
 -- snapshot.
@@ -245,8 +256,8 @@ rfcsPort = lens _rfcsPort (\s a -> s { _rfcsPort = a })
 -- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: The value selected
 -- for the cluster from which the snapshot was taken. For more information
 -- about the time blocks for each region, see Maintenance Windows in Amazon
--- Redshift Management Guide. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat
--- | Sun Constraints: Minimum 30-minute window.
+-- Redshift Cluster Management Guide. Valid Days: Mon | Tue | Wed | Thu |
+-- Fri | Sat | Sun Constraints: Minimum 30-minute window.
 rfcsPreferredMaintenanceWindow :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsPreferredMaintenanceWindow =
     lens _rfcsPreferredMaintenanceWindow
@@ -313,6 +324,7 @@ instance ToQuery RestoreFromClusterSnapshot where
         , "ElasticIp"                        =? _rfcsElasticIp
         , "HsmClientCertificateIdentifier"   =? _rfcsHsmClientCertificateIdentifier
         , "HsmConfigurationIdentifier"       =? _rfcsHsmConfigurationIdentifier
+        , "KmsKeyId"                         =? _rfcsKmsKeyId
         , "OwnerAccount"                     =? _rfcsOwnerAccount
         , "Port"                             =? _rfcsPort
         , "PreferredMaintenanceWindow"       =? _rfcsPreferredMaintenanceWindow

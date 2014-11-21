@@ -25,13 +25,11 @@ module Network.AWS.Data.Internal.JSON
 
     -- * ToJSON
     , ToJSON   (..)
-    , encode
     , toJSONText
     , object
     , (.=)
     ) where
 
-import           Data.Aeson                     (encode, withText)
 import           Data.Aeson.Types
 import           Data.HashMap.Strict            (HashMap)
 import qualified Data.HashMap.Strict            as Map

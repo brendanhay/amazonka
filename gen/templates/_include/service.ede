@@ -16,10 +16,10 @@ instance AWSService {{ service.abbrev }} where
 {% case service.error %}
   {% when "JSONError" %}
 
-    handle = jsonError alwaysFail
+    handle = jsonError statusSuccess
   {% else %}
 
-    handle = restError alwaysFail
+    handle = restError statusSuccess
 {% endcase %}
 {% if service.xmlNamespace %}
 

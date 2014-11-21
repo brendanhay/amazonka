@@ -3,6 +3,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Error
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,8 +27,8 @@ import           Network.AWS.Data
 import           Network.AWS.Types
 import           Network.HTTP.Types
 
-alwaysFail :: Status -> Bool
-alwaysFail = const False
+statusSuccess :: Status -> Bool
+statusSuccess (statusCode -> n) n >= 200 && n < 400
 
 data ErrorType
     = Receiver

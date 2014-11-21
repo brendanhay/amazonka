@@ -41,6 +41,7 @@ module Control.Monad.Trans.AWS
     -- ** Creating the environment
     , Credentials (..)
     , newEnv
+    , getEnv
 
     -- * Debugging
     , debug

@@ -28,6 +28,7 @@ module Network.AWS
     -- ** Creating the environment
     , Credentials (..)
     , newEnv
+    , getEnv
 
     -- * Requests
     -- ** Synchronous
@@ -74,6 +75,19 @@ newEnv :: (Functor m, MonadIO m)
        -> Manager
        -> ExceptT String m Env
 newEnv r c m = Env r None m `liftM` getAuth m c
+
+-- | Create a new environment without debug logging, creating a new 'Manager'.
+--
+-- Any errors are thrown using 'error'.
+--
+-- /See:/ 'newEnv'
+getEnv :: Region -> Credentials -> IO Env
+getEnv r c = do
+    m <- newManager conduitManagerSettings
+    e <- runExceptT (newEnv r c m)
+    either error
+           return
+           e
 
 -- | Send a data type which is an instance of 'AWSRequest', returning either the
 -- associated 'Rs' response type in the success case, or the related service's

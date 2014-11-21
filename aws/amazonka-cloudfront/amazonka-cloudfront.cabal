@@ -1,0 +1,73 @@
+name:                  amazonka-cloudfront
+version:               0.0.0
+synopsis:              Amazon CloudFront SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon CloudFront is a web service that speeds up distribution of your
+    static and dynamic web content, for example, .html, .css, .php, image,
+    and media files, to end users. CloudFront delivers your content through
+    a worldwide network of edge locations. When an end user requests
+    content that you're serving with CloudFront, the user is routed to the
+    edge location that provides the lowest latency, so content is delivered
+    with the best possible performance. If the content is already in that
+    edge location, CloudFront delivers it immediately. If the content is
+    not currently in that edge location, CloudFront retrieves it from an
+    Amazon S3 bucket or an HTTP server (for example, a web server) that you
+    have identified as the source for the definitive version of your
+    content.
+    .
+    /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.CloudFront
+        , Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.CreateDistribution
+        , Network.AWS.CloudFront.CreateInvalidation
+        , Network.AWS.CloudFront.CreateStreamingDistribution
+        , Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.DeleteDistribution
+        , Network.AWS.CloudFront.DeleteStreamingDistribution
+        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+        , Network.AWS.CloudFront.GetDistribution
+        , Network.AWS.CloudFront.GetDistributionConfig
+        , Network.AWS.CloudFront.GetInvalidation
+        , Network.AWS.CloudFront.GetStreamingDistribution
+        , Network.AWS.CloudFront.GetStreamingDistributionConfig
+        , Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+        , Network.AWS.CloudFront.ListDistributions
+        , Network.AWS.CloudFront.ListInvalidations
+        , Network.AWS.CloudFront.ListStreamingDistributions
+        , Network.AWS.CloudFront.Types
+        , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.UpdateDistribution
+        , Network.AWS.CloudFront.UpdateStreamingDistribution
+
+    other-modules:
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.7 && < 5

@@ -1,0 +1,61 @@
+name:                  amazonka-dynamodb
+version:               0.0.0
+synopsis:              Amazon DynamoDB SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon DynamoDB is a fully managed NoSQL database service that provides
+    fast and predictable performance with seamless scalability. You can use
+    Amazon DynamoDB to create a database table that can store and retrieve
+    any amount of data, and serve any level of request traffic. Amazon
+    DynamoDB automatically spreads the data and traffic for the table over
+    a sufficient number of servers to handle the request capacity specified
+    by the customer and the amount of data stored, while maintaining
+    consistent and fast performance.
+    .
+    /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB.BatchGetItem
+        , Network.AWS.DynamoDB.BatchWriteItem
+        , Network.AWS.DynamoDB.CreateTable
+        , Network.AWS.DynamoDB.DeleteItem
+        , Network.AWS.DynamoDB.DeleteTable
+        , Network.AWS.DynamoDB.DescribeTable
+        , Network.AWS.DynamoDB.GetItem
+        , Network.AWS.DynamoDB.ListTables
+        , Network.AWS.DynamoDB.PutItem
+        , Network.AWS.DynamoDB.Query
+        , Network.AWS.DynamoDB.Scan
+        , Network.AWS.DynamoDB.Types
+        , Network.AWS.DynamoDB.UpdateItem
+        , Network.AWS.DynamoDB.UpdateTable
+
+    other-modules:
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.7 && < 5

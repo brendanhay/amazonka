@@ -1,0 +1,3 @@
+{% for imp in imports %}
+import {{ imp.value }}
+{% endfor %}

@@ -1,0 +1,73 @@
+name:                  amazonka-kms
+version:               0.0.0
+synopsis:              Amazon Key Management Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon Key Management Service (KMS) is a managed service that makes it
+    easy for you to create and control the encryption keys used to encrypt
+    your data, and uses Hardware Security Modules (HSMs) to protect the
+    security of your keys. Amazon Key Management Service is integrated with
+    other Amazon services including Amazon EBS, Amazon S3, and Amazon
+    Redshift. Amazon Key Management Service is also integrated with Amazon
+    CloudTrail to provide you with logs of all key usage to help meet your
+    regulatory and compliance needs.
+    .
+    /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.KMS
+        , Network.AWS.KMS.CreateAlias
+        , Network.AWS.KMS.CreateGrant
+        , Network.AWS.KMS.CreateKey
+        , Network.AWS.KMS.Decrypt
+        , Network.AWS.KMS.DeleteAlias
+        , Network.AWS.KMS.DescribeKey
+        , Network.AWS.KMS.DisableKey
+        , Network.AWS.KMS.DisableKeyRotation
+        , Network.AWS.KMS.EnableKey
+        , Network.AWS.KMS.EnableKeyRotation
+        , Network.AWS.KMS.Encrypt
+        , Network.AWS.KMS.GenerateDataKey
+        , Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
+        , Network.AWS.KMS.GenerateRandom
+        , Network.AWS.KMS.GetKeyPolicy
+        , Network.AWS.KMS.GetKeyRotationStatus
+        , Network.AWS.KMS.ListAliases
+        , Network.AWS.KMS.ListGrants
+        , Network.AWS.KMS.ListKeyPolicies
+        , Network.AWS.KMS.ListKeys
+        , Network.AWS.KMS.PutKeyPolicy
+        , Network.AWS.KMS.ReEncrypt
+        , Network.AWS.KMS.RetireGrant
+        , Network.AWS.KMS.RevokeGrant
+        , Network.AWS.KMS.Types
+        , Network.AWS.KMS.UpdateKeyDescription
+
+    other-modules:
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.7 && < 5

@@ -1,0 +1,44 @@
+name:                  amazonka-cloudsearch-domains
+version:               0.0.0
+synopsis:              Amazon CloudSearch Domain SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Pending
+    .
+    /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.CloudSearchDomains
+        , Network.AWS.CloudSearchDomains.Search
+        , Network.AWS.CloudSearchDomains.Suggest
+        , Network.AWS.CloudSearchDomains.Types
+        , Network.AWS.CloudSearchDomains.UploadDocuments
+
+    other-modules:
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.7 && < 5

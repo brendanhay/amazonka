@@ -1,0 +1,16 @@
+{% include "_include/license.ede" %}
+
+{% if documentation %}
+{{ documentation | above(76, 0) }}
+{% endif %}
+module {{ namespace }}
+{% for imp in imports %}
+    {% if imp.first %}( {% else %}, {% endif %}module {{ imp.value }}
+  {% if imp.last %}
+    ) where
+  {% endif %}
+{% else %}
+    where
+{% endfor %}
+
+{% include "_include/imports.ede" %}

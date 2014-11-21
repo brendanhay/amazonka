@@ -1,0 +1,97 @@
+name:                  amazonka-s3
+version:               0.0.0
+synopsis:              Amazon Simple Storage Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon Simple Storage Service is storage for the Internet. Amazon S3
+    has a simple web services interface that you can use to store and
+    retrieve any amount of data, at any time, from anywhere on the web. It
+    gives any developer access to the same highly scalable, reliable, fast,
+    inexpensive data storage infrastructure that Amazon uses to run its own
+    global network of web sites. The service aims to maximize benefits of
+    scale and to pass those benefits on to developers.
+    .
+    /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.S3
+        , Network.AWS.S3.AbortMultipartUpload
+        , Network.AWS.S3.CompleteMultipartUpload
+        , Network.AWS.S3.CopyObject
+        , Network.AWS.S3.CreateBucket
+        , Network.AWS.S3.CreateMultipartUpload
+        , Network.AWS.S3.DeleteBucket
+        , Network.AWS.S3.DeleteBucketCors
+        , Network.AWS.S3.DeleteBucketLifecycle
+        , Network.AWS.S3.DeleteBucketPolicy
+        , Network.AWS.S3.DeleteBucketTagging
+        , Network.AWS.S3.DeleteBucketWebsite
+        , Network.AWS.S3.DeleteObject
+        , Network.AWS.S3.DeleteObjects
+        , Network.AWS.S3.GetBucketAcl
+        , Network.AWS.S3.GetBucketCors
+        , Network.AWS.S3.GetBucketLifecycle
+        , Network.AWS.S3.GetBucketLocation
+        , Network.AWS.S3.GetBucketLogging
+        , Network.AWS.S3.GetBucketNotification
+        , Network.AWS.S3.GetBucketPolicy
+        , Network.AWS.S3.GetBucketRequestPayment
+        , Network.AWS.S3.GetBucketTagging
+        , Network.AWS.S3.GetBucketVersioning
+        , Network.AWS.S3.GetBucketWebsite
+        , Network.AWS.S3.GetObject
+        , Network.AWS.S3.GetObjectAcl
+        , Network.AWS.S3.GetObjectTorrent
+        , Network.AWS.S3.HeadBucket
+        , Network.AWS.S3.HeadObject
+        , Network.AWS.S3.ListBuckets
+        , Network.AWS.S3.ListMultipartUploads
+        , Network.AWS.S3.ListObjectVersions
+        , Network.AWS.S3.ListObjects
+        , Network.AWS.S3.ListParts
+        , Network.AWS.S3.PutBucketAcl
+        , Network.AWS.S3.PutBucketCors
+        , Network.AWS.S3.PutBucketLifecycle
+        , Network.AWS.S3.PutBucketLogging
+        , Network.AWS.S3.PutBucketNotification
+        , Network.AWS.S3.PutBucketPolicy
+        , Network.AWS.S3.PutBucketRequestPayment
+        , Network.AWS.S3.PutBucketTagging
+        , Network.AWS.S3.PutBucketVersioning
+        , Network.AWS.S3.PutBucketWebsite
+        , Network.AWS.S3.PutObject
+        , Network.AWS.S3.PutObjectAcl
+        , Network.AWS.S3.RestoreObject
+        , Network.AWS.S3.Types
+        , Network.AWS.S3.UploadPart
+        , Network.AWS.S3.UploadPartCopy
+
+    other-modules:
+          Network.AWS.S3.Internal
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.7 && < 5

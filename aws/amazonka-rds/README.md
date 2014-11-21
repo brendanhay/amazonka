@@ -1,0 +1,26 @@
+# Amazon Relational Database Service SDK
+
+> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
+
+* [description](#description)
+* [Contribute](#contribute)
+* [Licence](#licence)
+
+## Description
+
+Amazon Relational Database Service (Amazon RDS) is a web service that makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while managing time-consuming database administration tasks, freeing you up to focus on your applications and business.
+
+Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-rds)
+and [AWS API Reference](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html).
+
+
+## Contribute
+
+For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
+
+> _Note:_ this library is an auto-generated Haskell package. Please see `amazonka-gen` for more information.
+
+
+## Licence
+
+`amazonka-rds` is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).

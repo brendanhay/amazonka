@@ -1,0 +1,102 @@
+name:                  amazonka-redshift
+version:               0.0.0
+synopsis:              Amazon Redshift SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse
+    service that makes it simple and cost-effective to efficiently analyze
+    all your data using your existing business intelligence tools. You can
+    start small for just $0.25 per hour with no commitments or upfront
+    costs and scale to a petabyte or more for $1,000 per terabyte per year,
+    less than a tenth of most other data warehousing solutions.
+    .
+    /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.Redshift
+        , Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
+        , Network.AWS.Redshift.AuthorizeSnapshotAccess
+        , Network.AWS.Redshift.CopyClusterSnapshot
+        , Network.AWS.Redshift.CreateCluster
+        , Network.AWS.Redshift.CreateClusterParameterGroup
+        , Network.AWS.Redshift.CreateClusterSecurityGroup
+        , Network.AWS.Redshift.CreateClusterSnapshot
+        , Network.AWS.Redshift.CreateClusterSubnetGroup
+        , Network.AWS.Redshift.CreateEventSubscription
+        , Network.AWS.Redshift.CreateHsmClientCertificate
+        , Network.AWS.Redshift.CreateHsmConfiguration
+        , Network.AWS.Redshift.CreateTags
+        , Network.AWS.Redshift.DeleteCluster
+        , Network.AWS.Redshift.DeleteClusterParameterGroup
+        , Network.AWS.Redshift.DeleteClusterSecurityGroup
+        , Network.AWS.Redshift.DeleteClusterSnapshot
+        , Network.AWS.Redshift.DeleteClusterSubnetGroup
+        , Network.AWS.Redshift.DeleteEventSubscription
+        , Network.AWS.Redshift.DeleteHsmClientCertificate
+        , Network.AWS.Redshift.DeleteHsmConfiguration
+        , Network.AWS.Redshift.DeleteTags
+        , Network.AWS.Redshift.DescribeClusterParameterGroups
+        , Network.AWS.Redshift.DescribeClusterParameters
+        , Network.AWS.Redshift.DescribeClusterSecurityGroups
+        , Network.AWS.Redshift.DescribeClusterSnapshots
+        , Network.AWS.Redshift.DescribeClusterSubnetGroups
+        , Network.AWS.Redshift.DescribeClusterVersions
+        , Network.AWS.Redshift.DescribeClusters
+        , Network.AWS.Redshift.DescribeDefaultClusterParameters
+        , Network.AWS.Redshift.DescribeEventCategories
+        , Network.AWS.Redshift.DescribeEventSubscriptions
+        , Network.AWS.Redshift.DescribeEvents
+        , Network.AWS.Redshift.DescribeHsmClientCertificates
+        , Network.AWS.Redshift.DescribeHsmConfigurations
+        , Network.AWS.Redshift.DescribeLoggingStatus
+        , Network.AWS.Redshift.DescribeOrderableClusterOptions
+        , Network.AWS.Redshift.DescribeReservedNodeOfferings
+        , Network.AWS.Redshift.DescribeReservedNodes
+        , Network.AWS.Redshift.DescribeResize
+        , Network.AWS.Redshift.DescribeTags
+        , Network.AWS.Redshift.DisableLogging
+        , Network.AWS.Redshift.DisableSnapshotCopy
+        , Network.AWS.Redshift.EnableLogging
+        , Network.AWS.Redshift.EnableSnapshotCopy
+        , Network.AWS.Redshift.ModifyCluster
+        , Network.AWS.Redshift.ModifyClusterParameterGroup
+        , Network.AWS.Redshift.ModifyClusterSubnetGroup
+        , Network.AWS.Redshift.ModifyEventSubscription
+        , Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
+        , Network.AWS.Redshift.PurchaseReservedNodeOffering
+        , Network.AWS.Redshift.RebootCluster
+        , Network.AWS.Redshift.ResetClusterParameterGroup
+        , Network.AWS.Redshift.RestoreFromClusterSnapshot
+        , Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
+        , Network.AWS.Redshift.RevokeSnapshotAccess
+        , Network.AWS.Redshift.RotateEncryptionKey
+        , Network.AWS.Redshift.Types
+
+    other-modules:
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.7 && < 5

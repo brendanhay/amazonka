@@ -1,0 +1,94 @@
+name:                  amazonka-autoscaling
+version:               0.0.0
+synopsis:              Amazon Auto Scaling SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Auto Scaling allows you to scale your Amazon EC2 capacity up or down
+    automatically according to conditions you define. With Auto Scaling,
+    you can ensure that the number of Amazon EC2 instances you’re using
+    increases seamlessly during demand spikes to maintain performance, and
+    decreases automatically during demand lulls to minimize costs. Auto
+    Scaling is particularly well suited for applications that experience
+    hourly, daily, or weekly variability in usage. Auto Scaling is enabled
+    by Amazon CloudWatch and available at no additional charge beyond
+    Amazon CloudWatch fees.
+    .
+    /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.AutoScaling
+        , Network.AWS.AutoScaling.AttachInstances
+        , Network.AWS.AutoScaling.CompleteLifecycleAction
+        , Network.AWS.AutoScaling.CreateAutoScalingGroup
+        , Network.AWS.AutoScaling.CreateLaunchConfiguration
+        , Network.AWS.AutoScaling.CreateOrUpdateTags
+        , Network.AWS.AutoScaling.DeleteAutoScalingGroup
+        , Network.AWS.AutoScaling.DeleteLaunchConfiguration
+        , Network.AWS.AutoScaling.DeleteLifecycleHook
+        , Network.AWS.AutoScaling.DeleteNotificationConfiguration
+        , Network.AWS.AutoScaling.DeletePolicy
+        , Network.AWS.AutoScaling.DeleteScheduledAction
+        , Network.AWS.AutoScaling.DeleteTags
+        , Network.AWS.AutoScaling.DescribeAccountLimits
+        , Network.AWS.AutoScaling.DescribeAdjustmentTypes
+        , Network.AWS.AutoScaling.DescribeAutoScalingGroups
+        , Network.AWS.AutoScaling.DescribeAutoScalingInstances
+        , Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
+        , Network.AWS.AutoScaling.DescribeLaunchConfigurations
+        , Network.AWS.AutoScaling.DescribeLifecycleHookTypes
+        , Network.AWS.AutoScaling.DescribeLifecycleHooks
+        , Network.AWS.AutoScaling.DescribeMetricCollectionTypes
+        , Network.AWS.AutoScaling.DescribeNotificationConfigurations
+        , Network.AWS.AutoScaling.DescribePolicies
+        , Network.AWS.AutoScaling.DescribeScalingActivities
+        , Network.AWS.AutoScaling.DescribeScalingProcessTypes
+        , Network.AWS.AutoScaling.DescribeScheduledActions
+        , Network.AWS.AutoScaling.DescribeTags
+        , Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
+        , Network.AWS.AutoScaling.DetachInstances
+        , Network.AWS.AutoScaling.DisableMetricsCollection
+        , Network.AWS.AutoScaling.EnableMetricsCollection
+        , Network.AWS.AutoScaling.EnterStandby
+        , Network.AWS.AutoScaling.ExecutePolicy
+        , Network.AWS.AutoScaling.ExitStandby
+        , Network.AWS.AutoScaling.PutLifecycleHook
+        , Network.AWS.AutoScaling.PutNotificationConfiguration
+        , Network.AWS.AutoScaling.PutScalingPolicy
+        , Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
+        , Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
+        , Network.AWS.AutoScaling.ResumeProcesses
+        , Network.AWS.AutoScaling.SetDesiredCapacity
+        , Network.AWS.AutoScaling.SetInstanceHealth
+        , Network.AWS.AutoScaling.SuspendProcesses
+        , Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
+        , Network.AWS.AutoScaling.Types
+        , Network.AWS.AutoScaling.UpdateAutoScalingGroup
+
+    other-modules:
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.7 && < 5

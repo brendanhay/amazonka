@@ -1,0 +1,73 @@
+name:                  amazonka-route53
+version:               0.0.0
+synopsis:              Amazon Route 53 SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon Route 53 is a scalable Domain Name System (DNS) web service. It
+    provides secure and reliable routing to your infrastructure that uses
+    Amazon Web Services (AWS) products, such as Amazon Elastic Compute
+    Cloud (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage
+    Service (Amazon S3). You can also use Amazon Route 53 to route users to
+    your infrastructure outside of AWS.
+    .
+    /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.Route53
+        , Network.AWS.Route53.AssociateVPCWithHostedZone
+        , Network.AWS.Route53.ChangeResourceRecordSets
+        , Network.AWS.Route53.ChangeTagsForResource
+        , Network.AWS.Route53.CreateHealthCheck
+        , Network.AWS.Route53.CreateHostedZone
+        , Network.AWS.Route53.CreateReusableDelegationSet
+        , Network.AWS.Route53.DeleteHealthCheck
+        , Network.AWS.Route53.DeleteHostedZone
+        , Network.AWS.Route53.DeleteReusableDelegationSet
+        , Network.AWS.Route53.DisassociateVPCFromHostedZone
+        , Network.AWS.Route53.GetChange
+        , Network.AWS.Route53.GetCheckerIpRanges
+        , Network.AWS.Route53.GetGeoLocation
+        , Network.AWS.Route53.GetHealthCheck
+        , Network.AWS.Route53.GetHealthCheckCount
+        , Network.AWS.Route53.GetHealthCheckLastFailureReason
+        , Network.AWS.Route53.GetHealthCheckStatus
+        , Network.AWS.Route53.GetHostedZone
+        , Network.AWS.Route53.GetReusableDelegationSet
+        , Network.AWS.Route53.ListGeoLocations
+        , Network.AWS.Route53.ListHealthChecks
+        , Network.AWS.Route53.ListHostedZones
+        , Network.AWS.Route53.ListResourceRecordSets
+        , Network.AWS.Route53.ListReusableDelegationSets
+        , Network.AWS.Route53.ListTagsForResource
+        , Network.AWS.Route53.ListTagsForResources
+        , Network.AWS.Route53.Types
+        , Network.AWS.Route53.UpdateHealthCheck
+
+    other-modules:
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.7 && < 5

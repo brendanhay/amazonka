@@ -40,28 +40,16 @@ module Network.AWS.Data.Internal.XML
     , unsafeToXML
     ) where
 
-import           Control.Applicative
-import           Control.Monad
-import           Data.Default.Class
-import           Data.HashMap.Strict                  (HashMap)
-import qualified Data.HashMap.Strict                  as Map
-import           Data.Hashable
-import           Data.List                            (find)
-import           Data.List.NonEmpty                   (NonEmpty(..))
-import qualified Data.List.NonEmpty                   as NonEmpty
-import           Data.Maybe
-import           Data.Monoid
-import           Data.Tagged
-import           Data.Tagged
-import           Data.Text                            (Text)
-import qualified Data.Text                            as Text
-import qualified Data.Text.Encoding                   as Text
-import           Data.Traversable                     (traverse)
-import           GHC.Generics
-import           Network.AWS.Data.Internal.ByteString
-import           Network.AWS.Data.Internal.Text
-import           Numeric.Natural
-import           Text.XML
+import Control.Applicative
+import Control.Monad
+import Data.Default.Class
+import Data.Maybe
+import Data.Monoid
+import Data.Text                            (Text)
+import Network.AWS.Data.Internal.ByteString
+import Network.AWS.Data.Internal.Text
+import Numeric.Natural
+import Text.XML
 
 decodeXML :: LazyByteString -> Either String [Node]
 decodeXML = either failure success . parseLBS def

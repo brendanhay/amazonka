@@ -28,7 +28,7 @@ import           Network.AWS.Types
 import           Network.HTTP.Types
 
 statusSuccess :: Status -> Bool
-statusSuccess (statusCode -> n) n >= 200 && n < 400
+statusSuccess (statusCode -> n) = n >= 200 && n < 400
 
 data ErrorType
     = Receiver

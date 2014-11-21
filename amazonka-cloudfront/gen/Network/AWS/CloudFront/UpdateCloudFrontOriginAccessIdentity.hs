@@ -133,7 +133,7 @@ instance ToHeaders UpdateCloudFrontOriginAccessIdentity where
         ]
 
 instance ToXMLRoot UpdateCloudFrontOriginAccessIdentity where
-    toXMLRoot UpdateCloudFrontOriginAccessIdentity{..} = namespace ns "UpdateCloudFrontOriginAccessIdentity"
+    toXMLRoot UpdateCloudFrontOriginAccessIdentity{..} = namespaced ns "UpdateCloudFrontOriginAccessIdentity"
         [ "CloudFrontOriginAccessIdentityConfig" =@ _ucfoaiCloudFrontOriginAccessIdentityConfig
         ]
 

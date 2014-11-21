@@ -126,7 +126,7 @@ instance ToQuery ListInvalidations where
 instance ToHeaders ListInvalidations
 
 instance ToXMLRoot ListInvalidations where
-    toXMLRoot = const (namespace ns "ListInvalidations" [])
+    toXMLRoot = const (namespaced ns "ListInvalidations" [])
 
 instance ToXML ListInvalidations
 

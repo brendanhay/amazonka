@@ -115,7 +115,7 @@ instance ToHeaders PutBucketVersioning where
         ]
 
 instance ToXMLRoot PutBucketVersioning where
-    toXMLRoot PutBucketVersioning{..} = namespace ns "PutBucketVersioning"
+    toXMLRoot PutBucketVersioning{..} = namespaced ns "PutBucketVersioning"
         [ "VersioningConfiguration" =@ _pbvVersioningConfiguration
         ]
 

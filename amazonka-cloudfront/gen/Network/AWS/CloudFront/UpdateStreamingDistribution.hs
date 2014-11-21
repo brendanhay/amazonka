@@ -133,7 +133,7 @@ instance ToHeaders UpdateStreamingDistribution where
         ]
 
 instance ToXMLRoot UpdateStreamingDistribution where
-    toXMLRoot UpdateStreamingDistribution{..} = namespace ns "UpdateStreamingDistribution"
+    toXMLRoot UpdateStreamingDistribution{..} = namespaced ns "UpdateStreamingDistribution"
         [ "StreamingDistributionConfig" =@ _usdStreamingDistributionConfig
         ]
 

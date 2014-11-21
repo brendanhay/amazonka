@@ -118,7 +118,7 @@ instance ToQuery CreateStreamingDistribution where
 instance ToHeaders CreateStreamingDistribution
 
 instance ToXMLRoot CreateStreamingDistribution where
-    toXMLRoot CreateStreamingDistribution{..} = namespace ns "CreateStreamingDistribution"
+    toXMLRoot CreateStreamingDistribution{..} = namespaced ns "CreateStreamingDistribution"
         [ "StreamingDistributionConfig" =@ _csdStreamingDistributionConfig
         ]
 

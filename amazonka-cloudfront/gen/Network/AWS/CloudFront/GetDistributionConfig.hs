@@ -107,7 +107,7 @@ instance ToQuery GetDistributionConfig where
 instance ToHeaders GetDistributionConfig
 
 instance ToXMLRoot GetDistributionConfig where
-    toXMLRoot = const (namespace ns "GetDistributionConfig" [])
+    toXMLRoot = const (namespaced ns "GetDistributionConfig" [])
 
 instance ToXML GetDistributionConfig
 

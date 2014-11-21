@@ -130,7 +130,7 @@ instance ToQuery ChangeResourceRecordSets where
 instance ToHeaders ChangeResourceRecordSets
 
 instance ToXMLRoot ChangeResourceRecordSets where
-    toXMLRoot ChangeResourceRecordSets{..} = namespace ns "ChangeResourceRecordSets"
+    toXMLRoot ChangeResourceRecordSets{..} = namespaced ns "ChangeResourceRecordSets"
         [ "ChangeBatch" =@ _crrsChangeBatch
         ]
 

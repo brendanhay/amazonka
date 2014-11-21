@@ -130,7 +130,7 @@ instance ToQuery CreateReusableDelegationSet where
 instance ToHeaders CreateReusableDelegationSet
 
 instance ToXMLRoot CreateReusableDelegationSet where
-    toXMLRoot CreateReusableDelegationSet{..} = namespace ns "CreateReusableDelegationSet"
+    toXMLRoot CreateReusableDelegationSet{..} = namespaced ns "CreateReusableDelegationSet"
         [ "CallerReference" =@ _crdsCallerReference
         , "HostedZoneId"    =@ _crdsHostedZoneId
         ]

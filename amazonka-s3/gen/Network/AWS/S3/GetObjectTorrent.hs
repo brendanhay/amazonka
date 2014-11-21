@@ -106,7 +106,7 @@ instance ToQuery GetObjectTorrent where
 instance ToHeaders GetObjectTorrent
 
 instance ToXMLRoot GetObjectTorrent where
-    toXMLRoot = const (namespace ns "GetObjectTorrent" [])
+    toXMLRoot = const (namespaced ns "GetObjectTorrent" [])
 
 instance ToXML GetObjectTorrent
 

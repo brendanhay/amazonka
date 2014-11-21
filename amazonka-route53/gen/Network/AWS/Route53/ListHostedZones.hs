@@ -177,7 +177,7 @@ instance ToQuery ListHostedZones where
 instance ToHeaders ListHostedZones
 
 instance ToXMLRoot ListHostedZones where
-    toXMLRoot = const (namespace ns "ListHostedZones" [])
+    toXMLRoot = const (namespaced ns "ListHostedZones" [])
 
 instance ToXML ListHostedZones
 

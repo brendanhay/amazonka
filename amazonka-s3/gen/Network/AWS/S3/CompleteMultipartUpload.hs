@@ -189,7 +189,7 @@ instance ToQuery CompleteMultipartUpload where
 instance ToHeaders CompleteMultipartUpload
 
 instance ToXMLRoot CompleteMultipartUpload where
-    toXMLRoot CompleteMultipartUpload{..} = namespace ns "CompleteMultipartUpload"
+    toXMLRoot CompleteMultipartUpload{..} = namespaced ns "CompleteMultipartUpload"
         [ "CompleteMultipartUpload" =@ _cmu1MultipartUpload
         ]
 

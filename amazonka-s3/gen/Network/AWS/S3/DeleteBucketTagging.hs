@@ -81,7 +81,7 @@ instance ToQuery DeleteBucketTagging where
 instance ToHeaders DeleteBucketTagging
 
 instance ToXMLRoot DeleteBucketTagging where
-    toXMLRoot = const (namespace ns "DeleteBucketTagging" [])
+    toXMLRoot = const (namespaced ns "DeleteBucketTagging" [])
 
 instance ToXML DeleteBucketTagging
 

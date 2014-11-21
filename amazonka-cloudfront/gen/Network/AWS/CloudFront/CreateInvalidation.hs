@@ -118,7 +118,7 @@ instance ToQuery CreateInvalidation where
 instance ToHeaders CreateInvalidation
 
 instance ToXMLRoot CreateInvalidation where
-    toXMLRoot CreateInvalidation{..} = namespace ns "CreateInvalidation"
+    toXMLRoot CreateInvalidation{..} = namespaced ns "CreateInvalidation"
         [ "InvalidationBatch" =@ _ciInvalidationBatch
         ]
 

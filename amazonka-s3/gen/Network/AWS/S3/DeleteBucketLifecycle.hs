@@ -81,7 +81,7 @@ instance ToQuery DeleteBucketLifecycle where
 instance ToHeaders DeleteBucketLifecycle
 
 instance ToXMLRoot DeleteBucketLifecycle where
-    toXMLRoot = const (namespace ns "DeleteBucketLifecycle" [])
+    toXMLRoot = const (namespaced ns "DeleteBucketLifecycle" [])
 
 instance ToXML DeleteBucketLifecycle
 

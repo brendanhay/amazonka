@@ -118,7 +118,7 @@ instance ToQuery ListTagsForResources where
 instance ToHeaders ListTagsForResources
 
 instance ToXMLRoot ListTagsForResources where
-    toXMLRoot ListTagsForResources{..} = namespace ns "ListTagsForResources"
+    toXMLRoot ListTagsForResources{..} = namespaced ns "ListTagsForResources"
         [ "ResourceIds" =@ _ltfr1ResourceIds
         ]
 

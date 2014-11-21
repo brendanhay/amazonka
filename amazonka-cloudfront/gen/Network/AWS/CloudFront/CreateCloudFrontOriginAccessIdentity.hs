@@ -118,7 +118,7 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity where
 instance ToHeaders CreateCloudFrontOriginAccessIdentity
 
 instance ToXMLRoot CreateCloudFrontOriginAccessIdentity where
-    toXMLRoot CreateCloudFrontOriginAccessIdentity{..} = namespace ns "CreateCloudFrontOriginAccessIdentity"
+    toXMLRoot CreateCloudFrontOriginAccessIdentity{..} = namespaced ns "CreateCloudFrontOriginAccessIdentity"
         [ "CloudFrontOriginAccessIdentityConfig" =@ _ccfoaiCloudFrontOriginAccessIdentityConfig
         ]
 

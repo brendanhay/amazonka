@@ -515,7 +515,7 @@ instance ToHeaders GetObject where
         ]
 
 instance ToXMLRoot GetObject where
-    toXMLRoot = const (namespace ns "GetObject" [])
+    toXMLRoot = const (namespaced ns "GetObject" [])
 
 instance ToXML GetObject
 

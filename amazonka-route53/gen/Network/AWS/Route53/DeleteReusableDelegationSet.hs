@@ -89,7 +89,7 @@ instance ToQuery DeleteReusableDelegationSet where
 instance ToHeaders DeleteReusableDelegationSet
 
 instance ToXMLRoot DeleteReusableDelegationSet where
-    toXMLRoot = const (namespace ns "DeleteReusableDelegationSet" [])
+    toXMLRoot = const (namespaced ns "DeleteReusableDelegationSet" [])
 
 instance ToXML DeleteReusableDelegationSet
 

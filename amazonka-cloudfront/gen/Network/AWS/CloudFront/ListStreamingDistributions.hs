@@ -112,7 +112,7 @@ instance ToQuery ListStreamingDistributions where
 instance ToHeaders ListStreamingDistributions
 
 instance ToXMLRoot ListStreamingDistributions where
-    toXMLRoot = const (namespace ns "ListStreamingDistributions" [])
+    toXMLRoot = const (namespaced ns "ListStreamingDistributions" [])
 
 instance ToXML ListStreamingDistributions
 

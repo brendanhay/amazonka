@@ -234,7 +234,7 @@ instance ToQuery ListObjects where
 instance ToHeaders ListObjects
 
 instance ToXMLRoot ListObjects where
-    toXMLRoot = const (namespace ns "ListObjects" [])
+    toXMLRoot = const (namespaced ns "ListObjects" [])
 
 instance ToXML ListObjects
 

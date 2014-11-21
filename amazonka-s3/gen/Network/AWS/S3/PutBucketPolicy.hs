@@ -103,7 +103,7 @@ instance ToHeaders PutBucketPolicy where
         ]
 
 instance ToXMLRoot PutBucketPolicy where
-    toXMLRoot PutBucketPolicy{..} = namespace ns "PutBucketPolicy"
+    toXMLRoot PutBucketPolicy{..} = namespaced ns "PutBucketPolicy"
         [ "Policy" =@ _pbpPolicy
         ]
 

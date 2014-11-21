@@ -114,7 +114,7 @@ instance ToQuery GetBucketNotification where
 instance ToHeaders GetBucketNotification
 
 instance ToXMLRoot GetBucketNotification where
-    toXMLRoot = const (namespace ns "GetBucketNotification" [])
+    toXMLRoot = const (namespaced ns "GetBucketNotification" [])
 
 instance ToXML GetBucketNotification
 

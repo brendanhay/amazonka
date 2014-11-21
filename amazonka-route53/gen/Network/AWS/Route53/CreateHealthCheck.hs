@@ -127,7 +127,7 @@ instance ToQuery CreateHealthCheck where
 instance ToHeaders CreateHealthCheck
 
 instance ToXMLRoot CreateHealthCheck where
-    toXMLRoot CreateHealthCheck{..} = namespace ns "CreateHealthCheck"
+    toXMLRoot CreateHealthCheck{..} = namespaced ns "CreateHealthCheck"
         [ "CallerReference"   =@ _chcCallerReference
         , "HealthCheckConfig" =@ _chcHealthCheckConfig
         ]

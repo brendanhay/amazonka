@@ -103,7 +103,7 @@ instance ToHeaders PutBucketLifecycle where
         ]
 
 instance ToXMLRoot PutBucketLifecycle where
-    toXMLRoot PutBucketLifecycle{..} = namespace ns "PutBucketLifecycle"
+    toXMLRoot PutBucketLifecycle{..} = namespaced ns "PutBucketLifecycle"
         [ "LifecycleConfiguration" =@ _pbl1LifecycleConfiguration
         ]
 

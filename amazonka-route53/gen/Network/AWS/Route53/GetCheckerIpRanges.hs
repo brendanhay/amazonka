@@ -91,7 +91,7 @@ instance ToQuery GetCheckerIpRanges where
 instance ToHeaders GetCheckerIpRanges
 
 instance ToXMLRoot GetCheckerIpRanges where
-    toXMLRoot = const (namespace ns "GetCheckerIpRanges" [])
+    toXMLRoot = const (namespaced ns "GetCheckerIpRanges" [])
 
 instance ToXML GetCheckerIpRanges
 

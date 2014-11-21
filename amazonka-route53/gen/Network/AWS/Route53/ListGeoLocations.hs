@@ -218,7 +218,7 @@ instance ToQuery ListGeoLocations where
 instance ToHeaders ListGeoLocations
 
 instance ToXMLRoot ListGeoLocations where
-    toXMLRoot = const (namespace ns "ListGeoLocations" [])
+    toXMLRoot = const (namespaced ns "ListGeoLocations" [])
 
 instance ToXML ListGeoLocations
 

@@ -249,7 +249,7 @@ instance ToQuery ListResourceRecordSets where
 instance ToHeaders ListResourceRecordSets
 
 instance ToXMLRoot ListResourceRecordSets where
-    toXMLRoot = const (namespace ns "ListResourceRecordSets" [])
+    toXMLRoot = const (namespaced ns "ListResourceRecordSets" [])
 
 instance ToXML ListResourceRecordSets
 

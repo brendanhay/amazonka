@@ -100,7 +100,7 @@ instance ToQuery GetBucketTagging where
 instance ToHeaders GetBucketTagging
 
 instance ToXMLRoot GetBucketTagging where
-    toXMLRoot = const (namespace ns "GetBucketTagging" [])
+    toXMLRoot = const (namespaced ns "GetBucketTagging" [])
 
 instance ToXML GetBucketTagging
 

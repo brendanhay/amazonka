@@ -101,7 +101,7 @@ instance ToQuery GetReusableDelegationSet where
 instance ToHeaders GetReusableDelegationSet
 
 instance ToXMLRoot GetReusableDelegationSet where
-    toXMLRoot = const (namespace ns "GetReusableDelegationSet" [])
+    toXMLRoot = const (namespaced ns "GetReusableDelegationSet" [])
 
 instance ToXML GetReusableDelegationSet
 

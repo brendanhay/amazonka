@@ -189,7 +189,7 @@ instance ToQuery UpdateHealthCheck where
 instance ToHeaders UpdateHealthCheck
 
 instance ToXMLRoot UpdateHealthCheck where
-    toXMLRoot UpdateHealthCheck{..} = namespace ns "UpdateHealthCheck"
+    toXMLRoot UpdateHealthCheck{..} = namespaced ns "UpdateHealthCheck"
         [ "HealthCheckVersion"       =@ _uhcHealthCheckVersion
         , "IPAddress"                =@ _uhcIPAddress
         , "Port"                     =@ _uhcPort

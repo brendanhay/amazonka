@@ -567,7 +567,7 @@ instance FromXML Invalidation where
         <*> x .@  "Status"
 
 instance ToXMLRoot Invalidation where
-    toXMLRoot Invalidation{..} = namespace ns "Invalidation"
+    toXMLRoot Invalidation{..} = namespaced ns "Invalidation"
         [ "Id"                =@ _iId
         , "Status"            =@ _iStatus
         , "CreateTime"        =@ _iCreateTime
@@ -1222,7 +1222,7 @@ instance FromXML Distribution where
         <*> x .@  "Status"
 
 instance ToXMLRoot Distribution where
-    toXMLRoot Distribution{..} = namespace ns "Distribution"
+    toXMLRoot Distribution{..} = namespaced ns "Distribution"
         [ "Id"                            =@ _dId
         , "Status"                        =@ _dStatus
         , "LastModifiedTime"              =@ _dLastModifiedTime
@@ -3168,7 +3168,7 @@ instance FromXML StreamingDistribution where
         <*> x .@  "StreamingDistributionConfig"
 
 instance ToXMLRoot StreamingDistribution where
-    toXMLRoot StreamingDistribution{..} = namespace ns "StreamingDistribution"
+    toXMLRoot StreamingDistribution{..} = namespaced ns "StreamingDistribution"
         [ "Id"                          =@ _sdId
         , "Status"                      =@ _sdStatus
         , "LastModifiedTime"            =@ _sdLastModifiedTime
@@ -3268,7 +3268,7 @@ instance FromXML CloudFrontOriginAccessIdentity where
         <*> x .@  "S3CanonicalUserId"
 
 instance ToXMLRoot CloudFrontOriginAccessIdentity where
-    toXMLRoot CloudFrontOriginAccessIdentity{..} = namespace ns "CloudFrontOriginAccessIdentity"
+    toXMLRoot CloudFrontOriginAccessIdentity{..} = namespaced ns "CloudFrontOriginAccessIdentity"
         [ "Id"                                   =@ _cfoaiId
         , "S3CanonicalUserId"                    =@ _cfoaiS3CanonicalUserId
         , "CloudFrontOriginAccessIdentityConfig" =@ _cfoaiCloudFrontOriginAccessIdentityConfig

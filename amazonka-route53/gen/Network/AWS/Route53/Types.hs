@@ -1062,7 +1062,7 @@ instance FromXML VPC where
         <*> x .@? "VPCRegion"
 
 instance ToXMLRoot VPC where
-    toXMLRoot VPC{..} = namespace ns "VPC"
+    toXMLRoot VPC{..} = namespaced ns "VPC"
         [ "VPCRegion" =@ _vpcVPCRegion
         , "VPCId"     =@ _vpcVPCId
         ]
@@ -1315,7 +1315,7 @@ instance FromXML DelegationSet where
         <*> x .@  "NameServers"
 
 instance ToXMLRoot DelegationSet where
-    toXMLRoot DelegationSet{..} = namespace ns "DelegationSet"
+    toXMLRoot DelegationSet{..} = namespaced ns "DelegationSet"
         [ "Id"              =@ _dsId
         , "CallerReference" =@ _dsCallerReference
         , "NameServers"     =@ _dsNameServers
@@ -1487,7 +1487,7 @@ instance FromXML HealthCheckObservation where
         <*> x .@? "StatusReport"
 
 instance ToXMLRoot HealthCheckObservation where
-    toXMLRoot HealthCheckObservation{..} = namespace ns "HealthCheckObservation"
+    toXMLRoot HealthCheckObservation{..} = namespaced ns "HealthCheckObservation"
         [ "IPAddress"    =@ _hcoIPAddress
         , "StatusReport" =@ _hcoStatusReport
         ]

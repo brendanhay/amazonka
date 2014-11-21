@@ -105,7 +105,7 @@ instance ToQuery GetChange where
 instance ToHeaders GetChange
 
 instance ToXMLRoot GetChange where
-    toXMLRoot = const (namespace ns "GetChange" [])
+    toXMLRoot = const (namespaced ns "GetChange" [])
 
 instance ToXML GetChange
 

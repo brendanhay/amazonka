@@ -391,7 +391,7 @@ instance ToHeaders CreateMultipartUpload where
         ]
 
 instance ToXMLRoot CreateMultipartUpload where
-    toXMLRoot = const (namespace ns "CreateMultipartUpload" [])
+    toXMLRoot = const (namespaced ns "CreateMultipartUpload" [])
 
 instance ToXML CreateMultipartUpload
 

@@ -119,7 +119,7 @@ instance ToQuery ChangeTagsForResource where
 instance ToHeaders ChangeTagsForResource
 
 instance ToXMLRoot ChangeTagsForResource where
-    toXMLRoot ChangeTagsForResource{..} = namespace ns "ChangeTagsForResource"
+    toXMLRoot ChangeTagsForResource{..} = namespaced ns "ChangeTagsForResource"
         [ "AddTags"       =@ _ctfrAddTags
         , "RemoveTagKeys" =@ _ctfrRemoveTagKeys
         ]

@@ -107,7 +107,7 @@ instance ToQuery DeleteHostedZone where
 instance ToHeaders DeleteHostedZone
 
 instance ToXMLRoot DeleteHostedZone where
-    toXMLRoot = const (namespace ns "DeleteHostedZone" [])
+    toXMLRoot = const (namespaced ns "DeleteHostedZone" [])
 
 instance ToXML DeleteHostedZone
 

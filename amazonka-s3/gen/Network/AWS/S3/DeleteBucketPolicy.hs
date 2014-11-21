@@ -81,7 +81,7 @@ instance ToQuery DeleteBucketPolicy where
 instance ToHeaders DeleteBucketPolicy
 
 instance ToXMLRoot DeleteBucketPolicy where
-    toXMLRoot = const (namespace ns "DeleteBucketPolicy" [])
+    toXMLRoot = const (namespaced ns "DeleteBucketPolicy" [])
 
 instance ToXML DeleteBucketPolicy
 

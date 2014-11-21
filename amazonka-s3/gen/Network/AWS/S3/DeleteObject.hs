@@ -141,7 +141,7 @@ instance ToHeaders DeleteObject where
         ]
 
 instance ToXMLRoot DeleteObject where
-    toXMLRoot = const (namespace ns "DeleteObject" [])
+    toXMLRoot = const (namespaced ns "DeleteObject" [])
 
 instance ToXML DeleteObject
 

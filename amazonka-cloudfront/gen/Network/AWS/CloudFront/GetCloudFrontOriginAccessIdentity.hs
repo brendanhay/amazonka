@@ -108,7 +108,7 @@ instance ToQuery GetCloudFrontOriginAccessIdentity where
 instance ToHeaders GetCloudFrontOriginAccessIdentity
 
 instance ToXMLRoot GetCloudFrontOriginAccessIdentity where
-    toXMLRoot = const (namespace ns "GetCloudFrontOriginAccessIdentity" [])
+    toXMLRoot = const (namespaced ns "GetCloudFrontOriginAccessIdentity" [])
 
 instance ToXML GetCloudFrontOriginAccessIdentity
 

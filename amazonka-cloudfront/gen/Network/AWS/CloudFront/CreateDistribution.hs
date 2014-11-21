@@ -114,7 +114,7 @@ instance ToQuery CreateDistribution where
 instance ToHeaders CreateDistribution
 
 instance ToXMLRoot CreateDistribution where
-    toXMLRoot CreateDistribution{..} = namespace ns "CreateDistribution"
+    toXMLRoot CreateDistribution{..} = namespaced ns "CreateDistribution"
         [ "DistributionConfig" =@ _cdDistributionConfig
         ]
 

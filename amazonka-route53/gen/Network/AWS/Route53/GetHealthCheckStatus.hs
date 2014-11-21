@@ -111,7 +111,7 @@ instance ToQuery GetHealthCheckStatus where
 instance ToHeaders GetHealthCheckStatus
 
 instance ToXMLRoot GetHealthCheckStatus where
-    toXMLRoot = const (namespace ns "GetHealthCheckStatus" [])
+    toXMLRoot = const (namespaced ns "GetHealthCheckStatus" [])
 
 instance ToXML GetHealthCheckStatus
 

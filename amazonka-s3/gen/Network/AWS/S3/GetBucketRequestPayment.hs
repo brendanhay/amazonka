@@ -95,7 +95,7 @@ instance ToQuery GetBucketRequestPayment where
 instance ToHeaders GetBucketRequestPayment
 
 instance ToXMLRoot GetBucketRequestPayment where
-    toXMLRoot = const (namespace ns "GetBucketRequestPayment" [])
+    toXMLRoot = const (namespaced ns "GetBucketRequestPayment" [])
 
 instance ToXML GetBucketRequestPayment
 

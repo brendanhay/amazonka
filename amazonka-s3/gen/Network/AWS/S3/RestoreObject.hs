@@ -111,7 +111,7 @@ instance ToQuery RestoreObject where
 instance ToHeaders RestoreObject
 
 instance ToXMLRoot RestoreObject where
-    toXMLRoot RestoreObject{..} = namespace ns "RestoreObject"
+    toXMLRoot RestoreObject{..} = namespaced ns "RestoreObject"
         [ "RestoreRequest" =@ _roRestoreRequest
         ]
 

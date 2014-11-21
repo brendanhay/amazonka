@@ -129,7 +129,7 @@ instance ToQuery DisassociateVPCFromHostedZone where
 instance ToHeaders DisassociateVPCFromHostedZone
 
 instance ToXMLRoot DisassociateVPCFromHostedZone where
-    toXMLRoot DisassociateVPCFromHostedZone{..} = namespace ns "DisassociateVPCFromHostedZone"
+    toXMLRoot DisassociateVPCFromHostedZone{..} = namespaced ns "DisassociateVPCFromHostedZone"
         [ "VPC"     =@ _dvpcfhzVPC
         , "Comment" =@ _dvpcfhzComment
         ]

@@ -1,6 +1,6 @@
 name:                  amazonka
 version:               0.0.0
-synopsis:              Amazon Web Services SDK
+synopsis:              Comprehensive Amazon Web Services SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
@@ -13,7 +13,11 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    Client library containing request and response primitives to be used
+    alongside the types from all amazonka related service libraries.
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

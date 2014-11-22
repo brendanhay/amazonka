@@ -65,8 +65,8 @@ library
           aeson                >= 0.8    && < 0.9
         , attoparsec           >= 0.12   && < 0.15
         , base                 >= 4.7    && < 5
-        , base16-bytestring    >= 0.1    && < 0.2
-        , base64-bytestring    >= 0.1    && < 0.2
+        , base16-bytestring    >= 0.1    && < 1
+        , base64-bytestring    >= 1      && < 2
         , bifunctors           >= 0.3
         , bytestring           >= 0.9
         , case-insensitive     >= 1.1

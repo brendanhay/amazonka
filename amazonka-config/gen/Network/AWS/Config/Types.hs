@@ -408,6 +408,9 @@ instance ToText ChronologicalOrder where
         Forward -> "Forward"
         Reverse -> "Reverse"
 
+instance ToByteString ChronologicalOrder
+instance ToHeader     ChronologicalOrder
+
 instance FromJSON ChronologicalOrder where
     parseJSON = parseJSONText "ChronologicalOrder"
 
@@ -465,6 +468,9 @@ instance ToText ResourceType where
         AWSEC2VPNConnection    -> "AWS::EC2::VPNConnection"
         AWSEC2VPNGateway       -> "AWS::EC2::VPNGateway"
         AWSEC2Volume           -> "AWS::EC2::Volume"
+
+instance ToByteString ResourceType
+instance ToHeader     ResourceType
 
 instance FromJSON ResourceType where
     parseJSON = parseJSONText "ResourceType"
@@ -674,6 +680,9 @@ instance ToText DeliveryStatus where
         Failure -> "Failure"
         Success -> "Success"
 
+instance ToByteString DeliveryStatus
+instance ToHeader     DeliveryStatus
+
 instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
 
@@ -870,6 +879,9 @@ instance ToText ConfigurationItemStatus where
         Failed     -> "Failed"
         Ok         -> "Ok"
 
+instance ToByteString ConfigurationItemStatus
+instance ToHeader     ConfigurationItemStatus
+
 instance FromJSON ConfigurationItemStatus where
     parseJSON = parseJSONText "ConfigurationItemStatus"
 
@@ -935,6 +947,9 @@ instance ToText RecorderStatus where
         RSFailure -> "Failure"
         RSPending -> "Pending"
         RSSuccess -> "Success"
+
+instance ToByteString RecorderStatus
+instance ToHeader     RecorderStatus
 
 instance FromJSON RecorderStatus where
     parseJSON = parseJSONText "RecorderStatus"

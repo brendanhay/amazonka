@@ -1242,6 +1242,9 @@ instance ToText SourceType where
         DbSecurityGroup  -> "db-security-group"
         DbSnapshot       -> "db-snapshot"
 
+instance ToByteString SourceType
+instance ToHeader     SourceType
+
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
 
@@ -1442,6 +1445,9 @@ instance ToText ApplyMethod where
     toText = \case
         Immediate     -> "immediate"
         PendingReboot -> "pending-reboot"
+
+instance ToByteString ApplyMethod
+instance ToHeader     ApplyMethod
 
 instance FromXML ApplyMethod where
     parseXML = parseXMLText "ApplyMethod"

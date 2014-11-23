@@ -997,6 +997,9 @@ instance ToText AppAttributesKeys where
         DocumentRoot       -> "DocumentRoot"
         RailsEnv           -> "RailsEnv"
 
+instance ToByteString AppAttributesKeys
+instance ToHeader     AppAttributesKeys
+
 instance FromJSON AppAttributesKeys where
     parseJSON = parseJSONText "AppAttributesKeys"
 
@@ -1171,6 +1174,9 @@ instance FromText StackAttributesKeys where
 instance ToText StackAttributesKeys where
     toText Color = "Color"
 
+instance ToByteString StackAttributesKeys
+instance ToHeader     StackAttributesKeys
+
 instance FromJSON StackAttributesKeys where
     parseJSON = parseJSONText "StackAttributesKeys"
 
@@ -1260,6 +1266,9 @@ instance ToText SourceType where
         Git     -> "git"
         S3      -> "s3"
         Svn     -> "svn"
+
+instance ToByteString SourceType
+instance ToHeader     SourceType
 
 instance FromJSON SourceType where
     parseJSON = parseJSONText "SourceType"
@@ -1494,6 +1503,9 @@ instance ToText LayerType where
         PhpApp           -> "php-app"
         RailsApp         -> "rails-app"
         Web              -> "web"
+
+instance ToByteString LayerType
+instance ToHeader     LayerType
 
 instance FromJSON LayerType where
     parseJSON = parseJSONText "LayerType"
@@ -1898,6 +1910,9 @@ instance ToText AutoScalingType where
         Load  -> "load"
         Timer -> "timer"
 
+instance ToByteString AutoScalingType
+instance ToHeader     AutoScalingType
+
 instance FromJSON AutoScalingType where
     parseJSON = parseJSONText "AutoScalingType"
 
@@ -2055,6 +2070,9 @@ instance ToText Architecture where
         I386  -> "i386"
         X8664 -> "x86_64"
 
+instance ToByteString Architecture
+instance ToHeader     Architecture
+
 instance FromJSON Architecture where
     parseJSON = parseJSONText "Architecture"
 
@@ -2181,6 +2199,9 @@ instance ToText LayerAttributesKeys where
         RailsStack                  -> "RailsStack"
         RubyVersion                 -> "RubyVersion"
         RubygemsVersion             -> "RubygemsVersion"
+
+instance ToByteString LayerAttributesKeys
+instance ToHeader     LayerAttributesKeys
 
 instance FromJSON LayerAttributesKeys where
     parseJSON = parseJSONText "LayerAttributesKeys"
@@ -2755,6 +2776,9 @@ instance ToText RootDeviceType where
         Ebs           -> "ebs"
         InstanceStore -> "instance-store"
 
+instance ToByteString RootDeviceType
+instance ToHeader     RootDeviceType
+
 instance FromJSON RootDeviceType where
     parseJSON = parseJSONText "RootDeviceType"
 
@@ -3200,6 +3224,9 @@ instance ToText DeploymentCommandName where
         Undeploy              -> "undeploy"
         UpdateCustomCookbooks -> "update_custom_cookbooks"
         UpdateDependencies    -> "update_dependencies"
+
+instance ToByteString DeploymentCommandName
+instance ToHeader     DeploymentCommandName
 
 instance FromJSON DeploymentCommandName where
     parseJSON = parseJSONText "DeploymentCommandName"
@@ -3881,6 +3908,9 @@ instance ToText AppType where
         Php    -> "php"
         Rails  -> "rails"
         Static -> "static"
+
+instance ToByteString AppType
+instance ToHeader     AppType
 
 instance FromJSON AppType where
     parseJSON = parseJSONText "AppType"

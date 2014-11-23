@@ -105,6 +105,9 @@ instance FromText Runtime where
 instance ToText Runtime where
     toText Nodejs = "nodejs"
 
+instance ToByteString Runtime
+instance ToHeader     Runtime
+
 instance FromJSON Runtime where
     parseJSON = parseJSONText "Runtime"
 
@@ -122,6 +125,9 @@ instance FromText Mode where
 
 instance ToText Mode where
     toText Event = "event"
+
+instance ToByteString Mode
+instance ToHeader     Mode
 
 instance FromJSON Mode where
     parseJSON = parseJSONText "Mode"

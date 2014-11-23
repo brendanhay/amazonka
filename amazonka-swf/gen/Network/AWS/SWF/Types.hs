@@ -1445,6 +1445,9 @@ instance FromText WorkflowExecutionTimeoutType where
 instance ToText WorkflowExecutionTimeoutType where
     toText StartToClose = "START_TO_CLOSE"
 
+instance ToByteString WorkflowExecutionTimeoutType
+instance ToHeader     WorkflowExecutionTimeoutType
+
 instance FromJSON WorkflowExecutionTimeoutType where
     parseJSON = parseJSONText "WorkflowExecutionTimeoutType"
 
@@ -1990,6 +1993,9 @@ instance ToText RequestCancelActivityTaskFailedCause where
         ActivityIdUnknown     -> "ACTIVITY_ID_UNKNOWN"
         OperationNotPermitted -> "OPERATION_NOT_PERMITTED"
 
+instance ToByteString RequestCancelActivityTaskFailedCause
+instance ToHeader     RequestCancelActivityTaskFailedCause
+
 instance FromJSON RequestCancelActivityTaskFailedCause where
     parseJSON = parseJSONText "RequestCancelActivityTaskFailedCause"
 
@@ -2214,6 +2220,9 @@ instance ToText WorkflowExecutionTerminatedCause where
         EventLimitExceeded -> "EVENT_LIMIT_EXCEEDED"
         OperatorInitiated  -> "OPERATOR_INITIATED"
 
+instance ToByteString WorkflowExecutionTerminatedCause
+instance ToHeader     WorkflowExecutionTerminatedCause
+
 instance FromJSON WorkflowExecutionTerminatedCause where
     parseJSON = parseJSONText "WorkflowExecutionTerminatedCause"
 
@@ -2235,6 +2244,9 @@ instance ToText CancelWorkflowExecutionFailedCause where
     toText = \case
         CWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
         CWEFCUnhandledDecision     -> "UNHANDLED_DECISION"
+
+instance ToByteString CancelWorkflowExecutionFailedCause
+instance ToHeader     CancelWorkflowExecutionFailedCause
 
 instance FromJSON CancelWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "CancelWorkflowExecutionFailedCause"
@@ -2260,6 +2272,9 @@ instance ToText SignalExternalWorkflowExecutionFailedCause where
         SEWEFCOperationNotPermitted                       -> "OPERATION_NOT_PERMITTED"
         SEWEFCSignalExternalWorkflowExecutionRateExceeded -> "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
         SEWEFCUnknownExternalWorkflowExecution            -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+
+instance ToByteString SignalExternalWorkflowExecutionFailedCause
+instance ToHeader     SignalExternalWorkflowExecutionFailedCause
 
 instance FromJSON SignalExternalWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "SignalExternalWorkflowExecutionFailedCause"
@@ -2455,6 +2470,9 @@ instance ToText DecisionType where
         SignalExternalWorkflowExecution        -> "SignalExternalWorkflowExecution"
         StartChildWorkflowExecution            -> "StartChildWorkflowExecution"
         StartTimer                             -> "StartTimer"
+
+instance ToByteString DecisionType
+instance ToHeader     DecisionType
 
 instance FromJSON DecisionType where
     parseJSON = parseJSONText "DecisionType"
@@ -2964,6 +2982,9 @@ instance ToText ActivityTaskTimeoutType where
         ATTTScheduleToStart -> "SCHEDULE_TO_START"
         ATTTStartToClose    -> "START_TO_CLOSE"
 
+instance ToByteString ActivityTaskTimeoutType
+instance ToHeader     ActivityTaskTimeoutType
+
 instance FromJSON ActivityTaskTimeoutType where
     parseJSON = parseJSONText "ActivityTaskTimeoutType"
 
@@ -3083,6 +3104,9 @@ instance ToText ExecutionStatus where
         Closed -> "CLOSED"
         Open   -> "OPEN"
 
+instance ToByteString ExecutionStatus
+instance ToHeader     ExecutionStatus
+
 instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
 
@@ -3101,6 +3125,9 @@ instance FromText DecisionTaskTimeoutType where
 instance ToText DecisionTaskTimeoutType where
     toText DTTTStartToClose = "START_TO_CLOSE"
 
+instance ToByteString DecisionTaskTimeoutType
+instance ToHeader     DecisionTaskTimeoutType
+
 instance FromJSON DecisionTaskTimeoutType where
     parseJSON = parseJSONText "DecisionTaskTimeoutType"
 
@@ -3118,6 +3145,9 @@ instance FromText WorkflowExecutionCancelRequestedCause where
 
 instance ToText WorkflowExecutionCancelRequestedCause where
     toText WECRCChildPolicyApplied = "CHILD_POLICY_APPLIED"
+
+instance ToByteString WorkflowExecutionCancelRequestedCause
+instance ToHeader     WorkflowExecutionCancelRequestedCause
 
 instance FromJSON WorkflowExecutionCancelRequestedCause where
     parseJSON = parseJSONText "WorkflowExecutionCancelRequestedCause"
@@ -3167,6 +3197,9 @@ instance ToText StartChildWorkflowExecutionFailedCause where
         SCWEFCWorkflowAlreadyRunning                       -> "WORKFLOW_ALREADY_RUNNING"
         SCWEFCWorkflowTypeDeprecated                       -> "WORKFLOW_TYPE_DEPRECATED"
         SCWEFCWorkflowTypeDoesNotExist                     -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
+
+instance ToByteString StartChildWorkflowExecutionFailedCause
+instance ToHeader     StartChildWorkflowExecutionFailedCause
 
 instance FromJSON StartChildWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "StartChildWorkflowExecutionFailedCause"
@@ -3363,6 +3396,9 @@ instance ToText FailWorkflowExecutionFailedCause where
     toText = \case
         FWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
         FWEFCUnhandledDecision     -> "UNHANDLED_DECISION"
+
+instance ToByteString FailWorkflowExecutionFailedCause
+instance ToHeader     FailWorkflowExecutionFailedCause
 
 instance FromJSON FailWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "FailWorkflowExecutionFailedCause"
@@ -3695,6 +3731,9 @@ instance ToText ContinueAsNewWorkflowExecutionFailedCause where
         CANWEFCWorkflowTypeDeprecated                       -> "WORKFLOW_TYPE_DEPRECATED"
         CANWEFCWorkflowTypeDoesNotExist                     -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
+instance ToByteString ContinueAsNewWorkflowExecutionFailedCause
+instance ToHeader     ContinueAsNewWorkflowExecutionFailedCause
+
 instance FromJSON ContinueAsNewWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "ContinueAsNewWorkflowExecutionFailedCause"
 
@@ -3889,6 +3928,9 @@ instance ToText EventType where
         WorkflowExecutionStarted                        -> "WorkflowExecutionStarted"
         WorkflowExecutionTerminated                     -> "WorkflowExecutionTerminated"
         WorkflowExecutionTimedOut                       -> "WorkflowExecutionTimedOut"
+
+instance ToByteString EventType
+instance ToHeader     EventType
 
 instance FromJSON EventType where
     parseJSON = parseJSONText "EventType"
@@ -4523,6 +4565,9 @@ instance ToText ScheduleActivityTaskFailedCause where
         SATFCOpenActivitiesLimitExceeded            -> "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
         SATFCOperationNotPermitted                  -> "OPERATION_NOT_PERMITTED"
 
+instance ToByteString ScheduleActivityTaskFailedCause
+instance ToHeader     ScheduleActivityTaskFailedCause
+
 instance FromJSON ScheduleActivityTaskFailedCause where
     parseJSON = parseJSONText "ScheduleActivityTaskFailedCause"
 
@@ -4885,6 +4930,9 @@ instance ToText ChildPolicy where
         RequestCancel -> "REQUEST_CANCEL"
         Terminate     -> "TERMINATE"
 
+instance ToByteString ChildPolicy
+instance ToHeader     ChildPolicy
+
 instance FromJSON ChildPolicy where
     parseJSON = parseJSONText "ChildPolicy"
 
@@ -4963,6 +5011,9 @@ instance ToText CloseStatus where
         CSTerminated     -> "TERMINATED"
         CSTimedOut       -> "TIMED_OUT"
 
+instance ToByteString CloseStatus
+instance ToHeader     CloseStatus
+
 instance FromJSON CloseStatus where
     parseJSON = parseJSONText "CloseStatus"
 
@@ -4984,6 +5035,9 @@ instance ToText CompleteWorkflowExecutionFailedCause where
     toText = \case
         CompleteWorkflowExecutionFailedCauseOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
         CompleteWorkflowExecutionFailedCauseUnhandledDecision     -> "UNHANDLED_DECISION"
+
+instance ToByteString CompleteWorkflowExecutionFailedCause
+instance ToHeader     CompleteWorkflowExecutionFailedCause
 
 instance FromJSON CompleteWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "CompleteWorkflowExecutionFailedCause"
@@ -5012,6 +5066,9 @@ instance ToText StartTimerFailedCause where
         STFCOperationNotPermitted     -> "OPERATION_NOT_PERMITTED"
         STFCTimerCreationRateExceeded -> "TIMER_CREATION_RATE_EXCEEDED"
         STFCTimerIdAlreadyInUse       -> "TIMER_ID_ALREADY_IN_USE"
+
+instance ToByteString StartTimerFailedCause
+instance ToHeader     StartTimerFailedCause
 
 instance FromJSON StartTimerFailedCause where
     parseJSON = parseJSONText "StartTimerFailedCause"
@@ -5313,6 +5370,9 @@ instance FromText RecordMarkerFailedCause where
 instance ToText RecordMarkerFailedCause where
     toText RMFCOperationNotPermitted = "OPERATION_NOT_PERMITTED"
 
+instance ToByteString RecordMarkerFailedCause
+instance ToHeader     RecordMarkerFailedCause
+
 instance FromJSON RecordMarkerFailedCause where
     parseJSON = parseJSONText "RecordMarkerFailedCause"
 
@@ -5334,6 +5394,9 @@ instance ToText RegistrationStatus where
     toText = \case
         Deprecated -> "DEPRECATED"
         Registered -> "REGISTERED"
+
+instance ToByteString RegistrationStatus
+instance ToHeader     RegistrationStatus
 
 instance FromJSON RegistrationStatus where
     parseJSON = parseJSONText "RegistrationStatus"
@@ -6034,6 +6097,9 @@ instance ToText CancelTimerFailedCause where
     toText = \case
         CTFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
         CTFCTimerIdUnknown        -> "TIMER_ID_UNKNOWN"
+
+instance ToByteString CancelTimerFailedCause
+instance ToHeader     CancelTimerFailedCause
 
 instance FromJSON CancelTimerFailedCause where
     parseJSON = parseJSONText "CancelTimerFailedCause"
@@ -7312,6 +7378,9 @@ instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
         RCEWEFCOperationNotPermitted                              -> "OPERATION_NOT_PERMITTED"
         RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded -> "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
         RCEWEFCUnknownExternalWorkflowExecution                   -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+
+instance ToByteString RequestCancelExternalWorkflowExecutionFailedCause
+instance ToHeader     RequestCancelExternalWorkflowExecutionFailedCause
 
 instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "RequestCancelExternalWorkflowExecutionFailedCause"

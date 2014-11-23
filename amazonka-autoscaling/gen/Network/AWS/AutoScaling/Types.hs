@@ -2042,6 +2042,9 @@ instance ToText LifecycleState where
         TerminatingProceed -> "Terminating:Proceed"
         TerminatingWait    -> "Terminating:Wait"
 
+instance ToByteString LifecycleState
+instance ToHeader     LifecycleState
+
 instance FromXML LifecycleState where
     parseXML = parseXMLText "LifecycleState"
 
@@ -2180,6 +2183,9 @@ instance ToText ScalingActivityStatusCode where
         WaitingForInstanceId            -> "WaitingForInstanceId"
         WaitingForSpotInstanceId        -> "WaitingForSpotInstanceId"
         WaitingForSpotInstanceRequestId -> "WaitingForSpotInstanceRequestId"
+
+instance ToByteString ScalingActivityStatusCode
+instance ToHeader     ScalingActivityStatusCode
 
 instance FromXML ScalingActivityStatusCode where
     parseXML = parseXMLText "ScalingActivityStatusCode"

@@ -319,6 +319,9 @@ instance ToText StreamStatus where
         Deleting -> "DELETING"
         Updating -> "UPDATING"
 
+instance ToByteString StreamStatus
+instance ToHeader     StreamStatus
+
 instance FromJSON StreamStatus where
     parseJSON = parseJSONText "StreamStatus"
 
@@ -484,6 +487,9 @@ instance ToText ShardIteratorType where
         AtSequenceNumber    -> "AT_SEQUENCE_NUMBER"
         Latest              -> "LATEST"
         TrimHorizon         -> "TRIM_HORIZON"
+
+instance ToByteString ShardIteratorType
+instance ToHeader     ShardIteratorType
 
 instance FromJSON ShardIteratorType where
     parseJSON = parseJSONText "ShardIteratorType"

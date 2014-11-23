@@ -405,6 +405,9 @@ instance ToText IdentityType where
         ITDomain       -> "Domain"
         ITEmailAddress -> "EmailAddress"
 
+instance ToByteString IdentityType
+instance ToHeader     IdentityType
+
 instance FromXML IdentityType where
     parseXML = parseXMLText "IdentityType"
 
@@ -573,6 +576,9 @@ instance ToText NotificationType where
         Complaint -> "Complaint"
         Delivery  -> "Delivery"
 
+instance ToByteString NotificationType
+instance ToHeader     NotificationType
+
 instance FromXML NotificationType where
     parseXML = parseXMLText "NotificationType"
 
@@ -603,6 +609,9 @@ instance ToText VerificationStatus where
         Pending          -> "Pending"
         Success          -> "Success"
         TemporaryFailure -> "TemporaryFailure"
+
+instance ToByteString VerificationStatus
+instance ToHeader     VerificationStatus
 
 instance FromXML VerificationStatus where
     parseXML = parseXMLText "VerificationStatus"

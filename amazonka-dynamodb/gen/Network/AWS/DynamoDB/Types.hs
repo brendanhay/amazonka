@@ -402,6 +402,9 @@ instance ToText KeyType where
         Hash  -> "HASH"
         Range -> "RANGE"
 
+instance ToByteString KeyType
+instance ToHeader     KeyType
+
 instance FromJSON KeyType where
     parseJSON = parseJSONText "KeyType"
 
@@ -548,6 +551,9 @@ instance ToText IndexStatus where
         Deleting -> "DELETING"
         Updating -> "UPDATING"
 
+instance ToByteString IndexStatus
+instance ToHeader     IndexStatus
+
 instance FromJSON IndexStatus where
     parseJSON = parseJSONText "IndexStatus"
 
@@ -625,6 +631,9 @@ instance ToText TableStatus where
         TSDeleting -> "DELETING"
         TSUpdating -> "UPDATING"
 
+instance ToByteString TableStatus
+instance ToHeader     TableStatus
+
 instance FromJSON TableStatus where
     parseJSON = parseJSONText "TableStatus"
 
@@ -649,6 +658,9 @@ instance ToText ProjectionType where
         All      -> "ALL"
         Include  -> "INCLUDE"
         KeysOnly -> "KEYS_ONLY"
+
+instance ToByteString ProjectionType
+instance ToHeader     ProjectionType
 
 instance FromJSON ProjectionType where
     parseJSON = parseJSONText "ProjectionType"
@@ -975,6 +987,9 @@ instance ToText ReturnConsumedCapacity where
         None    -> "NONE"
         Total   -> "TOTAL"
 
+instance ToByteString ReturnConsumedCapacity
+instance ToHeader     ReturnConsumedCapacity
+
 instance FromJSON ReturnConsumedCapacity where
     parseJSON = parseJSONText "ReturnConsumedCapacity"
 
@@ -996,6 +1011,9 @@ instance ToText ReturnItemCollectionMetrics where
     toText = \case
         RICMNone -> "NONE"
         RICMSize -> "SIZE"
+
+instance ToByteString ReturnItemCollectionMetrics
+instance ToHeader     ReturnItemCollectionMetrics
 
 instance FromJSON ReturnItemCollectionMetrics where
     parseJSON = parseJSONText "ReturnItemCollectionMetrics"
@@ -1326,6 +1344,9 @@ instance ToText ComparisonOperator where
         NotNull     -> "NOT_NULL"
         Null        -> "NULL"
 
+instance ToByteString ComparisonOperator
+instance ToHeader     ComparisonOperator
+
 instance FromJSON ComparisonOperator where
     parseJSON = parseJSONText "ComparisonOperator"
 
@@ -1356,6 +1377,9 @@ instance ToText ReturnValue where
         RVNone       -> "NONE"
         RVUpdatedNew -> "UPDATED_NEW"
         RVUpdatedOld -> "UPDATED_OLD"
+
+instance ToByteString ReturnValue
+instance ToHeader     ReturnValue
 
 instance FromJSON ReturnValue where
     parseJSON = parseJSONText "ReturnValue"
@@ -1824,6 +1848,9 @@ instance ToText AttributeAction where
         Delete' -> "DELETE"
         Put     -> "PUT"
 
+instance ToByteString AttributeAction
+instance ToHeader     AttributeAction
+
 instance FromJSON AttributeAction where
     parseJSON = parseJSONText "AttributeAction"
 
@@ -1848,6 +1875,9 @@ instance ToText ScalarAttributeType where
         B -> "B"
         N -> "N"
         S -> "S"
+
+instance ToByteString ScalarAttributeType
+instance ToHeader     ScalarAttributeType
 
 instance FromJSON ScalarAttributeType where
     parseJSON = parseJSONText "ScalarAttributeType"
@@ -1925,6 +1955,9 @@ instance ToText Select where
         AllProjectedAttributes -> "ALL_PROJECTED_ATTRIBUTES"
         Count                  -> "COUNT"
         SpecificAttributes     -> "SPECIFIC_ATTRIBUTES"
+
+instance ToByteString Select
+instance ToHeader     Select
 
 instance FromJSON Select where
     parseJSON = parseJSONText "Select"
@@ -2224,6 +2257,9 @@ instance ToText ConditionalOperator where
     toText = \case
         And -> "AND"
         Or  -> "OR"
+
+instance ToByteString ConditionalOperator
+instance ToHeader     ConditionalOperator
 
 instance FromJSON ConditionalOperator where
     parseJSON = parseJSONText "ConditionalOperator"

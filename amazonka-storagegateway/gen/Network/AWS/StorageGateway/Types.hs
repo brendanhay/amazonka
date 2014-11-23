@@ -1102,6 +1102,9 @@ instance ToText ErrorCode where
         VolumeNotFound                    -> "VolumeNotFound"
         VolumeNotReady                    -> "VolumeNotReady"
 
+instance ToByteString ErrorCode
+instance ToHeader     ErrorCode
+
 instance FromJSON ErrorCode where
     parseJSON = parseJSONText "ErrorCode"
 

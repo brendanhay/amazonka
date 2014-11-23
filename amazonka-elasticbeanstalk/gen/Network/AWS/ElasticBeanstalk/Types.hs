@@ -403,6 +403,9 @@ instance ToText EventSeverity where
         Trace -> "TRACE"
         Warn  -> "WARN"
 
+instance ToByteString EventSeverity
+instance ToHeader     EventSeverity
+
 instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
 
@@ -651,6 +654,9 @@ instance ToText ConfigurationDeploymentStatus where
         Failed   -> "failed"
         Pending  -> "pending"
 
+instance ToByteString ConfigurationDeploymentStatus
+instance ToHeader     ConfigurationDeploymentStatus
+
 instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
 
@@ -720,6 +726,9 @@ instance ToText ConfigurationOptionValueType where
     toText = \case
         List'  -> "List"
         Scalar -> "Scalar"
+
+instance ToByteString ConfigurationOptionValueType
+instance ToHeader     ConfigurationOptionValueType
 
 instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
@@ -1128,6 +1137,9 @@ instance ToText EnvironmentStatus where
         Terminated  -> "Terminated"
         Terminating -> "Terminating"
         Updating    -> "Updating"
+
+instance ToByteString EnvironmentStatus
+instance ToHeader     EnvironmentStatus
 
 instance FromXML EnvironmentStatus where
     parseXML = parseXMLText "EnvironmentStatus"
@@ -1737,6 +1749,9 @@ instance ToText ValidationSeverity where
         VSError   -> "error"
         VSWarning -> "warning"
 
+instance ToByteString ValidationSeverity
+instance ToHeader     ValidationSeverity
+
 instance FromXML ValidationSeverity where
     parseXML = parseXMLText "ValidationSeverity"
 
@@ -1782,6 +1797,9 @@ instance FromText EnvironmentInfoType where
 
 instance ToText EnvironmentInfoType where
     toText Tail' = "tail"
+
+instance ToByteString EnvironmentInfoType
+instance ToHeader     EnvironmentInfoType
 
 instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
@@ -2038,6 +2056,9 @@ instance ToText EnvironmentHealth where
         Grey   -> "Grey"
         Red    -> "Red"
         Yellow -> "Yellow"
+
+instance ToByteString EnvironmentHealth
+instance ToHeader     EnvironmentHealth
 
 instance FromXML EnvironmentHealth where
     parseXML = parseXMLText "EnvironmentHealth"

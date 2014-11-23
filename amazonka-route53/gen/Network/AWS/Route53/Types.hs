@@ -534,6 +534,9 @@ instance ToText VPCRegion where
         UsWest1      -> "us-west-1"
         UsWest2      -> "us-west-2"
 
+instance ToByteString VPCRegion
+instance ToHeader     VPCRegion
+
 instance FromXML VPCRegion where
     parseXML = parseXMLText "VPCRegion"
 
@@ -559,6 +562,9 @@ instance ToText ChangeAction where
         Delete' -> "DELETE"
         Upsert  -> "UPSERT"
 
+instance ToByteString ChangeAction
+instance ToHeader     ChangeAction
+
 instance FromXML ChangeAction where
     parseXML = parseXMLText "ChangeAction"
 
@@ -576,6 +582,9 @@ instance FromText TagResourceType where
 
 instance ToText TagResourceType where
     toText Healthcheck = "healthcheck"
+
+instance ToByteString TagResourceType
+instance ToHeader     TagResourceType
 
 instance FromXML TagResourceType where
     parseXML = parseXMLText "TagResourceType"
@@ -759,6 +768,9 @@ instance ToText ResourceRecordSetFailover where
         Primary   -> "PRIMARY"
         Secondary -> "SECONDARY"
 
+instance ToByteString ResourceRecordSetFailover
+instance ToHeader     ResourceRecordSetFailover
+
 instance FromXML ResourceRecordSetFailover where
     parseXML = parseXMLText "ResourceRecordSetFailover"
 
@@ -912,6 +924,9 @@ instance ToText ChangeStatus where
         Insync  -> "INSYNC"
         Pending -> "PENDING"
 
+instance ToByteString ChangeStatus
+instance ToHeader     ChangeStatus
+
 instance FromXML ChangeStatus where
     parseXML = parseXMLText "ChangeStatus"
 
@@ -1024,6 +1039,9 @@ instance ToText HealthCheckType where
         Https         -> "HTTPS"
         HttpsStrMatch -> "HTTPS_STR_MATCH"
         Tcp           -> "TCP"
+
+instance ToByteString HealthCheckType
+instance ToHeader     HealthCheckType
 
 instance FromXML HealthCheckType where
     parseXML = parseXMLText "HealthCheckType"

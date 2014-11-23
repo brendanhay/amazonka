@@ -467,6 +467,9 @@ instance ToText Event where
         S3ObjectCreatedPut                     -> "s3:ObjectCreated:Put"
         S3ReducedRedundancyLostObject          -> "s3:ReducedRedundancyLostObject"
 
+instance ToByteString Event
+instance ToHeader     Event
+
 instance FromXML Event where
     parseXML = parseXMLText "Event"
 
@@ -640,6 +643,9 @@ instance ToText ExpirationStatus where
         Disabled -> "Disabled"
         Enabled  -> "Enabled"
 
+instance ToByteString ExpirationStatus
+instance ToHeader     ExpirationStatus
+
 instance FromXML ExpirationStatus where
     parseXML = parseXMLText "ExpirationStatus"
 
@@ -804,6 +810,9 @@ instance ToText ObjectStorageClass where
         ReducedRedundancy -> "REDUCED_REDUNDANCY"
         Standard          -> "STANDARD"
 
+instance ToByteString ObjectStorageClass
+instance ToHeader     ObjectStorageClass
+
 instance FromXML ObjectStorageClass where
     parseXML = parseXMLText "ObjectStorageClass"
 
@@ -825,6 +834,9 @@ instance ToText MetadataDirective where
     toText = \case
         Copy    -> "COPY"
         Replace -> "REPLACE"
+
+instance ToByteString MetadataDirective
+instance ToHeader     MetadataDirective
 
 instance FromXML MetadataDirective where
     parseXML = parseXMLText "MetadataDirective"
@@ -1048,6 +1060,9 @@ instance ToText ObjectCannedACL where
         PublicRead             -> "public-read"
         PublicReadWrite        -> "public-read-write"
 
+instance ToByteString ObjectCannedACL
+instance ToHeader     ObjectCannedACL
+
 instance FromXML ObjectCannedACL where
     parseXML = parseXMLText "ObjectCannedACL"
 
@@ -1071,6 +1086,9 @@ instance ToText BucketVersioningStatus where
     toText = \case
         BVSEnabled   -> "Enabled"
         BVSSuspended -> "Suspended"
+
+instance ToByteString BucketVersioningStatus
+instance ToHeader     BucketVersioningStatus
 
 instance FromXML BucketVersioningStatus where
     parseXML = parseXMLText "BucketVersioningStatus"
@@ -1146,6 +1164,9 @@ instance FromText ObjectVersionStorageClass where
 instance ToText ObjectVersionStorageClass where
     toText OVSCStandard = "STANDARD"
 
+instance ToByteString ObjectVersionStorageClass
+instance ToHeader     ObjectVersionStorageClass
+
 instance FromXML ObjectVersionStorageClass where
     parseXML = parseXMLText "ObjectVersionStorageClass"
 
@@ -1201,6 +1222,9 @@ instance FromText EncodingType where
 
 instance ToText EncodingType where
     toText Url = "url"
+
+instance ToByteString EncodingType
+instance ToHeader     EncodingType
 
 instance FromXML EncodingType where
     parseXML = parseXMLText "EncodingType"
@@ -1551,6 +1575,9 @@ instance ToText Protocol where
     toText = \case
         Http  -> "http"
         Https -> "https"
+
+instance ToByteString Protocol
+instance ToHeader     Protocol
 
 instance FromXML Protocol where
     parseXML = parseXMLText "Protocol"
@@ -1911,6 +1938,9 @@ instance ToText StorageClass where
         SCReducedRedundancy -> "REDUCED_REDUNDANCY"
         SCStandard          -> "STANDARD"
 
+instance ToByteString StorageClass
+instance ToHeader     StorageClass
+
 instance FromXML StorageClass where
     parseXML = parseXMLText "StorageClass"
 
@@ -2069,6 +2099,9 @@ instance ToText MFADeleteStatus where
         MFADSDisabled -> "Disabled"
         MFADSEnabled  -> "Enabled"
 
+instance ToByteString MFADeleteStatus
+instance ToHeader     MFADeleteStatus
+
 instance FromXML MFADeleteStatus where
     parseXML = parseXMLText "MFADeleteStatus"
 
@@ -2090,6 +2123,9 @@ instance ToText Payer where
     toText = \case
         BucketOwner -> "BucketOwner"
         Requester   -> "Requester"
+
+instance ToByteString Payer
+instance ToHeader     Payer
 
 instance FromXML Payer where
     parseXML = parseXMLText "Payer"
@@ -2194,6 +2230,9 @@ instance ToText BucketLogsPermission where
         FullControl -> "FULL_CONTROL"
         Read        -> "READ"
         Write       -> "WRITE"
+
+instance ToByteString BucketLogsPermission
+instance ToHeader     BucketLogsPermission
 
 instance FromXML BucketLogsPermission where
     parseXML = parseXMLText "BucketLogsPermission"
@@ -2572,6 +2611,9 @@ instance ToText Type where
         CanonicalUser         -> "CanonicalUser"
         Group                 -> "Group"
 
+instance ToByteString Type
+instance ToHeader     Type
+
 instance FromXML Type where
     parseXML = parseXMLText "Type"
 
@@ -2589,6 +2631,9 @@ instance FromText TransitionStorageClass where
 
 instance ToText TransitionStorageClass where
     toText TSCGlacier = "GLACIER"
+
+instance ToByteString TransitionStorageClass
+instance ToHeader     TransitionStorageClass
 
 instance FromXML TransitionStorageClass where
     parseXML = parseXMLText "TransitionStorageClass"
@@ -2698,6 +2743,9 @@ instance ToText Permission where
         PWrite       -> "WRITE"
         PWriteAcp    -> "WRITE_ACP"
 
+instance ToByteString Permission
+instance ToHeader     Permission
+
 instance FromXML Permission where
     parseXML = parseXMLText "Permission"
 
@@ -2765,6 +2813,9 @@ instance ToText BucketCannedACL where
         CannedPublicRead        -> "public-read"
         CannedPublicReadWrite   -> "public-read-write"
 
+instance ToByteString BucketCannedACL
+instance ToHeader     BucketCannedACL
+
 instance FromXML BucketCannedACL where
     parseXML = parseXMLText "BucketCannedACL"
 
@@ -2788,6 +2839,9 @@ instance ToText MFADelete where
     toText = \case
         MFADDisabled -> "Disabled"
         MFADEnabled  -> "Enabled"
+
+instance ToByteString MFADelete
+instance ToHeader     MFADelete
 
 instance FromXML MFADelete where
     parseXML = parseXMLText "MFADelete"
@@ -3019,6 +3073,9 @@ instance FromText ServerSideEncryption where
 
 instance ToText ServerSideEncryption where
     toText AES256 = "AES256"
+
+instance ToByteString ServerSideEncryption
+instance ToHeader     ServerSideEncryption
 
 instance FromXML ServerSideEncryption where
     parseXML = parseXMLText "ServerSideEncryption"

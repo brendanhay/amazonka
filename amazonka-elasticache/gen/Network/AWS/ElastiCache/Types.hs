@@ -844,6 +844,9 @@ instance ToText PendingAutomaticFailoverStatus where
         Disabled -> "disabled"
         Enabled  -> "enabled"
 
+instance ToByteString PendingAutomaticFailoverStatus
+instance ToHeader     PendingAutomaticFailoverStatus
+
 instance FromXML PendingAutomaticFailoverStatus where
     parseXML = parseXMLText "PendingAutomaticFailoverStatus"
 
@@ -1043,6 +1046,9 @@ instance ToText SourceType where
         STCacheParameterGroup -> "cache-parameter-group"
         STCacheSecurityGroup  -> "cache-security-group"
         STCacheSubnetGroup    -> "cache-subnet-group"
+
+instance ToByteString SourceType
+instance ToHeader     SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
@@ -2049,6 +2055,9 @@ instance ToText AutomaticFailoverStatus where
         AFSEnabled   -> "enabled"
         AFSEnabling  -> "enabling"
 
+instance ToByteString AutomaticFailoverStatus
+instance ToHeader     AutomaticFailoverStatus
+
 instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
 
@@ -2242,6 +2251,9 @@ instance ToText AZMode where
     toText = \case
         CrossAz  -> "cross-az"
         SingleAz -> "single-az"
+
+instance ToByteString AZMode
+instance ToHeader     AZMode
 
 instance FromXML AZMode where
     parseXML = parseXMLText "AZMode"

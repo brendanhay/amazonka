@@ -592,6 +592,9 @@ instance ToText SSLSupportMethod where
         SniOnly -> "sni-only"
         Vip     -> "vip"
 
+instance ToByteString SSLSupportMethod
+instance ToHeader     SSLSupportMethod
+
 instance FromXML SSLSupportMethod where
     parseXML = parseXMLText "SSLSupportMethod"
 
@@ -781,6 +784,9 @@ instance ToText ViewerProtocolPolicy where
         AllowAll        -> "allow-all"
         HttpsOnly       -> "https-only"
         RedirectToHttps -> "redirect-to-https"
+
+instance ToByteString ViewerProtocolPolicy
+instance ToHeader     ViewerProtocolPolicy
 
 instance FromXML ViewerProtocolPolicy where
     parseXML = parseXMLText "ViewerProtocolPolicy"
@@ -1114,6 +1120,9 @@ instance ToText OriginProtocolPolicy where
     toText = \case
         HttpOnly    -> "http-only"
         MatchViewer -> "match-viewer"
+
+instance ToByteString OriginProtocolPolicy
+instance ToHeader     OriginProtocolPolicy
 
 instance FromXML OriginProtocolPolicy where
     parseXML = parseXMLText "OriginProtocolPolicy"
@@ -2107,6 +2116,9 @@ instance ToText PriceClass where
         PriceClass200 -> "PriceClass_200"
         PriceClassAll -> "PriceClass_All"
 
+instance ToByteString PriceClass
+instance ToHeader     PriceClass
+
 instance FromXML PriceClass where
     parseXML = parseXMLText "PriceClass"
 
@@ -2517,6 +2529,9 @@ instance ToText Method where
         Post    -> "POST"
         Put     -> "PUT"
 
+instance ToByteString Method
+instance ToHeader     Method
+
 instance FromXML Method where
     parseXML = parseXMLText "Method"
 
@@ -2646,6 +2661,9 @@ instance ToText ItemSelection where
         All       -> "all"
         None      -> "none"
         Whitelist -> "whitelist"
+
+instance ToByteString ItemSelection
+instance ToHeader     ItemSelection
 
 instance FromXML ItemSelection where
     parseXML = parseXMLText "ItemSelection"
@@ -3532,6 +3550,9 @@ instance ToText GeoRestrictionType where
         GRTBlacklist -> "blacklist"
         GRTNone      -> "none"
         GRTWhitelist -> "whitelist"
+
+instance ToByteString GeoRestrictionType
+instance ToHeader     GeoRestrictionType
 
 instance FromXML GeoRestrictionType where
     parseXML = parseXMLText "GeoRestrictionType"

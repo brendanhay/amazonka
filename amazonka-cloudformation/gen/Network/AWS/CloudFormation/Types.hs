@@ -288,6 +288,9 @@ instance ToText StackStatus where
         UpdateRollbackFailed                    -> "UPDATE_ROLLBACK_FAILED"
         UpdateRollbackInProgress                -> "UPDATE_ROLLBACK_IN_PROGRESS"
 
+instance ToByteString StackStatus
+instance ToHeader     StackStatus
+
 instance FromXML StackStatus where
     parseXML = parseXMLText "StackStatus"
 
@@ -700,6 +703,9 @@ instance ToText ResourceStatus where
         RSUpdateFailed     -> "UPDATE_FAILED"
         RSUpdateInProgress -> "UPDATE_IN_PROGRESS"
 
+instance ToByteString ResourceStatus
+instance ToHeader     ResourceStatus
+
 instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
@@ -1102,6 +1108,9 @@ instance FromText Capability where
 instance ToText Capability where
     toText CapabilityIam = "CAPABILITY_IAM"
 
+instance ToByteString Capability
+instance ToHeader     Capability
+
 instance FromXML Capability where
     parseXML = parseXMLText "Capability"
 
@@ -1123,6 +1132,9 @@ instance ToText ResourceSignalStatus where
     toText = \case
         Failure -> "FAILURE"
         Success -> "SUCCESS"
+
+instance ToByteString ResourceSignalStatus
+instance ToHeader     ResourceSignalStatus
 
 instance FromXML ResourceSignalStatus where
     parseXML = parseXMLText "ResourceSignalStatus"
@@ -1316,6 +1328,9 @@ instance ToText OnFailure where
         Delete'   -> "DELETE"
         DoNothing -> "DO_NOTHING"
         Rollback  -> "ROLLBACK"
+
+instance ToByteString OnFailure
+instance ToHeader     OnFailure
 
 instance FromXML OnFailure where
     parseXML = parseXMLText "OnFailure"

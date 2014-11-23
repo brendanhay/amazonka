@@ -221,6 +221,9 @@ instance ToText AssignmentStatusType where
         Assigned   -> "Assigned"
         Unassigned -> "Unassigned"
 
+instance ToByteString AssignmentStatusType
+instance ToHeader     AssignmentStatusType
+
 instance FromXML AssignmentStatusType where
     parseXML = parseXMLText "AssignmentStatusType"
 
@@ -590,6 +593,9 @@ instance FromText ReportFormatType where
 instance ToText ReportFormatType where
     toText TextCsv = "text/csv"
 
+instance ToByteString ReportFormatType
+instance ToHeader     ReportFormatType
+
 instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
 
@@ -817,6 +823,9 @@ instance ToText SummaryKeyType where
         Users                           -> "Users"
         UsersQuota                      -> "UsersQuota"
 
+instance ToByteString SummaryKeyType
+instance ToHeader     SummaryKeyType
+
 instance FromXML SummaryKeyType where
     parseXML = parseXMLText "SummaryKeyType"
 
@@ -841,6 +850,9 @@ instance ToText ReportStateType where
         Complete   -> "COMPLETE"
         Inprogress -> "INPROGRESS"
         Started    -> "STARTED"
+
+instance ToByteString ReportStateType
+instance ToHeader     ReportStateType
 
 instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
@@ -961,6 +973,9 @@ instance ToText StatusType where
     toText = \case
         Active   -> "Active"
         Inactive -> "Inactive"
+
+instance ToByteString StatusType
+instance ToHeader     StatusType
 
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"

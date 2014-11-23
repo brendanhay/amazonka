@@ -197,6 +197,9 @@ instance ToText Platform where
         ApnsSandbox -> "APNS_SANDBOX"
         Gcm         -> "GCM"
 
+instance ToByteString Platform
+instance ToHeader     Platform
+
 instance FromJSON Platform where
     parseJSON = parseJSONText "Platform"
 
@@ -311,6 +314,9 @@ instance ToText Operation where
     toText = \case
         Remove  -> "remove"
         Replace -> "replace"
+
+instance ToByteString Operation
+instance ToHeader     Operation
 
 instance FromJSON Operation where
     parseJSON = parseJSONText "Operation"

@@ -856,6 +856,9 @@ instance ToText OptionState where
         Processing             -> "Processing"
         RequiresIndexDocuments -> "RequiresIndexDocuments"
 
+instance ToByteString OptionState
+instance ToHeader     OptionState
+
 instance FromXML OptionState where
     parseXML = parseXMLText "OptionState"
 
@@ -953,6 +956,9 @@ instance ToText AlgorithmicStemming where
         Light   -> "light"
         Minimal -> "minimal"
         None    -> "none"
+
+instance ToByteString AlgorithmicStemming
+instance ToHeader     AlgorithmicStemming
 
 instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
@@ -1625,6 +1631,9 @@ instance ToText IndexFieldType where
         IFTText         -> "text"
         IFTTextArray    -> "text-array"
 
+instance ToByteString IndexFieldType
+instance ToHeader     IndexFieldType
+
 instance FromXML IndexFieldType where
     parseXML = parseXMLText "IndexFieldType"
 
@@ -2018,6 +2027,9 @@ instance ToText SuggesterFuzzyMatching where
         SFMLow  -> "low"
         SFMNone -> "none"
 
+instance ToByteString SuggesterFuzzyMatching
+instance ToHeader     SuggesterFuzzyMatching
+
 instance FromXML SuggesterFuzzyMatching where
     parseXML = parseXMLText "SuggesterFuzzyMatching"
 
@@ -2209,6 +2221,9 @@ instance ToText AnalysisSchemeLanguage where
         ZhHans -> "zh-Hans"
         ZhHant -> "zh-Hant"
 
+instance ToByteString AnalysisSchemeLanguage
+instance ToHeader     AnalysisSchemeLanguage
+
 instance FromXML AnalysisSchemeLanguage where
     parseXML = parseXMLText "AnalysisSchemeLanguage"
 
@@ -2236,6 +2251,9 @@ instance ToText PartitionInstanceType where
         SearchM1Small   -> "search.m1.small"
         SearchM22XLarge -> "search.m2.2xlarge"
         SearchM2XLarge  -> "search.m2.xlarge"
+
+instance ToByteString PartitionInstanceType
+instance ToHeader     PartitionInstanceType
 
 instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"

@@ -1680,6 +1680,9 @@ instance ToText SourceType where
         STClusterSecurityGroup  -> "cluster-security-group"
         STClusterSnapshot       -> "cluster-snapshot"
 
+instance ToByteString SourceType
+instance ToHeader     SourceType
+
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
 

@@ -83,6 +83,9 @@ instance ToText JobType where
         Export' -> "Export"
         Import' -> "Import"
 
+instance ToByteString JobType
+instance ToHeader     JobType
+
 instance FromXML JobType where
     parseXML = parseXMLText "JobType"
 

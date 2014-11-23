@@ -175,6 +175,9 @@ instance ToText QueryParser where
         Simple     -> "simple"
         Structured -> "structured"
 
+instance ToByteString QueryParser
+instance ToHeader     QueryParser
+
 instance FromJSON QueryParser where
     parseJSON = parseJSONText "QueryParser"
 
@@ -538,6 +541,9 @@ instance ToText ContentType where
     toText = \case
         ApplicationJson -> "application/json"
         ApplicationXml  -> "application/xml"
+
+instance ToByteString ContentType
+instance ToHeader     ContentType
 
 instance FromJSON ContentType where
     parseJSON = parseJSONText "ContentType"

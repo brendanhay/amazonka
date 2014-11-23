@@ -447,6 +447,9 @@ instance ToText MarketType where
         OnDemand -> "ON_DEMAND"
         Spot     -> "SPOT"
 
+instance ToByteString MarketType
+instance ToHeader     MarketType
+
 instance FromJSON MarketType where
     parseJSON = parseJSONText "MarketType"
 
@@ -889,6 +892,9 @@ instance ToText StepExecutionState where
         Pending     -> "PENDING"
         Running     -> "RUNNING"
 
+instance ToByteString StepExecutionState
+instance ToHeader     StepExecutionState
+
 instance FromJSON StepExecutionState where
     parseJSON = parseJSONText "StepExecutionState"
 
@@ -916,6 +922,9 @@ instance ToText ActionOnFailure where
         AOFContinue         -> "CONTINUE"
         AOFTerminateCluster -> "TERMINATE_CLUSTER"
         AOFTerminateJobFlow -> "TERMINATE_JOB_FLOW"
+
+instance ToByteString ActionOnFailure
+instance ToHeader     ActionOnFailure
 
 instance FromJSON ActionOnFailure where
     parseJSON = parseJSONText "ActionOnFailure"
@@ -1493,6 +1502,9 @@ instance FromText StepStateChangeReasonCode where
 instance ToText StepStateChangeReasonCode where
     toText None = "NONE"
 
+instance ToByteString StepStateChangeReasonCode
+instance ToHeader     StepStateChangeReasonCode
+
 instance FromJSON StepStateChangeReasonCode where
     parseJSON = parseJSONText "StepStateChangeReasonCode"
 
@@ -1529,6 +1541,9 @@ instance ToText ClusterState where
         CSTerminatedWithErrors -> "TERMINATED_WITH_ERRORS"
         CSTerminating          -> "TERMINATING"
         CSWaiting              -> "WAITING"
+
+instance ToByteString ClusterState
+instance ToHeader     ClusterState
 
 instance FromJSON ClusterState where
     parseJSON = parseJSONText "ClusterState"
@@ -1630,6 +1645,9 @@ instance ToText JobFlowExecutionState where
         JFESStarting      -> "STARTING"
         JFESTerminated    -> "TERMINATED"
         JFESWaiting       -> "WAITING"
+
+instance ToByteString JobFlowExecutionState
+instance ToHeader     JobFlowExecutionState
 
 instance FromJSON JobFlowExecutionState where
     parseJSON = parseJSONText "JobFlowExecutionState"
@@ -1735,6 +1753,9 @@ instance ToText InstanceGroupType where
         Master -> "MASTER"
         Task   -> "TASK"
 
+instance ToByteString InstanceGroupType
+instance ToHeader     InstanceGroupType
+
 instance FromJSON InstanceGroupType where
     parseJSON = parseJSONText "InstanceGroupType"
 
@@ -1762,6 +1783,9 @@ instance ToText InstanceGroupStateChangeReasonCode where
         InstanceFailure   -> "INSTANCE_FAILURE"
         InternalError     -> "INTERNAL_ERROR"
         ValidationError   -> "VALIDATION_ERROR"
+
+instance ToByteString InstanceGroupStateChangeReasonCode
+instance ToHeader     InstanceGroupStateChangeReasonCode
 
 instance FromJSON InstanceGroupStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceGroupStateChangeReasonCode"
@@ -1905,6 +1929,9 @@ instance ToText InstanceGroupState where
         IGSSuspended     -> "SUSPENDED"
         IGSTerminated    -> "TERMINATED"
         IGSTerminating   -> "TERMINATING"
+
+instance ToByteString InstanceGroupState
+instance ToHeader     InstanceGroupState
 
 instance FromJSON InstanceGroupState where
     parseJSON = parseJSONText "InstanceGroupState"
@@ -2353,6 +2380,9 @@ instance ToText ClusterStateChangeReasonCode where
         CSCRCUserRequest       -> "USER_REQUEST"
         CSCRCValidationError   -> "VALIDATION_ERROR"
 
+instance ToByteString ClusterStateChangeReasonCode
+instance ToHeader     ClusterStateChangeReasonCode
+
 instance FromJSON ClusterStateChangeReasonCode where
     parseJSON = parseJSONText "ClusterStateChangeReasonCode"
 
@@ -2455,6 +2485,9 @@ instance ToText StepState where
         SSInterrupted -> "INTERRUPTED"
         SSPending     -> "PENDING"
         SSRunning     -> "RUNNING"
+
+instance ToByteString StepState
+instance ToHeader     StepState
 
 instance FromJSON StepState where
     parseJSON = parseJSONText "StepState"
@@ -2685,6 +2718,9 @@ instance ToText InstanceRoleType where
         IRTCore   -> "CORE"
         IRTMaster -> "MASTER"
         IRTTask   -> "TASK"
+
+instance ToByteString InstanceRoleType
+instance ToHeader     InstanceRoleType
 
 instance FromJSON InstanceRoleType where
     parseJSON = parseJSONText "InstanceRoleType"
@@ -3342,6 +3378,9 @@ instance ToText InstanceState where
         ISRunning             -> "RUNNING"
         ISTerminated          -> "TERMINATED"
 
+instance ToByteString InstanceState
+instance ToHeader     InstanceState
+
 instance FromJSON InstanceState where
     parseJSON = parseJSONText "InstanceState"
 
@@ -3422,6 +3461,9 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCInstanceFailure   -> "INSTANCE_FAILURE"
         ISCRCInternalError     -> "INTERNAL_ERROR"
         ISCRCValidationError   -> "VALIDATION_ERROR"
+
+instance ToByteString InstanceStateChangeReasonCode
+instance ToHeader     InstanceStateChangeReasonCode
 
 instance FromJSON InstanceStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceStateChangeReasonCode"

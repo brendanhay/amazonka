@@ -497,6 +497,9 @@ instance ToText HistoryItemType where
         ConfigurationUpdate -> "ConfigurationUpdate"
         StateUpdate         -> "StateUpdate"
 
+instance ToByteString HistoryItemType
+instance ToHeader     HistoryItemType
+
 instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
 
@@ -684,6 +687,9 @@ instance ToText StandardUnit where
         Terabytes       -> "Terabytes"
         TerabytesSecond -> "Terabytes/Second"
 
+instance ToByteString StandardUnit
+instance ToHeader     StandardUnit
+
 instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
 
@@ -751,6 +757,9 @@ instance ToText ComparisonOperator where
         GreaterThanThreshold          -> "GreaterThanThreshold"
         LessThanOrEqualToThreshold    -> "LessThanOrEqualToThreshold"
         LessThanThreshold             -> "LessThanThreshold"
+
+instance ToByteString ComparisonOperator
+instance ToHeader     ComparisonOperator
 
 instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
@@ -897,6 +906,9 @@ instance ToText StateValue where
         Alarm            -> "ALARM"
         InsufficientData -> "INSUFFICIENT_DATA"
         Ok               -> "OK"
+
+instance ToByteString StateValue
+instance ToHeader     StateValue
 
 instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
@@ -1059,6 +1071,9 @@ instance ToText Statistic where
         Minimum     -> "Minimum"
         SampleCount -> "SampleCount"
         Sum         -> "Sum"
+
+instance ToByteString Statistic
+instance ToHeader     Statistic
 
 instance FromXML Statistic where
     parseXML = parseXMLText "Statistic"

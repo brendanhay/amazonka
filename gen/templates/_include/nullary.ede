@@ -28,3 +28,6 @@ instance ToText {{ type.name }} where
         {{ branch.key | justifyLeft(type.branchPad) }} -> "{{ branch.value }}"
     {% endfor %}
   {% endif %}
+
+instance ToByteString {{ type.name }}
+instance ToHeader     {{ type.name }}

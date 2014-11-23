@@ -239,6 +239,9 @@ instance ToText ExtraParamName where
         SgIdNumber          -> "SG_ID_NUMBER"
         VatNumber           -> "VAT_NUMBER"
 
+instance ToByteString ExtraParamName
+instance ToHeader     ExtraParamName
+
 instance FromJSON ExtraParamName where
     parseJSON = parseJSONText "ExtraParamName"
 
@@ -315,6 +318,9 @@ instance ToText OperationStatus where
         Submitted  -> "SUBMITTED"
         Successful -> "SUCCESSFUL"
 
+instance ToByteString OperationStatus
+instance ToHeader     OperationStatus
+
 instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
 
@@ -352,6 +358,9 @@ instance ToText DomainAvailability where
         UnavailablePremium    -> "UNAVAILABLE_PREMIUM"
         UnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
 
+instance ToByteString DomainAvailability
+instance ToHeader     DomainAvailability
+
 instance FromJSON DomainAvailability where
     parseJSON = parseJSONText "DomainAvailability"
 
@@ -388,6 +397,9 @@ instance ToText OperationType where
         OTTransferInDomain        -> "TRANSFER_IN_DOMAIN"
         OTUpdateDomainContact     -> "UPDATE_DOMAIN_CONTACT"
         OTUpdateNameserver        -> "UPDATE_NAMESERVER"
+
+instance ToByteString OperationType
+instance ToHeader     OperationType
 
 instance FromJSON OperationType where
     parseJSON = parseJSONText "OperationType"
@@ -1092,6 +1104,9 @@ instance ToText CountryCode where
         Zm  -> "ZM"
         Zw  -> "ZW"
 
+instance ToByteString CountryCode
+instance ToHeader     CountryCode
+
 instance FromJSON CountryCode where
     parseJSON = parseJSONText "CountryCode"
 
@@ -1170,6 +1185,9 @@ instance ToText ContactType where
         CTPerson      -> "PERSON"
         CTPublicBody  -> "PUBLIC_BODY"
         CTReseller    -> "RESELLER"
+
+instance ToByteString ContactType
+instance ToHeader     ContactType
 
 instance FromJSON ContactType where
     parseJSON = parseJSONText "ContactType"

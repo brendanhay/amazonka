@@ -113,6 +113,9 @@ instance FromText KeyUsageType where
 instance ToText KeyUsageType where
     toText EncryptDecrypt = "ENCRYPT_DECRYPT"
 
+instance ToByteString KeyUsageType
+instance ToHeader     KeyUsageType
+
 instance FromJSON KeyUsageType where
     parseJSON = parseJSONText "KeyUsageType"
 
@@ -223,6 +226,9 @@ instance ToText DataKeySpec where
     toText = \case
         AES128 -> "AES_128"
         AES256 -> "AES_256"
+
+instance ToByteString DataKeySpec
+instance ToHeader     DataKeySpec
 
 instance FromJSON DataKeySpec where
     parseJSON = parseJSONText "DataKeySpec"
@@ -440,6 +446,9 @@ instance ToText GrantOperation where
         GOReEncryptFrom                   -> "ReEncryptFrom"
         GOReEncryptTo                     -> "ReEncryptTo"
         GORetireGrant                     -> "RetireGrant"
+
+instance ToByteString GrantOperation
+instance ToHeader     GrantOperation
 
 instance FromJSON GrantOperation where
     parseJSON = parseJSONText "GrantOperation"

@@ -582,6 +582,9 @@ instance ToText OperatorType where
         OperatorLe      -> "LE"
         OperatorRefEq   -> "REF_EQ"
 
+instance ToByteString OperatorType
+instance ToHeader     OperatorType
+
 instance FromJSON OperatorType where
     parseJSON = parseJSONText "OperatorType"
 
@@ -645,6 +648,9 @@ instance ToText TaskStatus where
         Failed   -> "FAILED"
         False'   -> "FALSE"
         Finished -> "FINISHED"
+
+instance ToByteString TaskStatus
+instance ToHeader     TaskStatus
 
 instance FromJSON TaskStatus where
     parseJSON = parseJSONText "TaskStatus"

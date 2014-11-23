@@ -49,7 +49,7 @@ instance FromText RecordType where
 instance ToText RecordType where
     toText = \case
         A     -> "A"
-        AAAAA  -> "AAAA"
+        AAAA  -> "AAAA"
         CNAME -> "CNAME"
         MX    -> "MX"
         NS    -> "NS"

@@ -85,6 +85,7 @@ instance ToText JobType where
 
 instance ToByteString JobType
 instance ToHeader     JobType
+instance ToQuery      JobType
 
 instance FromXML JobType where
     parseXML = parseXMLText "JobType"

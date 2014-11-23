@@ -584,6 +584,7 @@ instance ToText OperatorType where
 
 instance ToByteString OperatorType
 instance ToHeader     OperatorType
+instance ToQuery      OperatorType
 
 instance FromJSON OperatorType where
     parseJSON = parseJSONText "OperatorType"
@@ -651,6 +652,7 @@ instance ToText TaskStatus where
 
 instance ToByteString TaskStatus
 instance ToHeader     TaskStatus
+instance ToQuery      TaskStatus
 
 instance FromJSON TaskStatus where
     parseJSON = parseJSONText "TaskStatus"

@@ -516,6 +516,7 @@ instance ToText VirtualInterfaceState where
 
 instance ToByteString VirtualInterfaceState
 instance ToHeader     VirtualInterfaceState
+instance ToQuery      VirtualInterfaceState
 
 instance FromJSON VirtualInterfaceState where
     parseJSON = parseJSONText "VirtualInterfaceState"
@@ -820,6 +821,7 @@ instance ToText InterconnectState where
 
 instance ToByteString InterconnectState
 instance ToHeader     InterconnectState
+instance ToQuery      InterconnectState
 
 instance FromJSON InterconnectState where
     parseJSON = parseJSONText "InterconnectState"
@@ -1046,6 +1048,7 @@ instance ToText ConnectionState where
 
 instance ToByteString ConnectionState
 instance ToHeader     ConnectionState
+instance ToQuery      ConnectionState
 
 instance FromJSON ConnectionState where
     parseJSON = parseJSONText "ConnectionState"

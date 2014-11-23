@@ -858,6 +858,7 @@ instance ToText OptionState where
 
 instance ToByteString OptionState
 instance ToHeader     OptionState
+instance ToQuery      OptionState
 
 instance FromXML OptionState where
     parseXML = parseXMLText "OptionState"
@@ -959,6 +960,7 @@ instance ToText AlgorithmicStemming where
 
 instance ToByteString AlgorithmicStemming
 instance ToHeader     AlgorithmicStemming
+instance ToQuery      AlgorithmicStemming
 
 instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
@@ -1633,6 +1635,7 @@ instance ToText IndexFieldType where
 
 instance ToByteString IndexFieldType
 instance ToHeader     IndexFieldType
+instance ToQuery      IndexFieldType
 
 instance FromXML IndexFieldType where
     parseXML = parseXMLText "IndexFieldType"
@@ -2029,6 +2032,7 @@ instance ToText SuggesterFuzzyMatching where
 
 instance ToByteString SuggesterFuzzyMatching
 instance ToHeader     SuggesterFuzzyMatching
+instance ToQuery      SuggesterFuzzyMatching
 
 instance FromXML SuggesterFuzzyMatching where
     parseXML = parseXMLText "SuggesterFuzzyMatching"
@@ -2223,6 +2227,7 @@ instance ToText AnalysisSchemeLanguage where
 
 instance ToByteString AnalysisSchemeLanguage
 instance ToHeader     AnalysisSchemeLanguage
+instance ToQuery      AnalysisSchemeLanguage
 
 instance FromXML AnalysisSchemeLanguage where
     parseXML = parseXMLText "AnalysisSchemeLanguage"
@@ -2254,6 +2259,7 @@ instance ToText PartitionInstanceType where
 
 instance ToByteString PartitionInstanceType
 instance ToHeader     PartitionInstanceType
+instance ToQuery      PartitionInstanceType
 
 instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"

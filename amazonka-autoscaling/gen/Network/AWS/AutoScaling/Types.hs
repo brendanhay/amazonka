@@ -2044,6 +2044,7 @@ instance ToText LifecycleState where
 
 instance ToByteString LifecycleState
 instance ToHeader     LifecycleState
+instance ToQuery      LifecycleState
 
 instance FromXML LifecycleState where
     parseXML = parseXMLText "LifecycleState"
@@ -2186,6 +2187,7 @@ instance ToText ScalingActivityStatusCode where
 
 instance ToByteString ScalingActivityStatusCode
 instance ToHeader     ScalingActivityStatusCode
+instance ToQuery      ScalingActivityStatusCode
 
 instance FromXML ScalingActivityStatusCode where
     parseXML = parseXMLText "ScalingActivityStatusCode"

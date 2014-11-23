@@ -1244,6 +1244,7 @@ instance ToText SourceType where
 
 instance ToByteString SourceType
 instance ToHeader     SourceType
+instance ToQuery      SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
@@ -1448,6 +1449,7 @@ instance ToText ApplyMethod where
 
 instance ToByteString ApplyMethod
 instance ToHeader     ApplyMethod
+instance ToQuery      ApplyMethod
 
 instance FromXML ApplyMethod where
     parseXML = parseXMLText "ApplyMethod"

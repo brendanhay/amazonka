@@ -42,7 +42,7 @@ data EC2Error = EC2Error
 
 instance FromXML EC2Error where
     parseXML x = EC2Error
-        <$> x .@ "RequestId"
+        <$> x .@ "RequestID"
         <*> x .@ "Errors"
 
 errRequestID :: Lens' EC2Error Text

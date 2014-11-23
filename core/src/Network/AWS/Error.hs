@@ -82,7 +82,7 @@ restError f Service{..} s
   where
     go x = either failure success (decodeXML x >>= parseXML)
       where
-        failure e = SerializerError _svcAbbrev (e ++ "\n" ++ unpack x)
+        failure e = SerializerError _svcAbbrev (e ++ ":\n" ++ unpack x)
         success   = ServiceError _svcAbbrev s
 
 data JSONError = JSONError
@@ -108,5 +108,5 @@ jsonError f Service{..} s
   where
     go x = either failure success (eitherDecode' x)
       where
-        failure e = SerializerError _svcAbbrev (e ++ "\n" ++ unpack x)
+        failure e = SerializerError _svcAbbrev (e ++ ":\n" ++ unpack x)
         success   = ServiceError _svcAbbrev s

@@ -138,9 +138,15 @@ withElement n f = join . fmap f . findElement n
 {-# INLINE withElement #-}
 
 findElement :: Text -> [Node] -> Either String [Node]
-findElement n = maybe err Right . listToMaybe . mapMaybe (childNodes n)
+findElement n ns = maybe err Right . listToMaybe $ mapMaybe (childNodes n) ns
   where
-    err = Left $ "unable to find element " ++ show n
+    err = Left $ "unable to find element "
+        ++ show n
+        ++ " in nodes "
+        ++ show (mapMaybe name ns)
+
+    name (NodeElement e) = Just (nameLocalName (elementName e))
+    name _               = Nothing
 {-# INLINE findElement #-}
 
 childNodes :: Text -> Node -> Maybe [Node]

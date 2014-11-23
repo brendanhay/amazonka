@@ -102,13 +102,13 @@ data CreateConnectionResponse = CreateConnectionResponse
     { _ccrBandwidth       :: Maybe Text
     , _ccrConnectionId    :: Maybe Text
     , _ccrConnectionName  :: Maybe Text
-    , _ccrConnectionState :: Maybe Text
+    , _ccrConnectionState :: Maybe ConnectionState
     , _ccrLocation        :: Maybe Text
     , _ccrOwnerAccount    :: Maybe Text
     , _ccrPartnerName     :: Maybe Text
     , _ccrRegion          :: Maybe Text
     , _ccrVlan            :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateConnectionResponse' constructor.
 --
@@ -120,7 +120,7 @@ data CreateConnectionResponse = CreateConnectionResponse
 --
 -- * 'ccrConnectionName' @::@ 'Maybe' 'Text'
 --
--- * 'ccrConnectionState' @::@ 'Maybe' 'Text'
+-- * 'ccrConnectionState' @::@ 'Maybe' 'ConnectionState'
 --
 -- * 'ccrLocation' @::@ 'Maybe' 'Text'
 --
@@ -157,7 +157,7 @@ ccrConnectionName :: Lens' CreateConnectionResponse (Maybe Text)
 ccrConnectionName =
     lens _ccrConnectionName (\s a -> s { _ccrConnectionName = a })
 
-ccrConnectionState :: Lens' CreateConnectionResponse (Maybe Text)
+ccrConnectionState :: Lens' CreateConnectionResponse (Maybe ConnectionState)
 ccrConnectionState =
     lens _ccrConnectionState (\s a -> s { _ccrConnectionState = a })
 

@@ -120,7 +120,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse
     , _csr1Progress    :: Maybe Text
     , _csr1SnapshotId  :: Maybe Text
     , _csr1StartTime   :: Maybe RFC822
-    , _csr1State       :: Maybe Text
+    , _csr1State       :: Maybe SnapshotState
     , _csr1Tags        :: List "item" Tag
     , _csr1VolumeId    :: Maybe Text
     , _csr1VolumeSize  :: Maybe Int
@@ -144,7 +144,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 --
 -- * 'csr1StartTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'csr1State' @::@ 'Maybe' 'Text'
+-- * 'csr1State' @::@ 'Maybe' 'SnapshotState'
 --
 -- * 'csr1Tags' @::@ ['Tag']
 --
@@ -197,7 +197,7 @@ csr1StartTime :: Lens' CreateSnapshotResponse (Maybe UTCTime)
 csr1StartTime = lens _csr1StartTime (\s a -> s { _csr1StartTime = a }) . mapping _Time
 
 -- | The snapshot state.
-csr1State :: Lens' CreateSnapshotResponse (Maybe Text)
+csr1State :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
 csr1State = lens _csr1State (\s a -> s { _csr1State = a })
 
 -- | Any tags assigned to the snapshot.

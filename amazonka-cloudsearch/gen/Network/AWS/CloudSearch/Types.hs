@@ -482,16 +482,16 @@ instance ToQuery DomainStatus where
         ]
 
 data DocumentSuggesterOptions = DocumentSuggesterOptions
-    { _dsoFuzzyMatching  :: Maybe Text
+    { _dsoFuzzyMatching  :: Maybe SuggesterFuzzyMatching
     , _dsoSortExpression :: Maybe Text
     , _dsoSourceField    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DocumentSuggesterOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsoFuzzyMatching' @::@ 'Maybe' 'Text'
+-- * 'dsoFuzzyMatching' @::@ 'Maybe' 'SuggesterFuzzyMatching'
 --
 -- * 'dsoSortExpression' @::@ 'Maybe' 'Text'
 --
@@ -510,7 +510,7 @@ documentSuggesterOptions p1 = DocumentSuggesterOptions
 -- exact prefix. With low, suggestions must differ from the specified string
 -- by no more than one character. With high, suggestions can differ by up to
 -- two characters. The default is none.
-dsoFuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe Text)
+dsoFuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe SuggesterFuzzyMatching)
 dsoFuzzyMatching = lens _dsoFuzzyMatching (\s a -> s { _dsoFuzzyMatching = a })
 
 -- | An expression that computes a score for each suggestion to control how
@@ -616,7 +616,7 @@ data IndexField = IndexField
     , _ifDoubleArrayOptions  :: Maybe DoubleArrayOptions
     , _ifDoubleOptions       :: Maybe DoubleOptions
     , _ifIndexFieldName      :: Text
-    , _ifIndexFieldType      :: Text
+    , _ifIndexFieldType      :: IndexFieldType
     , _ifIntArrayOptions     :: Maybe IntArrayOptions
     , _ifIntOptions          :: Maybe IntOptions
     , _ifLatLonOptions       :: Maybe LatLonOptions
@@ -640,7 +640,7 @@ data IndexField = IndexField
 --
 -- * 'ifIndexFieldName' @::@ 'Text'
 --
--- * 'ifIndexFieldType' @::@ 'Text'
+-- * 'ifIndexFieldType' @::@ 'IndexFieldType'
 --
 -- * 'ifIntArrayOptions' @::@ 'Maybe' 'IntArrayOptions'
 --
@@ -657,7 +657,7 @@ data IndexField = IndexField
 -- * 'ifTextOptions' @::@ 'Maybe' 'TextOptions'
 --
 indexField :: Text -- ^ 'ifIndexFieldName'
-           -> Text -- ^ 'ifIndexFieldType'
+           -> IndexFieldType -- ^ 'ifIndexFieldType'
            -> IndexField
 indexField p1 p2 = IndexField
     { _ifIndexFieldName      = p1
@@ -697,7 +697,7 @@ ifDoubleOptions = lens _ifDoubleOptions (\s a -> s { _ifDoubleOptions = a })
 ifIndexFieldName :: Lens' IndexField Text
 ifIndexFieldName = lens _ifIndexFieldName (\s a -> s { _ifIndexFieldName = a })
 
-ifIndexFieldType :: Lens' IndexField Text
+ifIndexFieldType :: Lens' IndexField IndexFieldType
 ifIndexFieldType = lens _ifIndexFieldType (\s a -> s { _ifIndexFieldType = a })
 
 ifIntArrayOptions :: Lens' IndexField (Maybe IntArrayOptions)
@@ -962,7 +962,7 @@ instance ToQuery AlgorithmicStemming where
 
 data AnalysisScheme = AnalysisScheme
     { _asAnalysisOptions        :: Maybe AnalysisOptions
-    , _asAnalysisSchemeLanguage :: Text
+    , _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage
     , _asAnalysisSchemeName     :: Text
     } deriving (Eq, Show)
 
@@ -972,12 +972,12 @@ data AnalysisScheme = AnalysisScheme
 --
 -- * 'asAnalysisOptions' @::@ 'Maybe' 'AnalysisOptions'
 --
--- * 'asAnalysisSchemeLanguage' @::@ 'Text'
+-- * 'asAnalysisSchemeLanguage' @::@ 'AnalysisSchemeLanguage'
 --
 -- * 'asAnalysisSchemeName' @::@ 'Text'
 --
 analysisScheme :: Text -- ^ 'asAnalysisSchemeName'
-               -> Text -- ^ 'asAnalysisSchemeLanguage'
+               -> AnalysisSchemeLanguage -- ^ 'asAnalysisSchemeLanguage'
                -> AnalysisScheme
 analysisScheme p1 p2 = AnalysisScheme
     { _asAnalysisSchemeName     = p1
@@ -989,7 +989,7 @@ asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
 asAnalysisOptions =
     lens _asAnalysisOptions (\s a -> s { _asAnalysisOptions = a })
 
-asAnalysisSchemeLanguage :: Lens' AnalysisScheme Text
+asAnalysisSchemeLanguage :: Lens' AnalysisScheme AnalysisSchemeLanguage
 asAnalysisSchemeLanguage =
     lens _asAnalysisSchemeLanguage
         (\s a -> s { _asAnalysisSchemeLanguage = a })
@@ -1012,16 +1012,16 @@ instance ToQuery AnalysisScheme where
         ]
 
 data ScalingParameters = ScalingParameters
-    { _spDesiredInstanceType     :: Maybe Text
+    { _spDesiredInstanceType     :: Maybe PartitionInstanceType
     , _spDesiredPartitionCount   :: Maybe Nat
     , _spDesiredReplicationCount :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ScalingParameters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'spDesiredInstanceType' @::@ 'Maybe' 'Text'
+-- * 'spDesiredInstanceType' @::@ 'Maybe' 'PartitionInstanceType'
 --
 -- * 'spDesiredPartitionCount' @::@ 'Maybe' 'Natural'
 --
@@ -1036,7 +1036,7 @@ scalingParameters = ScalingParameters
 
 -- | The instance type that you want to preconfigure for your domain. For
 -- example, search.m1.small.
-spDesiredInstanceType :: Lens' ScalingParameters (Maybe Text)
+spDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
 spDesiredInstanceType =
     lens _spDesiredInstanceType (\s a -> s { _spDesiredInstanceType = a })
 
@@ -1068,18 +1068,18 @@ instance ToQuery ScalingParameters where
         ]
 
 data AnalysisOptions = AnalysisOptions
-    { _aoAlgorithmicStemming            :: Maybe Text
+    { _aoAlgorithmicStemming            :: Maybe AlgorithmicStemming
     , _aoJapaneseTokenizationDictionary :: Maybe Text
     , _aoStemmingDictionary             :: Maybe Text
     , _aoStopwords                      :: Maybe Text
     , _aoSynonyms                       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'AnalysisOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aoAlgorithmicStemming' @::@ 'Maybe' 'Text'
+-- * 'aoAlgorithmicStemming' @::@ 'Maybe' 'AlgorithmicStemming'
 --
 -- * 'aoJapaneseTokenizationDictionary' @::@ 'Maybe' 'Text'
 --
@@ -1102,7 +1102,7 @@ analysisOptions = AnalysisOptions
 -- full. The available levels vary depending on the language. For more
 -- information, see Language Specific Text Processing Settings in the Amazon
 -- CloudSearch Developer Guide.
-aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe Text)
+aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
 aoAlgorithmicStemming =
     lens _aoAlgorithmicStemming (\s a -> s { _aoAlgorithmicStemming = a })
 
@@ -1749,10 +1749,10 @@ instance ToQuery SuggesterStatus where
 data OptionStatus = OptionStatus
     { _osCreationDate    :: RFC822
     , _osPendingDeletion :: Maybe Bool
-    , _osState           :: Text
+    , _osState           :: OptionState
     , _osUpdateDate      :: RFC822
     , _osUpdateVersion   :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'OptionStatus' constructor.
 --
@@ -1762,7 +1762,7 @@ data OptionStatus = OptionStatus
 --
 -- * 'osPendingDeletion' @::@ 'Maybe' 'Bool'
 --
--- * 'osState' @::@ 'Text'
+-- * 'osState' @::@ 'OptionState'
 --
 -- * 'osUpdateDate' @::@ 'UTCTime'
 --
@@ -1770,7 +1770,7 @@ data OptionStatus = OptionStatus
 --
 optionStatus :: UTCTime -- ^ 'osCreationDate'
              -> UTCTime -- ^ 'osUpdateDate'
-             -> Text -- ^ 'osState'
+             -> OptionState -- ^ 'osState'
              -> OptionStatus
 optionStatus p1 p2 p3 = OptionStatus
     { _osCreationDate    = withIso _Time (const id) p1
@@ -1797,7 +1797,7 @@ osPendingDeletion =
 -- FailedToValidate: the option value is not compatible with the domain's
 -- data and cannot be used to index the data. You must either modify the
 -- option value or update or remove the incompatible documents.
-osState :: Lens' OptionStatus Text
+osState :: Lens' OptionStatus OptionState
 osState = lens _osState (\s a -> s { _osState = a })
 
 -- | A timestamp for when this option was last updated.

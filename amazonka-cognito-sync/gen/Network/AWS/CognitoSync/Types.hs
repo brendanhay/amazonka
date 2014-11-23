@@ -477,10 +477,10 @@ instance ToJSON IdentityUsage where
 data RecordPatch = RecordPatch
     { _rpDeviceLastModifiedDate :: Maybe RFC822
     , _rpKey                    :: Text
-    , _rpOp                     :: Text
+    , _rpOp                     :: Operation
     , _rpSyncCount              :: Integer
     , _rpValue                  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'RecordPatch' constructor.
 --
@@ -490,13 +490,13 @@ data RecordPatch = RecordPatch
 --
 -- * 'rpKey' @::@ 'Text'
 --
--- * 'rpOp' @::@ 'Text'
+-- * 'rpOp' @::@ 'Operation'
 --
 -- * 'rpSyncCount' @::@ 'Integer'
 --
 -- * 'rpValue' @::@ 'Maybe' 'Text'
 --
-recordPatch :: Text -- ^ 'rpOp'
+recordPatch :: Operation -- ^ 'rpOp'
             -> Text -- ^ 'rpKey'
             -> Integer -- ^ 'rpSyncCount'
             -> RecordPatch
@@ -520,7 +520,7 @@ rpKey :: Lens' RecordPatch Text
 rpKey = lens _rpKey (\s a -> s { _rpKey = a })
 
 -- | An operation, either replace or remove.
-rpOp :: Lens' RecordPatch Text
+rpOp :: Lens' RecordPatch Operation
 rpOp = lens _rpOp (\s a -> s { _rpOp = a })
 
 -- | Last known server sync count for this record. Set to 0 if unknown.

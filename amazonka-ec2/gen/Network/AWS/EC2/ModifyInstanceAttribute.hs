@@ -61,7 +61,7 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data ModifyInstanceAttribute = ModifyInstanceAttribute
-    { _mia1Attribute                         :: Maybe Text
+    { _mia1Attribute                         :: Maybe InstanceAttributeName
     , _mia1BlockDeviceMappings               :: List "item" InstanceBlockDeviceMappingSpecification
     , _mia1DisableApiTermination             :: Maybe AttributeBooleanValue
     , _mia1DryRun                            :: Maybe Bool
@@ -82,7 +82,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mia1Attribute' @::@ 'Maybe' 'Text'
+-- * 'mia1Attribute' @::@ 'Maybe' 'InstanceAttributeName'
 --
 -- * 'mia1BlockDeviceMappings' @::@ ['InstanceBlockDeviceMappingSpecification']
 --
@@ -133,7 +133,7 @@ modifyInstanceAttribute p1 = ModifyInstanceAttribute
     }
 
 -- | The name of the attribute.
-mia1Attribute :: Lens' ModifyInstanceAttribute (Maybe Text)
+mia1Attribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
 mia1Attribute = lens _mia1Attribute (\s a -> s { _mia1Attribute = a })
 
 -- | Modifies the DeleteOnTermination attribute for volumes that are currently

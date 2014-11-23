@@ -65,12 +65,12 @@ import qualified GHC.Exts
 data ListMultipartUploads = ListMultipartUploads
     { _lmuBucket         :: Text
     , _lmuDelimiter      :: Maybe Text
-    , _lmuEncodingType   :: Maybe Text
+    , _lmuEncodingType   :: Maybe EncodingType
     , _lmuKeyMarker      :: Maybe Text
     , _lmuMaxUploads     :: Maybe Int
     , _lmuPrefix         :: Maybe Text
     , _lmuUploadIdMarker :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListMultipartUploads' constructor.
 --
@@ -80,7 +80,7 @@ data ListMultipartUploads = ListMultipartUploads
 --
 -- * 'lmuDelimiter' @::@ 'Maybe' 'Text'
 --
--- * 'lmuEncodingType' @::@ 'Maybe' 'Text'
+-- * 'lmuEncodingType' @::@ 'Maybe' 'EncodingType'
 --
 -- * 'lmuKeyMarker' @::@ 'Maybe' 'Text'
 --
@@ -109,7 +109,7 @@ lmuBucket = lens _lmuBucket (\s a -> s { _lmuBucket = a })
 lmuDelimiter :: Lens' ListMultipartUploads (Maybe Text)
 lmuDelimiter = lens _lmuDelimiter (\s a -> s { _lmuDelimiter = a })
 
-lmuEncodingType :: Lens' ListMultipartUploads (Maybe Text)
+lmuEncodingType :: Lens' ListMultipartUploads (Maybe EncodingType)
 lmuEncodingType = lens _lmuEncodingType (\s a -> s { _lmuEncodingType = a })
 
 -- | Together with upload-id-marker, this parameter specifies the multipart
@@ -139,7 +139,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     { _lmurBucket             :: Maybe Text
     , _lmurCommonPrefixes     :: List "CommonPrefixes" CommonPrefix
     , _lmurDelimiter          :: Maybe Text
-    , _lmurEncodingType       :: Maybe Text
+    , _lmurEncodingType       :: Maybe EncodingType
     , _lmurIsTruncated        :: Maybe Bool
     , _lmurKeyMarker          :: Maybe Text
     , _lmurMaxUploads         :: Maybe Int
@@ -160,7 +160,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
 --
 -- * 'lmurDelimiter' @::@ 'Maybe' 'Text'
 --
--- * 'lmurEncodingType' @::@ 'Maybe' 'Text'
+-- * 'lmurEncodingType' @::@ 'Maybe' 'EncodingType'
 --
 -- * 'lmurIsTruncated' @::@ 'Maybe' 'Bool'
 --
@@ -207,7 +207,7 @@ lmurDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurDelimiter = lens _lmurDelimiter (\s a -> s { _lmurDelimiter = a })
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-lmurEncodingType :: Lens' ListMultipartUploadsResponse (Maybe Text)
+lmurEncodingType :: Lens' ListMultipartUploadsResponse (Maybe EncodingType)
 lmurEncodingType = lens _lmurEncodingType (\s a -> s { _lmurEncodingType = a })
 
 -- | Indicates whether the returned list of multipart uploads is truncated. A

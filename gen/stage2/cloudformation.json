@@ -183,7 +183,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 23,
@@ -314,8 +313,8 @@
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceStatus",
+                        "type": "Maybe ResourceStatus"
                     },
                     {
                         "location": "querystring",
@@ -421,8 +420,8 @@
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceStatus",
+                        "type": "Maybe ResourceStatus"
                     },
                     {
                         "location": "querystring",
@@ -504,7 +503,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 22,
@@ -554,8 +552,8 @@
                         "shape": "StackStatus",
                         "locationName": "StackStatus",
                         "documentation": "\u003cp\u003eThe current status of the stack.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StackStatus",
+                        "type": "StackStatus"
                     }
                 ],
                 "contentPad": 0,
@@ -727,8 +725,8 @@
                         "shape": "StackStatus",
                         "locationName": "StackStatus",
                         "documentation": "\u003cp\u003eThe current status of the stack.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StackStatus",
+                        "type": "StackStatus"
                     },
                     {
                         "location": "querystring",
@@ -765,7 +763,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -830,8 +827,8 @@
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceStatus",
+                        "type": "ResourceStatus"
                     }
                 ],
                 "contentPad": 0,
@@ -1018,8 +1015,8 @@
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceStatus",
+                        "type": "ResourceStatus"
                     },
                     {
                         "location": "querystring",
@@ -1421,7 +1418,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -1486,8 +1482,8 @@
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceStatus",
+                        "type": "ResourceStatus"
                     }
                 ],
                 "contentPad": 0,
@@ -1629,8 +1625,8 @@
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceStatus",
+                        "type": "ResourceStatus"
                     },
                     {
                         "location": "querystring",
@@ -1822,7 +1818,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -1887,8 +1882,8 @@
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceStatus",
+                        "type": "ResourceStatus"
                     }
                 ],
                 "contentPad": 0,
@@ -1985,8 +1980,8 @@
                         "shape": "ResourceStatus",
                         "locationName": "ResourceStatus",
                         "documentation": "\u003cp\u003eCurrent status of the resource.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceStatus",
+                        "type": "ResourceStatus"
                     },
                     {
                         "location": "querystring",
@@ -2105,8 +2100,8 @@
                         "shape": "StackStatus",
                         "locationName": "StackStatus",
                         "documentation": "\u003cp\u003eCurrent status of the stack.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StackStatus",
+                        "type": "StackStatus"
                     }
                 ],
                 "contentPad": 0,
@@ -2246,8 +2241,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities allowed in the stack.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",
@@ -2293,8 +2288,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities allowed in the stack.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",
@@ -2443,8 +2438,8 @@
                         "shape": "StackStatus",
                         "locationName": "StackStatus",
                         "documentation": "\u003cp\u003eCurrent status of the stack.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StackStatus",
+                        "type": "StackStatus"
                     },
                     {
                         "location": "querystring",
@@ -2624,6 +2619,7 @@
         ],
         "imports": [],
         "shared": [
+            "Capability",
             "Parameter"
         ]
     },
@@ -3057,8 +3053,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.\u003c/p\u003e \u003cp\u003eCurrently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an \u003ccode\u003eInsufficientCapabilities\u003c/code\u003e error.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",
@@ -3072,8 +3068,8 @@
                         "shape": "OnFailure",
                         "locationName": "OnFailure",
                         "documentation": "\u003cp\u003eDetermines what action will be taken if stack creation fails. This must be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either \u003ccode\u003eOnFailure\u003c/code\u003e or \u003ccode\u003eDisableRollback\u003c/code\u003e, but not both.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003eROLLBACK\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OnFailure",
+                        "type": "Maybe OnFailure"
                     },
                     {
                         "location": "querystring",
@@ -3134,8 +3130,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter.\u003c/p\u003e \u003cp\u003eCurrently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an \u003ccode\u003eInsufficientCapabilities\u003c/code\u003e error.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",
@@ -3179,8 +3175,8 @@
                         "shape": "OnFailure",
                         "locationName": "OnFailure",
                         "documentation": "\u003cp\u003eDetermines what action will be taken if stack creation fails. This must be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either \u003ccode\u003eOnFailure\u003c/code\u003e or \u003ccode\u003eDisableRollback\u003c/code\u003e, but not both.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003eROLLBACK\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OnFailure",
+                        "type": "Maybe OnFailure"
                     },
                     {
                         "location": "querystring",
@@ -4963,8 +4959,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",
@@ -5010,8 +5006,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",
@@ -5564,7 +5560,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -5631,8 +5626,8 @@
                         "shape": "StackStatusFilter",
                         "locationName": "StackStatusFilter",
                         "documentation": "\u003cp\u003eStack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the \u003ccode\u003eStackStatus\u003c/code\u003e parameter of the \u003ca\u003eStack\u003c/a\u003e data type.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"StackStatusFilter\" Text"
+                        "typeExposed": "[StackStatus]",
+                        "type": "List \"StackStatusFilter\" StackStatus"
                     }
                 ],
                 "fields": [
@@ -5663,8 +5658,8 @@
                         "shape": "StackStatusFilter",
                         "locationName": "StackStatusFilter",
                         "documentation": "\u003cp\u003eStack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the \u003ccode\u003eStackStatus\u003c/code\u003e parameter of the \u003ca\u003eStack\u003c/a\u003e data type.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"StackStatusFilter\" Text"
+                        "typeExposed": "[StackStatus]",
+                        "type": "List \"StackStatusFilter\" StackStatus"
                     }
                 ]
             }
@@ -5892,7 +5887,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -5967,8 +5961,8 @@
                         "shape": "ResourceSignalStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceSignalStatus",
+                        "type": "ResourceSignalStatus"
                     }
                 ],
                 "shared": false,
@@ -6046,8 +6040,8 @@
                         "shape": "ResourceSignalStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceSignalStatus",
+                        "type": "ResourceSignalStatus"
                     },
                     {
                         "location": "querystring",
@@ -6362,8 +6356,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter. Currently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an InsufficientCapabilities error.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",
@@ -6424,8 +6418,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eA list of capabilities that you must specify before AWS CloudFormation can create or update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter. Currently, the only valid value is \u003ccode\u003eCAPABILITY_IAM\u003c/code\u003e, which is required for the following resources: \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html\"\u003e AWS::CloudFormation::Stack\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html\"\u003e AWS::IAM::AccessKey\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html\"\u003e AWS::IAM::Group\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html\"\u003e AWS::IAM::InstanceProfile\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html\"\u003e AWS::IAM::Policy\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html\"\u003e AWS::IAM::Role\u003c/a\u003e, \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html\"\u003e AWS::IAM::User\u003c/a\u003e, and \u003ca href=\"http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html\"\u003e AWS::IAM::UserToGroupAddition\u003c/a\u003e. If your stack template contains these resources, we recommend that you review any permissions associated with them. If you don't specify this parameter, this action returns an InsufficientCapabilities error.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",
@@ -6648,8 +6642,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",
@@ -6680,8 +6674,8 @@
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
                         "documentation": "\u003cp\u003eThe capabilities found within the template. Currently, AWS CloudFormation supports only the CAPABILITY_IAM capability. If your template contains IAM resources, you must specify the CAPABILITY_IAM value for this parameter when you use the \u003ca\u003eCreateStack\u003c/a\u003e or \u003ca\u003eUpdateStack\u003c/a\u003e actions with your template; otherwise, those actions return an InsufficientCapabilities error.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Capabilities\" Text"
+                        "typeExposed": "[Capability]",
+                        "type": "List \"Capabilities\" Capability"
                     },
                     {
                         "location": "querystring",

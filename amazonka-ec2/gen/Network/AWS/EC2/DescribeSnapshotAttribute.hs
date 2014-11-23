@@ -53,23 +53,23 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
-    { _dsaAttribute  :: Text
+    { _dsaAttribute  :: SnapshotAttributeName
     , _dsaDryRun     :: Maybe Bool
     , _dsaSnapshotId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeSnapshotAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsaAttribute' @::@ 'Text'
+-- * 'dsaAttribute' @::@ 'SnapshotAttributeName'
 --
 -- * 'dsaDryRun' @::@ 'Maybe' 'Bool'
 --
 -- * 'dsaSnapshotId' @::@ 'Text'
 --
 describeSnapshotAttribute :: Text -- ^ 'dsaSnapshotId'
-                          -> Text -- ^ 'dsaAttribute'
+                          -> SnapshotAttributeName -- ^ 'dsaAttribute'
                           -> DescribeSnapshotAttribute
 describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
     { _dsaSnapshotId = p1
@@ -78,7 +78,7 @@ describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
     }
 
 -- | The snapshot attribute you would like to view.
-dsaAttribute :: Lens' DescribeSnapshotAttribute Text
+dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
 dsaAttribute = lens _dsaAttribute (\s a -> s { _dsaAttribute = a })
 
 dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)

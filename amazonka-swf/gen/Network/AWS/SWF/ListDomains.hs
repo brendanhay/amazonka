@@ -64,9 +64,9 @@ import qualified GHC.Exts
 data ListDomains = ListDomains
     { _ldMaximumPageSize    :: Maybe Nat
     , _ldNextPageToken      :: Maybe Text
-    , _ldRegistrationStatus :: Text
+    , _ldRegistrationStatus :: RegistrationStatus
     , _ldReverseOrder       :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListDomains' constructor.
 --
@@ -76,11 +76,11 @@ data ListDomains = ListDomains
 --
 -- * 'ldNextPageToken' @::@ 'Maybe' 'Text'
 --
--- * 'ldRegistrationStatus' @::@ 'Text'
+-- * 'ldRegistrationStatus' @::@ 'RegistrationStatus'
 --
 -- * 'ldReverseOrder' @::@ 'Maybe' 'Bool'
 --
-listDomains :: Text -- ^ 'ldRegistrationStatus'
+listDomains :: RegistrationStatus -- ^ 'ldRegistrationStatus'
             -> ListDomains
 listDomains p1 = ListDomains
     { _ldRegistrationStatus = p1
@@ -107,7 +107,7 @@ ldNextPageToken :: Lens' ListDomains (Maybe Text)
 ldNextPageToken = lens _ldNextPageToken (\s a -> s { _ldNextPageToken = a })
 
 -- | Specifies the registration status of the domains to list.
-ldRegistrationStatus :: Lens' ListDomains Text
+ldRegistrationStatus :: Lens' ListDomains RegistrationStatus
 ldRegistrationStatus =
     lens _ldRegistrationStatus (\s a -> s { _ldRegistrationStatus = a })
 

@@ -125,7 +125,7 @@ data AllocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResp
     , _apvir1VirtualGatewayId      :: Maybe Text
     , _apvir1VirtualInterfaceId    :: Maybe Text
     , _apvir1VirtualInterfaceName  :: Maybe Text
-    , _apvir1VirtualInterfaceState :: Maybe Text
+    , _apvir1VirtualInterfaceState :: Maybe VirtualInterfaceState
     , _apvir1VirtualInterfaceType  :: Maybe Text
     , _apvir1Vlan                  :: Maybe Int
     } deriving (Eq, Show)
@@ -158,7 +158,7 @@ data AllocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResp
 --
 -- * 'apvir1VirtualInterfaceName' @::@ 'Maybe' 'Text'
 --
--- * 'apvir1VirtualInterfaceState' @::@ 'Maybe' 'Text'
+-- * 'apvir1VirtualInterfaceState' @::@ 'Maybe' 'VirtualInterfaceState'
 --
 -- * 'apvir1VirtualInterfaceType' @::@ 'Maybe' 'Text'
 --
@@ -234,7 +234,7 @@ apvir1VirtualInterfaceName =
     lens _apvir1VirtualInterfaceName
         (\s a -> s { _apvir1VirtualInterfaceName = a })
 
-apvir1VirtualInterfaceState :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
+apvir1VirtualInterfaceState :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 apvir1VirtualInterfaceState =
     lens _apvir1VirtualInterfaceState
         (\s a -> s { _apvir1VirtualInterfaceState = a })

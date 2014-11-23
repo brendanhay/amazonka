@@ -53,16 +53,16 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
-    { _dvaAttribute :: Maybe Text
+    { _dvaAttribute :: Maybe VolumeAttributeName
     , _dvaDryRun    :: Maybe Bool
     , _dvaVolumeId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVolumeAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvaAttribute' @::@ 'Maybe' 'Text'
+-- * 'dvaAttribute' @::@ 'Maybe' 'VolumeAttributeName'
 --
 -- * 'dvaDryRun' @::@ 'Maybe' 'Bool'
 --
@@ -77,7 +77,7 @@ describeVolumeAttribute p1 = DescribeVolumeAttribute
     }
 
 -- | The instance attribute.
-dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe Text)
+dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
 dvaAttribute = lens _dvaAttribute (\s a -> s { _dvaAttribute = a })
 
 dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)

@@ -3188,7 +3188,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 22,
@@ -3268,8 +3267,8 @@
                         "shape": "ScalingActivityStatusCode",
                         "locationName": "StatusCode",
                         "documentation": "\u003cp\u003eThe current status of the activity.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ScalingActivityStatusCode",
+                        "type": "ScalingActivityStatusCode"
                     }
                 ],
                 "contentPad": 0,
@@ -3486,8 +3485,8 @@
                         "shape": "ScalingActivityStatusCode",
                         "locationName": "StatusCode",
                         "documentation": "\u003cp\u003eThe current status of the activity.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ScalingActivityStatusCode",
+                        "type": "ScalingActivityStatusCode"
                     },
                     {
                         "location": "querystring",
@@ -3965,7 +3964,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -4015,8 +4013,8 @@
                         "shape": "LifecycleState",
                         "locationName": "LifecycleState",
                         "documentation": "\u003cp\u003eA description of the current lifecycle state.\u003c/p\u003e \u003cnote\u003e \u003cp\u003eThe \u003ccode\u003eQuarantined\u003c/code\u003e lifecycle state is not used.\u003c/p\u003e \u003c/note\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "LifecycleState",
+                        "type": "LifecycleState"
                     },
                     {
                         "location": "querystring",
@@ -4127,8 +4125,8 @@
                         "shape": "LifecycleState",
                         "locationName": "LifecycleState",
                         "documentation": "\u003cp\u003eA description of the current lifecycle state.\u003c/p\u003e \u003cnote\u003e \u003cp\u003eThe \u003ccode\u003eQuarantined\u003c/code\u003e lifecycle state is not used.\u003c/p\u003e \u003c/note\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "LifecycleState",
+                        "type": "LifecycleState"
                     }
                 ]
             },

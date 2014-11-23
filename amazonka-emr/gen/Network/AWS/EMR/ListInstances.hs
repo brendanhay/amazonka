@@ -56,9 +56,9 @@ import qualified GHC.Exts
 data ListInstances = ListInstances
     { _liClusterId          :: Text
     , _liInstanceGroupId    :: Maybe Text
-    , _liInstanceGroupTypes :: List "InstanceGroupTypes" Text
+    , _liInstanceGroupTypes :: List "InstanceGroupTypes" InstanceGroupType
     , _liMarker             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListInstances' constructor.
 --
@@ -68,7 +68,7 @@ data ListInstances = ListInstances
 --
 -- * 'liInstanceGroupId' @::@ 'Maybe' 'Text'
 --
--- * 'liInstanceGroupTypes' @::@ ['Text']
+-- * 'liInstanceGroupTypes' @::@ ['InstanceGroupType']
 --
 -- * 'liMarker' @::@ 'Maybe' 'Text'
 --
@@ -91,7 +91,7 @@ liInstanceGroupId =
     lens _liInstanceGroupId (\s a -> s { _liInstanceGroupId = a })
 
 -- | The type of instance group for which to list the instances.
-liInstanceGroupTypes :: Lens' ListInstances [Text]
+liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
 liInstanceGroupTypes =
     lens _liInstanceGroupTypes (\s a -> s { _liInstanceGroupTypes = a })
         . _List

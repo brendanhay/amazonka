@@ -65,11 +65,11 @@ data DescribeEvents = DescribeEvents
     , _deMaxRecords      :: Maybe Nat
     , _deNextToken       :: Maybe Text
     , _deRequestId       :: Maybe Text
-    , _deSeverity        :: Maybe Text
+    , _deSeverity        :: Maybe EventSeverity
     , _deStartTime       :: Maybe RFC822
     , _deTemplateName    :: Maybe Text
     , _deVersionLabel    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEvents' constructor.
 --
@@ -89,7 +89,7 @@ data DescribeEvents = DescribeEvents
 --
 -- * 'deRequestId' @::@ 'Maybe' 'Text'
 --
--- * 'deSeverity' @::@ 'Maybe' 'Text'
+-- * 'deSeverity' @::@ 'Maybe' 'EventSeverity'
 --
 -- * 'deStartTime' @::@ 'Maybe' 'UTCTime'
 --
@@ -151,7 +151,7 @@ deRequestId = lens _deRequestId (\s a -> s { _deRequestId = a })
 
 -- | If specified, limits the events returned from this call to include only
 -- those with the specified severity or higher.
-deSeverity :: Lens' DescribeEvents (Maybe Text)
+deSeverity :: Lens' DescribeEvents (Maybe EventSeverity)
 deSeverity = lens _deSeverity (\s a -> s { _deSeverity = a })
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions

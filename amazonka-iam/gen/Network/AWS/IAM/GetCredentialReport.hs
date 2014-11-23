@@ -57,7 +57,7 @@ getCredentialReport = GetCredentialReport
 data GetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrContent       :: Maybe Base64
     , _gcrrGeneratedTime :: Maybe RFC822
-    , _gcrrReportFormat  :: Maybe Text
+    , _gcrrReportFormat  :: Maybe ReportFormatType
     } deriving (Eq, Show)
 
 -- | 'GetCredentialReportResponse' constructor.
@@ -68,7 +68,7 @@ data GetCredentialReportResponse = GetCredentialReportResponse
 --
 -- * 'gcrrGeneratedTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'gcrrReportFormat' @::@ 'Maybe' 'Text'
+-- * 'gcrrReportFormat' @::@ 'Maybe' 'ReportFormatType'
 --
 getCredentialReportResponse :: GetCredentialReportResponse
 getCredentialReportResponse = GetCredentialReportResponse
@@ -89,7 +89,7 @@ gcrrGeneratedTime =
         . mapping _Time
 
 -- | The format (MIME type) of the credential report.
-gcrrReportFormat :: Lens' GetCredentialReportResponse (Maybe Text)
+gcrrReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 gcrrReportFormat = lens _gcrrReportFormat (\s a -> s { _gcrrReportFormat = a })
 
 instance ToPath GetCredentialReport where

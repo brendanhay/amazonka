@@ -54,13 +54,13 @@ import qualified GHC.Exts
 
 data ListApplicationRevisions = ListApplicationRevisions
     { _larApplicationName :: Text
-    , _larDeployed        :: Maybe Text
+    , _larDeployed        :: Maybe ListStateFilterAction
     , _larNextToken       :: Maybe Text
     , _larS3Bucket        :: Maybe Text
     , _larS3KeyPrefix     :: Maybe Text
-    , _larSortBy          :: Maybe Text
-    , _larSortOrder       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _larSortBy          :: Maybe ApplicationRevisionSortBy
+    , _larSortOrder       :: Maybe SortOrder
+    } deriving (Eq, Show)
 
 -- | 'ListApplicationRevisions' constructor.
 --
@@ -68,7 +68,7 @@ data ListApplicationRevisions = ListApplicationRevisions
 --
 -- * 'larApplicationName' @::@ 'Text'
 --
--- * 'larDeployed' @::@ 'Maybe' 'Text'
+-- * 'larDeployed' @::@ 'Maybe' 'ListStateFilterAction'
 --
 -- * 'larNextToken' @::@ 'Maybe' 'Text'
 --
@@ -76,9 +76,9 @@ data ListApplicationRevisions = ListApplicationRevisions
 --
 -- * 'larS3KeyPrefix' @::@ 'Maybe' 'Text'
 --
--- * 'larSortBy' @::@ 'Maybe' 'Text'
+-- * 'larSortBy' @::@ 'Maybe' 'ApplicationRevisionSortBy'
 --
--- * 'larSortOrder' @::@ 'Maybe' 'Text'
+-- * 'larSortOrder' @::@ 'Maybe' 'SortOrder'
 --
 listApplicationRevisions :: Text -- ^ 'larApplicationName'
                          -> ListApplicationRevisions
@@ -103,7 +103,7 @@ larApplicationName =
 -- revisions of a deployment group. exclude: Do not list revisions that are
 -- target revisions of a deployment group. ignore: List all revisions,
 -- regardless of whether they are target revisions of a deployment group.
-larDeployed :: Lens' ListApplicationRevisions (Maybe Text)
+larDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
 larDeployed = lens _larDeployed (\s a -> s { _larDeployed = a })
 
 -- | An identifier that was returned from the previous list application
@@ -128,14 +128,14 @@ larS3KeyPrefix = lens _larS3KeyPrefix (\s a -> s { _larS3KeyPrefix = a })
 -- used by in a deployment. lastUsedTime: Sort the list results by when the
 -- revisions were last used in a deployment. If not specified or set to
 -- null, the results will be returned in an arbitrary order.
-larSortBy :: Lens' ListApplicationRevisions (Maybe Text)
+larSortBy :: Lens' ListApplicationRevisions (Maybe ApplicationRevisionSortBy)
 larSortBy = lens _larSortBy (\s a -> s { _larSortBy = a })
 
 -- | The order to sort the list results by: ascending: Sort the list results
 -- in ascending order. descending: Sort the list results in descending
 -- order. If not specified, the results will be sorted in ascending order.
 -- If set to null, the results will be sorted in an arbitrary order.
-larSortOrder :: Lens' ListApplicationRevisions (Maybe Text)
+larSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
 larSortOrder = lens _larSortOrder (\s a -> s { _larSortOrder = a })
 
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse

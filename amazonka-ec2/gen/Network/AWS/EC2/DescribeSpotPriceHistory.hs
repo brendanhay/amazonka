@@ -76,7 +76,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     , _dsphDryRun              :: Maybe Bool
     , _dsphEndTime             :: Maybe RFC822
     , _dsphFilters             :: List "Filter" Filter
-    , _dsphInstanceTypes       :: List "InstanceType" Text
+    , _dsphInstanceTypes       :: List "InstanceType" InstanceType
     , _dsphMaxResults          :: Maybe Int
     , _dsphNextToken           :: Maybe Text
     , _dsphProductDescriptions :: List "ProductDescription" Text
@@ -95,7 +95,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
 --
 -- * 'dsphFilters' @::@ ['Filter']
 --
--- * 'dsphInstanceTypes' @::@ ['Text']
+-- * 'dsphInstanceTypes' @::@ ['InstanceType']
 --
 -- * 'dsphMaxResults' @::@ 'Maybe' 'Int'
 --
@@ -144,7 +144,7 @@ dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
 dsphFilters = lens _dsphFilters (\s a -> s { _dsphFilters = a }) . _List
 
 -- | One or more instance types.
-dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [Text]
+dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
 dsphInstanceTypes =
     lens _dsphInstanceTypes (\s a -> s { _dsphInstanceTypes = a })
         . _List

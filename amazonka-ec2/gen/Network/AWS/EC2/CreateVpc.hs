@@ -57,8 +57,8 @@ import qualified GHC.Exts
 data CreateVpc = CreateVpc
     { _cvCidrBlock       :: Text
     , _cvDryRun          :: Maybe Bool
-    , _cvInstanceTenancy :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _cvInstanceTenancy :: Maybe Tenancy
+    } deriving (Eq, Show)
 
 -- | 'CreateVpc' constructor.
 --
@@ -68,7 +68,7 @@ data CreateVpc = CreateVpc
 --
 -- * 'cvDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'cvInstanceTenancy' @::@ 'Maybe' 'Text'
+-- * 'cvInstanceTenancy' @::@ 'Maybe' 'Tenancy'
 --
 createVpc :: Text -- ^ 'cvCidrBlock'
           -> CreateVpc
@@ -92,7 +92,7 @@ cvDryRun = lens _cvDryRun (\s a -> s { _cvDryRun = a })
 -- as dedicated tenancy instances regardless of the tenancy assigned to the
 -- instance at launch. Dedicated tenancy instances run on single-tenant
 -- hardware. Default: default.
-cvInstanceTenancy :: Lens' CreateVpc (Maybe Text)
+cvInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
 cvInstanceTenancy =
     lens _cvInstanceTenancy (\s a -> s { _cvInstanceTenancy = a })
 

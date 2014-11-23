@@ -56,23 +56,23 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeImageAttribute = DescribeImageAttribute
-    { _dia1Attribute :: Text
+    { _dia1Attribute :: ImageAttributeName
     , _dia1DryRun    :: Maybe Bool
     , _dia1ImageId   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeImageAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dia1Attribute' @::@ 'Text'
+-- * 'dia1Attribute' @::@ 'ImageAttributeName'
 --
 -- * 'dia1DryRun' @::@ 'Maybe' 'Bool'
 --
 -- * 'dia1ImageId' @::@ 'Text'
 --
 describeImageAttribute :: Text -- ^ 'dia1ImageId'
-                       -> Text -- ^ 'dia1Attribute'
+                       -> ImageAttributeName -- ^ 'dia1Attribute'
                        -> DescribeImageAttribute
 describeImageAttribute p1 p2 = DescribeImageAttribute
     { _dia1ImageId   = p1
@@ -81,7 +81,7 @@ describeImageAttribute p1 p2 = DescribeImageAttribute
     }
 
 -- | The AMI attribute.
-dia1Attribute :: Lens' DescribeImageAttribute Text
+dia1Attribute :: Lens' DescribeImageAttribute ImageAttributeName
 dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
 
 dia1DryRun :: Lens' DescribeImageAttribute (Maybe Bool)

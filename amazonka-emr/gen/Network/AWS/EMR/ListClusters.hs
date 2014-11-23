@@ -54,17 +54,17 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 data ListClusters = ListClusters
-    { _lcClusterStates :: List "ClusterStates" Text
+    { _lcClusterStates :: List "ClusterStates" ClusterState
     , _lcCreatedAfter  :: Maybe RFC822
     , _lcCreatedBefore :: Maybe RFC822
     , _lcMarker        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListClusters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcClusterStates' @::@ ['Text']
+-- * 'lcClusterStates' @::@ ['ClusterState']
 --
 -- * 'lcCreatedAfter' @::@ 'Maybe' 'UTCTime'
 --
@@ -81,7 +81,7 @@ listClusters = ListClusters
     }
 
 -- | The cluster state filters to apply when listing clusters.
-lcClusterStates :: Lens' ListClusters [Text]
+lcClusterStates :: Lens' ListClusters [ClusterState]
 lcClusterStates = lens _lcClusterStates (\s a -> s { _lcClusterStates = a }) . _List
 
 -- | The creation date and time beginning value filter for listing clusters .

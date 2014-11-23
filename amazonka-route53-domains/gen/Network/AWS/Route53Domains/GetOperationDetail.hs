@@ -77,10 +77,10 @@ data GetOperationDetailResponse = GetOperationDetailResponse
     { _godrDomainName    :: Maybe Text
     , _godrMessage       :: Maybe Text
     , _godrOperationId   :: Maybe Text
-    , _godrStatus        :: Maybe Text
+    , _godrStatus        :: Maybe OperationStatus
     , _godrSubmittedDate :: Maybe RFC822
-    , _godrType          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _godrType          :: Maybe OperationType
+    } deriving (Eq, Show)
 
 -- | 'GetOperationDetailResponse' constructor.
 --
@@ -92,11 +92,11 @@ data GetOperationDetailResponse = GetOperationDetailResponse
 --
 -- * 'godrOperationId' @::@ 'Maybe' 'Text'
 --
--- * 'godrStatus' @::@ 'Maybe' 'Text'
+-- * 'godrStatus' @::@ 'Maybe' 'OperationStatus'
 --
 -- * 'godrSubmittedDate' @::@ 'Maybe' 'UTCTime'
 --
--- * 'godrType' @::@ 'Maybe' 'Text'
+-- * 'godrType' @::@ 'Maybe' 'OperationType'
 --
 getOperationDetailResponse :: GetOperationDetailResponse
 getOperationDetailResponse = GetOperationDetailResponse
@@ -123,7 +123,7 @@ godrOperationId = lens _godrOperationId (\s a -> s { _godrOperationId = a })
 
 -- | The current status of the requested operation in the system. Type:
 -- String.
-godrStatus :: Lens' GetOperationDetailResponse (Maybe Text)
+godrStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
 godrStatus = lens _godrStatus (\s a -> s { _godrStatus = a })
 
 -- | The date when the request was submitted.
@@ -133,7 +133,7 @@ godrSubmittedDate =
         . mapping _Time
 
 -- | The type of operation that was requested. Type: String.
-godrType :: Lens' GetOperationDetailResponse (Maybe Text)
+godrType :: Lens' GetOperationDetailResponse (Maybe OperationType)
 godrType = lens _godrType (\s a -> s { _godrType = a })
 
 instance ToPath GetOperationDetail where

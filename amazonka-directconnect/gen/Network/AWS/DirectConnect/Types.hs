@@ -181,7 +181,7 @@ data VirtualInterface = VirtualInterface
     , _viVirtualGatewayId      :: Maybe Text
     , _viVirtualInterfaceId    :: Maybe Text
     , _viVirtualInterfaceName  :: Maybe Text
-    , _viVirtualInterfaceState :: Maybe Text
+    , _viVirtualInterfaceState :: Maybe VirtualInterfaceState
     , _viVirtualInterfaceType  :: Maybe Text
     , _viVlan                  :: Maybe Int
     } deriving (Eq, Show)
@@ -214,7 +214,7 @@ data VirtualInterface = VirtualInterface
 --
 -- * 'viVirtualInterfaceName' @::@ 'Maybe' 'Text'
 --
--- * 'viVirtualInterfaceState' @::@ 'Maybe' 'Text'
+-- * 'viVirtualInterfaceState' @::@ 'Maybe' 'VirtualInterfaceState'
 --
 -- * 'viVirtualInterfaceType' @::@ 'Maybe' 'Text'
 --
@@ -283,7 +283,7 @@ viVirtualInterfaceName :: Lens' VirtualInterface (Maybe Text)
 viVirtualInterfaceName =
     lens _viVirtualInterfaceName (\s a -> s { _viVirtualInterfaceName = a })
 
-viVirtualInterfaceState :: Lens' VirtualInterface (Maybe Text)
+viVirtualInterfaceState :: Lens' VirtualInterface (Maybe VirtualInterfaceState)
 viVirtualInterfaceState =
     lens _viVirtualInterfaceState (\s a -> s { _viVirtualInterfaceState = a })
 
@@ -524,13 +524,13 @@ data Connection = Connection
     { _cBandwidth       :: Maybe Text
     , _cConnectionId    :: Maybe Text
     , _cConnectionName  :: Maybe Text
-    , _cConnectionState :: Maybe Text
+    , _cConnectionState :: Maybe ConnectionState
     , _cLocation        :: Maybe Text
     , _cOwnerAccount    :: Maybe Text
     , _cPartnerName     :: Maybe Text
     , _cRegion          :: Maybe Text
     , _cVlan            :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Connection' constructor.
 --
@@ -542,7 +542,7 @@ data Connection = Connection
 --
 -- * 'cConnectionName' @::@ 'Maybe' 'Text'
 --
--- * 'cConnectionState' @::@ 'Maybe' 'Text'
+-- * 'cConnectionState' @::@ 'Maybe' 'ConnectionState'
 --
 -- * 'cLocation' @::@ 'Maybe' 'Text'
 --
@@ -578,7 +578,7 @@ cConnectionId = lens _cConnectionId (\s a -> s { _cConnectionId = a })
 cConnectionName :: Lens' Connection (Maybe Text)
 cConnectionName = lens _cConnectionName (\s a -> s { _cConnectionName = a })
 
-cConnectionState :: Lens' Connection (Maybe Text)
+cConnectionState :: Lens' Connection (Maybe ConnectionState)
 cConnectionState = lens _cConnectionState (\s a -> s { _cConnectionState = a })
 
 cLocation :: Lens' Connection (Maybe Text)
@@ -717,10 +717,10 @@ data Interconnect = Interconnect
     { _iBandwidth         :: Maybe Text
     , _iInterconnectId    :: Maybe Text
     , _iInterconnectName  :: Maybe Text
-    , _iInterconnectState :: Maybe Text
+    , _iInterconnectState :: Maybe InterconnectState
     , _iLocation          :: Maybe Text
     , _iRegion            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Interconnect' constructor.
 --
@@ -732,7 +732,7 @@ data Interconnect = Interconnect
 --
 -- * 'iInterconnectName' @::@ 'Maybe' 'Text'
 --
--- * 'iInterconnectState' @::@ 'Maybe' 'Text'
+-- * 'iInterconnectState' @::@ 'Maybe' 'InterconnectState'
 --
 -- * 'iLocation' @::@ 'Maybe' 'Text'
 --
@@ -758,7 +758,7 @@ iInterconnectName :: Lens' Interconnect (Maybe Text)
 iInterconnectName =
     lens _iInterconnectName (\s a -> s { _iInterconnectName = a })
 
-iInterconnectState :: Lens' Interconnect (Maybe Text)
+iInterconnectState :: Lens' Interconnect (Maybe InterconnectState)
 iInterconnectState =
     lens _iInterconnectState (\s a -> s { _iInterconnectState = a })
 

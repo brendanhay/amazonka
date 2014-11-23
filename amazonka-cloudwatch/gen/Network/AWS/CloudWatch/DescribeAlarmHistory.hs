@@ -56,11 +56,11 @@ import qualified GHC.Exts
 data DescribeAlarmHistory = DescribeAlarmHistory
     { _dahAlarmName       :: Maybe Text
     , _dahEndDate         :: Maybe RFC822
-    , _dahHistoryItemType :: Maybe Text
+    , _dahHistoryItemType :: Maybe HistoryItemType
     , _dahMaxRecords      :: Maybe Nat
     , _dahNextToken       :: Maybe Text
     , _dahStartDate       :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAlarmHistory' constructor.
 --
@@ -70,7 +70,7 @@ data DescribeAlarmHistory = DescribeAlarmHistory
 --
 -- * 'dahEndDate' @::@ 'Maybe' 'UTCTime'
 --
--- * 'dahHistoryItemType' @::@ 'Maybe' 'Text'
+-- * 'dahHistoryItemType' @::@ 'Maybe' 'HistoryItemType'
 --
 -- * 'dahMaxRecords' @::@ 'Maybe' 'Natural'
 --
@@ -97,7 +97,7 @@ dahEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
 dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a }) . mapping _Time
 
 -- | The type of alarm histories to retrieve.
-dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe Text)
+dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
 dahHistoryItemType =
     lens _dahHistoryItemType (\s a -> s { _dahHistoryItemType = a })
 

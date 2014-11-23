@@ -416,7 +416,7 @@ instance ToQuery DeleteMessageBatchResultEntry where
         ]
 
 data Message = Message
-    { _mAttributes             :: EMap "Attribute" "Name" "Value" Text Text
+    { _mAttributes             :: EMap "Attribute" "Name" "Value" QueueAttributeName Text
     , _mBody                   :: Maybe Text
     , _mMD5OfBody              :: Maybe Text
     , _mMD5OfMessageAttributes :: Maybe Text
@@ -429,7 +429,7 @@ data Message = Message
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'mAttributes' @::@ 'HashMap' 'QueueAttributeName' 'Text'
 --
 -- * 'mBody' @::@ 'Maybe' 'Text'
 --
@@ -458,7 +458,7 @@ message = Message
 -- ApproximateFirstReceiveTimestamp. SentTimestamp and
 -- ApproximateFirstReceiveTimestamp are each returned as an integer
 -- representing the epoch time in milliseconds.
-mAttributes :: Lens' Message (HashMap Text Text)
+mAttributes :: Lens' Message (HashMap QueueAttributeName Text)
 mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a }) . _EMap
 
 -- | The message's contents (not URL-encoded).

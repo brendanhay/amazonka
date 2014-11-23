@@ -71,15 +71,15 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data GetQueueAttributes = GetQueueAttributes
-    { _gqaAttributeNames :: List "AttributeName" Text
+    { _gqaAttributeNames :: List "AttributeName" QueueAttributeName
     , _gqaQueueUrl       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'GetQueueAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqaAttributeNames' @::@ ['Text']
+-- * 'gqaAttributeNames' @::@ ['QueueAttributeName']
 --
 -- * 'gqaQueueUrl' @::@ 'Text'
 --
@@ -91,7 +91,7 @@ getQueueAttributes p1 = GetQueueAttributes
     }
 
 -- | A list of attributes to retrieve information for.
-gqaAttributeNames :: Lens' GetQueueAttributes [Text]
+gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
 gqaAttributeNames =
     lens _gqaAttributeNames (\s a -> s { _gqaAttributeNames = a })
         . _List
@@ -101,14 +101,14 @@ gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttributes :: EMap "Attribute" "Name" "Value" Text Text
+    { _gqarAttributes :: EMap "Attribute" "Name" "Value" QueueAttributeName Text
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetQueueAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqarAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'gqarAttributes' @::@ 'HashMap' 'QueueAttributeName' 'Text'
 --
 getQueueAttributesResponse :: GetQueueAttributesResponse
 getQueueAttributesResponse = GetQueueAttributesResponse
@@ -116,7 +116,7 @@ getQueueAttributesResponse = GetQueueAttributesResponse
     }
 
 -- | A map of attributes to the respective values.
-gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
+gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName Text)
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a }) . _EMap
 
 instance ToPath GetQueueAttributes where

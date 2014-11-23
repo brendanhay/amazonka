@@ -79,13 +79,13 @@ data DeleteConnectionResponse = DeleteConnectionResponse
     { _dcrBandwidth       :: Maybe Text
     , _dcrConnectionId    :: Maybe Text
     , _dcrConnectionName  :: Maybe Text
-    , _dcrConnectionState :: Maybe Text
+    , _dcrConnectionState :: Maybe ConnectionState
     , _dcrLocation        :: Maybe Text
     , _dcrOwnerAccount    :: Maybe Text
     , _dcrPartnerName     :: Maybe Text
     , _dcrRegion          :: Maybe Text
     , _dcrVlan            :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DeleteConnectionResponse' constructor.
 --
@@ -97,7 +97,7 @@ data DeleteConnectionResponse = DeleteConnectionResponse
 --
 -- * 'dcrConnectionName' @::@ 'Maybe' 'Text'
 --
--- * 'dcrConnectionState' @::@ 'Maybe' 'Text'
+-- * 'dcrConnectionState' @::@ 'Maybe' 'ConnectionState'
 --
 -- * 'dcrLocation' @::@ 'Maybe' 'Text'
 --
@@ -134,7 +134,7 @@ dcrConnectionName :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrConnectionName =
     lens _dcrConnectionName (\s a -> s { _dcrConnectionName = a })
 
-dcrConnectionState :: Lens' DeleteConnectionResponse (Maybe Text)
+dcrConnectionState :: Lens' DeleteConnectionResponse (Maybe ConnectionState)
 dcrConnectionState =
     lens _dcrConnectionState (\s a -> s { _dcrConnectionState = a })
 

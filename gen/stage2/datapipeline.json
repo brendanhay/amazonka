@@ -493,7 +493,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 8,
@@ -511,8 +510,8 @@
                         "shape": "OperatorType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003e The logical operation to be performed: equal (\u003ccode\u003eEQ\u003c/code\u003e), equal reference (\u003ccode\u003eREF_EQ\u003c/code\u003e), less than or equal (\u003ccode\u003eLE\u003c/code\u003e), greater than or equal (\u003ccode\u003eGE\u003c/code\u003e), or between (\u003ccode\u003eBETWEEN\u003c/code\u003e). Equal reference (\u003ccode\u003eREF_EQ\u003c/code\u003e) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below. \u003c/p\u003e \u003cp\u003e The comparison operators EQ and REF_EQ act on the following fields: \u003c/p\u003e \u003cul\u003e \u003cli\u003ename\u003c/li\u003e \u003cli\u003e@sphere\u003c/li\u003e \u003cli\u003eparent\u003c/li\u003e \u003cli\u003e@componentParent\u003c/li\u003e \u003cli\u003e@instanceParent\u003c/li\u003e \u003cli\u003e@status\u003c/li\u003e \u003cli\u003e@scheduledStartTime\u003c/li\u003e \u003cli\u003e@scheduledEndTime\u003c/li\u003e \u003cli\u003e@actualStartTime\u003c/li\u003e \u003cli\u003e@actualEndTime\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e The comparison operators \u003ccode\u003eGE\u003c/code\u003e, \u003ccode\u003eLE\u003c/code\u003e, and \u003ccode\u003eBETWEEN\u003c/code\u003e act on the following fields: \u003c/p\u003e \u003cul\u003e \u003cli\u003e@scheduledStartTime\u003c/li\u003e \u003cli\u003e@scheduledEndTime\u003c/li\u003e \u003cli\u003e@actualStartTime\u003c/li\u003e \u003cli\u003e@actualEndTime\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eNote that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OperatorType",
+                        "type": "Maybe OperatorType"
                     },
                     {
                         "location": null,
@@ -549,8 +548,8 @@
                         "shape": "OperatorType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003e The logical operation to be performed: equal (\u003ccode\u003eEQ\u003c/code\u003e), equal reference (\u003ccode\u003eREF_EQ\u003c/code\u003e), less than or equal (\u003ccode\u003eLE\u003c/code\u003e), greater than or equal (\u003ccode\u003eGE\u003c/code\u003e), or between (\u003ccode\u003eBETWEEN\u003c/code\u003e). Equal reference (\u003ccode\u003eREF_EQ\u003c/code\u003e) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below. \u003c/p\u003e \u003cp\u003e The comparison operators EQ and REF_EQ act on the following fields: \u003c/p\u003e \u003cul\u003e \u003cli\u003ename\u003c/li\u003e \u003cli\u003e@sphere\u003c/li\u003e \u003cli\u003eparent\u003c/li\u003e \u003cli\u003e@componentParent\u003c/li\u003e \u003cli\u003e@instanceParent\u003c/li\u003e \u003cli\u003e@status\u003c/li\u003e \u003cli\u003e@scheduledStartTime\u003c/li\u003e \u003cli\u003e@scheduledEndTime\u003c/li\u003e \u003cli\u003e@actualStartTime\u003c/li\u003e \u003cli\u003e@actualEndTime\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e The comparison operators \u003ccode\u003eGE\u003c/code\u003e, \u003ccode\u003eLE\u003c/code\u003e, and \u003ccode\u003eBETWEEN\u003c/code\u003e act on the following fields: \u003c/p\u003e \u003cul\u003e \u003cli\u003e@scheduledStartTime\u003c/li\u003e \u003cli\u003e@scheduledEndTime\u003c/li\u003e \u003cli\u003e@actualStartTime\u003c/li\u003e \u003cli\u003e@actualEndTime\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eNote that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OperatorType",
+                        "type": "Maybe OperatorType"
                     },
                     {
                         "location": null,
@@ -581,8 +580,8 @@
                         "shape": "OperatorType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003e The logical operation to be performed: equal (\u003ccode\u003eEQ\u003c/code\u003e), equal reference (\u003ccode\u003eREF_EQ\u003c/code\u003e), less than or equal (\u003ccode\u003eLE\u003c/code\u003e), greater than or equal (\u003ccode\u003eGE\u003c/code\u003e), or between (\u003ccode\u003eBETWEEN\u003c/code\u003e). Equal reference (\u003ccode\u003eREF_EQ\u003c/code\u003e) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below. \u003c/p\u003e \u003cp\u003e The comparison operators EQ and REF_EQ act on the following fields: \u003c/p\u003e \u003cul\u003e \u003cli\u003ename\u003c/li\u003e \u003cli\u003e@sphere\u003c/li\u003e \u003cli\u003eparent\u003c/li\u003e \u003cli\u003e@componentParent\u003c/li\u003e \u003cli\u003e@instanceParent\u003c/li\u003e \u003cli\u003e@status\u003c/li\u003e \u003cli\u003e@scheduledStartTime\u003c/li\u003e \u003cli\u003e@scheduledEndTime\u003c/li\u003e \u003cli\u003e@actualStartTime\u003c/li\u003e \u003cli\u003e@actualEndTime\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e The comparison operators \u003ccode\u003eGE\u003c/code\u003e, \u003ccode\u003eLE\u003c/code\u003e, and \u003ccode\u003eBETWEEN\u003c/code\u003e act on the following fields: \u003c/p\u003e \u003cul\u003e \u003cli\u003e@scheduledStartTime\u003c/li\u003e \u003cli\u003e@scheduledEndTime\u003c/li\u003e \u003cli\u003e@actualStartTime\u003c/li\u003e \u003cli\u003e@actualEndTime\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eNote that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OperatorType",
+                        "type": "Maybe OperatorType"
                     },
                     {
                         "location": null,
@@ -5325,7 +5324,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -5361,8 +5359,8 @@
                         "shape": "TaskStatus",
                         "locationName": "taskStatus",
                         "documentation": "\u003cp\u003eIf \u003ccode\u003eFINISHED\u003c/code\u003e, the task successfully completed. If \u003ccode\u003eFAILED\u003c/code\u003e the task ended unsuccessfully. The \u003ccode\u003eFALSE\u003c/code\u003e value is used by preconditions.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TaskStatus",
+                        "type": "TaskStatus"
                     },
                     {
                         "location": null,
@@ -5446,8 +5444,8 @@
                         "shape": "TaskStatus",
                         "locationName": "taskStatus",
                         "documentation": "\u003cp\u003eIf \u003ccode\u003eFINISHED\u003c/code\u003e, the task successfully completed. If \u003ccode\u003eFAILED\u003c/code\u003e the task ended unsuccessfully. The \u003ccode\u003eFALSE\u003c/code\u003e value is used by preconditions.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TaskStatus",
+                        "type": "TaskStatus"
                     }
                 ],
                 "shared": false,
@@ -5580,8 +5578,8 @@
                         "shape": "TaskStatus",
                         "locationName": "taskStatus",
                         "documentation": "\u003cp\u003eIf \u003ccode\u003eFINISHED\u003c/code\u003e, the task successfully completed. If \u003ccode\u003eFAILED\u003c/code\u003e the task ended unsuccessfully. The \u003ccode\u003eFALSE\u003c/code\u003e value is used by preconditions.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TaskStatus",
+                        "type": "TaskStatus"
                     }
                 ]
             }

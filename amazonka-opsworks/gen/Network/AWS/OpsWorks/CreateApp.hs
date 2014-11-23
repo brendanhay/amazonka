@@ -61,7 +61,7 @@ import qualified GHC.Exts
 
 data CreateApp = CreateApp
     { _caAppSource        :: Maybe Source
-    , _caAttributes       :: Map Text Text
+    , _caAttributes       :: Map AppAttributesKeys Text
     , _caDataSources      :: List "DataSources" DataSource
     , _caDescription      :: Maybe Text
     , _caDomains          :: List "InstanceIds" Text
@@ -70,7 +70,7 @@ data CreateApp = CreateApp
     , _caShortname        :: Maybe Text
     , _caSslConfiguration :: Maybe SslConfiguration
     , _caStackId          :: Text
-    , _caType             :: Text
+    , _caType             :: AppType
     } deriving (Eq, Show)
 
 -- | 'CreateApp' constructor.
@@ -79,7 +79,7 @@ data CreateApp = CreateApp
 --
 -- * 'caAppSource' @::@ 'Maybe' 'Source'
 --
--- * 'caAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'caAttributes' @::@ 'HashMap' 'AppAttributesKeys' 'Text'
 --
 -- * 'caDataSources' @::@ ['DataSource']
 --
@@ -97,11 +97,11 @@ data CreateApp = CreateApp
 --
 -- * 'caStackId' @::@ 'Text'
 --
--- * 'caType' @::@ 'Text'
+-- * 'caType' @::@ 'AppType'
 --
 createApp :: Text -- ^ 'caStackId'
           -> Text -- ^ 'caName'
-          -> Text -- ^ 'caType'
+          -> AppType -- ^ 'caType'
           -> CreateApp
 createApp p1 p2 p3 = CreateApp
     { _caStackId          = p1
@@ -123,7 +123,7 @@ caAppSource = lens _caAppSource (\s a -> s { _caAppSource = a })
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-caAttributes :: Lens' CreateApp (HashMap Text Text)
+caAttributes :: Lens' CreateApp (HashMap AppAttributesKeys Text)
 caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a }) . _Map
 
 -- | The app's data source.
@@ -164,7 +164,7 @@ caStackId = lens _caStackId (\s a -> s { _caStackId = a })
 -- For example, PHP applications are associated with a PHP layer. AWS
 -- OpsWorks deploys an application to those instances that are members of
 -- the corresponding layer.
-caType :: Lens' CreateApp Text
+caType :: Lens' CreateApp AppType
 caType = lens _caType (\s a -> s { _caType = a })
 
 newtype CreateAppResponse = CreateAppResponse

@@ -397,7 +397,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -527,8 +526,8 @@
                         "shape": "EventSeverity",
                         "locationName": "Severity",
                         "documentation": "\u003cp\u003eThe severity level of this event. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EventSeverity",
+                        "type": "Maybe EventSeverity"
                     }
                 ],
                 "fields": [
@@ -619,8 +618,8 @@
                         "shape": "EventSeverity",
                         "locationName": "Severity",
                         "documentation": "\u003cp\u003eThe severity level of this event. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EventSeverity",
+                        "type": "Maybe EventSeverity"
                     },
                     {
                         "location": "querystring",
@@ -1100,8 +1099,8 @@
                         "shape": "ConfigurationDeploymentStatus",
                         "locationName": "DeploymentStatus",
                         "documentation": "\u003cp\u003e If this configuration set is associated with an environment, the \u003ccode\u003eDeploymentStatus\u003c/code\u003e parameter indicates the deployment status of this configuration set: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"null\"\u003e \u003cp\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"pending\"\u003e \u003cp\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"deployed\"\u003e \u003cp\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"failed\"\u003e \u003cp\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration, that failed to successfully deploy. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/li\u003e \u003cli\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration that failed to successfully deploy. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationDeploymentStatus",
+                        "type": "Maybe ConfigurationDeploymentStatus"
                     },
                     {
                         "location": "querystring",
@@ -1207,8 +1206,8 @@
                         "shape": "ConfigurationDeploymentStatus",
                         "locationName": "DeploymentStatus",
                         "documentation": "\u003cp\u003e If this configuration set is associated with an environment, the \u003ccode\u003eDeploymentStatus\u003c/code\u003e parameter indicates the deployment status of this configuration set: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"null\"\u003e \u003cp\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"pending\"\u003e \u003cp\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"deployed\"\u003e \u003cp\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"failed\"\u003e \u003cp\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration, that failed to successfully deploy. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/li\u003e \u003cli\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration that failed to successfully deploy. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationDeploymentStatus",
+                        "type": "Maybe ConfigurationDeploymentStatus"
                     },
                     {
                         "location": "querystring",
@@ -2493,8 +2492,8 @@
                         "shape": "ConfigurationOptionValueType",
                         "locationName": "ValueType",
                         "documentation": "\u003cp\u003e An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Scalar\"\u003e \u003cp\u003e \u003ccode\u003eScalar\u003c/code\u003e : Values for this option are a single selection from the possible values, or a unformatted string or numeric value governed by the MIN/MAX/Regex constraints: \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"List\"\u003e \u003cp\u003e \u003ccode\u003eList\u003c/code\u003e : Values for this option are multiple selections of the possible values. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Boolean\"\u003e \u003cp\u003e \u003ccode\u003eBoolean\u003c/code\u003e : Values for this option are either \u003ccode\u003etrue\u003c/code\u003e or \u003ccode\u003efalse\u003c/code\u003e . \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eScalar\u003c/code\u003e : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the \u003ccode\u003eMIN/MAX/Regex\u003c/code\u003e constraints. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eList\u003c/code\u003e : Values for this option are multiple selections from the possible values. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eBoolean\u003c/code\u003e : Values for this option are either \u003ccode\u003etrue\u003c/code\u003e or \u003ccode\u003efalse\u003c/code\u003e . \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationOptionValueType",
+                        "type": "Maybe ConfigurationOptionValueType"
                     },
                     {
                         "location": "querystring",
@@ -2735,8 +2734,8 @@
                         "shape": "ConfigurationOptionValueType",
                         "locationName": "ValueType",
                         "documentation": "\u003cp\u003e An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Scalar\"\u003e \u003cp\u003e \u003ccode\u003eScalar\u003c/code\u003e : Values for this option are a single selection from the possible values, or a unformatted string or numeric value governed by the MIN/MAX/Regex constraints: \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"List\"\u003e \u003cp\u003e \u003ccode\u003eList\u003c/code\u003e : Values for this option are multiple selections of the possible values. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Boolean\"\u003e \u003cp\u003e \u003ccode\u003eBoolean\u003c/code\u003e : Values for this option are either \u003ccode\u003etrue\u003c/code\u003e or \u003ccode\u003efalse\u003c/code\u003e . \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eScalar\u003c/code\u003e : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the \u003ccode\u003eMIN/MAX/Regex\u003c/code\u003e constraints. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eList\u003c/code\u003e : Values for this option are multiple selections from the possible values. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eBoolean\u003c/code\u003e : Values for this option are either \u003ccode\u003etrue\u003c/code\u003e or \u003ccode\u003efalse\u003c/code\u003e . \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationOptionValueType",
+                        "type": "Maybe ConfigurationOptionValueType"
                     }
                 ]
             },
@@ -2823,7 +2822,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 19,
@@ -2848,8 +2846,8 @@
                         "shape": "EnvironmentInfoType",
                         "locationName": "InfoType",
                         "documentation": "\u003cp\u003eThe type of information retrieved.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentInfoType",
+                        "type": "Maybe EnvironmentInfoType"
                     },
                     {
                         "location": "querystring",
@@ -2925,8 +2923,8 @@
                         "shape": "EnvironmentInfoType",
                         "locationName": "InfoType",
                         "documentation": "\u003cp\u003eThe type of information retrieved.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentInfoType",
+                        "type": "Maybe EnvironmentInfoType"
                     },
                     {
                         "location": "querystring",
@@ -3043,7 +3041,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 13,
@@ -3083,8 +3080,8 @@
                         "shape": "ValidationSeverity",
                         "locationName": "Severity",
                         "documentation": "\u003cp\u003e An indication of the severity of this message: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"error\"\u003e \u003cp\u003e error: This message indicates that this is not a valid setting for an option. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"warning\"\u003e \u003cp\u003e warning: This message is providing information you should take into account. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e error: This message indicates that this is not a valid setting for an option. \u003c/li\u003e \u003cli\u003e warning: This message is providing information you should take into account. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ValidationSeverity",
+                        "type": "Maybe ValidationSeverity"
                     },
                     {
                         "location": "querystring",
@@ -3175,8 +3172,8 @@
                         "shape": "ValidationSeverity",
                         "locationName": "Severity",
                         "documentation": "\u003cp\u003e An indication of the severity of this message: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"error\"\u003e \u003cp\u003e error: This message indicates that this is not a valid setting for an option. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"warning\"\u003e \u003cp\u003e warning: This message is providing information you should take into account. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e error: This message indicates that this is not a valid setting for an option. \u003c/li\u003e \u003cli\u003e warning: This message is providing information you should take into account. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ValidationSeverity",
+                        "type": "Maybe ValidationSeverity"
                     }
                 ]
             },
@@ -3472,8 +3469,8 @@
                         "shape": "EnvironmentStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The current operational status of the environment: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eLaunching\u003c/code\u003e: Environment is in the process of initial deployment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eUpdating\u003c/code\u003e: Environment is in the process of updating its configuration settings or application version. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eReady\u003c/code\u003e: Environment is available to have an action performed on it, such as update or terminate. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminating\u003c/code\u003e: Environment is in the shut-down process. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminated\u003c/code\u003e: Environment is not running. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentStatus",
+                        "type": "Maybe EnvironmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -3487,8 +3484,8 @@
                         "shape": "EnvironmentHealth",
                         "locationName": "Health",
                         "documentation": "\u003cp\u003e Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Red\"\u003e \u003cp\u003e \u003ccode\u003eRed\u003c/code\u003e : Indicates the environment is not working. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Yellow\"\u003e \u003cp\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong, the application might not be available, but the instances appear running. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Green\"\u003e \u003cp\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRed\u003c/code\u003e: Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong. Occurs when two consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGrey\u003c/code\u003e: Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an \u003ccode\u003eUpdateEnvironment\u003c/code\u003e or \u003ccode\u003eRestartEnvironement\u003c/code\u003e request. \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Default: \u003ccode\u003eGrey\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentHealth",
+                        "type": "Maybe EnvironmentHealth"
                     },
                     {
                         "location": "querystring",
@@ -3654,8 +3651,8 @@
                         "shape": "EnvironmentHealth",
                         "locationName": "Health",
                         "documentation": "\u003cp\u003e Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Red\"\u003e \u003cp\u003e \u003ccode\u003eRed\u003c/code\u003e : Indicates the environment is not working. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Yellow\"\u003e \u003cp\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong, the application might not be available, but the instances appear running. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Green\"\u003e \u003cp\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRed\u003c/code\u003e: Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong. Occurs when two consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGrey\u003c/code\u003e: Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an \u003ccode\u003eUpdateEnvironment\u003c/code\u003e or \u003ccode\u003eRestartEnvironement\u003c/code\u003e request. \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Default: \u003ccode\u003eGrey\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentHealth",
+                        "type": "Maybe EnvironmentHealth"
                     },
                     {
                         "location": "querystring",
@@ -3699,8 +3696,8 @@
                         "shape": "EnvironmentStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The current operational status of the environment: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eLaunching\u003c/code\u003e: Environment is in the process of initial deployment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eUpdating\u003c/code\u003e: Environment is in the process of updating its configuration settings or application version. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eReady\u003c/code\u003e: Environment is available to have an action performed on it, such as update or terminate. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminating\u003c/code\u003e: Environment is in the shut-down process. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminated\u003c/code\u003e: Environment is not running. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentStatus",
+                        "type": "Maybe EnvironmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -4000,14 +3997,17 @@
         "shared": [
             "ApplicationDescription",
             "ApplicationVersionDescriptionMessage",
+            "ConfigurationDeploymentStatus",
             "ConfigurationOptionSetting",
             "ConfigurationSettingsDescription",
             "ApplicationVersionDescription",
             "OptionSpecification",
+            "EnvironmentStatus",
             "ApplicationDescriptionMessage",
             "EnvironmentTier",
             "EnvironmentResourcesDescription",
-            "EnvironmentDescription"
+            "EnvironmentDescription",
+            "EnvironmentHealth"
         ]
     },
     "operations": [
@@ -4816,8 +4816,8 @@
                         "shape": "ConfigurationDeploymentStatus",
                         "locationName": "DeploymentStatus",
                         "documentation": "\u003cp\u003e If this configuration set is associated with an environment, the \u003ccode\u003eDeploymentStatus\u003c/code\u003e parameter indicates the deployment status of this configuration set: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"null\"\u003e \u003cp\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"pending\"\u003e \u003cp\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"deployed\"\u003e \u003cp\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"failed\"\u003e \u003cp\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration, that failed to successfully deploy. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/li\u003e \u003cli\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration that failed to successfully deploy. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationDeploymentStatus",
+                        "type": "Maybe ConfigurationDeploymentStatus"
                     },
                     {
                         "location": "querystring",
@@ -4923,8 +4923,8 @@
                         "shape": "ConfigurationDeploymentStatus",
                         "locationName": "DeploymentStatus",
                         "documentation": "\u003cp\u003e If this configuration set is associated with an environment, the \u003ccode\u003eDeploymentStatus\u003c/code\u003e parameter indicates the deployment status of this configuration set: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"null\"\u003e \u003cp\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"pending\"\u003e \u003cp\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"deployed\"\u003e \u003cp\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"failed\"\u003e \u003cp\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration, that failed to successfully deploy. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/li\u003e \u003cli\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration that failed to successfully deploy. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationDeploymentStatus",
+                        "type": "Maybe ConfigurationDeploymentStatus"
                     },
                     {
                         "location": "querystring",
@@ -5501,8 +5501,8 @@
                         "shape": "EnvironmentStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The current operational status of the environment: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eLaunching\u003c/code\u003e: Environment is in the process of initial deployment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eUpdating\u003c/code\u003e: Environment is in the process of updating its configuration settings or application version. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eReady\u003c/code\u003e: Environment is available to have an action performed on it, such as update or terminate. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminating\u003c/code\u003e: Environment is in the shut-down process. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminated\u003c/code\u003e: Environment is not running. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentStatus",
+                        "type": "Maybe EnvironmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -5516,8 +5516,8 @@
                         "shape": "EnvironmentHealth",
                         "locationName": "Health",
                         "documentation": "\u003cp\u003e Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Red\"\u003e \u003cp\u003e \u003ccode\u003eRed\u003c/code\u003e : Indicates the environment is not working. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Yellow\"\u003e \u003cp\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong, the application might not be available, but the instances appear running. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Green\"\u003e \u003cp\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRed\u003c/code\u003e: Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong. Occurs when two consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGrey\u003c/code\u003e: Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an \u003ccode\u003eUpdateEnvironment\u003c/code\u003e or \u003ccode\u003eRestartEnvironement\u003c/code\u003e request. \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Default: \u003ccode\u003eGrey\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentHealth",
+                        "type": "Maybe EnvironmentHealth"
                     },
                     {
                         "location": "querystring",
@@ -5683,8 +5683,8 @@
                         "shape": "EnvironmentHealth",
                         "locationName": "Health",
                         "documentation": "\u003cp\u003e Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Red\"\u003e \u003cp\u003e \u003ccode\u003eRed\u003c/code\u003e : Indicates the environment is not working. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Yellow\"\u003e \u003cp\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong, the application might not be available, but the instances appear running. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Green\"\u003e \u003cp\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRed\u003c/code\u003e: Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong. Occurs when two consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGrey\u003c/code\u003e: Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an \u003ccode\u003eUpdateEnvironment\u003c/code\u003e or \u003ccode\u003eRestartEnvironement\u003c/code\u003e request. \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Default: \u003ccode\u003eGrey\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentHealth",
+                        "type": "Maybe EnvironmentHealth"
                     },
                     {
                         "location": "querystring",
@@ -5728,8 +5728,8 @@
                         "shape": "EnvironmentStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The current operational status of the environment: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eLaunching\u003c/code\u003e: Environment is in the process of initial deployment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eUpdating\u003c/code\u003e: Environment is in the process of updating its configuration settings or application version. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eReady\u003c/code\u003e: Environment is available to have an action performed on it, such as update or terminate. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminating\u003c/code\u003e: Environment is in the shut-down process. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminated\u003c/code\u003e: Environment is not running. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentStatus",
+                        "type": "Maybe EnvironmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -8531,7 +8531,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -8718,8 +8717,8 @@
                         "shape": "EventSeverity",
                         "locationName": "Severity",
                         "documentation": "\u003cp\u003e If specified, limits the events returned from this call to include only those with the specified severity or higher. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EventSeverity",
+                        "type": "Maybe EventSeverity"
                     },
                     {
                         "location": "querystring",
@@ -8900,8 +8899,8 @@
                         "shape": "EventSeverity",
                         "locationName": "Severity",
                         "documentation": "\u003cp\u003e If specified, limits the events returned from this call to include only those with the specified severity or higher. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EventSeverity",
+                        "type": "Maybe EventSeverity"
                     },
                     {
                         "location": "querystring",
@@ -9272,7 +9271,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -9302,8 +9300,8 @@
                         "shape": "EnvironmentInfoType",
                         "locationName": "InfoType",
                         "documentation": "\u003cp\u003e The type of information to request. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "EnvironmentInfoType",
+                        "type": "EnvironmentInfoType"
                     }
                 ],
                 "shared": false,
@@ -9407,8 +9405,8 @@
                         "shape": "EnvironmentInfoType",
                         "locationName": "InfoType",
                         "documentation": "\u003cp\u003e The type of information to request. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "EnvironmentInfoType",
+                        "type": "EnvironmentInfoType"
                     }
                 ]
             }
@@ -9652,7 +9650,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -9682,8 +9679,8 @@
                         "shape": "EnvironmentInfoType",
                         "locationName": "InfoType",
                         "documentation": "\u003cp\u003e The type of information to retrieve. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "EnvironmentInfoType",
+                        "type": "EnvironmentInfoType"
                     }
                 ],
                 "shared": false,
@@ -9787,8 +9784,8 @@
                         "shape": "EnvironmentInfoType",
                         "locationName": "InfoType",
                         "documentation": "\u003cp\u003e The type of information to retrieve. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "EnvironmentInfoType",
+                        "type": "EnvironmentInfoType"
                     }
                 ]
             }
@@ -10212,8 +10209,8 @@
                         "shape": "EnvironmentStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The current operational status of the environment: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eLaunching\u003c/code\u003e: Environment is in the process of initial deployment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eUpdating\u003c/code\u003e: Environment is in the process of updating its configuration settings or application version. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eReady\u003c/code\u003e: Environment is available to have an action performed on it, such as update or terminate. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminating\u003c/code\u003e: Environment is in the shut-down process. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminated\u003c/code\u003e: Environment is not running. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentStatus",
+                        "type": "Maybe EnvironmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -10227,8 +10224,8 @@
                         "shape": "EnvironmentHealth",
                         "locationName": "Health",
                         "documentation": "\u003cp\u003e Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Red\"\u003e \u003cp\u003e \u003ccode\u003eRed\u003c/code\u003e : Indicates the environment is not working. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Yellow\"\u003e \u003cp\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong, the application might not be available, but the instances appear running. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Green\"\u003e \u003cp\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRed\u003c/code\u003e: Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong. Occurs when two consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGrey\u003c/code\u003e: Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an \u003ccode\u003eUpdateEnvironment\u003c/code\u003e or \u003ccode\u003eRestartEnvironement\u003c/code\u003e request. \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Default: \u003ccode\u003eGrey\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentHealth",
+                        "type": "Maybe EnvironmentHealth"
                     },
                     {
                         "location": "querystring",
@@ -10394,8 +10391,8 @@
                         "shape": "EnvironmentHealth",
                         "locationName": "Health",
                         "documentation": "\u003cp\u003e Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Red\"\u003e \u003cp\u003e \u003ccode\u003eRed\u003c/code\u003e : Indicates the environment is not working. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Yellow\"\u003e \u003cp\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong, the application might not be available, but the instances appear running. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Green\"\u003e \u003cp\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRed\u003c/code\u003e: Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong. Occurs when two consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGrey\u003c/code\u003e: Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an \u003ccode\u003eUpdateEnvironment\u003c/code\u003e or \u003ccode\u003eRestartEnvironement\u003c/code\u003e request. \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Default: \u003ccode\u003eGrey\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentHealth",
+                        "type": "Maybe EnvironmentHealth"
                     },
                     {
                         "location": "querystring",
@@ -10439,8 +10436,8 @@
                         "shape": "EnvironmentStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The current operational status of the environment: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eLaunching\u003c/code\u003e: Environment is in the process of initial deployment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eUpdating\u003c/code\u003e: Environment is in the process of updating its configuration settings or application version. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eReady\u003c/code\u003e: Environment is available to have an action performed on it, such as update or terminate. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminating\u003c/code\u003e: Environment is in the shut-down process. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminated\u003c/code\u003e: Environment is not running. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentStatus",
+                        "type": "Maybe EnvironmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -11186,8 +11183,8 @@
                         "shape": "ConfigurationDeploymentStatus",
                         "locationName": "DeploymentStatus",
                         "documentation": "\u003cp\u003e If this configuration set is associated with an environment, the \u003ccode\u003eDeploymentStatus\u003c/code\u003e parameter indicates the deployment status of this configuration set: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"null\"\u003e \u003cp\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"pending\"\u003e \u003cp\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"deployed\"\u003e \u003cp\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"failed\"\u003e \u003cp\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration, that failed to successfully deploy. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/li\u003e \u003cli\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration that failed to successfully deploy. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationDeploymentStatus",
+                        "type": "Maybe ConfigurationDeploymentStatus"
                     },
                     {
                         "location": "querystring",
@@ -11293,8 +11290,8 @@
                         "shape": "ConfigurationDeploymentStatus",
                         "locationName": "DeploymentStatus",
                         "documentation": "\u003cp\u003e If this configuration set is associated with an environment, the \u003ccode\u003eDeploymentStatus\u003c/code\u003e parameter indicates the deployment status of this configuration set: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"null\"\u003e \u003cp\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"pending\"\u003e \u003cp\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"deployed\"\u003e \u003cp\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"failed\"\u003e \u003cp\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration, that failed to successfully deploy. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003enull\u003c/code\u003e: This configuration is not associated with a running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003epending\u003c/code\u003e: This is a draft configuration that is not deployed to the associated environment but is in the process of deploying. \u003c/li\u003e \u003cli\u003e \u003ccode\u003edeployed\u003c/code\u003e: This is the configuration that is currently deployed to the associated running environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003efailed\u003c/code\u003e: This is a draft configuration that failed to successfully deploy. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationDeploymentStatus",
+                        "type": "Maybe ConfigurationDeploymentStatus"
                     },
                     {
                         "location": "querystring",
@@ -11801,8 +11798,8 @@
                         "shape": "EnvironmentStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The current operational status of the environment: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eLaunching\u003c/code\u003e: Environment is in the process of initial deployment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eUpdating\u003c/code\u003e: Environment is in the process of updating its configuration settings or application version. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eReady\u003c/code\u003e: Environment is available to have an action performed on it, such as update or terminate. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminating\u003c/code\u003e: Environment is in the shut-down process. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminated\u003c/code\u003e: Environment is not running. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentStatus",
+                        "type": "Maybe EnvironmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -11816,8 +11813,8 @@
                         "shape": "EnvironmentHealth",
                         "locationName": "Health",
                         "documentation": "\u003cp\u003e Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Red\"\u003e \u003cp\u003e \u003ccode\u003eRed\u003c/code\u003e : Indicates the environment is not working. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Yellow\"\u003e \u003cp\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong, the application might not be available, but the instances appear running. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Green\"\u003e \u003cp\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRed\u003c/code\u003e: Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong. Occurs when two consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGrey\u003c/code\u003e: Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an \u003ccode\u003eUpdateEnvironment\u003c/code\u003e or \u003ccode\u003eRestartEnvironement\u003c/code\u003e request. \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Default: \u003ccode\u003eGrey\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentHealth",
+                        "type": "Maybe EnvironmentHealth"
                     },
                     {
                         "location": "querystring",
@@ -11983,8 +11980,8 @@
                         "shape": "EnvironmentHealth",
                         "locationName": "Health",
                         "documentation": "\u003cp\u003e Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment: \u003c/p\u003e \u003cenumValues\u003e \u003cvalue name=\"Red\"\u003e \u003cp\u003e \u003ccode\u003eRed\u003c/code\u003e : Indicates the environment is not working. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Yellow\"\u003e \u003cp\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong, the application might not be available, but the instances appear running. \u003c/p\u003e \u003c/value\u003e \u003cvalue name=\"Green\"\u003e \u003cp\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/p\u003e \u003c/value\u003e \u003c/enumValues\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRed\u003c/code\u003e: Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eYellow\u003c/code\u003e: Indicates that something is wrong. Occurs when two consecutive failures occur for an environment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGreen\u003c/code\u003e: Indicates the environment is healthy and fully functional. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eGrey\u003c/code\u003e: Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an \u003ccode\u003eUpdateEnvironment\u003c/code\u003e or \u003ccode\u003eRestartEnvironement\u003c/code\u003e request. \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Default: \u003ccode\u003eGrey\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentHealth",
+                        "type": "Maybe EnvironmentHealth"
                     },
                     {
                         "location": "querystring",
@@ -12028,8 +12025,8 @@
                         "shape": "EnvironmentStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The current operational status of the environment: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eLaunching\u003c/code\u003e: Environment is in the process of initial deployment. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eUpdating\u003c/code\u003e: Environment is in the process of updating its configuration settings or application version. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eReady\u003c/code\u003e: Environment is available to have an action performed on it, such as update or terminate. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminating\u003c/code\u003e: Environment is in the shut-down process. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eTerminated\u003c/code\u003e: Environment is not running. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EnvironmentStatus",
+                        "type": "Maybe EnvironmentStatus"
                     },
                     {
                         "location": "querystring",

@@ -53,16 +53,16 @@ import Network.AWS.IAM.Types
 import qualified GHC.Exts
 
 data ListVirtualMFADevices = ListVirtualMFADevices
-    { _lvmfadAssignmentStatus :: Maybe Text
+    { _lvmfadAssignmentStatus :: Maybe AssignmentStatusType
     , _lvmfadMarker           :: Maybe Text
     , _lvmfadMaxItems         :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListVirtualMFADevices' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvmfadAssignmentStatus' @::@ 'Maybe' 'Text'
+-- * 'lvmfadAssignmentStatus' @::@ 'Maybe' 'AssignmentStatusType'
 --
 -- * 'lvmfadMarker' @::@ 'Maybe' 'Text'
 --
@@ -78,7 +78,7 @@ listVirtualMFADevices = ListVirtualMFADevices
 -- | The status (unassigned or assigned) of the devices to list. If you do not
 -- specify an AssignmentStatus, the action defaults to Any which lists both
 -- assigned and unassigned virtual MFA devices.
-lvmfadAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe Text)
+lvmfadAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
 lvmfadAssignmentStatus =
     lens _lvmfadAssignmentStatus (\s a -> s { _lvmfadAssignmentStatus = a })
 

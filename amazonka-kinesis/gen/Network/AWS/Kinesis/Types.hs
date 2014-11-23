@@ -222,7 +222,7 @@ data StreamDescription = StreamDescription
     , _sdShards        :: List "Shards" Shard
     , _sdStreamARN     :: Text
     , _sdStreamName    :: Text
-    , _sdStreamStatus  :: Text
+    , _sdStreamStatus  :: StreamStatus
     } deriving (Eq, Show)
 
 -- | 'StreamDescription' constructor.
@@ -237,11 +237,11 @@ data StreamDescription = StreamDescription
 --
 -- * 'sdStreamName' @::@ 'Text'
 --
--- * 'sdStreamStatus' @::@ 'Text'
+-- * 'sdStreamStatus' @::@ 'StreamStatus'
 --
 streamDescription :: Text -- ^ 'sdStreamName'
                   -> Text -- ^ 'sdStreamARN'
-                  -> Text -- ^ 'sdStreamStatus'
+                  -> StreamStatus -- ^ 'sdStreamStatus'
                   -> Bool -- ^ 'sdHasMoreShards'
                   -> StreamDescription
 streamDescription p1 p2 p3 p4 = StreamDescription
@@ -277,7 +277,7 @@ sdStreamName = lens _sdStreamName (\s a -> s { _sdStreamName = a })
 -- should perform read and write operations only on an ACTIVE stream.
 -- UPDATING - Shards in the stream are being merged or split. Read and write
 -- operations continue to work while the stream is in the UPDATING state.
-sdStreamStatus :: Lens' StreamDescription Text
+sdStreamStatus :: Lens' StreamDescription StreamStatus
 sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 
 instance FromJSON StreamDescription where

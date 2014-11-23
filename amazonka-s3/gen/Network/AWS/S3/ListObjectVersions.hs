@@ -66,12 +66,12 @@ import qualified GHC.Exts
 data ListObjectVersions = ListObjectVersions
     { _lovBucket          :: Text
     , _lovDelimiter       :: Maybe Text
-    , _lovEncodingType    :: Maybe Text
+    , _lovEncodingType    :: Maybe EncodingType
     , _lovKeyMarker       :: Maybe Text
     , _lovMaxKeys         :: Maybe Int
     , _lovPrefix          :: Maybe Text
     , _lovVersionIdMarker :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListObjectVersions' constructor.
 --
@@ -81,7 +81,7 @@ data ListObjectVersions = ListObjectVersions
 --
 -- * 'lovDelimiter' @::@ 'Maybe' 'Text'
 --
--- * 'lovEncodingType' @::@ 'Maybe' 'Text'
+-- * 'lovEncodingType' @::@ 'Maybe' 'EncodingType'
 --
 -- * 'lovKeyMarker' @::@ 'Maybe' 'Text'
 --
@@ -110,7 +110,7 @@ lovBucket = lens _lovBucket (\s a -> s { _lovBucket = a })
 lovDelimiter :: Lens' ListObjectVersions (Maybe Text)
 lovDelimiter = lens _lovDelimiter (\s a -> s { _lovDelimiter = a })
 
-lovEncodingType :: Lens' ListObjectVersions (Maybe Text)
+lovEncodingType :: Lens' ListObjectVersions (Maybe EncodingType)
 lovEncodingType = lens _lovEncodingType (\s a -> s { _lovEncodingType = a })
 
 -- | Specifies the key to start with when listing objects in a bucket.
@@ -135,7 +135,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
     { _lovrCommonPrefixes      :: List "CommonPrefixes" CommonPrefix
     , _lovrDeleteMarkers       :: List "DeleteMarker" DeleteMarkerEntry
     , _lovrDelimiter           :: Maybe Text
-    , _lovrEncodingType        :: Maybe Text
+    , _lovrEncodingType        :: Maybe EncodingType
     , _lovrIsTruncated         :: Maybe Bool
     , _lovrKeyMarker           :: Maybe Text
     , _lovrMaxKeys             :: Maybe Int
@@ -157,7 +157,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 --
 -- * 'lovrDelimiter' @::@ 'Maybe' 'Text'
 --
--- * 'lovrEncodingType' @::@ 'Maybe' 'Text'
+-- * 'lovrEncodingType' @::@ 'Maybe' 'EncodingType'
 --
 -- * 'lovrIsTruncated' @::@ 'Maybe' 'Bool'
 --
@@ -208,7 +208,7 @@ lovrDelimiter :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrDelimiter = lens _lovrDelimiter (\s a -> s { _lovrDelimiter = a })
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-lovrEncodingType :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
 lovrEncodingType = lens _lovrEncodingType (\s a -> s { _lovrEncodingType = a })
 
 -- | A flag that indicates whether or not Amazon S3 returned all of the

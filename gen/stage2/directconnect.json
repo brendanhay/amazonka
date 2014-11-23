@@ -258,8 +258,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -491,8 +491,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -733,8 +733,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -1279,7 +1279,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 17,
@@ -1342,8 +1341,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -1485,8 +1484,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -1622,8 +1621,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -2041,7 +2040,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 19,
@@ -2089,8 +2087,8 @@
                         "shape": "InterconnectState",
                         "locationName": "interconnectState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InterconnectState",
+                        "type": "Maybe InterconnectState"
                     },
                     {
                         "location": null,
@@ -2187,8 +2185,8 @@
                         "shape": "InterconnectState",
                         "locationName": "interconnectState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InterconnectState",
+                        "type": "Maybe InterconnectState"
                     },
                     {
                         "location": null,
@@ -2294,8 +2292,8 @@
                         "shape": "InterconnectState",
                         "locationName": "interconnectState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InterconnectState",
+                        "type": "Maybe InterconnectState"
                     },
                     {
                         "location": null,
@@ -3245,8 +3243,11 @@
         "shared": [
             "VirtualInterface",
             "Connections",
+            "VirtualInterfaceState",
             "Connection",
             "Interconnect",
+            "InterconnectState",
+            "ConnectionState",
             "RouteFilterPrefix"
         ]
     },
@@ -3256,7 +3257,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -3322,8 +3322,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -3471,8 +3471,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -3608,8 +3608,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -4153,8 +4153,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -4392,8 +4392,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -4634,8 +4634,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -5043,8 +5043,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -5282,8 +5282,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -5524,8 +5524,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -5748,9 +5748,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5770,8 +5768,8 @@
                     "shape": "ConnectionState",
                     "locationName": "connectionState",
                     "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Maybe ConnectionState",
+                    "type": "Maybe ConnectionState"
                 },
                 "contents": [
                     {
@@ -5786,8 +5784,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     }
                 ],
                 "wrapper": false,
@@ -5815,8 +5813,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     }
                 ],
                 "fields": [
@@ -5832,8 +5830,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     }
                 ]
             },
@@ -5955,9 +5953,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -5977,8 +5973,8 @@
                     "shape": "VirtualInterfaceState",
                     "locationName": "virtualInterfaceState",
                     "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Maybe VirtualInterfaceState",
+                    "type": "Maybe VirtualInterfaceState"
                 },
                 "contents": [
                     {
@@ -5993,8 +5989,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     }
                 ],
                 "wrapper": false,
@@ -6022,8 +6018,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     }
                 ],
                 "fields": [
@@ -6039,8 +6035,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     }
                 ]
             },
@@ -6189,9 +6185,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6211,8 +6205,8 @@
                     "shape": "VirtualInterfaceState",
                     "locationName": "virtualInterfaceState",
                     "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Maybe VirtualInterfaceState",
+                    "type": "Maybe VirtualInterfaceState"
                 },
                 "contents": [
                     {
@@ -6227,8 +6221,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     }
                 ],
                 "wrapper": false,
@@ -6256,8 +6250,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     }
                 ],
                 "fields": [
@@ -6273,8 +6267,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     }
                 ]
             },
@@ -6396,7 +6390,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -6462,8 +6455,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -6611,8 +6604,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -6748,8 +6741,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -7018,7 +7011,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -7069,8 +7061,8 @@
                         "shape": "InterconnectState",
                         "locationName": "interconnectState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InterconnectState",
+                        "type": "Maybe InterconnectState"
                     },
                     {
                         "location": null,
@@ -7173,8 +7165,8 @@
                         "shape": "InterconnectState",
                         "locationName": "interconnectState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InterconnectState",
+                        "type": "Maybe InterconnectState"
                     },
                     {
                         "location": null,
@@ -7280,8 +7272,8 @@
                         "shape": "InterconnectState",
                         "locationName": "interconnectState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InterconnectState",
+                        "type": "Maybe InterconnectState"
                     },
                     {
                         "location": null,
@@ -7690,8 +7682,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -7929,8 +7921,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -8171,8 +8163,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -8535,8 +8527,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -8774,8 +8766,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -9016,8 +9008,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     },
                     {
                         "location": null,
@@ -9195,7 +9187,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -9261,8 +9252,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -9410,8 +9401,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -9547,8 +9538,8 @@
                         "shape": "ConnectionState",
                         "locationName": "connectionState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConnectionState",
+                        "type": "Maybe ConnectionState"
                     },
                     {
                         "location": null,
@@ -9745,9 +9736,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9767,8 +9756,8 @@
                     "shape": "InterconnectState",
                     "locationName": "interconnectState",
                     "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Maybe InterconnectState",
+                    "type": "Maybe InterconnectState"
                 },
                 "contents": [
                     {
@@ -9783,8 +9772,8 @@
                         "shape": "InterconnectState",
                         "locationName": "interconnectState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InterconnectState",
+                        "type": "Maybe InterconnectState"
                     }
                 ],
                 "wrapper": false,
@@ -9812,8 +9801,8 @@
                         "shape": "InterconnectState",
                         "locationName": "interconnectState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InterconnectState",
+                        "type": "Maybe InterconnectState"
                     }
                 ],
                 "fields": [
@@ -9829,8 +9818,8 @@
                         "shape": "InterconnectState",
                         "locationName": "interconnectState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InterconnectState",
+                        "type": "Maybe InterconnectState"
                     }
                 ]
             },
@@ -9952,9 +9941,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -9974,8 +9961,8 @@
                     "shape": "VirtualInterfaceState",
                     "locationName": "virtualInterfaceState",
                     "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Maybe VirtualInterfaceState",
+                    "type": "Maybe VirtualInterfaceState"
                 },
                 "contents": [
                     {
@@ -9990,8 +9977,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     }
                 ],
                 "wrapper": false,
@@ -10019,8 +10006,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     }
                 ],
                 "fields": [
@@ -10036,8 +10023,8 @@
                         "shape": "VirtualInterfaceState",
                         "locationName": "virtualInterfaceState",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualInterfaceState",
+                        "type": "Maybe VirtualInterfaceState"
                     }
                 ]
             },

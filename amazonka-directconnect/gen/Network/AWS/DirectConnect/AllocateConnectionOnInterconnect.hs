@@ -125,13 +125,13 @@ data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnect
     { _acoirBandwidth       :: Maybe Text
     , _acoirConnectionId    :: Maybe Text
     , _acoirConnectionName  :: Maybe Text
-    , _acoirConnectionState :: Maybe Text
+    , _acoirConnectionState :: Maybe ConnectionState
     , _acoirLocation        :: Maybe Text
     , _acoirOwnerAccount    :: Maybe Text
     , _acoirPartnerName     :: Maybe Text
     , _acoirRegion          :: Maybe Text
     , _acoirVlan            :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'AllocateConnectionOnInterconnectResponse' constructor.
 --
@@ -143,7 +143,7 @@ data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnect
 --
 -- * 'acoirConnectionName' @::@ 'Maybe' 'Text'
 --
--- * 'acoirConnectionState' @::@ 'Maybe' 'Text'
+-- * 'acoirConnectionState' @::@ 'Maybe' 'ConnectionState'
 --
 -- * 'acoirLocation' @::@ 'Maybe' 'Text'
 --
@@ -181,7 +181,7 @@ acoirConnectionName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Tex
 acoirConnectionName =
     lens _acoirConnectionName (\s a -> s { _acoirConnectionName = a })
 
-acoirConnectionState :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
+acoirConnectionState :: Lens' AllocateConnectionOnInterconnectResponse (Maybe ConnectionState)
 acoirConnectionState =
     lens _acoirConnectionState (\s a -> s { _acoirConnectionState = a })
 

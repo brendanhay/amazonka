@@ -2103,7 +2103,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -2153,8 +2152,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The status of the access key. \u003ccode\u003eActive\u003c/code\u003e means the key is valid for API calls, while \u003ccode\u003eInactive\u003c/code\u003e means it is not. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StatusType",
+                        "type": "StatusType"
                     },
                     {
                         "location": "querystring",
@@ -2251,8 +2250,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The status of the access key. \u003ccode\u003eActive\u003c/code\u003e means the key is valid for API calls, while \u003ccode\u003eInactive\u003c/code\u003e means it is not. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StatusType",
+                        "type": "StatusType"
                     },
                     {
                         "location": "querystring",
@@ -2444,7 +2443,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 19,
@@ -2509,8 +2507,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe status of the signing certificate. \u003ccode\u003eActive\u003c/code\u003e means the key is valid for API calls, while \u003ccode\u003eInactive\u003c/code\u003e means it is not.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StatusType",
+                        "type": "StatusType"
                     }
                 ],
                 "contentPad": 0,
@@ -2577,8 +2575,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe status of the signing certificate. \u003ccode\u003eActive\u003c/code\u003e means the key is valid for API calls, while \u003ccode\u003eInactive\u003c/code\u003e means it is not.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StatusType",
+                        "type": "StatusType"
                     },
                     {
                         "location": "querystring",
@@ -2615,7 +2613,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 15,
@@ -2670,8 +2667,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe status of the access key. \u003ccode\u003eActive\u003c/code\u003e means the key is valid for API calls; \u003ccode\u003eInactive\u003c/code\u003e means it is not.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StatusType",
+                        "type": "Maybe StatusType"
                     },
                     {
                         "location": "querystring",
@@ -2732,8 +2729,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe status of the access key. \u003ccode\u003eActive\u003c/code\u003e means the key is valid for API calls; \u003ccode\u003eInactive\u003c/code\u003e means it is not.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StatusType",
+                        "type": "Maybe StatusType"
                     },
                     {
                         "location": "querystring",
@@ -7796,7 +7793,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -7830,8 +7826,8 @@
                         "shape": "ReportStateType",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eInformation about the state of a credential report.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ReportStateType",
+                        "type": "Maybe ReportStateType"
                     },
                     {
                         "location": "querystring",
@@ -7877,8 +7873,8 @@
                         "shape": "ReportStateType",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eInformation about the state of a credential report.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ReportStateType",
+                        "type": "Maybe ReportStateType"
                     }
                 ]
             },
@@ -8073,8 +8069,8 @@
                     "shape": "summaryMapType",
                     "locationName": "SummaryMap",
                     "documentation": "\u003cp\u003eA set of key value pairs containing account-level information.\u003c/p\u003e \u003cp\u003e \u003ccode\u003eSummaryMap\u003c/code\u003e contains the following keys: \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccessKeysPerUserQuota\u003c/code\u003e - Maximum number of access keys that can be created per user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccountMFAEnabled\u003c/code\u003e - 1 if the root account has an MFA device assigned to it, 0 otherwise\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAssumeRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for assume role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupPolicySizeQuota\u003c/code\u003e - Maximum allowed size for Group policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroups\u003c/code\u003e - Number of Groups for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsPerUserQuota\u003c/code\u003e - Maximum number of groups an IAM user can belong to\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsQuota\u003c/code\u003e - Maximum groups allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfiles\u003c/code\u003e - Number of instance profiles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfilesQuota\u003c/code\u003e - Maximum instance profiles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevices\u003c/code\u003e - Number of MFA devices, either assigned or unassigned\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevicesInUse\u003c/code\u003e - Number of MFA devices that have been assigned to an IAM user or to the root account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRoles\u003c/code\u003e - Number of roles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolesQuota\u003c/code\u003e - Maximum roles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificates\u003c/code\u003e - Number of server certificates for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificatesQuota\u003c/code\u003e - Maximum server certificates allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eSigningCertificatesPerUserQuota\u003c/code\u003e - Maximum number of X509 certificates allowed for a user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUserPolicySizeQuota\u003c/code\u003e - Maximum allowed size for user policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsers\u003c/code\u003e - Number of users for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsersQuota\u003c/code\u003e - Maximum users allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
-                    "typeExposed": "HashMap Text Int",
-                    "type": "EMap \"entry\" \"key\" \"value\" Text Int"
+                    "typeExposed": "HashMap SummaryKeyType Int",
+                    "type": "EMap \"entry\" \"key\" \"value\" SummaryKeyType Int"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8102,8 +8098,8 @@
                         "shape": "summaryMapType",
                         "locationName": "SummaryMap",
                         "documentation": "\u003cp\u003eA set of key value pairs containing account-level information.\u003c/p\u003e \u003cp\u003e \u003ccode\u003eSummaryMap\u003c/code\u003e contains the following keys: \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccessKeysPerUserQuota\u003c/code\u003e - Maximum number of access keys that can be created per user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccountMFAEnabled\u003c/code\u003e - 1 if the root account has an MFA device assigned to it, 0 otherwise\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAssumeRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for assume role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupPolicySizeQuota\u003c/code\u003e - Maximum allowed size for Group policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroups\u003c/code\u003e - Number of Groups for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsPerUserQuota\u003c/code\u003e - Maximum number of groups an IAM user can belong to\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsQuota\u003c/code\u003e - Maximum groups allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfiles\u003c/code\u003e - Number of instance profiles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfilesQuota\u003c/code\u003e - Maximum instance profiles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevices\u003c/code\u003e - Number of MFA devices, either assigned or unassigned\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevicesInUse\u003c/code\u003e - Number of MFA devices that have been assigned to an IAM user or to the root account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRoles\u003c/code\u003e - Number of roles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolesQuota\u003c/code\u003e - Maximum roles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificates\u003c/code\u003e - Number of server certificates for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificatesQuota\u003c/code\u003e - Maximum server certificates allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eSigningCertificatesPerUserQuota\u003c/code\u003e - Maximum number of X509 certificates allowed for a user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUserPolicySizeQuota\u003c/code\u003e - Maximum allowed size for user policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsers\u003c/code\u003e - Number of users for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsersQuota\u003c/code\u003e - Maximum users allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
-                        "typeExposed": "HashMap Text Int",
-                        "type": "EMap \"entry\" \"key\" \"value\" Text Int"
+                        "typeExposed": "HashMap SummaryKeyType Int",
+                        "type": "EMap \"entry\" \"key\" \"value\" SummaryKeyType Int"
                     }
                 ],
                 "fields": [
@@ -8119,8 +8115,8 @@
                         "shape": "summaryMapType",
                         "locationName": "SummaryMap",
                         "documentation": "\u003cp\u003eA set of key value pairs containing account-level information.\u003c/p\u003e \u003cp\u003e \u003ccode\u003eSummaryMap\u003c/code\u003e contains the following keys: \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccessKeysPerUserQuota\u003c/code\u003e - Maximum number of access keys that can be created per user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAccountMFAEnabled\u003c/code\u003e - 1 if the root account has an MFA device assigned to it, 0 otherwise\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eAssumeRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for assume role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupPolicySizeQuota\u003c/code\u003e - Maximum allowed size for Group policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroups\u003c/code\u003e - Number of Groups for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsPerUserQuota\u003c/code\u003e - Maximum number of groups an IAM user can belong to\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eGroupsQuota\u003c/code\u003e - Maximum groups allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfiles\u003c/code\u003e - Number of instance profiles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eInstanceProfilesQuota\u003c/code\u003e - Maximum instance profiles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevices\u003c/code\u003e - Number of MFA devices, either assigned or unassigned\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eMFADevicesInUse\u003c/code\u003e - Number of MFA devices that have been assigned to an IAM user or to the root account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolePolicySizeQuota\u003c/code\u003e - Maximum allowed size for role policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRoles\u003c/code\u003e - Number of roles for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eRolesQuota\u003c/code\u003e - Maximum roles allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificates\u003c/code\u003e - Number of server certificates for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eServerCertificatesQuota\u003c/code\u003e - Maximum server certificates allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eSigningCertificatesPerUserQuota\u003c/code\u003e - Maximum number of X509 certificates allowed for a user\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUserPolicySizeQuota\u003c/code\u003e - Maximum allowed size for user policy documents (in kilobytes)\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsers\u003c/code\u003e - Number of users for the AWS account\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eUsersQuota\u003c/code\u003e - Maximum users allowed for the AWS account\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
-                        "typeExposed": "HashMap Text Int",
-                        "type": "EMap \"entry\" \"key\" \"value\" Text Int"
+                        "typeExposed": "HashMap SummaryKeyType Int",
+                        "type": "EMap \"entry\" \"key\" \"value\" SummaryKeyType Int"
                     }
                 ]
             },
@@ -8221,8 +8217,8 @@
                         "shape": "ReportFormatType",
                         "locationName": "ReportFormat",
                         "documentation": "\u003cp\u003eThe format (MIME type) of the credential report.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ReportFormatType",
+                        "type": "Maybe ReportFormatType"
                     },
                     {
                         "location": "querystring",
@@ -8283,8 +8279,8 @@
                         "shape": "ReportFormatType",
                         "locationName": "ReportFormat",
                         "documentation": "\u003cp\u003eThe format (MIME type) of the credential report.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ReportFormatType",
+                        "type": "Maybe ReportFormatType"
                     }
                 ]
             },
@@ -15081,7 +15077,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -15138,8 +15133,8 @@
                         "shape": "assignmentStatusType",
                         "locationName": "AssignmentStatus",
                         "documentation": "\u003cp\u003e The status (unassigned or assigned) of the devices to list. If you do not specify an \u003ccode\u003eAssignmentStatus\u003c/code\u003e, the action defaults to \u003ccode\u003eAny\u003c/code\u003e which lists both assigned and unassigned virtual MFA devices. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AssignmentStatusType",
+                        "type": "Maybe AssignmentStatusType"
                     },
                     {
                         "location": "querystring",
@@ -15185,8 +15180,8 @@
                         "shape": "assignmentStatusType",
                         "locationName": "AssignmentStatus",
                         "documentation": "\u003cp\u003e The status (unassigned or assigned) of the devices to list. If you do not specify an \u003ccode\u003eAssignmentStatus\u003c/code\u003e, the action defaults to \u003ccode\u003eAny\u003c/code\u003e which lists both assigned and unassigned virtual MFA devices. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AssignmentStatusType",
+                        "type": "Maybe AssignmentStatusType"
                     },
                     {
                         "location": "querystring",
@@ -16459,7 +16454,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -16504,8 +16498,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The status you want to assign to the secret access key. \u003ccode\u003eActive\u003c/code\u003e means the key can be used for API calls to AWS, while \u003ccode\u003eInactive\u003c/code\u003e means the key cannot be used. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StatusType",
+                        "type": "StatusType"
                     }
                 ],
                 "shared": false,
@@ -16579,8 +16573,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The status you want to assign to the secret access key. \u003ccode\u003eActive\u003c/code\u003e means the key can be used for API calls to AWS, while \u003ccode\u003eInactive\u003c/code\u003e means the key cannot be used. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StatusType",
+                        "type": "StatusType"
                     },
                     {
                         "location": "querystring",
@@ -18069,7 +18063,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -18114,8 +18107,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The status you want to assign to the certificate. \u003ccode\u003eActive\u003c/code\u003e means the certificate can be used for API calls to AWS, while \u003ccode\u003eInactive\u003c/code\u003e means the certificate cannot be used. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StatusType",
+                        "type": "StatusType"
                     }
                 ],
                 "shared": false,
@@ -18189,8 +18182,8 @@
                         "shape": "statusType",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003e The status you want to assign to the certificate. \u003ccode\u003eActive\u003c/code\u003e means the certificate can be used for API calls to AWS, while \u003ccode\u003eInactive\u003c/code\u003e means the certificate cannot be used. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StatusType",
+                        "type": "StatusType"
                     },
                     {
                         "location": "querystring",

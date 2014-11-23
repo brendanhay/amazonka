@@ -1479,7 +1479,7 @@ data NetworkAclEntry = NetworkAclEntry
     , _naeIcmpTypeCode :: Maybe IcmpTypeCode
     , _naePortRange    :: Maybe PortRange
     , _naeProtocol     :: Maybe Text
-    , _naeRuleAction   :: Maybe Text
+    , _naeRuleAction   :: Maybe RuleAction
     , _naeRuleNumber   :: Maybe Int
     } deriving (Eq, Show)
 
@@ -1497,7 +1497,7 @@ data NetworkAclEntry = NetworkAclEntry
 --
 -- * 'naeProtocol' @::@ 'Maybe' 'Text'
 --
--- * 'naeRuleAction' @::@ 'Maybe' 'Text'
+-- * 'naeRuleAction' @::@ 'Maybe' 'RuleAction'
 --
 -- * 'naeRuleNumber' @::@ 'Maybe' 'Int'
 --
@@ -1534,7 +1534,7 @@ naeProtocol :: Lens' NetworkAclEntry (Maybe Text)
 naeProtocol = lens _naeProtocol (\s a -> s { _naeProtocol = a })
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-naeRuleAction :: Lens' NetworkAclEntry (Maybe Text)
+naeRuleAction :: Lens' NetworkAclEntry (Maybe RuleAction)
 naeRuleAction = lens _naeRuleAction (\s a -> s { _naeRuleAction = a })
 
 -- | The rule number for the entry. ACL entries are processed in ascending
@@ -1592,11 +1592,11 @@ instance ToQuery BlobAttributeValue where
 
 data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     { _iilsAdditionalInfo                    :: Maybe Text
-    , _iilsArchitecture                      :: Maybe Text
+    , _iilsArchitecture                      :: Maybe ArchitectureValues
     , _iilsGroupIds                          :: List "SecurityGroupId" Text
     , _iilsGroupNames                        :: List "SecurityGroup" Text
-    , _iilsInstanceInitiatedShutdownBehavior :: Maybe Text
-    , _iilsInstanceType                      :: Maybe Text
+    , _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
+    , _iilsInstanceType                      :: Maybe InstanceType
     , _iilsMonitoring                        :: Maybe Bool
     , _iilsPlacement                         :: Maybe Placement
     , _iilsPrivateIpAddress                  :: Maybe Text
@@ -1610,15 +1610,15 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
 --
 -- * 'iilsAdditionalInfo' @::@ 'Maybe' 'Text'
 --
--- * 'iilsArchitecture' @::@ 'Maybe' 'Text'
+-- * 'iilsArchitecture' @::@ 'Maybe' 'ArchitectureValues'
 --
 -- * 'iilsGroupIds' @::@ ['Text']
 --
 -- * 'iilsGroupNames' @::@ ['Text']
 --
--- * 'iilsInstanceInitiatedShutdownBehavior' @::@ 'Maybe' 'Text'
+-- * 'iilsInstanceInitiatedShutdownBehavior' @::@ 'Maybe' 'ShutdownBehavior'
 --
--- * 'iilsInstanceType' @::@ 'Maybe' 'Text'
+-- * 'iilsInstanceType' @::@ 'Maybe' 'InstanceType'
 --
 -- * 'iilsMonitoring' @::@ 'Maybe' 'Bool'
 --
@@ -1650,7 +1650,7 @@ iilsAdditionalInfo =
     lens _iilsAdditionalInfo (\s a -> s { _iilsAdditionalInfo = a })
 
 -- | The architecture of the instance.
-iilsArchitecture :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
+iilsArchitecture :: Lens' ImportInstanceLaunchSpecification (Maybe ArchitectureValues)
 iilsArchitecture = lens _iilsArchitecture (\s a -> s { _iilsArchitecture = a })
 
 iilsGroupIds :: Lens' ImportInstanceLaunchSpecification [Text]
@@ -1663,14 +1663,14 @@ iilsGroupNames = lens _iilsGroupNames (\s a -> s { _iilsGroupNames = a }) . _Lis
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
 -- shutdown).
-iilsInstanceInitiatedShutdownBehavior :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
+iilsInstanceInitiatedShutdownBehavior :: Lens' ImportInstanceLaunchSpecification (Maybe ShutdownBehavior)
 iilsInstanceInitiatedShutdownBehavior =
     lens _iilsInstanceInitiatedShutdownBehavior
         (\s a -> s { _iilsInstanceInitiatedShutdownBehavior = a })
 
 -- | The instance type. For more information, see Instance Types in the Amazon
 -- Elastic Compute Cloud User Guide.
-iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
+iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\s a -> s { _iilsInstanceType = a })
 
 iilsMonitoring :: Lens' ImportInstanceLaunchSpecification (Maybe Bool)
@@ -1730,7 +1730,7 @@ data Snapshot = Snapshot
     , _sProgress    :: Maybe Text
     , _sSnapshotId  :: Maybe Text
     , _sStartTime   :: Maybe RFC822
-    , _sState       :: Maybe Text
+    , _sState       :: Maybe SnapshotState
     , _sTags        :: List "item" Tag
     , _sVolumeId    :: Maybe Text
     , _sVolumeSize  :: Maybe Int
@@ -1754,7 +1754,7 @@ data Snapshot = Snapshot
 --
 -- * 'sStartTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'sState' @::@ 'Maybe' 'Text'
+-- * 'sState' @::@ 'Maybe' 'SnapshotState'
 --
 -- * 'sTags' @::@ ['Tag']
 --
@@ -1807,7 +1807,7 @@ sStartTime :: Lens' Snapshot (Maybe UTCTime)
 sStartTime = lens _sStartTime (\s a -> s { _sStartTime = a }) . mapping _Time
 
 -- | The snapshot state.
-sState :: Lens' Snapshot (Maybe Text)
+sState :: Lens' Snapshot (Maybe SnapshotState)
 sState = lens _sState (\s a -> s { _sState = a })
 
 -- | Any tags assigned to the snapshot.
@@ -1892,9 +1892,9 @@ instance ToQuery SpotInstanceStateFault where
 data TagDescription = TagDescription
     { _tdKey          :: Text
     , _tdResourceId   :: Text
-    , _tdResourceType :: Text
+    , _tdResourceType :: ResourceType
     , _tdValue        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'TagDescription' constructor.
 --
@@ -1904,12 +1904,12 @@ data TagDescription = TagDescription
 --
 -- * 'tdResourceId' @::@ 'Text'
 --
--- * 'tdResourceType' @::@ 'Text'
+-- * 'tdResourceType' @::@ 'ResourceType'
 --
 -- * 'tdValue' @::@ 'Text'
 --
 tagDescription :: Text -- ^ 'tdResourceId'
-               -> Text -- ^ 'tdResourceType'
+               -> ResourceType -- ^ 'tdResourceType'
                -> Text -- ^ 'tdKey'
                -> Text -- ^ 'tdValue'
                -> TagDescription
@@ -1929,7 +1929,7 @@ tdResourceId :: Lens' TagDescription Text
 tdResourceId = lens _tdResourceId (\s a -> s { _tdResourceId = a })
 
 -- | The type of resource.
-tdResourceType :: Lens' TagDescription Text
+tdResourceType :: Lens' TagDescription ResourceType
 tdResourceType = lens _tdResourceType (\s a -> s { _tdResourceType = a })
 
 -- | The value of the tag.
@@ -2014,7 +2014,7 @@ data ReservedInstancesListing = ReservedInstancesListing
     , _rilPriceSchedules             :: List "item" PriceSchedule
     , _rilReservedInstancesId        :: Maybe Text
     , _rilReservedInstancesListingId :: Maybe Text
-    , _rilStatus                     :: Maybe Text
+    , _rilStatus                     :: Maybe ListingStatus
     , _rilStatusMessage              :: Maybe Text
     , _rilTags                       :: List "item" Tag
     , _rilUpdateDate                 :: Maybe RFC822
@@ -2036,7 +2036,7 @@ data ReservedInstancesListing = ReservedInstancesListing
 --
 -- * 'rilReservedInstancesListingId' @::@ 'Maybe' 'Text'
 --
--- * 'rilStatus' @::@ 'Maybe' 'Text'
+-- * 'rilStatus' @::@ 'Maybe' 'ListingStatus'
 --
 -- * 'rilStatusMessage' @::@ 'Maybe' 'Text'
 --
@@ -2090,7 +2090,7 @@ rilReservedInstancesListingId =
         (\s a -> s { _rilReservedInstancesListingId = a })
 
 -- | The status of the Reserved Instance listing.
-rilStatus :: Lens' ReservedInstancesListing (Maybe Text)
+rilStatus :: Lens' ReservedInstancesListing (Maybe ListingStatus)
 rilStatus = lens _rilStatus (\s a -> s { _rilStatus = a })
 
 -- | The reason for the current status of the Reserved Instance listing. The
@@ -2220,15 +2220,15 @@ instance ToQuery PlatformValues where
     toQuery = toQuery . toText
 
 data CreateVolumePermission = CreateVolumePermission
-    { _cvpGroup  :: Maybe Text
+    { _cvpGroup  :: Maybe PermissionGroup
     , _cvpUserId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateVolumePermission' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvpGroup' @::@ 'Maybe' 'Text'
+-- * 'cvpGroup' @::@ 'Maybe' 'PermissionGroup'
 --
 -- * 'cvpUserId' @::@ 'Maybe' 'Text'
 --
@@ -2240,7 +2240,7 @@ createVolumePermission = CreateVolumePermission
 
 -- | The specific group that is to be added or removed from a volume's list of
 -- create volume permissions.
-cvpGroup :: Lens' CreateVolumePermission (Maybe Text)
+cvpGroup :: Lens' CreateVolumePermission (Maybe PermissionGroup)
 cvpGroup = lens _cvpGroup (\s a -> s { _cvpGroup = a })
 
 -- | The specific AWS account ID that is to be added or removed from a
@@ -2613,41 +2613,41 @@ instance ToQuery PrivateIpAddressSpecification where
         ]
 
 data Image = Image
-    { _iArchitecture        :: Text
+    { _iArchitecture        :: ArchitectureValues
     , _iBlockDeviceMappings :: List "item" BlockDeviceMapping
     , _iDescription         :: Maybe Text
-    , _iHypervisor          :: Text
+    , _iHypervisor          :: HypervisorType
     , _iImageId             :: Text
     , _iImageLocation       :: Text
     , _iImageOwnerAlias     :: Maybe Text
-    , _iImageType           :: Text
+    , _iImageType           :: ImageTypeValues
     , _iKernelId            :: Maybe Text
     , _iName                :: Text
     , _iOwnerId             :: Text
-    , _iPlatform            :: Maybe Text
+    , _iPlatform            :: Maybe PlatformValues
     , _iProductCodes        :: List "item" ProductCode
     , _iPublic              :: Bool
     , _iRamdiskId           :: Maybe Text
     , _iRootDeviceName      :: Maybe Text
-    , _iRootDeviceType      :: Text
+    , _iRootDeviceType      :: DeviceType
     , _iSriovNetSupport     :: Maybe Text
-    , _iState               :: Text
+    , _iState               :: ImageState
     , _iStateReason         :: Maybe StateReason
     , _iTags                :: List "item" Tag
-    , _iVirtualizationType  :: Text
+    , _iVirtualizationType  :: VirtualizationType
     } deriving (Eq, Show)
 
 -- | 'Image' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iArchitecture' @::@ 'Text'
+-- * 'iArchitecture' @::@ 'ArchitectureValues'
 --
 -- * 'iBlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
 -- * 'iDescription' @::@ 'Maybe' 'Text'
 --
--- * 'iHypervisor' @::@ 'Text'
+-- * 'iHypervisor' @::@ 'HypervisorType'
 --
 -- * 'iImageId' @::@ 'Text'
 --
@@ -2655,7 +2655,7 @@ data Image = Image
 --
 -- * 'iImageOwnerAlias' @::@ 'Maybe' 'Text'
 --
--- * 'iImageType' @::@ 'Text'
+-- * 'iImageType' @::@ 'ImageTypeValues'
 --
 -- * 'iKernelId' @::@ 'Maybe' 'Text'
 --
@@ -2663,7 +2663,7 @@ data Image = Image
 --
 -- * 'iOwnerId' @::@ 'Text'
 --
--- * 'iPlatform' @::@ 'Maybe' 'Text'
+-- * 'iPlatform' @::@ 'Maybe' 'PlatformValues'
 --
 -- * 'iProductCodes' @::@ ['ProductCode']
 --
@@ -2673,29 +2673,29 @@ data Image = Image
 --
 -- * 'iRootDeviceName' @::@ 'Maybe' 'Text'
 --
--- * 'iRootDeviceType' @::@ 'Text'
+-- * 'iRootDeviceType' @::@ 'DeviceType'
 --
 -- * 'iSriovNetSupport' @::@ 'Maybe' 'Text'
 --
--- * 'iState' @::@ 'Text'
+-- * 'iState' @::@ 'ImageState'
 --
 -- * 'iStateReason' @::@ 'Maybe' 'StateReason'
 --
 -- * 'iTags' @::@ ['Tag']
 --
--- * 'iVirtualizationType' @::@ 'Text'
+-- * 'iVirtualizationType' @::@ 'VirtualizationType'
 --
 image :: Text -- ^ 'iImageId'
       -> Text -- ^ 'iImageLocation'
-      -> Text -- ^ 'iState'
+      -> ImageState -- ^ 'iState'
       -> Text -- ^ 'iOwnerId'
       -> Bool -- ^ 'iPublic'
-      -> Text -- ^ 'iArchitecture'
-      -> Text -- ^ 'iImageType'
+      -> ArchitectureValues -- ^ 'iArchitecture'
+      -> ImageTypeValues -- ^ 'iImageType'
       -> Text -- ^ 'iName'
-      -> Text -- ^ 'iRootDeviceType'
-      -> Text -- ^ 'iVirtualizationType'
-      -> Text -- ^ 'iHypervisor'
+      -> DeviceType -- ^ 'iRootDeviceType'
+      -> VirtualizationType -- ^ 'iVirtualizationType'
+      -> HypervisorType -- ^ 'iHypervisor'
       -> Image
 image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 = Image
     { _iImageId             = p1
@@ -2723,7 +2723,7 @@ image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 = Image
     }
 
 -- | The architecture of the image.
-iArchitecture :: Lens' Image Text
+iArchitecture :: Lens' Image ArchitectureValues
 iArchitecture = lens _iArchitecture (\s a -> s { _iArchitecture = a })
 
 -- | Any block device mapping entries.
@@ -2737,7 +2737,7 @@ iDescription :: Lens' Image (Maybe Text)
 iDescription = lens _iDescription (\s a -> s { _iDescription = a })
 
 -- | The hypervisor type of the image.
-iHypervisor :: Lens' Image Text
+iHypervisor :: Lens' Image HypervisorType
 iHypervisor = lens _iHypervisor (\s a -> s { _iHypervisor = a })
 
 -- | The ID of the AMI.
@@ -2754,7 +2754,7 @@ iImageOwnerAlias :: Lens' Image (Maybe Text)
 iImageOwnerAlias = lens _iImageOwnerAlias (\s a -> s { _iImageOwnerAlias = a })
 
 -- | The type of image.
-iImageType :: Lens' Image Text
+iImageType :: Lens' Image ImageTypeValues
 iImageType = lens _iImageType (\s a -> s { _iImageType = a })
 
 -- | The kernel associated with the image, if any. Only applicable for machine
@@ -2771,7 +2771,7 @@ iOwnerId :: Lens' Image Text
 iOwnerId = lens _iOwnerId (\s a -> s { _iOwnerId = a })
 
 -- | The value is Windows for Windows AMIs; otherwise blank.
-iPlatform :: Lens' Image (Maybe Text)
+iPlatform :: Lens' Image (Maybe PlatformValues)
 iPlatform = lens _iPlatform (\s a -> s { _iPlatform = a })
 
 -- | Any product codes associated with the AMI.
@@ -2795,7 +2795,7 @@ iRootDeviceName = lens _iRootDeviceName (\s a -> s { _iRootDeviceName = a })
 
 -- | The type of root device used by the AMI. The AMI can use an Amazon EBS
 -- volume or an instance store volume.
-iRootDeviceType :: Lens' Image Text
+iRootDeviceType :: Lens' Image DeviceType
 iRootDeviceType = lens _iRootDeviceType (\s a -> s { _iRootDeviceType = a })
 
 -- | Specifies whether enhanced networking is enabled.
@@ -2804,7 +2804,7 @@ iSriovNetSupport = lens _iSriovNetSupport (\s a -> s { _iSriovNetSupport = a })
 
 -- | The current state of the AMI. If the state is available, the image is
 -- successfully registered and can be used to launch an instance.
-iState :: Lens' Image Text
+iState :: Lens' Image ImageState
 iState = lens _iState (\s a -> s { _iState = a })
 
 -- | The reason for the state change.
@@ -2816,7 +2816,7 @@ iTags :: Lens' Image [Tag]
 iTags = lens _iTags (\s a -> s { _iTags = a }) . _List
 
 -- | The type of virtualization of the AMI.
-iVirtualizationType :: Lens' Image Text
+iVirtualizationType :: Lens' Image VirtualizationType
 iVirtualizationType =
     lens _iVirtualizationType (\s a -> s { _iVirtualizationType = a })
 
@@ -2980,8 +2980,8 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment
     , _niaDeviceIndex         :: Maybe Int
     , _niaInstanceId          :: Maybe Text
     , _niaInstanceOwnerId     :: Maybe Text
-    , _niaStatus              :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _niaStatus              :: Maybe AttachmentStatus
+    } deriving (Eq, Show)
 
 -- | 'NetworkInterfaceAttachment' constructor.
 --
@@ -2999,7 +2999,7 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment
 --
 -- * 'niaInstanceOwnerId' @::@ 'Maybe' 'Text'
 --
--- * 'niaStatus' @::@ 'Maybe' 'Text'
+-- * 'niaStatus' @::@ 'Maybe' 'AttachmentStatus'
 --
 networkInterfaceAttachment :: NetworkInterfaceAttachment
 networkInterfaceAttachment = NetworkInterfaceAttachment
@@ -3040,7 +3040,7 @@ niaInstanceOwnerId =
     lens _niaInstanceOwnerId (\s a -> s { _niaInstanceOwnerId = a })
 
 -- | The attachment state.
-niaStatus :: Lens' NetworkInterfaceAttachment (Maybe Text)
+niaStatus :: Lens' NetworkInterfaceAttachment (Maybe AttachmentStatus)
 niaStatus = lens _niaStatus (\s a -> s { _niaStatus = a })
 
 instance FromXML NetworkInterfaceAttachment where
@@ -3095,7 +3095,7 @@ instance ToQuery RunInstancesMonitoringEnabled where
 
 data VolumeStatusInfo = VolumeStatusInfo
     { _vsiDetails :: List "item" VolumeStatusDetails
-    , _vsiStatus  :: Maybe Text
+    , _vsiStatus  :: Maybe VolumeStatusInfoStatus
     } deriving (Eq, Show)
 
 -- | 'VolumeStatusInfo' constructor.
@@ -3104,7 +3104,7 @@ data VolumeStatusInfo = VolumeStatusInfo
 --
 -- * 'vsiDetails' @::@ ['VolumeStatusDetails']
 --
--- * 'vsiStatus' @::@ 'Maybe' 'Text'
+-- * 'vsiStatus' @::@ 'Maybe' 'VolumeStatusInfoStatus'
 --
 volumeStatusInfo :: VolumeStatusInfo
 volumeStatusInfo = VolumeStatusInfo
@@ -3117,7 +3117,7 @@ vsiDetails :: Lens' VolumeStatusInfo [VolumeStatusDetails]
 vsiDetails = lens _vsiDetails (\s a -> s { _vsiDetails = a }) . _List
 
 -- | The status of the volume.
-vsiStatus :: Lens' VolumeStatusInfo (Maybe Text)
+vsiStatus :: Lens' VolumeStatusInfo (Maybe VolumeStatusInfoStatus)
 vsiStatus = lens _vsiStatus (\s a -> s { _vsiStatus = a })
 
 instance FromXML VolumeStatusInfo where
@@ -3408,8 +3408,8 @@ instance ToQuery IcmpTypeCode where
 
 data InstanceCount = InstanceCount
     { _icInstanceCount :: Maybe Int
-    , _icState         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _icState         :: Maybe ListingState
+    } deriving (Eq, Show)
 
 -- | 'InstanceCount' constructor.
 --
@@ -3417,7 +3417,7 @@ data InstanceCount = InstanceCount
 --
 -- * 'icInstanceCount' @::@ 'Maybe' 'Int'
 --
--- * 'icState' @::@ 'Maybe' 'Text'
+-- * 'icState' @::@ 'Maybe' 'ListingState'
 --
 instanceCount :: InstanceCount
 instanceCount = InstanceCount
@@ -3431,7 +3431,7 @@ icInstanceCount :: Lens' InstanceCount (Maybe Int)
 icInstanceCount = lens _icInstanceCount (\s a -> s { _icInstanceCount = a })
 
 -- | The states of the listed Reserved Instances.
-icState :: Lens' InstanceCount (Maybe Text)
+icState :: Lens' InstanceCount (Maybe ListingState)
 icState = lens _icState (\s a -> s { _icState = a })
 
 instance FromXML InstanceCount where
@@ -3446,19 +3446,19 @@ instance ToQuery InstanceCount where
         ]
 
 data ExportToS3Task = ExportToS3Task
-    { _etstContainerFormat :: Maybe Text
-    , _etstDiskImageFormat :: Maybe Text
+    { _etstContainerFormat :: Maybe ContainerFormat
+    , _etstDiskImageFormat :: Maybe DiskImageFormat
     , _etstS3Bucket        :: Maybe Text
     , _etstS3Key           :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ExportToS3Task' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'etstContainerFormat' @::@ 'Maybe' 'Text'
+-- * 'etstContainerFormat' @::@ 'Maybe' 'ContainerFormat'
 --
--- * 'etstDiskImageFormat' @::@ 'Maybe' 'Text'
+-- * 'etstDiskImageFormat' @::@ 'Maybe' 'DiskImageFormat'
 --
 -- * 'etstS3Bucket' @::@ 'Maybe' 'Text'
 --
@@ -3474,12 +3474,12 @@ exportToS3Task = ExportToS3Task
 
 -- | The container format used to combine disk images with metadata (such as
 -- OVF). If absent, only the disk image is exported.
-etstContainerFormat :: Lens' ExportToS3Task (Maybe Text)
+etstContainerFormat :: Lens' ExportToS3Task (Maybe ContainerFormat)
 etstContainerFormat =
     lens _etstContainerFormat (\s a -> s { _etstContainerFormat = a })
 
 -- | The format for the exported image.
-etstDiskImageFormat :: Lens' ExportToS3Task (Maybe Text)
+etstDiskImageFormat :: Lens' ExportToS3Task (Maybe DiskImageFormat)
 etstDiskImageFormat =
     lens _etstDiskImageFormat (\s a -> s { _etstDiskImageFormat = a })
 
@@ -3578,7 +3578,7 @@ data ConversionTask = ConversionTask
     , _ctExpirationTime   :: Maybe Text
     , _ctImportInstance   :: Maybe ImportInstanceTaskDetails
     , _ctImportVolume     :: Maybe ImportVolumeTaskDetails
-    , _ctState            :: Text
+    , _ctState            :: ConversionTaskState
     , _ctStatusMessage    :: Maybe Text
     , _ctTags             :: List "item" Tag
     } deriving (Eq, Show)
@@ -3595,14 +3595,14 @@ data ConversionTask = ConversionTask
 --
 -- * 'ctImportVolume' @::@ 'Maybe' 'ImportVolumeTaskDetails'
 --
--- * 'ctState' @::@ 'Text'
+-- * 'ctState' @::@ 'ConversionTaskState'
 --
 -- * 'ctStatusMessage' @::@ 'Maybe' 'Text'
 --
 -- * 'ctTags' @::@ ['Tag']
 --
 conversionTask :: Text -- ^ 'ctConversionTaskId'
-               -> Text -- ^ 'ctState'
+               -> ConversionTaskState -- ^ 'ctState'
                -> ConversionTask
 conversionTask p1 p2 = ConversionTask
     { _ctConversionTaskId = p1
@@ -3635,7 +3635,7 @@ ctImportVolume :: Lens' ConversionTask (Maybe ImportVolumeTaskDetails)
 ctImportVolume = lens _ctImportVolume (\s a -> s { _ctImportVolume = a })
 
 -- | The state of the conversion task.
-ctState :: Lens' ConversionTask Text
+ctState :: Lens' ConversionTask ConversionTaskState
 ctState = lens _ctState (\s a -> s { _ctState = a })
 
 -- | The status message related to the conversion task.
@@ -3749,11 +3749,11 @@ instance ToQuery ListingState where
 
 data SpotPrice = SpotPrice
     { _spAvailabilityZone   :: Maybe Text
-    , _spInstanceType       :: Maybe Text
-    , _spProductDescription :: Maybe Text
+    , _spInstanceType       :: Maybe InstanceType
+    , _spProductDescription :: Maybe RIProductDescription
     , _spSpotPrice          :: Maybe Text
     , _spTimestamp          :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'SpotPrice' constructor.
 --
@@ -3761,9 +3761,9 @@ data SpotPrice = SpotPrice
 --
 -- * 'spAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'spInstanceType' @::@ 'Maybe' 'Text'
+-- * 'spInstanceType' @::@ 'Maybe' 'InstanceType'
 --
--- * 'spProductDescription' @::@ 'Maybe' 'Text'
+-- * 'spProductDescription' @::@ 'Maybe' 'RIProductDescription'
 --
 -- * 'spSpotPrice' @::@ 'Maybe' 'Text'
 --
@@ -3784,11 +3784,11 @@ spAvailabilityZone =
     lens _spAvailabilityZone (\s a -> s { _spAvailabilityZone = a })
 
 -- | The instance type.
-spInstanceType :: Lens' SpotPrice (Maybe Text)
+spInstanceType :: Lens' SpotPrice (Maybe InstanceType)
 spInstanceType = lens _spInstanceType (\s a -> s { _spInstanceType = a })
 
 -- | A general description of the AMI.
-spProductDescription :: Lens' SpotPrice (Maybe Text)
+spProductDescription :: Lens' SpotPrice (Maybe RIProductDescription)
 spProductDescription =
     lens _spProductDescription (\s a -> s { _spProductDescription = a })
 
@@ -3856,16 +3856,16 @@ instance ToQuery InstanceMonitoring where
         ]
 
 data PriceScheduleSpecification = PriceScheduleSpecification
-    { _pssCurrencyCode :: Maybe Text
+    { _pssCurrencyCode :: Maybe CurrencyCodeValues
     , _pssPrice        :: Maybe Double
     , _pssTerm         :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'PriceScheduleSpecification' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pssCurrencyCode' @::@ 'Maybe' 'Text'
+-- * 'pssCurrencyCode' @::@ 'Maybe' 'CurrencyCodeValues'
 --
 -- * 'pssPrice' @::@ 'Maybe' 'Double'
 --
@@ -3880,7 +3880,7 @@ priceScheduleSpecification = PriceScheduleSpecification
 
 -- | The currency for transacting the Reserved Instance resale. At this time,
 -- the only supported currency is USD.
-pssCurrencyCode :: Lens' PriceScheduleSpecification (Maybe Text)
+pssCurrencyCode :: Lens' PriceScheduleSpecification (Maybe CurrencyCodeValues)
 pssCurrencyCode = lens _pssCurrencyCode (\s a -> s { _pssCurrencyCode = a })
 
 -- | The fixed price for the term.
@@ -3979,13 +3979,13 @@ data SpotInstanceRequest = SpotInstanceRequest
     , _siLaunchGroup              :: Maybe Text
     , _siLaunchSpecification      :: Maybe LaunchSpecification
     , _siLaunchedAvailabilityZone :: Maybe Text
-    , _siProductDescription       :: Maybe Text
+    , _siProductDescription       :: Maybe RIProductDescription
     , _siSpotInstanceRequestId    :: Maybe Text
     , _siSpotPrice                :: Maybe Text
-    , _siState                    :: Maybe Text
+    , _siState                    :: Maybe SpotInstanceState
     , _siStatus                   :: Maybe SpotInstanceStatus
     , _siTags                     :: List "item" Tag
-    , _siType                     :: Maybe Text
+    , _siType                     :: Maybe SpotInstanceType
     , _siValidFrom                :: Maybe RFC822
     , _siValidUntil               :: Maybe RFC822
     } deriving (Eq, Show)
@@ -4008,19 +4008,19 @@ data SpotInstanceRequest = SpotInstanceRequest
 --
 -- * 'siLaunchedAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'siProductDescription' @::@ 'Maybe' 'Text'
+-- * 'siProductDescription' @::@ 'Maybe' 'RIProductDescription'
 --
 -- * 'siSpotInstanceRequestId' @::@ 'Maybe' 'Text'
 --
 -- * 'siSpotPrice' @::@ 'Maybe' 'Text'
 --
--- * 'siState' @::@ 'Maybe' 'Text'
+-- * 'siState' @::@ 'Maybe' 'SpotInstanceState'
 --
 -- * 'siStatus' @::@ 'Maybe' 'SpotInstanceStatus'
 --
 -- * 'siTags' @::@ ['Tag']
 --
--- * 'siType' @::@ 'Maybe' 'Text'
+-- * 'siType' @::@ 'Maybe' 'SpotInstanceType'
 --
 -- * 'siValidFrom' @::@ 'Maybe' 'UTCTime'
 --
@@ -4083,7 +4083,7 @@ siLaunchedAvailabilityZone =
         (\s a -> s { _siLaunchedAvailabilityZone = a })
 
 -- | The product description associated with the Spot Instance.
-siProductDescription :: Lens' SpotInstanceRequest (Maybe Text)
+siProductDescription :: Lens' SpotInstanceRequest (Maybe RIProductDescription)
 siProductDescription =
     lens _siProductDescription (\s a -> s { _siProductDescription = a })
 
@@ -4101,7 +4101,7 @@ siSpotPrice = lens _siSpotPrice (\s a -> s { _siSpotPrice = a })
 -- help you track your Spot Instance requests. For information, see Tracking
 -- Spot Requests with Bid Status Codes in the Amazon Elastic Compute Cloud
 -- User Guide.
-siState :: Lens' SpotInstanceRequest (Maybe Text)
+siState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 siState = lens _siState (\s a -> s { _siState = a })
 
 -- | The status code and status message describing the Spot Instance request.
@@ -4113,7 +4113,7 @@ siTags :: Lens' SpotInstanceRequest [Tag]
 siTags = lens _siTags (\s a -> s { _siTags = a }) . _List
 
 -- | The Spot Instance request type.
-siType :: Lens' SpotInstanceRequest (Maybe Text)
+siType :: Lens' SpotInstanceRequest (Maybe SpotInstanceType)
 siType = lens _siType (\s a -> s { _siType = a })
 
 -- | The start date of the request. If this is a one-time request, the request
@@ -4176,7 +4176,7 @@ data LaunchSpecification = LaunchSpecification
     , _lsEbsOptimized        :: Maybe Bool
     , _lsIamInstanceProfile  :: Maybe IamInstanceProfileSpecification
     , _lsImageId             :: Maybe Text
-    , _lsInstanceType        :: Maybe Text
+    , _lsInstanceType        :: Maybe InstanceType
     , _lsKernelId            :: Maybe Text
     , _lsKeyName             :: Maybe Text
     , _lsMonitoring          :: Maybe RunInstancesMonitoringEnabled
@@ -4202,7 +4202,7 @@ data LaunchSpecification = LaunchSpecification
 --
 -- * 'lsImageId' @::@ 'Maybe' 'Text'
 --
--- * 'lsInstanceType' @::@ 'Maybe' 'Text'
+-- * 'lsInstanceType' @::@ 'Maybe' 'InstanceType'
 --
 -- * 'lsKernelId' @::@ 'Maybe' 'Text'
 --
@@ -4269,7 +4269,7 @@ lsImageId :: Lens' LaunchSpecification (Maybe Text)
 lsImageId = lens _lsImageId (\s a -> s { _lsImageId = a })
 
 -- | The instance type. Default: m1.small.
-lsInstanceType :: Lens' LaunchSpecification (Maybe Text)
+lsInstanceType :: Lens' LaunchSpecification (Maybe InstanceType)
 lsInstanceType = lens _lsInstanceType (\s a -> s { _lsInstanceType = a })
 
 -- | The ID of the kernel.
@@ -4425,10 +4425,10 @@ data Volume = Volume
     , _vIops             :: Maybe Int
     , _vSize             :: Maybe Int
     , _vSnapshotId       :: Maybe Text
-    , _vState            :: Maybe Text
+    , _vState            :: Maybe VolumeState
     , _vTags             :: List "item" Tag
     , _vVolumeId         :: Maybe Text
-    , _vVolumeType       :: Maybe Text
+    , _vVolumeType       :: Maybe VolumeType
     } deriving (Eq, Show)
 
 -- | 'Volume' constructor.
@@ -4449,13 +4449,13 @@ data Volume = Volume
 --
 -- * 'vSnapshotId' @::@ 'Maybe' 'Text'
 --
--- * 'vState' @::@ 'Maybe' 'Text'
+-- * 'vState' @::@ 'Maybe' 'VolumeState'
 --
 -- * 'vTags' @::@ ['Tag']
 --
 -- * 'vVolumeId' @::@ 'Maybe' 'Text'
 --
--- * 'vVolumeType' @::@ 'Maybe' 'Text'
+-- * 'vVolumeType' @::@ 'Maybe' 'VolumeType'
 --
 volume :: Volume
 volume = Volume
@@ -4511,7 +4511,7 @@ vSnapshotId :: Lens' Volume (Maybe Text)
 vSnapshotId = lens _vSnapshotId (\s a -> s { _vSnapshotId = a })
 
 -- | The volume state.
-vState :: Lens' Volume (Maybe Text)
+vState :: Lens' Volume (Maybe VolumeState)
 vState = lens _vState (\s a -> s { _vState = a })
 
 -- | Any tags assigned to the volume.
@@ -4524,7 +4524,7 @@ vVolumeId = lens _vVolumeId (\s a -> s { _vVolumeId = a })
 
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1
 -- for Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
-vVolumeType :: Lens' Volume (Maybe Text)
+vVolumeType :: Lens' Volume (Maybe VolumeType)
 vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
 
 instance FromXML Volume where
@@ -4901,7 +4901,7 @@ data NetworkInterface = NetworkInterface
     , _niRequesterId        :: Maybe Text
     , _niRequesterManaged   :: Maybe Bool
     , _niSourceDestCheck    :: Maybe Bool
-    , _niStatus             :: Maybe Text
+    , _niStatus             :: Maybe NetworkInterfaceStatus
     , _niSubnetId           :: Maybe Text
     , _niTagSet             :: List "item" Tag
     , _niVpcId              :: Maybe Text
@@ -4939,7 +4939,7 @@ data NetworkInterface = NetworkInterface
 --
 -- * 'niSourceDestCheck' @::@ 'Maybe' 'Bool'
 --
--- * 'niStatus' @::@ 'Maybe' 'Text'
+-- * 'niStatus' @::@ 'Maybe' 'NetworkInterfaceStatus'
 --
 -- * 'niSubnetId' @::@ 'Maybe' 'Text'
 --
@@ -5035,7 +5035,7 @@ niSourceDestCheck =
     lens _niSourceDestCheck (\s a -> s { _niSourceDestCheck = a })
 
 -- | The status of the network interface.
-niStatus :: Lens' NetworkInterface (Maybe Text)
+niStatus :: Lens' NetworkInterface (Maybe NetworkInterfaceStatus)
 niStatus = lens _niStatus (\s a -> s { _niStatus = a })
 
 -- | The ID of the subnet.
@@ -5121,7 +5121,7 @@ data Subnet = Subnet
     , _s1CidrBlock               :: Maybe Text
     , _s1DefaultForAz            :: Maybe Bool
     , _s1MapPublicIpOnLaunch     :: Maybe Bool
-    , _s1State                   :: Maybe Text
+    , _s1State                   :: Maybe SubnetState
     , _s1SubnetId                :: Maybe Text
     , _s1Tags                    :: List "item" Tag
     , _s1VpcId                   :: Maybe Text
@@ -5141,7 +5141,7 @@ data Subnet = Subnet
 --
 -- * 's1MapPublicIpOnLaunch' @::@ 'Maybe' 'Bool'
 --
--- * 's1State' @::@ 'Maybe' 'Text'
+-- * 's1State' @::@ 'Maybe' 'SubnetState'
 --
 -- * 's1SubnetId' @::@ 'Maybe' 'Text'
 --
@@ -5189,7 +5189,7 @@ s1MapPublicIpOnLaunch =
     lens _s1MapPublicIpOnLaunch (\s a -> s { _s1MapPublicIpOnLaunch = a })
 
 -- | The current state of the subnet.
-s1State :: Lens' Subnet (Maybe Text)
+s1State :: Lens' Subnet (Maybe SubnetState)
 s1State = lens _s1State (\s a -> s { _s1State = a })
 
 -- | The ID of the subnet.
@@ -5387,9 +5387,9 @@ instance ToQuery InstanceNetworkInterfaceAssociation where
 
 data DiskImageDetail = DiskImageDetail
     { _didBytes             :: Integer
-    , _didFormat            :: Text
+    , _didFormat            :: DiskImageFormat
     , _didImportManifestUrl :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DiskImageDetail' constructor.
 --
@@ -5397,11 +5397,11 @@ data DiskImageDetail = DiskImageDetail
 --
 -- * 'didBytes' @::@ 'Integer'
 --
--- * 'didFormat' @::@ 'Text'
+-- * 'didFormat' @::@ 'DiskImageFormat'
 --
 -- * 'didImportManifestUrl' @::@ 'Text'
 --
-diskImageDetail :: Text -- ^ 'didFormat'
+diskImageDetail :: DiskImageFormat -- ^ 'didFormat'
                 -> Integer -- ^ 'didBytes'
                 -> Text -- ^ 'didImportManifestUrl'
                 -> DiskImageDetail
@@ -5415,7 +5415,7 @@ didBytes :: Lens' DiskImageDetail Integer
 didBytes = lens _didBytes (\s a -> s { _didBytes = a })
 
 -- | The disk image format.
-didFormat :: Lens' DiskImageDetail Text
+didFormat :: Lens' DiskImageDetail DiskImageFormat
 didFormat = lens _didFormat (\s a -> s { _didFormat = a })
 
 -- | A presigned URL for the import manifest stored in Amazon S3. For
@@ -5504,8 +5504,8 @@ instance ToQuery InstancePrivateIpAddress where
 
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
     { _csiSpotInstanceRequestId :: Maybe Text
-    , _csiState                 :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _csiState                 :: Maybe CancelSpotInstanceRequestState
+    } deriving (Eq, Show)
 
 -- | 'CancelledSpotInstanceRequest' constructor.
 --
@@ -5513,7 +5513,7 @@ data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
 --
 -- * 'csiSpotInstanceRequestId' @::@ 'Maybe' 'Text'
 --
--- * 'csiState' @::@ 'Maybe' 'Text'
+-- * 'csiState' @::@ 'Maybe' 'CancelSpotInstanceRequestState'
 --
 cancelledSpotInstanceRequest :: CancelledSpotInstanceRequest
 cancelledSpotInstanceRequest = CancelledSpotInstanceRequest
@@ -5528,7 +5528,7 @@ csiSpotInstanceRequestId =
         (\s a -> s { _csiSpotInstanceRequestId = a })
 
 -- | The state of the Spot Instance request.
-csiState :: Lens' CancelledSpotInstanceRequest (Maybe Text)
+csiState :: Lens' CancelledSpotInstanceRequest (Maybe CancelSpotInstanceRequestState)
 csiState = lens _csiState (\s a -> s { _csiState = a })
 
 instance FromXML CancelledSpotInstanceRequest where
@@ -5575,13 +5575,13 @@ instance ToQuery VpnConnectionOptionsSpecification where
 data Address = Address
     { _aAllocationId            :: Maybe Text
     , _aAssociationId           :: Maybe Text
-    , _aDomain                  :: Maybe Text
+    , _aDomain                  :: Maybe DomainType
     , _aInstanceId              :: Maybe Text
     , _aNetworkInterfaceId      :: Maybe Text
     , _aNetworkInterfaceOwnerId :: Maybe Text
     , _aPrivateIpAddress        :: Maybe Text
     , _aPublicIp                :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Address' constructor.
 --
@@ -5591,7 +5591,7 @@ data Address = Address
 --
 -- * 'aAssociationId' @::@ 'Maybe' 'Text'
 --
--- * 'aDomain' @::@ 'Maybe' 'Text'
+-- * 'aDomain' @::@ 'Maybe' 'DomainType'
 --
 -- * 'aInstanceId' @::@ 'Maybe' 'Text'
 --
@@ -5626,7 +5626,7 @@ aAssociationId = lens _aAssociationId (\s a -> s { _aAssociationId = a })
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic (standard) or instances in a VPC (vpc).
-aDomain :: Lens' Address (Maybe Text)
+aDomain :: Lens' Address (Maybe DomainType)
 aDomain = lens _aDomain (\s a -> s { _aDomain = a })
 
 -- | The ID of the instance the address is associated with (if any).
@@ -5705,15 +5705,15 @@ instance ToQuery VolumeAttachmentState where
     toQuery = toQuery . toText
 
 data LaunchPermission = LaunchPermission
-    { _lpGroup  :: Maybe Text
+    { _lpGroup  :: Maybe PermissionGroup
     , _lpUserId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'LaunchPermission' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpGroup' @::@ 'Maybe' 'Text'
+-- * 'lpGroup' @::@ 'Maybe' 'PermissionGroup'
 --
 -- * 'lpUserId' @::@ 'Maybe' 'Text'
 --
@@ -5724,7 +5724,7 @@ launchPermission = LaunchPermission
     }
 
 -- | The name of the group.
-lpGroup :: Lens' LaunchPermission (Maybe Text)
+lpGroup :: Lens' LaunchPermission (Maybe PermissionGroup)
 lpGroup = lens _lpGroup (\s a -> s { _lpGroup = a })
 
 -- | The AWS account ID.
@@ -5924,9 +5924,9 @@ instance ToQuery VpcAttributeName where
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration
     { _ricAvailabilityZone :: Maybe Text
     , _ricInstanceCount    :: Maybe Int
-    , _ricInstanceType     :: Maybe Text
+    , _ricInstanceType     :: Maybe InstanceType
     , _ricPlatform         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ReservedInstancesConfiguration' constructor.
 --
@@ -5936,7 +5936,7 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration
 --
 -- * 'ricInstanceCount' @::@ 'Maybe' 'Int'
 --
--- * 'ricInstanceType' @::@ 'Maybe' 'Text'
+-- * 'ricInstanceType' @::@ 'Maybe' 'InstanceType'
 --
 -- * 'ricPlatform' @::@ 'Maybe' 'Text'
 --
@@ -5958,7 +5958,7 @@ ricInstanceCount :: Lens' ReservedInstancesConfiguration (Maybe Int)
 ricInstanceCount = lens _ricInstanceCount (\s a -> s { _ricInstanceCount = a })
 
 -- | The instance type for the modified Reserved Instances.
-ricInstanceType :: Lens' ReservedInstancesConfiguration (Maybe Text)
+ricInstanceType :: Lens' ReservedInstancesConfiguration (Maybe InstanceType)
 ricInstanceType = lens _ricInstanceType (\s a -> s { _ricInstanceType = a })
 
 -- | The network platform of the modified Reserved Instances, which is either
@@ -5982,15 +5982,15 @@ instance ToQuery ReservedInstancesConfiguration where
         ]
 
 data VolumeStatusDetails = VolumeStatusDetails
-    { _vsdName   :: Maybe Text
+    { _vsdName   :: Maybe VolumeStatusName
     , _vsdStatus :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'VolumeStatusDetails' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vsdName' @::@ 'Maybe' 'Text'
+-- * 'vsdName' @::@ 'Maybe' 'VolumeStatusName'
 --
 -- * 'vsdStatus' @::@ 'Maybe' 'Text'
 --
@@ -6001,7 +6001,7 @@ volumeStatusDetails = VolumeStatusDetails
     }
 
 -- | The name of the volume status.
-vsdName :: Lens' VolumeStatusDetails (Maybe Text)
+vsdName :: Lens' VolumeStatusDetails (Maybe VolumeStatusName)
 vsdName = lens _vsdName (\s a -> s { _vsdName = a })
 
 -- | The intended status of the volume status.
@@ -6130,7 +6130,7 @@ instance ToQuery UserIdGroupPair where
 
 data InstanceStatusSummary = InstanceStatusSummary
     { _issDetails :: List "item" InstanceStatusDetails
-    , _issStatus  :: Maybe Text
+    , _issStatus  :: Maybe SummaryStatus
     } deriving (Eq, Show)
 
 -- | 'InstanceStatusSummary' constructor.
@@ -6139,7 +6139,7 @@ data InstanceStatusSummary = InstanceStatusSummary
 --
 -- * 'issDetails' @::@ ['InstanceStatusDetails']
 --
--- * 'issStatus' @::@ 'Maybe' 'Text'
+-- * 'issStatus' @::@ 'Maybe' 'SummaryStatus'
 --
 instanceStatusSummary :: InstanceStatusSummary
 instanceStatusSummary = InstanceStatusSummary
@@ -6152,7 +6152,7 @@ issDetails :: Lens' InstanceStatusSummary [InstanceStatusDetails]
 issDetails = lens _issDetails (\s a -> s { _issDetails = a }) . _List
 
 -- | The status.
-issStatus :: Lens' InstanceStatusSummary (Maybe Text)
+issStatus :: Lens' InstanceStatusSummary (Maybe SummaryStatus)
 issStatus = lens _issStatus (\s a -> s { _issStatus = a })
 
 instance FromXML InstanceStatusSummary where
@@ -6301,7 +6301,7 @@ data BundleTask = BundleTask
     , _btInstanceId      :: Maybe Text
     , _btProgress        :: Maybe Text
     , _btStartTime       :: Maybe RFC822
-    , _btState           :: Maybe Text
+    , _btState           :: Maybe BundleTaskState
     , _btStorage         :: Maybe Storage
     , _btUpdateTime      :: Maybe RFC822
     } deriving (Eq, Show)
@@ -6320,7 +6320,7 @@ data BundleTask = BundleTask
 --
 -- * 'btStartTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'btState' @::@ 'Maybe' 'Text'
+-- * 'btState' @::@ 'Maybe' 'BundleTaskState'
 --
 -- * 'btStorage' @::@ 'Maybe' 'Storage'
 --
@@ -6360,7 +6360,7 @@ btStartTime :: Lens' BundleTask (Maybe UTCTime)
 btStartTime = lens _btStartTime (\s a -> s { _btStartTime = a }) . mapping _Time
 
 -- | The state of the task.
-btState :: Lens' BundleTask (Maybe Text)
+btState :: Lens' BundleTask (Maybe BundleTaskState)
 btState = lens _btState (\s a -> s { _btState = a })
 
 -- | The Amazon S3 storage locations.
@@ -6395,17 +6395,17 @@ instance ToQuery BundleTask where
         ]
 
 data InstanceStatusEvent = InstanceStatusEvent
-    { _iseCode        :: Maybe Text
+    { _iseCode        :: Maybe EventCode
     , _iseDescription :: Maybe Text
     , _iseNotAfter    :: Maybe RFC822
     , _iseNotBefore   :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'InstanceStatusEvent' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iseCode' @::@ 'Maybe' 'Text'
+-- * 'iseCode' @::@ 'Maybe' 'EventCode'
 --
 -- * 'iseDescription' @::@ 'Maybe' 'Text'
 --
@@ -6422,7 +6422,7 @@ instanceStatusEvent = InstanceStatusEvent
     }
 
 -- | The associated code of the event.
-iseCode :: Lens' InstanceStatusEvent (Maybe Text)
+iseCode :: Lens' InstanceStatusEvent (Maybe EventCode)
 iseCode = lens _iseCode (\s a -> s { _iseCode = a })
 
 -- | A description of the event.
@@ -6588,10 +6588,10 @@ data Route = Route
     , _rInstanceId             :: Maybe Text
     , _rInstanceOwnerId        :: Maybe Text
     , _rNetworkInterfaceId     :: Maybe Text
-    , _rOrigin                 :: Maybe Text
-    , _rState                  :: Maybe Text
+    , _rOrigin                 :: Maybe RouteOrigin
+    , _rState                  :: Maybe RouteState
     , _rVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Route' constructor.
 --
@@ -6607,9 +6607,9 @@ data Route = Route
 --
 -- * 'rNetworkInterfaceId' @::@ 'Maybe' 'Text'
 --
--- * 'rOrigin' @::@ 'Maybe' 'Text'
+-- * 'rOrigin' @::@ 'Maybe' 'RouteOrigin'
 --
--- * 'rState' @::@ 'Maybe' 'Text'
+-- * 'rState' @::@ 'Maybe' 'RouteState'
 --
 -- * 'rVpcPeeringConnectionId' @::@ 'Maybe' 'Text'
 --
@@ -6652,13 +6652,13 @@ rNetworkInterfaceId =
 -- CreateRoute indicates that the route was manually added to the route
 -- table. EnableVgwRoutePropagation indicates that the route was propagated
 -- by route propagation.
-rOrigin :: Lens' Route (Maybe Text)
+rOrigin :: Lens' Route (Maybe RouteOrigin)
 rOrigin = lens _rOrigin (\s a -> s { _rOrigin = a })
 
 -- | The state of the route. The blackhole state indicates that the route's
 -- target isn't available (for example, the specified gateway isn't attached
 -- to the VPC, or the specified NAT instance has been terminated).
-rState :: Lens' Route (Maybe Text)
+rState :: Lens' Route (Maybe RouteState)
 rState = lens _rState (\s a -> s { _rState = a })
 
 -- | The ID of the VPC peering connection.
@@ -6694,7 +6694,7 @@ data SpotDatafeedSubscription = SpotDatafeedSubscription
     , _sdsFault   :: Maybe SpotInstanceStateFault
     , _sdsOwnerId :: Maybe Text
     , _sdsPrefix  :: Maybe Text
-    , _sdsState   :: Maybe Text
+    , _sdsState   :: Maybe DatafeedSubscriptionState
     } deriving (Eq, Show)
 
 -- | 'SpotDatafeedSubscription' constructor.
@@ -6709,7 +6709,7 @@ data SpotDatafeedSubscription = SpotDatafeedSubscription
 --
 -- * 'sdsPrefix' @::@ 'Maybe' 'Text'
 --
--- * 'sdsState' @::@ 'Maybe' 'Text'
+-- * 'sdsState' @::@ 'Maybe' 'DatafeedSubscriptionState'
 --
 spotDatafeedSubscription :: SpotDatafeedSubscription
 spotDatafeedSubscription = SpotDatafeedSubscription
@@ -6737,7 +6737,7 @@ sdsPrefix :: Lens' SpotDatafeedSubscription (Maybe Text)
 sdsPrefix = lens _sdsPrefix (\s a -> s { _sdsPrefix = a })
 
 -- | The state of the Spot Instance datafeed subscription.
-sdsState :: Lens' SpotDatafeedSubscription (Maybe Text)
+sdsState :: Lens' SpotDatafeedSubscription (Maybe DatafeedSubscriptionState)
 sdsState = lens _sdsState (\s a -> s { _sdsState = a })
 
 instance FromXML SpotDatafeedSubscription where
@@ -7080,9 +7080,9 @@ data VolumeAttachment = VolumeAttachment
     , _vaDeleteOnTermination :: Maybe Bool
     , _vaDevice              :: Maybe Text
     , _vaInstanceId          :: Maybe Text
-    , _vaState               :: Maybe Text
+    , _vaState               :: Maybe VolumeAttachmentState
     , _vaVolumeId            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'VolumeAttachment' constructor.
 --
@@ -7096,7 +7096,7 @@ data VolumeAttachment = VolumeAttachment
 --
 -- * 'vaInstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'vaState' @::@ 'Maybe' 'Text'
+-- * 'vaState' @::@ 'Maybe' 'VolumeAttachmentState'
 --
 -- * 'vaVolumeId' @::@ 'Maybe' 'Text'
 --
@@ -7129,7 +7129,7 @@ vaInstanceId :: Lens' VolumeAttachment (Maybe Text)
 vaInstanceId = lens _vaInstanceId (\s a -> s { _vaInstanceId = a })
 
 -- | The attachment state of the volume.
-vaState :: Lens' VolumeAttachment (Maybe Text)
+vaState :: Lens' VolumeAttachment (Maybe VolumeAttachmentState)
 vaState = lens _vaState (\s a -> s { _vaState = a })
 
 -- | The ID of the volume.
@@ -7240,9 +7240,9 @@ instance ToQuery CustomerGateway where
 data EbsInstanceBlockDevice = EbsInstanceBlockDevice
     { _eibdAttachTime          :: Maybe RFC822
     , _eibdDeleteOnTermination :: Maybe Bool
-    , _eibdStatus              :: Maybe Text
+    , _eibdStatus              :: Maybe AttachmentStatus
     , _eibdVolumeId            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'EbsInstanceBlockDevice' constructor.
 --
@@ -7252,7 +7252,7 @@ data EbsInstanceBlockDevice = EbsInstanceBlockDevice
 --
 -- * 'eibdDeleteOnTermination' @::@ 'Maybe' 'Bool'
 --
--- * 'eibdStatus' @::@ 'Maybe' 'Text'
+-- * 'eibdStatus' @::@ 'Maybe' 'AttachmentStatus'
 --
 -- * 'eibdVolumeId' @::@ 'Maybe' 'Text'
 --
@@ -7274,7 +7274,7 @@ eibdDeleteOnTermination =
     lens _eibdDeleteOnTermination (\s a -> s { _eibdDeleteOnTermination = a })
 
 -- | The attachment state.
-eibdStatus :: Lens' EbsInstanceBlockDevice (Maybe Text)
+eibdStatus :: Lens' EbsInstanceBlockDevice (Maybe AttachmentStatus)
 eibdStatus = lens _eibdStatus (\s a -> s { _eibdStatus = a })
 
 -- | The ID of the Amazon EBS volume.
@@ -7320,10 +7320,10 @@ instance ToQuery ShutdownBehavior where
 
 data DiskImageDescription = DiskImageDescription
     { _did1Checksum          :: Maybe Text
-    , _did1Format            :: Text
+    , _did1Format            :: DiskImageFormat
     , _did1ImportManifestUrl :: Text
     , _did1Size              :: Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DiskImageDescription' constructor.
 --
@@ -7331,13 +7331,13 @@ data DiskImageDescription = DiskImageDescription
 --
 -- * 'did1Checksum' @::@ 'Maybe' 'Text'
 --
--- * 'did1Format' @::@ 'Text'
+-- * 'did1Format' @::@ 'DiskImageFormat'
 --
 -- * 'did1ImportManifestUrl' @::@ 'Text'
 --
 -- * 'did1Size' @::@ 'Integer'
 --
-diskImageDescription :: Text -- ^ 'did1Format'
+diskImageDescription :: DiskImageFormat -- ^ 'did1Format'
                      -> Integer -- ^ 'did1Size'
                      -> Text -- ^ 'did1ImportManifestUrl'
                      -> DiskImageDescription
@@ -7353,7 +7353,7 @@ did1Checksum :: Lens' DiskImageDescription (Maybe Text)
 did1Checksum = lens _did1Checksum (\s a -> s { _did1Checksum = a })
 
 -- | The disk image format.
-did1Format :: Lens' DiskImageDescription Text
+did1Format :: Lens' DiskImageDescription DiskImageFormat
 did1Format = lens _did1Format (\s a -> s { _did1Format = a })
 
 -- | A presigned URL for the import manifest stored in Amazon S3. For
@@ -7424,14 +7424,14 @@ instance ToQuery DiskImageVolumeDescription where
         ]
 
 newtype Monitoring = Monitoring
-    { _mState :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _mState :: Maybe MonitoringState
+    } deriving (Eq, Show)
 
 -- | 'Monitoring' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mState' @::@ 'Maybe' 'Text'
+-- * 'mState' @::@ 'Maybe' 'MonitoringState'
 --
 monitoring :: Monitoring
 monitoring = Monitoring
@@ -7439,7 +7439,7 @@ monitoring = Monitoring
     }
 
 -- | Indicates whether monitoring is enabled for the instance.
-mState :: Lens' Monitoring (Maybe Text)
+mState :: Lens' Monitoring (Maybe MonitoringState)
 mState = lens _mState (\s a -> s { _mState = a })
 
 instance FromXML Monitoring where
@@ -7520,15 +7520,15 @@ instance ToQuery AvailabilityZoneMessage where
         ]
 
 data VpcAttachment = VpcAttachment
-    { _va1State :: Maybe Text
+    { _va1State :: Maybe AttachmentStatus
     , _va1VpcId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'VpcAttachment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'va1State' @::@ 'Maybe' 'Text'
+-- * 'va1State' @::@ 'Maybe' 'AttachmentStatus'
 --
 -- * 'va1VpcId' @::@ 'Maybe' 'Text'
 --
@@ -7539,7 +7539,7 @@ vpcAttachment = VpcAttachment
     }
 
 -- | The current state of the attachment.
-va1State :: Lens' VpcAttachment (Maybe Text)
+va1State :: Lens' VpcAttachment (Maybe AttachmentStatus)
 va1State = lens _va1State (\s a -> s { _va1State = a })
 
 -- | The ID of the VPC.
@@ -7622,19 +7622,19 @@ instance ToQuery StatusType where
     toQuery = toQuery . toText
 
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification
-    { _etstsContainerFormat :: Maybe Text
-    , _etstsDiskImageFormat :: Maybe Text
+    { _etstsContainerFormat :: Maybe ContainerFormat
+    , _etstsDiskImageFormat :: Maybe DiskImageFormat
     , _etstsS3Bucket        :: Maybe Text
     , _etstsS3Prefix        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ExportToS3TaskSpecification' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'etstsContainerFormat' @::@ 'Maybe' 'Text'
+-- * 'etstsContainerFormat' @::@ 'Maybe' 'ContainerFormat'
 --
--- * 'etstsDiskImageFormat' @::@ 'Maybe' 'Text'
+-- * 'etstsDiskImageFormat' @::@ 'Maybe' 'DiskImageFormat'
 --
 -- * 'etstsS3Bucket' @::@ 'Maybe' 'Text'
 --
@@ -7648,11 +7648,11 @@ exportToS3TaskSpecification = ExportToS3TaskSpecification
     , _etstsS3Prefix        = Nothing
     }
 
-etstsContainerFormat :: Lens' ExportToS3TaskSpecification (Maybe Text)
+etstsContainerFormat :: Lens' ExportToS3TaskSpecification (Maybe ContainerFormat)
 etstsContainerFormat =
     lens _etstsContainerFormat (\s a -> s { _etstsContainerFormat = a })
 
-etstsDiskImageFormat :: Lens' ExportToS3TaskSpecification (Maybe Text)
+etstsDiskImageFormat :: Lens' ExportToS3TaskSpecification (Maybe DiskImageFormat)
 etstsDiskImageFormat =
     lens _etstsDiskImageFormat (\s a -> s { _etstsDiskImageFormat = a })
 
@@ -7734,8 +7734,8 @@ instance ToQuery ImageTypeValues where
 
 data InstanceExportDetails = InstanceExportDetails
     { _iedInstanceId        :: Maybe Text
-    , _iedTargetEnvironment :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _iedTargetEnvironment :: Maybe ExportEnvironment
+    } deriving (Eq, Show)
 
 -- | 'InstanceExportDetails' constructor.
 --
@@ -7743,7 +7743,7 @@ data InstanceExportDetails = InstanceExportDetails
 --
 -- * 'iedInstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'iedTargetEnvironment' @::@ 'Maybe' 'Text'
+-- * 'iedTargetEnvironment' @::@ 'Maybe' 'ExportEnvironment'
 --
 instanceExportDetails :: InstanceExportDetails
 instanceExportDetails = InstanceExportDetails
@@ -7756,7 +7756,7 @@ iedInstanceId :: Lens' InstanceExportDetails (Maybe Text)
 iedInstanceId = lens _iedInstanceId (\s a -> s { _iedInstanceId = a })
 
 -- | The target virtualization environment.
-iedTargetEnvironment :: Lens' InstanceExportDetails (Maybe Text)
+iedTargetEnvironment :: Lens' InstanceExportDetails (Maybe ExportEnvironment)
 iedTargetEnvironment =
     lens _iedTargetEnvironment (\s a -> s { _iedTargetEnvironment = a })
 
@@ -7796,7 +7796,7 @@ instance ToQuery SnapshotAttributeName where
 data AvailabilityZone = AvailabilityZone
     { _azMessages   :: List "item" AvailabilityZoneMessage
     , _azRegionName :: Maybe Text
-    , _azState      :: Maybe Text
+    , _azState      :: Maybe AvailabilityZoneState
     , _azZoneName   :: Maybe Text
     } deriving (Eq, Show)
 
@@ -7808,7 +7808,7 @@ data AvailabilityZone = AvailabilityZone
 --
 -- * 'azRegionName' @::@ 'Maybe' 'Text'
 --
--- * 'azState' @::@ 'Maybe' 'Text'
+-- * 'azState' @::@ 'Maybe' 'AvailabilityZoneState'
 --
 -- * 'azZoneName' @::@ 'Maybe' 'Text'
 --
@@ -7829,7 +7829,7 @@ azRegionName :: Lens' AvailabilityZone (Maybe Text)
 azRegionName = lens _azRegionName (\s a -> s { _azRegionName = a })
 
 -- | The state of the Availability Zone (available | impaired | unavailable).
-azState :: Lens' AvailabilityZone (Maybe Text)
+azState :: Lens' AvailabilityZone (Maybe AvailabilityZoneState)
 azState = lens _azState (\s a -> s { _azState = a })
 
 -- | The name of the Availability Zone.
@@ -7983,9 +7983,9 @@ instance ToQuery HypervisorType where
 
 data InstanceStatusDetails = InstanceStatusDetails
     { _isdImpairedSince :: Maybe RFC822
-    , _isdName          :: Maybe Text
-    , _isdStatus        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _isdName          :: Maybe StatusName
+    , _isdStatus        :: Maybe StatusType
+    } deriving (Eq, Show)
 
 -- | 'InstanceStatusDetails' constructor.
 --
@@ -7993,9 +7993,9 @@ data InstanceStatusDetails = InstanceStatusDetails
 --
 -- * 'isdImpairedSince' @::@ 'Maybe' 'UTCTime'
 --
--- * 'isdName' @::@ 'Maybe' 'Text'
+-- * 'isdName' @::@ 'Maybe' 'StatusName'
 --
--- * 'isdStatus' @::@ 'Maybe' 'Text'
+-- * 'isdStatus' @::@ 'Maybe' 'StatusType'
 --
 instanceStatusDetails :: InstanceStatusDetails
 instanceStatusDetails = InstanceStatusDetails
@@ -8010,11 +8010,11 @@ isdImpairedSince :: Lens' InstanceStatusDetails (Maybe UTCTime)
 isdImpairedSince = lens _isdImpairedSince (\s a -> s { _isdImpairedSince = a }) . mapping _Time
 
 -- | The type of instance status.
-isdName :: Lens' InstanceStatusDetails (Maybe Text)
+isdName :: Lens' InstanceStatusDetails (Maybe StatusName)
 isdName = lens _isdName (\s a -> s { _isdName = a })
 
 -- | The status.
-isdStatus :: Lens' InstanceStatusDetails (Maybe Text)
+isdStatus :: Lens' InstanceStatusDetails (Maybe StatusType)
 isdStatus = lens _isdStatus (\s a -> s { _isdStatus = a })
 
 instance FromXML InstanceStatusDetails where
@@ -8069,20 +8069,20 @@ instance ToQuery IamInstanceProfile where
         ]
 
 data InternetGatewayAttachment = InternetGatewayAttachment
-    { _igaState :: Text
+    { _igaState :: AttachmentStatus
     , _igaVpcId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'InternetGatewayAttachment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'igaState' @::@ 'Text'
+-- * 'igaState' @::@ 'AttachmentStatus'
 --
 -- * 'igaVpcId' @::@ 'Text'
 --
 internetGatewayAttachment :: Text -- ^ 'igaVpcId'
-                          -> Text -- ^ 'igaState'
+                          -> AttachmentStatus -- ^ 'igaState'
                           -> InternetGatewayAttachment
 internetGatewayAttachment p1 p2 = InternetGatewayAttachment
     { _igaVpcId = p1
@@ -8090,7 +8090,7 @@ internetGatewayAttachment p1 p2 = InternetGatewayAttachment
     }
 
 -- | The current state of the attachment.
-igaState :: Lens' InternetGatewayAttachment Text
+igaState :: Lens' InternetGatewayAttachment AttachmentStatus
 igaState = lens _igaState (\s a -> s { _igaState = a })
 
 -- | The ID of the VPC.
@@ -8544,7 +8544,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface
     , _iniPrivateIpAddress   :: Maybe Text
     , _iniPrivateIpAddresses :: List "item" InstancePrivateIpAddress
     , _iniSourceDestCheck    :: Maybe Bool
-    , _iniStatus             :: Maybe Text
+    , _iniStatus             :: Maybe NetworkInterfaceStatus
     , _iniSubnetId           :: Maybe Text
     , _iniVpcId              :: Maybe Text
     } deriving (Eq, Show)
@@ -8575,7 +8575,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface
 --
 -- * 'iniSourceDestCheck' @::@ 'Maybe' 'Bool'
 --
--- * 'iniStatus' @::@ 'Maybe' 'Text'
+-- * 'iniStatus' @::@ 'Maybe' 'NetworkInterfaceStatus'
 --
 -- * 'iniSubnetId' @::@ 'Maybe' 'Text'
 --
@@ -8652,7 +8652,7 @@ iniSourceDestCheck =
     lens _iniSourceDestCheck (\s a -> s { _iniSourceDestCheck = a })
 
 -- | The status of the network interface.
-iniStatus :: Lens' InstanceNetworkInterface (Maybe Text)
+iniStatus :: Lens' InstanceNetworkInterface (Maybe NetworkInterfaceStatus)
 iniStatus = lens _iniStatus (\s a -> s { _iniStatus = a })
 
 -- | The ID of the subnet.
@@ -8806,8 +8806,8 @@ instance ToQuery VpcPeeringConnectionVpcInfo where
 
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
     { _rilpAmount       :: Maybe Double
-    , _rilpCurrencyCode :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _rilpCurrencyCode :: Maybe CurrencyCodeValues
+    } deriving (Eq, Show)
 
 -- | 'ReservedInstanceLimitPrice' constructor.
 --
@@ -8815,7 +8815,7 @@ data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
 --
 -- * 'rilpAmount' @::@ 'Maybe' 'Double'
 --
--- * 'rilpCurrencyCode' @::@ 'Maybe' 'Text'
+-- * 'rilpCurrencyCode' @::@ 'Maybe' 'CurrencyCodeValues'
 --
 reservedInstanceLimitPrice :: ReservedInstanceLimitPrice
 reservedInstanceLimitPrice = ReservedInstanceLimitPrice
@@ -8830,7 +8830,7 @@ rilpAmount = lens _rilpAmount (\s a -> s { _rilpAmount = a })
 
 -- | The currency in which the limitPrice amount is specified. At this time,
 -- the only supported currency is USD.
-rilpCurrencyCode :: Lens' ReservedInstanceLimitPrice (Maybe Text)
+rilpCurrencyCode :: Lens' ReservedInstanceLimitPrice (Maybe CurrencyCodeValues)
 rilpCurrencyCode = lens _rilpCurrencyCode (\s a -> s { _rilpCurrencyCode = a })
 
 instance FromXML ReservedInstanceLimitPrice where
@@ -8847,9 +8847,9 @@ instance ToQuery ReservedInstanceLimitPrice where
 data Vpc = Vpc
     { _vpcCidrBlock       :: Maybe Text
     , _vpcDhcpOptionsId   :: Maybe Text
-    , _vpcInstanceTenancy :: Maybe Text
+    , _vpcInstanceTenancy :: Maybe Tenancy
     , _vpcIsDefault       :: Maybe Bool
-    , _vpcState           :: Maybe Text
+    , _vpcState           :: Maybe VpcState
     , _vpcTags            :: List "item" Tag
     , _vpcVpcId           :: Maybe Text
     } deriving (Eq, Show)
@@ -8862,11 +8862,11 @@ data Vpc = Vpc
 --
 -- * 'vpcDhcpOptionsId' @::@ 'Maybe' 'Text'
 --
--- * 'vpcInstanceTenancy' @::@ 'Maybe' 'Text'
+-- * 'vpcInstanceTenancy' @::@ 'Maybe' 'Tenancy'
 --
 -- * 'vpcIsDefault' @::@ 'Maybe' 'Bool'
 --
--- * 'vpcState' @::@ 'Maybe' 'Text'
+-- * 'vpcState' @::@ 'Maybe' 'VpcState'
 --
 -- * 'vpcTags' @::@ ['Tag']
 --
@@ -8893,7 +8893,7 @@ vpcDhcpOptionsId :: Lens' Vpc (Maybe Text)
 vpcDhcpOptionsId = lens _vpcDhcpOptionsId (\s a -> s { _vpcDhcpOptionsId = a })
 
 -- | The allowed tenancy of instances launched into the VPC.
-vpcInstanceTenancy :: Lens' Vpc (Maybe Text)
+vpcInstanceTenancy :: Lens' Vpc (Maybe Tenancy)
 vpcInstanceTenancy =
     lens _vpcInstanceTenancy (\s a -> s { _vpcInstanceTenancy = a })
 
@@ -8902,7 +8902,7 @@ vpcIsDefault :: Lens' Vpc (Maybe Bool)
 vpcIsDefault = lens _vpcIsDefault (\s a -> s { _vpcIsDefault = a })
 
 -- | The current state of the VPC.
-vpcState :: Lens' Vpc (Maybe Text)
+vpcState :: Lens' Vpc (Maybe VpcState)
 vpcState = lens _vpcState (\s a -> s { _vpcState = a })
 
 -- | Any tags assigned to the VPC.
@@ -9088,8 +9088,8 @@ data EbsBlockDevice = EbsBlockDevice
     , _ebdIops                :: Maybe Int
     , _ebdSnapshotId          :: Maybe Text
     , _ebdVolumeSize          :: Maybe Int
-    , _ebdVolumeType          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _ebdVolumeType          :: Maybe VolumeType
+    } deriving (Eq, Show)
 
 -- | 'EbsBlockDevice' constructor.
 --
@@ -9105,7 +9105,7 @@ data EbsBlockDevice = EbsBlockDevice
 --
 -- * 'ebdVolumeSize' @::@ 'Maybe' 'Int'
 --
--- * 'ebdVolumeType' @::@ 'Maybe' 'Text'
+-- * 'ebdVolumeType' @::@ 'Maybe' 'VolumeType'
 --
 ebsBlockDevice :: EbsBlockDevice
 ebsBlockDevice = EbsBlockDevice
@@ -9159,7 +9159,7 @@ ebdVolumeSize = lens _ebdVolumeSize (\s a -> s { _ebdVolumeSize = a })
 -- | The volume type. gp2 for General Purpose (SSD) volumes, io1 for
 -- Provisioned IOPS (SSD) volumes, and standard for Magnetic volumes.
 -- Default: standard.
-ebdVolumeType :: Lens' EbsBlockDevice (Maybe Text)
+ebdVolumeType :: Lens' EbsBlockDevice (Maybe VolumeType)
 ebdVolumeType = lens _ebdVolumeType (\s a -> s { _ebdVolumeType = a })
 
 instance FromXML EbsBlockDevice where
@@ -9223,10 +9223,10 @@ instance ToQuery AccountAttribute where
 
 data PriceSchedule = PriceSchedule
     { _psActive       :: Maybe Bool
-    , _psCurrencyCode :: Maybe Text
+    , _psCurrencyCode :: Maybe CurrencyCodeValues
     , _psPrice        :: Maybe Double
     , _psTerm         :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'PriceSchedule' constructor.
 --
@@ -9234,7 +9234,7 @@ data PriceSchedule = PriceSchedule
 --
 -- * 'psActive' @::@ 'Maybe' 'Bool'
 --
--- * 'psCurrencyCode' @::@ 'Maybe' 'Text'
+-- * 'psCurrencyCode' @::@ 'Maybe' 'CurrencyCodeValues'
 --
 -- * 'psPrice' @::@ 'Maybe' 'Double'
 --
@@ -9262,7 +9262,7 @@ psActive = lens _psActive (\s a -> s { _psActive = a })
 
 -- | The currency for transacting the Reserved Instance resale. At this time,
 -- the only supported currency is USD.
-psCurrencyCode :: Lens' PriceSchedule (Maybe Text)
+psCurrencyCode :: Lens' PriceSchedule (Maybe CurrencyCodeValues)
 psCurrencyCode = lens _psCurrencyCode (\s a -> s { _psCurrencyCode = a })
 
 -- | The fixed price for the term.
@@ -9426,9 +9426,9 @@ instance ToQuery OfferingTypeValues where
 
 data VpnGateway = VpnGateway
     { _vgAvailabilityZone :: Maybe Text
-    , _vgState            :: Maybe Text
+    , _vgState            :: Maybe VpnState
     , _vgTags             :: List "item" Tag
-    , _vgType             :: Maybe Text
+    , _vgType             :: Maybe GatewayType
     , _vgVpcAttachments   :: List "item" VpcAttachment
     , _vgVpnGatewayId     :: Maybe Text
     } deriving (Eq, Show)
@@ -9439,11 +9439,11 @@ data VpnGateway = VpnGateway
 --
 -- * 'vgAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'vgState' @::@ 'Maybe' 'Text'
+-- * 'vgState' @::@ 'Maybe' 'VpnState'
 --
 -- * 'vgTags' @::@ ['Tag']
 --
--- * 'vgType' @::@ 'Maybe' 'Text'
+-- * 'vgType' @::@ 'Maybe' 'GatewayType'
 --
 -- * 'vgVpcAttachments' @::@ ['VpcAttachment']
 --
@@ -9465,7 +9465,7 @@ vgAvailabilityZone =
     lens _vgAvailabilityZone (\s a -> s { _vgAvailabilityZone = a })
 
 -- | The current state of the virtual private gateway.
-vgState :: Lens' VpnGateway (Maybe Text)
+vgState :: Lens' VpnGateway (Maybe VpnState)
 vgState = lens _vgState (\s a -> s { _vgState = a })
 
 -- | Any tags assigned to the virtual private gateway.
@@ -9473,7 +9473,7 @@ vgTags :: Lens' VpnGateway [Tag]
 vgTags = lens _vgTags (\s a -> s { _vgTags = a }) . _List
 
 -- | The type of VPN connection the virtual private gateway supports.
-vgType :: Lens' VpnGateway (Maybe Text)
+vgType :: Lens' VpnGateway (Maybe GatewayType)
 vgType = lens _vgType (\s a -> s { _vgType = a })
 
 -- | Any VPCs attached to the virtual private gateway.
@@ -9738,8 +9738,8 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
     , _iniaAttachmentId        :: Maybe Text
     , _iniaDeleteOnTermination :: Maybe Bool
     , _iniaDeviceIndex         :: Maybe Int
-    , _iniaStatus              :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _iniaStatus              :: Maybe AttachmentStatus
+    } deriving (Eq, Show)
 
 -- | 'InstanceNetworkInterfaceAttachment' constructor.
 --
@@ -9753,7 +9753,7 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
 --
 -- * 'iniaDeviceIndex' @::@ 'Maybe' 'Int'
 --
--- * 'iniaStatus' @::@ 'Maybe' 'Text'
+-- * 'iniaStatus' @::@ 'Maybe' 'AttachmentStatus'
 --
 instanceNetworkInterfaceAttachment :: InstanceNetworkInterfaceAttachment
 instanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
@@ -9784,7 +9784,7 @@ iniaDeviceIndex :: Lens' InstanceNetworkInterfaceAttachment (Maybe Int)
 iniaDeviceIndex = lens _iniaDeviceIndex (\s a -> s { _iniaDeviceIndex = a })
 
 -- | The attachment state.
-iniaStatus :: Lens' InstanceNetworkInterfaceAttachment (Maybe Text)
+iniaStatus :: Lens' InstanceNetworkInterfaceAttachment (Maybe AttachmentStatus)
 iniaStatus = lens _iniaStatus (\s a -> s { _iniaStatus = a })
 
 instance FromXML InstanceNetworkInterfaceAttachment where
@@ -9833,8 +9833,8 @@ instance ToQuery AttributeBooleanValue where
 
 data RecurringCharge = RecurringCharge
     { _rcAmount    :: Maybe Double
-    , _rcFrequency :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _rcFrequency :: Maybe RecurringChargeFrequency
+    } deriving (Eq, Show)
 
 -- | 'RecurringCharge' constructor.
 --
@@ -9842,7 +9842,7 @@ data RecurringCharge = RecurringCharge
 --
 -- * 'rcAmount' @::@ 'Maybe' 'Double'
 --
--- * 'rcFrequency' @::@ 'Maybe' 'Text'
+-- * 'rcFrequency' @::@ 'Maybe' 'RecurringChargeFrequency'
 --
 recurringCharge :: RecurringCharge
 recurringCharge = RecurringCharge
@@ -9855,7 +9855,7 @@ rcAmount :: Lens' RecurringCharge (Maybe Double)
 rcAmount = lens _rcAmount (\s a -> s { _rcAmount = a })
 
 -- | The frequency of the recurring charge.
-rcFrequency :: Lens' RecurringCharge (Maybe Text)
+rcFrequency :: Lens' RecurringCharge (Maybe RecurringChargeFrequency)
 rcFrequency = lens _rcFrequency (\s a -> s { _rcFrequency = a })
 
 instance FromXML RecurringCharge where
@@ -10122,7 +10122,7 @@ instance ToQuery VolumeAttributeName where
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails
     { _iitdDescription :: Maybe Text
     , _iitdInstanceId  :: Maybe Text
-    , _iitdPlatform    :: Maybe Text
+    , _iitdPlatform    :: Maybe PlatformValues
     , _iitdVolumes     :: List "item" ImportInstanceVolumeDetailItem
     } deriving (Eq, Show)
 
@@ -10134,7 +10134,7 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails
 --
 -- * 'iitdInstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'iitdPlatform' @::@ 'Maybe' 'Text'
+-- * 'iitdPlatform' @::@ 'Maybe' 'PlatformValues'
 --
 -- * 'iitdVolumes' @::@ ['ImportInstanceVolumeDetailItem']
 --
@@ -10153,7 +10153,7 @@ iitdInstanceId :: Lens' ImportInstanceTaskDetails (Maybe Text)
 iitdInstanceId = lens _iitdInstanceId (\s a -> s { _iitdInstanceId = a })
 
 -- | The instance operating system.
-iitdPlatform :: Lens' ImportInstanceTaskDetails (Maybe Text)
+iitdPlatform :: Lens' ImportInstanceTaskDetails (Maybe PlatformValues)
 iitdPlatform = lens _iitdPlatform (\s a -> s { _iitdPlatform = a })
 
 iitdVolumes :: Lens' ImportInstanceTaskDetails [ImportInstanceVolumeDetailItem]
@@ -10176,9 +10176,9 @@ instance ToQuery ImportInstanceTaskDetails where
 
 data PlacementGroup = PlacementGroup
     { _pgGroupName :: Maybe Text
-    , _pgState     :: Maybe Text
-    , _pgStrategy  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _pgState     :: Maybe PlacementGroupState
+    , _pgStrategy  :: Maybe PlacementStrategy
+    } deriving (Eq, Show)
 
 -- | 'PlacementGroup' constructor.
 --
@@ -10186,9 +10186,9 @@ data PlacementGroup = PlacementGroup
 --
 -- * 'pgGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'pgState' @::@ 'Maybe' 'Text'
+-- * 'pgState' @::@ 'Maybe' 'PlacementGroupState'
 --
--- * 'pgStrategy' @::@ 'Maybe' 'Text'
+-- * 'pgStrategy' @::@ 'Maybe' 'PlacementStrategy'
 --
 placementGroup :: PlacementGroup
 placementGroup = PlacementGroup
@@ -10202,11 +10202,11 @@ pgGroupName :: Lens' PlacementGroup (Maybe Text)
 pgGroupName = lens _pgGroupName (\s a -> s { _pgGroupName = a })
 
 -- | The state of the placement group.
-pgState :: Lens' PlacementGroup (Maybe Text)
+pgState :: Lens' PlacementGroup (Maybe PlacementGroupState)
 pgState = lens _pgState (\s a -> s { _pgState = a })
 
 -- | The placement strategy.
-pgStrategy :: Lens' PlacementGroup (Maybe Text)
+pgStrategy :: Lens' PlacementGroup (Maybe PlacementStrategy)
 pgStrategy = lens _pgStrategy (\s a -> s { _pgStrategy = a })
 
 instance FromXML PlacementGroup where
@@ -10224,8 +10224,8 @@ instance ToQuery PlacementGroup where
 
 data ProductCode = ProductCode
     { _pcProductCodeId   :: Maybe Text
-    , _pcProductCodeType :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _pcProductCodeType :: Maybe ProductCodeValues
+    } deriving (Eq, Show)
 
 -- | 'ProductCode' constructor.
 --
@@ -10233,7 +10233,7 @@ data ProductCode = ProductCode
 --
 -- * 'pcProductCodeId' @::@ 'Maybe' 'Text'
 --
--- * 'pcProductCodeType' @::@ 'Maybe' 'Text'
+-- * 'pcProductCodeType' @::@ 'Maybe' 'ProductCodeValues'
 --
 productCode :: ProductCode
 productCode = ProductCode
@@ -10246,7 +10246,7 @@ pcProductCodeId :: Lens' ProductCode (Maybe Text)
 pcProductCodeId = lens _pcProductCodeId (\s a -> s { _pcProductCodeId = a })
 
 -- | The type of product code.
-pcProductCodeType :: Lens' ProductCode (Maybe Text)
+pcProductCodeType :: Lens' ProductCode (Maybe ProductCodeValues)
 pcProductCodeType =
     lens _pcProductCodeType (\s a -> s { _pcProductCodeType = a })
 
@@ -10403,15 +10403,15 @@ instance ToQuery RIProductDescription where
 
 data ReservedInstancesOffering = ReservedInstancesOffering
     { _rioAvailabilityZone            :: Maybe Text
-    , _rioCurrencyCode                :: Maybe Text
+    , _rioCurrencyCode                :: Maybe CurrencyCodeValues
     , _rioDuration                    :: Maybe Integer
     , _rioFixedPrice                  :: Maybe Double
-    , _rioInstanceTenancy             :: Maybe Text
-    , _rioInstanceType                :: Maybe Text
+    , _rioInstanceTenancy             :: Maybe Tenancy
+    , _rioInstanceType                :: Maybe InstanceType
     , _rioMarketplace                 :: Maybe Bool
-    , _rioOfferingType                :: Maybe Text
+    , _rioOfferingType                :: Maybe OfferingTypeValues
     , _rioPricingDetails              :: List "item" PricingDetail
-    , _rioProductDescription          :: Maybe Text
+    , _rioProductDescription          :: Maybe RIProductDescription
     , _rioRecurringCharges            :: List "item" RecurringCharge
     , _rioReservedInstancesOfferingId :: Maybe Text
     , _rioUsagePrice                  :: Maybe Double
@@ -10423,23 +10423,23 @@ data ReservedInstancesOffering = ReservedInstancesOffering
 --
 -- * 'rioAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'rioCurrencyCode' @::@ 'Maybe' 'Text'
+-- * 'rioCurrencyCode' @::@ 'Maybe' 'CurrencyCodeValues'
 --
 -- * 'rioDuration' @::@ 'Maybe' 'Integer'
 --
 -- * 'rioFixedPrice' @::@ 'Maybe' 'Double'
 --
--- * 'rioInstanceTenancy' @::@ 'Maybe' 'Text'
+-- * 'rioInstanceTenancy' @::@ 'Maybe' 'Tenancy'
 --
--- * 'rioInstanceType' @::@ 'Maybe' 'Text'
+-- * 'rioInstanceType' @::@ 'Maybe' 'InstanceType'
 --
 -- * 'rioMarketplace' @::@ 'Maybe' 'Bool'
 --
--- * 'rioOfferingType' @::@ 'Maybe' 'Text'
+-- * 'rioOfferingType' @::@ 'Maybe' 'OfferingTypeValues'
 --
 -- * 'rioPricingDetails' @::@ ['PricingDetail']
 --
--- * 'rioProductDescription' @::@ 'Maybe' 'Text'
+-- * 'rioProductDescription' @::@ 'Maybe' 'RIProductDescription'
 --
 -- * 'rioRecurringCharges' @::@ ['RecurringCharge']
 --
@@ -10472,7 +10472,7 @@ rioAvailabilityZone =
 -- | The currency of the Reserved Instance offering you are purchasing. It's
 -- specified using ISO 4217 standard currency codes. At this time, the only
 -- supported currency is USD.
-rioCurrencyCode :: Lens' ReservedInstancesOffering (Maybe Text)
+rioCurrencyCode :: Lens' ReservedInstancesOffering (Maybe CurrencyCodeValues)
 rioCurrencyCode = lens _rioCurrencyCode (\s a -> s { _rioCurrencyCode = a })
 
 -- | The duration of the Reserved Instance, in seconds.
@@ -10484,12 +10484,12 @@ rioFixedPrice :: Lens' ReservedInstancesOffering (Maybe Double)
 rioFixedPrice = lens _rioFixedPrice (\s a -> s { _rioFixedPrice = a })
 
 -- | The tenancy of the reserved instance.
-rioInstanceTenancy :: Lens' ReservedInstancesOffering (Maybe Text)
+rioInstanceTenancy :: Lens' ReservedInstancesOffering (Maybe Tenancy)
 rioInstanceTenancy =
     lens _rioInstanceTenancy (\s a -> s { _rioInstanceTenancy = a })
 
 -- | The instance type on which the Reserved Instance can be used.
-rioInstanceType :: Lens' ReservedInstancesOffering (Maybe Text)
+rioInstanceType :: Lens' ReservedInstancesOffering (Maybe InstanceType)
 rioInstanceType = lens _rioInstanceType (\s a -> s { _rioInstanceType = a })
 
 -- | Indicates whether the offering is available through the Reserved Instance
@@ -10499,7 +10499,7 @@ rioMarketplace :: Lens' ReservedInstancesOffering (Maybe Bool)
 rioMarketplace = lens _rioMarketplace (\s a -> s { _rioMarketplace = a })
 
 -- | The Reserved Instance offering type.
-rioOfferingType :: Lens' ReservedInstancesOffering (Maybe Text)
+rioOfferingType :: Lens' ReservedInstancesOffering (Maybe OfferingTypeValues)
 rioOfferingType = lens _rioOfferingType (\s a -> s { _rioOfferingType = a })
 
 -- | The pricing details of the Reserved Instance offering.
@@ -10509,7 +10509,7 @@ rioPricingDetails =
         . _List
 
 -- | The Reserved Instance description.
-rioProductDescription :: Lens' ReservedInstancesOffering (Maybe Text)
+rioProductDescription :: Lens' ReservedInstancesOffering (Maybe RIProductDescription)
 rioProductDescription =
     lens _rioProductDescription (\s a -> s { _rioProductDescription = a })
 
@@ -10564,19 +10564,19 @@ instance ToQuery ReservedInstancesOffering where
 
 data ReservedInstances = ReservedInstances
     { _ri1AvailabilityZone    :: Maybe Text
-    , _ri1CurrencyCode        :: Maybe Text
+    , _ri1CurrencyCode        :: Maybe CurrencyCodeValues
     , _ri1Duration            :: Maybe Integer
     , _ri1End                 :: Maybe RFC822
     , _ri1FixedPrice          :: Maybe Double
     , _ri1InstanceCount       :: Maybe Int
-    , _ri1InstanceTenancy     :: Maybe Text
-    , _ri1InstanceType        :: Maybe Text
-    , _ri1OfferingType        :: Maybe Text
-    , _ri1ProductDescription  :: Maybe Text
+    , _ri1InstanceTenancy     :: Maybe Tenancy
+    , _ri1InstanceType        :: Maybe InstanceType
+    , _ri1OfferingType        :: Maybe OfferingTypeValues
+    , _ri1ProductDescription  :: Maybe RIProductDescription
     , _ri1RecurringCharges    :: List "item" RecurringCharge
     , _ri1ReservedInstancesId :: Maybe Text
     , _ri1Start               :: Maybe RFC822
-    , _ri1State               :: Maybe Text
+    , _ri1State               :: Maybe ReservedInstanceState
     , _ri1Tags                :: List "item" Tag
     , _ri1UsagePrice          :: Maybe Double
     } deriving (Eq, Show)
@@ -10587,7 +10587,7 @@ data ReservedInstances = ReservedInstances
 --
 -- * 'ri1AvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'ri1CurrencyCode' @::@ 'Maybe' 'Text'
+-- * 'ri1CurrencyCode' @::@ 'Maybe' 'CurrencyCodeValues'
 --
 -- * 'ri1Duration' @::@ 'Maybe' 'Integer'
 --
@@ -10597,13 +10597,13 @@ data ReservedInstances = ReservedInstances
 --
 -- * 'ri1InstanceCount' @::@ 'Maybe' 'Int'
 --
--- * 'ri1InstanceTenancy' @::@ 'Maybe' 'Text'
+-- * 'ri1InstanceTenancy' @::@ 'Maybe' 'Tenancy'
 --
--- * 'ri1InstanceType' @::@ 'Maybe' 'Text'
+-- * 'ri1InstanceType' @::@ 'Maybe' 'InstanceType'
 --
--- * 'ri1OfferingType' @::@ 'Maybe' 'Text'
+-- * 'ri1OfferingType' @::@ 'Maybe' 'OfferingTypeValues'
 --
--- * 'ri1ProductDescription' @::@ 'Maybe' 'Text'
+-- * 'ri1ProductDescription' @::@ 'Maybe' 'RIProductDescription'
 --
 -- * 'ri1RecurringCharges' @::@ ['RecurringCharge']
 --
@@ -10611,7 +10611,7 @@ data ReservedInstances = ReservedInstances
 --
 -- * 'ri1Start' @::@ 'Maybe' 'UTCTime'
 --
--- * 'ri1State' @::@ 'Maybe' 'Text'
+-- * 'ri1State' @::@ 'Maybe' 'ReservedInstanceState'
 --
 -- * 'ri1Tags' @::@ ['Tag']
 --
@@ -10645,7 +10645,7 @@ ri1AvailabilityZone =
 -- | The currency of the Reserved Instance. It's specified using ISO 4217
 -- standard currency codes. At this time, the only supported currency is
 -- USD.
-ri1CurrencyCode :: Lens' ReservedInstances (Maybe Text)
+ri1CurrencyCode :: Lens' ReservedInstances (Maybe CurrencyCodeValues)
 ri1CurrencyCode = lens _ri1CurrencyCode (\s a -> s { _ri1CurrencyCode = a })
 
 -- | The duration of the Reserved Instance, in seconds.
@@ -10665,20 +10665,20 @@ ri1InstanceCount :: Lens' ReservedInstances (Maybe Int)
 ri1InstanceCount = lens _ri1InstanceCount (\s a -> s { _ri1InstanceCount = a })
 
 -- | The tenancy of the reserved instance.
-ri1InstanceTenancy :: Lens' ReservedInstances (Maybe Text)
+ri1InstanceTenancy :: Lens' ReservedInstances (Maybe Tenancy)
 ri1InstanceTenancy =
     lens _ri1InstanceTenancy (\s a -> s { _ri1InstanceTenancy = a })
 
 -- | The instance type on which the Reserved Instance can be used.
-ri1InstanceType :: Lens' ReservedInstances (Maybe Text)
+ri1InstanceType :: Lens' ReservedInstances (Maybe InstanceType)
 ri1InstanceType = lens _ri1InstanceType (\s a -> s { _ri1InstanceType = a })
 
 -- | The Reserved Instance offering type.
-ri1OfferingType :: Lens' ReservedInstances (Maybe Text)
+ri1OfferingType :: Lens' ReservedInstances (Maybe OfferingTypeValues)
 ri1OfferingType = lens _ri1OfferingType (\s a -> s { _ri1OfferingType = a })
 
 -- | The Reserved Instance description.
-ri1ProductDescription :: Lens' ReservedInstances (Maybe Text)
+ri1ProductDescription :: Lens' ReservedInstances (Maybe RIProductDescription)
 ri1ProductDescription =
     lens _ri1ProductDescription (\s a -> s { _ri1ProductDescription = a })
 
@@ -10698,7 +10698,7 @@ ri1Start :: Lens' ReservedInstances (Maybe UTCTime)
 ri1Start = lens _ri1Start (\s a -> s { _ri1Start = a }) . mapping _Time
 
 -- | The state of the Reserved Instance purchase.
-ri1State :: Lens' ReservedInstances (Maybe Text)
+ri1State :: Lens' ReservedInstances (Maybe ReservedInstanceState)
 ri1State = lens _ri1State (\s a -> s { _ri1State = a })
 
 -- | Any tags assigned to the resource.
@@ -10825,9 +10825,9 @@ data VpnConnection = VpnConnection
     , _vcCustomerGatewayId            :: Maybe Text
     , _vcOptions                      :: Maybe VpnConnectionOptions
     , _vcRoutes                       :: List "item" VpnStaticRoute
-    , _vcState                        :: Maybe Text
+    , _vcState                        :: Maybe VpnState
     , _vcTags                         :: List "item" Tag
-    , _vcType                         :: Maybe Text
+    , _vcType                         :: Maybe GatewayType
     , _vcVgwTelemetry                 :: List "item" VgwTelemetry
     , _vcVpnConnectionId              :: Maybe Text
     , _vcVpnGatewayId                 :: Maybe Text
@@ -10845,11 +10845,11 @@ data VpnConnection = VpnConnection
 --
 -- * 'vcRoutes' @::@ ['VpnStaticRoute']
 --
--- * 'vcState' @::@ 'Maybe' 'Text'
+-- * 'vcState' @::@ 'Maybe' 'VpnState'
 --
 -- * 'vcTags' @::@ ['Tag']
 --
--- * 'vcType' @::@ 'Maybe' 'Text'
+-- * 'vcType' @::@ 'Maybe' 'GatewayType'
 --
 -- * 'vcVgwTelemetry' @::@ ['VgwTelemetry']
 --
@@ -10895,7 +10895,7 @@ vcRoutes :: Lens' VpnConnection [VpnStaticRoute]
 vcRoutes = lens _vcRoutes (\s a -> s { _vcRoutes = a }) . _List
 
 -- | The current state of the VPN connection.
-vcState :: Lens' VpnConnection (Maybe Text)
+vcState :: Lens' VpnConnection (Maybe VpnState)
 vcState = lens _vcState (\s a -> s { _vcState = a })
 
 -- | Any tags assigned to the VPN connection.
@@ -10903,7 +10903,7 @@ vcTags :: Lens' VpnConnection [Tag]
 vcTags = lens _vcTags (\s a -> s { _vcTags = a }) . _List
 
 -- | The type of VPN connection.
-vcType :: Lens' VpnConnection (Maybe Text)
+vcType :: Lens' VpnConnection (Maybe GatewayType)
 vcType = lens _vcType (\s a -> s { _vcType = a })
 
 -- | Information about the VPN tunnel.
@@ -10949,8 +10949,8 @@ instance ToQuery VpnConnection where
 
 data InstanceState = InstanceState
     { _isCode :: Int
-    , _isName :: Text
-    } deriving (Eq, Ord, Show)
+    , _isName :: InstanceStateName
+    } deriving (Eq, Show)
 
 -- | 'InstanceState' constructor.
 --
@@ -10958,10 +10958,10 @@ data InstanceState = InstanceState
 --
 -- * 'isCode' @::@ 'Int'
 --
--- * 'isName' @::@ 'Text'
+-- * 'isName' @::@ 'InstanceStateName'
 --
 instanceState :: Int -- ^ 'isCode'
-              -> Text -- ^ 'isName'
+              -> InstanceStateName -- ^ 'isName'
               -> InstanceState
 instanceState p1 p2 = InstanceState
     { _isCode = p1
@@ -10975,7 +10975,7 @@ isCode :: Lens' InstanceState Int
 isCode = lens _isCode (\s a -> s { _isCode = a })
 
 -- | The current state of the instance.
-isName :: Lens' InstanceState Text
+isName :: Lens' InstanceState InstanceStateName
 isName = lens _isName (\s a -> s { _isName = a })
 
 instance FromXML InstanceState where
@@ -10992,8 +10992,8 @@ instance ToQuery InstanceState where
 data Placement = Placement
     { _pAvailabilityZone :: Maybe Text
     , _pGroupName        :: Maybe Text
-    , _pTenancy          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _pTenancy          :: Maybe Tenancy
+    } deriving (Eq, Show)
 
 -- | 'Placement' constructor.
 --
@@ -11003,7 +11003,7 @@ data Placement = Placement
 --
 -- * 'pGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'pTenancy' @::@ 'Maybe' 'Text'
+-- * 'pTenancy' @::@ 'Maybe' 'Tenancy'
 --
 placement :: Placement
 placement = Placement
@@ -11024,7 +11024,7 @@ pGroupName = lens _pGroupName (\s a -> s { _pGroupName = a })
 
 -- | The tenancy of the instance (if the instance is running in a VPC). An
 -- instance with a tenancy of dedicated runs on single-tenant hardware.
-pTenancy :: Lens' Placement (Maybe Text)
+pTenancy :: Lens' Placement (Maybe Tenancy)
 pTenancy = lens _pTenancy (\s a -> s { _pTenancy = a })
 
 instance FromXML Placement where
@@ -11256,9 +11256,9 @@ data VgwTelemetry = VgwTelemetry
     { _vtAcceptedRouteCount :: Maybe Int
     , _vtLastStatusChange   :: Maybe RFC822
     , _vtOutsideIpAddress   :: Maybe Text
-    , _vtStatus             :: Maybe Text
+    , _vtStatus             :: Maybe TelemetryStatus
     , _vtStatusMessage      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'VgwTelemetry' constructor.
 --
@@ -11270,7 +11270,7 @@ data VgwTelemetry = VgwTelemetry
 --
 -- * 'vtOutsideIpAddress' @::@ 'Maybe' 'Text'
 --
--- * 'vtStatus' @::@ 'Maybe' 'Text'
+-- * 'vtStatus' @::@ 'Maybe' 'TelemetryStatus'
 --
 -- * 'vtStatusMessage' @::@ 'Maybe' 'Text'
 --
@@ -11301,7 +11301,7 @@ vtOutsideIpAddress =
     lens _vtOutsideIpAddress (\s a -> s { _vtOutsideIpAddress = a })
 
 -- | The status of the VPN tunnel.
-vtStatus :: Lens' VgwTelemetry (Maybe Text)
+vtStatus :: Lens' VgwTelemetry (Maybe TelemetryStatus)
 vtStatus = lens _vtStatus (\s a -> s { _vtStatus = a })
 
 -- | If an error occurs, a description of the error.
@@ -11327,9 +11327,9 @@ instance ToQuery VgwTelemetry where
 
 data VpnStaticRoute = VpnStaticRoute
     { _vsrDestinationCidrBlock :: Maybe Text
-    , _vsrSource               :: Maybe Text
-    , _vsrState                :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _vsrSource               :: Maybe VpnStaticRouteSource
+    , _vsrState                :: Maybe VpnState
+    } deriving (Eq, Show)
 
 -- | 'VpnStaticRoute' constructor.
 --
@@ -11337,9 +11337,9 @@ data VpnStaticRoute = VpnStaticRoute
 --
 -- * 'vsrDestinationCidrBlock' @::@ 'Maybe' 'Text'
 --
--- * 'vsrSource' @::@ 'Maybe' 'Text'
+-- * 'vsrSource' @::@ 'Maybe' 'VpnStaticRouteSource'
 --
--- * 'vsrState' @::@ 'Maybe' 'Text'
+-- * 'vsrState' @::@ 'Maybe' 'VpnState'
 --
 vpnStaticRoute :: VpnStaticRoute
 vpnStaticRoute = VpnStaticRoute
@@ -11355,11 +11355,11 @@ vsrDestinationCidrBlock =
     lens _vsrDestinationCidrBlock (\s a -> s { _vsrDestinationCidrBlock = a })
 
 -- | Indicates how the routes were provided.
-vsrSource :: Lens' VpnStaticRoute (Maybe Text)
+vsrSource :: Lens' VpnStaticRoute (Maybe VpnStaticRouteSource)
 vsrSource = lens _vsrSource (\s a -> s { _vsrSource = a })
 
 -- | The current state of the static route.
-vsrState :: Lens' VpnStaticRoute (Maybe Text)
+vsrState :: Lens' VpnStaticRoute (Maybe VpnState)
 vsrState = lens _vsrState (\s a -> s { _vsrState = a })
 
 instance FromXML VpnStaticRoute where
@@ -11411,23 +11411,23 @@ instance ToQuery InstanceStateName where
 
 data Instance = Instance
     { _i1AmiLaunchIndex        :: Maybe Int
-    , _i1Architecture          :: Maybe Text
+    , _i1Architecture          :: Maybe ArchitectureValues
     , _i1BlockDeviceMappings   :: List "item" InstanceBlockDeviceMapping
     , _i1ClientToken           :: Maybe Text
     , _i1EbsOptimized          :: Maybe Bool
-    , _i1Hypervisor            :: Maybe Text
+    , _i1Hypervisor            :: Maybe HypervisorType
     , _i1IamInstanceProfile    :: Maybe IamInstanceProfile
     , _i1ImageId               :: Maybe Text
     , _i1InstanceId            :: Maybe Text
-    , _i1InstanceLifecycle     :: Maybe Text
-    , _i1InstanceType          :: Maybe Text
+    , _i1InstanceLifecycle     :: Maybe InstanceLifecycleType
+    , _i1InstanceType          :: Maybe InstanceType
     , _i1KernelId              :: Maybe Text
     , _i1KeyName               :: Maybe Text
     , _i1LaunchTime            :: Maybe RFC822
     , _i1Monitoring            :: Maybe Monitoring
     , _i1NetworkInterfaces     :: List "item" InstanceNetworkInterface
     , _i1Placement             :: Maybe Placement
-    , _i1Platform              :: Maybe Text
+    , _i1Platform              :: Maybe PlatformValues
     , _i1PrivateDnsName        :: Maybe Text
     , _i1PrivateIpAddress      :: Maybe Text
     , _i1ProductCodes          :: List "item" ProductCode
@@ -11435,7 +11435,7 @@ data Instance = Instance
     , _i1PublicIpAddress       :: Maybe Text
     , _i1RamdiskId             :: Maybe Text
     , _i1RootDeviceName        :: Maybe Text
-    , _i1RootDeviceType        :: Maybe Text
+    , _i1RootDeviceType        :: Maybe DeviceType
     , _i1SecurityGroups        :: List "item" GroupIdentifier
     , _i1SourceDestCheck       :: Maybe Bool
     , _i1SpotInstanceRequestId :: Maybe Text
@@ -11445,7 +11445,7 @@ data Instance = Instance
     , _i1StateTransitionReason :: Maybe Text
     , _i1SubnetId              :: Maybe Text
     , _i1Tags                  :: List "item" Tag
-    , _i1VirtualizationType    :: Maybe Text
+    , _i1VirtualizationType    :: Maybe VirtualizationType
     , _i1VpcId                 :: Maybe Text
     } deriving (Eq, Show)
 
@@ -11455,7 +11455,7 @@ data Instance = Instance
 --
 -- * 'i1AmiLaunchIndex' @::@ 'Maybe' 'Int'
 --
--- * 'i1Architecture' @::@ 'Maybe' 'Text'
+-- * 'i1Architecture' @::@ 'Maybe' 'ArchitectureValues'
 --
 -- * 'i1BlockDeviceMappings' @::@ ['InstanceBlockDeviceMapping']
 --
@@ -11463,7 +11463,7 @@ data Instance = Instance
 --
 -- * 'i1EbsOptimized' @::@ 'Maybe' 'Bool'
 --
--- * 'i1Hypervisor' @::@ 'Maybe' 'Text'
+-- * 'i1Hypervisor' @::@ 'Maybe' 'HypervisorType'
 --
 -- * 'i1IamInstanceProfile' @::@ 'Maybe' 'IamInstanceProfile'
 --
@@ -11471,9 +11471,9 @@ data Instance = Instance
 --
 -- * 'i1InstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'i1InstanceLifecycle' @::@ 'Maybe' 'Text'
+-- * 'i1InstanceLifecycle' @::@ 'Maybe' 'InstanceLifecycleType'
 --
--- * 'i1InstanceType' @::@ 'Maybe' 'Text'
+-- * 'i1InstanceType' @::@ 'Maybe' 'InstanceType'
 --
 -- * 'i1KernelId' @::@ 'Maybe' 'Text'
 --
@@ -11487,7 +11487,7 @@ data Instance = Instance
 --
 -- * 'i1Placement' @::@ 'Maybe' 'Placement'
 --
--- * 'i1Platform' @::@ 'Maybe' 'Text'
+-- * 'i1Platform' @::@ 'Maybe' 'PlatformValues'
 --
 -- * 'i1PrivateDnsName' @::@ 'Maybe' 'Text'
 --
@@ -11503,7 +11503,7 @@ data Instance = Instance
 --
 -- * 'i1RootDeviceName' @::@ 'Maybe' 'Text'
 --
--- * 'i1RootDeviceType' @::@ 'Maybe' 'Text'
+-- * 'i1RootDeviceType' @::@ 'Maybe' 'DeviceType'
 --
 -- * 'i1SecurityGroups' @::@ ['GroupIdentifier']
 --
@@ -11523,7 +11523,7 @@ data Instance = Instance
 --
 -- * 'i1Tags' @::@ ['Tag']
 --
--- * 'i1VirtualizationType' @::@ 'Maybe' 'Text'
+-- * 'i1VirtualizationType' @::@ 'Maybe' 'VirtualizationType'
 --
 -- * 'i1VpcId' @::@ 'Maybe' 'Text'
 --
@@ -11574,7 +11574,7 @@ i1AmiLaunchIndex :: Lens' Instance (Maybe Int)
 i1AmiLaunchIndex = lens _i1AmiLaunchIndex (\s a -> s { _i1AmiLaunchIndex = a })
 
 -- | The architecture of the image.
-i1Architecture :: Lens' Instance (Maybe Text)
+i1Architecture :: Lens' Instance (Maybe ArchitectureValues)
 i1Architecture = lens _i1Architecture (\s a -> s { _i1Architecture = a })
 
 -- | Any block device mapping entries for the instance.
@@ -11596,7 +11596,7 @@ i1EbsOptimized :: Lens' Instance (Maybe Bool)
 i1EbsOptimized = lens _i1EbsOptimized (\s a -> s { _i1EbsOptimized = a })
 
 -- | The hypervisor type of the instance.
-i1Hypervisor :: Lens' Instance (Maybe Text)
+i1Hypervisor :: Lens' Instance (Maybe HypervisorType)
 i1Hypervisor = lens _i1Hypervisor (\s a -> s { _i1Hypervisor = a })
 
 -- | The IAM instance profile associated with the instance.
@@ -11613,12 +11613,12 @@ i1InstanceId :: Lens' Instance (Maybe Text)
 i1InstanceId = lens _i1InstanceId (\s a -> s { _i1InstanceId = a })
 
 -- | Indicates whether this is a Spot Instance.
-i1InstanceLifecycle :: Lens' Instance (Maybe Text)
+i1InstanceLifecycle :: Lens' Instance (Maybe InstanceLifecycleType)
 i1InstanceLifecycle =
     lens _i1InstanceLifecycle (\s a -> s { _i1InstanceLifecycle = a })
 
 -- | The instance type.
-i1InstanceType :: Lens' Instance (Maybe Text)
+i1InstanceType :: Lens' Instance (Maybe InstanceType)
 i1InstanceType = lens _i1InstanceType (\s a -> s { _i1InstanceType = a })
 
 -- | The kernel associated with this instance.
@@ -11649,7 +11649,7 @@ i1Placement :: Lens' Instance (Maybe Placement)
 i1Placement = lens _i1Placement (\s a -> s { _i1Placement = a })
 
 -- | The value is Windows for Windows instances; otherwise blank.
-i1Platform :: Lens' Instance (Maybe Text)
+i1Platform :: Lens' Instance (Maybe PlatformValues)
 i1Platform = lens _i1Platform (\s a -> s { _i1Platform = a })
 
 -- | The private DNS name assigned to the instance. This DNS name can only be
@@ -11687,7 +11687,7 @@ i1RootDeviceName = lens _i1RootDeviceName (\s a -> s { _i1RootDeviceName = a })
 
 -- | The root device type used by the AMI. The AMI can use an Amazon EBS
 -- volume or an instance store volume.
-i1RootDeviceType :: Lens' Instance (Maybe Text)
+i1RootDeviceType :: Lens' Instance (Maybe DeviceType)
 i1RootDeviceType = lens _i1RootDeviceType (\s a -> s { _i1RootDeviceType = a })
 
 -- | One or more security groups for the instance.
@@ -11737,7 +11737,7 @@ i1Tags :: Lens' Instance [Tag]
 i1Tags = lens _i1Tags (\s a -> s { _i1Tags = a }) . _List
 
 -- | The virtualization type of the instance.
-i1VirtualizationType :: Lens' Instance (Maybe Text)
+i1VirtualizationType :: Lens' Instance (Maybe VirtualizationType)
 i1VirtualizationType =
     lens _i1VirtualizationType (\s a -> s { _i1VirtualizationType = a })
 
@@ -11831,7 +11831,7 @@ data ExportTask = ExportTask
     , _etExportTaskId          :: Maybe Text
     , _etExportToS3Task        :: Maybe ExportToS3Task
     , _etInstanceExportDetails :: Maybe InstanceExportDetails
-    , _etState                 :: Maybe Text
+    , _etState                 :: Maybe ExportTaskState
     , _etStatusMessage         :: Maybe Text
     } deriving (Eq, Show)
 
@@ -11847,7 +11847,7 @@ data ExportTask = ExportTask
 --
 -- * 'etInstanceExportDetails' @::@ 'Maybe' 'InstanceExportDetails'
 --
--- * 'etState' @::@ 'Maybe' 'Text'
+-- * 'etState' @::@ 'Maybe' 'ExportTaskState'
 --
 -- * 'etStatusMessage' @::@ 'Maybe' 'Text'
 --
@@ -11878,7 +11878,7 @@ etInstanceExportDetails =
     lens _etInstanceExportDetails (\s a -> s { _etInstanceExportDetails = a })
 
 -- | The state of the conversion task.
-etState :: Lens' ExportTask (Maybe Text)
+etState :: Lens' ExportTask (Maybe ExportTaskState)
 etState = lens _etState (\s a -> s { _etState = a })
 
 -- | The status message related to the export task.
@@ -11928,7 +11928,7 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification
     , _rslsEbsOptimized        :: Maybe Bool
     , _rslsIamInstanceProfile  :: Maybe IamInstanceProfileSpecification
     , _rslsImageId             :: Maybe Text
-    , _rslsInstanceType        :: Maybe Text
+    , _rslsInstanceType        :: Maybe InstanceType
     , _rslsKernelId            :: Maybe Text
     , _rslsKeyName             :: Maybe Text
     , _rslsMonitoring          :: Maybe RunInstancesMonitoringEnabled
@@ -11955,7 +11955,7 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification
 --
 -- * 'rslsImageId' @::@ 'Maybe' 'Text'
 --
--- * 'rslsInstanceType' @::@ 'Maybe' 'Text'
+-- * 'rslsInstanceType' @::@ 'Maybe' 'InstanceType'
 --
 -- * 'rslsKernelId' @::@ 'Maybe' 'Text'
 --
@@ -12026,7 +12026,7 @@ rslsImageId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsImageId = lens _rslsImageId (\s a -> s { _rslsImageId = a })
 
 -- | The instance type. Default: m1.small.
-rslsInstanceType :: Lens' RequestSpotLaunchSpecification (Maybe Text)
+rslsInstanceType :: Lens' RequestSpotLaunchSpecification (Maybe InstanceType)
 rslsInstanceType = lens _rslsInstanceType (\s a -> s { _rslsInstanceType = a })
 
 -- | The ID of the kernel.

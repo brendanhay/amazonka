@@ -166,7 +166,7 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     { _cctrApplicationName   :: Maybe Text
     , _cctrDateCreated       :: Maybe RFC822
     , _cctrDateUpdated       :: Maybe RFC822
-    , _cctrDeploymentStatus  :: Maybe Text
+    , _cctrDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
     , _cctrDescription       :: Maybe Text
     , _cctrEnvironmentName   :: Maybe Text
     , _cctrOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
@@ -184,7 +184,7 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
 --
 -- * 'cctrDateUpdated' @::@ 'Maybe' 'UTCTime'
 --
--- * 'cctrDeploymentStatus' @::@ 'Maybe' 'Text'
+-- * 'cctrDeploymentStatus' @::@ 'Maybe' 'ConfigurationDeploymentStatus'
 --
 -- * 'cctrDescription' @::@ 'Maybe' 'Text'
 --
@@ -236,7 +236,7 @@ cctrDateUpdated = lens _cctrDateUpdated (\s a -> s { _cctrDateUpdated = a }) . m
 -- configuration that is currently deployed to the associated running
 -- environment. failed: This is a draft configuration that failed to
 -- successfully deploy.
-cctrDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
+cctrDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
 cctrDeploymentStatus =
     lens _cctrDeploymentStatus (\s a -> s { _cctrDeploymentStatus = a })
 

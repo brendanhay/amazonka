@@ -1099,19 +1099,19 @@ instance ToJSON CountryCode where
     toJSON = toJSONText
 
 data ExtraParam = ExtraParam
-    { _epName  :: Text
+    { _epName  :: ExtraParamName
     , _epValue :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ExtraParam' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'epName' @::@ 'Text'
+-- * 'epName' @::@ 'ExtraParamName'
 --
 -- * 'epValue' @::@ 'Text'
 --
-extraParam :: Text -- ^ 'epName'
+extraParam :: ExtraParamName -- ^ 'epName'
            -> Text -- ^ 'epValue'
            -> ExtraParam
 extraParam p1 p2 = ExtraParam
@@ -1126,7 +1126,7 @@ extraParam p1 p2 = ExtraParam
 -- FI_BUSINESS_NUMBER | FI_ID_NUMBER | IT_PIN | RU_PASSPORT_DATA |
 -- SE_ID_NUMBER | SG_ID_NUMBER | VAT_NUMBER Parent: ExtraParams Required:
 -- Yes.
-epName :: Lens' ExtraParam Text
+epName :: Lens' ExtraParam ExtraParamName
 epName = lens _epName (\s a -> s { _epName = a })
 
 -- | Values corresponding to the additional parameter names required by some
@@ -1181,8 +1181,8 @@ data ContactDetail = ContactDetail
     { _cdAddressLine1     :: Maybe Text
     , _cdAddressLine2     :: Maybe Text
     , _cdCity             :: Maybe Text
-    , _cdContactType      :: Maybe Text
-    , _cdCountryCode      :: Maybe Text
+    , _cdContactType      :: Maybe ContactType
+    , _cdCountryCode      :: Maybe CountryCode
     , _cdEmail            :: Maybe Text
     , _cdExtraParams      :: List "ExtraParams" ExtraParam
     , _cdFax              :: Maybe Text
@@ -1204,9 +1204,9 @@ data ContactDetail = ContactDetail
 --
 -- * 'cdCity' @::@ 'Maybe' 'Text'
 --
--- * 'cdContactType' @::@ 'Maybe' 'Text'
+-- * 'cdContactType' @::@ 'Maybe' 'ContactType'
 --
--- * 'cdCountryCode' @::@ 'Maybe' 'Text'
+-- * 'cdCountryCode' @::@ 'Maybe' 'CountryCode'
 --
 -- * 'cdEmail' @::@ 'Maybe' 'Text'
 --
@@ -1268,13 +1268,13 @@ cdCity = lens _cdCity (\s a -> s { _cdCity = a })
 -- the contact. Type: String Default: None Constraints: Maximum 255
 -- characters. Valid values: PERSON | COMPANY | ASSOCIATION | PUBLIC_BODY
 -- Parents: RegistrantContact, AdminContact, TechContact Required: Yes.
-cdContactType :: Lens' ContactDetail (Maybe Text)
+cdContactType :: Lens' ContactDetail (Maybe ContactType)
 cdContactType = lens _cdContactType (\s a -> s { _cdContactType = a })
 
 -- | Code for the country of the contact's address. Type: String Default: None
 -- Constraints: Maximum 255 characters. Parents: RegistrantContact,
 -- AdminContact, TechContact Required: Yes.
-cdCountryCode :: Lens' ContactDetail (Maybe Text)
+cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
 cdCountryCode = lens _cdCountryCode (\s a -> s { _cdCountryCode = a })
 
 -- | Email address of the contact. Type: String Default: None Constraints:
@@ -1374,10 +1374,10 @@ instance ToJSON ContactDetail where
 
 data OperationSummary = OperationSummary
     { _osOperationId   :: Text
-    , _osStatus        :: Text
+    , _osStatus        :: OperationStatus
     , _osSubmittedDate :: RFC822
-    , _osType          :: Text
-    } deriving (Eq, Ord, Show)
+    , _osType          :: OperationType
+    } deriving (Eq, Show)
 
 -- | 'OperationSummary' constructor.
 --
@@ -1385,15 +1385,15 @@ data OperationSummary = OperationSummary
 --
 -- * 'osOperationId' @::@ 'Text'
 --
--- * 'osStatus' @::@ 'Text'
+-- * 'osStatus' @::@ 'OperationStatus'
 --
 -- * 'osSubmittedDate' @::@ 'UTCTime'
 --
--- * 'osType' @::@ 'Text'
+-- * 'osType' @::@ 'OperationType'
 --
 operationSummary :: Text -- ^ 'osOperationId'
-                 -> Text -- ^ 'osStatus'
-                 -> Text -- ^ 'osType'
+                 -> OperationStatus -- ^ 'osStatus'
+                 -> OperationType -- ^ 'osType'
                  -> UTCTime -- ^ 'osSubmittedDate'
                  -> OperationSummary
 operationSummary p1 p2 p3 p4 = OperationSummary
@@ -1409,7 +1409,7 @@ osOperationId = lens _osOperationId (\s a -> s { _osOperationId = a })
 
 -- | The current status of the requested operation in the system. Type:
 -- String.
-osStatus :: Lens' OperationSummary Text
+osStatus :: Lens' OperationSummary OperationStatus
 osStatus = lens _osStatus (\s a -> s { _osStatus = a })
 
 -- | The date when the request was submitted.
@@ -1419,7 +1419,7 @@ osSubmittedDate = lens _osSubmittedDate (\s a -> s { _osSubmittedDate = a }) . _
 -- | Type of the action requested. Type: String Valid values: REGISTER_DOMAIN
 -- | DELETE_DOMAIN | TRANSFER_IN_DOMAIN | UPDATE_DOMAIN_CONTACT |
 -- UPDATE_NAMESERVER | CHANGE_PRIVACY_PROTECTION | DOMAIN_LOCK.
-osType :: Lens' OperationSummary Text
+osType :: Lens' OperationSummary OperationType
 osType = lens _osType (\s a -> s { _osType = a })
 
 instance FromJSON OperationSummary where

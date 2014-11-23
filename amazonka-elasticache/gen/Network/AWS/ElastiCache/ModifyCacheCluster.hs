@@ -63,7 +63,7 @@ import Network.AWS.ElastiCache.Types
 import qualified GHC.Exts
 
 data ModifyCacheCluster = ModifyCacheCluster
-    { _mccAZMode                     :: Maybe Text
+    { _mccAZMode                     :: Maybe AZMode
     , _mccApplyImmediately           :: Maybe Bool
     , _mccAutoMinorVersionUpgrade    :: Maybe Bool
     , _mccCacheClusterId             :: Text
@@ -79,13 +79,13 @@ data ModifyCacheCluster = ModifyCacheCluster
     , _mccSecurityGroupIds           :: List "SecurityGroupId" Text
     , _mccSnapshotRetentionLimit     :: Maybe Int
     , _mccSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ModifyCacheCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mccAZMode' @::@ 'Maybe' 'Text'
+-- * 'mccAZMode' @::@ 'Maybe' 'AZMode'
 --
 -- * 'mccApplyImmediately' @::@ 'Maybe' 'Bool'
 --
@@ -142,7 +142,7 @@ modifyCacheCluster p1 = ModifyCacheCluster
 -- created in a single Availability Zone or created across multiple
 -- Availability Zones. Valid values: single-az | cross-az. This option is
 -- only supported for Memcached cache clusters.
-mccAZMode :: Lens' ModifyCacheCluster (Maybe Text)
+mccAZMode :: Lens' ModifyCacheCluster (Maybe AZMode)
 mccAZMode = lens _mccAZMode (\s a -> s { _mccAZMode = a })
 
 -- | If true, this parameter causes the modifications in this request and any

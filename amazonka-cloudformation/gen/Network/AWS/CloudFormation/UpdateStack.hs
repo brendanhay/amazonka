@@ -63,7 +63,7 @@ import Network.AWS.CloudFormation.Types
 import qualified GHC.Exts
 
 data UpdateStack = UpdateStack
-    { _usCapabilities                :: List "Capabilities" Text
+    { _usCapabilities                :: List "Capabilities" Capability
     , _usNotificationARNs            :: List "NotificationARNs" Text
     , _usParameters                  :: List "Parameters" Parameter
     , _usStackName                   :: Text
@@ -80,7 +80,7 @@ data UpdateStack = UpdateStack
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usCapabilities' @::@ ['Text']
+-- * 'usCapabilities' @::@ ['Capability']
 --
 -- * 'usNotificationARNs' @::@ ['Text']
 --
@@ -130,7 +130,7 @@ updateStack p1 = UpdateStack
 -- resources, we recommend that you review any permissions associated with
 -- them. If you don't specify this parameter, this action returns an
 -- InsufficientCapabilities error.
-usCapabilities :: Lens' UpdateStack [Text]
+usCapabilities :: Lens' UpdateStack [Capability]
 usCapabilities = lens _usCapabilities (\s a -> s { _usCapabilities = a }) . _List
 
 -- | Update the ARNs for the Amazon SNS topics that are associated with the

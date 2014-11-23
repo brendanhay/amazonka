@@ -287,7 +287,7 @@ data GetObjectResponse = GetObjectResponse
     , _gorSSECustomerAlgorithm    :: Maybe Text
     , _gorSSECustomerKeyMD5       :: Maybe Text
     , _gorSSEKMSKeyId             :: Maybe (Sensitive Text)
-    , _gorServerSideEncryption    :: Maybe Text
+    , _gorServerSideEncryption    :: Maybe ServerSideEncryption
     , _gorVersionId               :: Maybe Text
     , _gorWebsiteRedirectLocation :: Maybe Text
     } deriving (Show)
@@ -334,7 +334,7 @@ data GetObjectResponse = GetObjectResponse
 --
 -- * 'gorSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'gorServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'gorServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
 -- * 'gorVersionId' @::@ 'Maybe' 'Text'
 --
@@ -466,7 +466,7 @@ gorSSEKMSKeyId = lens _gorSSEKMSKeyId (\s a -> s { _gorSSEKMSKeyId = a }) . mapp
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-gorServerSideEncryption :: Lens' GetObjectResponse (Maybe Text)
+gorServerSideEncryption :: Lens' GetObjectResponse (Maybe ServerSideEncryption)
 gorServerSideEncryption =
     lens _gorServerSideEncryption (\s a -> s { _gorServerSideEncryption = a })
 

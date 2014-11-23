@@ -67,14 +67,14 @@ import qualified GHC.Exts
 
 data DeleteItem = DeleteItem
     { _diConditionExpression         :: Maybe Text
-    , _diConditionalOperator         :: Maybe Text
+    , _diConditionalOperator         :: Maybe ConditionalOperator
     , _diExpected                    :: Map Text ExpectedAttributeValue
     , _diExpressionAttributeNames    :: Map Text Text
     , _diExpressionAttributeValues   :: Map Text AttributeValue
     , _diKey                         :: Map Text AttributeValue
-    , _diReturnConsumedCapacity      :: Maybe Text
-    , _diReturnItemCollectionMetrics :: Maybe Text
-    , _diReturnValues                :: Maybe Text
+    , _diReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
+    , _diReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
+    , _diReturnValues                :: Maybe ReturnValue
     , _diTableName                   :: Text
     } deriving (Eq, Show)
 
@@ -84,7 +84,7 @@ data DeleteItem = DeleteItem
 --
 -- * 'diConditionExpression' @::@ 'Maybe' 'Text'
 --
--- * 'diConditionalOperator' @::@ 'Maybe' 'Text'
+-- * 'diConditionalOperator' @::@ 'Maybe' 'ConditionalOperator'
 --
 -- * 'diExpected' @::@ 'HashMap' 'Text' 'ExpectedAttributeValue'
 --
@@ -94,11 +94,11 @@ data DeleteItem = DeleteItem
 --
 -- * 'diKey' @::@ 'HashMap' 'Text' 'AttributeValue'
 --
--- * 'diReturnConsumedCapacity' @::@ 'Maybe' 'Text'
+-- * 'diReturnConsumedCapacity' @::@ 'Maybe' 'ReturnConsumedCapacity'
 --
--- * 'diReturnItemCollectionMetrics' @::@ 'Maybe' 'Text'
+-- * 'diReturnItemCollectionMetrics' @::@ 'Maybe' 'ReturnItemCollectionMetrics'
 --
--- * 'diReturnValues' @::@ 'Maybe' 'Text'
+-- * 'diReturnValues' @::@ 'Maybe' 'ReturnValue'
 --
 -- * 'diTableName' @::@ 'Text'
 --
@@ -135,7 +135,7 @@ diConditionExpression =
 -- one of the conditions evaluate to true, then the entire map evaluates to
 -- true. If you omit ConditionalOperator, then AND is the default. The
 -- operation will succeed only if the entire map evaluates to true.
-diConditionalOperator :: Lens' DeleteItem (Maybe Text)
+diConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
 diConditionalOperator =
     lens _diConditionalOperator (\s a -> s { _diConditionalOperator = a })
 
@@ -305,7 +305,7 @@ diExpressionAttributeValues =
 diKey :: Lens' DeleteItem (HashMap Text AttributeValue)
 diKey = lens _diKey (\s a -> s { _diKey = a }) . _Map
 
-diReturnConsumedCapacity :: Lens' DeleteItem (Maybe Text)
+diReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
 diReturnConsumedCapacity =
     lens _diReturnConsumedCapacity
         (\s a -> s { _diReturnConsumedCapacity = a })
@@ -314,7 +314,7 @@ diReturnConsumedCapacity =
 -- collections, if any, that were modified during the operation are returned
 -- in the response. If set to NONE (the default), no statistics are
 -- returned.
-diReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe Text)
+diReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
 diReturnItemCollectionMetrics =
     lens _diReturnItemCollectionMetrics
         (\s a -> s { _diReturnItemCollectionMetrics = a })
@@ -324,7 +324,7 @@ diReturnItemCollectionMetrics =
 -- ReturnValues is not specified, or if its value is NONE, then nothing is
 -- returned. (This setting is the default for ReturnValues.) ALL_OLD - The
 -- content of the old item is returned.
-diReturnValues :: Lens' DeleteItem (Maybe Text)
+diReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
 diReturnValues = lens _diReturnValues (\s a -> s { _diReturnValues = a })
 
 -- | The name of the table from which to delete the item.

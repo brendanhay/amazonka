@@ -390,7 +390,7 @@ instance ToJSON DeviceiSCSIAttributes where
         ]
 
 data Error' = Error'
-    { _eErrorCode    :: Maybe Text
+    { _eErrorCode    :: Maybe ErrorCode
     , _eErrorDetails :: Map Text Text
     } deriving (Eq, Show)
 
@@ -398,7 +398,7 @@ data Error' = Error'
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eErrorCode' @::@ 'Maybe' 'Text'
+-- * 'eErrorCode' @::@ 'Maybe' 'ErrorCode'
 --
 -- * 'eErrorDetails' @::@ 'HashMap' 'Text' 'Text'
 --
@@ -409,7 +409,7 @@ error = Error'
     }
 
 -- | Additional information about the error.
-eErrorCode :: Lens' Error' (Maybe Text)
+eErrorCode :: Lens' Error' (Maybe ErrorCode)
 eErrorCode = lens _eErrorCode (\s a -> s { _eErrorCode = a })
 
 -- | Human-readable text that provides detail about the error that occurred.

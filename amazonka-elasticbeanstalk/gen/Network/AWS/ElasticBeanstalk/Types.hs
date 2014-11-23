@@ -453,10 +453,10 @@ data EventDescription = EventDescription
     , _edEventDate       :: Maybe RFC822
     , _edMessage         :: Maybe Text
     , _edRequestId       :: Maybe Text
-    , _edSeverity        :: Maybe Text
+    , _edSeverity        :: Maybe EventSeverity
     , _edTemplateName    :: Maybe Text
     , _edVersionLabel    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'EventDescription' constructor.
 --
@@ -472,7 +472,7 @@ data EventDescription = EventDescription
 --
 -- * 'edRequestId' @::@ 'Maybe' 'Text'
 --
--- * 'edSeverity' @::@ 'Maybe' 'Text'
+-- * 'edSeverity' @::@ 'Maybe' 'EventSeverity'
 --
 -- * 'edTemplateName' @::@ 'Maybe' 'Text'
 --
@@ -513,7 +513,7 @@ edRequestId :: Lens' EventDescription (Maybe Text)
 edRequestId = lens _edRequestId (\s a -> s { _edRequestId = a })
 
 -- | The severity level of this event.
-edSeverity :: Lens' EventDescription (Maybe Text)
+edSeverity :: Lens' EventDescription (Maybe EventSeverity)
 edSeverity = lens _edSeverity (\s a -> s { _edSeverity = a })
 
 -- | The name of the configuration associated with this event.
@@ -731,7 +731,7 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     { _csdApplicationName   :: Maybe Text
     , _csdDateCreated       :: Maybe RFC822
     , _csdDateUpdated       :: Maybe RFC822
-    , _csdDeploymentStatus  :: Maybe Text
+    , _csdDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
     , _csdDescription       :: Maybe Text
     , _csdEnvironmentName   :: Maybe Text
     , _csdOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
@@ -749,7 +749,7 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
 --
 -- * 'csdDateUpdated' @::@ 'Maybe' 'UTCTime'
 --
--- * 'csdDeploymentStatus' @::@ 'Maybe' 'Text'
+-- * 'csdDeploymentStatus' @::@ 'Maybe' 'ConfigurationDeploymentStatus'
 --
 -- * 'csdDescription' @::@ 'Maybe' 'Text'
 --
@@ -801,7 +801,7 @@ csdDateUpdated = lens _csdDateUpdated (\s a -> s { _csdDateUpdated = a }) . mapp
 -- configuration that is currently deployed to the associated running
 -- environment. failed: This is a draft configuration that failed to
 -- successfully deploy.
-csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe Text)
+csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
 csdDeploymentStatus =
     lens _csdDeploymentStatus (\s a -> s { _csdDeploymentStatus = a })
 
@@ -1366,7 +1366,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
     , _codRegex          :: Maybe OptionRestrictionRegex
     , _codUserDefined    :: Maybe Bool
     , _codValueOptions   :: List "ValueOptions" Text
-    , _codValueType      :: Maybe Text
+    , _codValueType      :: Maybe ConfigurationOptionValueType
     } deriving (Eq, Show)
 
 -- | 'ConfigurationOptionDescription' constructor.
@@ -1393,7 +1393,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
 --
 -- * 'codValueOptions' @::@ ['Text']
 --
--- * 'codValueType' @::@ 'Maybe' 'Text'
+-- * 'codValueType' @::@ 'Maybe' 'ConfigurationOptionValueType'
 --
 configurationOptionDescription :: ConfigurationOptionDescription
 configurationOptionDescription = ConfigurationOptionDescription
@@ -1489,7 +1489,7 @@ codValueOptions = lens _codValueOptions (\s a -> s { _codValueOptions = a }) . _
 -- the MIN/MAX/Regex constraints. List : Values for this option are multiple
 -- selections from the possible values. Boolean : Values for this option are
 -- either true or false .
-codValueType :: Lens' ConfigurationOptionDescription (Maybe Text)
+codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
 codValueType = lens _codValueType (\s a -> s { _codValueType = a })
 
 instance FromXML ConfigurationOptionDescription where
@@ -1562,10 +1562,10 @@ instance ToQuery SourceConfiguration where
 
 data EnvironmentInfoDescription = EnvironmentInfoDescription
     { _eidEc2InstanceId   :: Maybe Text
-    , _eidInfoType        :: Maybe Text
+    , _eidInfoType        :: Maybe EnvironmentInfoType
     , _eidMessage         :: Maybe Text
     , _eidSampleTimestamp :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'EnvironmentInfoDescription' constructor.
 --
@@ -1573,7 +1573,7 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
 --
 -- * 'eidEc2InstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'eidInfoType' @::@ 'Maybe' 'Text'
+-- * 'eidInfoType' @::@ 'Maybe' 'EnvironmentInfoType'
 --
 -- * 'eidMessage' @::@ 'Maybe' 'Text'
 --
@@ -1592,7 +1592,7 @@ eidEc2InstanceId :: Lens' EnvironmentInfoDescription (Maybe Text)
 eidEc2InstanceId = lens _eidEc2InstanceId (\s a -> s { _eidEc2InstanceId = a })
 
 -- | The type of information retrieved.
-eidInfoType :: Lens' EnvironmentInfoDescription (Maybe Text)
+eidInfoType :: Lens' EnvironmentInfoDescription (Maybe EnvironmentInfoType)
 eidInfoType = lens _eidInfoType (\s a -> s { _eidInfoType = a })
 
 -- | The retrieved information.
@@ -1662,8 +1662,8 @@ data ValidationMessage = ValidationMessage
     { _vmMessage    :: Maybe Text
     , _vmNamespace  :: Maybe Text
     , _vmOptionName :: Maybe Text
-    , _vmSeverity   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _vmSeverity   :: Maybe ValidationSeverity
+    } deriving (Eq, Show)
 
 -- | 'ValidationMessage' constructor.
 --
@@ -1675,7 +1675,7 @@ data ValidationMessage = ValidationMessage
 --
 -- * 'vmOptionName' @::@ 'Maybe' 'Text'
 --
--- * 'vmSeverity' @::@ 'Maybe' 'Text'
+-- * 'vmSeverity' @::@ 'Maybe' 'ValidationSeverity'
 --
 validationMessage :: ValidationMessage
 validationMessage = ValidationMessage
@@ -1703,7 +1703,7 @@ vmOptionName = lens _vmOptionName (\s a -> s { _vmOptionName = a })
 -- This message indicates that this is not a valid setting for an option.
 -- warning: This message is providing information you should take into
 -- account.
-vmSeverity :: Lens' ValidationMessage (Maybe Text)
+vmSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
 vmSeverity = lens _vmSeverity (\s a -> s { _vmSeverity = a })
 
 instance FromXML ValidationMessage where
@@ -1798,10 +1798,10 @@ data EnvironmentDescription = EnvironmentDescription
     , _ed1EndpointURL       :: Maybe Text
     , _ed1EnvironmentId     :: Maybe Text
     , _ed1EnvironmentName   :: Maybe Text
-    , _ed1Health            :: Maybe Text
+    , _ed1Health            :: Maybe EnvironmentHealth
     , _ed1Resources         :: Maybe EnvironmentResourcesDescription
     , _ed1SolutionStackName :: Maybe Text
-    , _ed1Status            :: Maybe Text
+    , _ed1Status            :: Maybe EnvironmentStatus
     , _ed1TemplateName      :: Maybe Text
     , _ed1Tier              :: Maybe EnvironmentTier
     , _ed1VersionLabel      :: Maybe Text
@@ -1827,13 +1827,13 @@ data EnvironmentDescription = EnvironmentDescription
 --
 -- * 'ed1EnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'ed1Health' @::@ 'Maybe' 'Text'
+-- * 'ed1Health' @::@ 'Maybe' 'EnvironmentHealth'
 --
 -- * 'ed1Resources' @::@ 'Maybe' 'EnvironmentResourcesDescription'
 --
 -- * 'ed1SolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * 'ed1Status' @::@ 'Maybe' 'Text'
+-- * 'ed1Status' @::@ 'Maybe' 'EnvironmentStatus'
 --
 -- * 'ed1TemplateName' @::@ 'Maybe' 'Text'
 --
@@ -1908,7 +1908,7 @@ ed1EnvironmentName =
 -- environment is not fully launched and health checks have not started or
 -- health checks are suspended during an UpdateEnvironment or
 -- RestartEnvironement request. Default: Grey.
-ed1Health :: Lens' EnvironmentDescription (Maybe Text)
+ed1Health :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
 ed1Health = lens _ed1Health (\s a -> s { _ed1Health = a })
 
 -- | The description of the AWS resources used by this environment.
@@ -1926,7 +1926,7 @@ ed1SolutionStackName =
 -- Ready: Environment is available to have an action performed on it, such
 -- as update or terminate. Terminating: Environment is in the shut-down
 -- process. Terminated: Environment is not running.
-ed1Status :: Lens' EnvironmentDescription (Maybe Text)
+ed1Status :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
 ed1Status = lens _ed1Status (\s a -> s { _ed1Status = a })
 
 -- | The name of the configuration template used to originally launch this

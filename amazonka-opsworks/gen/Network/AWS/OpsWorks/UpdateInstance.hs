@@ -58,8 +58,8 @@ import qualified GHC.Exts
 
 data UpdateInstance = UpdateInstance
     { _uiAmiId                :: Maybe Text
-    , _uiArchitecture         :: Maybe Text
-    , _uiAutoScalingType      :: Maybe Text
+    , _uiArchitecture         :: Maybe Architecture
+    , _uiAutoScalingType      :: Maybe AutoScalingType
     , _uiEbsOptimized         :: Maybe Bool
     , _uiHostname             :: Maybe Text
     , _uiInstallUpdatesOnBoot :: Maybe Bool
@@ -68,7 +68,7 @@ data UpdateInstance = UpdateInstance
     , _uiLayerIds             :: List "InstanceIds" Text
     , _uiOs                   :: Maybe Text
     , _uiSshKeyName           :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'UpdateInstance' constructor.
 --
@@ -76,9 +76,9 @@ data UpdateInstance = UpdateInstance
 --
 -- * 'uiAmiId' @::@ 'Maybe' 'Text'
 --
--- * 'uiArchitecture' @::@ 'Maybe' 'Text'
+-- * 'uiArchitecture' @::@ 'Maybe' 'Architecture'
 --
--- * 'uiAutoScalingType' @::@ 'Maybe' 'Text'
+-- * 'uiAutoScalingType' @::@ 'Maybe' 'AutoScalingType'
 --
 -- * 'uiEbsOptimized' @::@ 'Maybe' 'Bool'
 --
@@ -121,7 +121,7 @@ uiAmiId = lens _uiAmiId (\s a -> s { _uiAmiId = a })
 -- | The instance architecture. Instance types do not necessarily support both
 -- architectures. For a list of the architectures that are supported by the
 -- different instance types, see Instance Families and Types.
-uiArchitecture :: Lens' UpdateInstance (Maybe Text)
+uiArchitecture :: Lens' UpdateInstance (Maybe Architecture)
 uiArchitecture = lens _uiArchitecture (\s a -> s { _uiArchitecture = a })
 
 -- | The instance's auto scaling type, which has three possible values:
@@ -130,7 +130,7 @@ uiArchitecture = lens _uiArchitecture (\s a -> s { _uiArchitecture = a })
 -- started and stopped based on a specified schedule. LoadBasedAutoScaling:
 -- A load-based auto scaling instance, which is started and stopped based on
 -- load metrics.
-uiAutoScalingType :: Lens' UpdateInstance (Maybe Text)
+uiAutoScalingType :: Lens' UpdateInstance (Maybe AutoScalingType)
 uiAutoScalingType =
     lens _uiAutoScalingType (\s a -> s { _uiAutoScalingType = a })
 

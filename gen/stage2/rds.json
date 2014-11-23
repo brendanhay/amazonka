@@ -455,7 +455,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -495,8 +494,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003e Specifies the source type for this event. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": "querystring",
@@ -617,8 +616,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003e Specifies the source type for this event. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     }
                 ]
             },
@@ -7295,7 +7294,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 22,
@@ -7455,8 +7453,8 @@
                         "shape": "ApplyMethod",
                         "locationName": "ApplyMethod",
                         "documentation": "\u003cp\u003e Indicates when to apply parameter updates. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ApplyMethod",
+                        "type": "Maybe ApplyMethod"
                     }
                 ],
                 "fields": [
@@ -7487,8 +7485,8 @@
                         "shape": "ApplyMethod",
                         "locationName": "ApplyMethod",
                         "documentation": "\u003cp\u003e Indicates when to apply parameter updates. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ApplyMethod",
+                        "type": "Maybe ApplyMethod"
                     },
                     {
                         "location": "querystring",
@@ -17292,8 +17290,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003e The event source to retrieve events for. If no value is specified, all events are returned. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": "querystring",
@@ -17519,8 +17517,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003e The event source to retrieve events for. If no value is specified, all events are returned. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": "querystring",

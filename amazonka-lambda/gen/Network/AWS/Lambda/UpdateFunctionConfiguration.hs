@@ -145,11 +145,11 @@ data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
     , _ufcrHandler         :: Maybe Text
     , _ufcrLastModified    :: Maybe RFC822
     , _ufcrMemorySize      :: Maybe Nat
-    , _ufcrMode            :: Maybe Text
+    , _ufcrMode            :: Maybe Mode
     , _ufcrRole            :: Maybe Text
-    , _ufcrRuntime         :: Maybe Text
+    , _ufcrRuntime         :: Maybe Runtime
     , _ufcrTimeout         :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'UpdateFunctionConfigurationResponse' constructor.
 --
@@ -171,11 +171,11 @@ data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
 --
 -- * 'ufcrMemorySize' @::@ 'Maybe' 'Natural'
 --
--- * 'ufcrMode' @::@ 'Maybe' 'Text'
+-- * 'ufcrMode' @::@ 'Maybe' 'Mode'
 --
 -- * 'ufcrRole' @::@ 'Maybe' 'Text'
 --
--- * 'ufcrRuntime' @::@ 'Maybe' 'Text'
+-- * 'ufcrRuntime' @::@ 'Maybe' 'Runtime'
 --
 -- * 'ufcrTimeout' @::@ 'Maybe' 'Natural'
 --
@@ -231,7 +231,7 @@ ufcrMemorySize :: Lens' UpdateFunctionConfigurationResponse (Maybe Natural)
 ufcrMemorySize = lens _ufcrMemorySize (\s a -> s { _ufcrMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
-ufcrMode :: Lens' UpdateFunctionConfigurationResponse (Maybe Text)
+ufcrMode :: Lens' UpdateFunctionConfigurationResponse (Maybe Mode)
 ufcrMode = lens _ufcrMode (\s a -> s { _ufcrMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
@@ -241,7 +241,7 @@ ufcrRole :: Lens' UpdateFunctionConfigurationResponse (Maybe Text)
 ufcrRole = lens _ufcrRole (\s a -> s { _ufcrRole = a })
 
 -- | The runtime environment for the Lambda function.
-ufcrRuntime :: Lens' UpdateFunctionConfigurationResponse (Maybe Text)
+ufcrRuntime :: Lens' UpdateFunctionConfigurationResponse (Maybe Runtime)
 ufcrRuntime = lens _ufcrRuntime (\s a -> s { _ufcrRuntime = a })
 
 -- | The function execution time at which Lambda should terminate the

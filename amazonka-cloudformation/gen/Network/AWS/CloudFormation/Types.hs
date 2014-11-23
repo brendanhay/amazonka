@@ -299,13 +299,13 @@ data StackEvent = StackEvent
     , _seLogicalResourceId    :: Maybe Text
     , _sePhysicalResourceId   :: Maybe Text
     , _seResourceProperties   :: Maybe Text
-    , _seResourceStatus       :: Maybe Text
+    , _seResourceStatus       :: Maybe ResourceStatus
     , _seResourceStatusReason :: Maybe Text
     , _seResourceType         :: Maybe Text
     , _seStackId              :: Text
     , _seStackName            :: Text
     , _seTimestamp            :: RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'StackEvent' constructor.
 --
@@ -319,7 +319,7 @@ data StackEvent = StackEvent
 --
 -- * 'seResourceProperties' @::@ 'Maybe' 'Text'
 --
--- * 'seResourceStatus' @::@ 'Maybe' 'Text'
+-- * 'seResourceStatus' @::@ 'Maybe' 'ResourceStatus'
 --
 -- * 'seResourceStatusReason' @::@ 'Maybe' 'Text'
 --
@@ -370,7 +370,7 @@ seResourceProperties =
     lens _seResourceProperties (\s a -> s { _seResourceProperties = a })
 
 -- | Current status of the resource.
-seResourceStatus :: Lens' StackEvent (Maybe Text)
+seResourceStatus :: Lens' StackEvent (Maybe ResourceStatus)
 seResourceStatus = lens _seResourceStatus (\s a -> s { _seResourceStatus = a })
 
 -- | Success/failure message associated with the resource.
@@ -428,10 +428,10 @@ data StackSummary = StackSummary
     , _ssLastUpdatedTime     :: Maybe RFC822
     , _ssStackId             :: Maybe Text
     , _ssStackName           :: Text
-    , _ssStackStatus         :: Text
+    , _ssStackStatus         :: StackStatus
     , _ssStackStatusReason   :: Maybe Text
     , _ssTemplateDescription :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'StackSummary' constructor.
 --
@@ -447,7 +447,7 @@ data StackSummary = StackSummary
 --
 -- * 'ssStackName' @::@ 'Text'
 --
--- * 'ssStackStatus' @::@ 'Text'
+-- * 'ssStackStatus' @::@ 'StackStatus'
 --
 -- * 'ssStackStatusReason' @::@ 'Maybe' 'Text'
 --
@@ -455,7 +455,7 @@ data StackSummary = StackSummary
 --
 stackSummary :: Text -- ^ 'ssStackName'
              -> UTCTime -- ^ 'ssCreationTime'
-             -> Text -- ^ 'ssStackStatus'
+             -> StackStatus -- ^ 'ssStackStatus'
              -> StackSummary
 stackSummary p1 p2 p3 = StackSummary
     { _ssStackName           = p1
@@ -492,7 +492,7 @@ ssStackName :: Lens' StackSummary Text
 ssStackName = lens _ssStackName (\s a -> s { _ssStackName = a })
 
 -- | The current status of the stack.
-ssStackStatus :: Lens' StackSummary Text
+ssStackStatus :: Lens' StackSummary StackStatus
 ssStackStatus = lens _ssStackStatus (\s a -> s { _ssStackStatus = a })
 
 -- | Success/Failure message associated with the stack status.
@@ -534,12 +534,12 @@ data StackResourceDetail = StackResourceDetail
     , _srdLogicalResourceId    :: Text
     , _srdMetadata             :: Maybe Text
     , _srdPhysicalResourceId   :: Maybe Text
-    , _srdResourceStatus       :: Text
+    , _srdResourceStatus       :: ResourceStatus
     , _srdResourceStatusReason :: Maybe Text
     , _srdResourceType         :: Text
     , _srdStackId              :: Maybe Text
     , _srdStackName            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'StackResourceDetail' constructor.
 --
@@ -555,7 +555,7 @@ data StackResourceDetail = StackResourceDetail
 --
 -- * 'srdPhysicalResourceId' @::@ 'Maybe' 'Text'
 --
--- * 'srdResourceStatus' @::@ 'Text'
+-- * 'srdResourceStatus' @::@ 'ResourceStatus'
 --
 -- * 'srdResourceStatusReason' @::@ 'Maybe' 'Text'
 --
@@ -568,7 +568,7 @@ data StackResourceDetail = StackResourceDetail
 stackResourceDetail :: Text -- ^ 'srdLogicalResourceId'
                     -> Text -- ^ 'srdResourceType'
                     -> UTCTime -- ^ 'srdLastUpdatedTimestamp'
-                    -> Text -- ^ 'srdResourceStatus'
+                    -> ResourceStatus -- ^ 'srdResourceStatus'
                     -> StackResourceDetail
 stackResourceDetail p1 p2 p3 p4 = StackResourceDetail
     { _srdLogicalResourceId    = p1
@@ -611,7 +611,7 @@ srdPhysicalResourceId =
     lens _srdPhysicalResourceId (\s a -> s { _srdPhysicalResourceId = a })
 
 -- | Current status of the resource.
-srdResourceStatus :: Lens' StackResourceDetail Text
+srdResourceStatus :: Lens' StackResourceDetail ResourceStatus
 srdResourceStatus =
     lens _srdResourceStatus (\s a -> s { _srdResourceStatus = a })
 
@@ -838,13 +838,13 @@ data StackResource = StackResource
     { _sr1Description          :: Maybe Text
     , _sr1LogicalResourceId    :: Text
     , _sr1PhysicalResourceId   :: Maybe Text
-    , _sr1ResourceStatus       :: Text
+    , _sr1ResourceStatus       :: ResourceStatus
     , _sr1ResourceStatusReason :: Maybe Text
     , _sr1ResourceType         :: Text
     , _sr1StackId              :: Maybe Text
     , _sr1StackName            :: Maybe Text
     , _sr1Timestamp            :: RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'StackResource' constructor.
 --
@@ -856,7 +856,7 @@ data StackResource = StackResource
 --
 -- * 'sr1PhysicalResourceId' @::@ 'Maybe' 'Text'
 --
--- * 'sr1ResourceStatus' @::@ 'Text'
+-- * 'sr1ResourceStatus' @::@ 'ResourceStatus'
 --
 -- * 'sr1ResourceStatusReason' @::@ 'Maybe' 'Text'
 --
@@ -871,7 +871,7 @@ data StackResource = StackResource
 stackResource :: Text -- ^ 'sr1LogicalResourceId'
               -> Text -- ^ 'sr1ResourceType'
               -> UTCTime -- ^ 'sr1Timestamp'
-              -> Text -- ^ 'sr1ResourceStatus'
+              -> ResourceStatus -- ^ 'sr1ResourceStatus'
               -> StackResource
 stackResource p1 p2 p3 p4 = StackResource
     { _sr1LogicalResourceId    = p1
@@ -901,7 +901,7 @@ sr1PhysicalResourceId =
     lens _sr1PhysicalResourceId (\s a -> s { _sr1PhysicalResourceId = a })
 
 -- | Current status of the resource.
-sr1ResourceStatus :: Lens' StackResource Text
+sr1ResourceStatus :: Lens' StackResource ResourceStatus
 sr1ResourceStatus =
     lens _sr1ResourceStatus (\s a -> s { _sr1ResourceStatus = a })
 
@@ -1004,10 +1004,10 @@ data StackResourceSummary = StackResourceSummary
     { _srsLastUpdatedTimestamp :: RFC822
     , _srsLogicalResourceId    :: Text
     , _srsPhysicalResourceId   :: Maybe Text
-    , _srsResourceStatus       :: Text
+    , _srsResourceStatus       :: ResourceStatus
     , _srsResourceStatusReason :: Maybe Text
     , _srsResourceType         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'StackResourceSummary' constructor.
 --
@@ -1019,7 +1019,7 @@ data StackResourceSummary = StackResourceSummary
 --
 -- * 'srsPhysicalResourceId' @::@ 'Maybe' 'Text'
 --
--- * 'srsResourceStatus' @::@ 'Text'
+-- * 'srsResourceStatus' @::@ 'ResourceStatus'
 --
 -- * 'srsResourceStatusReason' @::@ 'Maybe' 'Text'
 --
@@ -1028,7 +1028,7 @@ data StackResourceSummary = StackResourceSummary
 stackResourceSummary :: Text -- ^ 'srsLogicalResourceId'
                      -> Text -- ^ 'srsResourceType'
                      -> UTCTime -- ^ 'srsLastUpdatedTimestamp'
-                     -> Text -- ^ 'srsResourceStatus'
+                     -> ResourceStatus -- ^ 'srsResourceStatus'
                      -> StackResourceSummary
 stackResourceSummary p1 p2 p3 p4 = StackResourceSummary
     { _srsLogicalResourceId    = p1
@@ -1057,7 +1057,7 @@ srsPhysicalResourceId =
     lens _srsPhysicalResourceId (\s a -> s { _srsPhysicalResourceId = a })
 
 -- | Current status of the resource.
-srsResourceStatus :: Lens' StackResourceSummary Text
+srsResourceStatus :: Lens' StackResourceSummary ResourceStatus
 srsResourceStatus =
     lens _srsResourceStatus (\s a -> s { _srsResourceStatus = a })
 
@@ -1131,7 +1131,7 @@ instance ToQuery ResourceSignalStatus where
     toQuery = toQuery . toText
 
 data Stack = Stack
-    { _sCapabilities      :: List "Capabilities" Text
+    { _sCapabilities      :: List "Capabilities" Capability
     , _sCreationTime      :: RFC822
     , _sDescription       :: Maybe Text
     , _sDisableRollback   :: Maybe Bool
@@ -1141,7 +1141,7 @@ data Stack = Stack
     , _sParameters        :: List "Parameters" Parameter
     , _sStackId           :: Maybe Text
     , _sStackName         :: Text
-    , _sStackStatus       :: Text
+    , _sStackStatus       :: StackStatus
     , _sStackStatusReason :: Maybe Text
     , _sTags              :: List "Tags" Tag
     , _sTimeoutInMinutes  :: Maybe Nat
@@ -1151,7 +1151,7 @@ data Stack = Stack
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sCapabilities' @::@ ['Text']
+-- * 'sCapabilities' @::@ ['Capability']
 --
 -- * 'sCreationTime' @::@ 'UTCTime'
 --
@@ -1171,7 +1171,7 @@ data Stack = Stack
 --
 -- * 'sStackName' @::@ 'Text'
 --
--- * 'sStackStatus' @::@ 'Text'
+-- * 'sStackStatus' @::@ 'StackStatus'
 --
 -- * 'sStackStatusReason' @::@ 'Maybe' 'Text'
 --
@@ -1181,7 +1181,7 @@ data Stack = Stack
 --
 stack :: Text -- ^ 'sStackName'
       -> UTCTime -- ^ 'sCreationTime'
-      -> Text -- ^ 'sStackStatus'
+      -> StackStatus -- ^ 'sStackStatus'
       -> Stack
 stack p1 p2 p3 = Stack
     { _sStackName         = p1
@@ -1201,7 +1201,7 @@ stack p1 p2 p3 = Stack
     }
 
 -- | The capabilities allowed in the stack.
-sCapabilities :: Lens' Stack [Text]
+sCapabilities :: Lens' Stack [Capability]
 sCapabilities = lens _sCapabilities (\s a -> s { _sCapabilities = a }) . _List
 
 -- | Time at which the stack was created.
@@ -1245,7 +1245,7 @@ sStackName :: Lens' Stack Text
 sStackName = lens _sStackName (\s a -> s { _sStackName = a })
 
 -- | Current status of the stack.
-sStackStatus :: Lens' Stack Text
+sStackStatus :: Lens' Stack StackStatus
 sStackStatus = lens _sStackStatus (\s a -> s { _sStackStatus = a })
 
 -- | Success/failure message associated with the stack status.

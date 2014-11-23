@@ -1170,9 +1170,9 @@ data AccessKey = AccessKey
     { _akAccessKeyId     :: Text
     , _akCreateDate      :: Maybe RFC822
     , _akSecretAccessKey :: Sensitive Text
-    , _akStatus          :: Text
+    , _akStatus          :: StatusType
     , _akUserName        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'AccessKey' constructor.
 --
@@ -1184,13 +1184,13 @@ data AccessKey = AccessKey
 --
 -- * 'akSecretAccessKey' @::@ 'Text'
 --
--- * 'akStatus' @::@ 'Text'
+-- * 'akStatus' @::@ 'StatusType'
 --
 -- * 'akUserName' @::@ 'Text'
 --
 accessKey :: Text -- ^ 'akUserName'
           -> Text -- ^ 'akAccessKeyId'
-          -> Text -- ^ 'akStatus'
+          -> StatusType -- ^ 'akStatus'
           -> Text -- ^ 'akSecretAccessKey'
           -> AccessKey
 accessKey p1 p2 p3 p4 = AccessKey
@@ -1217,7 +1217,7 @@ akSecretAccessKey =
 
 -- | The status of the access key. Active means the key is valid for API
 -- calls, while Inactive means it is not.
-akStatus :: Lens' AccessKey Text
+akStatus :: Lens' AccessKey StatusType
 akStatus = lens _akStatus (\s a -> s { _akStatus = a })
 
 -- | The name of the IAM user that the access key is associated with.
@@ -1320,10 +1320,10 @@ instance ToQuery VirtualMFADevice where
 data SigningCertificate = SigningCertificate
     { _sc1CertificateBody :: Text
     , _sc1CertificateId   :: Text
-    , _sc1Status          :: Text
+    , _sc1Status          :: StatusType
     , _sc1UploadDate      :: Maybe RFC822
     , _sc1UserName        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'SigningCertificate' constructor.
 --
@@ -1333,7 +1333,7 @@ data SigningCertificate = SigningCertificate
 --
 -- * 'sc1CertificateId' @::@ 'Text'
 --
--- * 'sc1Status' @::@ 'Text'
+-- * 'sc1Status' @::@ 'StatusType'
 --
 -- * 'sc1UploadDate' @::@ 'Maybe' 'UTCTime'
 --
@@ -1342,7 +1342,7 @@ data SigningCertificate = SigningCertificate
 signingCertificate :: Text -- ^ 'sc1UserName'
                    -> Text -- ^ 'sc1CertificateId'
                    -> Text -- ^ 'sc1CertificateBody'
-                   -> Text -- ^ 'sc1Status'
+                   -> StatusType -- ^ 'sc1Status'
                    -> SigningCertificate
 signingCertificate p1 p2 p3 p4 = SigningCertificate
     { _sc1UserName        = p1
@@ -1363,7 +1363,7 @@ sc1CertificateId = lens _sc1CertificateId (\s a -> s { _sc1CertificateId = a })
 
 -- | The status of the signing certificate. Active means the key is valid for
 -- API calls, while Inactive means it is not.
-sc1Status :: Lens' SigningCertificate Text
+sc1Status :: Lens' SigningCertificate StatusType
 sc1Status = lens _sc1Status (\s a -> s { _sc1Status = a })
 
 -- | The date when the signing certificate was uploaded.
@@ -1394,9 +1394,9 @@ instance ToQuery SigningCertificate where
 data AccessKeyMetadata = AccessKeyMetadata
     { _akmAccessKeyId :: Maybe Text
     , _akmCreateDate  :: Maybe RFC822
-    , _akmStatus      :: Maybe Text
+    , _akmStatus      :: Maybe StatusType
     , _akmUserName    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'AccessKeyMetadata' constructor.
 --
@@ -1406,7 +1406,7 @@ data AccessKeyMetadata = AccessKeyMetadata
 --
 -- * 'akmCreateDate' @::@ 'Maybe' 'UTCTime'
 --
--- * 'akmStatus' @::@ 'Maybe' 'Text'
+-- * 'akmStatus' @::@ 'Maybe' 'StatusType'
 --
 -- * 'akmUserName' @::@ 'Maybe' 'Text'
 --
@@ -1428,7 +1428,7 @@ akmCreateDate = lens _akmCreateDate (\s a -> s { _akmCreateDate = a }) . mapping
 
 -- | The status of the access key. Active means the key is valid for API
 -- calls; Inactive means it is not.
-akmStatus :: Lens' AccessKeyMetadata (Maybe Text)
+akmStatus :: Lens' AccessKeyMetadata (Maybe StatusType)
 akmStatus = lens _akmStatus (\s a -> s { _akmStatus = a })
 
 -- | The name of the IAM user that the key is associated with.

@@ -72,19 +72,19 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data ReceiveMessage = ReceiveMessage
-    { _rmAttributeNames        :: List "AttributeName" Text
+    { _rmAttributeNames        :: List "AttributeName" QueueAttributeName
     , _rmMaxNumberOfMessages   :: Maybe Int
     , _rmMessageAttributeNames :: List "MessageAttributeName" Text
     , _rmQueueUrl              :: Text
     , _rmVisibilityTimeout     :: Maybe Int
     , _rmWaitTimeSeconds       :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ReceiveMessage' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rmAttributeNames' @::@ ['Text']
+-- * 'rmAttributeNames' @::@ ['QueueAttributeName']
 --
 -- * 'rmMaxNumberOfMessages' @::@ 'Maybe' 'Int'
 --
@@ -116,7 +116,7 @@ receiveMessage p1 = ReceiveMessage
 -- account number (or the IP address, if anonymous access is allowed) of the
 -- sender. SentTimestamp - returns the time when the message was sent (epoch
 -- time in milliseconds).
-rmAttributeNames :: Lens' ReceiveMessage [Text]
+rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
 rmAttributeNames = lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a }) . _List
 
 -- | The maximum number of messages to return. Amazon SQS never returns more

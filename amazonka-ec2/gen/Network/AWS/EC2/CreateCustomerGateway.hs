@@ -63,8 +63,8 @@ data CreateCustomerGateway = CreateCustomerGateway
     { _ccgBgpAsn   :: Int
     , _ccgDryRun   :: Maybe Bool
     , _ccgPublicIp :: Text
-    , _ccgType     :: Text
-    } deriving (Eq, Ord, Show)
+    , _ccgType     :: GatewayType
+    } deriving (Eq, Show)
 
 -- | 'CreateCustomerGateway' constructor.
 --
@@ -76,9 +76,9 @@ data CreateCustomerGateway = CreateCustomerGateway
 --
 -- * 'ccgPublicIp' @::@ 'Text'
 --
--- * 'ccgType' @::@ 'Text'
+-- * 'ccgType' @::@ 'GatewayType'
 --
-createCustomerGateway :: Text -- ^ 'ccgType'
+createCustomerGateway :: GatewayType -- ^ 'ccgType'
                       -> Text -- ^ 'ccgPublicIp'
                       -> Int -- ^ 'ccgBgpAsn'
                       -> CreateCustomerGateway
@@ -103,7 +103,7 @@ ccgPublicIp :: Lens' CreateCustomerGateway Text
 ccgPublicIp = lens _ccgPublicIp (\s a -> s { _ccgPublicIp = a })
 
 -- | The type of VPN connection that this customer gateway supports (ipsec.1).
-ccgType :: Lens' CreateCustomerGateway Text
+ccgType :: Lens' CreateCustomerGateway GatewayType
 ccgType = lens _ccgType (\s a -> s { _ccgType = a })
 
 newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse

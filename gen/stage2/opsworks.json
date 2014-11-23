@@ -4172,8 +4172,8 @@
                         "shape": "AppType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe app type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AppType",
+                        "type": "Maybe AppType"
                     },
                     {
                         "location": null,
@@ -4247,8 +4247,8 @@
                         "shape": "AppAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap AppAttributesKeys Text",
+                        "type": "Map AppAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -4375,8 +4375,8 @@
                         "shape": "AppType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe app type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AppType",
+                        "type": "Maybe AppType"
                     },
                     {
                         "location": null,
@@ -4450,8 +4450,8 @@
                         "shape": "AppAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap AppAttributesKeys Text",
+                        "type": "Map AppAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -4512,8 +4512,8 @@
                         "shape": "AppAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap AppAttributesKeys Text",
+                        "type": "Map AppAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -4662,8 +4662,8 @@
                         "shape": "AppType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe app type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AppType",
+                        "type": "Maybe AppType"
                     }
                 ]
             },
@@ -5179,7 +5179,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 10,
@@ -5197,8 +5196,8 @@
                         "shape": "SourceType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe repository type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": null,
@@ -5295,8 +5294,8 @@
                         "shape": "SourceType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe repository type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": null,
@@ -5432,8 +5431,8 @@
                         "shape": "SourceType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe repository type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": null,
@@ -6378,8 +6377,8 @@
                         "shape": "LayerType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe layer type, which must be one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003eCustom\u003c/li\u003e \u003cli\u003eGangliaMonitoringMaster\u003c/li\u003e \u003cli\u003eHaProxy\u003c/li\u003e \u003cli\u003eMemcachedServer\u003c/li\u003e \u003cli\u003eMySqlMaster\u003c/li\u003e \u003cli\u003eNodeJsAppServer\u003c/li\u003e \u003cli\u003ePhpAppServer\u003c/li\u003e \u003cli\u003eRailsAppServer\u003c/li\u003e \u003cli\u003eWebServer\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe LayerType",
+                        "type": "Maybe LayerType"
                     },
                     {
                         "location": null,
@@ -6423,8 +6422,8 @@
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe layer attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap LayerAttributesKeys Text",
+                        "type": "Map LayerAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -6671,8 +6670,8 @@
                         "shape": "LayerType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe layer type, which must be one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003eCustom\u003c/li\u003e \u003cli\u003eGangliaMonitoringMaster\u003c/li\u003e \u003cli\u003eHaProxy\u003c/li\u003e \u003cli\u003eMemcachedServer\u003c/li\u003e \u003cli\u003eMySqlMaster\u003c/li\u003e \u003cli\u003eNodeJsAppServer\u003c/li\u003e \u003cli\u003ePhpAppServer\u003c/li\u003e \u003cli\u003eRailsAppServer\u003c/li\u003e \u003cli\u003eWebServer\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe LayerType",
+                        "type": "Maybe LayerType"
                     },
                     {
                         "location": null,
@@ -6716,8 +6715,8 @@
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe layer attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap LayerAttributesKeys Text",
+                        "type": "Map LayerAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -6928,8 +6927,8 @@
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe layer attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap LayerAttributesKeys Text",
+                        "type": "Map LayerAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -7168,8 +7167,8 @@
                         "shape": "LayerType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe layer type, which must be one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003eCustom\u003c/li\u003e \u003cli\u003eGangliaMonitoringMaster\u003c/li\u003e \u003cli\u003eHaProxy\u003c/li\u003e \u003cli\u003eMemcachedServer\u003c/li\u003e \u003cli\u003eMySqlMaster\u003c/li\u003e \u003cli\u003eNodeJsAppServer\u003c/li\u003e \u003cli\u003ePhpAppServer\u003c/li\u003e \u003cli\u003eRailsAppServer\u003c/li\u003e \u003cli\u003eWebServer\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe LayerType",
+                        "type": "Maybe LayerType"
                     },
                     {
                         "location": null,
@@ -7872,8 +7871,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack's attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -8097,8 +8096,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     }
                 ],
                 "payload": null,
@@ -8195,8 +8194,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack's attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -8420,8 +8419,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     }
                 ],
                 "fields": [
@@ -8452,8 +8451,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eThe stack's attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -8587,8 +8586,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -8762,8 +8761,8 @@
                         "shape": "DeploymentCommandName",
                         "locationName": "Name",
                         "documentation": "\u003cp\u003eSpecifies the operation. You can specify only one command.\u003c/p\u003e \u003cp\u003eFor stacks, the following commands are available:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eexecute_recipes\u003c/code\u003e: Execute one or more recipes. To specify the recipes, set an \u003ccode\u003eArgs\u003c/code\u003e parameter named \u003ccode\u003erecipes\u003c/code\u003e to the list of recipes to be executed. For example, to execute \u003ccode\u003ephpapp::appsetup\u003c/code\u003e, set \u003ccode\u003eArgs\u003c/code\u003e to \u003ccode\u003e{\"recipes\":[\"phpapp::appsetup\"]}\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003einstall_dependencies\u003c/code\u003e: Install the stack's dependencies.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eupdate_custom_cookbooks\u003c/code\u003e: Update the stack's custom cookbooks.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eupdate_dependencies\u003c/code\u003e: Update the stack's dependencies.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor apps, the following commands are available:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003edeploy\u003c/code\u003e: Deploy an app. Rails apps have an optional \u003ccode\u003eArgs\u003c/code\u003e parameter named \u003ccode\u003emigrate\u003c/code\u003e. Set \u003ccode\u003eArgs\u003c/code\u003e to {\"migrate\":[\"true\"]} to migrate the database. The default setting is {\"migrate\":[\"false\"]}.\u003c/li\u003e \u003cli\u003e \u003ccode\u003erollback\u003c/code\u003e Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.\u003c/li\u003e \u003cli\u003e \u003ccode\u003estart\u003c/code\u003e: Start the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003estop\u003c/code\u003e: Stop the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003erestart\u003c/code\u003e: Restart the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eundeploy\u003c/code\u003e: Undeploy the app.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DeploymentCommandName",
+                        "type": "DeploymentCommandName"
                     },
                     {
                         "location": null,
@@ -8795,8 +8794,8 @@
                         "shape": "DeploymentCommandName",
                         "locationName": "Name",
                         "documentation": "\u003cp\u003eSpecifies the operation. You can specify only one command.\u003c/p\u003e \u003cp\u003eFor stacks, the following commands are available:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eexecute_recipes\u003c/code\u003e: Execute one or more recipes. To specify the recipes, set an \u003ccode\u003eArgs\u003c/code\u003e parameter named \u003ccode\u003erecipes\u003c/code\u003e to the list of recipes to be executed. For example, to execute \u003ccode\u003ephpapp::appsetup\u003c/code\u003e, set \u003ccode\u003eArgs\u003c/code\u003e to \u003ccode\u003e{\"recipes\":[\"phpapp::appsetup\"]}\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003einstall_dependencies\u003c/code\u003e: Install the stack's dependencies.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eupdate_custom_cookbooks\u003c/code\u003e: Update the stack's custom cookbooks.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eupdate_dependencies\u003c/code\u003e: Update the stack's dependencies.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor apps, the following commands are available:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003edeploy\u003c/code\u003e: Deploy an app. Rails apps have an optional \u003ccode\u003eArgs\u003c/code\u003e parameter named \u003ccode\u003emigrate\u003c/code\u003e. Set \u003ccode\u003eArgs\u003c/code\u003e to {\"migrate\":[\"true\"]} to migrate the database. The default setting is {\"migrate\":[\"false\"]}.\u003c/li\u003e \u003cli\u003e \u003ccode\u003erollback\u003c/code\u003e Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.\u003c/li\u003e \u003cli\u003e \u003ccode\u003estart\u003c/code\u003e: Start the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003estop\u003c/code\u003e: Stop the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003erestart\u003c/code\u003e: Restart the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eundeploy\u003c/code\u003e: Undeploy the app.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DeploymentCommandName",
+                        "type": "DeploymentCommandName"
                     }
                 ],
                 "contentPad": 5,
@@ -8848,8 +8847,8 @@
                         "shape": "DeploymentCommandName",
                         "locationName": "Name",
                         "documentation": "\u003cp\u003eSpecifies the operation. You can specify only one command.\u003c/p\u003e \u003cp\u003eFor stacks, the following commands are available:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eexecute_recipes\u003c/code\u003e: Execute one or more recipes. To specify the recipes, set an \u003ccode\u003eArgs\u003c/code\u003e parameter named \u003ccode\u003erecipes\u003c/code\u003e to the list of recipes to be executed. For example, to execute \u003ccode\u003ephpapp::appsetup\u003c/code\u003e, set \u003ccode\u003eArgs\u003c/code\u003e to \u003ccode\u003e{\"recipes\":[\"phpapp::appsetup\"]}\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003einstall_dependencies\u003c/code\u003e: Install the stack's dependencies.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eupdate_custom_cookbooks\u003c/code\u003e: Update the stack's custom cookbooks.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eupdate_dependencies\u003c/code\u003e: Update the stack's dependencies.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor apps, the following commands are available:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003edeploy\u003c/code\u003e: Deploy an app. Rails apps have an optional \u003ccode\u003eArgs\u003c/code\u003e parameter named \u003ccode\u003emigrate\u003c/code\u003e. Set \u003ccode\u003eArgs\u003c/code\u003e to {\"migrate\":[\"true\"]} to migrate the database. The default setting is {\"migrate\":[\"false\"]}.\u003c/li\u003e \u003cli\u003e \u003ccode\u003erollback\u003c/code\u003e Roll the app back to the previous version. When you update an app, AWS OpsWorks stores the previous version, up to a maximum of five versions. You can use this command to roll an app back as many as four versions.\u003c/li\u003e \u003cli\u003e \u003ccode\u003estart\u003c/code\u003e: Start the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003estop\u003c/code\u003e: Stop the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003erestart\u003c/code\u003e: Restart the app's web or application server.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eundeploy\u003c/code\u003e: Undeploy the app.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DeploymentCommandName",
+                        "type": "DeploymentCommandName"
                     }
                 ]
             },
@@ -9216,7 +9215,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 26,
@@ -9519,8 +9517,8 @@
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
                         "documentation": "\u003cp\u003eThe instance's auto scaling type, which has three possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eAlwaysRunning\u003c/b\u003e: A 24/7 instance, which is not affected by auto scaling.\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimeBasedAutoScaling\u003c/b\u003e: A time-based auto scaling instance, which is started and stopped based on a specified schedule.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLoadBasedAutoScaling\u003c/b\u003e: A load-based auto scaling instance, which is started and stopped based on load metrics.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutoScalingType",
+                        "type": "Maybe AutoScalingType"
                     },
                     {
                         "location": null,
@@ -9609,8 +9607,8 @@
                         "shape": "Architecture",
                         "locationName": "Architecture",
                         "documentation": "\u003cp\u003eThe instance architecture, \"i386\" or \"x86_64\".\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Architecture",
+                        "type": "Maybe Architecture"
                     },
                     {
                         "location": null,
@@ -9624,8 +9622,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "RootDeviceType",
                         "documentation": "\u003cp\u003eThe instance root device type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -9977,8 +9975,8 @@
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
                         "documentation": "\u003cp\u003eThe instance's auto scaling type, which has three possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eAlwaysRunning\u003c/b\u003e: A 24/7 instance, which is not affected by auto scaling.\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimeBasedAutoScaling\u003c/b\u003e: A time-based auto scaling instance, which is started and stopped based on a specified schedule.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLoadBasedAutoScaling\u003c/b\u003e: A load-based auto scaling instance, which is started and stopped based on load metrics.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutoScalingType",
+                        "type": "Maybe AutoScalingType"
                     },
                     {
                         "location": null,
@@ -10067,8 +10065,8 @@
                         "shape": "Architecture",
                         "locationName": "Architecture",
                         "documentation": "\u003cp\u003eThe instance architecture, \"i386\" or \"x86_64\".\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Architecture",
+                        "type": "Maybe Architecture"
                     },
                     {
                         "location": null,
@@ -10082,8 +10080,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "RootDeviceType",
                         "documentation": "\u003cp\u003eThe instance root device type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -10159,8 +10157,8 @@
                         "shape": "Architecture",
                         "locationName": "Architecture",
                         "documentation": "\u003cp\u003eThe instance architecture, \"i386\" or \"x86_64\".\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Architecture",
+                        "type": "Maybe Architecture"
                     },
                     {
                         "location": null,
@@ -10174,8 +10172,8 @@
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
                         "documentation": "\u003cp\u003eThe instance's auto scaling type, which has three possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eAlwaysRunning\u003c/b\u003e: A 24/7 instance, which is not affected by auto scaling.\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimeBasedAutoScaling\u003c/b\u003e: A time-based auto scaling instance, which is started and stopped based on a specified schedule.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLoadBasedAutoScaling\u003c/b\u003e: A load-based auto scaling instance, which is started and stopped based on load metrics.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutoScalingType",
+                        "type": "Maybe AutoScalingType"
                     },
                     {
                         "location": null,
@@ -10444,8 +10442,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "RootDeviceType",
                         "documentation": "\u003cp\u003eThe instance root device type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -11819,13 +11817,19 @@
         "imports": [],
         "shared": [
             "SslConfiguration",
+            "AppAttributesKeys",
+            "StackAttributesKeys",
             "ChefConfiguration",
             "AutoScalingThresholds",
+            "AutoScalingType",
             "Source",
             "DataSource",
+            "Architecture",
             "StackConfigurationManager",
+            "LayerAttributesKeys",
             "VolumeConfiguration",
-            "Recipes"
+            "Recipes",
+            "RootDeviceType"
         ]
     },
     "operations": [
@@ -12518,8 +12522,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA list of stack attributes and values as key/value pairs to be added to the cloned stack.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -12758,8 +12762,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the cloned stack, but you can override it when you create an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     }
                 ],
                 "path": [
@@ -12870,8 +12874,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA list of stack attributes and values as key/value pairs to be added to the cloned stack.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -13095,8 +13099,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the cloned stack, but you can override it when you create an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     }
                 ],
                 "fields": [
@@ -13112,8 +13116,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eA list of stack attributes and values as key/value pairs to be added to the cloned stack.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -13262,8 +13266,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the cloned stack, but you can override it when you create an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -13622,8 +13626,8 @@
                         "shape": "AppType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks deploys an application to those instances that are members of the corresponding layer.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "AppType",
+                        "type": "AppType"
                     },
                     {
                         "location": null,
@@ -13697,8 +13701,8 @@
                         "shape": "AppAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap AppAttributesKeys Text",
+                        "type": "Map AppAttributesKeys Text"
                     }
                 ],
                 "path": [
@@ -13752,8 +13756,8 @@
                         "shape": "AppType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks deploys an application to those instances that are members of the corresponding layer.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "AppType",
+                        "type": "AppType"
                     }
                 ],
                 "shared": false,
@@ -13884,8 +13888,8 @@
                         "shape": "AppAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap AppAttributesKeys Text",
+                        "type": "Map AppAttributesKeys Text"
                     }
                 ],
                 "fields": [
@@ -13916,8 +13920,8 @@
                         "shape": "AppAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap AppAttributesKeys Text",
+                        "type": "Map AppAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -14051,8 +14055,8 @@
                         "shape": "AppType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks deploys an application to those instances that are members of the corresponding layer.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "AppType",
+                        "type": "AppType"
                     }
                 ]
             }
@@ -14580,7 +14584,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -14646,8 +14649,8 @@
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
                         "documentation": "\u003cp\u003eThe instance auto scaling type, which has three possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eAlwaysRunning\u003c/b\u003e: A 24/7 instance, which is not affected by auto scaling.\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimeBasedAutoScaling\u003c/b\u003e: A time-based auto scaling instance, which is started and stopped based on a specified schedule. To specify the schedule, call \u003ca\u003eSetTimeBasedAutoScaling\u003c/a\u003e.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLoadBasedAutoScaling\u003c/b\u003e: A load-based auto scaling instance, which is started and stopped based on load metrics. To use load-based auto scaling, you must enable it for the instance layer and configure the thresholds by calling \u003ca\u003eSetLoadBasedAutoScaling\u003c/a\u003e.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutoScalingType",
+                        "type": "Maybe AutoScalingType"
                     },
                     {
                         "location": null,
@@ -14766,8 +14769,8 @@
                         "shape": "Architecture",
                         "locationName": "Architecture",
                         "documentation": "\u003cp\u003eThe instance architecture. The default option is \u003ccode\u003ex86_64\u003c/code\u003e. Instance types do not necessarily support both architectures. For a list of the architectures that are supported by the different instance types, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Families and Types\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Architecture",
+                        "type": "Maybe Architecture"
                     },
                     {
                         "location": null,
@@ -14781,8 +14784,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "RootDeviceType",
                         "documentation": "\u003cp\u003eThe instance root device type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -14893,8 +14896,8 @@
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
                         "documentation": "\u003cp\u003eThe instance auto scaling type, which has three possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eAlwaysRunning\u003c/b\u003e: A 24/7 instance, which is not affected by auto scaling.\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimeBasedAutoScaling\u003c/b\u003e: A time-based auto scaling instance, which is started and stopped based on a specified schedule. To specify the schedule, call \u003ca\u003eSetTimeBasedAutoScaling\u003c/a\u003e.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLoadBasedAutoScaling\u003c/b\u003e: A load-based auto scaling instance, which is started and stopped based on load metrics. To use load-based auto scaling, you must enable it for the instance layer and configure the thresholds by calling \u003ca\u003eSetLoadBasedAutoScaling\u003c/a\u003e.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutoScalingType",
+                        "type": "Maybe AutoScalingType"
                     },
                     {
                         "location": null,
@@ -15013,8 +15016,8 @@
                         "shape": "Architecture",
                         "locationName": "Architecture",
                         "documentation": "\u003cp\u003eThe instance architecture. The default option is \u003ccode\u003ex86_64\u003c/code\u003e. Instance types do not necessarily support both architectures. For a list of the architectures that are supported by the different instance types, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Families and Types\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Architecture",
+                        "type": "Maybe Architecture"
                     },
                     {
                         "location": null,
@@ -15028,8 +15031,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "RootDeviceType",
                         "documentation": "\u003cp\u003eThe instance root device type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -15090,8 +15093,8 @@
                         "shape": "Architecture",
                         "locationName": "Architecture",
                         "documentation": "\u003cp\u003eThe instance architecture. The default option is \u003ccode\u003ex86_64\u003c/code\u003e. Instance types do not necessarily support both architectures. For a list of the architectures that are supported by the different instance types, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Families and Types\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Architecture",
+                        "type": "Maybe Architecture"
                     },
                     {
                         "location": null,
@@ -15105,8 +15108,8 @@
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
                         "documentation": "\u003cp\u003eThe instance auto scaling type, which has three possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eAlwaysRunning\u003c/b\u003e: A 24/7 instance, which is not affected by auto scaling.\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimeBasedAutoScaling\u003c/b\u003e: A time-based auto scaling instance, which is started and stopped based on a specified schedule. To specify the schedule, call \u003ca\u003eSetTimeBasedAutoScaling\u003c/a\u003e.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLoadBasedAutoScaling\u003c/b\u003e: A load-based auto scaling instance, which is started and stopped based on load metrics. To use load-based auto scaling, you must enable it for the instance layer and configure the thresholds by calling \u003ca\u003eSetLoadBasedAutoScaling\u003c/a\u003e.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutoScalingType",
+                        "type": "Maybe AutoScalingType"
                     },
                     {
                         "location": null,
@@ -15225,8 +15228,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "RootDeviceType",
                         "documentation": "\u003cp\u003eThe instance root device type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -15435,8 +15438,8 @@
                         "shape": "LayerType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. This parameter must be set to one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003ecustom: A custom layer\u003c/li\u003e \u003cli\u003edb-master: A MySQL layer\u003c/li\u003e \u003cli\u003ejava-app: A Java App Server layer\u003c/li\u003e \u003cli\u003erails-app: A Rails App Server layer\u003c/li\u003e \u003cli\u003elb: An HAProxy layer\u003c/li\u003e \u003cli\u003ememcached: A Memcached layer\u003c/li\u003e \u003cli\u003emonitoring-master: A Ganglia layer\u003c/li\u003e \u003cli\u003enodejs-app: A Node.js App Server layer\u003c/li\u003e \u003cli\u003ephp-app: A PHP App Server layer\u003c/li\u003e \u003cli\u003eweb: A Static Web Server layer\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "LayerType",
+                        "type": "LayerType"
                     },
                     {
                         "location": null,
@@ -15480,8 +15483,8 @@
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap LayerAttributesKeys Text",
+                        "type": "Map LayerAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -15670,8 +15673,8 @@
                         "shape": "LayerType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. This parameter must be set to one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003ecustom: A custom layer\u003c/li\u003e \u003cli\u003edb-master: A MySQL layer\u003c/li\u003e \u003cli\u003ejava-app: A Java App Server layer\u003c/li\u003e \u003cli\u003erails-app: A Rails App Server layer\u003c/li\u003e \u003cli\u003elb: An HAProxy layer\u003c/li\u003e \u003cli\u003ememcached: A Memcached layer\u003c/li\u003e \u003cli\u003emonitoring-master: A Ganglia layer\u003c/li\u003e \u003cli\u003enodejs-app: A Node.js App Server layer\u003c/li\u003e \u003cli\u003ephp-app: A PHP App Server layer\u003c/li\u003e \u003cli\u003eweb: A Static Web Server layer\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "LayerType",
+                        "type": "LayerType"
                     },
                     {
                         "location": null,
@@ -15727,8 +15730,8 @@
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap LayerAttributesKeys Text",
+                        "type": "Map LayerAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -15894,8 +15897,8 @@
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap LayerAttributesKeys Text",
+                        "type": "Map LayerAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -16074,8 +16077,8 @@
                         "shape": "LayerType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. This parameter must be set to one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003ecustom: A custom layer\u003c/li\u003e \u003cli\u003edb-master: A MySQL layer\u003c/li\u003e \u003cli\u003ejava-app: A Java App Server layer\u003c/li\u003e \u003cli\u003erails-app: A Rails App Server layer\u003c/li\u003e \u003cli\u003elb: An HAProxy layer\u003c/li\u003e \u003cli\u003ememcached: A Memcached layer\u003c/li\u003e \u003cli\u003emonitoring-master: A Ganglia layer\u003c/li\u003e \u003cli\u003enodejs-app: A Node.js App Server layer\u003c/li\u003e \u003cli\u003ephp-app: A PHP App Server layer\u003c/li\u003e \u003cli\u003eweb: A Static Web Server layer\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "LayerType",
+                        "type": "LayerType"
                     },
                     {
                         "location": null,
@@ -16284,8 +16287,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -16494,8 +16497,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. The default option is \u003ccode\u003einstance-store\u003c/code\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     }
                 ],
                 "path": [
@@ -16606,8 +16609,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -16786,8 +16789,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. The default option is \u003ccode\u003einstance-store\u003c/code\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     }
                 ],
                 "fields": [
@@ -16803,8 +16806,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -16923,8 +16926,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. The default option is \u003ccode\u003einstance-store\u003c/code\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -25811,8 +25814,8 @@
                         "shape": "AppType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe app type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AppType",
+                        "type": "Maybe AppType"
                     },
                     {
                         "location": null,
@@ -25886,8 +25889,8 @@
                         "shape": "AppAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap AppAttributesKeys Text",
+                        "type": "Map AppAttributesKeys Text"
                     }
                 ],
                 "path": [
@@ -25983,8 +25986,8 @@
                         "shape": "AppType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe app type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AppType",
+                        "type": "Maybe AppType"
                     },
                     {
                         "location": null,
@@ -26058,8 +26061,8 @@
                         "shape": "AppAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap AppAttributesKeys Text",
+                        "type": "Map AppAttributesKeys Text"
                     }
                 ],
                 "fields": [
@@ -26105,8 +26108,8 @@
                         "shape": "AppAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap AppAttributesKeys Text",
+                        "type": "Map AppAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -26210,8 +26213,8 @@
                         "shape": "AppType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe app type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AppType",
+                        "type": "Maybe AppType"
                     }
                 ]
             }
@@ -26424,7 +26427,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -26490,8 +26492,8 @@
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
                         "documentation": "\u003cp\u003eThe instance's auto scaling type, which has three possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eAlwaysRunning\u003c/b\u003e: A 24/7 instance, which is not affected by auto scaling.\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimeBasedAutoScaling\u003c/b\u003e: A time-based auto scaling instance, which is started and stopped based on a specified schedule.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLoadBasedAutoScaling\u003c/b\u003e: A load-based auto scaling instance, which is started and stopped based on load metrics.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutoScalingType",
+                        "type": "Maybe AutoScalingType"
                     },
                     {
                         "location": null,
@@ -26565,8 +26567,8 @@
                         "shape": "Architecture",
                         "locationName": "Architecture",
                         "documentation": "\u003cp\u003eThe instance architecture. Instance types do not necessarily support both architectures. For a list of the architectures that are supported by the different instance types, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Families and Types\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Architecture",
+                        "type": "Maybe Architecture"
                     },
                     {
                         "location": null,
@@ -26677,8 +26679,8 @@
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
                         "documentation": "\u003cp\u003eThe instance's auto scaling type, which has three possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eAlwaysRunning\u003c/b\u003e: A 24/7 instance, which is not affected by auto scaling.\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimeBasedAutoScaling\u003c/b\u003e: A time-based auto scaling instance, which is started and stopped based on a specified schedule.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLoadBasedAutoScaling\u003c/b\u003e: A load-based auto scaling instance, which is started and stopped based on load metrics.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutoScalingType",
+                        "type": "Maybe AutoScalingType"
                     },
                     {
                         "location": null,
@@ -26752,8 +26754,8 @@
                         "shape": "Architecture",
                         "locationName": "Architecture",
                         "documentation": "\u003cp\u003eThe instance architecture. Instance types do not necessarily support both architectures. For a list of the architectures that are supported by the different instance types, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Families and Types\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Architecture",
+                        "type": "Maybe Architecture"
                     },
                     {
                         "location": null,
@@ -26814,8 +26816,8 @@
                         "shape": "Architecture",
                         "locationName": "Architecture",
                         "documentation": "\u003cp\u003eThe instance architecture. Instance types do not necessarily support both architectures. For a list of the architectures that are supported by the different instance types, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Families and Types\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Architecture",
+                        "type": "Maybe Architecture"
                     },
                     {
                         "location": null,
@@ -26829,8 +26831,8 @@
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
                         "documentation": "\u003cp\u003eThe instance's auto scaling type, which has three possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cb\u003eAlwaysRunning\u003c/b\u003e: A 24/7 instance, which is not affected by auto scaling.\u003c/li\u003e \u003cli\u003e \u003cb\u003eTimeBasedAutoScaling\u003c/b\u003e: A time-based auto scaling instance, which is started and stopped based on a specified schedule.\u003c/li\u003e \u003cli\u003e \u003cb\u003eLoadBasedAutoScaling\u003c/b\u003e: A load-based auto scaling instance, which is started and stopped based on load metrics.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutoScalingType",
+                        "type": "Maybe AutoScalingType"
                     },
                     {
                         "location": null,
@@ -27061,8 +27063,8 @@
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap LayerAttributesKeys Text",
+                        "type": "Map LayerAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -27293,8 +27295,8 @@
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap LayerAttributesKeys Text",
+                        "type": "Map LayerAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -27460,8 +27462,8 @@
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap LayerAttributesKeys Text",
+                        "type": "Map LayerAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -28102,8 +28104,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -28297,8 +28299,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -28379,8 +28381,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -28574,8 +28576,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,
@@ -28606,8 +28608,8 @@
                         "shape": "StackAttributes",
                         "locationName": "Attributes",
                         "documentation": "\u003cp\u003eOne or more user-defined key/value pairs to be added to the stack attributes.\u003c/p\u003e",
-                        "typeExposed": "HashMap Text Text",
-                        "type": "Map Text Text"
+                        "typeExposed": "HashMap StackAttributesKeys Text",
+                        "type": "Map StackAttributesKeys Text"
                     },
                     {
                         "location": null,
@@ -28726,8 +28728,8 @@
                         "shape": "RootDeviceType",
                         "locationName": "DefaultRootDeviceType",
                         "documentation": "\u003cp\u003eThe default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device\"\u003eStorage for the Root Device\u003c/a\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RootDeviceType",
+                        "type": "Maybe RootDeviceType"
                     },
                     {
                         "location": null,

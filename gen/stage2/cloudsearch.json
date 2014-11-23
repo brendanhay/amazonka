@@ -496,7 +496,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -537,8 +536,8 @@
                         "shape": "SuggesterFuzzyMatching",
                         "locationName": "FuzzyMatching",
                         "documentation": "\u003cp\u003eThe level of fuzziness allowed when suggesting matches for a string: \u003ccode\u003enone\u003c/code\u003e, \u003ccode\u003elow\u003c/code\u003e, or \u003ccode\u003ehigh\u003c/code\u003e. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SuggesterFuzzyMatching",
+                        "type": "Maybe SuggesterFuzzyMatching"
                     },
                     {
                         "location": "querystring",
@@ -569,8 +568,8 @@
                         "shape": "SuggesterFuzzyMatching",
                         "locationName": "FuzzyMatching",
                         "documentation": "\u003cp\u003eThe level of fuzziness allowed when suggesting matches for a string: \u003ccode\u003enone\u003c/code\u003e, \u003ccode\u003elow\u003c/code\u003e, or \u003ccode\u003ehigh\u003c/code\u003e. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SuggesterFuzzyMatching",
+                        "type": "Maybe SuggesterFuzzyMatching"
                     },
                     {
                         "location": "querystring",
@@ -811,8 +810,8 @@
                         "shape": "IndexFieldType",
                         "locationName": "IndexFieldType",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "IndexFieldType",
+                        "type": "IndexFieldType"
                     }
                 ],
                 "contentPad": 0,
@@ -1074,8 +1073,8 @@
                         "shape": "IndexFieldType",
                         "locationName": "IndexFieldType",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "IndexFieldType",
+                        "type": "IndexFieldType"
                     },
                     {
                         "location": "querystring",
@@ -1629,8 +1628,8 @@
                         "shape": "AnalysisSchemeLanguage",
                         "locationName": "AnalysisSchemeLanguage",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "AnalysisSchemeLanguage",
+                        "type": "AnalysisSchemeLanguage"
                     }
                 ],
                 "contentPad": 0,
@@ -1682,8 +1681,8 @@
                         "shape": "AnalysisSchemeLanguage",
                         "locationName": "AnalysisSchemeLanguage",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "AnalysisSchemeLanguage",
+                        "type": "AnalysisSchemeLanguage"
                     },
                     {
                         "location": "querystring",
@@ -1705,7 +1704,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 26,
@@ -1730,8 +1728,8 @@
                         "shape": "PartitionInstanceType",
                         "locationName": "DesiredInstanceType",
                         "documentation": "\u003cp\u003eThe instance type that you want to preconfigure for your domain. For example, \u003ccode\u003esearch.m1.small\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PartitionInstanceType",
+                        "type": "Maybe PartitionInstanceType"
                     },
                     {
                         "location": "querystring",
@@ -1777,8 +1775,8 @@
                         "shape": "PartitionInstanceType",
                         "locationName": "DesiredInstanceType",
                         "documentation": "\u003cp\u003eThe instance type that you want to preconfigure for your domain. For example, \u003ccode\u003esearch.m1.small\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PartitionInstanceType",
+                        "type": "Maybe PartitionInstanceType"
                     },
                     {
                         "location": "querystring",
@@ -1815,7 +1813,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 33,
@@ -1900,8 +1897,8 @@
                         "shape": "AlgorithmicStemming",
                         "locationName": "AlgorithmicStemming",
                         "documentation": "\u003cp\u003eThe level of algorithmic stemming to perform: \u003ccode\u003enone\u003c/code\u003e, \u003ccode\u003eminimal\u003c/code\u003e, \u003ccode\u003elight\u003c/code\u003e, or \u003ccode\u003efull\u003c/code\u003e. The available levels vary depending on the language. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings\" target=\"_blank\"\u003eLanguage Specific Text Processing Settings\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AlgorithmicStemming",
+                        "type": "Maybe AlgorithmicStemming"
                     }
                 ],
                 "fields": [
@@ -1917,8 +1914,8 @@
                         "shape": "AlgorithmicStemming",
                         "locationName": "AlgorithmicStemming",
                         "documentation": "\u003cp\u003eThe level of algorithmic stemming to perform: \u003ccode\u003enone\u003c/code\u003e, \u003ccode\u003eminimal\u003c/code\u003e, \u003ccode\u003elight\u003c/code\u003e, or \u003ccode\u003efull\u003c/code\u003e. The available levels vary depending on the language. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings\" target=\"_blank\"\u003eLanguage Specific Text Processing Settings\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AlgorithmicStemming",
+                        "type": "Maybe AlgorithmicStemming"
                     },
                     {
                         "location": "querystring",
@@ -3232,7 +3229,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -3282,8 +3278,8 @@
                         "shape": "OptionState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe state of processing a change to an option. Possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRequiresIndexDocuments\u003c/code\u003e: the option's latest value will not be deployed until \u003ca\u003eIndexDocuments\u003c/a\u003e has been called and indexing is complete.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eProcessing\u003c/code\u003e: the option's latest value is in the process of being activated. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eActive\u003c/code\u003e: the option's latest value is completely deployed.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eFailedToValidate\u003c/code\u003e: the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OptionState",
+                        "type": "OptionState"
                     }
                 ],
                 "contentPad": 0,
@@ -3365,8 +3361,8 @@
                         "shape": "OptionState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe state of processing a change to an option. Possible values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eRequiresIndexDocuments\u003c/code\u003e: the option's latest value will not be deployed until \u003ca\u003eIndexDocuments\u003c/a\u003e has been called and indexing is complete.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eProcessing\u003c/code\u003e: the option's latest value is in the process of being activated. \u003c/li\u003e \u003cli\u003e \u003ccode\u003eActive\u003c/code\u003e: the option's latest value is completely deployed.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eFailedToValidate\u003c/code\u003e: the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OptionState",
+                        "type": "OptionState"
                     },
                     {
                         "location": "querystring",

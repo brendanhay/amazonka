@@ -78,8 +78,8 @@ data CreateVolume = CreateVolume
     , _cv1Iops             :: Maybe Int
     , _cv1Size             :: Maybe Int
     , _cv1SnapshotId       :: Maybe Text
-    , _cv1VolumeType       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _cv1VolumeType       :: Maybe VolumeType
+    } deriving (Eq, Show)
 
 -- | 'CreateVolume' constructor.
 --
@@ -97,7 +97,7 @@ data CreateVolume = CreateVolume
 --
 -- * 'cv1SnapshotId' @::@ 'Maybe' 'Text'
 --
--- * 'cv1VolumeType' @::@ 'Maybe' 'Text'
+-- * 'cv1VolumeType' @::@ 'Maybe' 'VolumeType'
 --
 createVolume :: Text -- ^ 'cv1AvailabilityZone'
              -> CreateVolume
@@ -144,7 +144,7 @@ cv1SnapshotId = lens _cv1SnapshotId (\s a -> s { _cv1SnapshotId = a })
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1
 -- for Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
 -- Default: standard.
-cv1VolumeType :: Lens' CreateVolume (Maybe Text)
+cv1VolumeType :: Lens' CreateVolume (Maybe VolumeType)
 cv1VolumeType = lens _cv1VolumeType (\s a -> s { _cv1VolumeType = a })
 
 data CreateVolumeResponse = CreateVolumeResponse
@@ -155,10 +155,10 @@ data CreateVolumeResponse = CreateVolumeResponse
     , _cvrIops             :: Maybe Int
     , _cvrSize             :: Maybe Int
     , _cvrSnapshotId       :: Maybe Text
-    , _cvrState            :: Maybe Text
+    , _cvrState            :: Maybe VolumeState
     , _cvrTags             :: List "item" Tag
     , _cvrVolumeId         :: Maybe Text
-    , _cvrVolumeType       :: Maybe Text
+    , _cvrVolumeType       :: Maybe VolumeType
     } deriving (Eq, Show)
 
 -- | 'CreateVolumeResponse' constructor.
@@ -179,13 +179,13 @@ data CreateVolumeResponse = CreateVolumeResponse
 --
 -- * 'cvrSnapshotId' @::@ 'Maybe' 'Text'
 --
--- * 'cvrState' @::@ 'Maybe' 'Text'
+-- * 'cvrState' @::@ 'Maybe' 'VolumeState'
 --
 -- * 'cvrTags' @::@ ['Tag']
 --
 -- * 'cvrVolumeId' @::@ 'Maybe' 'Text'
 --
--- * 'cvrVolumeType' @::@ 'Maybe' 'Text'
+-- * 'cvrVolumeType' @::@ 'Maybe' 'VolumeType'
 --
 createVolumeResponse :: CreateVolumeResponse
 createVolumeResponse = CreateVolumeResponse
@@ -241,7 +241,7 @@ cvrSnapshotId :: Lens' CreateVolumeResponse (Maybe Text)
 cvrSnapshotId = lens _cvrSnapshotId (\s a -> s { _cvrSnapshotId = a })
 
 -- | The volume state.
-cvrState :: Lens' CreateVolumeResponse (Maybe Text)
+cvrState :: Lens' CreateVolumeResponse (Maybe VolumeState)
 cvrState = lens _cvrState (\s a -> s { _cvrState = a })
 
 -- | Any tags assigned to the volume.
@@ -254,7 +254,7 @@ cvrVolumeId = lens _cvrVolumeId (\s a -> s { _cvrVolumeId = a })
 
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1
 -- for Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
-cvrVolumeType :: Lens' CreateVolumeResponse (Maybe Text)
+cvrVolumeType :: Lens' CreateVolumeResponse (Maybe VolumeType)
 cvrVolumeType = lens _cvrVolumeType (\s a -> s { _cvrVolumeType = a })
 
 instance ToPath CreateVolume where

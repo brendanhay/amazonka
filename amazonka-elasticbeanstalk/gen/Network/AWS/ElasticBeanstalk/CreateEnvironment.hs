@@ -216,10 +216,10 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
     , _cerEndpointURL       :: Maybe Text
     , _cerEnvironmentId     :: Maybe Text
     , _cerEnvironmentName   :: Maybe Text
-    , _cerHealth            :: Maybe Text
+    , _cerHealth            :: Maybe EnvironmentHealth
     , _cerResources         :: Maybe EnvironmentResourcesDescription
     , _cerSolutionStackName :: Maybe Text
-    , _cerStatus            :: Maybe Text
+    , _cerStatus            :: Maybe EnvironmentStatus
     , _cerTemplateName      :: Maybe Text
     , _cerTier              :: Maybe EnvironmentTier
     , _cerVersionLabel      :: Maybe Text
@@ -245,13 +245,13 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
 --
 -- * 'cerEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'cerHealth' @::@ 'Maybe' 'Text'
+-- * 'cerHealth' @::@ 'Maybe' 'EnvironmentHealth'
 --
 -- * 'cerResources' @::@ 'Maybe' 'EnvironmentResourcesDescription'
 --
 -- * 'cerSolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * 'cerStatus' @::@ 'Maybe' 'Text'
+-- * 'cerStatus' @::@ 'Maybe' 'EnvironmentStatus'
 --
 -- * 'cerTemplateName' @::@ 'Maybe' 'Text'
 --
@@ -326,7 +326,7 @@ cerEnvironmentName =
 -- environment is not fully launched and health checks have not started or
 -- health checks are suspended during an UpdateEnvironment or
 -- RestartEnvironement request. Default: Grey.
-cerHealth :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerHealth :: Lens' CreateEnvironmentResponse (Maybe EnvironmentHealth)
 cerHealth = lens _cerHealth (\s a -> s { _cerHealth = a })
 
 -- | The description of the AWS resources used by this environment.
@@ -344,7 +344,7 @@ cerSolutionStackName =
 -- Ready: Environment is available to have an action performed on it, such
 -- as update or terminate. Terminating: Environment is in the shut-down
 -- process. Terminated: Environment is not running.
-cerStatus :: Lens' CreateEnvironmentResponse (Maybe Text)
+cerStatus :: Lens' CreateEnvironmentResponse (Maybe EnvironmentStatus)
 cerStatus = lens _cerStatus (\s a -> s { _cerStatus = a })
 
 -- | The name of the configuration template used to originally launch this

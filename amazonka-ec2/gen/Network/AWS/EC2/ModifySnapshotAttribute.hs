@@ -55,7 +55,7 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data ModifySnapshotAttribute = ModifySnapshotAttribute
-    { _msaAttribute              :: Maybe Text
+    { _msaAttribute              :: Maybe SnapshotAttributeName
     , _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications
     , _msaDryRun                 :: Maybe Bool
     , _msaGroupNames             :: List "GroupName" Text
@@ -68,7 +68,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'msaAttribute' @::@ 'Maybe' 'Text'
+-- * 'msaAttribute' @::@ 'Maybe' 'SnapshotAttributeName'
 --
 -- * 'msaCreateVolumePermission' @::@ 'Maybe' 'CreateVolumePermissionModifications'
 --
@@ -95,7 +95,7 @@ modifySnapshotAttribute p1 = ModifySnapshotAttribute
     }
 
 -- | The snapshot attribute to modify.
-msaAttribute :: Lens' ModifySnapshotAttribute (Maybe Text)
+msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msaAttribute = lens _msaAttribute (\s a -> s { _msaAttribute = a })
 
 -- | A JSON representation of the snapshot attribute modification.

@@ -67,14 +67,14 @@ import qualified GHC.Exts
 data UpdateItem = UpdateItem
     { _uiAttributeUpdates            :: Map Text AttributeValueUpdate
     , _uiConditionExpression         :: Maybe Text
-    , _uiConditionalOperator         :: Maybe Text
+    , _uiConditionalOperator         :: Maybe ConditionalOperator
     , _uiExpected                    :: Map Text ExpectedAttributeValue
     , _uiExpressionAttributeNames    :: Map Text Text
     , _uiExpressionAttributeValues   :: Map Text AttributeValue
     , _uiKey                         :: Map Text AttributeValue
-    , _uiReturnConsumedCapacity      :: Maybe Text
-    , _uiReturnItemCollectionMetrics :: Maybe Text
-    , _uiReturnValues                :: Maybe Text
+    , _uiReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
+    , _uiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
+    , _uiReturnValues                :: Maybe ReturnValue
     , _uiTableName                   :: Text
     , _uiUpdateExpression            :: Maybe Text
     } deriving (Eq, Show)
@@ -87,7 +87,7 @@ data UpdateItem = UpdateItem
 --
 -- * 'uiConditionExpression' @::@ 'Maybe' 'Text'
 --
--- * 'uiConditionalOperator' @::@ 'Maybe' 'Text'
+-- * 'uiConditionalOperator' @::@ 'Maybe' 'ConditionalOperator'
 --
 -- * 'uiExpected' @::@ 'HashMap' 'Text' 'ExpectedAttributeValue'
 --
@@ -97,11 +97,11 @@ data UpdateItem = UpdateItem
 --
 -- * 'uiKey' @::@ 'HashMap' 'Text' 'AttributeValue'
 --
--- * 'uiReturnConsumedCapacity' @::@ 'Maybe' 'Text'
+-- * 'uiReturnConsumedCapacity' @::@ 'Maybe' 'ReturnConsumedCapacity'
 --
--- * 'uiReturnItemCollectionMetrics' @::@ 'Maybe' 'Text'
+-- * 'uiReturnItemCollectionMetrics' @::@ 'Maybe' 'ReturnItemCollectionMetrics'
 --
--- * 'uiReturnValues' @::@ 'Maybe' 'Text'
+-- * 'uiReturnValues' @::@ 'Maybe' 'ReturnValue'
 --
 -- * 'uiTableName' @::@ 'Text'
 --
@@ -195,7 +195,7 @@ uiConditionExpression =
 -- one of the conditions evaluate to true, then the entire map evaluates to
 -- true. If you omit ConditionalOperator, then AND is the default. The
 -- operation will succeed only if the entire map evaluates to true.
-uiConditionalOperator :: Lens' UpdateItem (Maybe Text)
+uiConditionalOperator :: Lens' UpdateItem (Maybe ConditionalOperator)
 uiConditionalOperator =
     lens _uiConditionalOperator (\s a -> s { _uiConditionalOperator = a })
 
@@ -365,7 +365,7 @@ uiExpressionAttributeValues =
 uiKey :: Lens' UpdateItem (HashMap Text AttributeValue)
 uiKey = lens _uiKey (\s a -> s { _uiKey = a }) . _Map
 
-uiReturnConsumedCapacity :: Lens' UpdateItem (Maybe Text)
+uiReturnConsumedCapacity :: Lens' UpdateItem (Maybe ReturnConsumedCapacity)
 uiReturnConsumedCapacity =
     lens _uiReturnConsumedCapacity
         (\s a -> s { _uiReturnConsumedCapacity = a })
@@ -374,7 +374,7 @@ uiReturnConsumedCapacity =
 -- collections, if any, that were modified during the operation are returned
 -- in the response. If set to NONE (the default), no statistics are
 -- returned.
-uiReturnItemCollectionMetrics :: Lens' UpdateItem (Maybe Text)
+uiReturnItemCollectionMetrics :: Lens' UpdateItem (Maybe ReturnItemCollectionMetrics)
 uiReturnItemCollectionMetrics =
     lens _uiReturnItemCollectionMetrics
         (\s a -> s { _uiReturnItemCollectionMetrics = a })
@@ -388,7 +388,7 @@ uiReturnItemCollectionMetrics =
 -- versions of only the updated attributes are returned. ALL_NEW - All of
 -- the attributes of the new version of the item are returned. UPDATED_NEW -
 -- The new versions of only the updated attributes are returned.
-uiReturnValues :: Lens' UpdateItem (Maybe Text)
+uiReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
 uiReturnValues = lens _uiReturnValues (\s a -> s { _uiReturnValues = a })
 
 -- | The name of the table containing the item to update.

@@ -66,21 +66,21 @@ dvi1VirtualInterfaceId =
     lens _dvi1VirtualInterfaceId (\s a -> s { _dvi1VirtualInterfaceId = a })
 
 newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
-    { _dvirVirtualInterfaceState :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _dvirVirtualInterfaceState :: Maybe VirtualInterfaceState
+    } deriving (Eq, Show)
 
 -- | 'DeleteVirtualInterfaceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvirVirtualInterfaceState' @::@ 'Maybe' 'Text'
+-- * 'dvirVirtualInterfaceState' @::@ 'Maybe' 'VirtualInterfaceState'
 --
 deleteVirtualInterfaceResponse :: DeleteVirtualInterfaceResponse
 deleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
     { _dvirVirtualInterfaceState = Nothing
     }
 
-dvirVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe Text)
+dvirVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 dvirVirtualInterfaceState =
     lens _dvirVirtualInterfaceState
         (\s a -> s { _dvirVirtualInterfaceState = a })

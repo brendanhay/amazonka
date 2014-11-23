@@ -1428,7 +1428,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -1660,8 +1659,8 @@
                         "shape": "QueryParser",
                         "locationName": "q.parser",
                         "documentation": "\u003cp\u003eSpecifies which query parser to use to process the request. If \u003ccode\u003equeryParser\u003c/code\u003e is not specified, Amazon CloudSearch uses the \u003ccode\u003esimple\u003c/code\u003e query parser. \u003c/p\u003e \u003cp\u003eAmazon CloudSearch supports four query parsers:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003esimple\u003c/code\u003e: perform simple searches of \u003ccode\u003etext\u003c/code\u003e and \u003ccode\u003etext-array\u003c/code\u003e fields. By default, the \u003ccode\u003esimple\u003c/code\u003e query parser searches all \u003ccode\u003etext\u003c/code\u003e and \u003ccode\u003etext-array\u003c/code\u003e fields. You can specify which fields to search by with the \u003ccode\u003equeryOptions\u003c/code\u003e parameter. If you prefix a search term with a plus sign (+) documents must contain the term to be considered a match. (This is the default, unless you configure the default operator with the \u003ccode\u003equeryOptions\u003c/code\u003e parameter.) You can use the \u003ccode\u003e-\u003c/code\u003e (NOT), \u003ccode\u003e|\u003c/code\u003e (OR), and \u003ccode\u003e*\u003c/code\u003e (wildcard) operators to exclude particular terms, find results that match any of the specified terms, or search for a prefix. To search for a phrase rather than individual terms, enclose the phrase in double quotes. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-text.html\"\u003eSearching for Text\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e. \u003c/li\u003e \u003cli\u003e \u003ccode\u003estructured\u003c/code\u003e: perform advanced searches by combining multiple expressions to define the search criteria. You can also search within particular fields, search for values and ranges of values, and use advanced options such as term boosting, \u003ccode\u003ematchall\u003c/code\u003e, and \u003ccode\u003enear\u003c/code\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-compound-queries.html\"\u003eConstructing Compound Queries\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e. \u003c/li\u003e \u003cli\u003e \u003ccode\u003elucene\u003c/code\u003e: search using the Apache Lucene query parser syntax. For more information, see \u003ca href=\"http://lucene.apache.org/core/4_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description\"\u003eApache Lucene Query Parser Syntax\u003c/a\u003e. \u003c/li\u003e \u003cli\u003e \u003ccode\u003edismax\u003c/code\u003e: search using the simplified subset of the Apache Lucene query parser syntax defined by the DisMax query parser. For more information, see \u003ca href=\"http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax\"\u003eDisMax Query Parser Syntax\u003c/a\u003e. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe QueryParser",
+                        "type": "Maybe QueryParser"
                     },
                     {
                         "location": "querystring",
@@ -1857,8 +1856,8 @@
                         "shape": "QueryParser",
                         "locationName": "q.parser",
                         "documentation": "\u003cp\u003eSpecifies which query parser to use to process the request. If \u003ccode\u003equeryParser\u003c/code\u003e is not specified, Amazon CloudSearch uses the \u003ccode\u003esimple\u003c/code\u003e query parser. \u003c/p\u003e \u003cp\u003eAmazon CloudSearch supports four query parsers:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003esimple\u003c/code\u003e: perform simple searches of \u003ccode\u003etext\u003c/code\u003e and \u003ccode\u003etext-array\u003c/code\u003e fields. By default, the \u003ccode\u003esimple\u003c/code\u003e query parser searches all \u003ccode\u003etext\u003c/code\u003e and \u003ccode\u003etext-array\u003c/code\u003e fields. You can specify which fields to search by with the \u003ccode\u003equeryOptions\u003c/code\u003e parameter. If you prefix a search term with a plus sign (+) documents must contain the term to be considered a match. (This is the default, unless you configure the default operator with the \u003ccode\u003equeryOptions\u003c/code\u003e parameter.) You can use the \u003ccode\u003e-\u003c/code\u003e (NOT), \u003ccode\u003e|\u003c/code\u003e (OR), and \u003ccode\u003e*\u003c/code\u003e (wildcard) operators to exclude particular terms, find results that match any of the specified terms, or search for a prefix. To search for a phrase rather than individual terms, enclose the phrase in double quotes. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-text.html\"\u003eSearching for Text\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e. \u003c/li\u003e \u003cli\u003e \u003ccode\u003estructured\u003c/code\u003e: perform advanced searches by combining multiple expressions to define the search criteria. You can also search within particular fields, search for values and ranges of values, and use advanced options such as term boosting, \u003ccode\u003ematchall\u003c/code\u003e, and \u003ccode\u003enear\u003c/code\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-compound-queries.html\"\u003eConstructing Compound Queries\u003c/a\u003e in the \u003ci\u003eAmazon CloudSearch Developer Guide\u003c/i\u003e. \u003c/li\u003e \u003cli\u003e \u003ccode\u003elucene\u003c/code\u003e: search using the Apache Lucene query parser syntax. For more information, see \u003ca href=\"http://lucene.apache.org/core/4_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description\"\u003eApache Lucene Query Parser Syntax\u003c/a\u003e. \u003c/li\u003e \u003cli\u003e \u003ccode\u003edismax\u003c/code\u003e: search using the simplified subset of the Apache Lucene query parser syntax defined by the DisMax query parser. For more information, see \u003ca href=\"http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax\"\u003eDisMax Query Parser Syntax\u003c/a\u003e. \u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe QueryParser",
+                        "type": "Maybe QueryParser"
                     },
                     {
                         "location": "querystring",
@@ -2504,8 +2503,8 @@
                         "shape": "ContentType",
                         "locationName": "Content-Type",
                         "documentation": "\u003cp\u003eThe format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:\u003c/p\u003e \u003cul\u003e \u003cli\u003eapplication/json\u003c/li\u003e \u003cli\u003eapplication/xml\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ContentType",
+                        "type": "ContentType"
                     }
                 ],
                 "shared": false,
@@ -2543,8 +2542,8 @@
                         "shape": "ContentType",
                         "locationName": "Content-Type",
                         "documentation": "\u003cp\u003eThe format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:\u003c/p\u003e \u003cul\u003e \u003cli\u003eapplication/json\u003c/li\u003e \u003cli\u003eapplication/xml\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ContentType",
+                        "type": "ContentType"
                     },
                     {
                         "location": null,

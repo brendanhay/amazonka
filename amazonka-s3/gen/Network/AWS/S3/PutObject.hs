@@ -75,7 +75,7 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data PutObject = PutObject
-    { _poACL                     :: Maybe Text
+    { _poACL                     :: Maybe ObjectCannedACL
     , _poBody                    :: RqBody
     , _poBucket                  :: Text
     , _poCacheControl            :: Maybe Text
@@ -96,8 +96,8 @@ data PutObject = PutObject
     , _poSSECustomerKey          :: Maybe (Sensitive Text)
     , _poSSECustomerKeyMD5       :: Maybe Text
     , _poSSEKMSKeyId             :: Maybe (Sensitive Text)
-    , _poServerSideEncryption    :: Maybe Text
-    , _poStorageClass            :: Maybe Text
+    , _poServerSideEncryption    :: Maybe ServerSideEncryption
+    , _poStorageClass            :: Maybe StorageClass
     , _poWebsiteRedirectLocation :: Maybe Text
     } deriving (Show)
 
@@ -105,7 +105,7 @@ data PutObject = PutObject
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'poACL' @::@ 'Maybe' 'Text'
+-- * 'poACL' @::@ 'Maybe' 'ObjectCannedACL'
 --
 -- * 'poBody' @::@ 'RqBody'
 --
@@ -147,9 +147,9 @@ data PutObject = PutObject
 --
 -- * 'poSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'poServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'poServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
--- * 'poStorageClass' @::@ 'Maybe' 'Text'
+-- * 'poStorageClass' @::@ 'Maybe' 'StorageClass'
 --
 -- * 'poWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
@@ -185,7 +185,7 @@ putObject p1 p2 p3 = PutObject
     }
 
 -- | The canned ACL to apply to the object.
-poACL :: Lens' PutObject (Maybe Text)
+poACL :: Lens' PutObject (Maybe ObjectCannedACL)
 poACL = lens _poACL (\s a -> s { _poACL = a })
 
 -- | Object data.
@@ -284,12 +284,12 @@ poSSEKMSKeyId = lens _poSSEKMSKeyId (\s a -> s { _poSSEKMSKeyId = a }) . mapping
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-poServerSideEncryption :: Lens' PutObject (Maybe Text)
+poServerSideEncryption :: Lens' PutObject (Maybe ServerSideEncryption)
 poServerSideEncryption =
     lens _poServerSideEncryption (\s a -> s { _poServerSideEncryption = a })
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
-poStorageClass :: Lens' PutObject (Maybe Text)
+poStorageClass :: Lens' PutObject (Maybe StorageClass)
 poStorageClass = lens _poStorageClass (\s a -> s { _poStorageClass = a })
 
 -- | If the bucket is configured as a website, redirects requests for this
@@ -306,9 +306,9 @@ data PutObjectResponse = PutObjectResponse
     , _porSSECustomerAlgorithm :: Maybe Text
     , _porSSECustomerKeyMD5    :: Maybe Text
     , _porSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _porServerSideEncryption :: Maybe Text
+    , _porServerSideEncryption :: Maybe ServerSideEncryption
     , _porVersionId            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'PutObjectResponse' constructor.
 --
@@ -324,7 +324,7 @@ data PutObjectResponse = PutObjectResponse
 --
 -- * 'porSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'porServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'porServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
 -- * 'porVersionId' @::@ 'Maybe' 'Text'
 --
@@ -369,7 +369,7 @@ porSSEKMSKeyId = lens _porSSEKMSKeyId (\s a -> s { _porSSEKMSKeyId = a }) . mapp
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-porServerSideEncryption :: Lens' PutObjectResponse (Maybe Text)
+porServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porServerSideEncryption =
     lens _porServerSideEncryption (\s a -> s { _porServerSideEncryption = a })
 

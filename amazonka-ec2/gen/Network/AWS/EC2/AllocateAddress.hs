@@ -51,15 +51,15 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data AllocateAddress = AllocateAddress
-    { _aaDomain :: Maybe Text
+    { _aaDomain :: Maybe DomainType
     , _aaDryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'AllocateAddress' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aaDomain' @::@ 'Maybe' 'Text'
+-- * 'aaDomain' @::@ 'Maybe' 'DomainType'
 --
 -- * 'aaDryRun' @::@ 'Maybe' 'Bool'
 --
@@ -71,7 +71,7 @@ allocateAddress = AllocateAddress
 
 -- | Set to vpc to allocate the address for use with instances in a VPC.
 -- Default: The address is for use with instances in EC2-Classic.
-aaDomain :: Lens' AllocateAddress (Maybe Text)
+aaDomain :: Lens' AllocateAddress (Maybe DomainType)
 aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
 
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
@@ -79,9 +79,9 @@ aaDryRun = lens _aaDryRun (\s a -> s { _aaDryRun = a })
 
 data AllocateAddressResponse = AllocateAddressResponse
     { _aarAllocationId :: Maybe Text
-    , _aarDomain       :: Maybe Text
+    , _aarDomain       :: Maybe DomainType
     , _aarPublicIp     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'AllocateAddressResponse' constructor.
 --
@@ -89,7 +89,7 @@ data AllocateAddressResponse = AllocateAddressResponse
 --
 -- * 'aarAllocationId' @::@ 'Maybe' 'Text'
 --
--- * 'aarDomain' @::@ 'Maybe' 'Text'
+-- * 'aarDomain' @::@ 'Maybe' 'DomainType'
 --
 -- * 'aarPublicIp' @::@ 'Maybe' 'Text'
 --
@@ -107,7 +107,7 @@ aarAllocationId = lens _aarAllocationId (\s a -> s { _aarAllocationId = a })
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic (standard) or instances in a VPC (vpc).
-aarDomain :: Lens' AllocateAddressResponse (Maybe Text)
+aarDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
 aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
 
 -- | The Elastic IP address.

@@ -344,8 +344,8 @@
                         "shape": "StateValue",
                         "locationName": "StateValue",
                         "documentation": "\u003cp\u003e The state value for the alarm. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StateValue",
+                        "type": "Maybe StateValue"
                     },
                     {
                         "location": "querystring",
@@ -434,8 +434,8 @@
                         "shape": "Statistic",
                         "locationName": "Statistic",
                         "documentation": "\u003cp\u003e The statistic to apply to the alarm's associated metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Statistic",
+                        "type": "Maybe Statistic"
                     },
                     {
                         "location": "querystring",
@@ -479,8 +479,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit of the alarm's associated metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     },
                     {
                         "location": "querystring",
@@ -524,8 +524,8 @@
                         "shape": "ComparisonOperator",
                         "locationName": "ComparisonOperator",
                         "documentation": "\u003cp\u003e The arithmetic operation to use when comparing the specified \u003ccode\u003eStatistic\u003c/code\u003e and \u003ccode\u003eThreshold\u003c/code\u003e. The specified \u003ccode\u003eStatistic\u003c/code\u003e value is used as the first operand. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ComparisonOperator",
+                        "type": "Maybe ComparisonOperator"
                     }
                 ],
                 "fields": [
@@ -631,8 +631,8 @@
                         "shape": "ComparisonOperator",
                         "locationName": "ComparisonOperator",
                         "documentation": "\u003cp\u003e The arithmetic operation to use when comparing the specified \u003ccode\u003eStatistic\u003c/code\u003e and \u003ccode\u003eThreshold\u003c/code\u003e. The specified \u003ccode\u003eStatistic\u003c/code\u003e value is used as the first operand. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ComparisonOperator",
+                        "type": "Maybe ComparisonOperator"
                     },
                     {
                         "location": "querystring",
@@ -796,8 +796,8 @@
                         "shape": "StateValue",
                         "locationName": "StateValue",
                         "documentation": "\u003cp\u003e The state value for the alarm. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StateValue",
+                        "type": "Maybe StateValue"
                     },
                     {
                         "location": "querystring",
@@ -811,8 +811,8 @@
                         "shape": "Statistic",
                         "locationName": "Statistic",
                         "documentation": "\u003cp\u003e The statistic to apply to the alarm's associated metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Statistic",
+                        "type": "Maybe Statistic"
                     },
                     {
                         "location": "querystring",
@@ -841,8 +841,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit of the alarm's associated metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ]
             },
@@ -967,8 +967,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit of the metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ],
                 "fields": [
@@ -1044,8 +1044,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit of the metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     },
                     {
                         "location": "querystring",
@@ -1208,7 +1208,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 19,
@@ -1263,8 +1262,8 @@
                         "shape": "HistoryItemType",
                         "locationName": "HistoryItemType",
                         "documentation": "\u003cp\u003e The type of alarm history item. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe HistoryItemType",
+                        "type": "Maybe HistoryItemType"
                     },
                     {
                         "location": "querystring",
@@ -1340,8 +1339,8 @@
                         "shape": "HistoryItemType",
                         "locationName": "HistoryItemType",
                         "documentation": "\u003cp\u003e The type of alarm history item. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe HistoryItemType",
+                        "type": "Maybe HistoryItemType"
                     },
                     {
                         "location": "querystring",
@@ -1505,7 +1504,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 13,
@@ -1620,8 +1618,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The standard unit used for the datapoint. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ],
                 "fields": [
@@ -1727,8 +1725,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The standard unit used for the datapoint. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ]
             },
@@ -1837,7 +1835,9 @@
         "imports": [],
         "shared": [
             "MetricAlarm",
-            "Dimension"
+            "StandardUnit",
+            "Dimension",
+            "Statistic"
         ]
     },
     "operations": [
@@ -2084,7 +2084,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -2171,8 +2170,8 @@
                         "shape": "HistoryItemType",
                         "locationName": "HistoryItemType",
                         "documentation": "\u003cp\u003e The type of alarm histories to retrieve. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe HistoryItemType",
+                        "type": "Maybe HistoryItemType"
                     },
                     {
                         "location": "querystring",
@@ -2278,8 +2277,8 @@
                         "shape": "HistoryItemType",
                         "locationName": "HistoryItemType",
                         "documentation": "\u003cp\u003e The type of alarm histories to retrieve. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe HistoryItemType",
+                        "type": "Maybe HistoryItemType"
                     },
                     {
                         "location": "querystring",
@@ -2443,7 +2442,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -2545,8 +2543,8 @@
                         "shape": "StateValue",
                         "locationName": "StateValue",
                         "documentation": "\u003cp\u003e The state value to be used in matching alarms. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StateValue",
+                        "type": "Maybe StateValue"
                     },
                     {
                         "location": "querystring",
@@ -2682,8 +2680,8 @@
                         "shape": "StateValue",
                         "locationName": "StateValue",
                         "documentation": "\u003cp\u003e The state value to be used in matching alarms. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StateValue",
+                        "type": "Maybe StateValue"
                     }
                 ]
             }
@@ -2883,8 +2881,8 @@
                         "shape": "Statistic",
                         "locationName": "Statistic",
                         "documentation": "\u003cp\u003e The statistic for the metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Statistic",
+                        "type": "Maybe Statistic"
                     },
                     {
                         "location": "querystring",
@@ -2928,8 +2926,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit for the metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ],
                 "fields": [
@@ -3005,8 +3003,8 @@
                         "shape": "Statistic",
                         "locationName": "Statistic",
                         "documentation": "\u003cp\u003e The statistic for the metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Statistic",
+                        "type": "Maybe Statistic"
                     },
                     {
                         "location": "querystring",
@@ -3020,8 +3018,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit for the metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ]
             }
@@ -3493,8 +3491,8 @@
                         "shape": "Statistics",
                         "locationName": "Statistics",
                         "documentation": "\u003cp\u003e The metric statistics to return. For information about specific statistics returned by GetMetricStatistics, go to \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic\"\u003eStatistics\u003c/a\u003e in the \u003ci\u003eAmazon CloudWatch Developer Guide\u003c/i\u003e. \u003c/p\u003e \u003cp\u003e Valid Values: \u003ccode\u003eAverage | Sum | SampleCount | Maximum | Minimum\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "NonEmpty Text",
-                        "type": "List1 \"Statistics\" Text"
+                        "typeExposed": "NonEmpty Statistic",
+                        "type": "List1 \"Statistics\" Statistic"
                     }
                 ],
                 "shared": false,
@@ -3576,8 +3574,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit for the metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ],
                 "fields": [
@@ -3683,8 +3681,8 @@
                         "shape": "Statistics",
                         "locationName": "Statistics",
                         "documentation": "\u003cp\u003e The metric statistics to return. For information about specific statistics returned by GetMetricStatistics, go to \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic\"\u003eStatistics\u003c/a\u003e in the \u003ci\u003eAmazon CloudWatch Developer Guide\u003c/i\u003e. \u003c/p\u003e \u003cp\u003e Valid Values: \u003ccode\u003eAverage | Sum | SampleCount | Maximum | Minimum\u003c/code\u003e \u003c/p\u003e",
-                        "typeExposed": "NonEmpty Text",
-                        "type": "List1 \"Statistics\" Text"
+                        "typeExposed": "NonEmpty Statistic",
+                        "type": "List1 \"Statistics\" Statistic"
                     },
                     {
                         "location": "querystring",
@@ -3698,8 +3696,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit for the metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ]
             }
@@ -4107,8 +4105,8 @@
                         "shape": "Statistic",
                         "locationName": "Statistic",
                         "documentation": "\u003cp\u003e The statistic to apply to the alarm's associated metric. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Statistic",
+                        "type": "Statistic"
                     },
                     {
                         "location": "querystring",
@@ -4167,8 +4165,8 @@
                         "shape": "ComparisonOperator",
                         "locationName": "ComparisonOperator",
                         "documentation": "\u003cp\u003e The arithmetic operation to use when comparing the specified \u003ccode\u003eStatistic\u003c/code\u003e and \u003ccode\u003eThreshold\u003c/code\u003e. The specified \u003ccode\u003eStatistic\u003c/code\u003e value is used as the first operand. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ComparisonOperator",
+                        "type": "ComparisonOperator"
                     }
                 ],
                 "shared": false,
@@ -4360,8 +4358,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit for the alarm's associated metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ],
                 "fields": [
@@ -4437,8 +4435,8 @@
                         "shape": "ComparisonOperator",
                         "locationName": "ComparisonOperator",
                         "documentation": "\u003cp\u003e The arithmetic operation to use when comparing the specified \u003ccode\u003eStatistic\u003c/code\u003e and \u003ccode\u003eThreshold\u003c/code\u003e. The specified \u003ccode\u003eStatistic\u003c/code\u003e value is used as the first operand. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ComparisonOperator",
+                        "type": "ComparisonOperator"
                     },
                     {
                         "location": "querystring",
@@ -4557,8 +4555,8 @@
                         "shape": "Statistic",
                         "locationName": "Statistic",
                         "documentation": "\u003cp\u003e The statistic to apply to the alarm's associated metric. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Statistic",
+                        "type": "Statistic"
                     },
                     {
                         "location": "querystring",
@@ -4587,8 +4585,8 @@
                         "shape": "StandardUnit",
                         "locationName": "Unit",
                         "documentation": "\u003cp\u003e The unit for the alarm's associated metric. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StandardUnit",
+                        "type": "Maybe StandardUnit"
                     }
                 ]
             }
@@ -4780,7 +4778,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -4825,8 +4822,8 @@
                         "shape": "StateValue",
                         "locationName": "StateValue",
                         "documentation": "\u003cp\u003e The value of the state. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StateValue",
+                        "type": "StateValue"
                     },
                     {
                         "location": "querystring",
@@ -4950,8 +4947,8 @@
                         "shape": "StateValue",
                         "locationName": "StateValue",
                         "documentation": "\u003cp\u003e The value of the state. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StateValue",
+                        "type": "StateValue"
                     }
                 ]
             }

@@ -56,8 +56,8 @@ data SetTaskStatus = SetTaskStatus
     , _stsErrorMessage    :: Maybe Text
     , _stsErrorStackTrace :: Maybe Text
     , _stsTaskId          :: Text
-    , _stsTaskStatus      :: Text
-    } deriving (Eq, Ord, Show)
+    , _stsTaskStatus      :: TaskStatus
+    } deriving (Eq, Show)
 
 -- | 'SetTaskStatus' constructor.
 --
@@ -71,10 +71,10 @@ data SetTaskStatus = SetTaskStatus
 --
 -- * 'stsTaskId' @::@ 'Text'
 --
--- * 'stsTaskStatus' @::@ 'Text'
+-- * 'stsTaskStatus' @::@ 'TaskStatus'
 --
 setTaskStatus :: Text -- ^ 'stsTaskId'
-              -> Text -- ^ 'stsTaskStatus'
+              -> TaskStatus -- ^ 'stsTaskStatus'
               -> SetTaskStatus
 setTaskStatus p1 p2 = SetTaskStatus
     { _stsTaskId          = p1
@@ -113,7 +113,7 @@ stsTaskId = lens _stsTaskId (\s a -> s { _stsTaskId = a })
 
 -- | If FINISHED, the task successfully completed. If FAILED the task ended
 -- unsuccessfully. The FALSE value is used by preconditions.
-stsTaskStatus :: Lens' SetTaskStatus Text
+stsTaskStatus :: Lens' SetTaskStatus TaskStatus
 stsTaskStatus = lens _stsTaskStatus (\s a -> s { _stsTaskStatus = a })
 
 data SetTaskStatusResponse = SetTaskStatusResponse

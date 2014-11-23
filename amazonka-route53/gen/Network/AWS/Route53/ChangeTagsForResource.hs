@@ -50,7 +50,7 @@ data ChangeTagsForResource = ChangeTagsForResource
     { _ctfrAddTags       :: List1 "Tag" Tag
     , _ctfrRemoveTagKeys :: List1 "Key" Text
     , _ctfrResourceId    :: Text
-    , _ctfrResourceType  :: Text
+    , _ctfrResourceType  :: TagResourceType
     } deriving (Eq, Show)
 
 -- | 'ChangeTagsForResource' constructor.
@@ -63,9 +63,9 @@ data ChangeTagsForResource = ChangeTagsForResource
 --
 -- * 'ctfrResourceId' @::@ 'Text'
 --
--- * 'ctfrResourceType' @::@ 'Text'
+-- * 'ctfrResourceType' @::@ 'TagResourceType'
 --
-changeTagsForResource :: Text -- ^ 'ctfrResourceType'
+changeTagsForResource :: TagResourceType -- ^ 'ctfrResourceType'
                       -> Text -- ^ 'ctfrResourceId'
                       -> NonEmpty Tag -- ^ 'ctfrAddTags'
                       -> NonEmpty Text -- ^ 'ctfrRemoveTagKeys'
@@ -95,7 +95,7 @@ ctfrResourceId = lens _ctfrResourceId (\s a -> s { _ctfrResourceId = a })
 
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
-ctfrResourceType :: Lens' ChangeTagsForResource Text
+ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
 ctfrResourceType = lens _ctfrResourceType (\s a -> s { _ctfrResourceType = a })
 
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse

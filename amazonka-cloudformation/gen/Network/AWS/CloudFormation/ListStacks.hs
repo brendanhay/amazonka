@@ -53,8 +53,8 @@ import qualified GHC.Exts
 
 data ListStacks = ListStacks
     { _lsNextToken         :: Maybe Text
-    , _lsStackStatusFilter :: List "StackStatusFilter" Text
-    } deriving (Eq, Ord, Show)
+    , _lsStackStatusFilter :: List "StackStatusFilter" StackStatus
+    } deriving (Eq, Show)
 
 -- | 'ListStacks' constructor.
 --
@@ -62,7 +62,7 @@ data ListStacks = ListStacks
 --
 -- * 'lsNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'lsStackStatusFilter' @::@ ['Text']
+-- * 'lsStackStatusFilter' @::@ ['StackStatus']
 --
 listStacks :: ListStacks
 listStacks = ListStacks
@@ -79,7 +79,7 @@ lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 -- to list only stacks with the specified status codes. For a complete list
 -- of stack status codes, see the StackStatus parameter of the Stack data
 -- type.
-lsStackStatusFilter :: Lens' ListStacks [Text]
+lsStackStatusFilter :: Lens' ListStacks [StackStatus]
 lsStackStatusFilter =
     lens _lsStackStatusFilter (\s a -> s { _lsStackStatusFilter = a })
         . _List

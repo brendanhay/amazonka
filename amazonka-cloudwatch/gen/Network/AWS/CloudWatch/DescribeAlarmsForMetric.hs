@@ -56,8 +56,8 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     , _dafmMetricName :: Text
     , _dafmNamespace  :: Text
     , _dafmPeriod     :: Maybe Nat
-    , _dafmStatistic  :: Maybe Text
-    , _dafmUnit       :: Maybe Text
+    , _dafmStatistic  :: Maybe Statistic
+    , _dafmUnit       :: Maybe StandardUnit
     } deriving (Eq, Show)
 
 -- | 'DescribeAlarmsForMetric' constructor.
@@ -72,9 +72,9 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
 --
 -- * 'dafmPeriod' @::@ 'Maybe' 'Natural'
 --
--- * 'dafmStatistic' @::@ 'Maybe' 'Text'
+-- * 'dafmStatistic' @::@ 'Maybe' 'Statistic'
 --
--- * 'dafmUnit' @::@ 'Maybe' 'Text'
+-- * 'dafmUnit' @::@ 'Maybe' 'StandardUnit'
 --
 describeAlarmsForMetric :: Text -- ^ 'dafmMetricName'
                         -> Text -- ^ 'dafmNamespace'
@@ -105,11 +105,11 @@ dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
 dafmPeriod = lens _dafmPeriod (\s a -> s { _dafmPeriod = a }) . mapping _Nat
 
 -- | The statistic for the metric.
-dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Text)
+dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
 dafmStatistic = lens _dafmStatistic (\s a -> s { _dafmStatistic = a })
 
 -- | The unit for the metric.
-dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe Text)
+dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
 dafmUnit = lens _dafmUnit (\s a -> s { _dafmUnit = a })
 
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse

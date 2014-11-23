@@ -53,23 +53,23 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data ResetInstanceAttribute = ResetInstanceAttribute
-    { _riaAttribute  :: Text
+    { _riaAttribute  :: InstanceAttributeName
     , _riaDryRun     :: Maybe Bool
     , _riaInstanceId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ResetInstanceAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riaAttribute' @::@ 'Text'
+-- * 'riaAttribute' @::@ 'InstanceAttributeName'
 --
 -- * 'riaDryRun' @::@ 'Maybe' 'Bool'
 --
 -- * 'riaInstanceId' @::@ 'Text'
 --
 resetInstanceAttribute :: Text -- ^ 'riaInstanceId'
-                       -> Text -- ^ 'riaAttribute'
+                       -> InstanceAttributeName -- ^ 'riaAttribute'
                        -> ResetInstanceAttribute
 resetInstanceAttribute p1 p2 = ResetInstanceAttribute
     { _riaInstanceId = p1
@@ -78,7 +78,7 @@ resetInstanceAttribute p1 p2 = ResetInstanceAttribute
     }
 
 -- | The attribute to reset.
-riaAttribute :: Lens' ResetInstanceAttribute Text
+riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 riaAttribute = lens _riaAttribute (\s a -> s { _riaAttribute = a })
 
 riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)

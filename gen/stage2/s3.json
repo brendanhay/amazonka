@@ -244,7 +244,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 14,
@@ -292,8 +291,8 @@
                         "shape": "TransitionStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe TransitionStorageClass",
+                        "type": "Maybe TransitionStorageClass"
                     }
                 ],
                 "payload": null,
@@ -345,8 +344,8 @@
                         "shape": "TransitionStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe TransitionStorageClass",
+                        "type": "Maybe TransitionStorageClass"
                     }
                 ],
                 "fields": [
@@ -392,8 +391,8 @@
                         "shape": "TransitionStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe TransitionStorageClass",
+                        "type": "Maybe TransitionStorageClass"
                     }
                 ]
             },
@@ -863,7 +862,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -881,8 +879,8 @@
                         "shape": "MFADelete",
                         "locationName": "MfaDelete",
                         "documentation": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MFADelete",
+                        "type": "Maybe MFADelete"
                     },
                     {
                         "location": null,
@@ -896,8 +894,8 @@
                         "shape": "BucketVersioningStatus",
                         "locationName": "Status",
                         "documentation": "The versioning state of the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketVersioningStatus",
+                        "type": "Maybe BucketVersioningStatus"
                     }
                 ],
                 "payload": null,
@@ -919,8 +917,8 @@
                         "shape": "MFADelete",
                         "locationName": "MfaDelete",
                         "documentation": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MFADelete",
+                        "type": "Maybe MFADelete"
                     },
                     {
                         "location": null,
@@ -934,8 +932,8 @@
                         "shape": "BucketVersioningStatus",
                         "locationName": "Status",
                         "documentation": "The versioning state of the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketVersioningStatus",
+                        "type": "Maybe BucketVersioningStatus"
                     }
                 ],
                 "fields": [
@@ -951,8 +949,8 @@
                         "shape": "MFADelete",
                         "locationName": "MfaDelete",
                         "documentation": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MFADelete",
+                        "type": "Maybe MFADelete"
                     },
                     {
                         "location": null,
@@ -966,8 +964,8 @@
                         "shape": "BucketVersioningStatus",
                         "locationName": "Status",
                         "documentation": "The versioning state of the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketVersioningStatus",
+                        "type": "Maybe BucketVersioningStatus"
                     }
                 ]
             },
@@ -1120,7 +1118,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 13,
@@ -1153,8 +1150,8 @@
                         "shape": "Protocol",
                         "locationName": "Protocol",
                         "documentation": "Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Protocol",
+                        "type": "Maybe Protocol"
                     }
                 ],
                 "payload": null,
@@ -1192,8 +1189,8 @@
                         "shape": "Protocol",
                         "locationName": "Protocol",
                         "documentation": "Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Protocol",
+                        "type": "Maybe Protocol"
                     }
                 ],
                 "fields": [
@@ -1224,8 +1221,8 @@
                         "shape": "Protocol",
                         "locationName": "Protocol",
                         "documentation": "Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Protocol",
+                        "type": "Maybe Protocol"
                     }
                 ]
             },
@@ -2081,10 +2078,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid",
-                    "IsString"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -2101,8 +2095,8 @@
                     "shape": "Payer",
                     "locationName": "Payer",
                     "documentation": "Specifies who pays for the download and request fees.",
-                    "typeExposed": "Text",
-                    "type": "Text"
+                    "typeExposed": "Payer",
+                    "type": "Payer"
                 },
                 "contents": [
                     {
@@ -2117,8 +2111,8 @@
                         "shape": "Payer",
                         "locationName": "Payer",
                         "documentation": "Specifies who pays for the download and request fees.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Payer",
+                        "type": "Payer"
                     }
                 ],
                 "payload": null,
@@ -2135,8 +2129,8 @@
                         "shape": "Payer",
                         "locationName": "Payer",
                         "documentation": "Specifies who pays for the download and request fees.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Payer",
+                        "type": "Payer"
                     }
                 ],
                 "contentPad": 0,
@@ -2157,8 +2151,8 @@
                         "shape": "Payer",
                         "locationName": "Payer",
                         "documentation": "Specifies who pays for the download and request fees.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Payer",
+                        "type": "Payer"
                     }
                 ]
             },
@@ -2611,7 +2605,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -2644,8 +2637,8 @@
                         "shape": "TransitionStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TransitionStorageClass",
+                        "type": "TransitionStorageClass"
                     }
                 ],
                 "payload": null,
@@ -2677,8 +2670,8 @@
                         "shape": "TransitionStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TransitionStorageClass",
+                        "type": "TransitionStorageClass"
                     }
                 ],
                 "contentPad": 15,
@@ -2714,8 +2707,8 @@
                         "shape": "TransitionStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TransitionStorageClass",
+                        "type": "TransitionStorageClass"
                     }
                 ]
             },
@@ -3105,8 +3098,8 @@
                         "shape": "Permission",
                         "locationName": "Permission",
                         "documentation": "Specifies the permission given to the grantee.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Permission",
+                        "type": "Maybe Permission"
                     }
                 ],
                 "payload": null,
@@ -3143,8 +3136,8 @@
                         "shape": "Permission",
                         "locationName": "Permission",
                         "documentation": "Specifies the permission given to the grantee.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Permission",
+                        "type": "Maybe Permission"
                     }
                 ],
                 "fields": [
@@ -3175,8 +3168,8 @@
                         "shape": "Permission",
                         "locationName": "Permission",
                         "documentation": "Specifies the permission given to the grantee.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Permission",
+                        "type": "Maybe Permission"
                     }
                 ]
             },
@@ -3245,8 +3238,8 @@
                         "shape": "ExpirationStatus",
                         "locationName": "Status",
                         "documentation": "If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ExpirationStatus",
+                        "type": "ExpirationStatus"
                     },
                     {
                         "location": null,
@@ -3323,8 +3316,8 @@
                         "shape": "ExpirationStatus",
                         "locationName": "Status",
                         "documentation": "If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ExpirationStatus",
+                        "type": "ExpirationStatus"
                     }
                 ],
                 "contentPad": 28,
@@ -3496,8 +3489,8 @@
                         "shape": "ExpirationStatus",
                         "locationName": "Status",
                         "documentation": "If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ExpirationStatus",
+                        "type": "ExpirationStatus"
                     },
                     {
                         "location": null,
@@ -3519,7 +3512,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 9,
@@ -3552,8 +3544,8 @@
                         "shape": "Events",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "[Text]",
-                        "type": "List \"Event\" Text"
+                        "typeExposed": "[Event]",
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": null,
@@ -3567,8 +3559,8 @@
                         "shape": "Event",
                         "locationName": "Event",
                         "documentation": "Bucket event for which to send notifications.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Event",
+                        "type": "Maybe Event"
                     },
                     {
                         "location": null,
@@ -3620,8 +3612,8 @@
                         "shape": "Events",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "[Text]",
-                        "type": "List \"Event\" Text"
+                        "typeExposed": "[Event]",
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": null,
@@ -3635,8 +3627,8 @@
                         "shape": "Event",
                         "locationName": "Event",
                         "documentation": "Bucket event for which to send notifications.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Event",
+                        "type": "Maybe Event"
                     },
                     {
                         "location": null,
@@ -3667,8 +3659,8 @@
                         "shape": "Event",
                         "locationName": "Event",
                         "documentation": "Bucket event for which to send notifications.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Event",
+                        "type": "Maybe Event"
                     },
                     {
                         "location": null,
@@ -3682,8 +3674,8 @@
                         "shape": "Events",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "[Text]",
-                        "type": "List \"Event\" Text"
+                        "typeExposed": "[Event]",
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": null,
@@ -3720,7 +3712,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 9,
@@ -3753,8 +3744,8 @@
                         "shape": "Event",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Event",
+                        "type": "Maybe Event"
                     },
                     {
                         "location": null,
@@ -3768,8 +3759,8 @@
                         "shape": "Events",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "[Text]",
-                        "type": "List \"Event\" Text"
+                        "typeExposed": "[Event]",
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": null,
@@ -3821,8 +3812,8 @@
                         "shape": "Event",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Event",
+                        "type": "Maybe Event"
                     },
                     {
                         "location": null,
@@ -3836,8 +3827,8 @@
                         "shape": "Events",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "[Text]",
-                        "type": "List \"Event\" Text"
+                        "typeExposed": "[Event]",
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": null,
@@ -3868,8 +3859,8 @@
                         "shape": "Event",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Event",
+                        "type": "Maybe Event"
                     },
                     {
                         "location": null,
@@ -3883,8 +3874,8 @@
                         "shape": "Events",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "[Text]",
-                        "type": "List \"Event\" Text"
+                        "typeExposed": "[Event]",
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": null,
@@ -4261,8 +4252,8 @@
                         "shape": "ObjectVersionStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectVersionStorageClass",
+                        "type": "Maybe ObjectVersionStorageClass"
                     },
                     {
                         "location": null,
@@ -4389,8 +4380,8 @@
                         "shape": "ObjectVersionStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectVersionStorageClass",
+                        "type": "Maybe ObjectVersionStorageClass"
                     },
                     {
                         "location": null,
@@ -4571,8 +4562,8 @@
                         "shape": "ObjectVersionStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectVersionStorageClass",
+                        "type": "Maybe ObjectVersionStorageClass"
                     },
                     {
                         "location": null,
@@ -4626,8 +4617,8 @@
                         "shape": "BucketLogsPermission",
                         "locationName": "Permission",
                         "documentation": "Logging permissions assigned to the Grantee for the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketLogsPermission",
+                        "type": "Maybe BucketLogsPermission"
                     }
                 ],
                 "payload": null,
@@ -4664,8 +4655,8 @@
                         "shape": "BucketLogsPermission",
                         "locationName": "Permission",
                         "documentation": "Logging permissions assigned to the Grantee for the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketLogsPermission",
+                        "type": "Maybe BucketLogsPermission"
                     }
                 ],
                 "fields": [
@@ -4696,8 +4687,8 @@
                         "shape": "BucketLogsPermission",
                         "locationName": "Permission",
                         "documentation": "Logging permissions assigned to the Grantee for the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketLogsPermission",
+                        "type": "Maybe BucketLogsPermission"
                     }
                 ]
             },
@@ -4738,7 +4729,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 22,
@@ -4786,8 +4776,8 @@
                         "shape": "Protocol",
                         "locationName": "Protocol",
                         "documentation": "Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Protocol",
+                        "type": "Maybe Protocol"
                     },
                     {
                         "location": null,
@@ -4869,8 +4859,8 @@
                         "shape": "Protocol",
                         "locationName": "Protocol",
                         "documentation": "Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Protocol",
+                        "type": "Maybe Protocol"
                     },
                     {
                         "location": null,
@@ -4946,8 +4936,8 @@
                         "shape": "Protocol",
                         "locationName": "Protocol",
                         "documentation": "Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Protocol",
+                        "type": "Maybe Protocol"
                     },
                     {
                         "location": null,
@@ -5113,9 +5103,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -5132,8 +5120,8 @@
                     "shape": "BucketLocationConstraint",
                     "locationName": "LocationConstraint",
                     "documentation": "Specifies the region where the bucket will be created.",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Maybe Region",
+                    "type": "Maybe Region"
                 },
                 "contents": [
                     {
@@ -5148,8 +5136,8 @@
                         "shape": "BucketLocationConstraint",
                         "locationName": "LocationConstraint",
                         "documentation": "Specifies the region where the bucket will be created.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Region",
+                        "type": "Maybe Region"
                     }
                 ],
                 "payload": null,
@@ -5171,8 +5159,8 @@
                         "shape": "BucketLocationConstraint",
                         "locationName": "LocationConstraint",
                         "documentation": "Specifies the region where the bucket will be created.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Region",
+                        "type": "Maybe Region"
                     }
                 ],
                 "fields": [
@@ -5188,8 +5176,8 @@
                         "shape": "BucketLocationConstraint",
                         "locationName": "LocationConstraint",
                         "documentation": "Specifies the region where the bucket will be created.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Region",
+                        "type": "Maybe Region"
                     }
                 ]
             },
@@ -5550,8 +5538,8 @@
                         "shape": "ObjectStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ObjectStorageClass",
+                        "type": "ObjectStorageClass"
                     },
                     {
                         "location": null,
@@ -5643,8 +5631,8 @@
                         "shape": "ObjectStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ObjectStorageClass",
+                        "type": "ObjectStorageClass"
                     },
                     {
                         "location": null,
@@ -5755,8 +5743,8 @@
                         "shape": "ObjectStorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ObjectStorageClass",
+                        "type": "ObjectStorageClass"
                     }
                 ]
             },
@@ -5908,8 +5896,8 @@
                         "shape": "StorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": null,
@@ -6006,8 +5994,8 @@
                         "shape": "StorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": null,
@@ -6113,8 +6101,8 @@
                         "shape": "StorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": null,
@@ -6530,7 +6518,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -6563,8 +6550,8 @@
                         "shape": "Event",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Event",
+                        "type": "Maybe Event"
                     },
                     {
                         "location": null,
@@ -6578,8 +6565,8 @@
                         "shape": "Events",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "[Text]",
-                        "type": "List \"Event\" Text"
+                        "typeExposed": "[Event]",
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": null,
@@ -6646,8 +6633,8 @@
                         "shape": "Event",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Event",
+                        "type": "Maybe Event"
                     },
                     {
                         "location": null,
@@ -6661,8 +6648,8 @@
                         "shape": "Events",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "[Text]",
-                        "type": "List \"Event\" Text"
+                        "typeExposed": "[Event]",
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": null,
@@ -6723,8 +6710,8 @@
                         "shape": "Event",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Event",
+                        "type": "Maybe Event"
                     },
                     {
                         "location": null,
@@ -6738,8 +6725,8 @@
                         "shape": "Events",
                         "locationName": "Event",
                         "documentation": null,
-                        "typeExposed": "[Text]",
-                        "type": "List \"Event\" Text"
+                        "typeExposed": "[Event]",
+                        "type": "List \"Event\" Event"
                     },
                     {
                         "location": null,
@@ -6776,7 +6763,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 14,
@@ -6839,8 +6825,8 @@
                         "shape": "Type",
                         "locationName": "Type",
                         "documentation": "Type of grantee",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Type",
+                        "type": "Type"
                     },
                     {
                         "location": null,
@@ -6872,8 +6858,8 @@
                         "shape": "Type",
                         "locationName": "Type",
                         "documentation": "Type of grantee",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Type",
+                        "type": "Type"
                     }
                 ],
                 "contentPad": 13,
@@ -7000,8 +6986,8 @@
                         "shape": "Type",
                         "locationName": "Type",
                         "documentation": "Type of grantee",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Type",
+                        "type": "Type"
                     },
                     {
                         "location": null,
@@ -7670,10 +7656,15 @@
             "Network.AWS.S3.Internal"
         ],
         "shared": [
+            "ObjectCannedACL",
+            "EncodingType",
             "Grant",
             "Owner",
+            "StorageClass",
             "CommonPrefix",
-            "AccessControlPolicy"
+            "AccessControlPolicy",
+            "BucketCannedACL",
+            "ServerSideEncryption"
         ]
     },
     "operations": [
@@ -7865,7 +7856,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -8056,8 +8046,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -8193,8 +8183,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -8574,8 +8564,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -8726,8 +8716,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     }
                 ]
             },
@@ -8985,8 +8975,8 @@
                         "shape": "ObjectCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectCannedACL",
+                        "type": "Maybe ObjectCannedACL"
                     },
                     {
                         "location": "header",
@@ -9225,8 +9215,8 @@
                         "shape": "MetadataDirective",
                         "locationName": "x-amz-metadata-directive",
                         "documentation": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MetadataDirective",
+                        "type": "Maybe MetadataDirective"
                     },
                     {
                         "location": "header",
@@ -9240,8 +9230,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -9255,8 +9245,8 @@
                         "shape": "StorageClass",
                         "locationName": "x-amz-storage-class",
                         "documentation": "The type of storage to use for the object. Defaults to 'STANDARD'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": "header",
@@ -9392,8 +9382,8 @@
                         "shape": "ObjectCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectCannedACL",
+                        "type": "Maybe ObjectCannedACL"
                     },
                     {
                         "location": "uri",
@@ -9737,8 +9727,8 @@
                         "shape": "MetadataDirective",
                         "locationName": "x-amz-metadata-directive",
                         "documentation": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MetadataDirective",
+                        "type": "Maybe MetadataDirective"
                     },
                     {
                         "location": "header",
@@ -9797,8 +9787,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -9812,8 +9802,8 @@
                         "shape": "StorageClass",
                         "locationName": "x-amz-storage-class",
                         "documentation": "The type of storage to use for the object. Defaults to 'STANDARD'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": "header",
@@ -10053,8 +10043,8 @@
                         "shape": "BucketCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketCannedACL",
+                        "type": "Maybe BucketCannedACL"
                     },
                     {
                         "location": null,
@@ -10160,8 +10150,8 @@
                         "shape": "BucketCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketCannedACL",
+                        "type": "Maybe BucketCannedACL"
                     },
                     {
                         "location": "uri",
@@ -10276,7 +10266,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -10422,8 +10411,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -10559,8 +10548,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": null,
@@ -10778,8 +10767,8 @@
                         "shape": "ObjectCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectCannedACL",
+                        "type": "Maybe ObjectCannedACL"
                     },
                     {
                         "location": "header",
@@ -10958,8 +10947,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -10973,8 +10962,8 @@
                         "shape": "StorageClass",
                         "locationName": "x-amz-storage-class",
                         "documentation": "The type of storage to use for the object. Defaults to 'STANDARD'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": "header",
@@ -11065,8 +11054,8 @@
                         "shape": "ObjectCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectCannedACL",
+                        "type": "Maybe ObjectCannedACL"
                     },
                     {
                         "location": "uri",
@@ -11335,8 +11324,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -11350,8 +11339,8 @@
                         "shape": "StorageClass",
                         "locationName": "x-amz-storage-class",
                         "documentation": "The type of storage to use for the object. Defaults to 'STANDARD'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": "header",
@@ -13391,9 +13380,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -13413,8 +13400,8 @@
                     "shape": "BucketLocationConstraint",
                     "locationName": "LocationConstraint",
                     "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Maybe Region",
+                    "type": "Maybe Region"
                 },
                 "contents": [
                     {
@@ -13429,8 +13416,8 @@
                         "shape": "BucketLocationConstraint",
                         "locationName": "LocationConstraint",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Region",
+                        "type": "Maybe Region"
                     }
                 ],
                 "wrapper": false,
@@ -13458,8 +13445,8 @@
                         "shape": "BucketLocationConstraint",
                         "locationName": "LocationConstraint",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Region",
+                        "type": "Maybe Region"
                     }
                 ],
                 "fields": [
@@ -13475,8 +13462,8 @@
                         "shape": "BucketLocationConstraint",
                         "locationName": "LocationConstraint",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Region",
+                        "type": "Maybe Region"
                     }
                 ]
             },
@@ -14275,9 +14262,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -14297,8 +14282,8 @@
                     "shape": "Payer",
                     "locationName": "Payer",
                     "documentation": "Specifies who pays for the download and request fees.",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Maybe Payer",
+                    "type": "Maybe Payer"
                 },
                 "contents": [
                     {
@@ -14313,8 +14298,8 @@
                         "shape": "Payer",
                         "locationName": "Payer",
                         "documentation": "Specifies who pays for the download and request fees.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Payer",
+                        "type": "Maybe Payer"
                     }
                 ],
                 "wrapper": false,
@@ -14342,8 +14327,8 @@
                         "shape": "Payer",
                         "locationName": "Payer",
                         "documentation": "Specifies who pays for the download and request fees.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Payer",
+                        "type": "Maybe Payer"
                     }
                 ],
                 "fields": [
@@ -14359,8 +14344,8 @@
                         "shape": "Payer",
                         "locationName": "Payer",
                         "documentation": "Specifies who pays for the download and request fees.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Payer",
+                        "type": "Maybe Payer"
                     }
                 ]
             },
@@ -14675,7 +14660,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -14696,8 +14680,8 @@
                         "shape": "BucketVersioningStatus",
                         "locationName": "Status",
                         "documentation": "The versioning state of the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketVersioningStatus",
+                        "type": "Maybe BucketVersioningStatus"
                     },
                     {
                         "location": null,
@@ -14711,8 +14695,8 @@
                         "shape": "MFADeleteStatus",
                         "locationName": "MfaDelete",
                         "documentation": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MFADeleteStatus",
+                        "type": "Maybe MFADeleteStatus"
                     }
                 ],
                 "wrapper": false,
@@ -14740,8 +14724,8 @@
                         "shape": "BucketVersioningStatus",
                         "locationName": "Status",
                         "documentation": "The versioning state of the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketVersioningStatus",
+                        "type": "Maybe BucketVersioningStatus"
                     },
                     {
                         "location": null,
@@ -14755,8 +14739,8 @@
                         "shape": "MFADeleteStatus",
                         "locationName": "MfaDelete",
                         "documentation": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MFADeleteStatus",
+                        "type": "Maybe MFADeleteStatus"
                     }
                 ],
                 "fields": [
@@ -14772,8 +14756,8 @@
                         "shape": "MFADeleteStatus",
                         "locationName": "MfaDelete",
                         "documentation": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MFADeleteStatus",
+                        "type": "Maybe MFADeleteStatus"
                     },
                     {
                         "location": null,
@@ -14787,8 +14771,8 @@
                         "shape": "BucketVersioningStatus",
                         "locationName": "Status",
                         "documentation": "The versioning state of the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketVersioningStatus",
+                        "type": "Maybe BucketVersioningStatus"
                     }
                 ]
             },
@@ -15628,8 +15612,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "headers",
@@ -15990,8 +15974,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -17718,8 +17702,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "headers",
@@ -18065,8 +18049,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -18929,8 +18913,8 @@
                         "shape": "EncodingType",
                         "locationName": "EncodingType",
                         "documentation": "Encoding type used by Amazon S3 to encode object keys in the response.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     }
                 ],
                 "wrapper": false,
@@ -19123,8 +19107,8 @@
                         "shape": "EncodingType",
                         "locationName": "EncodingType",
                         "documentation": "Encoding type used by Amazon S3 to encode object keys in the response.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     }
                 ],
                 "fields": [
@@ -19185,8 +19169,8 @@
                         "shape": "EncodingType",
                         "locationName": "EncodingType",
                         "documentation": "Encoding type used by Amazon S3 to encode object keys in the response.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     },
                     {
                         "location": null,
@@ -19343,7 +19327,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -19454,8 +19437,8 @@
                         "shape": "EncodingType",
                         "locationName": "encoding-type",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     },
                     {
                         "location": "querystring",
@@ -19561,8 +19544,8 @@
                         "shape": "EncodingType",
                         "locationName": "encoding-type",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     },
                     {
                         "location": "querystring",
@@ -19832,8 +19815,8 @@
                         "shape": "EncodingType",
                         "locationName": "EncodingType",
                         "documentation": "Encoding type used by Amazon S3 to encode object keys in the response.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     }
                 ],
                 "wrapper": false,
@@ -20041,8 +20024,8 @@
                         "shape": "EncodingType",
                         "locationName": "EncodingType",
                         "documentation": "Encoding type used by Amazon S3 to encode object keys in the response.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     }
                 ],
                 "fields": [
@@ -20103,8 +20086,8 @@
                         "shape": "EncodingType",
                         "locationName": "EncodingType",
                         "documentation": "Encoding type used by Amazon S3 to encode object keys in the response.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     },
                     {
                         "location": null,
@@ -20276,7 +20259,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -20387,8 +20369,8 @@
                         "shape": "EncodingType",
                         "locationName": "encoding-type",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     },
                     {
                         "location": "querystring",
@@ -20494,8 +20476,8 @@
                         "shape": "EncodingType",
                         "locationName": "encoding-type",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     },
                     {
                         "location": "querystring",
@@ -20720,8 +20702,8 @@
                         "shape": "EncodingType",
                         "locationName": "EncodingType",
                         "documentation": "Encoding type used by Amazon S3 to encode object keys in the response.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     }
                 ],
                 "wrapper": false,
@@ -20884,8 +20866,8 @@
                         "shape": "EncodingType",
                         "locationName": "EncodingType",
                         "documentation": "Encoding type used by Amazon S3 to encode object keys in the response.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     }
                 ],
                 "fields": [
@@ -20946,8 +20928,8 @@
                         "shape": "EncodingType",
                         "locationName": "EncodingType",
                         "documentation": "Encoding type used by Amazon S3 to encode object keys in the response.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     },
                     {
                         "location": null,
@@ -21065,7 +21047,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -21167,8 +21148,8 @@
                         "shape": "EncodingType",
                         "locationName": "encoding-type",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     },
                     {
                         "location": "querystring",
@@ -21259,8 +21240,8 @@
                         "shape": "EncodingType",
                         "locationName": "encoding-type",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EncodingType",
+                        "type": "Maybe EncodingType"
                     },
                     {
                         "location": "querystring",
@@ -21485,8 +21466,8 @@
                         "shape": "StorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     }
                 ],
                 "wrapper": false,
@@ -21664,8 +21645,8 @@
                         "shape": "StorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     }
                 ],
                 "fields": [
@@ -21816,8 +21797,8 @@
                         "shape": "StorageClass",
                         "locationName": "StorageClass",
                         "documentation": "The class of storage used to store the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": null,
@@ -22245,8 +22226,8 @@
                         "shape": "BucketCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketCannedACL",
+                        "type": "Maybe BucketCannedACL"
                     },
                     {
                         "location": null,
@@ -22367,8 +22348,8 @@
                         "shape": "BucketCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the bucket.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BucketCannedACL",
+                        "type": "Maybe BucketCannedACL"
                     },
                     {
                         "location": null,
@@ -24424,7 +24405,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -24524,8 +24504,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -24676,8 +24656,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -24928,8 +24908,8 @@
                         "shape": "ObjectCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectCannedACL",
+                        "type": "Maybe ObjectCannedACL"
                     },
                     {
                         "location": "header",
@@ -25138,8 +25118,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -25153,8 +25133,8 @@
                         "shape": "StorageClass",
                         "locationName": "x-amz-storage-class",
                         "documentation": "The type of storage to use for the object. Defaults to 'STANDARD'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": "header",
@@ -25245,8 +25225,8 @@
                         "shape": "ObjectCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectCannedACL",
+                        "type": "Maybe ObjectCannedACL"
                     },
                     {
                         "location": "body",
@@ -25560,8 +25540,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -25575,8 +25555,8 @@
                         "shape": "StorageClass",
                         "locationName": "x-amz-storage-class",
                         "documentation": "The type of storage to use for the object. Defaults to 'STANDARD'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StorageClass",
+                        "type": "Maybe StorageClass"
                     },
                     {
                         "location": "header",
@@ -25791,8 +25771,8 @@
                         "shape": "ObjectCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectCannedACL",
+                        "type": "Maybe ObjectCannedACL"
                     },
                     {
                         "location": null,
@@ -25913,8 +25893,8 @@
                         "shape": "ObjectCannedACL",
                         "locationName": "x-amz-acl",
                         "documentation": "The canned ACL to apply to the object.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ObjectCannedACL",
+                        "type": "Maybe ObjectCannedACL"
                     },
                     {
                         "location": null,
@@ -26306,7 +26286,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -26366,8 +26345,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -26503,8 +26482,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     }
                 ]
             },
@@ -27078,8 +27057,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     },
                     {
                         "location": "header",
@@ -27215,8 +27194,8 @@
                         "shape": "ServerSideEncryption",
                         "locationName": "x-amz-server-side-encryption",
                         "documentation": "The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ServerSideEncryption",
+                        "type": "Maybe ServerSideEncryption"
                     }
                 ]
             },

@@ -54,9 +54,9 @@ import qualified GHC.Exts
 data SignalResource = SignalResource
     { _srLogicalResourceId :: Text
     , _srStackName         :: Text
-    , _srStatus            :: Text
+    , _srStatus            :: ResourceSignalStatus
     , _srUniqueId          :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'SignalResource' constructor.
 --
@@ -66,14 +66,14 @@ data SignalResource = SignalResource
 --
 -- * 'srStackName' @::@ 'Text'
 --
--- * 'srStatus' @::@ 'Text'
+-- * 'srStatus' @::@ 'ResourceSignalStatus'
 --
 -- * 'srUniqueId' @::@ 'Text'
 --
 signalResource :: Text -- ^ 'srStackName'
                -> Text -- ^ 'srLogicalResourceId'
                -> Text -- ^ 'srUniqueId'
-               -> Text -- ^ 'srStatus'
+               -> ResourceSignalStatus -- ^ 'srStatus'
                -> SignalResource
 signalResource p1 p2 p3 p4 = SignalResource
     { _srStackName         = p1
@@ -95,7 +95,7 @@ srStackName = lens _srStackName (\s a -> s { _srStackName = a })
 -- | The status of the signal, which is either success or failure. A failure
 -- signal causes AWS CloudFormation to immediately fail the stack creation
 -- or update.
-srStatus :: Lens' SignalResource Text
+srStatus :: Lens' SignalResource ResourceSignalStatus
 srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 
 -- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto

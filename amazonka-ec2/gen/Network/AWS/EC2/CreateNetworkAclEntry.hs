@@ -71,7 +71,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
     , _cnaeNetworkAclId :: Text
     , _cnaePortRange    :: Maybe PortRange
     , _cnaeProtocol     :: Text
-    , _cnaeRuleAction   :: Text
+    , _cnaeRuleAction   :: RuleAction
     , _cnaeRuleNumber   :: Int
     } deriving (Eq, Show)
 
@@ -93,14 +93,14 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
 --
 -- * 'cnaeProtocol' @::@ 'Text'
 --
--- * 'cnaeRuleAction' @::@ 'Text'
+-- * 'cnaeRuleAction' @::@ 'RuleAction'
 --
 -- * 'cnaeRuleNumber' @::@ 'Int'
 --
 createNetworkAclEntry :: Text -- ^ 'cnaeNetworkAclId'
                       -> Int -- ^ 'cnaeRuleNumber'
                       -> Text -- ^ 'cnaeProtocol'
-                      -> Text -- ^ 'cnaeRuleAction'
+                      -> RuleAction -- ^ 'cnaeRuleAction'
                       -> Bool -- ^ 'cnaeEgress'
                       -> Text -- ^ 'cnaeCidrBlock'
                       -> CreateNetworkAclEntry
@@ -147,7 +147,7 @@ cnaeProtocol :: Lens' CreateNetworkAclEntry Text
 cnaeProtocol = lens _cnaeProtocol (\s a -> s { _cnaeProtocol = a })
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-cnaeRuleAction :: Lens' CreateNetworkAclEntry Text
+cnaeRuleAction :: Lens' CreateNetworkAclEntry RuleAction
 cnaeRuleAction = lens _cnaeRuleAction (\s a -> s { _cnaeRuleAction = a })
 
 -- | The rule number for the entry (for example, 100). ACL entries are

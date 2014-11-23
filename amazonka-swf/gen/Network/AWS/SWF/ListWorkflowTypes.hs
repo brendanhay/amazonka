@@ -66,9 +66,9 @@ data ListWorkflowTypes = ListWorkflowTypes
     , _lwtMaximumPageSize    :: Maybe Nat
     , _lwtName               :: Maybe Text
     , _lwtNextPageToken      :: Maybe Text
-    , _lwtRegistrationStatus :: Text
+    , _lwtRegistrationStatus :: RegistrationStatus
     , _lwtReverseOrder       :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListWorkflowTypes' constructor.
 --
@@ -82,12 +82,12 @@ data ListWorkflowTypes = ListWorkflowTypes
 --
 -- * 'lwtNextPageToken' @::@ 'Maybe' 'Text'
 --
--- * 'lwtRegistrationStatus' @::@ 'Text'
+-- * 'lwtRegistrationStatus' @::@ 'RegistrationStatus'
 --
 -- * 'lwtReverseOrder' @::@ 'Maybe' 'Bool'
 --
 listWorkflowTypes :: Text -- ^ 'lwtDomain'
-                  -> Text -- ^ 'lwtRegistrationStatus'
+                  -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
                   -> ListWorkflowTypes
 listWorkflowTypes p1 p2 = ListWorkflowTypes
     { _lwtDomain             = p1
@@ -124,7 +124,7 @@ lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
 lwtNextPageToken = lens _lwtNextPageToken (\s a -> s { _lwtNextPageToken = a })
 
 -- | Specifies the registration status of the workflow types to list.
-lwtRegistrationStatus :: Lens' ListWorkflowTypes Text
+lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
 lwtRegistrationStatus =
     lens _lwtRegistrationStatus (\s a -> s { _lwtRegistrationStatus = a })
 

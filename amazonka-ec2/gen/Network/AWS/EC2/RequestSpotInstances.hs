@@ -66,7 +66,7 @@ data RequestSpotInstances = RequestSpotInstances
     , _rsiLaunchGroup           :: Maybe Text
     , _rsiLaunchSpecification   :: Maybe RequestSpotLaunchSpecification
     , _rsiSpotPrice             :: Text
-    , _rsiType                  :: Maybe Text
+    , _rsiType                  :: Maybe SpotInstanceType
     , _rsiValidFrom             :: Maybe RFC822
     , _rsiValidUntil            :: Maybe RFC822
     } deriving (Eq, Show)
@@ -87,7 +87,7 @@ data RequestSpotInstances = RequestSpotInstances
 --
 -- * 'rsiSpotPrice' @::@ 'Text'
 --
--- * 'rsiType' @::@ 'Maybe' 'Text'
+-- * 'rsiType' @::@ 'Maybe' 'SpotInstanceType'
 --
 -- * 'rsiValidFrom' @::@ 'Maybe' 'UTCTime'
 --
@@ -152,7 +152,7 @@ rsiSpotPrice :: Lens' RequestSpotInstances Text
 rsiSpotPrice = lens _rsiSpotPrice (\s a -> s { _rsiSpotPrice = a })
 
 -- | The Spot Instance request type. Default: one-time.
-rsiType :: Lens' RequestSpotInstances (Maybe Text)
+rsiType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
 rsiType = lens _rsiType (\s a -> s { _rsiType = a })
 
 -- | The start date of the request. If this is a one-time request, the request

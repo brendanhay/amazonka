@@ -60,7 +60,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 23,
@@ -78,8 +77,8 @@
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
                         "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeliveryStatus",
+                        "type": "Maybe DeliveryStatus"
                     },
                     {
                         "location": null,
@@ -161,8 +160,8 @@
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
                         "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeliveryStatus",
+                        "type": "Maybe DeliveryStatus"
                     },
                     {
                         "location": null,
@@ -283,8 +282,8 @@
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
                         "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeliveryStatus",
+                        "type": "Maybe DeliveryStatus"
                     },
                     {
                         "location": null,
@@ -306,7 +305,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -324,8 +322,8 @@
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
                         "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeliveryStatus",
+                        "type": "Maybe DeliveryStatus"
                     },
                     {
                         "location": null,
@@ -392,8 +390,8 @@
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
                         "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeliveryStatus",
+                        "type": "Maybe DeliveryStatus"
                     },
                     {
                         "location": null,
@@ -484,8 +482,8 @@
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
                         "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeliveryStatus",
+                        "type": "Maybe DeliveryStatus"
                     },
                     {
                         "location": null,
@@ -507,7 +505,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -525,8 +522,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe resource type of the related resource.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceType",
+                        "type": "Maybe ResourceType"
                     },
                     {
                         "location": null,
@@ -578,8 +575,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe resource type of the related resource.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceType",
+                        "type": "Maybe ResourceType"
                     },
                     {
                         "location": null,
@@ -655,8 +652,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe resource type of the related resource.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceType",
+                        "type": "Maybe ResourceType"
                     }
                 ]
             },
@@ -972,8 +969,8 @@
                         "shape": "ConfigurationItemStatus",
                         "locationName": "configurationItemStatus",
                         "documentation": "\u003cp\u003eThe configuration item status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationItemStatus",
+                        "type": "Maybe ConfigurationItemStatus"
                     },
                     {
                         "location": null,
@@ -1032,8 +1029,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe type of AWS resource.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceType",
+                        "type": "Maybe ResourceType"
                     },
                     {
                         "location": null,
@@ -1205,8 +1202,8 @@
                         "shape": "ConfigurationItemStatus",
                         "locationName": "configurationItemStatus",
                         "documentation": "\u003cp\u003eThe configuration item status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationItemStatus",
+                        "type": "Maybe ConfigurationItemStatus"
                     },
                     {
                         "location": null,
@@ -1265,8 +1262,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe type of AWS resource.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceType",
+                        "type": "Maybe ResourceType"
                     },
                     {
                         "location": null,
@@ -1477,8 +1474,8 @@
                         "shape": "ConfigurationItemStatus",
                         "locationName": "configurationItemStatus",
                         "documentation": "\u003cp\u003eThe configuration item status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ConfigurationItemStatus",
+                        "type": "Maybe ConfigurationItemStatus"
                     },
                     {
                         "location": null,
@@ -1567,8 +1564,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe type of AWS resource.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceType",
+                        "type": "Maybe ResourceType"
                     },
                     {
                         "location": null,
@@ -1822,7 +1819,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -1900,8 +1896,8 @@
                         "shape": "RecorderStatus",
                         "locationName": "lastStatus",
                         "documentation": "\u003cp\u003eThe last (previous) status of the recorder.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecorderStatus",
+                        "type": "Maybe RecorderStatus"
                     },
                     {
                         "location": null,
@@ -2028,8 +2024,8 @@
                         "shape": "RecorderStatus",
                         "locationName": "lastStatus",
                         "documentation": "\u003cp\u003eThe last (previous) status of the recorder.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecorderStatus",
+                        "type": "Maybe RecorderStatus"
                     },
                     {
                         "location": null,
@@ -2135,8 +2131,8 @@
                         "shape": "RecorderStatus",
                         "locationName": "lastStatus",
                         "documentation": "\u003cp\u003eThe last (previous) status of the recorder.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecorderStatus",
+                        "type": "Maybe RecorderStatus"
                     },
                     {
                         "location": null,
@@ -3663,7 +3659,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -3684,8 +3679,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe resource type.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceType",
+                        "type": "ResourceType"
                     },
                     {
                         "location": null,
@@ -3744,8 +3739,8 @@
                         "shape": "ChronologicalOrder",
                         "locationName": "chronologicalOrder",
                         "documentation": "\u003cp\u003eThe chronological order for configuration items listed. By default the results are listed in reverse chronological order.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ChronologicalOrder",
+                        "type": "Maybe ChronologicalOrder"
                     },
                     {
                         "location": null,
@@ -3799,8 +3794,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe resource type.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceType",
+                        "type": "ResourceType"
                     },
                     {
                         "location": null,
@@ -3871,8 +3866,8 @@
                         "shape": "ChronologicalOrder",
                         "locationName": "chronologicalOrder",
                         "documentation": "\u003cp\u003eThe chronological order for configuration items listed. By default the results are listed in reverse chronological order.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ChronologicalOrder",
+                        "type": "Maybe ChronologicalOrder"
                     },
                     {
                         "location": null,
@@ -3918,8 +3913,8 @@
                         "shape": "ChronologicalOrder",
                         "locationName": "chronologicalOrder",
                         "documentation": "\u003cp\u003eThe chronological order for configuration items listed. By default the results are listed in reverse chronological order.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ChronologicalOrder",
+                        "type": "Maybe ChronologicalOrder"
                     },
                     {
                         "location": null,
@@ -4008,8 +4003,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe resource type.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceType",
+                        "type": "ResourceType"
                     }
                 ]
             }

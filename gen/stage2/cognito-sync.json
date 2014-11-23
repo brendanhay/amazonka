@@ -1174,7 +1174,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -1192,8 +1191,8 @@
                         "shape": "Operation",
                         "locationName": "Op",
                         "documentation": "An operation, either replace or remove.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Operation",
+                        "type": "Operation"
                     },
                     {
                         "location": null,
@@ -1270,8 +1269,8 @@
                         "shape": "Operation",
                         "locationName": "Op",
                         "documentation": "An operation, either replace or remove.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Operation",
+                        "type": "Operation"
                     },
                     {
                         "location": null,
@@ -1383,8 +1382,8 @@
                         "shape": "Operation",
                         "locationName": "Op",
                         "documentation": "An operation, either replace or remove.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Operation",
+                        "type": "Operation"
                     },
                     {
                         "location": null,
@@ -4217,7 +4216,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -4238,8 +4236,8 @@
                         "shape": "Platform",
                         "locationName": "Platform",
                         "documentation": "\u003cp\u003eThe SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Platform",
+                        "type": "Platform"
                     },
                     {
                         "location": null,
@@ -4324,8 +4322,8 @@
                         "shape": "Platform",
                         "locationName": "Platform",
                         "documentation": "\u003cp\u003eThe SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Platform",
+                        "type": "Platform"
                     },
                     {
                         "location": null,
@@ -4397,8 +4395,8 @@
                         "shape": "Platform",
                         "locationName": "Platform",
                         "documentation": "\u003cp\u003eThe SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Platform",
+                        "type": "Platform"
                     },
                     {
                         "location": null,

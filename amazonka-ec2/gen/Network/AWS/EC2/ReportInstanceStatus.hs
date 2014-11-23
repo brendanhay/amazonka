@@ -60,10 +60,10 @@ data ReportInstanceStatus = ReportInstanceStatus
     , _risDryRun      :: Maybe Bool
     , _risEndTime     :: Maybe RFC822
     , _risInstances   :: List "InstanceId" Text
-    , _risReasonCodes :: List "item" Text
+    , _risReasonCodes :: List "item" ReportInstanceReasonCodes
     , _risStartTime   :: Maybe RFC822
-    , _risStatus      :: Text
-    } deriving (Eq, Ord, Show)
+    , _risStatus      :: ReportStatusType
+    } deriving (Eq, Show)
 
 -- | 'ReportInstanceStatus' constructor.
 --
@@ -77,13 +77,13 @@ data ReportInstanceStatus = ReportInstanceStatus
 --
 -- * 'risInstances' @::@ ['Text']
 --
--- * 'risReasonCodes' @::@ ['Text']
+-- * 'risReasonCodes' @::@ ['ReportInstanceReasonCodes']
 --
 -- * 'risStartTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'risStatus' @::@ 'Text'
+-- * 'risStatus' @::@ 'ReportStatusType'
 --
-reportInstanceStatus :: Text -- ^ 'risStatus'
+reportInstanceStatus :: ReportStatusType -- ^ 'risStatus'
                      -> ReportInstanceStatus
 reportInstanceStatus p1 = ReportInstanceStatus
     { _risStatus      = p1
@@ -122,7 +122,7 @@ risInstances = lens _risInstances (\s a -> s { _risInstances = a }) . _List
 -- which I believe are related to an EBS volume. performance-other: My
 -- instance is experiencing performance problems. other: [explain using the
 -- description parameter].
-risReasonCodes :: Lens' ReportInstanceStatus [Text]
+risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
 risReasonCodes = lens _risReasonCodes (\s a -> s { _risReasonCodes = a }) . _List
 
 -- | The time at which the reported instance health state began.
@@ -130,7 +130,7 @@ risStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
 risStartTime = lens _risStartTime (\s a -> s { _risStartTime = a }) . mapping _Time
 
 -- | The status of all instances listed.
-risStatus :: Lens' ReportInstanceStatus Text
+risStatus :: Lens' ReportInstanceStatus ReportStatusType
 risStatus = lens _risStatus (\s a -> s { _risStatus = a })
 
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse

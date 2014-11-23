@@ -68,7 +68,7 @@ import Network.AWS.ElastiCache.Types
 import qualified GHC.Exts
 
 data CreateCacheCluster = CreateCacheCluster
-    { _cccAZMode                     :: Maybe Text
+    { _cccAZMode                     :: Maybe AZMode
     , _cccAutoMinorVersionUpgrade    :: Maybe Bool
     , _cccCacheClusterId             :: Text
     , _cccCacheNodeType              :: Maybe Text
@@ -89,13 +89,13 @@ data CreateCacheCluster = CreateCacheCluster
     , _cccSnapshotName               :: Maybe Text
     , _cccSnapshotRetentionLimit     :: Maybe Int
     , _cccSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateCacheCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cccAZMode' @::@ 'Maybe' 'Text'
+-- * 'cccAZMode' @::@ 'Maybe' 'AZMode'
 --
 -- * 'cccAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
 --
@@ -168,7 +168,7 @@ createCacheCluster p1 = CreateCacheCluster
 -- the cluster's region. This parameter is only supported for Memcached
 -- cache clusters. If the AZMode and PreferredAvailabilityZones are not
 -- specified, ElastiCache assumes single-az mode.
-cccAZMode :: Lens' CreateCacheCluster (Maybe Text)
+cccAZMode :: Lens' CreateCacheCluster (Maybe AZMode)
 cccAZMode = lens _cccAZMode (\s a -> s { _cccAZMode = a })
 
 -- | Determines whether minor engine upgrades will be applied automatically to

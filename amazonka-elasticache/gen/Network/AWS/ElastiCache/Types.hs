@@ -669,8 +669,8 @@ data Event = Event
     { _eDate             :: Maybe RFC822
     , _eMessage          :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
-    , _eSourceType       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _eSourceType       :: Maybe SourceType
+    } deriving (Eq, Show)
 
 -- | 'Event' constructor.
 --
@@ -682,7 +682,7 @@ data Event = Event
 --
 -- * 'eSourceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'eSourceType' @::@ 'Maybe' 'Text'
+-- * 'eSourceType' @::@ 'Maybe' 'SourceType'
 --
 event :: Event
 event = Event
@@ -709,7 +709,7 @@ eSourceIdentifier =
 
 -- | Specifies the origin of this event - a cache cluster, a parameter group,
 -- a security group, etc.
-eSourceType :: Lens' Event (Maybe Text)
+eSourceType :: Lens' Event (Maybe SourceType)
 eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where
@@ -889,15 +889,15 @@ instance ToQuery NotificationConfiguration where
         ]
 
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
-    { _rgpmvAutomaticFailoverStatus :: Maybe Text
+    { _rgpmvAutomaticFailoverStatus :: Maybe PendingAutomaticFailoverStatus
     , _rgpmvPrimaryClusterId        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ReplicationGroupPendingModifiedValues' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rgpmvAutomaticFailoverStatus' @::@ 'Maybe' 'Text'
+-- * 'rgpmvAutomaticFailoverStatus' @::@ 'Maybe' 'PendingAutomaticFailoverStatus'
 --
 -- * 'rgpmvPrimaryClusterId' @::@ 'Maybe' 'Text'
 --
@@ -908,7 +908,7 @@ replicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
     }
 
 -- | Indicates the status of automatic failover for this replication group.
-rgpmvAutomaticFailoverStatus :: Lens' ReplicationGroupPendingModifiedValues (Maybe Text)
+rgpmvAutomaticFailoverStatus :: Lens' ReplicationGroupPendingModifiedValues (Maybe PendingAutomaticFailoverStatus)
 rgpmvAutomaticFailoverStatus =
     lens _rgpmvAutomaticFailoverStatus
         (\s a -> s { _rgpmvAutomaticFailoverStatus = a })
@@ -2325,7 +2325,7 @@ instance ToQuery CacheEngineVersion where
         ]
 
 data ReplicationGroup = ReplicationGroup
-    { _rgAutomaticFailover     :: Maybe Text
+    { _rgAutomaticFailover     :: Maybe AutomaticFailoverStatus
     , _rgDescription           :: Maybe Text
     , _rgMemberClusters        :: List "ClusterId" Text
     , _rgNodeGroups            :: List "NodeGroup" NodeGroup
@@ -2339,7 +2339,7 @@ data ReplicationGroup = ReplicationGroup
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rgAutomaticFailover' @::@ 'Maybe' 'Text'
+-- * 'rgAutomaticFailover' @::@ 'Maybe' 'AutomaticFailoverStatus'
 --
 -- * 'rgDescription' @::@ 'Maybe' 'Text'
 --
@@ -2368,7 +2368,7 @@ replicationGroup = ReplicationGroup
     }
 
 -- | Indicates the status of automatic failover for this replication group.
-rgAutomaticFailover :: Lens' ReplicationGroup (Maybe Text)
+rgAutomaticFailover :: Lens' ReplicationGroup (Maybe AutomaticFailoverStatus)
 rgAutomaticFailover =
     lens _rgAutomaticFailover (\s a -> s { _rgAutomaticFailover = a })
 

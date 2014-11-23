@@ -89,7 +89,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 17,
@@ -122,8 +121,8 @@
                         "shape": "MarketType",
                         "locationName": "Market",
                         "documentation": "\u003cp\u003eMarket type of the Amazon EC2 instances used to create a cluster node. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MarketType",
+                        "type": "Maybe MarketType"
                     },
                     {
                         "location": null,
@@ -137,8 +136,8 @@
                         "shape": "InstanceRoleType",
                         "locationName": "InstanceRole",
                         "documentation": "\u003cp\u003eThe role of the instance group in the cluster.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceRoleType",
+                        "type": "InstanceRoleType"
                     },
                     {
                         "location": null,
@@ -200,8 +199,8 @@
                         "shape": "InstanceRoleType",
                         "locationName": "InstanceRole",
                         "documentation": "\u003cp\u003eThe role of the instance group in the cluster.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceRoleType",
+                        "type": "InstanceRoleType"
                     },
                     {
                         "location": null,
@@ -266,8 +265,8 @@
                         "shape": "MarketType",
                         "locationName": "Market",
                         "documentation": "\u003cp\u003eMarket type of the Amazon EC2 instances used to create a cluster node. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MarketType",
+                        "type": "Maybe MarketType"
                     },
                     {
                         "location": null,
@@ -328,8 +327,8 @@
                         "shape": "InstanceRoleType",
                         "locationName": "InstanceRole",
                         "documentation": "\u003cp\u003eThe role of the instance group in the cluster.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceRoleType",
+                        "type": "InstanceRoleType"
                     },
                     {
                         "location": null,
@@ -358,8 +357,8 @@
                         "shape": "MarketType",
                         "locationName": "Market",
                         "documentation": "\u003cp\u003eMarket type of the Amazon EC2 instances used to create a cluster node. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MarketType",
+                        "type": "Maybe MarketType"
                     },
                     {
                         "location": null,
@@ -381,7 +380,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -399,8 +397,8 @@
                         "shape": "InstanceStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmable code for the state change reason.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceStateChangeReasonCode",
+                        "type": "Maybe InstanceStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -437,8 +435,8 @@
                         "shape": "InstanceStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmable code for the state change reason.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceStateChangeReasonCode",
+                        "type": "Maybe InstanceStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -469,8 +467,8 @@
                         "shape": "InstanceStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmable code for the state change reason.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceStateChangeReasonCode",
+                        "type": "Maybe InstanceStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -1472,7 +1470,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -1490,8 +1487,8 @@
                         "shape": "ClusterStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmatic code for the state change reason.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ClusterStateChangeReasonCode",
+                        "type": "Maybe ClusterStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -1528,8 +1525,8 @@
                         "shape": "ClusterStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmatic code for the state change reason.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ClusterStateChangeReasonCode",
+                        "type": "Maybe ClusterStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -1560,8 +1557,8 @@
                         "shape": "ClusterStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmatic code for the state change reason.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ClusterStateChangeReasonCode",
+                        "type": "Maybe ClusterStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -1894,7 +1891,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 27,
@@ -1912,8 +1908,8 @@
                         "shape": "JobFlowExecutionState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe state of the job flow.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "JobFlowExecutionState",
+                        "type": "JobFlowExecutionState"
                     },
                     {
                         "location": null,
@@ -2005,8 +2001,8 @@
                         "shape": "JobFlowExecutionState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe state of the job flow.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "JobFlowExecutionState",
+                        "type": "JobFlowExecutionState"
                     },
                     {
                         "location": null,
@@ -2178,8 +2174,8 @@
                         "shape": "JobFlowExecutionState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe state of the job flow.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "JobFlowExecutionState",
+                        "type": "JobFlowExecutionState"
                     }
                 ]
             },
@@ -2203,8 +2199,8 @@
                         "shape": "InstanceGroupState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe current state of the instance group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceGroupState",
+                        "type": "Maybe InstanceGroupState"
                     },
                     {
                         "location": null,
@@ -2256,8 +2252,8 @@
                         "shape": "InstanceGroupState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe current state of the instance group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceGroupState",
+                        "type": "Maybe InstanceGroupState"
                     },
                     {
                         "location": null,
@@ -2303,8 +2299,8 @@
                         "shape": "InstanceGroupState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe current state of the instance group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceGroupState",
+                        "type": "Maybe InstanceGroupState"
                     },
                     {
                         "location": null,
@@ -3674,7 +3670,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 13,
@@ -3692,8 +3687,8 @@
                         "shape": "InstanceGroupStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmable code for the state change reason.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceGroupStateChangeReasonCode",
+                        "type": "Maybe InstanceGroupStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -3730,8 +3725,8 @@
                         "shape": "InstanceGroupStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmable code for the state change reason.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceGroupStateChangeReasonCode",
+                        "type": "Maybe InstanceGroupStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -3762,8 +3757,8 @@
                         "shape": "InstanceGroupStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmable code for the state change reason.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceGroupStateChangeReasonCode",
+                        "type": "Maybe InstanceGroupStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -3839,8 +3834,8 @@
                         "shape": "StepState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe execution state of the cluster step. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StepState",
+                        "type": "Maybe StepState"
                     },
                     {
                         "location": null,
@@ -3892,8 +3887,8 @@
                         "shape": "StepState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe execution state of the cluster step. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StepState",
+                        "type": "Maybe StepState"
                     },
                     {
                         "location": null,
@@ -3939,8 +3934,8 @@
                         "shape": "StepState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe execution state of the cluster step. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StepState",
+                        "type": "Maybe StepState"
                     },
                     {
                         "location": null,
@@ -4755,7 +4750,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -4803,8 +4797,8 @@
                         "shape": "MarketType",
                         "locationName": "Market",
                         "documentation": "\u003cp\u003eMarket type of the Amazon EC2 instances used to create a cluster node. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "MarketType",
+                        "type": "MarketType"
                     },
                     {
                         "location": null,
@@ -4818,8 +4812,8 @@
                         "shape": "InstanceRoleType",
                         "locationName": "InstanceRole",
                         "documentation": "\u003cp\u003eInstance group role in the cluster \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceRoleType",
+                        "type": "InstanceRoleType"
                     },
                     {
                         "location": null,
@@ -4893,8 +4887,8 @@
                         "shape": "InstanceGroupState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eState of instance group. The following values are deprecated: STARTING, TERMINATED, and FAILED.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceGroupState",
+                        "type": "InstanceGroupState"
                     },
                     {
                         "location": null,
@@ -4986,8 +4980,8 @@
                         "shape": "MarketType",
                         "locationName": "Market",
                         "documentation": "\u003cp\u003eMarket type of the Amazon EC2 instances used to create a cluster node. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "MarketType",
+                        "type": "MarketType"
                     },
                     {
                         "location": null,
@@ -5001,8 +4995,8 @@
                         "shape": "InstanceRoleType",
                         "locationName": "InstanceRole",
                         "documentation": "\u003cp\u003eInstance group role in the cluster \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceRoleType",
+                        "type": "InstanceRoleType"
                     },
                     {
                         "location": null,
@@ -5061,8 +5055,8 @@
                         "shape": "InstanceGroupState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eState of instance group. The following values are deprecated: STARTING, TERMINATED, and FAILED.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceGroupState",
+                        "type": "InstanceGroupState"
                     },
                     {
                         "location": null,
@@ -5279,8 +5273,8 @@
                         "shape": "InstanceRoleType",
                         "locationName": "InstanceRole",
                         "documentation": "\u003cp\u003eInstance group role in the cluster \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceRoleType",
+                        "type": "InstanceRoleType"
                     },
                     {
                         "location": null,
@@ -5339,8 +5333,8 @@
                         "shape": "MarketType",
                         "locationName": "Market",
                         "documentation": "\u003cp\u003eMarket type of the Amazon EC2 instances used to create a cluster node. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "MarketType",
+                        "type": "MarketType"
                     },
                     {
                         "location": null,
@@ -5399,15 +5393,14 @@
                         "shape": "InstanceGroupState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eState of instance group. The following values are deprecated: STARTING, TERMINATED, and FAILED.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceGroupState",
+                        "type": "InstanceGroupState"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -5425,8 +5418,8 @@
                         "shape": "StepStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmable code for the state change reason. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StepStateChangeReasonCode",
+                        "type": "Maybe StepStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -5463,8 +5456,8 @@
                         "shape": "StepStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmable code for the state change reason. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StepStateChangeReasonCode",
+                        "type": "Maybe StepStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -5495,8 +5488,8 @@
                         "shape": "StepStateChangeReasonCode",
                         "locationName": "Code",
                         "documentation": "\u003cp\u003eThe programmable code for the state change reason. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StepStateChangeReasonCode",
+                        "type": "Maybe StepStateChangeReasonCode"
                     },
                     {
                         "location": null,
@@ -5602,8 +5595,8 @@
                         "shape": "ActionOnFailure",
                         "locationName": "ActionOnFailure",
                         "documentation": "\u003cp\u003eThis specifies what action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ActionOnFailure",
+                        "type": "Maybe ActionOnFailure"
                     },
                     {
                         "location": null,
@@ -5685,8 +5678,8 @@
                         "shape": "ActionOnFailure",
                         "locationName": "ActionOnFailure",
                         "documentation": "\u003cp\u003eThis specifies what action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ActionOnFailure",
+                        "type": "Maybe ActionOnFailure"
                     },
                     {
                         "location": null,
@@ -5717,8 +5710,8 @@
                         "shape": "ActionOnFailure",
                         "locationName": "ActionOnFailure",
                         "documentation": "\u003cp\u003eThis specifies what action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ActionOnFailure",
+                        "type": "Maybe ActionOnFailure"
                     },
                     {
                         "location": null,
@@ -6043,7 +6036,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 26,
@@ -6061,8 +6053,8 @@
                         "shape": "StepExecutionState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe state of the job flow step.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StepExecutionState",
+                        "type": "StepExecutionState"
                     },
                     {
                         "location": null,
@@ -6139,8 +6131,8 @@
                         "shape": "StepExecutionState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe state of the job flow step.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StepExecutionState",
+                        "type": "StepExecutionState"
                     },
                     {
                         "location": null,
@@ -6282,8 +6274,8 @@
                         "shape": "StepExecutionState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe state of the job flow step.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StepExecutionState",
+                        "type": "StepExecutionState"
                     }
                 ]
             },
@@ -6307,8 +6299,8 @@
                         "shape": "InstanceState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe current state of the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceState",
+                        "type": "Maybe InstanceState"
                     },
                     {
                         "location": null,
@@ -6360,8 +6352,8 @@
                         "shape": "InstanceState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe current state of the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceState",
+                        "type": "Maybe InstanceState"
                     },
                     {
                         "location": null,
@@ -6407,8 +6399,8 @@
                         "shape": "InstanceState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe current state of the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceState",
+                        "type": "Maybe InstanceState"
                     },
                     {
                         "location": null,
@@ -6965,8 +6957,8 @@
                         "shape": "ActionOnFailure",
                         "locationName": "ActionOnFailure",
                         "documentation": "\u003cp\u003eThe action to take if the job flow step fails.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ActionOnFailure",
+                        "type": "Maybe ActionOnFailure"
                     },
                     {
                         "location": null,
@@ -7034,8 +7026,8 @@
                         "shape": "ActionOnFailure",
                         "locationName": "ActionOnFailure",
                         "documentation": "\u003cp\u003eThe action to take if the job flow step fails.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ActionOnFailure",
+                        "type": "Maybe ActionOnFailure"
                     }
                 ],
                 "fields": [
@@ -7051,8 +7043,8 @@
                         "shape": "ActionOnFailure",
                         "locationName": "ActionOnFailure",
                         "documentation": "\u003cp\u003eThe action to take if the job flow step fails.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ActionOnFailure",
+                        "type": "Maybe ActionOnFailure"
                     },
                     {
                         "location": null,
@@ -7136,8 +7128,8 @@
                         "shape": "MarketType",
                         "locationName": "Market",
                         "documentation": "\u003cp\u003eThe marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MarketType",
+                        "type": "Maybe MarketType"
                     },
                     {
                         "location": null,
@@ -7151,8 +7143,8 @@
                         "shape": "InstanceGroupType",
                         "locationName": "InstanceGroupType",
                         "documentation": "\u003cp\u003eThe type of the instance group. Valid values are MASTER, CORE or TASK.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceGroupType",
+                        "type": "Maybe InstanceGroupType"
                     },
                     {
                         "location": null,
@@ -7279,8 +7271,8 @@
                         "shape": "MarketType",
                         "locationName": "Market",
                         "documentation": "\u003cp\u003eThe marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MarketType",
+                        "type": "Maybe MarketType"
                     },
                     {
                         "location": null,
@@ -7294,8 +7286,8 @@
                         "shape": "InstanceGroupType",
                         "locationName": "InstanceGroupType",
                         "documentation": "\u003cp\u003eThe type of the instance group. Valid values are MASTER, CORE or TASK.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceGroupType",
+                        "type": "Maybe InstanceGroupType"
                     },
                     {
                         "location": null,
@@ -7416,8 +7408,8 @@
                         "shape": "InstanceGroupType",
                         "locationName": "InstanceGroupType",
                         "documentation": "\u003cp\u003eThe type of the instance group. Valid values are MASTER, CORE or TASK.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceGroupType",
+                        "type": "Maybe InstanceGroupType"
                     },
                     {
                         "location": null,
@@ -7446,8 +7438,8 @@
                         "shape": "MarketType",
                         "locationName": "Market",
                         "documentation": "\u003cp\u003eThe marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MarketType",
+                        "type": "Maybe MarketType"
                     },
                     {
                         "location": null,
@@ -8402,8 +8394,8 @@
                         "shape": "ClusterState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe current state of the cluster.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ClusterState",
+                        "type": "Maybe ClusterState"
                     },
                     {
                         "location": null,
@@ -8455,8 +8447,8 @@
                         "shape": "ClusterState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe current state of the cluster.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ClusterState",
+                        "type": "Maybe ClusterState"
                     },
                     {
                         "location": null,
@@ -8502,8 +8494,8 @@
                         "shape": "ClusterState",
                         "locationName": "State",
                         "documentation": "\u003cp\u003eThe current state of the cluster.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ClusterState",
+                        "type": "Maybe ClusterState"
                     },
                     {
                         "location": null,
@@ -10165,7 +10157,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -10231,8 +10222,8 @@
                         "shape": "JobFlowExecutionStateList",
                         "locationName": "JobFlowStates",
                         "documentation": "\u003cp\u003eReturn only job flows whose state is contained in this list.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"JobFlowStates\" Text"
+                        "typeExposed": "[JobFlowExecutionState]",
+                        "type": "List \"JobFlowStates\" JobFlowExecutionState"
                     }
                 ],
                 "path": [
@@ -10312,8 +10303,8 @@
                         "shape": "JobFlowExecutionStateList",
                         "locationName": "JobFlowStates",
                         "documentation": "\u003cp\u003eReturn only job flows whose state is contained in this list.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"JobFlowStates\" Text"
+                        "typeExposed": "[JobFlowExecutionState]",
+                        "type": "List \"JobFlowStates\" JobFlowExecutionState"
                     }
                 ],
                 "fields": [
@@ -10374,8 +10365,8 @@
                         "shape": "JobFlowExecutionStateList",
                         "locationName": "JobFlowStates",
                         "documentation": "\u003cp\u003eReturn only job flows whose state is contained in this list.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"JobFlowStates\" Text"
+                        "typeExposed": "[JobFlowExecutionState]",
+                        "type": "List \"JobFlowStates\" JobFlowExecutionState"
                     }
                 ]
             }
@@ -11028,7 +11019,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -11079,8 +11069,8 @@
                         "shape": "ClusterStateList",
                         "locationName": "ClusterStates",
                         "documentation": "\u003cp\u003eThe cluster state filters to apply when listing clusters. \u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"ClusterStates\" Text"
+                        "typeExposed": "[ClusterState]",
+                        "type": "List \"ClusterStates\" ClusterState"
                     },
                     {
                         "location": null,
@@ -11160,8 +11150,8 @@
                         "shape": "ClusterStateList",
                         "locationName": "ClusterStates",
                         "documentation": "\u003cp\u003eThe cluster state filters to apply when listing clusters. \u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"ClusterStates\" Text"
+                        "typeExposed": "[ClusterState]",
+                        "type": "List \"ClusterStates\" ClusterState"
                     },
                     {
                         "location": null,
@@ -11192,8 +11182,8 @@
                         "shape": "ClusterStateList",
                         "locationName": "ClusterStates",
                         "documentation": "\u003cp\u003eThe cluster state filters to apply when listing clusters. \u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"ClusterStates\" Text"
+                        "typeExposed": "[ClusterState]",
+                        "type": "List \"ClusterStates\" ClusterState"
                     },
                     {
                         "location": null,
@@ -11659,7 +11649,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -11710,8 +11699,8 @@
                         "shape": "InstanceGroupTypeList",
                         "locationName": "InstanceGroupTypes",
                         "documentation": "\u003cp\u003eThe type of instance group for which to list the instances.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"InstanceGroupTypes\" Text"
+                        "typeExposed": "[InstanceGroupType]",
+                        "type": "List \"InstanceGroupTypes\" InstanceGroupType"
                     },
                     {
                         "location": null,
@@ -11792,8 +11781,8 @@
                         "shape": "InstanceGroupTypeList",
                         "locationName": "InstanceGroupTypes",
                         "documentation": "\u003cp\u003eThe type of instance group for which to list the instances.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"InstanceGroupTypes\" Text"
+                        "typeExposed": "[InstanceGroupType]",
+                        "type": "List \"InstanceGroupTypes\" InstanceGroupType"
                     },
                     {
                         "location": null,
@@ -11854,8 +11843,8 @@
                         "shape": "InstanceGroupTypeList",
                         "locationName": "InstanceGroupTypes",
                         "documentation": "\u003cp\u003eThe type of instance group for which to list the instances.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"InstanceGroupTypes\" Text"
+                        "typeExposed": "[InstanceGroupType]",
+                        "type": "List \"InstanceGroupTypes\" InstanceGroupType"
                     },
                     {
                         "location": null,
@@ -12020,7 +12009,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -12056,8 +12044,8 @@
                         "shape": "StepStateList",
                         "locationName": "StepStates",
                         "documentation": "\u003cp\u003eThe filter to limit the step list based on certain states.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"StepStates\" Text"
+                        "typeExposed": "[StepState]",
+                        "type": "List \"StepStates\" StepState"
                     },
                     {
                         "location": null,
@@ -12123,8 +12111,8 @@
                         "shape": "StepStateList",
                         "locationName": "StepStates",
                         "documentation": "\u003cp\u003eThe filter to limit the step list based on certain states.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"StepStates\" Text"
+                        "typeExposed": "[StepState]",
+                        "type": "List \"StepStates\" StepState"
                     },
                     {
                         "location": null,
@@ -12185,8 +12173,8 @@
                         "shape": "StepStateList",
                         "locationName": "StepStates",
                         "documentation": "\u003cp\u003eThe filter to limit the step list based on certain states.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"StepStates\" Text"
+                        "typeExposed": "[StepState]",
+                        "type": "List \"StepStates\" StepState"
                     }
                 ]
             }

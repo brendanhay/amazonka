@@ -178,11 +178,11 @@ data FunctionConfiguration = FunctionConfiguration
     , _fcHandler         :: Maybe Text
     , _fcLastModified    :: Maybe RFC822
     , _fcMemorySize      :: Maybe Nat
-    , _fcMode            :: Maybe Text
+    , _fcMode            :: Maybe Mode
     , _fcRole            :: Maybe Text
-    , _fcRuntime         :: Maybe Text
+    , _fcRuntime         :: Maybe Runtime
     , _fcTimeout         :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'FunctionConfiguration' constructor.
 --
@@ -204,11 +204,11 @@ data FunctionConfiguration = FunctionConfiguration
 --
 -- * 'fcMemorySize' @::@ 'Maybe' 'Natural'
 --
--- * 'fcMode' @::@ 'Maybe' 'Text'
+-- * 'fcMode' @::@ 'Maybe' 'Mode'
 --
 -- * 'fcRole' @::@ 'Maybe' 'Text'
 --
--- * 'fcRuntime' @::@ 'Maybe' 'Text'
+-- * 'fcRuntime' @::@ 'Maybe' 'Runtime'
 --
 -- * 'fcTimeout' @::@ 'Maybe' 'Natural'
 --
@@ -264,7 +264,7 @@ fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
 fcMemorySize = lens _fcMemorySize (\s a -> s { _fcMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
-fcMode :: Lens' FunctionConfiguration (Maybe Text)
+fcMode :: Lens' FunctionConfiguration (Maybe Mode)
 fcMode = lens _fcMode (\s a -> s { _fcMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
@@ -274,7 +274,7 @@ fcRole :: Lens' FunctionConfiguration (Maybe Text)
 fcRole = lens _fcRole (\s a -> s { _fcRole = a })
 
 -- | The runtime environment for the Lambda function.
-fcRuntime :: Lens' FunctionConfiguration (Maybe Text)
+fcRuntime :: Lens' FunctionConfiguration (Maybe Runtime)
 fcRuntime = lens _fcRuntime (\s a -> s { _fcRuntime = a })
 
 -- | The function execution time at which Lambda should terminate the

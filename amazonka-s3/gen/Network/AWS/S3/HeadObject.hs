@@ -223,7 +223,7 @@ data HeadObjectResponse = HeadObjectResponse
     , _horSSECustomerAlgorithm    :: Maybe Text
     , _horSSECustomerKeyMD5       :: Maybe Text
     , _horSSEKMSKeyId             :: Maybe (Sensitive Text)
-    , _horServerSideEncryption    :: Maybe Text
+    , _horServerSideEncryption    :: Maybe ServerSideEncryption
     , _horVersionId               :: Maybe Text
     , _horWebsiteRedirectLocation :: Maybe Text
     } deriving (Eq, Show)
@@ -268,7 +268,7 @@ data HeadObjectResponse = HeadObjectResponse
 --
 -- * 'horSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'horServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'horServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
 -- * 'horVersionId' @::@ 'Maybe' 'Text'
 --
@@ -394,7 +394,7 @@ horSSEKMSKeyId = lens _horSSEKMSKeyId (\s a -> s { _horSSEKMSKeyId = a }) . mapp
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-horServerSideEncryption :: Lens' HeadObjectResponse (Maybe Text)
+horServerSideEncryption :: Lens' HeadObjectResponse (Maybe ServerSideEncryption)
 horServerSideEncryption =
     lens _horServerSideEncryption (\s a -> s { _horServerSideEncryption = a })
 

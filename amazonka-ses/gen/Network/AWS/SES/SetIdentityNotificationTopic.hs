@@ -52,9 +52,9 @@ import qualified GHC.Exts
 
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintIdentity         :: Text
-    , _sintNotificationType :: Text
+    , _sintNotificationType :: NotificationType
     , _sintSnsTopic         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'SetIdentityNotificationTopic' constructor.
 --
@@ -62,12 +62,12 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
 --
 -- * 'sintIdentity' @::@ 'Text'
 --
--- * 'sintNotificationType' @::@ 'Text'
+-- * 'sintNotificationType' @::@ 'NotificationType'
 --
 -- * 'sintSnsTopic' @::@ 'Maybe' 'Text'
 --
 setIdentityNotificationTopic :: Text -- ^ 'sintIdentity'
-                             -> Text -- ^ 'sintNotificationType'
+                             -> NotificationType -- ^ 'sintNotificationType'
                              -> SetIdentityNotificationTopic
 setIdentityNotificationTopic p1 p2 = SetIdentityNotificationTopic
     { _sintIdentity         = p1
@@ -82,7 +82,7 @@ sintIdentity = lens _sintIdentity (\s a -> s { _sintIdentity = a })
 
 -- | The type of notifications that will be published to the specified Amazon
 -- SNS topic.
-sintNotificationType :: Lens' SetIdentityNotificationTopic Text
+sintNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
 sintNotificationType =
     lens _sintNotificationType (\s a -> s { _sintNotificationType = a })
 

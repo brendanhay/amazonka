@@ -125,9 +125,9 @@ data DetachVolumeResponse = DetachVolumeResponse
     , _dvrDeleteOnTermination :: Maybe Bool
     , _dvrDevice              :: Maybe Text
     , _dvrInstanceId          :: Maybe Text
-    , _dvrState               :: Maybe Text
+    , _dvrState               :: Maybe VolumeAttachmentState
     , _dvrVolumeId            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DetachVolumeResponse' constructor.
 --
@@ -141,7 +141,7 @@ data DetachVolumeResponse = DetachVolumeResponse
 --
 -- * 'dvrInstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'dvrState' @::@ 'Maybe' 'Text'
+-- * 'dvrState' @::@ 'Maybe' 'VolumeAttachmentState'
 --
 -- * 'dvrVolumeId' @::@ 'Maybe' 'Text'
 --
@@ -174,7 +174,7 @@ dvrInstanceId :: Lens' DetachVolumeResponse (Maybe Text)
 dvrInstanceId = lens _dvrInstanceId (\s a -> s { _dvrInstanceId = a })
 
 -- | The attachment state of the volume.
-dvrState :: Lens' DetachVolumeResponse (Maybe Text)
+dvrState :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
 dvrState = lens _dvrState (\s a -> s { _dvrState = a })
 
 -- | The ID of the volume.

@@ -666,7 +666,7 @@ data TableDescription = TableDescription
     , _tdProvisionedThroughput  :: Maybe ProvisionedThroughputDescription
     , _tdTableName              :: Maybe Text
     , _tdTableSizeBytes         :: Maybe Integer
-    , _tdTableStatus            :: Maybe Text
+    , _tdTableStatus            :: Maybe TableStatus
     } deriving (Eq, Show)
 
 -- | 'TableDescription' constructor.
@@ -691,7 +691,7 @@ data TableDescription = TableDescription
 --
 -- * 'tdTableSizeBytes' @::@ 'Maybe' 'Integer'
 --
--- * 'tdTableStatus' @::@ 'Maybe' 'Text'
+-- * 'tdTableStatus' @::@ 'Maybe' 'TableStatus'
 --
 tableDescription :: NonEmpty KeySchemaElement -- ^ 'tdKeySchema'
                  -> TableDescription
@@ -828,7 +828,7 @@ tdTableSizeBytes = lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
 -- updated, as the result of an UpdateTable operation. DELETING - The table
 -- is being deleted, as the result of a DeleteTable operation. ACTIVE - The
 -- table is ready for use.
-tdTableStatus :: Lens' TableDescription (Maybe Text)
+tdTableStatus :: Lens' TableDescription (Maybe TableStatus)
 tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 
 instance FromJSON TableDescription where
@@ -1004,7 +1004,7 @@ instance ToJSON ReturnItemCollectionMetrics where
     toJSON = toJSONText
 
 data AttributeValueUpdate = AttributeValueUpdate
-    { _avuAction :: Maybe Text
+    { _avuAction :: Maybe AttributeAction
     , _avuValue  :: Maybe AttributeValue
     } deriving (Eq, Show)
 
@@ -1012,7 +1012,7 @@ data AttributeValueUpdate = AttributeValueUpdate
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avuAction' @::@ 'Maybe' 'Text'
+-- * 'avuAction' @::@ 'Maybe' 'AttributeAction'
 --
 -- * 'avuValue' @::@ 'Maybe' 'AttributeValue'
 --
@@ -1056,7 +1056,7 @@ attributeValueUpdate = AttributeValueUpdate
 -- with the supplied primary key and number (or set of numbers) for the
 -- attribute value. The only data types allowed are number and number set;
 -- no other data types can be specified.
-avuAction :: Lens' AttributeValueUpdate (Maybe Text)
+avuAction :: Lens' AttributeValueUpdate (Maybe AttributeAction)
 avuAction = lens _avuAction (\s a -> s { _avuAction = a })
 
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
@@ -1075,7 +1075,7 @@ instance ToJSON AttributeValueUpdate where
 
 data ExpectedAttributeValue = ExpectedAttributeValue
     { _eavAttributeValueList :: List "AttributeValueList" AttributeValue
-    , _eavComparisonOperator :: Maybe Text
+    , _eavComparisonOperator :: Maybe ComparisonOperator
     , _eavExists             :: Maybe Bool
     , _eavValue              :: Maybe AttributeValue
     } deriving (Eq, Show)
@@ -1086,7 +1086,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue
 --
 -- * 'eavAttributeValueList' @::@ ['AttributeValue']
 --
--- * 'eavComparisonOperator' @::@ 'Maybe' 'Text'
+-- * 'eavComparisonOperator' @::@ 'Maybe' 'ComparisonOperator'
 --
 -- * 'eavExists' @::@ 'Maybe' 'Bool'
 --
@@ -1196,7 +1196,7 @@ eavAttributeValueList =
 -- a different type than the one specified in the request, the value does
 -- not match. For example, {"S":"6"} does not compare to {"N":"6"}. Also,
 -- {"N":"6"} does not compare to {"NS":["6", "2", "1"]}.
-eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe Text)
+eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
 eavComparisonOperator =
     lens _eavComparisonOperator (\s a -> s { _eavComparisonOperator = a })
 
@@ -1239,8 +1239,8 @@ instance ToJSON ExpectedAttributeValue where
 
 data AttributeDefinition = AttributeDefinition
     { _adAttributeName :: Text
-    , _adAttributeType :: Text
-    } deriving (Eq, Ord, Show)
+    , _adAttributeType :: ScalarAttributeType
+    } deriving (Eq, Show)
 
 -- | 'AttributeDefinition' constructor.
 --
@@ -1248,10 +1248,10 @@ data AttributeDefinition = AttributeDefinition
 --
 -- * 'adAttributeName' @::@ 'Text'
 --
--- * 'adAttributeType' @::@ 'Text'
+-- * 'adAttributeType' @::@ 'ScalarAttributeType'
 --
 attributeDefinition :: Text -- ^ 'adAttributeName'
-                    -> Text -- ^ 'adAttributeType'
+                    -> ScalarAttributeType -- ^ 'adAttributeType'
                     -> AttributeDefinition
 attributeDefinition p1 p2 = AttributeDefinition
     { _adAttributeName = p1
@@ -1263,7 +1263,7 @@ adAttributeName :: Lens' AttributeDefinition Text
 adAttributeName = lens _adAttributeName (\s a -> s { _adAttributeName = a })
 
 -- | The data type for the attribute.
-adAttributeType :: Lens' AttributeDefinition Text
+adAttributeType :: Lens' AttributeDefinition ScalarAttributeType
 adAttributeType = lens _adAttributeType (\s a -> s { _adAttributeType = a })
 
 instance FromJSON AttributeDefinition where
@@ -1418,7 +1418,7 @@ instance ToJSON LocalSecondaryIndex where
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     { _gsidIndexName             :: Maybe Text
     , _gsidIndexSizeBytes        :: Maybe Integer
-    , _gsidIndexStatus           :: Maybe Text
+    , _gsidIndexStatus           :: Maybe IndexStatus
     , _gsidItemCount             :: Maybe Integer
     , _gsidKeySchema             :: List1 "KeySchema" KeySchemaElement
     , _gsidProjection            :: Maybe Projection
@@ -1433,7 +1433,7 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
 --
 -- * 'gsidIndexSizeBytes' @::@ 'Maybe' 'Integer'
 --
--- * 'gsidIndexStatus' @::@ 'Maybe' 'Text'
+-- * 'gsidIndexStatus' @::@ 'Maybe' 'IndexStatus'
 --
 -- * 'gsidItemCount' @::@ 'Maybe' 'Integer'
 --
@@ -1471,7 +1471,7 @@ gsidIndexSizeBytes =
 -- UPDATING - The index is being updated, as the result of a CreateTable or
 -- UpdateTable operation. DELETING - The index is being deleted, as the
 -- result of a DeleteTable operation. ACTIVE - The index is ready for use.
-gsidIndexStatus :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
+gsidIndexStatus :: Lens' GlobalSecondaryIndexDescription (Maybe IndexStatus)
 gsidIndexStatus = lens _gsidIndexStatus (\s a -> s { _gsidIndexStatus = a })
 
 -- | The number of items in the specified index. DynamoDB updates this value
@@ -1857,8 +1857,8 @@ instance ToJSON ScalarAttributeType where
 
 data Projection = Projection
     { _pNonKeyAttributes :: List1 "NonKeyAttributes" Text
-    , _pProjectionType   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _pProjectionType   :: Maybe ProjectionType
+    } deriving (Eq, Show)
 
 -- | 'Projection' constructor.
 --
@@ -1866,7 +1866,7 @@ data Projection = Projection
 --
 -- * 'pNonKeyAttributes' @::@ 'NonEmpty' 'Text'
 --
--- * 'pProjectionType' @::@ 'Maybe' 'Text'
+-- * 'pProjectionType' @::@ 'Maybe' 'ProjectionType'
 --
 projection :: NonEmpty Text -- ^ 'pNonKeyAttributes'
            -> Projection
@@ -1890,7 +1890,7 @@ pNonKeyAttributes =
 -- the specified table attributes are projected into the index. The list of
 -- projected attributes are in NonKeyAttributes. ALL - All of the table
 -- attributes are projected into the index.
-pProjectionType :: Lens' Projection (Maybe Text)
+pProjectionType :: Lens' Projection (Maybe ProjectionType)
 pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
 
 instance FromJSON Projection where
@@ -1934,8 +1934,8 @@ instance ToJSON Select where
 
 data KeySchemaElement = KeySchemaElement
     { _kseAttributeName :: Text
-    , _kseKeyType       :: Text
-    } deriving (Eq, Ord, Show)
+    , _kseKeyType       :: KeyType
+    } deriving (Eq, Show)
 
 -- | 'KeySchemaElement' constructor.
 --
@@ -1943,10 +1943,10 @@ data KeySchemaElement = KeySchemaElement
 --
 -- * 'kseAttributeName' @::@ 'Text'
 --
--- * 'kseKeyType' @::@ 'Text'
+-- * 'kseKeyType' @::@ 'KeyType'
 --
 keySchemaElement :: Text -- ^ 'kseAttributeName'
-                 -> Text -- ^ 'kseKeyType'
+                 -> KeyType -- ^ 'kseKeyType'
                  -> KeySchemaElement
 keySchemaElement p1 p2 = KeySchemaElement
     { _kseAttributeName = p1
@@ -1959,7 +1959,7 @@ kseAttributeName = lens _kseAttributeName (\s a -> s { _kseAttributeName = a })
 
 -- | The attribute data, consisting of the data type and the attribute value
 -- itself.
-kseKeyType :: Lens' KeySchemaElement Text
+kseKeyType :: Lens' KeySchemaElement KeyType
 kseKeyType = lens _kseKeyType (\s a -> s { _kseKeyType = a })
 
 instance FromJSON KeySchemaElement where
@@ -2080,7 +2080,7 @@ instance ToJSON PutRequest where
 
 data Condition = Condition
     { _cAttributeValueList :: List "AttributeValueList" AttributeValue
-    , _cComparisonOperator :: Text
+    , _cComparisonOperator :: ComparisonOperator
     } deriving (Eq, Show)
 
 -- | 'Condition' constructor.
@@ -2089,9 +2089,9 @@ data Condition = Condition
 --
 -- * 'cAttributeValueList' @::@ ['AttributeValue']
 --
--- * 'cComparisonOperator' @::@ 'Text'
+-- * 'cComparisonOperator' @::@ 'ComparisonOperator'
 --
-condition :: Text -- ^ 'cComparisonOperator'
+condition :: ComparisonOperator -- ^ 'cComparisonOperator'
           -> Condition
 condition p1 = Condition
     { _cComparisonOperator = p1
@@ -2194,7 +2194,7 @@ cAttributeValueList =
 -- to {"NS":["6", "2", "1"]} For usage examples of AttributeValueList and
 -- ComparisonOperator, see Legacy Conditional Parameters in the Amazon
 -- DynamoDB Developer Guide.
-cComparisonOperator :: Lens' Condition Text
+cComparisonOperator :: Lens' Condition ComparisonOperator
 cComparisonOperator =
     lens _cComparisonOperator (\s a -> s { _cComparisonOperator = a })
 

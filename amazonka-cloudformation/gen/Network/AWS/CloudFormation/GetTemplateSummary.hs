@@ -106,7 +106,7 @@ gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\s a -> s { _gtsTemplateURL = a })
 
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse
-    { _gtsrCapabilities       :: List "Capabilities" Text
+    { _gtsrCapabilities       :: List "Capabilities" Capability
     , _gtsrCapabilitiesReason :: Maybe Text
     , _gtsrDescription        :: Maybe Text
     , _gtsrParameters         :: List "Parameters" ParameterDeclaration
@@ -117,7 +117,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtsrCapabilities' @::@ ['Text']
+-- * 'gtsrCapabilities' @::@ ['Capability']
 --
 -- * 'gtsrCapabilitiesReason' @::@ 'Maybe' 'Text'
 --
@@ -142,7 +142,7 @@ getTemplateSummaryResponse = GetTemplateSummaryResponse
 -- parameter when you use the CreateStack or UpdateStack actions with your
 -- template; otherwise, those actions return an InsufficientCapabilities
 -- error.
-gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Text]
+gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
 gtsrCapabilities = lens _gtsrCapabilities (\s a -> s { _gtsrCapabilities = a }) . _List
 
 -- | The capabilities reason found within the template.

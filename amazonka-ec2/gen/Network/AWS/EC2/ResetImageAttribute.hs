@@ -46,23 +46,23 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data ResetImageAttribute = ResetImageAttribute
-    { _ria1Attribute :: Text
+    { _ria1Attribute :: ResetImageAttributeName
     , _ria1DryRun    :: Maybe Bool
     , _ria1ImageId   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ResetImageAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ria1Attribute' @::@ 'Text'
+-- * 'ria1Attribute' @::@ 'ResetImageAttributeName'
 --
 -- * 'ria1DryRun' @::@ 'Maybe' 'Bool'
 --
 -- * 'ria1ImageId' @::@ 'Text'
 --
 resetImageAttribute :: Text -- ^ 'ria1ImageId'
-                    -> Text -- ^ 'ria1Attribute'
+                    -> ResetImageAttributeName -- ^ 'ria1Attribute'
                     -> ResetImageAttribute
 resetImageAttribute p1 p2 = ResetImageAttribute
     { _ria1ImageId   = p1
@@ -72,7 +72,7 @@ resetImageAttribute p1 p2 = ResetImageAttribute
 
 -- | The attribute to reset (currently you can only reset the launch
 -- permission attribute).
-ria1Attribute :: Lens' ResetImageAttribute Text
+ria1Attribute :: Lens' ResetImageAttribute ResetImageAttributeName
 ria1Attribute = lens _ria1Attribute (\s a -> s { _ria1Attribute = a })
 
 ria1DryRun :: Lens' ResetImageAttribute (Maybe Bool)

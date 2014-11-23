@@ -181,10 +181,10 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse
     , _uerEndpointURL       :: Maybe Text
     , _uerEnvironmentId     :: Maybe Text
     , _uerEnvironmentName   :: Maybe Text
-    , _uerHealth            :: Maybe Text
+    , _uerHealth            :: Maybe EnvironmentHealth
     , _uerResources         :: Maybe EnvironmentResourcesDescription
     , _uerSolutionStackName :: Maybe Text
-    , _uerStatus            :: Maybe Text
+    , _uerStatus            :: Maybe EnvironmentStatus
     , _uerTemplateName      :: Maybe Text
     , _uerTier              :: Maybe EnvironmentTier
     , _uerVersionLabel      :: Maybe Text
@@ -210,13 +210,13 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse
 --
 -- * 'uerEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'uerHealth' @::@ 'Maybe' 'Text'
+-- * 'uerHealth' @::@ 'Maybe' 'EnvironmentHealth'
 --
 -- * 'uerResources' @::@ 'Maybe' 'EnvironmentResourcesDescription'
 --
 -- * 'uerSolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * 'uerStatus' @::@ 'Maybe' 'Text'
+-- * 'uerStatus' @::@ 'Maybe' 'EnvironmentStatus'
 --
 -- * 'uerTemplateName' @::@ 'Maybe' 'Text'
 --
@@ -291,7 +291,7 @@ uerEnvironmentName =
 -- environment is not fully launched and health checks have not started or
 -- health checks are suspended during an UpdateEnvironment or
 -- RestartEnvironement request. Default: Grey.
-uerHealth :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerHealth :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentHealth)
 uerHealth = lens _uerHealth (\s a -> s { _uerHealth = a })
 
 -- | The description of the AWS resources used by this environment.
@@ -309,7 +309,7 @@ uerSolutionStackName =
 -- Ready: Environment is available to have an action performed on it, such
 -- as update or terminate. Terminating: Environment is in the shut-down
 -- process. Terminated: Environment is not running.
-uerStatus :: Lens' UpdateEnvironmentResponse (Maybe Text)
+uerStatus :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentStatus)
 uerStatus = lens _uerStatus (\s a -> s { _uerStatus = a })
 
 -- | The name of the configuration template used to originally launch this

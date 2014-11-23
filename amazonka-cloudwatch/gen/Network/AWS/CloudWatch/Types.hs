@@ -222,7 +222,7 @@ data MetricAlarm = MetricAlarm
     , _maAlarmConfigurationUpdatedTimestamp :: Maybe RFC822
     , _maAlarmDescription                   :: Maybe Text
     , _maAlarmName                          :: Maybe Text
-    , _maComparisonOperator                 :: Maybe Text
+    , _maComparisonOperator                 :: Maybe ComparisonOperator
     , _maDimensions                         :: List "Dimensions" Dimension
     , _maEvaluationPeriods                  :: Maybe Nat
     , _maInsufficientDataActions            :: List "OKActions" Text
@@ -233,10 +233,10 @@ data MetricAlarm = MetricAlarm
     , _maStateReason                        :: Maybe Text
     , _maStateReasonData                    :: Maybe Text
     , _maStateUpdatedTimestamp              :: Maybe RFC822
-    , _maStateValue                         :: Maybe Text
-    , _maStatistic                          :: Maybe Text
+    , _maStateValue                         :: Maybe StateValue
+    , _maStatistic                          :: Maybe Statistic
     , _maThreshold                          :: Maybe Double
-    , _maUnit                               :: Maybe Text
+    , _maUnit                               :: Maybe StandardUnit
     } deriving (Eq, Show)
 
 -- | 'MetricAlarm' constructor.
@@ -255,7 +255,7 @@ data MetricAlarm = MetricAlarm
 --
 -- * 'maAlarmName' @::@ 'Maybe' 'Text'
 --
--- * 'maComparisonOperator' @::@ 'Maybe' 'Text'
+-- * 'maComparisonOperator' @::@ 'Maybe' 'ComparisonOperator'
 --
 -- * 'maDimensions' @::@ ['Dimension']
 --
@@ -277,13 +277,13 @@ data MetricAlarm = MetricAlarm
 --
 -- * 'maStateUpdatedTimestamp' @::@ 'Maybe' 'UTCTime'
 --
--- * 'maStateValue' @::@ 'Maybe' 'Text'
+-- * 'maStateValue' @::@ 'Maybe' 'StateValue'
 --
--- * 'maStatistic' @::@ 'Maybe' 'Text'
+-- * 'maStatistic' @::@ 'Maybe' 'Statistic'
 --
 -- * 'maThreshold' @::@ 'Maybe' 'Double'
 --
--- * 'maUnit' @::@ 'Maybe' 'Text'
+-- * 'maUnit' @::@ 'Maybe' 'StandardUnit'
 --
 metricAlarm :: MetricAlarm
 metricAlarm = MetricAlarm
@@ -349,7 +349,7 @@ maAlarmName = lens _maAlarmName (\s a -> s { _maAlarmName = a })
 -- | The arithmetic operation to use when comparing the specified Statistic
 -- and Threshold. The specified Statistic value is used as the first
 -- operand.
-maComparisonOperator :: Lens' MetricAlarm (Maybe Text)
+maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
 maComparisonOperator =
     lens _maComparisonOperator (\s a -> s { _maComparisonOperator = a })
 
@@ -414,11 +414,11 @@ maStateUpdatedTimestamp =
         . mapping _Time
 
 -- | The state value for the alarm.
-maStateValue :: Lens' MetricAlarm (Maybe Text)
+maStateValue :: Lens' MetricAlarm (Maybe StateValue)
 maStateValue = lens _maStateValue (\s a -> s { _maStateValue = a })
 
 -- | The statistic to apply to the alarm's associated metric.
-maStatistic :: Lens' MetricAlarm (Maybe Text)
+maStatistic :: Lens' MetricAlarm (Maybe Statistic)
 maStatistic = lens _maStatistic (\s a -> s { _maStatistic = a })
 
 -- | The value against which the specified statistic is compared.
@@ -426,7 +426,7 @@ maThreshold :: Lens' MetricAlarm (Maybe Double)
 maThreshold = lens _maThreshold (\s a -> s { _maThreshold = a })
 
 -- | The unit of the alarm's associated metric.
-maUnit :: Lens' MetricAlarm (Maybe Text)
+maUnit :: Lens' MetricAlarm (Maybe StandardUnit)
 maUnit = lens _maUnit (\s a -> s { _maUnit = a })
 
 instance FromXML MetricAlarm where
@@ -508,7 +508,7 @@ data MetricDatum = MetricDatum
     , _mdMetricName      :: Text
     , _mdStatisticValues :: Maybe StatisticSet
     , _mdTimestamp       :: Maybe RFC822
-    , _mdUnit            :: Maybe Text
+    , _mdUnit            :: Maybe StandardUnit
     , _mdValue           :: Maybe Double
     } deriving (Eq, Show)
 
@@ -524,7 +524,7 @@ data MetricDatum = MetricDatum
 --
 -- * 'mdTimestamp' @::@ 'Maybe' 'UTCTime'
 --
--- * 'mdUnit' @::@ 'Maybe' 'Text'
+-- * 'mdUnit' @::@ 'Maybe' 'StandardUnit'
 --
 -- * 'mdValue' @::@ 'Maybe' 'Double'
 --
@@ -563,7 +563,7 @@ mdTimestamp :: Lens' MetricDatum (Maybe UTCTime)
 mdTimestamp = lens _mdTimestamp (\s a -> s { _mdTimestamp = a }) . mapping _Time
 
 -- | The unit of the metric.
-mdUnit :: Lens' MetricDatum (Maybe Text)
+mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
 mdUnit = lens _mdUnit (\s a -> s { _mdUnit = a })
 
 -- | The value for the metric. Although the Value parameter accepts numbers of
@@ -761,10 +761,10 @@ instance ToQuery ComparisonOperator where
 data AlarmHistoryItem = AlarmHistoryItem
     { _ahiAlarmName       :: Maybe Text
     , _ahiHistoryData     :: Maybe Text
-    , _ahiHistoryItemType :: Maybe Text
+    , _ahiHistoryItemType :: Maybe HistoryItemType
     , _ahiHistorySummary  :: Maybe Text
     , _ahiTimestamp       :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'AlarmHistoryItem' constructor.
 --
@@ -774,7 +774,7 @@ data AlarmHistoryItem = AlarmHistoryItem
 --
 -- * 'ahiHistoryData' @::@ 'Maybe' 'Text'
 --
--- * 'ahiHistoryItemType' @::@ 'Maybe' 'Text'
+-- * 'ahiHistoryItemType' @::@ 'Maybe' 'HistoryItemType'
 --
 -- * 'ahiHistorySummary' @::@ 'Maybe' 'Text'
 --
@@ -798,7 +798,7 @@ ahiHistoryData :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistoryData = lens _ahiHistoryData (\s a -> s { _ahiHistoryData = a })
 
 -- | The type of alarm history item.
-ahiHistoryItemType :: Lens' AlarmHistoryItem (Maybe Text)
+ahiHistoryItemType :: Lens' AlarmHistoryItem (Maybe HistoryItemType)
 ahiHistoryItemType =
     lens _ahiHistoryItemType (\s a -> s { _ahiHistoryItemType = a })
 
@@ -911,8 +911,8 @@ data Datapoint = Datapoint
     , _dSampleCount :: Maybe Double
     , _dSum         :: Maybe Double
     , _dTimestamp   :: Maybe RFC822
-    , _dUnit        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _dUnit        :: Maybe StandardUnit
+    } deriving (Eq, Show)
 
 -- | 'Datapoint' constructor.
 --
@@ -930,7 +930,7 @@ data Datapoint = Datapoint
 --
 -- * 'dTimestamp' @::@ 'Maybe' 'UTCTime'
 --
--- * 'dUnit' @::@ 'Maybe' 'Text'
+-- * 'dUnit' @::@ 'Maybe' 'StandardUnit'
 --
 datapoint :: Datapoint
 datapoint = Datapoint
@@ -972,7 +972,7 @@ dTimestamp :: Lens' Datapoint (Maybe UTCTime)
 dTimestamp = lens _dTimestamp (\s a -> s { _dTimestamp = a }) . mapping _Time
 
 -- | The standard unit used for the datapoint.
-dUnit :: Lens' Datapoint (Maybe Text)
+dUnit :: Lens' Datapoint (Maybe StandardUnit)
 dUnit = lens _dUnit (\s a -> s { _dUnit = a })
 
 instance FromXML Datapoint where

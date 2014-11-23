@@ -588,7 +588,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 11,
@@ -621,8 +620,8 @@
                         "shape": "AllowedMethodsList",
                         "locationName": "Items",
                         "documentation": "A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Method\" Text"
+                        "typeExposed": "[Method]",
+                        "type": "List \"Method\" Method"
                     }
                 ],
                 "payload": null,
@@ -660,8 +659,8 @@
                         "shape": "AllowedMethodsList",
                         "locationName": "Items",
                         "documentation": "A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Method\" Text"
+                        "typeExposed": "[Method]",
+                        "type": "List \"Method\" Method"
                     }
                 ],
                 "fields": [
@@ -677,8 +676,8 @@
                         "shape": "AllowedMethodsList",
                         "locationName": "Items",
                         "documentation": "A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Method\" Text"
+                        "typeExposed": "[Method]",
+                        "type": "List \"Method\" Method"
                     },
                     {
                         "location": null,
@@ -1428,8 +1427,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "A complex type that contains information about price class for this streaming distribution.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -1551,8 +1550,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "A complex type that contains information about price class for this streaming distribution.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -1663,8 +1662,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "A complex type that contains information about price class for this streaming distribution.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -1828,8 +1827,8 @@
                         "shape": "ItemSelection",
                         "locationName": "Forward",
                         "documentation": "Use this element to specify whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify all, none or whitelist. If you choose All, CloudFront forwards all cookies regardless of how many your application uses.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ItemSelection",
+                        "type": "ItemSelection"
                     },
                     {
                         "location": null,
@@ -1861,8 +1860,8 @@
                         "shape": "ItemSelection",
                         "locationName": "Forward",
                         "documentation": "Use this element to specify whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify all, none or whitelist. If you choose All, CloudFront forwards all cookies regardless of how many your application uses.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ItemSelection",
+                        "type": "ItemSelection"
                     }
                 ],
                 "contentPad": 17,
@@ -1899,8 +1898,8 @@
                         "shape": "ItemSelection",
                         "locationName": "Forward",
                         "documentation": "Use this element to specify whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify all, none or whitelist. If you choose All, CloudFront forwards all cookies regardless of how many your application uses.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ItemSelection",
+                        "type": "ItemSelection"
                     },
                     {
                         "location": null,
@@ -2567,8 +2566,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -2720,8 +2719,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -2847,8 +2846,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -2900,7 +2899,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -2948,8 +2946,8 @@
                         "shape": "OriginProtocolPolicy",
                         "locationName": "OriginProtocolPolicy",
                         "documentation": "The origin protocol policy to apply to your origin.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OriginProtocolPolicy",
+                        "type": "OriginProtocolPolicy"
                     }
                 ],
                 "payload": null,
@@ -2996,8 +2994,8 @@
                         "shape": "OriginProtocolPolicy",
                         "locationName": "OriginProtocolPolicy",
                         "documentation": "The origin protocol policy to apply to your origin.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OriginProtocolPolicy",
+                        "type": "OriginProtocolPolicy"
                     }
                 ],
                 "contentPad": 21,
@@ -3048,8 +3046,8 @@
                         "shape": "OriginProtocolPolicy",
                         "locationName": "OriginProtocolPolicy",
                         "documentation": "The origin protocol policy to apply to your origin.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OriginProtocolPolicy",
+                        "type": "OriginProtocolPolicy"
                     }
                 ]
             },
@@ -3586,8 +3584,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "A complex type that contains information about price class for this distribution.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -3769,8 +3767,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "A complex type that contains information about price class for this distribution.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -4002,8 +4000,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "A complex type that contains information about price class for this distribution.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -4117,8 +4115,8 @@
                         "shape": "ViewerProtocolPolicy",
                         "locationName": "ViewerProtocolPolicy",
                         "documentation": "Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. If you want CloudFront to allow end users to use any available protocol, specify allow-all. If you want CloudFront to require HTTPS, specify https. If you want CloudFront to respond to an HTTP request with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL, specify redirect-to-https. The viewer then resubmits the request using the HTTPS URL.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ViewerProtocolPolicy",
+                        "type": "ViewerProtocolPolicy"
                     },
                     {
                         "location": null,
@@ -4240,8 +4238,8 @@
                         "shape": "ViewerProtocolPolicy",
                         "locationName": "ViewerProtocolPolicy",
                         "documentation": "Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. If you want CloudFront to allow end users to use any available protocol, specify allow-all. If you want CloudFront to require HTTPS, specify https. If you want CloudFront to respond to an HTTP request with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL, specify redirect-to-https. The viewer then resubmits the request using the HTTPS URL.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ViewerProtocolPolicy",
+                        "type": "ViewerProtocolPolicy"
                     },
                     {
                         "location": null,
@@ -4413,8 +4411,8 @@
                         "shape": "ViewerProtocolPolicy",
                         "locationName": "ViewerProtocolPolicy",
                         "documentation": "Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. If you want CloudFront to allow end users to use any available protocol, specify allow-all. If you want CloudFront to require HTTPS, specify https. If you want CloudFront to respond to an HTTP request with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL, specify redirect-to-https. The viewer then resubmits the request using the HTTPS URL.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ViewerProtocolPolicy",
+                        "type": "ViewerProtocolPolicy"
                     }
                 ]
             },
@@ -5037,7 +5035,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -5055,8 +5052,8 @@
                         "shape": "GeoRestrictionType",
                         "locationName": "RestrictionType",
                         "documentation": "The method that you want to use to restrict distribution of your content by country: - none: No geo restriction is enabled, meaning access to content is not restricted by client geo location. - blacklist: The Location elements specify the countries in which you do not want CloudFront to distribute your content. - whitelist: The Location elements specify the countries in which you want CloudFront to distribute your content.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "GeoRestrictionType",
+                        "type": "GeoRestrictionType"
                     },
                     {
                         "location": null,
@@ -5103,8 +5100,8 @@
                         "shape": "GeoRestrictionType",
                         "locationName": "RestrictionType",
                         "documentation": "The method that you want to use to restrict distribution of your content by country: - none: No geo restriction is enabled, meaning access to content is not restricted by client geo location. - blacklist: The Location elements specify the countries in which you do not want CloudFront to distribute your content. - whitelist: The Location elements specify the countries in which you want CloudFront to distribute your content.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "GeoRestrictionType",
+                        "type": "GeoRestrictionType"
                     },
                     {
                         "location": null,
@@ -5186,8 +5183,8 @@
                         "shape": "GeoRestrictionType",
                         "locationName": "RestrictionType",
                         "documentation": "The method that you want to use to restrict distribution of your content by country: - none: No geo restriction is enabled, meaning access to content is not restricted by client geo location. - blacklist: The Location elements specify the countries in which you do not want CloudFront to distribute your content. - whitelist: The Location elements specify the countries in which you want CloudFront to distribute your content.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "GeoRestrictionType",
+                        "type": "GeoRestrictionType"
                     }
                 ]
             },
@@ -5417,7 +5414,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 31,
@@ -5465,8 +5461,8 @@
                         "shape": "SSLSupportMethod",
                         "locationName": "SSLSupportMethod",
                         "documentation": "If you specify a value for IAMCertificateId, you must also specify how you want CloudFront to serve HTTPS requests. Valid values are vip and sni-only. If you specify vip, CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges. If you specify sni-only, CloudFront can only respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. Do not specify a value for SSLSupportMethod if you specified true for CloudFrontDefaultCertificate.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SSLSupportMethod",
+                        "type": "Maybe SSLSupportMethod"
                     }
                 ],
                 "payload": null,
@@ -5518,8 +5514,8 @@
                         "shape": "SSLSupportMethod",
                         "locationName": "SSLSupportMethod",
                         "documentation": "If you specify a value for IAMCertificateId, you must also specify how you want CloudFront to serve HTTPS requests. Valid values are vip and sni-only. If you specify vip, CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges. If you specify sni-only, CloudFront can only respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. Do not specify a value for SSLSupportMethod if you specified true for CloudFrontDefaultCertificate.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SSLSupportMethod",
+                        "type": "Maybe SSLSupportMethod"
                     }
                 ],
                 "fields": [
@@ -5565,8 +5561,8 @@
                         "shape": "SSLSupportMethod",
                         "locationName": "SSLSupportMethod",
                         "documentation": "If you specify a value for IAMCertificateId, you must also specify how you want CloudFront to serve HTTPS requests. Valid values are vip and sni-only. If you specify vip, CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges. If you specify sni-only, CloudFront can only respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. Do not specify a value for SSLSupportMethod if you specified true for CloudFrontDefaultCertificate.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SSLSupportMethod",
+                        "type": "Maybe SSLSupportMethod"
                     }
                 ]
             },
@@ -6760,8 +6756,8 @@
                         "shape": "ViewerProtocolPolicy",
                         "locationName": "ViewerProtocolPolicy",
                         "documentation": "Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. If you want CloudFront to allow end users to use any available protocol, specify allow-all. If you want CloudFront to require HTTPS, specify https. If you want CloudFront to respond to an HTTP request with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL, specify redirect-to-https. The viewer then resubmits the request using the HTTPS URL.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ViewerProtocolPolicy",
+                        "type": "ViewerProtocolPolicy"
                     },
                     {
                         "location": null,
@@ -6868,8 +6864,8 @@
                         "shape": "ViewerProtocolPolicy",
                         "locationName": "ViewerProtocolPolicy",
                         "documentation": "Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. If you want CloudFront to allow end users to use any available protocol, specify allow-all. If you want CloudFront to require HTTPS, specify https. If you want CloudFront to respond to an HTTP request with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL, specify redirect-to-https. The viewer then resubmits the request using the HTTPS URL.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ViewerProtocolPolicy",
+                        "type": "ViewerProtocolPolicy"
                     },
                     {
                         "location": null,
@@ -7026,8 +7022,8 @@
                         "shape": "ViewerProtocolPolicy",
                         "locationName": "ViewerProtocolPolicy",
                         "documentation": "Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. If you want CloudFront to allow end users to use any available protocol, specify allow-all. If you want CloudFront to require HTTPS, specify https. If you want CloudFront to respond to an HTTP request with an HTTP status code of 301 (Moved Permanently) and the HTTPS URL, specify redirect-to-https. The viewer then resubmits the request using the HTTPS URL.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ViewerProtocolPolicy",
+                        "type": "ViewerProtocolPolicy"
                     }
                 ]
             },
@@ -8207,8 +8203,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -8420,8 +8416,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -8637,8 +8633,8 @@
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": null,
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PriceClass",
+                        "type": "PriceClass"
                     },
                     {
                         "location": null,

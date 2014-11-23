@@ -68,7 +68,7 @@ import Network.AWS.CloudSearchDomains.Types
 import qualified GHC.Exts
 
 data UploadDocuments = UploadDocuments
-    { _udContentType :: Text
+    { _udContentType :: ContentType
     , _udDocuments   :: Base64
     } deriving (Eq, Show)
 
@@ -76,12 +76,12 @@ data UploadDocuments = UploadDocuments
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udContentType' @::@ 'Text'
+-- * 'udContentType' @::@ 'ContentType'
 --
 -- * 'udDocuments' @::@ 'Base64'
 --
 uploadDocuments :: Base64 -- ^ 'udDocuments'
-                -> Text -- ^ 'udContentType'
+                -> ContentType -- ^ 'udContentType'
                 -> UploadDocuments
 uploadDocuments p1 p2 = UploadDocuments
     { _udDocuments   = p1
@@ -90,7 +90,7 @@ uploadDocuments p1 p2 = UploadDocuments
 
 -- | The format of the batch you are uploading. Amazon CloudSearch supports
 -- two document batch formats: application/json application/xml.
-udContentType :: Lens' UploadDocuments Text
+udContentType :: Lens' UploadDocuments ContentType
 udContentType = lens _udContentType (\s a -> s { _udContentType = a })
 
 -- | A batch of documents formatted in JSON or HTML.

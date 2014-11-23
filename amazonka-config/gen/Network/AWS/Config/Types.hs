@@ -148,9 +148,9 @@ data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     { _cediLastAttemptTime    :: Maybe RFC822
     , _cediLastErrorCode      :: Maybe Text
     , _cediLastErrorMessage   :: Maybe Text
-    , _cediLastStatus         :: Maybe Text
+    , _cediLastStatus         :: Maybe DeliveryStatus
     , _cediLastSuccessfulTime :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ConfigExportDeliveryInfo' constructor.
 --
@@ -162,7 +162,7 @@ data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
 --
 -- * 'cediLastErrorMessage' @::@ 'Maybe' 'Text'
 --
--- * 'cediLastStatus' @::@ 'Maybe' 'Text'
+-- * 'cediLastStatus' @::@ 'Maybe' 'DeliveryStatus'
 --
 -- * 'cediLastSuccessfulTime' @::@ 'Maybe' 'UTCTime'
 --
@@ -192,7 +192,7 @@ cediLastErrorMessage =
     lens _cediLastErrorMessage (\s a -> s { _cediLastErrorMessage = a })
 
 -- | Status of the last attempted delivery.
-cediLastStatus :: Lens' ConfigExportDeliveryInfo (Maybe Text)
+cediLastStatus :: Lens' ConfigExportDeliveryInfo (Maybe DeliveryStatus)
 cediLastStatus = lens _cediLastStatus (\s a -> s { _cediLastStatus = a })
 
 -- | The time of the last successful delivery.
@@ -221,9 +221,9 @@ instance ToJSON ConfigExportDeliveryInfo where
 data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo
     { _csdiLastErrorCode        :: Maybe Text
     , _csdiLastErrorMessage     :: Maybe Text
-    , _csdiLastStatus           :: Maybe Text
+    , _csdiLastStatus           :: Maybe DeliveryStatus
     , _csdiLastStatusChangeTime :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ConfigStreamDeliveryInfo' constructor.
 --
@@ -233,7 +233,7 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo
 --
 -- * 'csdiLastErrorMessage' @::@ 'Maybe' 'Text'
 --
--- * 'csdiLastStatus' @::@ 'Maybe' 'Text'
+-- * 'csdiLastStatus' @::@ 'Maybe' 'DeliveryStatus'
 --
 -- * 'csdiLastStatusChangeTime' @::@ 'Maybe' 'UTCTime'
 --
@@ -256,7 +256,7 @@ csdiLastErrorMessage =
     lens _csdiLastErrorMessage (\s a -> s { _csdiLastErrorMessage = a })
 
 -- | Status of the last attempted delivery.
-csdiLastStatus :: Lens' ConfigStreamDeliveryInfo (Maybe Text)
+csdiLastStatus :: Lens' ConfigStreamDeliveryInfo (Maybe DeliveryStatus)
 csdiLastStatus = lens _csdiLastStatus (\s a -> s { _csdiLastStatus = a })
 
 -- | The time from the last status change.
@@ -284,8 +284,8 @@ instance ToJSON ConfigStreamDeliveryInfo where
 data Relationship = Relationship
     { _rRelationshipName :: Maybe Text
     , _rResourceId       :: Maybe Text
-    , _rResourceType     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _rResourceType     :: Maybe ResourceType
+    } deriving (Eq, Show)
 
 -- | 'Relationship' constructor.
 --
@@ -295,7 +295,7 @@ data Relationship = Relationship
 --
 -- * 'rResourceId' @::@ 'Maybe' 'Text'
 --
--- * 'rResourceType' @::@ 'Maybe' 'Text'
+-- * 'rResourceType' @::@ 'Maybe' 'ResourceType'
 --
 relationship :: Relationship
 relationship = Relationship
@@ -314,7 +314,7 @@ rResourceId :: Lens' Relationship (Maybe Text)
 rResourceId = lens _rResourceId (\s a -> s { _rResourceId = a })
 
 -- | The resource type of the related resource.
-rResourceType :: Lens' Relationship (Maybe Text)
+rResourceType :: Lens' Relationship (Maybe ResourceType)
 rResourceType = lens _rResourceType (\s a -> s { _rResourceType = a })
 
 instance FromJSON Relationship where
@@ -479,13 +479,13 @@ data ConfigurationItem = ConfigurationItem
     , _ciConfiguration                :: Maybe Text
     , _ciConfigurationItemCaptureTime :: Maybe RFC822
     , _ciConfigurationItemMD5Hash     :: Maybe Text
-    , _ciConfigurationItemStatus      :: Maybe Text
+    , _ciConfigurationItemStatus      :: Maybe ConfigurationItemStatus
     , _ciConfigurationStateId         :: Maybe Text
     , _ciRelatedEvents                :: List "relatedEvents" Text
     , _ciRelationships                :: List "relationships" Relationship
     , _ciResourceCreationTime         :: Maybe RFC822
     , _ciResourceId                   :: Maybe Text
-    , _ciResourceType                 :: Maybe Text
+    , _ciResourceType                 :: Maybe ResourceType
     , _ciTags                         :: Map Text Text
     , _ciVersion                      :: Maybe Text
     } deriving (Eq, Show)
@@ -506,7 +506,7 @@ data ConfigurationItem = ConfigurationItem
 --
 -- * 'ciConfigurationItemMD5Hash' @::@ 'Maybe' 'Text'
 --
--- * 'ciConfigurationItemStatus' @::@ 'Maybe' 'Text'
+-- * 'ciConfigurationItemStatus' @::@ 'Maybe' 'ConfigurationItemStatus'
 --
 -- * 'ciConfigurationStateId' @::@ 'Maybe' 'Text'
 --
@@ -518,7 +518,7 @@ data ConfigurationItem = ConfigurationItem
 --
 -- * 'ciResourceId' @::@ 'Maybe' 'Text'
 --
--- * 'ciResourceType' @::@ 'Maybe' 'Text'
+-- * 'ciResourceType' @::@ 'Maybe' 'ResourceType'
 --
 -- * 'ciTags' @::@ 'HashMap' 'Text' 'Text'
 --
@@ -576,7 +576,7 @@ ciConfigurationItemMD5Hash =
         (\s a -> s { _ciConfigurationItemMD5Hash = a })
 
 -- | The configuration item status.
-ciConfigurationItemStatus :: Lens' ConfigurationItem (Maybe Text)
+ciConfigurationItemStatus :: Lens' ConfigurationItem (Maybe ConfigurationItemStatus)
 ciConfigurationItemStatus =
     lens _ciConfigurationItemStatus
         (\s a -> s { _ciConfigurationItemStatus = a })
@@ -610,7 +610,7 @@ ciResourceId :: Lens' ConfigurationItem (Maybe Text)
 ciResourceId = lens _ciResourceId (\s a -> s { _ciResourceId = a })
 
 -- | The type of AWS resource.
-ciResourceType :: Lens' ConfigurationItem (Maybe Text)
+ciResourceType :: Lens' ConfigurationItem (Maybe ResourceType)
 ciResourceType = lens _ciResourceType (\s a -> s { _ciResourceType = a })
 
 -- | A mapping of key value tags associated with the resource.
@@ -751,12 +751,12 @@ data ConfigurationRecorderStatus = ConfigurationRecorderStatus
     { _crsLastErrorCode        :: Maybe Text
     , _crsLastErrorMessage     :: Maybe Text
     , _crsLastStartTime        :: Maybe RFC822
-    , _crsLastStatus           :: Maybe Text
+    , _crsLastStatus           :: Maybe RecorderStatus
     , _crsLastStatusChangeTime :: Maybe RFC822
     , _crsLastStopTime         :: Maybe RFC822
     , _crsName                 :: Maybe Text
     , _crsRecording            :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ConfigurationRecorderStatus' constructor.
 --
@@ -768,7 +768,7 @@ data ConfigurationRecorderStatus = ConfigurationRecorderStatus
 --
 -- * 'crsLastStartTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'crsLastStatus' @::@ 'Maybe' 'Text'
+-- * 'crsLastStatus' @::@ 'Maybe' 'RecorderStatus'
 --
 -- * 'crsLastStatusChangeTime' @::@ 'Maybe' 'UTCTime'
 --
@@ -804,7 +804,7 @@ crsLastStartTime :: Lens' ConfigurationRecorderStatus (Maybe UTCTime)
 crsLastStartTime = lens _crsLastStartTime (\s a -> s { _crsLastStartTime = a }) . mapping _Time
 
 -- | The last (previous) status of the recorder.
-crsLastStatus :: Lens' ConfigurationRecorderStatus (Maybe Text)
+crsLastStatus :: Lens' ConfigurationRecorderStatus (Maybe RecorderStatus)
 crsLastStatus = lens _crsLastStatus (\s a -> s { _crsLastStatus = a })
 
 -- | The time when the status was last changed.

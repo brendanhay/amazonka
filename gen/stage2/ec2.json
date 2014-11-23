@@ -439,8 +439,8 @@
                         "shape": "RuleAction",
                         "locationName": "ruleAction",
                         "documentation": "\u003cp\u003eIndicates whether to allow or deny the traffic that matches the rule.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RuleAction",
+                        "type": "Maybe RuleAction"
                     },
                     {
                         "location": "querystring",
@@ -591,8 +591,8 @@
                         "shape": "RuleAction",
                         "locationName": "ruleAction",
                         "documentation": "\u003cp\u003eIndicates whether to allow or deny the traffic that matches the rule.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RuleAction",
+                        "type": "Maybe RuleAction"
                     },
                     {
                         "location": "querystring",
@@ -703,8 +703,8 @@
                         "shape": "ArchitectureValues",
                         "locationName": "architecture",
                         "documentation": "\u003cp\u003eThe architecture of the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ArchitectureValues",
+                        "type": "Maybe ArchitectureValues"
                     },
                     {
                         "location": "querystring",
@@ -778,8 +778,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Types\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -838,8 +838,8 @@
                         "shape": "ShutdownBehavior",
                         "locationName": "instanceInitiatedShutdownBehavior",
                         "documentation": "\u003cp\u003eIndicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ShutdownBehavior",
+                        "type": "Maybe ShutdownBehavior"
                     },
                     {
                         "location": "querystring",
@@ -885,8 +885,8 @@
                         "shape": "ArchitectureValues",
                         "locationName": "architecture",
                         "documentation": "\u003cp\u003eThe architecture of the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ArchitectureValues",
+                        "type": "Maybe ArchitectureValues"
                     },
                     {
                         "location": "querystring",
@@ -930,8 +930,8 @@
                         "shape": "ShutdownBehavior",
                         "locationName": "instanceInitiatedShutdownBehavior",
                         "documentation": "\u003cp\u003eIndicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ShutdownBehavior",
+                        "type": "Maybe ShutdownBehavior"
                     },
                     {
                         "location": "querystring",
@@ -945,8 +945,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Types\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -1082,8 +1082,8 @@
                         "shape": "SnapshotState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe snapshot state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SnapshotState",
+                        "type": "Maybe SnapshotState"
                     },
                     {
                         "location": "querystring",
@@ -1324,8 +1324,8 @@
                         "shape": "SnapshotState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe snapshot state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SnapshotState",
+                        "type": "Maybe SnapshotState"
                     },
                     {
                         "location": "querystring",
@@ -1457,7 +1457,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 15,
@@ -1492,8 +1491,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe type of resource.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceType",
+                        "type": "ResourceType"
                     },
                     {
                         "location": "querystring",
@@ -1574,8 +1573,8 @@
                         "shape": "ResourceType",
                         "locationName": "resourceType",
                         "documentation": "\u003cp\u003eThe type of resource.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResourceType",
+                        "type": "ResourceType"
                     },
                     {
                         "location": "querystring",
@@ -1777,8 +1776,8 @@
                         "shape": "ListingStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the Reserved Instance listing.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ListingStatus",
+                        "type": "Maybe ListingStatus"
                     },
                     {
                         "location": "querystring",
@@ -1959,8 +1958,8 @@
                         "shape": "ListingStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the Reserved Instance listing.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ListingStatus",
+                        "type": "Maybe ListingStatus"
                     },
                     {
                         "location": "querystring",
@@ -2080,7 +2079,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 10,
@@ -2120,8 +2118,8 @@
                         "shape": "PermissionGroup",
                         "locationName": "group",
                         "documentation": "\u003cp\u003eThe specific group that is to be added or removed from a volume's list of create volume permissions.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PermissionGroup",
+                        "type": "Maybe PermissionGroup"
                     }
                 ],
                 "fields": [
@@ -2137,8 +2135,8 @@
                         "shape": "PermissionGroup",
                         "locationName": "group",
                         "documentation": "\u003cp\u003eThe specific group that is to be added or removed from a volume's list of create volume permissions.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PermissionGroup",
+                        "type": "Maybe PermissionGroup"
                     },
                     {
                         "location": "querystring",
@@ -2902,8 +2900,8 @@
                         "shape": "ImageState",
                         "locationName": "imageState",
                         "documentation": "\u003cp\u003eThe current state of the AMI. If the state is \u003ccode\u003eavailable\u003c/code\u003e, the image is successfully registered and can be used to launch an instance.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ImageState",
+                        "type": "ImageState"
                     },
                     {
                         "location": "querystring",
@@ -2947,8 +2945,8 @@
                         "shape": "ArchitectureValues",
                         "locationName": "architecture",
                         "documentation": "\u003cp\u003eThe architecture of the image.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ArchitectureValues",
+                        "type": "ArchitectureValues"
                     },
                     {
                         "location": "querystring",
@@ -2962,8 +2960,8 @@
                         "shape": "ImageTypeValues",
                         "locationName": "imageType",
                         "documentation": "\u003cp\u003eThe type of image.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ImageTypeValues",
+                        "type": "ImageTypeValues"
                     },
                     {
                         "location": "querystring",
@@ -2992,8 +2990,8 @@
                         "shape": "DeviceType",
                         "locationName": "rootDeviceType",
                         "documentation": "\u003cp\u003eThe type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DeviceType",
+                        "type": "DeviceType"
                     },
                     {
                         "location": "querystring",
@@ -3007,8 +3005,8 @@
                         "shape": "VirtualizationType",
                         "locationName": "virtualizationType",
                         "documentation": "\u003cp\u003eThe type of virtualization of the AMI.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "VirtualizationType",
+                        "type": "VirtualizationType"
                     },
                     {
                         "location": "querystring",
@@ -3022,8 +3020,8 @@
                         "shape": "HypervisorType",
                         "locationName": "hypervisor",
                         "documentation": "\u003cp\u003eThe hypervisor type of the image.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "HypervisorType",
+                        "type": "HypervisorType"
                     }
                 ],
                 "contentPad": 0,
@@ -3088,8 +3086,8 @@
                         "shape": "PlatformValues",
                         "locationName": "platform",
                         "documentation": "\u003cp\u003eThe value is \u003ccode\u003eWindows\u003c/code\u003e for Windows AMIs; otherwise blank.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlatformValues",
+                        "type": "Maybe PlatformValues"
                     },
                     {
                         "location": "querystring",
@@ -3210,8 +3208,8 @@
                         "shape": "ArchitectureValues",
                         "locationName": "architecture",
                         "documentation": "\u003cp\u003eThe architecture of the image.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ArchitectureValues",
+                        "type": "ArchitectureValues"
                     },
                     {
                         "location": "querystring",
@@ -3255,8 +3253,8 @@
                         "shape": "HypervisorType",
                         "locationName": "hypervisor",
                         "documentation": "\u003cp\u003eThe hypervisor type of the image.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "HypervisorType",
+                        "type": "HypervisorType"
                     },
                     {
                         "location": "querystring",
@@ -3315,8 +3313,8 @@
                         "shape": "ImageTypeValues",
                         "locationName": "imageType",
                         "documentation": "\u003cp\u003eThe type of image.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ImageTypeValues",
+                        "type": "ImageTypeValues"
                     },
                     {
                         "location": "querystring",
@@ -3375,8 +3373,8 @@
                         "shape": "PlatformValues",
                         "locationName": "platform",
                         "documentation": "\u003cp\u003eThe value is \u003ccode\u003eWindows\u003c/code\u003e for Windows AMIs; otherwise blank.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlatformValues",
+                        "type": "Maybe PlatformValues"
                     },
                     {
                         "location": "querystring",
@@ -3450,8 +3448,8 @@
                         "shape": "DeviceType",
                         "locationName": "rootDeviceType",
                         "documentation": "\u003cp\u003eThe type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DeviceType",
+                        "type": "DeviceType"
                     },
                     {
                         "location": "querystring",
@@ -3480,8 +3478,8 @@
                         "shape": "ImageState",
                         "locationName": "imageState",
                         "documentation": "\u003cp\u003eThe current state of the AMI. If the state is \u003ccode\u003eavailable\u003c/code\u003e, the image is successfully registered and can be used to launch an instance.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ImageState",
+                        "type": "ImageState"
                     },
                     {
                         "location": "querystring",
@@ -3525,8 +3523,8 @@
                         "shape": "VirtualizationType",
                         "locationName": "virtualizationType",
                         "documentation": "\u003cp\u003eThe type of virtualization of the AMI.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "VirtualizationType",
+                        "type": "VirtualizationType"
                     }
                 ]
             },
@@ -3709,7 +3707,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 23,
@@ -3794,8 +3791,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AttachmentStatus",
+                        "type": "Maybe AttachmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -3931,8 +3928,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AttachmentStatus",
+                        "type": "Maybe AttachmentStatus"
                     }
                 ]
             },
@@ -4030,8 +4027,8 @@
                         "shape": "VolumeStatusInfoStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeStatusInfoStatus",
+                        "type": "Maybe VolumeStatusInfoStatus"
                     },
                     {
                         "location": "querystring",
@@ -4077,8 +4074,8 @@
                         "shape": "VolumeStatusInfoStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeStatusInfoStatus",
+                        "type": "Maybe VolumeStatusInfoStatus"
                     }
                 ]
             },
@@ -4496,7 +4493,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 16,
@@ -4521,8 +4517,8 @@
                         "shape": "ListingState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe states of the listed Reserved Instances.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ListingState",
+                        "type": "Maybe ListingState"
                     },
                     {
                         "location": "querystring",
@@ -4568,15 +4564,14 @@
                         "shape": "ListingState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe states of the listed Reserved Instances.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ListingState",
+                        "type": "Maybe ListingState"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 20,
@@ -4601,8 +4596,8 @@
                         "shape": "DiskImageFormat",
                         "locationName": "diskImageFormat",
                         "documentation": "\u003cp\u003eThe format for the exported image.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DiskImageFormat",
+                        "type": "Maybe DiskImageFormat"
                     },
                     {
                         "location": "querystring",
@@ -4616,8 +4611,8 @@
                         "shape": "ContainerFormat",
                         "locationName": "containerFormat",
                         "documentation": "\u003cp\u003eThe container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ContainerFormat",
+                        "type": "Maybe ContainerFormat"
                     },
                     {
                         "location": "querystring",
@@ -4663,8 +4658,8 @@
                         "shape": "ContainerFormat",
                         "locationName": "containerFormat",
                         "documentation": "\u003cp\u003eThe container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ContainerFormat",
+                        "type": "Maybe ContainerFormat"
                     },
                     {
                         "location": "querystring",
@@ -4678,8 +4673,8 @@
                         "shape": "DiskImageFormat",
                         "locationName": "diskImageFormat",
                         "documentation": "\u003cp\u003eThe format for the exported image.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DiskImageFormat",
+                        "type": "Maybe DiskImageFormat"
                     },
                     {
                         "location": "querystring",
@@ -4890,8 +4885,8 @@
                         "shape": "ConversionTaskState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the conversion task.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ConversionTaskState",
+                        "type": "ConversionTaskState"
                     }
                 ],
                 "contentPad": 0,
@@ -5048,8 +5043,8 @@
                         "shape": "ConversionTaskState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the conversion task.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ConversionTaskState",
+                        "type": "ConversionTaskState"
                     },
                     {
                         "location": "querystring",
@@ -5142,7 +5137,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -5167,8 +5161,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -5182,8 +5176,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "productDescription",
                         "documentation": "\u003cp\u003eA general description of the AMI.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -5259,8 +5253,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -5274,8 +5268,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "productDescription",
                         "documentation": "\u003cp\u003eA general description of the AMI.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -5391,7 +5385,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 16,
@@ -5446,8 +5439,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency for transacting the Reserved Instance resale. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     }
                 ],
                 "fields": [
@@ -5463,8 +5456,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency for transacting the Reserved Instance resale. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     },
                     {
                         "location": "querystring",
@@ -5681,8 +5674,8 @@
                         "shape": "SpotInstanceType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe Spot Instance request type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SpotInstanceType",
+                        "type": "Maybe SpotInstanceType"
                     },
                     {
                         "location": "querystring",
@@ -5696,8 +5689,8 @@
                         "shape": "SpotInstanceState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the Spot Instance request. Spot bid status information can help you track your Spot Instance requests. For information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html\"\u003eTracking Spot Requests with Bid Status Codes\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SpotInstanceState",
+                        "type": "Maybe SpotInstanceState"
                     },
                     {
                         "location": "querystring",
@@ -5846,8 +5839,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "productDescription",
                         "documentation": "\u003cp\u003eThe product description associated with the Spot Instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -5998,8 +5991,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "productDescription",
                         "documentation": "\u003cp\u003eThe product description associated with the Spot Instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -6043,8 +6036,8 @@
                         "shape": "SpotInstanceState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the Spot Instance request. Spot bid status information can help you track your Spot Instance requests. For information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html\"\u003eTracking Spot Requests with Bid Status Codes\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SpotInstanceState",
+                        "type": "Maybe SpotInstanceState"
                     },
                     {
                         "location": "querystring",
@@ -6088,8 +6081,8 @@
                         "shape": "SpotInstanceType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe Spot Instance request type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SpotInstanceType",
+                        "type": "Maybe SpotInstanceType"
                     },
                     {
                         "location": "querystring",
@@ -6225,8 +6218,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003em1.small\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -6452,8 +6445,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003em1.small\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -6849,8 +6842,8 @@
                         "shape": "VolumeState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe volume state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeState",
+                        "type": "Maybe VolumeState"
                     },
                     {
                         "location": "querystring",
@@ -6909,8 +6902,8 @@
                         "shape": "VolumeType",
                         "locationName": "volumeType",
                         "documentation": "\u003cp\u003eThe volume type. This can be \u003ccode\u003egp2\u003c/code\u003e for General Purpose (SSD) volumes, \u003ccode\u003eio1\u003c/code\u003e for Provisioned IOPS (SSD) volumes, or \u003ccode\u003estandard\u003c/code\u003e for Magnetic volumes.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
                     },
                     {
                         "location": "querystring",
@@ -7061,8 +7054,8 @@
                         "shape": "VolumeState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe volume state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeState",
+                        "type": "Maybe VolumeState"
                     },
                     {
                         "location": "querystring",
@@ -7106,8 +7099,8 @@
                         "shape": "VolumeType",
                         "locationName": "volumeType",
                         "documentation": "\u003cp\u003eThe volume type. This can be \u003ccode\u003egp2\u003c/code\u003e for General Purpose (SSD) volumes, \u003ccode\u003eio1\u003c/code\u003e for Provisioned IOPS (SSD) volumes, or \u003ccode\u003estandard\u003c/code\u003e for Magnetic volumes.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
                     }
                 ]
             },
@@ -7982,8 +7975,8 @@
                         "shape": "NetworkInterfaceStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the network interface.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe NetworkInterfaceStatus",
+                        "type": "Maybe NetworkInterfaceStatus"
                     },
                     {
                         "location": "querystring",
@@ -8344,8 +8337,8 @@
                         "shape": "NetworkInterfaceStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the network interface.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe NetworkInterfaceStatus",
+                        "type": "Maybe NetworkInterfaceStatus"
                     },
                     {
                         "location": "querystring",
@@ -8453,8 +8446,8 @@
                         "shape": "SubnetState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the subnet.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SubnetState",
+                        "type": "Maybe SubnetState"
                     },
                     {
                         "location": "querystring",
@@ -8650,8 +8643,8 @@
                         "shape": "SubnetState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the subnet.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SubnetState",
+                        "type": "Maybe SubnetState"
                     },
                     {
                         "location": "querystring",
@@ -8990,7 +8983,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -9010,8 +9002,8 @@
                         "shape": "DiskImageFormat",
                         "locationName": "format",
                         "documentation": "\u003cp\u003eThe disk image format.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DiskImageFormat",
+                        "type": "DiskImageFormat"
                     },
                     {
                         "location": "querystring",
@@ -9077,8 +9069,8 @@
                         "shape": "DiskImageFormat",
                         "locationName": "format",
                         "documentation": "\u003cp\u003eThe disk image format.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DiskImageFormat",
+                        "type": "DiskImageFormat"
                     },
                     {
                         "location": "querystring",
@@ -9239,7 +9231,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -9279,8 +9270,8 @@
                         "shape": "CancelSpotInstanceRequestState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the Spot Instance request.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CancelSpotInstanceRequestState",
+                        "type": "Maybe CancelSpotInstanceRequestState"
                     }
                 ],
                 "fields": [
@@ -9311,8 +9302,8 @@
                         "shape": "CancelSpotInstanceRequestState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the Spot Instance request.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CancelSpotInstanceRequestState",
+                        "type": "Maybe CancelSpotInstanceRequestState"
                     }
                 ]
             },
@@ -9385,7 +9376,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -9470,8 +9460,8 @@
                         "shape": "DomainType",
                         "locationName": "domain",
                         "documentation": "\u003cp\u003eIndicates whether this Elastic IP address is for use with instances in EC2-Classic (\u003ccode\u003estandard\u003c/code\u003e) or instances in a VPC (\u003ccode\u003evpc\u003c/code\u003e).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DomainType",
+                        "type": "Maybe DomainType"
                     },
                     {
                         "location": "querystring",
@@ -9562,8 +9552,8 @@
                         "shape": "DomainType",
                         "locationName": "domain",
                         "documentation": "\u003cp\u003eIndicates whether this Elastic IP address is for use with instances in EC2-Classic (\u003ccode\u003estandard\u003c/code\u003e) or instances in a VPC (\u003ccode\u003evpc\u003c/code\u003e).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DomainType",
+                        "type": "Maybe DomainType"
                     },
                     {
                         "location": "querystring",
@@ -9664,7 +9654,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 9,
@@ -9704,8 +9693,8 @@
                         "shape": "PermissionGroup",
                         "locationName": "group",
                         "documentation": "\u003cp\u003eThe name of the group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PermissionGroup",
+                        "type": "Maybe PermissionGroup"
                     }
                 ],
                 "fields": [
@@ -9721,8 +9710,8 @@
                         "shape": "PermissionGroup",
                         "locationName": "group",
                         "documentation": "\u003cp\u003eThe name of the group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PermissionGroup",
+                        "type": "Maybe PermissionGroup"
                     },
                     {
                         "location": "querystring",
@@ -10020,7 +10009,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 20,
@@ -10090,8 +10078,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type for the modified Reserved Instances.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     }
                 ],
                 "fields": [
@@ -10137,8 +10125,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type for the modified Reserved Instances.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -10160,7 +10148,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 10,
@@ -10185,8 +10172,8 @@
                         "shape": "VolumeStatusName",
                         "locationName": "name",
                         "documentation": "\u003cp\u003eThe name of the volume status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeStatusName",
+                        "type": "Maybe VolumeStatusName"
                     },
                     {
                         "location": "querystring",
@@ -10217,8 +10204,8 @@
                         "shape": "VolumeStatusName",
                         "locationName": "name",
                         "documentation": "\u003cp\u003eThe name of the volume status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeStatusName",
+                        "type": "Maybe VolumeStatusName"
                     },
                     {
                         "location": "querystring",
@@ -10460,8 +10447,8 @@
                         "shape": "SummaryStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SummaryStatus",
+                        "type": "Maybe SummaryStatus"
                     },
                     {
                         "location": "querystring",
@@ -10507,8 +10494,8 @@
                         "shape": "SummaryStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SummaryStatus",
+                        "type": "Maybe SummaryStatus"
                     }
                 ]
             },
@@ -10839,8 +10826,8 @@
                         "shape": "BundleTaskState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the task.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BundleTaskState",
+                        "type": "Maybe BundleTaskState"
                     },
                     {
                         "location": "querystring",
@@ -11006,8 +10993,8 @@
                         "shape": "BundleTaskState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the task.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BundleTaskState",
+                        "type": "Maybe BundleTaskState"
                     },
                     {
                         "location": "querystring",
@@ -11044,7 +11031,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 15,
@@ -11069,8 +11055,8 @@
                         "shape": "EventCode",
                         "locationName": "code",
                         "documentation": "\u003cp\u003eThe associated code of the event.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EventCode",
+                        "type": "Maybe EventCode"
                     },
                     {
                         "location": "querystring",
@@ -11131,8 +11117,8 @@
                         "shape": "EventCode",
                         "locationName": "code",
                         "documentation": "\u003cp\u003eThe associated code of the event.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EventCode",
+                        "type": "Maybe EventCode"
                     },
                     {
                         "location": "querystring",
@@ -11237,7 +11223,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -11352,8 +11337,8 @@
                         "shape": "RouteState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the route. The \u003ccode\u003eblackhole\u003c/code\u003e state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RouteState",
+                        "type": "Maybe RouteState"
                     },
                     {
                         "location": "querystring",
@@ -11367,8 +11352,8 @@
                         "shape": "RouteOrigin",
                         "locationName": "origin",
                         "documentation": "\u003cp\u003eDescribes how the route was created.\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCreateRouteTable\u003c/code\u003e indicates that route was automatically created when the route table was created.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eCreateRoute\u003c/code\u003e indicates that the route was manually added to the route table.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEnableVgwRoutePropagation\u003c/code\u003e indicates that the route was propagated by route propagation.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RouteOrigin",
+                        "type": "Maybe RouteOrigin"
                     }
                 ],
                 "fields": [
@@ -11459,8 +11444,8 @@
                         "shape": "RouteOrigin",
                         "locationName": "origin",
                         "documentation": "\u003cp\u003eDescribes how the route was created.\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCreateRouteTable\u003c/code\u003e indicates that route was automatically created when the route table was created.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eCreateRoute\u003c/code\u003e indicates that the route was manually added to the route table.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eEnableVgwRoutePropagation\u003c/code\u003e indicates that the route was propagated by route propagation.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RouteOrigin",
+                        "type": "Maybe RouteOrigin"
                     },
                     {
                         "location": "querystring",
@@ -11474,8 +11459,8 @@
                         "shape": "RouteState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the route. The \u003ccode\u003eblackhole\u003c/code\u003e state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RouteState",
+                        "type": "Maybe RouteState"
                     },
                     {
                         "location": "querystring",
@@ -11566,8 +11551,8 @@
                         "shape": "DatafeedSubscriptionState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the Spot Instance datafeed subscription.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DatafeedSubscriptionState",
+                        "type": "Maybe DatafeedSubscriptionState"
                     },
                     {
                         "location": "querystring",
@@ -11658,8 +11643,8 @@
                         "shape": "DatafeedSubscriptionState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the Spot Instance datafeed subscription.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DatafeedSubscriptionState",
+                        "type": "Maybe DatafeedSubscriptionState"
                     }
                 ]
             },
@@ -12266,7 +12251,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 22,
@@ -12336,8 +12320,8 @@
                         "shape": "VolumeAttachmentState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state of the volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeAttachmentState",
+                        "type": "Maybe VolumeAttachmentState"
                     },
                     {
                         "location": "querystring",
@@ -12443,8 +12427,8 @@
                         "shape": "VolumeAttachmentState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state of the volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeAttachmentState",
+                        "type": "Maybe VolumeAttachmentState"
                     },
                     {
                         "location": "querystring",
@@ -12665,7 +12649,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -12705,8 +12688,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AttachmentStatus",
+                        "type": "Maybe AttachmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -12782,8 +12765,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AttachmentStatus",
+                        "type": "Maybe AttachmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -12822,7 +12805,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 22,
@@ -12842,8 +12824,8 @@
                         "shape": "DiskImageFormat",
                         "locationName": "format",
                         "documentation": "\u003cp\u003eThe disk image format.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DiskImageFormat",
+                        "type": "DiskImageFormat"
                     },
                     {
                         "location": "querystring",
@@ -12925,8 +12907,8 @@
                         "shape": "DiskImageFormat",
                         "locationName": "format",
                         "documentation": "\u003cp\u003eThe disk image format.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DiskImageFormat",
+                        "type": "DiskImageFormat"
                     },
                     {
                         "location": "querystring",
@@ -13044,9 +13026,7 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "listElement": null,
                 "fieldPad": 0,
@@ -13063,8 +13043,8 @@
                     "shape": "MonitoringState",
                     "locationName": "state",
                     "documentation": "\u003cp\u003eIndicates whether monitoring is enabled for the instance.\u003c/p\u003e",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Maybe MonitoringState",
+                    "type": "Maybe MonitoringState"
                 },
                 "contents": [],
                 "payload": null,
@@ -13086,8 +13066,8 @@
                         "shape": "MonitoringState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eIndicates whether monitoring is enabled for the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MonitoringState",
+                        "type": "Maybe MonitoringState"
                     }
                 ],
                 "fields": [
@@ -13103,8 +13083,8 @@
                         "shape": "MonitoringState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eIndicates whether monitoring is enabled for the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MonitoringState",
+                        "type": "Maybe MonitoringState"
                     }
                 ]
             },
@@ -13211,7 +13191,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 9,
@@ -13251,8 +13230,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the attachment.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AttachmentStatus",
+                        "type": "Maybe AttachmentStatus"
                     }
                 ],
                 "fields": [
@@ -13268,8 +13247,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the attachment.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AttachmentStatus",
+                        "type": "Maybe AttachmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -13388,7 +13367,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -13413,8 +13391,8 @@
                         "shape": "DiskImageFormat",
                         "locationName": "diskImageFormat",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DiskImageFormat",
+                        "type": "Maybe DiskImageFormat"
                     },
                     {
                         "location": "querystring",
@@ -13428,8 +13406,8 @@
                         "shape": "ContainerFormat",
                         "locationName": "containerFormat",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ContainerFormat",
+                        "type": "Maybe ContainerFormat"
                     },
                     {
                         "location": "querystring",
@@ -13475,8 +13453,8 @@
                         "shape": "ContainerFormat",
                         "locationName": "containerFormat",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ContainerFormat",
+                        "type": "Maybe ContainerFormat"
                     },
                     {
                         "location": "querystring",
@@ -13490,8 +13468,8 @@
                         "shape": "DiskImageFormat",
                         "locationName": "diskImageFormat",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DiskImageFormat",
+                        "type": "Maybe DiskImageFormat"
                     },
                     {
                         "location": "querystring",
@@ -13565,7 +13543,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -13605,8 +13582,8 @@
                         "shape": "ExportEnvironment",
                         "locationName": "targetEnvironment",
                         "documentation": "\u003cp\u003eThe target virtualization environment.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ExportEnvironment",
+                        "type": "Maybe ExportEnvironment"
                     }
                 ],
                 "fields": [
@@ -13637,8 +13614,8 @@
                         "shape": "ExportEnvironment",
                         "locationName": "targetEnvironment",
                         "documentation": "\u003cp\u003eThe target virtualization environment.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ExportEnvironment",
+                        "type": "Maybe ExportEnvironment"
                     }
                 ]
             },
@@ -13701,8 +13678,8 @@
                         "shape": "AvailabilityZoneState",
                         "locationName": "zoneState",
                         "documentation": "\u003cp\u003eThe state of the Availability Zone (\u003ccode\u003eavailable\u003c/code\u003e | \u003ccode\u003eimpaired\u003c/code\u003e | \u003ccode\u003eunavailable\u003c/code\u003e).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AvailabilityZoneState",
+                        "type": "Maybe AvailabilityZoneState"
                     },
                     {
                         "location": "querystring",
@@ -13778,8 +13755,8 @@
                         "shape": "AvailabilityZoneState",
                         "locationName": "zoneState",
                         "documentation": "\u003cp\u003eThe state of the Availability Zone (\u003ccode\u003eavailable\u003c/code\u003e | \u003ccode\u003eimpaired\u003c/code\u003e | \u003ccode\u003eunavailable\u003c/code\u003e).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AvailabilityZoneState",
+                        "type": "Maybe AvailabilityZoneState"
                     },
                     {
                         "location": "querystring",
@@ -14036,7 +14013,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 17,
@@ -14061,8 +14037,8 @@
                         "shape": "StatusName",
                         "locationName": "name",
                         "documentation": "\u003cp\u003eThe type of instance status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StatusName",
+                        "type": "Maybe StatusName"
                     },
                     {
                         "location": "querystring",
@@ -14076,8 +14052,8 @@
                         "shape": "StatusType",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StatusType",
+                        "type": "Maybe StatusType"
                     },
                     {
                         "location": "querystring",
@@ -14123,8 +14099,8 @@
                         "shape": "StatusName",
                         "locationName": "name",
                         "documentation": "\u003cp\u003eThe type of instance status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StatusName",
+                        "type": "Maybe StatusName"
                     },
                     {
                         "location": "querystring",
@@ -14138,8 +14114,8 @@
                         "shape": "StatusType",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StatusType",
+                        "type": "Maybe StatusType"
                     }
                 ]
             },
@@ -14226,7 +14202,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 9,
@@ -14261,8 +14236,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the attachment.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "AttachmentStatus",
+                        "type": "AttachmentStatus"
                     }
                 ],
                 "contentPad": 0,
@@ -14283,8 +14258,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the attachment.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "AttachmentStatus",
+                        "type": "AttachmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -15113,8 +15088,8 @@
                         "shape": "NetworkInterfaceStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the network interface.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe NetworkInterfaceStatus",
+                        "type": "Maybe NetworkInterfaceStatus"
                     },
                     {
                         "location": "querystring",
@@ -15415,8 +15390,8 @@
                         "shape": "NetworkInterfaceStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the network interface.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe NetworkInterfaceStatus",
+                        "type": "Maybe NetworkInterfaceStatus"
                     },
                     {
                         "location": "querystring",
@@ -15703,7 +15678,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 17,
@@ -15743,8 +15717,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency in which the \u003ccode\u003elimitPrice\u003c/code\u003e amount is specified. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     }
                 ],
                 "fields": [
@@ -15775,8 +15749,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency in which the \u003ccode\u003elimitPrice\u003c/code\u003e amount is specified. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     }
                 ]
             },
@@ -15822,8 +15796,8 @@
                         "shape": "VpcState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the VPC.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpcState",
+                        "type": "Maybe VpcState"
                     },
                     {
                         "location": "querystring",
@@ -15882,8 +15856,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe allowed tenancy of instances launched into the VPC.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     },
                     {
                         "location": "querystring",
@@ -15944,8 +15918,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe allowed tenancy of instances launched into the VPC.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     },
                     {
                         "location": "querystring",
@@ -15974,8 +15948,8 @@
                         "shape": "VpcState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the VPC.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpcState",
+                        "type": "Maybe VpcState"
                     },
                     {
                         "location": "querystring",
@@ -16252,7 +16226,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 23,
@@ -16322,8 +16295,8 @@
                         "shape": "VolumeType",
                         "locationName": "volumeType",
                         "documentation": "\u003cp\u003eThe volume type. \u003ccode\u003egp2\u003c/code\u003e for General Purpose (SSD) volumes, \u003ccode\u003eio1\u003c/code\u003e for Provisioned IOPS (SSD) volumes, and \u003ccode\u003estandard\u003c/code\u003e for Magnetic volumes.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003estandard\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
                     },
                     {
                         "location": "querystring",
@@ -16444,8 +16417,8 @@
                         "shape": "VolumeType",
                         "locationName": "volumeType",
                         "documentation": "\u003cp\u003eThe volume type. \u003ccode\u003egp2\u003c/code\u003e for General Purpose (SSD) volumes, \u003ccode\u003eio1\u003c/code\u003e for Provisioned IOPS (SSD) volumes, and \u003ccode\u003estandard\u003c/code\u003e for Magnetic volumes.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003estandard\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
                     }
                 ]
             },
@@ -16531,7 +16504,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 15,
@@ -16586,8 +16558,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency for transacting the Reserved Instance resale. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     },
                     {
                         "location": "querystring",
@@ -16633,8 +16605,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency for transacting the Reserved Instance resale. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     },
                     {
                         "location": "querystring",
@@ -16909,8 +16881,8 @@
                         "shape": "VpnState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the virtual private gateway.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpnState",
+                        "type": "Maybe VpnState"
                     },
                     {
                         "location": "querystring",
@@ -16924,8 +16896,8 @@
                         "shape": "GatewayType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe type of VPN connection the virtual private gateway supports.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe GatewayType",
+                        "type": "Maybe GatewayType"
                     },
                     {
                         "location": "querystring",
@@ -17001,8 +16973,8 @@
                         "shape": "VpnState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the virtual private gateway.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpnState",
+                        "type": "Maybe VpnState"
                     },
                     {
                         "location": "querystring",
@@ -17031,8 +17003,8 @@
                         "shape": "GatewayType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe type of VPN connection the virtual private gateway supports.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe GatewayType",
+                        "type": "Maybe GatewayType"
                     },
                     {
                         "location": "querystring",
@@ -17509,7 +17481,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -17564,8 +17535,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AttachmentStatus",
+                        "type": "Maybe AttachmentStatus"
                     },
                     {
                         "location": "querystring",
@@ -17671,8 +17642,8 @@
                         "shape": "AttachmentStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AttachmentStatus",
+                        "type": "Maybe AttachmentStatus"
                     }
                 ]
             },
@@ -17745,7 +17716,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -17770,8 +17740,8 @@
                         "shape": "RecurringChargeFrequency",
                         "locationName": "frequency",
                         "documentation": "\u003cp\u003eThe frequency of the recurring charge.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecurringChargeFrequency",
+                        "type": "Maybe RecurringChargeFrequency"
                     },
                     {
                         "location": "querystring",
@@ -17817,8 +17787,8 @@
                         "shape": "RecurringChargeFrequency",
                         "locationName": "frequency",
                         "documentation": "\u003cp\u003eThe frequency of the recurring charge.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecurringChargeFrequency",
+                        "type": "Maybe RecurringChargeFrequency"
                     }
                 ]
             },
@@ -18284,8 +18254,8 @@
                         "shape": "PlatformValues",
                         "locationName": "platform",
                         "documentation": "\u003cp\u003eThe instance operating system.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlatformValues",
+                        "type": "Maybe PlatformValues"
                     },
                     {
                         "location": "querystring",
@@ -18346,8 +18316,8 @@
                         "shape": "PlatformValues",
                         "locationName": "platform",
                         "documentation": "\u003cp\u003eThe instance operating system.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlatformValues",
+                        "type": "Maybe PlatformValues"
                     },
                     {
                         "location": "querystring",
@@ -18369,7 +18339,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -18409,8 +18378,8 @@
                         "shape": "PlacementStrategy",
                         "locationName": "strategy",
                         "documentation": "\u003cp\u003eThe placement strategy.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlacementStrategy",
+                        "type": "Maybe PlacementStrategy"
                     },
                     {
                         "location": "querystring",
@@ -18424,8 +18393,8 @@
                         "shape": "PlacementGroupState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the placement group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlacementGroupState",
+                        "type": "Maybe PlacementGroupState"
                     }
                 ],
                 "fields": [
@@ -18456,8 +18425,8 @@
                         "shape": "PlacementGroupState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the placement group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlacementGroupState",
+                        "type": "Maybe PlacementGroupState"
                     },
                     {
                         "location": "querystring",
@@ -18471,15 +18440,14 @@
                         "shape": "PlacementStrategy",
                         "locationName": "strategy",
                         "documentation": "\u003cp\u003eThe placement strategy.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlacementStrategy",
+                        "type": "Maybe PlacementStrategy"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -18519,8 +18487,8 @@
                         "shape": "ProductCodeValues",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe type of product code.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ProductCodeValues",
+                        "type": "Maybe ProductCodeValues"
                     }
                 ],
                 "fields": [
@@ -18551,8 +18519,8 @@
                         "shape": "ProductCodeValues",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe type of product code.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ProductCodeValues",
+                        "type": "Maybe ProductCodeValues"
                     }
                 ]
             },
@@ -18789,8 +18757,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type on which the Reserved Instance can be used.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -18864,8 +18832,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "productDescription",
                         "documentation": "\u003cp\u003eThe Reserved Instance description.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -18879,8 +18847,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe tenancy of the reserved instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     },
                     {
                         "location": "querystring",
@@ -18894,8 +18862,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     },
                     {
                         "location": "querystring",
@@ -18909,8 +18877,8 @@
                         "shape": "OfferingTypeValues",
                         "locationName": "offeringType",
                         "documentation": "\u003cp\u003eThe Reserved Instance offering type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OfferingTypeValues",
+                        "type": "Maybe OfferingTypeValues"
                     },
                     {
                         "location": "querystring",
@@ -18986,8 +18954,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     },
                     {
                         "location": "querystring",
@@ -19031,8 +18999,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe tenancy of the reserved instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     },
                     {
                         "location": "querystring",
@@ -19046,8 +19014,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type on which the Reserved Instance can be used.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -19076,8 +19044,8 @@
                         "shape": "OfferingTypeValues",
                         "locationName": "offeringType",
                         "documentation": "\u003cp\u003eThe Reserved Instance offering type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OfferingTypeValues",
+                        "type": "Maybe OfferingTypeValues"
                     },
                     {
                         "location": "querystring",
@@ -19106,8 +19074,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "productDescription",
                         "documentation": "\u003cp\u003eThe Reserved Instance description.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -19198,8 +19166,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type on which the Reserved Instance can be used.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -19318,8 +19286,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "productDescription",
                         "documentation": "\u003cp\u003eThe Reserved Instance description.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -19333,8 +19301,8 @@
                         "shape": "ReservedInstanceState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the Reserved Instance purchase.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ReservedInstanceState",
+                        "type": "Maybe ReservedInstanceState"
                     },
                     {
                         "location": "querystring",
@@ -19363,8 +19331,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe tenancy of the reserved instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     },
                     {
                         "location": "querystring",
@@ -19378,8 +19346,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     },
                     {
                         "location": "querystring",
@@ -19393,8 +19361,8 @@
                         "shape": "OfferingTypeValues",
                         "locationName": "offeringType",
                         "documentation": "\u003cp\u003eThe Reserved Instance offering type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OfferingTypeValues",
+                        "type": "Maybe OfferingTypeValues"
                     },
                     {
                         "location": "querystring",
@@ -19440,8 +19408,8 @@
                         "shape": "CurrencyCodeValues",
                         "locationName": "currencyCode",
                         "documentation": "\u003cp\u003eThe currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is \u003ccode\u003eUSD\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CurrencyCodeValues",
+                        "type": "Maybe CurrencyCodeValues"
                     },
                     {
                         "location": "querystring",
@@ -19515,8 +19483,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe tenancy of the reserved instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     },
                     {
                         "location": "querystring",
@@ -19530,8 +19498,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type on which the Reserved Instance can be used.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -19545,8 +19513,8 @@
                         "shape": "OfferingTypeValues",
                         "locationName": "offeringType",
                         "documentation": "\u003cp\u003eThe Reserved Instance offering type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OfferingTypeValues",
+                        "type": "Maybe OfferingTypeValues"
                     },
                     {
                         "location": "querystring",
@@ -19560,8 +19528,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "productDescription",
                         "documentation": "\u003cp\u003eThe Reserved Instance description.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -19620,8 +19588,8 @@
                         "shape": "ReservedInstanceState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the Reserved Instance purchase.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ReservedInstanceState",
+                        "type": "Maybe ReservedInstanceState"
                     },
                     {
                         "location": "querystring",
@@ -19750,8 +19718,8 @@
                         "shape": "VpnState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the VPN connection.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpnState",
+                        "type": "Maybe VpnState"
                     },
                     {
                         "location": "querystring",
@@ -19780,8 +19748,8 @@
                         "shape": "GatewayType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe type of VPN connection.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe GatewayType",
+                        "type": "Maybe GatewayType"
                     },
                     {
                         "location": "querystring",
@@ -19947,8 +19915,8 @@
                         "shape": "VpnState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the VPN connection.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpnState",
+                        "type": "Maybe VpnState"
                     },
                     {
                         "location": "querystring",
@@ -19977,8 +19945,8 @@
                         "shape": "GatewayType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe type of VPN connection.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe GatewayType",
+                        "type": "Maybe GatewayType"
                     },
                     {
                         "location": "querystring",
@@ -20030,7 +19998,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 7,
@@ -20065,8 +20032,8 @@
                         "shape": "InstanceStateName",
                         "locationName": "name",
                         "documentation": "\u003cp\u003eThe current state of the instance.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceStateName",
+                        "type": "InstanceStateName"
                     }
                 ],
                 "contentPad": 0,
@@ -20102,15 +20069,14 @@
                         "shape": "InstanceStateName",
                         "locationName": "name",
                         "documentation": "\u003cp\u003eThe current state of the instance.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceStateName",
+                        "type": "InstanceStateName"
                     }
                 ]
             },
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -20165,8 +20131,8 @@
                         "shape": "Tenancy",
                         "locationName": "tenancy",
                         "documentation": "\u003cp\u003eThe tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of \u003ccode\u003ededicated\u003c/code\u003e runs on single-tenant hardware.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     }
                 ],
                 "fields": [
@@ -20212,8 +20178,8 @@
                         "shape": "Tenancy",
                         "locationName": "tenancy",
                         "documentation": "\u003cp\u003eThe tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of \u003ccode\u003ededicated\u003c/code\u003e runs on single-tenant hardware.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     }
                 ]
             },
@@ -20625,7 +20591,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -20665,8 +20630,8 @@
                         "shape": "TelemetryStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the VPN tunnel.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe TelemetryStatus",
+                        "type": "Maybe TelemetryStatus"
                     },
                     {
                         "location": "querystring",
@@ -20772,8 +20737,8 @@
                         "shape": "TelemetryStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the VPN tunnel.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe TelemetryStatus",
+                        "type": "Maybe TelemetryStatus"
                     },
                     {
                         "location": "querystring",
@@ -20795,7 +20760,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -20835,8 +20799,8 @@
                         "shape": "VpnStaticRouteSource",
                         "locationName": "source",
                         "documentation": "\u003cp\u003eIndicates how the routes were provided.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpnStaticRouteSource",
+                        "type": "Maybe VpnStaticRouteSource"
                     },
                     {
                         "location": "querystring",
@@ -20850,8 +20814,8 @@
                         "shape": "VpnState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the static route.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpnState",
+                        "type": "Maybe VpnState"
                     }
                 ],
                 "fields": [
@@ -20882,8 +20846,8 @@
                         "shape": "VpnStaticRouteSource",
                         "locationName": "source",
                         "documentation": "\u003cp\u003eIndicates how the routes were provided.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpnStaticRouteSource",
+                        "type": "Maybe VpnStaticRouteSource"
                     },
                     {
                         "location": "querystring",
@@ -20897,8 +20861,8 @@
                         "shape": "VpnState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe current state of the static route.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpnState",
+                        "type": "Maybe VpnState"
                     }
                 ]
             },
@@ -21085,8 +21049,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -21160,8 +21124,8 @@
                         "shape": "PlatformValues",
                         "locationName": "platform",
                         "documentation": "\u003cp\u003eThe value is \u003ccode\u003eWindows\u003c/code\u003e for Windows instances; otherwise blank.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlatformValues",
+                        "type": "Maybe PlatformValues"
                     },
                     {
                         "location": "querystring",
@@ -21265,8 +21229,8 @@
                         "shape": "ArchitectureValues",
                         "locationName": "architecture",
                         "documentation": "\u003cp\u003eThe architecture of the image.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ArchitectureValues",
+                        "type": "Maybe ArchitectureValues"
                     },
                     {
                         "location": "querystring",
@@ -21280,8 +21244,8 @@
                         "shape": "DeviceType",
                         "locationName": "rootDeviceType",
                         "documentation": "\u003cp\u003eThe root device type used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeviceType",
+                        "type": "Maybe DeviceType"
                     },
                     {
                         "location": "querystring",
@@ -21325,8 +21289,8 @@
                         "shape": "VirtualizationType",
                         "locationName": "virtualizationType",
                         "documentation": "\u003cp\u003eThe virtualization type of the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualizationType",
+                        "type": "Maybe VirtualizationType"
                     },
                     {
                         "location": "querystring",
@@ -21340,8 +21304,8 @@
                         "shape": "InstanceLifecycleType",
                         "locationName": "instanceLifecycle",
                         "documentation": "\u003cp\u003eIndicates whether this is a Spot Instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceLifecycleType",
+                        "type": "Maybe InstanceLifecycleType"
                     },
                     {
                         "location": "querystring",
@@ -21430,8 +21394,8 @@
                         "shape": "HypervisorType",
                         "locationName": "hypervisor",
                         "documentation": "\u003cp\u003eThe hypervisor type of the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe HypervisorType",
+                        "type": "Maybe HypervisorType"
                     },
                     {
                         "location": "querystring",
@@ -21522,8 +21486,8 @@
                         "shape": "ArchitectureValues",
                         "locationName": "architecture",
                         "documentation": "\u003cp\u003eThe architecture of the image.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ArchitectureValues",
+                        "type": "Maybe ArchitectureValues"
                     },
                     {
                         "location": "querystring",
@@ -21582,8 +21546,8 @@
                         "shape": "HypervisorType",
                         "locationName": "hypervisor",
                         "documentation": "\u003cp\u003eThe hypervisor type of the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe HypervisorType",
+                        "type": "Maybe HypervisorType"
                     },
                     {
                         "location": "querystring",
@@ -21642,8 +21606,8 @@
                         "shape": "InstanceLifecycleType",
                         "locationName": "instanceLifecycle",
                         "documentation": "\u003cp\u003eIndicates whether this is a Spot Instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceLifecycleType",
+                        "type": "Maybe InstanceLifecycleType"
                     },
                     {
                         "location": "querystring",
@@ -21657,8 +21621,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -21762,8 +21726,8 @@
                         "shape": "PlatformValues",
                         "locationName": "platform",
                         "documentation": "\u003cp\u003eThe value is \u003ccode\u003eWindows\u003c/code\u003e for Windows instances; otherwise blank.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PlatformValues",
+                        "type": "Maybe PlatformValues"
                     },
                     {
                         "location": "querystring",
@@ -21882,8 +21846,8 @@
                         "shape": "DeviceType",
                         "locationName": "rootDeviceType",
                         "documentation": "\u003cp\u003eThe root device type used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeviceType",
+                        "type": "Maybe DeviceType"
                     },
                     {
                         "location": "querystring",
@@ -22032,8 +21996,8 @@
                         "shape": "VirtualizationType",
                         "locationName": "virtualizationType",
                         "documentation": "\u003cp\u003eThe virtualization type of the instance.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VirtualizationType",
+                        "type": "Maybe VirtualizationType"
                     },
                     {
                         "location": "querystring",
@@ -22109,8 +22073,8 @@
                         "shape": "ExportTaskState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the conversion task.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ExportTaskState",
+                        "type": "Maybe ExportTaskState"
                     },
                     {
                         "location": "querystring",
@@ -22231,8 +22195,8 @@
                         "shape": "ExportTaskState",
                         "locationName": "state",
                         "documentation": "\u003cp\u003eThe state of the conversion task.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ExportTaskState",
+                        "type": "Maybe ExportTaskState"
                     },
                     {
                         "location": "querystring",
@@ -22369,8 +22333,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003em1.small\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -22611,8 +22575,8 @@
                         "shape": "InstanceType",
                         "locationName": "instanceType",
                         "documentation": "\u003cp\u003eThe instance type.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003em1.small\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -23342,16 +23306,22 @@
             "Reservation",
             "NetworkInterface",
             "Subnet",
+            "VolumeAttachmentState",
             "PortRange",
             "BundleTask",
+            "InstanceType",
             "SpotDatafeedSubscription",
             "VolumeAttachment",
             "CustomerGateway",
             "RouteTable",
             "IpPermission",
+            "Tenancy",
             "Vpc",
+            "DomainType",
+            "OfferingTypeValues",
             "VpnGateway",
             "Filter",
+            "VolumeType",
             "InstanceStateChange",
             "NetworkAcl",
             "AttributeBooleanValue",
@@ -23564,7 +23534,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -23613,8 +23582,8 @@
                         "shape": "DomainType",
                         "locationName": "domain",
                         "documentation": "\u003cp\u003eIndicates whether this Elastic IP address is for use with instances in EC2-Classic (\u003ccode\u003estandard\u003c/code\u003e) or instances in a VPC (\u003ccode\u003evpc\u003c/code\u003e).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DomainType",
+                        "type": "Maybe DomainType"
                     },
                     {
                         "location": "querystring",
@@ -23660,8 +23629,8 @@
                         "shape": "DomainType",
                         "locationName": "domain",
                         "documentation": "\u003cp\u003eIndicates whether this Elastic IP address is for use with instances in EC2-Classic (\u003ccode\u003estandard\u003c/code\u003e) or instances in a VPC (\u003ccode\u003evpc\u003c/code\u003e).\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DomainType",
+                        "type": "Maybe DomainType"
                     },
                     {
                         "location": "querystring",
@@ -23695,7 +23664,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -23762,8 +23730,8 @@
                         "shape": "DomainType",
                         "locationName": "Domain",
                         "documentation": "\u003cp\u003eSet to \u003ccode\u003evpc\u003c/code\u003e to allocate the address for use with instances in a VPC.\u003c/p\u003e \u003cp\u003eDefault: The address is for use with instances in EC2-Classic.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DomainType",
+                        "type": "Maybe DomainType"
                     }
                 ],
                 "fields": [
@@ -23779,8 +23747,8 @@
                         "shape": "DomainType",
                         "locationName": "Domain",
                         "documentation": "\u003cp\u003eSet to \u003ccode\u003evpc\u003c/code\u003e to allocate the address for use with instances in a VPC.\u003c/p\u003e \u003cp\u003eDefault: The address is for use with instances in EC2-Classic.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DomainType",
+                        "type": "Maybe DomainType"
                     },
                     {
                         "location": "querystring",
@@ -25262,7 +25230,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -25341,8 +25308,8 @@
                         "shape": "VolumeAttachmentState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state of the volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeAttachmentState",
+                        "type": "Maybe VolumeAttachmentState"
                     },
                     {
                         "location": "querystring",
@@ -25448,8 +25415,8 @@
                         "shape": "VolumeAttachmentState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state of the volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeAttachmentState",
+                        "type": "Maybe VolumeAttachmentState"
                     },
                     {
                         "location": "querystring",
@@ -28828,7 +28795,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -28858,8 +28824,8 @@
                         "shape": "GatewayType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of VPN connection that this customer gateway supports (\u003ccode\u003eipsec.1\u003c/code\u003e).\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "GatewayType",
+                        "type": "GatewayType"
                     },
                     {
                         "location": "querystring",
@@ -28998,8 +28964,8 @@
                         "shape": "GatewayType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of VPN connection that this customer gateway supports (\u003ccode\u003eipsec.1\u003c/code\u003e).\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "GatewayType",
+                        "type": "GatewayType"
                     }
                 ]
             }
@@ -29720,8 +29686,8 @@
                         "shape": "ExportEnvironment",
                         "locationName": "targetEnvironment",
                         "documentation": "\u003cp\u003eThe target virtualization environment.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ExportEnvironment",
+                        "type": "Maybe ExportEnvironment"
                     },
                     {
                         "location": "querystring",
@@ -29797,8 +29763,8 @@
                         "shape": "ExportEnvironment",
                         "locationName": "targetEnvironment",
                         "documentation": "\u003cp\u003eThe target virtualization environment.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ExportEnvironment",
+                        "type": "Maybe ExportEnvironment"
                     }
                 ]
             }
@@ -30534,8 +30500,8 @@
                         "shape": "RuleAction",
                         "locationName": "ruleAction",
                         "documentation": "\u003cp\u003eIndicates whether to allow or deny the traffic that matches the rule.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "RuleAction",
+                        "type": "RuleAction"
                     },
                     {
                         "location": "querystring",
@@ -30789,8 +30755,8 @@
                         "shape": "RuleAction",
                         "locationName": "ruleAction",
                         "documentation": "\u003cp\u003eIndicates whether to allow or deny the traffic that matches the rule.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "RuleAction",
+                        "type": "RuleAction"
                     },
                     {
                         "location": "querystring",
@@ -31222,7 +31188,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -31267,8 +31232,8 @@
                         "shape": "PlacementStrategy",
                         "locationName": "strategy",
                         "documentation": "\u003cp\u003eThe placement strategy.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PlacementStrategy",
+                        "type": "PlacementStrategy"
                     }
                 ],
                 "shared": false,
@@ -31357,8 +31322,8 @@
                         "shape": "PlacementStrategy",
                         "locationName": "strategy",
                         "documentation": "\u003cp\u003eThe placement strategy.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PlacementStrategy",
+                        "type": "PlacementStrategy"
                     }
                 ]
             }
@@ -32488,8 +32453,8 @@
                         "shape": "SnapshotState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe snapshot state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SnapshotState",
+                        "type": "Maybe SnapshotState"
                     },
                     {
                         "location": "querystring",
@@ -32730,8 +32695,8 @@
                         "shape": "SnapshotState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe snapshot state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SnapshotState",
+                        "type": "Maybe SnapshotState"
                     },
                     {
                         "location": "querystring",
@@ -33713,8 +33678,8 @@
                         "shape": "VolumeState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe volume state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeState",
+                        "type": "Maybe VolumeState"
                     },
                     {
                         "location": "querystring",
@@ -33773,8 +33738,8 @@
                         "shape": "VolumeType",
                         "locationName": "volumeType",
                         "documentation": "\u003cp\u003eThe volume type. This can be \u003ccode\u003egp2\u003c/code\u003e for General Purpose (SSD) volumes, \u003ccode\u003eio1\u003c/code\u003e for Provisioned IOPS (SSD) volumes, or \u003ccode\u003estandard\u003c/code\u003e for Magnetic volumes.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
                     },
                     {
                         "location": "querystring",
@@ -33925,8 +33890,8 @@
                         "shape": "VolumeState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe volume state.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeState",
+                        "type": "Maybe VolumeState"
                     },
                     {
                         "location": "querystring",
@@ -33970,8 +33935,8 @@
                         "shape": "VolumeType",
                         "locationName": "volumeType",
                         "documentation": "\u003cp\u003eThe volume type. This can be \u003ccode\u003egp2\u003c/code\u003e for General Purpose (SSD) volumes, \u003ccode\u003eio1\u003c/code\u003e for Provisioned IOPS (SSD) volumes, or \u003ccode\u003estandard\u003c/code\u003e for Magnetic volumes.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
                     }
                 ]
             },
@@ -33990,7 +33955,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -34128,8 +34092,8 @@
                         "shape": "VolumeType",
                         "locationName": "VolumeType",
                         "documentation": "\u003cp\u003eThe volume type. This can be \u003ccode\u003egp2\u003c/code\u003e for General Purpose (SSD) volumes, \u003ccode\u003eio1\u003c/code\u003e for Provisioned IOPS (SSD) volumes, or \u003ccode\u003estandard\u003c/code\u003e for Magnetic volumes.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003estandard\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
                     },
                     {
                         "location": "querystring",
@@ -34265,8 +34229,8 @@
                         "shape": "VolumeType",
                         "locationName": "VolumeType",
                         "documentation": "\u003cp\u003eThe volume type. This can be \u003ccode\u003egp2\u003c/code\u003e for General Purpose (SSD) volumes, \u003ccode\u003eio1\u003c/code\u003e for Provisioned IOPS (SSD) volumes, or \u003ccode\u003estandard\u003c/code\u003e for Magnetic volumes.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003estandard\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
                     }
                 ]
             }
@@ -34362,7 +34326,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -34450,8 +34413,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe supported tenancy options for instances launched into the VPC. A value of \u003ccode\u003edefault\u003c/code\u003e means that instances can be launched with any tenancy; a value of \u003ccode\u003ededicated\u003c/code\u003e means all instances launched into the VPC are launched as dedicated tenancy instances regardless of the tenancy assigned to the instance at launch. Dedicated tenancy instances run on single-tenant hardware.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003edefault\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     }
                 ],
                 "fields": [
@@ -34497,8 +34460,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe supported tenancy options for instances launched into the VPC. A value of \u003ccode\u003edefault\u003c/code\u003e means that instances can be launched with any tenancy; a value of \u003ccode\u003ededicated\u003c/code\u003e means all instances launched into the VPC are launched as dedicated tenancy instances regardless of the tenancy assigned to the instance at launch. Dedicated tenancy instances run on single-tenant hardware.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003edefault\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     }
                 ]
             }
@@ -35307,7 +35270,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -35337,8 +35299,8 @@
                         "shape": "GatewayType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of VPN connection this virtual private gateway supports.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "GatewayType",
+                        "type": "GatewayType"
                     }
                 ],
                 "shared": false,
@@ -35442,8 +35404,8 @@
                         "shape": "GatewayType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of VPN connection this virtual private gateway supports.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "GatewayType",
+                        "type": "GatewayType"
                     }
                 ]
             }
@@ -38977,7 +38939,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -39044,8 +39005,8 @@
                         "shape": "AccountAttributeNameStringList",
                         "locationName": "attributeName",
                         "documentation": "\u003cp\u003eOne or more account attribute names.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"attributeName\" Text"
+                        "typeExposed": "[AccountAttributeName]",
+                        "type": "List \"attributeName\" AccountAttributeName"
                     }
                 ],
                 "fields": [
@@ -39061,8 +39022,8 @@
                         "shape": "AccountAttributeNameStringList",
                         "locationName": "attributeName",
                         "documentation": "\u003cp\u003eOne or more account attribute names.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"attributeName\" Text"
+                        "typeExposed": "[AccountAttributeName]",
+                        "type": "List \"attributeName\" AccountAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -40975,7 +40936,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -41020,8 +40980,8 @@
                         "shape": "ImageAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe AMI attribute.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ImageAttributeName",
+                        "type": "ImageAttributeName"
                     }
                 ],
                 "shared": false,
@@ -41080,8 +41040,8 @@
                         "shape": "ImageAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe AMI attribute.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ImageAttributeName",
+                        "type": "ImageAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -41883,7 +41843,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -41928,8 +41887,8 @@
                         "shape": "InstanceAttributeName",
                         "locationName": "attribute",
                         "documentation": "\u003cp\u003eThe instance attribute.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceAttributeName",
+                        "type": "InstanceAttributeName"
                     }
                 ],
                 "shared": false,
@@ -41988,8 +41947,8 @@
                         "shape": "InstanceAttributeName",
                         "locationName": "attribute",
                         "documentation": "\u003cp\u003eThe instance attribute.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceAttributeName",
+                        "type": "InstanceAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -43596,7 +43555,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -43684,8 +43642,8 @@
                         "shape": "NetworkInterfaceAttribute",
                         "locationName": "attribute",
                         "documentation": "\u003cp\u003eThe attribute of the network interface.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe NetworkInterfaceAttribute",
+                        "type": "Maybe NetworkInterfaceAttribute"
                     }
                 ],
                 "fields": [
@@ -43701,8 +43659,8 @@
                         "shape": "NetworkInterfaceAttribute",
                         "locationName": "attribute",
                         "documentation": "\u003cp\u003eThe attribute of the network interface.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe NetworkInterfaceAttribute",
+                        "type": "Maybe NetworkInterfaceAttribute"
                     },
                     {
                         "location": "querystring",
@@ -44632,8 +44590,8 @@
                         "shape": "OfferingTypeValues",
                         "locationName": "offeringType",
                         "documentation": "\u003cp\u003eThe Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the \u003ccode\u003eMedium Utilization\u003c/code\u003e Reserved Instance offering type. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OfferingTypeValues",
+                        "type": "Maybe OfferingTypeValues"
                     }
                 ],
                 "fields": [
@@ -44679,8 +44637,8 @@
                         "shape": "OfferingTypeValues",
                         "locationName": "offeringType",
                         "documentation": "\u003cp\u003eThe Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the \u003ccode\u003eMedium Utilization\u003c/code\u003e Reserved Instance offering type. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OfferingTypeValues",
+                        "type": "Maybe OfferingTypeValues"
                     },
                     {
                         "location": "querystring",
@@ -45440,8 +45398,8 @@
                         "shape": "InstanceType",
                         "locationName": "InstanceType",
                         "documentation": "\u003cp\u003eThe instance type on which the Reserved Instance can be used. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Types\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -45470,8 +45428,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "ProductDescription",
                         "documentation": "\u003cp\u003eThe Reserved Instance description. Instances that include \u003ccode\u003e(Amazon VPC)\u003c/code\u003e in the description are for use with Amazon VPC.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -45500,8 +45458,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe tenancy of the Reserved Instance offering. A Reserved Instance with \u003ccode\u003ededicated\u003c/code\u003e tenancy runs on single-tenant hardware and can only be launched within a VPC.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003edefault\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     },
                     {
                         "location": "querystring",
@@ -45515,8 +45473,8 @@
                         "shape": "OfferingTypeValues",
                         "locationName": "offeringType",
                         "documentation": "\u003cp\u003eThe Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the \u003ccode\u003eMedium Utilization\u003c/code\u003e Reserved Instance offering type. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OfferingTypeValues",
+                        "type": "Maybe OfferingTypeValues"
                     },
                     {
                         "location": "querystring",
@@ -45682,8 +45640,8 @@
                         "shape": "Tenancy",
                         "locationName": "instanceTenancy",
                         "documentation": "\u003cp\u003eThe tenancy of the Reserved Instance offering. A Reserved Instance with \u003ccode\u003ededicated\u003c/code\u003e tenancy runs on single-tenant hardware and can only be launched within a VPC.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003edefault\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Tenancy",
+                        "type": "Maybe Tenancy"
                     },
                     {
                         "location": "querystring",
@@ -45697,8 +45655,8 @@
                         "shape": "InstanceType",
                         "locationName": "InstanceType",
                         "documentation": "\u003cp\u003eThe instance type on which the Reserved Instance can be used. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Types\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -45787,8 +45745,8 @@
                         "shape": "OfferingTypeValues",
                         "locationName": "offeringType",
                         "documentation": "\u003cp\u003eThe Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the \u003ccode\u003eMedium Utilization\u003c/code\u003e Reserved Instance offering type. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OfferingTypeValues",
+                        "type": "Maybe OfferingTypeValues"
                     },
                     {
                         "location": "querystring",
@@ -45802,8 +45760,8 @@
                         "shape": "RIProductDescription",
                         "locationName": "ProductDescription",
                         "documentation": "\u003cp\u003eThe Reserved Instance description. Instances that include \u003ccode\u003e(Amazon VPC)\u003c/code\u003e in the description are for use with Amazon VPC.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RIProductDescription",
+                        "type": "Maybe RIProductDescription"
                     },
                     {
                         "location": "querystring",
@@ -46457,7 +46415,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -46502,8 +46459,8 @@
                         "shape": "SnapshotAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe snapshot attribute you would like to view.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "SnapshotAttributeName",
+                        "type": "SnapshotAttributeName"
                     }
                 ],
                 "shared": false,
@@ -46562,8 +46519,8 @@
                         "shape": "SnapshotAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe snapshot attribute you would like to view.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "SnapshotAttributeName",
+                        "type": "SnapshotAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -47554,8 +47511,8 @@
                         "shape": "InstanceTypeList",
                         "locationName": "InstanceType",
                         "documentation": "\u003cp\u003eOne or more instance types.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"InstanceType\" Text"
+                        "typeExposed": "[InstanceType]",
+                        "type": "List \"InstanceType\" InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -47706,8 +47663,8 @@
                         "shape": "InstanceTypeList",
                         "locationName": "InstanceType",
                         "documentation": "\u003cp\u003eOne or more instance types.\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"InstanceType\" Text"
+                        "typeExposed": "[InstanceType]",
+                        "type": "List \"InstanceType\" InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -48427,7 +48384,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -48515,8 +48471,8 @@
                         "shape": "VolumeAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe instance attribute.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeAttributeName",
+                        "type": "Maybe VolumeAttributeName"
                     }
                 ],
                 "fields": [
@@ -48532,8 +48488,8 @@
                         "shape": "VolumeAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe instance attribute.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeAttributeName",
+                        "type": "Maybe VolumeAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -49340,7 +49296,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -49428,8 +49383,8 @@
                         "shape": "VpcAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe VPC attribute.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpcAttributeName",
+                        "type": "Maybe VpcAttributeName"
                     }
                 ],
                 "fields": [
@@ -49445,8 +49400,8 @@
                         "shape": "VpcAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe VPC attribute.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VpcAttributeName",
+                        "type": "Maybe VpcAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -50778,7 +50733,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -50857,8 +50811,8 @@
                         "shape": "VolumeAttachmentState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state of the volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeAttachmentState",
+                        "type": "Maybe VolumeAttachmentState"
                     },
                     {
                         "location": "querystring",
@@ -50964,8 +50918,8 @@
                         "shape": "VolumeAttachmentState",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe attachment state of the volume.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VolumeAttachmentState",
+                        "type": "Maybe VolumeAttachmentState"
                     },
                     {
                         "location": "querystring",
@@ -52763,8 +52717,8 @@
                         "shape": "PlatformValues",
                         "locationName": "platform",
                         "documentation": "\u003cp\u003eThe instance operating system.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PlatformValues",
+                        "type": "PlatformValues"
                     }
                 ],
                 "shared": false,
@@ -52938,8 +52892,8 @@
                         "shape": "PlatformValues",
                         "locationName": "platform",
                         "documentation": "\u003cp\u003eThe instance operating system.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "PlatformValues",
+                        "type": "PlatformValues"
                     }
                 ]
             }
@@ -54105,8 +54059,8 @@
                         "shape": "InstanceAttributeName",
                         "locationName": "attribute",
                         "documentation": "\u003cp\u003eThe name of the attribute.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceAttributeName",
+                        "type": "Maybe InstanceAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -54302,8 +54256,8 @@
                         "shape": "InstanceAttributeName",
                         "locationName": "attribute",
                         "documentation": "\u003cp\u003eThe name of the attribute.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceAttributeName",
+                        "type": "Maybe InstanceAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -55184,8 +55138,8 @@
                         "shape": "SnapshotAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe snapshot attribute to modify.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SnapshotAttributeName",
+                        "type": "Maybe SnapshotAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -55261,8 +55215,8 @@
                         "shape": "SnapshotAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe snapshot attribute to modify.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SnapshotAttributeName",
+                        "type": "Maybe SnapshotAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -56727,8 +56681,8 @@
                         "shape": "ArchitectureValues",
                         "locationName": "architecture",
                         "documentation": "\u003cp\u003eThe architecture of the AMI.\u003c/p\u003e \u003cp\u003eDefault: For Amazon EBS-backed AMIs, \u003ccode\u003ei386\u003c/code\u003e. For instance store-backed AMIs, the architecture specified in the manifest file.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ArchitectureValues",
+                        "type": "Maybe ArchitectureValues"
                     },
                     {
                         "location": "querystring",
@@ -56834,8 +56788,8 @@
                         "shape": "ArchitectureValues",
                         "locationName": "architecture",
                         "documentation": "\u003cp\u003eThe architecture of the AMI.\u003c/p\u003e \u003cp\u003eDefault: For Amazon EBS-backed AMIs, \u003ccode\u003ei386\u003c/code\u003e. For instance store-backed AMIs, the architecture specified in the manifest file.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ArchitectureValues",
+                        "type": "Maybe ArchitectureValues"
                     },
                     {
                         "location": "querystring",
@@ -57718,8 +57672,8 @@
                         "shape": "RuleAction",
                         "locationName": "ruleAction",
                         "documentation": "\u003cp\u003eIndicates whether to allow or deny the traffic that matches the rule.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "RuleAction",
+                        "type": "RuleAction"
                     },
                     {
                         "location": "querystring",
@@ -57973,8 +57927,8 @@
                         "shape": "RuleAction",
                         "locationName": "ruleAction",
                         "documentation": "\u003cp\u003eIndicates whether to allow or deny the traffic that matches the rule.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "RuleAction",
+                        "type": "RuleAction"
                     },
                     {
                         "location": "querystring",
@@ -58591,7 +58545,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -58621,8 +58574,8 @@
                         "shape": "ReportStatusType",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of all instances listed.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ReportStatusType",
+                        "type": "ReportStatusType"
                     }
                 ],
                 "shared": false,
@@ -58744,8 +58697,8 @@
                         "shape": "ReasonCodesList",
                         "locationName": "reasonCode",
                         "documentation": "\u003cp\u003eOne or more reason codes that describes the health state of your instance.\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003einstance-stuck-in-state\u003c/code\u003e: My instance is stuck in a state.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eunresponsive\u003c/code\u003e: My instance is unresponsive.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003enot-accepting-credentials\u003c/code\u003e: My instance is not accepting my credentials.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003epassword-not-available\u003c/code\u003e: A password is not available for my instance.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eperformance-network\u003c/code\u003e: My instance is experiencing performance problems which I believe are network related.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eperformance-instance-store\u003c/code\u003e: My instance is experiencing performance problems which I believe are related to the instance stores.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eperformance-ebs-volume\u003c/code\u003e: My instance is experiencing performance problems which I believe are related to an EBS volume.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eperformance-other\u003c/code\u003e: My instance is experiencing performance problems.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eother\u003c/code\u003e: [explain using the description parameter]\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"item\" Text"
+                        "typeExposed": "[ReportInstanceReasonCodes]",
+                        "type": "List \"item\" ReportInstanceReasonCodes"
                     },
                     {
                         "location": "querystring",
@@ -58836,8 +58789,8 @@
                         "shape": "ReasonCodesList",
                         "locationName": "reasonCode",
                         "documentation": "\u003cp\u003eOne or more reason codes that describes the health state of your instance.\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003einstance-stuck-in-state\u003c/code\u003e: My instance is stuck in a state.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eunresponsive\u003c/code\u003e: My instance is unresponsive.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003enot-accepting-credentials\u003c/code\u003e: My instance is not accepting my credentials.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003epassword-not-available\u003c/code\u003e: A password is not available for my instance.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eperformance-network\u003c/code\u003e: My instance is experiencing performance problems which I believe are network related.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eperformance-instance-store\u003c/code\u003e: My instance is experiencing performance problems which I believe are related to the instance stores.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eperformance-ebs-volume\u003c/code\u003e: My instance is experiencing performance problems which I believe are related to an EBS volume.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eperformance-other\u003c/code\u003e: My instance is experiencing performance problems.\u003c/p\u003e\u003c/li\u003e \u003cli\u003e\u003cp\u003e\u003ccode\u003eother\u003c/code\u003e: [explain using the description parameter]\u003c/p\u003e\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"item\" Text"
+                        "typeExposed": "[ReportInstanceReasonCodes]",
+                        "type": "List \"item\" ReportInstanceReasonCodes"
                     },
                     {
                         "location": "querystring",
@@ -58866,8 +58819,8 @@
                         "shape": "ReportStatusType",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of all instances listed.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ReportStatusType",
+                        "type": "ReportStatusType"
                     }
                 ]
             }
@@ -59097,8 +59050,8 @@
                         "shape": "SpotInstanceType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe Spot Instance request type.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003eone-time\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SpotInstanceType",
+                        "type": "Maybe SpotInstanceType"
                     },
                     {
                         "location": "querystring",
@@ -59279,8 +59232,8 @@
                         "shape": "SpotInstanceType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe Spot Instance request type.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003eone-time\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SpotInstanceType",
+                        "type": "Maybe SpotInstanceType"
                     },
                     {
                         "location": "querystring",
@@ -59356,7 +59309,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -59401,8 +59353,8 @@
                         "shape": "ResetImageAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe attribute to reset (currently you can only reset the launch permission attribute).\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResetImageAttributeName",
+                        "type": "ResetImageAttributeName"
                     }
                 ],
                 "shared": false,
@@ -59461,8 +59413,8 @@
                         "shape": "ResetImageAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe attribute to reset (currently you can only reset the launch permission attribute).\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ResetImageAttributeName",
+                        "type": "ResetImageAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -59538,7 +59490,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -59583,8 +59534,8 @@
                         "shape": "InstanceAttributeName",
                         "locationName": "attribute",
                         "documentation": "\u003cp\u003eThe attribute to reset.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceAttributeName",
+                        "type": "InstanceAttributeName"
                     }
                 ],
                 "shared": false,
@@ -59643,8 +59594,8 @@
                         "shape": "InstanceAttributeName",
                         "locationName": "attribute",
                         "documentation": "\u003cp\u003eThe attribute to reset.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "InstanceAttributeName",
+                        "type": "InstanceAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -59902,7 +59853,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -59947,8 +59897,8 @@
                         "shape": "SnapshotAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe attribute to reset (currently only the attribute for permission to create volumes can be reset).\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "SnapshotAttributeName",
+                        "type": "SnapshotAttributeName"
                     }
                 ],
                 "shared": false,
@@ -60007,8 +59957,8 @@
                         "shape": "SnapshotAttributeName",
                         "locationName": "Attribute",
                         "documentation": "\u003cp\u003eThe attribute to reset (currently only the attribute for permission to create volumes can be reset).\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "SnapshotAttributeName",
+                        "type": "SnapshotAttributeName"
                     },
                     {
                         "location": "querystring",
@@ -61331,8 +61281,8 @@
                         "shape": "InstanceType",
                         "locationName": "InstanceType",
                         "documentation": "\u003cp\u003eThe instance type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Types\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003em1.small\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",
@@ -61451,8 +61401,8 @@
                         "shape": "ShutdownBehavior",
                         "locationName": "instanceInitiatedShutdownBehavior",
                         "documentation": "\u003cp\u003eIndicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003estop\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ShutdownBehavior",
+                        "type": "Maybe ShutdownBehavior"
                     },
                     {
                         "location": "querystring",
@@ -61678,8 +61628,8 @@
                         "shape": "ShutdownBehavior",
                         "locationName": "instanceInitiatedShutdownBehavior",
                         "documentation": "\u003cp\u003eIndicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003estop\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ShutdownBehavior",
+                        "type": "Maybe ShutdownBehavior"
                     },
                     {
                         "location": "querystring",
@@ -61693,8 +61643,8 @@
                         "shape": "InstanceType",
                         "locationName": "InstanceType",
                         "documentation": "\u003cp\u003eThe instance type. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\"\u003eInstance Types\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eDefault: \u003ccode\u003em1.small\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceType",
+                        "type": "Maybe InstanceType"
                     },
                     {
                         "location": "querystring",

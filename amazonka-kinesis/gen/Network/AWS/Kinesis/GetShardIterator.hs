@@ -79,10 +79,10 @@ import qualified GHC.Exts
 
 data GetShardIterator = GetShardIterator
     { _gsiShardId                :: Text
-    , _gsiShardIteratorType      :: Text
+    , _gsiShardIteratorType      :: ShardIteratorType
     , _gsiStartingSequenceNumber :: Maybe Text
     , _gsiStreamName             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'GetShardIterator' constructor.
 --
@@ -90,7 +90,7 @@ data GetShardIterator = GetShardIterator
 --
 -- * 'gsiShardId' @::@ 'Text'
 --
--- * 'gsiShardIteratorType' @::@ 'Text'
+-- * 'gsiShardIteratorType' @::@ 'ShardIteratorType'
 --
 -- * 'gsiStartingSequenceNumber' @::@ 'Maybe' 'Text'
 --
@@ -98,7 +98,7 @@ data GetShardIterator = GetShardIterator
 --
 getShardIterator :: Text -- ^ 'gsiStreamName'
                  -> Text -- ^ 'gsiShardId'
-                 -> Text -- ^ 'gsiShardIteratorType'
+                 -> ShardIteratorType -- ^ 'gsiShardIteratorType'
                  -> GetShardIterator
 getShardIterator p1 p2 p3 = GetShardIterator
     { _gsiStreamName             = p1
@@ -120,7 +120,7 @@ gsiShardId = lens _gsiShardId (\s a -> s { _gsiShardId = a })
 -- which is the oldest data record in the shard. LATEST - Start reading just
 -- after the most recent record in the shard, so that you always read the
 -- most recent data in the shard.
-gsiShardIteratorType :: Lens' GetShardIterator Text
+gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
 gsiShardIteratorType =
     lens _gsiShardIteratorType (\s a -> s { _gsiShardIteratorType = a })
 

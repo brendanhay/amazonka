@@ -51,16 +51,16 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeVpcAttribute = DescribeVpcAttribute
-    { _dva1Attribute :: Maybe Text
+    { _dva1Attribute :: Maybe VpcAttributeName
     , _dva1DryRun    :: Maybe Bool
     , _dva1VpcId     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeVpcAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dva1Attribute' @::@ 'Maybe' 'Text'
+-- * 'dva1Attribute' @::@ 'Maybe' 'VpcAttributeName'
 --
 -- * 'dva1DryRun' @::@ 'Maybe' 'Bool'
 --
@@ -75,7 +75,7 @@ describeVpcAttribute p1 = DescribeVpcAttribute
     }
 
 -- | The VPC attribute.
-dva1Attribute :: Lens' DescribeVpcAttribute (Maybe Text)
+dva1Attribute :: Lens' DescribeVpcAttribute (Maybe VpcAttributeName)
 dva1Attribute = lens _dva1Attribute (\s a -> s { _dva1Attribute = a })
 
 dva1DryRun :: Lens' DescribeVpcAttribute (Maybe Bool)

@@ -55,10 +55,10 @@ import qualified GHC.Exts
 
 data UpdateJob = UpdateJob
     { _ujJobId        :: Text
-    , _ujJobType      :: Text
+    , _ujJobType      :: JobType
     , _ujManifest     :: Text
     , _ujValidateOnly :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'UpdateJob' constructor.
 --
@@ -66,7 +66,7 @@ data UpdateJob = UpdateJob
 --
 -- * 'ujJobId' @::@ 'Text'
 --
--- * 'ujJobType' @::@ 'Text'
+-- * 'ujJobType' @::@ 'JobType'
 --
 -- * 'ujManifest' @::@ 'Text'
 --
@@ -74,7 +74,7 @@ data UpdateJob = UpdateJob
 --
 updateJob :: Text -- ^ 'ujJobId'
           -> Text -- ^ 'ujManifest'
-          -> Text -- ^ 'ujJobType'
+          -> JobType -- ^ 'ujJobType'
           -> Bool -- ^ 'ujValidateOnly'
           -> UpdateJob
 updateJob p1 p2 p3 p4 = UpdateJob
@@ -87,7 +87,7 @@ updateJob p1 p2 p3 p4 = UpdateJob
 ujJobId :: Lens' UpdateJob Text
 ujJobId = lens _ujJobId (\s a -> s { _ujJobId = a })
 
-ujJobType :: Lens' UpdateJob Text
+ujJobType :: Lens' UpdateJob JobType
 ujJobType = lens _ujJobType (\s a -> s { _ujJobType = a })
 
 ujManifest :: Lens' UpdateJob Text

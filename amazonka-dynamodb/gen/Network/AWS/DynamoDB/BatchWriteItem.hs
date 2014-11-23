@@ -99,8 +99,8 @@ import qualified GHC.Exts
 
 data BatchWriteItem = BatchWriteItem
     { _bwiRequestItems                :: Map Text (List1 "RequestItems" WriteRequest)
-    , _bwiReturnConsumedCapacity      :: Maybe Text
-    , _bwiReturnItemCollectionMetrics :: Maybe Text
+    , _bwiReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
+    , _bwiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
     } deriving (Eq, Show)
 
 -- | 'BatchWriteItem' constructor.
@@ -109,9 +109,9 @@ data BatchWriteItem = BatchWriteItem
 --
 -- * 'bwiRequestItems' @::@ 'HashMap' 'Text' ('NonEmpty' 'WriteRequest')
 --
--- * 'bwiReturnConsumedCapacity' @::@ 'Maybe' 'Text'
+-- * 'bwiReturnConsumedCapacity' @::@ 'Maybe' 'ReturnConsumedCapacity'
 --
--- * 'bwiReturnItemCollectionMetrics' @::@ 'Maybe' 'Text'
+-- * 'bwiReturnItemCollectionMetrics' @::@ 'Maybe' 'ReturnItemCollectionMetrics'
 --
 batchWriteItem :: BatchWriteItem
 batchWriteItem = BatchWriteItem
@@ -143,7 +143,7 @@ batchWriteItem = BatchWriteItem
 bwiRequestItems :: Lens' BatchWriteItem (HashMap Text (NonEmpty WriteRequest))
 bwiRequestItems = lens _bwiRequestItems (\s a -> s { _bwiRequestItems = a }) . _Map
 
-bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe Text)
+bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
 bwiReturnConsumedCapacity =
     lens _bwiReturnConsumedCapacity
         (\s a -> s { _bwiReturnConsumedCapacity = a })
@@ -152,7 +152,7 @@ bwiReturnConsumedCapacity =
 -- collections, if any, that were modified during the operation are returned
 -- in the response. If set to NONE (the default), no statistics are
 -- returned.
-bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe Text)
+bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
 bwiReturnItemCollectionMetrics =
     lens _bwiReturnItemCollectionMetrics
         (\s a -> s { _bwiReturnItemCollectionMetrics = a })

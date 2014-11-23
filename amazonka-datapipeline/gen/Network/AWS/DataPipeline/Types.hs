@@ -269,15 +269,15 @@ instance ToJSON Selector where
         ]
 
 data Operator = Operator
-    { _oType   :: Maybe Text
+    { _oType   :: Maybe OperatorType
     , _oValues :: List "values" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Operator' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'oType' @::@ 'Maybe' 'Text'
+-- * 'oType' @::@ 'Maybe' 'OperatorType'
 --
 -- * 'oValues' @::@ ['Text']
 --
@@ -302,7 +302,7 @@ operator = Operator
 -- choose names containing only alpha-numeric values, as symbols may be
 -- reserved by AWS Data Pipeline. User-defined fields that you add to a
 -- pipeline should prefix their name with the string "my".
-oType :: Lens' Operator (Maybe Text)
+oType :: Lens' Operator (Maybe OperatorType)
 oType = lens _oType (\s a -> s { _oType = a })
 
 -- | The value that the actual field value will be compared with.

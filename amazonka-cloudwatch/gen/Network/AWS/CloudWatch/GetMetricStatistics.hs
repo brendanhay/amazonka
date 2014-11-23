@@ -80,8 +80,8 @@ data GetMetricStatistics = GetMetricStatistics
     , _gmsNamespace  :: Text
     , _gmsPeriod     :: Nat
     , _gmsStartTime  :: RFC822
-    , _gmsStatistics :: List1 "Statistics" Text
-    , _gmsUnit       :: Maybe Text
+    , _gmsStatistics :: List1 "Statistics" Statistic
+    , _gmsUnit       :: Maybe StandardUnit
     } deriving (Eq, Show)
 
 -- | 'GetMetricStatistics' constructor.
@@ -100,16 +100,16 @@ data GetMetricStatistics = GetMetricStatistics
 --
 -- * 'gmsStartTime' @::@ 'UTCTime'
 --
--- * 'gmsStatistics' @::@ 'NonEmpty' 'Text'
+-- * 'gmsStatistics' @::@ 'NonEmpty' 'Statistic'
 --
--- * 'gmsUnit' @::@ 'Maybe' 'Text'
+-- * 'gmsUnit' @::@ 'Maybe' 'StandardUnit'
 --
 getMetricStatistics :: Text -- ^ 'gmsNamespace'
                     -> Text -- ^ 'gmsMetricName'
                     -> UTCTime -- ^ 'gmsStartTime'
                     -> UTCTime -- ^ 'gmsEndTime'
                     -> Natural -- ^ 'gmsPeriod'
-                    -> NonEmpty Text -- ^ 'gmsStatistics'
+                    -> NonEmpty Statistic -- ^ 'gmsStatistics'
                     -> GetMetricStatistics
 getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
     { _gmsNamespace  = p1
@@ -156,11 +156,11 @@ gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a }) . _Time
 -- statistics returned by GetMetricStatistics, go to Statistics in the
 -- Amazon CloudWatch Developer Guide. Valid Values: Average | Sum |
 -- SampleCount | Maximum | Minimum.
-gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Text)
+gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
 gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a }) . _List1
 
 -- | The unit for the metric.
-gmsUnit :: Lens' GetMetricStatistics (Maybe Text)
+gmsUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
 gmsUnit = lens _gmsUnit (\s a -> s { _gmsUnit = a })
 
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse

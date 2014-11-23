@@ -1589,9 +1589,9 @@ data Activity = Activity
     , _aEndTime              :: Maybe RFC822
     , _aProgress             :: Maybe Int
     , _aStartTime            :: RFC822
-    , _aStatusCode           :: Text
+    , _aStatusCode           :: ScalingActivityStatusCode
     , _aStatusMessage        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Activity' constructor.
 --
@@ -1613,7 +1613,7 @@ data Activity = Activity
 --
 -- * 'aStartTime' @::@ 'UTCTime'
 --
--- * 'aStatusCode' @::@ 'Text'
+-- * 'aStatusCode' @::@ 'ScalingActivityStatusCode'
 --
 -- * 'aStatusMessage' @::@ 'Maybe' 'Text'
 --
@@ -1621,7 +1621,7 @@ activity :: Text -- ^ 'aActivityId'
          -> Text -- ^ 'aAutoScalingGroupName'
          -> Text -- ^ 'aCause'
          -> UTCTime -- ^ 'aStartTime'
-         -> Text -- ^ 'aStatusCode'
+         -> ScalingActivityStatusCode -- ^ 'aStatusCode'
          -> Activity
 activity p1 p2 p3 p4 p5 = Activity
     { _aActivityId           = p1
@@ -1670,7 +1670,7 @@ aStartTime :: Lens' Activity UTCTime
 aStartTime = lens _aStartTime (\s a -> s { _aStartTime = a }) . _Time
 
 -- | The current status of the activity.
-aStatusCode :: Lens' Activity Text
+aStatusCode :: Lens' Activity ScalingActivityStatusCode
 aStatusCode = lens _aStatusCode (\s a -> s { _aStatusCode = a })
 
 -- | A friendly, more verbose description of the activity status.
@@ -1921,8 +1921,8 @@ data Instance = Instance
     , _iHealthStatus            :: Text
     , _iInstanceId              :: Text
     , _iLaunchConfigurationName :: Text
-    , _iLifecycleState          :: Text
-    } deriving (Eq, Ord, Show)
+    , _iLifecycleState          :: LifecycleState
+    } deriving (Eq, Show)
 
 -- | 'Instance' constructor.
 --
@@ -1936,11 +1936,11 @@ data Instance = Instance
 --
 -- * 'iLaunchConfigurationName' @::@ 'Text'
 --
--- * 'iLifecycleState' @::@ 'Text'
+-- * 'iLifecycleState' @::@ 'LifecycleState'
 --
 instance' :: Text -- ^ 'iInstanceId'
           -> Text -- ^ 'iAvailabilityZone'
-          -> Text -- ^ 'iLifecycleState'
+          -> LifecycleState -- ^ 'iLifecycleState'
           -> Text -- ^ 'iHealthStatus'
           -> Text -- ^ 'iLaunchConfigurationName'
           -> Instance
@@ -1973,7 +1973,7 @@ iLaunchConfigurationName =
 
 -- | A description of the current lifecycle state. The Quarantined lifecycle
 -- state is not used.
-iLifecycleState :: Lens' Instance Text
+iLifecycleState :: Lens' Instance LifecycleState
 iLifecycleState = lens _iLifecycleState (\s a -> s { _iLifecycleState = a })
 
 instance FromXML Instance where

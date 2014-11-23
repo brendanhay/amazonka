@@ -124,9 +124,9 @@ data AttachVolumeResponse = AttachVolumeResponse
     , _avrDeleteOnTermination :: Maybe Bool
     , _avrDevice              :: Maybe Text
     , _avrInstanceId          :: Maybe Text
-    , _avrState               :: Maybe Text
+    , _avrState               :: Maybe VolumeAttachmentState
     , _avrVolumeId            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'AttachVolumeResponse' constructor.
 --
@@ -140,7 +140,7 @@ data AttachVolumeResponse = AttachVolumeResponse
 --
 -- * 'avrInstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'avrState' @::@ 'Maybe' 'Text'
+-- * 'avrState' @::@ 'Maybe' 'VolumeAttachmentState'
 --
 -- * 'avrVolumeId' @::@ 'Maybe' 'Text'
 --
@@ -173,7 +173,7 @@ avrInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
 avrInstanceId = lens _avrInstanceId (\s a -> s { _avrInstanceId = a })
 
 -- | The attachment state of the volume.
-avrState :: Lens' AttachVolumeResponse (Maybe Text)
+avrState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
 avrState = lens _avrState (\s a -> s { _avrState = a })
 
 -- | The ID of the volume.

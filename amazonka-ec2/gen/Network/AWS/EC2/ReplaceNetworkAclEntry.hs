@@ -61,7 +61,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     , _rnaeNetworkAclId :: Text
     , _rnaePortRange    :: Maybe PortRange
     , _rnaeProtocol     :: Text
-    , _rnaeRuleAction   :: Text
+    , _rnaeRuleAction   :: RuleAction
     , _rnaeRuleNumber   :: Int
     } deriving (Eq, Show)
 
@@ -83,14 +83,14 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
 --
 -- * 'rnaeProtocol' @::@ 'Text'
 --
--- * 'rnaeRuleAction' @::@ 'Text'
+-- * 'rnaeRuleAction' @::@ 'RuleAction'
 --
 -- * 'rnaeRuleNumber' @::@ 'Int'
 --
 replaceNetworkAclEntry :: Text -- ^ 'rnaeNetworkAclId'
                        -> Int -- ^ 'rnaeRuleNumber'
                        -> Text -- ^ 'rnaeProtocol'
-                       -> Text -- ^ 'rnaeRuleAction'
+                       -> RuleAction -- ^ 'rnaeRuleAction'
                        -> Bool -- ^ 'rnaeEgress'
                        -> Text -- ^ 'rnaeCidrBlock'
                        -> ReplaceNetworkAclEntry
@@ -137,7 +137,7 @@ rnaeProtocol :: Lens' ReplaceNetworkAclEntry Text
 rnaeProtocol = lens _rnaeProtocol (\s a -> s { _rnaeProtocol = a })
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-rnaeRuleAction :: Lens' ReplaceNetworkAclEntry Text
+rnaeRuleAction :: Lens' ReplaceNetworkAclEntry RuleAction
 rnaeRuleAction = lens _rnaeRuleAction (\s a -> s { _rnaeRuleAction = a })
 
 -- | The rule number of the entry to replace.

@@ -57,20 +57,20 @@ import Network.AWS.Config.Types
 import qualified GHC.Exts
 
 data GetResourceConfigHistory = GetResourceConfigHistory
-    { _grchChronologicalOrder :: Maybe Text
+    { _grchChronologicalOrder :: Maybe ChronologicalOrder
     , _grchEarlierTime        :: Maybe RFC822
     , _grchLaterTime          :: Maybe RFC822
     , _grchLimit              :: Maybe Nat
     , _grchNextToken          :: Maybe Text
     , _grchResourceId         :: Text
-    , _grchResourceType       :: Text
-    } deriving (Eq, Ord, Show)
+    , _grchResourceType       :: ResourceType
+    } deriving (Eq, Show)
 
 -- | 'GetResourceConfigHistory' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grchChronologicalOrder' @::@ 'Maybe' 'Text'
+-- * 'grchChronologicalOrder' @::@ 'Maybe' 'ChronologicalOrder'
 --
 -- * 'grchEarlierTime' @::@ 'Maybe' 'UTCTime'
 --
@@ -82,9 +82,9 @@ data GetResourceConfigHistory = GetResourceConfigHistory
 --
 -- * 'grchResourceId' @::@ 'Text'
 --
--- * 'grchResourceType' @::@ 'Text'
+-- * 'grchResourceType' @::@ 'ResourceType'
 --
-getResourceConfigHistory :: Text -- ^ 'grchResourceType'
+getResourceConfigHistory :: ResourceType -- ^ 'grchResourceType'
                          -> Text -- ^ 'grchResourceId'
                          -> GetResourceConfigHistory
 getResourceConfigHistory p1 p2 = GetResourceConfigHistory
@@ -99,7 +99,7 @@ getResourceConfigHistory p1 p2 = GetResourceConfigHistory
 
 -- | The chronological order for configuration items listed. By default the
 -- results are listed in reverse chronological order.
-grchChronologicalOrder :: Lens' GetResourceConfigHistory (Maybe Text)
+grchChronologicalOrder :: Lens' GetResourceConfigHistory (Maybe ChronologicalOrder)
 grchChronologicalOrder =
     lens _grchChronologicalOrder (\s a -> s { _grchChronologicalOrder = a })
 
@@ -128,7 +128,7 @@ grchResourceId :: Lens' GetResourceConfigHistory Text
 grchResourceId = lens _grchResourceId (\s a -> s { _grchResourceId = a })
 
 -- | The resource type.
-grchResourceType :: Lens' GetResourceConfigHistory Text
+grchResourceType :: Lens' GetResourceConfigHistory ResourceType
 grchResourceType = lens _grchResourceType (\s a -> s { _grchResourceType = a })
 
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse

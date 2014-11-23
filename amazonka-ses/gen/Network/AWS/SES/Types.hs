@@ -176,8 +176,8 @@ instance ToQuery Destination where
 data IdentityDkimAttributes = IdentityDkimAttributes
     { _idaDkimEnabled            :: Bool
     , _idaDkimTokens             :: List "DkimTokens" Text
-    , _idaDkimVerificationStatus :: Text
-    } deriving (Eq, Ord, Show)
+    , _idaDkimVerificationStatus :: VerificationStatus
+    } deriving (Eq, Show)
 
 -- | 'IdentityDkimAttributes' constructor.
 --
@@ -187,10 +187,10 @@ data IdentityDkimAttributes = IdentityDkimAttributes
 --
 -- * 'idaDkimTokens' @::@ ['Text']
 --
--- * 'idaDkimVerificationStatus' @::@ 'Text'
+-- * 'idaDkimVerificationStatus' @::@ 'VerificationStatus'
 --
 identityDkimAttributes :: Bool -- ^ 'idaDkimEnabled'
-                       -> Text -- ^ 'idaDkimVerificationStatus'
+                       -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
                        -> IdentityDkimAttributes
 identityDkimAttributes p1 p2 = IdentityDkimAttributes
     { _idaDkimEnabled            = p1
@@ -218,7 +218,7 @@ idaDkimTokens = lens _idaDkimTokens (\s a -> s { _idaDkimTokens = a }) . _List
 -- | Describes whether Amazon SES has successfully verified the DKIM DNS
 -- records (tokens) published in the domain name's DNS. (This only applies
 -- to domain identities, not email address identities.).
-idaDkimVerificationStatus :: Lens' IdentityDkimAttributes Text
+idaDkimVerificationStatus :: Lens' IdentityDkimAttributes VerificationStatus
 idaDkimVerificationStatus =
     lens _idaDkimVerificationStatus
         (\s a -> s { _idaDkimVerificationStatus = a })
@@ -278,19 +278,19 @@ instance ToQuery Body where
         ]
 
 data IdentityVerificationAttributes = IdentityVerificationAttributes
-    { _ivaVerificationStatus :: Text
+    { _ivaVerificationStatus :: VerificationStatus
     , _ivaVerificationToken  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'IdentityVerificationAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ivaVerificationStatus' @::@ 'Text'
+-- * 'ivaVerificationStatus' @::@ 'VerificationStatus'
 --
 -- * 'ivaVerificationToken' @::@ 'Maybe' 'Text'
 --
-identityVerificationAttributes :: Text -- ^ 'ivaVerificationStatus'
+identityVerificationAttributes :: VerificationStatus -- ^ 'ivaVerificationStatus'
                                -> IdentityVerificationAttributes
 identityVerificationAttributes p1 = IdentityVerificationAttributes
     { _ivaVerificationStatus = p1
@@ -299,7 +299,7 @@ identityVerificationAttributes p1 = IdentityVerificationAttributes
 
 -- | The verification status of the identity: "Pending", "Success", "Failed",
 -- or "TemporaryFailure".
-ivaVerificationStatus :: Lens' IdentityVerificationAttributes Text
+ivaVerificationStatus :: Lens' IdentityVerificationAttributes VerificationStatus
 ivaVerificationStatus =
     lens _ivaVerificationStatus (\s a -> s { _ivaVerificationStatus = a })
 

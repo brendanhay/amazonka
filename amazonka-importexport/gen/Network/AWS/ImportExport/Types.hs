@@ -93,8 +93,8 @@ data Job = Job
     { _jobCreationDate :: RFC822
     , _jobIsCanceled   :: Bool
     , _jobJobId        :: Text
-    , _jobJobType      :: Text
-    } deriving (Eq, Ord, Show)
+    , _jobJobType      :: JobType
+    } deriving (Eq, Show)
 
 -- | 'Job' constructor.
 --
@@ -106,12 +106,12 @@ data Job = Job
 --
 -- * 'jobJobId' @::@ 'Text'
 --
--- * 'jobJobType' @::@ 'Text'
+-- * 'jobJobType' @::@ 'JobType'
 --
 job :: Text -- ^ 'jobJobId'
     -> UTCTime -- ^ 'jobCreationDate'
     -> Bool -- ^ 'jobIsCanceled'
-    -> Text -- ^ 'jobJobType'
+    -> JobType -- ^ 'jobJobType'
     -> Job
 job p1 p2 p3 p4 = Job
     { _jobJobId        = p1
@@ -129,7 +129,7 @@ jobIsCanceled = lens _jobIsCanceled (\s a -> s { _jobIsCanceled = a })
 jobJobId :: Lens' Job Text
 jobJobId = lens _jobJobId (\s a -> s { _jobJobId = a })
 
-jobJobType :: Lens' Job Text
+jobJobType :: Lens' Job JobType
 jobJobType = lens _jobJobType (\s a -> s { _jobJobType = a })
 
 instance FromXML Job where

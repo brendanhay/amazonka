@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data DescribeReservedInstances = DescribeReservedInstances
     { _driDryRun               :: Maybe Bool
     , _driFilters              :: List "Filter" Filter
-    , _driOfferingType         :: Maybe Text
+    , _driOfferingType         :: Maybe OfferingTypeValues
     , _driReservedInstancesIds :: List "ReservedInstancesId" Text
     } deriving (Eq, Show)
 
@@ -65,7 +65,7 @@ data DescribeReservedInstances = DescribeReservedInstances
 --
 -- * 'driFilters' @::@ ['Filter']
 --
--- * 'driOfferingType' @::@ 'Maybe' 'Text'
+-- * 'driOfferingType' @::@ 'Maybe' 'OfferingTypeValues'
 --
 -- * 'driReservedInstancesIds' @::@ ['Text']
 --
@@ -109,7 +109,7 @@ driFilters = lens _driFilters (\s a -> s { _driFilters = a }) . _List
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the Medium
 -- Utilization Reserved Instance offering type.
-driOfferingType :: Lens' DescribeReservedInstances (Maybe Text)
+driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
 driOfferingType = lens _driOfferingType (\s a -> s { _driOfferingType = a })
 
 -- | One or more Reserved Instance IDs. Default: Describes all your Reserved

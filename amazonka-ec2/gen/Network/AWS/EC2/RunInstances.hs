@@ -98,8 +98,8 @@ data RunInstances = RunInstances
     , _riEbsOptimized                      :: Maybe Bool
     , _riIamInstanceProfile                :: Maybe IamInstanceProfileSpecification
     , _riImageId                           :: Text
-    , _riInstanceInitiatedShutdownBehavior :: Maybe Text
-    , _riInstanceType                      :: Maybe Text
+    , _riInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
+    , _riInstanceType                      :: Maybe InstanceType
     , _riKernelId                          :: Maybe Text
     , _riKeyName                           :: Maybe Text
     , _riMaxCount                          :: Int
@@ -135,9 +135,9 @@ data RunInstances = RunInstances
 --
 -- * 'riImageId' @::@ 'Text'
 --
--- * 'riInstanceInitiatedShutdownBehavior' @::@ 'Maybe' 'Text'
+-- * 'riInstanceInitiatedShutdownBehavior' @::@ 'Maybe' 'ShutdownBehavior'
 --
--- * 'riInstanceType' @::@ 'Maybe' 'Text'
+-- * 'riInstanceType' @::@ 'Maybe' 'InstanceType'
 --
 -- * 'riKernelId' @::@ 'Maybe' 'Text'
 --
@@ -247,14 +247,14 @@ riImageId = lens _riImageId (\s a -> s { _riImageId = a })
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
 -- shutdown). Default: stop.
-riInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe Text)
+riInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
 riInstanceInitiatedShutdownBehavior =
     lens _riInstanceInitiatedShutdownBehavior
         (\s a -> s { _riInstanceInitiatedShutdownBehavior = a })
 
 -- | The instance type. For more information, see Instance Types in the Amazon
 -- Elastic Compute Cloud User Guide. Default: m1.small.
-riInstanceType :: Lens' RunInstances (Maybe Text)
+riInstanceType :: Lens' RunInstances (Maybe InstanceType)
 riInstanceType = lens _riInstanceType (\s a -> s { _riInstanceType = a })
 
 -- | The ID of the kernel. We recommend that you use PV-GRUB instead of

@@ -89,7 +89,7 @@ data GetStatusResponse = GetStatusResponse
     , _gsrCurrentManifest       :: Maybe Text
     , _gsrErrorCount            :: Maybe Int
     , _gsrJobId                 :: Maybe Text
-    , _gsrJobType               :: Maybe Text
+    , _gsrJobType               :: Maybe JobType
     , _gsrLocationCode          :: Maybe Text
     , _gsrLocationMessage       :: Maybe Text
     , _gsrLogBucket             :: Maybe Text
@@ -99,7 +99,7 @@ data GetStatusResponse = GetStatusResponse
     , _gsrSignature             :: Maybe Text
     , _gsrSignatureFileContents :: Maybe Text
     , _gsrTrackingNumber        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'GetStatusResponse' constructor.
 --
@@ -117,7 +117,7 @@ data GetStatusResponse = GetStatusResponse
 --
 -- * 'gsrJobId' @::@ 'Maybe' 'Text'
 --
--- * 'gsrJobType' @::@ 'Maybe' 'Text'
+-- * 'gsrJobType' @::@ 'Maybe' 'JobType'
 --
 -- * 'gsrLocationCode' @::@ 'Maybe' 'Text'
 --
@@ -177,7 +177,7 @@ gsrErrorCount = lens _gsrErrorCount (\s a -> s { _gsrErrorCount = a })
 gsrJobId :: Lens' GetStatusResponse (Maybe Text)
 gsrJobId = lens _gsrJobId (\s a -> s { _gsrJobId = a })
 
-gsrJobType :: Lens' GetStatusResponse (Maybe Text)
+gsrJobType :: Lens' GetStatusResponse (Maybe JobType)
 gsrJobType = lens _gsrJobType (\s a -> s { _gsrJobType = a })
 
 gsrLocationCode :: Lens' GetStatusResponse (Maybe Text)

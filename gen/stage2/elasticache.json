@@ -865,7 +865,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -905,8 +904,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003eSpecifies the origin of this event - a cache cluster, a parameter group, a security group, etc.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": "querystring",
@@ -997,8 +996,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003eSpecifies the origin of this event - a cache cluster, a parameter group, a security group, etc.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     }
                 ]
             },
@@ -1321,7 +1320,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 29,
@@ -1361,8 +1359,8 @@
                         "shape": "PendingAutomaticFailoverStatus",
                         "locationName": "AutomaticFailoverStatus",
                         "documentation": "\u003cp\u003eIndicates the status of automatic failover for this replication group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PendingAutomaticFailoverStatus",
+                        "type": "Maybe PendingAutomaticFailoverStatus"
                     }
                 ],
                 "fields": [
@@ -1378,8 +1376,8 @@
                         "shape": "PendingAutomaticFailoverStatus",
                         "locationName": "AutomaticFailoverStatus",
                         "documentation": "\u003cp\u003eIndicates the status of automatic failover for this replication group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe PendingAutomaticFailoverStatus",
+                        "type": "Maybe PendingAutomaticFailoverStatus"
                     },
                     {
                         "location": "querystring",
@@ -4603,8 +4601,8 @@
                         "shape": "AutomaticFailoverStatus",
                         "locationName": "AutomaticFailover",
                         "documentation": "\u003cp\u003eIndicates the status of automatic failover for this replication group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutomaticFailoverStatus",
+                        "type": "Maybe AutomaticFailoverStatus"
                     }
                 ],
                 "fields": [
@@ -4620,8 +4618,8 @@
                         "shape": "AutomaticFailoverStatus",
                         "locationName": "AutomaticFailover",
                         "documentation": "\u003cp\u003eIndicates the status of automatic failover for this replication group.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AutomaticFailoverStatus",
+                        "type": "Maybe AutomaticFailoverStatus"
                     },
                     {
                         "location": "querystring",
@@ -5596,6 +5594,7 @@
             "CacheCluster",
             "CacheParameterGroup",
             "CacheSecurityGroup",
+            "AZMode",
             "ReplicationGroup",
             "CacheParameterGroupNameMessage"
         ]
@@ -6119,7 +6118,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -6297,8 +6295,8 @@
                         "shape": "AZMode",
                         "locationName": "AZMode",
                         "documentation": "\u003cp\u003eSpecifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.\u003c/p\u003e \u003cp\u003eThis parameter is only supported for Memcached cache clusters.\u003c/p\u003e \u003cp\u003eIf the \u003ccode\u003eAZMode\u003c/code\u003e and \u003ccode\u003ePreferredAvailabilityZones\u003c/code\u003e are not specified, ElastiCache assumes \u003ccode\u003esingle-az\u003c/code\u003e mode.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AZMode",
+                        "type": "Maybe AZMode"
                     },
                     {
                         "location": "querystring",
@@ -6584,8 +6582,8 @@
                         "shape": "AZMode",
                         "locationName": "AZMode",
                         "documentation": "\u003cp\u003eSpecifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.\u003c/p\u003e \u003cp\u003eThis parameter is only supported for Memcached cache clusters.\u003c/p\u003e \u003cp\u003eIf the \u003ccode\u003eAZMode\u003c/code\u003e and \u003ccode\u003ePreferredAvailabilityZones\u003c/code\u003e are not specified, ElastiCache assumes \u003ccode\u003esingle-az\u003c/code\u003e mode.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AZMode",
+                        "type": "Maybe AZMode"
                     },
                     {
                         "location": "querystring",
@@ -11687,7 +11685,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -11779,8 +11776,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003eThe event source to retrieve events for. If no value is specified, all events are returned.\u003c/p\u003e \u003cp\u003eValid values are: \u003ccode\u003ecache-cluster\u003c/code\u003e | \u003ccode\u003ecache-parameter-group\u003c/code\u003e | \u003ccode\u003ecache-security-group\u003c/code\u003e | \u003ccode\u003ecache-subnet-group\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": "querystring",
@@ -11946,8 +11943,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003eThe event source to retrieve events for. If no value is specified, all events are returned.\u003c/p\u003e \u003cp\u003eValid values are: \u003ccode\u003ecache-cluster\u003c/code\u003e | \u003ccode\u003ecache-parameter-group\u003c/code\u003e | \u003ccode\u003ecache-security-group\u003c/code\u003e | \u003ccode\u003ecache-subnet-group\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": "querystring",
@@ -13459,7 +13456,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -13627,8 +13623,8 @@
                         "shape": "AZMode",
                         "locationName": "AZMode",
                         "documentation": "\u003cp\u003eSpecifies whether the new nodes in this Memcached cache cluster are all created in a single Availability Zone or created across multiple Availability Zones.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003esingle-az\u003c/code\u003e | \u003ccode\u003ecross-az\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eThis option is only supported for Memcached cache clusters.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AZMode",
+                        "type": "Maybe AZMode"
                     },
                     {
                         "location": "querystring",
@@ -13824,8 +13820,8 @@
                         "shape": "AZMode",
                         "locationName": "AZMode",
                         "documentation": "\u003cp\u003eSpecifies whether the new nodes in this Memcached cache cluster are all created in a single Availability Zone or created across multiple Availability Zones.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003esingle-az\u003c/code\u003e | \u003ccode\u003ecross-az\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eThis option is only supported for Memcached cache clusters.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe AZMode",
+                        "type": "Maybe AZMode"
                     },
                     {
                         "location": "querystring",

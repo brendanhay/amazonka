@@ -586,8 +586,8 @@ data Event = Event
     , _eEventCategories  :: List "EventCategory" Text
     , _eMessage          :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
-    , _eSourceType       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _eSourceType       :: Maybe SourceType
+    } deriving (Eq, Show)
 
 -- | 'Event' constructor.
 --
@@ -601,7 +601,7 @@ data Event = Event
 --
 -- * 'eSourceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'eSourceType' @::@ 'Maybe' 'Text'
+-- * 'eSourceType' @::@ 'Maybe' 'SourceType'
 --
 event :: Event
 event = Event
@@ -630,7 +630,7 @@ eSourceIdentifier =
     lens _eSourceIdentifier (\s a -> s { _eSourceIdentifier = a })
 
 -- | Specifies the source type for this event.
-eSourceType :: Lens' Event (Maybe Text)
+eSourceType :: Lens' Event (Maybe SourceType)
 eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where
@@ -3514,7 +3514,7 @@ instance ToQuery VpcSecurityGroupMembership where
 
 data Parameter = Parameter
     { _pAllowedValues        :: Maybe Text
-    , _pApplyMethod          :: Maybe Text
+    , _pApplyMethod          :: Maybe ApplyMethod
     , _pApplyType            :: Maybe Text
     , _pDataType             :: Maybe Text
     , _pDescription          :: Maybe Text
@@ -3523,7 +3523,7 @@ data Parameter = Parameter
     , _pParameterName        :: Maybe Text
     , _pParameterValue       :: Maybe Text
     , _pSource               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Parameter' constructor.
 --
@@ -3531,7 +3531,7 @@ data Parameter = Parameter
 --
 -- * 'pAllowedValues' @::@ 'Maybe' 'Text'
 --
--- * 'pApplyMethod' @::@ 'Maybe' 'Text'
+-- * 'pApplyMethod' @::@ 'Maybe' 'ApplyMethod'
 --
 -- * 'pApplyType' @::@ 'Maybe' 'Text'
 --
@@ -3568,7 +3568,7 @@ pAllowedValues :: Lens' Parameter (Maybe Text)
 pAllowedValues = lens _pAllowedValues (\s a -> s { _pAllowedValues = a })
 
 -- | Indicates when to apply parameter updates.
-pApplyMethod :: Lens' Parameter (Maybe Text)
+pApplyMethod :: Lens' Parameter (Maybe ApplyMethod)
 pApplyMethod = lens _pApplyMethod (\s a -> s { _pApplyMethod = a })
 
 -- | Specifies the engine specific parameters type.

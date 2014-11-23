@@ -57,7 +57,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data CreateQueue = CreateQueue
-    { _cqAttributes :: EMap "Attribute" "Name" "Value" Text Text
+    { _cqAttributes :: EMap "Attribute" "Name" "Value" QueueAttributeName Text
     , _cqQueueName  :: Text
     } deriving (Eq, Show)
 
@@ -65,7 +65,7 @@ data CreateQueue = CreateQueue
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cqAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'cqAttributes' @::@ 'HashMap' 'QueueAttributeName' 'Text'
 --
 -- * 'cqQueueName' @::@ 'Text'
 --
@@ -97,7 +97,7 @@ createQueue p1 = CreateQueue
 -- timeout for the queue. An integer from 0 to 43200 (12 hours). The default
 -- for this attribute is 30. For more information about visibility timeout,
 -- see Visibility Timeout in the Amazon SQS Developer Guide.
-cqAttributes :: Lens' CreateQueue (HashMap Text Text)
+cqAttributes :: Lens' CreateQueue (HashMap QueueAttributeName Text)
 cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a }) . _EMap
 
 -- | The name for the queue to be created.

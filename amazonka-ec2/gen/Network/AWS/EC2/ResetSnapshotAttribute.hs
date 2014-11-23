@@ -48,23 +48,23 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data ResetSnapshotAttribute = ResetSnapshotAttribute
-    { _rsaAttribute  :: Text
+    { _rsaAttribute  :: SnapshotAttributeName
     , _rsaDryRun     :: Maybe Bool
     , _rsaSnapshotId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ResetSnapshotAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsaAttribute' @::@ 'Text'
+-- * 'rsaAttribute' @::@ 'SnapshotAttributeName'
 --
 -- * 'rsaDryRun' @::@ 'Maybe' 'Bool'
 --
 -- * 'rsaSnapshotId' @::@ 'Text'
 --
 resetSnapshotAttribute :: Text -- ^ 'rsaSnapshotId'
-                       -> Text -- ^ 'rsaAttribute'
+                       -> SnapshotAttributeName -- ^ 'rsaAttribute'
                        -> ResetSnapshotAttribute
 resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
     { _rsaSnapshotId = p1
@@ -74,7 +74,7 @@ resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
 
 -- | The attribute to reset (currently only the attribute for permission to
 -- create volumes can be reset).
-rsaAttribute :: Lens' ResetSnapshotAttribute Text
+rsaAttribute :: Lens' ResetSnapshotAttribute SnapshotAttributeName
 rsaAttribute = lens _rsaAttribute (\s a -> s { _rsaAttribute = a })
 
 rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)

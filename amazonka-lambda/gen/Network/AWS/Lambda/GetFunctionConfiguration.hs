@@ -89,11 +89,11 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
     , _gfcrHandler         :: Maybe Text
     , _gfcrLastModified    :: Maybe RFC822
     , _gfcrMemorySize      :: Maybe Nat
-    , _gfcrMode            :: Maybe Text
+    , _gfcrMode            :: Maybe Mode
     , _gfcrRole            :: Maybe Text
-    , _gfcrRuntime         :: Maybe Text
+    , _gfcrRuntime         :: Maybe Runtime
     , _gfcrTimeout         :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'GetFunctionConfigurationResponse' constructor.
 --
@@ -115,11 +115,11 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
 --
 -- * 'gfcrMemorySize' @::@ 'Maybe' 'Natural'
 --
--- * 'gfcrMode' @::@ 'Maybe' 'Text'
+-- * 'gfcrMode' @::@ 'Maybe' 'Mode'
 --
 -- * 'gfcrRole' @::@ 'Maybe' 'Text'
 --
--- * 'gfcrRuntime' @::@ 'Maybe' 'Text'
+-- * 'gfcrRuntime' @::@ 'Maybe' 'Runtime'
 --
 -- * 'gfcrTimeout' @::@ 'Maybe' 'Natural'
 --
@@ -175,7 +175,7 @@ gfcrMemorySize :: Lens' GetFunctionConfigurationResponse (Maybe Natural)
 gfcrMemorySize = lens _gfcrMemorySize (\s a -> s { _gfcrMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
-gfcrMode :: Lens' GetFunctionConfigurationResponse (Maybe Text)
+gfcrMode :: Lens' GetFunctionConfigurationResponse (Maybe Mode)
 gfcrMode = lens _gfcrMode (\s a -> s { _gfcrMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
@@ -185,7 +185,7 @@ gfcrRole :: Lens' GetFunctionConfigurationResponse (Maybe Text)
 gfcrRole = lens _gfcrRole (\s a -> s { _gfcrRole = a })
 
 -- | The runtime environment for the Lambda function.
-gfcrRuntime :: Lens' GetFunctionConfigurationResponse (Maybe Text)
+gfcrRuntime :: Lens' GetFunctionConfigurationResponse (Maybe Runtime)
 gfcrRuntime = lens _gfcrRuntime (\s a -> s { _gfcrRuntime = a })
 
 -- | The function execution time at which Lambda should terminate the

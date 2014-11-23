@@ -81,16 +81,16 @@ cdaIdnLangCode :: Lens' CheckDomainAvailability (Maybe Text)
 cdaIdnLangCode = lens _cdaIdnLangCode (\s a -> s { _cdaIdnLangCode = a })
 
 newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
-    { _cdarAvailability :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    { _cdarAvailability :: DomainAvailability
+    } deriving (Eq, Show)
 
 -- | 'CheckDomainAvailabilityResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdarAvailability' @::@ 'Text'
+-- * 'cdarAvailability' @::@ 'DomainAvailability'
 --
-checkDomainAvailabilityResponse :: Text -- ^ 'cdarAvailability'
+checkDomainAvailabilityResponse :: DomainAvailability -- ^ 'cdarAvailability'
                                 -> CheckDomainAvailabilityResponse
 checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
     { _cdarAvailability = p1
@@ -104,7 +104,7 @@ checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
 -- not available. UNAVAILABLE_RESTRICTED – The domain name is forbidden.
 -- RESERVED – The domain name has been reserved for another person or
 -- organization.
-cdarAvailability :: Lens' CheckDomainAvailabilityResponse Text
+cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarAvailability = lens _cdarAvailability (\s a -> s { _cdarAvailability = a })
 
 instance ToPath CheckDomainAvailability where

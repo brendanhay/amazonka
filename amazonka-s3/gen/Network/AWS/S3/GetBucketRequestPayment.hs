@@ -65,14 +65,14 @@ gbrpBucket :: Lens' GetBucketRequestPayment Text
 gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
 
 newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
-    { _gbrprPayer :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _gbrprPayer :: Maybe Payer
+    } deriving (Eq, Show)
 
 -- | 'GetBucketRequestPaymentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrprPayer' @::@ 'Maybe' 'Text'
+-- * 'gbrprPayer' @::@ 'Maybe' 'Payer'
 --
 getBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse
 getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
@@ -80,7 +80,7 @@ getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     }
 
 -- | Specifies who pays for the download and request fees.
-gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Text)
+gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprPayer = lens _gbrprPayer (\s a -> s { _gbrprPayer = a })
 
 instance ToPath GetBucketRequestPayment where

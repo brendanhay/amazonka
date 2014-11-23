@@ -51,16 +51,16 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 data ListIdentities = ListIdentities
-    { _liIdentityType :: Maybe Text
+    { _liIdentityType :: Maybe IdentityType
     , _liMaxItems     :: Maybe Int
     , _liNextToken    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListIdentities' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liIdentityType' @::@ 'Maybe' 'Text'
+-- * 'liIdentityType' @::@ 'Maybe' 'IdentityType'
 --
 -- * 'liMaxItems' @::@ 'Maybe' 'Int'
 --
@@ -76,7 +76,7 @@ listIdentities = ListIdentities
 -- | The type of the identities to list. Possible values are "EmailAddress"
 -- and "Domain". If this parameter is omitted, then all identities will be
 -- listed.
-liIdentityType :: Lens' ListIdentities (Maybe Text)
+liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
 liIdentityType = lens _liIdentityType (\s a -> s { _liIdentityType = a })
 
 -- | The maximum number of identities per page. Possible values are 1-100

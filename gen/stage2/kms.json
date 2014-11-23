@@ -104,7 +104,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 15,
@@ -212,8 +211,8 @@
                         "shape": "KeyUsageType",
                         "locationName": "KeyUsage",
                         "documentation": "\u003cp\u003eA value that specifies what operation(s) the key can perform.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe KeyUsageType",
+                        "type": "Maybe KeyUsageType"
                     }
                 ],
                 "payload": null,
@@ -326,8 +325,8 @@
                         "shape": "KeyUsageType",
                         "locationName": "KeyUsage",
                         "documentation": "\u003cp\u003eA value that specifies what operation(s) the key can perform.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe KeyUsageType",
+                        "type": "Maybe KeyUsageType"
                     }
                 ],
                 "fields": [
@@ -433,8 +432,8 @@
                         "shape": "KeyUsageType",
                         "locationName": "KeyUsage",
                         "documentation": "\u003cp\u003eA value that specifies what operation(s) the key can perform.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe KeyUsageType",
+                        "type": "Maybe KeyUsageType"
                     }
                 ]
             },
@@ -801,8 +800,8 @@
                         "shape": "GrantOperationList",
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Operations\" Text"
+                        "typeExposed": "[GrantOperation]",
+                        "type": "List \"Operations\" GrantOperation"
                     },
                     {
                         "location": null,
@@ -899,8 +898,8 @@
                         "shape": "GrantOperationList",
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Operations\" Text"
+                        "typeExposed": "[GrantOperation]",
+                        "type": "List \"Operations\" GrantOperation"
                     },
                     {
                         "location": null,
@@ -991,8 +990,8 @@
                         "shape": "GrantOperationList",
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e\u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Operations\" Text"
+                        "typeExposed": "[GrantOperation]",
+                        "type": "List \"Operations\" GrantOperation"
                     },
                     {
                         "location": null,
@@ -1148,7 +1147,8 @@
         ],
         "imports": [],
         "shared": [
-            "KeyMetadata"
+            "KeyMetadata",
+            "DataKeySpec"
         ]
     },
     "operations": [
@@ -1520,8 +1520,8 @@
                         "shape": "GrantOperationList",
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e \u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Operations\" Text"
+                        "typeExposed": "[GrantOperation]",
+                        "type": "List \"Operations\" GrantOperation"
                     },
                     {
                         "location": null,
@@ -1632,8 +1632,8 @@
                         "shape": "GrantOperationList",
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e \u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Operations\" Text"
+                        "typeExposed": "[GrantOperation]",
+                        "type": "List \"Operations\" GrantOperation"
                     },
                     {
                         "location": null,
@@ -1739,8 +1739,8 @@
                         "shape": "GrantOperationList",
                         "locationName": "Operations",
                         "documentation": "\u003cp\u003eList of operations permitted by the grant. This can be any combination of one or more of the following values: \u003col\u003e \u003cli\u003eDecrypt\u003c/li\u003e \u003cli\u003eEncrypt\u003c/li\u003e \u003cli\u003eGenerateDataKey\u003c/li\u003e \u003cli\u003eGenerateDataKeyWithoutPlaintext\u003c/li\u003e \u003cli\u003eReEncryptFrom\u003c/li\u003e \u003cli\u003eReEncryptTo\u003c/li\u003e \u003cli\u003eCreateGrant\u003c/li\u003e \u003c/ol\u003e \u003c/p\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"Operations\" Text"
+                        "typeExposed": "[GrantOperation]",
+                        "type": "List \"Operations\" GrantOperation"
                     },
                     {
                         "location": null,
@@ -1867,7 +1867,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -1918,8 +1917,8 @@
                         "shape": "KeyUsageType",
                         "locationName": "KeyUsage",
                         "documentation": "\u003cp\u003eSpecifies the intended use of the key. Currently this defaults to ENCRYPT/DECRYPT, and only symmetric encryption and decryption are supported. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe KeyUsageType",
+                        "type": "Maybe KeyUsageType"
                     }
                 ],
                 "path": [
@@ -1984,8 +1983,8 @@
                         "shape": "KeyUsageType",
                         "locationName": "KeyUsage",
                         "documentation": "\u003cp\u003eSpecifies the intended use of the key. Currently this defaults to ENCRYPT/DECRYPT, and only symmetric encryption and decryption are supported. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe KeyUsageType",
+                        "type": "Maybe KeyUsageType"
                     }
                 ],
                 "fields": [
@@ -2016,8 +2015,8 @@
                         "shape": "KeyUsageType",
                         "locationName": "KeyUsage",
                         "documentation": "\u003cp\u003eSpecifies the intended use of the key. Currently this defaults to ENCRYPT/DECRYPT, and only symmetric encryption and decryption are supported. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe KeyUsageType",
+                        "type": "Maybe KeyUsageType"
                     },
                     {
                         "location": null,
@@ -3840,8 +3839,8 @@
                         "shape": "DataKeySpec",
                         "locationName": "KeySpec",
                         "documentation": "\u003cp\u003eValue that identifies the encryption algorithm and key size to generate a data key for. Currently this can be AES_128 or AES_256. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DataKeySpec",
+                        "type": "Maybe DataKeySpec"
                     },
                     {
                         "location": null,
@@ -3937,8 +3936,8 @@
                         "shape": "DataKeySpec",
                         "locationName": "KeySpec",
                         "documentation": "\u003cp\u003eValue that identifies the encryption algorithm and key size to generate a data key for. Currently this can be AES_128 or AES_256. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DataKeySpec",
+                        "type": "Maybe DataKeySpec"
                     },
                     {
                         "location": null,
@@ -4014,8 +4013,8 @@
                         "shape": "DataKeySpec",
                         "locationName": "KeySpec",
                         "documentation": "\u003cp\u003eValue that identifies the encryption algorithm and key size to generate a data key for. Currently this can be AES_128 or AES_256. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DataKeySpec",
+                        "type": "Maybe DataKeySpec"
                     },
                     {
                         "location": null,
@@ -4221,8 +4220,8 @@
                         "shape": "DataKeySpec",
                         "locationName": "KeySpec",
                         "documentation": "\u003cp\u003eValue that identifies the encryption algorithm and key size. Currently this can be AES_128 or AES_256. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DataKeySpec",
+                        "type": "Maybe DataKeySpec"
                     },
                     {
                         "location": null,
@@ -4318,8 +4317,8 @@
                         "shape": "DataKeySpec",
                         "locationName": "KeySpec",
                         "documentation": "\u003cp\u003eValue that identifies the encryption algorithm and key size. Currently this can be AES_128 or AES_256. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DataKeySpec",
+                        "type": "Maybe DataKeySpec"
                     },
                     {
                         "location": null,
@@ -4410,8 +4409,8 @@
                         "shape": "DataKeySpec",
                         "locationName": "KeySpec",
                         "documentation": "\u003cp\u003eValue that identifies the encryption algorithm and key size. Currently this can be AES_128 or AES_256. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DataKeySpec",
+                        "type": "Maybe DataKeySpec"
                     },
                     {
                         "location": null,

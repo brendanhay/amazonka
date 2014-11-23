@@ -203,7 +203,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -266,8 +265,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -311,8 +310,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -454,8 +453,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -499,8 +498,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -711,8 +710,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -741,8 +740,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -1189,6 +1188,8 @@
         ],
         "imports": [],
         "shared": [
+            "Runtime",
+            "Mode",
             "FunctionConfiguration",
             "EventSourceConfiguration"
         ]
@@ -2796,7 +2797,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -2862,8 +2862,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -2907,8 +2907,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -3056,8 +3056,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -3101,8 +3101,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -3313,8 +3313,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -3343,8 +3343,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -4379,7 +4379,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -4445,8 +4444,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -4490,8 +4489,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -4639,8 +4638,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -4684,8 +4683,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -4896,8 +4895,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -4926,8 +4925,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -5215,7 +5214,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -5281,8 +5279,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -5326,8 +5324,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -5475,8 +5473,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -5520,8 +5518,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -5732,8 +5730,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eThe type of the Lambda function you uploaded. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Mode",
+                        "type": "Maybe Mode"
                     },
                     {
                         "location": null,
@@ -5762,8 +5760,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Runtime",
+                        "type": "Maybe Runtime"
                     },
                     {
                         "location": null,
@@ -5890,8 +5888,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function you are uploading. Currently, Lambda supports only \"nodejs\" as the runtime.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Runtime",
+                        "type": "Runtime"
                     },
                     {
                         "location": "querystring",
@@ -5935,8 +5933,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eHow the Lambda function will be invoked. Lambda supports only the \"event\" mode. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Mode",
+                        "type": "Mode"
                     }
                 ],
                 "shared": false,
@@ -6120,8 +6118,8 @@
                         "shape": "Mode",
                         "locationName": "Mode",
                         "documentation": "\u003cp\u003eHow the Lambda function will be invoked. Lambda supports only the \"event\" mode. \u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Mode",
+                        "type": "Mode"
                     },
                     {
                         "location": "querystring",
@@ -6150,8 +6148,8 @@
                         "shape": "Runtime",
                         "locationName": "Runtime",
                         "documentation": "\u003cp\u003eThe runtime environment for the Lambda function you are uploading. Currently, Lambda supports only \"nodejs\" as the runtime.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Runtime",
+                        "type": "Runtime"
                     },
                     {
                         "location": "querystring",

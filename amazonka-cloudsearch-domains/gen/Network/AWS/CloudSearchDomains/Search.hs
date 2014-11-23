@@ -83,12 +83,12 @@ data Search = Search
     , _s1Partial      :: Maybe Bool
     , _s1Query        :: Text
     , _s1QueryOptions :: Maybe Text
-    , _s1QueryParser  :: Maybe Text
+    , _s1QueryParser  :: Maybe QueryParser
     , _s1Return       :: Maybe Text
     , _s1Size         :: Maybe Integer
     , _s1Sort         :: Maybe Text
     , _s1Start        :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Search' constructor.
 --
@@ -110,7 +110,7 @@ data Search = Search
 --
 -- * 's1QueryOptions' @::@ 'Maybe' 'Text'
 --
--- * 's1QueryParser' @::@ 'Maybe' 'Text'
+-- * 's1QueryParser' @::@ 'Maybe' 'QueryParser'
 --
 -- * 's1Return' @::@ 'Maybe' 'Text'
 --
@@ -344,7 +344,7 @@ s1QueryOptions = lens _s1QueryOptions (\s a -> s { _s1QueryOptions = a })
 -- Lucene Query Parser Syntax. dismax: search using the simplified subset of
 -- the Apache Lucene query parser syntax defined by the DisMax query parser.
 -- For more information, see DisMax Query Parser Syntax.
-s1QueryParser :: Lens' Search (Maybe Text)
+s1QueryParser :: Lens' Search (Maybe QueryParser)
 s1QueryParser = lens _s1QueryParser (\s a -> s { _s1QueryParser = a })
 
 -- | Specifies the field and expression values to include in the response.

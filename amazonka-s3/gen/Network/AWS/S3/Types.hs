@@ -509,8 +509,8 @@ instance ToXML NoncurrentVersionExpiration where
 data Transition = Transition
     { _tDate         :: Maybe ISO8601
     , _tDays         :: Maybe Int
-    , _tStorageClass :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _tStorageClass :: Maybe TransitionStorageClass
+    } deriving (Eq, Show)
 
 -- | 'Transition' constructor.
 --
@@ -520,7 +520,7 @@ data Transition = Transition
 --
 -- * 'tDays' @::@ 'Maybe' 'Int'
 --
--- * 'tStorageClass' @::@ 'Maybe' 'Text'
+-- * 'tStorageClass' @::@ 'Maybe' 'TransitionStorageClass'
 --
 transition :: Transition
 transition = Transition
@@ -540,7 +540,7 @@ tDays :: Lens' Transition (Maybe Int)
 tDays = lens _tDays (\s a -> s { _tDays = a })
 
 -- | The class of storage used to store the object.
-tStorageClass :: Lens' Transition (Maybe Text)
+tStorageClass :: Lens' Transition (Maybe TransitionStorageClass)
 tStorageClass = lens _tStorageClass (\s a -> s { _tStorageClass = a })
 
 instance FromXML Transition where
@@ -705,17 +705,17 @@ instance ToXML Part where
         ]
 
 data VersioningConfiguration = VersioningConfiguration
-    { _vcMFADelete :: Maybe Text
-    , _vcStatus    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    { _vcMFADelete :: Maybe MFADelete
+    , _vcStatus    :: Maybe BucketVersioningStatus
+    } deriving (Eq, Show)
 
 -- | 'VersioningConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vcMFADelete' @::@ 'Maybe' 'Text'
+-- * 'vcMFADelete' @::@ 'Maybe' 'MFADelete'
 --
--- * 'vcStatus' @::@ 'Maybe' 'Text'
+-- * 'vcStatus' @::@ 'Maybe' 'BucketVersioningStatus'
 --
 versioningConfiguration :: VersioningConfiguration
 versioningConfiguration = VersioningConfiguration
@@ -727,11 +727,11 @@ versioningConfiguration = VersioningConfiguration
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
 -- this element is not returned.
-vcMFADelete :: Lens' VersioningConfiguration (Maybe Text)
+vcMFADelete :: Lens' VersioningConfiguration (Maybe MFADelete)
 vcMFADelete = lens _vcMFADelete (\s a -> s { _vcMFADelete = a })
 
 -- | The versioning state of the bucket.
-vcStatus :: Lens' VersioningConfiguration (Maybe Text)
+vcStatus :: Lens' VersioningConfiguration (Maybe BucketVersioningStatus)
 vcStatus = lens _vcStatus (\s a -> s { _vcStatus = a })
 
 instance FromXML VersioningConfiguration where
@@ -834,8 +834,8 @@ instance ToXML MetadataDirective where
 
 data RedirectAllRequestsTo = RedirectAllRequestsTo
     { _rartHostName :: Text
-    , _rartProtocol :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _rartProtocol :: Maybe Protocol
+    } deriving (Eq, Show)
 
 -- | 'RedirectAllRequestsTo' constructor.
 --
@@ -843,7 +843,7 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo
 --
 -- * 'rartHostName' @::@ 'Text'
 --
--- * 'rartProtocol' @::@ 'Maybe' 'Text'
+-- * 'rartProtocol' @::@ 'Maybe' 'Protocol'
 --
 redirectAllRequestsTo :: Text -- ^ 'rartHostName'
                       -> RedirectAllRequestsTo
@@ -858,7 +858,7 @@ rartHostName = lens _rartHostName (\s a -> s { _rartHostName = a })
 
 -- | Protocol to use (http, https) when redirecting requests. The default is
 -- the protocol that is used in the original request.
-rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Text)
+rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Protocol)
 rartProtocol = lens _rartProtocol (\s a -> s { _rartProtocol = a })
 
 instance FromXML RedirectAllRequestsTo where
@@ -1051,8 +1051,10 @@ instance ToText ObjectCannedACL where
 instance FromXML ObjectCannedACL where
     parseXML = parseXMLText "ObjectCannedACL"
 
-instance ToXML ObjectCannedACL where
-    toXML = toXMLText
+instance ToXMLRoot ObjectCannedACL where
+    toXMLRoot = not implemented
+
+instance ToXML ObjectCannedACL
 
 data BucketVersioningStatus
     = BVSEnabled   -- ^ Enabled
@@ -1203,27 +1205,29 @@ instance ToText EncodingType where
 instance FromXML EncodingType where
     parseXML = parseXMLText "EncodingType"
 
-instance ToXML EncodingType where
-    toXML = toXMLText
+instance ToXMLRoot EncodingType where
+    toXMLRoot = not implemented
+
+instance ToXML EncodingType
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
-    { _rpcPayer :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    { _rpcPayer :: Payer
+    } deriving (Eq, Show)
 
 -- | 'RequestPaymentConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rpcPayer' @::@ 'Text'
+-- * 'rpcPayer' @::@ 'Payer'
 --
-requestPaymentConfiguration :: Text -- ^ 'rpcPayer'
+requestPaymentConfiguration :: Payer -- ^ 'rpcPayer'
                             -> RequestPaymentConfiguration
 requestPaymentConfiguration p1 = RequestPaymentConfiguration
     { _rpcPayer = p1
     }
 
 -- | Specifies who pays for the download and request fees.
-rpcPayer :: Lens' RequestPaymentConfiguration Text
+rpcPayer :: Lens' RequestPaymentConfiguration Payer
 rpcPayer = lens _rpcPayer (\s a -> s { _rpcPayer = a })
 
 instance FromXML RequestPaymentConfiguration where
@@ -1374,8 +1378,8 @@ instance ToXML WebsiteConfiguration where
 
 data NoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays :: Int
-    , _nvtStorageClass   :: Text
-    } deriving (Eq, Ord, Show)
+    , _nvtStorageClass   :: TransitionStorageClass
+    } deriving (Eq, Show)
 
 -- | 'NoncurrentVersionTransition' constructor.
 --
@@ -1383,10 +1387,10 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition
 --
 -- * 'nvtNoncurrentDays' @::@ 'Int'
 --
--- * 'nvtStorageClass' @::@ 'Text'
+-- * 'nvtStorageClass' @::@ 'TransitionStorageClass'
 --
 noncurrentVersionTransition :: Int -- ^ 'nvtNoncurrentDays'
-                            -> Text -- ^ 'nvtStorageClass'
+                            -> TransitionStorageClass -- ^ 'nvtStorageClass'
                             -> NoncurrentVersionTransition
 noncurrentVersionTransition p1 p2 = NoncurrentVersionTransition
     { _nvtNoncurrentDays = p1
@@ -1402,7 +1406,7 @@ nvtNoncurrentDays =
     lens _nvtNoncurrentDays (\s a -> s { _nvtNoncurrentDays = a })
 
 -- | The class of storage used to store the object.
-nvtStorageClass :: Lens' NoncurrentVersionTransition Text
+nvtStorageClass :: Lens' NoncurrentVersionTransition TransitionStorageClass
 nvtStorageClass = lens _nvtStorageClass (\s a -> s { _nvtStorageClass = a })
 
 instance FromXML NoncurrentVersionTransition where
@@ -1556,7 +1560,7 @@ instance ToXML Protocol where
 
 data Grant = Grant
     { _gGrantee    :: Maybe Grantee
-    , _gPermission :: Maybe Text
+    , _gPermission :: Maybe Permission
     } deriving (Eq, Show)
 
 -- | 'Grant' constructor.
@@ -1565,7 +1569,7 @@ data Grant = Grant
 --
 -- * 'gGrantee' @::@ 'Maybe' 'Grantee'
 --
--- * 'gPermission' @::@ 'Maybe' 'Text'
+-- * 'gPermission' @::@ 'Maybe' 'Permission'
 --
 grant :: Grant
 grant = Grant
@@ -1577,7 +1581,7 @@ gGrantee :: Lens' Grant (Maybe Grantee)
 gGrantee = lens _gGrantee (\s a -> s { _gGrantee = a })
 
 -- | Specifies the permission given to the grantee.
-gPermission :: Lens' Grant (Maybe Text)
+gPermission :: Lens' Grant (Maybe Permission)
 gPermission = lens _gPermission (\s a -> s { _gPermission = a })
 
 instance FromXML Grant where
@@ -1599,7 +1603,7 @@ data Rule = Rule
     , _rNoncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
     , _rNoncurrentVersionTransition :: Maybe NoncurrentVersionTransition
     , _rPrefix                      :: Text
-    , _rStatus                      :: Text
+    , _rStatus                      :: ExpirationStatus
     , _rTransition                  :: Maybe Transition
     } deriving (Eq, Show)
 
@@ -1617,12 +1621,12 @@ data Rule = Rule
 --
 -- * 'rPrefix' @::@ 'Text'
 --
--- * 'rStatus' @::@ 'Text'
+-- * 'rStatus' @::@ 'ExpirationStatus'
 --
 -- * 'rTransition' @::@ 'Maybe' 'Transition'
 --
 rule :: Text -- ^ 'rPrefix'
-     -> Text -- ^ 'rStatus'
+     -> ExpirationStatus -- ^ 'rStatus'
      -> Rule
 rule p1 p2 = Rule
     { _rPrefix                      = p1
@@ -1658,7 +1662,7 @@ rPrefix = lens _rPrefix (\s a -> s { _rPrefix = a })
 
 -- | If 'Enabled', the rule is currently being applied. If 'Disabled', the
 -- rule is not currently being applied.
-rStatus :: Lens' Rule Text
+rStatus :: Lens' Rule ExpirationStatus
 rStatus = lens _rStatus (\s a -> s { _rStatus = a })
 
 rTransition :: Lens' Rule (Maybe Transition)
@@ -1686,19 +1690,19 @@ instance ToXML Rule where
         ]
 
 data TopicConfiguration = TopicConfiguration
-    { _tcEvent  :: Maybe Text
-    , _tcEvents :: List "Event" Text
+    { _tcEvent  :: Maybe Event
+    , _tcEvents :: List "Event" Event
     , _tcId     :: Maybe Text
     , _tcTopic  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'TopicConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tcEvent' @::@ 'Maybe' 'Text'
+-- * 'tcEvent' @::@ 'Maybe' 'Event'
 --
--- * 'tcEvents' @::@ ['Text']
+-- * 'tcEvents' @::@ ['Event']
 --
 -- * 'tcId' @::@ 'Maybe' 'Text'
 --
@@ -1713,10 +1717,10 @@ topicConfiguration = TopicConfiguration
     }
 
 -- | Bucket event for which to send notifications.
-tcEvent :: Lens' TopicConfiguration (Maybe Text)
+tcEvent :: Lens' TopicConfiguration (Maybe Event)
 tcEvent = lens _tcEvent (\s a -> s { _tcEvent = a })
 
-tcEvents :: Lens' TopicConfiguration [Text]
+tcEvents :: Lens' TopicConfiguration [Event]
 tcEvents = lens _tcEvents (\s a -> s { _tcEvents = a }) . _List
 
 tcId :: Lens' TopicConfiguration (Maybe Text)
@@ -1743,19 +1747,19 @@ instance ToXML TopicConfiguration where
         ]
 
 data QueueConfiguration = QueueConfiguration
-    { _qcEvent  :: Maybe Text
-    , _qcEvents :: List "Event" Text
+    { _qcEvent  :: Maybe Event
+    , _qcEvents :: List "Event" Event
     , _qcId     :: Maybe Text
     , _qcQueue  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'QueueConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'qcEvent' @::@ 'Maybe' 'Text'
+-- * 'qcEvent' @::@ 'Maybe' 'Event'
 --
--- * 'qcEvents' @::@ ['Text']
+-- * 'qcEvents' @::@ ['Event']
 --
 -- * 'qcId' @::@ 'Maybe' 'Text'
 --
@@ -1769,10 +1773,10 @@ queueConfiguration = QueueConfiguration
     , _qcQueue  = Nothing
     }
 
-qcEvent :: Lens' QueueConfiguration (Maybe Text)
+qcEvent :: Lens' QueueConfiguration (Maybe Event)
 qcEvent = lens _qcEvent (\s a -> s { _qcEvent = a })
 
-qcEvents :: Lens' QueueConfiguration [Text]
+qcEvents :: Lens' QueueConfiguration [Event]
 qcEvents = lens _qcEvents (\s a -> s { _qcEvents = a }) . _List
 
 qcId :: Lens' QueueConfiguration (Maybe Text)
@@ -1910,8 +1914,10 @@ instance ToText StorageClass where
 instance FromXML StorageClass where
     parseXML = parseXMLText "StorageClass"
 
-instance ToXML StorageClass where
-    toXML = toXMLText
+instance ToXMLRoot StorageClass where
+    toXMLRoot = not implemented
+
+instance ToXML StorageClass
 
 data ObjectVersion = ObjectVersion
     { _ovETag         :: Maybe Text
@@ -1920,7 +1926,7 @@ data ObjectVersion = ObjectVersion
     , _ovLastModified :: Maybe RFC822
     , _ovOwner        :: Maybe Owner
     , _ovSize         :: Maybe Int
-    , _ovStorageClass :: Maybe Text
+    , _ovStorageClass :: Maybe ObjectVersionStorageClass
     , _ovVersionId    :: Maybe Text
     } deriving (Eq, Show)
 
@@ -1940,7 +1946,7 @@ data ObjectVersion = ObjectVersion
 --
 -- * 'ovSize' @::@ 'Maybe' 'Int'
 --
--- * 'ovStorageClass' @::@ 'Maybe' 'Text'
+-- * 'ovStorageClass' @::@ 'Maybe' 'ObjectVersionStorageClass'
 --
 -- * 'ovVersionId' @::@ 'Maybe' 'Text'
 --
@@ -1980,7 +1986,7 @@ ovSize :: Lens' ObjectVersion (Maybe Int)
 ovSize = lens _ovSize (\s a -> s { _ovSize = a })
 
 -- | The class of storage used to store the object.
-ovStorageClass :: Lens' ObjectVersion (Maybe Text)
+ovStorageClass :: Lens' ObjectVersion (Maybe ObjectVersionStorageClass)
 ovStorageClass = lens _ovStorageClass (\s a -> s { _ovStorageClass = a })
 
 -- | Version ID of an object.
@@ -2012,7 +2018,7 @@ instance ToXML ObjectVersion where
 
 data TargetGrant = TargetGrant
     { _tgGrantee    :: Maybe Grantee
-    , _tgPermission :: Maybe Text
+    , _tgPermission :: Maybe BucketLogsPermission
     } deriving (Eq, Show)
 
 -- | 'TargetGrant' constructor.
@@ -2021,7 +2027,7 @@ data TargetGrant = TargetGrant
 --
 -- * 'tgGrantee' @::@ 'Maybe' 'Grantee'
 --
--- * 'tgPermission' @::@ 'Maybe' 'Text'
+-- * 'tgPermission' @::@ 'Maybe' 'BucketLogsPermission'
 --
 targetGrant :: TargetGrant
 targetGrant = TargetGrant
@@ -2033,7 +2039,7 @@ tgGrantee :: Lens' TargetGrant (Maybe Grantee)
 tgGrantee = lens _tgGrantee (\s a -> s { _tgGrantee = a })
 
 -- | Logging permissions assigned to the Grantee for the bucket.
-tgPermission :: Lens' TargetGrant (Maybe Text)
+tgPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
 tgPermission = lens _tgPermission (\s a -> s { _tgPermission = a })
 
 instance FromXML TargetGrant where
@@ -2094,10 +2100,10 @@ instance ToXML Payer where
 data Redirect = Redirect
     { _rHostName             :: Maybe Text
     , _rHttpRedirectCode     :: Maybe Text
-    , _rProtocol             :: Maybe Text
+    , _rProtocol             :: Maybe Protocol
     , _rReplaceKeyPrefixWith :: Maybe Text
     , _rReplaceKeyWith       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Redirect' constructor.
 --
@@ -2107,7 +2113,7 @@ data Redirect = Redirect
 --
 -- * 'rHttpRedirectCode' @::@ 'Maybe' 'Text'
 --
--- * 'rProtocol' @::@ 'Maybe' 'Text'
+-- * 'rProtocol' @::@ 'Maybe' 'Protocol'
 --
 -- * 'rReplaceKeyPrefixWith' @::@ 'Maybe' 'Text'
 --
@@ -2134,7 +2140,7 @@ rHttpRedirectCode =
 
 -- | Protocol to use (http, https) when redirecting requests. The default is
 -- the protocol that is used in the original request.
-rProtocol :: Lens' Redirect (Maybe Text)
+rProtocol :: Lens' Redirect (Maybe Protocol)
 rProtocol = lens _rProtocol (\s a -> s { _rProtocol = a })
 
 -- | The object key prefix to use in the redirect request. For example, to
@@ -2234,14 +2240,14 @@ instance ToXML CompletedPart where
         ]
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
-    { _cbcLocationConstraint :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _cbcLocationConstraint :: Maybe Region
+    } deriving (Eq, Show)
 
 -- | 'CreateBucketConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbcLocationConstraint' @::@ 'Maybe' 'Text'
+-- * 'cbcLocationConstraint' @::@ 'Maybe' 'Region'
 --
 createBucketConfiguration :: CreateBucketConfiguration
 createBucketConfiguration = CreateBucketConfiguration
@@ -2249,7 +2255,7 @@ createBucketConfiguration = CreateBucketConfiguration
     }
 
 -- | Specifies the region where the bucket will be created.
-cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe Text)
+cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe Region)
 cbcLocationConstraint =
     lens _cbcLocationConstraint (\s a -> s { _cbcLocationConstraint = a })
 
@@ -2368,7 +2374,7 @@ data Object = Object
     , _oLastModified :: RFC822
     , _oOwner        :: Owner
     , _oSize         :: Int
-    , _oStorageClass :: Text
+    , _oStorageClass :: ObjectStorageClass
     } deriving (Eq, Show)
 
 -- | 'Object' constructor.
@@ -2385,13 +2391,13 @@ data Object = Object
 --
 -- * 'oSize' @::@ 'Int'
 --
--- * 'oStorageClass' @::@ 'Text'
+-- * 'oStorageClass' @::@ 'ObjectStorageClass'
 --
 object' :: Text -- ^ 'oKey'
         -> UTCTime -- ^ 'oLastModified'
         -> Text -- ^ 'oETag'
         -> Int -- ^ 'oSize'
-        -> Text -- ^ 'oStorageClass'
+        -> ObjectStorageClass -- ^ 'oStorageClass'
         -> Owner -- ^ 'oOwner'
         -> Object
 object' p1 p2 p3 p4 p5 p6 = Object
@@ -2419,7 +2425,7 @@ oSize :: Lens' Object Int
 oSize = lens _oSize (\s a -> s { _oSize = a })
 
 -- | The class of storage used to store the object.
-oStorageClass :: Lens' Object Text
+oStorageClass :: Lens' Object ObjectStorageClass
 oStorageClass = lens _oStorageClass (\s a -> s { _oStorageClass = a })
 
 instance FromXML Object where
@@ -2475,7 +2481,7 @@ data MultipartUpload = MultipartUpload
     , _muInitiator    :: Maybe Initiator
     , _muKey          :: Maybe Text
     , _muOwner        :: Maybe Owner
-    , _muStorageClass :: Maybe Text
+    , _muStorageClass :: Maybe StorageClass
     , _muUploadId     :: Maybe Text
     } deriving (Eq, Show)
 
@@ -2491,7 +2497,7 @@ data MultipartUpload = MultipartUpload
 --
 -- * 'muOwner' @::@ 'Maybe' 'Owner'
 --
--- * 'muStorageClass' @::@ 'Maybe' 'Text'
+-- * 'muStorageClass' @::@ 'Maybe' 'StorageClass'
 --
 -- * 'muUploadId' @::@ 'Maybe' 'Text'
 --
@@ -2521,7 +2527,7 @@ muOwner :: Lens' MultipartUpload (Maybe Owner)
 muOwner = lens _muOwner (\s a -> s { _muOwner = a })
 
 -- | The class of storage used to store the object.
-muStorageClass :: Lens' MultipartUpload (Maybe Text)
+muStorageClass :: Lens' MultipartUpload (Maybe StorageClass)
 muStorageClass = lens _muStorageClass (\s a -> s { _muStorageClass = a })
 
 -- | Upload ID that identifies the multipart upload.
@@ -2762,8 +2768,10 @@ instance ToText BucketCannedACL where
 instance FromXML BucketCannedACL where
     parseXML = parseXMLText "BucketCannedACL"
 
-instance ToXML BucketCannedACL where
-    toXML = toXMLText
+instance ToXMLRoot BucketCannedACL where
+    toXMLRoot = not implemented
+
+instance ToXML BucketCannedACL
 
 data MFADelete
     = MFADDisabled -- ^ Disabled
@@ -2789,11 +2797,11 @@ instance ToXML MFADelete where
 
 data CloudFunctionConfiguration = CloudFunctionConfiguration
     { _cfcCloudFunction  :: Maybe Text
-    , _cfcEvent          :: Maybe Text
-    , _cfcEvents         :: List "Event" Text
+    , _cfcEvent          :: Maybe Event
+    , _cfcEvents         :: List "Event" Event
     , _cfcId             :: Maybe Text
     , _cfcInvocationRole :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CloudFunctionConfiguration' constructor.
 --
@@ -2801,9 +2809,9 @@ data CloudFunctionConfiguration = CloudFunctionConfiguration
 --
 -- * 'cfcCloudFunction' @::@ 'Maybe' 'Text'
 --
--- * 'cfcEvent' @::@ 'Maybe' 'Text'
+-- * 'cfcEvent' @::@ 'Maybe' 'Event'
 --
--- * 'cfcEvents' @::@ ['Text']
+-- * 'cfcEvents' @::@ ['Event']
 --
 -- * 'cfcId' @::@ 'Maybe' 'Text'
 --
@@ -2821,10 +2829,10 @@ cloudFunctionConfiguration = CloudFunctionConfiguration
 cfcCloudFunction :: Lens' CloudFunctionConfiguration (Maybe Text)
 cfcCloudFunction = lens _cfcCloudFunction (\s a -> s { _cfcCloudFunction = a })
 
-cfcEvent :: Lens' CloudFunctionConfiguration (Maybe Text)
+cfcEvent :: Lens' CloudFunctionConfiguration (Maybe Event)
 cfcEvent = lens _cfcEvent (\s a -> s { _cfcEvent = a })
 
-cfcEvents :: Lens' CloudFunctionConfiguration [Text]
+cfcEvents :: Lens' CloudFunctionConfiguration [Event]
 cfcEvents = lens _cfcEvents (\s a -> s { _cfcEvents = a }) . _List
 
 cfcId :: Lens' CloudFunctionConfiguration (Maybe Text)
@@ -2855,9 +2863,9 @@ data Grantee = Grantee
     { _gDisplayName  :: Maybe Text
     , _gEmailAddress :: Maybe Text
     , _gID           :: Maybe Text
-    , _gType         :: Text
+    , _gType         :: Type
     , _gURI          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Grantee' constructor.
 --
@@ -2869,11 +2877,11 @@ data Grantee = Grantee
 --
 -- * 'gID' @::@ 'Maybe' 'Text'
 --
--- * 'gType' @::@ 'Text'
+-- * 'gType' @::@ 'Type'
 --
 -- * 'gURI' @::@ 'Maybe' 'Text'
 --
-grantee :: Text -- ^ 'gType'
+grantee :: Type -- ^ 'gType'
         -> Grantee
 grantee p1 = Grantee
     { _gType         = p1
@@ -2896,7 +2904,7 @@ gID :: Lens' Grantee (Maybe Text)
 gID = lens _gID (\s a -> s { _gID = a })
 
 -- | Type of grantee.
-gType :: Lens' Grantee Text
+gType :: Lens' Grantee Type
 gType = lens _gType (\s a -> s { _gType = a })
 
 -- | URI of the grantee group.
@@ -3015,8 +3023,10 @@ instance ToText ServerSideEncryption where
 instance FromXML ServerSideEncryption where
     parseXML = parseXMLText "ServerSideEncryption"
 
-instance ToXML ServerSideEncryption where
-    toXML = toXMLText
+instance ToXMLRoot ServerSideEncryption where
+    toXMLRoot = not implemented
+
+instance ToXML ServerSideEncryption
 
 newtype IndexDocument = IndexDocument
     { _idSuffix :: Text

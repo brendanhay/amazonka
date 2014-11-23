@@ -71,7 +71,7 @@ import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
 data StartWorkflowExecution = StartWorkflowExecution
-    { _swe1ChildPolicy                  :: Maybe Text
+    { _swe1ChildPolicy                  :: Maybe ChildPolicy
     , _swe1Domain                       :: Text
     , _swe1ExecutionStartToCloseTimeout :: Maybe Text
     , _swe1Input                        :: Maybe Text
@@ -86,7 +86,7 @@ data StartWorkflowExecution = StartWorkflowExecution
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'swe1ChildPolicy' @::@ 'Maybe' 'Text'
+-- * 'swe1ChildPolicy' @::@ 'Maybe' 'ChildPolicy'
 --
 -- * 'swe1Domain' @::@ 'Text'
 --
@@ -131,7 +131,7 @@ startWorkflowExecution p1 p2 p3 = StartWorkflowExecution
 -- history. It is up to the decider to take appropriate actions when it
 -- receives an execution history with this event. ABANDON: no action will be
 -- taken. The child executions will continue to run.
-swe1ChildPolicy :: Lens' StartWorkflowExecution (Maybe Text)
+swe1ChildPolicy :: Lens' StartWorkflowExecution (Maybe ChildPolicy)
 swe1ChildPolicy = lens _swe1ChildPolicy (\s a -> s { _swe1ChildPolicy = a })
 
 -- | The name of the domain in which the workflow execution is created.

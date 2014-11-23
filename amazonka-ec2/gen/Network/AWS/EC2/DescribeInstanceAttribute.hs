@@ -65,23 +65,23 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
-    { _diaAttribute  :: Text
+    { _diaAttribute  :: InstanceAttributeName
     , _diaDryRun     :: Maybe Bool
     , _diaInstanceId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeInstanceAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diaAttribute' @::@ 'Text'
+-- * 'diaAttribute' @::@ 'InstanceAttributeName'
 --
 -- * 'diaDryRun' @::@ 'Maybe' 'Bool'
 --
 -- * 'diaInstanceId' @::@ 'Text'
 --
 describeInstanceAttribute :: Text -- ^ 'diaInstanceId'
-                          -> Text -- ^ 'diaAttribute'
+                          -> InstanceAttributeName -- ^ 'diaAttribute'
                           -> DescribeInstanceAttribute
 describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
     { _diaInstanceId = p1
@@ -90,7 +90,7 @@ describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
     }
 
 -- | The instance attribute.
-diaAttribute :: Lens' DescribeInstanceAttribute Text
+diaAttribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
 diaAttribute = lens _diaAttribute (\s a -> s { _diaAttribute = a })
 
 diaDryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)

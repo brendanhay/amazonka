@@ -68,21 +68,21 @@ ccConnectionId :: Lens' ConfirmConnection Text
 ccConnectionId = lens _ccConnectionId (\s a -> s { _ccConnectionId = a })
 
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse
-    { _ccr1ConnectionState :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _ccr1ConnectionState :: Maybe ConnectionState
+    } deriving (Eq, Show)
 
 -- | 'ConfirmConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccr1ConnectionState' @::@ 'Maybe' 'Text'
+-- * 'ccr1ConnectionState' @::@ 'Maybe' 'ConnectionState'
 --
 confirmConnectionResponse :: ConfirmConnectionResponse
 confirmConnectionResponse = ConfirmConnectionResponse
     { _ccr1ConnectionState = Nothing
     }
 
-ccr1ConnectionState :: Lens' ConfirmConnectionResponse (Maybe Text)
+ccr1ConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccr1ConnectionState =
     lens _ccr1ConnectionState (\s a -> s { _ccr1ConnectionState = a })
 

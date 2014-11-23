@@ -53,16 +53,16 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
-    { _dniaAttribute          :: Maybe Text
+    { _dniaAttribute          :: Maybe NetworkInterfaceAttribute
     , _dniaDryRun             :: Maybe Bool
     , _dniaNetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeNetworkInterfaceAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dniaAttribute' @::@ 'Maybe' 'Text'
+-- * 'dniaAttribute' @::@ 'Maybe' 'NetworkInterfaceAttribute'
 --
 -- * 'dniaDryRun' @::@ 'Maybe' 'Bool'
 --
@@ -77,7 +77,7 @@ describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     }
 
 -- | The attribute of the network interface.
-dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe Text)
+dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
 dniaAttribute = lens _dniaAttribute (\s a -> s { _dniaAttribute = a })
 
 dniaDryRun :: Lens' DescribeNetworkInterfaceAttribute (Maybe Bool)

@@ -69,9 +69,9 @@ data ListActivityTypes = ListActivityTypes
     , _latMaximumPageSize    :: Maybe Nat
     , _latName               :: Maybe Text
     , _latNextPageToken      :: Maybe Text
-    , _latRegistrationStatus :: Text
+    , _latRegistrationStatus :: RegistrationStatus
     , _latReverseOrder       :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListActivityTypes' constructor.
 --
@@ -85,12 +85,12 @@ data ListActivityTypes = ListActivityTypes
 --
 -- * 'latNextPageToken' @::@ 'Maybe' 'Text'
 --
--- * 'latRegistrationStatus' @::@ 'Text'
+-- * 'latRegistrationStatus' @::@ 'RegistrationStatus'
 --
 -- * 'latReverseOrder' @::@ 'Maybe' 'Bool'
 --
 listActivityTypes :: Text -- ^ 'latDomain'
-                  -> Text -- ^ 'latRegistrationStatus'
+                  -> RegistrationStatus -- ^ 'latRegistrationStatus'
                   -> ListActivityTypes
 listActivityTypes p1 p2 = ListActivityTypes
     { _latDomain             = p1
@@ -127,7 +127,7 @@ latNextPageToken :: Lens' ListActivityTypes (Maybe Text)
 latNextPageToken = lens _latNextPageToken (\s a -> s { _latNextPageToken = a })
 
 -- | Specifies the registration status of the activity types to list.
-latRegistrationStatus :: Lens' ListActivityTypes Text
+latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
 latRegistrationStatus =
     lens _latRegistrationStatus (\s a -> s { _latRegistrationStatus = a })
 

@@ -55,7 +55,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
     { _cietDescription       :: Maybe Text
     , _cietExportToS3Task    :: Maybe ExportToS3TaskSpecification
     , _cietInstanceId        :: Text
-    , _cietTargetEnvironment :: Maybe Text
+    , _cietTargetEnvironment :: Maybe ExportEnvironment
     } deriving (Eq, Show)
 
 -- | 'CreateInstanceExportTask' constructor.
@@ -68,7 +68,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
 --
 -- * 'cietInstanceId' @::@ 'Text'
 --
--- * 'cietTargetEnvironment' @::@ 'Maybe' 'Text'
+-- * 'cietTargetEnvironment' @::@ 'Maybe' 'ExportEnvironment'
 --
 createInstanceExportTask :: Text -- ^ 'cietInstanceId'
                          -> CreateInstanceExportTask
@@ -93,7 +93,7 @@ cietInstanceId :: Lens' CreateInstanceExportTask Text
 cietInstanceId = lens _cietInstanceId (\s a -> s { _cietInstanceId = a })
 
 -- | The target virtualization environment.
-cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe Text)
+cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
 cietTargetEnvironment =
     lens _cietTargetEnvironment (\s a -> s { _cietTargetEnvironment = a })
 

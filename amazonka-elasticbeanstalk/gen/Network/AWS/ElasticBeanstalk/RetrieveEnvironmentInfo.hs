@@ -51,8 +51,8 @@ import qualified GHC.Exts
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
     { _rei1EnvironmentId   :: Maybe Text
     , _rei1EnvironmentName :: Maybe Text
-    , _rei1InfoType        :: Text
-    } deriving (Eq, Ord, Show)
+    , _rei1InfoType        :: EnvironmentInfoType
+    } deriving (Eq, Show)
 
 -- | 'RetrieveEnvironmentInfo' constructor.
 --
@@ -62,9 +62,9 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
 --
 -- * 'rei1EnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'rei1InfoType' @::@ 'Text'
+-- * 'rei1InfoType' @::@ 'EnvironmentInfoType'
 --
-retrieveEnvironmentInfo :: Text -- ^ 'rei1InfoType'
+retrieveEnvironmentInfo :: EnvironmentInfoType -- ^ 'rei1InfoType'
                         -> RetrieveEnvironmentInfo
 retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfo
     { _rei1InfoType        = p1
@@ -89,7 +89,7 @@ rei1EnvironmentName =
     lens _rei1EnvironmentName (\s a -> s { _rei1EnvironmentName = a })
 
 -- | The type of information to retrieve.
-rei1InfoType :: Lens' RetrieveEnvironmentInfo Text
+rei1InfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
 rei1InfoType = lens _rei1InfoType (\s a -> s { _rei1InfoType = a })
 
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse

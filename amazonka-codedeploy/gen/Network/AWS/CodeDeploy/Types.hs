@@ -459,7 +459,7 @@ data InstanceSummary = InstanceSummary
     , _isInstanceId      :: Maybe Text
     , _isLastUpdatedAt   :: Maybe RFC822
     , _isLifecycleEvents :: List "lifecycleEvents" LifecycleEvent
-    , _isStatus          :: Maybe Text
+    , _isStatus          :: Maybe InstanceStatus
     } deriving (Eq, Show)
 
 -- | 'InstanceSummary' constructor.
@@ -474,7 +474,7 @@ data InstanceSummary = InstanceSummary
 --
 -- * 'isLifecycleEvents' @::@ ['LifecycleEvent']
 --
--- * 'isStatus' @::@ 'Maybe' 'Text'
+-- * 'isStatus' @::@ 'Maybe' 'InstanceStatus'
 --
 instanceSummary :: InstanceSummary
 instanceSummary = InstanceSummary
@@ -509,7 +509,7 @@ isLifecycleEvents =
 -- Failed: The deployment has failed for this instance. Skipped: The
 -- deployment has been skipped for this instance. Unknown: The deployment
 -- status is unknown for this instance.
-isStatus :: Lens' InstanceSummary (Maybe Text)
+isStatus :: Lens' InstanceSummary (Maybe InstanceStatus)
 isStatus = lens _isStatus (\s a -> s { _isStatus = a })
 
 instance FromJSON InstanceSummary where
@@ -700,15 +700,15 @@ instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
 
 data MinimumHealthyHosts = MinimumHealthyHosts
-    { _mhhType  :: Maybe Text
+    { _mhhType  :: Maybe MinimumHealthyHostsType
     , _mhhValue :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'MinimumHealthyHosts' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mhhType' @::@ 'Maybe' 'Text'
+-- * 'mhhType' @::@ 'Maybe' 'MinimumHealthyHostsType'
 --
 -- * 'mhhValue' @::@ 'Maybe' 'Int'
 --
@@ -732,7 +732,7 @@ minimumHealthyHosts = MinimumHealthyHosts
 -- instances type of MOST_CONCURRENCY and a value of 1. This means a
 -- deployment to only one Amazon EC2 instance at a time. (You cannot set the
 -- type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.).
-mhhType :: Lens' MinimumHealthyHosts (Maybe Text)
+mhhType :: Lens' MinimumHealthyHosts (Maybe MinimumHealthyHostsType)
 mhhType = lens _mhhType (\s a -> s { _mhhType = a })
 
 -- | The minimum healthy instances value.
@@ -811,7 +811,7 @@ instance ToJSON LifecycleErrorCode where
 
 data RevisionLocation = RevisionLocation
     { _rlGitHubLocation :: Maybe GitHubLocation
-    , _rlRevisionType   :: Maybe Text
+    , _rlRevisionType   :: Maybe RevisionLocationType
     , _rlS3Location     :: Maybe S3Location
     } deriving (Eq, Show)
 
@@ -821,7 +821,7 @@ data RevisionLocation = RevisionLocation
 --
 -- * 'rlGitHubLocation' @::@ 'Maybe' 'GitHubLocation'
 --
--- * 'rlRevisionType' @::@ 'Maybe' 'Text'
+-- * 'rlRevisionType' @::@ 'Maybe' 'RevisionLocationType'
 --
 -- * 'rlS3Location' @::@ 'Maybe' 'S3Location'
 --
@@ -837,7 +837,7 @@ rlGitHubLocation = lens _rlGitHubLocation (\s a -> s { _rlGitHubLocation = a })
 
 -- | The application revision's type: S3: An application revision stored in
 -- Amazon S3. GitHub: An application revision stored in GitHub.
-rlRevisionType :: Lens' RevisionLocation (Maybe Text)
+rlRevisionType :: Lens' RevisionLocation (Maybe RevisionLocationType)
 rlRevisionType = lens _rlRevisionType (\s a -> s { _rlRevisionType = a })
 
 rlS3Location :: Lens' RevisionLocation (Maybe S3Location)
@@ -892,9 +892,9 @@ instance ToJSON LifecycleEventStatus where
 
 data EC2TagFilter = EC2TagFilter
     { _ectfKey   :: Maybe Text
-    , _ectfType  :: Maybe Text
+    , _ectfType  :: Maybe EC2TagFilterType
     , _ectfValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'EC2TagFilter' constructor.
 --
@@ -902,7 +902,7 @@ data EC2TagFilter = EC2TagFilter
 --
 -- * 'ectfKey' @::@ 'Maybe' 'Text'
 --
--- * 'ectfType' @::@ 'Maybe' 'Text'
+-- * 'ectfType' @::@ 'Maybe' 'EC2TagFilterType'
 --
 -- * 'ectfValue' @::@ 'Maybe' 'Text'
 --
@@ -919,7 +919,7 @@ ectfKey = lens _ectfKey (\s a -> s { _ectfKey = a })
 
 -- | The Amazon EC2 tag filter type: KEY_ONLY: Key only. VALUE_ONLY: Value
 -- only. KEY_AND_VALUE: Key and value.
-ectfType :: Lens' EC2TagFilter (Maybe Text)
+ectfType :: Lens' EC2TagFilter (Maybe EC2TagFilterType)
 ectfType = lens _ectfType (\s a -> s { _ectfType = a })
 
 -- | The Amazon EC2 tag filter value.
@@ -940,17 +940,17 @@ instance ToJSON EC2TagFilter where
         ]
 
 data Diagnostics = Diagnostics
-    { _dErrorCode  :: Maybe Text
+    { _dErrorCode  :: Maybe LifecycleErrorCode
     , _dLogTail    :: Maybe Text
     , _dMessage    :: Maybe Text
     , _dScriptName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Diagnostics' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dErrorCode' @::@ 'Maybe' 'Text'
+-- * 'dErrorCode' @::@ 'Maybe' 'LifecycleErrorCode'
 --
 -- * 'dLogTail' @::@ 'Maybe' 'Text'
 --
@@ -973,7 +973,7 @@ diagnostics = Diagnostics
 -- running in the specified time period. ScriptFailed: The specified script
 -- failed to run as expected. UnknownError: The specified script did not run
 -- for an unknown reason.
-dErrorCode :: Lens' Diagnostics (Maybe Text)
+dErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
 dErrorCode = lens _dErrorCode (\s a -> s { _dErrorCode = a })
 
 -- | The last portion of the associated diagnostic log.
@@ -1026,15 +1026,15 @@ instance ToJSON StopStatus where
     toJSON = toJSONText
 
 data ErrorInformation = ErrorInformation
-    { _eiCode    :: Maybe Text
+    { _eiCode    :: Maybe ErrorCode
     , _eiMessage :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ErrorInformation' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eiCode' @::@ 'Maybe' 'Text'
+-- * 'eiCode' @::@ 'Maybe' 'ErrorCode'
 --
 -- * 'eiMessage' @::@ 'Maybe' 'Text'
 --
@@ -1062,7 +1062,7 @@ errorInformation = ErrorInformation
 -- The deployment failed on too many instances to be able to successfully
 -- deploy under the specified instance health constraints. INTERNAL_ERROR:
 -- There was an internal error.
-eiCode :: Lens' ErrorInformation (Maybe Text)
+eiCode :: Lens' ErrorInformation (Maybe ErrorCode)
 eiCode = lens _eiCode (\s a -> s { _eiCode = a })
 
 -- | An accompanying error message.
@@ -1106,7 +1106,7 @@ data DeploymentInfo = DeploymentInfo
     { _diApplicationName               :: Maybe Text
     , _diCompleteTime                  :: Maybe RFC822
     , _diCreateTime                    :: Maybe RFC822
-    , _diCreator                       :: Maybe Text
+    , _diCreator                       :: Maybe DeploymentCreator
     , _diDeploymentConfigName          :: Maybe Text
     , _diDeploymentGroupName           :: Maybe Text
     , _diDeploymentId                  :: Maybe Text
@@ -1116,7 +1116,7 @@ data DeploymentInfo = DeploymentInfo
     , _diIgnoreApplicationStopFailures :: Maybe Bool
     , _diRevision                      :: Maybe RevisionLocation
     , _diStartTime                     :: Maybe RFC822
-    , _diStatus                        :: Maybe Text
+    , _diStatus                        :: Maybe DeploymentStatus
     } deriving (Eq, Show)
 
 -- | 'DeploymentInfo' constructor.
@@ -1129,7 +1129,7 @@ data DeploymentInfo = DeploymentInfo
 --
 -- * 'diCreateTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'diCreator' @::@ 'Maybe' 'Text'
+-- * 'diCreator' @::@ 'Maybe' 'DeploymentCreator'
 --
 -- * 'diDeploymentConfigName' @::@ 'Maybe' 'Text'
 --
@@ -1149,7 +1149,7 @@ data DeploymentInfo = DeploymentInfo
 --
 -- * 'diStartTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'diStatus' @::@ 'Maybe' 'Text'
+-- * 'diStatus' @::@ 'Maybe' 'DeploymentStatus'
 --
 deploymentInfo :: DeploymentInfo
 deploymentInfo = DeploymentInfo
@@ -1184,7 +1184,7 @@ diCreateTime = lens _diCreateTime (\s a -> s { _diCreateTime = a }) . mapping _T
 
 -- | How the deployment was created: user: A user created the deployment.
 -- autoscaling: Auto Scaling created the deployment.
-diCreator :: Lens' DeploymentInfo (Maybe Text)
+diCreator :: Lens' DeploymentInfo (Maybe DeploymentCreator)
 diCreator = lens _diCreator (\s a -> s { _diCreator = a })
 
 -- | The deployment configuration name.
@@ -1242,7 +1242,7 @@ diStartTime :: Lens' DeploymentInfo (Maybe UTCTime)
 diStartTime = lens _diStartTime (\s a -> s { _diStartTime = a }) . mapping _Time
 
 -- | The current state of the deployment as a whole.
-diStatus :: Lens' DeploymentInfo (Maybe Text)
+diStatus :: Lens' DeploymentInfo (Maybe DeploymentStatus)
 diStatus = lens _diStatus (\s a -> s { _diStatus = a })
 
 instance FromJSON DeploymentInfo where
@@ -1285,7 +1285,7 @@ data LifecycleEvent = LifecycleEvent
     , _leEndTime            :: Maybe RFC822
     , _leLifecycleEventName :: Maybe Text
     , _leStartTime          :: Maybe RFC822
-    , _leStatus             :: Maybe Text
+    , _leStatus             :: Maybe LifecycleEventStatus
     } deriving (Eq, Show)
 
 -- | 'LifecycleEvent' constructor.
@@ -1300,7 +1300,7 @@ data LifecycleEvent = LifecycleEvent
 --
 -- * 'leStartTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'leStatus' @::@ 'Maybe' 'Text'
+-- * 'leStatus' @::@ 'Maybe' 'LifecycleEventStatus'
 --
 lifecycleEvent :: LifecycleEvent
 lifecycleEvent = LifecycleEvent
@@ -1335,7 +1335,7 @@ leStartTime = lens _leStartTime (\s a -> s { _leStartTime = a }) . mapping _Time
 -- Failed: The deployment lifecycle event has failed. Skipped: The
 -- deployment lifecycle event has been skipped. Unknown: The deployment
 -- lifecycle event is unknown.
-leStatus :: Lens' LifecycleEvent (Maybe Text)
+leStatus :: Lens' LifecycleEvent (Maybe LifecycleEventStatus)
 leStatus = lens _leStatus (\s a -> s { _leStatus = a })
 
 instance FromJSON LifecycleEvent where
@@ -1603,11 +1603,11 @@ instance ToJSON DeploymentStatus where
 
 data S3Location = S3Location
     { _slBucket     :: Maybe Text
-    , _slBundleType :: Maybe Text
+    , _slBundleType :: Maybe BundleType
     , _slETag       :: Maybe Text
     , _slKey        :: Maybe Text
     , _slVersion    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'S3Location' constructor.
 --
@@ -1615,7 +1615,7 @@ data S3Location = S3Location
 --
 -- * 'slBucket' @::@ 'Maybe' 'Text'
 --
--- * 'slBundleType' @::@ 'Maybe' 'Text'
+-- * 'slBundleType' @::@ 'Maybe' 'BundleType'
 --
 -- * 'slETag' @::@ 'Maybe' 'Text'
 --
@@ -1640,7 +1640,7 @@ slBucket = lens _slBucket (\s a -> s { _slBucket = a })
 -- | The file type of the application revision. Must be one of the following:
 -- tar: A tar archive file. tgz: A compressed tar archive file. zip: A zip
 -- archive file.
-slBundleType :: Lens' S3Location (Maybe Text)
+slBundleType :: Lens' S3Location (Maybe BundleType)
 slBundleType = lens _slBundleType (\s a -> s { _slBundleType = a })
 
 -- | The ETag of the Amazon S3 object that represents the bundled artifacts

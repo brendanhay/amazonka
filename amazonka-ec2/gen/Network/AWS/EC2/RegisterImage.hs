@@ -65,7 +65,7 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data RegisterImage = RegisterImage
-    { _ri1Architecture        :: Maybe Text
+    { _ri1Architecture        :: Maybe ArchitectureValues
     , _ri1BlockDeviceMappings :: List "BlockDeviceMapping" BlockDeviceMapping
     , _ri1Description         :: Maybe Text
     , _ri1DryRun              :: Maybe Bool
@@ -82,7 +82,7 @@ data RegisterImage = RegisterImage
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ri1Architecture' @::@ 'Maybe' 'Text'
+-- * 'ri1Architecture' @::@ 'Maybe' 'ArchitectureValues'
 --
 -- * 'ri1BlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
@@ -123,7 +123,7 @@ registerImage p1 = RegisterImage
 -- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, i386.
 -- For instance store-backed AMIs, the architecture specified in the
 -- manifest file.
-ri1Architecture :: Lens' RegisterImage (Maybe Text)
+ri1Architecture :: Lens' RegisterImage (Maybe ArchitectureValues)
 ri1Architecture = lens _ri1Architecture (\s a -> s { _ri1Architecture = a })
 
 -- | One or more block device mapping entries.

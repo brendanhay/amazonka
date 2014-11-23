@@ -66,21 +66,21 @@ di1InterconnectId =
     lens _di1InterconnectId (\s a -> s { _di1InterconnectId = a })
 
 newtype DeleteInterconnectResponse = DeleteInterconnectResponse
-    { _dirInterconnectState :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _dirInterconnectState :: Maybe InterconnectState
+    } deriving (Eq, Show)
 
 -- | 'DeleteInterconnectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirInterconnectState' @::@ 'Maybe' 'Text'
+-- * 'dirInterconnectState' @::@ 'Maybe' 'InterconnectState'
 --
 deleteInterconnectResponse :: DeleteInterconnectResponse
 deleteInterconnectResponse = DeleteInterconnectResponse
     { _dirInterconnectState = Nothing
     }
 
-dirInterconnectState :: Lens' DeleteInterconnectResponse (Maybe Text)
+dirInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
 dirInterconnectState =
     lens _dirInterconnectState (\s a -> s { _dirInterconnectState = a })
 

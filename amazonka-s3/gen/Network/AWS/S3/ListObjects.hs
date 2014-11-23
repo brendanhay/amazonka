@@ -64,11 +64,11 @@ import qualified GHC.Exts
 data ListObjects = ListObjects
     { _loBucket       :: Text
     , _loDelimiter    :: Maybe Text
-    , _loEncodingType :: Maybe Text
+    , _loEncodingType :: Maybe EncodingType
     , _loMarker       :: Maybe Text
     , _loMaxKeys      :: Maybe Int
     , _loPrefix       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListObjects' constructor.
 --
@@ -78,7 +78,7 @@ data ListObjects = ListObjects
 --
 -- * 'loDelimiter' @::@ 'Maybe' 'Text'
 --
--- * 'loEncodingType' @::@ 'Maybe' 'Text'
+-- * 'loEncodingType' @::@ 'Maybe' 'EncodingType'
 --
 -- * 'loMarker' @::@ 'Maybe' 'Text'
 --
@@ -104,7 +104,7 @@ loBucket = lens _loBucket (\s a -> s { _loBucket = a })
 loDelimiter :: Lens' ListObjects (Maybe Text)
 loDelimiter = lens _loDelimiter (\s a -> s { _loDelimiter = a })
 
-loEncodingType :: Lens' ListObjects (Maybe Text)
+loEncodingType :: Lens' ListObjects (Maybe EncodingType)
 loEncodingType = lens _loEncodingType (\s a -> s { _loEncodingType = a })
 
 -- | Specifies the key to start with when listing objects in a bucket.
@@ -124,7 +124,7 @@ data ListObjectsResponse = ListObjectsResponse
     { _lorCommonPrefixes :: List "CommonPrefixes" CommonPrefix
     , _lorContents       :: List "Contents" Object
     , _lorDelimiter      :: Maybe Text
-    , _lorEncodingType   :: Maybe Text
+    , _lorEncodingType   :: Maybe EncodingType
     , _lorIsTruncated    :: Maybe Bool
     , _lorMarker         :: Maybe Text
     , _lorMaxKeys        :: Maybe Int
@@ -143,7 +143,7 @@ data ListObjectsResponse = ListObjectsResponse
 --
 -- * 'lorDelimiter' @::@ 'Maybe' 'Text'
 --
--- * 'lorEncodingType' @::@ 'Maybe' 'Text'
+-- * 'lorEncodingType' @::@ 'Maybe' 'EncodingType'
 --
 -- * 'lorIsTruncated' @::@ 'Maybe' 'Bool'
 --
@@ -183,7 +183,7 @@ lorDelimiter :: Lens' ListObjectsResponse (Maybe Text)
 lorDelimiter = lens _lorDelimiter (\s a -> s { _lorDelimiter = a })
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-lorEncodingType :: Lens' ListObjectsResponse (Maybe Text)
+lorEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
 lorEncodingType = lens _lorEncodingType (\s a -> s { _lorEncodingType = a })
 
 -- | A flag that indicates whether or not Amazon S3 returned all of the

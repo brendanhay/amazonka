@@ -728,8 +728,8 @@
                         "shape": "InstanceStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe deployment status for this instance:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: The deployment is pending for this instance.\u003c/li\u003e \u003cli\u003eIn Progress: The deployment is in progress for this instance.\u003c/li\u003e \u003cli\u003eSucceeded: The deployment has succeeded for this instance.\u003c/li\u003e \u003cli\u003eFailed: The deployment has failed for this instance.\u003c/li\u003e \u003cli\u003eSkipped: The deployment has been skipped for this instance.\u003c/li\u003e \u003cli\u003eUnknown: The deployment status is unknown for this instance.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceStatus",
+                        "type": "Maybe InstanceStatus"
                     },
                     {
                         "location": null,
@@ -811,8 +811,8 @@
                         "shape": "InstanceStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe deployment status for this instance:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: The deployment is pending for this instance.\u003c/li\u003e \u003cli\u003eIn Progress: The deployment is in progress for this instance.\u003c/li\u003e \u003cli\u003eSucceeded: The deployment has succeeded for this instance.\u003c/li\u003e \u003cli\u003eFailed: The deployment has failed for this instance.\u003c/li\u003e \u003cli\u003eSkipped: The deployment has been skipped for this instance.\u003c/li\u003e \u003cli\u003eUnknown: The deployment status is unknown for this instance.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceStatus",
+                        "type": "Maybe InstanceStatus"
                     },
                     {
                         "location": null,
@@ -918,8 +918,8 @@
                         "shape": "InstanceStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe deployment status for this instance:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: The deployment is pending for this instance.\u003c/li\u003e \u003cli\u003eIn Progress: The deployment is in progress for this instance.\u003c/li\u003e \u003cli\u003eSucceeded: The deployment has succeeded for this instance.\u003c/li\u003e \u003cli\u003eFailed: The deployment has failed for this instance.\u003c/li\u003e \u003cli\u003eSkipped: The deployment has been skipped for this instance.\u003c/li\u003e \u003cli\u003eUnknown: The deployment status is unknown for this instance.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe InstanceStatus",
+                        "type": "Maybe InstanceStatus"
                     }
                 ]
             },
@@ -1435,7 +1435,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 9,
@@ -1468,8 +1467,8 @@
                         "shape": "MinimumHealthyHostsType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe minimum healthy instances type:\u003c/p\u003e \u003cul\u003e \u003cli\u003eHOST_COUNT: The minimum number of healthy instances, as an absolute value.\u003c/li\u003e \u003cli\u003eFLEET_PERCENT: The minimum number of healthy instances, as a percentage of the total number of instances in the deployment.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor example, for 9 Amazon EC2 instances, if a HOST_COUNT of 6 is specified, deploy to up to 3 instances at a time. The deployment succeeds if 6 or more instances are successfully deployed to; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to 5 instances at a time. The deployment succeeds if 4 or more instances are successfully deployed to; otherwise, the deployment fails.\u003c/p\u003e \u003cnote\u003eIn a call to the get deployment configuration operation, CodeDeployDefault.OneAtATime will return a minimum healthy instances type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one Amazon EC2 instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.)\u003c/note\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MinimumHealthyHostsType",
+                        "type": "Maybe MinimumHealthyHostsType"
                     }
                 ],
                 "payload": null,
@@ -1506,8 +1505,8 @@
                         "shape": "MinimumHealthyHostsType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe minimum healthy instances type:\u003c/p\u003e \u003cul\u003e \u003cli\u003eHOST_COUNT: The minimum number of healthy instances, as an absolute value.\u003c/li\u003e \u003cli\u003eFLEET_PERCENT: The minimum number of healthy instances, as a percentage of the total number of instances in the deployment.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor example, for 9 Amazon EC2 instances, if a HOST_COUNT of 6 is specified, deploy to up to 3 instances at a time. The deployment succeeds if 6 or more instances are successfully deployed to; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to 5 instances at a time. The deployment succeeds if 4 or more instances are successfully deployed to; otherwise, the deployment fails.\u003c/p\u003e \u003cnote\u003eIn a call to the get deployment configuration operation, CodeDeployDefault.OneAtATime will return a minimum healthy instances type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one Amazon EC2 instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.)\u003c/note\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MinimumHealthyHostsType",
+                        "type": "Maybe MinimumHealthyHostsType"
                     }
                 ],
                 "fields": [
@@ -1523,8 +1522,8 @@
                         "shape": "MinimumHealthyHostsType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe minimum healthy instances type:\u003c/p\u003e \u003cul\u003e \u003cli\u003eHOST_COUNT: The minimum number of healthy instances, as an absolute value.\u003c/li\u003e \u003cli\u003eFLEET_PERCENT: The minimum number of healthy instances, as a percentage of the total number of instances in the deployment.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor example, for 9 Amazon EC2 instances, if a HOST_COUNT of 6 is specified, deploy to up to 3 instances at a time. The deployment succeeds if 6 or more instances are successfully deployed to; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to 5 instances at a time. The deployment succeeds if 4 or more instances are successfully deployed to; otherwise, the deployment fails.\u003c/p\u003e \u003cnote\u003eIn a call to the get deployment configuration operation, CodeDeployDefault.OneAtATime will return a minimum healthy instances type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one Amazon EC2 instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.)\u003c/note\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe MinimumHealthyHostsType",
+                        "type": "Maybe MinimumHealthyHostsType"
                     },
                     {
                         "location": null,
@@ -1602,8 +1601,8 @@
                         "shape": "RevisionLocationType",
                         "locationName": "revisionType",
                         "documentation": "\u003cp\u003eThe application revision's type:\u003c/p\u003e \u003cul\u003e \u003cli\u003eS3: An application revision stored in Amazon S3.\u003c/li\u003e \u003cli\u003eGitHub: An application revision stored in GitHub.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RevisionLocationType",
+                        "type": "Maybe RevisionLocationType"
                     },
                     {
                         "location": null,
@@ -1655,8 +1654,8 @@
                         "shape": "RevisionLocationType",
                         "locationName": "revisionType",
                         "documentation": "\u003cp\u003eThe application revision's type:\u003c/p\u003e \u003cul\u003e \u003cli\u003eS3: An application revision stored in Amazon S3.\u003c/li\u003e \u003cli\u003eGitHub: An application revision stored in GitHub.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RevisionLocationType",
+                        "type": "Maybe RevisionLocationType"
                     },
                     {
                         "location": null,
@@ -1717,8 +1716,8 @@
                         "shape": "RevisionLocationType",
                         "locationName": "revisionType",
                         "documentation": "\u003cp\u003eThe application revision's type:\u003c/p\u003e \u003cul\u003e \u003cli\u003eS3: An application revision stored in Amazon S3.\u003c/li\u003e \u003cli\u003eGitHub: An application revision stored in GitHub.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RevisionLocationType",
+                        "type": "Maybe RevisionLocationType"
                     },
                     {
                         "location": null,
@@ -1761,7 +1760,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 10,
@@ -1809,8 +1807,8 @@
                         "shape": "EC2TagFilterType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe Amazon EC2 tag filter type:\u003c/p\u003e \u003cul\u003e \u003cli\u003eKEY_ONLY: Key only.\u003c/li\u003e \u003cli\u003eVALUE_ONLY: Value only.\u003c/li\u003e \u003cli\u003eKEY_AND_VALUE: Key and value.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EC2TagFilterType",
+                        "type": "Maybe EC2TagFilterType"
                     }
                 ],
                 "payload": null,
@@ -1862,8 +1860,8 @@
                         "shape": "EC2TagFilterType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe Amazon EC2 tag filter type:\u003c/p\u003e \u003cul\u003e \u003cli\u003eKEY_ONLY: Key only.\u003c/li\u003e \u003cli\u003eVALUE_ONLY: Value only.\u003c/li\u003e \u003cli\u003eKEY_AND_VALUE: Key and value.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EC2TagFilterType",
+                        "type": "Maybe EC2TagFilterType"
                     }
                 ],
                 "fields": [
@@ -1894,8 +1892,8 @@
                         "shape": "EC2TagFilterType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe Amazon EC2 tag filter type:\u003c/p\u003e \u003cul\u003e \u003cli\u003eKEY_ONLY: Key only.\u003c/li\u003e \u003cli\u003eVALUE_ONLY: Value only.\u003c/li\u003e \u003cli\u003eKEY_AND_VALUE: Key and value.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe EC2TagFilterType",
+                        "type": "Maybe EC2TagFilterType"
                     },
                     {
                         "location": null,
@@ -1917,7 +1915,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -1935,8 +1932,8 @@
                         "shape": "LifecycleErrorCode",
                         "locationName": "errorCode",
                         "documentation": "\u003cp\u003eThe associated error code:\u003c/p\u003e \u003cul\u003e \u003cli\u003eSuccess: The specified script ran.\u003c/li\u003e \u003cli\u003eScriptMissing: The specified script was not found in the specified location.\u003c/li\u003e \u003cli\u003eScriptNotExecutable: The specified script is not a recognized executable file type.\u003c/li\u003e \u003cli\u003eScriptTimedOut: The specified script did not finish running in the specified time period.\u003c/li\u003e \u003cli\u003eScriptFailed: The specified script failed to run as expected.\u003c/li\u003e \u003cli\u003eUnknownError: The specified script did not run for an unknown reason.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe LifecycleErrorCode",
+                        "type": "Maybe LifecycleErrorCode"
                     },
                     {
                         "location": null,
@@ -2003,8 +2000,8 @@
                         "shape": "LifecycleErrorCode",
                         "locationName": "errorCode",
                         "documentation": "\u003cp\u003eThe associated error code:\u003c/p\u003e \u003cul\u003e \u003cli\u003eSuccess: The specified script ran.\u003c/li\u003e \u003cli\u003eScriptMissing: The specified script was not found in the specified location.\u003c/li\u003e \u003cli\u003eScriptNotExecutable: The specified script is not a recognized executable file type.\u003c/li\u003e \u003cli\u003eScriptTimedOut: The specified script did not finish running in the specified time period.\u003c/li\u003e \u003cli\u003eScriptFailed: The specified script failed to run as expected.\u003c/li\u003e \u003cli\u003eUnknownError: The specified script did not run for an unknown reason.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe LifecycleErrorCode",
+                        "type": "Maybe LifecycleErrorCode"
                     },
                     {
                         "location": null,
@@ -2065,8 +2062,8 @@
                         "shape": "LifecycleErrorCode",
                         "locationName": "errorCode",
                         "documentation": "\u003cp\u003eThe associated error code:\u003c/p\u003e \u003cul\u003e \u003cli\u003eSuccess: The specified script ran.\u003c/li\u003e \u003cli\u003eScriptMissing: The specified script was not found in the specified location.\u003c/li\u003e \u003cli\u003eScriptNotExecutable: The specified script is not a recognized executable file type.\u003c/li\u003e \u003cli\u003eScriptTimedOut: The specified script did not finish running in the specified time period.\u003c/li\u003e \u003cli\u003eScriptFailed: The specified script failed to run as expected.\u003c/li\u003e \u003cli\u003eUnknownError: The specified script did not run for an unknown reason.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe LifecycleErrorCode",
+                        "type": "Maybe LifecycleErrorCode"
                     },
                     {
                         "location": null,
@@ -2135,7 +2132,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 10,
@@ -2153,8 +2149,8 @@
                         "shape": "ErrorCode",
                         "locationName": "code",
                         "documentation": "\u003cp\u003eThe error code:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAPPLICATION_MISSING: The application was missing. Note that this error code will most likely be raised if the application is deleted after the deployment is created but before it starts.\u003c/li\u003e \u003cli\u003eDEPLOYMENT_GROUP_MISSING: The deployment group was missing. Note that this error code will most likely be raised if the deployment group is deleted after the deployment is created but before it starts.\u003c/li\u003e \u003cli\u003eREVISION_MISSING: The revision ID was missing. Note that this error code will most likely be raised if the revision is deleted after the deployment is created but before it starts.\u003c/li\u003e \u003cli\u003eIAM_ROLE_MISSING: The service role cannot be accessed.\u003c/li\u003e \u003cli\u003eIAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.\u003c/li\u003e \u003cli\u003eOVER_MAX_INSTANCES: The maximum number of instances was exceeded.\u003c/li\u003e \u003cli\u003eNO_INSTANCES: No instances were specified, or no instances can be found.\u003c/li\u003e \u003cli\u003eTIMEOUT: The deployment has timed out.\u003c/li\u003e \u003cli\u003eHEALTH_CONSTRAINTS_INVALID: The revision can never successfully deploy under the instance health constraints as specified.\u003c/li\u003e \u003cli\u003eHEALTH_CONSTRAINTS: The deployment failed on too many instances to be able to successfully deploy under the specified instance health constraints.\u003c/li\u003e \u003cli\u003eINTERNAL_ERROR: There was an internal error.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ErrorCode",
+                        "type": "Maybe ErrorCode"
                     },
                     {
                         "location": null,
@@ -2191,8 +2187,8 @@
                         "shape": "ErrorCode",
                         "locationName": "code",
                         "documentation": "\u003cp\u003eThe error code:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAPPLICATION_MISSING: The application was missing. Note that this error code will most likely be raised if the application is deleted after the deployment is created but before it starts.\u003c/li\u003e \u003cli\u003eDEPLOYMENT_GROUP_MISSING: The deployment group was missing. Note that this error code will most likely be raised if the deployment group is deleted after the deployment is created but before it starts.\u003c/li\u003e \u003cli\u003eREVISION_MISSING: The revision ID was missing. Note that this error code will most likely be raised if the revision is deleted after the deployment is created but before it starts.\u003c/li\u003e \u003cli\u003eIAM_ROLE_MISSING: The service role cannot be accessed.\u003c/li\u003e \u003cli\u003eIAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.\u003c/li\u003e \u003cli\u003eOVER_MAX_INSTANCES: The maximum number of instances was exceeded.\u003c/li\u003e \u003cli\u003eNO_INSTANCES: No instances were specified, or no instances can be found.\u003c/li\u003e \u003cli\u003eTIMEOUT: The deployment has timed out.\u003c/li\u003e \u003cli\u003eHEALTH_CONSTRAINTS_INVALID: The revision can never successfully deploy under the instance health constraints as specified.\u003c/li\u003e \u003cli\u003eHEALTH_CONSTRAINTS: The deployment failed on too many instances to be able to successfully deploy under the specified instance health constraints.\u003c/li\u003e \u003cli\u003eINTERNAL_ERROR: There was an internal error.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ErrorCode",
+                        "type": "Maybe ErrorCode"
                     },
                     {
                         "location": null,
@@ -2223,8 +2219,8 @@
                         "shape": "ErrorCode",
                         "locationName": "code",
                         "documentation": "\u003cp\u003eThe error code:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAPPLICATION_MISSING: The application was missing. Note that this error code will most likely be raised if the application is deleted after the deployment is created but before it starts.\u003c/li\u003e \u003cli\u003eDEPLOYMENT_GROUP_MISSING: The deployment group was missing. Note that this error code will most likely be raised if the deployment group is deleted after the deployment is created but before it starts.\u003c/li\u003e \u003cli\u003eREVISION_MISSING: The revision ID was missing. Note that this error code will most likely be raised if the revision is deleted after the deployment is created but before it starts.\u003c/li\u003e \u003cli\u003eIAM_ROLE_MISSING: The service role cannot be accessed.\u003c/li\u003e \u003cli\u003eIAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.\u003c/li\u003e \u003cli\u003eOVER_MAX_INSTANCES: The maximum number of instances was exceeded.\u003c/li\u003e \u003cli\u003eNO_INSTANCES: No instances were specified, or no instances can be found.\u003c/li\u003e \u003cli\u003eTIMEOUT: The deployment has timed out.\u003c/li\u003e \u003cli\u003eHEALTH_CONSTRAINTS_INVALID: The revision can never successfully deploy under the instance health constraints as specified.\u003c/li\u003e \u003cli\u003eHEALTH_CONSTRAINTS: The deployment failed on too many instances to be able to successfully deploy under the specified instance health constraints.\u003c/li\u003e \u003cli\u003eINTERNAL_ERROR: There was an internal error.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ErrorCode",
+                        "type": "Maybe ErrorCode"
                     },
                     {
                         "location": null,
@@ -2355,8 +2351,8 @@
                         "shape": "DeploymentStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe current state of the deployment as a whole.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeploymentStatus",
+                        "type": "Maybe DeploymentStatus"
                     },
                     {
                         "location": null,
@@ -2460,8 +2456,8 @@
                         "shape": "DeploymentCreator",
                         "locationName": "creator",
                         "documentation": "\u003cp\u003eHow the deployment was created:\u003c/p\u003e \u003cul\u003e \u003cli\u003euser: A user created the deployment.\u003c/li\u003e \u003cli\u003eautoscaling: Auto Scaling created the deployment.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeploymentCreator",
+                        "type": "Maybe DeploymentCreator"
                     },
                     {
                         "location": null,
@@ -2573,8 +2569,8 @@
                         "shape": "DeploymentStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe current state of the deployment as a whole.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeploymentStatus",
+                        "type": "Maybe DeploymentStatus"
                     },
                     {
                         "location": null,
@@ -2678,8 +2674,8 @@
                         "shape": "DeploymentCreator",
                         "locationName": "creator",
                         "documentation": "\u003cp\u003eHow the deployment was created:\u003c/p\u003e \u003cul\u003e \u003cli\u003euser: A user created the deployment.\u003c/li\u003e \u003cli\u003eautoscaling: Auto Scaling created the deployment.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeploymentCreator",
+                        "type": "Maybe DeploymentCreator"
                     },
                     {
                         "location": null,
@@ -2755,8 +2751,8 @@
                         "shape": "DeploymentCreator",
                         "locationName": "creator",
                         "documentation": "\u003cp\u003eHow the deployment was created:\u003c/p\u003e \u003cul\u003e \u003cli\u003euser: A user created the deployment.\u003c/li\u003e \u003cli\u003eautoscaling: Auto Scaling created the deployment.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeploymentCreator",
+                        "type": "Maybe DeploymentCreator"
                     },
                     {
                         "location": null,
@@ -2905,8 +2901,8 @@
                         "shape": "DeploymentStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe current state of the deployment as a whole.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe DeploymentStatus",
+                        "type": "Maybe DeploymentStatus"
                     }
                 ]
             },
@@ -2990,8 +2986,8 @@
                         "shape": "LifecycleEventStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe deployment lifecycle event status:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: The deployment lifecycle event is pending.\u003c/li\u003e \u003cli\u003eInProgress: The deployment lifecycle event is in progress.\u003c/li\u003e \u003cli\u003eSucceeded: The deployment lifecycle event has succeeded.\u003c/li\u003e \u003cli\u003eFailed: The deployment lifecycle event has failed.\u003c/li\u003e \u003cli\u003eSkipped: The deployment lifecycle event has been skipped.\u003c/li\u003e \u003cli\u003eUnknown: The deployment lifecycle event is unknown.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe LifecycleEventStatus",
+                        "type": "Maybe LifecycleEventStatus"
                     }
                 ],
                 "payload": null,
@@ -3073,8 +3069,8 @@
                         "shape": "LifecycleEventStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe deployment lifecycle event status:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: The deployment lifecycle event is pending.\u003c/li\u003e \u003cli\u003eInProgress: The deployment lifecycle event is in progress.\u003c/li\u003e \u003cli\u003eSucceeded: The deployment lifecycle event has succeeded.\u003c/li\u003e \u003cli\u003eFailed: The deployment lifecycle event has failed.\u003c/li\u003e \u003cli\u003eSkipped: The deployment lifecycle event has been skipped.\u003c/li\u003e \u003cli\u003eUnknown: The deployment lifecycle event is unknown.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe LifecycleEventStatus",
+                        "type": "Maybe LifecycleEventStatus"
                     }
                 ],
                 "fields": [
@@ -3150,8 +3146,8 @@
                         "shape": "LifecycleEventStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe deployment lifecycle event status:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: The deployment lifecycle event is pending.\u003c/li\u003e \u003cli\u003eInProgress: The deployment lifecycle event is in progress.\u003c/li\u003e \u003cli\u003eSucceeded: The deployment lifecycle event has succeeded.\u003c/li\u003e \u003cli\u003eFailed: The deployment lifecycle event has failed.\u003c/li\u003e \u003cli\u003eSkipped: The deployment lifecycle event has been skipped.\u003c/li\u003e \u003cli\u003eUnknown: The deployment lifecycle event is unknown.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe LifecycleEventStatus",
+                        "type": "Maybe LifecycleEventStatus"
                     }
                 ]
             },
@@ -3672,7 +3668,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 13,
@@ -3720,8 +3715,8 @@
                         "shape": "BundleType",
                         "locationName": "bundleType",
                         "documentation": "\u003cp\u003eThe file type of the application revision. Must be one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003etar: A tar archive file.\u003c/li\u003e \u003cli\u003etgz: A compressed tar archive file.\u003c/li\u003e \u003cli\u003ezip: A zip archive file.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BundleType",
+                        "type": "Maybe BundleType"
                     },
                     {
                         "location": null,
@@ -3803,8 +3798,8 @@
                         "shape": "BundleType",
                         "locationName": "bundleType",
                         "documentation": "\u003cp\u003eThe file type of the application revision. Must be one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003etar: A tar archive file.\u003c/li\u003e \u003cli\u003etgz: A compressed tar archive file.\u003c/li\u003e \u003cli\u003ezip: A zip archive file.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BundleType",
+                        "type": "Maybe BundleType"
                     },
                     {
                         "location": null,
@@ -3865,8 +3860,8 @@
                         "shape": "BundleType",
                         "locationName": "bundleType",
                         "documentation": "\u003cp\u003eThe file type of the application revision. Must be one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003etar: A tar archive file.\u003c/li\u003e \u003cli\u003etgz: A compressed tar archive file.\u003c/li\u003e \u003cli\u003ezip: A zip archive file.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe BundleType",
+                        "type": "Maybe BundleType"
                     },
                     {
                         "location": null,
@@ -7804,7 +7799,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -7840,8 +7834,8 @@
                         "shape": "ApplicationRevisionSortBy",
                         "locationName": "sortBy",
                         "documentation": "\u003cp\u003eThe column name to sort the list results by:\u003c/p\u003e \u003cul\u003e \u003cli\u003eregisterTime: Sort the list results by when the revisions were registered with AWS CodeDeploy.\u003c/li\u003e \u003cli\u003efirstUsedTime: Sort the list results by when the revisions were first used by in a deployment.\u003c/li\u003e \u003cli\u003elastUsedTime: Sort the list results by when the revisions were last used in a deployment.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf not specified or set to null, the results will be returned in an arbitrary order.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ApplicationRevisionSortBy",
+                        "type": "Maybe ApplicationRevisionSortBy"
                     },
                     {
                         "location": null,
@@ -7855,8 +7849,8 @@
                         "shape": "SortOrder",
                         "locationName": "sortOrder",
                         "documentation": "\u003cp\u003eThe order to sort the list results by:\u003c/p\u003e \u003cul\u003e \u003cli\u003eascending: Sort the list results in ascending order.\u003c/li\u003e \u003cli\u003edescending: Sort the list results in descending order.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf not specified, the results will be sorted in ascending order.\u003c/p\u003e \u003cp\u003eIf set to null, the results will be sorted in an arbitrary order.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SortOrder",
+                        "type": "Maybe SortOrder"
                     },
                     {
                         "location": null,
@@ -7900,8 +7894,8 @@
                         "shape": "ListStateFilterAction",
                         "locationName": "deployed",
                         "documentation": "\u003cp\u003eWhether to list revisions based on whether the revision is the target revision of an deployment group:\u003c/p\u003e \u003cul\u003e \u003cli\u003einclude: List revisions that are target revisions of a deployment group.\u003c/li\u003e \u003cli\u003eexclude: Do not list revisions that are target revisions of a deployment group.\u003c/li\u003e \u003cli\u003eignore: List all revisions, regardless of whether they are target revisions of a deployment group.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ListStateFilterAction",
+                        "type": "Maybe ListStateFilterAction"
                     },
                     {
                         "location": null,
@@ -7967,8 +7961,8 @@
                         "shape": "ApplicationRevisionSortBy",
                         "locationName": "sortBy",
                         "documentation": "\u003cp\u003eThe column name to sort the list results by:\u003c/p\u003e \u003cul\u003e \u003cli\u003eregisterTime: Sort the list results by when the revisions were registered with AWS CodeDeploy.\u003c/li\u003e \u003cli\u003efirstUsedTime: Sort the list results by when the revisions were first used by in a deployment.\u003c/li\u003e \u003cli\u003elastUsedTime: Sort the list results by when the revisions were last used in a deployment.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf not specified or set to null, the results will be returned in an arbitrary order.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ApplicationRevisionSortBy",
+                        "type": "Maybe ApplicationRevisionSortBy"
                     },
                     {
                         "location": null,
@@ -7982,8 +7976,8 @@
                         "shape": "SortOrder",
                         "locationName": "sortOrder",
                         "documentation": "\u003cp\u003eThe order to sort the list results by:\u003c/p\u003e \u003cul\u003e \u003cli\u003eascending: Sort the list results in ascending order.\u003c/li\u003e \u003cli\u003edescending: Sort the list results in descending order.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf not specified, the results will be sorted in ascending order.\u003c/p\u003e \u003cp\u003eIf set to null, the results will be sorted in an arbitrary order.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SortOrder",
+                        "type": "Maybe SortOrder"
                     },
                     {
                         "location": null,
@@ -8027,8 +8021,8 @@
                         "shape": "ListStateFilterAction",
                         "locationName": "deployed",
                         "documentation": "\u003cp\u003eWhether to list revisions based on whether the revision is the target revision of an deployment group:\u003c/p\u003e \u003cul\u003e \u003cli\u003einclude: List revisions that are target revisions of a deployment group.\u003c/li\u003e \u003cli\u003eexclude: Do not list revisions that are target revisions of a deployment group.\u003c/li\u003e \u003cli\u003eignore: List all revisions, regardless of whether they are target revisions of a deployment group.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ListStateFilterAction",
+                        "type": "Maybe ListStateFilterAction"
                     },
                     {
                         "location": null,
@@ -8074,8 +8068,8 @@
                         "shape": "ListStateFilterAction",
                         "locationName": "deployed",
                         "documentation": "\u003cp\u003eWhether to list revisions based on whether the revision is the target revision of an deployment group:\u003c/p\u003e \u003cul\u003e \u003cli\u003einclude: List revisions that are target revisions of a deployment group.\u003c/li\u003e \u003cli\u003eexclude: Do not list revisions that are target revisions of a deployment group.\u003c/li\u003e \u003cli\u003eignore: List all revisions, regardless of whether they are target revisions of a deployment group.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ListStateFilterAction",
+                        "type": "Maybe ListStateFilterAction"
                     },
                     {
                         "location": null,
@@ -8134,8 +8128,8 @@
                         "shape": "ApplicationRevisionSortBy",
                         "locationName": "sortBy",
                         "documentation": "\u003cp\u003eThe column name to sort the list results by:\u003c/p\u003e \u003cul\u003e \u003cli\u003eregisterTime: Sort the list results by when the revisions were registered with AWS CodeDeploy.\u003c/li\u003e \u003cli\u003efirstUsedTime: Sort the list results by when the revisions were first used by in a deployment.\u003c/li\u003e \u003cli\u003elastUsedTime: Sort the list results by when the revisions were last used in a deployment.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf not specified or set to null, the results will be returned in an arbitrary order.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ApplicationRevisionSortBy",
+                        "type": "Maybe ApplicationRevisionSortBy"
                     },
                     {
                         "location": null,
@@ -8149,8 +8143,8 @@
                         "shape": "SortOrder",
                         "locationName": "sortOrder",
                         "documentation": "\u003cp\u003eThe order to sort the list results by:\u003c/p\u003e \u003cul\u003e \u003cli\u003eascending: Sort the list results in ascending order.\u003c/li\u003e \u003cli\u003edescending: Sort the list results in descending order.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIf not specified, the results will be sorted in ascending order.\u003c/p\u003e \u003cp\u003eIf set to null, the results will be sorted in an arbitrary order.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SortOrder",
+                        "type": "Maybe SortOrder"
                     }
                 ]
             }
@@ -9068,7 +9062,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -9119,8 +9112,8 @@
                         "shape": "InstanceStatusList",
                         "locationName": "instanceStatusFilter",
                         "documentation": "\u003cp\u003eA subset of instances to list, by status:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: Include in the resulting list those instances with pending deployments.\u003c/li\u003e \u003cli\u003eInProgress: Include in the resulting list those instances with in-progress deployments.\u003c/li\u003e \u003cli\u003eSucceeded: Include in the resulting list those instances with succeeded deployments.\u003c/li\u003e \u003cli\u003eFailed: Include in the resulting list those instances with failed deployments.\u003c/li\u003e \u003cli\u003eSkipped: Include in the resulting list those instances with skipped deployments.\u003c/li\u003e \u003cli\u003eUnknown: Include in the resulting list those instances with deployments in an unknown state.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"instanceStatusFilter\" Text"
+                        "typeExposed": "[InstanceStatus]",
+                        "type": "List \"instanceStatusFilter\" InstanceStatus"
                     }
                 ],
                 "path": [
@@ -9186,8 +9179,8 @@
                         "shape": "InstanceStatusList",
                         "locationName": "instanceStatusFilter",
                         "documentation": "\u003cp\u003eA subset of instances to list, by status:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: Include in the resulting list those instances with pending deployments.\u003c/li\u003e \u003cli\u003eInProgress: Include in the resulting list those instances with in-progress deployments.\u003c/li\u003e \u003cli\u003eSucceeded: Include in the resulting list those instances with succeeded deployments.\u003c/li\u003e \u003cli\u003eFailed: Include in the resulting list those instances with failed deployments.\u003c/li\u003e \u003cli\u003eSkipped: Include in the resulting list those instances with skipped deployments.\u003c/li\u003e \u003cli\u003eUnknown: Include in the resulting list those instances with deployments in an unknown state.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"instanceStatusFilter\" Text"
+                        "typeExposed": "[InstanceStatus]",
+                        "type": "List \"instanceStatusFilter\" InstanceStatus"
                     }
                 ],
                 "fields": [
@@ -9218,8 +9211,8 @@
                         "shape": "InstanceStatusList",
                         "locationName": "instanceStatusFilter",
                         "documentation": "\u003cp\u003eA subset of instances to list, by status:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: Include in the resulting list those instances with pending deployments.\u003c/li\u003e \u003cli\u003eInProgress: Include in the resulting list those instances with in-progress deployments.\u003c/li\u003e \u003cli\u003eSucceeded: Include in the resulting list those instances with succeeded deployments.\u003c/li\u003e \u003cli\u003eFailed: Include in the resulting list those instances with failed deployments.\u003c/li\u003e \u003cli\u003eSkipped: Include in the resulting list those instances with skipped deployments.\u003c/li\u003e \u003cli\u003eUnknown: Include in the resulting list those instances with deployments in an unknown state.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"instanceStatusFilter\" Text"
+                        "typeExposed": "[InstanceStatus]",
+                        "type": "List \"instanceStatusFilter\" InstanceStatus"
                     },
                     {
                         "location": null,
@@ -9426,8 +9419,8 @@
                         "shape": "DeploymentStatusList",
                         "locationName": "includeOnlyStatuses",
                         "documentation": "\u003cpara\u003eA subset of deployments to list, by status:\u003c/para\u003e \u003cul\u003e \u003cli\u003eCreated: Include in the resulting list created deployments.\u003c/li\u003e \u003cli\u003eQueued: Include in the resulting list queued deployments.\u003c/li\u003e \u003cli\u003eIn Progress: Include in the resulting list in-progress deployments.\u003c/li\u003e \u003cli\u003eSucceeded: Include in the resulting list succeeded deployments.\u003c/li\u003e \u003cli\u003eFailed: Include in the resulting list failed deployments.\u003c/li\u003e \u003cli\u003eAborted: Include in the resulting list aborted deployments.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"includeOnlyStatuses\" Text"
+                        "typeExposed": "[DeploymentStatus]",
+                        "type": "List \"includeOnlyStatuses\" DeploymentStatus"
                     },
                     {
                         "location": null,
@@ -9522,8 +9515,8 @@
                         "shape": "DeploymentStatusList",
                         "locationName": "includeOnlyStatuses",
                         "documentation": "\u003cpara\u003eA subset of deployments to list, by status:\u003c/para\u003e \u003cul\u003e \u003cli\u003eCreated: Include in the resulting list created deployments.\u003c/li\u003e \u003cli\u003eQueued: Include in the resulting list queued deployments.\u003c/li\u003e \u003cli\u003eIn Progress: Include in the resulting list in-progress deployments.\u003c/li\u003e \u003cli\u003eSucceeded: Include in the resulting list succeeded deployments.\u003c/li\u003e \u003cli\u003eFailed: Include in the resulting list failed deployments.\u003c/li\u003e \u003cli\u003eAborted: Include in the resulting list aborted deployments.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"includeOnlyStatuses\" Text"
+                        "typeExposed": "[DeploymentStatus]",
+                        "type": "List \"includeOnlyStatuses\" DeploymentStatus"
                     },
                     {
                         "location": null,
@@ -9614,8 +9607,8 @@
                         "shape": "DeploymentStatusList",
                         "locationName": "includeOnlyStatuses",
                         "documentation": "\u003cpara\u003eA subset of deployments to list, by status:\u003c/para\u003e \u003cul\u003e \u003cli\u003eCreated: Include in the resulting list created deployments.\u003c/li\u003e \u003cli\u003eQueued: Include in the resulting list queued deployments.\u003c/li\u003e \u003cli\u003eIn Progress: Include in the resulting list in-progress deployments.\u003c/li\u003e \u003cli\u003eSucceeded: Include in the resulting list succeeded deployments.\u003c/li\u003e \u003cli\u003eFailed: Include in the resulting list failed deployments.\u003c/li\u003e \u003cli\u003eAborted: Include in the resulting list aborted deployments.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "[Text]",
-                        "type": "List \"includeOnlyStatuses\" Text"
+                        "typeExposed": "[DeploymentStatus]",
+                        "type": "List \"includeOnlyStatuses\" DeploymentStatus"
                     },
                     {
                         "location": null,
@@ -9851,7 +9844,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -9872,8 +9864,8 @@
                         "shape": "StopStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the stop deployment operation:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: The stop operation is pending.\u003c/li\u003e \u003cli\u003eSucceeded: The stop operation succeeded.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StopStatus",
+                        "type": "Maybe StopStatus"
                     },
                     {
                         "location": null,
@@ -9916,8 +9908,8 @@
                         "shape": "StopStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the stop deployment operation:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: The stop operation is pending.\u003c/li\u003e \u003cli\u003eSucceeded: The stop operation succeeded.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StopStatus",
+                        "type": "Maybe StopStatus"
                     },
                     {
                         "location": null,
@@ -9948,8 +9940,8 @@
                         "shape": "StopStatus",
                         "locationName": "status",
                         "documentation": "\u003cp\u003eThe status of the stop deployment operation:\u003c/p\u003e \u003cul\u003e \u003cli\u003ePending: The stop operation is pending.\u003c/li\u003e \u003cli\u003eSucceeded: The stop operation succeeded.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe StopStatus",
+                        "type": "Maybe StopStatus"
                     },
                     {
                         "location": null,

@@ -59,8 +59,8 @@ data DescribeAlarms = DescribeAlarms
     , _daAlarmNames      :: List "AlarmNames" Text
     , _daMaxRecords      :: Maybe Nat
     , _daNextToken       :: Maybe Text
-    , _daStateValue      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _daStateValue      :: Maybe StateValue
+    } deriving (Eq, Show)
 
 -- | 'DescribeAlarms' constructor.
 --
@@ -76,7 +76,7 @@ data DescribeAlarms = DescribeAlarms
 --
 -- * 'daNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'daStateValue' @::@ 'Maybe' 'Text'
+-- * 'daStateValue' @::@ 'Maybe' 'StateValue'
 --
 describeAlarms :: DescribeAlarms
 describeAlarms = DescribeAlarms
@@ -112,7 +112,7 @@ daNextToken :: Lens' DescribeAlarms (Maybe Text)
 daNextToken = lens _daNextToken (\s a -> s { _daNextToken = a })
 
 -- | The state value to be used in matching alarms.
-daStateValue :: Lens' DescribeAlarms (Maybe Text)
+daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
 daStateValue = lens _daStateValue (\s a -> s { _daStateValue = a })
 
 data DescribeAlarmsResponse = DescribeAlarmsResponse

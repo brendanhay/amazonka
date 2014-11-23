@@ -53,8 +53,8 @@ data SetAlarmState = SetAlarmState
     { _sasAlarmName       :: Text
     , _sasStateReason     :: Text
     , _sasStateReasonData :: Maybe Text
-    , _sasStateValue      :: Text
-    } deriving (Eq, Ord, Show)
+    , _sasStateValue      :: StateValue
+    } deriving (Eq, Show)
 
 -- | 'SetAlarmState' constructor.
 --
@@ -66,10 +66,10 @@ data SetAlarmState = SetAlarmState
 --
 -- * 'sasStateReasonData' @::@ 'Maybe' 'Text'
 --
--- * 'sasStateValue' @::@ 'Text'
+-- * 'sasStateValue' @::@ 'StateValue'
 --
 setAlarmState :: Text -- ^ 'sasAlarmName'
-              -> Text -- ^ 'sasStateValue'
+              -> StateValue -- ^ 'sasStateValue'
               -> Text -- ^ 'sasStateReason'
               -> SetAlarmState
 setAlarmState p1 p2 p3 = SetAlarmState
@@ -96,7 +96,7 @@ sasStateReasonData =
     lens _sasStateReasonData (\s a -> s { _sasStateReasonData = a })
 
 -- | The value of the state.
-sasStateValue :: Lens' SetAlarmState Text
+sasStateValue :: Lens' SetAlarmState StateValue
 sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
 
 data SetAlarmStateResponse = SetAlarmStateResponse

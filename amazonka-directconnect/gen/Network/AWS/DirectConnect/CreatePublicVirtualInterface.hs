@@ -107,7 +107,7 @@ data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
     , _cpvirVirtualGatewayId      :: Maybe Text
     , _cpvirVirtualInterfaceId    :: Maybe Text
     , _cpvirVirtualInterfaceName  :: Maybe Text
-    , _cpvirVirtualInterfaceState :: Maybe Text
+    , _cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState
     , _cpvirVirtualInterfaceType  :: Maybe Text
     , _cpvirVlan                  :: Maybe Int
     } deriving (Eq, Show)
@@ -140,7 +140,7 @@ data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
 --
 -- * 'cpvirVirtualInterfaceName' @::@ 'Maybe' 'Text'
 --
--- * 'cpvirVirtualInterfaceState' @::@ 'Maybe' 'Text'
+-- * 'cpvirVirtualInterfaceState' @::@ 'Maybe' 'VirtualInterfaceState'
 --
 -- * 'cpvirVirtualInterfaceType' @::@ 'Maybe' 'Text'
 --
@@ -215,7 +215,7 @@ cpvirVirtualInterfaceName =
     lens _cpvirVirtualInterfaceName
         (\s a -> s { _cpvirVirtualInterfaceName = a })
 
-cpvirVirtualInterfaceState :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
+cpvirVirtualInterfaceState :: Lens' CreatePublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 cpvirVirtualInterfaceState =
     lens _cpvirVirtualInterfaceState
         (\s a -> s { _cpvirVirtualInterfaceState = a })

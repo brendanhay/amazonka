@@ -55,7 +55,7 @@ data ListDeployments = ListDeployments
     { _ldApplicationName     :: Maybe Text
     , _ldCreateTimeRange     :: Maybe TimeRange
     , _ldDeploymentGroupName :: Maybe Text
-    , _ldIncludeOnlyStatuses :: List "includeOnlyStatuses" Text
+    , _ldIncludeOnlyStatuses :: List "includeOnlyStatuses" DeploymentStatus
     , _ldNextToken           :: Maybe Text
     } deriving (Eq, Show)
 
@@ -69,7 +69,7 @@ data ListDeployments = ListDeployments
 --
 -- * 'ldDeploymentGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'ldIncludeOnlyStatuses' @::@ ['Text']
+-- * 'ldIncludeOnlyStatuses' @::@ ['DeploymentStatus']
 --
 -- * 'ldNextToken' @::@ 'Maybe' 'Text'
 --
@@ -105,7 +105,7 @@ ldDeploymentGroupName =
 -- in-progress deployments. Succeeded: Include in the resulting list
 -- succeeded deployments. Failed: Include in the resulting list failed
 -- deployments. Aborted: Include in the resulting list aborted deployments.
-ldIncludeOnlyStatuses :: Lens' ListDeployments [Text]
+ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
 ldIncludeOnlyStatuses =
     lens _ldIncludeOnlyStatuses (\s a -> s { _ldIncludeOnlyStatuses = a })
         . _List

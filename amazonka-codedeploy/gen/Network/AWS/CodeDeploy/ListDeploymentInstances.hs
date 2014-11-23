@@ -51,9 +51,9 @@ import qualified GHC.Exts
 
 data ListDeploymentInstances = ListDeploymentInstances
     { _ldiDeploymentId         :: Text
-    , _ldiInstanceStatusFilter :: List "instanceStatusFilter" Text
+    , _ldiInstanceStatusFilter :: List "instanceStatusFilter" InstanceStatus
     , _ldiNextToken            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ListDeploymentInstances' constructor.
 --
@@ -61,7 +61,7 @@ data ListDeploymentInstances = ListDeploymentInstances
 --
 -- * 'ldiDeploymentId' @::@ 'Text'
 --
--- * 'ldiInstanceStatusFilter' @::@ ['Text']
+-- * 'ldiInstanceStatusFilter' @::@ ['InstanceStatus']
 --
 -- * 'ldiNextToken' @::@ 'Maybe' 'Text'
 --
@@ -85,7 +85,7 @@ ldiDeploymentId = lens _ldiDeploymentId (\s a -> s { _ldiDeploymentId = a })
 -- instances with failed deployments. Skipped: Include in the resulting list
 -- those instances with skipped deployments. Unknown: Include in the
 -- resulting list those instances with deployments in an unknown state.
-ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [Text]
+ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
 ldiInstanceStatusFilter =
     lens _ldiInstanceStatusFilter (\s a -> s { _ldiInstanceStatusFilter = a })
         . _List

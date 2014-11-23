@@ -266,7 +266,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse
     , _upcrSSECustomerAlgorithm :: Maybe Text
     , _upcrSSECustomerKeyMD5    :: Maybe Text
     , _upcrSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _upcrServerSideEncryption :: Maybe Text
+    , _upcrServerSideEncryption :: Maybe ServerSideEncryption
     } deriving (Eq, Show)
 
 -- | 'UploadPartCopyResponse' constructor.
@@ -283,7 +283,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse
 --
 -- * 'upcrSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'upcrServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'upcrServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
 uploadPartCopyResponse :: UploadPartCopyResponse
 uploadPartCopyResponse = UploadPartCopyResponse
@@ -326,7 +326,7 @@ upcrSSEKMSKeyId = lens _upcrSSEKMSKeyId (\s a -> s { _upcrSSEKMSKeyId = a }) . m
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-upcrServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe Text)
+upcrServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe ServerSideEncryption)
 upcrServerSideEncryption =
     lens _upcrServerSideEncryption
         (\s a -> s { _upcrServerSideEncryption = a })

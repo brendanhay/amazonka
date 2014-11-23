@@ -1597,7 +1597,7 @@ instance ToJSON AutoScalingThresholds where
 data App = App
     { _appAppId            :: Maybe Text
     , _appAppSource        :: Maybe Source
-    , _appAttributes       :: Map Text Text
+    , _appAttributes       :: Map AppAttributesKeys Text
     , _appCreatedAt        :: Maybe Text
     , _appDataSources      :: List "DataSources" DataSource
     , _appDescription      :: Maybe Text
@@ -1607,7 +1607,7 @@ data App = App
     , _appShortname        :: Maybe Text
     , _appSslConfiguration :: Maybe SslConfiguration
     , _appStackId          :: Maybe Text
-    , _appType             :: Maybe Text
+    , _appType             :: Maybe AppType
     } deriving (Eq, Show)
 
 -- | 'App' constructor.
@@ -1618,7 +1618,7 @@ data App = App
 --
 -- * 'appAppSource' @::@ 'Maybe' 'Source'
 --
--- * 'appAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'appAttributes' @::@ 'HashMap' 'AppAttributesKeys' 'Text'
 --
 -- * 'appCreatedAt' @::@ 'Maybe' 'Text'
 --
@@ -1638,7 +1638,7 @@ data App = App
 --
 -- * 'appStackId' @::@ 'Maybe' 'Text'
 --
--- * 'appType' @::@ 'Maybe' 'Text'
+-- * 'appType' @::@ 'Maybe' 'AppType'
 --
 app :: App
 app = App
@@ -1666,7 +1666,7 @@ appAppSource :: Lens' App (Maybe Source)
 appAppSource = lens _appAppSource (\s a -> s { _appAppSource = a })
 
 -- | The stack attributes.
-appAttributes :: Lens' App (HashMap Text Text)
+appAttributes :: Lens' App (HashMap AppAttributesKeys Text)
 appAttributes = lens _appAttributes (\s a -> s { _appAttributes = a }) . _Map
 
 -- | When the app was created.
@@ -1708,7 +1708,7 @@ appStackId :: Lens' App (Maybe Text)
 appStackId = lens _appStackId (\s a -> s { _appStackId = a })
 
 -- | The app type.
-appType :: Lens' App (Maybe Text)
+appType :: Lens' App (Maybe AppType)
 appType = lens _appType (\s a -> s { _appType = a })
 
 instance FromJSON App where
@@ -1908,10 +1908,10 @@ data Source = Source
     { _sPassword :: Maybe Text
     , _sRevision :: Maybe Text
     , _sSshKey   :: Maybe Text
-    , _sType     :: Maybe Text
+    , _sType     :: Maybe SourceType
     , _sUrl      :: Maybe Text
     , _sUsername :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Source' constructor.
 --
@@ -1923,7 +1923,7 @@ data Source = Source
 --
 -- * 'sSshKey' @::@ 'Maybe' 'Text'
 --
--- * 'sType' @::@ 'Maybe' 'Text'
+-- * 'sType' @::@ 'Maybe' 'SourceType'
 --
 -- * 'sUrl' @::@ 'Maybe' 'Text'
 --
@@ -1958,7 +1958,7 @@ sSshKey :: Lens' Source (Maybe Text)
 sSshKey = lens _sSshKey (\s a -> s { _sSshKey = a })
 
 -- | The repository type.
-sType :: Lens' Source (Maybe Text)
+sType :: Lens' Source (Maybe SourceType)
 sType = lens _sType (\s a -> s { _sType = a })
 
 -- | The source URL.
@@ -2341,7 +2341,7 @@ instance ToJSON Permission where
         ]
 
 data Layer = Layer
-    { _lAttributes                :: Map Text Text
+    { _lAttributes                :: Map LayerAttributesKeys Text
     , _lAutoAssignElasticIps      :: Maybe Bool
     , _lAutoAssignPublicIps       :: Maybe Bool
     , _lCreatedAt                 :: Maybe Text
@@ -2357,7 +2357,7 @@ data Layer = Layer
     , _lPackages                  :: List "InstanceIds" Text
     , _lShortname                 :: Maybe Text
     , _lStackId                   :: Maybe Text
-    , _lType                      :: Maybe Text
+    , _lType                      :: Maybe LayerType
     , _lUseEbsOptimizedInstances  :: Maybe Bool
     , _lVolumeConfigurations      :: List "VolumeConfigurations" VolumeConfiguration
     } deriving (Eq, Show)
@@ -2366,7 +2366,7 @@ data Layer = Layer
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'lAttributes' @::@ 'HashMap' 'LayerAttributesKeys' 'Text'
 --
 -- * 'lAutoAssignElasticIps' @::@ 'Maybe' 'Bool'
 --
@@ -2398,7 +2398,7 @@ data Layer = Layer
 --
 -- * 'lStackId' @::@ 'Maybe' 'Text'
 --
--- * 'lType' @::@ 'Maybe' 'Text'
+-- * 'lType' @::@ 'Maybe' 'LayerType'
 --
 -- * 'lUseEbsOptimizedInstances' @::@ 'Maybe' 'Bool'
 --
@@ -2428,7 +2428,7 @@ layer = Layer
     }
 
 -- | The layer attributes.
-lAttributes :: Lens' Layer (HashMap Text Text)
+lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
 lAttributes = lens _lAttributes (\s a -> s { _lAttributes = a }) . _Map
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
@@ -2512,7 +2512,7 @@ lStackId = lens _lStackId (\s a -> s { _lStackId = a })
 -- | The layer type, which must be one of the following: Custom
 -- GangliaMonitoringMaster HaProxy MemcachedServer MySqlMaster
 -- NodeJsAppServer PhpAppServer RailsAppServer WebServer.
-lType :: Lens' Layer (Maybe Text)
+lType :: Lens' Layer (Maybe LayerType)
 lType = lens _lType (\s a -> s { _lType = a })
 
 -- | Whether the layer uses Amazon EBS-optimized instances.
@@ -2763,7 +2763,7 @@ instance ToJSON RootDeviceType where
 
 data Stack = Stack
     { _sArn                       :: Maybe Text
-    , _sAttributes                :: Map Text Text
+    , _sAttributes                :: Map StackAttributesKeys Text
     , _sChefConfiguration         :: Maybe ChefConfiguration
     , _sConfigurationManager      :: Maybe StackConfigurationManager
     , _sCreatedAt                 :: Maybe Text
@@ -2772,7 +2772,7 @@ data Stack = Stack
     , _sDefaultAvailabilityZone   :: Maybe Text
     , _sDefaultInstanceProfileArn :: Maybe Text
     , _sDefaultOs                 :: Maybe Text
-    , _sDefaultRootDeviceType     :: Maybe Text
+    , _sDefaultRootDeviceType     :: Maybe RootDeviceType
     , _sDefaultSshKeyName         :: Maybe Text
     , _sDefaultSubnetId           :: Maybe Text
     , _sHostnameTheme             :: Maybe Text
@@ -2791,7 +2791,7 @@ data Stack = Stack
 --
 -- * 'sArn' @::@ 'Maybe' 'Text'
 --
--- * 'sAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'sAttributes' @::@ 'HashMap' 'StackAttributesKeys' 'Text'
 --
 -- * 'sChefConfiguration' @::@ 'Maybe' 'ChefConfiguration'
 --
@@ -2809,7 +2809,7 @@ data Stack = Stack
 --
 -- * 'sDefaultOs' @::@ 'Maybe' 'Text'
 --
--- * 'sDefaultRootDeviceType' @::@ 'Maybe' 'Text'
+-- * 'sDefaultRootDeviceType' @::@ 'Maybe' 'RootDeviceType'
 --
 -- * 'sDefaultSshKeyName' @::@ 'Maybe' 'Text'
 --
@@ -2861,7 +2861,7 @@ sArn :: Lens' Stack (Maybe Text)
 sArn = lens _sArn (\s a -> s { _sArn = a })
 
 -- | The stack's attributes.
-sAttributes :: Lens' Stack (HashMap Text Text)
+sAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
 sAttributes = lens _sAttributes (\s a -> s { _sAttributes = a }) . _Map
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
@@ -2915,7 +2915,7 @@ sDefaultOs = lens _sDefaultOs (\s a -> s { _sDefaultOs = a })
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. For more information, see Storage for the Root Device.
-sDefaultRootDeviceType :: Lens' Stack (Maybe Text)
+sDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
 sDefaultRootDeviceType =
     lens _sDefaultRootDeviceType (\s a -> s { _sDefaultRootDeviceType = a })
 
@@ -3017,7 +3017,7 @@ instance ToJSON Stack where
 
 data DeploymentCommand = DeploymentCommand
     { _dcArgs :: Map Text (List "InstanceIds" Text)
-    , _dcName :: Text
+    , _dcName :: DeploymentCommandName
     } deriving (Eq, Show)
 
 -- | 'DeploymentCommand' constructor.
@@ -3026,9 +3026,9 @@ data DeploymentCommand = DeploymentCommand
 --
 -- * 'dcArgs' @::@ 'HashMap' 'Text' ['Text']
 --
--- * 'dcName' @::@ 'Text'
+-- * 'dcName' @::@ 'DeploymentCommandName'
 --
-deploymentCommand :: Text -- ^ 'dcName'
+deploymentCommand :: DeploymentCommandName -- ^ 'dcName'
                   -> DeploymentCommand
 deploymentCommand p1 = DeploymentCommand
     { _dcName = p1
@@ -3059,7 +3059,7 @@ dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a }) . _Map
 -- application server. stop: Stop the app's web or application server.
 -- restart: Restart the app's web or application server. undeploy: Undeploy
 -- the app.
-dcName :: Lens' DeploymentCommand Text
+dcName :: Lens' DeploymentCommand DeploymentCommandName
 dcName = lens _dcName (\s a -> s { _dcName = a })
 
 instance FromJSON DeploymentCommand where
@@ -3209,8 +3209,8 @@ instance ToJSON DeploymentCommandName where
 
 data Instance = Instance
     { _iAmiId                    :: Maybe Text
-    , _iArchitecture             :: Maybe Text
-    , _iAutoScalingType          :: Maybe Text
+    , _iArchitecture             :: Maybe Architecture
+    , _iAutoScalingType          :: Maybe AutoScalingType
     , _iAvailabilityZone         :: Maybe Text
     , _iCreatedAt                :: Maybe Text
     , _iEbsOptimized             :: Maybe Bool
@@ -3228,7 +3228,7 @@ data Instance = Instance
     , _iPrivateIp                :: Maybe Text
     , _iPublicDns                :: Maybe Text
     , _iPublicIp                 :: Maybe Text
-    , _iRootDeviceType           :: Maybe Text
+    , _iRootDeviceType           :: Maybe RootDeviceType
     , _iRootDeviceVolumeId       :: Maybe Text
     , _iSecurityGroupIds         :: List "InstanceIds" Text
     , _iSshHostDsaKeyFingerprint :: Maybe Text
@@ -3238,7 +3238,7 @@ data Instance = Instance
     , _iStatus                   :: Maybe Text
     , _iSubnetId                 :: Maybe Text
     , _iVirtualizationType       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Instance' constructor.
 --
@@ -3246,9 +3246,9 @@ data Instance = Instance
 --
 -- * 'iAmiId' @::@ 'Maybe' 'Text'
 --
--- * 'iArchitecture' @::@ 'Maybe' 'Text'
+-- * 'iArchitecture' @::@ 'Maybe' 'Architecture'
 --
--- * 'iAutoScalingType' @::@ 'Maybe' 'Text'
+-- * 'iAutoScalingType' @::@ 'Maybe' 'AutoScalingType'
 --
 -- * 'iAvailabilityZone' @::@ 'Maybe' 'Text'
 --
@@ -3284,7 +3284,7 @@ data Instance = Instance
 --
 -- * 'iPublicIp' @::@ 'Maybe' 'Text'
 --
--- * 'iRootDeviceType' @::@ 'Maybe' 'Text'
+-- * 'iRootDeviceType' @::@ 'Maybe' 'RootDeviceType'
 --
 -- * 'iRootDeviceVolumeId' @::@ 'Maybe' 'Text'
 --
@@ -3345,7 +3345,7 @@ iAmiId :: Lens' Instance (Maybe Text)
 iAmiId = lens _iAmiId (\s a -> s { _iAmiId = a })
 
 -- | The instance architecture, "i386" or "x86_64".
-iArchitecture :: Lens' Instance (Maybe Text)
+iArchitecture :: Lens' Instance (Maybe Architecture)
 iArchitecture = lens _iArchitecture (\s a -> s { _iArchitecture = a })
 
 -- | The instance's auto scaling type, which has three possible values:
@@ -3354,7 +3354,7 @@ iArchitecture = lens _iArchitecture (\s a -> s { _iArchitecture = a })
 -- started and stopped based on a specified schedule. LoadBasedAutoScaling:
 -- A load-based auto scaling instance, which is started and stopped based on
 -- load metrics.
-iAutoScalingType :: Lens' Instance (Maybe Text)
+iAutoScalingType :: Lens' Instance (Maybe AutoScalingType)
 iAutoScalingType = lens _iAutoScalingType (\s a -> s { _iAutoScalingType = a })
 
 -- | The instance Availability Zone. For more information, see Regions and
@@ -3442,7 +3442,7 @@ iPublicIp = lens _iPublicIp (\s a -> s { _iPublicIp = a })
 
 -- | The instance root device type. For more information, see Storage for the
 -- Root Device.
-iRootDeviceType :: Lens' Instance (Maybe Text)
+iRootDeviceType :: Lens' Instance (Maybe RootDeviceType)
 iRootDeviceType = lens _iRootDeviceType (\s a -> s { _iRootDeviceType = a })
 
 -- | The root device volume ID.

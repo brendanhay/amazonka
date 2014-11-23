@@ -58,17 +58,17 @@ import Network.AWS.ImportExport.Types
 import qualified GHC.Exts
 
 data CreateJob = CreateJob
-    { _cjJobType          :: Text
+    { _cjJobType          :: JobType
     , _cjManifest         :: Text
     , _cjManifestAddendum :: Maybe Text
     , _cjValidateOnly     :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjJobType' @::@ 'Text'
+-- * 'cjJobType' @::@ 'JobType'
 --
 -- * 'cjManifest' @::@ 'Text'
 --
@@ -76,7 +76,7 @@ data CreateJob = CreateJob
 --
 -- * 'cjValidateOnly' @::@ 'Bool'
 --
-createJob :: Text -- ^ 'cjJobType'
+createJob :: JobType -- ^ 'cjJobType'
           -> Text -- ^ 'cjManifest'
           -> Bool -- ^ 'cjValidateOnly'
           -> CreateJob
@@ -87,7 +87,7 @@ createJob p1 p2 p3 = CreateJob
     , _cjManifestAddendum = Nothing
     }
 
-cjJobType :: Lens' CreateJob Text
+cjJobType :: Lens' CreateJob JobType
 cjJobType = lens _cjJobType (\s a -> s { _cjJobType = a })
 
 cjManifest :: Lens' CreateJob Text
@@ -103,11 +103,11 @@ cjValidateOnly = lens _cjValidateOnly (\s a -> s { _cjValidateOnly = a })
 data CreateJobResponse = CreateJobResponse
     { _cjrAwsShippingAddress    :: Maybe Text
     , _cjrJobId                 :: Maybe Text
-    , _cjrJobType               :: Maybe Text
+    , _cjrJobType               :: Maybe JobType
     , _cjrSignature             :: Maybe Text
     , _cjrSignatureFileContents :: Maybe Text
     , _cjrWarningMessage        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateJobResponse' constructor.
 --
@@ -117,7 +117,7 @@ data CreateJobResponse = CreateJobResponse
 --
 -- * 'cjrJobId' @::@ 'Maybe' 'Text'
 --
--- * 'cjrJobType' @::@ 'Maybe' 'Text'
+-- * 'cjrJobType' @::@ 'Maybe' 'JobType'
 --
 -- * 'cjrSignature' @::@ 'Maybe' 'Text'
 --
@@ -142,7 +142,7 @@ cjrAwsShippingAddress =
 cjrJobId :: Lens' CreateJobResponse (Maybe Text)
 cjrJobId = lens _cjrJobId (\s a -> s { _cjrJobId = a })
 
-cjrJobType :: Lens' CreateJobResponse (Maybe Text)
+cjrJobType :: Lens' CreateJobResponse (Maybe JobType)
 cjrJobType = lens _cjrJobType (\s a -> s { _cjrJobType = a })
 
 cjrSignature :: Lens' CreateJobResponse (Maybe Text)

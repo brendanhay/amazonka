@@ -722,7 +722,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 8,
@@ -740,8 +739,8 @@
                         "shape": "ExtraParamName",
                         "locationName": "Name",
                         "documentation": "\u003cp\u003eName of the additional parameter required by the top-level domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eDUNS_NUMBER\u003c/code\u003e | \u003ccode\u003eBRAND_NUMBER\u003c/code\u003e | \u003ccode\u003eBIRTH_DEPARTMENT\u003c/code\u003e | \u003ccode\u003eBIRTH_DATE_IN_YYYY_MM_DD\u003c/code\u003e | \u003ccode\u003eBIRTH_COUNTRY\u003c/code\u003e | \u003ccode\u003eBIRTH_CITY\u003c/code\u003e | \u003ccode\u003eDOCUMENT_NUMBER\u003c/code\u003e | \u003ccode\u003eAU_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eAU_ID_TYPE\u003c/code\u003e | \u003ccode\u003eCA_LEGAL_TYPE\u003c/code\u003e | \u003ccode\u003eFI_BUSINESS_NUMBER\u003c/code\u003e | \u003ccode\u003eFI_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eIT_PIN\u003c/code\u003e | \u003ccode\u003eRU_PASSPORT_DATA\u003c/code\u003e | \u003ccode\u003eSE_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eSG_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eVAT_NUMBER\u003c/code\u003e\u003c/p\u003e \u003cp\u003eParent: \u003ccode\u003eExtraParams\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ExtraParamName",
+                        "type": "ExtraParamName"
                     },
                     {
                         "location": null,
@@ -773,8 +772,8 @@
                         "shape": "ExtraParamName",
                         "locationName": "Name",
                         "documentation": "\u003cp\u003eName of the additional parameter required by the top-level domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eDUNS_NUMBER\u003c/code\u003e | \u003ccode\u003eBRAND_NUMBER\u003c/code\u003e | \u003ccode\u003eBIRTH_DEPARTMENT\u003c/code\u003e | \u003ccode\u003eBIRTH_DATE_IN_YYYY_MM_DD\u003c/code\u003e | \u003ccode\u003eBIRTH_COUNTRY\u003c/code\u003e | \u003ccode\u003eBIRTH_CITY\u003c/code\u003e | \u003ccode\u003eDOCUMENT_NUMBER\u003c/code\u003e | \u003ccode\u003eAU_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eAU_ID_TYPE\u003c/code\u003e | \u003ccode\u003eCA_LEGAL_TYPE\u003c/code\u003e | \u003ccode\u003eFI_BUSINESS_NUMBER\u003c/code\u003e | \u003ccode\u003eFI_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eIT_PIN\u003c/code\u003e | \u003ccode\u003eRU_PASSPORT_DATA\u003c/code\u003e | \u003ccode\u003eSE_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eSG_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eVAT_NUMBER\u003c/code\u003e\u003c/p\u003e \u003cp\u003eParent: \u003ccode\u003eExtraParams\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ExtraParamName",
+                        "type": "ExtraParamName"
                     },
                     {
                         "location": null,
@@ -810,8 +809,8 @@
                         "shape": "ExtraParamName",
                         "locationName": "Name",
                         "documentation": "\u003cp\u003eName of the additional parameter required by the top-level domain.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eDUNS_NUMBER\u003c/code\u003e | \u003ccode\u003eBRAND_NUMBER\u003c/code\u003e | \u003ccode\u003eBIRTH_DEPARTMENT\u003c/code\u003e | \u003ccode\u003eBIRTH_DATE_IN_YYYY_MM_DD\u003c/code\u003e | \u003ccode\u003eBIRTH_COUNTRY\u003c/code\u003e | \u003ccode\u003eBIRTH_CITY\u003c/code\u003e | \u003ccode\u003eDOCUMENT_NUMBER\u003c/code\u003e | \u003ccode\u003eAU_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eAU_ID_TYPE\u003c/code\u003e | \u003ccode\u003eCA_LEGAL_TYPE\u003c/code\u003e | \u003ccode\u003eFI_BUSINESS_NUMBER\u003c/code\u003e | \u003ccode\u003eFI_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eIT_PIN\u003c/code\u003e | \u003ccode\u003eRU_PASSPORT_DATA\u003c/code\u003e | \u003ccode\u003eSE_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eSG_ID_NUMBER\u003c/code\u003e | \u003ccode\u003eVAT_NUMBER\u003c/code\u003e\u003c/p\u003e \u003cp\u003eParent: \u003ccode\u003eExtraParams\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ExtraParamName",
+                        "type": "ExtraParamName"
                     },
                     {
                         "location": null,
@@ -900,8 +899,8 @@
                         "shape": "ContactType",
                         "locationName": "ContactType",
                         "documentation": "\u003cp\u003eIndicates whether the contact is a person, company, association, or public organization. If you choose an option other than \u003ccode\u003ePERSON\u003c/code\u003e, you must enter an organization name, and you can't enable privacy protection for the contact.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePERSON\u003c/code\u003e | \u003ccode\u003eCOMPANY\u003c/code\u003e | \u003ccode\u003eASSOCIATION\u003c/code\u003e | \u003ccode\u003ePUBLIC_BODY\u003c/code\u003e\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e \u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ContactType",
+                        "type": "Maybe ContactType"
                     },
                     {
                         "location": null,
@@ -990,8 +989,8 @@
                         "shape": "CountryCode",
                         "locationName": "CountryCode",
                         "documentation": "\u003cp\u003eCode for the country of the contact's address.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CountryCode",
+                        "type": "Maybe CountryCode"
                     },
                     {
                         "location": null,
@@ -1118,8 +1117,8 @@
                         "shape": "ContactType",
                         "locationName": "ContactType",
                         "documentation": "\u003cp\u003eIndicates whether the contact is a person, company, association, or public organization. If you choose an option other than \u003ccode\u003ePERSON\u003c/code\u003e, you must enter an organization name, and you can't enable privacy protection for the contact.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePERSON\u003c/code\u003e | \u003ccode\u003eCOMPANY\u003c/code\u003e | \u003ccode\u003eASSOCIATION\u003c/code\u003e | \u003ccode\u003ePUBLIC_BODY\u003c/code\u003e\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e \u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ContactType",
+                        "type": "Maybe ContactType"
                     },
                     {
                         "location": null,
@@ -1208,8 +1207,8 @@
                         "shape": "CountryCode",
                         "locationName": "CountryCode",
                         "documentation": "\u003cp\u003eCode for the country of the contact's address.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CountryCode",
+                        "type": "Maybe CountryCode"
                     },
                     {
                         "location": null,
@@ -1345,8 +1344,8 @@
                         "shape": "ContactType",
                         "locationName": "ContactType",
                         "documentation": "\u003cp\u003eIndicates whether the contact is a person, company, association, or public organization. If you choose an option other than \u003ccode\u003ePERSON\u003c/code\u003e, you must enter an organization name, and you can't enable privacy protection for the contact.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePERSON\u003c/code\u003e | \u003ccode\u003eCOMPANY\u003c/code\u003e | \u003ccode\u003eASSOCIATION\u003c/code\u003e | \u003ccode\u003ePUBLIC_BODY\u003c/code\u003e\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e \u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ContactType",
+                        "type": "Maybe ContactType"
                     },
                     {
                         "location": null,
@@ -1360,8 +1359,8 @@
                         "shape": "CountryCode",
                         "locationName": "CountryCode",
                         "documentation": "\u003cp\u003eCode for the country of the contact's address.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eDefault: None\u003c/p\u003e \u003cp\u003eConstraints: Maximum 255 characters.\u003c/p\u003e \u003cp\u003eParents: \u003ccode\u003eRegistrantContact\u003c/code\u003e, \u003ccode\u003eAdminContact\u003c/code\u003e, \u003ccode\u003eTechContact\u003c/code\u003e\u003c/p\u003e \u003cp\u003eRequired: Yes\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe CountryCode",
+                        "type": "Maybe CountryCode"
                     },
                     {
                         "location": null,
@@ -1503,7 +1502,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 16,
@@ -1536,8 +1534,8 @@
                         "shape": "OperationStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe current status of the requested operation in the system.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OperationStatus",
+                        "type": "OperationStatus"
                     },
                     {
                         "location": null,
@@ -1551,8 +1549,8 @@
                         "shape": "OperationType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eType of the action requested.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eREGISTER_DOMAIN\u003c/code\u003e | \u003ccode\u003eDELETE_DOMAIN\u003c/code\u003e | \u003ccode\u003eTRANSFER_IN_DOMAIN\u003c/code\u003e | \u003ccode\u003eUPDATE_DOMAIN_CONTACT\u003c/code\u003e | \u003ccode\u003eUPDATE_NAMESERVER\u003c/code\u003e | \u003ccode\u003eCHANGE_PRIVACY_PROTECTION\u003c/code\u003e | \u003ccode\u003eDOMAIN_LOCK\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OperationType",
+                        "type": "OperationType"
                     },
                     {
                         "location": null,
@@ -1599,8 +1597,8 @@
                         "shape": "OperationStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe current status of the requested operation in the system.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OperationStatus",
+                        "type": "OperationStatus"
                     },
                     {
                         "location": null,
@@ -1614,8 +1612,8 @@
                         "shape": "OperationType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eType of the action requested.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eREGISTER_DOMAIN\u003c/code\u003e | \u003ccode\u003eDELETE_DOMAIN\u003c/code\u003e | \u003ccode\u003eTRANSFER_IN_DOMAIN\u003c/code\u003e | \u003ccode\u003eUPDATE_DOMAIN_CONTACT\u003c/code\u003e | \u003ccode\u003eUPDATE_NAMESERVER\u003c/code\u003e | \u003ccode\u003eCHANGE_PRIVACY_PROTECTION\u003c/code\u003e | \u003ccode\u003eDOMAIN_LOCK\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OperationType",
+                        "type": "OperationType"
                     },
                     {
                         "location": null,
@@ -1666,8 +1664,8 @@
                         "shape": "OperationStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe current status of the requested operation in the system.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OperationStatus",
+                        "type": "OperationStatus"
                     },
                     {
                         "location": null,
@@ -1696,8 +1694,8 @@
                         "shape": "OperationType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eType of the action requested.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eREGISTER_DOMAIN\u003c/code\u003e | \u003ccode\u003eDELETE_DOMAIN\u003c/code\u003e | \u003ccode\u003eTRANSFER_IN_DOMAIN\u003c/code\u003e | \u003ccode\u003eUPDATE_DOMAIN_CONTACT\u003c/code\u003e | \u003ccode\u003eUPDATE_NAMESERVER\u003c/code\u003e | \u003ccode\u003eCHANGE_PRIVACY_PROTECTION\u003c/code\u003e | \u003ccode\u003eDOMAIN_LOCK\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "OperationType",
+                        "type": "OperationType"
                     }
                 ]
             }
@@ -1714,10 +1712,7 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Monoid",
-                    "IsString"
+                    "Show"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -1737,8 +1732,8 @@
                     "shape": "DomainAvailability",
                     "locationName": "Availability",
                     "documentation": "\u003cp\u003eWhether the domain name is available for registering.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eValid values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE\u003c/code\u003e – The domain name is available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_RESERVED\u003c/code\u003e – The domain name is reserved under specific conditions.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_PREORDER\u003c/code\u003e – The domain name is available and can be preordered.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_PREMIUM\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_RESTRICTED\u003c/code\u003e – The domain name is forbidden.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eRESERVED\u003c/code\u003e – The domain name has been reserved for another person or organization.\u003c/li\u003e \u003c/ul\u003e",
-                    "typeExposed": "Text",
-                    "type": "Text"
+                    "typeExposed": "DomainAvailability",
+                    "type": "DomainAvailability"
                 },
                 "contents": [
                     {
@@ -1753,8 +1748,8 @@
                         "shape": "DomainAvailability",
                         "locationName": "Availability",
                         "documentation": "\u003cp\u003eWhether the domain name is available for registering.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eValid values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE\u003c/code\u003e – The domain name is available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_RESERVED\u003c/code\u003e – The domain name is reserved under specific conditions.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_PREORDER\u003c/code\u003e – The domain name is available and can be preordered.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_PREMIUM\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_RESTRICTED\u003c/code\u003e – The domain name is forbidden.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eRESERVED\u003c/code\u003e – The domain name has been reserved for another person or organization.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DomainAvailability",
+                        "type": "DomainAvailability"
                     }
                 ],
                 "wrapper": false,
@@ -1773,8 +1768,8 @@
                         "shape": "DomainAvailability",
                         "locationName": "Availability",
                         "documentation": "\u003cp\u003eWhether the domain name is available for registering.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eValid values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE\u003c/code\u003e – The domain name is available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_RESERVED\u003c/code\u003e – The domain name is reserved under specific conditions.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_PREORDER\u003c/code\u003e – The domain name is available and can be preordered.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_PREMIUM\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_RESTRICTED\u003c/code\u003e – The domain name is forbidden.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eRESERVED\u003c/code\u003e – The domain name has been reserved for another person or organization.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DomainAvailability",
+                        "type": "DomainAvailability"
                     }
                 ],
                 "shared": false,
@@ -1799,8 +1794,8 @@
                         "shape": "DomainAvailability",
                         "locationName": "Availability",
                         "documentation": "\u003cp\u003eWhether the domain name is available for registering.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e \u003cp\u003eValid values:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE\u003c/code\u003e – The domain name is available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_RESERVED\u003c/code\u003e – The domain name is reserved under specific conditions.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eAVAILABLE_PREORDER\u003c/code\u003e – The domain name is available and can be preordered.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_PREMIUM\u003c/code\u003e – The domain name is not available.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUNAVAILABLE_RESTRICTED\u003c/code\u003e – The domain name is forbidden.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eRESERVED\u003c/code\u003e – The domain name has been reserved for another person or organization.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "DomainAvailability",
+                        "type": "DomainAvailability"
                     }
                 ]
             },
@@ -3734,7 +3729,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -3770,8 +3764,8 @@
                         "shape": "OperationStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe current status of the requested operation in the system.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OperationStatus",
+                        "type": "Maybe OperationStatus"
                     },
                     {
                         "location": null,
@@ -3815,8 +3809,8 @@
                         "shape": "OperationType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of operation that was requested.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OperationType",
+                        "type": "Maybe OperationType"
                     },
                     {
                         "location": null,
@@ -3874,8 +3868,8 @@
                         "shape": "OperationStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe current status of the requested operation in the system.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OperationStatus",
+                        "type": "Maybe OperationStatus"
                     },
                     {
                         "location": null,
@@ -3919,8 +3913,8 @@
                         "shape": "OperationType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of operation that was requested.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OperationType",
+                        "type": "Maybe OperationType"
                     },
                     {
                         "location": null,
@@ -3996,8 +3990,8 @@
                         "shape": "OperationStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe current status of the requested operation in the system.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OperationStatus",
+                        "type": "Maybe OperationStatus"
                     },
                     {
                         "location": null,
@@ -4026,8 +4020,8 @@
                         "shape": "OperationType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of operation that was requested.\u003c/p\u003e \u003cp\u003eType: String\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe OperationType",
+                        "type": "Maybe OperationType"
                     }
                 ]
             },

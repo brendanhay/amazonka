@@ -34,53 +34,49 @@ launch = do
     env <- discoverEnv
     r   <- runAWST env $ do
         say "Create KeyPair " ts
-        kr <- send (createKeyPair ts)
+        k <- send (createKeyPair ts)
 
-        let kp = Text.unpack ts ++ ".pem"
+        let key    = Text.unpack ts ++ ".pem"
+            trusty = "ami-5895242f"
 
-        say "Writing KeyPair material to " kp
-        liftIO (Text.writeFile kp (kr ^. ckprKeyMaterial))
+        say "Writing KeyPair material to " key
+        liftIO (Text.writeFile key (k ^. ckprKeyMaterial))
 
         say "Create SecurityGroup " ts
-        gid <- view csgrGroupId <$>
-            send (createSecurityGroup "give-temp-name" "amazonka-examples")
+        g <- view csgrGroupId <$>
+            send (createSecurityGroup ts "amazonka-examples")
 
-        say "Authorizing SSH on SecurityGroup " gid
+        say "Authorizing SSH on SecurityGroup " g
         void . send $ authorizeSecurityGroupIngress
-            & asgiGroupId    ?~ gid
+            & asgiGroupId    ?~ g
             & asgiIpProtocol ?~ "tcp"
             & asgiFromPort   ?~ 22
             & asgiToPort     ?~ 22
             & asgiCidrIp     ?~ "0.0.0.0/22"
 
---        kp  <- wait k
-        say "KeyPair successfully created: " kp
+        say "Launching Instance with ImageId " trusty
+        i <- sendCatch $ runInstances trusty 1 1
+            & riKeyName          ?~ ts
+            & riInstanceType     ?~ T2Micro
+            & riSecurityGroupIds .~ [g]
 
-  --      gid <- wait g
-        say "GroupId successfully created: " gid
+        case i of
+            Right x -> return x
+            Left  e -> do
+                say "Failed to Launch Instance " e
+
+                say "Deleting SecurityGroup " g
+                send (deleteSecurityGroup & dsgGroupId ?~ g)
+
+                say "Deleting KeyPair " k
+                send (deleteKeyPair k)
 
     print r
-
-  --        createSecurityGroup
-
-  --       send $ runInstances "ami-5895242f" 1 1
-  --            & riKeyName =
-  --            & riInstanceType = T2Micro
-  --            & riSecurityGroups = 
-
-  --        wait
-
-  --        ssh, 
-
   --        terminateInstances
-
-  --        wait
 
   --        deleteSecurityGroup
 
   --        deleteKeyPair
-
-  --   print r
 
 getTimestamp :: IO Integer
 getTimestamp = truncate <$> getPOSIXTime

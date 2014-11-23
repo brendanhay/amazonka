@@ -77,7 +77,7 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data CreateMultipartUpload = CreateMultipartUpload
-    { _cmuACL                     :: Maybe Text
+    { _cmuACL                     :: Maybe ObjectCannedACL
     , _cmuBucket                  :: Text
     , _cmuCacheControl            :: Maybe Text
     , _cmuContentDisposition      :: Maybe Text
@@ -95,8 +95,8 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmuSSECustomerKey          :: Maybe (Sensitive Text)
     , _cmuSSECustomerKeyMD5       :: Maybe Text
     , _cmuSSEKMSKeyId             :: Maybe (Sensitive Text)
-    , _cmuServerSideEncryption    :: Maybe Text
-    , _cmuStorageClass            :: Maybe Text
+    , _cmuServerSideEncryption    :: Maybe ServerSideEncryption
+    , _cmuStorageClass            :: Maybe StorageClass
     , _cmuWebsiteRedirectLocation :: Maybe Text
     } deriving (Eq, Show)
 
@@ -104,7 +104,7 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmuACL' @::@ 'Maybe' 'Text'
+-- * 'cmuACL' @::@ 'Maybe' 'ObjectCannedACL'
 --
 -- * 'cmuBucket' @::@ 'Text'
 --
@@ -140,9 +140,9 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * 'cmuSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'cmuServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'cmuServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
--- * 'cmuStorageClass' @::@ 'Maybe' 'Text'
+-- * 'cmuStorageClass' @::@ 'Maybe' 'StorageClass'
 --
 -- * 'cmuWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
@@ -174,7 +174,7 @@ createMultipartUpload p1 p2 = CreateMultipartUpload
     }
 
 -- | The canned ACL to apply to the object.
-cmuACL :: Lens' CreateMultipartUpload (Maybe Text)
+cmuACL :: Lens' CreateMultipartUpload (Maybe ObjectCannedACL)
 cmuACL = lens _cmuACL (\s a -> s { _cmuACL = a })
 
 cmuBucket :: Lens' CreateMultipartUpload Text
@@ -263,12 +263,12 @@ cmuSSEKMSKeyId = lens _cmuSSEKMSKeyId (\s a -> s { _cmuSSEKMSKeyId = a }) . mapp
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-cmuServerSideEncryption :: Lens' CreateMultipartUpload (Maybe Text)
+cmuServerSideEncryption :: Lens' CreateMultipartUpload (Maybe ServerSideEncryption)
 cmuServerSideEncryption =
     lens _cmuServerSideEncryption (\s a -> s { _cmuServerSideEncryption = a })
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
-cmuStorageClass :: Lens' CreateMultipartUpload (Maybe Text)
+cmuStorageClass :: Lens' CreateMultipartUpload (Maybe StorageClass)
 cmuStorageClass = lens _cmuStorageClass (\s a -> s { _cmuStorageClass = a })
 
 -- | If the bucket is configured as a website, redirects requests for this
@@ -285,9 +285,9 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     , _cmurSSECustomerAlgorithm :: Maybe Text
     , _cmurSSECustomerKeyMD5    :: Maybe Text
     , _cmurSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _cmurServerSideEncryption :: Maybe Text
+    , _cmurServerSideEncryption :: Maybe ServerSideEncryption
     , _cmurUploadId             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateMultipartUploadResponse' constructor.
 --
@@ -303,7 +303,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
 --
 -- * 'cmurSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'cmurServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'cmurServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
 -- * 'cmurUploadId' @::@ 'Maybe' 'Text'
 --
@@ -347,7 +347,7 @@ cmurSSEKMSKeyId = lens _cmurSSEKMSKeyId (\s a -> s { _cmurSSEKMSKeyId = a }) . m
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-cmurServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe Text)
+cmurServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSideEncryption)
 cmurServerSideEncryption =
     lens _cmurServerSideEncryption
         (\s a -> s { _cmurServerSideEncryption = a })

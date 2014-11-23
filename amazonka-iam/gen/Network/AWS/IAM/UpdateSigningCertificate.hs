@@ -55,9 +55,9 @@ import qualified GHC.Exts
 
 data UpdateSigningCertificate = UpdateSigningCertificate
     { _uscCertificateId :: Text
-    , _uscStatus        :: Text
+    , _uscStatus        :: StatusType
     , _uscUserName      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'UpdateSigningCertificate' constructor.
 --
@@ -65,12 +65,12 @@ data UpdateSigningCertificate = UpdateSigningCertificate
 --
 -- * 'uscCertificateId' @::@ 'Text'
 --
--- * 'uscStatus' @::@ 'Text'
+-- * 'uscStatus' @::@ 'StatusType'
 --
 -- * 'uscUserName' @::@ 'Maybe' 'Text'
 --
 updateSigningCertificate :: Text -- ^ 'uscCertificateId'
-                         -> Text -- ^ 'uscStatus'
+                         -> StatusType -- ^ 'uscStatus'
                          -> UpdateSigningCertificate
 updateSigningCertificate p1 p2 = UpdateSigningCertificate
     { _uscCertificateId = p1
@@ -85,7 +85,7 @@ uscCertificateId = lens _uscCertificateId (\s a -> s { _uscCertificateId = a })
 -- | The status you want to assign to the certificate. Active means the
 -- certificate can be used for API calls to AWS, while Inactive means the
 -- certificate cannot be used.
-uscStatus :: Lens' UpdateSigningCertificate Text
+uscStatus :: Lens' UpdateSigningCertificate StatusType
 uscStatus = lens _uscStatus (\s a -> s { _uscStatus = a })
 
 -- | The name of the user the signing certificate belongs to.

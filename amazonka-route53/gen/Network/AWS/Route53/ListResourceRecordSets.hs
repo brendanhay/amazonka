@@ -90,8 +90,8 @@ data ListResourceRecordSets = ListResourceRecordSets
     , _lrrsMaxItems              :: Maybe Text
     , _lrrsStartRecordIdentifier :: Maybe Text
     , _lrrsStartRecordName       :: Maybe Text
-    , _lrrsStartRecordType       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _lrrsStartRecordType       :: Maybe RecordType
+    } deriving (Eq, Show)
 
 -- | 'ListResourceRecordSets' constructor.
 --
@@ -105,7 +105,7 @@ data ListResourceRecordSets = ListResourceRecordSets
 --
 -- * 'lrrsStartRecordName' @::@ 'Maybe' 'Text'
 --
--- * 'lrrsStartRecordType' @::@ 'Maybe' 'Text'
+-- * 'lrrsStartRecordType' @::@ 'Maybe' 'RecordType'
 --
 listResourceRecordSets :: Text -- ^ 'lrrsHostedZoneId'
                        -> ListResourceRecordSets
@@ -148,7 +148,7 @@ lrrsStartRecordName =
 -- Regional Resource Record Sets: A | AAAA | CNAME | TXT Values for Alias
 -- Resource Record Sets: A | AAAA Constraint: Specifying type without
 -- specifying name returns an InvalidInput error.
-lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe Text)
+lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType =
     lens _lrrsStartRecordType (\s a -> s { _lrrsStartRecordType = a })
 
@@ -157,7 +157,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     , _lrrsrMaxItems             :: Text
     , _lrrsrNextRecordIdentifier :: Maybe Text
     , _lrrsrNextRecordName       :: Maybe Text
-    , _lrrsrNextRecordType       :: Maybe Text
+    , _lrrsrNextRecordType       :: Maybe RecordType
     , _lrrsrResourceRecordSets   :: List "ResourceRecordSet" ResourceRecordSet
     } deriving (Eq, Show)
 
@@ -173,7 +173,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
 --
 -- * 'lrrsrNextRecordName' @::@ 'Maybe' 'Text'
 --
--- * 'lrrsrNextRecordType' @::@ 'Maybe' 'Text'
+-- * 'lrrsrNextRecordType' @::@ 'Maybe' 'RecordType'
 --
 -- * 'lrrsrResourceRecordSets' @::@ ['ResourceRecordSet']
 --
@@ -220,7 +220,7 @@ lrrsrNextRecordName =
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if
 -- ListResourceRecordSetsResponse$IsTruncated is true.
-lrrsrNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe Text)
+lrrsrNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrsrNextRecordType =
     lens _lrrsrNextRecordType (\s a -> s { _lrrsrNextRecordType = a })
 

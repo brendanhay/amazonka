@@ -66,7 +66,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data CreateStack = CreateStack
-    { _csAttributes                :: Map Text Text
+    { _csAttributes                :: Map StackAttributesKeys Text
     , _csChefConfiguration         :: Maybe ChefConfiguration
     , _csConfigurationManager      :: Maybe StackConfigurationManager
     , _csCustomCookbooksSource     :: Maybe Source
@@ -74,7 +74,7 @@ data CreateStack = CreateStack
     , _csDefaultAvailabilityZone   :: Maybe Text
     , _csDefaultInstanceProfileArn :: Text
     , _csDefaultOs                 :: Maybe Text
-    , _csDefaultRootDeviceType     :: Maybe Text
+    , _csDefaultRootDeviceType     :: Maybe RootDeviceType
     , _csDefaultSshKeyName         :: Maybe Text
     , _csDefaultSubnetId           :: Maybe Text
     , _csHostnameTheme             :: Maybe Text
@@ -90,7 +90,7 @@ data CreateStack = CreateStack
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'csAttributes' @::@ 'HashMap' 'StackAttributesKeys' 'Text'
 --
 -- * 'csChefConfiguration' @::@ 'Maybe' 'ChefConfiguration'
 --
@@ -106,7 +106,7 @@ data CreateStack = CreateStack
 --
 -- * 'csDefaultOs' @::@ 'Maybe' 'Text'
 --
--- * 'csDefaultRootDeviceType' @::@ 'Maybe' 'Text'
+-- * 'csDefaultRootDeviceType' @::@ 'Maybe' 'RootDeviceType'
 --
 -- * 'csDefaultSshKeyName' @::@ 'Maybe' 'Text'
 --
@@ -154,7 +154,7 @@ createStack p1 p2 p3 p4 = CreateStack
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-csAttributes :: Lens' CreateStack (HashMap Text Text)
+csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
 csAttributes = lens _csAttributes (\s a -> s { _csAttributes = a }) . _Map
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
@@ -210,7 +210,7 @@ csDefaultOs = lens _csDefaultOs (\s a -> s { _csDefaultOs = a })
 -- instances in the stack, but you can override it when you create an
 -- instance. The default option is instance-store. For more information, see
 -- Storage for the Root Device.
-csDefaultRootDeviceType :: Lens' CreateStack (Maybe Text)
+csDefaultRootDeviceType :: Lens' CreateStack (Maybe RootDeviceType)
 csDefaultRootDeviceType =
     lens _csDefaultRootDeviceType (\s a -> s { _csDefaultRootDeviceType = a })
 

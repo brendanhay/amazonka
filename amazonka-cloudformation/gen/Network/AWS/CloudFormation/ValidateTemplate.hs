@@ -85,7 +85,7 @@ vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\s a -> s { _vtTemplateURL = a })
 
 data ValidateTemplateResponse = ValidateTemplateResponse
-    { _vtrCapabilities       :: List "Capabilities" Text
+    { _vtrCapabilities       :: List "Capabilities" Capability
     , _vtrCapabilitiesReason :: Maybe Text
     , _vtrDescription        :: Maybe Text
     , _vtrParameters         :: List "Parameters" TemplateParameter
@@ -95,7 +95,7 @@ data ValidateTemplateResponse = ValidateTemplateResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vtrCapabilities' @::@ ['Text']
+-- * 'vtrCapabilities' @::@ ['Capability']
 --
 -- * 'vtrCapabilitiesReason' @::@ 'Maybe' 'Text'
 --
@@ -117,7 +117,7 @@ validateTemplateResponse = ValidateTemplateResponse
 -- parameter when you use the CreateStack or UpdateStack actions with your
 -- template; otherwise, those actions return an InsufficientCapabilities
 -- error.
-vtrCapabilities :: Lens' ValidateTemplateResponse [Text]
+vtrCapabilities :: Lens' ValidateTemplateResponse [Capability]
 vtrCapabilities = lens _vtrCapabilities (\s a -> s { _vtrCapabilities = a }) . _List
 
 -- | The capabilities reason found within the template.

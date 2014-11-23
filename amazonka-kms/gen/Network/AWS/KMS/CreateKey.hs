@@ -53,9 +53,9 @@ import qualified GHC.Exts
 
 data CreateKey = CreateKey
     { _ckDescription :: Maybe Text
-    , _ckKeyUsage    :: Maybe Text
+    , _ckKeyUsage    :: Maybe KeyUsageType
     , _ckPolicy      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateKey' constructor.
 --
@@ -63,7 +63,7 @@ data CreateKey = CreateKey
 --
 -- * 'ckDescription' @::@ 'Maybe' 'Text'
 --
--- * 'ckKeyUsage' @::@ 'Maybe' 'Text'
+-- * 'ckKeyUsage' @::@ 'Maybe' 'KeyUsageType'
 --
 -- * 'ckPolicy' @::@ 'Maybe' 'Text'
 --
@@ -82,7 +82,7 @@ ckDescription = lens _ckDescription (\s a -> s { _ckDescription = a })
 -- | Specifies the intended use of the key. Currently this defaults to
 -- ENCRYPT/DECRYPT, and only symmetric encryption and decryption are
 -- supported.
-ckKeyUsage :: Lens' CreateKey (Maybe Text)
+ckKeyUsage :: Lens' CreateKey (Maybe KeyUsageType)
 ckKeyUsage = lens _ckKeyUsage (\s a -> s { _ckKeyUsage = a })
 
 -- | Policy to be attached to the key. This is required and delegates back to

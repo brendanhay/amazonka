@@ -467,8 +467,8 @@
                         "shape": "StreamStatus",
                         "locationName": "StreamStatus",
                         "documentation": "\u003cp\u003eThe current status of the stream being described.\u003c/p\u003e \u003cp\u003eThe stream status is one of the following states:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCREATING\u003c/code\u003e - The stream is being created. Amazon Kinesis immediately returns and sets \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eCREATING\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDELETING\u003c/code\u003e - The stream is being deleted. The specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eACTIVE\u003c/code\u003e - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUPDATING\u003c/code\u003e - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StreamStatus",
+                        "type": "StreamStatus"
                     },
                     {
                         "location": null,
@@ -545,8 +545,8 @@
                         "shape": "StreamStatus",
                         "locationName": "StreamStatus",
                         "documentation": "\u003cp\u003eThe current status of the stream being described.\u003c/p\u003e \u003cp\u003eThe stream status is one of the following states:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCREATING\u003c/code\u003e - The stream is being created. Amazon Kinesis immediately returns and sets \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eCREATING\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDELETING\u003c/code\u003e - The stream is being deleted. The specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eACTIVE\u003c/code\u003e - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUPDATING\u003c/code\u003e - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StreamStatus",
+                        "type": "StreamStatus"
                     },
                     {
                         "location": null,
@@ -658,8 +658,8 @@
                         "shape": "StreamStatus",
                         "locationName": "StreamStatus",
                         "documentation": "\u003cp\u003eThe current status of the stream being described.\u003c/p\u003e \u003cp\u003eThe stream status is one of the following states:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCREATING\u003c/code\u003e - The stream is being created. Amazon Kinesis immediately returns and sets \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eCREATING\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDELETING\u003c/code\u003e - The stream is being deleted. The specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eACTIVE\u003c/code\u003e - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUPDATING\u003c/code\u003e - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "StreamStatus",
+                        "type": "StreamStatus"
                     }
                 ]
             },
@@ -2213,7 +2213,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -2264,8 +2263,8 @@
                         "shape": "ShardIteratorType",
                         "locationName": "ShardIteratorType",
                         "documentation": "\u003cp\u003eDetermines how the shard iterator is used to start reading data records from the shard.\u003c/p\u003e \u003cp\u003eThe following are the valid shard iterator types:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eAFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eTRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.\u003c/li\u003e \u003cli\u003eLATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ShardIteratorType",
+                        "type": "ShardIteratorType"
                     },
                     {
                         "location": null,
@@ -2334,8 +2333,8 @@
                         "shape": "ShardIteratorType",
                         "locationName": "ShardIteratorType",
                         "documentation": "\u003cp\u003eDetermines how the shard iterator is used to start reading data records from the shard.\u003c/p\u003e \u003cp\u003eThe following are the valid shard iterator types:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eAFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eTRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.\u003c/li\u003e \u003cli\u003eLATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ShardIteratorType",
+                        "type": "ShardIteratorType"
                     }
                 ],
                 "shared": false,
@@ -2393,8 +2392,8 @@
                         "shape": "ShardIteratorType",
                         "locationName": "ShardIteratorType",
                         "documentation": "\u003cp\u003eDetermines how the shard iterator is used to start reading data records from the shard.\u003c/p\u003e \u003cp\u003eThe following are the valid shard iterator types:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eAFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eTRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.\u003c/li\u003e \u003cli\u003eLATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ShardIteratorType",
+                        "type": "ShardIteratorType"
                     },
                     {
                         "location": null,

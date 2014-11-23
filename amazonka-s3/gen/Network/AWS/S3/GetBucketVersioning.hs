@@ -66,17 +66,17 @@ gbvBucket :: Lens' GetBucketVersioning Text
 gbvBucket = lens _gbvBucket (\s a -> s { _gbvBucket = a })
 
 data GetBucketVersioningResponse = GetBucketVersioningResponse
-    { _gbvrMFADelete :: Maybe Text
-    , _gbvrStatus    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    { _gbvrMFADelete :: Maybe MFADeleteStatus
+    , _gbvrStatus    :: Maybe BucketVersioningStatus
+    } deriving (Eq, Show)
 
 -- | 'GetBucketVersioningResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbvrMFADelete' @::@ 'Maybe' 'Text'
+-- * 'gbvrMFADelete' @::@ 'Maybe' 'MFADeleteStatus'
 --
--- * 'gbvrStatus' @::@ 'Maybe' 'Text'
+-- * 'gbvrStatus' @::@ 'Maybe' 'BucketVersioningStatus'
 --
 getBucketVersioningResponse :: GetBucketVersioningResponse
 getBucketVersioningResponse = GetBucketVersioningResponse
@@ -88,11 +88,11 @@ getBucketVersioningResponse = GetBucketVersioningResponse
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
 -- this element is not returned.
-gbvrMFADelete :: Lens' GetBucketVersioningResponse (Maybe Text)
+gbvrMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrMFADelete = lens _gbvrMFADelete (\s a -> s { _gbvrMFADelete = a })
 
 -- | The versioning state of the bucket.
-gbvrStatus :: Lens' GetBucketVersioningResponse (Maybe Text)
+gbvrStatus :: Lens' GetBucketVersioningResponse (Maybe BucketVersioningStatus)
 gbvrStatus = lens _gbvrStatus (\s a -> s { _gbvrStatus = a })
 
 instance ToPath GetBucketVersioning where

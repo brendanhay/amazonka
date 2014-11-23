@@ -63,7 +63,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data UpdateStack = UpdateStack
-    { _usAttributes                :: Map Text Text
+    { _usAttributes                :: Map StackAttributesKeys Text
     , _usChefConfiguration         :: Maybe ChefConfiguration
     , _usConfigurationManager      :: Maybe StackConfigurationManager
     , _usCustomCookbooksSource     :: Maybe Source
@@ -71,7 +71,7 @@ data UpdateStack = UpdateStack
     , _usDefaultAvailabilityZone   :: Maybe Text
     , _usDefaultInstanceProfileArn :: Maybe Text
     , _usDefaultOs                 :: Maybe Text
-    , _usDefaultRootDeviceType     :: Maybe Text
+    , _usDefaultRootDeviceType     :: Maybe RootDeviceType
     , _usDefaultSshKeyName         :: Maybe Text
     , _usDefaultSubnetId           :: Maybe Text
     , _usHostnameTheme             :: Maybe Text
@@ -86,7 +86,7 @@ data UpdateStack = UpdateStack
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'usAttributes' @::@ 'HashMap' 'StackAttributesKeys' 'Text'
 --
 -- * 'usChefConfiguration' @::@ 'Maybe' 'ChefConfiguration'
 --
@@ -102,7 +102,7 @@ data UpdateStack = UpdateStack
 --
 -- * 'usDefaultOs' @::@ 'Maybe' 'Text'
 --
--- * 'usDefaultRootDeviceType' @::@ 'Maybe' 'Text'
+-- * 'usDefaultRootDeviceType' @::@ 'Maybe' 'RootDeviceType'
 --
 -- * 'usDefaultSshKeyName' @::@ 'Maybe' 'Text'
 --
@@ -144,7 +144,7 @@ updateStack p1 = UpdateStack
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-usAttributes :: Lens' UpdateStack (HashMap Text Text)
+usAttributes :: Lens' UpdateStack (HashMap StackAttributesKeys Text)
 usAttributes = lens _usAttributes (\s a -> s { _usAttributes = a }) . _Map
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
@@ -199,7 +199,7 @@ usDefaultOs = lens _usDefaultOs (\s a -> s { _usDefaultOs = a })
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. For more information, see Storage for the Root Device.
-usDefaultRootDeviceType :: Lens' UpdateStack (Maybe Text)
+usDefaultRootDeviceType :: Lens' UpdateStack (Maybe RootDeviceType)
 usDefaultRootDeviceType =
     lens _usDefaultRootDeviceType (\s a -> s { _usDefaultRootDeviceType = a })
 

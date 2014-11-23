@@ -51,9 +51,9 @@ import qualified GHC.Exts
 data RegisterDevice = RegisterDevice
     { _rdIdentityId     :: Text
     , _rdIdentityPoolId :: Text
-    , _rdPlatform       :: Text
+    , _rdPlatform       :: Platform
     , _rdToken          :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'RegisterDevice' constructor.
 --
@@ -63,13 +63,13 @@ data RegisterDevice = RegisterDevice
 --
 -- * 'rdIdentityPoolId' @::@ 'Text'
 --
--- * 'rdPlatform' @::@ 'Text'
+-- * 'rdPlatform' @::@ 'Platform'
 --
 -- * 'rdToken' @::@ 'Text'
 --
 registerDevice :: Text -- ^ 'rdIdentityPoolId'
                -> Text -- ^ 'rdIdentityId'
-               -> Text -- ^ 'rdPlatform'
+               -> Platform -- ^ 'rdPlatform'
                -> Text -- ^ 'rdToken'
                -> RegisterDevice
 registerDevice p1 p2 p3 p4 = RegisterDevice
@@ -90,7 +90,7 @@ rdIdentityPoolId :: Lens' RegisterDevice Text
 rdIdentityPoolId = lens _rdIdentityPoolId (\s a -> s { _rdIdentityPoolId = a })
 
 -- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
-rdPlatform :: Lens' RegisterDevice Text
+rdPlatform :: Lens' RegisterDevice Platform
 rdPlatform = lens _rdPlatform (\s a -> s { _rdPlatform = a })
 
 -- | The push token.

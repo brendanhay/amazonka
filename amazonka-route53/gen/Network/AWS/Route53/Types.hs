@@ -591,8 +591,8 @@ data HealthCheckConfig = HealthCheckConfig
     , _hccRequestInterval          :: Maybe Nat
     , _hccResourcePath             :: Maybe Text
     , _hccSearchString             :: Maybe Text
-    , _hccType                     :: Text
-    } deriving (Eq, Ord, Show)
+    , _hccType                     :: HealthCheckType
+    } deriving (Eq, Show)
 
 -- | 'HealthCheckConfig' constructor.
 --
@@ -612,9 +612,9 @@ data HealthCheckConfig = HealthCheckConfig
 --
 -- * 'hccSearchString' @::@ 'Maybe' 'Text'
 --
--- * 'hccType' @::@ 'Text'
+-- * 'hccType' @::@ 'HealthCheckType'
 --
-healthCheckConfig :: Text -- ^ 'hccType'
+healthCheckConfig :: HealthCheckType -- ^ 'hccType'
                   -> HealthCheckConfig
 healthCheckConfig p1 = HealthCheckConfig
     { _hccType                     = p1
@@ -676,7 +676,7 @@ hccSearchString = lens _hccSearchString (\s a -> s { _hccSearchString = a })
 
 -- | The type of health check to be performed. Currently supported types are
 -- TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
-hccType :: Lens' HealthCheckConfig Text
+hccType :: Lens' HealthCheckConfig HealthCheckType
 hccType = lens _hccType (\s a -> s { _hccType = a })
 
 instance FromXML HealthCheckConfig where
@@ -703,7 +703,7 @@ instance ToXML HealthCheckConfig where
         ]
 
 data Change = Change
-    { _cAction            :: Text
+    { _cAction            :: ChangeAction
     , _cResourceRecordSet :: ResourceRecordSet
     } deriving (Eq, Show)
 
@@ -711,11 +711,11 @@ data Change = Change
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cAction' @::@ 'Text'
+-- * 'cAction' @::@ 'ChangeAction'
 --
 -- * 'cResourceRecordSet' @::@ 'ResourceRecordSet'
 --
-change :: Text -- ^ 'cAction'
+change :: ChangeAction -- ^ 'cAction'
        -> ResourceRecordSet -- ^ 'cResourceRecordSet'
        -> Change
 change p1 p2 = Change
@@ -724,7 +724,7 @@ change p1 p2 = Change
     }
 
 -- | The action to perform. Valid values: CREATE | DELETE | UPSERT.
-cAction :: Lens' Change Text
+cAction :: Lens' Change ChangeAction
 cAction = lens _cAction (\s a -> s { _cAction = a })
 
 -- | Information about the resource record set to create or delete.
@@ -848,7 +848,7 @@ instance ToXML HostedZone where
 
 data ResourceTagSet = ResourceTagSet
     { _rtsResourceId   :: Maybe Text
-    , _rtsResourceType :: Maybe Text
+    , _rtsResourceType :: Maybe TagResourceType
     , _rtsTags         :: List1 "Tag" Tag
     } deriving (Eq, Show)
 
@@ -858,7 +858,7 @@ data ResourceTagSet = ResourceTagSet
 --
 -- * 'rtsResourceId' @::@ 'Maybe' 'Text'
 --
--- * 'rtsResourceType' @::@ 'Maybe' 'Text'
+-- * 'rtsResourceType' @::@ 'Maybe' 'TagResourceType'
 --
 -- * 'rtsTags' @::@ 'NonEmpty' 'Tag'
 --
@@ -876,7 +876,7 @@ rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
 
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
-rtsResourceType :: Lens' ResourceTagSet (Maybe Text)
+rtsResourceType :: Lens' ResourceTagSet (Maybe TagResourceType)
 rtsResourceType = lens _rtsResourceType (\s a -> s { _rtsResourceType = a })
 
 -- | The tags associated with the specified resource.
@@ -1033,8 +1033,8 @@ instance ToXML HealthCheckType where
 
 data VPC = VPC
     { _vpcVPCId     :: Maybe Text
-    , _vpcVPCRegion :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _vpcVPCRegion :: Maybe VPCRegion
+    } deriving (Eq, Show)
 
 -- | 'VPC' constructor.
 --
@@ -1042,7 +1042,7 @@ data VPC = VPC
 --
 -- * 'vpcVPCId' @::@ 'Maybe' 'Text'
 --
--- * 'vpcVPCRegion' @::@ 'Maybe' 'Text'
+-- * 'vpcVPCRegion' @::@ 'Maybe' 'VPCRegion'
 --
 vpc :: VPC
 vpc = VPC
@@ -1053,7 +1053,7 @@ vpc = VPC
 vpcVPCId :: Lens' VPC (Maybe Text)
 vpcVPCId = lens _vpcVPCId (\s a -> s { _vpcVPCId = a })
 
-vpcVPCRegion :: Lens' VPC (Maybe Text)
+vpcVPCRegion :: Lens' VPC (Maybe VPCRegion)
 vpcVPCRegion = lens _vpcVPCRegion (\s a -> s { _vpcVPCRegion = a })
 
 instance FromXML VPC where
@@ -1112,15 +1112,15 @@ instance ToXML HostedZoneConfig where
 
 data ResourceRecordSet = ResourceRecordSet
     { _rrsAliasTarget     :: Maybe AliasTarget
-    , _rrsFailover        :: Maybe Text
+    , _rrsFailover        :: Maybe ResourceRecordSetFailover
     , _rrsGeoLocation     :: Maybe GeoLocation
     , _rrsHealthCheckId   :: Maybe Text
     , _rrsName            :: Text
-    , _rrsRegion          :: Maybe Text
+    , _rrsRegion          :: Maybe Region
     , _rrsResourceRecords :: List1 "ResourceRecord" ResourceRecord
     , _rrsSetIdentifier   :: Maybe Text
     , _rrsTTL             :: Maybe Nat
-    , _rrsType            :: Text
+    , _rrsType            :: RRType
     , _rrsWeight          :: Maybe Nat
     } deriving (Eq, Show)
 
@@ -1130,7 +1130,7 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * 'rrsAliasTarget' @::@ 'Maybe' 'AliasTarget'
 --
--- * 'rrsFailover' @::@ 'Maybe' 'Text'
+-- * 'rrsFailover' @::@ 'Maybe' 'ResourceRecordSetFailover'
 --
 -- * 'rrsGeoLocation' @::@ 'Maybe' 'GeoLocation'
 --
@@ -1138,7 +1138,7 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * 'rrsName' @::@ 'Text'
 --
--- * 'rrsRegion' @::@ 'Maybe' 'Text'
+-- * 'rrsRegion' @::@ 'Maybe' 'Region'
 --
 -- * 'rrsResourceRecords' @::@ 'NonEmpty' 'ResourceRecord'
 --
@@ -1146,12 +1146,12 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * 'rrsTTL' @::@ 'Maybe' 'Natural'
 --
--- * 'rrsType' @::@ 'Text'
+-- * 'rrsType' @::@ 'RRType'
 --
 -- * 'rrsWeight' @::@ 'Maybe' 'Natural'
 --
 resourceRecordSet :: Text -- ^ 'rrsName'
-                  -> Text -- ^ 'rrsType'
+                  -> RRType -- ^ 'rrsType'
                   -> NonEmpty ResourceRecord -- ^ 'rrsResourceRecords'
                   -> ResourceRecordSet
 resourceRecordSet p1 p2 p3 = ResourceRecordSet
@@ -1188,7 +1188,7 @@ rrsAliasTarget = lens _rrsAliasTarget (\s a -> s { _rrsAliasTarget = a })
 -- secondary is passing a health check or has no associated health check, or
 -- (2) there is no primary resource record set. Valid values: PRIMARY |
 -- SECONDARY.
-rrsFailover :: Lens' ResourceRecordSet (Maybe Text)
+rrsFailover :: Lens' ResourceRecordSet (Maybe ResourceRecordSetFailover)
 rrsFailover = lens _rrsFailover (\s a -> s { _rrsFailover = a })
 
 -- | Geo location resource record sets only: Among resource record sets that
@@ -1210,7 +1210,7 @@ rrsName = lens _rrsName (\s a -> s { _rrsName = a })
 -- | Latency-based resource record sets only: Among resource record sets that
 -- have the same combination of DNS name and type, a value that specifies
 -- the AWS region for the current resource record set.
-rrsRegion :: Lens' ResourceRecordSet (Maybe Text)
+rrsRegion :: Lens' ResourceRecordSet (Maybe Region)
 rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
 
 -- | A complex type that contains the resource records for the current
@@ -1231,7 +1231,7 @@ rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
 rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a }) . mapping _Nat
 
 -- | The type of the current resource record set.
-rrsType :: Lens' ResourceRecordSet Text
+rrsType :: Lens' ResourceRecordSet RRType
 rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 
 -- | Weighted resource record sets only: Among resource record sets that have
@@ -1326,9 +1326,9 @@ instance ToXML DelegationSet
 data ChangeInfo = ChangeInfo
     { _ciComment     :: Maybe Text
     , _ciId          :: Text
-    , _ciStatus      :: Text
+    , _ciStatus      :: ChangeStatus
     , _ciSubmittedAt :: RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ChangeInfo' constructor.
 --
@@ -1338,12 +1338,12 @@ data ChangeInfo = ChangeInfo
 --
 -- * 'ciId' @::@ 'Text'
 --
--- * 'ciStatus' @::@ 'Text'
+-- * 'ciStatus' @::@ 'ChangeStatus'
 --
 -- * 'ciSubmittedAt' @::@ 'UTCTime'
 --
 changeInfo :: Text -- ^ 'ciId'
-           -> Text -- ^ 'ciStatus'
+           -> ChangeStatus -- ^ 'ciStatus'
            -> UTCTime -- ^ 'ciSubmittedAt'
            -> ChangeInfo
 changeInfo p1 p2 p3 = ChangeInfo
@@ -1368,7 +1368,7 @@ ciId = lens _ciId (\s a -> s { _ciId = a })
 -- | The current state of the request. PENDING indicates that this request has
 -- not yet been applied to all Amazon Route 53 DNS servers. Valid Values:
 -- PENDING | INSYNC.
-ciStatus :: Lens' ChangeInfo Text
+ciStatus :: Lens' ChangeInfo ChangeStatus
 ciStatus = lens _ciStatus (\s a -> s { _ciStatus = a })
 
 -- | The date and time the change was submitted, in the format

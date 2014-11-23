@@ -67,7 +67,7 @@ data PutMetricAlarm = PutMetricAlarm
     , _pmaAlarmActions            :: List "OKActions" Text
     , _pmaAlarmDescription        :: Maybe Text
     , _pmaAlarmName               :: Text
-    , _pmaComparisonOperator      :: Text
+    , _pmaComparisonOperator      :: ComparisonOperator
     , _pmaDimensions              :: List "Dimensions" Dimension
     , _pmaEvaluationPeriods       :: Nat
     , _pmaInsufficientDataActions :: List "OKActions" Text
@@ -75,9 +75,9 @@ data PutMetricAlarm = PutMetricAlarm
     , _pmaNamespace               :: Text
     , _pmaOKActions               :: List "OKActions" Text
     , _pmaPeriod                  :: Nat
-    , _pmaStatistic               :: Text
+    , _pmaStatistic               :: Statistic
     , _pmaThreshold               :: Double
-    , _pmaUnit                    :: Maybe Text
+    , _pmaUnit                    :: Maybe StandardUnit
     } deriving (Eq, Show)
 
 -- | 'PutMetricAlarm' constructor.
@@ -92,7 +92,7 @@ data PutMetricAlarm = PutMetricAlarm
 --
 -- * 'pmaAlarmName' @::@ 'Text'
 --
--- * 'pmaComparisonOperator' @::@ 'Text'
+-- * 'pmaComparisonOperator' @::@ 'ComparisonOperator'
 --
 -- * 'pmaDimensions' @::@ ['Dimension']
 --
@@ -108,20 +108,20 @@ data PutMetricAlarm = PutMetricAlarm
 --
 -- * 'pmaPeriod' @::@ 'Natural'
 --
--- * 'pmaStatistic' @::@ 'Text'
+-- * 'pmaStatistic' @::@ 'Statistic'
 --
 -- * 'pmaThreshold' @::@ 'Double'
 --
--- * 'pmaUnit' @::@ 'Maybe' 'Text'
+-- * 'pmaUnit' @::@ 'Maybe' 'StandardUnit'
 --
 putMetricAlarm :: Text -- ^ 'pmaAlarmName'
                -> Text -- ^ 'pmaMetricName'
                -> Text -- ^ 'pmaNamespace'
-               -> Text -- ^ 'pmaStatistic'
+               -> Statistic -- ^ 'pmaStatistic'
                -> Natural -- ^ 'pmaPeriod'
                -> Natural -- ^ 'pmaEvaluationPeriods'
                -> Double -- ^ 'pmaThreshold'
-               -> Text -- ^ 'pmaComparisonOperator'
+               -> ComparisonOperator -- ^ 'pmaComparisonOperator'
                -> PutMetricAlarm
 putMetricAlarm p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarm
     { _pmaAlarmName               = p1
@@ -167,7 +167,7 @@ pmaAlarmName = lens _pmaAlarmName (\s a -> s { _pmaAlarmName = a })
 -- | The arithmetic operation to use when comparing the specified Statistic
 -- and Threshold. The specified Statistic value is used as the first
 -- operand.
-pmaComparisonOperator :: Lens' PutMetricAlarm Text
+pmaComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
 pmaComparisonOperator =
     lens _pmaComparisonOperator (\s a -> s { _pmaComparisonOperator = a })
 
@@ -212,7 +212,7 @@ pmaPeriod :: Lens' PutMetricAlarm Natural
 pmaPeriod = lens _pmaPeriod (\s a -> s { _pmaPeriod = a }) . _Nat
 
 -- | The statistic to apply to the alarm's associated metric.
-pmaStatistic :: Lens' PutMetricAlarm Text
+pmaStatistic :: Lens' PutMetricAlarm Statistic
 pmaStatistic = lens _pmaStatistic (\s a -> s { _pmaStatistic = a })
 
 -- | The value against which the specified statistic is compared.
@@ -220,7 +220,7 @@ pmaThreshold :: Lens' PutMetricAlarm Double
 pmaThreshold = lens _pmaThreshold (\s a -> s { _pmaThreshold = a })
 
 -- | The unit for the alarm's associated metric.
-pmaUnit :: Lens' PutMetricAlarm (Maybe Text)
+pmaUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
 pmaUnit = lens _pmaUnit (\s a -> s { _pmaUnit = a })
 
 data PutMetricAlarmResponse = PutMetricAlarmResponse

@@ -86,7 +86,7 @@ import qualified GHC.Exts
 
 data BatchGetItem = BatchGetItem
     { _bgiRequestItems           :: Map Text KeysAndAttributes
-    , _bgiReturnConsumedCapacity :: Maybe Text
+    , _bgiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
     } deriving (Eq, Show)
 
 -- | 'BatchGetItem' constructor.
@@ -95,7 +95,7 @@ data BatchGetItem = BatchGetItem
 --
 -- * 'bgiRequestItems' @::@ 'HashMap' 'Text' 'KeysAndAttributes'
 --
--- * 'bgiReturnConsumedCapacity' @::@ 'Maybe' 'Text'
+-- * 'bgiReturnConsumedCapacity' @::@ 'Maybe' 'ReturnConsumedCapacity'
 --
 batchGetItem :: BatchGetItem
 batchGetItem = BatchGetItem
@@ -121,7 +121,7 @@ batchGetItem = BatchGetItem
 bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
 bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a }) . _Map
 
-bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe Text)
+bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
 bgiReturnConsumedCapacity =
     lens _bgiReturnConsumedCapacity
         (\s a -> s { _bgiReturnConsumedCapacity = a })

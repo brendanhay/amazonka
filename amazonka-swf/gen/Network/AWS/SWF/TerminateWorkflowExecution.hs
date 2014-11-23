@@ -63,19 +63,19 @@ import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
 data TerminateWorkflowExecution = TerminateWorkflowExecution
-    { _tweChildPolicy :: Maybe Text
+    { _tweChildPolicy :: Maybe ChildPolicy
     , _tweDetails     :: Maybe Text
     , _tweDomain      :: Text
     , _tweReason      :: Maybe Text
     , _tweRunId       :: Maybe Text
     , _tweWorkflowId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'TerminateWorkflowExecution' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tweChildPolicy' @::@ 'Maybe' 'Text'
+-- * 'tweChildPolicy' @::@ 'Maybe' 'ChildPolicy'
 --
 -- * 'tweDetails' @::@ 'Maybe' 'Text'
 --
@@ -109,7 +109,7 @@ terminateWorkflowExecution p1 p2 = TerminateWorkflowExecution
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
-tweChildPolicy :: Lens' TerminateWorkflowExecution (Maybe Text)
+tweChildPolicy :: Lens' TerminateWorkflowExecution (Maybe ChildPolicy)
 tweChildPolicy = lens _tweChildPolicy (\s a -> s { _tweChildPolicy = a })
 
 -- | Optional details for terminating the workflow execution.

@@ -73,14 +73,14 @@ import qualified GHC.Exts
 
 data PutItem = PutItem
     { _piConditionExpression         :: Maybe Text
-    , _piConditionalOperator         :: Maybe Text
+    , _piConditionalOperator         :: Maybe ConditionalOperator
     , _piExpected                    :: Map Text ExpectedAttributeValue
     , _piExpressionAttributeNames    :: Map Text Text
     , _piExpressionAttributeValues   :: Map Text AttributeValue
     , _piItem                        :: Map Text AttributeValue
-    , _piReturnConsumedCapacity      :: Maybe Text
-    , _piReturnItemCollectionMetrics :: Maybe Text
-    , _piReturnValues                :: Maybe Text
+    , _piReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
+    , _piReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
+    , _piReturnValues                :: Maybe ReturnValue
     , _piTableName                   :: Text
     } deriving (Eq, Show)
 
@@ -90,7 +90,7 @@ data PutItem = PutItem
 --
 -- * 'piConditionExpression' @::@ 'Maybe' 'Text'
 --
--- * 'piConditionalOperator' @::@ 'Maybe' 'Text'
+-- * 'piConditionalOperator' @::@ 'Maybe' 'ConditionalOperator'
 --
 -- * 'piExpected' @::@ 'HashMap' 'Text' 'ExpectedAttributeValue'
 --
@@ -100,11 +100,11 @@ data PutItem = PutItem
 --
 -- * 'piItem' @::@ 'HashMap' 'Text' 'AttributeValue'
 --
--- * 'piReturnConsumedCapacity' @::@ 'Maybe' 'Text'
+-- * 'piReturnConsumedCapacity' @::@ 'Maybe' 'ReturnConsumedCapacity'
 --
--- * 'piReturnItemCollectionMetrics' @::@ 'Maybe' 'Text'
+-- * 'piReturnItemCollectionMetrics' @::@ 'Maybe' 'ReturnItemCollectionMetrics'
 --
--- * 'piReturnValues' @::@ 'Maybe' 'Text'
+-- * 'piReturnValues' @::@ 'Maybe' 'ReturnValue'
 --
 -- * 'piTableName' @::@ 'Text'
 --
@@ -141,7 +141,7 @@ piConditionExpression =
 -- one of the conditions evaluate to true, then the entire map evaluates to
 -- true. If you omit ConditionalOperator, then AND is the default. The
 -- operation will succeed only if the entire map evaluates to true.
-piConditionalOperator :: Lens' PutItem (Maybe Text)
+piConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
 piConditionalOperator =
     lens _piConditionalOperator (\s a -> s { _piConditionalOperator = a })
 
@@ -316,7 +316,7 @@ piExpressionAttributeValues =
 piItem :: Lens' PutItem (HashMap Text AttributeValue)
 piItem = lens _piItem (\s a -> s { _piItem = a }) . _Map
 
-piReturnConsumedCapacity :: Lens' PutItem (Maybe Text)
+piReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
 piReturnConsumedCapacity =
     lens _piReturnConsumedCapacity
         (\s a -> s { _piReturnConsumedCapacity = a })
@@ -325,7 +325,7 @@ piReturnConsumedCapacity =
 -- collections, if any, that were modified during the operation are returned
 -- in the response. If set to NONE (the default), no statistics are
 -- returned.
-piReturnItemCollectionMetrics :: Lens' PutItem (Maybe Text)
+piReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
 piReturnItemCollectionMetrics =
     lens _piReturnItemCollectionMetrics
         (\s a -> s { _piReturnItemCollectionMetrics = a })
@@ -336,7 +336,7 @@ piReturnItemCollectionMetrics =
 -- NONE, then nothing is returned. (This setting is the default for
 -- ReturnValues.) ALL_OLD - If PutItem overwrote an attribute name-value
 -- pair, then the content of the old item is returned.
-piReturnValues :: Lens' PutItem (Maybe Text)
+piReturnValues :: Lens' PutItem (Maybe ReturnValue)
 piReturnValues = lens _piReturnValues (\s a -> s { _piReturnValues = a })
 
 -- | The name of the table to contain the item.

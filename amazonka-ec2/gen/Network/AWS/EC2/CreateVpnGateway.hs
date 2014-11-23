@@ -54,8 +54,8 @@ import qualified GHC.Exts
 data CreateVpnGateway = CreateVpnGateway
     { _cvgAvailabilityZone :: Maybe Text
     , _cvgDryRun           :: Maybe Bool
-    , _cvgType             :: Text
-    } deriving (Eq, Ord, Show)
+    , _cvgType             :: GatewayType
+    } deriving (Eq, Show)
 
 -- | 'CreateVpnGateway' constructor.
 --
@@ -65,9 +65,9 @@ data CreateVpnGateway = CreateVpnGateway
 --
 -- * 'cvgDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'cvgType' @::@ 'Text'
+-- * 'cvgType' @::@ 'GatewayType'
 --
-createVpnGateway :: Text -- ^ 'cvgType'
+createVpnGateway :: GatewayType -- ^ 'cvgType'
                  -> CreateVpnGateway
 createVpnGateway p1 = CreateVpnGateway
     { _cvgType             = p1
@@ -84,7 +84,7 @@ cvgDryRun :: Lens' CreateVpnGateway (Maybe Bool)
 cvgDryRun = lens _cvgDryRun (\s a -> s { _cvgDryRun = a })
 
 -- | The type of VPN connection this virtual private gateway supports.
-cvgType :: Lens' CreateVpnGateway Text
+cvgType :: Lens' CreateVpnGateway GatewayType
 cvgType = lens _cvgType (\s a -> s { _cvgType = a })
 
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse

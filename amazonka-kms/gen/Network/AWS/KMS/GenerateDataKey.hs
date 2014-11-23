@@ -56,7 +56,7 @@ data GenerateDataKey = GenerateDataKey
     { _gdkEncryptionContext :: Map Text Text
     , _gdkGrantTokens       :: List "GrantTokens" Text
     , _gdkKeyId             :: Text
-    , _gdkKeySpec           :: Maybe Text
+    , _gdkKeySpec           :: Maybe DataKeySpec
     , _gdkNumberOfBytes     :: Maybe Nat
     } deriving (Eq, Show)
 
@@ -70,7 +70,7 @@ data GenerateDataKey = GenerateDataKey
 --
 -- * 'gdkKeyId' @::@ 'Text'
 --
--- * 'gdkKeySpec' @::@ 'Maybe' 'Text'
+-- * 'gdkKeySpec' @::@ 'Maybe' 'DataKeySpec'
 --
 -- * 'gdkNumberOfBytes' @::@ 'Maybe' 'Natural'
 --
@@ -105,7 +105,7 @@ gdkKeyId = lens _gdkKeyId (\s a -> s { _gdkKeyId = a })
 
 -- | Value that identifies the encryption algorithm and key size to generate a
 -- data key for. Currently this can be AES_128 or AES_256.
-gdkKeySpec :: Lens' GenerateDataKey (Maybe Text)
+gdkKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
 gdkKeySpec = lens _gdkKeySpec (\s a -> s { _gdkKeySpec = a })
 
 -- | Integer that contains the number of bytes to generate. Common values are

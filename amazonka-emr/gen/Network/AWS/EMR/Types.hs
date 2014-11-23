@@ -456,11 +456,11 @@ instance ToJSON MarketType where
 data InstanceGroupConfig = InstanceGroupConfig
     { _igcBidPrice      :: Maybe Text
     , _igcInstanceCount :: Int
-    , _igcInstanceRole  :: Text
+    , _igcInstanceRole  :: InstanceRoleType
     , _igcInstanceType  :: Text
-    , _igcMarket        :: Maybe Text
+    , _igcMarket        :: Maybe MarketType
     , _igcName          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'InstanceGroupConfig' constructor.
 --
@@ -470,15 +470,15 @@ data InstanceGroupConfig = InstanceGroupConfig
 --
 -- * 'igcInstanceCount' @::@ 'Int'
 --
--- * 'igcInstanceRole' @::@ 'Text'
+-- * 'igcInstanceRole' @::@ 'InstanceRoleType'
 --
 -- * 'igcInstanceType' @::@ 'Text'
 --
--- * 'igcMarket' @::@ 'Maybe' 'Text'
+-- * 'igcMarket' @::@ 'Maybe' 'MarketType'
 --
 -- * 'igcName' @::@ 'Maybe' 'Text'
 --
-instanceGroupConfig :: Text -- ^ 'igcInstanceRole'
+instanceGroupConfig :: InstanceRoleType -- ^ 'igcInstanceRole'
                     -> Text -- ^ 'igcInstanceType'
                     -> Int -- ^ 'igcInstanceCount'
                     -> InstanceGroupConfig
@@ -501,7 +501,7 @@ igcInstanceCount :: Lens' InstanceGroupConfig Int
 igcInstanceCount = lens _igcInstanceCount (\s a -> s { _igcInstanceCount = a })
 
 -- | The role of the instance group in the cluster.
-igcInstanceRole :: Lens' InstanceGroupConfig Text
+igcInstanceRole :: Lens' InstanceGroupConfig InstanceRoleType
 igcInstanceRole = lens _igcInstanceRole (\s a -> s { _igcInstanceRole = a })
 
 -- | The Amazon EC2 instance type for all instances in the instance group.
@@ -509,7 +509,7 @@ igcInstanceType :: Lens' InstanceGroupConfig Text
 igcInstanceType = lens _igcInstanceType (\s a -> s { _igcInstanceType = a })
 
 -- | Market type of the Amazon EC2 instances used to create a cluster node.
-igcMarket :: Lens' InstanceGroupConfig (Maybe Text)
+igcMarket :: Lens' InstanceGroupConfig (Maybe MarketType)
 igcMarket = lens _igcMarket (\s a -> s { _igcMarket = a })
 
 -- | Friendly name given to the instance group.
@@ -536,15 +536,15 @@ instance ToJSON InstanceGroupConfig where
         ]
 
 data InstanceStateChangeReason = InstanceStateChangeReason
-    { _iscrCode    :: Maybe Text
+    { _iscrCode    :: Maybe InstanceStateChangeReasonCode
     , _iscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'InstanceStateChangeReason' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iscrCode' @::@ 'Maybe' 'Text'
+-- * 'iscrCode' @::@ 'Maybe' 'InstanceStateChangeReasonCode'
 --
 -- * 'iscrMessage' @::@ 'Maybe' 'Text'
 --
@@ -555,7 +555,7 @@ instanceStateChangeReason = InstanceStateChangeReason
     }
 
 -- | The programmable code for the state change reason.
-iscrCode :: Lens' InstanceStateChangeReason (Maybe Text)
+iscrCode :: Lens' InstanceStateChangeReason (Maybe InstanceStateChangeReasonCode)
 iscrCode = lens _iscrCode (\s a -> s { _iscrCode = a })
 
 -- | The status change reason description.
@@ -924,15 +924,15 @@ instance ToJSON ActionOnFailure where
     toJSON = toJSONText
 
 data ClusterStateChangeReason = ClusterStateChangeReason
-    { _cscrCode    :: Maybe Text
+    { _cscrCode    :: Maybe ClusterStateChangeReasonCode
     , _cscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'ClusterStateChangeReason' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cscrCode' @::@ 'Maybe' 'Text'
+-- * 'cscrCode' @::@ 'Maybe' 'ClusterStateChangeReasonCode'
 --
 -- * 'cscrMessage' @::@ 'Maybe' 'Text'
 --
@@ -943,7 +943,7 @@ clusterStateChangeReason = ClusterStateChangeReason
     }
 
 -- | The programmatic code for the state change reason.
-cscrCode :: Lens' ClusterStateChangeReason (Maybe Text)
+cscrCode :: Lens' ClusterStateChangeReason (Maybe ClusterStateChangeReasonCode)
 cscrCode = lens _cscrCode (\s a -> s { _cscrCode = a })
 
 -- | The descriptive message for the state change reason.
@@ -1067,8 +1067,8 @@ data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
     , _jfesdLastStateChangeReason :: Maybe Text
     , _jfesdReadyDateTime         :: Maybe RFC822
     , _jfesdStartDateTime         :: Maybe RFC822
-    , _jfesdState                 :: Text
-    } deriving (Eq, Ord, Show)
+    , _jfesdState                 :: JobFlowExecutionState
+    } deriving (Eq, Show)
 
 -- | 'JobFlowExecutionStatusDetail' constructor.
 --
@@ -1084,9 +1084,9 @@ data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
 --
 -- * 'jfesdStartDateTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'jfesdState' @::@ 'Text'
+-- * 'jfesdState' @::@ 'JobFlowExecutionState'
 --
-jobFlowExecutionStatusDetail :: Text -- ^ 'jfesdState'
+jobFlowExecutionStatusDetail :: JobFlowExecutionState -- ^ 'jfesdState'
                              -> UTCTime -- ^ 'jfesdCreationDateTime'
                              -> JobFlowExecutionStatusDetail
 jobFlowExecutionStatusDetail p1 p2 = JobFlowExecutionStatusDetail
@@ -1128,7 +1128,7 @@ jfesdStartDateTime =
         . mapping _Time
 
 -- | The state of the job flow.
-jfesdState :: Lens' JobFlowExecutionStatusDetail Text
+jfesdState :: Lens' JobFlowExecutionStatusDetail JobFlowExecutionState
 jfesdState = lens _jfesdState (\s a -> s { _jfesdState = a })
 
 instance FromJSON JobFlowExecutionStatusDetail where
@@ -1151,7 +1151,7 @@ instance ToJSON JobFlowExecutionStatusDetail where
         ]
 
 data InstanceGroupStatus = InstanceGroupStatus
-    { _igsState             :: Maybe Text
+    { _igsState             :: Maybe InstanceGroupState
     , _igsStateChangeReason :: Maybe InstanceGroupStateChangeReason
     , _igsTimeline          :: Maybe InstanceGroupTimeline
     } deriving (Eq, Show)
@@ -1160,7 +1160,7 @@ data InstanceGroupStatus = InstanceGroupStatus
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'igsState' @::@ 'Maybe' 'Text'
+-- * 'igsState' @::@ 'Maybe' 'InstanceGroupState'
 --
 -- * 'igsStateChangeReason' @::@ 'Maybe' 'InstanceGroupStateChangeReason'
 --
@@ -1174,7 +1174,7 @@ instanceGroupStatus = InstanceGroupStatus
     }
 
 -- | The current state of the instance group.
-igsState :: Lens' InstanceGroupStatus (Maybe Text)
+igsState :: Lens' InstanceGroupStatus (Maybe InstanceGroupState)
 igsState = lens _igsState (\s a -> s { _igsState = a })
 
 -- | The status change reason details for the instance group.
@@ -1679,15 +1679,15 @@ instance ToJSON StepDetail where
         ]
 
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
-    { _igscrCode    :: Maybe Text
+    { _igscrCode    :: Maybe InstanceGroupStateChangeReasonCode
     , _igscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'InstanceGroupStateChangeReason' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'igscrCode' @::@ 'Maybe' 'Text'
+-- * 'igscrCode' @::@ 'Maybe' 'InstanceGroupStateChangeReasonCode'
 --
 -- * 'igscrMessage' @::@ 'Maybe' 'Text'
 --
@@ -1698,7 +1698,7 @@ instanceGroupStateChangeReason = InstanceGroupStateChangeReason
     }
 
 -- | The programmable code for the state change reason.
-igscrCode :: Lens' InstanceGroupStateChangeReason (Maybe Text)
+igscrCode :: Lens' InstanceGroupStateChangeReason (Maybe InstanceGroupStateChangeReasonCode)
 igscrCode = lens _igscrCode (\s a -> s { _igscrCode = a })
 
 -- | The status change reason description.
@@ -1770,7 +1770,7 @@ instance ToJSON InstanceGroupStateChangeReasonCode where
     toJSON = toJSONText
 
 data StepStatus = StepStatus
-    { _ssState             :: Maybe Text
+    { _ssState             :: Maybe StepState
     , _ssStateChangeReason :: Maybe StepStateChangeReason
     , _ssTimeline          :: Maybe StepTimeline
     } deriving (Eq, Show)
@@ -1779,7 +1779,7 @@ data StepStatus = StepStatus
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ssState' @::@ 'Maybe' 'Text'
+-- * 'ssState' @::@ 'Maybe' 'StepState'
 --
 -- * 'ssStateChangeReason' @::@ 'Maybe' 'StepStateChangeReason'
 --
@@ -1793,7 +1793,7 @@ stepStatus = StepStatus
     }
 
 -- | The execution state of the cluster step.
-ssState :: Lens' StepStatus (Maybe Text)
+ssState :: Lens' StepStatus (Maybe StepState)
 ssState = lens _ssState (\s a -> s { _ssState = a })
 
 -- | The reason for the step execution status change.
@@ -2116,16 +2116,16 @@ data InstanceGroupDetail = InstanceGroupDetail
     , _igdEndDateTime           :: Maybe RFC822
     , _igdInstanceGroupId       :: Maybe Text
     , _igdInstanceRequestCount  :: Int
-    , _igdInstanceRole          :: Text
+    , _igdInstanceRole          :: InstanceRoleType
     , _igdInstanceRunningCount  :: Int
     , _igdInstanceType          :: Text
     , _igdLastStateChangeReason :: Maybe Text
-    , _igdMarket                :: Text
+    , _igdMarket                :: MarketType
     , _igdName                  :: Maybe Text
     , _igdReadyDateTime         :: Maybe RFC822
     , _igdStartDateTime         :: Maybe RFC822
-    , _igdState                 :: Text
-    } deriving (Eq, Ord, Show)
+    , _igdState                 :: InstanceGroupState
+    } deriving (Eq, Show)
 
 -- | 'InstanceGroupDetail' constructor.
 --
@@ -2141,7 +2141,7 @@ data InstanceGroupDetail = InstanceGroupDetail
 --
 -- * 'igdInstanceRequestCount' @::@ 'Int'
 --
--- * 'igdInstanceRole' @::@ 'Text'
+-- * 'igdInstanceRole' @::@ 'InstanceRoleType'
 --
 -- * 'igdInstanceRunningCount' @::@ 'Int'
 --
@@ -2149,7 +2149,7 @@ data InstanceGroupDetail = InstanceGroupDetail
 --
 -- * 'igdLastStateChangeReason' @::@ 'Maybe' 'Text'
 --
--- * 'igdMarket' @::@ 'Text'
+-- * 'igdMarket' @::@ 'MarketType'
 --
 -- * 'igdName' @::@ 'Maybe' 'Text'
 --
@@ -2157,14 +2157,14 @@ data InstanceGroupDetail = InstanceGroupDetail
 --
 -- * 'igdStartDateTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'igdState' @::@ 'Text'
+-- * 'igdState' @::@ 'InstanceGroupState'
 --
-instanceGroupDetail :: Text -- ^ 'igdMarket'
-                    -> Text -- ^ 'igdInstanceRole'
+instanceGroupDetail :: MarketType -- ^ 'igdMarket'
+                    -> InstanceRoleType -- ^ 'igdInstanceRole'
                     -> Text -- ^ 'igdInstanceType'
                     -> Int -- ^ 'igdInstanceRequestCount'
                     -> Int -- ^ 'igdInstanceRunningCount'
-                    -> Text -- ^ 'igdState'
+                    -> InstanceGroupState -- ^ 'igdState'
                     -> UTCTime -- ^ 'igdCreationDateTime'
                     -> InstanceGroupDetail
 instanceGroupDetail p1 p2 p3 p4 p5 p6 p7 = InstanceGroupDetail
@@ -2210,7 +2210,7 @@ igdInstanceRequestCount =
     lens _igdInstanceRequestCount (\s a -> s { _igdInstanceRequestCount = a })
 
 -- | Instance group role in the cluster.
-igdInstanceRole :: Lens' InstanceGroupDetail Text
+igdInstanceRole :: Lens' InstanceGroupDetail InstanceRoleType
 igdInstanceRole = lens _igdInstanceRole (\s a -> s { _igdInstanceRole = a })
 
 -- | Actual count of running instances.
@@ -2229,7 +2229,7 @@ igdLastStateChangeReason =
         (\s a -> s { _igdLastStateChangeReason = a })
 
 -- | Market type of the Amazon EC2 instances used to create a cluster node.
-igdMarket :: Lens' InstanceGroupDetail Text
+igdMarket :: Lens' InstanceGroupDetail MarketType
 igdMarket = lens _igdMarket (\s a -> s { _igdMarket = a })
 
 -- | Friendly name for the instance group.
@@ -2246,7 +2246,7 @@ igdStartDateTime = lens _igdStartDateTime (\s a -> s { _igdStartDateTime = a }) 
 
 -- | State of instance group. The following values are deprecated: STARTING,
 -- TERMINATED, and FAILED.
-igdState :: Lens' InstanceGroupDetail Text
+igdState :: Lens' InstanceGroupDetail InstanceGroupState
 igdState = lens _igdState (\s a -> s { _igdState = a })
 
 instance FromJSON InstanceGroupDetail where
@@ -2285,15 +2285,15 @@ instance ToJSON InstanceGroupDetail where
         ]
 
 data StepStateChangeReason = StepStateChangeReason
-    { _sscrCode    :: Maybe Text
+    { _sscrCode    :: Maybe StepStateChangeReasonCode
     , _sscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'StepStateChangeReason' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sscrCode' @::@ 'Maybe' 'Text'
+-- * 'sscrCode' @::@ 'Maybe' 'StepStateChangeReasonCode'
 --
 -- * 'sscrMessage' @::@ 'Maybe' 'Text'
 --
@@ -2304,7 +2304,7 @@ stepStateChangeReason = StepStateChangeReason
     }
 
 -- | The programmable code for the state change reason.
-sscrCode :: Lens' StepStateChangeReason (Maybe Text)
+sscrCode :: Lens' StepStateChangeReason (Maybe StepStateChangeReasonCode)
 sscrCode = lens _sscrCode (\s a -> s { _sscrCode = a })
 
 -- | The descriptive message for the state change reason.
@@ -2360,7 +2360,7 @@ instance ToJSON ClusterStateChangeReasonCode where
     toJSON = toJSONText
 
 data Step = Step
-    { _sActionOnFailure :: Maybe Text
+    { _sActionOnFailure :: Maybe ActionOnFailure
     , _sConfig          :: Maybe HadoopStepConfig
     , _sId              :: Maybe Text
     , _sName            :: Maybe Text
@@ -2371,7 +2371,7 @@ data Step = Step
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sActionOnFailure' @::@ 'Maybe' 'Text'
+-- * 'sActionOnFailure' @::@ 'Maybe' 'ActionOnFailure'
 --
 -- * 'sConfig' @::@ 'Maybe' 'HadoopStepConfig'
 --
@@ -2392,7 +2392,7 @@ step = Step
 
 -- | This specifies what action to take when the cluster step fails. Possible
 -- values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.
-sActionOnFailure :: Lens' Step (Maybe Text)
+sActionOnFailure :: Lens' Step (Maybe ActionOnFailure)
 sActionOnFailure = lens _sActionOnFailure (\s a -> s { _sActionOnFailure = a })
 
 -- | The Hadoop job configuration of the cluster step.
@@ -2547,8 +2547,8 @@ data StepExecutionStatusDetail = StepExecutionStatusDetail
     , _sesdEndDateTime           :: Maybe RFC822
     , _sesdLastStateChangeReason :: Maybe Text
     , _sesdStartDateTime         :: Maybe RFC822
-    , _sesdState                 :: Text
-    } deriving (Eq, Ord, Show)
+    , _sesdState                 :: StepExecutionState
+    } deriving (Eq, Show)
 
 -- | 'StepExecutionStatusDetail' constructor.
 --
@@ -2562,9 +2562,9 @@ data StepExecutionStatusDetail = StepExecutionStatusDetail
 --
 -- * 'sesdStartDateTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'sesdState' @::@ 'Text'
+-- * 'sesdState' @::@ 'StepExecutionState'
 --
-stepExecutionStatusDetail :: Text -- ^ 'sesdState'
+stepExecutionStatusDetail :: StepExecutionState -- ^ 'sesdState'
                           -> UTCTime -- ^ 'sesdCreationDateTime'
                           -> StepExecutionStatusDetail
 stepExecutionStatusDetail p1 p2 = StepExecutionStatusDetail
@@ -2598,7 +2598,7 @@ sesdStartDateTime =
         . mapping _Time
 
 -- | The state of the job flow step.
-sesdState :: Lens' StepExecutionStatusDetail Text
+sesdState :: Lens' StepExecutionStatusDetail StepExecutionState
 sesdState = lens _sesdState (\s a -> s { _sesdState = a })
 
 instance FromJSON StepExecutionStatusDetail where
@@ -2619,7 +2619,7 @@ instance ToJSON StepExecutionStatusDetail where
         ]
 
 data InstanceStatus = InstanceStatus
-    { _isState             :: Maybe Text
+    { _isState             :: Maybe InstanceState
     , _isStateChangeReason :: Maybe InstanceStateChangeReason
     , _isTimeline          :: Maybe InstanceTimeline
     } deriving (Eq, Show)
@@ -2628,7 +2628,7 @@ data InstanceStatus = InstanceStatus
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'isState' @::@ 'Maybe' 'Text'
+-- * 'isState' @::@ 'Maybe' 'InstanceState'
 --
 -- * 'isStateChangeReason' @::@ 'Maybe' 'InstanceStateChangeReason'
 --
@@ -2642,7 +2642,7 @@ instanceStatus = InstanceStatus
     }
 
 -- | The current state of the instance.
-isState :: Lens' InstanceStatus (Maybe Text)
+isState :: Lens' InstanceStatus (Maybe InstanceState)
 isState = lens _isState (\s a -> s { _isState = a })
 
 -- | The details of the status change reason for the instance.
@@ -2835,7 +2835,7 @@ instance ToJSON JobFlowInstancesConfig where
         ]
 
 data StepConfig = StepConfig
-    { _scActionOnFailure :: Maybe Text
+    { _scActionOnFailure :: Maybe ActionOnFailure
     , _scHadoopJarStep   :: HadoopJarStepConfig
     , _scName            :: Text
     } deriving (Eq, Show)
@@ -2844,7 +2844,7 @@ data StepConfig = StepConfig
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'scActionOnFailure' @::@ 'Maybe' 'Text'
+-- * 'scActionOnFailure' @::@ 'Maybe' 'ActionOnFailure'
 --
 -- * 'scHadoopJarStep' @::@ 'HadoopJarStepConfig'
 --
@@ -2860,7 +2860,7 @@ stepConfig p1 p2 = StepConfig
     }
 
 -- | The action to take if the job flow step fails.
-scActionOnFailure :: Lens' StepConfig (Maybe Text)
+scActionOnFailure :: Lens' StepConfig (Maybe ActionOnFailure)
 scActionOnFailure =
     lens _scActionOnFailure (\s a -> s { _scActionOnFailure = a })
 
@@ -2888,9 +2888,9 @@ instance ToJSON StepConfig where
 data InstanceGroup = InstanceGroup
     { _igBidPrice               :: Maybe Text
     , _igId                     :: Maybe Text
-    , _igInstanceGroupType      :: Maybe Text
+    , _igInstanceGroupType      :: Maybe InstanceGroupType
     , _igInstanceType           :: Maybe Text
-    , _igMarket                 :: Maybe Text
+    , _igMarket                 :: Maybe MarketType
     , _igName                   :: Maybe Text
     , _igRequestedInstanceCount :: Maybe Int
     , _igRunningInstanceCount   :: Maybe Int
@@ -2905,11 +2905,11 @@ data InstanceGroup = InstanceGroup
 --
 -- * 'igId' @::@ 'Maybe' 'Text'
 --
--- * 'igInstanceGroupType' @::@ 'Maybe' 'Text'
+-- * 'igInstanceGroupType' @::@ 'Maybe' 'InstanceGroupType'
 --
 -- * 'igInstanceType' @::@ 'Maybe' 'Text'
 --
--- * 'igMarket' @::@ 'Maybe' 'Text'
+-- * 'igMarket' @::@ 'Maybe' 'MarketType'
 --
 -- * 'igName' @::@ 'Maybe' 'Text'
 --
@@ -2942,7 +2942,7 @@ igId :: Lens' InstanceGroup (Maybe Text)
 igId = lens _igId (\s a -> s { _igId = a })
 
 -- | The type of the instance group. Valid values are MASTER, CORE or TASK.
-igInstanceGroupType :: Lens' InstanceGroup (Maybe Text)
+igInstanceGroupType :: Lens' InstanceGroup (Maybe InstanceGroupType)
 igInstanceGroupType =
     lens _igInstanceGroupType (\s a -> s { _igInstanceGroupType = a })
 
@@ -2952,7 +2952,7 @@ igInstanceType = lens _igInstanceType (\s a -> s { _igInstanceType = a })
 
 -- | The marketplace to provision instances for this group. Valid values are
 -- ON_DEMAND or SPOT.
-igMarket :: Lens' InstanceGroup (Maybe Text)
+igMarket :: Lens' InstanceGroup (Maybe MarketType)
 igMarket = lens _igMarket (\s a -> s { _igMarket = a })
 
 -- | The name of the instance group.
@@ -3268,7 +3268,7 @@ instance ToJSON JobFlowInstancesDetail where
         ]
 
 data ClusterStatus = ClusterStatus
-    { _csState             :: Maybe Text
+    { _csState             :: Maybe ClusterState
     , _csStateChangeReason :: Maybe ClusterStateChangeReason
     , _csTimeline          :: Maybe ClusterTimeline
     } deriving (Eq, Show)
@@ -3277,7 +3277,7 @@ data ClusterStatus = ClusterStatus
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csState' @::@ 'Maybe' 'Text'
+-- * 'csState' @::@ 'Maybe' 'ClusterState'
 --
 -- * 'csStateChangeReason' @::@ 'Maybe' 'ClusterStateChangeReason'
 --
@@ -3291,7 +3291,7 @@ clusterStatus = ClusterStatus
     }
 
 -- | The current state of the cluster.
-csState :: Lens' ClusterStatus (Maybe Text)
+csState :: Lens' ClusterStatus (Maybe ClusterState)
 csState = lens _csState (\s a -> s { _csState = a })
 
 -- | The reason for the cluster status change.

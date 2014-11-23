@@ -120,10 +120,10 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
     , _terEndpointURL       :: Maybe Text
     , _terEnvironmentId     :: Maybe Text
     , _terEnvironmentName   :: Maybe Text
-    , _terHealth            :: Maybe Text
+    , _terHealth            :: Maybe EnvironmentHealth
     , _terResources         :: Maybe EnvironmentResourcesDescription
     , _terSolutionStackName :: Maybe Text
-    , _terStatus            :: Maybe Text
+    , _terStatus            :: Maybe EnvironmentStatus
     , _terTemplateName      :: Maybe Text
     , _terTier              :: Maybe EnvironmentTier
     , _terVersionLabel      :: Maybe Text
@@ -149,13 +149,13 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
 --
 -- * 'terEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'terHealth' @::@ 'Maybe' 'Text'
+-- * 'terHealth' @::@ 'Maybe' 'EnvironmentHealth'
 --
 -- * 'terResources' @::@ 'Maybe' 'EnvironmentResourcesDescription'
 --
 -- * 'terSolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * 'terStatus' @::@ 'Maybe' 'Text'
+-- * 'terStatus' @::@ 'Maybe' 'EnvironmentStatus'
 --
 -- * 'terTemplateName' @::@ 'Maybe' 'Text'
 --
@@ -230,7 +230,7 @@ terEnvironmentName =
 -- environment is not fully launched and health checks have not started or
 -- health checks are suspended during an UpdateEnvironment or
 -- RestartEnvironement request. Default: Grey.
-terHealth :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terHealth :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentHealth)
 terHealth = lens _terHealth (\s a -> s { _terHealth = a })
 
 -- | The description of the AWS resources used by this environment.
@@ -248,7 +248,7 @@ terSolutionStackName =
 -- Ready: Environment is available to have an action performed on it, such
 -- as update or terminate. Terminating: Environment is in the shut-down
 -- process. Terminated: Environment is not running.
-terStatus :: Lens' TerminateEnvironmentResponse (Maybe Text)
+terStatus :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentStatus)
 terStatus = lens _terStatus (\s a -> s { _terStatus = a })
 
 -- | The name of the configuration template used to originally launch this

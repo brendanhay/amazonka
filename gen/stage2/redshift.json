@@ -1318,7 +1318,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -1358,8 +1357,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003e The source type for this event. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": "querystring",
@@ -1540,8 +1539,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003e The source type for this event. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     }
                 ]
             },
@@ -15295,7 +15294,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -15387,8 +15385,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003e The event source to retrieve events for. If no value is specified, all events are returned. \u003c/p\u003e \u003cp\u003eConstraints:\u003c/p\u003e \u003cp\u003eIf \u003ci\u003eSourceType\u003c/i\u003e is supplied, \u003ci\u003eSourceIdentifier\u003c/i\u003e must also be provided.\u003c/p\u003e \u003cul\u003e \u003cli\u003eSpecify \u003ccode\u003ecluster\u003c/code\u003e when \u003ci\u003eSourceIdentifier\u003c/i\u003e is a cluster identifier.\u003c/li\u003e \u003cli\u003eSpecify \u003ccode\u003ecluster-security-group\u003c/code\u003e when \u003ci\u003eSourceIdentifier\u003c/i\u003e is a cluster security group name.\u003c/li\u003e \u003cli\u003eSpecify \u003ccode\u003ecluster-parameter-group\u003c/code\u003e when \u003ci\u003eSourceIdentifier\u003c/i\u003e is a cluster parameter group name.\u003c/li\u003e \u003cli\u003eSpecify \u003ccode\u003ecluster-snapshot\u003c/code\u003e when \u003ci\u003eSourceIdentifier\u003c/i\u003e is a cluster snapshot identifier.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": "querystring",
@@ -15554,8 +15552,8 @@
                         "shape": "SourceType",
                         "locationName": "SourceType",
                         "documentation": "\u003cp\u003e The event source to retrieve events for. If no value is specified, all events are returned. \u003c/p\u003e \u003cp\u003eConstraints:\u003c/p\u003e \u003cp\u003eIf \u003ci\u003eSourceType\u003c/i\u003e is supplied, \u003ci\u003eSourceIdentifier\u003c/i\u003e must also be provided.\u003c/p\u003e \u003cul\u003e \u003cli\u003eSpecify \u003ccode\u003ecluster\u003c/code\u003e when \u003ci\u003eSourceIdentifier\u003c/i\u003e is a cluster identifier.\u003c/li\u003e \u003cli\u003eSpecify \u003ccode\u003ecluster-security-group\u003c/code\u003e when \u003ci\u003eSourceIdentifier\u003c/i\u003e is a cluster security group name.\u003c/li\u003e \u003cli\u003eSpecify \u003ccode\u003ecluster-parameter-group\u003c/code\u003e when \u003ci\u003eSourceIdentifier\u003c/i\u003e is a cluster parameter group name.\u003c/li\u003e \u003cli\u003eSpecify \u003ccode\u003ecluster-snapshot\u003c/code\u003e when \u003ci\u003eSourceIdentifier\u003c/i\u003e is a cluster snapshot identifier.\u003c/li\u003e \u003c/ul\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe SourceType",
+                        "type": "Maybe SourceType"
                     },
                     {
                         "location": "querystring",

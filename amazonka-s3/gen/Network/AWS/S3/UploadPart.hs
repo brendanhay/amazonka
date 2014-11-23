@@ -181,8 +181,8 @@ data UploadPartResponse = UploadPartResponse
     , _uprSSECustomerAlgorithm :: Maybe Text
     , _uprSSECustomerKeyMD5    :: Maybe Text
     , _uprSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _uprServerSideEncryption :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _uprServerSideEncryption :: Maybe ServerSideEncryption
+    } deriving (Eq, Show)
 
 -- | 'UploadPartResponse' constructor.
 --
@@ -196,7 +196,7 @@ data UploadPartResponse = UploadPartResponse
 --
 -- * 'uprSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'uprServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'uprServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
 uploadPartResponse :: UploadPartResponse
 uploadPartResponse = UploadPartResponse
@@ -231,7 +231,7 @@ uprSSEKMSKeyId = lens _uprSSEKMSKeyId (\s a -> s { _uprSSEKMSKeyId = a }) . mapp
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-uprServerSideEncryption :: Lens' UploadPartResponse (Maybe Text)
+uprServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
 uprServerSideEncryption =
     lens _uprServerSideEncryption (\s a -> s { _uprServerSideEncryption = a })
 

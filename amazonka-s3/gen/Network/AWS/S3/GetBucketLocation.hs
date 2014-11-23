@@ -65,21 +65,21 @@ gblBucket :: Lens' GetBucketLocation Text
 gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
 
 newtype GetBucketLocationResponse = GetBucketLocationResponse
-    { _gblrLocationConstraint :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _gblrLocationConstraint :: Maybe Region
+    } deriving (Eq, Show)
 
 -- | 'GetBucketLocationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblrLocationConstraint' @::@ 'Maybe' 'Text'
+-- * 'gblrLocationConstraint' @::@ 'Maybe' 'Region'
 --
 getBucketLocationResponse :: GetBucketLocationResponse
 getBucketLocationResponse = GetBucketLocationResponse
     { _gblrLocationConstraint = Nothing
     }
 
-gblrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Text)
+gblrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
 gblrLocationConstraint =
     lens _gblrLocationConstraint (\s a -> s { _gblrLocationConstraint = a })
 

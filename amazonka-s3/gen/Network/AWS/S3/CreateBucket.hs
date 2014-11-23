@@ -53,7 +53,7 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data CreateBucket = CreateBucket
-    { _cbACL                       :: Maybe Text
+    { _cbACL                       :: Maybe BucketCannedACL
     , _cbBucket                    :: Text
     , _cbCreateBucketConfiguration :: Maybe CreateBucketConfiguration
     , _cbGrantFullControl          :: Maybe Text
@@ -67,7 +67,7 @@ data CreateBucket = CreateBucket
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbACL' @::@ 'Maybe' 'Text'
+-- * 'cbACL' @::@ 'Maybe' 'BucketCannedACL'
 --
 -- * 'cbBucket' @::@ 'Text'
 --
@@ -97,7 +97,7 @@ createBucket p1 = CreateBucket
     }
 
 -- | The canned ACL to apply to the bucket.
-cbACL :: Lens' CreateBucket (Maybe Text)
+cbACL :: Lens' CreateBucket (Maybe BucketCannedACL)
 cbACL = lens _cbACL (\s a -> s { _cbACL = a })
 
 cbBucket :: Lens' CreateBucket Text

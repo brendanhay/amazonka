@@ -54,9 +54,9 @@ import qualified GHC.Exts
 
 data UpdateAccessKey = UpdateAccessKey
     { _uakAccessKeyId :: Text
-    , _uakStatus      :: Text
+    , _uakStatus      :: StatusType
     , _uakUserName    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'UpdateAccessKey' constructor.
 --
@@ -64,12 +64,12 @@ data UpdateAccessKey = UpdateAccessKey
 --
 -- * 'uakAccessKeyId' @::@ 'Text'
 --
--- * 'uakStatus' @::@ 'Text'
+-- * 'uakStatus' @::@ 'StatusType'
 --
 -- * 'uakUserName' @::@ 'Maybe' 'Text'
 --
 updateAccessKey :: Text -- ^ 'uakAccessKeyId'
-                -> Text -- ^ 'uakStatus'
+                -> StatusType -- ^ 'uakStatus'
                 -> UpdateAccessKey
 updateAccessKey p1 p2 = UpdateAccessKey
     { _uakAccessKeyId = p1
@@ -84,7 +84,7 @@ uakAccessKeyId = lens _uakAccessKeyId (\s a -> s { _uakAccessKeyId = a })
 -- | The status you want to assign to the secret access key. Active means the
 -- key can be used for API calls to AWS, while Inactive means the key cannot
 -- be used.
-uakStatus :: Lens' UpdateAccessKey Text
+uakStatus :: Lens' UpdateAccessKey StatusType
 uakStatus = lens _uakStatus (\s a -> s { _uakStatus = a })
 
 -- | The name of the user whose key you want to update.

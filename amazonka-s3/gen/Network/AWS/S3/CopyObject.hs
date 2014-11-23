@@ -81,7 +81,7 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data CopyObject = CopyObject
-    { _coACL                            :: Maybe Text
+    { _coACL                            :: Maybe ObjectCannedACL
     , _coBucket                         :: Text
     , _coCacheControl                   :: Maybe Text
     , _coContentDisposition             :: Maybe Text
@@ -104,12 +104,12 @@ data CopyObject = CopyObject
     , _coGrantWriteACP                  :: Maybe Text
     , _coKey                            :: Text
     , _coMetadata                       :: Map (CI Text) Text
-    , _coMetadataDirective              :: Maybe Text
+    , _coMetadataDirective              :: Maybe MetadataDirective
     , _coSSECustomerAlgorithm           :: Maybe Text
     , _coSSECustomerKey                 :: Maybe (Sensitive Text)
     , _coSSECustomerKeyMD5              :: Maybe Text
-    , _coServerSideEncryption           :: Maybe Text
-    , _coStorageClass                   :: Maybe Text
+    , _coServerSideEncryption           :: Maybe ServerSideEncryption
+    , _coStorageClass                   :: Maybe StorageClass
     , _coWebsiteRedirectLocation        :: Maybe Text
     } deriving (Eq, Show)
 
@@ -117,7 +117,7 @@ data CopyObject = CopyObject
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'coACL' @::@ 'Maybe' 'Text'
+-- * 'coACL' @::@ 'Maybe' 'ObjectCannedACL'
 --
 -- * 'coBucket' @::@ 'Text'
 --
@@ -163,7 +163,7 @@ data CopyObject = CopyObject
 --
 -- * 'coMetadata' @::@ 'HashMap' ('CI' 'Text') 'Text'
 --
--- * 'coMetadataDirective' @::@ 'Maybe' 'Text'
+-- * 'coMetadataDirective' @::@ 'Maybe' 'MetadataDirective'
 --
 -- * 'coSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -171,9 +171,9 @@ data CopyObject = CopyObject
 --
 -- * 'coSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'coServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'coServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
--- * 'coStorageClass' @::@ 'Maybe' 'Text'
+-- * 'coStorageClass' @::@ 'Maybe' 'StorageClass'
 --
 -- * 'coWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
@@ -215,7 +215,7 @@ copyObject p1 p2 p3 = CopyObject
     }
 
 -- | The canned ACL to apply to the object.
-coACL :: Lens' CopyObject (Maybe Text)
+coACL :: Lens' CopyObject (Maybe ObjectCannedACL)
 coACL = lens _coACL (\s a -> s { _coACL = a })
 
 coBucket :: Lens' CopyObject Text
@@ -337,7 +337,7 @@ coMetadata = lens _coMetadata (\s a -> s { _coMetadata = a }) . _Map
 
 -- | Specifies whether the metadata is copied from the source object or
 -- replaced with metadata provided in the request.
-coMetadataDirective :: Lens' CopyObject (Maybe Text)
+coMetadataDirective :: Lens' CopyObject (Maybe MetadataDirective)
 coMetadataDirective =
     lens _coMetadataDirective (\s a -> s { _coMetadataDirective = a })
 
@@ -364,12 +364,12 @@ coSSECustomerKeyMD5 =
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-coServerSideEncryption :: Lens' CopyObject (Maybe Text)
+coServerSideEncryption :: Lens' CopyObject (Maybe ServerSideEncryption)
 coServerSideEncryption =
     lens _coServerSideEncryption (\s a -> s { _coServerSideEncryption = a })
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
-coStorageClass :: Lens' CopyObject (Maybe Text)
+coStorageClass :: Lens' CopyObject (Maybe StorageClass)
 coStorageClass = lens _coStorageClass (\s a -> s { _coStorageClass = a })
 
 -- | If the bucket is configured as a website, redirects requests for this
@@ -387,7 +387,7 @@ data CopyObjectResponse = CopyObjectResponse
     , _corSSECustomerAlgorithm :: Maybe Text
     , _corSSECustomerKeyMD5    :: Maybe Text
     , _corSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _corServerSideEncryption :: Maybe Text
+    , _corServerSideEncryption :: Maybe ServerSideEncryption
     } deriving (Eq, Show)
 
 -- | 'CopyObjectResponse' constructor.
@@ -406,7 +406,7 @@ data CopyObjectResponse = CopyObjectResponse
 --
 -- * 'corSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'corServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'corServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
 copyObjectResponse :: CopyObjectResponse
 copyObjectResponse = CopyObjectResponse
@@ -452,7 +452,7 @@ corSSEKMSKeyId = lens _corSSEKMSKeyId (\s a -> s { _corSSEKMSKeyId = a }) . mapp
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-corServerSideEncryption :: Lens' CopyObjectResponse (Maybe Text)
+corServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
 corServerSideEncryption =
     lens _corServerSideEncryption (\s a -> s { _corServerSideEncryption = a })
 

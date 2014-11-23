@@ -47,15 +47,15 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data DescribeAccountAttributes = DescribeAccountAttributes
-    { _daaAttributeNames :: List "attributeName" Text
+    { _daaAttributeNames :: List "attributeName" AccountAttributeName
     , _daaDryRun         :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeAccountAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daaAttributeNames' @::@ ['Text']
+-- * 'daaAttributeNames' @::@ ['AccountAttributeName']
 --
 -- * 'daaDryRun' @::@ 'Maybe' 'Bool'
 --
@@ -66,7 +66,7 @@ describeAccountAttributes = DescribeAccountAttributes
     }
 
 -- | One or more account attribute names.
-daaAttributeNames :: Lens' DescribeAccountAttributes [Text]
+daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
 daaAttributeNames =
     lens _daaAttributeNames (\s a -> s { _daaAttributeNames = a })
         . _List

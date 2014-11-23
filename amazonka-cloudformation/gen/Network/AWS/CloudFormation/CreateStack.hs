@@ -59,10 +59,10 @@ import Network.AWS.CloudFormation.Types
 import qualified GHC.Exts
 
 data CreateStack = CreateStack
-    { _csCapabilities     :: List "Capabilities" Text
+    { _csCapabilities     :: List "Capabilities" Capability
     , _csDisableRollback  :: Maybe Bool
     , _csNotificationARNs :: List "NotificationARNs" Text
-    , _csOnFailure        :: Maybe Text
+    , _csOnFailure        :: Maybe OnFailure
     , _csParameters       :: List "Parameters" Parameter
     , _csStackName        :: Text
     , _csStackPolicyBody  :: Maybe Text
@@ -77,13 +77,13 @@ data CreateStack = CreateStack
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csCapabilities' @::@ ['Text']
+-- * 'csCapabilities' @::@ ['Capability']
 --
 -- * 'csDisableRollback' @::@ 'Maybe' 'Bool'
 --
 -- * 'csNotificationARNs' @::@ ['Text']
 --
--- * 'csOnFailure' @::@ 'Maybe' 'Text'
+-- * 'csOnFailure' @::@ 'Maybe' 'OnFailure'
 --
 -- * 'csParameters' @::@ ['Parameter']
 --
@@ -130,7 +130,7 @@ createStack p1 = CreateStack
 -- resources, we recommend that you review any permissions associated with
 -- them. If you don't specify this parameter, this action returns an
 -- InsufficientCapabilities error.
-csCapabilities :: Lens' CreateStack [Text]
+csCapabilities :: Lens' CreateStack [Capability]
 csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a }) . _List
 
 -- | Set to true to disable rollback of the stack if stack creation failed.
@@ -151,7 +151,7 @@ csNotificationARNs =
 -- | Determines what action will be taken if stack creation fails. This must
 -- be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either
 -- OnFailure or DisableRollback, but not both. Default: ROLLBACK.
-csOnFailure :: Lens' CreateStack (Maybe Text)
+csOnFailure :: Lens' CreateStack (Maybe OnFailure)
 csOnFailure = lens _csOnFailure (\s a -> s { _csOnFailure = a })
 
 -- | A list of Parameter structures that specify input parameters for the

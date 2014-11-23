@@ -599,15 +599,15 @@ instance ToXML SSLSupportMethod where
     toXML = toXMLText
 
 data AllowedMethods = AllowedMethods
-    { _amItems    :: List "Method" Text
+    { _amItems    :: List "Method" Method
     , _amQuantity :: Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'AllowedMethods' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'amItems' @::@ ['Text']
+-- * 'amItems' @::@ ['Method']
 --
 -- * 'amQuantity' @::@ 'Int'
 --
@@ -620,7 +620,7 @@ allowedMethods p1 = AllowedMethods
 
 -- | A complex type that contains the HTTP methods that you want CloudFront to
 -- process and forward to your origin.
-amItems :: Lens' AllowedMethods [Text]
+amItems :: Lens' AllowedMethods [Method]
 amItems = lens _amItems (\s a -> s { _amItems = a }) . _List
 
 -- | The number of HTTP methods that you want CloudFront to forward to your
@@ -883,7 +883,7 @@ data StreamingDistributionConfig = StreamingDistributionConfig
     , _sdcComment         :: Text
     , _sdcEnabled         :: Bool
     , _sdcLogging         :: StreamingLoggingConfig
-    , _sdcPriceClass      :: Text
+    , _sdcPriceClass      :: PriceClass
     , _sdcS3Origin        :: S3Origin
     , _sdcTrustedSigners  :: TrustedSigners
     } deriving (Eq, Show)
@@ -902,7 +902,7 @@ data StreamingDistributionConfig = StreamingDistributionConfig
 --
 -- * 'sdcLogging' @::@ 'StreamingLoggingConfig'
 --
--- * 'sdcPriceClass' @::@ 'Text'
+-- * 'sdcPriceClass' @::@ 'PriceClass'
 --
 -- * 'sdcS3Origin' @::@ 'S3Origin'
 --
@@ -914,7 +914,7 @@ streamingDistributionConfig :: Text -- ^ 'sdcCallerReference'
                             -> Text -- ^ 'sdcComment'
                             -> StreamingLoggingConfig -- ^ 'sdcLogging'
                             -> TrustedSigners -- ^ 'sdcTrustedSigners'
-                            -> Text -- ^ 'sdcPriceClass'
+                            -> PriceClass -- ^ 'sdcPriceClass'
                             -> Bool -- ^ 'sdcEnabled'
                             -> StreamingDistributionConfig
 streamingDistributionConfig p1 p2 p3 p4 p5 p6 p7 p8 = StreamingDistributionConfig
@@ -964,7 +964,7 @@ sdcLogging = lens _sdcLogging (\s a -> s { _sdcLogging = a })
 
 -- | A complex type that contains information about price class for this
 -- streaming distribution.
-sdcPriceClass :: Lens' StreamingDistributionConfig Text
+sdcPriceClass :: Lens' StreamingDistributionConfig PriceClass
 sdcPriceClass = lens _sdcPriceClass (\s a -> s { _sdcPriceClass = a })
 
 -- | A complex type that contains information about the Amazon S3 bucket from
@@ -1055,7 +1055,7 @@ instance ToXML Signer where
         ]
 
 data CookiePreference = CookiePreference
-    { _cpForward          :: Text
+    { _cpForward          :: ItemSelection
     , _cpWhitelistedNames :: Maybe CookieNames
     } deriving (Eq, Show)
 
@@ -1063,11 +1063,11 @@ data CookiePreference = CookiePreference
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpForward' @::@ 'Text'
+-- * 'cpForward' @::@ 'ItemSelection'
 --
 -- * 'cpWhitelistedNames' @::@ 'Maybe' 'CookieNames'
 --
-cookiePreference :: Text -- ^ 'cpForward'
+cookiePreference :: ItemSelection -- ^ 'cpForward'
                  -> CookiePreference
 cookiePreference p1 = CookiePreference
     { _cpForward          = p1
@@ -1078,7 +1078,7 @@ cookiePreference p1 = CookiePreference
 -- cookies to the origin that is associated with this cache behavior. You
 -- can specify all, none or whitelist. If you choose All, CloudFront
 -- forwards all cookies regardless of how many your application uses.
-cpForward :: Lens' CookiePreference Text
+cpForward :: Lens' CookiePreference ItemSelection
 cpForward = lens _cpForward (\s a -> s { _cpForward = a })
 
 -- | A complex type that specifies the whitelisted cookies, if any, that you
@@ -1296,7 +1296,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary
     , _sdsEnabled          :: Bool
     , _sdsId               :: Text
     , _sdsLastModifiedTime :: RFC822
-    , _sdsPriceClass       :: Text
+    , _sdsPriceClass       :: PriceClass
     , _sdsS3Origin         :: S3Origin
     , _sdsStatus           :: Text
     , _sdsTrustedSigners   :: TrustedSigners
@@ -1318,7 +1318,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary
 --
 -- * 'sdsLastModifiedTime' @::@ 'UTCTime'
 --
--- * 'sdsPriceClass' @::@ 'Text'
+-- * 'sdsPriceClass' @::@ 'PriceClass'
 --
 -- * 'sdsS3Origin' @::@ 'S3Origin'
 --
@@ -1334,7 +1334,7 @@ streamingDistributionSummary :: Text -- ^ 'sdsId'
                              -> Aliases -- ^ 'sdsAliases'
                              -> TrustedSigners -- ^ 'sdsTrustedSigners'
                              -> Text -- ^ 'sdsComment'
-                             -> Text -- ^ 'sdsPriceClass'
+                             -> PriceClass -- ^ 'sdsPriceClass'
                              -> Bool -- ^ 'sdsEnabled'
                              -> StreamingDistributionSummary
 streamingDistributionSummary p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 = StreamingDistributionSummary
@@ -1379,7 +1379,7 @@ sdsLastModifiedTime =
     lens _sdsLastModifiedTime (\s a -> s { _sdsLastModifiedTime = a })
         . _Time
 
-sdsPriceClass :: Lens' StreamingDistributionSummary Text
+sdsPriceClass :: Lens' StreamingDistributionSummary PriceClass
 sdsPriceClass = lens _sdsPriceClass (\s a -> s { _sdsPriceClass = a })
 
 -- | A complex type that contains information about the Amazon S3 bucket from
@@ -1439,8 +1439,8 @@ instance ToXML StreamingDistributionSummary where
 data CustomOriginConfig = CustomOriginConfig
     { _cocHTTPPort             :: Int
     , _cocHTTPSPort            :: Int
-    , _cocOriginProtocolPolicy :: Text
-    } deriving (Eq, Ord, Show)
+    , _cocOriginProtocolPolicy :: OriginProtocolPolicy
+    } deriving (Eq, Show)
 
 -- | 'CustomOriginConfig' constructor.
 --
@@ -1450,11 +1450,11 @@ data CustomOriginConfig = CustomOriginConfig
 --
 -- * 'cocHTTPSPort' @::@ 'Int'
 --
--- * 'cocOriginProtocolPolicy' @::@ 'Text'
+-- * 'cocOriginProtocolPolicy' @::@ 'OriginProtocolPolicy'
 --
 customOriginConfig :: Int -- ^ 'cocHTTPPort'
                    -> Int -- ^ 'cocHTTPSPort'
-                   -> Text -- ^ 'cocOriginProtocolPolicy'
+                   -> OriginProtocolPolicy -- ^ 'cocOriginProtocolPolicy'
                    -> CustomOriginConfig
 customOriginConfig p1 p2 p3 = CustomOriginConfig
     { _cocHTTPPort             = p1
@@ -1471,7 +1471,7 @@ cocHTTPSPort :: Lens' CustomOriginConfig Int
 cocHTTPSPort = lens _cocHTTPSPort (\s a -> s { _cocHTTPSPort = a })
 
 -- | The origin protocol policy to apply to your origin.
-cocOriginProtocolPolicy :: Lens' CustomOriginConfig Text
+cocOriginProtocolPolicy :: Lens' CustomOriginConfig OriginProtocolPolicy
 cocOriginProtocolPolicy =
     lens _cocOriginProtocolPolicy (\s a -> s { _cocOriginProtocolPolicy = a })
 
@@ -1645,7 +1645,7 @@ data DistributionConfig = DistributionConfig
     , _dcEnabled              :: Bool
     , _dcLogging              :: LoggingConfig
     , _dcOrigins              :: Origins
-    , _dcPriceClass           :: Text
+    , _dcPriceClass           :: PriceClass
     , _dcRestrictions         :: Maybe Restrictions
     , _dcViewerCertificate    :: Maybe ViewerCertificate
     } deriving (Eq, Show)
@@ -1674,7 +1674,7 @@ data DistributionConfig = DistributionConfig
 --
 -- * 'dcOrigins' @::@ 'Origins'
 --
--- * 'dcPriceClass' @::@ 'Text'
+-- * 'dcPriceClass' @::@ 'PriceClass'
 --
 -- * 'dcRestrictions' @::@ 'Maybe' 'Restrictions'
 --
@@ -1688,7 +1688,7 @@ distributionConfig :: Text -- ^ 'dcCallerReference'
                    -> CacheBehaviors -- ^ 'dcCacheBehaviors'
                    -> Text -- ^ 'dcComment'
                    -> LoggingConfig -- ^ 'dcLogging'
-                   -> Text -- ^ 'dcPriceClass'
+                   -> PriceClass -- ^ 'dcPriceClass'
                    -> Bool -- ^ 'dcEnabled'
                    -> DistributionConfig
 distributionConfig p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 = DistributionConfig
@@ -1778,7 +1778,7 @@ dcOrigins = lens _dcOrigins (\s a -> s { _dcOrigins = a })
 
 -- | A complex type that contains information about price class for this
 -- distribution.
-dcPriceClass :: Lens' DistributionConfig Text
+dcPriceClass :: Lens' DistributionConfig PriceClass
 dcPriceClass = lens _dcPriceClass (\s a -> s { _dcPriceClass = a })
 
 dcRestrictions :: Lens' DistributionConfig (Maybe Restrictions)
@@ -1829,7 +1829,7 @@ data CacheBehavior = CacheBehavior
     , _cbSmoothStreaming      :: Maybe Bool
     , _cbTargetOriginId       :: Text
     , _cbTrustedSigners       :: TrustedSigners
-    , _cbViewerProtocolPolicy :: Text
+    , _cbViewerProtocolPolicy :: ViewerProtocolPolicy
     } deriving (Eq, Show)
 
 -- | 'CacheBehavior' constructor.
@@ -1850,13 +1850,13 @@ data CacheBehavior = CacheBehavior
 --
 -- * 'cbTrustedSigners' @::@ 'TrustedSigners'
 --
--- * 'cbViewerProtocolPolicy' @::@ 'Text'
+-- * 'cbViewerProtocolPolicy' @::@ 'ViewerProtocolPolicy'
 --
 cacheBehavior :: Text -- ^ 'cbPathPattern'
               -> Text -- ^ 'cbTargetOriginId'
               -> ForwardedValues -- ^ 'cbForwardedValues'
               -> TrustedSigners -- ^ 'cbTrustedSigners'
-              -> Text -- ^ 'cbViewerProtocolPolicy'
+              -> ViewerProtocolPolicy -- ^ 'cbViewerProtocolPolicy'
               -> Integer -- ^ 'cbMinTTL'
               -> CacheBehavior
 cacheBehavior p1 p2 p3 p4 p5 p6 = CacheBehavior
@@ -1933,7 +1933,7 @@ cbTrustedSigners = lens _cbTrustedSigners (\s a -> s { _cbTrustedSigners = a })
 -- respond to an HTTP request with an HTTP status code of 301 (Moved
 -- Permanently) and the HTTPS URL, specify redirect-to-https. The viewer
 -- then resubmits the request using the HTTPS URL.
-cbViewerProtocolPolicy :: Lens' CacheBehavior Text
+cbViewerProtocolPolicy :: Lens' CacheBehavior ViewerProtocolPolicy
 cbViewerProtocolPolicy =
     lens _cbViewerProtocolPolicy (\s a -> s { _cbViewerProtocolPolicy = a })
 
@@ -2197,8 +2197,8 @@ instance ToXML S3OriginConfig where
 data GeoRestriction = GeoRestriction
     { _grItems           :: List "Location" Text
     , _grQuantity        :: Int
-    , _grRestrictionType :: Text
-    } deriving (Eq, Ord, Show)
+    , _grRestrictionType :: GeoRestrictionType
+    } deriving (Eq, Show)
 
 -- | 'GeoRestriction' constructor.
 --
@@ -2208,9 +2208,9 @@ data GeoRestriction = GeoRestriction
 --
 -- * 'grQuantity' @::@ 'Int'
 --
--- * 'grRestrictionType' @::@ 'Text'
+-- * 'grRestrictionType' @::@ 'GeoRestrictionType'
 --
-geoRestriction :: Text -- ^ 'grRestrictionType'
+geoRestriction :: GeoRestrictionType -- ^ 'grRestrictionType'
                -> Int -- ^ 'grQuantity'
                -> GeoRestriction
 geoRestriction p1 p2 = GeoRestriction
@@ -2245,7 +2245,7 @@ grQuantity = lens _grQuantity (\s a -> s { _grQuantity = a })
 -- CloudFront to distribute your content. - whitelist: The Location elements
 -- specify the countries in which you want CloudFront to distribute your
 -- content.
-grRestrictionType :: Lens' GeoRestriction Text
+grRestrictionType :: Lens' GeoRestriction GeoRestrictionType
 grRestrictionType =
     lens _grRestrictionType (\s a -> s { _grRestrictionType = a })
 
@@ -2353,8 +2353,8 @@ instance ToXML Headers where
 data ViewerCertificate = ViewerCertificate
     { _vcCloudFrontDefaultCertificate :: Maybe Bool
     , _vcIAMCertificateId             :: Maybe Text
-    , _vcSSLSupportMethod             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _vcSSLSupportMethod             :: Maybe SSLSupportMethod
+    } deriving (Eq, Show)
 
 -- | 'ViewerCertificate' constructor.
 --
@@ -2364,7 +2364,7 @@ data ViewerCertificate = ViewerCertificate
 --
 -- * 'vcIAMCertificateId' @::@ 'Maybe' 'Text'
 --
--- * 'vcSSLSupportMethod' @::@ 'Maybe' 'Text'
+-- * 'vcSSLSupportMethod' @::@ 'Maybe' 'SSLSupportMethod'
 --
 viewerCertificate :: ViewerCertificate
 viewerCertificate = ViewerCertificate
@@ -2401,7 +2401,7 @@ vcIAMCertificateId =
 -- All modern browsers support SNI, but some browsers still in use don't
 -- support SNI. Do not specify a value for SSLSupportMethod if you specified
 -- true for CloudFrontDefaultCertificate.
-vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe Text)
+vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe SSLSupportMethod)
 vcSSLSupportMethod =
     lens _vcSSLSupportMethod (\s a -> s { _vcSSLSupportMethod = a })
 
@@ -2872,7 +2872,7 @@ data DefaultCacheBehavior = DefaultCacheBehavior
     , _dcbSmoothStreaming      :: Maybe Bool
     , _dcbTargetOriginId       :: Text
     , _dcbTrustedSigners       :: TrustedSigners
-    , _dcbViewerProtocolPolicy :: Text
+    , _dcbViewerProtocolPolicy :: ViewerProtocolPolicy
     } deriving (Eq, Show)
 
 -- | 'DefaultCacheBehavior' constructor.
@@ -2891,12 +2891,12 @@ data DefaultCacheBehavior = DefaultCacheBehavior
 --
 -- * 'dcbTrustedSigners' @::@ 'TrustedSigners'
 --
--- * 'dcbViewerProtocolPolicy' @::@ 'Text'
+-- * 'dcbViewerProtocolPolicy' @::@ 'ViewerProtocolPolicy'
 --
 defaultCacheBehavior :: Text -- ^ 'dcbTargetOriginId'
                      -> ForwardedValues -- ^ 'dcbForwardedValues'
                      -> TrustedSigners -- ^ 'dcbTrustedSigners'
-                     -> Text -- ^ 'dcbViewerProtocolPolicy'
+                     -> ViewerProtocolPolicy -- ^ 'dcbViewerProtocolPolicy'
                      -> Integer -- ^ 'dcbMinTTL'
                      -> DefaultCacheBehavior
 defaultCacheBehavior p1 p2 p3 p4 p5 = DefaultCacheBehavior
@@ -2964,7 +2964,7 @@ dcbTrustedSigners =
 -- respond to an HTTP request with an HTTP status code of 301 (Moved
 -- Permanently) and the HTTPS URL, specify redirect-to-https. The viewer
 -- then resubmits the request using the HTTPS URL.
-dcbViewerProtocolPolicy :: Lens' DefaultCacheBehavior Text
+dcbViewerProtocolPolicy :: Lens' DefaultCacheBehavior ViewerProtocolPolicy
 dcbViewerProtocolPolicy =
     lens _dcbViewerProtocolPolicy (\s a -> s { _dcbViewerProtocolPolicy = a })
 
@@ -3342,7 +3342,7 @@ data DistributionSummary = DistributionSummary
     , _dsId                   :: Text
     , _dsLastModifiedTime     :: RFC822
     , _dsOrigins              :: Origins
-    , _dsPriceClass           :: Text
+    , _dsPriceClass           :: PriceClass
     , _dsRestrictions         :: Restrictions
     , _dsStatus               :: Text
     , _dsViewerCertificate    :: ViewerCertificate
@@ -3372,7 +3372,7 @@ data DistributionSummary = DistributionSummary
 --
 -- * 'dsOrigins' @::@ 'Origins'
 --
--- * 'dsPriceClass' @::@ 'Text'
+-- * 'dsPriceClass' @::@ 'PriceClass'
 --
 -- * 'dsRestrictions' @::@ 'Restrictions'
 --
@@ -3390,7 +3390,7 @@ distributionSummary :: Text -- ^ 'dsId'
                     -> CacheBehaviors -- ^ 'dsCacheBehaviors'
                     -> CustomErrorResponses -- ^ 'dsCustomErrorResponses'
                     -> Text -- ^ 'dsComment'
-                    -> Text -- ^ 'dsPriceClass'
+                    -> PriceClass -- ^ 'dsPriceClass'
                     -> Bool -- ^ 'dsEnabled'
                     -> ViewerCertificate -- ^ 'dsViewerCertificate'
                     -> Restrictions -- ^ 'dsRestrictions'
@@ -3463,7 +3463,7 @@ dsLastModifiedTime =
 dsOrigins :: Lens' DistributionSummary Origins
 dsOrigins = lens _dsOrigins (\s a -> s { _dsOrigins = a })
 
-dsPriceClass :: Lens' DistributionSummary Text
+dsPriceClass :: Lens' DistributionSummary PriceClass
 dsPriceClass = lens _dsPriceClass (\s a -> s { _dsPriceClass = a })
 
 dsRestrictions :: Lens' DistributionSummary Restrictions

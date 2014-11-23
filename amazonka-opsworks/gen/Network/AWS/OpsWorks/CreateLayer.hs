@@ -64,7 +64,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data CreateLayer = CreateLayer
-    { _clAttributes               :: Map Text Text
+    { _clAttributes               :: Map LayerAttributesKeys Text
     , _clAutoAssignElasticIps     :: Maybe Bool
     , _clAutoAssignPublicIps      :: Maybe Bool
     , _clCustomInstanceProfileArn :: Maybe Text
@@ -76,7 +76,7 @@ data CreateLayer = CreateLayer
     , _clPackages                 :: List "InstanceIds" Text
     , _clShortname                :: Text
     , _clStackId                  :: Text
-    , _clType                     :: Text
+    , _clType                     :: LayerType
     , _clUseEbsOptimizedInstances :: Maybe Bool
     , _clVolumeConfigurations     :: List "VolumeConfigurations" VolumeConfiguration
     } deriving (Eq, Show)
@@ -85,7 +85,7 @@ data CreateLayer = CreateLayer
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'clAttributes' @::@ 'HashMap' 'LayerAttributesKeys' 'Text'
 --
 -- * 'clAutoAssignElasticIps' @::@ 'Maybe' 'Bool'
 --
@@ -109,14 +109,14 @@ data CreateLayer = CreateLayer
 --
 -- * 'clStackId' @::@ 'Text'
 --
--- * 'clType' @::@ 'Text'
+-- * 'clType' @::@ 'LayerType'
 --
 -- * 'clUseEbsOptimizedInstances' @::@ 'Maybe' 'Bool'
 --
 -- * 'clVolumeConfigurations' @::@ ['VolumeConfiguration']
 --
 createLayer :: Text -- ^ 'clStackId'
-            -> Text -- ^ 'clType'
+            -> LayerType -- ^ 'clType'
             -> Text -- ^ 'clName'
             -> Text -- ^ 'clShortname'
             -> CreateLayer
@@ -140,7 +140,7 @@ createLayer p1 p2 p3 p4 = CreateLayer
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-clAttributes :: Lens' CreateLayer (HashMap Text Text)
+clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys Text)
 clAttributes = lens _clAttributes (\s a -> s { _clAttributes = a }) . _Map
 
 -- | Whether to automatically assign an Elastic IP address to the layer's
@@ -215,7 +215,7 @@ clStackId = lens _clStackId (\s a -> s { _clStackId = a })
 -- layer lb: An HAProxy layer memcached: A Memcached layer
 -- monitoring-master: A Ganglia layer nodejs-app: A Node.js App Server layer
 -- php-app: A PHP App Server layer web: A Static Web Server layer.
-clType :: Lens' CreateLayer Text
+clType :: Lens' CreateLayer LayerType
 clType = lens _clType (\s a -> s { _clType = a })
 
 -- | Whether to use Amazon EBS-optimized instances.

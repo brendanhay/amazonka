@@ -55,7 +55,7 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext
     { _gdkwpEncryptionContext :: Map Text Text
     , _gdkwpGrantTokens       :: List "GrantTokens" Text
     , _gdkwpKeyId             :: Text
-    , _gdkwpKeySpec           :: Maybe Text
+    , _gdkwpKeySpec           :: Maybe DataKeySpec
     , _gdkwpNumberOfBytes     :: Maybe Nat
     } deriving (Eq, Show)
 
@@ -69,7 +69,7 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext
 --
 -- * 'gdkwpKeyId' @::@ 'Text'
 --
--- * 'gdkwpKeySpec' @::@ 'Maybe' 'Text'
+-- * 'gdkwpKeySpec' @::@ 'Maybe' 'DataKeySpec'
 --
 -- * 'gdkwpNumberOfBytes' @::@ 'Maybe' 'Natural'
 --
@@ -102,7 +102,7 @@ gdkwpKeyId = lens _gdkwpKeyId (\s a -> s { _gdkwpKeyId = a })
 
 -- | Value that identifies the encryption algorithm and key size. Currently
 -- this can be AES_128 or AES_256.
-gdkwpKeySpec :: Lens' GenerateDataKeyWithoutPlaintext (Maybe Text)
+gdkwpKeySpec :: Lens' GenerateDataKeyWithoutPlaintext (Maybe DataKeySpec)
 gdkwpKeySpec = lens _gdkwpKeySpec (\s a -> s { _gdkwpKeySpec = a })
 
 -- | Integer that contains the number of bytes to generate. Common values are

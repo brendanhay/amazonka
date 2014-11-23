@@ -184,7 +184,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 26,
@@ -219,8 +218,8 @@
                         "shape": "VerificationStatus",
                         "locationName": "DkimVerificationStatus",
                         "documentation": "\u003cp\u003eDescribes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "VerificationStatus",
+                        "type": "VerificationStatus"
                     }
                 ],
                 "contentPad": 0,
@@ -287,8 +286,8 @@
                         "shape": "VerificationStatus",
                         "locationName": "DkimVerificationStatus",
                         "documentation": "\u003cp\u003eDescribes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "VerificationStatus",
+                        "type": "VerificationStatus"
                     }
                 ]
             },
@@ -374,7 +373,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 22,
@@ -394,8 +392,8 @@
                         "shape": "VerificationStatus",
                         "locationName": "VerificationStatus",
                         "documentation": "\u003cp\u003eThe verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "VerificationStatus",
+                        "type": "VerificationStatus"
                     }
                 ],
                 "contentPad": 0,
@@ -432,8 +430,8 @@
                         "shape": "VerificationStatus",
                         "locationName": "VerificationStatus",
                         "documentation": "\u003cp\u003eThe verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "VerificationStatus",
+                        "type": "VerificationStatus"
                     },
                     {
                         "location": "querystring",
@@ -2250,7 +2248,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -2307,8 +2304,8 @@
                         "shape": "IdentityType",
                         "locationName": "IdentityType",
                         "documentation": "\u003cp\u003eThe type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities will be listed.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe IdentityType",
+                        "type": "Maybe IdentityType"
                     },
                     {
                         "location": "querystring",
@@ -2354,8 +2351,8 @@
                         "shape": "IdentityType",
                         "locationName": "IdentityType",
                         "documentation": "\u003cp\u003eThe type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities will be listed.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe IdentityType",
+                        "type": "Maybe IdentityType"
                     },
                     {
                         "location": "querystring",
@@ -3384,7 +3381,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -3429,8 +3425,8 @@
                         "shape": "NotificationType",
                         "locationName": "NotificationType",
                         "documentation": "\u003cp\u003eThe type of notifications that will be published to the specified Amazon SNS topic.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "NotificationType",
+                        "type": "NotificationType"
                     }
                 ],
                 "shared": false,
@@ -3504,8 +3500,8 @@
                         "shape": "NotificationType",
                         "locationName": "NotificationType",
                         "documentation": "\u003cp\u003eThe type of notifications that will be published to the specified Amazon SNS topic.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "NotificationType",
+                        "type": "NotificationType"
                     },
                     {
                         "location": "querystring",

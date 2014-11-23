@@ -62,9 +62,9 @@ data DescribeEvents = DescribeEvents
     , _deMarker           :: Maybe Text
     , _deMaxRecords       :: Maybe Int
     , _deSourceIdentifier :: Maybe Text
-    , _deSourceType       :: Maybe Text
+    , _deSourceType       :: Maybe SourceType
     , _deStartTime        :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'DescribeEvents' constructor.
 --
@@ -80,7 +80,7 @@ data DescribeEvents = DescribeEvents
 --
 -- * 'deSourceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'deSourceType' @::@ 'Maybe' 'Text'
+-- * 'deSourceType' @::@ 'Maybe' 'SourceType'
 --
 -- * 'deStartTime' @::@ 'Maybe' 'UTCTime'
 --
@@ -145,7 +145,7 @@ deSourceIdentifier =
 -- cluster-parameter-group when SourceIdentifier is a cluster parameter
 -- group name. Specify cluster-snapshot when SourceIdentifier is a cluster
 -- snapshot identifier.
-deSourceType :: Lens' DescribeEvents (Maybe Text)
+deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 
 -- | The beginning of the time interval to retrieve events for, specified in

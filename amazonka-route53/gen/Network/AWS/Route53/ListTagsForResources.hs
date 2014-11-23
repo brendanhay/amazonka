@@ -48,8 +48,8 @@ import qualified GHC.Exts
 
 data ListTagsForResources = ListTagsForResources
     { _ltfr1ResourceIds  :: List1 "ResourceId" Text
-    , _ltfr1ResourceType :: Text
-    } deriving (Eq, Ord, Show)
+    , _ltfr1ResourceType :: TagResourceType
+    } deriving (Eq, Show)
 
 -- | 'ListTagsForResources' constructor.
 --
@@ -57,9 +57,9 @@ data ListTagsForResources = ListTagsForResources
 --
 -- * 'ltfr1ResourceIds' @::@ 'NonEmpty' 'Text'
 --
--- * 'ltfr1ResourceType' @::@ 'Text'
+-- * 'ltfr1ResourceType' @::@ 'TagResourceType'
 --
-listTagsForResources :: Text -- ^ 'ltfr1ResourceType'
+listTagsForResources :: TagResourceType -- ^ 'ltfr1ResourceType'
                      -> NonEmpty Text -- ^ 'ltfr1ResourceIds'
                      -> ListTagsForResources
 listTagsForResources p1 p2 = ListTagsForResources
@@ -74,7 +74,7 @@ ltfr1ResourceIds = lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a }) 
 
 -- | The type of the resources. The resource type for health checks is
 -- healthcheck.
-ltfr1ResourceType :: Lens' ListTagsForResources Text
+ltfr1ResourceType :: Lens' ListTagsForResources TagResourceType
 ltfr1ResourceType =
     lens _ltfr1ResourceType (\s a -> s { _ltfr1ResourceType = a })
 

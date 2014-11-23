@@ -69,15 +69,15 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _drioDryRun                       :: Maybe Bool
     , _drioFilters                      :: List "Filter" Filter
     , _drioIncludeMarketplace           :: Maybe Bool
-    , _drioInstanceTenancy              :: Maybe Text
-    , _drioInstanceType                 :: Maybe Text
+    , _drioInstanceTenancy              :: Maybe Tenancy
+    , _drioInstanceType                 :: Maybe InstanceType
     , _drioMaxDuration                  :: Maybe Integer
     , _drioMaxInstanceCount             :: Maybe Int
     , _drioMaxResults                   :: Maybe Int
     , _drioMinDuration                  :: Maybe Integer
     , _drioNextToken                    :: Maybe Text
-    , _drioOfferingType                 :: Maybe Text
-    , _drioProductDescription           :: Maybe Text
+    , _drioOfferingType                 :: Maybe OfferingTypeValues
+    , _drioProductDescription           :: Maybe RIProductDescription
     , _drioReservedInstancesOfferingIds :: List "ReservedInstancesOfferingId" Text
     } deriving (Eq, Show)
 
@@ -93,9 +93,9 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
 --
 -- * 'drioIncludeMarketplace' @::@ 'Maybe' 'Bool'
 --
--- * 'drioInstanceTenancy' @::@ 'Maybe' 'Text'
+-- * 'drioInstanceTenancy' @::@ 'Maybe' 'Tenancy'
 --
--- * 'drioInstanceType' @::@ 'Maybe' 'Text'
+-- * 'drioInstanceType' @::@ 'Maybe' 'InstanceType'
 --
 -- * 'drioMaxDuration' @::@ 'Maybe' 'Integer'
 --
@@ -107,9 +107,9 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
 --
 -- * 'drioNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'drioOfferingType' @::@ 'Maybe' 'Text'
+-- * 'drioOfferingType' @::@ 'Maybe' 'OfferingTypeValues'
 --
--- * 'drioProductDescription' @::@ 'Maybe' 'Text'
+-- * 'drioProductDescription' @::@ 'Maybe' 'RIProductDescription'
 --
 -- * 'drioReservedInstancesOfferingIds' @::@ ['Text']
 --
@@ -163,14 +163,14 @@ drioIncludeMarketplace =
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
 -- dedicated tenancy runs on single-tenant hardware and can only be launched
 -- within a VPC. Default: default.
-drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
+drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
 drioInstanceTenancy =
     lens _drioInstanceTenancy (\s a -> s { _drioInstanceTenancy = a })
 
 -- | The instance type on which the Reserved Instance can be used. For more
 -- information, see Instance Types in the Amazon Elastic Compute Cloud User
 -- Guide.
-drioInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
+drioInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
 drioInstanceType = lens _drioInstanceType (\s a -> s { _drioInstanceType = a })
 
 -- | The maximum duration (in seconds) to filter when searching for offerings.
@@ -201,12 +201,12 @@ drioNextToken = lens _drioNextToken (\s a -> s { _drioNextToken = a })
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the Medium
 -- Utilization Reserved Instance offering type.
-drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
+drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
 drioOfferingType = lens _drioOfferingType (\s a -> s { _drioOfferingType = a })
 
 -- | The Reserved Instance description. Instances that include (Amazon VPC) in
 -- the description are for use with Amazon VPC.
-drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
+drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 drioProductDescription =
     lens _drioProductDescription (\s a -> s { _drioProductDescription = a })
 

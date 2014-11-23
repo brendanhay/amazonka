@@ -67,7 +67,7 @@ import Network.AWS.SWF.Types
 import qualified GHC.Exts
 
 data RegisterWorkflowType = RegisterWorkflowType
-    { _rwtDefaultChildPolicy                  :: Maybe Text
+    { _rwtDefaultChildPolicy                  :: Maybe ChildPolicy
     , _rwtDefaultExecutionStartToCloseTimeout :: Maybe Text
     , _rwtDefaultTaskList                     :: Maybe TaskList
     , _rwtDefaultTaskStartToCloseTimeout      :: Maybe Text
@@ -81,7 +81,7 @@ data RegisterWorkflowType = RegisterWorkflowType
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rwtDefaultChildPolicy' @::@ 'Maybe' 'Text'
+-- * 'rwtDefaultChildPolicy' @::@ 'Maybe' 'ChildPolicy'
 --
 -- * 'rwtDefaultExecutionStartToCloseTimeout' @::@ 'Maybe' 'Text'
 --
@@ -124,7 +124,7 @@ registerWorkflowType p1 p2 p3 = RegisterWorkflowType
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
-rwtDefaultChildPolicy :: Lens' RegisterWorkflowType (Maybe Text)
+rwtDefaultChildPolicy :: Lens' RegisterWorkflowType (Maybe ChildPolicy)
 rwtDefaultChildPolicy =
     lens _rwtDefaultChildPolicy (\s a -> s { _rwtDefaultChildPolicy = a })
 

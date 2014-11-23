@@ -105,9 +105,9 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     , _cmur1Key                  :: Maybe Text
     , _cmur1Location             :: Maybe Text
     , _cmur1SSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _cmur1ServerSideEncryption :: Maybe Text
+    , _cmur1ServerSideEncryption :: Maybe ServerSideEncryption
     , _cmur1VersionId            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CompleteMultipartUploadResponse' constructor.
 --
@@ -125,7 +125,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
 --
 -- * 'cmur1SSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'cmur1ServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'cmur1ServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
 -- * 'cmur1VersionId' @::@ 'Maybe' 'Text'
 --
@@ -166,7 +166,7 @@ cmur1SSEKMSKeyId = lens _cmur1SSEKMSKeyId (\s a -> s { _cmur1SSEKMSKeyId = a }) 
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-cmur1ServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe Text)
+cmur1ServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
 cmur1ServerSideEncryption =
     lens _cmur1ServerSideEncryption
         (\s a -> s { _cmur1ServerSideEncryption = a })

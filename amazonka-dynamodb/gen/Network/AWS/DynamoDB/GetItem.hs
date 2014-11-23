@@ -63,7 +63,7 @@ data GetItem = GetItem
     , _giExpressionAttributeNames :: Map Text Text
     , _giKey                      :: Map Text AttributeValue
     , _giProjectionExpression     :: Maybe Text
-    , _giReturnConsumedCapacity   :: Maybe Text
+    , _giReturnConsumedCapacity   :: Maybe ReturnConsumedCapacity
     , _giTableName                :: Text
     } deriving (Eq, Show)
 
@@ -81,7 +81,7 @@ data GetItem = GetItem
 --
 -- * 'giProjectionExpression' @::@ 'Maybe' 'Text'
 --
--- * 'giReturnConsumedCapacity' @::@ 'Maybe' 'Text'
+-- * 'giReturnConsumedCapacity' @::@ 'Maybe' 'ReturnConsumedCapacity'
 --
 -- * 'giTableName' @::@ 'Text'
 --
@@ -155,7 +155,7 @@ giProjectionExpression :: Lens' GetItem (Maybe Text)
 giProjectionExpression =
     lens _giProjectionExpression (\s a -> s { _giProjectionExpression = a })
 
-giReturnConsumedCapacity :: Lens' GetItem (Maybe Text)
+giReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
 giReturnConsumedCapacity =
     lens _giReturnConsumedCapacity
         (\s a -> s { _giReturnConsumedCapacity = a })

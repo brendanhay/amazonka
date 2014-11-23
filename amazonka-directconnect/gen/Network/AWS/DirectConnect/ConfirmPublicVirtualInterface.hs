@@ -68,21 +68,21 @@ cpvi1VirtualInterfaceId =
     lens _cpvi1VirtualInterfaceId (\s a -> s { _cpvi1VirtualInterfaceId = a })
 
 newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
-    { _cpvir3VirtualInterfaceState :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _cpvir3VirtualInterfaceState :: Maybe VirtualInterfaceState
+    } deriving (Eq, Show)
 
 -- | 'ConfirmPublicVirtualInterfaceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpvir3VirtualInterfaceState' @::@ 'Maybe' 'Text'
+-- * 'cpvir3VirtualInterfaceState' @::@ 'Maybe' 'VirtualInterfaceState'
 --
 confirmPublicVirtualInterfaceResponse :: ConfirmPublicVirtualInterfaceResponse
 confirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
     { _cpvir3VirtualInterfaceState = Nothing
     }
 
-cpvir3VirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe Text)
+cpvir3VirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 cpvir3VirtualInterfaceState =
     lens _cpvir3VirtualInterfaceState
         (\s a -> s { _cpvir3VirtualInterfaceState = a })

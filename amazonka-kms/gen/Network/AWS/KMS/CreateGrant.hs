@@ -63,7 +63,7 @@ data CreateGrant = CreateGrant
     , _cgGrantTokens       :: List "GrantTokens" Text
     , _cgGranteePrincipal  :: Text
     , _cgKeyId             :: Text
-    , _cgOperations        :: List "Operations" Text
+    , _cgOperations        :: List "Operations" GrantOperation
     , _cgRetiringPrincipal :: Maybe Text
     } deriving (Eq, Show)
 
@@ -79,7 +79,7 @@ data CreateGrant = CreateGrant
 --
 -- * 'cgKeyId' @::@ 'Text'
 --
--- * 'cgOperations' @::@ ['Text']
+-- * 'cgOperations' @::@ ['GrantOperation']
 --
 -- * 'cgRetiringPrincipal' @::@ 'Maybe' 'Text'
 --
@@ -118,7 +118,7 @@ cgKeyId = lens _cgKeyId (\s a -> s { _cgKeyId = a })
 -- | List of operations permitted by the grant. This can be any combination of
 -- one or more of the following values: Decrypt Encrypt GenerateDataKey
 -- GenerateDataKeyWithoutPlaintext ReEncryptFrom ReEncryptTo CreateGrant.
-cgOperations :: Lens' CreateGrant [Text]
+cgOperations :: Lens' CreateGrant [GrantOperation]
 cgOperations = lens _cgOperations (\s a -> s { _cgOperations = a }) . _List
 
 -- | Principal given permission to retire the grant. For more information, see

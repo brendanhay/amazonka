@@ -897,8 +897,8 @@ data Event = Event
     , _eMessage          :: Maybe Text
     , _eSeverity         :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
-    , _eSourceType       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _eSourceType       :: Maybe SourceType
+    } deriving (Eq, Show)
 
 -- | 'Event' constructor.
 --
@@ -916,7 +916,7 @@ data Event = Event
 --
 -- * 'eSourceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'eSourceType' @::@ 'Maybe' 'Text'
+-- * 'eSourceType' @::@ 'Maybe' 'SourceType'
 --
 event :: Event
 event = Event
@@ -955,7 +955,7 @@ eSourceIdentifier =
     lens _eSourceIdentifier (\s a -> s { _eSourceIdentifier = a })
 
 -- | The source type for this event.
-eSourceType :: Lens' Event (Maybe Text)
+eSourceType :: Lens' Event (Maybe SourceType)
 eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
 instance FromXML Event where

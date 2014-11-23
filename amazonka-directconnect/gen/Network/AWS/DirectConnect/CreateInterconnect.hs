@@ -109,10 +109,10 @@ data CreateInterconnectResponse = CreateInterconnectResponse
     { _cirBandwidth         :: Maybe Text
     , _cirInterconnectId    :: Maybe Text
     , _cirInterconnectName  :: Maybe Text
-    , _cirInterconnectState :: Maybe Text
+    , _cirInterconnectState :: Maybe InterconnectState
     , _cirLocation          :: Maybe Text
     , _cirRegion            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateInterconnectResponse' constructor.
 --
@@ -124,7 +124,7 @@ data CreateInterconnectResponse = CreateInterconnectResponse
 --
 -- * 'cirInterconnectName' @::@ 'Maybe' 'Text'
 --
--- * 'cirInterconnectState' @::@ 'Maybe' 'Text'
+-- * 'cirInterconnectState' @::@ 'Maybe' 'InterconnectState'
 --
 -- * 'cirLocation' @::@ 'Maybe' 'Text'
 --
@@ -151,7 +151,7 @@ cirInterconnectName :: Lens' CreateInterconnectResponse (Maybe Text)
 cirInterconnectName =
     lens _cirInterconnectName (\s a -> s { _cirInterconnectName = a })
 
-cirInterconnectState :: Lens' CreateInterconnectResponse (Maybe Text)
+cirInterconnectState :: Lens' CreateInterconnectResponse (Maybe InterconnectState)
 cirInterconnectState =
     lens _cirInterconnectState (\s a -> s { _cirInterconnectState = a })
 

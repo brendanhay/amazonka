@@ -75,17 +75,17 @@ import qualified GHC.Exts
 
 data Scan = Scan
     { _sAttributesToGet           :: List1 "AttributesToGet" Text
-    , _sConditionalOperator       :: Maybe Text
+    , _sConditionalOperator       :: Maybe ConditionalOperator
     , _sExclusiveStartKey         :: Map Text AttributeValue
     , _sExpressionAttributeNames  :: Map Text Text
     , _sExpressionAttributeValues :: Map Text AttributeValue
     , _sFilterExpression          :: Maybe Text
     , _sLimit                     :: Maybe Nat
     , _sProjectionExpression      :: Maybe Text
-    , _sReturnConsumedCapacity    :: Maybe Text
+    , _sReturnConsumedCapacity    :: Maybe ReturnConsumedCapacity
     , _sScanFilter                :: Map Text Condition
     , _sSegment                   :: Maybe Nat
-    , _sSelect                    :: Maybe Text
+    , _sSelect                    :: Maybe Select
     , _sTableName                 :: Text
     , _sTotalSegments             :: Maybe Nat
     } deriving (Eq, Show)
@@ -96,7 +96,7 @@ data Scan = Scan
 --
 -- * 'sAttributesToGet' @::@ 'NonEmpty' 'Text'
 --
--- * 'sConditionalOperator' @::@ 'Maybe' 'Text'
+-- * 'sConditionalOperator' @::@ 'Maybe' 'ConditionalOperator'
 --
 -- * 'sExclusiveStartKey' @::@ 'HashMap' 'Text' 'AttributeValue'
 --
@@ -110,13 +110,13 @@ data Scan = Scan
 --
 -- * 'sProjectionExpression' @::@ 'Maybe' 'Text'
 --
--- * 'sReturnConsumedCapacity' @::@ 'Maybe' 'Text'
+-- * 'sReturnConsumedCapacity' @::@ 'Maybe' 'ReturnConsumedCapacity'
 --
 -- * 'sScanFilter' @::@ 'HashMap' 'Text' 'Condition'
 --
 -- * 'sSegment' @::@ 'Maybe' 'Natural'
 --
--- * 'sSelect' @::@ 'Maybe' 'Text'
+-- * 'sSelect' @::@ 'Maybe' 'Select'
 --
 -- * 'sTableName' @::@ 'Text'
 --
@@ -165,7 +165,7 @@ sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a }) 
 -- one of the conditions evaluate to true, then the entire map evaluates to
 -- true. If you omit ConditionalOperator, then AND is the default. The
 -- operation will succeed only if the entire map evaluates to true.
-sConditionalOperator :: Lens' Scan (Maybe Text)
+sConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
 sConditionalOperator =
     lens _sConditionalOperator (\s a -> s { _sConditionalOperator = a })
 
@@ -240,7 +240,7 @@ sProjectionExpression :: Lens' Scan (Maybe Text)
 sProjectionExpression =
     lens _sProjectionExpression (\s a -> s { _sProjectionExpression = a })
 
-sReturnConsumedCapacity :: Lens' Scan (Maybe Text)
+sReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
 sReturnConsumedCapacity =
     lens _sReturnConsumedCapacity (\s a -> s { _sReturnConsumedCapacity = a })
 
@@ -299,7 +299,7 @@ sSegment = lens _sSegment (\s a -> s { _sSegment = a }) . mapping _Nat
 -- in a single request, unless the value for Select is SPECIFIC_ATTRIBUTES.
 -- (This usage is equivalent to specifying AttributesToGet without any value
 -- for Select.).
-sSelect :: Lens' Scan (Maybe Text)
+sSelect :: Lens' Scan (Maybe Select)
 sSelect = lens _sSelect (\s a -> s { _sSelect = a })
 
 -- | The name of the table containing the requested items.

@@ -993,7 +993,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 28,
@@ -1041,8 +1040,8 @@
                         "shape": "HealthCheckType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of health check to be performed. Currently supported types are TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "HealthCheckType",
+                        "type": "HealthCheckType"
                     },
                     {
                         "location": null,
@@ -1134,8 +1133,8 @@
                         "shape": "HealthCheckType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of health check to be performed. Currently supported types are TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "HealthCheckType",
+                        "type": "HealthCheckType"
                     }
                 ],
                 "contentPad": 25,
@@ -1367,8 +1366,8 @@
                         "shape": "HealthCheckType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of health check to be performed. Currently supported types are TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "HealthCheckType",
+                        "type": "HealthCheckType"
                     }
                 ]
             },
@@ -1392,8 +1391,8 @@
                         "shape": "ChangeAction",
                         "locationName": "Action",
                         "documentation": "\u003cp\u003eThe action to perform.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eCREATE\u003c/code\u003e | \u003ccode\u003eDELETE\u003c/code\u003e | \u003ccode\u003eUPSERT\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ChangeAction",
+                        "type": "ChangeAction"
                     },
                     {
                         "location": null,
@@ -1425,8 +1424,8 @@
                         "shape": "ChangeAction",
                         "locationName": "Action",
                         "documentation": "\u003cp\u003eThe action to perform.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eCREATE\u003c/code\u003e | \u003ccode\u003eDELETE\u003c/code\u003e | \u003ccode\u003eUPSERT\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ChangeAction",
+                        "type": "ChangeAction"
                     },
                     {
                         "location": null,
@@ -1462,8 +1461,8 @@
                         "shape": "ChangeAction",
                         "locationName": "Action",
                         "documentation": "\u003cp\u003eThe action to perform.\u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eCREATE\u003c/code\u003e | \u003ccode\u003eDELETE\u003c/code\u003e | \u003ccode\u003eUPSERT\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ChangeAction",
+                        "type": "ChangeAction"
                     },
                     {
                         "location": null,
@@ -1765,8 +1764,8 @@
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe TagResourceType",
+                        "type": "Maybe TagResourceType"
                     },
                     {
                         "location": null,
@@ -1834,8 +1833,8 @@
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe TagResourceType",
+                        "type": "Maybe TagResourceType"
                     },
                     {
                         "location": null,
@@ -1881,8 +1880,8 @@
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe TagResourceType",
+                        "type": "Maybe TagResourceType"
                     },
                     {
                         "location": null,
@@ -2163,7 +2162,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 13,
@@ -2181,8 +2179,8 @@
                         "shape": "VPCRegion",
                         "locationName": "VPCRegion",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VPCRegion",
+                        "type": "Maybe VPCRegion"
                     },
                     {
                         "location": null,
@@ -2219,8 +2217,8 @@
                         "shape": "VPCRegion",
                         "locationName": "VPCRegion",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VPCRegion",
+                        "type": "Maybe VPCRegion"
                     },
                     {
                         "location": null,
@@ -2266,8 +2264,8 @@
                         "shape": "VPCRegion",
                         "locationName": "VPCRegion",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe VPCRegion",
+                        "type": "Maybe VPCRegion"
                     }
                 ]
             },
@@ -2417,8 +2415,8 @@
                         "shape": "RRType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "RRType",
+                        "type": "RRType"
                     },
                     {
                         "location": null,
@@ -2462,8 +2460,8 @@
                         "shape": "ResourceRecordSetRegion",
                         "locationName": "Region",
                         "documentation": "\u003cp\u003e\u003ci\u003eLatency-based resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that specifies the AWS region for the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Region",
+                        "type": "Maybe Region"
                     },
                     {
                         "location": null,
@@ -2492,8 +2490,8 @@
                         "shape": "ResourceRecordSetFailover",
                         "locationName": "Failover",
                         "documentation": "\u003cp\u003e\u003ci\u003eFailover resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that indicates whether the current resource record set is a primary or secondary resource record set. A failover set may contain at most one resource record set marked as primary and one resource record set marked as secondary. A resource record set marked as primary will be returned if any of the following are true: (1) an associated health check is passing, (2) if the resource record set is an alias with the evaluate target health and at least one target resource record set is healthy, (3) both the primary and secondary resource record set are failing health checks or (4) there is no secondary resource record set. A secondary resource record set will be returned if: (1) the primary is failing a health check and either the secondary is passing a health check or has no associated health check, or (2) there is no primary resource record set. \u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePRIMARY\u003c/code\u003e | \u003ccode\u003eSECONDARY\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceRecordSetFailover",
+                        "type": "Maybe ResourceRecordSetFailover"
                     },
                     {
                         "location": null,
@@ -2585,8 +2583,8 @@
                         "shape": "RRType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "RRType",
+                        "type": "RRType"
                     },
                     {
                         "location": null,
@@ -2651,8 +2649,8 @@
                         "shape": "ResourceRecordSetRegion",
                         "locationName": "Region",
                         "documentation": "\u003cp\u003e\u003ci\u003eLatency-based resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that specifies the AWS region for the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Region",
+                        "type": "Maybe Region"
                     },
                     {
                         "location": null,
@@ -2681,8 +2679,8 @@
                         "shape": "ResourceRecordSetFailover",
                         "locationName": "Failover",
                         "documentation": "\u003cp\u003e\u003ci\u003eFailover resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that indicates whether the current resource record set is a primary or secondary resource record set. A failover set may contain at most one resource record set marked as primary and one resource record set marked as secondary. A resource record set marked as primary will be returned if any of the following are true: (1) an associated health check is passing, (2) if the resource record set is an alias with the evaluate target health and at least one target resource record set is healthy, (3) both the primary and secondary resource record set are failing health checks or (4) there is no secondary resource record set. A secondary resource record set will be returned if: (1) the primary is failing a health check and either the secondary is passing a health check or has no associated health check, or (2) there is no primary resource record set. \u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePRIMARY\u003c/code\u003e | \u003ccode\u003eSECONDARY\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceRecordSetFailover",
+                        "type": "Maybe ResourceRecordSetFailover"
                     },
                     {
                         "location": null,
@@ -2758,8 +2756,8 @@
                         "shape": "ResourceRecordSetFailover",
                         "locationName": "Failover",
                         "documentation": "\u003cp\u003e\u003ci\u003eFailover resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that indicates whether the current resource record set is a primary or secondary resource record set. A failover set may contain at most one resource record set marked as primary and one resource record set marked as secondary. A resource record set marked as primary will be returned if any of the following are true: (1) an associated health check is passing, (2) if the resource record set is an alias with the evaluate target health and at least one target resource record set is healthy, (3) both the primary and secondary resource record set are failing health checks or (4) there is no secondary resource record set. A secondary resource record set will be returned if: (1) the primary is failing a health check and either the secondary is passing a health check or has no associated health check, or (2) there is no primary resource record set. \u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePRIMARY\u003c/code\u003e | \u003ccode\u003eSECONDARY\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe ResourceRecordSetFailover",
+                        "type": "Maybe ResourceRecordSetFailover"
                     },
                     {
                         "location": null,
@@ -2818,8 +2816,8 @@
                         "shape": "ResourceRecordSetRegion",
                         "locationName": "Region",
                         "documentation": "\u003cp\u003e\u003ci\u003eLatency-based resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that specifies the AWS region for the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe Region",
+                        "type": "Maybe Region"
                     },
                     {
                         "location": null,
@@ -2878,8 +2876,8 @@
                         "shape": "RRType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "RRType",
+                        "type": "RRType"
                     },
                     {
                         "location": null,
@@ -3058,7 +3056,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "fieldPad": 14,
@@ -3091,8 +3088,8 @@
                         "shape": "ChangeStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe current state of the request. \u003ccode\u003ePENDING\u003c/code\u003e indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.\u003c/p\u003e \u003cp\u003eValid Values: \u003ccode\u003ePENDING\u003c/code\u003e | \u003ccode\u003eINSYNC\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ChangeStatus",
+                        "type": "ChangeStatus"
                     },
                     {
                         "location": null,
@@ -3154,8 +3151,8 @@
                         "shape": "ChangeStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe current state of the request. \u003ccode\u003ePENDING\u003c/code\u003e indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.\u003c/p\u003e \u003cp\u003eValid Values: \u003ccode\u003ePENDING\u003c/code\u003e | \u003ccode\u003eINSYNC\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ChangeStatus",
+                        "type": "ChangeStatus"
                     },
                     {
                         "location": null,
@@ -3237,8 +3234,8 @@
                         "shape": "ChangeStatus",
                         "locationName": "Status",
                         "documentation": "\u003cp\u003eThe current state of the request. \u003ccode\u003ePENDING\u003c/code\u003e indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.\u003c/p\u003e \u003cp\u003eValid Values: \u003ccode\u003ePENDING\u003c/code\u003e | \u003ccode\u003eINSYNC\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "ChangeStatus",
+                        "type": "ChangeStatus"
                     },
                     {
                         "location": null,
@@ -3526,6 +3523,7 @@
         ],
         "imports": [],
         "shared": [
+            "RecordType",
             "VPC",
             "DelegationSet",
             "HealthCheckObservation"
@@ -4139,8 +4137,8 @@
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TagResourceType",
+                        "type": "TagResourceType"
                     },
                     {
                         "location": "uri",
@@ -4257,8 +4255,8 @@
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TagResourceType",
+                        "type": "TagResourceType"
                     }
                 ]
             }
@@ -9148,8 +9146,8 @@
                         "shape": "RRType",
                         "locationName": "NextRecordType",
                         "documentation": "\u003cp\u003eIf the results were truncated, the type of the next record in the list. This element is present only if \u003ca\u003eListResourceRecordSetsResponse$IsTruncated\u003c/a\u003e is true. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecordType",
+                        "type": "Maybe RecordType"
                     },
                     {
                         "location": null,
@@ -9268,8 +9266,8 @@
                         "shape": "RRType",
                         "locationName": "NextRecordType",
                         "documentation": "\u003cp\u003eIf the results were truncated, the type of the next record in the list. This element is present only if \u003ca\u003eListResourceRecordSetsResponse$IsTruncated\u003c/a\u003e is true. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecordType",
+                        "type": "Maybe RecordType"
                     },
                     {
                         "location": null,
@@ -9360,8 +9358,8 @@
                         "shape": "RRType",
                         "locationName": "NextRecordType",
                         "documentation": "\u003cp\u003eIf the results were truncated, the type of the next record in the list. This element is present only if \u003ca\u003eListResourceRecordSetsResponse$IsTruncated\u003c/a\u003e is true. \u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecordType",
+                        "type": "Maybe RecordType"
                     },
                     {
                         "location": null,
@@ -9419,7 +9417,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -9520,8 +9517,8 @@
                         "shape": "RRType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe DNS type at which to begin the listing of resource record sets. \u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eA\u003c/code\u003e | \u003ccode\u003eAAAA\u003c/code\u003e | \u003ccode\u003eCNAME\u003c/code\u003e | \u003ccode\u003eMX\u003c/code\u003e | \u003ccode\u003eNS\u003c/code\u003e | \u003ccode\u003ePTR\u003c/code\u003e | \u003ccode\u003eSOA\u003c/code\u003e | \u003ccode\u003eSPF\u003c/code\u003e | \u003ccode\u003eSRV\u003c/code\u003e | \u003ccode\u003eTXT\u003c/code\u003e\u003c/p\u003e \u003cp\u003eValues for Weighted Resource Record Sets: \u003ccode\u003eA\u003c/code\u003e | \u003ccode\u003eAAAA\u003c/code\u003e | \u003ccode\u003eCNAME\u003c/code\u003e | \u003ccode\u003eTXT\u003c/code\u003e\u003c/p\u003e \u003cp\u003e Values for Regional Resource Record Sets: \u003ccode\u003eA\u003c/code\u003e | \u003ccode\u003eAAAA\u003c/code\u003e | \u003ccode\u003eCNAME\u003c/code\u003e | \u003ccode\u003eTXT\u003c/code\u003e\u003c/p\u003e \u003cp\u003eValues for Alias Resource Record Sets: \u003ccode\u003eA\u003c/code\u003e | \u003ccode\u003eAAAA\u003c/code\u003e\u003c/p\u003e \u003cp\u003eConstraint: Specifying \u003ccode\u003etype\u003c/code\u003e without specifying \u003ccode\u003ename\u003c/code\u003e returns an \u003ca\u003eInvalidInput\u003c/a\u003e error.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecordType",
+                        "type": "Maybe RecordType"
                     },
                     {
                         "location": "querystring",
@@ -9627,8 +9624,8 @@
                         "shape": "RRType",
                         "locationName": "type",
                         "documentation": "\u003cp\u003eThe DNS type at which to begin the listing of resource record sets. \u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003eA\u003c/code\u003e | \u003ccode\u003eAAAA\u003c/code\u003e | \u003ccode\u003eCNAME\u003c/code\u003e | \u003ccode\u003eMX\u003c/code\u003e | \u003ccode\u003eNS\u003c/code\u003e | \u003ccode\u003ePTR\u003c/code\u003e | \u003ccode\u003eSOA\u003c/code\u003e | \u003ccode\u003eSPF\u003c/code\u003e | \u003ccode\u003eSRV\u003c/code\u003e | \u003ccode\u003eTXT\u003c/code\u003e\u003c/p\u003e \u003cp\u003eValues for Weighted Resource Record Sets: \u003ccode\u003eA\u003c/code\u003e | \u003ccode\u003eAAAA\u003c/code\u003e | \u003ccode\u003eCNAME\u003c/code\u003e | \u003ccode\u003eTXT\u003c/code\u003e\u003c/p\u003e \u003cp\u003e Values for Regional Resource Record Sets: \u003ccode\u003eA\u003c/code\u003e | \u003ccode\u003eAAAA\u003c/code\u003e | \u003ccode\u003eCNAME\u003c/code\u003e | \u003ccode\u003eTXT\u003c/code\u003e\u003c/p\u003e \u003cp\u003eValues for Alias Resource Record Sets: \u003ccode\u003eA\u003c/code\u003e | \u003ccode\u003eAAAA\u003c/code\u003e\u003c/p\u003e \u003cp\u003eConstraint: Specifying \u003ccode\u003etype\u003c/code\u003e without specifying \u003ccode\u003ename\u003c/code\u003e returns an \u003ca\u003eInvalidInput\u003c/a\u003e error.\u003c/p\u003e",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Maybe RecordType",
+                        "type": "Maybe RecordType"
                     }
                 ]
             }
@@ -10117,7 +10114,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -10159,8 +10155,8 @@
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TagResourceType",
+                        "type": "TagResourceType"
                     },
                     {
                         "location": "uri",
@@ -10217,8 +10213,8 @@
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TagResourceType",
+                        "type": "TagResourceType"
                     }
                 ]
             }
@@ -10332,7 +10328,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Show"
                 ],
                 "streaming": false,
@@ -10382,8 +10377,8 @@
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resources. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TagResourceType",
+                        "type": "TagResourceType"
                     },
                     {
                         "location": null,
@@ -10440,8 +10435,8 @@
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resources. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "TagResourceType",
+                        "type": "TagResourceType"
                     }
                 ]
             }

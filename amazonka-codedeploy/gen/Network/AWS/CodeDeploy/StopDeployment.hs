@@ -67,15 +67,15 @@ sdDeploymentId :: Lens' StopDeployment Text
 sdDeploymentId = lens _sdDeploymentId (\s a -> s { _sdDeploymentId = a })
 
 data StopDeploymentResponse = StopDeploymentResponse
-    { _sdrStatus        :: Maybe Text
+    { _sdrStatus        :: Maybe StopStatus
     , _sdrStatusMessage :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'StopDeploymentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdrStatus' @::@ 'Maybe' 'Text'
+-- * 'sdrStatus' @::@ 'Maybe' 'StopStatus'
 --
 -- * 'sdrStatusMessage' @::@ 'Maybe' 'Text'
 --
@@ -87,7 +87,7 @@ stopDeploymentResponse = StopDeploymentResponse
 
 -- | The status of the stop deployment operation: Pending: The stop operation
 -- is pending. Succeeded: The stop operation succeeded.
-sdrStatus :: Lens' StopDeploymentResponse (Maybe Text)
+sdrStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
 sdrStatus = lens _sdrStatus (\s a -> s { _sdrStatus = a })
 
 -- | An accompanying status message.

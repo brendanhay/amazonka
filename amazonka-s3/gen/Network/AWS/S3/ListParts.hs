@@ -123,7 +123,7 @@ data ListPartsResponse = ListPartsResponse
     , _lprOwner                :: Maybe Owner
     , _lprPartNumberMarker     :: Maybe Int
     , _lprParts                :: List "Part" Part
-    , _lprStorageClass         :: Maybe Text
+    , _lprStorageClass         :: Maybe StorageClass
     , _lprUploadId             :: Maybe Text
     } deriving (Eq, Show)
 
@@ -149,7 +149,7 @@ data ListPartsResponse = ListPartsResponse
 --
 -- * 'lprParts' @::@ ['Part']
 --
--- * 'lprStorageClass' @::@ 'Maybe' 'Text'
+-- * 'lprStorageClass' @::@ 'Maybe' 'StorageClass'
 --
 -- * 'lprUploadId' @::@ 'Maybe' 'Text'
 --
@@ -207,7 +207,7 @@ lprParts :: Lens' ListPartsResponse [Part]
 lprParts = lens _lprParts (\s a -> s { _lprParts = a }) . _List
 
 -- | The class of storage used to store the object.
-lprStorageClass :: Lens' ListPartsResponse (Maybe Text)
+lprStorageClass :: Lens' ListPartsResponse (Maybe StorageClass)
 lprStorageClass = lens _lprStorageClass (\s a -> s { _lprStorageClass = a })
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.

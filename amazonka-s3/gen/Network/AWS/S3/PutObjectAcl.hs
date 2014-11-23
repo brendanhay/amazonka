@@ -54,7 +54,7 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data PutObjectAcl = PutObjectAcl
-    { _poaACL                 :: Maybe Text
+    { _poaACL                 :: Maybe ObjectCannedACL
     , _poaAccessControlPolicy :: Maybe AccessControlPolicy
     , _poaBucket              :: Text
     , _poaContentMD5          :: Maybe Text
@@ -70,7 +70,7 @@ data PutObjectAcl = PutObjectAcl
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'poaACL' @::@ 'Maybe' 'Text'
+-- * 'poaACL' @::@ 'Maybe' 'ObjectCannedACL'
 --
 -- * 'poaAccessControlPolicy' @::@ 'Maybe' 'AccessControlPolicy'
 --
@@ -107,7 +107,7 @@ putObjectAcl p1 p2 = PutObjectAcl
     }
 
 -- | The canned ACL to apply to the object.
-poaACL :: Lens' PutObjectAcl (Maybe Text)
+poaACL :: Lens' PutObjectAcl (Maybe ObjectCannedACL)
 poaACL = lens _poaACL (\s a -> s { _poaACL = a })
 
 poaAccessControlPolicy :: Lens' PutObjectAcl (Maybe AccessControlPolicy)

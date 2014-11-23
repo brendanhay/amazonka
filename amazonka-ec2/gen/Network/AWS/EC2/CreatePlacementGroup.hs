@@ -51,8 +51,8 @@ import qualified GHC.Exts
 data CreatePlacementGroup = CreatePlacementGroup
     { _cpgDryRun    :: Maybe Bool
     , _cpgGroupName :: Text
-    , _cpgStrategy  :: Text
-    } deriving (Eq, Ord, Show)
+    , _cpgStrategy  :: PlacementStrategy
+    } deriving (Eq, Show)
 
 -- | 'CreatePlacementGroup' constructor.
 --
@@ -62,10 +62,10 @@ data CreatePlacementGroup = CreatePlacementGroup
 --
 -- * 'cpgGroupName' @::@ 'Text'
 --
--- * 'cpgStrategy' @::@ 'Text'
+-- * 'cpgStrategy' @::@ 'PlacementStrategy'
 --
 createPlacementGroup :: Text -- ^ 'cpgGroupName'
-                     -> Text -- ^ 'cpgStrategy'
+                     -> PlacementStrategy -- ^ 'cpgStrategy'
                      -> CreatePlacementGroup
 createPlacementGroup p1 p2 = CreatePlacementGroup
     { _cpgGroupName = p1
@@ -81,7 +81,7 @@ cpgGroupName :: Lens' CreatePlacementGroup Text
 cpgGroupName = lens _cpgGroupName (\s a -> s { _cpgGroupName = a })
 
 -- | The placement strategy.
-cpgStrategy :: Lens' CreatePlacementGroup Text
+cpgStrategy :: Lens' CreatePlacementGroup PlacementStrategy
 cpgStrategy = lens _cpgStrategy (\s a -> s { _cpgStrategy = a })
 
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse

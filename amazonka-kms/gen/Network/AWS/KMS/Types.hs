@@ -126,8 +126,8 @@ data KeyMetadata = KeyMetadata
     , _kmDescription  :: Maybe Text
     , _kmEnabled      :: Maybe Bool
     , _kmKeyId        :: Text
-    , _kmKeyUsage     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    , _kmKeyUsage     :: Maybe KeyUsageType
+    } deriving (Eq, Show)
 
 -- | 'KeyMetadata' constructor.
 --
@@ -145,7 +145,7 @@ data KeyMetadata = KeyMetadata
 --
 -- * 'kmKeyId' @::@ 'Text'
 --
--- * 'kmKeyUsage' @::@ 'Maybe' 'Text'
+-- * 'kmKeyUsage' @::@ 'Maybe' 'KeyUsageType'
 --
 keyMetadata :: Text -- ^ 'kmKeyId'
             -> KeyMetadata
@@ -184,7 +184,7 @@ kmKeyId :: Lens' KeyMetadata Text
 kmKeyId = lens _kmKeyId (\s a -> s { _kmKeyId = a })
 
 -- | A value that specifies what operation(s) the key can perform.
-kmKeyUsage :: Lens' KeyMetadata (Maybe Text)
+kmKeyUsage :: Lens' KeyMetadata (Maybe KeyUsageType)
 kmKeyUsage = lens _kmKeyUsage (\s a -> s { _kmKeyUsage = a })
 
 instance FromJSON KeyMetadata where
@@ -328,7 +328,7 @@ data GrantListEntry = GrantListEntry
     , _gleGrantId           :: Maybe Text
     , _gleGranteePrincipal  :: Maybe Text
     , _gleIssuingAccount    :: Maybe Text
-    , _gleOperations        :: List "Operations" Text
+    , _gleOperations        :: List "Operations" GrantOperation
     , _gleRetiringPrincipal :: Maybe Text
     } deriving (Eq, Show)
 
@@ -344,7 +344,7 @@ data GrantListEntry = GrantListEntry
 --
 -- * 'gleIssuingAccount' @::@ 'Maybe' 'Text'
 --
--- * 'gleOperations' @::@ ['Text']
+-- * 'gleOperations' @::@ ['GrantOperation']
 --
 -- * 'gleRetiringPrincipal' @::@ 'Maybe' 'Text'
 --
@@ -380,7 +380,7 @@ gleIssuingAccount =
 -- | List of operations permitted by the grant. This can be any combination of
 -- one or more of the following values: Decrypt Encrypt GenerateDataKey
 -- GenerateDataKeyWithoutPlaintext ReEncryptFrom ReEncryptTo CreateGrant.
-gleOperations :: Lens' GrantListEntry [Text]
+gleOperations :: Lens' GrantListEntry [GrantOperation]
 gleOperations = lens _gleOperations (\s a -> s { _gleOperations = a }) . _List
 
 -- | The principal that can retire the account.

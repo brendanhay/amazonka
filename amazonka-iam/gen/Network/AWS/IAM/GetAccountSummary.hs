@@ -53,14 +53,14 @@ getAccountSummary :: GetAccountSummary
 getAccountSummary = GetAccountSummary
 
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
-    { _gasrSummaryMap :: EMap "entry" "key" "value" Text Int
+    { _gasrSummaryMap :: EMap "entry" "key" "value" SummaryKeyType Int
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetAccountSummaryResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gasrSummaryMap' @::@ 'HashMap' 'Text' 'Int'
+-- * 'gasrSummaryMap' @::@ 'HashMap' 'SummaryKeyType' 'Int'
 --
 getAccountSummaryResponse :: GetAccountSummaryResponse
 getAccountSummaryResponse = GetAccountSummaryResponse
@@ -89,7 +89,7 @@ getAccountSummaryResponse = GetAccountSummaryResponse
 -- certificates allowed for a user UserPolicySizeQuota - Maximum allowed
 -- size for user policy documents (in kilobytes) Users - Number of users for
 -- the AWS account UsersQuota - Maximum users allowed for the AWS account.
-gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap Text Int)
+gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a }) . _EMap
 
 instance ToPath GetAccountSummary where

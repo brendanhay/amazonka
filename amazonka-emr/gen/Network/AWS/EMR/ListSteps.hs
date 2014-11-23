@@ -51,8 +51,8 @@ import qualified GHC.Exts
 data ListSteps = ListSteps
     { _lsClusterId  :: Text
     , _lsMarker     :: Maybe Text
-    , _lsStepStates :: List "StepStates" Text
-    } deriving (Eq, Ord, Show)
+    , _lsStepStates :: List "StepStates" StepState
+    } deriving (Eq, Show)
 
 -- | 'ListSteps' constructor.
 --
@@ -62,7 +62,7 @@ data ListSteps = ListSteps
 --
 -- * 'lsMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lsStepStates' @::@ ['Text']
+-- * 'lsStepStates' @::@ ['StepState']
 --
 listSteps :: Text -- ^ 'lsClusterId'
           -> ListSteps
@@ -81,7 +81,7 @@ lsMarker :: Lens' ListSteps (Maybe Text)
 lsMarker = lens _lsMarker (\s a -> s { _lsMarker = a })
 
 -- | The filter to limit the step list based on certain states.
-lsStepStates :: Lens' ListSteps [Text]
+lsStepStates :: Lens' ListSteps [StepState]
 lsStepStates = lens _lsStepStates (\s a -> s { _lsStepStates = a }) . _List
 
 data ListStepsResponse = ListStepsResponse

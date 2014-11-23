@@ -69,7 +69,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data CloneStack = CloneStack
-    { _cs1Attributes                :: Map Text Text
+    { _cs1Attributes                :: Map StackAttributesKeys Text
     , _cs1ChefConfiguration         :: Maybe ChefConfiguration
     , _cs1CloneAppIds               :: List "InstanceIds" Text
     , _cs1ClonePermissions          :: Maybe Bool
@@ -79,7 +79,7 @@ data CloneStack = CloneStack
     , _cs1DefaultAvailabilityZone   :: Maybe Text
     , _cs1DefaultInstanceProfileArn :: Maybe Text
     , _cs1DefaultOs                 :: Maybe Text
-    , _cs1DefaultRootDeviceType     :: Maybe Text
+    , _cs1DefaultRootDeviceType     :: Maybe RootDeviceType
     , _cs1DefaultSshKeyName         :: Maybe Text
     , _cs1DefaultSubnetId           :: Maybe Text
     , _cs1HostnameTheme             :: Maybe Text
@@ -96,7 +96,7 @@ data CloneStack = CloneStack
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cs1Attributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'cs1Attributes' @::@ 'HashMap' 'StackAttributesKeys' 'Text'
 --
 -- * 'cs1ChefConfiguration' @::@ 'Maybe' 'ChefConfiguration'
 --
@@ -116,7 +116,7 @@ data CloneStack = CloneStack
 --
 -- * 'cs1DefaultOs' @::@ 'Maybe' 'Text'
 --
--- * 'cs1DefaultRootDeviceType' @::@ 'Maybe' 'Text'
+-- * 'cs1DefaultRootDeviceType' @::@ 'Maybe' 'RootDeviceType'
 --
 -- * 'cs1DefaultSshKeyName' @::@ 'Maybe' 'Text'
 --
@@ -167,7 +167,7 @@ cloneStack p1 p2 = CloneStack
 
 -- | A list of stack attributes and values as key/value pairs to be added to
 -- the cloned stack.
-cs1Attributes :: Lens' CloneStack (HashMap Text Text)
+cs1Attributes :: Lens' CloneStack (HashMap StackAttributesKeys Text)
 cs1Attributes = lens _cs1Attributes (\s a -> s { _cs1Attributes = a }) . _Map
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
@@ -232,7 +232,7 @@ cs1DefaultOs = lens _cs1DefaultOs (\s a -> s { _cs1DefaultOs = a })
 -- | The default root device type. This value is used by default for all
 -- instances in the cloned stack, but you can override it when you create an
 -- instance. For more information, see Storage for the Root Device.
-cs1DefaultRootDeviceType :: Lens' CloneStack (Maybe Text)
+cs1DefaultRootDeviceType :: Lens' CloneStack (Maybe RootDeviceType)
 cs1DefaultRootDeviceType =
     lens _cs1DefaultRootDeviceType
         (\s a -> s { _cs1DefaultRootDeviceType = a })

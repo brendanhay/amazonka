@@ -83,7 +83,7 @@ import qualified GHC.Exts
 
 data Query = Query
     { _qAttributesToGet           :: List1 "AttributesToGet" Text
-    , _qConditionalOperator       :: Maybe Text
+    , _qConditionalOperator       :: Maybe ConditionalOperator
     , _qConsistentRead            :: Maybe Bool
     , _qExclusiveStartKey         :: Map Text AttributeValue
     , _qExpressionAttributeNames  :: Map Text Text
@@ -94,9 +94,9 @@ data Query = Query
     , _qLimit                     :: Maybe Nat
     , _qProjectionExpression      :: Maybe Text
     , _qQueryFilter               :: Map Text Condition
-    , _qReturnConsumedCapacity    :: Maybe Text
+    , _qReturnConsumedCapacity    :: Maybe ReturnConsumedCapacity
     , _qScanIndexForward          :: Maybe Bool
-    , _qSelect                    :: Maybe Text
+    , _qSelect                    :: Maybe Select
     , _qTableName                 :: Text
     } deriving (Eq, Show)
 
@@ -106,7 +106,7 @@ data Query = Query
 --
 -- * 'qAttributesToGet' @::@ 'NonEmpty' 'Text'
 --
--- * 'qConditionalOperator' @::@ 'Maybe' 'Text'
+-- * 'qConditionalOperator' @::@ 'Maybe' 'ConditionalOperator'
 --
 -- * 'qConsistentRead' @::@ 'Maybe' 'Bool'
 --
@@ -128,11 +128,11 @@ data Query = Query
 --
 -- * 'qQueryFilter' @::@ 'HashMap' 'Text' 'Condition'
 --
--- * 'qReturnConsumedCapacity' @::@ 'Maybe' 'Text'
+-- * 'qReturnConsumedCapacity' @::@ 'Maybe' 'ReturnConsumedCapacity'
 --
 -- * 'qScanIndexForward' @::@ 'Maybe' 'Bool'
 --
--- * 'qSelect' @::@ 'Maybe' 'Text'
+-- * 'qSelect' @::@ 'Maybe' 'Select'
 --
 -- * 'qTableName' @::@ 'Text'
 --
@@ -192,7 +192,7 @@ qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a }) 
 -- one of the conditions evaluate to true, then the entire map evaluates to
 -- true. If you omit ConditionalOperator, then AND is the default. The
 -- operation will succeed only if the entire map evaluates to true.
-qConditionalOperator :: Lens' Query (Maybe Text)
+qConditionalOperator :: Lens' Query (Maybe ConditionalOperator)
 qConditionalOperator =
     lens _qConditionalOperator (\s a -> s { _qConditionalOperator = a })
 
@@ -374,7 +374,7 @@ qProjectionExpression =
 qQueryFilter :: Lens' Query (HashMap Text Condition)
 qQueryFilter = lens _qQueryFilter (\s a -> s { _qQueryFilter = a }) . _Map
 
-qReturnConsumedCapacity :: Lens' Query (Maybe Text)
+qReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
 qReturnConsumedCapacity =
     lens _qReturnConsumedCapacity (\s a -> s { _qReturnConsumedCapacity = a })
 
@@ -420,7 +420,7 @@ qScanIndexForward =
 -- single request, unless the value for Select is SPECIFIC_ATTRIBUTES. (This
 -- usage is equivalent to specifying AttributesToGet without any value for
 -- Select.).
-qSelect :: Lens' Query (Maybe Text)
+qSelect :: Lens' Query (Maybe Select)
 qSelect = lens _qSelect (\s a -> s { _qSelect = a })
 
 -- | The name of the table containing the requested items.

@@ -58,14 +58,14 @@ import qualified GHC.Exts
 data UpdateApp = UpdateApp
     { _uaAppId            :: Text
     , _uaAppSource        :: Maybe Source
-    , _uaAttributes       :: Map Text Text
+    , _uaAttributes       :: Map AppAttributesKeys Text
     , _uaDataSources      :: List "DataSources" DataSource
     , _uaDescription      :: Maybe Text
     , _uaDomains          :: List "InstanceIds" Text
     , _uaEnableSsl        :: Maybe Bool
     , _uaName             :: Maybe Text
     , _uaSslConfiguration :: Maybe SslConfiguration
-    , _uaType             :: Maybe Text
+    , _uaType             :: Maybe AppType
     } deriving (Eq, Show)
 
 -- | 'UpdateApp' constructor.
@@ -76,7 +76,7 @@ data UpdateApp = UpdateApp
 --
 -- * 'uaAppSource' @::@ 'Maybe' 'Source'
 --
--- * 'uaAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'uaAttributes' @::@ 'HashMap' 'AppAttributesKeys' 'Text'
 --
 -- * 'uaDataSources' @::@ ['DataSource']
 --
@@ -90,7 +90,7 @@ data UpdateApp = UpdateApp
 --
 -- * 'uaSslConfiguration' @::@ 'Maybe' 'SslConfiguration'
 --
--- * 'uaType' @::@ 'Maybe' 'Text'
+-- * 'uaType' @::@ 'Maybe' 'AppType'
 --
 updateApp :: Text -- ^ 'uaAppId'
           -> UpdateApp
@@ -117,7 +117,7 @@ uaAppSource = lens _uaAppSource (\s a -> s { _uaAppSource = a })
 
 -- | One or more user-defined key/value pairs to be added to the stack
 -- attributes.
-uaAttributes :: Lens' UpdateApp (HashMap Text Text)
+uaAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
 uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a }) . _Map
 
 -- | The app's data sources.
@@ -147,7 +147,7 @@ uaSslConfiguration =
     lens _uaSslConfiguration (\s a -> s { _uaSslConfiguration = a })
 
 -- | The app type.
-uaType :: Lens' UpdateApp (Maybe Text)
+uaType :: Lens' UpdateApp (Maybe AppType)
 uaType = lens _uaType (\s a -> s { _uaType = a })
 
 data UpdateAppResponse = UpdateAppResponse

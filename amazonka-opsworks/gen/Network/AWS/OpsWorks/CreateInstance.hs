@@ -65,8 +65,8 @@ import qualified GHC.Exts
 
 data CreateInstance = CreateInstance
     { _ciAmiId                :: Maybe Text
-    , _ciArchitecture         :: Maybe Text
-    , _ciAutoScalingType      :: Maybe Text
+    , _ciArchitecture         :: Maybe Architecture
+    , _ciAutoScalingType      :: Maybe AutoScalingType
     , _ciAvailabilityZone     :: Maybe Text
     , _ciEbsOptimized         :: Maybe Bool
     , _ciHostname             :: Maybe Text
@@ -74,12 +74,12 @@ data CreateInstance = CreateInstance
     , _ciInstanceType         :: Text
     , _ciLayerIds             :: List "InstanceIds" Text
     , _ciOs                   :: Maybe Text
-    , _ciRootDeviceType       :: Maybe Text
+    , _ciRootDeviceType       :: Maybe RootDeviceType
     , _ciSshKeyName           :: Maybe Text
     , _ciStackId              :: Text
     , _ciSubnetId             :: Maybe Text
     , _ciVirtualizationType   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CreateInstance' constructor.
 --
@@ -87,9 +87,9 @@ data CreateInstance = CreateInstance
 --
 -- * 'ciAmiId' @::@ 'Maybe' 'Text'
 --
--- * 'ciArchitecture' @::@ 'Maybe' 'Text'
+-- * 'ciArchitecture' @::@ 'Maybe' 'Architecture'
 --
--- * 'ciAutoScalingType' @::@ 'Maybe' 'Text'
+-- * 'ciAutoScalingType' @::@ 'Maybe' 'AutoScalingType'
 --
 -- * 'ciAvailabilityZone' @::@ 'Maybe' 'Text'
 --
@@ -105,7 +105,7 @@ data CreateInstance = CreateInstance
 --
 -- * 'ciOs' @::@ 'Maybe' 'Text'
 --
--- * 'ciRootDeviceType' @::@ 'Maybe' 'Text'
+-- * 'ciRootDeviceType' @::@ 'Maybe' 'RootDeviceType'
 --
 -- * 'ciSshKeyName' @::@ 'Maybe' 'Text'
 --
@@ -146,7 +146,7 @@ ciAmiId = lens _ciAmiId (\s a -> s { _ciAmiId = a })
 -- do not necessarily support both architectures. For a list of the
 -- architectures that are supported by the different instance types, see
 -- Instance Families and Types.
-ciArchitecture :: Lens' CreateInstance (Maybe Text)
+ciArchitecture :: Lens' CreateInstance (Maybe Architecture)
 ciArchitecture = lens _ciArchitecture (\s a -> s { _ciArchitecture = a })
 
 -- | The instance auto scaling type, which has three possible values:
@@ -158,7 +158,7 @@ ciArchitecture = lens _ciArchitecture (\s a -> s { _ciArchitecture = a })
 -- load metrics. To use load-based auto scaling, you must enable it for the
 -- instance layer and configure the thresholds by calling
 -- SetLoadBasedAutoScaling.
-ciAutoScalingType :: Lens' CreateInstance (Maybe Text)
+ciAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
 ciAutoScalingType =
     lens _ciAutoScalingType (\s a -> s { _ciAutoScalingType = a })
 
@@ -209,7 +209,7 @@ ciOs = lens _ciOs (\s a -> s { _ciOs = a })
 
 -- | The instance root device type. For more information, see Storage for the
 -- Root Device.
-ciRootDeviceType :: Lens' CreateInstance (Maybe Text)
+ciRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
 ciRootDeviceType = lens _ciRootDeviceType (\s a -> s { _ciRootDeviceType = a })
 
 -- | The instance SSH key name.

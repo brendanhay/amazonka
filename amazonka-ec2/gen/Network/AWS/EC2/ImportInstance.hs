@@ -58,7 +58,7 @@ data ImportInstance = ImportInstance
     , _iiDiskImages          :: List "diskImage" DiskImage
     , _iiDryRun              :: Maybe Bool
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
-    , _iiPlatform            :: Text
+    , _iiPlatform            :: PlatformValues
     } deriving (Eq, Show)
 
 -- | 'ImportInstance' constructor.
@@ -73,9 +73,9 @@ data ImportInstance = ImportInstance
 --
 -- * 'iiLaunchSpecification' @::@ 'Maybe' 'ImportInstanceLaunchSpecification'
 --
--- * 'iiPlatform' @::@ 'Text'
+-- * 'iiPlatform' @::@ 'PlatformValues'
 --
-importInstance :: Text -- ^ 'iiPlatform'
+importInstance :: PlatformValues -- ^ 'iiPlatform'
                -> ImportInstance
 importInstance p1 = ImportInstance
     { _iiPlatform            = p1
@@ -101,7 +101,7 @@ iiLaunchSpecification =
     lens _iiLaunchSpecification (\s a -> s { _iiLaunchSpecification = a })
 
 -- | The instance operating system.
-iiPlatform :: Lens' ImportInstance Text
+iiPlatform :: Lens' ImportInstance PlatformValues
 iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
 
 newtype ImportInstanceResponse = ImportInstanceResponse

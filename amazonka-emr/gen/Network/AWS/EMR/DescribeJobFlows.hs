@@ -63,8 +63,8 @@ data DescribeJobFlows = DescribeJobFlows
     { _djfCreatedAfter  :: Maybe RFC822
     , _djfCreatedBefore :: Maybe RFC822
     , _djfJobFlowIds    :: List "Args" Text
-    , _djfJobFlowStates :: List "JobFlowStates" Text
-    } deriving (Eq, Ord, Show)
+    , _djfJobFlowStates :: List "JobFlowStates" JobFlowExecutionState
+    } deriving (Eq, Show)
 
 -- | 'DescribeJobFlows' constructor.
 --
@@ -76,7 +76,7 @@ data DescribeJobFlows = DescribeJobFlows
 --
 -- * 'djfJobFlowIds' @::@ ['Text']
 --
--- * 'djfJobFlowStates' @::@ ['Text']
+-- * 'djfJobFlowStates' @::@ ['JobFlowExecutionState']
 --
 describeJobFlows :: DescribeJobFlows
 describeJobFlows = DescribeJobFlows
@@ -99,7 +99,7 @@ djfJobFlowIds :: Lens' DescribeJobFlows [Text]
 djfJobFlowIds = lens _djfJobFlowIds (\s a -> s { _djfJobFlowIds = a }) . _List
 
 -- | Return only job flows whose state is contained in this list.
-djfJobFlowStates :: Lens' DescribeJobFlows [Text]
+djfJobFlowStates :: Lens' DescribeJobFlows [JobFlowExecutionState]
 djfJobFlowStates = lens _djfJobFlowStates (\s a -> s { _djfJobFlowStates = a }) . _List
 
 newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse

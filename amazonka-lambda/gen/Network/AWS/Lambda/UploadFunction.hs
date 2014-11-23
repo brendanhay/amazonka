@@ -75,9 +75,9 @@ data UploadFunction = UploadFunction
     , _ufFunctionZip  :: Base64
     , _ufHandler      :: Text
     , _ufMemorySize   :: Maybe Nat
-    , _ufMode         :: Text
+    , _ufMode         :: Mode
     , _ufRole         :: Text
-    , _ufRuntime      :: Text
+    , _ufRuntime      :: Runtime
     , _ufTimeout      :: Maybe Nat
     } deriving (Eq, Show)
 
@@ -95,20 +95,20 @@ data UploadFunction = UploadFunction
 --
 -- * 'ufMemorySize' @::@ 'Maybe' 'Natural'
 --
--- * 'ufMode' @::@ 'Text'
+-- * 'ufMode' @::@ 'Mode'
 --
 -- * 'ufRole' @::@ 'Text'
 --
--- * 'ufRuntime' @::@ 'Text'
+-- * 'ufRuntime' @::@ 'Runtime'
 --
 -- * 'ufTimeout' @::@ 'Maybe' 'Natural'
 --
 uploadFunction :: Text -- ^ 'ufFunctionName'
                -> Base64 -- ^ 'ufFunctionZip'
-               -> Text -- ^ 'ufRuntime'
+               -> Runtime -- ^ 'ufRuntime'
                -> Text -- ^ 'ufRole'
                -> Text -- ^ 'ufHandler'
-               -> Text -- ^ 'ufMode'
+               -> Mode -- ^ 'ufMode'
                -> UploadFunction
 uploadFunction p1 p2 p3 p4 p5 p6 = UploadFunction
     { _ufFunctionName = p1
@@ -156,7 +156,7 @@ ufMemorySize = lens _ufMemorySize (\s a -> s { _ufMemorySize = a }) . mapping _N
 
 -- | How the Lambda function will be invoked. Lambda supports only the "event"
 -- mode.
-ufMode :: Lens' UploadFunction Text
+ufMode :: Lens' UploadFunction Mode
 ufMode = lens _ufMode (\s a -> s { _ufMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
@@ -167,7 +167,7 @@ ufRole = lens _ufRole (\s a -> s { _ufRole = a })
 
 -- | The runtime environment for the Lambda function you are uploading.
 -- Currently, Lambda supports only "nodejs" as the runtime.
-ufRuntime :: Lens' UploadFunction Text
+ufRuntime :: Lens' UploadFunction Runtime
 ufRuntime = lens _ufRuntime (\s a -> s { _ufRuntime = a })
 
 -- | The function execution time at which Lambda should terminate the
@@ -186,11 +186,11 @@ data UploadFunctionResponse = UploadFunctionResponse
     , _ufrHandler         :: Maybe Text
     , _ufrLastModified    :: Maybe RFC822
     , _ufrMemorySize      :: Maybe Nat
-    , _ufrMode            :: Maybe Text
+    , _ufrMode            :: Maybe Mode
     , _ufrRole            :: Maybe Text
-    , _ufrRuntime         :: Maybe Text
+    , _ufrRuntime         :: Maybe Runtime
     , _ufrTimeout         :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'UploadFunctionResponse' constructor.
 --
@@ -212,11 +212,11 @@ data UploadFunctionResponse = UploadFunctionResponse
 --
 -- * 'ufrMemorySize' @::@ 'Maybe' 'Natural'
 --
--- * 'ufrMode' @::@ 'Maybe' 'Text'
+-- * 'ufrMode' @::@ 'Maybe' 'Mode'
 --
 -- * 'ufrRole' @::@ 'Maybe' 'Text'
 --
--- * 'ufrRuntime' @::@ 'Maybe' 'Text'
+-- * 'ufrRuntime' @::@ 'Maybe' 'Runtime'
 --
 -- * 'ufrTimeout' @::@ 'Maybe' 'Natural'
 --
@@ -272,7 +272,7 @@ ufrMemorySize :: Lens' UploadFunctionResponse (Maybe Natural)
 ufrMemorySize = lens _ufrMemorySize (\s a -> s { _ufrMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
-ufrMode :: Lens' UploadFunctionResponse (Maybe Text)
+ufrMode :: Lens' UploadFunctionResponse (Maybe Mode)
 ufrMode = lens _ufrMode (\s a -> s { _ufrMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
@@ -282,7 +282,7 @@ ufrRole :: Lens' UploadFunctionResponse (Maybe Text)
 ufrRole = lens _ufrRole (\s a -> s { _ufrRole = a })
 
 -- | The runtime environment for the Lambda function.
-ufrRuntime :: Lens' UploadFunctionResponse (Maybe Text)
+ufrRuntime :: Lens' UploadFunctionResponse (Maybe Runtime)
 ufrRuntime = lens _ufrRuntime (\s a -> s { _ufrRuntime = a })
 
 -- | The function execution time at which Lambda should terminate the

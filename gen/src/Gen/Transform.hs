@@ -19,6 +19,7 @@
 
 module Gen.Transform (transformS1ToS2) where
 
+import Debug.Trace
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
@@ -545,25 +546,22 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
             Map'    x -> hmap x <$> ref fld (x ^. mapKey) <*> ref fld (x ^. mapValue)
 
             String' x
-                | Just True <- (x ^. strSensitive)
-                              -> pure (TSensitive (TPrim PText))
-                | otherwise   -> pure (TPrim PText)
+                | Just _    <- x ^. strEnum      -> pure (TType k)
+                | Just True <- x ^. strSensitive -> pure (TSensitive (TPrim PText))
+                | otherwise                      -> pure (TPrim PText)
 
-            Int'    x
+            Int' x
                 | isNatural x -> pure (TPrim PNatural)
                 | otherwise   -> pure (TPrim PInt)
 
-            Long'   x
+            Long' x
                 | isNatural x -> pure (TPrim PNatural)
                 | otherwise   -> pure (TPrim PInteger)
 
         hmap x k' v'
-            | r ^. refLocation == Just Headers =
-                THashMap (TCase k') v'
-            | proto == Json =
-                THashMap k' v'
-            | proto == RestJson =
-                THashMap k' v'
+            | r ^. refLocation == Just Headers = THashMap (TCase k') v'
+            | proto == Json                    = THashMap k' v'
+            | proto == RestJson                = THashMap k' v'
             | otherwise =
                 flat flatten (TMap (ann, key, val) k' v')
           where

@@ -1682,12 +1682,11 @@ instance ToText SourceType where
 
 instance ToByteString SourceType
 instance ToHeader     SourceType
+instance ToQuery      SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
 
-instance ToQuery SourceType where
-    toQuery = toQuery . toText
 
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus
     { _cpgsParameterApplyStatus :: Maybe Text

@@ -177,6 +177,7 @@ instance ToText QueryParser where
 
 instance ToByteString QueryParser
 instance ToHeader     QueryParser
+instance ToQuery      QueryParser
 
 instance FromJSON QueryParser where
     parseJSON = parseJSONText "QueryParser"
@@ -544,6 +545,7 @@ instance ToText ContentType where
 
 instance ToByteString ContentType
 instance ToHeader     ContentType
+instance ToQuery      ContentType
 
 instance FromJSON ContentType where
     parseJSON = parseJSONText "ContentType"

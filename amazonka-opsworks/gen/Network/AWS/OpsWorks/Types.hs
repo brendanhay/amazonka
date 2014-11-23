@@ -999,6 +999,7 @@ instance ToText AppAttributesKeys where
 
 instance ToByteString AppAttributesKeys
 instance ToHeader     AppAttributesKeys
+instance ToQuery      AppAttributesKeys
 
 instance FromJSON AppAttributesKeys where
     parseJSON = parseJSONText "AppAttributesKeys"
@@ -1176,6 +1177,7 @@ instance ToText StackAttributesKeys where
 
 instance ToByteString StackAttributesKeys
 instance ToHeader     StackAttributesKeys
+instance ToQuery      StackAttributesKeys
 
 instance FromJSON StackAttributesKeys where
     parseJSON = parseJSONText "StackAttributesKeys"
@@ -1269,6 +1271,7 @@ instance ToText SourceType where
 
 instance ToByteString SourceType
 instance ToHeader     SourceType
+instance ToQuery      SourceType
 
 instance FromJSON SourceType where
     parseJSON = parseJSONText "SourceType"
@@ -1506,6 +1509,7 @@ instance ToText LayerType where
 
 instance ToByteString LayerType
 instance ToHeader     LayerType
+instance ToQuery      LayerType
 
 instance FromJSON LayerType where
     parseJSON = parseJSONText "LayerType"
@@ -1912,6 +1916,7 @@ instance ToText AutoScalingType where
 
 instance ToByteString AutoScalingType
 instance ToHeader     AutoScalingType
+instance ToQuery      AutoScalingType
 
 instance FromJSON AutoScalingType where
     parseJSON = parseJSONText "AutoScalingType"
@@ -2072,6 +2077,7 @@ instance ToText Architecture where
 
 instance ToByteString Architecture
 instance ToHeader     Architecture
+instance ToQuery      Architecture
 
 instance FromJSON Architecture where
     parseJSON = parseJSONText "Architecture"
@@ -2202,6 +2208,7 @@ instance ToText LayerAttributesKeys where
 
 instance ToByteString LayerAttributesKeys
 instance ToHeader     LayerAttributesKeys
+instance ToQuery      LayerAttributesKeys
 
 instance FromJSON LayerAttributesKeys where
     parseJSON = parseJSONText "LayerAttributesKeys"
@@ -2778,6 +2785,7 @@ instance ToText RootDeviceType where
 
 instance ToByteString RootDeviceType
 instance ToHeader     RootDeviceType
+instance ToQuery      RootDeviceType
 
 instance FromJSON RootDeviceType where
     parseJSON = parseJSONText "RootDeviceType"
@@ -3227,6 +3235,7 @@ instance ToText DeploymentCommandName where
 
 instance ToByteString DeploymentCommandName
 instance ToHeader     DeploymentCommandName
+instance ToQuery      DeploymentCommandName
 
 instance FromJSON DeploymentCommandName where
     parseJSON = parseJSONText "DeploymentCommandName"
@@ -3911,6 +3920,7 @@ instance ToText AppType where
 
 instance ToByteString AppType
 instance ToHeader     AppType
+instance ToQuery      AppType
 
 instance FromJSON AppType where
     parseJSON = parseJSONText "AppType"

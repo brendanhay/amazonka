@@ -410,6 +410,7 @@ instance ToText ChronologicalOrder where
 
 instance ToByteString ChronologicalOrder
 instance ToHeader     ChronologicalOrder
+instance ToQuery      ChronologicalOrder
 
 instance FromJSON ChronologicalOrder where
     parseJSON = parseJSONText "ChronologicalOrder"
@@ -471,6 +472,7 @@ instance ToText ResourceType where
 
 instance ToByteString ResourceType
 instance ToHeader     ResourceType
+instance ToQuery      ResourceType
 
 instance FromJSON ResourceType where
     parseJSON = parseJSONText "ResourceType"
@@ -682,6 +684,7 @@ instance ToText DeliveryStatus where
 
 instance ToByteString DeliveryStatus
 instance ToHeader     DeliveryStatus
+instance ToQuery      DeliveryStatus
 
 instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
@@ -881,6 +884,7 @@ instance ToText ConfigurationItemStatus where
 
 instance ToByteString ConfigurationItemStatus
 instance ToHeader     ConfigurationItemStatus
+instance ToQuery      ConfigurationItemStatus
 
 instance FromJSON ConfigurationItemStatus where
     parseJSON = parseJSONText "ConfigurationItemStatus"
@@ -950,6 +954,7 @@ instance ToText RecorderStatus where
 
 instance ToByteString RecorderStatus
 instance ToHeader     RecorderStatus
+instance ToQuery      RecorderStatus
 
 instance FromJSON RecorderStatus where
     parseJSON = parseJSONText "RecorderStatus"

@@ -407,12 +407,11 @@ instance ToText IdentityType where
 
 instance ToByteString IdentityType
 instance ToHeader     IdentityType
+instance ToQuery      IdentityType
 
 instance FromXML IdentityType where
     parseXML = parseXMLText "IdentityType"
 
-instance ToQuery IdentityType where
-    toQuery = toQuery . toText
 
 data Content = Content
     { _cCharset :: Maybe Text
@@ -578,12 +577,11 @@ instance ToText NotificationType where
 
 instance ToByteString NotificationType
 instance ToHeader     NotificationType
+instance ToQuery      NotificationType
 
 instance FromXML NotificationType where
     parseXML = parseXMLText "NotificationType"
 
-instance ToQuery NotificationType where
-    toQuery = toQuery . toText
 
 data VerificationStatus
     = Failed           -- ^ Failed
@@ -612,12 +610,11 @@ instance ToText VerificationStatus where
 
 instance ToByteString VerificationStatus
 instance ToHeader     VerificationStatus
+instance ToQuery      VerificationStatus
 
 instance FromXML VerificationStatus where
     parseXML = parseXMLText "VerificationStatus"
 
-instance ToQuery VerificationStatus where
-    toQuery = toQuery . toText
 
 data Message = Message
     { _mBody    :: Body

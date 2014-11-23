@@ -1104,6 +1104,7 @@ instance ToText ErrorCode where
 
 instance ToByteString ErrorCode
 instance ToHeader     ErrorCode
+instance ToQuery      ErrorCode
 
 instance FromJSON ErrorCode where
     parseJSON = parseJSONText "ErrorCode"

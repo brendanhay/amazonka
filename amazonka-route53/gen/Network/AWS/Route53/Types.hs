@@ -536,6 +536,7 @@ instance ToText VPCRegion where
 
 instance ToByteString VPCRegion
 instance ToHeader     VPCRegion
+instance ToQuery      VPCRegion
 
 instance FromXML VPCRegion where
     parseXML = parseXMLText "VPCRegion"
@@ -564,6 +565,7 @@ instance ToText ChangeAction where
 
 instance ToByteString ChangeAction
 instance ToHeader     ChangeAction
+instance ToQuery      ChangeAction
 
 instance FromXML ChangeAction where
     parseXML = parseXMLText "ChangeAction"
@@ -585,6 +587,7 @@ instance ToText TagResourceType where
 
 instance ToByteString TagResourceType
 instance ToHeader     TagResourceType
+instance ToQuery      TagResourceType
 
 instance FromXML TagResourceType where
     parseXML = parseXMLText "TagResourceType"
@@ -770,6 +773,7 @@ instance ToText ResourceRecordSetFailover where
 
 instance ToByteString ResourceRecordSetFailover
 instance ToHeader     ResourceRecordSetFailover
+instance ToQuery      ResourceRecordSetFailover
 
 instance FromXML ResourceRecordSetFailover where
     parseXML = parseXMLText "ResourceRecordSetFailover"
@@ -926,6 +930,7 @@ instance ToText ChangeStatus where
 
 instance ToByteString ChangeStatus
 instance ToHeader     ChangeStatus
+instance ToQuery      ChangeStatus
 
 instance FromXML ChangeStatus where
     parseXML = parseXMLText "ChangeStatus"
@@ -1042,6 +1047,7 @@ instance ToText HealthCheckType where
 
 instance ToByteString HealthCheckType
 instance ToHeader     HealthCheckType
+instance ToQuery      HealthCheckType
 
 instance FromXML HealthCheckType where
     parseXML = parseXMLText "HealthCheckType"

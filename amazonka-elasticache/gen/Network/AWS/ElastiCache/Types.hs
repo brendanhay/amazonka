@@ -846,12 +846,11 @@ instance ToText PendingAutomaticFailoverStatus where
 
 instance ToByteString PendingAutomaticFailoverStatus
 instance ToHeader     PendingAutomaticFailoverStatus
+instance ToQuery      PendingAutomaticFailoverStatus
 
 instance FromXML PendingAutomaticFailoverStatus where
     parseXML = parseXMLText "PendingAutomaticFailoverStatus"
 
-instance ToQuery PendingAutomaticFailoverStatus where
-    toQuery = toQuery . toText
 
 data NotificationConfiguration = NotificationConfiguration
     { _ncTopicArn    :: Maybe Text
@@ -1049,12 +1048,11 @@ instance ToText SourceType where
 
 instance ToByteString SourceType
 instance ToHeader     SourceType
+instance ToQuery      SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
 
-instance ToQuery SourceType where
-    toQuery = toQuery . toText
 
 data CacheSubnetGroup = CacheSubnetGroup
     { _csgCacheSubnetGroupDescription :: Maybe Text
@@ -2057,12 +2055,11 @@ instance ToText AutomaticFailoverStatus where
 
 instance ToByteString AutomaticFailoverStatus
 instance ToHeader     AutomaticFailoverStatus
+instance ToQuery      AutomaticFailoverStatus
 
 instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
 
-instance ToQuery AutomaticFailoverStatus where
-    toQuery = toQuery . toText
 
 data CacheSecurityGroup = CacheSecurityGroup
     { _csgCacheSecurityGroupName :: Maybe Text
@@ -2254,12 +2251,11 @@ instance ToText AZMode where
 
 instance ToByteString AZMode
 instance ToHeader     AZMode
+instance ToQuery      AZMode
 
 instance FromXML AZMode where
     parseXML = parseXMLText "AZMode"
 
-instance ToQuery AZMode where
-    toQuery = toQuery . toText
 
 data CacheEngineVersion = CacheEngineVersion
     { _cevCacheEngineDescription        :: Maybe Text

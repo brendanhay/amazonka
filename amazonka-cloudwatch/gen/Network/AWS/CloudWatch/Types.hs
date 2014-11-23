@@ -499,12 +499,11 @@ instance ToText HistoryItemType where
 
 instance ToByteString HistoryItemType
 instance ToHeader     HistoryItemType
+instance ToQuery      HistoryItemType
 
 instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
 
-instance ToQuery HistoryItemType where
-    toQuery = toQuery . toText
 
 data MetricDatum = MetricDatum
     { _mdDimensions      :: List "Dimensions" Dimension
@@ -689,12 +688,11 @@ instance ToText StandardUnit where
 
 instance ToByteString StandardUnit
 instance ToHeader     StandardUnit
+instance ToQuery      StandardUnit
 
 instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
 
-instance ToQuery StandardUnit where
-    toQuery = toQuery . toText
 
 data Dimension = Dimension
     { _dName  :: Text
@@ -760,12 +758,11 @@ instance ToText ComparisonOperator where
 
 instance ToByteString ComparisonOperator
 instance ToHeader     ComparisonOperator
+instance ToQuery      ComparisonOperator
 
 instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
 
-instance ToQuery ComparisonOperator where
-    toQuery = toQuery . toText
 
 data AlarmHistoryItem = AlarmHistoryItem
     { _ahiAlarmName       :: Maybe Text
@@ -909,12 +906,11 @@ instance ToText StateValue where
 
 instance ToByteString StateValue
 instance ToHeader     StateValue
+instance ToQuery      StateValue
 
 instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
 
-instance ToQuery StateValue where
-    toQuery = toQuery . toText
 
 data Datapoint = Datapoint
     { _dAverage     :: Maybe Double
@@ -1074,9 +1070,8 @@ instance ToText Statistic where
 
 instance ToByteString Statistic
 instance ToHeader     Statistic
+instance ToQuery      Statistic
 
 instance FromXML Statistic where
     parseXML = parseXMLText "Statistic"
 
-instance ToQuery Statistic where
-    toQuery = toQuery . toText

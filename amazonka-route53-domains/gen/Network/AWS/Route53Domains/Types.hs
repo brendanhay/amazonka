@@ -241,6 +241,7 @@ instance ToText ExtraParamName where
 
 instance ToByteString ExtraParamName
 instance ToHeader     ExtraParamName
+instance ToQuery      ExtraParamName
 
 instance FromJSON ExtraParamName where
     parseJSON = parseJSONText "ExtraParamName"
@@ -320,6 +321,7 @@ instance ToText OperationStatus where
 
 instance ToByteString OperationStatus
 instance ToHeader     OperationStatus
+instance ToQuery      OperationStatus
 
 instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
@@ -360,6 +362,7 @@ instance ToText DomainAvailability where
 
 instance ToByteString DomainAvailability
 instance ToHeader     DomainAvailability
+instance ToQuery      DomainAvailability
 
 instance FromJSON DomainAvailability where
     parseJSON = parseJSONText "DomainAvailability"
@@ -400,6 +403,7 @@ instance ToText OperationType where
 
 instance ToByteString OperationType
 instance ToHeader     OperationType
+instance ToQuery      OperationType
 
 instance FromJSON OperationType where
     parseJSON = parseJSONText "OperationType"
@@ -1106,6 +1110,7 @@ instance ToText CountryCode where
 
 instance ToByteString CountryCode
 instance ToHeader     CountryCode
+instance ToQuery      CountryCode
 
 instance FromJSON CountryCode where
     parseJSON = parseJSONText "CountryCode"
@@ -1188,6 +1193,7 @@ instance ToText ContactType where
 
 instance ToByteString ContactType
 instance ToHeader     ContactType
+instance ToQuery      ContactType
 
 instance FromJSON ContactType where
     parseJSON = parseJSONText "ContactType"

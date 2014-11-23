@@ -858,12 +858,11 @@ instance ToText OptionState where
 
 instance ToByteString OptionState
 instance ToHeader     OptionState
+instance ToQuery      OptionState
 
 instance FromXML OptionState where
     parseXML = parseXMLText "OptionState"
 
-instance ToQuery OptionState where
-    toQuery = toQuery . toText
 
 data TextArrayOptions = TextArrayOptions
     { _taoAnalysisScheme   :: Maybe Text
@@ -959,12 +958,11 @@ instance ToText AlgorithmicStemming where
 
 instance ToByteString AlgorithmicStemming
 instance ToHeader     AlgorithmicStemming
+instance ToQuery      AlgorithmicStemming
 
 instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
 
-instance ToQuery AlgorithmicStemming where
-    toQuery = toQuery . toText
 
 data AnalysisScheme = AnalysisScheme
     { _asAnalysisOptions        :: Maybe AnalysisOptions
@@ -1633,12 +1631,11 @@ instance ToText IndexFieldType where
 
 instance ToByteString IndexFieldType
 instance ToHeader     IndexFieldType
+instance ToQuery      IndexFieldType
 
 instance FromXML IndexFieldType where
     parseXML = parseXMLText "IndexFieldType"
 
-instance ToQuery IndexFieldType where
-    toQuery = toQuery . toText
 
 data LatLonOptions = LatLonOptions
     { _lloDefaultValue  :: Maybe Text
@@ -2029,12 +2026,11 @@ instance ToText SuggesterFuzzyMatching where
 
 instance ToByteString SuggesterFuzzyMatching
 instance ToHeader     SuggesterFuzzyMatching
+instance ToQuery      SuggesterFuzzyMatching
 
 instance FromXML SuggesterFuzzyMatching where
     parseXML = parseXMLText "SuggesterFuzzyMatching"
 
-instance ToQuery SuggesterFuzzyMatching where
-    toQuery = toQuery . toText
 
 data DateArrayOptions = DateArrayOptions
     { _dao1DefaultValue  :: Maybe Text
@@ -2223,12 +2219,11 @@ instance ToText AnalysisSchemeLanguage where
 
 instance ToByteString AnalysisSchemeLanguage
 instance ToHeader     AnalysisSchemeLanguage
+instance ToQuery      AnalysisSchemeLanguage
 
 instance FromXML AnalysisSchemeLanguage where
     parseXML = parseXMLText "AnalysisSchemeLanguage"
 
-instance ToQuery AnalysisSchemeLanguage where
-    toQuery = toQuery . toText
 
 data PartitionInstanceType
     = SearchM1Large   -- ^ search.m1.large
@@ -2254,12 +2249,11 @@ instance ToText PartitionInstanceType where
 
 instance ToByteString PartitionInstanceType
 instance ToHeader     PartitionInstanceType
+instance ToQuery      PartitionInstanceType
 
 instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"
 
-instance ToQuery PartitionInstanceType where
-    toQuery = toQuery . toText
 
 data Suggester = Suggester
     { _sDocumentSuggesterOptions :: DocumentSuggesterOptions

@@ -223,12 +223,11 @@ instance ToText AssignmentStatusType where
 
 instance ToByteString AssignmentStatusType
 instance ToHeader     AssignmentStatusType
+instance ToQuery      AssignmentStatusType
 
 instance FromXML AssignmentStatusType where
     parseXML = parseXMLText "AssignmentStatusType"
 
-instance ToQuery AssignmentStatusType where
-    toQuery = toQuery . toText
 
 data PasswordPolicy = PasswordPolicy
     { _ppAllowUsersToChangePassword :: Maybe Bool
@@ -595,12 +594,11 @@ instance ToText ReportFormatType where
 
 instance ToByteString ReportFormatType
 instance ToHeader     ReportFormatType
+instance ToQuery      ReportFormatType
 
 instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
 
-instance ToQuery ReportFormatType where
-    toQuery = toQuery . toText
 
 data ServerCertificateMetadata = ServerCertificateMetadata
     { _scmArn                   :: Text
@@ -825,12 +823,11 @@ instance ToText SummaryKeyType where
 
 instance ToByteString SummaryKeyType
 instance ToHeader     SummaryKeyType
+instance ToQuery      SummaryKeyType
 
 instance FromXML SummaryKeyType where
     parseXML = parseXMLText "SummaryKeyType"
 
-instance ToQuery SummaryKeyType where
-    toQuery = toQuery . toText
 
 data ReportStateType
     = Complete   -- ^ COMPLETE
@@ -853,12 +850,11 @@ instance ToText ReportStateType where
 
 instance ToByteString ReportStateType
 instance ToHeader     ReportStateType
+instance ToQuery      ReportStateType
 
 instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
 
-instance ToQuery ReportStateType where
-    toQuery = toQuery . toText
 
 data User = User
     { _uArn              :: Text
@@ -976,12 +972,11 @@ instance ToText StatusType where
 
 instance ToByteString StatusType
 instance ToHeader     StatusType
+instance ToQuery      StatusType
 
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
-instance ToQuery StatusType where
-    toQuery = toQuery . toText
 
 data SAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn        :: Maybe Text

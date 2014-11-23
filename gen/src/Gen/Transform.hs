@@ -435,20 +435,23 @@ overriden = flip (Map.foldlWithKey' run)
     replacedBy x (Just y) = Map.filterWithKey (const . (/= x)) . replaced x y
 
     replaced :: Text -> Text -> HashMap Text Data -> HashMap Text Data
-    replaced x y = Map.map (dataFields . typesOf %~ retype)
+    replaced x y = Map.map (dataFields . typeOf %~ retype)
       where
         retype :: Type -> Type
-        retype (TType z)
-            | z == x          = TType y
-        retype (TMaybe     z) = TMaybe     (retype z)
-        retype (TFlatten   z) = TFlatten   (retype z)
-        retype (TSensitive z) = TSensitive (retype z)
-        retype (TCase      z) = TCase      (retype z)
-        retype (TList  e   z) = TList    e (retype z)
-        retype (TList1 e   z) = TList1   e (retype z)
-        retype (TMap   e k v) = TMap     e (retype k) (retype v)
-        retype (THashMap k v) = THashMap   (retype k) (retype v)
-        retype             z  = z
+        retype = \case
+            TPrim      z    -> TPrim      z
+            TMaybe     z    -> TMaybe     (retype z)
+            TFlatten   z    -> TFlatten   (retype z)
+            TSensitive z    -> TSensitive (retype z)
+            TCase      z    -> TCase      (retype z)
+            TList  e   z    -> TList    e (retype z)
+            TList1 e   z    -> TList1   e (retype z)
+            TMap   e k v    -> TMap     e (retype k) (retype v)
+            THashMap k v    -> THashMap   (retype k) (retype v)
+
+            TType z
+                | z == x    -> TType y
+                | otherwise -> TType z
 
     sumPrefix :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     sumPrefix _ Nothing  = id

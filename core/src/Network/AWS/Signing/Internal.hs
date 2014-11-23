@@ -37,7 +37,7 @@ presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         -> Region    -- ^ AWS Region.
         -> Request a -- ^ Request to presign.
         -> UTCTime   -- ^ Signing time.
-        -> Int       -- ^ Expiry time in seconds.
+        -> UTCTime   -- ^ Expiry time.
         -> m (Signed a (Sg (Sv a)))
 presign a r rq t x = withAuth a $ \e -> return $
     presigned e r rq defaultTimeLocale t x

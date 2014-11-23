@@ -329,6 +329,6 @@ presign :: ( MonadIO m
            )
         => a       -- ^ Request to presign.
         -> UTCTime -- ^ Signing time.
-        -> Int     -- ^ Expiry time in seconds.
+        -> UTCTime -- ^ Expiry time.
         -> m (Signed a (Sg (Sv a)))
 presign rq t x = scoped (\e -> AWS.presign e rq t x)

@@ -240,7 +240,7 @@ class AWSPresigner v where
               -> Request a
               -> TimeLocale
               -> UTCTime
-              -> Int
+              -> UTCTime
               -> Signed a v
 
 -- | Access key credential.

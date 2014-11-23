@@ -27,7 +27,7 @@
 module Gen.Types where
 
 import           Control.Applicative
-import           Control.Lens         (Traversal', makeLenses)
+import           Control.Lens         ((&), (.~), Traversal', makeLenses)
 import           Control.Monad
 import qualified Data.Aeson           as A
 import           Data.Attoparsec.Text (Parser, parseOnly)
@@ -55,9 +55,8 @@ import           Text.EDE             (Template)
 
 default (Text)
 
--- NOTE: Keep the boto json structure completely intact.
--- FIXME: _retry.json
--- FIXME: _endpoints.json
+currentLibraryVersion :: Version
+currentLibraryVersion = initial & patch .~ 1
 
 class ToFilePath a where
     toFilePath :: a -> FilePath
@@ -438,7 +437,7 @@ makeLenses ''Overrides
 instance FromJSON Overrides where
     parseJSON = withObject "overrides" $ \o -> Overrides
         <$> o .:  "library"
-        <*> o .:? "version"          .!= initial
+        <*> o .:? "version"          .!= currentLibraryVersion
         <*> o .:  "url"
         <*> o .:  "operationUrl"
         <*> o .:? "operationModules" .!= mempty

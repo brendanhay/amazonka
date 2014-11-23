@@ -34,7 +34,7 @@ library
         , Network.AWS
 
     build-depends:
-          amazonka-core     == 0.0.*
+          amazonka-core     == 0.0.1.*
         , base              >= 4.7     && < 5
         , conduit           >= 1.1     && < 1.3
         , exceptions        == 0.6.*

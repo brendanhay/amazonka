@@ -3,9 +3,9 @@ FLAGS := -j --disable-documentation --disable-library-coverage
 DEPS  := vendor/botocore vendor/jason
 
 XML := \
- s3 \
  cloudfront \
- route53
+ route53 \
+ s3
 
 QUERY := \
  autoscaling \
@@ -27,26 +27,26 @@ QUERY := \
  sts
 
 JSON := \
+ cloudsearchdomain \
  cloudtrail \
- route53domains \
+ codedeploy \
+ cognito-identity \
+ cognito-sync \
+ config \
  datapipeline \
  directconnect \
  dynamodb \
+ elastictranscoder \
  emr \
  kinesis \
+ kms \
+ lambda \
+ logs \
  opsworks \
+ route53domains \
  storagegateway \
  support \
- swf \
- logs \
- cognito-identity \
- codedeploy \
- kms \
- config \
- elastictranscoder \
- cognito-sync \
- cloudsearchdomain \
- lambda
+ swf
 
 MODELS ?= $(QUERY) $(XML) $(JSON)
 

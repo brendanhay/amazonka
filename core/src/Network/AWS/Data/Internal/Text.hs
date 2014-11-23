@@ -77,7 +77,6 @@ showText = Text.unpack . toText
 
 class ToText a where
     toText :: a -> Text
-    {-# INLINE toText #-}
 
 instance (ToText a, ToText b) => ToText (a, b) where
     toText (a, b) = "(" <> toText a <> ", " <> toText b <> ")"

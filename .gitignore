@@ -27,3 +27,6 @@ tags
 
 # OSX
 .DS_Store
+
+# Certificates
+*.pem

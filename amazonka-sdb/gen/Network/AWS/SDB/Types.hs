@@ -176,7 +176,7 @@ deletableItem :: Text -- ^ 'diName'
               -> DeletableItem
 deletableItem p1 = DeletableItem
     { _diName       = p1
-    , _diAttributes = Nothing
+    , _diAttributes = mempty
     }
 
 diAttributes :: Lens' DeletableItem [Attribute]
@@ -213,7 +213,7 @@ replaceableItem :: Text -- ^ 'riName'
                 -> ReplaceableItem
 replaceableItem p1 = ReplaceableItem
     { _riName       = p1
-    , _riAttributes = Nothing
+    , _riAttributes = mempty
     }
 
 -- | The list of attributes for a replaceable item.
@@ -360,7 +360,7 @@ item :: Text -- ^ 'iName'
 item p1 = Item
     { _iName                  = p1
     , _iAlternateNameEncoding = Nothing
-    , _iAttributes            = Nothing
+    , _iAttributes            = mempty
     }
 
 -- | 

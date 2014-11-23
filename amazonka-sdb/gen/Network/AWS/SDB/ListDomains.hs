@@ -97,7 +97,7 @@ data ListDomainsResponse = ListDomainsResponse
 --
 listDomainsResponse :: ListDomainsResponse
 listDomainsResponse = ListDomainsResponse
-    { _ldrDomainNames = Nothing
+    { _ldrDomainNames = mempty
     , _ldrNextToken   = Nothing
     }
 

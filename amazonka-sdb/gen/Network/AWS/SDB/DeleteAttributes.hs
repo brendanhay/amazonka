@@ -78,7 +78,7 @@ deleteAttributes :: Text -- ^ 'daDomainName'
 deleteAttributes p1 p2 = DeleteAttributes
     { _daDomainName = p1
     , _daItemName   = p2
-    , _daAttributes = Nothing
+    , _daAttributes = mempty
     , _daExpected   = Nothing
     }
 

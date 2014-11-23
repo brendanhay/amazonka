@@ -73,7 +73,7 @@ createQueue :: Text -- ^ 'cqQueueName'
             -> CreateQueue
 createQueue p1 = CreateQueue
     { _cqQueueName  = p1
-    , _cqAttributes = Nothing
+    , _cqAttributes = mempty
     }
 
 -- | A map of attributes with their corresponding values. The following lists

@@ -64,7 +64,7 @@ setQueueAttributes :: Text -- ^ 'sqaQueueUrl'
                    -> SetQueueAttributes
 setQueueAttributes p1 = SetQueueAttributes
     { _sqaQueueUrl   = p1
-    , _sqaAttributes = Nothing
+    , _sqaAttributes = mempty
     }
 
 -- | A map of attributes to set. The following lists the names, descriptions,

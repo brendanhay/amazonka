@@ -93,7 +93,7 @@ batchPutAttributes :: Text -- ^ 'bpaDomainName'
                    -> BatchPutAttributes
 batchPutAttributes p1 = BatchPutAttributes
     { _bpaDomainName = p1
-    , _bpaItems      = Nothing
+    , _bpaItems      = mempty
     }
 
 -- | The name of the domain in which the attributes are being stored.

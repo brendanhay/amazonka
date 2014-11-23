@@ -81,7 +81,7 @@ newtype ListQueuesResponse = ListQueuesResponse
 --
 listQueuesResponse :: ListQueuesResponse
 listQueuesResponse = ListQueuesResponse
-    { _lqrQueueUrls = Nothing
+    { _lqrQueueUrls = mempty
     }
 
 -- | A list of queue URLs, up to 1000 entries.

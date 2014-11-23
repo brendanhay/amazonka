@@ -184,13 +184,13 @@ listObjectVersionsResponse = ListObjectVersionsResponse
     , _lovrVersionIdMarker     = Nothing
     , _lovrNextKeyMarker       = Nothing
     , _lovrNextVersionIdMarker = Nothing
-    , _lovrVersions            = Nothing
-    , _lovrDeleteMarkers       = Nothing
+    , _lovrVersions            = mempty
+    , _lovrDeleteMarkers       = mempty
     , _lovrName                = Nothing
     , _lovrPrefix              = Nothing
     , _lovrDelimiter           = Nothing
     , _lovrMaxKeys             = Nothing
-    , _lovrCommonPrefixes      = Nothing
+    , _lovrCommonPrefixes      = mempty
     , _lovrEncodingType        = Nothing
     }
 

@@ -76,7 +76,7 @@ newtype GetBucketCorsResponse = GetBucketCorsResponse
 --
 getBucketCorsResponse :: GetBucketCorsResponse
 getBucketCorsResponse = GetBucketCorsResponse
-    { _gbcrCORSRules = Nothing
+    { _gbcrCORSRules = mempty
     }
 
 gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]

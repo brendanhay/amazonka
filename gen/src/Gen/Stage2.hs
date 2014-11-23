@@ -179,17 +179,17 @@ data Type
 
 isRequired :: Type -> Bool
 isRequired = \case
-    TMaybe     {} -> False
-    TFlatten   t  -> isRequired t
-    TSensitive t  -> isRequired t
-    t             -> not (isMonoid t)
+    TMaybe {} -> False
+    t         -> not (isMonoid t)
 
 isMonoid :: Type -> Bool
 isMonoid = \case
-    TList    {} -> True
-    TMap     {} -> True
-    THashMap {} -> True
-    _           -> False
+    TList      {} -> True
+    TMap       {} -> True
+    THashMap   {} -> True
+    TSensitive t  -> isMonoid t
+    TFlatten   t  -> isMonoid t
+    _             -> False
 
 isFlattened :: Type -> Bool
 isFlattened = any f . universe

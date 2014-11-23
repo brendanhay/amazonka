@@ -189,8 +189,8 @@ listMultipartUploadsResponse = ListMultipartUploadsResponse
     , _lmurNextUploadIdMarker = Nothing
     , _lmurMaxUploads         = Nothing
     , _lmurIsTruncated        = Nothing
-    , _lmurUploads            = Nothing
-    , _lmurCommonPrefixes     = Nothing
+    , _lmurUploads            = mempty
+    , _lmurCommonPrefixes     = mempty
     , _lmurEncodingType       = Nothing
     }
 

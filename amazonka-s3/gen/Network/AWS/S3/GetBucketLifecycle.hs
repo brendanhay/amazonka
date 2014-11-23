@@ -76,7 +76,7 @@ newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
 --
 getBucketLifecycleResponse :: GetBucketLifecycleResponse
 getBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gblrRules = Nothing
+    { _gblrRules = mempty
     }
 
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]

@@ -449,9 +449,9 @@ message = Message
     , _mReceiptHandle          = Nothing
     , _mMD5OfBody              = Nothing
     , _mBody                   = Nothing
-    , _mAttributes             = Nothing
+    , _mAttributes             = mempty
     , _mMD5OfMessageAttributes = Nothing
-    , _mMessageAttributes      = Nothing
+    , _mMessageAttributes      = mempty
     }
 
 -- | SenderId, SentTimestamp, ApproximateReceiveCount, and/or
@@ -543,7 +543,7 @@ sendMessageBatchRequestEntry p1 p2 = SendMessageBatchRequestEntry
     { _smbreId                = p1
     , _smbreMessageBody       = p2
     , _smbreDelaySeconds      = Nothing
-    , _smbreMessageAttributes = Nothing
+    , _smbreMessageAttributes = mempty
     }
 
 -- | The number of seconds for which the message has to be delayed.

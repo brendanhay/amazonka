@@ -95,7 +95,7 @@ putAttributes :: Text -- ^ 'paDomainName'
 putAttributes p1 p2 = PutAttributes
     { _paDomainName = p1
     , _paItemName   = p2
-    , _paAttributes = Nothing
+    , _paAttributes = mempty
     , _paExpected   = Nothing
     }
 

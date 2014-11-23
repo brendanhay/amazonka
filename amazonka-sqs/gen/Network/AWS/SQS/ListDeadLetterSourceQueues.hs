@@ -79,7 +79,7 @@ newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 --
 listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls = Nothing
+    { _ldlsqrQueueUrls = mempty
     }
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute

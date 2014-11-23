@@ -85,7 +85,7 @@ sendMessage p1 p2 = SendMessage
     { _smQueueUrl          = p1
     , _smMessageBody       = p2
     , _smDelaySeconds      = Nothing
-    , _smMessageAttributes = Nothing
+    , _smMessageAttributes = mempty
     }
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific

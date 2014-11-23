@@ -162,12 +162,12 @@ listObjectsResponse = ListObjectsResponse
     { _lorIsTruncated    = Nothing
     , _lorMarker         = Nothing
     , _lorNextMarker     = Nothing
-    , _lorContents       = Nothing
+    , _lorContents       = mempty
     , _lorName           = Nothing
     , _lorPrefix         = Nothing
     , _lorDelimiter      = Nothing
     , _lorMaxKeys        = Nothing
-    , _lorCommonPrefixes = Nothing
+    , _lorCommonPrefixes = mempty
     , _lorEncodingType   = Nothing
     }
 

@@ -87,7 +87,7 @@ getQueueAttributes :: Text -- ^ 'gqaQueueUrl'
                    -> GetQueueAttributes
 getQueueAttributes p1 = GetQueueAttributes
     { _gqaQueueUrl       = p1
-    , _gqaAttributeNames = Nothing
+    , _gqaAttributeNames = mempty
     }
 
 -- | A list of attributes to retrieve information for.
@@ -112,7 +112,7 @@ newtype GetQueueAttributesResponse = GetQueueAttributesResponse
 --
 getQueueAttributesResponse :: GetQueueAttributesResponse
 getQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttributes = Nothing
+    { _gqarAttributes = mempty
     }
 
 -- | A map of attributes to the respective values.

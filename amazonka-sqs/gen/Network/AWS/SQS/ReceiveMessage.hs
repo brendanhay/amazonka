@@ -100,8 +100,8 @@ receiveMessage :: Text -- ^ 'rmQueueUrl'
                -> ReceiveMessage
 receiveMessage p1 = ReceiveMessage
     { _rmQueueUrl              = p1
-    , _rmAttributeNames        = Nothing
-    , _rmMessageAttributeNames = Nothing
+    , _rmAttributeNames        = mempty
+    , _rmMessageAttributeNames = mempty
     , _rmMaxNumberOfMessages   = Nothing
     , _rmVisibilityTimeout     = Nothing
     , _rmWaitTimeSeconds       = Nothing
@@ -169,7 +169,7 @@ newtype ReceiveMessageResponse = ReceiveMessageResponse
 --
 receiveMessageResponse :: ReceiveMessageResponse
 receiveMessageResponse = ReceiveMessageResponse
-    { _rmrMessages = Nothing
+    { _rmrMessages = mempty
     }
 
 -- | A list of messages.

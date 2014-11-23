@@ -76,8 +76,8 @@ addPermission :: Text -- ^ 'apQueueUrl'
 addPermission p1 p2 = AddPermission
     { _apQueueUrl      = p1
     , _apLabel         = p2
-    , _apAWSAccountIds = Nothing
-    , _apActions       = Nothing
+    , _apAWSAccountIds = mempty
+    , _apActions       = mempty
     }
 
 -- | The AWS account number of the principal who will be given permission. The

@@ -1259,10 +1259,10 @@ data CORSRule = CORSRule
 --
 corsrule :: CORSRule
 corsrule = CORSRule
-    { _corsrAllowedHeaders = Nothing
-    , _corsrAllowedMethods = Nothing
-    , _corsrAllowedOrigins = Nothing
-    , _corsrExposeHeaders  = Nothing
+    { _corsrAllowedHeaders = mempty
+    , _corsrAllowedMethods = mempty
+    , _corsrAllowedOrigins = mempty
+    , _corsrExposeHeaders  = mempty
     , _corsrMaxAgeSeconds  = Nothing
     }
 
@@ -1707,7 +1707,7 @@ data TopicConfiguration = TopicConfiguration
 topicConfiguration :: TopicConfiguration
 topicConfiguration = TopicConfiguration
     { _tcId     = Nothing
-    , _tcEvents = Nothing
+    , _tcEvents = mempty
     , _tcEvent  = Nothing
     , _tcTopic  = Nothing
     }
@@ -1765,7 +1765,7 @@ queueConfiguration :: QueueConfiguration
 queueConfiguration = QueueConfiguration
     { _qcId     = Nothing
     , _qcEvent  = Nothing
-    , _qcEvents = Nothing
+    , _qcEvents = mempty
     , _qcQueue  = Nothing
     }
 
@@ -2347,7 +2347,7 @@ newtype CORSConfiguration = CORSConfiguration
 --
 corsconfiguration :: CORSConfiguration
 corsconfiguration = CORSConfiguration
-    { _corscCORSRules = Nothing
+    { _corscCORSRules = mempty
     }
 
 corscCORSRules :: Lens' CORSConfiguration [CORSRule]
@@ -2602,7 +2602,7 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload
 --
 completedMultipartUpload :: CompletedMultipartUpload
 completedMultipartUpload = CompletedMultipartUpload
-    { _cmuParts = Nothing
+    { _cmuParts = mempty
     }
 
 cmuParts :: Lens' CompletedMultipartUpload [CompletedPart]
@@ -2813,7 +2813,7 @@ cloudFunctionConfiguration :: CloudFunctionConfiguration
 cloudFunctionConfiguration = CloudFunctionConfiguration
     { _cfcId             = Nothing
     , _cfcEvent          = Nothing
-    , _cfcEvents         = Nothing
+    , _cfcEvents         = mempty
     , _cfcCloudFunction  = Nothing
     , _cfcInvocationRole = Nothing
     }
@@ -2932,7 +2932,7 @@ newtype LifecycleConfiguration = LifecycleConfiguration
 --
 lifecycleConfiguration :: LifecycleConfiguration
 lifecycleConfiguration = LifecycleConfiguration
-    { _lcRules = Nothing
+    { _lcRules = mempty
     }
 
 lcRules :: Lens' LifecycleConfiguration [Rule]
@@ -3102,7 +3102,7 @@ data Delete = Delete
 --
 delete' :: Delete
 delete' = Delete
-    { _dObjects = Nothing
+    { _dObjects = mempty
     , _dQuiet   = Nothing
     }
 

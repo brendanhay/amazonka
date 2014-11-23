@@ -78,7 +78,7 @@ getAttributes :: Text -- ^ 'gaDomainName'
 getAttributes p1 p2 = GetAttributes
     { _gaDomainName     = p1
     , _gaItemName       = p2
-    , _gaAttributeNames = Nothing
+    , _gaAttributeNames = mempty
     , _gaConsistentRead = Nothing
     }
 
@@ -114,7 +114,7 @@ newtype GetAttributesResponse = GetAttributesResponse
 --
 getAttributesResponse :: GetAttributesResponse
 getAttributesResponse = GetAttributesResponse
-    { _garAttributes = Nothing
+    { _garAttributes = mempty
     }
 
 -- | The list of attributes returned by the operation.

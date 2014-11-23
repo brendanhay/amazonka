@@ -100,8 +100,8 @@ data DeleteObjectsResponse = DeleteObjectsResponse
 --
 deleteObjectsResponse :: DeleteObjectsResponse
 deleteObjectsResponse = DeleteObjectsResponse
-    { _dorDeleted = Nothing
-    , _dorErrors  = Nothing
+    { _dorDeleted = mempty
+    , _dorErrors  = mempty
     }
 
 dorDeleted :: Lens' DeleteObjectsResponse [DeletedObject]

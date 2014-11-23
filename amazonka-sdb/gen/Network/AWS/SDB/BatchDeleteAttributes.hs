@@ -65,7 +65,7 @@ batchDeleteAttributes :: Text -- ^ 'bdaDomainName'
                       -> BatchDeleteAttributes
 batchDeleteAttributes p1 = BatchDeleteAttributes
     { _bdaDomainName = p1
-    , _bdaItems      = Nothing
+    , _bdaItems      = mempty
     }
 
 -- | The name of the domain in which the attributes are being deleted.

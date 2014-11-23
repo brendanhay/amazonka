@@ -71,7 +71,7 @@ changeMessageVisibilityBatch :: Text -- ^ 'cmvbQueueUrl'
                              -> ChangeMessageVisibilityBatch
 changeMessageVisibilityBatch p1 = ChangeMessageVisibilityBatch
     { _cmvbQueueUrl = p1
-    , _cmvbEntries  = Nothing
+    , _cmvbEntries  = mempty
     }
 
 -- | A list of receipt handles of the messages for which the visibility
@@ -98,8 +98,8 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
 --
 changeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse
 changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
-    { _cmvbrSuccessful = Nothing
-    , _cmvbrFailed     = Nothing
+    { _cmvbrSuccessful = mempty
+    , _cmvbrFailed     = mempty
     }
 
 -- | A list of BatchResultErrorEntry items.

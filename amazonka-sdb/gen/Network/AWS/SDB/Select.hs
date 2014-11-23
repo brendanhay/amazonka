@@ -113,7 +113,7 @@ data SelectResponse = SelectResponse
 --
 selectResponse :: SelectResponse
 selectResponse = SelectResponse
-    { _srItems     = Nothing
+    { _srItems     = mempty
     , _srNextToken = Nothing
     }
 

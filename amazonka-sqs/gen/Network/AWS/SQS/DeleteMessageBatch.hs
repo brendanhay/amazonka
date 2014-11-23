@@ -69,7 +69,7 @@ deleteMessageBatch :: Text -- ^ 'dmbQueueUrl'
                    -> DeleteMessageBatch
 deleteMessageBatch p1 = DeleteMessageBatch
     { _dmbQueueUrl = p1
-    , _dmbEntries  = Nothing
+    , _dmbEntries  = mempty
     }
 
 -- | A list of receipt handles for the messages to be deleted.
@@ -95,8 +95,8 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse
 --
 deleteMessageBatchResponse :: DeleteMessageBatchResponse
 deleteMessageBatchResponse = DeleteMessageBatchResponse
-    { _dmbrSuccessful = Nothing
-    , _dmbrFailed     = Nothing
+    { _dmbrSuccessful = mempty
+    , _dmbrFailed     = mempty
     }
 
 -- | A list of BatchResultErrorEntry items.

@@ -78,7 +78,7 @@ sendMessageBatch :: Text -- ^ 'smbQueueUrl'
                  -> SendMessageBatch
 sendMessageBatch p1 = SendMessageBatch
     { _smbQueueUrl = p1
-    , _smbEntries  = Nothing
+    , _smbEntries  = mempty
     }
 
 -- | A list of SendMessageBatchRequestEntry items.
@@ -104,8 +104,8 @@ data SendMessageBatchResponse = SendMessageBatchResponse
 --
 sendMessageBatchResponse :: SendMessageBatchResponse
 sendMessageBatchResponse = SendMessageBatchResponse
-    { _smbrSuccessful = Nothing
-    , _smbrFailed     = Nothing
+    { _smbrSuccessful = mempty
+    , _smbrFailed     = mempty
     }
 
 -- | A list of BatchResultErrorEntry items with the error detail about each

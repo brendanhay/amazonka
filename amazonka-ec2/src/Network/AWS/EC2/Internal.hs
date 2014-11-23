@@ -29,18 +29,27 @@ instance FromXML Message where
         <$> x .@ "Code"
         <*> x .@ "Message"
 
+msgCode :: Lens' Message Text
+msgCode = lens _msgCode (\s x -> s { _msgCode = x })
+
+msgMessage :: Lens' Message Text
+msgMessage = lens _msgMessage (\s x -> s { _msgMessage = x })
+
 data EC2Error = EC2Error
     { _errRequestID :: Text
-    , _errErrors    :: [Message]
+    , _errErrors    :: List "Error" Message
     } deriving (Eq, Ord, Show, Generic)
 
 instance FromXML EC2Error where
     parseXML x = EC2Error
         <$> x .@ "RequestId"
-        <*> err (x .@ "Errors")
-      where
-        err :: Functor f => f (List "Error" Message) -> f [Message]
-        err = fmap list
+        <*> x .@ "Errors"
+
+errRequestID :: Lens' EC2Error Text
+errRequestID = lens _errRequestID (\s x -> s { _errRequestID = x })
+
+errErrors :: Lens' EC2Error [Message]
+errErrors = lens _errErrors (\s x -> s { _errErrors = x }) . _List
 
 -- <Response>
 --     <Errors>

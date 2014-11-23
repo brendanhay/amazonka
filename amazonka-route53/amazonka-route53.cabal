@@ -67,6 +67,7 @@ library
         , Network.AWS.Route53.UpdateHealthCheck
 
     other-modules:
+          Network.AWS.Route53.Internal
 
     build-depends:
           amazonka-core == 0.0.1.*

@@ -47,7 +47,9 @@
         "targetPrefix": null
     },
     "cabal": {
-        "other": [],
+        "other": [
+            "Network.AWS.Route53.Internal"
+        ],
         "library": "amazonka-route53",
         "exposed": [
             "Network.AWS.Route53",
@@ -1494,7 +1496,7 @@
                     "Primary": "PRIMARY"
                 },
                 "valuePad": 10,
-                "name": "ResourceRecordSetFailover",
+                "name": "Failover",
                 "type": "nullary",
                 "branchPad": 9
             },
@@ -2415,8 +2417,8 @@
                         "shape": "RRType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "RRType",
-                        "type": "RRType"
+                        "typeExposed": "RecordType",
+                        "type": "RecordType"
                     },
                     {
                         "location": null,
@@ -2490,8 +2492,8 @@
                         "shape": "ResourceRecordSetFailover",
                         "locationName": "Failover",
                         "documentation": "\u003cp\u003e\u003ci\u003eFailover resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that indicates whether the current resource record set is a primary or secondary resource record set. A failover set may contain at most one resource record set marked as primary and one resource record set marked as secondary. A resource record set marked as primary will be returned if any of the following are true: (1) an associated health check is passing, (2) if the resource record set is an alias with the evaluate target health and at least one target resource record set is healthy, (3) both the primary and secondary resource record set are failing health checks or (4) there is no secondary resource record set. A secondary resource record set will be returned if: (1) the primary is failing a health check and either the secondary is passing a health check or has no associated health check, or (2) there is no primary resource record set. \u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePRIMARY\u003c/code\u003e | \u003ccode\u003eSECONDARY\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe ResourceRecordSetFailover",
-                        "type": "Maybe ResourceRecordSetFailover"
+                        "typeExposed": "Maybe Failover",
+                        "type": "Maybe Failover"
                     },
                     {
                         "location": null,
@@ -2583,8 +2585,8 @@
                         "shape": "RRType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "RRType",
-                        "type": "RRType"
+                        "typeExposed": "RecordType",
+                        "type": "RecordType"
                     },
                     {
                         "location": null,
@@ -2679,8 +2681,8 @@
                         "shape": "ResourceRecordSetFailover",
                         "locationName": "Failover",
                         "documentation": "\u003cp\u003e\u003ci\u003eFailover resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that indicates whether the current resource record set is a primary or secondary resource record set. A failover set may contain at most one resource record set marked as primary and one resource record set marked as secondary. A resource record set marked as primary will be returned if any of the following are true: (1) an associated health check is passing, (2) if the resource record set is an alias with the evaluate target health and at least one target resource record set is healthy, (3) both the primary and secondary resource record set are failing health checks or (4) there is no secondary resource record set. A secondary resource record set will be returned if: (1) the primary is failing a health check and either the secondary is passing a health check or has no associated health check, or (2) there is no primary resource record set. \u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePRIMARY\u003c/code\u003e | \u003ccode\u003eSECONDARY\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe ResourceRecordSetFailover",
-                        "type": "Maybe ResourceRecordSetFailover"
+                        "typeExposed": "Maybe Failover",
+                        "type": "Maybe Failover"
                     },
                     {
                         "location": null,
@@ -2756,8 +2758,8 @@
                         "shape": "ResourceRecordSetFailover",
                         "locationName": "Failover",
                         "documentation": "\u003cp\u003e\u003ci\u003eFailover resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that indicates whether the current resource record set is a primary or secondary resource record set. A failover set may contain at most one resource record set marked as primary and one resource record set marked as secondary. A resource record set marked as primary will be returned if any of the following are true: (1) an associated health check is passing, (2) if the resource record set is an alias with the evaluate target health and at least one target resource record set is healthy, (3) both the primary and secondary resource record set are failing health checks or (4) there is no secondary resource record set. A secondary resource record set will be returned if: (1) the primary is failing a health check and either the secondary is passing a health check or has no associated health check, or (2) there is no primary resource record set. \u003c/p\u003e \u003cp\u003eValid values: \u003ccode\u003ePRIMARY\u003c/code\u003e | \u003ccode\u003eSECONDARY\u003c/code\u003e\u003c/p\u003e",
-                        "typeExposed": "Maybe ResourceRecordSetFailover",
-                        "type": "Maybe ResourceRecordSetFailover"
+                        "typeExposed": "Maybe Failover",
+                        "type": "Maybe Failover"
                     },
                     {
                         "location": null,
@@ -2876,8 +2878,8 @@
                         "shape": "RRType",
                         "locationName": "Type",
                         "documentation": "\u003cp\u003eThe type of the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "RRType",
-                        "type": "RRType"
+                        "typeExposed": "RecordType",
+                        "type": "RecordType"
                     },
                     {
                         "location": null,
@@ -3521,7 +3523,9 @@
                 ]
             }
         ],
-        "imports": [],
+        "imports": [
+            "Network.AWS.Route53.Internal"
+        ],
         "shared": [
             "RecordType",
             "VPC",

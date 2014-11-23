@@ -92,8 +92,8 @@ module Network.AWS.Route53.Types
     , cAction
     , cResourceRecordSet
 
-    -- * ResourceRecordSetFailover
-    , ResourceRecordSetFailover (..)
+    -- * Failover
+    , Failover (..)
 
     -- * HostedZone
     , HostedZone
@@ -183,11 +183,15 @@ module Network.AWS.Route53.Types
     , healthCheckObservation
     , hcoIPAddress
     , hcoStatusReport
+
+    -- * Common
+    , module Network.AWS.Route53.Internal
     ) where
 
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V3
+import Network.AWS.Route53.Internal
 import qualified GHC.Exts
 
 -- | Version @2013-04-01@ of the Amazon Route 53 service.
@@ -755,30 +759,30 @@ instance ToXML Change where
         , "ResourceRecordSet" =@ _cResourceRecordSet
         ]
 
-data ResourceRecordSetFailover
+data Failover
     = Primary   -- ^ PRIMARY
     | Secondary -- ^ SECONDARY
       deriving (Eq, Ord, Show, Generic, Enum)
 
-instance Hashable ResourceRecordSetFailover
+instance Hashable Failover
 
-instance FromText ResourceRecordSetFailover where
+instance FromText Failover where
     parser = match "PRIMARY"   Primary
          <|> match "SECONDARY" Secondary
 
-instance ToText ResourceRecordSetFailover where
+instance ToText Failover where
     toText = \case
         Primary   -> "PRIMARY"
         Secondary -> "SECONDARY"
 
-instance ToByteString ResourceRecordSetFailover
-instance ToHeader     ResourceRecordSetFailover
-instance ToQuery      ResourceRecordSetFailover
+instance ToByteString Failover
+instance ToHeader     Failover
+instance ToQuery      Failover
 
-instance FromXML ResourceRecordSetFailover where
-    parseXML = parseXMLText "ResourceRecordSetFailover"
+instance FromXML Failover where
+    parseXML = parseXMLText "Failover"
 
-instance ToXML ResourceRecordSetFailover where
+instance ToXML Failover where
     toXML = toXMLText
 
 data HostedZone = HostedZone
@@ -1136,7 +1140,7 @@ instance ToXML HostedZoneConfig where
 
 data ResourceRecordSet = ResourceRecordSet
     { _rrsAliasTarget     :: Maybe AliasTarget
-    , _rrsFailover        :: Maybe ResourceRecordSetFailover
+    , _rrsFailover        :: Maybe Failover
     , _rrsGeoLocation     :: Maybe GeoLocation
     , _rrsHealthCheckId   :: Maybe Text
     , _rrsName            :: Text
@@ -1144,7 +1148,7 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsResourceRecords :: List1 "ResourceRecord" ResourceRecord
     , _rrsSetIdentifier   :: Maybe Text
     , _rrsTTL             :: Maybe Nat
-    , _rrsType            :: RRType
+    , _rrsType            :: RecordType
     , _rrsWeight          :: Maybe Nat
     } deriving (Eq, Show)
 
@@ -1154,7 +1158,7 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * 'rrsAliasTarget' @::@ 'Maybe' 'AliasTarget'
 --
--- * 'rrsFailover' @::@ 'Maybe' 'ResourceRecordSetFailover'
+-- * 'rrsFailover' @::@ 'Maybe' 'Failover'
 --
 -- * 'rrsGeoLocation' @::@ 'Maybe' 'GeoLocation'
 --
@@ -1170,12 +1174,12 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * 'rrsTTL' @::@ 'Maybe' 'Natural'
 --
--- * 'rrsType' @::@ 'RRType'
+-- * 'rrsType' @::@ 'RecordType'
 --
 -- * 'rrsWeight' @::@ 'Maybe' 'Natural'
 --
 resourceRecordSet :: Text -- ^ 'rrsName'
-                  -> RRType -- ^ 'rrsType'
+                  -> RecordType -- ^ 'rrsType'
                   -> NonEmpty ResourceRecord -- ^ 'rrsResourceRecords'
                   -> ResourceRecordSet
 resourceRecordSet p1 p2 p3 = ResourceRecordSet
@@ -1212,7 +1216,7 @@ rrsAliasTarget = lens _rrsAliasTarget (\s a -> s { _rrsAliasTarget = a })
 -- secondary is passing a health check or has no associated health check, or
 -- (2) there is no primary resource record set. Valid values: PRIMARY |
 -- SECONDARY.
-rrsFailover :: Lens' ResourceRecordSet (Maybe ResourceRecordSetFailover)
+rrsFailover :: Lens' ResourceRecordSet (Maybe Failover)
 rrsFailover = lens _rrsFailover (\s a -> s { _rrsFailover = a })
 
 -- | Geo location resource record sets only: Among resource record sets that
@@ -1255,7 +1259,7 @@ rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
 rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a }) . mapping _Nat
 
 -- | The type of the current resource record set.
-rrsType :: Lens' ResourceRecordSet RRType
+rrsType :: Lens' ResourceRecordSet RecordType
 rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 
 -- | Weighted resource record sets only: Among resource record sets that have

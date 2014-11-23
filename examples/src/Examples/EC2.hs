@@ -12,19 +12,18 @@
 
 module Examples.EC2 where
 
-import           Control.Applicative     ((<$>))
-import           Control.Lens            ((&), (.~), (?~), (^.), view)
-import           Control.Monad           (void)
-import           Control.Monad.IO.Class  (liftIO)
-import           Data.Monoid             (mappend)
+import           Control.Applicative
+import           Control.Lens
+import           Control.Monad
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.AWS
+import           Data.Monoid
 import           Data.Text               (Text)
 import qualified Data.Text               as Text
 import qualified Data.Text.IO            as Text
-import           Data.Time.Clock.POSIX   (getPOSIXTime)
-import           System.IO               (BufferMode(..), hSetBuffering, stdout)
-
-import           Control.Monad.Trans.AWS
+import           Data.Time.Clock.POSIX
 import           Network.AWS.EC2
+import           System.IO
 
 launch :: IO ()
 launch = do

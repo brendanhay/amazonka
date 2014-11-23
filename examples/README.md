@@ -17,6 +17,9 @@ cabal repl
 
 Then import the desired service's examples into the `repl` and go nuts.
 
+> Please be aware that running the examples with your AWS account _will incur charges._
+> See the Amazon pricing guides for the relevant service.
+
 
 ## Contribute
 

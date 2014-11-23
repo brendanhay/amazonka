@@ -1,6 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-
--- Module      : Examples.SQS
+-- Module      : Examples.Internal
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,15 +8,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Examples.SQS where
+module Examples.Internal where
 
-import           Control.Monad.Trans.AWS (runAWST, send)
-import           Examples.Internal       (discoverEnv)
-import qualified Network.AWS.SQS         as SQS
+import           Control.Applicative     ((<$>))
+import           Control.Lens            (set)
+import           Control.Monad.Trans.AWS
+import qualified Data.Text.IO            as Text
 
-sendMessage :: IO ()
-sendMessage = do
-    env <- discoverEnv
-    r   <- runAWST env $ do
-        send $ SQS.sendMessage "$MY_SQS_URL_HERE" "Testing!"
-    print r
+discoverEnv :: IO Env
+discoverEnv = set envLogger (Debug Text.putStrLn) <$> getEnv Ireland Discover

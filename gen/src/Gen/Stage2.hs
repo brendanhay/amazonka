@@ -178,14 +178,18 @@ data Type
       deriving (Eq, Ord, Show)
 
 isRequired :: Type -> Bool
-isRequired (TMaybe _) = False
-isRequired _          = True
+isRequired = \case
+    TMaybe     {} -> False
+    TFlatten   t  -> isRequired t
+    TSensitive t  -> isRequired t
+    t             -> not (isMonoid t)
 
 isMonoid :: Type -> Bool
-isMonoid (TList    _ _) = True
-isMonoid (TMap   _ _ _) = True
-isMonoid (THashMap _ _) = True
-isMonoid _              = False
+isMonoid = \case
+    TList    {} -> True
+    TMap     {} -> True
+    THashMap {} -> True
+    _           -> False
 
 isFlattened :: Type -> Bool
 isFlattened = any f . universe
@@ -351,9 +355,7 @@ instance HasType Field where
     typeOf = fType
 
 parameters :: [Field] -> ([Field], [Field])
-parameters = partition (f . view typeOf)
-  where
-    f x = not (isMonoid x) && isRequired x
+parameters = partition (isRequired . view typeOf)
 
 isHeader :: Field -> Bool
 isHeader = f . view fLocation

@@ -8,6 +8,15 @@
 
 Basic usage examples for the various `amazonka-*` libraries.
 
+You can setup and run the examples via:
+
+```
+make install
+cabal repl
+```
+
+Then import the desired service's examples into the `repl` and go nuts.
+
 
 ## Contribute
 

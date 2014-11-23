@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CognitoSync",
-        "error": "RESTError",
+        "error": "JSONError",
         "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.CognitoSync",
         "protocol": "rest-json",

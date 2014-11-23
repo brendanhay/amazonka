@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "ElasticTranscoder",
-        "error": "RESTError",
+        "error": "JSONError",
         "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html",
         "namespace": "Network.AWS.ElasticTranscoder",
         "protocol": "rest-json",

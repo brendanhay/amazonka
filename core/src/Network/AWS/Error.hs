@@ -86,7 +86,7 @@ restError f Service{..} s
         success   = ServiceError _svcAbbrev s
 
 data JSONError = JSONError
-    { _errType    :: Text
+    { _errType    :: Maybe Text
     , _errMessage :: Text
     } deriving (Eq, Show, Generic)
 
@@ -94,8 +94,8 @@ makeLenses ''JSONError
 
 instance FromJSON JSONError where
     parseJSON = withObject "JSONError" $ \o -> JSONError
-        <$> (o .: "__type"  <|> o .: "Type")
-        <*> (o .: "message" <|> o .: "Message")
+        <$> (o .:? "__type"  <|> o .:? "Type")
+        <*> (o .:  "message" <|> o .:  "Message")
 
 jsonError :: FromJSON (Er a)
           => (Status -> Bool)

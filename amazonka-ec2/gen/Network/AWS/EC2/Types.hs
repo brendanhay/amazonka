@@ -25,7 +25,7 @@ module Network.AWS.EC2.Types
     -- * Service
       EC2
     -- ** Error
-    , RESTError
+    , EC2Error
     -- ** XML
     , ns
 
@@ -1405,7 +1405,7 @@ data EC2
 
 instance AWSService EC2 where
     type Sg EC2 = V4
-    type Er EC2 = RESTError
+    type Er EC2 = EC2Error
 
     service = Service
         { _svcEndpoint     = regional

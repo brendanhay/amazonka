@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "Lambda",
-        "error": "RESTError",
+        "error": "JSONError",
         "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html",
         "namespace": "Network.AWS.Lambda",
         "protocol": "rest-json",

@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "EC2",
-        "error": "RESTError",
+        "error": "EC2Error",
         "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html",
         "namespace": "Network.AWS.EC2",
         "protocol": "ec2",

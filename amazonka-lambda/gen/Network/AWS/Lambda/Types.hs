@@ -25,7 +25,7 @@ module Network.AWS.Lambda.Types
     -- * Service
       Lambda
     -- ** Error
-    , RESTError
+    , JSONError
 
     -- * Runtime
     , Runtime (..)
@@ -80,7 +80,7 @@ data Lambda
 
 instance AWSService Lambda where
     type Sg Lambda = V4
-    type Er Lambda = RESTError
+    type Er Lambda = JSONError
 
     service = Service
         { _svcEndpoint     = regional
@@ -91,7 +91,7 @@ instance AWSService Lambda where
         , _svcJSONVersion  = Nothing
         }
 
-    handle = restError statusSuccess
+    handle = jsonError statusSuccess
 
 data Runtime
     = Nodejs -- ^ nodejs

@@ -25,7 +25,7 @@ module Network.AWS.CognitoSync.Types
     -- * Service
       CognitoSync
     -- ** Error
-    , RESTError
+    , JSONError
 
     -- * IdentityPoolUsage
     , IdentityPoolUsage
@@ -98,7 +98,7 @@ data CognitoSync
 
 instance AWSService CognitoSync where
     type Sg CognitoSync = V4
-    type Er CognitoSync = RESTError
+    type Er CognitoSync = JSONError
 
     service = Service
         { _svcEndpoint     = regional
@@ -109,7 +109,7 @@ instance AWSService CognitoSync where
         , _svcJSONVersion  = Just "1.1"
         }
 
-    handle = restError statusSuccess
+    handle = jsonError statusSuccess
 
 data IdentityPoolUsage = IdentityPoolUsage
     { _ipuDataStorage       :: Maybe Integer

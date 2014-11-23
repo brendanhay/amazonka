@@ -2,6 +2,7 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -18,10 +19,12 @@
 module Network.AWS.Error where
 
 import           Control.Applicative
+import           Control.Lens
 import           Control.Monad
 import           Data.Aeson
-import qualified Data.ByteString.Lazy as LBS
-import           Data.Text            (Text)
+import qualified Data.ByteString.Lazy       as LBS
+import           Data.ByteString.Lazy.Char8 (unpack)
+import           Data.Text                  (Text)
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Types
@@ -48,6 +51,8 @@ data RESTMessage = RESTMessage
     , _msgRESTMessage :: Text
     } deriving (Eq, Ord, Show, Generic)
 
+makeLenses ''RESTMessage
+
 instance FromXML RESTMessage where
     parseXML x = RESTMessage
         <$> x .@ "Type"
@@ -58,6 +63,8 @@ data RESTError = RESTError
     { _errError     :: RESTMessage
     , _errRequestId :: Text
     } deriving (Eq, Show, Generic)
+
+makeLenses ''RESTError
 
 instance FromXML RESTError where
     parseXML x = RESTError
@@ -71,33 +78,24 @@ restError :: FromXML (Er a)
           -> Maybe (LBS.ByteString -> ServiceError (Er a))
 restError f Service{..} s
     | f s       = Nothing
-    | otherwise = Just (either failure success . (decodeXML >=> parseXML))
+    | otherwise = Just go
   where
-    success = ServiceError _svcAbbrev s
-    failure = SerializerError _svcAbbrev
-
--- cloudfront
--- autoscaling
-
--- <ErrorResponse xmlns="http://cloudfront.amazonaws.com/doc/2014-10-21/">
---    <Error>
---       <Type>Sender</Type>
---       <Code>InvalidURI</Code>
---       <Message>Could not parse the specified URI.</Message>
---    </Error>
---    <RequestId>410c2a4b-e435-49c9-8382-3770d80d7d4c</RequestId>
--- </ErrorResponse>
+    go x = either failure success (decodeXML x >>= parseXML)
+      where
+        failure e = SerializerError _svcAbbrev (e ++ "\n" ++ unpack x)
+        success   = ServiceError _svcAbbrev s
 
 data JSONError = JSONError
     { _errType    :: Text
     , _errMessage :: Text
     } deriving (Eq, Show, Generic)
 
+makeLenses ''JSONError
+
 instance FromJSON JSONError where
-    parseJSON = withObject "JSONError" $ \o ->
-        JSONError
-            <$> o .: "__type"
-            <*> o .: "message"
+    parseJSON = withObject "JSONError" $ \o -> JSONError
+        <$> (o .: "__type"  <|> o .: "Type")
+        <*> (o .: "message" <|> o .: "Message")
 
 jsonError :: FromJSON (Er a)
           => (Status -> Bool)
@@ -106,9 +104,9 @@ jsonError :: FromJSON (Er a)
           -> Maybe (LBS.ByteString -> ServiceError (Er a))
 jsonError f Service{..} s
     | f s       = Nothing
-    | otherwise = Just (either failure success . eitherDecode')
+    | otherwise = Just go
   where
-    success = ServiceError _svcAbbrev s
-    failure = SerializerError _svcAbbrev
-
--- {"__type":"ResourceNotFoundException","message":"Unable to find instance with ID 1"}
+    go x = either failure success (eitherDecode' x)
+      where
+        failure e = SerializerError _svcAbbrev (e ++ "\n" ++ unpack x)
+        success   = ServiceError _svcAbbrev s

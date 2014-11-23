@@ -79,10 +79,9 @@ newtype ListQueuesResponse = ListQueuesResponse
 --
 -- * 'lqrQueueUrls' @::@ ['Text']
 --
-listQueuesResponse :: [Text] -- ^ 'lqrQueueUrls'
-                   -> ListQueuesResponse
-listQueuesResponse p1 = ListQueuesResponse
-    { _lqrQueueUrls = withIso _List (const id) p1
+listQueuesResponse :: ListQueuesResponse
+listQueuesResponse = ListQueuesResponse
+    { _lqrQueueUrls = Nothing
     }
 
 -- | A list of queue URLs, up to 1000 entries.

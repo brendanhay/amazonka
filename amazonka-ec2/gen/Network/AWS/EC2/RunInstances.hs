@@ -432,8 +432,8 @@ instance AWSRequest RunInstances where
 
 instance FromXML RunInstancesResponse where
     parseXML x = RunInstancesResponse
-        <$> x .@  "groupSet"
-        <*> x .@  "instancesSet"
+        <$> x .@? "groupSet"
+        <*> x .@? "instancesSet"
         <*> x .@? "ownerId"
         <*> x .@? "requesterId"
         <*> x .@? "reservationId"

@@ -72,14 +72,12 @@ data AddPermission = AddPermission
 --
 addPermission :: Text -- ^ 'apQueueUrl'
               -> Text -- ^ 'apLabel'
-              -> [Text] -- ^ 'apAWSAccountIds'
-              -> [Text] -- ^ 'apActions'
               -> AddPermission
-addPermission p1 p2 p3 p4 = AddPermission
+addPermission p1 p2 = AddPermission
     { _apQueueUrl      = p1
     , _apLabel         = p2
-    , _apAWSAccountIds = withIso _List (const id) p3
-    , _apActions       = withIso _List (const id) p4
+    , _apAWSAccountIds = Nothing
+    , _apActions       = Nothing
     }
 
 -- | The AWS account number of the principal who will be given permission. The

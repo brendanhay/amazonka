@@ -127,4 +127,4 @@ instance AWSRequest DescribeConfigurationRecorderStatus where
 
 instance FromJSON DescribeConfigurationRecorderStatusResponse where
     parseJSON = withObject "DescribeConfigurationRecorderStatusResponse" $ \o -> DescribeConfigurationRecorderStatusResponse
-        <$> o .:  "ConfigurationRecordersStatus"
+        <$> o .:? "ConfigurationRecordersStatus"

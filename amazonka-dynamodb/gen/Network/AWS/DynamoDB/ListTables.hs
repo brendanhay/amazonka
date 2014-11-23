@@ -142,7 +142,7 @@ instance AWSRequest ListTables where
 instance FromJSON ListTablesResponse where
     parseJSON = withObject "ListTablesResponse" $ \o -> ListTablesResponse
         <$> o .:? "LastEvaluatedTableName"
-        <*> o .:  "TableNames"
+        <*> o .:? "TableNames"
 
 instance AWSPager ListTables where
     page rq rs

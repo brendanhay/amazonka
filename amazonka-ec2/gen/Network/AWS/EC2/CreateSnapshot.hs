@@ -241,6 +241,6 @@ instance FromXML CreateSnapshotResponse where
         <*> x .@? "snapshotId"
         <*> x .@? "startTime"
         <*> x .@? "status"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "volumeId"
         <*> x .@? "volumeSize"

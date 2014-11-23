@@ -142,7 +142,7 @@ instance AWSRequest DescribeAutoScalingGroups where
 
 instance FromXML DescribeAutoScalingGroupsResponse where
     parseXML = withElement "DescribeAutoScalingGroupsResult" $ \x -> DescribeAutoScalingGroupsResponse
-        <$> x .@  "AutoScalingGroups"
+        <$> x .@? "AutoScalingGroups"
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeAutoScalingGroups where

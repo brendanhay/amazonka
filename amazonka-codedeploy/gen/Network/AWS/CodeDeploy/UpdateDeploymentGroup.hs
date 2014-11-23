@@ -191,4 +191,4 @@ instance AWSRequest UpdateDeploymentGroup where
 
 instance FromJSON UpdateDeploymentGroupResponse where
     parseJSON = withObject "UpdateDeploymentGroupResponse" $ \o -> UpdateDeploymentGroupResponse
-        <$> o .:  "hooksNotCleanedUp"
+        <$> o .:? "hooksNotCleanedUp"

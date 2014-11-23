@@ -189,7 +189,7 @@ instance AWSRequest DescribeClusterSubnetGroups where
 
 instance FromXML DescribeClusterSubnetGroupsResponse where
     parseXML = withElement "DescribeClusterSubnetGroupsResult" $ \x -> DescribeClusterSubnetGroupsResponse
-        <$> x .@  "ClusterSubnetGroups"
+        <$> x .@? "ClusterSubnetGroups"
         <*> x .@? "Marker"
 
 instance AWSPager DescribeClusterSubnetGroups where

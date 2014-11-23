@@ -159,7 +159,7 @@ instance AWSRequest DescribeReservedNodeOfferings where
 instance FromXML DescribeReservedNodeOfferingsResponse where
     parseXML = withElement "DescribeReservedNodeOfferingsResult" $ \x -> DescribeReservedNodeOfferingsResponse
         <$> x .@? "Marker"
-        <*> x .@  "ReservedNodeOfferings"
+        <*> x .@? "ReservedNodeOfferings"
 
 instance AWSPager DescribeReservedNodeOfferings where
     page rq rs

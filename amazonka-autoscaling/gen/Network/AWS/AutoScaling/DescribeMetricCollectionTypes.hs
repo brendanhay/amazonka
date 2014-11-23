@@ -103,5 +103,5 @@ instance AWSRequest DescribeMetricCollectionTypes where
 
 instance FromXML DescribeMetricCollectionTypesResponse where
     parseXML = withElement "DescribeMetricCollectionTypesResult" $ \x -> DescribeMetricCollectionTypesResponse
-        <$> x .@  "Granularities"
-        <*> x .@  "Metrics"
+        <$> x .@? "Granularities"
+        <*> x .@? "Metrics"

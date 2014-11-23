@@ -138,4 +138,4 @@ instance AWSRequest EnterStandby where
 
 instance FromXML EnterStandbyResponse where
     parseXML = withElement "EnterStandbyResult" $ \x -> EnterStandbyResponse
-        <$> x .@  "Activities"
+        <$> x .@? "Activities"

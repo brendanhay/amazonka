@@ -68,11 +68,10 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
 -- * 'cmvbQueueUrl' @::@ 'Text'
 --
 changeMessageVisibilityBatch :: Text -- ^ 'cmvbQueueUrl'
-                             -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
                              -> ChangeMessageVisibilityBatch
-changeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
+changeMessageVisibilityBatch p1 = ChangeMessageVisibilityBatch
     { _cmvbQueueUrl = p1
-    , _cmvbEntries  = withIso _List (const id) p2
+    , _cmvbEntries  = Nothing
     }
 
 -- | A list of receipt handles of the messages for which the visibility
@@ -97,12 +96,10 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
 --
 -- * 'cmvbrSuccessful' @::@ ['ChangeMessageVisibilityBatchResultEntry']
 --
-changeMessageVisibilityBatchResponse :: [ChangeMessageVisibilityBatchResultEntry] -- ^ 'cmvbrSuccessful'
-                                     -> [BatchResultErrorEntry] -- ^ 'cmvbrFailed'
-                                     -> ChangeMessageVisibilityBatchResponse
-changeMessageVisibilityBatchResponse p1 p2 = ChangeMessageVisibilityBatchResponse
-    { _cmvbrSuccessful = withIso _List (const id) p1
-    , _cmvbrFailed     = withIso _List (const id) p2
+changeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse
+changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
+    { _cmvbrSuccessful = Nothing
+    , _cmvbrFailed     = Nothing
     }
 
 -- | A list of BatchResultErrorEntry items.

@@ -190,7 +190,7 @@ instance AWSRequest ListHostedZones where
 
 instance FromXML ListHostedZonesResponse where
     parseXML x = ListHostedZonesResponse
-        <$> x .@  "HostedZones"
+        <$> x .@? "HostedZones"
         <*> x .@  "IsTruncated"
         <*> x .@  "Marker"
         <*> x .@  "MaxItems"

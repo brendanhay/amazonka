@@ -169,4 +169,4 @@ instance FromJSON UploadDocumentsResponse where
         <$> o .:? "adds"
         <*> o .:? "deletes"
         <*> o .:? "status"
-        <*> o .:  "warnings"
+        <*> o .:? "warnings"

@@ -148,7 +148,7 @@ instance AWSRequest ListClusters where
 
 instance FromJSON ListClustersResponse where
     parseJSON = withObject "ListClustersResponse" $ \o -> ListClustersResponse
-        <$> o .:  "Clusters"
+        <$> o .:? "Clusters"
         <*> o .:? "Marker"
 
 instance AWSPager ListClusters where

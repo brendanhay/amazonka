@@ -141,4 +141,4 @@ instance AWSRequest DescribeElasticIps where
 
 instance FromJSON DescribeElasticIpsResponse where
     parseJSON = withObject "DescribeElasticIpsResponse" $ \o -> DescribeElasticIpsResponse
-        <$> o .:  "ElasticIps"
+        <$> o .:? "ElasticIps"

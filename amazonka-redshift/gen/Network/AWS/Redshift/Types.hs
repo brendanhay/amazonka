@@ -680,7 +680,7 @@ sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 
 instance FromXML Snapshot where
     parseXML x = Snapshot
-        <$> x .@  "AccountsWithRestoreAccess"
+        <$> x .@? "AccountsWithRestoreAccess"
         <*> x .@? "ActualIncrementalBackupSizeInMegaBytes"
         <*> x .@? "AvailabilityZone"
         <*> x .@? "BackupProgressInMegaBytes"
@@ -704,7 +704,7 @@ instance FromXML Snapshot where
         <*> x .@? "SnapshotType"
         <*> x .@? "SourceRegion"
         <*> x .@? "Status"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags"
         <*> x .@? "TotalBackupSizeInMegaBytes"
         <*> x .@? "VpcId"
 
@@ -790,7 +790,7 @@ instance FromXML ClusterParameterGroup where
         <$> x .@? "Description"
         <*> x .@? "ParameterGroupFamily"
         <*> x .@? "ParameterGroupName"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags"
 
 instance ToQuery ClusterParameterGroup where
     toQuery ClusterParameterGroup{..} = mconcat
@@ -961,7 +961,7 @@ eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 instance FromXML Event where
     parseXML x = Event
         <$> x .@? "Date"
-        <*> x .@  "EventCategories"
+        <*> x .@? "EventCategories"
         <*> x .@? "EventId"
         <*> x .@? "Message"
         <*> x .@? "Severity"
@@ -1103,7 +1103,7 @@ instance FromXML HsmClientCertificate where
     parseXML x = HsmClientCertificate
         <$> x .@? "HsmClientCertificateIdentifier"
         <*> x .@? "HsmClientCertificatePublicKey"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags"
 
 instance ToQuery HsmClientCertificate where
     toQuery HsmClientCertificate{..} = mconcat
@@ -1422,11 +1422,11 @@ instance FromXML Cluster where
         <*> x .@? "AvailabilityZone"
         <*> x .@? "ClusterCreateTime"
         <*> x .@? "ClusterIdentifier"
-        <*> x .@  "ClusterNodes"
-        <*> x .@  "ClusterParameterGroups"
+        <*> x .@? "ClusterNodes"
+        <*> x .@? "ClusterParameterGroups"
         <*> x .@? "ClusterPublicKey"
         <*> x .@? "ClusterRevisionNumber"
-        <*> x .@  "ClusterSecurityGroups"
+        <*> x .@? "ClusterSecurityGroups"
         <*> x .@? "ClusterSnapshotCopyStatus"
         <*> x .@? "ClusterStatus"
         <*> x .@? "ClusterSubnetGroupName"
@@ -1445,9 +1445,9 @@ instance FromXML Cluster where
         <*> x .@? "PreferredMaintenanceWindow"
         <*> x .@? "PubliclyAccessible"
         <*> x .@? "RestoreStatus"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags"
         <*> x .@? "VpcId"
-        <*> x .@  "VpcSecurityGroups"
+        <*> x .@? "VpcSecurityGroups"
 
 instance ToQuery Cluster where
     toQuery Cluster{..} = mconcat
@@ -1587,7 +1587,7 @@ instance FromXML EC2SecurityGroup where
         <$> x .@? "EC2SecurityGroupName"
         <*> x .@? "EC2SecurityGroupOwnerId"
         <*> x .@? "Status"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags"
 
 instance ToQuery EC2SecurityGroup where
     toQuery EC2SecurityGroup{..} = mconcat
@@ -1645,7 +1645,7 @@ ocoNodeType = lens _ocoNodeType (\s a -> s { _ocoNodeType = a })
 
 instance FromXML OrderableClusterOption where
     parseXML x = OrderableClusterOption
-        <$> x .@  "AvailabilityZones"
+        <$> x .@? "AvailabilityZones"
         <*> x .@? "ClusterType"
         <*> x .@? "ClusterVersion"
         <*> x .@? "NodeType"
@@ -1838,9 +1838,9 @@ instance FromXML ClusterSecurityGroup where
     parseXML x = ClusterSecurityGroup
         <$> x .@? "ClusterSecurityGroupName"
         <*> x .@? "Description"
-        <*> x .@  "EC2SecurityGroups"
-        <*> x .@  "IPRanges"
-        <*> x .@  "Tags"
+        <*> x .@? "EC2SecurityGroups"
+        <*> x .@? "IPRanges"
+        <*> x .@? "Tags"
 
 instance ToQuery ClusterSecurityGroup where
     toQuery ClusterSecurityGroup{..} = mconcat
@@ -1897,7 +1897,7 @@ instance FromXML DefaultClusterParameters where
     parseXML x = DefaultClusterParameters
         <$> x .@? "Marker"
         <*> x .@? "ParameterGroupFamily"
-        <*> x .@  "Parameters"
+        <*> x .@? "Parameters"
 
 instance ToQuery DefaultClusterParameters where
     toQuery DefaultClusterParameters{..} = mconcat
@@ -1974,8 +1974,8 @@ instance FromXML ClusterSubnetGroup where
         <$> x .@? "ClusterSubnetGroupName"
         <*> x .@? "Description"
         <*> x .@? "SubnetGroupStatus"
-        <*> x .@  "Subnets"
-        <*> x .@  "Tags"
+        <*> x .@? "Subnets"
+        <*> x .@? "Tags"
         <*> x .@? "VpcId"
 
 instance ToQuery ClusterSubnetGroup where
@@ -2036,7 +2036,7 @@ eimSeverity = lens _eimSeverity (\s a -> s { _eimSeverity = a })
 
 instance FromXML EventInfoMap where
     parseXML x = EventInfoMap
-        <$> x .@  "EventCategories"
+        <$> x .@? "EventCategories"
         <*> x .@? "EventDescription"
         <*> x .@? "EventId"
         <*> x .@? "Severity"
@@ -2180,7 +2180,7 @@ instance FromXML ReservedNodeOffering where
         <*> x .@? "FixedPrice"
         <*> x .@? "NodeType"
         <*> x .@? "OfferingType"
-        <*> x .@  "RecurringCharges"
+        <*> x .@? "RecurringCharges"
         <*> x .@? "ReservedNodeOfferingId"
         <*> x .@? "UsagePrice"
 
@@ -2321,7 +2321,7 @@ instance FromXML ReservedNode where
         <*> x .@? "NodeCount"
         <*> x .@? "NodeType"
         <*> x .@? "OfferingType"
-        <*> x .@  "RecurringCharges"
+        <*> x .@? "RecurringCharges"
         <*> x .@? "ReservedNodeId"
         <*> x .@? "ReservedNodeOfferingId"
         <*> x .@? "StartTime"
@@ -2609,14 +2609,14 @@ instance FromXML EventSubscription where
         <$> x .@? "CustSubscriptionId"
         <*> x .@? "CustomerAwsId"
         <*> x .@? "Enabled"
-        <*> x .@  "EventCategoriesList"
+        <*> x .@? "EventCategoriesList"
         <*> x .@? "Severity"
         <*> x .@? "SnsTopicArn"
-        <*> x .@  "SourceIdsList"
+        <*> x .@? "SourceIdsList"
         <*> x .@? "SourceType"
         <*> x .@? "Status"
         <*> x .@? "SubscriptionCreationTime"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags"
 
 instance ToQuery EventSubscription where
     toQuery EventSubscription{..} = mconcat
@@ -2939,7 +2939,7 @@ instance FromXML IPRange where
     parseXML x = IPRange
         <$> x .@? "CIDRIP"
         <*> x .@? "Status"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags"
 
 instance ToQuery IPRange where
     toQuery IPRange{..} = mconcat
@@ -3032,7 +3032,7 @@ ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
 
 instance FromXML EventCategoriesMap where
     parseXML x = EventCategoriesMap
-        <$> x .@  "Events"
+        <$> x .@? "Events"
         <*> x .@? "SourceType"
 
 instance ToQuery EventCategoriesMap where
@@ -3103,7 +3103,7 @@ instance FromXML HsmConfiguration where
         <*> x .@? "HsmConfigurationIdentifier"
         <*> x .@? "HsmIpAddress"
         <*> x .@? "HsmPartitionName"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags"
 
 instance ToQuery HsmConfiguration where
     toQuery HsmConfiguration{..} = mconcat

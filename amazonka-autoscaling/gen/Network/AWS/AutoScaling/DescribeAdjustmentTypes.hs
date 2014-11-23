@@ -94,4 +94,4 @@ instance AWSRequest DescribeAdjustmentTypes where
 
 instance FromXML DescribeAdjustmentTypesResponse where
     parseXML = withElement "DescribeAdjustmentTypesResult" $ \x -> DescribeAdjustmentTypesResponse
-        <$> x .@  "AdjustmentTypes"
+        <$> x .@? "AdjustmentTypes"

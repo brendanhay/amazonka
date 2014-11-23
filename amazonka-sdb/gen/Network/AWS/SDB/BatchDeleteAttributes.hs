@@ -62,11 +62,10 @@ data BatchDeleteAttributes = BatchDeleteAttributes
 -- * 'bdaItems' @::@ ['DeletableItem']
 --
 batchDeleteAttributes :: Text -- ^ 'bdaDomainName'
-                      -> [DeletableItem] -- ^ 'bdaItems'
                       -> BatchDeleteAttributes
-batchDeleteAttributes p1 p2 = BatchDeleteAttributes
+batchDeleteAttributes p1 = BatchDeleteAttributes
     { _bdaDomainName = p1
-    , _bdaItems      = withIso _List (const id) p2
+    , _bdaItems      = Nothing
     }
 
 -- | The name of the domain in which the attributes are being deleted.

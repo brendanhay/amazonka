@@ -232,5 +232,5 @@ instance FromJSON UpdateIdentityPoolResponse where
         <*> o .:? "DeveloperProviderName"
         <*> o .:  "IdentityPoolId"
         <*> o .:  "IdentityPoolName"
-        <*> o .:  "OpenIdConnectProviderARNs"
-        <*> o .:  "SupportedLoginProviders"
+        <*> o .:? "OpenIdConnectProviderARNs"
+        <*> o .:? "SupportedLoginProviders"

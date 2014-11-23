@@ -138,7 +138,7 @@ instance FromJSON ListPipelinesResponse where
     parseJSON = withObject "ListPipelinesResponse" $ \o -> ListPipelinesResponse
         <$> o .:? "hasMoreResults"
         <*> o .:? "marker"
-        <*> o .:  "pipelineIdList"
+        <*> o .:? "pipelineIdList"
 
 instance AWSPager ListPipelines where
     page rq rs

@@ -114,4 +114,4 @@ instance AWSRequest GetPlatformApplicationAttributes where
 
 instance FromXML GetPlatformApplicationAttributesResponse where
     parseXML = withElement "GetPlatformApplicationAttributesResult" $ \x -> GetPlatformApplicationAttributesResponse
-        <$> x .@  "Attributes"
+        <$> x .@? "Attributes"

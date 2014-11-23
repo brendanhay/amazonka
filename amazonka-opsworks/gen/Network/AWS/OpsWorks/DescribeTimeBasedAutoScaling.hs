@@ -125,4 +125,4 @@ instance AWSRequest DescribeTimeBasedAutoScaling where
 
 instance FromJSON DescribeTimeBasedAutoScalingResponse where
     parseJSON = withObject "DescribeTimeBasedAutoScalingResponse" $ \o -> DescribeTimeBasedAutoScalingResponse
-        <$> o .:  "TimeBasedAutoScalingConfigurations"
+        <$> o .:? "TimeBasedAutoScalingConfigurations"

@@ -61,11 +61,10 @@ data SetQueueAttributes = SetQueueAttributes
 -- * 'sqaQueueUrl' @::@ 'Text'
 --
 setQueueAttributes :: Text -- ^ 'sqaQueueUrl'
-                   -> HashMap Text Text -- ^ 'sqaAttributes'
                    -> SetQueueAttributes
-setQueueAttributes p1 p2 = SetQueueAttributes
+setQueueAttributes p1 = SetQueueAttributes
     { _sqaQueueUrl   = p1
-    , _sqaAttributes = withIso _EMap (const id) p2
+    , _sqaAttributes = Nothing
     }
 
 -- | A map of attributes to set. The following lists the names, descriptions,

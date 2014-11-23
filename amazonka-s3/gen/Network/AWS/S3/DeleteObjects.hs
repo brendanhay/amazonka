@@ -98,12 +98,10 @@ data DeleteObjectsResponse = DeleteObjectsResponse
 --
 -- * 'dorErrors' @::@ ['S3ServiceError']
 --
-deleteObjectsResponse :: [DeletedObject] -- ^ 'dorDeleted'
-                      -> [S3ServiceError] -- ^ 'dorErrors'
-                      -> DeleteObjectsResponse
-deleteObjectsResponse p1 p2 = DeleteObjectsResponse
-    { _dorDeleted = withIso _List (const id) p1
-    , _dorErrors  = withIso _List (const id) p2
+deleteObjectsResponse :: DeleteObjectsResponse
+deleteObjectsResponse = DeleteObjectsResponse
+    { _dorDeleted = Nothing
+    , _dorErrors  = Nothing
     }
 
 dorDeleted :: Lens' DeleteObjectsResponse [DeletedObject]

@@ -220,14 +220,20 @@
                         "documentation": null,
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
+                    }
+                ],
+                "contentPad": 0,
+                "name": "DeletableItem",
+                "locationPad": 11,
+                "type": "record",
+                "optional": [
                     {
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "diAttributes",
                         "name": "_diAttributes",
                         "shape": "AttributeList",
@@ -237,19 +243,14 @@
                         "type": "List \"Attribute\" Attribute"
                     }
                 ],
-                "contentPad": 0,
-                "name": "DeletableItem",
-                "locationPad": 11,
-                "type": "record",
-                "optional": [],
                 "fields": [
                     {
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "diAttributes",
                         "name": "_diAttributes",
                         "shape": "AttributeList",
@@ -299,14 +300,20 @@
                         "documentation": "The name of the replaceable item.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
+                    }
+                ],
+                "contentPad": 0,
+                "name": "ReplaceableItem",
+                "locationPad": 11,
+                "type": "record",
+                "optional": [
                     {
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "riAttributes",
                         "name": "_riAttributes",
                         "shape": "ReplaceableAttributeList",
@@ -316,19 +323,14 @@
                         "type": "List \"Attribute\" ReplaceableAttribute"
                     }
                 ],
-                "contentPad": 0,
-                "name": "ReplaceableItem",
-                "locationPad": 11,
-                "type": "record",
-                "optional": [],
                 "fields": [
                     {
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "riAttributes",
                         "name": "_riAttributes",
                         "shape": "ReplaceableAttributeList",
@@ -599,21 +601,6 @@
                         "documentation": "The name of the item.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
-                    {
-                        "location": "querystring",
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
-                        "flattened": true,
-                        "required": true,
-                        "lens": "iAttributes",
-                        "name": "_iAttributes",
-                        "shape": "AttributeList",
-                        "locationName": "Attributes",
-                        "documentation": "A list of attributes.",
-                        "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
                     }
                 ],
                 "contentPad": 0,
@@ -635,6 +622,21 @@
                         "documentation": "\u003cp\u003e\u003c/p\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "Nothing",
+                        "flattened": true,
+                        "required": false,
+                        "lens": "iAttributes",
+                        "name": "_iAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "A list of attributes.",
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"Attribute\" Attribute"
                     }
                 ],
                 "fields": [
@@ -657,9 +659,9 @@
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "iAttributes",
                         "name": "_iAttributes",
                         "shape": "AttributeList",
@@ -765,21 +767,6 @@
                         "documentation": "The name of the domain in which the attributes are being deleted.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
-                    {
-                        "location": "querystring",
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
-                        "flattened": true,
-                        "required": true,
-                        "lens": "bdaItems",
-                        "name": "_bdaItems",
-                        "shape": "DeletableItemList",
-                        "locationName": "Items",
-                        "documentation": "A list of items on which to perform the operation.",
-                        "typeExposed": "[DeletableItem]",
-                        "type": "List \"Item\" DeletableItem"
                     }
                 ],
                 "shared": false,
@@ -803,7 +790,23 @@
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
-                "optional": [],
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "Nothing",
+                        "flattened": true,
+                        "required": false,
+                        "lens": "bdaItems",
+                        "name": "_bdaItems",
+                        "shape": "DeletableItemList",
+                        "locationName": "Items",
+                        "documentation": "A list of items on which to perform the operation.",
+                        "typeExposed": "[DeletableItem]",
+                        "type": "List \"Item\" DeletableItem"
+                    }
+                ],
                 "fields": [
                     {
                         "location": "querystring",
@@ -824,9 +827,9 @@
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "bdaItems",
                         "name": "_bdaItems",
                         "shape": "DeletableItemList",
@@ -910,21 +913,6 @@
                         "documentation": "The name of the domain in which the attributes are being stored.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
-                    {
-                        "location": "querystring",
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
-                        "flattened": true,
-                        "required": true,
-                        "lens": "bpaItems",
-                        "name": "_bpaItems",
-                        "shape": "ReplaceableItemList",
-                        "locationName": "Items",
-                        "documentation": "A list of items on which to perform the operation.",
-                        "typeExposed": "[ReplaceableItem]",
-                        "type": "List \"Item\" ReplaceableItem"
                     }
                 ],
                 "shared": false,
@@ -948,7 +936,23 @@
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
-                "optional": [],
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "Nothing",
+                        "flattened": true,
+                        "required": false,
+                        "lens": "bpaItems",
+                        "name": "_bpaItems",
+                        "shape": "ReplaceableItemList",
+                        "locationName": "Items",
+                        "documentation": "A list of items on which to perform the operation.",
+                        "typeExposed": "[ReplaceableItem]",
+                        "type": "List \"Item\" ReplaceableItem"
+                    }
+                ],
                 "fields": [
                     {
                         "location": "querystring",
@@ -969,9 +973,9 @@
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "bpaItems",
                         "name": "_bpaItems",
                         "shape": "ReplaceableItemList",
@@ -1199,21 +1203,6 @@
                         "documentation": "The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
-                    {
-                        "location": "querystring",
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
-                        "flattened": true,
-                        "required": true,
-                        "lens": "daAttributes",
-                        "name": "_daAttributes",
-                        "shape": "AttributeList",
-                        "locationName": "Attributes",
-                        "documentation": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.",
-                        "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
                     }
                 ],
                 "shared": false,
@@ -1250,6 +1239,21 @@
                 "optional": [
                     {
                         "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "Nothing",
+                        "flattened": true,
+                        "required": false,
+                        "lens": "daAttributes",
+                        "name": "_daAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.",
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"Attribute\" Attribute"
+                    },
+                    {
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -1269,9 +1273,9 @@
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "daAttributes",
                         "name": "_daAttributes",
                         "shape": "AttributeList",
@@ -1820,9 +1824,9 @@
                     "location": "querystring",
                     "iso": "_List",
                     "lensMapping": "_List",
-                    "default": "\u003cerror\u003e",
+                    "default": "Nothing",
                     "flattened": true,
-                    "required": true,
+                    "required": false,
                     "lens": "garAttributes",
                     "name": "_garAttributes",
                     "shape": "AttributeList",
@@ -1835,14 +1839,23 @@
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
-                "required": [
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "GetAttributesResponse",
+                "resultWrapper": "GetAttributesResult",
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
                     {
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "garAttributes",
                         "name": "_garAttributes",
                         "shape": "AttributeList",
@@ -1852,23 +1865,14 @@
                         "type": "List \"Attribute\" Attribute"
                     }
                 ],
-                "shared": false,
-                "headers": [],
-                "contentPad": 0,
-                "name": "GetAttributesResponse",
-                "resultWrapper": "GetAttributesResult",
-                "locationPad": 0,
-                "type": "newtype",
-                "headerAll": false,
-                "optional": [],
                 "fields": [
                     {
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "garAttributes",
                         "name": "_garAttributes",
                         "shape": "AttributeList",
@@ -1941,21 +1945,6 @@
                         "documentation": "The name of the item.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
-                    {
-                        "location": "querystring",
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
-                        "flattened": true,
-                        "required": true,
-                        "lens": "gaAttributeNames",
-                        "name": "_gaAttributeNames",
-                        "shape": "AttributeNameList",
-                        "locationName": "AttributeNames",
-                        "documentation": "The names of the attributes.",
-                        "typeExposed": "[Text]",
-                        "type": "List \"AttributeName\" Text"
                     }
                 ],
                 "shared": false,
@@ -1992,6 +1981,21 @@
                 "optional": [
                     {
                         "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "Nothing",
+                        "flattened": true,
+                        "required": false,
+                        "lens": "gaAttributeNames",
+                        "name": "_gaAttributeNames",
+                        "shape": "AttributeNameList",
+                        "locationName": "AttributeNames",
+                        "documentation": "The names of the attributes.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AttributeName\" Text"
+                    },
+                    {
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2011,9 +2015,9 @@
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "gaAttributeNames",
                         "name": "_gaAttributeNames",
                         "shape": "AttributeNameList",
@@ -2087,23 +2091,7 @@
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
-                "required": [
-                    {
-                        "location": "querystring",
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
-                        "flattened": true,
-                        "required": true,
-                        "lens": "ldrDomainNames",
-                        "name": "_ldrDomainNames",
-                        "shape": "DomainNameList",
-                        "locationName": "DomainNames",
-                        "documentation": "A list of domain names that match the expression.",
-                        "typeExposed": "[Text]",
-                        "type": "List \"DomainName\" Text"
-                    }
-                ],
+                "required": [],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -2113,6 +2101,21 @@
                 "type": "record",
                 "headerAll": false,
                 "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "Nothing",
+                        "flattened": true,
+                        "required": false,
+                        "lens": "ldrDomainNames",
+                        "name": "_ldrDomainNames",
+                        "shape": "DomainNameList",
+                        "locationName": "DomainNames",
+                        "documentation": "A list of domain names that match the expression.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"DomainName\" Text"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -2134,9 +2137,9 @@
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "ldrDomainNames",
                         "name": "_ldrDomainNames",
                         "shape": "DomainNameList",
@@ -2378,21 +2381,6 @@
                         "documentation": "The name of the item.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
-                    {
-                        "location": "querystring",
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
-                        "flattened": true,
-                        "required": true,
-                        "lens": "paAttributes",
-                        "name": "_paAttributes",
-                        "shape": "ReplaceableAttributeList",
-                        "locationName": "Attributes",
-                        "documentation": "The list of attributes.",
-                        "typeExposed": "[ReplaceableAttribute]",
-                        "type": "List \"Attribute\" ReplaceableAttribute"
                     }
                 ],
                 "shared": false,
@@ -2429,6 +2417,21 @@
                 "optional": [
                     {
                         "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "Nothing",
+                        "flattened": true,
+                        "required": false,
+                        "lens": "paAttributes",
+                        "name": "_paAttributes",
+                        "shape": "ReplaceableAttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "The list of attributes.",
+                        "typeExposed": "[ReplaceableAttribute]",
+                        "type": "List \"Attribute\" ReplaceableAttribute"
+                    },
+                    {
+                        "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -2448,9 +2451,9 @@
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "paAttributes",
                         "name": "_paAttributes",
                         "shape": "ReplaceableAttributeList",
@@ -2523,23 +2526,7 @@
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
-                "required": [
-                    {
-                        "location": "querystring",
-                        "iso": "_List",
-                        "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
-                        "flattened": true,
-                        "required": true,
-                        "lens": "srItems",
-                        "name": "_srItems",
-                        "shape": "ItemList",
-                        "locationName": "Items",
-                        "documentation": "A list of items that match the select expression.",
-                        "typeExposed": "[Item]",
-                        "type": "List \"Item\" Item"
-                    }
-                ],
+                "required": [],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -2549,6 +2536,21 @@
                 "type": "record",
                 "headerAll": false,
                 "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "Nothing",
+                        "flattened": true,
+                        "required": false,
+                        "lens": "srItems",
+                        "name": "_srItems",
+                        "shape": "ItemList",
+                        "locationName": "Items",
+                        "documentation": "A list of items that match the select expression.",
+                        "typeExposed": "[Item]",
+                        "type": "List \"Item\" Item"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -2570,9 +2572,9 @@
                         "location": "querystring",
                         "iso": "_List",
                         "lensMapping": "_List",
-                        "default": "\u003cerror\u003e",
+                        "default": "Nothing",
                         "flattened": true,
-                        "required": true,
+                        "required": false,
                         "lens": "srItems",
                         "name": "_srItems",
                         "shape": "ItemList",

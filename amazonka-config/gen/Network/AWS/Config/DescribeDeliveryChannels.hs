@@ -123,4 +123,4 @@ instance AWSRequest DescribeDeliveryChannels where
 
 instance FromJSON DescribeDeliveryChannelsResponse where
     parseJSON = withObject "DescribeDeliveryChannelsResponse" $ \o -> DescribeDeliveryChannelsResponse
-        <$> o .:  "DeliveryChannels"
+        <$> o .:? "DeliveryChannels"

@@ -493,7 +493,7 @@ cfoailQuantity = lens _cfoailQuantity (\s a -> s { _cfoailQuantity = a })
 instance FromXML CloudFrontOriginAccessIdentityList where
     parseXML x = CloudFrontOriginAccessIdentityList
         <$> x .@  "IsTruncated"
-        <*> x .@  "Items"
+        <*> x .@? "Items"
         <*> x .@  "Marker"
         <*> x .@  "MaxItems"
         <*> x .@? "NextMarker"
@@ -631,7 +631,7 @@ amQuantity = lens _amQuantity (\s a -> s { _amQuantity = a })
 
 instance FromXML AllowedMethods where
     parseXML x = AllowedMethods
-        <$> x .@  "Items"
+        <$> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML AllowedMethods where
@@ -861,7 +861,7 @@ sdlQuantity = lens _sdlQuantity (\s a -> s { _sdlQuantity = a })
 instance FromXML StreamingDistributionList where
     parseXML x = StreamingDistributionList
         <$> x .@  "IsTruncated"
-        <*> x .@  "Items"
+        <*> x .@? "Items"
         <*> x .@  "Marker"
         <*> x .@  "MaxItems"
         <*> x .@? "NextMarker"
@@ -1519,7 +1519,7 @@ aQuantity = lens _aQuantity (\s a -> s { _aQuantity = a })
 
 instance FromXML Aliases where
     parseXML x = Aliases
-        <$> x .@  "Items"
+        <$> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML Aliases where
@@ -2032,7 +2032,7 @@ dlQuantity = lens _dlQuantity (\s a -> s { _dlQuantity = a })
 instance FromXML DistributionList where
     parseXML x = DistributionList
         <$> x .@  "IsTruncated"
-        <*> x .@  "Items"
+        <*> x .@? "Items"
         <*> x .@  "Marker"
         <*> x .@  "MaxItems"
         <*> x .@? "NextMarker"
@@ -2079,7 +2079,7 @@ kpiQuantity = lens _kpiQuantity (\s a -> s { _kpiQuantity = a })
 
 instance FromXML KeyPairIds where
     parseXML x = KeyPairIds
-        <$> x .@  "Items"
+        <$> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML KeyPairIds where
@@ -2144,7 +2144,7 @@ cerQuantity = lens _cerQuantity (\s a -> s { _cerQuantity = a })
 
 instance FromXML CustomErrorResponses where
     parseXML x = CustomErrorResponses
-        <$> x .@  "Items"
+        <$> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML CustomErrorResponses where
@@ -2251,7 +2251,7 @@ grRestrictionType =
 
 instance FromXML GeoRestriction where
     parseXML x = GeoRestriction
-        <$> x .@  "Items"
+        <$> x .@? "Items"
         <*> x .@  "Quantity"
         <*> x .@  "RestrictionType"
 
@@ -2341,7 +2341,7 @@ hQuantity = lens _hQuantity (\s a -> s { _hQuantity = a })
 
 instance FromXML Headers where
     parseXML x = Headers
-        <$> x .@  "Items"
+        <$> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML Headers where
@@ -2618,7 +2618,7 @@ tsQuantity = lens _tsQuantity (\s a -> s { _tsQuantity = a })
 instance FromXML TrustedSigners where
     parseXML x = TrustedSigners
         <$> x .@  "Enabled"
-        <*> x .@  "Items"
+        <*> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML TrustedSigners where
@@ -2744,7 +2744,7 @@ cnQuantity = lens _cnQuantity (\s a -> s { _cnQuantity = a })
 
 instance FromXML CookieNames where
     parseXML x = CookieNames
-        <$> x .@  "Items"
+        <$> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML CookieNames where
@@ -2856,7 +2856,7 @@ cbQuantity = lens _cbQuantity (\s a -> s { _cbQuantity = a })
 
 instance FromXML CacheBehaviors where
     parseXML x = CacheBehaviors
-        <$> x .@  "Items"
+        <$> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML CacheBehaviors where
@@ -3062,7 +3062,7 @@ ilQuantity = lens _ilQuantity (\s a -> s { _ilQuantity = a })
 instance FromXML InvalidationList where
     parseXML x = InvalidationList
         <$> x .@  "IsTruncated"
-        <*> x .@  "Items"
+        <*> x .@? "Items"
         <*> x .@  "Marker"
         <*> x .@  "MaxItems"
         <*> x .@? "NextMarker"
@@ -3210,7 +3210,7 @@ pQuantity = lens _pQuantity (\s a -> s { _pQuantity = a })
 
 instance FromXML Paths where
     parseXML x = Paths
-        <$> x .@  "Items"
+        <$> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML Paths where
@@ -3321,7 +3321,7 @@ atsQuantity = lens _atsQuantity (\s a -> s { _atsQuantity = a })
 instance FromXML ActiveTrustedSigners where
     parseXML x = ActiveTrustedSigners
         <$> x .@  "Enabled"
-        <*> x .@  "Items"
+        <*> x .@? "Items"
         <*> x .@  "Quantity"
 
 instance ToXML ActiveTrustedSigners where

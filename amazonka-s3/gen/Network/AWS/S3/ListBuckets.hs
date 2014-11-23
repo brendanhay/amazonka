@@ -99,5 +99,5 @@ instance AWSRequest ListBuckets where
 
 instance FromXML ListBucketsResponse where
     parseXML x = ListBucketsResponse
-        <$> x .@  "Buckets"
+        <$> x .@? "Buckets"
         <*> x .@? "Owner"

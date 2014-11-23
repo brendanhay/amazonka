@@ -251,7 +251,7 @@ instance AWSRequest ListClosedWorkflowExecutions where
 
 instance FromJSON ListClosedWorkflowExecutionsResponse where
     parseJSON = withObject "ListClosedWorkflowExecutionsResponse" $ \o -> ListClosedWorkflowExecutionsResponse
-        <$> o .:  "executionInfos"
+        <$> o .:? "executionInfos"
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListClosedWorkflowExecutions where

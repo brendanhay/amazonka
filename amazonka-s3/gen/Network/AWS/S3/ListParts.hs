@@ -153,17 +153,16 @@ data ListPartsResponse = ListPartsResponse
 --
 -- * 'lprUploadId' @::@ 'Maybe' 'Text'
 --
-listPartsResponse :: [Part] -- ^ 'lprParts'
-                  -> ListPartsResponse
-listPartsResponse p1 = ListPartsResponse
-    { _lprParts                = withIso _List (const id) p1
-    , _lprBucket               = Nothing
+listPartsResponse :: ListPartsResponse
+listPartsResponse = ListPartsResponse
+    { _lprBucket               = Nothing
     , _lprKey                  = Nothing
     , _lprUploadId             = Nothing
     , _lprPartNumberMarker     = Nothing
     , _lprNextPartNumberMarker = Nothing
     , _lprMaxParts             = Nothing
     , _lprIsTruncated          = Nothing
+    , _lprParts                = Nothing
     , _lprInitiator            = Nothing
     , _lprOwner                = Nothing
     , _lprStorageClass         = Nothing

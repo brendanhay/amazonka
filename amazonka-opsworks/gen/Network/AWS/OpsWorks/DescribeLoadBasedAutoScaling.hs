@@ -125,4 +125,4 @@ instance AWSRequest DescribeLoadBasedAutoScaling where
 
 instance FromJSON DescribeLoadBasedAutoScalingResponse where
     parseJSON = withObject "DescribeLoadBasedAutoScalingResponse" $ \o -> DescribeLoadBasedAutoScalingResponse
-        <$> o .:  "LoadBasedAutoScalingConfigurations"
+        <$> o .:? "LoadBasedAutoScalingConfigurations"

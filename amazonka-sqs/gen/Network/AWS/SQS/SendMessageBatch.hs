@@ -75,11 +75,10 @@ data SendMessageBatch = SendMessageBatch
 -- * 'smbQueueUrl' @::@ 'Text'
 --
 sendMessageBatch :: Text -- ^ 'smbQueueUrl'
-                 -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
                  -> SendMessageBatch
-sendMessageBatch p1 p2 = SendMessageBatch
+sendMessageBatch p1 = SendMessageBatch
     { _smbQueueUrl = p1
-    , _smbEntries  = withIso _List (const id) p2
+    , _smbEntries  = Nothing
     }
 
 -- | A list of SendMessageBatchRequestEntry items.
@@ -103,12 +102,10 @@ data SendMessageBatchResponse = SendMessageBatchResponse
 --
 -- * 'smbrSuccessful' @::@ ['SendMessageBatchResultEntry']
 --
-sendMessageBatchResponse :: [SendMessageBatchResultEntry] -- ^ 'smbrSuccessful'
-                         -> [BatchResultErrorEntry] -- ^ 'smbrFailed'
-                         -> SendMessageBatchResponse
-sendMessageBatchResponse p1 p2 = SendMessageBatchResponse
-    { _smbrSuccessful = withIso _List (const id) p1
-    , _smbrFailed     = withIso _List (const id) p2
+sendMessageBatchResponse :: SendMessageBatchResponse
+sendMessageBatchResponse = SendMessageBatchResponse
+    { _smbrSuccessful = Nothing
+    , _smbrFailed     = Nothing
     }
 
 -- | A list of BatchResultErrorEntry items with the error detail about each

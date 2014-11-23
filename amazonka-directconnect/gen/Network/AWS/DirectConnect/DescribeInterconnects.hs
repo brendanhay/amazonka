@@ -112,4 +112,4 @@ instance AWSRequest DescribeInterconnects where
 
 instance FromJSON DescribeInterconnectsResponse where
     parseJSON = withObject "DescribeInterconnectsResponse" $ \o -> DescribeInterconnectsResponse
-        <$> o .:  "interconnects"
+        <$> o .:? "interconnects"

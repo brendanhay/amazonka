@@ -333,7 +333,7 @@ cTimeCreated = lens _cTimeCreated (\s a -> s { _cTimeCreated = a })
 
 instance FromJSON Communication where
     parseJSON = withObject "Communication" $ \o -> Communication
-        <$> o .:  "attachmentSet"
+        <$> o .:? "attachmentSet"
         <*> o .:? "body"
         <*> o .:? "caseId"
         <*> o .:? "submittedBy"
@@ -586,7 +586,7 @@ instance FromJSON TrustedAdvisorCheckResult where
     parseJSON = withObject "TrustedAdvisorCheckResult" $ \o -> TrustedAdvisorCheckResult
         <$> o .:  "categorySpecificSummary"
         <*> o .:  "checkId"
-        <*> o .:  "flaggedResources"
+        <*> o .:? "flaggedResources"
         <*> o .:  "resourcesSummary"
         <*> o .:  "status"
         <*> o .:  "timestamp"
@@ -666,7 +666,7 @@ instance FromJSON TrustedAdvisorCheckDescription where
         <$> o .:  "category"
         <*> o .:  "description"
         <*> o .:  "id"
-        <*> o .:  "metadata"
+        <*> o .:? "metadata"
         <*> o .:  "name"
 
 instance ToJSON TrustedAdvisorCheckDescription where
@@ -747,7 +747,7 @@ rccNextToken = lens _rccNextToken (\s a -> s { _rccNextToken = a })
 
 instance FromJSON RecentCaseCommunications where
     parseJSON = withObject "RecentCaseCommunications" $ \o -> RecentCaseCommunications
-        <$> o .:  "communications"
+        <$> o .:? "communications"
         <*> o .:? "nextToken"
 
 instance ToJSON RecentCaseCommunications where
@@ -798,7 +798,7 @@ ssName = lens _ssName (\s a -> s { _ssName = a })
 
 instance FromJSON SupportService where
     parseJSON = withObject "SupportService" $ \o -> SupportService
-        <$> o .:  "categories"
+        <$> o .:? "categories"
         <*> o .:? "code"
         <*> o .:? "name"
 
@@ -872,7 +872,7 @@ tardStatus = lens _tardStatus (\s a -> s { _tardStatus = a })
 instance FromJSON TrustedAdvisorResourceDetail where
     parseJSON = withObject "TrustedAdvisorResourceDetail" $ \o -> TrustedAdvisorResourceDetail
         <$> o .:? "isSuppressed"
-        <*> o .:  "metadata"
+        <*> o .:? "metadata"
         <*> o .:  "region"
         <*> o .:  "resourceId"
         <*> o .:  "status"
@@ -1095,7 +1095,7 @@ instance FromJSON CaseDetails where
     parseJSON = withObject "CaseDetails" $ \o -> CaseDetails
         <$> o .:? "caseId"
         <*> o .:? "categoryCode"
-        <*> o .:  "ccEmailAddresses"
+        <*> o .:? "ccEmailAddresses"
         <*> o .:? "displayId"
         <*> o .:? "language"
         <*> o .:? "recentCommunications"

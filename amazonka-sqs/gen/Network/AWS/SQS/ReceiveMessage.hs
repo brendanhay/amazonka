@@ -97,13 +97,11 @@ data ReceiveMessage = ReceiveMessage
 -- * 'rmWaitTimeSeconds' @::@ 'Maybe' 'Int'
 --
 receiveMessage :: Text -- ^ 'rmQueueUrl'
-               -> [Text] -- ^ 'rmAttributeNames'
-               -> [Text] -- ^ 'rmMessageAttributeNames'
                -> ReceiveMessage
-receiveMessage p1 p2 p3 = ReceiveMessage
+receiveMessage p1 = ReceiveMessage
     { _rmQueueUrl              = p1
-    , _rmAttributeNames        = withIso _List (const id) p2
-    , _rmMessageAttributeNames = withIso _List (const id) p3
+    , _rmAttributeNames        = Nothing
+    , _rmMessageAttributeNames = Nothing
     , _rmMaxNumberOfMessages   = Nothing
     , _rmVisibilityTimeout     = Nothing
     , _rmWaitTimeSeconds       = Nothing
@@ -169,10 +167,9 @@ newtype ReceiveMessageResponse = ReceiveMessageResponse
 --
 -- * 'rmrMessages' @::@ ['Message']
 --
-receiveMessageResponse :: [Message] -- ^ 'rmrMessages'
-                       -> ReceiveMessageResponse
-receiveMessageResponse p1 = ReceiveMessageResponse
-    { _rmrMessages = withIso _List (const id) p1
+receiveMessageResponse :: ReceiveMessageResponse
+receiveMessageResponse = ReceiveMessageResponse
+    { _rmrMessages = Nothing
     }
 
 -- | A list of messages.

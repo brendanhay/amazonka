@@ -137,7 +137,7 @@ instance AWSRequest ListEndpointsByPlatformApplication where
 
 instance FromXML ListEndpointsByPlatformApplicationResponse where
     parseXML = withElement "ListEndpointsByPlatformApplicationResult" $ \x -> ListEndpointsByPlatformApplicationResponse
-        <$> x .@  "Endpoints"
+        <$> x .@? "Endpoints"
         <*> x .@? "NextToken"
 
 instance AWSPager ListEndpointsByPlatformApplication where

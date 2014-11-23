@@ -129,5 +129,5 @@ instance AWSRequest AddInstanceGroups where
 
 instance FromJSON AddInstanceGroupsResponse where
     parseJSON = withObject "AddInstanceGroupsResponse" $ \o -> AddInstanceGroupsResponse
-        <$> o .:  "InstanceGroupIds"
+        <$> o .:? "InstanceGroupIds"
         <*> o .:? "JobFlowId"

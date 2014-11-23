@@ -119,4 +119,4 @@ instance AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
 
 instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse where
     parseJSON = withObject "DescribeTrustedAdvisorCheckRefreshStatusesResponse" $ \o -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
-        <$> o .:  "statuses"
+        <$> o .:? "statuses"

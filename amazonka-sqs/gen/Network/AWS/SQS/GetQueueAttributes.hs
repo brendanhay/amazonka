@@ -84,11 +84,10 @@ data GetQueueAttributes = GetQueueAttributes
 -- * 'gqaQueueUrl' @::@ 'Text'
 --
 getQueueAttributes :: Text -- ^ 'gqaQueueUrl'
-                   -> [Text] -- ^ 'gqaAttributeNames'
                    -> GetQueueAttributes
-getQueueAttributes p1 p2 = GetQueueAttributes
+getQueueAttributes p1 = GetQueueAttributes
     { _gqaQueueUrl       = p1
-    , _gqaAttributeNames = withIso _List (const id) p2
+    , _gqaAttributeNames = Nothing
     }
 
 -- | A list of attributes to retrieve information for.
@@ -111,10 +110,9 @@ newtype GetQueueAttributesResponse = GetQueueAttributesResponse
 --
 -- * 'gqarAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
-getQueueAttributesResponse :: HashMap Text Text -- ^ 'gqarAttributes'
-                           -> GetQueueAttributesResponse
-getQueueAttributesResponse p1 = GetQueueAttributesResponse
-    { _gqarAttributes = withIso _EMap (const id) p1
+getQueueAttributesResponse :: GetQueueAttributesResponse
+getQueueAttributesResponse = GetQueueAttributesResponse
+    { _gqarAttributes = Nothing
     }
 
 -- | A map of attributes to the respective values.

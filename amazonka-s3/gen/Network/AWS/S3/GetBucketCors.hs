@@ -74,10 +74,9 @@ newtype GetBucketCorsResponse = GetBucketCorsResponse
 --
 -- * 'gbcrCORSRules' @::@ ['CORSRule']
 --
-getBucketCorsResponse :: [CORSRule] -- ^ 'gbcrCORSRules'
-                      -> GetBucketCorsResponse
-getBucketCorsResponse p1 = GetBucketCorsResponse
-    { _gbcrCORSRules = withIso _List (const id) p1
+getBucketCorsResponse :: GetBucketCorsResponse
+getBucketCorsResponse = GetBucketCorsResponse
+    { _gbcrCORSRules = Nothing
     }
 
 gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]

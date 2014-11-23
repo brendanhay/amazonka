@@ -157,19 +157,17 @@ data ListObjectsResponse = ListObjectsResponse
 --
 -- * 'lorPrefix' @::@ 'Maybe' 'Text'
 --
-listObjectsResponse :: [Object] -- ^ 'lorContents'
-                    -> [CommonPrefix] -- ^ 'lorCommonPrefixes'
-                    -> ListObjectsResponse
-listObjectsResponse p1 p2 = ListObjectsResponse
-    { _lorContents       = withIso _List (const id) p1
-    , _lorCommonPrefixes = withIso _List (const id) p2
-    , _lorIsTruncated    = Nothing
+listObjectsResponse :: ListObjectsResponse
+listObjectsResponse = ListObjectsResponse
+    { _lorIsTruncated    = Nothing
     , _lorMarker         = Nothing
     , _lorNextMarker     = Nothing
+    , _lorContents       = Nothing
     , _lorName           = Nothing
     , _lorPrefix         = Nothing
     , _lorDelimiter      = Nothing
     , _lorMaxKeys        = Nothing
+    , _lorCommonPrefixes = Nothing
     , _lorEncodingType   = Nothing
     }
 

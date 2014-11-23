@@ -280,7 +280,7 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 instance FromXML DescribeReservedInstancesOfferingsResponse where
     parseXML x = DescribeReservedInstancesOfferingsResponse
         <$> x .@? "nextToken"
-        <*> x .@  "reservedInstancesOfferingsSet"
+        <*> x .@? "reservedInstancesOfferingsSet"
 
 instance AWSPager DescribeReservedInstancesOfferings where
     page rq rs

@@ -155,5 +155,5 @@ instance AWSRequest PutPipelineDefinition where
 instance FromJSON PutPipelineDefinitionResponse where
     parseJSON = withObject "PutPipelineDefinitionResponse" $ \o -> PutPipelineDefinitionResponse
         <$> o .:  "errored"
-        <*> o .:  "validationErrors"
-        <*> o .:  "validationWarnings"
+        <*> o .:? "validationErrors"
+        <*> o .:? "validationWarnings"

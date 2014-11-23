@@ -138,4 +138,4 @@ instance AWSRequest DescribeAvailabilityZones where
 
 instance FromXML DescribeAvailabilityZonesResponse where
     parseXML x = DescribeAvailabilityZonesResponse
-        <$> x .@  "availabilityZoneInfo"
+        <$> x .@? "availabilityZoneInfo"

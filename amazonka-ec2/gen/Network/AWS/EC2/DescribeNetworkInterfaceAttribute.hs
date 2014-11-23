@@ -164,6 +164,6 @@ instance FromXML DescribeNetworkInterfaceAttributeResponse where
     parseXML x = DescribeNetworkInterfaceAttributeResponse
         <$> x .@? "attachment"
         <*> x .@? "description"
-        <*> x .@  "groupSet"
+        <*> x .@? "groupSet"
         <*> x .@? "networkInterfaceId"
         <*> x .@? "sourceDestCheck"

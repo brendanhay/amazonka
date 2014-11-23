@@ -74,12 +74,11 @@ data DeleteAttributes = DeleteAttributes
 --
 deleteAttributes :: Text -- ^ 'daDomainName'
                  -> Text -- ^ 'daItemName'
-                 -> [Attribute] -- ^ 'daAttributes'
                  -> DeleteAttributes
-deleteAttributes p1 p2 p3 = DeleteAttributes
+deleteAttributes p1 p2 = DeleteAttributes
     { _daDomainName = p1
     , _daItemName   = p2
-    , _daAttributes = withIso _List (const id) p3
+    , _daAttributes = Nothing
     , _daExpected   = Nothing
     }
 

@@ -167,7 +167,7 @@ instance AWSRequest DescribeAlarmHistory where
 
 instance FromXML DescribeAlarmHistoryResponse where
     parseXML = withElement "DescribeAlarmHistoryResult" $ \x -> DescribeAlarmHistoryResponse
-        <$> x .@  "AlarmHistoryItems"
+        <$> x .@? "AlarmHistoryItems"
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeAlarmHistory where

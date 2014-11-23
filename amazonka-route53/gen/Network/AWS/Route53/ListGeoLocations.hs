@@ -231,7 +231,7 @@ instance AWSRequest ListGeoLocations where
 
 instance FromXML ListGeoLocationsResponse where
     parseXML x = ListGeoLocationsResponse
-        <$> x .@  "GeoLocationDetailsList"
+        <$> x .@? "GeoLocationDetailsList"
         <*> x .@  "IsTruncated"
         <*> x .@  "MaxItems"
         <*> x .@? "NextContinentCode"

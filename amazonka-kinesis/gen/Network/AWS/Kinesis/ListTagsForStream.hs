@@ -146,4 +146,4 @@ instance AWSRequest ListTagsForStream where
 instance FromJSON ListTagsForStreamResponse where
     parseJSON = withObject "ListTagsForStreamResponse" $ \o -> ListTagsForStreamResponse
         <$> o .:  "HasMoreTags"
-        <*> o .:  "Tags"
+        <*> o .:? "Tags"

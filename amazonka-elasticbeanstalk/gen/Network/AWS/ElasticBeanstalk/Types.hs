@@ -359,11 +359,11 @@ adVersions = lens _adVersions (\s a -> s { _adVersions = a }) . _List
 instance FromXML ApplicationDescription where
     parseXML x = ApplicationDescription
         <$> x .@? "ApplicationName"
-        <*> x .@  "ConfigurationTemplates"
+        <*> x .@? "ConfigurationTemplates"
         <*> x .@? "DateCreated"
         <*> x .@? "DateUpdated"
         <*> x .@? "Description"
-        <*> x .@  "Versions"
+        <*> x .@? "Versions"
 
 instance ToQuery ApplicationDescription where
     toQuery ApplicationDescription{..} = mconcat
@@ -839,7 +839,7 @@ instance FromXML ConfigurationSettingsDescription where
         <*> x .@? "DeploymentStatus"
         <*> x .@? "Description"
         <*> x .@? "EnvironmentName"
-        <*> x .@  "OptionSettings"
+        <*> x .@? "OptionSettings"
         <*> x .@? "SolutionStackName"
         <*> x .@? "TemplateName"
 
@@ -1047,13 +1047,13 @@ erdTriggers = lens _erdTriggers (\s a -> s { _erdTriggers = a }) . _List
 
 instance FromXML EnvironmentResourceDescription where
     parseXML x = EnvironmentResourceDescription
-        <$> x .@  "AutoScalingGroups"
+        <$> x .@? "AutoScalingGroups"
         <*> x .@? "EnvironmentName"
-        <*> x .@  "Instances"
-        <*> x .@  "LaunchConfigurations"
-        <*> x .@  "LoadBalancers"
-        <*> x .@  "Queues"
-        <*> x .@  "Triggers"
+        <*> x .@? "Instances"
+        <*> x .@? "LaunchConfigurations"
+        <*> x .@? "LoadBalancers"
+        <*> x .@? "Queues"
+        <*> x .@? "Triggers"
 
 instance ToQuery EnvironmentResourceDescription where
     toQuery EnvironmentResourceDescription{..} = mconcat
@@ -1174,7 +1174,7 @@ lbdLoadBalancerName =
 instance FromXML LoadBalancerDescription where
     parseXML x = LoadBalancerDescription
         <$> x .@? "Domain"
-        <*> x .@  "Listeners"
+        <*> x .@? "Listeners"
         <*> x .@? "LoadBalancerName"
 
 instance ToQuery LoadBalancerDescription where
@@ -1503,7 +1503,7 @@ instance FromXML ConfigurationOptionDescription where
         <*> x .@? "Namespace"
         <*> x .@? "Regex"
         <*> x .@? "UserDefined"
-        <*> x .@  "ValueOptions"
+        <*> x .@? "ValueOptions"
         <*> x .@? "ValueType"
 
 instance ToQuery ConfigurationOptionDescription where
@@ -2105,7 +2105,7 @@ ssdSolutionStackName =
 
 instance FromXML SolutionStackDescription where
     parseXML x = SolutionStackDescription
-        <$> x .@  "PermittedFileTypes"
+        <$> x .@? "PermittedFileTypes"
         <*> x .@? "SolutionStackName"
 
 instance ToQuery SolutionStackDescription where

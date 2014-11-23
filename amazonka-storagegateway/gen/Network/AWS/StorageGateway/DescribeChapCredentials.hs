@@ -128,4 +128,4 @@ instance AWSRequest DescribeChapCredentials where
 
 instance FromJSON DescribeChapCredentialsResponse where
     parseJSON = withObject "DescribeChapCredentialsResponse" $ \o -> DescribeChapCredentialsResponse
-        <$> o .:  "ChapCredentials"
+        <$> o .:? "ChapCredentials"

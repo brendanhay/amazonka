@@ -158,7 +158,7 @@ instance AWSRequest ListAccessKeys where
 
 instance FromXML ListAccessKeysResponse where
     parseXML = withElement "ListAccessKeysResult" $ \x -> ListAccessKeysResponse
-        <$> x .@  "AccessKeyMetadata"
+        <$> x .@? "AccessKeyMetadata"
         <*> x .@? "IsTruncated"
         <*> x .@? "Marker"
 

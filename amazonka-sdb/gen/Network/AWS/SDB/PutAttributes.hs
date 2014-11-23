@@ -91,12 +91,11 @@ data PutAttributes = PutAttributes
 --
 putAttributes :: Text -- ^ 'paDomainName'
               -> Text -- ^ 'paItemName'
-              -> [ReplaceableAttribute] -- ^ 'paAttributes'
               -> PutAttributes
-putAttributes p1 p2 p3 = PutAttributes
+putAttributes p1 p2 = PutAttributes
     { _paDomainName = p1
     , _paItemName   = p2
-    , _paAttributes = withIso _List (const id) p3
+    , _paAttributes = Nothing
     , _paExpected   = Nothing
     }
 

@@ -185,4 +185,4 @@ instance AWSRequest DescribeNetworkInterfaces where
 
 instance FromXML DescribeNetworkInterfacesResponse where
     parseXML x = DescribeNetworkInterfacesResponse
-        <$> x .@  "networkInterfaceSet"
+        <$> x .@? "networkInterfaceSet"

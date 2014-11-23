@@ -192,4 +192,4 @@ instance AWSRequest DescribeSnapshots where
 
 instance FromXML DescribeSnapshotsResponse where
     parseXML x = DescribeSnapshotsResponse
-        <$> x .@  "snapshotSet"
+        <$> x .@? "snapshotSet"

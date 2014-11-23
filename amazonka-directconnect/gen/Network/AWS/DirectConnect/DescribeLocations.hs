@@ -96,4 +96,4 @@ instance AWSRequest DescribeLocations where
 
 instance FromJSON DescribeLocationsResponse where
     parseJSON = withObject "DescribeLocationsResponse" $ \o -> DescribeLocationsResponse
-        <$> o .:  "locations"
+        <$> o .:? "locations"

@@ -111,10 +111,9 @@ data SelectResponse = SelectResponse
 --
 -- * 'srNextToken' @::@ 'Maybe' 'Text'
 --
-selectResponse :: [Item] -- ^ 'srItems'
-               -> SelectResponse
-selectResponse p1 = SelectResponse
-    { _srItems     = withIso _List (const id) p1
+selectResponse :: SelectResponse
+selectResponse = SelectResponse
+    { _srItems     = Nothing
     , _srNextToken = Nothing
     }
 

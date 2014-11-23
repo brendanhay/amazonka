@@ -1697,8 +1697,8 @@ instance FromXML ImportInstanceLaunchSpecification where
     parseXML x = ImportInstanceLaunchSpecification
         <$> x .@? "additionalInfo"
         <*> x .@? "architecture"
-        <*> x .@  "GroupId"
-        <*> x .@  "GroupName"
+        <*> x .@? "GroupId"
+        <*> x .@? "GroupName"
         <*> x .@? "instanceInitiatedShutdownBehavior"
         <*> x .@? "instanceType"
         <*> x .@? "monitoring"
@@ -1832,7 +1832,7 @@ instance FromXML Snapshot where
         <*> x .@? "snapshotId"
         <*> x .@? "startTime"
         <*> x .@? "status"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "volumeId"
         <*> x .@? "volumeSize"
 
@@ -2110,13 +2110,13 @@ instance FromXML ReservedInstancesListing where
     parseXML x = ReservedInstancesListing
         <$> x .@? "clientToken"
         <*> x .@? "createDate"
-        <*> x .@  "instanceCounts"
-        <*> x .@  "priceSchedules"
+        <*> x .@? "instanceCounts"
+        <*> x .@? "priceSchedules"
         <*> x .@? "reservedInstancesId"
         <*> x .@? "reservedInstancesListingId"
         <*> x .@? "status"
         <*> x .@? "statusMessage"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "updateDate"
 
 instance ToQuery ReservedInstancesListing where
@@ -2356,9 +2356,9 @@ doTags = lens _doTags (\s a -> s { _doTags = a }) . _List
 
 instance FromXML DhcpOptions where
     parseXML x = DhcpOptions
-        <$> x .@  "dhcpConfigurationSet"
+        <$> x .@? "dhcpConfigurationSet"
         <*> x .@? "dhcpOptionsId"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
 
 instance ToQuery DhcpOptions where
     toQuery DhcpOptions{..} = mconcat
@@ -2489,10 +2489,10 @@ instance FromXML InstanceNetworkInterfaceSpecification where
         <*> x .@? "deleteOnTermination"
         <*> x .@? "description"
         <*> x .@? "deviceIndex"
-        <*> x .@  "SecurityGroupId"
+        <*> x .@? "SecurityGroupId"
         <*> x .@? "networkInterfaceId"
         <*> x .@? "privateIpAddress"
-        <*> x .@  "privateIpAddressesSet"
+        <*> x .@? "privateIpAddressesSet"
         <*> x .@? "secondaryPrivateIpAddressCount"
         <*> x .@? "subnetId"
 
@@ -2823,7 +2823,7 @@ iVirtualizationType =
 instance FromXML Image where
     parseXML x = Image
         <$> x .@  "architecture"
-        <*> x .@  "blockDeviceMapping"
+        <*> x .@? "blockDeviceMapping"
         <*> x .@? "description"
         <*> x .@  "hypervisor"
         <*> x .@  "imageId"
@@ -2834,7 +2834,7 @@ instance FromXML Image where
         <*> x .@  "name"
         <*> x .@  "imageOwnerId"
         <*> x .@? "platform"
-        <*> x .@  "productCodes"
+        <*> x .@? "productCodes"
         <*> x .@  "isPublic"
         <*> x .@? "ramdiskId"
         <*> x .@? "rootDeviceName"
@@ -2842,7 +2842,7 @@ instance FromXML Image where
         <*> x .@? "sriovNetSupport"
         <*> x .@  "imageState"
         <*> x .@? "stateReason"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@  "virtualizationType"
 
 instance ToQuery Image where
@@ -2901,7 +2901,7 @@ dcValues = lens _dcValues (\s a -> s { _dcValues = a }) . _List
 instance FromXML DhcpConfiguration where
     parseXML x = DhcpConfiguration
         <$> x .@? "key"
-        <*> x .@  "valueSet"
+        <*> x .@? "valueSet"
 
 instance ToQuery DhcpConfiguration where
     toQuery DhcpConfiguration{..} = mconcat
@@ -3122,7 +3122,7 @@ vsiStatus = lens _vsiStatus (\s a -> s { _vsiStatus = a })
 
 instance FromXML VolumeStatusInfo where
     parseXML x = VolumeStatusInfo
-        <$> x .@  "details"
+        <$> x .@? "details"
         <*> x .@? "status"
 
 instance ToQuery VolumeStatusInfo where
@@ -3230,8 +3230,8 @@ cvpmRemove = lens _cvpmRemove (\s a -> s { _cvpmRemove = a }) . _List
 
 instance FromXML CreateVolumePermissionModifications where
     parseXML x = CreateVolumePermissionModifications
-        <$> x .@  "Add"
-        <*> x .@  "Remove"
+        <$> x .@? "Add"
+        <*> x .@? "Remove"
 
 instance ToQuery CreateVolumePermissionModifications where
     toQuery CreateVolumePermissionModifications{..} = mconcat
@@ -3653,7 +3653,7 @@ instance FromXML ConversionTask where
         <*> x .@? "importVolume"
         <*> x .@  "state"
         <*> x .@? "statusMessage"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
 
 instance ToQuery ConversionTask where
     toQuery ConversionTask{..} = mconcat
@@ -4145,7 +4145,7 @@ instance FromXML SpotInstanceRequest where
         <*> x .@? "spotPrice"
         <*> x .@? "state"
         <*> x .@? "status"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "type"
         <*> x .@? "validFrom"
         <*> x .@? "validUntil"
@@ -4315,7 +4315,7 @@ lsUserData = lens _lsUserData (\s a -> s { _lsUserData = a })
 instance FromXML LaunchSpecification where
     parseXML x = LaunchSpecification
         <$> x .@? "addressingType"
-        <*> x .@  "blockDeviceMapping"
+        <*> x .@? "blockDeviceMapping"
         <*> x .@? "ebsOptimized"
         <*> x .@? "iamInstanceProfile"
         <*> x .@? "imageId"
@@ -4323,10 +4323,10 @@ instance FromXML LaunchSpecification where
         <*> x .@? "kernelId"
         <*> x .@? "keyName"
         <*> x .@? "monitoring"
-        <*> x .@  "networkInterfaceSet"
+        <*> x .@? "networkInterfaceSet"
         <*> x .@? "placement"
         <*> x .@? "ramdiskId"
-        <*> x .@  "groupSet"
+        <*> x .@? "groupSet"
         <*> x .@? "subnetId"
         <*> x .@? "userData"
 
@@ -4529,7 +4529,7 @@ vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
 
 instance FromXML Volume where
     parseXML x = Volume
-        <$> x .@  "attachmentSet"
+        <$> x .@? "attachmentSet"
         <*> x .@? "availabilityZone"
         <*> x .@? "createTime"
         <*> x .@? "encrypted"
@@ -4537,7 +4537,7 @@ instance FromXML Volume where
         <*> x .@? "size"
         <*> x .@? "snapshotId"
         <*> x .@? "status"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "volumeId"
         <*> x .@? "volumeType"
 
@@ -4610,8 +4610,8 @@ rReservationId = lens _rReservationId (\s a -> s { _rReservationId = a })
 
 instance FromXML Reservation where
     parseXML x = Reservation
-        <$> x .@  "groupSet"
-        <*> x .@  "instancesSet"
+        <$> x .@? "groupSet"
+        <*> x .@? "instancesSet"
         <*> x .@? "ownerId"
         <*> x .@? "requesterId"
         <*> x .@? "reservationId"
@@ -4844,8 +4844,8 @@ instance FromXML ReservedInstancesModification where
         <$> x .@? "clientToken"
         <*> x .@? "createDate"
         <*> x .@? "effectiveDate"
-        <*> x .@  "modificationResultSet"
-        <*> x .@  "reservedInstancesSet"
+        <*> x .@? "modificationResultSet"
+        <*> x .@? "reservedInstancesSet"
         <*> x .@? "reservedInstancesModificationId"
         <*> x .@? "status"
         <*> x .@? "statusMessage"
@@ -5056,19 +5056,19 @@ instance FromXML NetworkInterface where
         <*> x .@? "attachment"
         <*> x .@? "availabilityZone"
         <*> x .@? "description"
-        <*> x .@  "groupSet"
+        <*> x .@? "groupSet"
         <*> x .@? "macAddress"
         <*> x .@? "networkInterfaceId"
         <*> x .@? "ownerId"
         <*> x .@? "privateDnsName"
         <*> x .@? "privateIpAddress"
-        <*> x .@  "privateIpAddressesSet"
+        <*> x .@? "privateIpAddressesSet"
         <*> x .@? "requesterId"
         <*> x .@? "requesterManaged"
         <*> x .@? "sourceDestCheck"
         <*> x .@? "status"
         <*> x .@? "subnetId"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "vpcId"
 
 instance ToQuery NetworkInterface where
@@ -5213,7 +5213,7 @@ instance FromXML Subnet where
         <*> x .@? "mapPublicIpOnLaunch"
         <*> x .@? "state"
         <*> x .@? "subnetId"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "vpcId"
 
 instance ToQuery Subnet where
@@ -5301,8 +5301,8 @@ lpmRemove = lens _lpmRemove (\s a -> s { _lpmRemove = a }) . _List
 
 instance FromXML LaunchPermissionModifications where
     parseXML x = LaunchPermissionModifications
-        <$> x .@  "Add"
-        <*> x .@  "Remove"
+        <$> x .@? "Add"
+        <*> x .@? "Remove"
 
 instance ToQuery LaunchPermissionModifications where
     toQuery LaunchPermissionModifications{..} = mconcat
@@ -6157,7 +6157,7 @@ issStatus = lens _issStatus (\s a -> s { _issStatus = a })
 
 instance FromXML InstanceStatusSummary where
     parseXML x = InstanceStatusSummary
-        <$> x .@  "details"
+        <$> x .@? "details"
         <*> x .@? "status"
 
 instance ToQuery InstanceStatusSummary where
@@ -6871,10 +6871,10 @@ instance FromXML SecurityGroup where
         <$> x .@  "groupDescription"
         <*> x .@  "groupId"
         <*> x .@  "groupName"
-        <*> x .@  "ipPermissions"
-        <*> x .@  "ipPermissionsEgress"
+        <*> x .@? "ipPermissions"
+        <*> x .@? "ipPermissionsEgress"
         <*> x .@  "ownerId"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "vpcId"
 
 instance ToQuery SecurityGroup where
@@ -7224,7 +7224,7 @@ instance FromXML CustomerGateway where
         <*> x .@? "customerGatewayId"
         <*> x .@? "ipAddress"
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "type"
 
 instance ToQuery CustomerGateway where
@@ -7838,7 +7838,7 @@ azZoneName = lens _azZoneName (\s a -> s { _azZoneName = a })
 
 instance FromXML AvailabilityZone where
     parseXML x = AvailabilityZone
-        <$> x .@  "messageSet"
+        <$> x .@? "messageSet"
         <*> x .@? "regionName"
         <*> x .@? "zoneState"
         <*> x .@? "zoneName"
@@ -7942,11 +7942,11 @@ rtVpcId = lens _rtVpcId (\s a -> s { _rtVpcId = a })
 
 instance FromXML RouteTable where
     parseXML x = RouteTable
-        <$> x .@  "associationSet"
-        <*> x .@  "propagatingVgwSet"
+        <$> x .@? "associationSet"
+        <*> x .@? "propagatingVgwSet"
         <*> x .@? "routeTableId"
-        <*> x .@  "routeSet"
-        <*> x .@  "tagSet"
+        <*> x .@? "routeSet"
+        <*> x .@? "tagSet"
         <*> x .@? "vpcId"
 
 instance ToQuery RouteTable where
@@ -8256,9 +8256,9 @@ instance FromXML IpPermission where
     parseXML x = IpPermission
         <$> x .@  "fromPort"
         <*> x .@  "ipProtocol"
-        <*> x .@  "ipRanges"
+        <*> x .@? "ipRanges"
         <*> x .@  "toPort"
-        <*> x .@  "groups"
+        <*> x .@? "groups"
 
 instance ToQuery IpPermission where
     toQuery IpPermission{..} = mconcat
@@ -8668,13 +8668,13 @@ instance FromXML InstanceNetworkInterface where
         <$> x .@? "association"
         <*> x .@? "attachment"
         <*> x .@? "description"
-        <*> x .@  "groupSet"
+        <*> x .@? "groupSet"
         <*> x .@? "macAddress"
         <*> x .@? "networkInterfaceId"
         <*> x .@? "ownerId"
         <*> x .@? "privateDnsName"
         <*> x .@? "privateIpAddress"
-        <*> x .@  "privateIpAddressesSet"
+        <*> x .@? "privateIpAddressesSet"
         <*> x .@? "sourceDestCheck"
         <*> x .@? "status"
         <*> x .@? "subnetId"
@@ -8920,7 +8920,7 @@ instance FromXML Vpc where
         <*> x .@? "instanceTenancy"
         <*> x .@? "isDefault"
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "vpcId"
 
 instance ToQuery Vpc where
@@ -9001,7 +9001,7 @@ isSystemStatus = lens _isSystemStatus (\s a -> s { _isSystemStatus = a })
 instance FromXML InstanceStatus where
     parseXML x = InstanceStatus
         <$> x .@? "availabilityZone"
-        <*> x .@  "eventsSet"
+        <*> x .@? "eventsSet"
         <*> x .@? "instanceId"
         <*> x .@? "instanceState"
         <*> x .@? "instanceStatus"
@@ -9213,7 +9213,7 @@ aaAttributeValues =
 instance FromXML AccountAttribute where
     parseXML x = AccountAttribute
         <$> x .@? "attributeName"
-        <*> x .@  "attributeValueSet"
+        <*> x .@? "attributeValueSet"
 
 instance ToQuery AccountAttribute where
     toQuery AccountAttribute{..} = mconcat
@@ -9488,9 +9488,9 @@ instance FromXML VpnGateway where
     parseXML x = VpnGateway
         <$> x .@? "availabilityZone"
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "type"
-        <*> x .@  "attachments"
+        <*> x .@? "attachments"
         <*> x .@? "vpnGatewayId"
 
 instance ToQuery VpnGateway where
@@ -9534,7 +9534,7 @@ fValues = lens _fValues (\s a -> s { _fValues = a }) . _List
 instance FromXML Filter where
     parseXML x = Filter
         <$> x .@  "Name"
-        <*> x .@  "Value"
+        <*> x .@? "Value"
 
 instance ToQuery Filter where
     toQuery Filter{..} = mconcat
@@ -9676,11 +9676,11 @@ naVpcId = lens _naVpcId (\s a -> s { _naVpcId = a })
 
 instance FromXML NetworkAcl where
     parseXML x = NetworkAcl
-        <$> x .@  "associationSet"
-        <*> x .@  "entrySet"
+        <$> x .@? "associationSet"
+        <*> x .@? "entrySet"
         <*> x .@? "default"
         <*> x .@? "networkAclId"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "vpcId"
 
 instance ToQuery NetworkAcl where
@@ -9897,7 +9897,7 @@ ndcValues = lens _ndcValues (\s a -> s { _ndcValues = a }) . _List
 instance FromXML NewDhcpConfiguration where
     parseXML x = NewDhcpConfiguration
         <$> x .@? "key"
-        <*> x .@  "Value"
+        <*> x .@? "Value"
 
 instance ToQuery NewDhcpConfiguration where
     toQuery NewDhcpConfiguration{..} = mconcat
@@ -10064,9 +10064,9 @@ igTags = lens _igTags (\s a -> s { _igTags = a }) . _List
 
 instance FromXML InternetGateway where
     parseXML x = InternetGateway
-        <$> x .@  "attachmentSet"
+        <$> x .@? "attachmentSet"
         <*> x .@  "internetGatewayId"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
 
 instance ToQuery InternetGateway where
     toQuery InternetGateway{..} = mconcat
@@ -10164,7 +10164,7 @@ instance FromXML ImportInstanceTaskDetails where
         <$> x .@? "description"
         <*> x .@? "instanceId"
         <*> x .@? "platform"
-        <*> x .@  "volumes"
+        <*> x .@? "volumes"
 
 instance ToQuery ImportInstanceTaskDetails where
     toQuery ImportInstanceTaskDetails{..} = mconcat
@@ -10539,9 +10539,9 @@ instance FromXML ReservedInstancesOffering where
         <*> x .@? "instanceType"
         <*> x .@? "marketplace"
         <*> x .@? "offeringType"
-        <*> x .@  "pricingDetailsSet"
+        <*> x .@? "pricingDetailsSet"
         <*> x .@? "productDescription"
-        <*> x .@  "recurringCharges"
+        <*> x .@? "recurringCharges"
         <*> x .@? "reservedInstancesOfferingId"
         <*> x .@? "usagePrice"
 
@@ -10721,11 +10721,11 @@ instance FromXML ReservedInstances where
         <*> x .@? "instanceType"
         <*> x .@? "offeringType"
         <*> x .@? "productDescription"
-        <*> x .@  "recurringCharges"
+        <*> x .@? "recurringCharges"
         <*> x .@? "reservedInstancesId"
         <*> x .@? "start"
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "usagePrice"
 
 instance ToQuery ReservedInstances where
@@ -10925,11 +10925,11 @@ instance FromXML VpnConnection where
         <$> x .@? "customerGatewayConfiguration"
         <*> x .@? "customerGatewayId"
         <*> x .@? "options"
-        <*> x .@  "routes"
+        <*> x .@? "routes"
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "type"
-        <*> x .@  "vgwTelemetry"
+        <*> x .@? "vgwTelemetry"
         <*> x .@? "vpnConnectionId"
         <*> x .@? "vpnGatewayId"
 
@@ -11164,7 +11164,7 @@ instance FromXML VpcPeeringConnection where
         <*> x .@? "expirationTime"
         <*> x .@? "requesterVpcInfo"
         <*> x .@? "status"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "vpcPeeringConnectionId"
 
 instance ToQuery VpcPeeringConnection where
@@ -11749,7 +11749,7 @@ instance FromXML Instance where
     parseXML x = Instance
         <$> x .@? "amiLaunchIndex"
         <*> x .@? "architecture"
-        <*> x .@  "blockDeviceMapping"
+        <*> x .@? "blockDeviceMapping"
         <*> x .@? "clientToken"
         <*> x .@? "ebsOptimized"
         <*> x .@? "hypervisor"
@@ -11762,18 +11762,18 @@ instance FromXML Instance where
         <*> x .@? "keyName"
         <*> x .@? "launchTime"
         <*> x .@? "monitoring"
-        <*> x .@  "networkInterfaceSet"
+        <*> x .@? "networkInterfaceSet"
         <*> x .@? "placement"
         <*> x .@? "platform"
         <*> x .@? "privateDnsName"
         <*> x .@? "privateIpAddress"
-        <*> x .@  "productCodes"
+        <*> x .@? "productCodes"
         <*> x .@? "dnsName"
         <*> x .@? "ipAddress"
         <*> x .@? "ramdiskId"
         <*> x .@? "rootDeviceName"
         <*> x .@? "rootDeviceType"
-        <*> x .@  "groupSet"
+        <*> x .@? "groupSet"
         <*> x .@? "sourceDestCheck"
         <*> x .@? "spotInstanceRequestId"
         <*> x .@? "sriovNetSupport"
@@ -11781,7 +11781,7 @@ instance FromXML Instance where
         <*> x .@? "stateReason"
         <*> x .@? "reason"
         <*> x .@? "subnetId"
-        <*> x .@  "tagSet"
+        <*> x .@? "tagSet"
         <*> x .@? "virtualizationType"
         <*> x .@? "vpcId"
 
@@ -12075,7 +12075,7 @@ rslsUserData = lens _rslsUserData (\s a -> s { _rslsUserData = a })
 instance FromXML RequestSpotLaunchSpecification where
     parseXML x = RequestSpotLaunchSpecification
         <$> x .@? "addressingType"
-        <*> x .@  "blockDeviceMapping"
+        <*> x .@? "blockDeviceMapping"
         <*> x .@? "ebsOptimized"
         <*> x .@? "iamInstanceProfile"
         <*> x .@? "imageId"
@@ -12083,11 +12083,11 @@ instance FromXML RequestSpotLaunchSpecification where
         <*> x .@? "kernelId"
         <*> x .@? "keyName"
         <*> x .@? "monitoring"
-        <*> x .@  "NetworkInterface"
+        <*> x .@? "NetworkInterface"
         <*> x .@? "placement"
         <*> x .@? "ramdiskId"
-        <*> x .@  "SecurityGroupId"
-        <*> x .@  "SecurityGroup"
+        <*> x .@? "SecurityGroupId"
+        <*> x .@? "SecurityGroup"
         <*> x .@? "subnetId"
         <*> x .@? "userData"
 
@@ -12357,9 +12357,9 @@ vsiVolumeStatus = lens _vsiVolumeStatus (\s a -> s { _vsiVolumeStatus = a })
 
 instance FromXML VolumeStatusItem where
     parseXML x = VolumeStatusItem
-        <$> x .@  "actionsSet"
+        <$> x .@? "actionsSet"
         <*> x .@? "availabilityZone"
-        <*> x .@  "eventsSet"
+        <*> x .@? "eventsSet"
         <*> x .@? "volumeId"
         <*> x .@? "volumeStatus"
 

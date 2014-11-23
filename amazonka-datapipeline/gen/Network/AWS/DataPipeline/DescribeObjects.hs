@@ -171,7 +171,7 @@ instance FromJSON DescribeObjectsResponse where
     parseJSON = withObject "DescribeObjectsResponse" $ \o -> DescribeObjectsResponse
         <$> o .:? "hasMoreResults"
         <*> o .:? "marker"
-        <*> o .:  "pipelineObjects"
+        <*> o .:? "pipelineObjects"
 
 instance AWSPager DescribeObjects where
     page rq rs

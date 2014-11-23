@@ -419,7 +419,7 @@ eErrorDetails = lens _eErrorDetails (\s a -> s { _eErrorDetails = a }) . _Map
 instance FromJSON Error' where
     parseJSON = withObject "Error'" $ \o -> Error'
         <$> o .:? "errorCode"
-        <*> o .:  "errorDetails"
+        <*> o .:? "errorDetails"
 
 instance ToJSON Error' where
     toJSON Error'{..} = object

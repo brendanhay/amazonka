@@ -95,10 +95,9 @@ data ListDomainsResponse = ListDomainsResponse
 --
 -- * 'ldrNextToken' @::@ 'Maybe' 'Text'
 --
-listDomainsResponse :: [Text] -- ^ 'ldrDomainNames'
-                    -> ListDomainsResponse
-listDomainsResponse p1 = ListDomainsResponse
-    { _ldrDomainNames = withIso _List (const id) p1
+listDomainsResponse :: ListDomainsResponse
+listDomainsResponse = ListDomainsResponse
+    { _ldrDomainNames = Nothing
     , _ldrNextToken   = Nothing
     }
 

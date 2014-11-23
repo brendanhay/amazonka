@@ -152,4 +152,4 @@ instance AWSRequest DescribeJobFlows where
 
 instance FromJSON DescribeJobFlowsResponse where
     parseJSON = withObject "DescribeJobFlowsResponse" $ \o -> DescribeJobFlowsResponse
-        <$> o .:  "JobFlows"
+        <$> o .:? "JobFlows"

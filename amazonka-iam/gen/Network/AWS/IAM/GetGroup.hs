@@ -164,7 +164,7 @@ instance FromXML GetGroupResponse where
         <$> x .@  "Group"
         <*> x .@? "IsTruncated"
         <*> x .@? "Marker"
-        <*> x .@  "Users"
+        <*> x .@? "Users"
 
 instance AWSPager GetGroup where
     page rq rs

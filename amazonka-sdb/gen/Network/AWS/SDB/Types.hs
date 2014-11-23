@@ -173,11 +173,10 @@ data DeletableItem = DeletableItem
 -- * 'diName' @::@ 'Text'
 --
 deletableItem :: Text -- ^ 'diName'
-              -> [Attribute] -- ^ 'diAttributes'
               -> DeletableItem
-deletableItem p1 p2 = DeletableItem
+deletableItem p1 = DeletableItem
     { _diName       = p1
-    , _diAttributes = withIso _List (const id) p2
+    , _diAttributes = Nothing
     }
 
 diAttributes :: Lens' DeletableItem [Attribute]
@@ -211,11 +210,10 @@ data ReplaceableItem = ReplaceableItem
 -- * 'riName' @::@ 'Text'
 --
 replaceableItem :: Text -- ^ 'riName'
-                -> [ReplaceableAttribute] -- ^ 'riAttributes'
                 -> ReplaceableItem
-replaceableItem p1 p2 = ReplaceableItem
+replaceableItem p1 = ReplaceableItem
     { _riName       = p1
-    , _riAttributes = withIso _List (const id) p2
+    , _riAttributes = Nothing
     }
 
 -- | The list of attributes for a replaceable item.
@@ -358,12 +356,11 @@ data Item = Item
 -- * 'iName' @::@ 'Text'
 --
 item :: Text -- ^ 'iName'
-     -> [Attribute] -- ^ 'iAttributes'
      -> Item
-item p1 p2 = Item
+item p1 = Item
     { _iName                  = p1
-    , _iAttributes            = withIso _List (const id) p2
     , _iAlternateNameEncoding = Nothing
+    , _iAttributes            = Nothing
     }
 
 -- | 

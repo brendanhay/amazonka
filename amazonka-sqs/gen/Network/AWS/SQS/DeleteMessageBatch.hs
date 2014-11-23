@@ -66,11 +66,10 @@ data DeleteMessageBatch = DeleteMessageBatch
 -- * 'dmbQueueUrl' @::@ 'Text'
 --
 deleteMessageBatch :: Text -- ^ 'dmbQueueUrl'
-                   -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
                    -> DeleteMessageBatch
-deleteMessageBatch p1 p2 = DeleteMessageBatch
+deleteMessageBatch p1 = DeleteMessageBatch
     { _dmbQueueUrl = p1
-    , _dmbEntries  = withIso _List (const id) p2
+    , _dmbEntries  = Nothing
     }
 
 -- | A list of receipt handles for the messages to be deleted.
@@ -94,12 +93,10 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse
 --
 -- * 'dmbrSuccessful' @::@ ['DeleteMessageBatchResultEntry']
 --
-deleteMessageBatchResponse :: [DeleteMessageBatchResultEntry] -- ^ 'dmbrSuccessful'
-                           -> [BatchResultErrorEntry] -- ^ 'dmbrFailed'
-                           -> DeleteMessageBatchResponse
-deleteMessageBatchResponse p1 p2 = DeleteMessageBatchResponse
-    { _dmbrSuccessful = withIso _List (const id) p1
-    , _dmbrFailed     = withIso _List (const id) p2
+deleteMessageBatchResponse :: DeleteMessageBatchResponse
+deleteMessageBatchResponse = DeleteMessageBatchResponse
+    { _dmbrSuccessful = Nothing
+    , _dmbrFailed     = Nothing
     }
 
 -- | A list of BatchResultErrorEntry items.

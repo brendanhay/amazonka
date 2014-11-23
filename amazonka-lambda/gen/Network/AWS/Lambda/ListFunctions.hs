@@ -130,5 +130,5 @@ instance AWSRequest ListFunctions where
 
 instance FromJSON ListFunctionsResponse where
     parseJSON = withObject "ListFunctionsResponse" $ \o -> ListFunctionsResponse
-        <$> o .:  "Functions"
+        <$> o .:? "Functions"
         <*> o .:? "NextMarker"

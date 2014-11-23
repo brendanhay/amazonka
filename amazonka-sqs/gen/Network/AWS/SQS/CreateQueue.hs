@@ -70,11 +70,10 @@ data CreateQueue = CreateQueue
 -- * 'cqQueueName' @::@ 'Text'
 --
 createQueue :: Text -- ^ 'cqQueueName'
-            -> HashMap Text Text -- ^ 'cqAttributes'
             -> CreateQueue
-createQueue p1 p2 = CreateQueue
+createQueue p1 = CreateQueue
     { _cqQueueName  = p1
-    , _cqAttributes = withIso _EMap (const id) p2
+    , _cqAttributes = Nothing
     }
 
 -- | A map of attributes with their corresponding values. The following lists

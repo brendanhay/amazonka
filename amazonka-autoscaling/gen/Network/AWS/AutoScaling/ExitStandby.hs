@@ -121,4 +121,4 @@ instance AWSRequest ExitStandby where
 
 instance FromXML ExitStandbyResponse where
     parseXML = withElement "ExitStandbyResult" $ \x -> ExitStandbyResponse
-        <$> x .@  "Activities"
+        <$> x .@? "Activities"

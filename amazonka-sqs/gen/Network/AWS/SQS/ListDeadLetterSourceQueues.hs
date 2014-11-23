@@ -77,10 +77,9 @@ newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 --
 -- * 'ldlsqrQueueUrls' @::@ ['Text']
 --
-listDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
-                                   -> ListDeadLetterSourceQueuesResponse
-listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls = withIso _List (const id) p1
+listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse
+listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
+    { _ldlsqrQueueUrls = Nothing
     }
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute

@@ -177,23 +177,20 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 --
 -- * 'lovrVersions' @::@ ['ObjectVersion']
 --
-listObjectVersionsResponse :: [ObjectVersion] -- ^ 'lovrVersions'
-                           -> [DeleteMarkerEntry] -- ^ 'lovrDeleteMarkers'
-                           -> [CommonPrefix] -- ^ 'lovrCommonPrefixes'
-                           -> ListObjectVersionsResponse
-listObjectVersionsResponse p1 p2 p3 = ListObjectVersionsResponse
-    { _lovrVersions            = withIso _List (const id) p1
-    , _lovrDeleteMarkers       = withIso _List (const id) p2
-    , _lovrCommonPrefixes      = withIso _List (const id) p3
-    , _lovrIsTruncated         = Nothing
+listObjectVersionsResponse :: ListObjectVersionsResponse
+listObjectVersionsResponse = ListObjectVersionsResponse
+    { _lovrIsTruncated         = Nothing
     , _lovrKeyMarker           = Nothing
     , _lovrVersionIdMarker     = Nothing
     , _lovrNextKeyMarker       = Nothing
     , _lovrNextVersionIdMarker = Nothing
+    , _lovrVersions            = Nothing
+    , _lovrDeleteMarkers       = Nothing
     , _lovrName                = Nothing
     , _lovrPrefix              = Nothing
     , _lovrDelimiter           = Nothing
     , _lovrMaxKeys             = Nothing
+    , _lovrCommonPrefixes      = Nothing
     , _lovrEncodingType        = Nothing
     }
 

@@ -131,4 +131,4 @@ instance AWSRequest DescribeElasticLoadBalancers where
 
 instance FromJSON DescribeElasticLoadBalancersResponse where
     parseJSON = withObject "DescribeElasticLoadBalancersResponse" $ \o -> DescribeElasticLoadBalancersResponse
-        <$> o .:  "ElasticLoadBalancers"
+        <$> o .:? "ElasticLoadBalancers"

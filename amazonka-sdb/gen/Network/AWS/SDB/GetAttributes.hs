@@ -74,12 +74,11 @@ data GetAttributes = GetAttributes
 --
 getAttributes :: Text -- ^ 'gaDomainName'
               -> Text -- ^ 'gaItemName'
-              -> [Text] -- ^ 'gaAttributeNames'
               -> GetAttributes
-getAttributes p1 p2 p3 = GetAttributes
+getAttributes p1 p2 = GetAttributes
     { _gaDomainName     = p1
     , _gaItemName       = p2
-    , _gaAttributeNames = withIso _List (const id) p3
+    , _gaAttributeNames = Nothing
     , _gaConsistentRead = Nothing
     }
 
@@ -113,10 +112,9 @@ newtype GetAttributesResponse = GetAttributesResponse
 --
 -- * 'garAttributes' @::@ ['Attribute']
 --
-getAttributesResponse :: [Attribute] -- ^ 'garAttributes'
-                      -> GetAttributesResponse
-getAttributesResponse p1 = GetAttributesResponse
-    { _garAttributes = withIso _List (const id) p1
+getAttributesResponse :: GetAttributesResponse
+getAttributesResponse = GetAttributesResponse
+    { _garAttributes = Nothing
     }
 
 -- | The list of attributes returned by the operation.

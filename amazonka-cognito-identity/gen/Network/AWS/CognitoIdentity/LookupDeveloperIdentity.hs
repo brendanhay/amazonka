@@ -192,6 +192,6 @@ instance AWSRequest LookupDeveloperIdentity where
 
 instance FromJSON LookupDeveloperIdentityResponse where
     parseJSON = withObject "LookupDeveloperIdentityResponse" $ \o -> LookupDeveloperIdentityResponse
-        <$> o .:  "DeveloperUserIdentifierList"
+        <$> o .:? "DeveloperUserIdentifierList"
         <*> o .:? "IdentityId"
         <*> o .:? "NextToken"

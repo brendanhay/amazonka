@@ -286,10 +286,10 @@ mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
     parseXML x = MessageAttributeValue
-        <$> x .@  "BinaryListValue"
+        <$> x .@? "BinaryListValue"
         <*> x .@? "BinaryValue"
         <*> x .@  "DataType"
-        <*> x .@  "StringListValue"
+        <*> x .@? "StringListValue"
         <*> x .@? "StringValue"
 
 instance ToQuery MessageAttributeValue where
@@ -443,17 +443,15 @@ data Message = Message
 --
 -- * 'mReceiptHandle' @::@ 'Maybe' 'Text'
 --
-message :: HashMap Text Text -- ^ 'mAttributes'
-        -> HashMap Text MessageAttributeValue -- ^ 'mMessageAttributes'
-        -> Message
-message p1 p2 = Message
-    { _mAttributes             = withIso _EMap (const id) p1
-    , _mMessageAttributes      = withIso _EMap (const id) p2
-    , _mMessageId              = Nothing
+message :: Message
+message = Message
+    { _mMessageId              = Nothing
     , _mReceiptHandle          = Nothing
     , _mMD5OfBody              = Nothing
     , _mBody                   = Nothing
+    , _mAttributes             = Nothing
     , _mMD5OfMessageAttributes = Nothing
+    , _mMessageAttributes      = Nothing
     }
 
 -- | SenderId, SentTimestamp, ApproximateReceiveCount, and/or
@@ -540,13 +538,12 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
 --
 sendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
                              -> Text -- ^ 'smbreMessageBody'
-                             -> HashMap Text MessageAttributeValue -- ^ 'smbreMessageAttributes'
                              -> SendMessageBatchRequestEntry
-sendMessageBatchRequestEntry p1 p2 p3 = SendMessageBatchRequestEntry
+sendMessageBatchRequestEntry p1 p2 = SendMessageBatchRequestEntry
     { _smbreId                = p1
     , _smbreMessageBody       = p2
-    , _smbreMessageAttributes = withIso _EMap (const id) p3
     , _smbreDelaySeconds      = Nothing
+    , _smbreMessageAttributes = Nothing
     }
 
 -- | The number of seconds for which the message has to be delayed.

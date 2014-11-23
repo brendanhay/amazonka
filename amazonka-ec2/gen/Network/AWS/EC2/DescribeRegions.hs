@@ -130,4 +130,4 @@ instance AWSRequest DescribeRegions where
 
 instance FromXML DescribeRegionsResponse where
     parseXML x = DescribeRegionsResponse
-        <$> x .@  "regionInfo"
+        <$> x .@? "regionInfo"

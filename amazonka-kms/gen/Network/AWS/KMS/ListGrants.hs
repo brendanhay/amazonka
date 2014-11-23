@@ -153,6 +153,6 @@ instance AWSRequest ListGrants where
 
 instance FromJSON ListGrantsResponse where
     parseJSON = withObject "ListGrantsResponse" $ \o -> ListGrantsResponse
-        <$> o .:  "Grants"
+        <$> o .:? "Grants"
         <*> o .:? "NextMarker"
         <*> o .:? "Truncated"

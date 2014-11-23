@@ -260,7 +260,7 @@ instance FromJSON CreatePrivateVirtualInterfaceResponse where
         <*> o .:? "customerRouterConfig"
         <*> o .:? "location"
         <*> o .:? "ownerAccount"
-        <*> o .:  "routeFilterPrefixes"
+        <*> o .:? "routeFilterPrefixes"
         <*> o .:? "virtualGatewayId"
         <*> o .:? "virtualInterfaceId"
         <*> o .:? "virtualInterfaceName"

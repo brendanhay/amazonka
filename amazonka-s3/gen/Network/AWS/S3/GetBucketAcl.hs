@@ -116,5 +116,5 @@ instance AWSRequest GetBucketAcl where
 
 instance FromXML GetBucketAclResponse where
     parseXML x = GetBucketAclResponse
-        <$> x .@  "AccessControlList"
+        <$> x .@? "AccessControlList"
         <*> x .@? "Owner"

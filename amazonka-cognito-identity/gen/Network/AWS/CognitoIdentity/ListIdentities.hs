@@ -146,6 +146,6 @@ instance AWSRequest ListIdentities where
 
 instance FromJSON ListIdentitiesResponse where
     parseJSON = withObject "ListIdentitiesResponse" $ \o -> ListIdentitiesResponse
-        <$> o .:  "Identities"
+        <$> o .:? "Identities"
         <*> o .:? "IdentityPoolId"
         <*> o .:? "NextToken"

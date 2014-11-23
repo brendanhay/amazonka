@@ -181,7 +181,7 @@ instance AWSRequest ListHealthChecks where
 
 instance FromXML ListHealthChecksResponse where
     parseXML x = ListHealthChecksResponse
-        <$> x .@  "HealthChecks"
+        <$> x .@? "HealthChecks"
         <*> x .@  "IsTruncated"
         <*> x .@  "Marker"
         <*> x .@  "MaxItems"

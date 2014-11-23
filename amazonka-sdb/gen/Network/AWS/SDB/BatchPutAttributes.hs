@@ -90,11 +90,10 @@ data BatchPutAttributes = BatchPutAttributes
 -- * 'bpaItems' @::@ ['ReplaceableItem']
 --
 batchPutAttributes :: Text -- ^ 'bpaDomainName'
-                   -> [ReplaceableItem] -- ^ 'bpaItems'
                    -> BatchPutAttributes
-batchPutAttributes p1 p2 = BatchPutAttributes
+batchPutAttributes p1 = BatchPutAttributes
     { _bpaDomainName = p1
-    , _bpaItems      = withIso _List (const id) p2
+    , _bpaItems      = Nothing
     }
 
 -- | The name of the domain in which the attributes are being stored.

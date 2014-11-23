@@ -95,4 +95,4 @@ instance AWSRequest DescribeLifecycleHookTypes where
 
 instance FromXML DescribeLifecycleHookTypesResponse where
     parseXML = withElement "DescribeLifecycleHookTypesResult" $ \x -> DescribeLifecycleHookTypesResponse
-        <$> x .@  "LifecycleHookTypes"
+        <$> x .@? "LifecycleHookTypes"

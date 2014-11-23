@@ -178,13 +178,9 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
 --
 -- * 'lmurUploads' @::@ ['MultipartUpload']
 --
-listMultipartUploadsResponse :: [MultipartUpload] -- ^ 'lmurUploads'
-                             -> [CommonPrefix] -- ^ 'lmurCommonPrefixes'
-                             -> ListMultipartUploadsResponse
-listMultipartUploadsResponse p1 p2 = ListMultipartUploadsResponse
-    { _lmurUploads            = withIso _List (const id) p1
-    , _lmurCommonPrefixes     = withIso _List (const id) p2
-    , _lmurBucket             = Nothing
+listMultipartUploadsResponse :: ListMultipartUploadsResponse
+listMultipartUploadsResponse = ListMultipartUploadsResponse
+    { _lmurBucket             = Nothing
     , _lmurKeyMarker          = Nothing
     , _lmurUploadIdMarker     = Nothing
     , _lmurNextKeyMarker      = Nothing
@@ -193,6 +189,8 @@ listMultipartUploadsResponse p1 p2 = ListMultipartUploadsResponse
     , _lmurNextUploadIdMarker = Nothing
     , _lmurMaxUploads         = Nothing
     , _lmurIsTruncated        = Nothing
+    , _lmurUploads            = Nothing
+    , _lmurCommonPrefixes     = Nothing
     , _lmurEncodingType       = Nothing
     }
 

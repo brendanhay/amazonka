@@ -131,4 +131,4 @@ instance AWSRequest DescribeVirtualInterfaces where
 
 instance FromJSON DescribeVirtualInterfacesResponse where
     parseJSON = withObject "DescribeVirtualInterfacesResponse" $ \o -> DescribeVirtualInterfacesResponse
-        <$> o .:  "virtualInterfaces"
+        <$> o .:? "virtualInterfaces"

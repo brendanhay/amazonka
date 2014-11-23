@@ -136,7 +136,7 @@ instance AWSRequest ListStacks where
 instance FromXML ListStacksResponse where
     parseXML = withElement "ListStacksResult" $ \x -> ListStacksResponse
         <$> x .@? "NextToken"
-        <*> x .@  "StackSummaries"
+        <*> x .@? "StackSummaries"
 
 instance AWSPager ListStacks where
     page rq rs

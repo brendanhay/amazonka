@@ -1257,16 +1257,12 @@ data CORSRule = CORSRule
 --
 -- * 'corsrMaxAgeSeconds' @::@ 'Maybe' 'Int'
 --
-corsrule :: [Text] -- ^ 'corsrAllowedHeaders'
-         -> [Text] -- ^ 'corsrAllowedMethods'
-         -> [Text] -- ^ 'corsrAllowedOrigins'
-         -> [Text] -- ^ 'corsrExposeHeaders'
-         -> CORSRule
-corsrule p1 p2 p3 p4 = CORSRule
-    { _corsrAllowedHeaders = withIso _List (const id) p1
-    , _corsrAllowedMethods = withIso _List (const id) p2
-    , _corsrAllowedOrigins = withIso _List (const id) p3
-    , _corsrExposeHeaders  = withIso _List (const id) p4
+corsrule :: CORSRule
+corsrule = CORSRule
+    { _corsrAllowedHeaders = Nothing
+    , _corsrAllowedMethods = Nothing
+    , _corsrAllowedOrigins = Nothing
+    , _corsrExposeHeaders  = Nothing
     , _corsrMaxAgeSeconds  = Nothing
     }
 
@@ -1366,7 +1362,7 @@ instance FromXML WebsiteConfiguration where
         <$> x .@? "ErrorDocument"
         <*> x .@? "IndexDocument"
         <*> x .@? "RedirectAllRequestsTo"
-        <*> x .@  "RoutingRules"
+        <*> x .@? "RoutingRules"
 
 instance ToXML WebsiteConfiguration where
     toXML WebsiteConfiguration{..} = nodes "WebsiteConfiguration"
@@ -1708,11 +1704,10 @@ data TopicConfiguration = TopicConfiguration
 --
 -- * 'tcTopic' @::@ 'Maybe' 'Text'
 --
-topicConfiguration :: [Text] -- ^ 'tcEvents'
-                   -> TopicConfiguration
-topicConfiguration p1 = TopicConfiguration
-    { _tcEvents = withIso _List (const id) p1
-    , _tcId     = Nothing
+topicConfiguration :: TopicConfiguration
+topicConfiguration = TopicConfiguration
+    { _tcId     = Nothing
+    , _tcEvents = Nothing
     , _tcEvent  = Nothing
     , _tcTopic  = Nothing
     }
@@ -1766,12 +1761,11 @@ data QueueConfiguration = QueueConfiguration
 --
 -- * 'qcQueue' @::@ 'Maybe' 'Text'
 --
-queueConfiguration :: [Text] -- ^ 'qcEvents'
-                   -> QueueConfiguration
-queueConfiguration p1 = QueueConfiguration
-    { _qcEvents = withIso _List (const id) p1
-    , _qcId     = Nothing
+queueConfiguration :: QueueConfiguration
+queueConfiguration = QueueConfiguration
+    { _qcId     = Nothing
     , _qcEvent  = Nothing
+    , _qcEvents = Nothing
     , _qcQueue  = Nothing
     }
 
@@ -2294,7 +2288,7 @@ tTagSet = lens _tTagSet (\s a -> s { _tTagSet = a }) . _List
 
 instance FromXML Tagging where
     parseXML x = Tagging
-        <$> x .@  "TagSet"
+        <$> x .@? "TagSet"
 
 instance ToXML Tagging where
     toXML Tagging{..} = nodes "Tagging"
@@ -2351,10 +2345,9 @@ newtype CORSConfiguration = CORSConfiguration
 --
 -- * 'corscCORSRules' @::@ ['CORSRule']
 --
-corsconfiguration :: [CORSRule] -- ^ 'corscCORSRules'
-                  -> CORSConfiguration
-corsconfiguration p1 = CORSConfiguration
-    { _corscCORSRules = withIso _List (const id) p1
+corsconfiguration :: CORSConfiguration
+corsconfiguration = CORSConfiguration
+    { _corscCORSRules = Nothing
     }
 
 corscCORSRules :: Lens' CORSConfiguration [CORSRule]
@@ -2607,10 +2600,9 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload
 --
 -- * 'cmuParts' @::@ ['CompletedPart']
 --
-completedMultipartUpload :: [CompletedPart] -- ^ 'cmuParts'
-                         -> CompletedMultipartUpload
-completedMultipartUpload p1 = CompletedMultipartUpload
-    { _cmuParts = withIso _List (const id) p1
+completedMultipartUpload :: CompletedMultipartUpload
+completedMultipartUpload = CompletedMultipartUpload
+    { _cmuParts = Nothing
     }
 
 cmuParts :: Lens' CompletedMultipartUpload [CompletedPart]
@@ -2734,7 +2726,7 @@ acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
 
 instance FromXML AccessControlPolicy where
     parseXML x = AccessControlPolicy
-        <$> x .@  "AccessControlList"
+        <$> x .@? "AccessControlList"
         <*> x .@? "Owner"
 
 instance ToXMLRoot AccessControlPolicy where
@@ -2817,12 +2809,11 @@ data CloudFunctionConfiguration = CloudFunctionConfiguration
 --
 -- * 'cfcInvocationRole' @::@ 'Maybe' 'Text'
 --
-cloudFunctionConfiguration :: [Text] -- ^ 'cfcEvents'
-                           -> CloudFunctionConfiguration
-cloudFunctionConfiguration p1 = CloudFunctionConfiguration
-    { _cfcEvents         = withIso _List (const id) p1
-    , _cfcId             = Nothing
+cloudFunctionConfiguration :: CloudFunctionConfiguration
+cloudFunctionConfiguration = CloudFunctionConfiguration
+    { _cfcId             = Nothing
     , _cfcEvent          = Nothing
+    , _cfcEvents         = Nothing
     , _cfcCloudFunction  = Nothing
     , _cfcInvocationRole = Nothing
     }
@@ -2939,10 +2930,9 @@ newtype LifecycleConfiguration = LifecycleConfiguration
 --
 -- * 'lcRules' @::@ ['Rule']
 --
-lifecycleConfiguration :: [Rule] -- ^ 'lcRules'
-                       -> LifecycleConfiguration
-lifecycleConfiguration p1 = LifecycleConfiguration
-    { _lcRules = withIso _List (const id) p1
+lifecycleConfiguration :: LifecycleConfiguration
+lifecycleConfiguration = LifecycleConfiguration
+    { _lcRules = Nothing
     }
 
 lcRules :: Lens' LifecycleConfiguration [Rule]
@@ -3000,7 +2990,7 @@ leTargetPrefix = lens _leTargetPrefix (\s a -> s { _leTargetPrefix = a })
 instance FromXML LoggingEnabled where
     parseXML x = LoggingEnabled
         <$> x .@? "TargetBucket"
-        <*> x .@  "TargetGrants"
+        <*> x .@? "TargetGrants"
         <*> x .@? "TargetPrefix"
 
 instance ToXML LoggingEnabled where
@@ -3110,10 +3100,9 @@ data Delete = Delete
 --
 -- * 'dQuiet' @::@ 'Maybe' 'Bool'
 --
-delete' :: [ObjectIdentifier] -- ^ 'dObjects'
-        -> Delete
-delete' p1 = Delete
-    { _dObjects = withIso _List (const id) p1
+delete' :: Delete
+delete' = Delete
+    { _dObjects = Nothing
     , _dQuiet   = Nothing
     }
 

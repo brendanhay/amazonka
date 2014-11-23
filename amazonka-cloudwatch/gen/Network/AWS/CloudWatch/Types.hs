@@ -432,18 +432,18 @@ maUnit = lens _maUnit (\s a -> s { _maUnit = a })
 instance FromXML MetricAlarm where
     parseXML x = MetricAlarm
         <$> x .@? "ActionsEnabled"
-        <*> x .@  "AlarmActions"
+        <*> x .@? "AlarmActions"
         <*> x .@? "AlarmArn"
         <*> x .@? "AlarmConfigurationUpdatedTimestamp"
         <*> x .@? "AlarmDescription"
         <*> x .@? "AlarmName"
         <*> x .@? "ComparisonOperator"
-        <*> x .@  "Dimensions"
+        <*> x .@? "Dimensions"
         <*> x .@? "EvaluationPeriods"
-        <*> x .@  "InsufficientDataActions"
+        <*> x .@? "InsufficientDataActions"
         <*> x .@? "MetricName"
         <*> x .@? "Namespace"
-        <*> x .@  "OKActions"
+        <*> x .@? "OKActions"
         <*> x .@? "Period"
         <*> x .@? "StateReason"
         <*> x .@? "StateReasonData"
@@ -576,7 +576,7 @@ mdValue = lens _mdValue (\s a -> s { _mdValue = a })
 
 instance FromXML MetricDatum where
     parseXML x = MetricDatum
-        <$> x .@  "Dimensions"
+        <$> x .@? "Dimensions"
         <*> x .@  "MetricName"
         <*> x .@? "StatisticValues"
         <*> x .@? "Timestamp"
@@ -868,7 +868,7 @@ mNamespace = lens _mNamespace (\s a -> s { _mNamespace = a })
 
 instance FromXML Metric where
     parseXML x = Metric
-        <$> x .@  "Dimensions"
+        <$> x .@? "Dimensions"
         <*> x .@? "MetricName"
         <*> x .@? "Namespace"
 

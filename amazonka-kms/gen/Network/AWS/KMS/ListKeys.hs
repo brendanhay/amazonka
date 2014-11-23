@@ -141,6 +141,6 @@ instance AWSRequest ListKeys where
 
 instance FromJSON ListKeysResponse where
     parseJSON = withObject "ListKeysResponse" $ \o -> ListKeysResponse
-        <$> o .:  "Keys"
+        <$> o .:? "Keys"
         <*> o .:? "NextMarker"
         <*> o .:? "Truncated"

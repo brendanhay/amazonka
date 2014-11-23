@@ -74,10 +74,9 @@ newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
 --
 -- * 'gblrRules' @::@ ['Rule']
 --
-getBucketLifecycleResponse :: [Rule] -- ^ 'gblrRules'
-                           -> GetBucketLifecycleResponse
-getBucketLifecycleResponse p1 = GetBucketLifecycleResponse
-    { _gblrRules = withIso _List (const id) p1
+getBucketLifecycleResponse :: GetBucketLifecycleResponse
+getBucketLifecycleResponse = GetBucketLifecycleResponse
+    { _gblrRules = Nothing
     }
 
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]

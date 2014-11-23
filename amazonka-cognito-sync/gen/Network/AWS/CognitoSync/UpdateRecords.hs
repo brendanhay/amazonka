@@ -194,4 +194,4 @@ instance AWSRequest UpdateRecords where
 
 instance FromJSON UpdateRecordsResponse where
     parseJSON = withObject "UpdateRecordsResponse" $ \o -> UpdateRecordsResponse
-        <$> o .:  "Records"
+        <$> o .:? "Records"

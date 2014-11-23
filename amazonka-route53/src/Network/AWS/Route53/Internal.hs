@@ -12,11 +12,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Route53.Internal where
+module Network.AWS.Route53.Internal
+    ( module Network.AWS.Route53.Internal
+    , Region (..)
+    ) where
 
 import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Prelude
+import Network.AWS.Types   (Region(..))
 
 data RecordType
     = A     -- ^ A

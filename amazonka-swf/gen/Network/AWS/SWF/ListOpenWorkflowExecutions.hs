@@ -223,7 +223,7 @@ instance AWSRequest ListOpenWorkflowExecutions where
 
 instance FromJSON ListOpenWorkflowExecutionsResponse where
     parseJSON = withObject "ListOpenWorkflowExecutionsResponse" $ \o -> ListOpenWorkflowExecutionsResponse
-        <$> o .:? "executionInfos"
+        <$> o .:  "executionInfos"
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListOpenWorkflowExecutions where

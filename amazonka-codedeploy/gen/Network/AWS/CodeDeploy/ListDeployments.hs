@@ -170,5 +170,5 @@ instance AWSRequest ListDeployments where
 
 instance FromJSON ListDeploymentsResponse where
     parseJSON = withObject "ListDeploymentsResponse" $ \o -> ListDeploymentsResponse
-        <$> o .:? "deployments"
+        <$> o .:  "deployments"
         <*> o .:? "nextToken"

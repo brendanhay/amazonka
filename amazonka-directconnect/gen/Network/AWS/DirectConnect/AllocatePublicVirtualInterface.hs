@@ -279,7 +279,7 @@ instance FromJSON AllocatePublicVirtualInterfaceResponse where
         <*> o .:? "customerRouterConfig"
         <*> o .:? "location"
         <*> o .:? "ownerAccount"
-        <*> o .:? "routeFilterPrefixes"
+        <*> o .:  "routeFilterPrefixes"
         <*> o .:? "virtualGatewayId"
         <*> o .:? "virtualInterfaceId"
         <*> o .:? "virtualInterfaceName"

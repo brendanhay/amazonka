@@ -113,4 +113,4 @@ instance AWSRequest GetBucketTagging where
 
 instance FromXML GetBucketTaggingResponse where
     parseXML x = GetBucketTaggingResponse
-        <$> x .@? "TagSet"
+        <$> x .@  "TagSet"

@@ -204,6 +204,6 @@ instance AWSRequest BatchGetItem where
 
 instance FromJSON BatchGetItemResponse where
     parseJSON = withObject "BatchGetItemResponse" $ \o -> BatchGetItemResponse
-        <$> o .:? "ConsumedCapacity"
-        <*> o .:? "Responses"
-        <*> o .:? "UnprocessedKeys"
+        <$> o .:  "ConsumedCapacity"
+        <*> o .:  "Responses"
+        <*> o .:  "UnprocessedKeys"

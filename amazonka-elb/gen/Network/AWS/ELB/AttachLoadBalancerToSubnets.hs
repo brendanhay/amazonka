@@ -126,4 +126,4 @@ instance AWSRequest AttachLoadBalancerToSubnets where
 
 instance FromXML AttachLoadBalancerToSubnetsResponse where
     parseXML = withElement "AttachLoadBalancerToSubnetsResult" $ \x -> AttachLoadBalancerToSubnetsResponse
-        <$> x .@? "Subnets"
+        <$> x .@  "Subnets"

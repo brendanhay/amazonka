@@ -126,4 +126,4 @@ instance AWSRequest DescribeCachediSCSIVolumes where
 
 instance FromJSON DescribeCachediSCSIVolumesResponse where
     parseJSON = withObject "DescribeCachediSCSIVolumesResponse" $ \o -> DescribeCachediSCSIVolumesResponse
-        <$> o .:? "CachediSCSIVolumes"
+        <$> o .:  "CachediSCSIVolumes"

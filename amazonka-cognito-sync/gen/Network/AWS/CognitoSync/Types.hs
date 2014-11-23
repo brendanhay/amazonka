@@ -580,7 +580,7 @@ psRoleArn = lens _psRoleArn (\s a -> s { _psRoleArn = a })
 
 instance FromJSON PushSync where
     parseJSON = withObject "PushSync" $ \o -> PushSync
-        <$> o .:? "ApplicationArns"
+        <$> o .:  "ApplicationArns"
         <*> o .:? "RoleArn"
 
 instance ToJSON PushSync where

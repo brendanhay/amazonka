@@ -131,4 +131,4 @@ instance AWSRequest DescribePermissions where
 
 instance FromJSON DescribePermissionsResponse where
     parseJSON = withObject "DescribePermissionsResponse" $ \o -> DescribePermissionsResponse
-        <$> o .:? "Permissions"
+        <$> o .:  "Permissions"

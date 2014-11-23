@@ -153,7 +153,7 @@ instance FromJSON ListVolumesResponse where
     parseJSON = withObject "ListVolumesResponse" $ \o -> ListVolumesResponse
         <$> o .:? "GatewayARN"
         <*> o .:? "Marker"
-        <*> o .:? "VolumeInfos"
+        <*> o .:  "VolumeInfos"
 
 instance AWSPager ListVolumes where
     page rq rs

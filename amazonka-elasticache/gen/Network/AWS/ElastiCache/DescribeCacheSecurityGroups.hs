@@ -145,7 +145,7 @@ instance AWSRequest DescribeCacheSecurityGroups where
 
 instance FromXML DescribeCacheSecurityGroupsResponse where
     parseXML = withElement "DescribeCacheSecurityGroupsResult" $ \x -> DescribeCacheSecurityGroupsResponse
-        <$> x .@? "CacheSecurityGroups"
+        <$> x .@  "CacheSecurityGroups"
         <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheSecurityGroups where

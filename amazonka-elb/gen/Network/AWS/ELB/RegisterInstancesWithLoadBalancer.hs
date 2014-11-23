@@ -141,4 +141,4 @@ instance AWSRequest RegisterInstancesWithLoadBalancer where
 
 instance FromXML RegisterInstancesWithLoadBalancerResponse where
     parseXML = withElement "RegisterInstancesWithLoadBalancerResult" $ \x -> RegisterInstancesWithLoadBalancerResponse
-        <$> x .@? "Instances"
+        <$> x .@  "Instances"

@@ -288,7 +288,7 @@ instance AWSRequest DescribeInstances where
 instance FromXML DescribeInstancesResponse where
     parseXML x = DescribeInstancesResponse
         <$> x .@? "nextToken"
-        <*> x .@? "reservationSet"
+        <*> x .@  "reservationSet"
 
 instance AWSPager DescribeInstances where
     page rq rs

@@ -424,12 +424,12 @@ instance FromJSON ScanResponse where
     parseJSON = withObject "ScanResponse" $ \o -> ScanResponse
         <$> o .:? "ConsumedCapacity"
         <*> o .:? "Count"
-        <*> o .:? "Items"
-        <*> o .:? "LastEvaluatedKey"
+        <*> o .:  "Items"
+        <*> o .:  "LastEvaluatedKey"
         <*> o .:? "ScannedCount"
 
 instance AWSPager Scan where
     page rq rs
         | stop (rq ^. sExclusiveStartKey) = Nothing
-        | otherwise = (\x -> rq & sExclusiveStartKey ?~ x)
-            <$> (rs ^. srLastEvaluatedKey)
+        | otherwise = Just $ rq
+            & sExclusiveStartKey .~ rs ^. srLastEvaluatedKey

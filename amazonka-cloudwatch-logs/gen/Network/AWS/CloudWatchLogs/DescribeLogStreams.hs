@@ -150,5 +150,5 @@ instance AWSRequest DescribeLogStreams where
 
 instance FromJSON DescribeLogStreamsResponse where
     parseJSON = withObject "DescribeLogStreamsResponse" $ \o -> DescribeLogStreamsResponse
-        <$> o .:? "logStreams"
+        <$> o .:  "logStreams"
         <*> o .:? "nextToken"

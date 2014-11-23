@@ -196,7 +196,7 @@ instance FromJSON GetEventSourceResponse where
         <*> o .:? "FunctionName"
         <*> o .:? "IsActive"
         <*> o .:? "LastModified"
-        <*> o .:? "Parameters"
+        <*> o .:  "Parameters"
         <*> o .:? "Role"
         <*> o .:? "Status"
         <*> o .:? "UUID"

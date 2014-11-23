@@ -426,6 +426,6 @@ instance AWSRequest PutItem where
 
 instance FromJSON PutItemResponse where
     parseJSON = withObject "PutItemResponse" $ \o -> PutItemResponse
-        <$> o .:? "Attributes"
+        <$> o .:  "Attributes"
         <*> o .:? "ConsumedCapacity"
         <*> o .:? "ItemCollectionMetrics"

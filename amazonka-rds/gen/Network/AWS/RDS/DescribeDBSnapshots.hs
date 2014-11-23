@@ -183,7 +183,7 @@ instance AWSRequest DescribeDBSnapshots where
 
 instance FromXML DescribeDBSnapshotsResponse where
     parseXML = withElement "DescribeDBSnapshotsResult" $ \x -> DescribeDBSnapshotsResponse
-        <$> x .@? "DBSnapshots"
+        <$> x .@  "DBSnapshots"
         <*> x .@? "Marker"
 
 instance AWSPager DescribeDBSnapshots where

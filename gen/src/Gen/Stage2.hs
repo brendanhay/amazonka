@@ -180,7 +180,7 @@ data Type
 isRequired :: Type -> Bool
 isRequired = \case
     TMaybe {} -> False
-    t         -> not (isMonoid t)
+    _         -> True
 
 isMonoid :: Type -> Bool
 isMonoid = \case
@@ -355,7 +355,9 @@ instance HasType Field where
     typeOf = fType
 
 parameters :: [Field] -> ([Field], [Field])
-parameters = partition (isRequired . view typeOf)
+parameters = partition (f . view typeOf)
+  where
+    f x = not (isMonoid x) && isRequired x
 
 isHeader :: Field -> Bool
 isHeader = f . view fLocation

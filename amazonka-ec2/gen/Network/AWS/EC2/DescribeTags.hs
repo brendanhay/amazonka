@@ -153,7 +153,7 @@ instance AWSRequest DescribeTags where
 instance FromXML DescribeTagsResponse where
     parseXML x = DescribeTagsResponse
         <$> x .@? "nextToken"
-        <*> x .@? "tagSet"
+        <*> x .@  "tagSet"
 
 instance AWSPager DescribeTags where
     page rq rs

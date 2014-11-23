@@ -256,6 +256,6 @@ instance FromXML UpdateConfigurationTemplateResponse where
         <*> x .@? "DeploymentStatus"
         <*> x .@? "Description"
         <*> x .@? "EnvironmentName"
-        <*> x .@? "OptionSettings"
+        <*> x .@  "OptionSettings"
         <*> x .@? "SolutionStackName"
         <*> x .@? "TemplateName"

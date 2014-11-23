@@ -185,7 +185,7 @@ instance AWSRequest ListReusableDelegationSets where
 
 instance FromXML ListReusableDelegationSetsResponse where
     parseXML x = ListReusableDelegationSetsResponse
-        <$> x .@? "DelegationSets"
+        <$> x .@  "DelegationSets"
         <*> x .@  "IsTruncated"
         <*> x .@  "Marker"
         <*> x .@  "MaxItems"

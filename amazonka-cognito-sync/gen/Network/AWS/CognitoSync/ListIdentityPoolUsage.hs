@@ -145,6 +145,6 @@ instance AWSRequest ListIdentityPoolUsage where
 instance FromJSON ListIdentityPoolUsageResponse where
     parseJSON = withObject "ListIdentityPoolUsageResponse" $ \o -> ListIdentityPoolUsageResponse
         <$> o .:? "Count"
-        <*> o .:? "IdentityPoolUsages"
+        <*> o .:  "IdentityPoolUsages"
         <*> o .:? "MaxResults"
         <*> o .:? "NextToken"

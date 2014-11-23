@@ -130,4 +130,4 @@ instance AWSRequest CancelSpotInstanceRequests where
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     parseXML x = CancelSpotInstanceRequestsResponse
-        <$> x .@? "spotInstanceRequestSet"
+        <$> x .@  "spotInstanceRequestSet"

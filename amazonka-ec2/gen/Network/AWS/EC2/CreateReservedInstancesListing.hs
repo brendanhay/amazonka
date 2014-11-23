@@ -169,4 +169,4 @@ instance AWSRequest CreateReservedInstancesListing where
 
 instance FromXML CreateReservedInstancesListingResponse where
     parseXML x = CreateReservedInstancesListingResponse
-        <$> x .@? "reservedInstancesListingsSet"
+        <$> x .@  "reservedInstancesListingsSet"

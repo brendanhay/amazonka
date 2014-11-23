@@ -286,10 +286,10 @@ mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
 instance FromXML MessageAttributeValue where
     parseXML x = MessageAttributeValue
-        <$> x .@? "BinaryListValue"
+        <$> x .@  "BinaryListValue"
         <*> x .@? "BinaryValue"
         <*> x .@  "DataType"
-        <*> x .@? "StringListValue"
+        <*> x .@  "StringListValue"
         <*> x .@? "StringValue"
 
 instance ToQuery MessageAttributeValue where

@@ -535,12 +535,12 @@ instance FromJSON QueryResponse where
     parseJSON = withObject "QueryResponse" $ \o -> QueryResponse
         <$> o .:? "ConsumedCapacity"
         <*> o .:? "Count"
-        <*> o .:? "Items"
-        <*> o .:? "LastEvaluatedKey"
+        <*> o .:  "Items"
+        <*> o .:  "LastEvaluatedKey"
         <*> o .:? "ScannedCount"
 
 instance AWSPager Query where
     page rq rs
         | stop (rq ^. qExclusiveStartKey) = Nothing
-        | otherwise = (\x -> rq & qExclusiveStartKey ?~ x)
-            <$> (rs ^. qrLastEvaluatedKey)
+        | otherwise = Just $ rq
+            & qExclusiveStartKey .~ rs ^. qrLastEvaluatedKey

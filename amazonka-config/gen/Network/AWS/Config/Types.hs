@@ -631,12 +631,12 @@ instance FromJSON ConfigurationItem where
         <*> o .:? "configurationItemMD5Hash"
         <*> o .:? "configurationItemStatus"
         <*> o .:? "configurationStateId"
-        <*> o .:? "relatedEvents"
-        <*> o .:? "relationships"
+        <*> o .:  "relatedEvents"
+        <*> o .:  "relationships"
         <*> o .:? "resourceCreationTime"
         <*> o .:? "resourceId"
         <*> o .:? "resourceType"
-        <*> o .:? "tags"
+        <*> o .:  "tags"
         <*> o .:? "version"
 
 instance ToJSON ConfigurationItem where

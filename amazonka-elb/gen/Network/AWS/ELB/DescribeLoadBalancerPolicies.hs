@@ -131,4 +131,4 @@ instance AWSRequest DescribeLoadBalancerPolicies where
 
 instance FromXML DescribeLoadBalancerPoliciesResponse where
     parseXML = withElement "DescribeLoadBalancerPoliciesResult" $ \x -> DescribeLoadBalancerPoliciesResponse
-        <$> x .@? "PolicyDescriptions"
+        <$> x .@  "PolicyDescriptions"

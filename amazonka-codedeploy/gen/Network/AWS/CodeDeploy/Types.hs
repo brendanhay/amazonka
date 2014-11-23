@@ -292,7 +292,7 @@ griRegisterTime = lens _griRegisterTime (\s a -> s { _griRegisterTime = a }) . m
 
 instance FromJSON GenericRevisionInfo where
     parseJSON = withObject "GenericRevisionInfo" $ \o -> GenericRevisionInfo
-        <$> o .:? "deploymentGroups"
+        <$> o .:  "deploymentGroups"
         <*> o .:? "description"
         <*> o .:? "firstUsedTime"
         <*> o .:? "lastUsedTime"
@@ -517,7 +517,7 @@ instance FromJSON InstanceSummary where
         <$> o .:? "deploymentId"
         <*> o .:? "instanceId"
         <*> o .:? "lastUpdatedAt"
-        <*> o .:? "lifecycleEvents"
+        <*> o .:  "lifecycleEvents"
         <*> o .:? "status"
 
 instance ToJSON InstanceSummary where
@@ -654,11 +654,11 @@ dgiTargetRevision =
 instance FromJSON DeploymentGroupInfo where
     parseJSON = withObject "DeploymentGroupInfo" $ \o -> DeploymentGroupInfo
         <$> o .:? "applicationName"
-        <*> o .:? "autoScalingGroups"
+        <*> o .:  "autoScalingGroups"
         <*> o .:? "deploymentConfigName"
         <*> o .:? "deploymentGroupId"
         <*> o .:? "deploymentGroupName"
-        <*> o .:? "ec2TagFilters"
+        <*> o .:  "ec2TagFilters"
         <*> o .:? "serviceRoleArn"
         <*> o .:? "targetRevision"
 

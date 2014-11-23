@@ -141,7 +141,7 @@ instance AWSRequest ListStreams where
 instance FromJSON ListStreamsResponse where
     parseJSON = withObject "ListStreamsResponse" $ \o -> ListStreamsResponse
         <$> o .:  "HasMoreStreams"
-        <*> o .:? "StreamNames"
+        <*> o .:  "StreamNames"
 
 instance AWSPager ListStreams where
     page rq rs

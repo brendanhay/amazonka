@@ -151,4 +151,4 @@ instance AWSRequest DescribeAddresses where
 
 instance FromXML DescribeAddressesResponse where
     parseXML x = DescribeAddressesResponse
-        <$> x .@? "addressesSet"
+        <$> x .@  "addressesSet"

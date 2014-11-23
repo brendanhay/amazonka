@@ -188,5 +188,5 @@ instance AWSRequest GetResourceConfigHistory where
 
 instance FromJSON GetResourceConfigHistoryResponse where
     parseJSON = withObject "GetResourceConfigHistoryResponse" $ \o -> GetResourceConfigHistoryResponse
-        <$> o .:? "configurationItems"
+        <$> o .:  "configurationItems"
         <*> o .:? "nextToken"

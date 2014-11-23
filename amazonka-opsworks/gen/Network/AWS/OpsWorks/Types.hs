@@ -842,14 +842,14 @@ elbVpcId = lens _elbVpcId (\s a -> s { _elbVpcId = a })
 
 instance FromJSON ElasticLoadBalancer where
     parseJSON = withObject "ElasticLoadBalancer" $ \o -> ElasticLoadBalancer
-        <$> o .:? "AvailabilityZones"
+        <$> o .:  "AvailabilityZones"
         <*> o .:? "DnsName"
-        <*> o .:? "Ec2InstanceIds"
+        <*> o .:  "Ec2InstanceIds"
         <*> o .:? "ElasticLoadBalancerName"
         <*> o .:? "LayerId"
         <*> o .:? "Region"
         <*> o .:? "StackId"
-        <*> o .:? "SubnetIds"
+        <*> o .:  "SubnetIds"
         <*> o .:? "VpcId"
 
 instance ToJSON ElasticLoadBalancer where
@@ -1715,11 +1715,11 @@ instance FromJSON App where
     parseJSON = withObject "App" $ \o -> App
         <$> o .:? "AppId"
         <*> o .:? "AppSource"
-        <*> o .:? "Attributes"
+        <*> o .:  "Attributes"
         <*> o .:? "CreatedAt"
-        <*> o .:? "DataSources"
+        <*> o .:  "DataSources"
         <*> o .:? "Description"
-        <*> o .:? "Domains"
+        <*> o .:  "Domains"
         <*> o .:? "EnableSsl"
         <*> o .:? "Name"
         <*> o .:? "Shortname"
@@ -2530,25 +2530,25 @@ lVolumeConfigurations =
 
 instance FromJSON Layer where
     parseJSON = withObject "Layer" $ \o -> Layer
-        <$> o .:? "Attributes"
+        <$> o .:  "Attributes"
         <*> o .:? "AutoAssignElasticIps"
         <*> o .:? "AutoAssignPublicIps"
         <*> o .:? "CreatedAt"
         <*> o .:? "CustomInstanceProfileArn"
         <*> o .:? "CustomRecipes"
-        <*> o .:? "CustomSecurityGroupIds"
+        <*> o .:  "CustomSecurityGroupIds"
         <*> o .:? "DefaultRecipes"
-        <*> o .:? "DefaultSecurityGroupNames"
+        <*> o .:  "DefaultSecurityGroupNames"
         <*> o .:? "EnableAutoHealing"
         <*> o .:? "InstallUpdatesOnBoot"
         <*> o .:? "LayerId"
         <*> o .:? "Name"
-        <*> o .:? "Packages"
+        <*> o .:  "Packages"
         <*> o .:? "Shortname"
         <*> o .:? "StackId"
         <*> o .:? "Type"
         <*> o .:? "UseEbsOptimizedInstances"
-        <*> o .:? "VolumeConfigurations"
+        <*> o .:  "VolumeConfigurations"
 
 instance ToJSON Layer where
     toJSON Layer{..} = object
@@ -2626,11 +2626,11 @@ rUndeploy = lens _rUndeploy (\s a -> s { _rUndeploy = a }) . _List
 
 instance FromJSON Recipes where
     parseJSON = withObject "Recipes" $ \o -> Recipes
-        <$> o .:? "Configure"
-        <*> o .:? "Deploy"
-        <*> o .:? "Setup"
-        <*> o .:? "Shutdown"
-        <*> o .:? "Undeploy"
+        <$> o .:  "Configure"
+        <*> o .:  "Deploy"
+        <*> o .:  "Setup"
+        <*> o .:  "Shutdown"
+        <*> o .:  "Undeploy"
 
 instance ToJSON Recipes where
     toJSON Recipes{..} = object
@@ -2969,7 +2969,7 @@ sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 instance FromJSON Stack where
     parseJSON = withObject "Stack" $ \o -> Stack
         <$> o .:? "Arn"
-        <*> o .:? "Attributes"
+        <*> o .:  "Attributes"
         <*> o .:? "ChefConfiguration"
         <*> o .:? "ConfigurationManager"
         <*> o .:? "CreatedAt"
@@ -3064,7 +3064,7 @@ dcName = lens _dcName (\s a -> s { _dcName = a })
 
 instance FromJSON DeploymentCommand where
     parseJSON = withObject "DeploymentCommand" $ \o -> DeploymentCommand
-        <$> o .:? "Args"
+        <$> o .:  "Args"
         <*> o .:  "Name"
 
 instance ToJSON DeploymentCommand where
@@ -3142,13 +3142,13 @@ wassWednesday = lens _wassWednesday (\s a -> s { _wassWednesday = a }) . _Map
 
 instance FromJSON WeeklyAutoScalingSchedule where
     parseJSON = withObject "WeeklyAutoScalingSchedule" $ \o -> WeeklyAutoScalingSchedule
-        <$> o .:? "Friday"
-        <*> o .:? "Monday"
-        <*> o .:? "Saturday"
-        <*> o .:? "Sunday"
-        <*> o .:? "Thursday"
-        <*> o .:? "Tuesday"
-        <*> o .:? "Wednesday"
+        <$> o .:  "Friday"
+        <*> o .:  "Monday"
+        <*> o .:  "Saturday"
+        <*> o .:  "Sunday"
+        <*> o .:  "Thursday"
+        <*> o .:  "Tuesday"
+        <*> o .:  "Wednesday"
 
 instance ToJSON WeeklyAutoScalingSchedule where
     toJSON WeeklyAutoScalingSchedule{..} = object
@@ -3506,7 +3506,7 @@ instance FromJSON Instance where
         <*> o .:? "InstanceProfileArn"
         <*> o .:? "InstanceType"
         <*> o .:? "LastServiceErrorId"
-        <*> o .:? "LayerIds"
+        <*> o .:  "LayerIds"
         <*> o .:? "Os"
         <*> o .:? "PrivateDns"
         <*> o .:? "PrivateIp"
@@ -3514,7 +3514,7 @@ instance FromJSON Instance where
         <*> o .:? "PublicIp"
         <*> o .:? "RootDeviceType"
         <*> o .:? "RootDeviceVolumeId"
-        <*> o .:? "SecurityGroupIds"
+        <*> o .:  "SecurityGroupIds"
         <*> o .:? "SshHostDsaKeyFingerprint"
         <*> o .:? "SshHostRsaKeyFingerprint"
         <*> o .:? "SshKeyName"
@@ -3679,7 +3679,7 @@ instance FromJSON Deployment where
         <*> o .:? "DeploymentId"
         <*> o .:? "Duration"
         <*> o .:? "IamUserArn"
-        <*> o .:? "InstanceIds"
+        <*> o .:  "InstanceIds"
         <*> o .:? "StackId"
         <*> o .:? "Status"
 

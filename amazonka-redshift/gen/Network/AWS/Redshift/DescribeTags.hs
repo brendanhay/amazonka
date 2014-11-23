@@ -207,4 +207,4 @@ instance AWSRequest DescribeTags where
 instance FromXML DescribeTagsResponse where
     parseXML = withElement "DescribeTagsResult" $ \x -> DescribeTagsResponse
         <$> x .@? "Marker"
-        <*> x .@? "TaggedResources"
+        <*> x .@  "TaggedResources"

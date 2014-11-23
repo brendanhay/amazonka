@@ -145,7 +145,7 @@ instance AWSRequest DescribeCacheParameterGroups where
 
 instance FromXML DescribeCacheParameterGroupsResponse where
     parseXML = withElement "DescribeCacheParameterGroupsResult" $ \x -> DescribeCacheParameterGroupsResponse
-        <$> x .@? "CacheParameterGroups"
+        <$> x .@  "CacheParameterGroups"
         <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheParameterGroups where

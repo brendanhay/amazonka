@@ -151,5 +151,5 @@ instance AWSRequest ListEventSources where
 
 instance FromJSON ListEventSourcesResponse where
     parseJSON = withObject "ListEventSourcesResponse" $ \o -> ListEventSourcesResponse
-        <$> o .:? "EventSources"
+        <$> o .:  "EventSources"
         <*> o .:? "NextMarker"

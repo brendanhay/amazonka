@@ -137,5 +137,5 @@ instance AWSRequest ListDomains where
 
 instance FromJSON ListDomainsResponse where
     parseJSON = withObject "ListDomainsResponse" $ \o -> ListDomainsResponse
-        <$> o .:? "Domains"
+        <$> o .:  "Domains"
         <*> o .:? "NextPageMarker"

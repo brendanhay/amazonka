@@ -143,4 +143,4 @@ instance AWSRequest DescribeServiceErrors where
 
 instance FromJSON DescribeServiceErrorsResponse where
     parseJSON = withObject "DescribeServiceErrorsResponse" $ \o -> DescribeServiceErrorsResponse
-        <$> o .:? "ServiceErrors"
+        <$> o .:  "ServiceErrors"

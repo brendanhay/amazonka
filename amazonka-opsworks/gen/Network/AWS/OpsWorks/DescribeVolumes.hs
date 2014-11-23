@@ -150,4 +150,4 @@ instance AWSRequest DescribeVolumes where
 
 instance FromJSON DescribeVolumesResponse where
     parseJSON = withObject "DescribeVolumesResponse" $ \o -> DescribeVolumesResponse
-        <$> o .:? "Volumes"
+        <$> o .:  "Volumes"

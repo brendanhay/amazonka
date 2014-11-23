@@ -200,7 +200,7 @@ paPlatformApplicationArn =
 
 instance FromXML PlatformApplication where
     parseXML x = PlatformApplication
-        <$> x .@? "Attributes"
+        <$> x .@  "Attributes"
         <*> x .@? "PlatformApplicationArn"
 
 instance ToQuery PlatformApplication where
@@ -307,7 +307,7 @@ eEndpointArn = lens _eEndpointArn (\s a -> s { _eEndpointArn = a })
 
 instance FromXML Endpoint where
     parseXML x = Endpoint
-        <$> x .@? "Attributes"
+        <$> x .@  "Attributes"
         <*> x .@? "EndpointArn"
 
 instance ToQuery Endpoint where

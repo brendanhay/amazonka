@@ -155,7 +155,7 @@ instance AWSRequest DescribeDBSubnetGroups where
 
 instance FromXML DescribeDBSubnetGroupsResponse where
     parseXML = withElement "DescribeDBSubnetGroupsResult" $ \x -> DescribeDBSubnetGroupsResponse
-        <$> x .@? "DBSubnetGroups"
+        <$> x .@  "DBSubnetGroups"
         <*> x .@? "Marker"
 
 instance AWSPager DescribeDBSubnetGroups where

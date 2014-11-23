@@ -193,7 +193,7 @@ instance AWSRequest DescribeVolumeStatus where
 instance FromXML DescribeVolumeStatusResponse where
     parseXML x = DescribeVolumeStatusResponse
         <$> x .@? "nextToken"
-        <*> x .@? "volumeStatusSet"
+        <*> x .@  "volumeStatusSet"
 
 instance AWSPager DescribeVolumeStatus where
     page rq rs

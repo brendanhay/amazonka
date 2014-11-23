@@ -203,7 +203,7 @@ instance AWSRequest DescribeOrderableDBInstanceOptions where
 instance FromXML DescribeOrderableDBInstanceOptionsResponse where
     parseXML = withElement "DescribeOrderableDBInstanceOptionsResult" $ \x -> DescribeOrderableDBInstanceOptionsResponse
         <$> x .@? "Marker"
-        <*> x .@? "OrderableDBInstanceOptions"
+        <*> x .@  "OrderableDBInstanceOptions"
 
 instance AWSPager DescribeOrderableDBInstanceOptions where
     page rq rs

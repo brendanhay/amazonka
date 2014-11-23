@@ -124,4 +124,4 @@ instance AWSRequest TestMetricFilter where
 
 instance FromJSON TestMetricFilterResponse where
     parseJSON = withObject "TestMetricFilterResponse" $ \o -> TestMetricFilterResponse
-        <$> o .:? "matches"
+        <$> o .:  "matches"

@@ -168,7 +168,7 @@ poName = lens _poName (\s a -> s { _poName = a })
 
 instance FromJSON PipelineObject where
     parseJSON = withObject "PipelineObject" $ \o -> PipelineObject
-        <$> o .:? "fields"
+        <$> o .:  "fields"
         <*> o .:  "id"
         <*> o .:  "name"
 
@@ -312,7 +312,7 @@ oValues = lens _oValues (\s a -> s { _oValues = a }) . _List
 instance FromJSON Operator where
     parseJSON = withObject "Operator" $ \o -> Operator
         <$> o .:? "type"
-        <*> o .:? "values"
+        <*> o .:  "values"
 
 instance ToJSON Operator where
     toJSON Operator{..} = object
@@ -369,7 +369,7 @@ toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
 instance FromJSON TaskObject where
     parseJSON = withObject "TaskObject" $ \o -> TaskObject
         <$> o .:? "attemptId"
-        <*> o .:? "objects"
+        <*> o .:  "objects"
         <*> o .:? "pipelineId"
         <*> o .:? "taskId"
 
@@ -410,7 +410,7 @@ veId = lens _veId (\s a -> s { _veId = a })
 
 instance FromJSON ValidationError where
     parseJSON = withObject "ValidationError" $ \o -> ValidationError
-        <$> o .:? "errors"
+        <$> o .:  "errors"
         <*> o .:? "id"
 
 instance ToJSON ValidationError where
@@ -469,7 +469,7 @@ pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 instance FromJSON PipelineDescription where
     parseJSON = withObject "PipelineDescription" $ \o -> PipelineDescription
         <$> o .:? "description"
-        <*> o .:? "fields"
+        <*> o .:  "fields"
         <*> o .:  "name"
         <*> o .:  "pipelineId"
 
@@ -550,7 +550,7 @@ qSelectors = lens _qSelectors (\s a -> s { _qSelectors = a }) . _List
 
 instance FromJSON Query where
     parseJSON = withObject "Query" $ \o -> Query
-        <$> o .:? "selectors"
+        <$> o .:  "selectors"
 
 instance ToJSON Query where
     toJSON Query{..} = object
@@ -682,7 +682,7 @@ vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a }) . _List
 instance FromJSON ValidationWarning where
     parseJSON = withObject "ValidationWarning" $ \o -> ValidationWarning
         <$> o .:? "id"
-        <*> o .:? "warnings"
+        <*> o .:  "warnings"
 
 instance ToJSON ValidationWarning where
     toJSON ValidationWarning{..} = object

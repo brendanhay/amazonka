@@ -138,4 +138,4 @@ instance AWSRequest DescribeSuggesters where
 
 instance FromXML DescribeSuggestersResponse where
     parseXML = withElement "DescribeSuggestersResult" $ \x -> DescribeSuggestersResponse
-        <$> x .@? "Suggesters"
+        <$> x .@  "Suggesters"

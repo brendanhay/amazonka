@@ -167,4 +167,4 @@ instance AWSRequest CreateTapes where
 
 instance FromJSON CreateTapesResponse where
     parseJSON = withObject "CreateTapesResponse" $ \o -> CreateTapesResponse
-        <$> o .:? "TapeARNs"
+        <$> o .:  "TapeARNs"

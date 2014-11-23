@@ -121,4 +121,4 @@ instance AWSRequest DescribeDomains where
 
 instance FromXML DescribeDomainsResponse where
     parseXML = withElement "DescribeDomainsResult" $ \x -> DescribeDomainsResponse
-        <$> x .@? "DomainStatusList"
+        <$> x .@  "DomainStatusList"

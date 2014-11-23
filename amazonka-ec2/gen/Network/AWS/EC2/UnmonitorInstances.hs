@@ -121,4 +121,4 @@ instance AWSRequest UnmonitorInstances where
 
 instance FromXML UnmonitorInstancesResponse where
     parseXML x = UnmonitorInstancesResponse
-        <$> x .@? "instancesSet"
+        <$> x .@  "instancesSet"

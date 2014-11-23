@@ -161,7 +161,7 @@ instance FromXML ListServerCertificatesResponse where
     parseXML = withElement "ListServerCertificatesResult" $ \x -> ListServerCertificatesResponse
         <$> x .@? "IsTruncated"
         <*> x .@? "Marker"
-        <*> x .@? "ServerCertificateMetadataList"
+        <*> x .@  "ServerCertificateMetadataList"
 
 instance AWSPager ListServerCertificates where
     page rq rs

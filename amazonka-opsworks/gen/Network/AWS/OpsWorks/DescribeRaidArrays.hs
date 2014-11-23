@@ -127,4 +127,4 @@ instance AWSRequest DescribeRaidArrays where
 
 instance FromJSON DescribeRaidArraysResponse where
     parseJSON = withObject "DescribeRaidArraysResponse" $ \o -> DescribeRaidArraysResponse
-        <$> o .:? "RaidArrays"
+        <$> o .:  "RaidArrays"

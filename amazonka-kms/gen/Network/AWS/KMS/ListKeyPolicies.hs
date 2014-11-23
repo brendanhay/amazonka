@@ -155,5 +155,5 @@ instance AWSRequest ListKeyPolicies where
 instance FromJSON ListKeyPoliciesResponse where
     parseJSON = withObject "ListKeyPoliciesResponse" $ \o -> ListKeyPoliciesResponse
         <$> o .:? "NextMarker"
-        <*> o .:? "PolicyNames"
+        <*> o .:  "PolicyNames"
         <*> o .:? "Truncated"

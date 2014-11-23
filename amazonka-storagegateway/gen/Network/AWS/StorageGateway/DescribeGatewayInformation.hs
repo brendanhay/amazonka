@@ -173,7 +173,7 @@ instance FromJSON DescribeGatewayInformationResponse where
     parseJSON = withObject "DescribeGatewayInformationResponse" $ \o -> DescribeGatewayInformationResponse
         <$> o .:? "GatewayARN"
         <*> o .:? "GatewayId"
-        <*> o .:? "GatewayNetworkInterfaces"
+        <*> o .:  "GatewayNetworkInterfaces"
         <*> o .:? "GatewayState"
         <*> o .:? "GatewayTimezone"
         <*> o .:? "GatewayType"

@@ -156,7 +156,7 @@ instance FromXML ListRolePoliciesResponse where
     parseXML = withElement "ListRolePoliciesResult" $ \x -> ListRolePoliciesResponse
         <$> x .@? "IsTruncated"
         <*> x .@? "Marker"
-        <*> x .@? "PolicyNames"
+        <*> x .@  "PolicyNames"
 
 instance AWSPager ListRolePolicies where
     page rq rs

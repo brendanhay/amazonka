@@ -152,7 +152,7 @@ instance AWSRequest ListInstances where
 
 instance FromJSON ListInstancesResponse where
     parseJSON = withObject "ListInstancesResponse" $ \o -> ListInstancesResponse
-        <$> o .:? "Instances"
+        <$> o .:  "Instances"
         <*> o .:? "Marker"
 
 instance AWSPager ListInstances where

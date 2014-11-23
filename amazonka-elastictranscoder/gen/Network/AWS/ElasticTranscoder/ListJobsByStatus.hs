@@ -149,7 +149,7 @@ instance AWSRequest ListJobsByStatus where
 
 instance FromJSON ListJobsByStatusResponse where
     parseJSON = withObject "ListJobsByStatusResponse" $ \o -> ListJobsByStatusResponse
-        <$> o .:? "Jobs"
+        <$> o .:  "Jobs"
         <*> o .:? "NextPageToken"
 
 instance AWSPager ListJobsByStatus where

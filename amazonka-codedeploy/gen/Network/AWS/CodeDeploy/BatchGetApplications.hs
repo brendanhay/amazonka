@@ -122,4 +122,4 @@ instance AWSRequest BatchGetApplications where
 
 instance FromJSON BatchGetApplicationsResponse where
     parseJSON = withObject "BatchGetApplicationsResponse" $ \o -> BatchGetApplicationsResponse
-        <$> o .:? "applicationsInfo"
+        <$> o .:  "applicationsInfo"

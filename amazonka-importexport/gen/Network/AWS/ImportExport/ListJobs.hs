@@ -122,7 +122,7 @@ instance AWSRequest ListJobs where
 instance FromXML ListJobsResponse where
     parseXML = withElement "ListJobsResult" $ \x -> ListJobsResponse
         <$> x .@? "IsTruncated"
-        <*> x .@? "Jobs"
+        <*> x .@  "Jobs"
 
 instance AWSPager ListJobs where
     page rq rs

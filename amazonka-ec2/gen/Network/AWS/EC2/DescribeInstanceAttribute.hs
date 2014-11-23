@@ -262,15 +262,15 @@ instance AWSRequest DescribeInstanceAttribute where
 
 instance FromXML DescribeInstanceAttributeResponse where
     parseXML x = DescribeInstanceAttributeResponse
-        <$> x .@? "blockDeviceMapping"
+        <$> x .@  "blockDeviceMapping"
         <*> x .@? "disableApiTermination"
         <*> x .@? "ebsOptimized"
-        <*> x .@? "groupSet"
+        <*> x .@  "groupSet"
         <*> x .@? "instanceId"
         <*> x .@? "instanceInitiatedShutdownBehavior"
         <*> x .@? "instanceType"
         <*> x .@? "kernel"
-        <*> x .@? "productCodes"
+        <*> x .@  "productCodes"
         <*> x .@? "ramdisk"
         <*> x .@? "rootDeviceName"
         <*> x .@? "sourceDestCheck"

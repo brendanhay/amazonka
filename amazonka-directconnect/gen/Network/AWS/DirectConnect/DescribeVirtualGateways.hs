@@ -101,4 +101,4 @@ instance AWSRequest DescribeVirtualGateways where
 
 instance FromJSON DescribeVirtualGatewaysResponse where
     parseJSON = withObject "DescribeVirtualGatewaysResponse" $ \o -> DescribeVirtualGatewaysResponse
-        <$> o .:? "virtualGateways"
+        <$> o .:  "virtualGateways"

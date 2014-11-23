@@ -133,4 +133,4 @@ instance AWSRequest TerminateInstances where
 
 instance FromXML TerminateInstancesResponse where
     parseXML x = TerminateInstancesResponse
-        <$> x .@? "instancesSet"
+        <$> x .@  "instancesSet"

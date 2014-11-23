@@ -158,5 +158,5 @@ instance AWSRequest TestRole where
 
 instance FromJSON TestRoleResponse where
     parseJSON = withObject "TestRoleResponse" $ \o -> TestRoleResponse
-        <$> o .:? "Messages"
+        <$> o .:  "Messages"
         <*> o .:? "Success"

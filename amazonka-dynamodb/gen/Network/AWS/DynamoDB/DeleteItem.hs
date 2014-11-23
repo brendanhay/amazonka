@@ -414,6 +414,6 @@ instance AWSRequest DeleteItem where
 
 instance FromJSON DeleteItemResponse where
     parseJSON = withObject "DeleteItemResponse" $ \o -> DeleteItemResponse
-        <$> o .:? "Attributes"
+        <$> o .:  "Attributes"
         <*> o .:? "ConsumedCapacity"
         <*> o .:? "ItemCollectionMetrics"

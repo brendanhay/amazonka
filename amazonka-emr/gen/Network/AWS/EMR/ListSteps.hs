@@ -136,7 +136,7 @@ instance AWSRequest ListSteps where
 instance FromJSON ListStepsResponse where
     parseJSON = withObject "ListStepsResponse" $ \o -> ListStepsResponse
         <$> o .:? "Marker"
-        <*> o .:? "Steps"
+        <*> o .:  "Steps"
 
 instance AWSPager ListSteps where
     page rq rs

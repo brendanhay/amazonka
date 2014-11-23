@@ -3,8 +3,8 @@ $(error TOP is not set)
 endif
 
 SHELL   := /usr/bin/env bash
-NAME    := $(notdir $(CURDIR:a/%=%))
-VERSION := $(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(NAME).cabal)
+NAME    ?= $(notdir $(CURDIR:a/%=%))
+VERSION ?= $(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(NAME).cabal)
 
 CABAL_SANDBOX_CONFIG := $(TOP)/cabal.sandbox.config
 

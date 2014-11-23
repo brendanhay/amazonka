@@ -68,5 +68,5 @@ instance FromXML RecordType where
     {-# INLINE parseXML #-}
 
 instance ToXML RecordType where
-    toXML = toXMLText "RecordType"
+    toXML = toXMLText
     {-# INLINE toXML #-}

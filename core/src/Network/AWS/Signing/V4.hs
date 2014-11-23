@@ -83,7 +83,6 @@ instance AWSPresigner V4 where
             . pair "X-AMZ-Date"           (LocaleTime l t :: ISO8601)
             . pair "X-AMZ-Expires"        x
             . pair "X-AMZ-SignedHeaders"  sh
-            . pair "X-AMZ-SignedHeaders"  sh
             . pair "X-AMZ-Security-Token" (toBS <$> _authToken a)
 
         auth = mappend "&X-AMZ-Signature=" . _mSignature

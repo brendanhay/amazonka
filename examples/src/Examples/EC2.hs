@@ -12,26 +12,26 @@
 
 module Examples.EC2 where
 
-import           Control.Applicative
-import           Control.Lens
-import           Control.Monad
-import           Control.Monad.IO.Class
+import           Control.Applicative     ((<$>))
+import           Control.Lens            ((&), (.~), (?~), (^.), view)
+import           Control.Monad           (void)
+import           Control.Monad.IO.Class  (liftIO)
+import           Data.Monoid             (mappend)
+import           Data.Text               (Text)
+import qualified Data.Text               as Text
+import qualified Data.Text.IO            as Text
+import           Data.Time.Clock.POSIX   (getPOSIXTime)
+import           System.IO               (BufferMode(..), hSetBuffering, stdout)
+
 import           Control.Monad.Trans.AWS
-import           Data.Monoid
-import           Data.Text                       (Text)
-import qualified Data.Text                       as Text
-import qualified Data.Text.IO                    as Text
-import           Data.Time.Clock.POSIX
-import           Examples.Internal               (discoverEnv)
 import           Network.AWS.EC2
-import           System.IO
 
 launch :: IO ()
 launch = do
     hSetBuffering stdout LineBuffering
 
     ts  <- Text.pack . show <$> getTimestamp
-    env <- discoverEnv
+    env <- getEnv NorthVirginia Discover
     r   <- runAWST env $ do
         say "Create KeyPair " ts
         k <- send (createKeyPair ts)
@@ -60,26 +60,20 @@ launch = do
             & riInstanceType     ?~ T2Micro
             & riSecurityGroupIds .~ [g]
 
-        case i of
-            Right x -> return x
-            Left  e -> do
-                say "Failed to Launch Instance " e
-
-                say "Deleting SecurityGroup " g
-                send (deleteSecurityGroup & dsgGroupId ?~ g)
-
-                say "Deleting KeyPair " k
-                send (deleteKeyPair k)
+        either (\e -> do
+                   say "Failed to Launch Instance " e
+                   say "Deleting SecurityGroup " g
+                   void . send $ deleteSecurityGroup & dsgGroupId ?~ g
+                   say "Deleting KeyPair " ts
+                   void . send $ deleteKeyPair ts
+                   throwAWSError e)
+               return
+               i
 
     print r
-  --        terminateInstances
+  where
+    getTimestamp :: IO Integer
+    getTimestamp = truncate <$> getPOSIXTime
 
-  --        deleteSecurityGroup
-
-  --        deleteKeyPair
-
-getTimestamp :: IO Integer
-getTimestamp = truncate <$> getPOSIXTime
-
-say :: Show a => Text -> a -> AWS ()
-say msg = liftIO . Text.putStrLn . mappend msg . Text.pack . show
+    say :: Show a => Text -> a -> AWS ()
+    say msg = liftIO . Text.putStrLn . mappend msg . Text.pack . show

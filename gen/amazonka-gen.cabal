@@ -1,7 +1,6 @@
 name:                  amazonka-gen
 version:               0.1.0
-synopsis:              Pending
-description:           Pending
+synopsis:              Amazonka Generator
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
@@ -12,6 +11,9 @@ category:              Network, AWS, Cloud
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
+
+description:
+    Pending
 
 executable amazonka-gen
     default-language:  Haskell2010

@@ -9174,7 +9174,10 @@
             }
         ],
         "imports": [],
-        "shared": []
+        "shared": [
+            "Tag",
+            "StepConfig"
+        ]
     },
     "operations": [
         {

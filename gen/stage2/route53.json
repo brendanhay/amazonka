@@ -3527,12 +3527,10 @@
             "Network.AWS.Route53.Internal"
         ],
         "shared": [
-            "HealthCheck",
-            "TagResourceType",
-            "HostedZone",
+            "RecordType",
             "VPC",
             "DelegationSet",
-            "ChangeInfo"
+            "HealthCheckObservation"
         ]
     },
     "operations": [

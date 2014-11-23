@@ -1568,7 +1568,11 @@
             }
         ],
         "imports": [],
-        "shared": []
+        "shared": [
+            "PipelineObject",
+            "ValidationError",
+            "ValidationWarning"
+        ]
     },
     "operations": [
         {

@@ -1188,6 +1188,8 @@
         ],
         "imports": [],
         "shared": [
+            "Runtime",
+            "Mode",
             "FunctionConfiguration",
             "EventSourceConfiguration"
         ]

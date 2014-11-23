@@ -4634,12 +4634,8 @@
         ],
         "imports": [],
         "shared": [
-            "IndexFieldStatus",
-            "ScalingParametersStatus",
-            "AnalysisSchemeStatus",
-            "ExpressionStatus",
-            "SuggesterStatus",
-            "AccessPoliciesStatus"
+            "DomainStatus",
+            "AvailabilityOptionsStatus"
         ]
     },
     "operations": [

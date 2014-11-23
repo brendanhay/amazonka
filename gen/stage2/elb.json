@@ -3033,7 +3033,12 @@
             }
         ],
         "imports": [],
-        "shared": []
+        "shared": [
+            "Tag",
+            "LoadBalancerAttributes",
+            "Listener",
+            "Instance"
+        ]
     },
     "operations": [
         {

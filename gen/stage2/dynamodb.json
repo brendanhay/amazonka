@@ -4428,7 +4428,20 @@
             }
         ],
         "imports": [],
-        "shared": []
+        "shared": [
+            "AttributeValue",
+            "TableDescription",
+            "KeysAndAttributes",
+            "ReturnConsumedCapacity",
+            "ReturnItemCollectionMetrics",
+            "ExpectedAttributeValue",
+            "ReturnValue",
+            "ItemCollectionMetrics",
+            "ConsumedCapacity",
+            "Select",
+            "Condition",
+            "ConditionalOperator"
+        ]
     },
     "operations": [
         {

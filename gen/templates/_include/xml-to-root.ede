@@ -1,13 +1,20 @@
 
-instance ToXMLRoot {{ type.name }} where
 {% case type.type %}
 {% when "void" %}
+instance ToXMLRoot {{ type.name }} where
     toXMLRoot = const (namespaced ns "{{ type.name }}" [])
+
+instance ToXML {{ type.name }}
 {% when "empty" %}
+instance ToXMLRoot {{ type.name }} where
     toXMLRoot = const (namespaced ns "{{ type.name }}" [])
+
+instance ToXML {{ type.name }}
 {% when "nullary" %}
-    toXMLRoot = not implemented
+instance ToXML {{ type.name }} where
+    toXML = toXMLText
 {% else %}
+instance ToXMLRoot {{ type.name }} where
   {% if type.contents | empty %}
     toXMLRoot = const (namespaced ns "{{ type.name }}" [])
   {% else %}
@@ -17,6 +24,6 @@ instance ToXMLRoot {{ type.name }} where
     {% endfor %}
         ]
   {% endif %}
-{% endcase %}
 
 instance ToXML {{ type.name }}
+{% endcase %}

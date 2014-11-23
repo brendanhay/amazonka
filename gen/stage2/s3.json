@@ -7655,7 +7655,16 @@
         "imports": [
             "Network.AWS.S3.Internal"
         ],
-        "shared": []
+        "shared": [
+            "ObjectCannedACL",
+            "EncodingType",
+            "Grant",
+            "Owner",
+            "StorageClass",
+            "AccessControlPolicy",
+            "BucketCannedACL",
+            "ServerSideEncryption"
+        ]
     },
     "operations": [
         {

@@ -4386,7 +4386,9 @@
         ],
         "imports": [],
         "shared": [
-            "ScalingProcessQuery"
+            "Tag",
+            "ScalingProcessQuery",
+            "Activity"
         ]
     },
     "operations": [

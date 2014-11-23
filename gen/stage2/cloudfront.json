@@ -8905,9 +8905,10 @@
         ],
         "imports": [],
         "shared": [
-            "CloudFrontOriginAccessIdentityConfig",
-            "StreamingDistributionConfig",
-            "DistributionConfig"
+            "Invalidation",
+            "Distribution",
+            "StreamingDistribution",
+            "CloudFrontOriginAccessIdentity"
         ]
     },
     "operations": [

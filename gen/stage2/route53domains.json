@@ -1702,6 +1702,7 @@
         ],
         "imports": [],
         "shared": [
+            "Nameserver",
             "ContactDetail"
         ]
     },

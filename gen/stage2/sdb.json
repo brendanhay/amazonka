@@ -689,7 +689,9 @@
             }
         ],
         "imports": [],
-        "shared": []
+        "shared": [
+            "UpdateCondition"
+        ]
     },
     "operations": [
         {

@@ -18253,12 +18253,15 @@
         "shared": [
             "ExecutionTimeFilter",
             "WorkflowExecutionCount",
-            "ActivityType",
-            "WorkflowType",
+            "CloseStatusFilter",
+            "WorkflowExecutionFilter",
             "WorkflowExecutionInfos",
             "TaskList",
-            "RegistrationStatus",
-            "WorkflowExecution",
+            "WorkflowExecutionInfo",
+            "TagFilter",
+            "ChildPolicy",
+            "WorkflowTypeFilter",
+            "HistoryEvent",
             "PendingTaskCount"
         ]
     },

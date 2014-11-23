@@ -3203,7 +3203,9 @@
             }
         ],
         "imports": [],
-        "shared": []
+        "shared": [
+            "Attachment"
+        ]
     },
     "operations": [
         {

@@ -1071,10 +1071,8 @@ instance ToQuery      ObjectCannedACL
 instance FromXML ObjectCannedACL where
     parseXML = parseXMLText "ObjectCannedACL"
 
-instance ToXMLRoot ObjectCannedACL where
-    toXMLRoot = not implemented
-
-instance ToXML ObjectCannedACL
+instance ToXML ObjectCannedACL where
+    toXML = toXMLText
 
 data BucketVersioningStatus
     = BVSEnabled   -- ^ Enabled
@@ -1237,10 +1235,8 @@ instance ToQuery      EncodingType
 instance FromXML EncodingType where
     parseXML = parseXMLText "EncodingType"
 
-instance ToXMLRoot EncodingType where
-    toXMLRoot = not implemented
-
-instance ToXML EncodingType
+instance ToXML EncodingType where
+    toXML = toXMLText
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Payer
@@ -1954,10 +1950,8 @@ instance ToQuery      StorageClass
 instance FromXML StorageClass where
     parseXML = parseXMLText "StorageClass"
 
-instance ToXMLRoot StorageClass where
-    toXMLRoot = not implemented
-
-instance ToXML StorageClass
+instance ToXML StorageClass where
+    toXML = toXMLText
 
 data ObjectVersion = ObjectVersion
     { _ovETag         :: Maybe Text
@@ -2521,12 +2515,10 @@ instance FromXML CommonPrefix where
     parseXML x = CommonPrefix
         <$> x .@? "Prefix"
 
-instance ToXMLRoot CommonPrefix where
-    toXMLRoot CommonPrefix{..} = namespaced ns "CommonPrefix"
+instance ToXML CommonPrefix where
+    toXML CommonPrefix{..} = nodes "CommonPrefix"
         [ "Prefix" =@ _cpPrefix
         ]
-
-instance ToXML CommonPrefix
 
 data MultipartUpload = MultipartUpload
     { _muInitiated    :: Maybe RFC822
@@ -2836,10 +2828,8 @@ instance ToQuery      BucketCannedACL
 instance FromXML BucketCannedACL where
     parseXML = parseXMLText "BucketCannedACL"
 
-instance ToXMLRoot BucketCannedACL where
-    toXMLRoot = not implemented
-
-instance ToXML BucketCannedACL
+instance ToXML BucketCannedACL where
+    toXML = toXMLText
 
 data MFADelete
     = MFADDisabled -- ^ Disabled
@@ -3099,10 +3089,8 @@ instance ToQuery      ServerSideEncryption
 instance FromXML ServerSideEncryption where
     parseXML = parseXMLText "ServerSideEncryption"
 
-instance ToXMLRoot ServerSideEncryption where
-    toXMLRoot = not implemented
-
-instance ToXML ServerSideEncryption
+instance ToXML ServerSideEncryption where
+    toXML = toXMLText
 
 newtype IndexDocument = IndexDocument
     { _idSuffix :: Text

@@ -340,7 +340,8 @@ shared s1 = do
         return $! maybe [] (nested k) md
 
     nested :: Text -> Data -> [Text]
-    nested k d = k : mapMaybe name (toListOf (dataFields . typeOf) d)
+    nested k Nullary{} = []
+    nested k d = k : mapMaybe name (toListOf (dataFields . typesOf) d)
 
     name :: Type -> Maybe Text
     name (TType k) = Just k

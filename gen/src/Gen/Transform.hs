@@ -337,10 +337,10 @@ shared s1 = do
     ins (Just r) = do
         let k = r ^. refShape
         md <- gets (Map.lookup k)
-        return $!
-            maybe []
-                  (\d -> k : mapMaybe name (nestedTypes d))
-                  md
+        return $! maybe [] (nested k) md
+
+    nested :: Text -> Data -> [Text]
+    nested k d = k : mapMaybe name (toListOf (dataFields . typeOf) d)
 
     name :: Type -> Maybe Text
     name (TType k) = Just k

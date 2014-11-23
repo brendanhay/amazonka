@@ -7813,18 +7813,7 @@
         ],
         "imports": [],
         "shared": [
-            "OptionGroup",
-            "DBSecurityGroup",
-            "Tag",
-            "DBSnapshot",
-            "DBParameterGroup",
-            "ReservedDBInstance",
-            "DBParameterGroupNameMessage",
-            "DBInstance",
-            "EventSubscription",
-            "DBSubnetGroup",
-            "Filter",
-            "Parameter"
+            "DBParameterGroupNameMessage"
         ]
     },
     "operations": [

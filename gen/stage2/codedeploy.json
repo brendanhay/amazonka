@@ -4076,11 +4076,7 @@
         ],
         "imports": [],
         "shared": [
-            "ApplicationInfo",
-            "AutoScalingGroup",
-            "RevisionLocation",
-            "EC2TagFilter",
-            "DeploymentInfo"
+            "RevisionLocation"
         ]
     },
     "operations": [

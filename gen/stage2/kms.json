@@ -1146,10 +1146,7 @@
             }
         ],
         "imports": [],
-        "shared": [
-            "KeyMetadata",
-            "DataKeySpec"
-        ]
+        "shared": []
     },
     "operations": [
         {

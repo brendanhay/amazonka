@@ -475,9 +475,6 @@ instance ToJSON Data where
 
                 contents = filter (isNothing . _fLocation) fs
 
-nestedTypes :: Data -> [Type]
-nestedTypes = concatMap universe . toListOf (dataFields . typesOf)
-
 dataRename :: Text -> Data -> Data
 dataRename k = \case
     Nullary _ m  -> Nullary k m

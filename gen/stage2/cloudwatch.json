@@ -1833,12 +1833,7 @@
             }
         ],
         "imports": [],
-        "shared": [
-            "MetricAlarm",
-            "StandardUnit",
-            "Dimension",
-            "Statistic"
-        ]
+        "shared": []
     },
     "operations": [
         {

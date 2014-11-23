@@ -349,10 +349,7 @@
             }
         ],
         "imports": [],
-        "shared": [
-            "Credentials",
-            "AssumedRoleUser"
-        ]
+        "shared": []
     },
     "operations": [
         {

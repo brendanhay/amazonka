@@ -689,10 +689,7 @@
             }
         ],
         "imports": [],
-        "shared": [
-            "Attribute",
-            "UpdateCondition"
-        ]
+        "shared": []
     },
     "operations": [
         {

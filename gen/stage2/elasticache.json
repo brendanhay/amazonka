@@ -5587,15 +5587,6 @@
         ],
         "imports": [],
         "shared": [
-            "Snapshot",
-            "ParameterNameValue",
-            "CacheSubnetGroup",
-            "ReservedCacheNode",
-            "CacheCluster",
-            "CacheParameterGroup",
-            "CacheSecurityGroup",
-            "AZMode",
-            "ReplicationGroup",
             "CacheParameterGroupNameMessage"
         ]
     },

@@ -2754,8 +2754,9 @@
         "shared": [
             "Group",
             "InstanceProfile",
-            "ServerCertificateMetadata",
-            "User"
+            "LoginProfile",
+            "statusType",
+            "Role"
         ]
     },
     "operations": [

@@ -3995,19 +3995,11 @@
         ],
         "imports": [],
         "shared": [
-            "ApplicationDescription",
             "ApplicationVersionDescriptionMessage",
-            "ConfigurationDeploymentStatus",
-            "ConfigurationOptionSetting",
             "ConfigurationSettingsDescription",
-            "ApplicationVersionDescription",
-            "OptionSpecification",
-            "EnvironmentStatus",
             "ApplicationDescriptionMessage",
-            "EnvironmentTier",
-            "EnvironmentResourcesDescription",
-            "EnvironmentDescription",
-            "EnvironmentHealth"
+            "EnvironmentInfoType",
+            "EnvironmentDescription"
         ]
     },
     "operations": [

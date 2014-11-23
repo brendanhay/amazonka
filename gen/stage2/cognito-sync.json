@@ -1530,12 +1530,7 @@
             }
         ],
         "imports": [],
-        "shared": [
-            "IdentityPoolUsage",
-            "Dataset",
-            "Record",
-            "PushSync"
-        ]
+        "shared": []
     },
     "operations": [
         {

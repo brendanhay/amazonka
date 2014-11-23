@@ -592,9 +592,7 @@
             }
         ],
         "imports": [],
-        "shared": [
-            "Subscription"
-        ]
+        "shared": []
     },
     "operations": [
         {

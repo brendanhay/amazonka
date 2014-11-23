@@ -11815,22 +11815,7 @@
             }
         ],
         "imports": [],
-        "shared": [
-            "SslConfiguration",
-            "AppAttributesKeys",
-            "StackAttributesKeys",
-            "ChefConfiguration",
-            "AutoScalingThresholds",
-            "AutoScalingType",
-            "Source",
-            "DataSource",
-            "Architecture",
-            "StackConfigurationManager",
-            "LayerAttributesKeys",
-            "VolumeConfiguration",
-            "Recipes",
-            "RootDeviceType"
-        ]
+        "shared": []
     },
     "operations": [
         {

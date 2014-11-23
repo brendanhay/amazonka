@@ -1245,10 +1245,7 @@
             }
         ],
         "imports": [],
-        "shared": [
-            "QueueAttributeName",
-            "BatchResultErrorEntry"
-        ]
+        "shared": []
     },
     "operations": [
         {

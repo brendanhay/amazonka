@@ -6955,19 +6955,8 @@
         ],
         "imports": [],
         "shared": [
-            "Snapshot",
-            "ClusterParameterGroup",
-            "Tag",
-            "HsmClientCertificate",
-            "Cluster",
-            "ClusterSecurityGroup",
-            "ClusterSubnetGroup",
-            "ReservedNode",
             "LoggingStatus",
-            "EventSubscription",
-            "ClusterParameterGroupNameMessage",
-            "HsmConfiguration",
-            "Parameter"
+            "ClusterParameterGroupNameMessage"
         ]
     },
     "operations": [

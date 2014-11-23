@@ -1682,7 +1682,6 @@ instance ToText SourceType where
 
 instance ToByteString SourceType
 instance ToHeader     SourceType
-instance ToQuery      SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"

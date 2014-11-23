@@ -846,7 +846,6 @@ instance ToText PendingAutomaticFailoverStatus where
 
 instance ToByteString PendingAutomaticFailoverStatus
 instance ToHeader     PendingAutomaticFailoverStatus
-instance ToQuery      PendingAutomaticFailoverStatus
 
 instance FromXML PendingAutomaticFailoverStatus where
     parseXML = parseXMLText "PendingAutomaticFailoverStatus"
@@ -1050,7 +1049,6 @@ instance ToText SourceType where
 
 instance ToByteString SourceType
 instance ToHeader     SourceType
-instance ToQuery      SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
@@ -2059,7 +2057,6 @@ instance ToText AutomaticFailoverStatus where
 
 instance ToByteString AutomaticFailoverStatus
 instance ToHeader     AutomaticFailoverStatus
-instance ToQuery      AutomaticFailoverStatus
 
 instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
@@ -2257,7 +2254,6 @@ instance ToText AZMode where
 
 instance ToByteString AZMode
 instance ToHeader     AZMode
-instance ToQuery      AZMode
 
 instance FromXML AZMode where
     parseXML = parseXMLText "AZMode"

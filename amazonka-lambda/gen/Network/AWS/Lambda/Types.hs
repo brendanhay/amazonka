@@ -107,7 +107,6 @@ instance ToText Runtime where
 
 instance ToByteString Runtime
 instance ToHeader     Runtime
-instance ToQuery      Runtime
 
 instance FromJSON Runtime where
     parseJSON = parseJSONText "Runtime"
@@ -129,7 +128,6 @@ instance ToText Mode where
 
 instance ToByteString Mode
 instance ToHeader     Mode
-instance ToQuery      Mode
 
 instance FromJSON Mode where
     parseJSON = parseJSONText "Mode"

@@ -594,7 +594,6 @@ instance ToText SSLSupportMethod where
 
 instance ToByteString SSLSupportMethod
 instance ToHeader     SSLSupportMethod
-instance ToQuery      SSLSupportMethod
 
 instance FromXML SSLSupportMethod where
     parseXML = parseXMLText "SSLSupportMethod"
@@ -788,7 +787,6 @@ instance ToText ViewerProtocolPolicy where
 
 instance ToByteString ViewerProtocolPolicy
 instance ToHeader     ViewerProtocolPolicy
-instance ToQuery      ViewerProtocolPolicy
 
 instance FromXML ViewerProtocolPolicy where
     parseXML = parseXMLText "ViewerProtocolPolicy"
@@ -1125,7 +1123,6 @@ instance ToText OriginProtocolPolicy where
 
 instance ToByteString OriginProtocolPolicy
 instance ToHeader     OriginProtocolPolicy
-instance ToQuery      OriginProtocolPolicy
 
 instance FromXML OriginProtocolPolicy where
     parseXML = parseXMLText "OriginProtocolPolicy"
@@ -2121,7 +2118,6 @@ instance ToText PriceClass where
 
 instance ToByteString PriceClass
 instance ToHeader     PriceClass
-instance ToQuery      PriceClass
 
 instance FromXML PriceClass where
     parseXML = parseXMLText "PriceClass"
@@ -2535,7 +2531,6 @@ instance ToText Method where
 
 instance ToByteString Method
 instance ToHeader     Method
-instance ToQuery      Method
 
 instance FromXML Method where
     parseXML = parseXMLText "Method"
@@ -2669,7 +2664,6 @@ instance ToText ItemSelection where
 
 instance ToByteString ItemSelection
 instance ToHeader     ItemSelection
-instance ToQuery      ItemSelection
 
 instance FromXML ItemSelection where
     parseXML = parseXMLText "ItemSelection"
@@ -3559,7 +3553,6 @@ instance ToText GeoRestrictionType where
 
 instance ToByteString GeoRestrictionType
 instance ToHeader     GeoRestrictionType
-instance ToQuery      GeoRestrictionType
 
 instance FromXML GeoRestrictionType where
     parseXML = parseXMLText "GeoRestrictionType"

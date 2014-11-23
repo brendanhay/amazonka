@@ -405,7 +405,6 @@ instance ToText EventSeverity where
 
 instance ToByteString EventSeverity
 instance ToHeader     EventSeverity
-instance ToQuery      EventSeverity
 
 instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
@@ -657,7 +656,6 @@ instance ToText ConfigurationDeploymentStatus where
 
 instance ToByteString ConfigurationDeploymentStatus
 instance ToHeader     ConfigurationDeploymentStatus
-instance ToQuery      ConfigurationDeploymentStatus
 
 instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
@@ -731,7 +729,6 @@ instance ToText ConfigurationOptionValueType where
 
 instance ToByteString ConfigurationOptionValueType
 instance ToHeader     ConfigurationOptionValueType
-instance ToQuery      ConfigurationOptionValueType
 
 instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
@@ -1143,7 +1140,6 @@ instance ToText EnvironmentStatus where
 
 instance ToByteString EnvironmentStatus
 instance ToHeader     EnvironmentStatus
-instance ToQuery      EnvironmentStatus
 
 instance FromXML EnvironmentStatus where
     parseXML = parseXMLText "EnvironmentStatus"
@@ -1755,7 +1751,6 @@ instance ToText ValidationSeverity where
 
 instance ToByteString ValidationSeverity
 instance ToHeader     ValidationSeverity
-instance ToQuery      ValidationSeverity
 
 instance FromXML ValidationSeverity where
     parseXML = parseXMLText "ValidationSeverity"
@@ -1805,7 +1800,6 @@ instance ToText EnvironmentInfoType where
 
 instance ToByteString EnvironmentInfoType
 instance ToHeader     EnvironmentInfoType
-instance ToQuery      EnvironmentInfoType
 
 instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
@@ -2065,7 +2059,6 @@ instance ToText EnvironmentHealth where
 
 instance ToByteString EnvironmentHealth
 instance ToHeader     EnvironmentHealth
-instance ToQuery      EnvironmentHealth
 
 instance FromXML EnvironmentHealth where
     parseXML = parseXMLText "EnvironmentHealth"

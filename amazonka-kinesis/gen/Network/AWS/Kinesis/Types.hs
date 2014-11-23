@@ -321,7 +321,6 @@ instance ToText StreamStatus where
 
 instance ToByteString StreamStatus
 instance ToHeader     StreamStatus
-instance ToQuery      StreamStatus
 
 instance FromJSON StreamStatus where
     parseJSON = parseJSONText "StreamStatus"
@@ -491,7 +490,6 @@ instance ToText ShardIteratorType where
 
 instance ToByteString ShardIteratorType
 instance ToHeader     ShardIteratorType
-instance ToQuery      ShardIteratorType
 
 instance FromJSON ShardIteratorType where
     parseJSON = parseJSONText "ShardIteratorType"

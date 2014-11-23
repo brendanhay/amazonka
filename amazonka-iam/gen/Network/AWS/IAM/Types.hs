@@ -223,7 +223,6 @@ instance ToText AssignmentStatusType where
 
 instance ToByteString AssignmentStatusType
 instance ToHeader     AssignmentStatusType
-instance ToQuery      AssignmentStatusType
 
 instance FromXML AssignmentStatusType where
     parseXML = parseXMLText "AssignmentStatusType"
@@ -596,7 +595,6 @@ instance ToText ReportFormatType where
 
 instance ToByteString ReportFormatType
 instance ToHeader     ReportFormatType
-instance ToQuery      ReportFormatType
 
 instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
@@ -827,7 +825,6 @@ instance ToText SummaryKeyType where
 
 instance ToByteString SummaryKeyType
 instance ToHeader     SummaryKeyType
-instance ToQuery      SummaryKeyType
 
 instance FromXML SummaryKeyType where
     parseXML = parseXMLText "SummaryKeyType"
@@ -856,7 +853,6 @@ instance ToText ReportStateType where
 
 instance ToByteString ReportStateType
 instance ToHeader     ReportStateType
-instance ToQuery      ReportStateType
 
 instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
@@ -980,7 +976,6 @@ instance ToText StatusType where
 
 instance ToByteString StatusType
 instance ToHeader     StatusType
-instance ToQuery      StatusType
 
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"

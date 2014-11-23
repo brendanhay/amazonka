@@ -1447,7 +1447,6 @@ instance ToText WorkflowExecutionTimeoutType where
 
 instance ToByteString WorkflowExecutionTimeoutType
 instance ToHeader     WorkflowExecutionTimeoutType
-instance ToQuery      WorkflowExecutionTimeoutType
 
 instance FromJSON WorkflowExecutionTimeoutType where
     parseJSON = parseJSONText "WorkflowExecutionTimeoutType"
@@ -1996,7 +1995,6 @@ instance ToText RequestCancelActivityTaskFailedCause where
 
 instance ToByteString RequestCancelActivityTaskFailedCause
 instance ToHeader     RequestCancelActivityTaskFailedCause
-instance ToQuery      RequestCancelActivityTaskFailedCause
 
 instance FromJSON RequestCancelActivityTaskFailedCause where
     parseJSON = parseJSONText "RequestCancelActivityTaskFailedCause"
@@ -2224,7 +2222,6 @@ instance ToText WorkflowExecutionTerminatedCause where
 
 instance ToByteString WorkflowExecutionTerminatedCause
 instance ToHeader     WorkflowExecutionTerminatedCause
-instance ToQuery      WorkflowExecutionTerminatedCause
 
 instance FromJSON WorkflowExecutionTerminatedCause where
     parseJSON = parseJSONText "WorkflowExecutionTerminatedCause"
@@ -2250,7 +2247,6 @@ instance ToText CancelWorkflowExecutionFailedCause where
 
 instance ToByteString CancelWorkflowExecutionFailedCause
 instance ToHeader     CancelWorkflowExecutionFailedCause
-instance ToQuery      CancelWorkflowExecutionFailedCause
 
 instance FromJSON CancelWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "CancelWorkflowExecutionFailedCause"
@@ -2279,7 +2275,6 @@ instance ToText SignalExternalWorkflowExecutionFailedCause where
 
 instance ToByteString SignalExternalWorkflowExecutionFailedCause
 instance ToHeader     SignalExternalWorkflowExecutionFailedCause
-instance ToQuery      SignalExternalWorkflowExecutionFailedCause
 
 instance FromJSON SignalExternalWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "SignalExternalWorkflowExecutionFailedCause"
@@ -2478,7 +2473,6 @@ instance ToText DecisionType where
 
 instance ToByteString DecisionType
 instance ToHeader     DecisionType
-instance ToQuery      DecisionType
 
 instance FromJSON DecisionType where
     parseJSON = parseJSONText "DecisionType"
@@ -2990,7 +2984,6 @@ instance ToText ActivityTaskTimeoutType where
 
 instance ToByteString ActivityTaskTimeoutType
 instance ToHeader     ActivityTaskTimeoutType
-instance ToQuery      ActivityTaskTimeoutType
 
 instance FromJSON ActivityTaskTimeoutType where
     parseJSON = parseJSONText "ActivityTaskTimeoutType"
@@ -3113,7 +3106,6 @@ instance ToText ExecutionStatus where
 
 instance ToByteString ExecutionStatus
 instance ToHeader     ExecutionStatus
-instance ToQuery      ExecutionStatus
 
 instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
@@ -3135,7 +3127,6 @@ instance ToText DecisionTaskTimeoutType where
 
 instance ToByteString DecisionTaskTimeoutType
 instance ToHeader     DecisionTaskTimeoutType
-instance ToQuery      DecisionTaskTimeoutType
 
 instance FromJSON DecisionTaskTimeoutType where
     parseJSON = parseJSONText "DecisionTaskTimeoutType"
@@ -3157,7 +3148,6 @@ instance ToText WorkflowExecutionCancelRequestedCause where
 
 instance ToByteString WorkflowExecutionCancelRequestedCause
 instance ToHeader     WorkflowExecutionCancelRequestedCause
-instance ToQuery      WorkflowExecutionCancelRequestedCause
 
 instance FromJSON WorkflowExecutionCancelRequestedCause where
     parseJSON = parseJSONText "WorkflowExecutionCancelRequestedCause"
@@ -3210,7 +3200,6 @@ instance ToText StartChildWorkflowExecutionFailedCause where
 
 instance ToByteString StartChildWorkflowExecutionFailedCause
 instance ToHeader     StartChildWorkflowExecutionFailedCause
-instance ToQuery      StartChildWorkflowExecutionFailedCause
 
 instance FromJSON StartChildWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "StartChildWorkflowExecutionFailedCause"
@@ -3410,7 +3399,6 @@ instance ToText FailWorkflowExecutionFailedCause where
 
 instance ToByteString FailWorkflowExecutionFailedCause
 instance ToHeader     FailWorkflowExecutionFailedCause
-instance ToQuery      FailWorkflowExecutionFailedCause
 
 instance FromJSON FailWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "FailWorkflowExecutionFailedCause"
@@ -3745,7 +3733,6 @@ instance ToText ContinueAsNewWorkflowExecutionFailedCause where
 
 instance ToByteString ContinueAsNewWorkflowExecutionFailedCause
 instance ToHeader     ContinueAsNewWorkflowExecutionFailedCause
-instance ToQuery      ContinueAsNewWorkflowExecutionFailedCause
 
 instance FromJSON ContinueAsNewWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "ContinueAsNewWorkflowExecutionFailedCause"
@@ -3944,7 +3931,6 @@ instance ToText EventType where
 
 instance ToByteString EventType
 instance ToHeader     EventType
-instance ToQuery      EventType
 
 instance FromJSON EventType where
     parseJSON = parseJSONText "EventType"
@@ -4581,7 +4567,6 @@ instance ToText ScheduleActivityTaskFailedCause where
 
 instance ToByteString ScheduleActivityTaskFailedCause
 instance ToHeader     ScheduleActivityTaskFailedCause
-instance ToQuery      ScheduleActivityTaskFailedCause
 
 instance FromJSON ScheduleActivityTaskFailedCause where
     parseJSON = parseJSONText "ScheduleActivityTaskFailedCause"
@@ -4947,7 +4932,6 @@ instance ToText ChildPolicy where
 
 instance ToByteString ChildPolicy
 instance ToHeader     ChildPolicy
-instance ToQuery      ChildPolicy
 
 instance FromJSON ChildPolicy where
     parseJSON = parseJSONText "ChildPolicy"
@@ -5029,7 +5013,6 @@ instance ToText CloseStatus where
 
 instance ToByteString CloseStatus
 instance ToHeader     CloseStatus
-instance ToQuery      CloseStatus
 
 instance FromJSON CloseStatus where
     parseJSON = parseJSONText "CloseStatus"
@@ -5055,7 +5038,6 @@ instance ToText CompleteWorkflowExecutionFailedCause where
 
 instance ToByteString CompleteWorkflowExecutionFailedCause
 instance ToHeader     CompleteWorkflowExecutionFailedCause
-instance ToQuery      CompleteWorkflowExecutionFailedCause
 
 instance FromJSON CompleteWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "CompleteWorkflowExecutionFailedCause"
@@ -5087,7 +5069,6 @@ instance ToText StartTimerFailedCause where
 
 instance ToByteString StartTimerFailedCause
 instance ToHeader     StartTimerFailedCause
-instance ToQuery      StartTimerFailedCause
 
 instance FromJSON StartTimerFailedCause where
     parseJSON = parseJSONText "StartTimerFailedCause"
@@ -5391,7 +5372,6 @@ instance ToText RecordMarkerFailedCause where
 
 instance ToByteString RecordMarkerFailedCause
 instance ToHeader     RecordMarkerFailedCause
-instance ToQuery      RecordMarkerFailedCause
 
 instance FromJSON RecordMarkerFailedCause where
     parseJSON = parseJSONText "RecordMarkerFailedCause"
@@ -5417,7 +5397,6 @@ instance ToText RegistrationStatus where
 
 instance ToByteString RegistrationStatus
 instance ToHeader     RegistrationStatus
-instance ToQuery      RegistrationStatus
 
 instance FromJSON RegistrationStatus where
     parseJSON = parseJSONText "RegistrationStatus"
@@ -6121,7 +6100,6 @@ instance ToText CancelTimerFailedCause where
 
 instance ToByteString CancelTimerFailedCause
 instance ToHeader     CancelTimerFailedCause
-instance ToQuery      CancelTimerFailedCause
 
 instance FromJSON CancelTimerFailedCause where
     parseJSON = parseJSONText "CancelTimerFailedCause"
@@ -7403,7 +7381,6 @@ instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
 
 instance ToByteString RequestCancelExternalWorkflowExecutionFailedCause
 instance ToHeader     RequestCancelExternalWorkflowExecutionFailedCause
-instance ToQuery      RequestCancelExternalWorkflowExecutionFailedCause
 
 instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "RequestCancelExternalWorkflowExecutionFailedCause"

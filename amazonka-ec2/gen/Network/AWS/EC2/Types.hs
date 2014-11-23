@@ -1451,7 +1451,6 @@ instance ToText ImageAttributeName where
 
 instance ToByteString ImageAttributeName
 instance ToHeader     ImageAttributeName
-instance ToQuery      ImageAttributeName
 
 instance FromXML ImageAttributeName where
     parseXML = parseXMLText "ImageAttributeName"
@@ -1473,7 +1472,6 @@ instance ToText PermissionGroup where
 
 instance ToByteString PermissionGroup
 instance ToHeader     PermissionGroup
-instance ToQuery      PermissionGroup
 
 instance FromXML PermissionGroup where
     parseXML = parseXMLText "PermissionGroup"
@@ -2011,7 +2009,6 @@ instance ToText VpnStaticRouteSource where
 
 instance ToByteString VpnStaticRouteSource
 instance ToHeader     VpnStaticRouteSource
-instance ToQuery      VpnStaticRouteSource
 
 instance FromXML VpnStaticRouteSource where
     parseXML = parseXMLText "VpnStaticRouteSource"
@@ -2159,7 +2156,6 @@ instance ToText InstanceLifecycleType where
 
 instance ToByteString InstanceLifecycleType
 instance ToHeader     InstanceLifecycleType
-instance ToQuery      InstanceLifecycleType
 
 instance FromXML InstanceLifecycleType where
     parseXML = parseXMLText "InstanceLifecycleType"
@@ -2185,7 +2181,6 @@ instance ToText VirtualizationType where
 
 instance ToByteString VirtualizationType
 instance ToHeader     VirtualizationType
-instance ToQuery      VirtualizationType
 
 instance FromXML VirtualizationType where
     parseXML = parseXMLText "VirtualizationType"
@@ -2217,7 +2212,6 @@ instance ToText NetworkInterfaceStatus where
 
 instance ToByteString NetworkInterfaceStatus
 instance ToHeader     NetworkInterfaceStatus
-instance ToQuery      NetworkInterfaceStatus
 
 instance FromXML NetworkInterfaceStatus where
     parseXML = parseXMLText "NetworkInterfaceStatus"
@@ -2239,7 +2233,6 @@ instance ToText PlatformValues where
 
 instance ToByteString PlatformValues
 instance ToHeader     PlatformValues
-instance ToQuery      PlatformValues
 
 instance FromXML PlatformValues where
     parseXML = parseXMLText "PlatformValues"
@@ -2341,7 +2334,6 @@ instance ToText RecurringChargeFrequency where
 
 instance ToByteString RecurringChargeFrequency
 instance ToHeader     RecurringChargeFrequency
-instance ToQuery      RecurringChargeFrequency
 
 instance FromXML RecurringChargeFrequency where
     parseXML = parseXMLText "RecurringChargeFrequency"
@@ -2572,7 +2564,6 @@ instance ToText VolumeState where
 
 instance ToByteString VolumeState
 instance ToHeader     VolumeState
-instance ToQuery      VolumeState
 
 instance FromXML VolumeState where
     parseXML = parseXMLText "VolumeState"
@@ -3005,7 +2996,6 @@ instance ToText AccountAttributeName where
 
 instance ToByteString AccountAttributeName
 instance ToHeader     AccountAttributeName
-instance ToQuery      AccountAttributeName
 
 instance FromXML AccountAttributeName where
     parseXML = parseXMLText "AccountAttributeName"
@@ -3297,7 +3287,6 @@ instance ToText VpcState where
 
 instance ToByteString VpcState
 instance ToHeader     VpcState
-instance ToQuery      VpcState
 
 instance FromXML VpcState where
     parseXML = parseXMLText "VpcState"
@@ -3368,7 +3357,6 @@ instance ToText ResourceType where
 
 instance ToByteString ResourceType
 instance ToHeader     ResourceType
-instance ToQuery      ResourceType
 
 instance FromXML ResourceType where
     parseXML = parseXMLText "ResourceType"
@@ -3394,7 +3382,6 @@ instance ToText ReportStatusType where
 
 instance ToByteString ReportStatusType
 instance ToHeader     ReportStatusType
-instance ToQuery      ReportStatusType
 
 instance FromXML ReportStatusType where
     parseXML = parseXMLText "ReportStatusType"
@@ -3416,7 +3403,6 @@ instance ToText CurrencyCodeValues where
 
 instance ToByteString CurrencyCodeValues
 instance ToHeader     CurrencyCodeValues
-instance ToQuery      CurrencyCodeValues
 
 instance FromXML CurrencyCodeValues where
     parseXML = parseXMLText "CurrencyCodeValues"
@@ -3746,7 +3732,6 @@ instance ToText AttachmentStatus where
 
 instance ToByteString AttachmentStatus
 instance ToHeader     AttachmentStatus
-instance ToQuery      AttachmentStatus
 
 instance FromXML AttachmentStatus where
     parseXML = parseXMLText "AttachmentStatus"
@@ -3775,7 +3760,6 @@ instance ToText RouteOrigin where
 
 instance ToByteString RouteOrigin
 instance ToHeader     RouteOrigin
-instance ToQuery      RouteOrigin
 
 instance FromXML RouteOrigin where
     parseXML = parseXMLText "RouteOrigin"
@@ -3807,7 +3791,6 @@ instance ToText ListingState where
 
 instance ToByteString ListingState
 instance ToHeader     ListingState
-instance ToQuery      ListingState
 
 instance FromXML ListingState where
     parseXML = parseXMLText "ListingState"
@@ -4035,7 +4018,6 @@ instance ToText AvailabilityZoneState where
 
 instance ToByteString AvailabilityZoneState
 instance ToHeader     AvailabilityZoneState
-instance ToQuery      AvailabilityZoneState
 
 instance FromXML AvailabilityZoneState where
     parseXML = parseXMLText "AvailabilityZoneState"
@@ -4816,7 +4798,6 @@ instance ToText SummaryStatus where
 
 instance ToByteString SummaryStatus
 instance ToHeader     SummaryStatus
-instance ToQuery      SummaryStatus
 
 instance FromXML SummaryStatus where
     parseXML = parseXMLText "SummaryStatus"
@@ -4958,7 +4939,6 @@ instance ToText RuleAction where
 
 instance ToByteString RuleAction
 instance ToHeader     RuleAction
-instance ToQuery      RuleAction
 
 instance FromXML RuleAction where
     parseXML = parseXMLText "RuleAction"
@@ -5191,7 +5171,6 @@ instance ToText TelemetryStatus where
 
 instance ToByteString TelemetryStatus
 instance ToHeader     TelemetryStatus
-instance ToQuery      TelemetryStatus
 
 instance FromXML TelemetryStatus where
     parseXML = parseXMLText "TelemetryStatus"
@@ -5415,7 +5394,6 @@ instance ToText SnapshotState where
 
 instance ToByteString SnapshotState
 instance ToHeader     SnapshotState
-instance ToQuery      SnapshotState
 
 instance FromXML SnapshotState where
     parseXML = parseXMLText "SnapshotState"
@@ -5788,7 +5766,6 @@ instance ToText VolumeAttachmentState where
 
 instance ToByteString VolumeAttachmentState
 instance ToHeader     VolumeAttachmentState
-instance ToQuery      VolumeAttachmentState
 
 instance FromXML VolumeAttachmentState where
     parseXML = parseXMLText "VolumeAttachmentState"
@@ -5852,7 +5829,6 @@ instance ToText RouteState where
 
 instance ToByteString RouteState
 instance ToHeader     RouteState
-instance ToQuery      RouteState
 
 instance FromXML RouteState where
     parseXML = parseXMLText "RouteState"
@@ -5953,7 +5929,6 @@ instance ToText BundleTaskState where
 
 instance ToByteString BundleTaskState
 instance ToHeader     BundleTaskState
-instance ToQuery      BundleTaskState
 
 instance FromXML BundleTaskState where
     parseXML = parseXMLText "BundleTaskState"
@@ -6017,7 +5992,6 @@ instance ToText VpcAttributeName where
 
 instance ToByteString VpcAttributeName
 instance ToHeader     VpcAttributeName
-instance ToQuery      VpcAttributeName
 
 instance FromXML VpcAttributeName where
     parseXML = parseXMLText "VpcAttributeName"
@@ -6150,7 +6124,6 @@ instance ToText SpotInstanceState where
 
 instance ToByteString SpotInstanceState
 instance ToHeader     SpotInstanceState
-instance ToQuery      SpotInstanceState
 
 instance FromXML SpotInstanceState where
     parseXML = parseXMLText "SpotInstanceState"
@@ -6686,7 +6659,6 @@ instance ToText InstanceType where
 
 instance ToByteString InstanceType
 instance ToHeader     InstanceType
-instance ToQuery      InstanceType
 
 instance FromXML InstanceType where
     parseXML = parseXMLText "InstanceType"
@@ -7028,7 +7000,6 @@ instance ToText CancelSpotInstanceRequestState where
 
 instance ToByteString CancelSpotInstanceRequestState
 instance ToHeader     CancelSpotInstanceRequestState
-instance ToQuery      CancelSpotInstanceRequestState
 
 instance FromXML CancelSpotInstanceRequestState where
     parseXML = parseXMLText "CancelSpotInstanceRequestState"
@@ -7060,7 +7031,6 @@ instance ToText PlacementGroupState where
 
 instance ToByteString PlacementGroupState
 instance ToHeader     PlacementGroupState
-instance ToQuery      PlacementGroupState
 
 instance FromXML PlacementGroupState where
     parseXML = parseXMLText "PlacementGroupState"
@@ -7191,7 +7161,6 @@ instance ToText ExportEnvironment where
 
 instance ToByteString ExportEnvironment
 instance ToHeader     ExportEnvironment
-instance ToQuery      ExportEnvironment
 
 instance FromXML ExportEnvironment where
     parseXML = parseXMLText "ExportEnvironment"
@@ -7438,7 +7407,6 @@ instance ToText ShutdownBehavior where
 
 instance ToByteString ShutdownBehavior
 instance ToHeader     ShutdownBehavior
-instance ToQuery      ShutdownBehavior
 
 instance FromXML ShutdownBehavior where
     parseXML = parseXMLText "ShutdownBehavior"
@@ -7597,7 +7565,6 @@ instance ToText SubnetState where
 
 instance ToByteString SubnetState
 instance ToHeader     SubnetState
-instance ToQuery      SubnetState
 
 instance FromXML SubnetState where
     parseXML = parseXMLText "SubnetState"
@@ -7619,7 +7586,6 @@ instance ToText ContainerFormat where
 
 instance ToByteString ContainerFormat
 instance ToHeader     ContainerFormat
-instance ToQuery      ContainerFormat
 
 instance FromXML ContainerFormat where
     parseXML = parseXMLText "ContainerFormat"
@@ -7753,7 +7719,6 @@ instance ToText StatusType where
 
 instance ToByteString StatusType
 instance ToHeader     StatusType
-instance ToQuery      StatusType
 
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
@@ -7843,7 +7808,6 @@ instance ToText NetworkInterfaceAttribute where
 
 instance ToByteString NetworkInterfaceAttribute
 instance ToHeader     NetworkInterfaceAttribute
-instance ToQuery      NetworkInterfaceAttribute
 
 instance FromXML NetworkInterfaceAttribute where
     parseXML = parseXMLText "NetworkInterfaceAttribute"
@@ -7872,7 +7836,6 @@ instance ToText ImageTypeValues where
 
 instance ToByteString ImageTypeValues
 instance ToHeader     ImageTypeValues
-instance ToQuery      ImageTypeValues
 
 instance FromXML ImageTypeValues where
     parseXML = parseXMLText "ImageTypeValues"
@@ -7937,7 +7900,6 @@ instance ToText SnapshotAttributeName where
 
 instance ToByteString SnapshotAttributeName
 instance ToHeader     SnapshotAttributeName
-instance ToQuery      SnapshotAttributeName
 
 instance FromXML SnapshotAttributeName where
     parseXML = parseXMLText "SnapshotAttributeName"
@@ -8027,7 +7989,6 @@ instance ToText VpnState where
 
 instance ToByteString VpnState
 instance ToHeader     VpnState
-instance ToQuery      VpnState
 
 instance FromXML VpnState where
     parseXML = parseXMLText "VpnState"
@@ -8133,7 +8094,6 @@ instance ToText HypervisorType where
 
 instance ToByteString HypervisorType
 instance ToHeader     HypervisorType
-instance ToQuery      HypervisorType
 
 instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
@@ -8292,7 +8252,6 @@ instance ToText ReservedInstanceState where
 
 instance ToByteString ReservedInstanceState
 instance ToHeader     ReservedInstanceState
-instance ToQuery      ReservedInstanceState
 
 instance FromXML ReservedInstanceState where
     parseXML = parseXMLText "ReservedInstanceState"
@@ -8351,7 +8310,6 @@ instance ToText InstanceAttributeName where
 
 instance ToByteString InstanceAttributeName
 instance ToHeader     InstanceAttributeName
-instance ToQuery      InstanceAttributeName
 
 instance FromXML InstanceAttributeName where
     parseXML = parseXMLText "InstanceAttributeName"
@@ -8461,7 +8419,6 @@ instance ToText ConversionTaskState where
 
 instance ToByteString ConversionTaskState
 instance ToHeader     ConversionTaskState
-instance ToQuery      ConversionTaskState
 
 instance FromXML ConversionTaskState where
     parseXML = parseXMLText "ConversionTaskState"
@@ -8532,7 +8489,6 @@ instance ToText Tenancy where
 
 instance ToByteString Tenancy
 instance ToHeader     Tenancy
-instance ToQuery      Tenancy
 
 instance FromXML Tenancy where
     parseXML = parseXMLText "Tenancy"
@@ -8704,7 +8660,6 @@ instance ToText PlacementStrategy where
 
 instance ToByteString PlacementStrategy
 instance ToHeader     PlacementStrategy
-instance ToQuery      PlacementStrategy
 
 instance FromXML PlacementStrategy where
     parseXML = parseXMLText "PlacementStrategy"
@@ -9215,7 +9170,6 @@ instance ToText ArchitectureValues where
 
 instance ToByteString ArchitectureValues
 instance ToHeader     ArchitectureValues
-instance ToQuery      ArchitectureValues
 
 instance FromXML ArchitectureValues where
     parseXML = parseXMLText "ArchitectureValues"
@@ -9262,7 +9216,6 @@ instance ToText ReportInstanceReasonCodes where
 
 instance ToByteString ReportInstanceReasonCodes
 instance ToHeader     ReportInstanceReasonCodes
-instance ToQuery      ReportInstanceReasonCodes
 
 instance FromXML ReportInstanceReasonCodes where
     parseXML = parseXMLText "ReportInstanceReasonCodes"
@@ -9495,7 +9448,6 @@ instance ToText DeviceType where
 
 instance ToByteString DeviceType
 instance ToHeader     DeviceType
-instance ToQuery      DeviceType
 
 instance FromXML DeviceType where
     parseXML = parseXMLText "DeviceType"
@@ -9521,7 +9473,6 @@ instance ToText DomainType where
 
 instance ToByteString DomainType
 instance ToHeader     DomainType
-instance ToQuery      DomainType
 
 instance FromXML DomainType where
     parseXML = parseXMLText "DomainType"
@@ -9616,7 +9567,6 @@ instance ToText OfferingTypeValues where
 
 instance ToByteString OfferingTypeValues
 instance ToHeader     OfferingTypeValues
-instance ToQuery      OfferingTypeValues
 
 instance FromXML OfferingTypeValues where
     parseXML = parseXMLText "OfferingTypeValues"
@@ -9763,7 +9713,6 @@ instance ToText VolumeType where
 
 instance ToByteString VolumeType
 instance ToHeader     VolumeType
-instance ToQuery      VolumeType
 
 instance FromXML VolumeType where
     parseXML = parseXMLText "VolumeType"
@@ -9915,7 +9864,6 @@ instance ToText ImageState where
 
 instance ToByteString ImageState
 instance ToHeader     ImageState
-instance ToQuery      ImageState
 
 instance FromXML ImageState where
     parseXML = parseXMLText "ImageState"
@@ -9937,7 +9885,6 @@ instance ToText GatewayType where
 
 instance ToByteString GatewayType
 instance ToHeader     GatewayType
-instance ToQuery      GatewayType
 
 instance FromXML GatewayType where
     parseXML = parseXMLText "GatewayType"
@@ -10186,7 +10133,6 @@ instance ToText MonitoringState where
 
 instance ToByteString MonitoringState
 instance ToHeader     MonitoringState
-instance ToQuery      MonitoringState
 
 instance FromXML MonitoringState where
     parseXML = parseXMLText "MonitoringState"
@@ -10237,7 +10183,6 @@ instance ToText StatusName where
 
 instance ToByteString StatusName
 instance ToHeader     StatusName
-instance ToQuery      StatusName
 
 instance FromXML StatusName where
     parseXML = parseXMLText "StatusName"
@@ -10313,7 +10258,6 @@ instance ToText VolumeStatusName where
 
 instance ToByteString VolumeStatusName
 instance ToHeader     VolumeStatusName
-instance ToQuery      VolumeStatusName
 
 instance FromXML VolumeStatusName where
     parseXML = parseXMLText "VolumeStatusName"
@@ -10339,7 +10283,6 @@ instance ToText VolumeAttributeName where
 
 instance ToByteString VolumeAttributeName
 instance ToHeader     VolumeAttributeName
-instance ToQuery      VolumeAttributeName
 
 instance FromXML VolumeAttributeName where
     parseXML = parseXMLText "VolumeAttributeName"
@@ -10513,7 +10456,6 @@ instance ToText ListingStatus where
 
 instance ToByteString ListingStatus
 instance ToHeader     ListingStatus
-instance ToQuery      ListingStatus
 
 instance FromXML ListingStatus where
     parseXML = parseXMLText "ListingStatus"
@@ -10572,7 +10514,6 @@ instance ToText VolumeStatusInfoStatus where
 
 instance ToByteString VolumeStatusInfoStatus
 instance ToHeader     VolumeStatusInfoStatus
-instance ToQuery      VolumeStatusInfoStatus
 
 instance FromXML VolumeStatusInfoStatus where
     parseXML = parseXMLText "VolumeStatusInfoStatus"
@@ -10633,7 +10574,6 @@ instance ToText RIProductDescription where
 
 instance ToByteString RIProductDescription
 instance ToHeader     RIProductDescription
-instance ToQuery      RIProductDescription
 
 instance FromXML RIProductDescription where
     parseXML = parseXMLText "RIProductDescription"
@@ -11006,7 +10946,6 @@ instance ToText DatafeedSubscriptionState where
 
 instance ToByteString DatafeedSubscriptionState
 instance ToHeader     DatafeedSubscriptionState
-instance ToQuery      DatafeedSubscriptionState
 
 instance FromXML DatafeedSubscriptionState where
     parseXML = parseXMLText "DatafeedSubscriptionState"
@@ -11038,7 +10977,6 @@ instance ToText ExportTaskState where
 
 instance ToByteString ExportTaskState
 instance ToHeader     ExportTaskState
-instance ToQuery      ExportTaskState
 
 instance FromXML ExportTaskState where
     parseXML = parseXMLText "ExportTaskState"
@@ -11064,7 +11002,6 @@ instance ToText ProductCodeValues where
 
 instance ToByteString ProductCodeValues
 instance ToHeader     ProductCodeValues
-instance ToQuery      ProductCodeValues
 
 instance FromXML ProductCodeValues where
     parseXML = parseXMLText "ProductCodeValues"
@@ -11319,7 +11256,6 @@ instance ToText EventCode where
 
 instance ToByteString EventCode
 instance ToHeader     EventCode
-instance ToQuery      EventCode
 
 instance FromXML EventCode where
     parseXML = parseXMLText "EventCode"
@@ -11345,7 +11281,6 @@ instance ToText SpotInstanceType where
 
 instance ToByteString SpotInstanceType
 instance ToHeader     SpotInstanceType
-instance ToQuery      SpotInstanceType
 
 instance FromXML SpotInstanceType where
     parseXML = parseXMLText "SpotInstanceType"
@@ -11665,7 +11600,6 @@ instance ToText InstanceStateName where
 
 instance ToByteString InstanceStateName
 instance ToHeader     InstanceStateName
-instance ToQuery      InstanceStateName
 
 instance FromXML InstanceStateName where
     parseXML = parseXMLText "InstanceStateName"
@@ -12182,7 +12116,6 @@ instance ToText ResetImageAttributeName where
 
 instance ToByteString ResetImageAttributeName
 instance ToHeader     ResetImageAttributeName
-instance ToQuery      ResetImageAttributeName
 
 instance FromXML ResetImageAttributeName where
     parseXML = parseXMLText "ResetImageAttributeName"
@@ -12529,7 +12462,6 @@ instance ToText DiskImageFormat where
 
 instance ToByteString DiskImageFormat
 instance ToHeader     DiskImageFormat
-instance ToQuery      DiskImageFormat
 
 instance FromXML DiskImageFormat where
     parseXML = parseXMLText "DiskImageFormat"

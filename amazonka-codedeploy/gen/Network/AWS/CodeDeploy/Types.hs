@@ -388,7 +388,6 @@ instance ToText BundleType where
 
 instance ToByteString BundleType
 instance ToHeader     BundleType
-instance ToQuery      BundleType
 
 instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
@@ -454,7 +453,6 @@ instance ToText DeploymentCreator where
 
 instance ToByteString DeploymentCreator
 instance ToHeader     DeploymentCreator
-instance ToQuery      DeploymentCreator
 
 instance FromJSON DeploymentCreator where
     parseJSON = parseJSONText "DeploymentCreator"
@@ -703,7 +701,6 @@ instance ToText ApplicationRevisionSortBy where
 
 instance ToByteString ApplicationRevisionSortBy
 instance ToHeader     ApplicationRevisionSortBy
-instance ToQuery      ApplicationRevisionSortBy
 
 instance FromJSON ApplicationRevisionSortBy where
     parseJSON = parseJSONText "ApplicationRevisionSortBy"
@@ -783,7 +780,6 @@ instance ToText ListStateFilterAction where
 
 instance ToByteString ListStateFilterAction
 instance ToHeader     ListStateFilterAction
-instance ToQuery      ListStateFilterAction
 
 instance FromJSON ListStateFilterAction where
     parseJSON = parseJSONText "ListStateFilterAction"
@@ -821,7 +817,6 @@ instance ToText LifecycleErrorCode where
 
 instance ToByteString LifecycleErrorCode
 instance ToHeader     LifecycleErrorCode
-instance ToQuery      LifecycleErrorCode
 
 instance FromJSON LifecycleErrorCode where
     parseJSON = parseJSONText "LifecycleErrorCode"
@@ -906,7 +901,6 @@ instance ToText LifecycleEventStatus where
 
 instance ToByteString LifecycleEventStatus
 instance ToHeader     LifecycleEventStatus
-instance ToQuery      LifecycleEventStatus
 
 instance FromJSON LifecycleEventStatus where
     parseJSON = parseJSONText "LifecycleEventStatus"
@@ -1045,7 +1039,6 @@ instance ToText StopStatus where
 
 instance ToByteString StopStatus
 instance ToHeader     StopStatus
-instance ToQuery      StopStatus
 
 instance FromJSON StopStatus where
     parseJSON = parseJSONText "StopStatus"
@@ -1126,7 +1119,6 @@ instance ToText SortOrder where
 
 instance ToByteString SortOrder
 instance ToHeader     SortOrder
-instance ToQuery      SortOrder
 
 instance FromJSON SortOrder where
     parseJSON = parseJSONText "SortOrder"
@@ -1500,7 +1492,6 @@ instance ToText ErrorCode where
 
 instance ToByteString ErrorCode
 instance ToHeader     ErrorCode
-instance ToQuery      ErrorCode
 
 instance FromJSON ErrorCode where
     parseJSON = parseJSONText "ErrorCode"
@@ -1599,7 +1590,6 @@ instance ToText InstanceStatus where
 
 instance ToByteString InstanceStatus
 instance ToHeader     InstanceStatus
-instance ToQuery      InstanceStatus
 
 instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
@@ -1637,7 +1627,6 @@ instance ToText DeploymentStatus where
 
 instance ToByteString DeploymentStatus
 instance ToHeader     DeploymentStatus
-instance ToQuery      DeploymentStatus
 
 instance FromJSON DeploymentStatus where
     parseJSON = parseJSONText "DeploymentStatus"
@@ -1739,7 +1728,6 @@ instance ToText MinimumHealthyHostsType where
 
 instance ToByteString MinimumHealthyHostsType
 instance ToHeader     MinimumHealthyHostsType
-instance ToQuery      MinimumHealthyHostsType
 
 instance FromJSON MinimumHealthyHostsType where
     parseJSON = parseJSONText "MinimumHealthyHostsType"
@@ -1806,7 +1794,6 @@ instance ToText RevisionLocationType where
 
 instance ToByteString RevisionLocationType
 instance ToHeader     RevisionLocationType
-instance ToQuery      RevisionLocationType
 
 instance FromJSON RevisionLocationType where
     parseJSON = parseJSONText "RevisionLocationType"
@@ -1835,7 +1822,6 @@ instance ToText EC2TagFilterType where
 
 instance ToByteString EC2TagFilterType
 instance ToHeader     EC2TagFilterType
-instance ToQuery      EC2TagFilterType
 
 instance FromJSON EC2TagFilterType where
     parseJSON = parseJSONText "EC2TagFilterType"

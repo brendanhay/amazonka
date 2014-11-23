@@ -177,7 +177,6 @@ instance ToText QueueAttributeName where
 
 instance ToByteString QueueAttributeName
 instance ToHeader     QueueAttributeName
-instance ToQuery      QueueAttributeName
 
 instance FromXML QueueAttributeName where
     parseXML = parseXMLText "QueueAttributeName"

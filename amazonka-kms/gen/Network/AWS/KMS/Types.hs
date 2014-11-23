@@ -115,7 +115,6 @@ instance ToText KeyUsageType where
 
 instance ToByteString KeyUsageType
 instance ToHeader     KeyUsageType
-instance ToQuery      KeyUsageType
 
 instance FromJSON KeyUsageType where
     parseJSON = parseJSONText "KeyUsageType"
@@ -230,7 +229,6 @@ instance ToText DataKeySpec where
 
 instance ToByteString DataKeySpec
 instance ToHeader     DataKeySpec
-instance ToQuery      DataKeySpec
 
 instance FromJSON DataKeySpec where
     parseJSON = parseJSONText "DataKeySpec"
@@ -451,7 +449,6 @@ instance ToText GrantOperation where
 
 instance ToByteString GrantOperation
 instance ToHeader     GrantOperation
-instance ToQuery      GrantOperation
 
 instance FromJSON GrantOperation where
     parseJSON = parseJSONText "GrantOperation"

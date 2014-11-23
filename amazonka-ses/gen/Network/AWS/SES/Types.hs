@@ -407,7 +407,6 @@ instance ToText IdentityType where
 
 instance ToByteString IdentityType
 instance ToHeader     IdentityType
-instance ToQuery      IdentityType
 
 instance FromXML IdentityType where
     parseXML = parseXMLText "IdentityType"
@@ -579,7 +578,6 @@ instance ToText NotificationType where
 
 instance ToByteString NotificationType
 instance ToHeader     NotificationType
-instance ToQuery      NotificationType
 
 instance FromXML NotificationType where
     parseXML = parseXMLText "NotificationType"
@@ -614,7 +612,6 @@ instance ToText VerificationStatus where
 
 instance ToByteString VerificationStatus
 instance ToHeader     VerificationStatus
-instance ToQuery      VerificationStatus
 
 instance FromXML VerificationStatus where
     parseXML = parseXMLText "VerificationStatus"

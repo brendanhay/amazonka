@@ -290,7 +290,6 @@ instance ToText StackStatus where
 
 instance ToByteString StackStatus
 instance ToHeader     StackStatus
-instance ToQuery      StackStatus
 
 instance FromXML StackStatus where
     parseXML = parseXMLText "StackStatus"
@@ -706,7 +705,6 @@ instance ToText ResourceStatus where
 
 instance ToByteString ResourceStatus
 instance ToHeader     ResourceStatus
-instance ToQuery      ResourceStatus
 
 instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
@@ -1112,7 +1110,6 @@ instance ToText Capability where
 
 instance ToByteString Capability
 instance ToHeader     Capability
-instance ToQuery      Capability
 
 instance FromXML Capability where
     parseXML = parseXMLText "Capability"
@@ -1138,7 +1135,6 @@ instance ToText ResourceSignalStatus where
 
 instance ToByteString ResourceSignalStatus
 instance ToHeader     ResourceSignalStatus
-instance ToQuery      ResourceSignalStatus
 
 instance FromXML ResourceSignalStatus where
     parseXML = parseXMLText "ResourceSignalStatus"
@@ -1335,7 +1331,6 @@ instance ToText OnFailure where
 
 instance ToByteString OnFailure
 instance ToHeader     OnFailure
-instance ToQuery      OnFailure
 
 instance FromXML OnFailure where
     parseXML = parseXMLText "OnFailure"

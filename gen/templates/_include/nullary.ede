@@ -31,4 +31,3 @@ instance ToText {{ type.name }} where
 
 instance ToByteString {{ type.name }}
 instance ToHeader     {{ type.name }}
-instance ToQuery      {{ type.name }}

@@ -404,7 +404,6 @@ instance ToText KeyType where
 
 instance ToByteString KeyType
 instance ToHeader     KeyType
-instance ToQuery      KeyType
 
 instance FromJSON KeyType where
     parseJSON = parseJSONText "KeyType"
@@ -554,7 +553,6 @@ instance ToText IndexStatus where
 
 instance ToByteString IndexStatus
 instance ToHeader     IndexStatus
-instance ToQuery      IndexStatus
 
 instance FromJSON IndexStatus where
     parseJSON = parseJSONText "IndexStatus"
@@ -635,7 +633,6 @@ instance ToText TableStatus where
 
 instance ToByteString TableStatus
 instance ToHeader     TableStatus
-instance ToQuery      TableStatus
 
 instance FromJSON TableStatus where
     parseJSON = parseJSONText "TableStatus"
@@ -664,7 +661,6 @@ instance ToText ProjectionType where
 
 instance ToByteString ProjectionType
 instance ToHeader     ProjectionType
-instance ToQuery      ProjectionType
 
 instance FromJSON ProjectionType where
     parseJSON = parseJSONText "ProjectionType"
@@ -993,7 +989,6 @@ instance ToText ReturnConsumedCapacity where
 
 instance ToByteString ReturnConsumedCapacity
 instance ToHeader     ReturnConsumedCapacity
-instance ToQuery      ReturnConsumedCapacity
 
 instance FromJSON ReturnConsumedCapacity where
     parseJSON = parseJSONText "ReturnConsumedCapacity"
@@ -1019,7 +1014,6 @@ instance ToText ReturnItemCollectionMetrics where
 
 instance ToByteString ReturnItemCollectionMetrics
 instance ToHeader     ReturnItemCollectionMetrics
-instance ToQuery      ReturnItemCollectionMetrics
 
 instance FromJSON ReturnItemCollectionMetrics where
     parseJSON = parseJSONText "ReturnItemCollectionMetrics"
@@ -1352,7 +1346,6 @@ instance ToText ComparisonOperator where
 
 instance ToByteString ComparisonOperator
 instance ToHeader     ComparisonOperator
-instance ToQuery      ComparisonOperator
 
 instance FromJSON ComparisonOperator where
     parseJSON = parseJSONText "ComparisonOperator"
@@ -1387,7 +1380,6 @@ instance ToText ReturnValue where
 
 instance ToByteString ReturnValue
 instance ToHeader     ReturnValue
-instance ToQuery      ReturnValue
 
 instance FromJSON ReturnValue where
     parseJSON = parseJSONText "ReturnValue"
@@ -1858,7 +1850,6 @@ instance ToText AttributeAction where
 
 instance ToByteString AttributeAction
 instance ToHeader     AttributeAction
-instance ToQuery      AttributeAction
 
 instance FromJSON AttributeAction where
     parseJSON = parseJSONText "AttributeAction"
@@ -1887,7 +1878,6 @@ instance ToText ScalarAttributeType where
 
 instance ToByteString ScalarAttributeType
 instance ToHeader     ScalarAttributeType
-instance ToQuery      ScalarAttributeType
 
 instance FromJSON ScalarAttributeType where
     parseJSON = parseJSONText "ScalarAttributeType"
@@ -1968,7 +1958,6 @@ instance ToText Select where
 
 instance ToByteString Select
 instance ToHeader     Select
-instance ToQuery      Select
 
 instance FromJSON Select where
     parseJSON = parseJSONText "Select"
@@ -2271,7 +2260,6 @@ instance ToText ConditionalOperator where
 
 instance ToByteString ConditionalOperator
 instance ToHeader     ConditionalOperator
-instance ToQuery      ConditionalOperator
 
 instance FromJSON ConditionalOperator where
     parseJSON = parseJSONText "ConditionalOperator"

@@ -499,7 +499,6 @@ instance ToText HistoryItemType where
 
 instance ToByteString HistoryItemType
 instance ToHeader     HistoryItemType
-instance ToQuery      HistoryItemType
 
 instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
@@ -690,7 +689,6 @@ instance ToText StandardUnit where
 
 instance ToByteString StandardUnit
 instance ToHeader     StandardUnit
-instance ToQuery      StandardUnit
 
 instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
@@ -762,7 +760,6 @@ instance ToText ComparisonOperator where
 
 instance ToByteString ComparisonOperator
 instance ToHeader     ComparisonOperator
-instance ToQuery      ComparisonOperator
 
 instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
@@ -912,7 +909,6 @@ instance ToText StateValue where
 
 instance ToByteString StateValue
 instance ToHeader     StateValue
-instance ToQuery      StateValue
 
 instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
@@ -1078,7 +1074,6 @@ instance ToText Statistic where
 
 instance ToByteString Statistic
 instance ToHeader     Statistic
-instance ToQuery      Statistic
 
 instance FromXML Statistic where
     parseXML = parseXMLText "Statistic"

@@ -199,7 +199,6 @@ instance ToText Platform where
 
 instance ToByteString Platform
 instance ToHeader     Platform
-instance ToQuery      Platform
 
 instance FromJSON Platform where
     parseJSON = parseJSONText "Platform"
@@ -318,7 +317,6 @@ instance ToText Operation where
 
 instance ToByteString Operation
 instance ToHeader     Operation
-instance ToQuery      Operation
 
 instance FromJSON Operation where
     parseJSON = parseJSONText "Operation"

@@ -469,7 +469,6 @@ instance ToText Event where
 
 instance ToByteString Event
 instance ToHeader     Event
-instance ToQuery      Event
 
 instance FromXML Event where
     parseXML = parseXMLText "Event"
@@ -646,7 +645,6 @@ instance ToText ExpirationStatus where
 
 instance ToByteString ExpirationStatus
 instance ToHeader     ExpirationStatus
-instance ToQuery      ExpirationStatus
 
 instance FromXML ExpirationStatus where
     parseXML = parseXMLText "ExpirationStatus"
@@ -814,7 +812,6 @@ instance ToText ObjectStorageClass where
 
 instance ToByteString ObjectStorageClass
 instance ToHeader     ObjectStorageClass
-instance ToQuery      ObjectStorageClass
 
 instance FromXML ObjectStorageClass where
     parseXML = parseXMLText "ObjectStorageClass"
@@ -840,7 +837,6 @@ instance ToText MetadataDirective where
 
 instance ToByteString MetadataDirective
 instance ToHeader     MetadataDirective
-instance ToQuery      MetadataDirective
 
 instance FromXML MetadataDirective where
     parseXML = parseXMLText "MetadataDirective"
@@ -1066,7 +1062,6 @@ instance ToText ObjectCannedACL where
 
 instance ToByteString ObjectCannedACL
 instance ToHeader     ObjectCannedACL
-instance ToQuery      ObjectCannedACL
 
 instance FromXML ObjectCannedACL where
     parseXML = parseXMLText "ObjectCannedACL"
@@ -1094,7 +1089,6 @@ instance ToText BucketVersioningStatus where
 
 instance ToByteString BucketVersioningStatus
 instance ToHeader     BucketVersioningStatus
-instance ToQuery      BucketVersioningStatus
 
 instance FromXML BucketVersioningStatus where
     parseXML = parseXMLText "BucketVersioningStatus"
@@ -1172,7 +1166,6 @@ instance ToText ObjectVersionStorageClass where
 
 instance ToByteString ObjectVersionStorageClass
 instance ToHeader     ObjectVersionStorageClass
-instance ToQuery      ObjectVersionStorageClass
 
 instance FromXML ObjectVersionStorageClass where
     parseXML = parseXMLText "ObjectVersionStorageClass"
@@ -1232,7 +1225,6 @@ instance ToText EncodingType where
 
 instance ToByteString EncodingType
 instance ToHeader     EncodingType
-instance ToQuery      EncodingType
 
 instance FromXML EncodingType where
     parseXML = parseXMLText "EncodingType"
@@ -1586,7 +1578,6 @@ instance ToText Protocol where
 
 instance ToByteString Protocol
 instance ToHeader     Protocol
-instance ToQuery      Protocol
 
 instance FromXML Protocol where
     parseXML = parseXMLText "Protocol"
@@ -1949,7 +1940,6 @@ instance ToText StorageClass where
 
 instance ToByteString StorageClass
 instance ToHeader     StorageClass
-instance ToQuery      StorageClass
 
 instance FromXML StorageClass where
     parseXML = parseXMLText "StorageClass"
@@ -2111,7 +2101,6 @@ instance ToText MFADeleteStatus where
 
 instance ToByteString MFADeleteStatus
 instance ToHeader     MFADeleteStatus
-instance ToQuery      MFADeleteStatus
 
 instance FromXML MFADeleteStatus where
     parseXML = parseXMLText "MFADeleteStatus"
@@ -2137,7 +2126,6 @@ instance ToText Payer where
 
 instance ToByteString Payer
 instance ToHeader     Payer
-instance ToQuery      Payer
 
 instance FromXML Payer where
     parseXML = parseXMLText "Payer"
@@ -2245,7 +2233,6 @@ instance ToText BucketLogsPermission where
 
 instance ToByteString BucketLogsPermission
 instance ToHeader     BucketLogsPermission
-instance ToQuery      BucketLogsPermission
 
 instance FromXML BucketLogsPermission where
     parseXML = parseXMLText "BucketLogsPermission"
@@ -2626,7 +2613,6 @@ instance ToText Type where
 
 instance ToByteString Type
 instance ToHeader     Type
-instance ToQuery      Type
 
 instance FromXML Type where
     parseXML = parseXMLText "Type"
@@ -2648,7 +2634,6 @@ instance ToText TransitionStorageClass where
 
 instance ToByteString TransitionStorageClass
 instance ToHeader     TransitionStorageClass
-instance ToQuery      TransitionStorageClass
 
 instance FromXML TransitionStorageClass where
     parseXML = parseXMLText "TransitionStorageClass"
@@ -2760,7 +2745,6 @@ instance ToText Permission where
 
 instance ToByteString Permission
 instance ToHeader     Permission
-instance ToQuery      Permission
 
 instance FromXML Permission where
     parseXML = parseXMLText "Permission"
@@ -2831,7 +2815,6 @@ instance ToText BucketCannedACL where
 
 instance ToByteString BucketCannedACL
 instance ToHeader     BucketCannedACL
-instance ToQuery      BucketCannedACL
 
 instance FromXML BucketCannedACL where
     parseXML = parseXMLText "BucketCannedACL"
@@ -2859,7 +2842,6 @@ instance ToText MFADelete where
 
 instance ToByteString MFADelete
 instance ToHeader     MFADelete
-instance ToQuery      MFADelete
 
 instance FromXML MFADelete where
     parseXML = parseXMLText "MFADelete"
@@ -3094,7 +3076,6 @@ instance ToText ServerSideEncryption where
 
 instance ToByteString ServerSideEncryption
 instance ToHeader     ServerSideEncryption
-instance ToQuery      ServerSideEncryption
 
 instance FromXML ServerSideEncryption where
     parseXML = parseXMLText "ServerSideEncryption"

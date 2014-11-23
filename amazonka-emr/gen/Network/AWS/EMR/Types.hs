@@ -449,7 +449,6 @@ instance ToText MarketType where
 
 instance ToByteString MarketType
 instance ToHeader     MarketType
-instance ToQuery      MarketType
 
 instance FromJSON MarketType where
     parseJSON = parseJSONText "MarketType"
@@ -895,7 +894,6 @@ instance ToText StepExecutionState where
 
 instance ToByteString StepExecutionState
 instance ToHeader     StepExecutionState
-instance ToQuery      StepExecutionState
 
 instance FromJSON StepExecutionState where
     parseJSON = parseJSONText "StepExecutionState"
@@ -927,7 +925,6 @@ instance ToText ActionOnFailure where
 
 instance ToByteString ActionOnFailure
 instance ToHeader     ActionOnFailure
-instance ToQuery      ActionOnFailure
 
 instance FromJSON ActionOnFailure where
     parseJSON = parseJSONText "ActionOnFailure"
@@ -1507,7 +1504,6 @@ instance ToText StepStateChangeReasonCode where
 
 instance ToByteString StepStateChangeReasonCode
 instance ToHeader     StepStateChangeReasonCode
-instance ToQuery      StepStateChangeReasonCode
 
 instance FromJSON StepStateChangeReasonCode where
     parseJSON = parseJSONText "StepStateChangeReasonCode"
@@ -1548,7 +1544,6 @@ instance ToText ClusterState where
 
 instance ToByteString ClusterState
 instance ToHeader     ClusterState
-instance ToQuery      ClusterState
 
 instance FromJSON ClusterState where
     parseJSON = parseJSONText "ClusterState"
@@ -1653,7 +1648,6 @@ instance ToText JobFlowExecutionState where
 
 instance ToByteString JobFlowExecutionState
 instance ToHeader     JobFlowExecutionState
-instance ToQuery      JobFlowExecutionState
 
 instance FromJSON JobFlowExecutionState where
     parseJSON = parseJSONText "JobFlowExecutionState"
@@ -1761,7 +1755,6 @@ instance ToText InstanceGroupType where
 
 instance ToByteString InstanceGroupType
 instance ToHeader     InstanceGroupType
-instance ToQuery      InstanceGroupType
 
 instance FromJSON InstanceGroupType where
     parseJSON = parseJSONText "InstanceGroupType"
@@ -1793,7 +1786,6 @@ instance ToText InstanceGroupStateChangeReasonCode where
 
 instance ToByteString InstanceGroupStateChangeReasonCode
 instance ToHeader     InstanceGroupStateChangeReasonCode
-instance ToQuery      InstanceGroupStateChangeReasonCode
 
 instance FromJSON InstanceGroupStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceGroupStateChangeReasonCode"
@@ -1940,7 +1932,6 @@ instance ToText InstanceGroupState where
 
 instance ToByteString InstanceGroupState
 instance ToHeader     InstanceGroupState
-instance ToQuery      InstanceGroupState
 
 instance FromJSON InstanceGroupState where
     parseJSON = parseJSONText "InstanceGroupState"
@@ -2391,7 +2382,6 @@ instance ToText ClusterStateChangeReasonCode where
 
 instance ToByteString ClusterStateChangeReasonCode
 instance ToHeader     ClusterStateChangeReasonCode
-instance ToQuery      ClusterStateChangeReasonCode
 
 instance FromJSON ClusterStateChangeReasonCode where
     parseJSON = parseJSONText "ClusterStateChangeReasonCode"
@@ -2498,7 +2488,6 @@ instance ToText StepState where
 
 instance ToByteString StepState
 instance ToHeader     StepState
-instance ToQuery      StepState
 
 instance FromJSON StepState where
     parseJSON = parseJSONText "StepState"
@@ -2732,7 +2721,6 @@ instance ToText InstanceRoleType where
 
 instance ToByteString InstanceRoleType
 instance ToHeader     InstanceRoleType
-instance ToQuery      InstanceRoleType
 
 instance FromJSON InstanceRoleType where
     parseJSON = parseJSONText "InstanceRoleType"
@@ -3392,7 +3380,6 @@ instance ToText InstanceState where
 
 instance ToByteString InstanceState
 instance ToHeader     InstanceState
-instance ToQuery      InstanceState
 
 instance FromJSON InstanceState where
     parseJSON = parseJSONText "InstanceState"
@@ -3477,7 +3464,6 @@ instance ToText InstanceStateChangeReasonCode where
 
 instance ToByteString InstanceStateChangeReasonCode
 instance ToHeader     InstanceStateChangeReasonCode
-instance ToQuery      InstanceStateChangeReasonCode
 
 instance FromJSON InstanceStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceStateChangeReasonCode"

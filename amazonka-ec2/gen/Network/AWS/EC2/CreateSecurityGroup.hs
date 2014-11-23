@@ -115,22 +115,23 @@ csgVpcId :: Lens' CreateSecurityGroup (Maybe Text)
 csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
-    { _csgrGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _csgrGroupId :: Text
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'CreateSecurityGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csgrGroupId' @::@ 'Maybe' 'Text'
+-- * 'csgrGroupId' @::@ 'Text'
 --
-createSecurityGroupResponse :: CreateSecurityGroupResponse
-createSecurityGroupResponse = CreateSecurityGroupResponse
-    { _csgrGroupId = Nothing
+createSecurityGroupResponse :: Text -- ^ 'csgrGroupId'
+                            -> CreateSecurityGroupResponse
+createSecurityGroupResponse p1 = CreateSecurityGroupResponse
+    { _csgrGroupId = p1
     }
 
 -- | The ID of the security group.
-csgrGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
+csgrGroupId :: Lens' CreateSecurityGroupResponse Text
 csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
 
 instance ToPath CreateSecurityGroup where
@@ -155,4 +156,4 @@ instance AWSRequest CreateSecurityGroup where
 
 instance FromXML CreateSecurityGroupResponse where
     parseXML x = CreateSecurityGroupResponse
-        <$> x .@? "groupId"
+        <$> x .@  "groupId"

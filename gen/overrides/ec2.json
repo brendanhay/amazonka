@@ -98,7 +98,7 @@
                 "Value"
             ]
         },
-        "CreateKeyPairResponse": {
+        "KeyPair": {
             "required": [
                 "KeyName",
                 "KeyFingerprint",
@@ -107,6 +107,11 @@
         },
         "InstanceType": {
             "sum_prefix": ""
+        },
+        "CreateSecurityGroupResult": {
+            "required": [
+                "GroupId"
+            ]
         }
     }
 }

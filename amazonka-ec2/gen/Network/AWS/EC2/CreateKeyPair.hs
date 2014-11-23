@@ -84,39 +84,42 @@ ckpKeyName :: Lens' CreateKeyPair Text
 ckpKeyName = lens _ckpKeyName (\s a -> s { _ckpKeyName = a })
 
 data CreateKeyPairResponse = CreateKeyPairResponse
-    { _ckprKeyFingerprint :: Maybe Text
-    , _ckprKeyMaterial    :: Maybe Text
-    , _ckprKeyName        :: Maybe Text
+    { _ckprKeyFingerprint :: Text
+    , _ckprKeyMaterial    :: Text
+    , _ckprKeyName        :: Text
     } deriving (Eq, Ord, Show)
 
 -- | 'CreateKeyPairResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ckprKeyFingerprint' @::@ 'Maybe' 'Text'
+-- * 'ckprKeyFingerprint' @::@ 'Text'
 --
--- * 'ckprKeyMaterial' @::@ 'Maybe' 'Text'
+-- * 'ckprKeyMaterial' @::@ 'Text'
 --
--- * 'ckprKeyName' @::@ 'Maybe' 'Text'
+-- * 'ckprKeyName' @::@ 'Text'
 --
-createKeyPairResponse :: CreateKeyPairResponse
-createKeyPairResponse = CreateKeyPairResponse
-    { _ckprKeyName        = Nothing
-    , _ckprKeyFingerprint = Nothing
-    , _ckprKeyMaterial    = Nothing
+createKeyPairResponse :: Text -- ^ 'ckprKeyName'
+                      -> Text -- ^ 'ckprKeyFingerprint'
+                      -> Text -- ^ 'ckprKeyMaterial'
+                      -> CreateKeyPairResponse
+createKeyPairResponse p1 p2 p3 = CreateKeyPairResponse
+    { _ckprKeyName        = p1
+    , _ckprKeyFingerprint = p2
+    , _ckprKeyMaterial    = p3
     }
 
 -- | The SHA-1 digest of the DER encoded private key.
-ckprKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyFingerprint :: Lens' CreateKeyPairResponse Text
 ckprKeyFingerprint =
     lens _ckprKeyFingerprint (\s a -> s { _ckprKeyFingerprint = a })
 
 -- | An unencrypted PEM encoded RSA private key.
-ckprKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyMaterial :: Lens' CreateKeyPairResponse Text
 ckprKeyMaterial = lens _ckprKeyMaterial (\s a -> s { _ckprKeyMaterial = a })
 
 -- | The name of the key pair.
-ckprKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyName :: Lens' CreateKeyPairResponse Text
 ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
 
 instance ToPath CreateKeyPair where
@@ -139,6 +142,6 @@ instance AWSRequest CreateKeyPair where
 
 instance FromXML CreateKeyPairResponse where
     parseXML x = CreateKeyPairResponse
-        <$> x .@? "keyFingerprint"
-        <*> x .@? "keyMaterial"
-        <*> x .@? "keyName"
+        <$> x .@  "keyFingerprint"
+        <*> x .@  "keyMaterial"
+        <*> x .@  "keyName"

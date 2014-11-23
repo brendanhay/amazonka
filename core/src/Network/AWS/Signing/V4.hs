@@ -152,7 +152,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     headers = sortBy (comparing fst)
         . hdr hHost host'
-        . hdr hDate (toBS (LocaleTime l t :: RFC822))
+        . hdr hDate (toBS (LocaleTime l t :: ISO8601))
         $ _rqHeaders
 
     joinedHeaders = map f $ groupBy ((==) `on` fst) headers

@@ -66,6 +66,7 @@ instance ToText RecordType where
 
 instance ToByteString RecordType
 instance ToHeader     RecordType
+instance ToQuery      RecordType
 
 instance FromXML RecordType where
     parseXML = parseXMLText "RecordType"

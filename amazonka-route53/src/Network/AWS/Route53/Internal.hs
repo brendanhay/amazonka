@@ -20,7 +20,7 @@ import Network.AWS.Prelude
 
 data RecordType
     = A     -- ^ A
-    | AAAAA -- ^ AAAA
+    | AAAA  -- ^ AAAA
     | CNAME -- ^ CNAME
     | MX    -- ^ MX
     | NS    -- ^ NS

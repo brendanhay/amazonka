@@ -84,17 +84,17 @@ data Mode
 formatTags :: Text -> Text
 formatTags = fst . foldl' (uncurry go) (mempty, Text) . parseTags
   where
-    go x Link     (TagText  t)                = (x <> t,   Link)
-    go x Link     (TagClose "a")              = (x <> ">", Text)
+    go x Link     (TagText  t)                = (x <> t,    Link)
+    go x Link     (TagClose "a")              = (x <> ">",  Text)
 
-    go x Anchor   (TagText  t)                = (x <> t,   Anchor)
-    go x Anchor   (TagClose "a")              = (x <> "'", Text)
+    go x Anchor   (TagText  t)                = (x <> t,    Anchor)
+    go x Anchor   (TagClose "a")              = (x <> "'",  Text)
 
-    go x Emphasis (TagText  t)                = (x <> t,   Emphasis)
-    go x Emphasis (TagClose "i")              = (x <> "/", Text)
+    go x Emphasis (TagText  t)                = (x <> t,    Emphasis)
+    go x Emphasis (TagClose "i")              = (x <> "/",  Text)
 
-    go x Code     (TagText  t)                = (x <> t,   Code)
-    go x Code     (TagClose "code")           = (x <> "'", Text)
+    go x Code     (TagText  t)                = (x <> t,    Code)
+    go x Code     (TagClose "code")           = (x <> "'",  Text)
 
     go x m        (TagOpen "a" [("href", a)]) = (x <> "<" <> a <> " ", Link)
     go x m        (TagOpen "a" [])            = (x <> "'",  Anchor)

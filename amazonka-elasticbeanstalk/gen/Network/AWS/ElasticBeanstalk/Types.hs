@@ -387,12 +387,15 @@ data EventSeverity
 instance Hashable EventSeverity
 
 instance FromText EventSeverity where
-    parser = match "DEBUG" Debug
-         <|> match "ERROR" Error
-         <|> match "FATAL" Fatal
-         <|> match "INFO"  Info
-         <|> match "TRACE" Trace
-         <|> match "WARN"  Warn
+    parser = takeText >>= \case
+        "DEBUG" -> pure Debug
+        "ERROR" -> pure Error
+        "FATAL" -> pure Fatal
+        "INFO"  -> pure Info
+        "TRACE" -> pure Trace
+        "WARN"  -> pure Warn
+        e       -> fail $
+            "Failure parsing EventSeverity from " ++ show e
 
 instance ToText EventSeverity where
     toText = \case
@@ -643,9 +646,12 @@ data ConfigurationDeploymentStatus
 instance Hashable ConfigurationDeploymentStatus
 
 instance FromText ConfigurationDeploymentStatus where
-    parser = match "deployed" Deployed
-         <|> match "failed"   Failed
-         <|> match "pending"  Pending
+    parser = takeText >>= \case
+        "deployed" -> pure Deployed
+        "failed"   -> pure Failed
+        "pending"  -> pure Pending
+        e          -> fail $
+            "Failure parsing ConfigurationDeploymentStatus from " ++ show e
 
 instance ToText ConfigurationDeploymentStatus where
     toText = \case
@@ -717,8 +723,11 @@ data ConfigurationOptionValueType
 instance Hashable ConfigurationOptionValueType
 
 instance FromText ConfigurationOptionValueType where
-    parser = match "List"   List'
-         <|> match "Scalar" Scalar
+    parser = takeText >>= \case
+        "List"   -> pure List'
+        "Scalar" -> pure Scalar
+        e        -> fail $
+            "Failure parsing ConfigurationOptionValueType from " ++ show e
 
 instance ToText ConfigurationOptionValueType where
     toText = \case
@@ -1121,11 +1130,14 @@ data EnvironmentStatus
 instance Hashable EnvironmentStatus
 
 instance FromText EnvironmentStatus where
-    parser = match "Launching"   Launching
-         <|> match "Ready"       Ready
-         <|> match "Terminated"  Terminated
-         <|> match "Terminating" Terminating
-         <|> match "Updating"    Updating
+    parser = takeText >>= \case
+        "Launching"   -> pure Launching
+        "Ready"       -> pure Ready
+        "Terminated"  -> pure Terminated
+        "Terminating" -> pure Terminating
+        "Updating"    -> pure Updating
+        e             -> fail $
+            "Failure parsing EnvironmentStatus from " ++ show e
 
 instance ToText EnvironmentStatus where
     toText = \case
@@ -1737,8 +1749,11 @@ data ValidationSeverity
 instance Hashable ValidationSeverity
 
 instance FromText ValidationSeverity where
-    parser = match "error"   VSError
-         <|> match "warning" VSWarning
+    parser = takeText >>= \case
+        "error"   -> pure VSError
+        "warning" -> pure VSWarning
+        e         -> fail $
+            "Failure parsing ValidationSeverity from " ++ show e
 
 instance ToText ValidationSeverity where
     toText = \case
@@ -1788,7 +1803,10 @@ data EnvironmentInfoType
 instance Hashable EnvironmentInfoType
 
 instance FromText EnvironmentInfoType where
-    parser = match "tail" Tail'
+    parser = takeText >>= \case
+        "tail" -> pure Tail'
+        e      -> fail $
+            "Failure parsing EnvironmentInfoType from " ++ show e
 
 instance ToText EnvironmentInfoType where
     toText Tail' = "tail"
@@ -2039,10 +2057,13 @@ data EnvironmentHealth
 instance Hashable EnvironmentHealth
 
 instance FromText EnvironmentHealth where
-    parser = match "Green"  Green
-         <|> match "Grey"   Grey
-         <|> match "Red"    Red
-         <|> match "Yellow" Yellow
+    parser = takeText >>= \case
+        "Green"  -> pure Green
+        "Grey"   -> pure Grey
+        "Red"    -> pure Red
+        "Yellow" -> pure Yellow
+        e        -> fail $
+            "Failure parsing EnvironmentHealth from " ++ show e
 
 instance ToText EnvironmentHealth where
     toText = \case

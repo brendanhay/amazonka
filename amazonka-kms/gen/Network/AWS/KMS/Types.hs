@@ -108,7 +108,10 @@ data KeyUsageType
 instance Hashable KeyUsageType
 
 instance FromText KeyUsageType where
-    parser = match "ENCRYPT_DECRYPT" EncryptDecrypt
+    parser = takeText >>= \case
+        "ENCRYPT_DECRYPT" -> pure EncryptDecrypt
+        e                 -> fail $
+            "Failure parsing KeyUsageType from " ++ show e
 
 instance ToText KeyUsageType where
     toText EncryptDecrypt = "ENCRYPT_DECRYPT"
@@ -220,8 +223,11 @@ data DataKeySpec
 instance Hashable DataKeySpec
 
 instance FromText DataKeySpec where
-    parser = match "AES_128" AES128
-         <|> match "AES_256" AES256
+    parser = takeText >>= \case
+        "AES_128" -> pure AES128
+        "AES_256" -> pure AES256
+        e         -> fail $
+            "Failure parsing DataKeySpec from " ++ show e
 
 instance ToText DataKeySpec where
     toText = \case
@@ -429,14 +435,17 @@ data GrantOperation
 instance Hashable GrantOperation
 
 instance FromText GrantOperation where
-    parser = match "CreateGrant"                     GOCreateGrant
-         <|> match "Decrypt"                         GODecrypt
-         <|> match "Encrypt"                         GOEncrypt
-         <|> match "GenerateDataKey"                 GOGenerateDataKey
-         <|> match "GenerateDataKeyWithoutPlaintext" GOGenerateDataKeyWithoutPlaintext
-         <|> match "ReEncryptFrom"                   GOReEncryptFrom
-         <|> match "ReEncryptTo"                     GOReEncryptTo
-         <|> match "RetireGrant"                     GORetireGrant
+    parser = takeText >>= \case
+        "CreateGrant"                     -> pure GOCreateGrant
+        "Decrypt"                         -> pure GODecrypt
+        "Encrypt"                         -> pure GOEncrypt
+        "GenerateDataKey"                 -> pure GOGenerateDataKey
+        "GenerateDataKeyWithoutPlaintext" -> pure GOGenerateDataKeyWithoutPlaintext
+        "ReEncryptFrom"                   -> pure GOReEncryptFrom
+        "ReEncryptTo"                     -> pure GOReEncryptTo
+        "RetireGrant"                     -> pure GORetireGrant
+        e                                 -> fail $
+            "Failure parsing GrantOperation from " ++ show e
 
 instance ToText GrantOperation where
     toText = \case

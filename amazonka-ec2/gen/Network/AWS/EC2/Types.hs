@@ -1433,12 +1433,15 @@ data ImageAttributeName
 instance Hashable ImageAttributeName
 
 instance FromText ImageAttributeName where
-    parser = match "blockDeviceMapping" ImageBlockDeviceMapping
-         <|> match "description"        ImageDescription
-         <|> match "kernel"             ImageKernel
-         <|> match "launchPermission"   ImageLaunchPermission
-         <|> match "productCodes"       ImageProductCodes
-         <|> match "ramdisk"            ImageRamdisk
+    parser = takeText >>= \case
+        "blockDeviceMapping" -> pure ImageBlockDeviceMapping
+        "description"        -> pure ImageDescription
+        "kernel"             -> pure ImageKernel
+        "launchPermission"   -> pure ImageLaunchPermission
+        "productCodes"       -> pure ImageProductCodes
+        "ramdisk"            -> pure ImageRamdisk
+        e                    -> fail $
+            "Failure parsing ImageAttributeName from " ++ show e
 
 instance ToText ImageAttributeName where
     toText = \case
@@ -1464,7 +1467,10 @@ data PermissionGroup
 instance Hashable PermissionGroup
 
 instance FromText PermissionGroup where
-    parser = match "all" All
+    parser = takeText >>= \case
+        "all" -> pure All
+        e     -> fail $
+            "Failure parsing PermissionGroup from " ++ show e
 
 instance ToText PermissionGroup where
     toText All = "all"
@@ -2000,7 +2006,10 @@ data VpnStaticRouteSource
 instance Hashable VpnStaticRouteSource
 
 instance FromText VpnStaticRouteSource where
-    parser = match "Static" Static
+    parser = takeText >>= \case
+        "Static" -> pure Static
+        e        -> fail $
+            "Failure parsing VpnStaticRouteSource from " ++ show e
 
 instance ToText VpnStaticRouteSource where
     toText Static = "Static"
@@ -2146,7 +2155,10 @@ data InstanceLifecycleType
 instance Hashable InstanceLifecycleType
 
 instance FromText InstanceLifecycleType where
-    parser = match "spot" Spot
+    parser = takeText >>= \case
+        "spot" -> pure Spot
+        e      -> fail $
+            "Failure parsing InstanceLifecycleType from " ++ show e
 
 instance ToText InstanceLifecycleType where
     toText Spot = "spot"
@@ -2167,8 +2179,11 @@ data VirtualizationType
 instance Hashable VirtualizationType
 
 instance FromText VirtualizationType where
-    parser = match "hvm"         Hvm
-         <|> match "paravirtual" Paravirtual
+    parser = takeText >>= \case
+        "hvm"         -> pure Hvm
+        "paravirtual" -> pure Paravirtual
+        e             -> fail $
+            "Failure parsing VirtualizationType from " ++ show e
 
 instance ToText VirtualizationType where
     toText = \case
@@ -2193,10 +2208,13 @@ data NetworkInterfaceStatus
 instance Hashable NetworkInterfaceStatus
 
 instance FromText NetworkInterfaceStatus where
-    parser = match "attaching" Attaching
-         <|> match "available" Available
-         <|> match "detaching" Detaching
-         <|> match "in-use"    InUse
+    parser = takeText >>= \case
+        "attaching" -> pure Attaching
+        "available" -> pure Available
+        "detaching" -> pure Detaching
+        "in-use"    -> pure InUse
+        e           -> fail $
+            "Failure parsing NetworkInterfaceStatus from " ++ show e
 
 instance ToText NetworkInterfaceStatus where
     toText = \case
@@ -2220,7 +2238,10 @@ data PlatformValues
 instance Hashable PlatformValues
 
 instance FromText PlatformValues where
-    parser = match "Windows" Windows
+    parser = takeText >>= \case
+        "Windows" -> pure Windows
+        e         -> fail $
+            "Failure parsing PlatformValues from " ++ show e
 
 instance ToText PlatformValues where
     toText Windows = "Windows"
@@ -2320,7 +2341,10 @@ data RecurringChargeFrequency
 instance Hashable RecurringChargeFrequency
 
 instance FromText RecurringChargeFrequency where
-    parser = match "Hourly" Hourly
+    parser = takeText >>= \case
+        "Hourly" -> pure Hourly
+        e        -> fail $
+            "Failure parsing RecurringChargeFrequency from " ++ show e
 
 instance ToText RecurringChargeFrequency where
     toText Hourly = "Hourly"
@@ -2538,12 +2562,15 @@ data VolumeState
 instance Hashable VolumeState
 
 instance FromText VolumeState where
-    parser = match "available" VSAvailable
-         <|> match "creating"  VSCreating
-         <|> match "deleted"   VSDeleted
-         <|> match "deleting"  VSDeleting
-         <|> match "error"     VSError
-         <|> match "in-use"    VSInUse
+    parser = takeText >>= \case
+        "available" -> pure VSAvailable
+        "creating"  -> pure VSCreating
+        "deleted"   -> pure VSDeleted
+        "deleting"  -> pure VSDeleting
+        "error"     -> pure VSError
+        "in-use"    -> pure VSInUse
+        e           -> fail $
+            "Failure parsing VolumeState from " ++ show e
 
 instance ToText VolumeState where
     toText = \case
@@ -2977,8 +3004,11 @@ data AccountAttributeName
 instance Hashable AccountAttributeName
 
 instance FromText AccountAttributeName where
-    parser = match "default-vpc"         DefaultVpc
-         <|> match "supported-platforms" SupportedPlatforms
+    parser = takeText >>= \case
+        "default-vpc"         -> pure DefaultVpc
+        "supported-platforms" -> pure SupportedPlatforms
+        e                     -> fail $
+            "Failure parsing AccountAttributeName from " ++ show e
 
 instance ToText AccountAttributeName where
     toText = \case
@@ -3267,8 +3297,11 @@ data VpcState
 instance Hashable VpcState
 
 instance FromText VpcState where
-    parser = match "available" VpcStateAvailable
-         <|> match "pending"   VpcStatePending
+    parser = takeText >>= \case
+        "available" -> pure VpcStateAvailable
+        "pending"   -> pure VpcStatePending
+        e           -> fail $
+            "Failure parsing VpcState from " ++ show e
 
 instance ToText VpcState where
     toText = \case
@@ -3306,23 +3339,26 @@ data ResourceType
 instance Hashable ResourceType
 
 instance FromText ResourceType where
-    parser = match "customer-gateway"       RTCustomerGateway
-         <|> match "dhcp-options"           RTDhcpOptions
-         <|> match "image"                  RTImage
-         <|> match "instance"               RTInstance'
-         <|> match "internet-gateway"       RTInternetGateway
-         <|> match "network-acl"            RTNetworkAcl
-         <|> match "network-interface"      RTNetworkInterface
-         <|> match "reserved-instances"     RTReservedInstances
-         <|> match "route-table"            RTRouteTable
-         <|> match "security-group"         RTSecurityGroup
-         <|> match "snapshot"               RTSnapshot
-         <|> match "spot-instances-request" RTSpotInstancesRequest
-         <|> match "subnet"                 RTSubnet
-         <|> match "volume"                 RTVolume
-         <|> match "vpc"                    RTVpc
-         <|> match "vpn-connection"         RTVpnConnection
-         <|> match "vpn-gateway"            RTVpnGateway
+    parser = takeText >>= \case
+        "customer-gateway"       -> pure RTCustomerGateway
+        "dhcp-options"           -> pure RTDhcpOptions
+        "image"                  -> pure RTImage
+        "instance"               -> pure RTInstance'
+        "internet-gateway"       -> pure RTInternetGateway
+        "network-acl"            -> pure RTNetworkAcl
+        "network-interface"      -> pure RTNetworkInterface
+        "reserved-instances"     -> pure RTReservedInstances
+        "route-table"            -> pure RTRouteTable
+        "security-group"         -> pure RTSecurityGroup
+        "snapshot"               -> pure RTSnapshot
+        "spot-instances-request" -> pure RTSpotInstancesRequest
+        "subnet"                 -> pure RTSubnet
+        "volume"                 -> pure RTVolume
+        "vpc"                    -> pure RTVpc
+        "vpn-connection"         -> pure RTVpnConnection
+        "vpn-gateway"            -> pure RTVpnGateway
+        e                        -> fail $
+            "Failure parsing ResourceType from " ++ show e
 
 instance ToText ResourceType where
     toText = \case
@@ -3360,8 +3396,11 @@ data ReportStatusType
 instance Hashable ReportStatusType
 
 instance FromText ReportStatusType where
-    parser = match "impaired" Impaired
-         <|> match "ok"       Ok
+    parser = takeText >>= \case
+        "impaired" -> pure Impaired
+        "ok"       -> pure Ok
+        e          -> fail $
+            "Failure parsing ReportStatusType from " ++ show e
 
 instance ToText ReportStatusType where
     toText = \case
@@ -3383,7 +3422,10 @@ data CurrencyCodeValues
 instance Hashable CurrencyCodeValues
 
 instance FromText CurrencyCodeValues where
-    parser = match "USD" Usd
+    parser = takeText >>= \case
+        "USD" -> pure Usd
+        e     -> fail $
+            "Failure parsing CurrencyCodeValues from " ++ show e
 
 instance ToText CurrencyCodeValues where
     toText Usd = "USD"
@@ -3704,10 +3746,13 @@ data AttachmentStatus
 instance Hashable AttachmentStatus
 
 instance FromText AttachmentStatus where
-    parser = match "attached"  ASAttached
-         <|> match "attaching" ASAttaching
-         <|> match "detached"  ASDetached
-         <|> match "detaching" ASDetaching
+    parser = takeText >>= \case
+        "attached"  -> pure ASAttached
+        "attaching" -> pure ASAttaching
+        "detached"  -> pure ASDetached
+        "detaching" -> pure ASDetaching
+        e           -> fail $
+            "Failure parsing AttachmentStatus from " ++ show e
 
 instance ToText AttachmentStatus where
     toText = \case
@@ -3733,9 +3778,12 @@ data RouteOrigin
 instance Hashable RouteOrigin
 
 instance FromText RouteOrigin where
-    parser = match "CreateRoute"               OriginCreateRoute
-         <|> match "CreateRouteTable"          OriginCreateRouteTable
-         <|> match "EnableVgwRoutePropagation" OriginEnableVgwRoutePropagation
+    parser = takeText >>= \case
+        "CreateRoute"               -> pure OriginCreateRoute
+        "CreateRouteTable"          -> pure OriginCreateRouteTable
+        "EnableVgwRoutePropagation" -> pure OriginEnableVgwRoutePropagation
+        e                           -> fail $
+            "Failure parsing RouteOrigin from " ++ show e
 
 instance ToText RouteOrigin where
     toText = \case
@@ -3761,10 +3809,13 @@ data ListingState
 instance Hashable ListingState
 
 instance FromText ListingState where
-    parser = match "available" LSAvailable
-         <|> match "cancelled" LSCancelled
-         <|> match "pending"   LSPending
-         <|> match "sold"      LSSold
+    parser = takeText >>= \case
+        "available" -> pure LSAvailable
+        "cancelled" -> pure LSCancelled
+        "pending"   -> pure LSPending
+        "sold"      -> pure LSSold
+        e           -> fail $
+            "Failure parsing ListingState from " ++ show e
 
 instance ToText ListingState where
     toText = \case
@@ -3994,7 +4045,10 @@ data AvailabilityZoneState
 instance Hashable AvailabilityZoneState
 
 instance FromText AvailabilityZoneState where
-    parser = match "available" AZSAvailable
+    parser = takeText >>= \case
+        "available" -> pure AZSAvailable
+        e           -> fail $
+            "Failure parsing AvailabilityZoneState from " ++ show e
 
 instance ToText AvailabilityZoneState where
     toText AZSAvailable = "available"
@@ -4766,10 +4820,13 @@ data SummaryStatus
 instance Hashable SummaryStatus
 
 instance FromText SummaryStatus where
-    parser = match "impaired"          SSImpaired
-         <|> match "insufficient-data" SSInsufficientData
-         <|> match "not-applicable"    SSNotApplicable
-         <|> match "ok"                SSOk
+    parser = takeText >>= \case
+        "impaired"          -> pure SSImpaired
+        "insufficient-data" -> pure SSInsufficientData
+        "not-applicable"    -> pure SSNotApplicable
+        "ok"                -> pure SSOk
+        e                   -> fail $
+            "Failure parsing SummaryStatus from " ++ show e
 
 instance ToText SummaryStatus where
     toText = \case
@@ -4910,8 +4967,11 @@ data RuleAction
 instance Hashable RuleAction
 
 instance FromText RuleAction where
-    parser = match "allow" Allow
-         <|> match "deny"  Deny
+    parser = takeText >>= \case
+        "allow" -> pure Allow
+        "deny"  -> pure Deny
+        e       -> fail $
+            "Failure parsing RuleAction from " ++ show e
 
 instance ToText RuleAction where
     toText = \case
@@ -5141,8 +5201,11 @@ data TelemetryStatus
 instance Hashable TelemetryStatus
 
 instance FromText TelemetryStatus where
-    parser = match "DOWN" Down
-         <|> match "UP"   Up
+    parser = takeText >>= \case
+        "DOWN" -> pure Down
+        "UP"   -> pure Up
+        e      -> fail $
+            "Failure parsing TelemetryStatus from " ++ show e
 
 instance ToText TelemetryStatus where
     toText = \case
@@ -5361,9 +5424,12 @@ data SnapshotState
 instance Hashable SnapshotState
 
 instance FromText SnapshotState where
-    parser = match "completed" Completed
-         <|> match "error"     Error
-         <|> match "pending"   Pending
+    parser = takeText >>= \case
+        "completed" -> pure Completed
+        "error"     -> pure Error
+        "pending"   -> pure Pending
+        e           -> fail $
+            "Failure parsing SnapshotState from " ++ show e
 
 instance ToText SnapshotState where
     toText = \case
@@ -5730,10 +5796,13 @@ data VolumeAttachmentState
 instance Hashable VolumeAttachmentState
 
 instance FromText VolumeAttachmentState where
-    parser = match "attached"  VASAttached
-         <|> match "attaching" VASAttaching
-         <|> match "detached"  VASDetached
-         <|> match "detaching" VASDetaching
+    parser = takeText >>= \case
+        "attached"  -> pure VASAttached
+        "attaching" -> pure VASAttaching
+        "detached"  -> pure VASDetached
+        "detaching" -> pure VASDetaching
+        e           -> fail $
+            "Failure parsing VolumeAttachmentState from " ++ show e
 
 instance ToText VolumeAttachmentState where
     toText = \case
@@ -5796,8 +5865,11 @@ data RouteState
 instance Hashable RouteState
 
 instance FromText RouteState where
-    parser = match "active"    Active
-         <|> match "blackhole" Blackhole
+    parser = takeText >>= \case
+        "active"    -> pure Active
+        "blackhole" -> pure Blackhole
+        e           -> fail $
+            "Failure parsing RouteState from " ++ show e
 
 instance ToText RouteState where
     toText = \case
@@ -5885,13 +5957,16 @@ data BundleTaskState
 instance Hashable BundleTaskState
 
 instance FromText BundleTaskState where
-    parser = match "bundling"             BTSBundling
-         <|> match "cancelling"           BTSCancelling
-         <|> match "complete"             BTSComplete
-         <|> match "failed"               BTSFailed
-         <|> match "pending"              BTSPending
-         <|> match "storing"              BTSStoring
-         <|> match "waiting-for-shutdown" BTSWaitingForShutdown
+    parser = takeText >>= \case
+        "bundling"             -> pure BTSBundling
+        "cancelling"           -> pure BTSCancelling
+        "complete"             -> pure BTSComplete
+        "failed"               -> pure BTSFailed
+        "pending"              -> pure BTSPending
+        "storing"              -> pure BTSStoring
+        "waiting-for-shutdown" -> pure BTSWaitingForShutdown
+        e                      -> fail $
+            "Failure parsing BundleTaskState from " ++ show e
 
 instance ToText BundleTaskState where
     toText = \case
@@ -5957,8 +6032,11 @@ data VpcAttributeName
 instance Hashable VpcAttributeName
 
 instance FromText VpcAttributeName where
-    parser = match "enableDnsHostnames" EnableDnsHostnames
-         <|> match "enableDnsSupport"   EnableDnsSupport
+    parser = takeText >>= \case
+        "enableDnsHostnames" -> pure EnableDnsHostnames
+        "enableDnsSupport"   -> pure EnableDnsSupport
+        e                    -> fail $
+            "Failure parsing VpcAttributeName from " ++ show e
 
 instance ToText VpcAttributeName where
     toText = \case
@@ -6082,11 +6160,14 @@ data SpotInstanceState
 instance Hashable SpotInstanceState
 
 instance FromText SpotInstanceState where
-    parser = match "active"    SISActive
-         <|> match "cancelled" SISCancelled
-         <|> match "closed"    SISClosed
-         <|> match "failed"    SISFailed
-         <|> match "open"      SISOpen
+    parser = takeText >>= \case
+        "active"    -> pure SISActive
+        "cancelled" -> pure SISCancelled
+        "closed"    -> pure SISClosed
+        "failed"    -> pure SISFailed
+        "open"      -> pure SISOpen
+        e           -> fail $
+            "Failure parsing SpotInstanceState from " ++ show e
 
 instance ToText SpotInstanceState where
     toText = \case
@@ -6507,128 +6588,131 @@ instance ToQuery InstanceStatusEvent where
         ]
 
 data InstanceType
-    = C1Medium   -- ^ c1.medium
-    | C1XLarge   -- ^ c1.xlarge
-    | C32XLarge  -- ^ c3.2xlarge
-    | C34XLarge  -- ^ c3.4xlarge
-    | C38XLarge  -- ^ c3.8xlarge
-    | C3Large    -- ^ c3.large
-    | C3XLarge   -- ^ c3.xlarge
-    | Cc14XLarge -- ^ cc1.4xlarge
-    | Cc28XLarge -- ^ cc2.8xlarge
-    | Cg14XLarge -- ^ cg1.4xlarge
-    | Cr18XLarge -- ^ cr1.8xlarge
-    | G22XLarge  -- ^ g2.2xlarge
-    | Hi14XLarge -- ^ hi1.4xlarge
-    | Hs18XLarge -- ^ hs1.8xlarge
-    | I22XLarge  -- ^ i2.2xlarge
-    | I24XLarge  -- ^ i2.4xlarge
-    | I28XLarge  -- ^ i2.8xlarge
-    | I2XLarge   -- ^ i2.xlarge
-    | M1Large    -- ^ m1.large
-    | M1Medium   -- ^ m1.medium
-    | M1Small    -- ^ m1.small
-    | M1XLarge   -- ^ m1.xlarge
-    | M22XLarge  -- ^ m2.2xlarge
-    | M24XLarge  -- ^ m2.4xlarge
-    | M2XLarge   -- ^ m2.xlarge
-    | M32XLarge  -- ^ m3.2xlarge
-    | M3Large    -- ^ m3.large
-    | M3Medium   -- ^ m3.medium
-    | M3XLarge   -- ^ m3.xlarge
-    | R32XLarge  -- ^ r3.2xlarge
-    | R34XLarge  -- ^ r3.4xlarge
-    | R38XLarge  -- ^ r3.8xlarge
-    | R3Large    -- ^ r3.large
-    | R3XLarge   -- ^ r3.xlarge
-    | T1Micro    -- ^ t1.micro
-    | T2Medium   -- ^ t2.medium
-    | T2Micro    -- ^ t2.micro
-    | T2Small    -- ^ t2.small
+    = C1_Medium   -- ^ c1.medium
+    | C1_XLarge   -- ^ c1.xlarge
+    | C3_2XLarge  -- ^ c3.2xlarge
+    | C3_4XLarge  -- ^ c3.4xlarge
+    | C3_8XLarge  -- ^ c3.8xlarge
+    | C3_Large    -- ^ c3.large
+    | C3_XLarge   -- ^ c3.xlarge
+    | CC1_4XLarge -- ^ cc1.4xlarge
+    | CC2_8XLarge -- ^ cc2.8xlarge
+    | CG1_4XLarge -- ^ cg1.4xlarge
+    | CR1_8XLarge -- ^ cr1.8xlarge
+    | G2_2XLarge  -- ^ g2.2xlarge
+    | HI1_4XLarge -- ^ hi1.4xlarge
+    | HS1_8XLarge -- ^ hs1.8xlarge
+    | I2_2XLarge  -- ^ i2.2xlarge
+    | I2_4XLarge  -- ^ i2.4xlarge
+    | I2_8XLarge  -- ^ i2.8xlarge
+    | I2_XLarge   -- ^ i2.xlarge
+    | M1_Large    -- ^ m1.large
+    | M1_Medium   -- ^ m1.medium
+    | M1_Small    -- ^ m1.small
+    | M1_XLarge   -- ^ m1.xlarge
+    | M2_2XLarge  -- ^ m2.2xlarge
+    | M2_4XLarge  -- ^ m2.4xlarge
+    | M2_XLarge   -- ^ m2.xlarge
+    | M3_2XLarge  -- ^ m3.2xlarge
+    | M3_Large    -- ^ m3.large
+    | M3_Medium   -- ^ m3.medium
+    | M3_XLarge   -- ^ m3.xlarge
+    | R3_2XLarge  -- ^ r3.2xlarge
+    | R3_4XLarge  -- ^ r3.4xlarge
+    | R3_8XLarge  -- ^ r3.8xlarge
+    | R3_Large    -- ^ r3.large
+    | R3_XLarge   -- ^ r3.xlarge
+    | T1_Micro    -- ^ t1.micro
+    | T2_Medium   -- ^ t2.medium
+    | T2_Micro    -- ^ t2.micro
+    | T2_Small    -- ^ t2.small
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable InstanceType
 
 instance FromText InstanceType where
-    parser = match "c1.medium"   C1Medium
-         <|> match "c1.xlarge"   C1XLarge
-         <|> match "c3.2xlarge"  C32XLarge
-         <|> match "c3.4xlarge"  C34XLarge
-         <|> match "c3.8xlarge"  C38XLarge
-         <|> match "c3.large"    C3Large
-         <|> match "c3.xlarge"   C3XLarge
-         <|> match "cc1.4xlarge" Cc14XLarge
-         <|> match "cc2.8xlarge" Cc28XLarge
-         <|> match "cg1.4xlarge" Cg14XLarge
-         <|> match "cr1.8xlarge" Cr18XLarge
-         <|> match "g2.2xlarge"  G22XLarge
-         <|> match "hi1.4xlarge" Hi14XLarge
-         <|> match "hs1.8xlarge" Hs18XLarge
-         <|> match "i2.2xlarge"  I22XLarge
-         <|> match "i2.4xlarge"  I24XLarge
-         <|> match "i2.8xlarge"  I28XLarge
-         <|> match "i2.xlarge"   I2XLarge
-         <|> match "m1.large"    M1Large
-         <|> match "m1.medium"   M1Medium
-         <|> match "m1.small"    M1Small
-         <|> match "m1.xlarge"   M1XLarge
-         <|> match "m2.2xlarge"  M22XLarge
-         <|> match "m2.4xlarge"  M24XLarge
-         <|> match "m2.xlarge"   M2XLarge
-         <|> match "m3.2xlarge"  M32XLarge
-         <|> match "m3.large"    M3Large
-         <|> match "m3.medium"   M3Medium
-         <|> match "m3.xlarge"   M3XLarge
-         <|> match "r3.2xlarge"  R32XLarge
-         <|> match "r3.4xlarge"  R34XLarge
-         <|> match "r3.8xlarge"  R38XLarge
-         <|> match "r3.large"    R3Large
-         <|> match "r3.xlarge"   R3XLarge
-         <|> match "t1.micro"    T1Micro
-         <|> match "t2.medium"   T2Medium
-         <|> match "t2.micro"    T2Micro
-         <|> match "t2.small"    T2Small
+    parser = takeText >>= \case
+        "c1.medium"   -> pure C1_Medium
+        "c1.xlarge"   -> pure C1_XLarge
+        "c3.2xlarge"  -> pure C3_2XLarge
+        "c3.4xlarge"  -> pure C3_4XLarge
+        "c3.8xlarge"  -> pure C3_8XLarge
+        "c3.large"    -> pure C3_Large
+        "c3.xlarge"   -> pure C3_XLarge
+        "cc1.4xlarge" -> pure CC1_4XLarge
+        "cc2.8xlarge" -> pure CC2_8XLarge
+        "cg1.4xlarge" -> pure CG1_4XLarge
+        "cr1.8xlarge" -> pure CR1_8XLarge
+        "g2.2xlarge"  -> pure G2_2XLarge
+        "hi1.4xlarge" -> pure HI1_4XLarge
+        "hs1.8xlarge" -> pure HS1_8XLarge
+        "i2.2xlarge"  -> pure I2_2XLarge
+        "i2.4xlarge"  -> pure I2_4XLarge
+        "i2.8xlarge"  -> pure I2_8XLarge
+        "i2.xlarge"   -> pure I2_XLarge
+        "m1.large"    -> pure M1_Large
+        "m1.medium"   -> pure M1_Medium
+        "m1.small"    -> pure M1_Small
+        "m1.xlarge"   -> pure M1_XLarge
+        "m2.2xlarge"  -> pure M2_2XLarge
+        "m2.4xlarge"  -> pure M2_4XLarge
+        "m2.xlarge"   -> pure M2_XLarge
+        "m3.2xlarge"  -> pure M3_2XLarge
+        "m3.large"    -> pure M3_Large
+        "m3.medium"   -> pure M3_Medium
+        "m3.xlarge"   -> pure M3_XLarge
+        "r3.2xlarge"  -> pure R3_2XLarge
+        "r3.4xlarge"  -> pure R3_4XLarge
+        "r3.8xlarge"  -> pure R3_8XLarge
+        "r3.large"    -> pure R3_Large
+        "r3.xlarge"   -> pure R3_XLarge
+        "t1.micro"    -> pure T1_Micro
+        "t2.medium"   -> pure T2_Medium
+        "t2.micro"    -> pure T2_Micro
+        "t2.small"    -> pure T2_Small
+        e             -> fail $
+            "Failure parsing InstanceType from " ++ show e
 
 instance ToText InstanceType where
     toText = \case
-        C1Medium   -> "c1.medium"
-        C1XLarge   -> "c1.xlarge"
-        C32XLarge  -> "c3.2xlarge"
-        C34XLarge  -> "c3.4xlarge"
-        C38XLarge  -> "c3.8xlarge"
-        C3Large    -> "c3.large"
-        C3XLarge   -> "c3.xlarge"
-        Cc14XLarge -> "cc1.4xlarge"
-        Cc28XLarge -> "cc2.8xlarge"
-        Cg14XLarge -> "cg1.4xlarge"
-        Cr18XLarge -> "cr1.8xlarge"
-        G22XLarge  -> "g2.2xlarge"
-        Hi14XLarge -> "hi1.4xlarge"
-        Hs18XLarge -> "hs1.8xlarge"
-        I22XLarge  -> "i2.2xlarge"
-        I24XLarge  -> "i2.4xlarge"
-        I28XLarge  -> "i2.8xlarge"
-        I2XLarge   -> "i2.xlarge"
-        M1Large    -> "m1.large"
-        M1Medium   -> "m1.medium"
-        M1Small    -> "m1.small"
-        M1XLarge   -> "m1.xlarge"
-        M22XLarge  -> "m2.2xlarge"
-        M24XLarge  -> "m2.4xlarge"
-        M2XLarge   -> "m2.xlarge"
-        M32XLarge  -> "m3.2xlarge"
-        M3Large    -> "m3.large"
-        M3Medium   -> "m3.medium"
-        M3XLarge   -> "m3.xlarge"
-        R32XLarge  -> "r3.2xlarge"
-        R34XLarge  -> "r3.4xlarge"
-        R38XLarge  -> "r3.8xlarge"
-        R3Large    -> "r3.large"
-        R3XLarge   -> "r3.xlarge"
-        T1Micro    -> "t1.micro"
-        T2Medium   -> "t2.medium"
-        T2Micro    -> "t2.micro"
-        T2Small    -> "t2.small"
+        C1_Medium   -> "c1.medium"
+        C1_XLarge   -> "c1.xlarge"
+        C3_2XLarge  -> "c3.2xlarge"
+        C3_4XLarge  -> "c3.4xlarge"
+        C3_8XLarge  -> "c3.8xlarge"
+        C3_Large    -> "c3.large"
+        C3_XLarge   -> "c3.xlarge"
+        CC1_4XLarge -> "cc1.4xlarge"
+        CC2_8XLarge -> "cc2.8xlarge"
+        CG1_4XLarge -> "cg1.4xlarge"
+        CR1_8XLarge -> "cr1.8xlarge"
+        G2_2XLarge  -> "g2.2xlarge"
+        HI1_4XLarge -> "hi1.4xlarge"
+        HS1_8XLarge -> "hs1.8xlarge"
+        I2_2XLarge  -> "i2.2xlarge"
+        I2_4XLarge  -> "i2.4xlarge"
+        I2_8XLarge  -> "i2.8xlarge"
+        I2_XLarge   -> "i2.xlarge"
+        M1_Large    -> "m1.large"
+        M1_Medium   -> "m1.medium"
+        M1_Small    -> "m1.small"
+        M1_XLarge   -> "m1.xlarge"
+        M2_2XLarge  -> "m2.2xlarge"
+        M2_4XLarge  -> "m2.4xlarge"
+        M2_XLarge   -> "m2.xlarge"
+        M3_2XLarge  -> "m3.2xlarge"
+        M3_Large    -> "m3.large"
+        M3_Medium   -> "m3.medium"
+        M3_XLarge   -> "m3.xlarge"
+        R3_2XLarge  -> "r3.2xlarge"
+        R3_4XLarge  -> "r3.4xlarge"
+        R3_8XLarge  -> "r3.8xlarge"
+        R3_Large    -> "r3.large"
+        R3_XLarge   -> "r3.xlarge"
+        T1_Micro    -> "t1.micro"
+        T2_Medium   -> "t2.medium"
+        T2_Micro    -> "t2.micro"
+        T2_Small    -> "t2.small"
 
 instance ToByteString InstanceType
 instance ToHeader     InstanceType
@@ -6956,11 +7040,14 @@ data CancelSpotInstanceRequestState
 instance Hashable CancelSpotInstanceRequestState
 
 instance FromText CancelSpotInstanceRequestState where
-    parser = match "active"    CSIRSActive
-         <|> match "cancelled" CSIRSCancelled
-         <|> match "closed"    CSIRSClosed
-         <|> match "completed" CSIRSCompleted
-         <|> match "open"      CSIRSOpen
+    parser = takeText >>= \case
+        "active"    -> pure CSIRSActive
+        "cancelled" -> pure CSIRSCancelled
+        "closed"    -> pure CSIRSClosed
+        "completed" -> pure CSIRSCompleted
+        "open"      -> pure CSIRSOpen
+        e           -> fail $
+            "Failure parsing CancelSpotInstanceRequestState from " ++ show e
 
 instance ToText CancelSpotInstanceRequestState where
     toText = \case
@@ -6988,10 +7075,13 @@ data PlacementGroupState
 instance Hashable PlacementGroupState
 
 instance FromText PlacementGroupState where
-    parser = match "available" PGSAvailable
-         <|> match "deleted"   PGSDeleted
-         <|> match "deleting"  PGSDeleting
-         <|> match "pending"   PGSPending
+    parser = takeText >>= \case
+        "available" -> pure PGSAvailable
+        "deleted"   -> pure PGSDeleted
+        "deleting"  -> pure PGSDeleting
+        "pending"   -> pure PGSPending
+        e           -> fail $
+            "Failure parsing PlacementGroupState from " ++ show e
 
 instance ToText PlacementGroupState where
     toText = \case
@@ -7119,9 +7209,12 @@ data ExportEnvironment
 instance Hashable ExportEnvironment
 
 instance FromText ExportEnvironment where
-    parser = match "citrix"    Citrix
-         <|> match "microsoft" Microsoft
-         <|> match "vmware"    Vmware
+    parser = takeText >>= \case
+        "citrix"    -> pure Citrix
+        "microsoft" -> pure Microsoft
+        "vmware"    -> pure Vmware
+        e           -> fail $
+            "Failure parsing ExportEnvironment from " ++ show e
 
 instance ToText ExportEnvironment where
     toText = \case
@@ -7366,8 +7459,11 @@ data ShutdownBehavior
 instance Hashable ShutdownBehavior
 
 instance FromText ShutdownBehavior where
-    parser = match "stop"      Stop
-         <|> match "terminate" Terminate
+    parser = takeText >>= \case
+        "stop"      -> pure Stop
+        "terminate" -> pure Terminate
+        e           -> fail $
+            "Failure parsing ShutdownBehavior from " ++ show e
 
 instance ToText ShutdownBehavior where
     toText = \case
@@ -7523,8 +7619,11 @@ data SubnetState
 instance Hashable SubnetState
 
 instance FromText SubnetState where
-    parser = match "available" SSAvailable
-         <|> match "pending"   SSPending
+    parser = takeText >>= \case
+        "available" -> pure SSAvailable
+        "pending"   -> pure SSPending
+        e           -> fail $
+            "Failure parsing SubnetState from " ++ show e
 
 instance ToText SubnetState where
     toText = \case
@@ -7546,7 +7645,10 @@ data ContainerFormat
 instance Hashable ContainerFormat
 
 instance FromText ContainerFormat where
-    parser = match "ova" Ova
+    parser = takeText >>= \case
+        "ova" -> pure Ova
+        e     -> fail $
+            "Failure parsing ContainerFormat from " ++ show e
 
 instance ToText ContainerFormat where
     toText Ova = "ova"
@@ -7673,9 +7775,12 @@ data StatusType
 instance Hashable StatusType
 
 instance FromText StatusType where
-    parser = match "failed"            Failed
-         <|> match "insufficient-data" InsufficientData
-         <|> match "passed"            Passed
+    parser = takeText >>= \case
+        "failed"            -> pure Failed
+        "insufficient-data" -> pure InsufficientData
+        "passed"            -> pure Passed
+        e                   -> fail $
+            "Failure parsing StatusType from " ++ show e
 
 instance ToText StatusType where
     toText = \case
@@ -7759,10 +7864,13 @@ data NetworkInterfaceAttribute
 instance Hashable NetworkInterfaceAttribute
 
 instance FromText NetworkInterfaceAttribute where
-    parser = match "attachment"      Attachment
-         <|> match "description"     Description
-         <|> match "groupSet"        GroupSet
-         <|> match "sourceDestCheck" SourceDestCheck
+    parser = takeText >>= \case
+        "attachment"      -> pure Attachment
+        "description"     -> pure Description
+        "groupSet"        -> pure GroupSet
+        "sourceDestCheck" -> pure SourceDestCheck
+        e                 -> fail $
+            "Failure parsing NetworkInterfaceAttribute from " ++ show e
 
 instance ToText NetworkInterfaceAttribute where
     toText = \case
@@ -7788,9 +7896,12 @@ data ImageTypeValues
 instance Hashable ImageTypeValues
 
 instance FromText ImageTypeValues where
-    parser = match "kernel"  Kernel
-         <|> match "machine" Machine
-         <|> match "ramdisk" Ramdisk
+    parser = takeText >>= \case
+        "kernel"  -> pure Kernel
+        "machine" -> pure Machine
+        "ramdisk" -> pure Ramdisk
+        e         -> fail $
+            "Failure parsing ImageTypeValues from " ++ show e
 
 instance ToText ImageTypeValues where
     toText = \case
@@ -7853,8 +7964,11 @@ data SnapshotAttributeName
 instance Hashable SnapshotAttributeName
 
 instance FromText SnapshotAttributeName where
-    parser = match "createVolumePermission" SANCreateVolumePermission
-         <|> match "productCodes"           SANProductCodes
+    parser = takeText >>= \case
+        "createVolumePermission" -> pure SANCreateVolumePermission
+        "productCodes"           -> pure SANProductCodes
+        e                        -> fail $
+            "Failure parsing SnapshotAttributeName from " ++ show e
 
 instance ToText SnapshotAttributeName where
     toText = \case
@@ -7937,10 +8051,13 @@ data VpnState
 instance Hashable VpnState
 
 instance FromText VpnState where
-    parser = match "available" VpnStateAvailable
-         <|> match "deleted"   VpnStateDeleted
-         <|> match "deleting"  VpnStateDeleting
-         <|> match "pending"   VpnStatePending
+    parser = takeText >>= \case
+        "available" -> pure VpnStateAvailable
+        "deleted"   -> pure VpnStateDeleted
+        "deleting"  -> pure VpnStateDeleting
+        "pending"   -> pure VpnStatePending
+        e           -> fail $
+            "Failure parsing VpnState from " ++ show e
 
 instance ToText VpnState where
     toText = \case
@@ -8045,8 +8162,11 @@ data HypervisorType
 instance Hashable HypervisorType
 
 instance FromText HypervisorType where
-    parser = match "ovm" Ovm
-         <|> match "xen" Xen
+    parser = takeText >>= \case
+        "ovm" -> pure Ovm
+        "xen" -> pure Xen
+        e     -> fail $
+            "Failure parsing HypervisorType from " ++ show e
 
 instance ToText HypervisorType where
     toText = \case
@@ -8198,10 +8318,13 @@ data ReservedInstanceState
 instance Hashable ReservedInstanceState
 
 instance FromText ReservedInstanceState where
-    parser = match "active"          RISActive
-         <|> match "payment-failed"  RISPaymentFailed
-         <|> match "payment-pending" RISPaymentPending
-         <|> match "retired"         RISRetired
+    parser = takeText >>= \case
+        "active"          -> pure RISActive
+        "payment-failed"  -> pure RISPaymentFailed
+        "payment-pending" -> pure RISPaymentPending
+        "retired"         -> pure RISRetired
+        e                 -> fail $
+            "Failure parsing ReservedInstanceState from " ++ show e
 
 instance ToText ReservedInstanceState where
     toText = \case
@@ -8237,19 +8360,22 @@ data InstanceAttributeName
 instance Hashable InstanceAttributeName
 
 instance FromText InstanceAttributeName where
-    parser = match "blockDeviceMapping"                IANInstanceBlockDeviceMapping
-         <|> match "disableApiTermination"             IANInstanceDisableApiTermination
-         <|> match "ebsOptimized"                      IANInstanceEbsOptimized
-         <|> match "groupSet"                          IANInstanceGroupSet
-         <|> match "instanceInitiatedShutdownBehavior" IANInstanceInstanceInitiatedShutdownBehavior
-         <|> match "instanceType"                      IANInstanceInstanceType
-         <|> match "kernel"                            IANInstanceKernel
-         <|> match "productCodes"                      IANInstanceProductCodes
-         <|> match "ramdisk"                           IANInstanceRamdisk
-         <|> match "rootDeviceName"                    IANInstanceRootDeviceName
-         <|> match "sourceDestCheck"                   IANInstanceSourceDestCheck
-         <|> match "sriovNetSupport"                   IANInstanceSriovNetSupport
-         <|> match "userData"                          IANInstanceUserData
+    parser = takeText >>= \case
+        "blockDeviceMapping"                -> pure IANInstanceBlockDeviceMapping
+        "disableApiTermination"             -> pure IANInstanceDisableApiTermination
+        "ebsOptimized"                      -> pure IANInstanceEbsOptimized
+        "groupSet"                          -> pure IANInstanceGroupSet
+        "instanceInitiatedShutdownBehavior" -> pure IANInstanceInstanceInitiatedShutdownBehavior
+        "instanceType"                      -> pure IANInstanceInstanceType
+        "kernel"                            -> pure IANInstanceKernel
+        "productCodes"                      -> pure IANInstanceProductCodes
+        "ramdisk"                           -> pure IANInstanceRamdisk
+        "rootDeviceName"                    -> pure IANInstanceRootDeviceName
+        "sourceDestCheck"                   -> pure IANInstanceSourceDestCheck
+        "sriovNetSupport"                   -> pure IANInstanceSriovNetSupport
+        "userData"                          -> pure IANInstanceUserData
+        e                                   -> fail $
+            "Failure parsing InstanceAttributeName from " ++ show e
 
 instance ToText InstanceAttributeName where
     toText = \case
@@ -8363,10 +8489,13 @@ data ConversionTaskState
 instance Hashable ConversionTaskState
 
 instance FromText ConversionTaskState where
-    parser = match "active"     CTSActive
-         <|> match "cancelled"  CTSCancelled
-         <|> match "cancelling" CTSCancelling
-         <|> match "completed"  CTSCompleted
+    parser = takeText >>= \case
+        "active"     -> pure CTSActive
+        "cancelled"  -> pure CTSCancelled
+        "cancelling" -> pure CTSCancelling
+        "completed"  -> pure CTSCompleted
+        e            -> fail $
+            "Failure parsing ConversionTaskState from " ++ show e
 
 instance ToText ConversionTaskState where
     toText = \case
@@ -8436,8 +8565,11 @@ data Tenancy
 instance Hashable Tenancy
 
 instance FromText Tenancy where
-    parser = match "dedicated" Dedicated
-         <|> match "default"   Default'
+    parser = takeText >>= \case
+        "dedicated" -> pure Dedicated
+        "default"   -> pure Default'
+        e           -> fail $
+            "Failure parsing Tenancy from " ++ show e
 
 instance ToText Tenancy where
     toText = \case
@@ -8609,7 +8741,10 @@ data PlacementStrategy
 instance Hashable PlacementStrategy
 
 instance FromText PlacementStrategy where
-    parser = match "cluster" Cluster
+    parser = takeText >>= \case
+        "cluster" -> pure Cluster
+        e         -> fail $
+            "Failure parsing PlacementStrategy from " ++ show e
 
 instance ToText PlacementStrategy where
     toText Cluster = "cluster"
@@ -9115,8 +9250,11 @@ data ArchitectureValues
 instance Hashable ArchitectureValues
 
 instance FromText ArchitectureValues where
-    parser = match "i386"   I386
-         <|> match "x86_64" X8664
+    parser = takeText >>= \case
+        "i386"   -> pure I386
+        "x86_64" -> pure X8664
+        e        -> fail $
+            "Failure parsing ArchitectureValues from " ++ show e
 
 instance ToText ArchitectureValues where
     toText = \case
@@ -9146,15 +9284,18 @@ data ReportInstanceReasonCodes
 instance Hashable ReportInstanceReasonCodes
 
 instance FromText ReportInstanceReasonCodes where
-    parser = match "instance-stuck-in-state"    InstanceStuckInState
-         <|> match "not-accepting-credentials"  NotAcceptingCredentials
-         <|> match "other"                      Other
-         <|> match "password-not-available"     PasswordNotAvailable
-         <|> match "performance-ebs-volume"     PerformanceEbsVolume
-         <|> match "performance-instance-store" PerformanceInstanceStore
-         <|> match "performance-network"        PerformanceNetwork
-         <|> match "performance-other"          PerformanceOther
-         <|> match "unresponsive"               Unresponsive
+    parser = takeText >>= \case
+        "instance-stuck-in-state"    -> pure InstanceStuckInState
+        "not-accepting-credentials"  -> pure NotAcceptingCredentials
+        "other"                      -> pure Other
+        "password-not-available"     -> pure PasswordNotAvailable
+        "performance-ebs-volume"     -> pure PerformanceEbsVolume
+        "performance-instance-store" -> pure PerformanceInstanceStore
+        "performance-network"        -> pure PerformanceNetwork
+        "performance-other"          -> pure PerformanceOther
+        "unresponsive"               -> pure Unresponsive
+        e                            -> fail $
+            "Failure parsing ReportInstanceReasonCodes from " ++ show e
 
 instance ToText ReportInstanceReasonCodes where
     toText = \case
@@ -9391,8 +9532,11 @@ data DeviceType
 instance Hashable DeviceType
 
 instance FromText DeviceType where
-    parser = match "ebs"            Ebs
-         <|> match "instance-store" InstanceStore
+    parser = takeText >>= \case
+        "ebs"            -> pure Ebs
+        "instance-store" -> pure InstanceStore
+        e                -> fail $
+            "Failure parsing DeviceType from " ++ show e
 
 instance ToText DeviceType where
     toText = \case
@@ -9415,8 +9559,11 @@ data DomainType
 instance Hashable DomainType
 
 instance FromText DomainType where
-    parser = match "standard" DTStandard
-         <|> match "vpc"      DTVpc
+    parser = takeText >>= \case
+        "standard" -> pure DTStandard
+        "vpc"      -> pure DTVpc
+        e          -> fail $
+            "Failure parsing DomainType from " ++ show e
 
 instance ToText DomainType where
     toText = \case
@@ -9506,9 +9653,12 @@ data OfferingTypeValues
 instance Hashable OfferingTypeValues
 
 instance FromText OfferingTypeValues where
-    parser = match "Heavy Utilization"  HeavyUtilization
-         <|> match "Light Utilization"  LightUtilization
-         <|> match "Medium Utilization" MediumUtilization
+    parser = takeText >>= \case
+        "Heavy Utilization"  -> pure HeavyUtilization
+        "Light Utilization"  -> pure LightUtilization
+        "Medium Utilization" -> pure MediumUtilization
+        e                    -> fail $
+            "Failure parsing OfferingTypeValues from " ++ show e
 
 instance ToText OfferingTypeValues where
     toText = \case
@@ -9651,9 +9801,12 @@ data VolumeType
 instance Hashable VolumeType
 
 instance FromText VolumeType where
-    parser = match "gp2"      Gp2
-         <|> match "io1"      Io1
-         <|> match "standard" Standard
+    parser = takeText >>= \case
+        "gp2"      -> pure Gp2
+        "io1"      -> pure Io1
+        "standard" -> pure Standard
+        e          -> fail $
+            "Failure parsing VolumeType from " ++ show e
 
 instance ToText VolumeType where
     toText = \case
@@ -9803,8 +9956,11 @@ data ImageState
 instance Hashable ImageState
 
 instance FromText ImageState where
-    parser = match "available"    ISAvailable
-         <|> match "deregistered" ISDeregistered
+    parser = takeText >>= \case
+        "available"    -> pure ISAvailable
+        "deregistered" -> pure ISDeregistered
+        e              -> fail $
+            "Failure parsing ImageState from " ++ show e
 
 instance ToText ImageState where
     toText = \case
@@ -9826,7 +9982,10 @@ data GatewayType
 instance Hashable GatewayType
 
 instance FromText GatewayType where
-    parser = match "ipsec.1" Ipsec1
+    parser = takeText >>= \case
+        "ipsec.1" -> pure Ipsec1
+        e         -> fail $
+            "Failure parsing GatewayType from " ++ show e
 
 instance ToText GatewayType where
     toText Ipsec1 = "ipsec.1"
@@ -10068,9 +10227,12 @@ data MonitoringState
 instance Hashable MonitoringState
 
 instance FromText MonitoringState where
-    parser = match "disabled" MSDisabled
-         <|> match "enabled"  MSEnabled
-         <|> match "pending"  MSPending
+    parser = takeText >>= \case
+        "disabled" -> pure MSDisabled
+        "enabled"  -> pure MSEnabled
+        "pending"  -> pure MSPending
+        e          -> fail $
+            "Failure parsing MonitoringState from " ++ show e
 
 instance ToText MonitoringState where
     toText = \case
@@ -10122,7 +10284,10 @@ data StatusName
 instance Hashable StatusName
 
 instance FromText StatusName where
-    parser = match "reachability" Reachability
+    parser = takeText >>= \case
+        "reachability" -> pure Reachability
+        e              -> fail $
+            "Failure parsing StatusName from " ++ show e
 
 instance ToText StatusName where
     toText Reachability = "reachability"
@@ -10193,8 +10358,11 @@ data VolumeStatusName
 instance Hashable VolumeStatusName
 
 instance FromText VolumeStatusName where
-    parser = match "io-enabled"     IoEnabled
-         <|> match "io-performance" IoPerformance
+    parser = takeText >>= \case
+        "io-enabled"     -> pure IoEnabled
+        "io-performance" -> pure IoPerformance
+        e                -> fail $
+            "Failure parsing VolumeStatusName from " ++ show e
 
 instance ToText VolumeStatusName where
     toText = \case
@@ -10217,8 +10385,11 @@ data VolumeAttributeName
 instance Hashable VolumeAttributeName
 
 instance FromText VolumeAttributeName where
-    parser = match "autoEnableIO" AutoEnableIO
-         <|> match "productCodes" ProductCodes
+    parser = takeText >>= \case
+        "autoEnableIO" -> pure AutoEnableIO
+        "productCodes" -> pure ProductCodes
+        e              -> fail $
+            "Failure parsing VolumeAttributeName from " ++ show e
 
 instance ToText VolumeAttributeName where
     toText = \case
@@ -10385,10 +10556,13 @@ data ListingStatus
 instance Hashable ListingStatus
 
 instance FromText ListingStatus where
-    parser = match "active"    ListingStatusActive
-         <|> match "cancelled" ListingStatusCancelled
-         <|> match "closed"    ListingStatusClosed
-         <|> match "pending"   ListingStatusPending
+    parser = takeText >>= \case
+        "active"    -> pure ListingStatusActive
+        "cancelled" -> pure ListingStatusCancelled
+        "closed"    -> pure ListingStatusClosed
+        "pending"   -> pure ListingStatusPending
+        e           -> fail $
+            "Failure parsing ListingStatus from " ++ show e
 
 instance ToText ListingStatus where
     toText = \case
@@ -10444,9 +10618,12 @@ data VolumeStatusInfoStatus
 instance Hashable VolumeStatusInfoStatus
 
 instance FromText VolumeStatusInfoStatus where
-    parser = match "impaired"          VSISImpaired
-         <|> match "insufficient-data" VSISInsufficientData
-         <|> match "ok"                VSISOk
+    parser = takeText >>= \case
+        "impaired"          -> pure VSISImpaired
+        "insufficient-data" -> pure VSISInsufficientData
+        "ok"                -> pure VSISOk
+        e                   -> fail $
+            "Failure parsing VolumeStatusInfoStatus from " ++ show e
 
 instance ToText VolumeStatusInfoStatus where
     toText = \case
@@ -10501,10 +10678,13 @@ data RIProductDescription
 instance Hashable RIProductDescription
 
 instance FromText RIProductDescription where
-    parser = match "Linux/UNIX"              RIPDLinuxUNIX
-         <|> match "Linux/UNIX (Amazon VPC)" RIPDLinuxUNIXAmazonVPC
-         <|> match "Windows"                 RIPDWindows
-         <|> match "Windows (Amazon VPC)"    RIPDWindowsAmazonVPC
+    parser = takeText >>= \case
+        "Linux/UNIX"              -> pure RIPDLinuxUNIX
+        "Linux/UNIX (Amazon VPC)" -> pure RIPDLinuxUNIXAmazonVPC
+        "Windows"                 -> pure RIPDWindows
+        "Windows (Amazon VPC)"    -> pure RIPDWindowsAmazonVPC
+        e                         -> fail $
+            "Failure parsing RIProductDescription from " ++ show e
 
 instance ToText RIProductDescription where
     toText = \case
@@ -10876,8 +11056,11 @@ data DatafeedSubscriptionState
 instance Hashable DatafeedSubscriptionState
 
 instance FromText DatafeedSubscriptionState where
-    parser = match "Active"   DSSActive
-         <|> match "Inactive" DSSInactive
+    parser = takeText >>= \case
+        "Active"   -> pure DSSActive
+        "Inactive" -> pure DSSInactive
+        e          -> fail $
+            "Failure parsing DatafeedSubscriptionState from " ++ show e
 
 instance ToText DatafeedSubscriptionState where
     toText = \case
@@ -10902,10 +11085,13 @@ data ExportTaskState
 instance Hashable ExportTaskState
 
 instance FromText ExportTaskState where
-    parser = match "active"     ETSActive
-         <|> match "cancelled"  ETSCancelled
-         <|> match "cancelling" ETSCancelling
-         <|> match "completed"  ETSCompleted
+    parser = takeText >>= \case
+        "active"     -> pure ETSActive
+        "cancelled"  -> pure ETSCancelled
+        "cancelling" -> pure ETSCancelling
+        "completed"  -> pure ETSCompleted
+        e            -> fail $
+            "Failure parsing ExportTaskState from " ++ show e
 
 instance ToText ExportTaskState where
     toText = \case
@@ -10930,8 +11116,11 @@ data ProductCodeValues
 instance Hashable ProductCodeValues
 
 instance FromText ProductCodeValues where
-    parser = match "devpay"      Devpay
-         <|> match "marketplace" Marketplace
+    parser = takeText >>= \case
+        "devpay"      -> pure Devpay
+        "marketplace" -> pure Marketplace
+        e             -> fail $
+            "Failure parsing ProductCodeValues from " ++ show e
 
 instance ToText ProductCodeValues where
     toText = \case
@@ -11177,11 +11366,14 @@ data EventCode
 instance Hashable EventCode
 
 instance FromText EventCode where
-    parser = match "instance-reboot"     InstanceReboot
-         <|> match "instance-retirement" InstanceRetirement
-         <|> match "instance-stop"       InstanceStop
-         <|> match "system-maintenance"  SystemMaintenance
-         <|> match "system-reboot"       SystemReboot
+    parser = takeText >>= \case
+        "instance-reboot"     -> pure InstanceReboot
+        "instance-retirement" -> pure InstanceRetirement
+        "instance-stop"       -> pure InstanceStop
+        "system-maintenance"  -> pure SystemMaintenance
+        "system-reboot"       -> pure SystemReboot
+        e                     -> fail $
+            "Failure parsing EventCode from " ++ show e
 
 instance ToText EventCode where
     toText = \case
@@ -11207,8 +11399,11 @@ data SpotInstanceType
 instance Hashable SpotInstanceType
 
 instance FromText SpotInstanceType where
-    parser = match "one-time"   OneTime
-         <|> match "persistent" Persistent
+    parser = takeText >>= \case
+        "one-time"   -> pure OneTime
+        "persistent" -> pure Persistent
+        e            -> fail $
+            "Failure parsing SpotInstanceType from " ++ show e
 
 instance ToText SpotInstanceType where
     toText = \case
@@ -11517,12 +11712,15 @@ data InstanceStateName
 instance Hashable InstanceStateName
 
 instance FromText InstanceStateName where
-    parser = match "pending"       ISNPending
-         <|> match "running"       ISNRunning
-         <|> match "shutting-down" ISNShuttingDown
-         <|> match "stopped"       ISNStopped
-         <|> match "stopping"      ISNStopping
-         <|> match "terminated"    ISNTerminated
+    parser = takeText >>= \case
+        "pending"       -> pure ISNPending
+        "running"       -> pure ISNRunning
+        "shutting-down" -> pure ISNShuttingDown
+        "stopped"       -> pure ISNStopped
+        "stopping"      -> pure ISNStopping
+        "terminated"    -> pure ISNTerminated
+        e               -> fail $
+            "Failure parsing InstanceStateName from " ++ show e
 
 instance ToText InstanceStateName where
     toText = \case
@@ -12043,7 +12241,10 @@ data ResetImageAttributeName
 instance Hashable ResetImageAttributeName
 
 instance FromText ResetImageAttributeName where
-    parser = match "launchPermission" RIANLaunchPermission
+    parser = takeText >>= \case
+        "launchPermission" -> pure RIANLaunchPermission
+        e                  -> fail $
+            "Failure parsing ResetImageAttributeName from " ++ show e
 
 instance ToText ResetImageAttributeName where
     toText RIANLaunchPermission = "launchPermission"
@@ -12383,9 +12584,12 @@ data DiskImageFormat
 instance Hashable DiskImageFormat
 
 instance FromText DiskImageFormat where
-    parser = match "RAW"  Raw
-         <|> match "VHD"  Vhd
-         <|> match "VMDK" Vmdk
+    parser = takeText >>= \case
+        "RAW"  -> pure Raw
+        "VHD"  -> pure Vhd
+        "VMDK" -> pure Vmdk
+        e      -> fail $
+            "Failure parsing DiskImageFormat from " ++ show e
 
 instance ToText DiskImageFormat where
     toText = \case

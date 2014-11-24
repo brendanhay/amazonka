@@ -201,23 +201,26 @@ data ExtraParamName
 instance Hashable ExtraParamName
 
 instance FromText ExtraParamName where
-    parser = match "AU_ID_NUMBER"             AuIdNumber
-         <|> match "AU_ID_TYPE"               AuIdType
-         <|> match "BIRTH_CITY"               BirthCity
-         <|> match "BIRTH_COUNTRY"            BirthCountry
-         <|> match "BIRTH_DATE_IN_YYYY_MM_DD" BirthDateInYyyyMmDd
-         <|> match "BIRTH_DEPARTMENT"         BirthDepartment
-         <|> match "BRAND_NUMBER"             BrandNumber
-         <|> match "CA_LEGAL_TYPE"            CaLegalType
-         <|> match "DOCUMENT_NUMBER"          DocumentNumber
-         <|> match "DUNS_NUMBER"              DunsNumber
-         <|> match "FI_BUSINESS_NUMBER"       FiBusinessNumber
-         <|> match "FI_ID_NUMBER"             FiIdNumber
-         <|> match "IT_PIN"                   ItPin
-         <|> match "RU_PASSPORT_DATA"         RuPassportData
-         <|> match "SE_ID_NUMBER"             SeIdNumber
-         <|> match "SG_ID_NUMBER"             SgIdNumber
-         <|> match "VAT_NUMBER"               VatNumber
+    parser = takeText >>= \case
+        "AU_ID_NUMBER"             -> pure AuIdNumber
+        "AU_ID_TYPE"               -> pure AuIdType
+        "BIRTH_CITY"               -> pure BirthCity
+        "BIRTH_COUNTRY"            -> pure BirthCountry
+        "BIRTH_DATE_IN_YYYY_MM_DD" -> pure BirthDateInYyyyMmDd
+        "BIRTH_DEPARTMENT"         -> pure BirthDepartment
+        "BRAND_NUMBER"             -> pure BrandNumber
+        "CA_LEGAL_TYPE"            -> pure CaLegalType
+        "DOCUMENT_NUMBER"          -> pure DocumentNumber
+        "DUNS_NUMBER"              -> pure DunsNumber
+        "FI_BUSINESS_NUMBER"       -> pure FiBusinessNumber
+        "FI_ID_NUMBER"             -> pure FiIdNumber
+        "IT_PIN"                   -> pure ItPin
+        "RU_PASSPORT_DATA"         -> pure RuPassportData
+        "SE_ID_NUMBER"             -> pure SeIdNumber
+        "SG_ID_NUMBER"             -> pure SgIdNumber
+        "VAT_NUMBER"               -> pure VatNumber
+        e                          -> fail $
+            "Failure parsing ExtraParamName from " ++ show e
 
 instance ToText ExtraParamName where
     toText = \case
@@ -305,11 +308,14 @@ data OperationStatus
 instance Hashable OperationStatus
 
 instance FromText OperationStatus where
-    parser = match "ERROR"       Error
-         <|> match "FAILED"      Failed
-         <|> match "IN_PROGRESS" InProgress
-         <|> match "SUBMITTED"   Submitted
-         <|> match "SUCCESSFUL"  Successful
+    parser = takeText >>= \case
+        "ERROR"       -> pure Error
+        "FAILED"      -> pure Failed
+        "IN_PROGRESS" -> pure InProgress
+        "SUBMITTED"   -> pure Submitted
+        "SUCCESSFUL"  -> pure Successful
+        e             -> fail $
+            "Failure parsing OperationStatus from " ++ show e
 
 instance ToText OperationStatus where
     toText = \case
@@ -342,13 +348,16 @@ data DomainAvailability
 instance Hashable DomainAvailability
 
 instance FromText DomainAvailability where
-    parser = match "AVAILABLE"              Available
-         <|> match "AVAILABLE_PREORDER"     AvailablePreorder
-         <|> match "AVAILABLE_RESERVED"     AvailableReserved
-         <|> match "RESERVED"               Reserved
-         <|> match "UNAVAILABLE"            Unavailable
-         <|> match "UNAVAILABLE_PREMIUM"    UnavailablePremium
-         <|> match "UNAVAILABLE_RESTRICTED" UnavailableRestricted
+    parser = takeText >>= \case
+        "AVAILABLE"              -> pure Available
+        "AVAILABLE_PREORDER"     -> pure AvailablePreorder
+        "AVAILABLE_RESERVED"     -> pure AvailableReserved
+        "RESERVED"               -> pure Reserved
+        "UNAVAILABLE"            -> pure Unavailable
+        "UNAVAILABLE_PREMIUM"    -> pure UnavailablePremium
+        "UNAVAILABLE_RESTRICTED" -> pure UnavailableRestricted
+        e                        -> fail $
+            "Failure parsing DomainAvailability from " ++ show e
 
 instance ToText DomainAvailability where
     toText = \case
@@ -383,13 +392,16 @@ data OperationType
 instance Hashable OperationType
 
 instance FromText OperationType where
-    parser = match "CHANGE_PRIVACY_PROTECTION" OTChangePrivacyProtection
-         <|> match "DELETE_DOMAIN"             OTDeleteDomain
-         <|> match "DOMAIN_LOCK"               OTDomainLock
-         <|> match "REGISTER_DOMAIN"           OTRegisterDomain
-         <|> match "TRANSFER_IN_DOMAIN"        OTTransferInDomain
-         <|> match "UPDATE_DOMAIN_CONTACT"     OTUpdateDomainContact
-         <|> match "UPDATE_NAMESERVER"         OTUpdateNameserver
+    parser = takeText >>= \case
+        "CHANGE_PRIVACY_PROTECTION" -> pure OTChangePrivacyProtection
+        "DELETE_DOMAIN"             -> pure OTDeleteDomain
+        "DOMAIN_LOCK"               -> pure OTDomainLock
+        "REGISTER_DOMAIN"           -> pure OTRegisterDomain
+        "TRANSFER_IN_DOMAIN"        -> pure OTTransferInDomain
+        "UPDATE_DOMAIN_CONTACT"     -> pure OTUpdateDomainContact
+        "UPDATE_NAMESERVER"         -> pure OTUpdateNameserver
+        e                           -> fail $
+            "Failure parsing OperationType from " ++ show e
 
 instance ToText OperationType where
     toText = \case
@@ -646,235 +658,238 @@ data CountryCode
 instance Hashable CountryCode
 
 instance FromText CountryCode where
-    parser = match "AD" Ad
-         <|> match "AE" Ae
-         <|> match "AF" Af
-         <|> match "AG" Ag
-         <|> match "AI" Ai
-         <|> match "AL" Al
-         <|> match "AM" Am
-         <|> match "AN" An
-         <|> match "AO" Ao
-         <|> match "AQ" Aq
-         <|> match "AR" Ar
-         <|> match "AS" As
-         <|> match "AT" At
-         <|> match "AU" Au
-         <|> match "AW" Aw
-         <|> match "AZ" Az
-         <|> match "BA" Ba
-         <|> match "BB" Bb
-         <|> match "BD" Bd
-         <|> match "BE" Be
-         <|> match "BF" Bf
-         <|> match "BG" Bg
-         <|> match "BH" Bh
-         <|> match "BI" Bi
-         <|> match "BJ" Bj
-         <|> match "BL" Bl
-         <|> match "BM" Bm
-         <|> match "BN" Bn
-         <|> match "BO" Bo
-         <|> match "BR" Br
-         <|> match "BS" Bs
-         <|> match "BT" Bt
-         <|> match "BW" Bw
-         <|> match "BY" By
-         <|> match "BZ" Bz
-         <|> match "CA" Ca
-         <|> match "CC" Cc
-         <|> match "CD" Cd
-         <|> match "CF" Cf
-         <|> match "CG" Cg
-         <|> match "CH" Ch
-         <|> match "CI" Ci
-         <|> match "CK" Ck
-         <|> match "CL" Cl
-         <|> match "CM" Cm
-         <|> match "CN" Cn
-         <|> match "CO" Co
-         <|> match "CR" Cr
-         <|> match "CU" Cu
-         <|> match "CV" Cv
-         <|> match "CX" Cx
-         <|> match "CY" Cy
-         <|> match "CZ" Cz
-         <|> match "DE" De
-         <|> match "DJ" Dj
-         <|> match "DK" Dk
-         <|> match "DM" Dm
-         <|> match "DO" Do'
-         <|> match "DZ" Dz
-         <|> match "EC" Ec
-         <|> match "EE" Ee
-         <|> match "EG" Eg
-         <|> match "ER" Er
-         <|> match "ES" Es
-         <|> match "ET" Et
-         <|> match "FI" Fi
-         <|> match "FJ" Fj
-         <|> match "FK" Fk
-         <|> match "FM" Fm
-         <|> match "FO" Fo
-         <|> match "FR" Fr
-         <|> match "GA" Ga
-         <|> match "GB" Gb
-         <|> match "GD" Gd
-         <|> match "GE" Ge
-         <|> match "GH" Gh
-         <|> match "GI" Gi
-         <|> match "GL" Gl
-         <|> match "GM" Gm
-         <|> match "GN" Gn
-         <|> match "GQ" Gq
-         <|> match "GR" Gr
-         <|> match "GT" Gt
-         <|> match "GU" Gu
-         <|> match "GW" Gw
-         <|> match "GY" Gy
-         <|> match "HK" Hk
-         <|> match "HN" Hn
-         <|> match "HR" Hr
-         <|> match "HT" Ht
-         <|> match "HU" Hu
-         <|> match "ID" Id
-         <|> match "IE" Ie
-         <|> match "IL" Il
-         <|> match "IM" Im
-         <|> match "IN" In'
-         <|> match "IQ" Iq
-         <|> match "IR" Ir
-         <|> match "IS" Is
-         <|> match "IT" It
-         <|> match "JM" Jm
-         <|> match "JO" Jo
-         <|> match "JP" Jp
-         <|> match "KE" Ke
-         <|> match "KG" Kg
-         <|> match "KH" Kh
-         <|> match "KI" Ki
-         <|> match "KM" Km
-         <|> match "KN" Kn
-         <|> match "KP" Kp
-         <|> match "KR" Kr
-         <|> match "KW" Kw
-         <|> match "KY" Ky
-         <|> match "KZ" Kz
-         <|> match "LA" La
-         <|> match "LB" Lb
-         <|> match "LC" Lc
-         <|> match "LI" Li
-         <|> match "LK" Lk
-         <|> match "LR" Lr
-         <|> match "LS" Ls
-         <|> match "LT" Lt
-         <|> match "LU" Lu
-         <|> match "LV" Lv
-         <|> match "LY" Ly
-         <|> match "MA" Ma
-         <|> match "MC" Mc
-         <|> match "MD" Md
-         <|> match "ME" Me
-         <|> match "MF" Mf
-         <|> match "MG" Mg
-         <|> match "MH" Mh
-         <|> match "MK" Mk
-         <|> match "ML" Ml
-         <|> match "MM" Mm
-         <|> match "MN" Mn
-         <|> match "MO" Mo
-         <|> match "MP" Mp
-         <|> match "MR" Mr
-         <|> match "MS" Ms
-         <|> match "MT" Mt
-         <|> match "MU" Mu
-         <|> match "MV" Mv
-         <|> match "MW" Mw
-         <|> match "MX" Mx
-         <|> match "MY" My
-         <|> match "MZ" Mz
-         <|> match "NA" Na
-         <|> match "NC" Nc
-         <|> match "NE" Ne
-         <|> match "NG" Ng
-         <|> match "NI" Ni
-         <|> match "NL" Nl
-         <|> match "NO" No
-         <|> match "NP" Np
-         <|> match "NR" Nr
-         <|> match "NU" Nu
-         <|> match "NZ" Nz
-         <|> match "OM" Om
-         <|> match "PA" Pa
-         <|> match "PE" Pe
-         <|> match "PF" Pf
-         <|> match "PG" Pg
-         <|> match "PH" Ph
-         <|> match "PK" Pk
-         <|> match "PL" Pl
-         <|> match "PM" Pm
-         <|> match "PN" Pn
-         <|> match "PR" Pr
-         <|> match "PT" Pt
-         <|> match "PW" Pw
-         <|> match "PY" Py
-         <|> match "QA" Qa
-         <|> match "RO" Ro
-         <|> match "RS" Rs
-         <|> match "RU" Ru
-         <|> match "RW" Rw
-         <|> match "SA" Sa
-         <|> match "SB" Sb
-         <|> match "SC" Sc
-         <|> match "SD" Sd
-         <|> match "SE" Se
-         <|> match "SG" Sg
-         <|> match "SH" Sh
-         <|> match "SI" Si
-         <|> match "SK" Sk
-         <|> match "SL" Sl
-         <|> match "SM" Sm
-         <|> match "SN" Sn
-         <|> match "SO" So
-         <|> match "SR" Sr
-         <|> match "ST" St
-         <|> match "SV" Sv
-         <|> match "SY" Sy
-         <|> match "SZ" Sz
-         <|> match "TC" Tc
-         <|> match "TD" Td
-         <|> match "TG" Tg
-         <|> match "TH" Th
-         <|> match "TJ" Tj
-         <|> match "TK" Tk
-         <|> match "TL" Tl
-         <|> match "TM" Tm
-         <|> match "TN" Tn
-         <|> match "TO" To
-         <|> match "TR" Tr
-         <|> match "TT" Tt
-         <|> match "TV" Tv
-         <|> match "TW" Tw
-         <|> match "TZ" Tz
-         <|> match "UA" Ua
-         <|> match "UG" Ug
-         <|> match "US" Us
-         <|> match "UY" Uy
-         <|> match "UZ" Uz
-         <|> match "VA" Va
-         <|> match "VC" Vc
-         <|> match "VE" Ve
-         <|> match "VG" Vg
-         <|> match "VI" Vi
-         <|> match "VN" Vn
-         <|> match "VU" Vu
-         <|> match "WF" Wf
-         <|> match "WS" Ws
-         <|> match "YE" Ye
-         <|> match "YT" Yt
-         <|> match "ZA" Za
-         <|> match "ZM" Zm
-         <|> match "ZW" Zw
+    parser = takeText >>= \case
+        "AD" -> pure Ad
+        "AE" -> pure Ae
+        "AF" -> pure Af
+        "AG" -> pure Ag
+        "AI" -> pure Ai
+        "AL" -> pure Al
+        "AM" -> pure Am
+        "AN" -> pure An
+        "AO" -> pure Ao
+        "AQ" -> pure Aq
+        "AR" -> pure Ar
+        "AS" -> pure As
+        "AT" -> pure At
+        "AU" -> pure Au
+        "AW" -> pure Aw
+        "AZ" -> pure Az
+        "BA" -> pure Ba
+        "BB" -> pure Bb
+        "BD" -> pure Bd
+        "BE" -> pure Be
+        "BF" -> pure Bf
+        "BG" -> pure Bg
+        "BH" -> pure Bh
+        "BI" -> pure Bi
+        "BJ" -> pure Bj
+        "BL" -> pure Bl
+        "BM" -> pure Bm
+        "BN" -> pure Bn
+        "BO" -> pure Bo
+        "BR" -> pure Br
+        "BS" -> pure Bs
+        "BT" -> pure Bt
+        "BW" -> pure Bw
+        "BY" -> pure By
+        "BZ" -> pure Bz
+        "CA" -> pure Ca
+        "CC" -> pure Cc
+        "CD" -> pure Cd
+        "CF" -> pure Cf
+        "CG" -> pure Cg
+        "CH" -> pure Ch
+        "CI" -> pure Ci
+        "CK" -> pure Ck
+        "CL" -> pure Cl
+        "CM" -> pure Cm
+        "CN" -> pure Cn
+        "CO" -> pure Co
+        "CR" -> pure Cr
+        "CU" -> pure Cu
+        "CV" -> pure Cv
+        "CX" -> pure Cx
+        "CY" -> pure Cy
+        "CZ" -> pure Cz
+        "DE" -> pure De
+        "DJ" -> pure Dj
+        "DK" -> pure Dk
+        "DM" -> pure Dm
+        "DO" -> pure Do'
+        "DZ" -> pure Dz
+        "EC" -> pure Ec
+        "EE" -> pure Ee
+        "EG" -> pure Eg
+        "ER" -> pure Er
+        "ES" -> pure Es
+        "ET" -> pure Et
+        "FI" -> pure Fi
+        "FJ" -> pure Fj
+        "FK" -> pure Fk
+        "FM" -> pure Fm
+        "FO" -> pure Fo
+        "FR" -> pure Fr
+        "GA" -> pure Ga
+        "GB" -> pure Gb
+        "GD" -> pure Gd
+        "GE" -> pure Ge
+        "GH" -> pure Gh
+        "GI" -> pure Gi
+        "GL" -> pure Gl
+        "GM" -> pure Gm
+        "GN" -> pure Gn
+        "GQ" -> pure Gq
+        "GR" -> pure Gr
+        "GT" -> pure Gt
+        "GU" -> pure Gu
+        "GW" -> pure Gw
+        "GY" -> pure Gy
+        "HK" -> pure Hk
+        "HN" -> pure Hn
+        "HR" -> pure Hr
+        "HT" -> pure Ht
+        "HU" -> pure Hu
+        "ID" -> pure Id
+        "IE" -> pure Ie
+        "IL" -> pure Il
+        "IM" -> pure Im
+        "IN" -> pure In'
+        "IQ" -> pure Iq
+        "IR" -> pure Ir
+        "IS" -> pure Is
+        "IT" -> pure It
+        "JM" -> pure Jm
+        "JO" -> pure Jo
+        "JP" -> pure Jp
+        "KE" -> pure Ke
+        "KG" -> pure Kg
+        "KH" -> pure Kh
+        "KI" -> pure Ki
+        "KM" -> pure Km
+        "KN" -> pure Kn
+        "KP" -> pure Kp
+        "KR" -> pure Kr
+        "KW" -> pure Kw
+        "KY" -> pure Ky
+        "KZ" -> pure Kz
+        "LA" -> pure La
+        "LB" -> pure Lb
+        "LC" -> pure Lc
+        "LI" -> pure Li
+        "LK" -> pure Lk
+        "LR" -> pure Lr
+        "LS" -> pure Ls
+        "LT" -> pure Lt
+        "LU" -> pure Lu
+        "LV" -> pure Lv
+        "LY" -> pure Ly
+        "MA" -> pure Ma
+        "MC" -> pure Mc
+        "MD" -> pure Md
+        "ME" -> pure Me
+        "MF" -> pure Mf
+        "MG" -> pure Mg
+        "MH" -> pure Mh
+        "MK" -> pure Mk
+        "ML" -> pure Ml
+        "MM" -> pure Mm
+        "MN" -> pure Mn
+        "MO" -> pure Mo
+        "MP" -> pure Mp
+        "MR" -> pure Mr
+        "MS" -> pure Ms
+        "MT" -> pure Mt
+        "MU" -> pure Mu
+        "MV" -> pure Mv
+        "MW" -> pure Mw
+        "MX" -> pure Mx
+        "MY" -> pure My
+        "MZ" -> pure Mz
+        "NA" -> pure Na
+        "NC" -> pure Nc
+        "NE" -> pure Ne
+        "NG" -> pure Ng
+        "NI" -> pure Ni
+        "NL" -> pure Nl
+        "NO" -> pure No
+        "NP" -> pure Np
+        "NR" -> pure Nr
+        "NU" -> pure Nu
+        "NZ" -> pure Nz
+        "OM" -> pure Om
+        "PA" -> pure Pa
+        "PE" -> pure Pe
+        "PF" -> pure Pf
+        "PG" -> pure Pg
+        "PH" -> pure Ph
+        "PK" -> pure Pk
+        "PL" -> pure Pl
+        "PM" -> pure Pm
+        "PN" -> pure Pn
+        "PR" -> pure Pr
+        "PT" -> pure Pt
+        "PW" -> pure Pw
+        "PY" -> pure Py
+        "QA" -> pure Qa
+        "RO" -> pure Ro
+        "RS" -> pure Rs
+        "RU" -> pure Ru
+        "RW" -> pure Rw
+        "SA" -> pure Sa
+        "SB" -> pure Sb
+        "SC" -> pure Sc
+        "SD" -> pure Sd
+        "SE" -> pure Se
+        "SG" -> pure Sg
+        "SH" -> pure Sh
+        "SI" -> pure Si
+        "SK" -> pure Sk
+        "SL" -> pure Sl
+        "SM" -> pure Sm
+        "SN" -> pure Sn
+        "SO" -> pure So
+        "SR" -> pure Sr
+        "ST" -> pure St
+        "SV" -> pure Sv
+        "SY" -> pure Sy
+        "SZ" -> pure Sz
+        "TC" -> pure Tc
+        "TD" -> pure Td
+        "TG" -> pure Tg
+        "TH" -> pure Th
+        "TJ" -> pure Tj
+        "TK" -> pure Tk
+        "TL" -> pure Tl
+        "TM" -> pure Tm
+        "TN" -> pure Tn
+        "TO" -> pure To
+        "TR" -> pure Tr
+        "TT" -> pure Tt
+        "TV" -> pure Tv
+        "TW" -> pure Tw
+        "TZ" -> pure Tz
+        "UA" -> pure Ua
+        "UG" -> pure Ug
+        "US" -> pure Us
+        "UY" -> pure Uy
+        "UZ" -> pure Uz
+        "VA" -> pure Va
+        "VC" -> pure Vc
+        "VE" -> pure Ve
+        "VG" -> pure Vg
+        "VI" -> pure Vi
+        "VN" -> pure Vn
+        "VU" -> pure Vu
+        "WF" -> pure Wf
+        "WS" -> pure Ws
+        "YE" -> pure Ye
+        "YT" -> pure Yt
+        "ZA" -> pure Za
+        "ZM" -> pure Zm
+        "ZW" -> pure Zw
+        e    -> fail $
+            "Failure parsing CountryCode from " ++ show e
 
 instance ToText CountryCode where
     toText = \case
@@ -1177,11 +1192,14 @@ data ContactType
 instance Hashable ContactType
 
 instance FromText ContactType where
-    parser = match "ASSOCIATION" CTAssociation
-         <|> match "COMPANY"     CTCompany
-         <|> match "PERSON"      CTPerson
-         <|> match "PUBLIC_BODY" CTPublicBody
-         <|> match "RESELLER"    CTReseller
+    parser = takeText >>= \case
+        "ASSOCIATION" -> pure CTAssociation
+        "COMPANY"     -> pure CTCompany
+        "PERSON"      -> pure CTPerson
+        "PUBLIC_BODY" -> pure CTPublicBody
+        "RESELLER"    -> pure CTReseller
+        e             -> fail $
+            "Failure parsing ContactType from " ++ show e
 
 instance ToText ContactType where
     toText = \case

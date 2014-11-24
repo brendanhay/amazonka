@@ -844,10 +844,13 @@ data OptionState
 instance Hashable OptionState
 
 instance FromText OptionState where
-    parser = match "Active"                 Active
-         <|> match "FailedToValidate"       FailedToValidate
-         <|> match "Processing"             Processing
-         <|> match "RequiresIndexDocuments" RequiresIndexDocuments
+    parser = takeText >>= \case
+        "Active"                 -> pure Active
+        "FailedToValidate"       -> pure FailedToValidate
+        "Processing"             -> pure Processing
+        "RequiresIndexDocuments" -> pure RequiresIndexDocuments
+        e                        -> fail $
+            "Failure parsing OptionState from " ++ show e
 
 instance ToText OptionState where
     toText = \case
@@ -944,10 +947,13 @@ data AlgorithmicStemming
 instance Hashable AlgorithmicStemming
 
 instance FromText AlgorithmicStemming where
-    parser = match "full"    Full
-         <|> match "light"   Light
-         <|> match "minimal" Minimal
-         <|> match "none"    None
+    parser = takeText >>= \case
+        "full"    -> pure Full
+        "light"   -> pure Light
+        "minimal" -> pure Minimal
+        "none"    -> pure None
+        e         -> fail $
+            "Failure parsing AlgorithmicStemming from " ++ show e
 
 instance ToText AlgorithmicStemming where
     toText = \case
@@ -1603,17 +1609,20 @@ data IndexFieldType
 instance Hashable IndexFieldType
 
 instance FromText IndexFieldType where
-    parser = match "date"          IFTDate
-         <|> match "date-array"    IFTDateArray
-         <|> match "double"        IFTDouble
-         <|> match "double-array"  IFTDoubleArray
-         <|> match "int"           IFTInt
-         <|> match "int-array"     IFTIntArray
-         <|> match "latlon"        IFTLatlon
-         <|> match "literal"       IFTLiteral
-         <|> match "literal-array" IFTLiteralArray
-         <|> match "text"          IFTText
-         <|> match "text-array"    IFTTextArray
+    parser = takeText >>= \case
+        "date"          -> pure IFTDate
+        "date-array"    -> pure IFTDateArray
+        "double"        -> pure IFTDouble
+        "double-array"  -> pure IFTDoubleArray
+        "int"           -> pure IFTInt
+        "int-array"     -> pure IFTIntArray
+        "latlon"        -> pure IFTLatlon
+        "literal"       -> pure IFTLiteral
+        "literal-array" -> pure IFTLiteralArray
+        "text"          -> pure IFTText
+        "text-array"    -> pure IFTTextArray
+        e               -> fail $
+            "Failure parsing IndexFieldType from " ++ show e
 
 instance ToText IndexFieldType where
     toText = \case
@@ -2014,9 +2023,12 @@ data SuggesterFuzzyMatching
 instance Hashable SuggesterFuzzyMatching
 
 instance FromText SuggesterFuzzyMatching where
-    parser = match "high" SFMHigh
-         <|> match "low"  SFMLow
-         <|> match "none" SFMNone
+    parser = takeText >>= \case
+        "high" -> pure SFMHigh
+        "low"  -> pure SFMLow
+        "none" -> pure SFMNone
+        e      -> fail $
+            "Failure parsing SuggesterFuzzyMatching from " ++ show e
 
 instance ToText SuggesterFuzzyMatching where
     toText = \case
@@ -2143,41 +2155,44 @@ data AnalysisSchemeLanguage
 instance Hashable AnalysisSchemeLanguage
 
 instance FromText AnalysisSchemeLanguage where
-    parser = match "ar"      Ar
-         <|> match "bg"      Bg
-         <|> match "ca"      Ca
-         <|> match "cs"      Cs
-         <|> match "da"      Da
-         <|> match "de"      De
-         <|> match "el"      El
-         <|> match "en"      En
-         <|> match "es"      Es
-         <|> match "eu"      Eu
-         <|> match "fa"      Fa
-         <|> match "fi"      Fi
-         <|> match "fr"      Fr
-         <|> match "ga"      Ga
-         <|> match "gl"      Gl
-         <|> match "he"      He
-         <|> match "hi"      Hi
-         <|> match "hu"      Hu
-         <|> match "hy"      Hy
-         <|> match "id"      Id
-         <|> match "it"      It
-         <|> match "ja"      Ja
-         <|> match "ko"      Ko
-         <|> match "lv"      Lv
-         <|> match "mul"     Mul
-         <|> match "nl"      Nl
-         <|> match "no"      No
-         <|> match "pt"      Pt
-         <|> match "ro"      Ro
-         <|> match "ru"      Ru
-         <|> match "sv"      Sv
-         <|> match "th"      Th
-         <|> match "tr"      Tr
-         <|> match "zh-Hans" ZhHans
-         <|> match "zh-Hant" ZhHant
+    parser = takeText >>= \case
+        "ar"      -> pure Ar
+        "bg"      -> pure Bg
+        "ca"      -> pure Ca
+        "cs"      -> pure Cs
+        "da"      -> pure Da
+        "de"      -> pure De
+        "el"      -> pure El
+        "en"      -> pure En
+        "es"      -> pure Es
+        "eu"      -> pure Eu
+        "fa"      -> pure Fa
+        "fi"      -> pure Fi
+        "fr"      -> pure Fr
+        "ga"      -> pure Ga
+        "gl"      -> pure Gl
+        "he"      -> pure He
+        "hi"      -> pure Hi
+        "hu"      -> pure Hu
+        "hy"      -> pure Hy
+        "id"      -> pure Id
+        "it"      -> pure It
+        "ja"      -> pure Ja
+        "ko"      -> pure Ko
+        "lv"      -> pure Lv
+        "mul"     -> pure Mul
+        "nl"      -> pure Nl
+        "no"      -> pure No
+        "pt"      -> pure Pt
+        "ro"      -> pure Ro
+        "ru"      -> pure Ru
+        "sv"      -> pure Sv
+        "th"      -> pure Th
+        "tr"      -> pure Tr
+        "zh-Hans" -> pure ZhHans
+        "zh-Hant" -> pure ZhHant
+        e         -> fail $
+            "Failure parsing AnalysisSchemeLanguage from " ++ show e
 
 instance ToText AnalysisSchemeLanguage where
     toText = \case
@@ -2228,24 +2243,27 @@ instance FromXML AnalysisSchemeLanguage where
 data PartitionInstanceType
     = SearchM1Large   -- ^ search.m1.large
     | SearchM1Small   -- ^ search.m1.small
-    | SearchM22XLarge -- ^ search.m2.2xlarge
-    | SearchM2XLarge  -- ^ search.m2.xlarge
+    | SearchM22xlarge -- ^ search.m2.2xlarge
+    | SearchM2Xlarge  -- ^ search.m2.xlarge
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable PartitionInstanceType
 
 instance FromText PartitionInstanceType where
-    parser = match "search.m1.large"   SearchM1Large
-         <|> match "search.m1.small"   SearchM1Small
-         <|> match "search.m2.2xlarge" SearchM22XLarge
-         <|> match "search.m2.xlarge"  SearchM2XLarge
+    parser = takeText >>= \case
+        "search.m1.large"   -> pure SearchM1Large
+        "search.m1.small"   -> pure SearchM1Small
+        "search.m2.2xlarge" -> pure SearchM22xlarge
+        "search.m2.xlarge"  -> pure SearchM2Xlarge
+        e                   -> fail $
+            "Failure parsing PartitionInstanceType from " ++ show e
 
 instance ToText PartitionInstanceType where
     toText = \case
         SearchM1Large   -> "search.m1.large"
         SearchM1Small   -> "search.m1.small"
-        SearchM22XLarge -> "search.m2.2xlarge"
-        SearchM2XLarge  -> "search.m2.xlarge"
+        SearchM22xlarge -> "search.m2.2xlarge"
+        SearchM2Xlarge  -> "search.m2.xlarge"
 
 instance ToByteString PartitionInstanceType
 instance ToHeader     PartitionInstanceType

@@ -211,9 +211,12 @@ data AssignmentStatusType
 instance Hashable AssignmentStatusType
 
 instance FromText AssignmentStatusType where
-    parser = match "Any"        Any
-         <|> match "Assigned"   Assigned
-         <|> match "Unassigned" Unassigned
+    parser = takeText >>= \case
+        "Any"        -> pure Any
+        "Assigned"   -> pure Assigned
+        "Unassigned" -> pure Unassigned
+        e            -> fail $
+            "Failure parsing AssignmentStatusType from " ++ show e
 
 instance ToText AssignmentStatusType where
     toText = \case
@@ -587,7 +590,10 @@ data ReportFormatType
 instance Hashable ReportFormatType
 
 instance FromText ReportFormatType where
-    parser = match "text/csv" TextCsv
+    parser = takeText >>= \case
+        "text/csv" -> pure TextCsv
+        e          -> fail $
+            "Failure parsing ReportFormatType from " ++ show e
 
 instance ToText ReportFormatType where
     toText TextCsv = "text/csv"
@@ -789,20 +795,23 @@ data SummaryKeyType
 instance Hashable SummaryKeyType
 
 instance FromText SummaryKeyType where
-    parser = match "AccessKeysPerUserQuota"          AccessKeysPerUserQuota
-         <|> match "AccountMFAEnabled"               AccountMFAEnabled
-         <|> match "GroupPolicySizeQuota"            GroupPolicySizeQuota
-         <|> match "Groups"                          Groups
-         <|> match "GroupsPerUserQuota"              GroupsPerUserQuota
-         <|> match "GroupsQuota"                     GroupsQuota
-         <|> match "MFADevices"                      MFADevices
-         <|> match "MFADevicesInUse"                 MFADevicesInUse
-         <|> match "ServerCertificates"              ServerCertificates
-         <|> match "ServerCertificatesQuota"         ServerCertificatesQuota
-         <|> match "SigningCertificatesPerUserQuota" SigningCertificatesPerUserQuota
-         <|> match "UserPolicySizeQuota"             UserPolicySizeQuota
-         <|> match "Users"                           Users
-         <|> match "UsersQuota"                      UsersQuota
+    parser = takeText >>= \case
+        "AccessKeysPerUserQuota"          -> pure AccessKeysPerUserQuota
+        "AccountMFAEnabled"               -> pure AccountMFAEnabled
+        "GroupPolicySizeQuota"            -> pure GroupPolicySizeQuota
+        "Groups"                          -> pure Groups
+        "GroupsPerUserQuota"              -> pure GroupsPerUserQuota
+        "GroupsQuota"                     -> pure GroupsQuota
+        "MFADevices"                      -> pure MFADevices
+        "MFADevicesInUse"                 -> pure MFADevicesInUse
+        "ServerCertificates"              -> pure ServerCertificates
+        "ServerCertificatesQuota"         -> pure ServerCertificatesQuota
+        "SigningCertificatesPerUserQuota" -> pure SigningCertificatesPerUserQuota
+        "UserPolicySizeQuota"             -> pure UserPolicySizeQuota
+        "Users"                           -> pure Users
+        "UsersQuota"                      -> pure UsersQuota
+        e                                 -> fail $
+            "Failure parsing SummaryKeyType from " ++ show e
 
 instance ToText SummaryKeyType where
     toText = \case
@@ -838,9 +847,12 @@ data ReportStateType
 instance Hashable ReportStateType
 
 instance FromText ReportStateType where
-    parser = match "COMPLETE"   Complete
-         <|> match "INPROGRESS" Inprogress
-         <|> match "STARTED"    Started
+    parser = takeText >>= \case
+        "COMPLETE"   -> pure Complete
+        "INPROGRESS" -> pure Inprogress
+        "STARTED"    -> pure Started
+        e            -> fail $
+            "Failure parsing ReportStateType from " ++ show e
 
 instance ToText ReportStateType where
     toText = \case
@@ -962,8 +974,11 @@ data StatusType
 instance Hashable StatusType
 
 instance FromText StatusType where
-    parser = match "Active"   Active
-         <|> match "Inactive" Inactive
+    parser = takeText >>= \case
+        "Active"   -> pure Active
+        "Inactive" -> pure Inactive
+        e          -> fail $
+            "Failure parsing StatusType from " ++ show e
 
 instance ToText StatusType where
     toText = \case

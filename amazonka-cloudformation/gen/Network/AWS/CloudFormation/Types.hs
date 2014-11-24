@@ -252,22 +252,25 @@ data StackStatus
 instance Hashable StackStatus
 
 instance FromText StackStatus where
-    parser = match "CREATE_COMPLETE"                              CreateComplete
-         <|> match "CREATE_FAILED"                                CreateFailed
-         <|> match "CREATE_IN_PROGRESS"                           CreateInProgress
-         <|> match "DELETE_COMPLETE"                              DeleteComplete
-         <|> match "DELETE_FAILED"                                DeleteFailed
-         <|> match "DELETE_IN_PROGRESS"                           DeleteInProgress
-         <|> match "ROLLBACK_COMPLETE"                            RollbackComplete
-         <|> match "ROLLBACK_FAILED"                              RollbackFailed
-         <|> match "ROLLBACK_IN_PROGRESS"                         RollbackInProgress
-         <|> match "UPDATE_COMPLETE"                              UpdateComplete
-         <|> match "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"          UpdateCompleteCleanupInProgress
-         <|> match "UPDATE_IN_PROGRESS"                           UpdateInProgress
-         <|> match "UPDATE_ROLLBACK_COMPLETE"                     UpdateRollbackComplete
-         <|> match "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS" UpdateRollbackCompleteCleanupInProgress
-         <|> match "UPDATE_ROLLBACK_FAILED"                       UpdateRollbackFailed
-         <|> match "UPDATE_ROLLBACK_IN_PROGRESS"                  UpdateRollbackInProgress
+    parser = takeText >>= \case
+        "CREATE_COMPLETE"                              -> pure CreateComplete
+        "CREATE_FAILED"                                -> pure CreateFailed
+        "CREATE_IN_PROGRESS"                           -> pure CreateInProgress
+        "DELETE_COMPLETE"                              -> pure DeleteComplete
+        "DELETE_FAILED"                                -> pure DeleteFailed
+        "DELETE_IN_PROGRESS"                           -> pure DeleteInProgress
+        "ROLLBACK_COMPLETE"                            -> pure RollbackComplete
+        "ROLLBACK_FAILED"                              -> pure RollbackFailed
+        "ROLLBACK_IN_PROGRESS"                         -> pure RollbackInProgress
+        "UPDATE_COMPLETE"                              -> pure UpdateComplete
+        "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"          -> pure UpdateCompleteCleanupInProgress
+        "UPDATE_IN_PROGRESS"                           -> pure UpdateInProgress
+        "UPDATE_ROLLBACK_COMPLETE"                     -> pure UpdateRollbackComplete
+        "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS" -> pure UpdateRollbackCompleteCleanupInProgress
+        "UPDATE_ROLLBACK_FAILED"                       -> pure UpdateRollbackFailed
+        "UPDATE_ROLLBACK_IN_PROGRESS"                  -> pure UpdateRollbackInProgress
+        e                                              -> fail $
+            "Failure parsing StackStatus from " ++ show e
 
 instance ToText StackStatus where
     toText = \case
@@ -678,16 +681,19 @@ data ResourceStatus
 instance Hashable ResourceStatus
 
 instance FromText ResourceStatus where
-    parser = match "CREATE_COMPLETE"    RSCreateComplete
-         <|> match "CREATE_FAILED"      RSCreateFailed
-         <|> match "CREATE_IN_PROGRESS" RSCreateInProgress
-         <|> match "DELETE_COMPLETE"    RSDeleteComplete
-         <|> match "DELETE_FAILED"      RSDeleteFailed
-         <|> match "DELETE_IN_PROGRESS" RSDeleteInProgress
-         <|> match "DELETE_SKIPPED"     RSDeleteSkipped
-         <|> match "UPDATE_COMPLETE"    RSUpdateComplete
-         <|> match "UPDATE_FAILED"      RSUpdateFailed
-         <|> match "UPDATE_IN_PROGRESS" RSUpdateInProgress
+    parser = takeText >>= \case
+        "CREATE_COMPLETE"    -> pure RSCreateComplete
+        "CREATE_FAILED"      -> pure RSCreateFailed
+        "CREATE_IN_PROGRESS" -> pure RSCreateInProgress
+        "DELETE_COMPLETE"    -> pure RSDeleteComplete
+        "DELETE_FAILED"      -> pure RSDeleteFailed
+        "DELETE_IN_PROGRESS" -> pure RSDeleteInProgress
+        "DELETE_SKIPPED"     -> pure RSDeleteSkipped
+        "UPDATE_COMPLETE"    -> pure RSUpdateComplete
+        "UPDATE_FAILED"      -> pure RSUpdateFailed
+        "UPDATE_IN_PROGRESS" -> pure RSUpdateInProgress
+        e                    -> fail $
+            "Failure parsing ResourceStatus from " ++ show e
 
 instance ToText ResourceStatus where
     toText = \case
@@ -1101,7 +1107,10 @@ data Capability
 instance Hashable Capability
 
 instance FromText Capability where
-    parser = match "CAPABILITY_IAM" CapabilityIam
+    parser = takeText >>= \case
+        "CAPABILITY_IAM" -> pure CapabilityIam
+        e                -> fail $
+            "Failure parsing Capability from " ++ show e
 
 instance ToText Capability where
     toText CapabilityIam = "CAPABILITY_IAM"
@@ -1122,8 +1131,11 @@ data ResourceSignalStatus
 instance Hashable ResourceSignalStatus
 
 instance FromText ResourceSignalStatus where
-    parser = match "FAILURE" Failure
-         <|> match "SUCCESS" Success
+    parser = takeText >>= \case
+        "FAILURE" -> pure Failure
+        "SUCCESS" -> pure Success
+        e         -> fail $
+            "Failure parsing ResourceSignalStatus from " ++ show e
 
 instance ToText ResourceSignalStatus where
     toText = \case
@@ -1315,9 +1327,12 @@ data OnFailure
 instance Hashable OnFailure
 
 instance FromText OnFailure where
-    parser = match "DELETE"     Delete'
-         <|> match "DO_NOTHING" DoNothing
-         <|> match "ROLLBACK"   Rollback
+    parser = takeText >>= \case
+        "DELETE"     -> pure Delete'
+        "DO_NOTHING" -> pure DoNothing
+        "ROLLBACK"   -> pure Rollback
+        e            -> fail $
+            "Failure parsing OnFailure from " ++ show e
 
 instance ToText OnFailure where
     toText = \case

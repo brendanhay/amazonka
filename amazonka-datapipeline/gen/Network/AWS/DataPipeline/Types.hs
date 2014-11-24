@@ -568,11 +568,14 @@ data OperatorType
 instance Hashable OperatorType
 
 instance FromText OperatorType where
-    parser = match "BETWEEN" OperatorBetween
-         <|> match "EQ"      OperatorEq
-         <|> match "GE"      OperatorGe
-         <|> match "LE"      OperatorLe
-         <|> match "REF_EQ"  OperatorRefEq
+    parser = takeText >>= \case
+        "BETWEEN" -> pure OperatorBetween
+        "EQ"      -> pure OperatorEq
+        "GE"      -> pure OperatorGe
+        "LE"      -> pure OperatorLe
+        "REF_EQ"  -> pure OperatorRefEq
+        e         -> fail $
+            "Failure parsing OperatorType from " ++ show e
 
 instance ToText OperatorType where
     toText = \case
@@ -640,9 +643,12 @@ data TaskStatus
 instance Hashable TaskStatus
 
 instance FromText TaskStatus where
-    parser = match "FAILED"   Failed
-         <|> match "FALSE"    False'
-         <|> match "FINISHED" Finished
+    parser = takeText >>= \case
+        "FAILED"   -> pure Failed
+        "FALSE"    -> pure False'
+        "FINISHED" -> pure Finished
+        e          -> fail $
+            "Failure parsing TaskStatus from " ++ show e
 
 instance ToText TaskStatus where
     toText = \case

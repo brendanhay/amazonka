@@ -394,8 +394,11 @@ data KeyType
 instance Hashable KeyType
 
 instance FromText KeyType where
-    parser = match "HASH"  Hash
-         <|> match "RANGE" Range
+    parser = takeText >>= \case
+        "HASH"  -> pure Hash
+        "RANGE" -> pure Range
+        e       -> fail $
+            "Failure parsing KeyType from " ++ show e
 
 instance ToText KeyType where
     toText = \case
@@ -540,10 +543,13 @@ data IndexStatus
 instance Hashable IndexStatus
 
 instance FromText IndexStatus where
-    parser = match "ACTIVE"   Active
-         <|> match "CREATING" Creating
-         <|> match "DELETING" Deleting
-         <|> match "UPDATING" Updating
+    parser = takeText >>= \case
+        "ACTIVE"   -> pure Active
+        "CREATING" -> pure Creating
+        "DELETING" -> pure Deleting
+        "UPDATING" -> pure Updating
+        e          -> fail $
+            "Failure parsing IndexStatus from " ++ show e
 
 instance ToText IndexStatus where
     toText = \case
@@ -621,10 +627,13 @@ data TableStatus
 instance Hashable TableStatus
 
 instance FromText TableStatus where
-    parser = match "ACTIVE"   TSActive
-         <|> match "CREATING" TSCreating
-         <|> match "DELETING" TSDeleting
-         <|> match "UPDATING" TSUpdating
+    parser = takeText >>= \case
+        "ACTIVE"   -> pure TSActive
+        "CREATING" -> pure TSCreating
+        "DELETING" -> pure TSDeleting
+        "UPDATING" -> pure TSUpdating
+        e          -> fail $
+            "Failure parsing TableStatus from " ++ show e
 
 instance ToText TableStatus where
     toText = \case
@@ -652,9 +661,12 @@ data ProjectionType
 instance Hashable ProjectionType
 
 instance FromText ProjectionType where
-    parser = match "ALL"       All
-         <|> match "INCLUDE"   Include
-         <|> match "KEYS_ONLY" KeysOnly
+    parser = takeText >>= \case
+        "ALL"       -> pure All
+        "INCLUDE"   -> pure Include
+        "KEYS_ONLY" -> pure KeysOnly
+        e           -> fail $
+            "Failure parsing ProjectionType from " ++ show e
 
 instance ToText ProjectionType where
     toText = \case
@@ -981,9 +993,12 @@ data ReturnConsumedCapacity
 instance Hashable ReturnConsumedCapacity
 
 instance FromText ReturnConsumedCapacity where
-    parser = match "INDEXES" Indexes
-         <|> match "NONE"    None
-         <|> match "TOTAL"   Total
+    parser = takeText >>= \case
+        "INDEXES" -> pure Indexes
+        "NONE"    -> pure None
+        "TOTAL"   -> pure Total
+        e         -> fail $
+            "Failure parsing ReturnConsumedCapacity from " ++ show e
 
 instance ToText ReturnConsumedCapacity where
     toText = \case
@@ -1009,8 +1024,11 @@ data ReturnItemCollectionMetrics
 instance Hashable ReturnItemCollectionMetrics
 
 instance FromText ReturnItemCollectionMetrics where
-    parser = match "NONE" RICMNone
-         <|> match "SIZE" RICMSize
+    parser = takeText >>= \case
+        "NONE" -> pure RICMNone
+        "SIZE" -> pure RICMSize
+        e      -> fail $
+            "Failure parsing ReturnItemCollectionMetrics from " ++ show e
 
 instance ToText ReturnItemCollectionMetrics where
     toText = \case
@@ -1320,19 +1338,22 @@ data ComparisonOperator
 instance Hashable ComparisonOperator
 
 instance FromText ComparisonOperator where
-    parser = match "BEGINS_WITH"  BeginsWith
-         <|> match "BETWEEN"      Between
-         <|> match "CONTAINS"     Contains
-         <|> match "EQ"           Eq
-         <|> match "GE"           Ge
-         <|> match "GT"           Gt
-         <|> match "IN"           In'
-         <|> match "LE"           Le
-         <|> match "LT"           Lt
-         <|> match "NE"           Ne
-         <|> match "NOT_CONTAINS" NotContains
-         <|> match "NOT_NULL"     NotNull
-         <|> match "NULL"         Null
+    parser = takeText >>= \case
+        "BEGINS_WITH"  -> pure BeginsWith
+        "BETWEEN"      -> pure Between
+        "CONTAINS"     -> pure Contains
+        "EQ"           -> pure Eq
+        "GE"           -> pure Ge
+        "GT"           -> pure Gt
+        "IN"           -> pure In'
+        "LE"           -> pure Le
+        "LT"           -> pure Lt
+        "NE"           -> pure Ne
+        "NOT_CONTAINS" -> pure NotContains
+        "NOT_NULL"     -> pure NotNull
+        "NULL"         -> pure Null
+        e              -> fail $
+            "Failure parsing ComparisonOperator from " ++ show e
 
 instance ToText ComparisonOperator where
     toText = \case
@@ -1371,11 +1392,14 @@ data ReturnValue
 instance Hashable ReturnValue
 
 instance FromText ReturnValue where
-    parser = match "ALL_NEW"     RVAllNew
-         <|> match "ALL_OLD"     RVAllOld
-         <|> match "NONE"        RVNone
-         <|> match "UPDATED_NEW" RVUpdatedNew
-         <|> match "UPDATED_OLD" RVUpdatedOld
+    parser = takeText >>= \case
+        "ALL_NEW"     -> pure RVAllNew
+        "ALL_OLD"     -> pure RVAllOld
+        "NONE"        -> pure RVNone
+        "UPDATED_NEW" -> pure RVUpdatedNew
+        "UPDATED_OLD" -> pure RVUpdatedOld
+        e             -> fail $
+            "Failure parsing ReturnValue from " ++ show e
 
 instance ToText ReturnValue where
     toText = \case
@@ -1846,9 +1870,12 @@ data AttributeAction
 instance Hashable AttributeAction
 
 instance FromText AttributeAction where
-    parser = match "ADD"    Add
-         <|> match "DELETE" Delete'
-         <|> match "PUT"    Put
+    parser = takeText >>= \case
+        "ADD"    -> pure Add
+        "DELETE" -> pure Delete'
+        "PUT"    -> pure Put
+        e        -> fail $
+            "Failure parsing AttributeAction from " ++ show e
 
 instance ToText AttributeAction where
     toText = \case
@@ -1875,9 +1902,12 @@ data ScalarAttributeType
 instance Hashable ScalarAttributeType
 
 instance FromText ScalarAttributeType where
-    parser = match "B" B
-         <|> match "N" N
-         <|> match "S" S
+    parser = takeText >>= \case
+        "B" -> pure B
+        "N" -> pure N
+        "S" -> pure S
+        e   -> fail $
+            "Failure parsing ScalarAttributeType from " ++ show e
 
 instance ToText ScalarAttributeType where
     toText = \case
@@ -1954,10 +1984,13 @@ data Select
 instance Hashable Select
 
 instance FromText Select where
-    parser = match "ALL_ATTRIBUTES"           AllAttributes
-         <|> match "ALL_PROJECTED_ATTRIBUTES" AllProjectedAttributes
-         <|> match "COUNT"                    Count
-         <|> match "SPECIFIC_ATTRIBUTES"      SpecificAttributes
+    parser = takeText >>= \case
+        "ALL_ATTRIBUTES"           -> pure AllAttributes
+        "ALL_PROJECTED_ATTRIBUTES" -> pure AllProjectedAttributes
+        "COUNT"                    -> pure Count
+        "SPECIFIC_ATTRIBUTES"      -> pure SpecificAttributes
+        e                          -> fail $
+            "Failure parsing Select from " ++ show e
 
 instance ToText Select where
     toText = \case
@@ -2261,8 +2294,11 @@ data ConditionalOperator
 instance Hashable ConditionalOperator
 
 instance FromText ConditionalOperator where
-    parser = match "AND" And
-         <|> match "OR"  Or
+    parser = takeText >>= \case
+        "AND" -> pure And
+        "OR"  -> pure Or
+        e     -> fail $
+            "Failure parsing ConditionalOperator from " ++ show e
 
 instance ToText ConditionalOperator where
     toText = \case

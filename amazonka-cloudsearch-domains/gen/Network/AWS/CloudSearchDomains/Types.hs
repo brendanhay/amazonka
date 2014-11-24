@@ -163,10 +163,13 @@ data QueryParser
 instance Hashable QueryParser
 
 instance FromText QueryParser where
-    parser = match "dismax"     Dismax
-         <|> match "lucene"     Lucene
-         <|> match "simple"     Simple
-         <|> match "structured" Structured
+    parser = takeText >>= \case
+        "dismax"     -> pure Dismax
+        "lucene"     -> pure Lucene
+        "simple"     -> pure Simple
+        "structured" -> pure Structured
+        e            -> fail $
+            "Failure parsing QueryParser from " ++ show e
 
 instance ToText QueryParser where
     toText = \case
@@ -535,8 +538,11 @@ data ContentType
 instance Hashable ContentType
 
 instance FromText ContentType where
-    parser = match "application/json" ApplicationJson
-         <|> match "application/xml"  ApplicationXml
+    parser = takeText >>= \case
+        "application/json" -> pure ApplicationJson
+        "application/xml"  -> pure ApplicationXml
+        e                  -> fail $
+            "Failure parsing ContentType from " ++ show e
 
 instance ToText ContentType where
     toText = \case

@@ -48,10 +48,10 @@ fromText :: FromText a => Text -> Either String a
 fromText = AText.parseOnly parser
 {-# INLINE fromText #-}
 
--- FIXME: improve the error messages for partial match, or extra input etc.
-match :: Text -> a -> Parser a
-match x y = AText.string x <* AText.endOfInput >> return y
-{-# INLINE match #-}
+-- -- FIXME: improve the error messages for partial match, or extra input etc.
+-- match :: Text -> a -> Parser a
+-- match x y = AText.string x <* AText.endOfInput >> return y
+-- {-# INLINE match #-}
 
 matchCI :: Text -> a -> Parser a
 matchCI x y = AText.asciiCI x <* AText.endOfInput >> return y

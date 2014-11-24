@@ -1230,10 +1230,13 @@ data SourceType
 instance Hashable SourceType
 
 instance FromText SourceType where
-    parser = match "db-instance"        DbInstance
-         <|> match "db-parameter-group" DbParameterGroup
-         <|> match "db-security-group"  DbSecurityGroup
-         <|> match "db-snapshot"        DbSnapshot
+    parser = takeText >>= \case
+        "db-instance"        -> pure DbInstance
+        "db-parameter-group" -> pure DbParameterGroup
+        "db-security-group"  -> pure DbSecurityGroup
+        "db-snapshot"        -> pure DbSnapshot
+        e                    -> fail $
+            "Failure parsing SourceType from " ++ show e
 
 instance ToText SourceType where
     toText = \case
@@ -1437,8 +1440,11 @@ data ApplyMethod
 instance Hashable ApplyMethod
 
 instance FromText ApplyMethod where
-    parser = match "immediate"      Immediate
-         <|> match "pending-reboot" PendingReboot
+    parser = takeText >>= \case
+        "immediate"      -> pure Immediate
+        "pending-reboot" -> pure PendingReboot
+        e                -> fail $
+            "Failure parsing ApplyMethod from " ++ show e
 
 instance ToText ApplyMethod where
     toText = \case

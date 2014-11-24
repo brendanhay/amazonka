@@ -496,13 +496,16 @@ data VirtualInterfaceState
 instance Hashable VirtualInterfaceState
 
 instance FromText VirtualInterfaceState where
-    parser = match "available"  Available
-         <|> match "confirming" Confirming
-         <|> match "deleted"    Deleted
-         <|> match "deleting"   Deleting
-         <|> match "pending"    Pending
-         <|> match "rejected"   Rejected
-         <|> match "verifying"  Verifying
+    parser = takeText >>= \case
+        "available"  -> pure Available
+        "confirming" -> pure Confirming
+        "deleted"    -> pure Deleted
+        "deleting"   -> pure Deleting
+        "pending"    -> pure Pending
+        "rejected"   -> pure Rejected
+        "verifying"  -> pure Verifying
+        e            -> fail $
+            "Failure parsing VirtualInterfaceState from " ++ show e
 
 instance ToText VirtualInterfaceState where
     toText = \case
@@ -803,12 +806,15 @@ data InterconnectState
 instance Hashable InterconnectState
 
 instance FromText InterconnectState where
-    parser = match "available" ISAvailable
-         <|> match "deleted"   ISDeleted
-         <|> match "deleting"  ISDeleting
-         <|> match "down"      ISDown
-         <|> match "pending"   ISPending
-         <|> match "requested" ISRequested
+    parser = takeText >>= \case
+        "available" -> pure ISAvailable
+        "deleted"   -> pure ISDeleted
+        "deleting"  -> pure ISDeleting
+        "down"      -> pure ISDown
+        "pending"   -> pure ISPending
+        "requested" -> pure ISRequested
+        e           -> fail $
+            "Failure parsing InterconnectState from " ++ show e
 
 instance ToText InterconnectState where
     toText = \case
@@ -1026,14 +1032,17 @@ data ConnectionState
 instance Hashable ConnectionState
 
 instance FromText ConnectionState where
-    parser = match "available" CSAvailable
-         <|> match "deleted"   CSDeleted
-         <|> match "deleting"  CSDeleting
-         <|> match "down"      CSDown
-         <|> match "ordering"  CSOrdering
-         <|> match "pending"   CSPending
-         <|> match "rejected"  CSRejected
-         <|> match "requested" CSRequested
+    parser = takeText >>= \case
+        "available" -> pure CSAvailable
+        "deleted"   -> pure CSDeleted
+        "deleting"  -> pure CSDeleting
+        "down"      -> pure CSDown
+        "ordering"  -> pure CSOrdering
+        "pending"   -> pure CSPending
+        "rejected"  -> pure CSRejected
+        "requested" -> pure CSRequested
+        e           -> fail $
+            "Failure parsing ConnectionState from " ++ show e
 
 instance ToText ConnectionState where
     toText = \case

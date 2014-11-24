@@ -78,3 +78,14 @@ stripTags t
         case Text.head t of
             '<' -> stripTags . Text.drop 1 . Text.dropWhile (/= '>') $ Text.tail t
             _   -> Text.cons (Text.head t) . stripTags $ Text.tail t
+
+
+-- formatTags :: Text -> Text
+
+  -- <p>Acquires an Elastic IP address.</p>
+
+  -- <p>An Elastic IP address is for use either in the EC2-Classic platform or in
+  -- a VPC. For more information,
+  -- see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic
+  -- IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+

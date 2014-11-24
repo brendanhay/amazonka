@@ -836,8 +836,11 @@ data PendingAutomaticFailoverStatus
 instance Hashable PendingAutomaticFailoverStatus
 
 instance FromText PendingAutomaticFailoverStatus where
-    parser = match "disabled" Disabled
-         <|> match "enabled"  Enabled
+    parser = takeText >>= \case
+        "disabled" -> pure Disabled
+        "enabled"  -> pure Enabled
+        e          -> fail $
+            "Failure parsing PendingAutomaticFailoverStatus from " ++ show e
 
 instance ToText PendingAutomaticFailoverStatus where
     toText = \case
@@ -1034,10 +1037,13 @@ data SourceType
 instance Hashable SourceType
 
 instance FromText SourceType where
-    parser = match "cache-cluster"         STCacheCluster
-         <|> match "cache-parameter-group" STCacheParameterGroup
-         <|> match "cache-security-group"  STCacheSecurityGroup
-         <|> match "cache-subnet-group"    STCacheSubnetGroup
+    parser = takeText >>= \case
+        "cache-cluster"         -> pure STCacheCluster
+        "cache-parameter-group" -> pure STCacheParameterGroup
+        "cache-security-group"  -> pure STCacheSecurityGroup
+        "cache-subnet-group"    -> pure STCacheSubnetGroup
+        e                       -> fail $
+            "Failure parsing SourceType from " ++ show e
 
 instance ToText SourceType where
     toText = \case
@@ -2041,10 +2047,13 @@ data AutomaticFailoverStatus
 instance Hashable AutomaticFailoverStatus
 
 instance FromText AutomaticFailoverStatus where
-    parser = match "disabled"  AFSDisabled
-         <|> match "disabling" AFSDisabling
-         <|> match "enabled"   AFSEnabled
-         <|> match "enabling"  AFSEnabling
+    parser = takeText >>= \case
+        "disabled"  -> pure AFSDisabled
+        "disabling" -> pure AFSDisabling
+        "enabled"   -> pure AFSEnabled
+        "enabling"  -> pure AFSEnabling
+        e           -> fail $
+            "Failure parsing AutomaticFailoverStatus from " ++ show e
 
 instance ToText AutomaticFailoverStatus where
     toText = \case
@@ -2241,8 +2250,11 @@ data AZMode
 instance Hashable AZMode
 
 instance FromText AZMode where
-    parser = match "cross-az"  CrossAz
-         <|> match "single-az" SingleAz
+    parser = takeText >>= \case
+        "cross-az"  -> pure CrossAz
+        "single-az" -> pure SingleAz
+        e           -> fail $
+            "Failure parsing AZMode from " ++ show e
 
 instance ToText AZMode where
     toText = \case

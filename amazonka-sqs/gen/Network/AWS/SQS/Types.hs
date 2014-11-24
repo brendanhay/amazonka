@@ -145,19 +145,22 @@ data QueueAttributeName
 instance Hashable QueueAttributeName
 
 instance FromText QueueAttributeName where
-    parser = match "ApproximateNumberOfMessages"           ApproximateNumberOfMessages
-         <|> match "ApproximateNumberOfMessagesDelayed"    ApproximateNumberOfMessagesDelayed
-         <|> match "ApproximateNumberOfMessagesNotVisible" ApproximateNumberOfMessagesNotVisible
-         <|> match "CreatedTimestamp"                      CreatedTimestamp
-         <|> match "DelaySeconds"                          DelaySeconds
-         <|> match "LastModifiedTimestamp"                 LastModifiedTimestamp
-         <|> match "MaximumMessageSize"                    MaximumMessageSize
-         <|> match "MessageRetentionPeriod"                MessageRetentionPeriod
-         <|> match "Policy"                                Policy
-         <|> match "QueueArn"                              QueueArn
-         <|> match "ReceiveMessageWaitTimeSeconds"         ReceiveMessageWaitTimeSeconds
-         <|> match "RedrivePolicy"                         RedrivePolicy
-         <|> match "VisibilityTimeout"                     VisibilityTimeout
+    parser = takeText >>= \case
+        "ApproximateNumberOfMessages"           -> pure ApproximateNumberOfMessages
+        "ApproximateNumberOfMessagesDelayed"    -> pure ApproximateNumberOfMessagesDelayed
+        "ApproximateNumberOfMessagesNotVisible" -> pure ApproximateNumberOfMessagesNotVisible
+        "CreatedTimestamp"                      -> pure CreatedTimestamp
+        "DelaySeconds"                          -> pure DelaySeconds
+        "LastModifiedTimestamp"                 -> pure LastModifiedTimestamp
+        "MaximumMessageSize"                    -> pure MaximumMessageSize
+        "MessageRetentionPeriod"                -> pure MessageRetentionPeriod
+        "Policy"                                -> pure Policy
+        "QueueArn"                              -> pure QueueArn
+        "ReceiveMessageWaitTimeSeconds"         -> pure ReceiveMessageWaitTimeSeconds
+        "RedrivePolicy"                         -> pure RedrivePolicy
+        "VisibilityTimeout"                     -> pure VisibilityTimeout
+        e                                       -> fail $
+            "Failure parsing QueueAttributeName from " ++ show e
 
 instance ToText QueueAttributeName where
     toText = \case

@@ -2012,19 +2012,22 @@ data LifecycleState
 instance Hashable LifecycleState
 
 instance FromText LifecycleState where
-    parser = match "Detached"            Detached
-         <|> match "Detaching"           Detaching
-         <|> match "EnteringStandby"     EnteringStandby
-         <|> match "InService"           InService
-         <|> match "Pending"             Pending
-         <|> match "Pending:Proceed"     PendingProceed
-         <|> match "Pending:Wait"        PendingWait
-         <|> match "Quarantined"         Quarantined
-         <|> match "Standby"             Standby
-         <|> match "Terminated"          Terminated
-         <|> match "Terminating"         Terminating
-         <|> match "Terminating:Proceed" TerminatingProceed
-         <|> match "Terminating:Wait"    TerminatingWait
+    parser = takeText >>= \case
+        "Detached"            -> pure Detached
+        "Detaching"           -> pure Detaching
+        "EnteringStandby"     -> pure EnteringStandby
+        "InService"           -> pure InService
+        "Pending"             -> pure Pending
+        "Pending:Proceed"     -> pure PendingProceed
+        "Pending:Wait"        -> pure PendingWait
+        "Quarantined"         -> pure Quarantined
+        "Standby"             -> pure Standby
+        "Terminated"          -> pure Terminated
+        "Terminating"         -> pure Terminating
+        "Terminating:Proceed" -> pure TerminatingProceed
+        "Terminating:Wait"    -> pure TerminatingWait
+        e                     -> fail $
+            "Failure parsing LifecycleState from " ++ show e
 
 instance ToText LifecycleState where
     toText = \case
@@ -2159,16 +2162,19 @@ data ScalingActivityStatusCode
 instance Hashable ScalingActivityStatusCode
 
 instance FromText ScalingActivityStatusCode where
-    parser = match "Cancelled"                       Cancelled
-         <|> match "Failed"                          Failed
-         <|> match "InProgress"                      InProgress
-         <|> match "MidLifecycleAction"              MidLifecycleAction
-         <|> match "PreInService"                    PreInService
-         <|> match "Successful"                      Successful
-         <|> match "WaitingForELBConnectionDraining" WaitingForELBConnectionDraining
-         <|> match "WaitingForInstanceId"            WaitingForInstanceId
-         <|> match "WaitingForSpotInstanceId"        WaitingForSpotInstanceId
-         <|> match "WaitingForSpotInstanceRequestId" WaitingForSpotInstanceRequestId
+    parser = takeText >>= \case
+        "Cancelled"                       -> pure Cancelled
+        "Failed"                          -> pure Failed
+        "InProgress"                      -> pure InProgress
+        "MidLifecycleAction"              -> pure MidLifecycleAction
+        "PreInService"                    -> pure PreInService
+        "Successful"                      -> pure Successful
+        "WaitingForELBConnectionDraining" -> pure WaitingForELBConnectionDraining
+        "WaitingForInstanceId"            -> pure WaitingForInstanceId
+        "WaitingForSpotInstanceId"        -> pure WaitingForSpotInstanceId
+        "WaitingForSpotInstanceRequestId" -> pure WaitingForSpotInstanceRequestId
+        e                                 -> fail $
+            "Failure parsing ScalingActivityStatusCode from " ++ show e
 
 instance ToText ScalingActivityStatusCode where
     toText = \case

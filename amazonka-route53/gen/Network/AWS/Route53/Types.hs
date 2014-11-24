@@ -514,16 +514,19 @@ data VPCRegion
 instance Hashable VPCRegion
 
 instance FromText VPCRegion where
-    parser = match "ap-northeast-1" ApNortheast1
-         <|> match "ap-southeast-1" ApSoutheast1
-         <|> match "ap-southeast-2" ApSoutheast2
-         <|> match "cn-north-1"     CnNorth1
-         <|> match "eu-central-1"   EuCentral1
-         <|> match "eu-west-1"      EuWest1
-         <|> match "sa-east-1"      SaEast1
-         <|> match "us-east-1"      UsEast1
-         <|> match "us-west-1"      UsWest1
-         <|> match "us-west-2"      UsWest2
+    parser = takeText >>= \case
+        "ap-northeast-1" -> pure ApNortheast1
+        "ap-southeast-1" -> pure ApSoutheast1
+        "ap-southeast-2" -> pure ApSoutheast2
+        "cn-north-1"     -> pure CnNorth1
+        "eu-central-1"   -> pure EuCentral1
+        "eu-west-1"      -> pure EuWest1
+        "sa-east-1"      -> pure SaEast1
+        "us-east-1"      -> pure UsEast1
+        "us-west-1"      -> pure UsWest1
+        "us-west-2"      -> pure UsWest2
+        e                -> fail $
+            "Failure parsing VPCRegion from " ++ show e
 
 instance ToText VPCRegion where
     toText = \case
@@ -557,9 +560,12 @@ data ChangeAction
 instance Hashable ChangeAction
 
 instance FromText ChangeAction where
-    parser = match "CREATE" Create
-         <|> match "DELETE" Delete'
-         <|> match "UPSERT" Upsert
+    parser = takeText >>= \case
+        "CREATE" -> pure Create
+        "DELETE" -> pure Delete'
+        "UPSERT" -> pure Upsert
+        e        -> fail $
+            "Failure parsing ChangeAction from " ++ show e
 
 instance ToText ChangeAction where
     toText = \case
@@ -584,7 +590,10 @@ data TagResourceType
 instance Hashable TagResourceType
 
 instance FromText TagResourceType where
-    parser = match "healthcheck" Healthcheck
+    parser = takeText >>= \case
+        "healthcheck" -> pure Healthcheck
+        e             -> fail $
+            "Failure parsing TagResourceType from " ++ show e
 
 instance ToText TagResourceType where
     toText Healthcheck = "healthcheck"
@@ -767,8 +776,11 @@ data Failover
 instance Hashable Failover
 
 instance FromText Failover where
-    parser = match "PRIMARY"   Primary
-         <|> match "SECONDARY" Secondary
+    parser = takeText >>= \case
+        "PRIMARY"   -> pure Primary
+        "SECONDARY" -> pure Secondary
+        e           -> fail $
+            "Failure parsing Failover from " ++ show e
 
 instance ToText Failover where
     toText = \case
@@ -924,8 +936,11 @@ data ChangeStatus
 instance Hashable ChangeStatus
 
 instance FromText ChangeStatus where
-    parser = match "INSYNC"  Insync
-         <|> match "PENDING" Pending
+    parser = takeText >>= \case
+        "INSYNC"  -> pure Insync
+        "PENDING" -> pure Pending
+        e         -> fail $
+            "Failure parsing ChangeStatus from " ++ show e
 
 instance ToText ChangeStatus where
     toText = \case
@@ -1035,11 +1050,14 @@ data HealthCheckType
 instance Hashable HealthCheckType
 
 instance FromText HealthCheckType where
-    parser = match "HTTP"            Http
-         <|> match "HTTP_STR_MATCH"  HttpStrMatch
-         <|> match "HTTPS"           Https
-         <|> match "HTTPS_STR_MATCH" HttpsStrMatch
-         <|> match "TCP"             Tcp
+    parser = takeText >>= \case
+        "HTTP"            -> pure Http
+        "HTTP_STR_MATCH"  -> pure HttpStrMatch
+        "HTTPS"           -> pure Https
+        "HTTPS_STR_MATCH" -> pure HttpsStrMatch
+        "TCP"             -> pure Tcp
+        e                 -> fail $
+            "Failure parsing HealthCheckType from " ++ show e
 
 instance ToText HealthCheckType where
     toText = \case

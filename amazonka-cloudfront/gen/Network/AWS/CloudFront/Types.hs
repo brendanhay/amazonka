@@ -584,8 +584,11 @@ data SSLSupportMethod
 instance Hashable SSLSupportMethod
 
 instance FromText SSLSupportMethod where
-    parser = match "sni-only" SniOnly
-         <|> match "vip"      Vip
+    parser = takeText >>= \case
+        "sni-only" -> pure SniOnly
+        "vip"      -> pure Vip
+        e          -> fail $
+            "Failure parsing SSLSupportMethod from " ++ show e
 
 instance ToText SSLSupportMethod where
     toText = \case
@@ -776,9 +779,12 @@ data ViewerProtocolPolicy
 instance Hashable ViewerProtocolPolicy
 
 instance FromText ViewerProtocolPolicy where
-    parser = match "allow-all"         AllowAll
-         <|> match "https-only"        HttpsOnly
-         <|> match "redirect-to-https" RedirectToHttps
+    parser = takeText >>= \case
+        "allow-all"         -> pure AllowAll
+        "https-only"        -> pure HttpsOnly
+        "redirect-to-https" -> pure RedirectToHttps
+        e                   -> fail $
+            "Failure parsing ViewerProtocolPolicy from " ++ show e
 
 instance ToText ViewerProtocolPolicy where
     toText = \case
@@ -1115,8 +1121,11 @@ data OriginProtocolPolicy
 instance Hashable OriginProtocolPolicy
 
 instance FromText OriginProtocolPolicy where
-    parser = match "http-only"    HttpOnly
-         <|> match "match-viewer" MatchViewer
+    parser = takeText >>= \case
+        "http-only"    -> pure HttpOnly
+        "match-viewer" -> pure MatchViewer
+        e              -> fail $
+            "Failure parsing OriginProtocolPolicy from " ++ show e
 
 instance ToText OriginProtocolPolicy where
     toText = \case
@@ -2109,9 +2118,12 @@ data PriceClass
 instance Hashable PriceClass
 
 instance FromText PriceClass where
-    parser = match "PriceClass_100" PriceClass100
-         <|> match "PriceClass_200" PriceClass200
-         <|> match "PriceClass_All" PriceClassAll
+    parser = takeText >>= \case
+        "PriceClass_100" -> pure PriceClass100
+        "PriceClass_200" -> pure PriceClass200
+        "PriceClass_All" -> pure PriceClassAll
+        e                -> fail $
+            "Failure parsing PriceClass from " ++ show e
 
 instance ToText PriceClass where
     toText = \case
@@ -2515,13 +2527,16 @@ data Method
 instance Hashable Method
 
 instance FromText Method where
-    parser = match "DELETE"  Delete'
-         <|> match "GET"     Get
-         <|> match "HEAD"    Head'
-         <|> match "OPTIONS" Options
-         <|> match "PATCH"   Patch
-         <|> match "POST"    Post
-         <|> match "PUT"     Put
+    parser = takeText >>= \case
+        "DELETE"  -> pure Delete'
+        "GET"     -> pure Get
+        "HEAD"    -> pure Head'
+        "OPTIONS" -> pure Options
+        "PATCH"   -> pure Patch
+        "POST"    -> pure Post
+        "PUT"     -> pure Put
+        e         -> fail $
+            "Failure parsing Method from " ++ show e
 
 instance ToText Method where
     toText = \case
@@ -2657,9 +2672,12 @@ data ItemSelection
 instance Hashable ItemSelection
 
 instance FromText ItemSelection where
-    parser = match "all"       All
-         <|> match "none"      None
-         <|> match "whitelist" Whitelist
+    parser = takeText >>= \case
+        "all"       -> pure All
+        "none"      -> pure None
+        "whitelist" -> pure Whitelist
+        e           -> fail $
+            "Failure parsing ItemSelection from " ++ show e
 
 instance ToText ItemSelection where
     toText = \case
@@ -3547,9 +3565,12 @@ data GeoRestrictionType
 instance Hashable GeoRestrictionType
 
 instance FromText GeoRestrictionType where
-    parser = match "blacklist" GRTBlacklist
-         <|> match "none"      GRTNone
-         <|> match "whitelist" GRTWhitelist
+    parser = takeText >>= \case
+        "blacklist" -> pure GRTBlacklist
+        "none"      -> pure GRTNone
+        "whitelist" -> pure GRTWhitelist
+        e           -> fail $
+            "Failure parsing GeoRestrictionType from " ++ show e
 
 instance ToText GeoRestrictionType where
     toText = \case

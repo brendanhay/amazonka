@@ -1668,10 +1668,13 @@ data SourceType
 instance Hashable SourceType
 
 instance FromText SourceType where
-    parser = match "cluster"                 STCluster
-         <|> match "cluster-parameter-group" STClusterParameterGroup
-         <|> match "cluster-security-group"  STClusterSecurityGroup
-         <|> match "cluster-snapshot"        STClusterSnapshot
+    parser = takeText >>= \case
+        "cluster"                 -> pure STCluster
+        "cluster-parameter-group" -> pure STClusterParameterGroup
+        "cluster-security-group"  -> pure STClusterSecurityGroup
+        "cluster-snapshot"        -> pure STClusterSnapshot
+        e                         -> fail $
+            "Failure parsing SourceType from " ++ show e
 
 instance ToText SourceType where
     toText = \case

@@ -376,9 +376,12 @@ data BundleType
 instance Hashable BundleType
 
 instance FromText BundleType where
-    parser = match "tar" Tar
-         <|> match "tgz" Tgz
-         <|> match "zip" Zip
+    parser = takeText >>= \case
+        "tar" -> pure Tar
+        "tgz" -> pure Tgz
+        "zip" -> pure Zip
+        e     -> fail $
+            "Failure parsing BundleType from " ++ show e
 
 instance ToText BundleType where
     toText = \case
@@ -444,8 +447,11 @@ data DeploymentCreator
 instance Hashable DeploymentCreator
 
 instance FromText DeploymentCreator where
-    parser = match "autoscaling" Autoscaling
-         <|> match "user"        User
+    parser = takeText >>= \case
+        "autoscaling" -> pure Autoscaling
+        "user"        -> pure User
+        e             -> fail $
+            "Failure parsing DeploymentCreator from " ++ show e
 
 instance ToText DeploymentCreator where
     toText = \case
@@ -691,9 +697,12 @@ data ApplicationRevisionSortBy
 instance Hashable ApplicationRevisionSortBy
 
 instance FromText ApplicationRevisionSortBy where
-    parser = match "firstUsedTime" FirstUsedTime
-         <|> match "lastUsedTime"  LastUsedTime
-         <|> match "registerTime"  RegisterTime
+    parser = takeText >>= \case
+        "firstUsedTime" -> pure FirstUsedTime
+        "lastUsedTime"  -> pure LastUsedTime
+        "registerTime"  -> pure RegisterTime
+        e               -> fail $
+            "Failure parsing ApplicationRevisionSortBy from " ++ show e
 
 instance ToText ApplicationRevisionSortBy where
     toText = \case
@@ -771,9 +780,12 @@ data ListStateFilterAction
 instance Hashable ListStateFilterAction
 
 instance FromText ListStateFilterAction where
-    parser = match "exclude" Exclude
-         <|> match "ignore"  Ignore
-         <|> match "include" Include
+    parser = takeText >>= \case
+        "exclude" -> pure Exclude
+        "ignore"  -> pure Ignore
+        "include" -> pure Include
+        e         -> fail $
+            "Failure parsing ListStateFilterAction from " ++ show e
 
 instance ToText ListStateFilterAction where
     toText = \case
@@ -803,12 +815,15 @@ data LifecycleErrorCode
 instance Hashable LifecycleErrorCode
 
 instance FromText LifecycleErrorCode where
-    parser = match "ScriptFailed"        ScriptFailed
-         <|> match "ScriptMissing"       ScriptMissing
-         <|> match "ScriptNotExecutable" ScriptNotExecutable
-         <|> match "ScriptTimedOut"      ScriptTimedOut
-         <|> match "Success"             Success
-         <|> match "UnknownError"        UnknownError
+    parser = takeText >>= \case
+        "ScriptFailed"        -> pure ScriptFailed
+        "ScriptMissing"       -> pure ScriptMissing
+        "ScriptNotExecutable" -> pure ScriptNotExecutable
+        "ScriptTimedOut"      -> pure ScriptTimedOut
+        "Success"             -> pure Success
+        "UnknownError"        -> pure UnknownError
+        e                     -> fail $
+            "Failure parsing LifecycleErrorCode from " ++ show e
 
 instance ToText LifecycleErrorCode where
     toText = \case
@@ -888,12 +903,15 @@ data LifecycleEventStatus
 instance Hashable LifecycleEventStatus
 
 instance FromText LifecycleEventStatus where
-    parser = match "Failed"     Failed
-         <|> match "InProgress" InProgress
-         <|> match "Pending"    Pending
-         <|> match "Skipped"    Skipped
-         <|> match "Succeeded"  Succeeded
-         <|> match "Unknown"    Unknown
+    parser = takeText >>= \case
+        "Failed"     -> pure Failed
+        "InProgress" -> pure InProgress
+        "Pending"    -> pure Pending
+        "Skipped"    -> pure Skipped
+        "Succeeded"  -> pure Succeeded
+        "Unknown"    -> pure Unknown
+        e            -> fail $
+            "Failure parsing LifecycleEventStatus from " ++ show e
 
 instance ToText LifecycleEventStatus where
     toText = \case
@@ -1035,8 +1053,11 @@ data StopStatus
 instance Hashable StopStatus
 
 instance FromText StopStatus where
-    parser = match "Pending"   SSPending
-         <|> match "Succeeded" SSSucceeded
+    parser = takeText >>= \case
+        "Pending"   -> pure SSPending
+        "Succeeded" -> pure SSSucceeded
+        e           -> fail $
+            "Failure parsing StopStatus from " ++ show e
 
 instance ToText StopStatus where
     toText = \case
@@ -1116,8 +1137,11 @@ data SortOrder
 instance Hashable SortOrder
 
 instance FromText SortOrder where
-    parser = match "ascending"  Ascending
-         <|> match "descending" Descending
+    parser = takeText >>= \case
+        "ascending"  -> pure Ascending
+        "descending" -> pure Descending
+        e            -> fail $
+            "Failure parsing SortOrder from " ++ show e
 
 instance ToText SortOrder where
     toText = \case
@@ -1472,17 +1496,20 @@ data ErrorCode
 instance Hashable ErrorCode
 
 instance FromText ErrorCode where
-    parser = match "APPLICATION_MISSING"        ApplicationMissing
-         <|> match "DEPLOYMENT_GROUP_MISSING"   DeploymentGroupMissing
-         <|> match "HEALTH_CONSTRAINTS"         HealthConstraints
-         <|> match "HEALTH_CONSTRAINTS_INVALID" HealthConstraintsInvalid
-         <|> match "IAM_ROLE_MISSING"           IamRoleMissing
-         <|> match "IAM_ROLE_PERMISSIONS"       IamRolePermissions
-         <|> match "INTERNAL_ERROR"             InternalError
-         <|> match "NO_INSTANCES"               NoInstances
-         <|> match "OVER_MAX_INSTANCES"         OverMaxInstances
-         <|> match "REVISION_MISSING"           RevisionMissing
-         <|> match "TIMEOUT"                    Timeout
+    parser = takeText >>= \case
+        "APPLICATION_MISSING"        -> pure ApplicationMissing
+        "DEPLOYMENT_GROUP_MISSING"   -> pure DeploymentGroupMissing
+        "HEALTH_CONSTRAINTS"         -> pure HealthConstraints
+        "HEALTH_CONSTRAINTS_INVALID" -> pure HealthConstraintsInvalid
+        "IAM_ROLE_MISSING"           -> pure IamRoleMissing
+        "IAM_ROLE_PERMISSIONS"       -> pure IamRolePermissions
+        "INTERNAL_ERROR"             -> pure InternalError
+        "NO_INSTANCES"               -> pure NoInstances
+        "OVER_MAX_INSTANCES"         -> pure OverMaxInstances
+        "REVISION_MISSING"           -> pure RevisionMissing
+        "TIMEOUT"                    -> pure Timeout
+        e                            -> fail $
+            "Failure parsing ErrorCode from " ++ show e
 
 instance ToText ErrorCode where
     toText = \case
@@ -1581,12 +1608,15 @@ data InstanceStatus
 instance Hashable InstanceStatus
 
 instance FromText InstanceStatus where
-    parser = match "Failed"     ISFailed
-         <|> match "InProgress" ISInProgress
-         <|> match "Pending"    ISPending
-         <|> match "Skipped"    ISSkipped
-         <|> match "Succeeded"  ISSucceeded
-         <|> match "Unknown"    ISUnknown
+    parser = takeText >>= \case
+        "Failed"     -> pure ISFailed
+        "InProgress" -> pure ISInProgress
+        "Pending"    -> pure ISPending
+        "Skipped"    -> pure ISSkipped
+        "Succeeded"  -> pure ISSucceeded
+        "Unknown"    -> pure ISUnknown
+        e            -> fail $
+            "Failure parsing InstanceStatus from " ++ show e
 
 instance ToText InstanceStatus where
     toText = \case
@@ -1619,12 +1649,15 @@ data DeploymentStatus
 instance Hashable DeploymentStatus
 
 instance FromText DeploymentStatus where
-    parser = match "Created"    DSCreated
-         <|> match "Failed"     DSFailed
-         <|> match "InProgress" DSInProgress
-         <|> match "Queued"     DSQueued
-         <|> match "Stopped"    DSStopped
-         <|> match "Succeeded"  DSSucceeded
+    parser = takeText >>= \case
+        "Created"    -> pure DSCreated
+        "Failed"     -> pure DSFailed
+        "InProgress" -> pure DSInProgress
+        "Queued"     -> pure DSQueued
+        "Stopped"    -> pure DSStopped
+        "Succeeded"  -> pure DSSucceeded
+        e            -> fail $
+            "Failure parsing DeploymentStatus from " ++ show e
 
 instance ToText DeploymentStatus where
     toText = \case
@@ -1729,8 +1762,11 @@ data MinimumHealthyHostsType
 instance Hashable MinimumHealthyHostsType
 
 instance FromText MinimumHealthyHostsType where
-    parser = match "FLEET_PERCENT" FleetPercent
-         <|> match "HOST_COUNT"    HostCount
+    parser = takeText >>= \case
+        "FLEET_PERCENT" -> pure FleetPercent
+        "HOST_COUNT"    -> pure HostCount
+        e               -> fail $
+            "Failure parsing MinimumHealthyHostsType from " ++ show e
 
 instance ToText MinimumHealthyHostsType where
     toText = \case
@@ -1796,8 +1832,11 @@ data RevisionLocationType
 instance Hashable RevisionLocationType
 
 instance FromText RevisionLocationType where
-    parser = match "GitHub" GitHub
-         <|> match "S3"     S3
+    parser = takeText >>= \case
+        "GitHub" -> pure GitHub
+        "S3"     -> pure S3
+        e        -> fail $
+            "Failure parsing RevisionLocationType from " ++ show e
 
 instance ToText RevisionLocationType where
     toText = \case
@@ -1823,9 +1862,12 @@ data EC2TagFilterType
 instance Hashable EC2TagFilterType
 
 instance FromText EC2TagFilterType where
-    parser = match "KEY_AND_VALUE" KeyAndValue
-         <|> match "KEY_ONLY"      KeyOnly
-         <|> match "VALUE_ONLY"    ValueOnly
+    parser = takeText >>= \case
+        "KEY_AND_VALUE" -> pure KeyAndValue
+        "KEY_ONLY"      -> pure KeyOnly
+        "VALUE_ONLY"    -> pure ValueOnly
+        e               -> fail $
+            "Failure parsing EC2TagFilterType from " ++ show e
 
 instance ToText EC2TagFilterType where
     toText = \case

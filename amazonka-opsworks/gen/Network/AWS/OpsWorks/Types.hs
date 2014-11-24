@@ -987,9 +987,12 @@ data AppAttributesKeys
 instance Hashable AppAttributesKeys
 
 instance FromText AppAttributesKeys where
-    parser = match "AutoBundleOnDeploy" AutoBundleOnDeploy
-         <|> match "DocumentRoot"       DocumentRoot
-         <|> match "RailsEnv"           RailsEnv
+    parser = takeText >>= \case
+        "AutoBundleOnDeploy" -> pure AutoBundleOnDeploy
+        "DocumentRoot"       -> pure DocumentRoot
+        "RailsEnv"           -> pure RailsEnv
+        e                    -> fail $
+            "Failure parsing AppAttributesKeys from " ++ show e
 
 instance ToText AppAttributesKeys where
     toText = \case
@@ -1170,7 +1173,10 @@ data StackAttributesKeys
 instance Hashable StackAttributesKeys
 
 instance FromText StackAttributesKeys where
-    parser = match "Color" Color
+    parser = takeText >>= \case
+        "Color" -> pure Color
+        e       -> fail $
+            "Failure parsing StackAttributesKeys from " ++ show e
 
 instance ToText StackAttributesKeys where
     toText Color = "Color"
@@ -1257,10 +1263,13 @@ data SourceType
 instance Hashable SourceType
 
 instance FromText SourceType where
-    parser = match "archive" Archive
-         <|> match "git"     Git
-         <|> match "s3"      S3
-         <|> match "svn"     Svn
+    parser = takeText >>= \case
+        "archive" -> pure Archive
+        "git"     -> pure Git
+        "s3"      -> pure S3
+        "svn"     -> pure Svn
+        e         -> fail $
+            "Failure parsing SourceType from " ++ show e
 
 instance ToText SourceType where
     toText = \case
@@ -1485,15 +1494,18 @@ data LayerType
 instance Hashable LayerType
 
 instance FromText LayerType where
-    parser = match "custom"            Custom
-         <|> match "db-master"         DbMaster
-         <|> match "lb"                Lb
-         <|> match "memcached"         Memcached
-         <|> match "monitoring-master" MonitoringMaster
-         <|> match "nodejs-app"        NodejsApp
-         <|> match "php-app"           PhpApp
-         <|> match "rails-app"         RailsApp
-         <|> match "web"               Web
+    parser = takeText >>= \case
+        "custom"            -> pure Custom
+        "db-master"         -> pure DbMaster
+        "lb"                -> pure Lb
+        "memcached"         -> pure Memcached
+        "monitoring-master" -> pure MonitoringMaster
+        "nodejs-app"        -> pure NodejsApp
+        "php-app"           -> pure PhpApp
+        "rails-app"         -> pure RailsApp
+        "web"               -> pure Web
+        e                   -> fail $
+            "Failure parsing LayerType from " ++ show e
 
 instance ToText LayerType where
     toText = \case
@@ -1906,8 +1918,11 @@ data AutoScalingType
 instance Hashable AutoScalingType
 
 instance FromText AutoScalingType where
-    parser = match "load"  Load
-         <|> match "timer" Timer
+    parser = takeText >>= \case
+        "load"  -> pure Load
+        "timer" -> pure Timer
+        e       -> fail $
+            "Failure parsing AutoScalingType from " ++ show e
 
 instance ToText AutoScalingType where
     toText = \case
@@ -2067,8 +2082,11 @@ data Architecture
 instance Hashable Architecture
 
 instance FromText Architecture where
-    parser = match "i386"   I386
-         <|> match "x86_64" X8664
+    parser = takeText >>= \case
+        "i386"   -> pure I386
+        "x86_64" -> pure X8664
+        e        -> fail $
+            "Failure parsing Architecture from " ++ show e
 
 instance ToText Architecture where
     toText = \case
@@ -2154,30 +2172,33 @@ data LayerAttributesKeys
 instance Hashable LayerAttributesKeys
 
 instance FromText LayerAttributesKeys where
-    parser = match "BundlerVersion"              BundlerVersion
-         <|> match "EnableHaproxyStats"          EnableHaproxyStats
-         <|> match "GangliaPassword"             GangliaPassword
-         <|> match "GangliaUrl"                  GangliaUrl
-         <|> match "GangliaUser"                 GangliaUser
-         <|> match "HaproxyHealthCheckMethod"    HaproxyHealthCheckMethod
-         <|> match "HaproxyHealthCheckUrl"       HaproxyHealthCheckUrl
-         <|> match "HaproxyStatsPassword"        HaproxyStatsPassword
-         <|> match "HaproxyStatsUrl"             HaproxyStatsUrl
-         <|> match "HaproxyStatsUser"            HaproxyStatsUser
-         <|> match "JavaAppServer"               JavaAppServer
-         <|> match "JavaAppServerVersion"        JavaAppServerVersion
-         <|> match "Jvm"                         Jvm
-         <|> match "JvmOptions"                  JvmOptions
-         <|> match "JvmVersion"                  JvmVersion
-         <|> match "ManageBundler"               ManageBundler
-         <|> match "MemcachedMemory"             MemcachedMemory
-         <|> match "MysqlRootPassword"           MysqlRootPassword
-         <|> match "MysqlRootPasswordUbiquitous" MysqlRootPasswordUbiquitous
-         <|> match "NodejsVersion"               NodejsVersion
-         <|> match "PassengerVersion"            PassengerVersion
-         <|> match "RailsStack"                  RailsStack
-         <|> match "RubyVersion"                 RubyVersion
-         <|> match "RubygemsVersion"             RubygemsVersion
+    parser = takeText >>= \case
+        "BundlerVersion"              -> pure BundlerVersion
+        "EnableHaproxyStats"          -> pure EnableHaproxyStats
+        "GangliaPassword"             -> pure GangliaPassword
+        "GangliaUrl"                  -> pure GangliaUrl
+        "GangliaUser"                 -> pure GangliaUser
+        "HaproxyHealthCheckMethod"    -> pure HaproxyHealthCheckMethod
+        "HaproxyHealthCheckUrl"       -> pure HaproxyHealthCheckUrl
+        "HaproxyStatsPassword"        -> pure HaproxyStatsPassword
+        "HaproxyStatsUrl"             -> pure HaproxyStatsUrl
+        "HaproxyStatsUser"            -> pure HaproxyStatsUser
+        "JavaAppServer"               -> pure JavaAppServer
+        "JavaAppServerVersion"        -> pure JavaAppServerVersion
+        "Jvm"                         -> pure Jvm
+        "JvmOptions"                  -> pure JvmOptions
+        "JvmVersion"                  -> pure JvmVersion
+        "ManageBundler"               -> pure ManageBundler
+        "MemcachedMemory"             -> pure MemcachedMemory
+        "MysqlRootPassword"           -> pure MysqlRootPassword
+        "MysqlRootPasswordUbiquitous" -> pure MysqlRootPasswordUbiquitous
+        "NodejsVersion"               -> pure NodejsVersion
+        "PassengerVersion"            -> pure PassengerVersion
+        "RailsStack"                  -> pure RailsStack
+        "RubyVersion"                 -> pure RubyVersion
+        "RubygemsVersion"             -> pure RubygemsVersion
+        e                             -> fail $
+            "Failure parsing LayerAttributesKeys from " ++ show e
 
 instance ToText LayerAttributesKeys where
     toText = \case
@@ -2775,8 +2796,11 @@ data RootDeviceType
 instance Hashable RootDeviceType
 
 instance FromText RootDeviceType where
-    parser = match "ebs"            Ebs
-         <|> match "instance-store" InstanceStore
+    parser = takeText >>= \case
+        "ebs"            -> pure Ebs
+        "instance-store" -> pure InstanceStore
+        e                -> fail $
+            "Failure parsing RootDeviceType from " ++ show e
 
 instance ToText RootDeviceType where
     toText = \case
@@ -3209,16 +3233,19 @@ data DeploymentCommandName
 instance Hashable DeploymentCommandName
 
 instance FromText DeploymentCommandName where
-    parser = match "deploy"                  Deploy
-         <|> match "execute_recipes"         ExecuteRecipes
-         <|> match "install_dependencies"    InstallDependencies
-         <|> match "restart"                 Restart
-         <|> match "rollback"                Rollback
-         <|> match "start"                   Start
-         <|> match "stop"                    Stop
-         <|> match "undeploy"                Undeploy
-         <|> match "update_custom_cookbooks" UpdateCustomCookbooks
-         <|> match "update_dependencies"     UpdateDependencies
+    parser = takeText >>= \case
+        "deploy"                  -> pure Deploy
+        "execute_recipes"         -> pure ExecuteRecipes
+        "install_dependencies"    -> pure InstallDependencies
+        "restart"                 -> pure Restart
+        "rollback"                -> pure Rollback
+        "start"                   -> pure Start
+        "stop"                    -> pure Stop
+        "undeploy"                -> pure Undeploy
+        "update_custom_cookbooks" -> pure UpdateCustomCookbooks
+        "update_dependencies"     -> pure UpdateDependencies
+        e                         -> fail $
+            "Failure parsing DeploymentCommandName from " ++ show e
 
 instance ToText DeploymentCommandName where
     toText = \case
@@ -3904,11 +3931,14 @@ data AppType
 instance Hashable AppType
 
 instance FromText AppType where
-    parser = match "nodejs" Nodejs
-         <|> match "other"  Other
-         <|> match "php"    Php
-         <|> match "rails"  Rails
-         <|> match "static" Static
+    parser = takeText >>= \case
+        "nodejs" -> pure Nodejs
+        "other"  -> pure Other
+        "php"    -> pure Php
+        "rails"  -> pure Rails
+        "static" -> pure Static
+        e        -> fail $
+            "Failure parsing AppType from " ++ show e
 
 instance ToText AppType where
     toText = \case

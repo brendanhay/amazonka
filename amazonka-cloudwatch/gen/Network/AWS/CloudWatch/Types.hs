@@ -487,9 +487,12 @@ data HistoryItemType
 instance Hashable HistoryItemType
 
 instance FromText HistoryItemType where
-    parser = match "Action"              Action
-         <|> match "ConfigurationUpdate" ConfigurationUpdate
-         <|> match "StateUpdate"         StateUpdate
+    parser = takeText >>= \case
+        "Action"              -> pure Action
+        "ConfigurationUpdate" -> pure ConfigurationUpdate
+        "StateUpdate"         -> pure StateUpdate
+        e                     -> fail $
+            "Failure parsing HistoryItemType from " ++ show e
 
 instance ToText HistoryItemType where
     toText = \case
@@ -628,33 +631,36 @@ data StandardUnit
 instance Hashable StandardUnit
 
 instance FromText StandardUnit where
-    parser = match "Bits"             Bits
-         <|> match "Bits/Second"      BitsSecond
-         <|> match "Bytes"            Bytes
-         <|> match "Bytes/Second"     BytesSecond
-         <|> match "Count"            Count
-         <|> match "Count/Second"     CountSecond
-         <|> match "Gigabits"         Gigabits
-         <|> match "Gigabits/Second"  GigabitsSecond
-         <|> match "Gigabytes"        Gigabytes
-         <|> match "Gigabytes/Second" GigabytesSecond
-         <|> match "Kilobits"         Kilobits
-         <|> match "Kilobits/Second"  KilobitsSecond
-         <|> match "Kilobytes"        Kilobytes
-         <|> match "Kilobytes/Second" KilobytesSecond
-         <|> match "Megabits"         Megabits
-         <|> match "Megabits/Second"  MegabitsSecond
-         <|> match "Megabytes"        Megabytes
-         <|> match "Megabytes/Second" MegabytesSecond
-         <|> match "Microseconds"     Microseconds
-         <|> match "Milliseconds"     Milliseconds
-         <|> match "None"             None
-         <|> match "Percent"          Percent
-         <|> match "Seconds"          Seconds
-         <|> match "Terabits"         Terabits
-         <|> match "Terabits/Second"  TerabitsSecond
-         <|> match "Terabytes"        Terabytes
-         <|> match "Terabytes/Second" TerabytesSecond
+    parser = takeText >>= \case
+        "Bits"             -> pure Bits
+        "Bits/Second"      -> pure BitsSecond
+        "Bytes"            -> pure Bytes
+        "Bytes/Second"     -> pure BytesSecond
+        "Count"            -> pure Count
+        "Count/Second"     -> pure CountSecond
+        "Gigabits"         -> pure Gigabits
+        "Gigabits/Second"  -> pure GigabitsSecond
+        "Gigabytes"        -> pure Gigabytes
+        "Gigabytes/Second" -> pure GigabytesSecond
+        "Kilobits"         -> pure Kilobits
+        "Kilobits/Second"  -> pure KilobitsSecond
+        "Kilobytes"        -> pure Kilobytes
+        "Kilobytes/Second" -> pure KilobytesSecond
+        "Megabits"         -> pure Megabits
+        "Megabits/Second"  -> pure MegabitsSecond
+        "Megabytes"        -> pure Megabytes
+        "Megabytes/Second" -> pure MegabytesSecond
+        "Microseconds"     -> pure Microseconds
+        "Milliseconds"     -> pure Milliseconds
+        "None"             -> pure None
+        "Percent"          -> pure Percent
+        "Seconds"          -> pure Seconds
+        "Terabits"         -> pure Terabits
+        "Terabits/Second"  -> pure TerabitsSecond
+        "Terabytes"        -> pure Terabytes
+        "Terabytes/Second" -> pure TerabytesSecond
+        e                  -> fail $
+            "Failure parsing StandardUnit from " ++ show e
 
 instance ToText StandardUnit where
     toText = \case
@@ -744,10 +750,13 @@ data ComparisonOperator
 instance Hashable ComparisonOperator
 
 instance FromText ComparisonOperator where
-    parser = match "GreaterThanOrEqualToThreshold" GreaterThanOrEqualToThreshold
-         <|> match "GreaterThanThreshold"          GreaterThanThreshold
-         <|> match "LessThanOrEqualToThreshold"    LessThanOrEqualToThreshold
-         <|> match "LessThanThreshold"             LessThanThreshold
+    parser = takeText >>= \case
+        "GreaterThanOrEqualToThreshold" -> pure GreaterThanOrEqualToThreshold
+        "GreaterThanThreshold"          -> pure GreaterThanThreshold
+        "LessThanOrEqualToThreshold"    -> pure LessThanOrEqualToThreshold
+        "LessThanThreshold"             -> pure LessThanThreshold
+        e                               -> fail $
+            "Failure parsing ComparisonOperator from " ++ show e
 
 instance ToText ComparisonOperator where
     toText = \case
@@ -894,9 +903,12 @@ data StateValue
 instance Hashable StateValue
 
 instance FromText StateValue where
-    parser = match "ALARM"             Alarm
-         <|> match "INSUFFICIENT_DATA" InsufficientData
-         <|> match "OK"                Ok
+    parser = takeText >>= \case
+        "ALARM"             -> pure Alarm
+        "INSUFFICIENT_DATA" -> pure InsufficientData
+        "OK"                -> pure Ok
+        e                   -> fail $
+            "Failure parsing StateValue from " ++ show e
 
 instance ToText StateValue where
     toText = \case
@@ -1054,11 +1066,14 @@ data Statistic
 instance Hashable Statistic
 
 instance FromText Statistic where
-    parser = match "Average"     Average
-         <|> match "Maximum"     Maximum
-         <|> match "Minimum"     Minimum
-         <|> match "SampleCount" SampleCount
-         <|> match "Sum"         Sum
+    parser = takeText >>= \case
+        "Average"     -> pure Average
+        "Maximum"     -> pure Maximum
+        "Minimum"     -> pure Minimum
+        "SampleCount" -> pure SampleCount
+        "Sum"         -> pure Sum
+        e             -> fail $
+            "Failure parsing Statistic from " ++ show e
 
 instance ToText Statistic where
     toText = \case

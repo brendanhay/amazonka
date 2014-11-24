@@ -400,8 +400,11 @@ data ChronologicalOrder
 instance Hashable ChronologicalOrder
 
 instance FromText ChronologicalOrder where
-    parser = match "Forward" Forward
-         <|> match "Reverse" Reverse
+    parser = takeText >>= \case
+        "Forward" -> pure Forward
+        "Reverse" -> pure Reverse
+        e         -> fail $
+            "Failure parsing ChronologicalOrder from " ++ show e
 
 instance ToText ChronologicalOrder where
     toText = \case
@@ -438,20 +441,23 @@ data ResourceType
 instance Hashable ResourceType
 
 instance FromText ResourceType where
-    parser = match "AWS::CloudTrail::Trail"     AWSCloudTrailTrail
-         <|> match "AWS::EC2::CustomerGateway"  AWSEC2CustomerGateway
-         <|> match "AWS::EC2::EIP"              AWSEC2EIP
-         <|> match "AWS::EC2::Instance"         AWSEC2Instance
-         <|> match "AWS::EC2::InternetGateway"  AWSEC2InternetGateway
-         <|> match "AWS::EC2::NetworkAcl"       AWSEC2NetworkAcl
-         <|> match "AWS::EC2::NetworkInterface" AWSEC2NetworkInterface
-         <|> match "AWS::EC2::RouteTable"       AWSEC2RouteTable
-         <|> match "AWS::EC2::SecurityGroup"    AWSEC2SecurityGroup
-         <|> match "AWS::EC2::Subnet"           AWSEC2Subnet
-         <|> match "AWS::EC2::VPC"              AWSEC2VPC
-         <|> match "AWS::EC2::VPNConnection"    AWSEC2VPNConnection
-         <|> match "AWS::EC2::VPNGateway"       AWSEC2VPNGateway
-         <|> match "AWS::EC2::Volume"           AWSEC2Volume
+    parser = takeText >>= \case
+        "AWS::CloudTrail::Trail"     -> pure AWSCloudTrailTrail
+        "AWS::EC2::CustomerGateway"  -> pure AWSEC2CustomerGateway
+        "AWS::EC2::EIP"              -> pure AWSEC2EIP
+        "AWS::EC2::Instance"         -> pure AWSEC2Instance
+        "AWS::EC2::InternetGateway"  -> pure AWSEC2InternetGateway
+        "AWS::EC2::NetworkAcl"       -> pure AWSEC2NetworkAcl
+        "AWS::EC2::NetworkInterface" -> pure AWSEC2NetworkInterface
+        "AWS::EC2::RouteTable"       -> pure AWSEC2RouteTable
+        "AWS::EC2::SecurityGroup"    -> pure AWSEC2SecurityGroup
+        "AWS::EC2::Subnet"           -> pure AWSEC2Subnet
+        "AWS::EC2::VPC"              -> pure AWSEC2VPC
+        "AWS::EC2::VPNConnection"    -> pure AWSEC2VPNConnection
+        "AWS::EC2::VPNGateway"       -> pure AWSEC2VPNGateway
+        "AWS::EC2::Volume"           -> pure AWSEC2Volume
+        e                            -> fail $
+            "Failure parsing ResourceType from " ++ show e
 
 instance ToText ResourceType where
     toText = \case
@@ -674,8 +680,11 @@ data DeliveryStatus
 instance Hashable DeliveryStatus
 
 instance FromText DeliveryStatus where
-    parser = match "Failure" Failure
-         <|> match "Success" Success
+    parser = takeText >>= \case
+        "Failure" -> pure Failure
+        "Success" -> pure Success
+        e         -> fail $
+            "Failure parsing DeliveryStatus from " ++ show e
 
 instance ToText DeliveryStatus where
     toText = \case
@@ -870,10 +879,13 @@ data ConfigurationItemStatus
 instance Hashable ConfigurationItemStatus
 
 instance FromText ConfigurationItemStatus where
-    parser = match "Deleted"    Deleted
-         <|> match "Discovered" Discovered
-         <|> match "Failed"     Failed
-         <|> match "Ok"         Ok
+    parser = takeText >>= \case
+        "Deleted"    -> pure Deleted
+        "Discovered" -> pure Discovered
+        "Failed"     -> pure Failed
+        "Ok"         -> pure Ok
+        e            -> fail $
+            "Failure parsing ConfigurationItemStatus from " ++ show e
 
 instance ToText ConfigurationItemStatus where
     toText = \case
@@ -942,9 +954,12 @@ data RecorderStatus
 instance Hashable RecorderStatus
 
 instance FromText RecorderStatus where
-    parser = match "Failure" RSFailure
-         <|> match "Pending" RSPending
-         <|> match "Success" RSSuccess
+    parser = takeText >>= \case
+        "Failure" -> pure RSFailure
+        "Pending" -> pure RSPending
+        "Success" -> pure RSSuccess
+        e         -> fail $
+            "Failure parsing RecorderStatus from " ++ show e
 
 instance ToText RecorderStatus where
     toText = \case

@@ -56,7 +56,7 @@ launch = do
         say "Launching Instance with ImageId " trusty
         i <- sendCatch $ runInstances trusty 1 1
             & riKeyName          ?~ ts
-            & riInstanceType     ?~ T2Micro
+            & riInstanceType     ?~ T2_Micro
             & riSecurityGroupIds .~ [g]
 
         either (\e -> do

@@ -1,3 +1,4 @@
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Gen.Documentation
@@ -12,9 +13,11 @@
 
 module Gen.Documentation where
 
+import           Data.Foldable      (foldMap)
 import           Data.Monoid
-import           Data.Text   (Text)
-import qualified Data.Text   as Text
+import           Data.Text          (Text)
+import qualified Data.Text          as Text
+import           Text.HTML.TagSoup
 
 highlightType :: Text -> Text
 highlightType = Text.unwords . map start . Text.words
@@ -47,8 +50,8 @@ wrapHaddock start t n i
         . f
         . Text.strip
         . Text.unwords
-        . map (stripTags . Text.strip)
-        $ Text.lines t
+        . Text.lines
+        $ formatTags t
 
     f ""  = ""
     f " " = ""
@@ -71,21 +74,16 @@ endWith x y
     | x `Text.isSuffixOf` y = y
     | otherwise             = y <> x
 
-stripTags :: Text -> Text
-stripTags t
-    | Text.null t = Text.empty
-    | otherwise   =
-        case Text.head t of
-            '<' -> stripTags . Text.drop 1 . Text.dropWhile (/= '>') $ Text.tail t
-            _   -> Text.cons (Text.head t) . stripTags $ Text.tail t
-
-
--- formatTags :: Text -> Text
-
-  -- <p>Acquires an Elastic IP address.</p>
-
-  -- <p>An Elastic IP address is for use either in the EC2-Classic platform or in
-  -- a VPC. For more information,
-  -- see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic
-  -- IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
-
+formatTags :: Text -> Text
+formatTags = foldMap parse . parseTags
+  where
+    parse :: Tag Text -> Text
+    parse = \case
+        TagOpen  "p" _             -> mempty
+        TagClose "p"               -> "\n"
+        TagOpen  "a" [("href", a)] -> "<" <> a <> " "
+        TagClose "a"               -> ">"
+        TagOpen  "i" _             -> "/"
+        TagClose "i"               -> "/"
+        TagText  t                 -> t
+        _                          -> mempty

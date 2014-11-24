@@ -68,6 +68,9 @@ module Network.AWS.Route53.Types
     -- * VPCRegion
     , VPCRegion (..)
 
+    -- * RecordType
+    , RecordType (..)
+
     -- * ChangeAction
     , ChangeAction (..)
 
@@ -183,15 +186,11 @@ module Network.AWS.Route53.Types
     , healthCheckObservation
     , hcoIPAddress
     , hcoStatusReport
-
-    -- * Common
-    , module Network.AWS.Route53.Internal
     ) where
 
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V3
-import Network.AWS.Route53.Internal
 import qualified GHC.Exts
 
 -- | Version @2013-04-01@ of the Amazon Route 53 service.
@@ -555,6 +554,59 @@ instance FromXML VPCRegion where
     parseXML = parseXMLText "VPCRegion"
 
 instance ToXML VPCRegion where
+    toXML = toXMLText
+
+data RecordType
+    = A     -- ^ A
+    | AAAA  -- ^ AAAA
+    | CNAME -- ^ CNAME
+    | MX    -- ^ MX
+    | NS    -- ^ NS
+    | PTR   -- ^ PTR
+    | SOA   -- ^ SOA
+    | SPF   -- ^ SPF
+    | SRV   -- ^ SRV
+    | TXT   -- ^ TXT
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable RecordType
+
+instance FromText RecordType where
+    parser = takeText >>= \case
+        "A"     -> pure A
+        "AAAA"  -> pure AAAA
+        "CNAME" -> pure CNAME
+        "MX"    -> pure MX
+        "NS"    -> pure NS
+        "PTR"   -> pure PTR
+        "SOA"   -> pure SOA
+        "SPF"   -> pure SPF
+        "SRV"   -> pure SRV
+        "TXT"   -> pure TXT
+        e       -> fail $
+            "Failure parsing RecordType from " ++ show e
+
+instance ToText RecordType where
+    toText = \case
+        A     -> "A"
+        AAAA  -> "AAAA"
+        CNAME -> "CNAME"
+        MX    -> "MX"
+        NS    -> "NS"
+        PTR   -> "PTR"
+        SOA   -> "SOA"
+        SPF   -> "SPF"
+        SRV   -> "SRV"
+        TXT   -> "TXT"
+
+instance ToByteString RecordType
+instance ToHeader     RecordType
+instance ToQuery      RecordType
+
+instance FromXML RecordType where
+    parseXML = parseXMLText "RecordType"
+
+instance ToXML RecordType where
     toXML = toXMLText
 
 data ChangeAction

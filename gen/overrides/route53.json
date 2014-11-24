@@ -6,9 +6,6 @@
     "metadata": {
         "serviceAbbreviation": "Route53"
     },
-    "typeModules": [
-        "Network.AWS.Route53.Internal"
-    ],
     "overrides": {
         "ResourceRecordSet": {
             "required": [
@@ -19,7 +16,7 @@
             "replaced_by": "Region"
         },
         "RRType": {
-            "replaced_by": "RecordType"
+            "rename_to": "RecordType"
         },
         "ResourceRecordSetFailover": {
             "rename_to": "Failover"

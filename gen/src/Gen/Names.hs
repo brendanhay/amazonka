@@ -30,6 +30,7 @@ operationName t = fromMaybe t (Text.stripSuffix "Request" t)
 enumName :: Text -> Bool -> Text -> Text -> Text
 enumName t u k1 v1
     | t == "InstanceType" = instanceType v1
+    | t == "RecordType"   = Text.toUpper v1
     | otherwise           = k2 <> reserved (toPascal v3)
   where
     k2 | u         = Text.toUpper k1

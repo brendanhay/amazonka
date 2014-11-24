@@ -47,9 +47,7 @@
         "targetPrefix": null
     },
     "cabal": {
-        "other": [
-            "Network.AWS.Route53.Internal"
-        ],
+        "other": [],
         "library": "amazonka-route53",
         "exposed": [
             "Network.AWS.Route53",
@@ -957,6 +955,31 @@
                 "name": "VPCRegion",
                 "type": "nullary",
                 "branchPad": 12
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "CNAME": "CNAME",
+                    "SRV": "SRV",
+                    "MX": "MX",
+                    "NS": "NS",
+                    "AAAA": "AAAA",
+                    "A": "A",
+                    "SPF": "SPF",
+                    "SOA": "SOA",
+                    "TXT": "TXT",
+                    "PTR": "PTR"
+                },
+                "valuePad": 6,
+                "name": "RecordType",
+                "type": "nullary",
+                "branchPad": 5
             },
             {
                 "deriving": [
@@ -3523,9 +3546,7 @@
                 ]
             }
         ],
-        "imports": [
-            "Network.AWS.Route53.Internal"
-        ],
+        "imports": [],
         "shared": [
             "RecordType",
             "VPC",

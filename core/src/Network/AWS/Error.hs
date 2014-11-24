@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -39,8 +40,11 @@ data ErrorType
       deriving (Eq, Ord, Enum, Show, Generic)
 
 instance FromText ErrorType where
-    parser = match "Receiver" Receiver
-         <|> match "Sender"   Sender
+    parser = takeText >>= \case
+        "Receiver" -> pure Receiver
+        "Sender"   -> pure Sender
+        e          -> fail $
+            "Failure parsing ErrorType from " ++ show e
 
 instance FromXML ErrorType where
     parseXML = parseXMLText "Type"
@@ -93,9 +97,10 @@ data JSONError = JSONError
 makeLenses ''JSONError
 
 instance FromJSON JSONError where
-    parseJSON = withObject "JSONError" $ \o -> JSONError
-        <$> (o .:? "__type"  <|> o .:? "Type")
-        <*> (o .:  "message" <|> o .:  "Message")
+    parseJSON = withObject "JSONError" $ \o -> rest o <|> post o
+      where
+        rest o = JSONError <$> o .:? "Type"   <*> o .: "Message"
+        post o = JSONError <$> o .:? "__type" <*> o .: "message"
 
 jsonError :: FromJSON (Er a)
           => (Status -> Bool)

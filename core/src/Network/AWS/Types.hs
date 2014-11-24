@@ -389,17 +389,20 @@ instance Default Region where
     def = NorthVirginia
 
 instance FromText Region where
-    parser = match "eu-west-1"          Ireland
-         <|> match "ap-northeast-1"     Tokyo
-         <|> match "ap-southeast-1"     Singapore
-         <|> match "ap-southeast-2"     Sydney
-         <|> match "cn-north-1"         Beijing
-         <|> match "us-east-1"          NorthVirginia
-         <|> match "us-west-2"          NorthCalifornia
-         <|> match "us-west-1"          Oregon
-         <|> match "us-gov-west-1"      GovCloud
-         <|> match "fips-us-gov-west-1" GovCloudFIPS
-         <|> match "sa-east-1"          SaoPaulo
+    parser = takeText >>= \case
+        "eu-west-1"          -> pure Ireland
+        "ap-northeast-1"     -> pure Tokyo
+        "ap-southeast-1"     -> pure Singapore
+        "ap-southeast-2"     -> pure Sydney
+        "cn-north-1"         -> pure Beijing
+        "us-east-1"          -> pure NorthVirginia
+        "us-west-2"          -> pure NorthCalifornia
+        "us-west-1"          -> pure Oregon
+        "us-gov-west-1"      -> pure GovCloud
+        "fips-us-gov-west-1" -> pure GovCloudFIPS
+        "sa-east-1"          -> pure SaoPaulo
+        e                    -> fail $
+            "Failure parsing Region from " ++ show e
 
 instance ToText Region where
     toText r = case r of

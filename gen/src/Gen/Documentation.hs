@@ -13,7 +13,7 @@
 
 module Gen.Documentation where
 
-import           Data.Foldable      (foldMap)
+import           Data.Foldable      (foldl')
 import           Data.Monoid
 import           Data.Text          (Text)
 import qualified Data.Text          as Text
@@ -74,18 +74,33 @@ endWith x y
     | x `Text.isSuffixOf` y = y
     | otherwise             = y <> x
 
+data Mode
+    = Anchor
+    | Link
+    | Code
+    | Emphasis
+    | Text
+
 formatTags :: Text -> Text
-formatTags = foldMap parse . parseTags
+formatTags = fst . foldl' (uncurry go) (mempty, Text) . parseTags
   where
-    parse :: Tag Text -> Text
-    parse = \case
-        TagOpen  "p" _             -> mempty
-        TagClose "p"               -> "\n"
-        TagOpen  "a" [("href", a)] -> "<" <> a <> " "
-        TagClose "a"               -> ">"
-        TagOpen  "i" _             -> "/"
-        TagClose "i"               -> "/"
-        TagOpen  "code" _          -> "@"
-        TagClose "code"            -> "@"
-        TagText  t                 -> t
-        _                          -> mempty
+    go x Link     (TagText  t)         = (x <> t,   Link)
+    go x Link     (TagClose "a")       = (x <> ">", Text)
+
+    go x Anchor   (TagText  t)         = (x <> t,   Anchor)
+    go x Anchor   (TagClose "a")       = (x <> "'", Text)
+
+    go x Emphasis (TagText  t)         = (x <> t,   Emphasis)
+    go x Emphasis (TagClose "i")       = (x <> "/", Text)
+
+    go x Code     (TagText  t)         = (x <> t,   Code)
+    go x Code     (TagClose "code")    = (x <> "@", Text)
+
+    go x m (TagOpen "a" [("href", a)]) = (x <> "<" <> a <> " ", Link)
+    go x m (TagOpen "a" [])            = (x <> "'",  Anchor)
+    go x m (TagOpen "p"    _)          = (x <> "\n", Text)
+    go x m (TagOpen "i"    _)          = (x <> "/",  Emphasis)
+    go x m (TagOpen "code" _)          = (x <> "@",  Code)
+    go x m (TagText t)                 = (x <> t,    m)
+
+    go x m _                           = (x, m)

@@ -9,13 +9,12 @@ data {{ type.name }}
 instance Hashable {{ type.name }}
 
 instance FromText {{ type.name }} where
+    parser = takeText >>= \case
     {% for branch in type.branches %}
-      {% if branch.first %}
-    parser = match "{{ branch.value | concat("\"") | justifyLeft(type.valuePad) }} {{ branch.key }}
-      {% else %}
-         <|> match "{{ branch.value | concat("\"") | justifyLeft(type.valuePad) }} {{ branch.key }}
-      {% endif %}
+        "{{ branch.value | concat("\"") | justifyLeft(type.valuePad) }} -> pure {{ branch.key }}
     {% endfor %}
+        {{ "e" | justifyLeft(type.valuePad) }}  -> fail $
+            "Failure parsing {{ type.name }} from " ++ show e
 
 instance ToText {{ type.name }} where
   {% if (type.branches | length) == 1 %}

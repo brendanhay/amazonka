@@ -340,8 +340,8 @@ shared s1 = do
         return $! maybe [] (nested k) md
 
     nested :: Text -> Data -> [Text]
-    nested k Nullary{} = []
-    nested k d = k : mapMaybe name (toListOf (dataFields . typesOf) d)
+    nested _ Nullary{} = []
+    nested k d         = k : mapMaybe name (toListOf (dataFields . typesOf) d)
 
     name :: Type -> Maybe Text
     name (TType k) = Just k
@@ -364,9 +364,9 @@ prefixed m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
     go :: Text -> Text -> Data -> State (HashSet Text) Data
     go n k v1
         | Nullary{} <- v1 = do
-            let v2 = mapFieldNames (enumName False "") v1
-                v3 = mapFieldNames (enumName True  k)  v2
-                v4 = mapFieldNames (enumName False n)  v1
+            let v2 = mapFieldNames (enumName n False "") v1
+                v3 = mapFieldNames (enumName n True  k)  v2
+                v4 = mapFieldNames (enumName n False n)  v1
 
                 f1 = Set.fromList (fieldNames v2)
                 f2 = Set.fromList (fieldNames v3)
@@ -458,7 +458,7 @@ overriden = flip (Map.foldlWithKey' run)
     sumPrefix _ Nothing  = id
     sumPrefix k (Just y) = Map.adjust f k
       where
-        f x@Nullary{} = mapFieldNames (enumName False y) x
+        f x@Nullary{} = mapFieldNames (enumName k False y) x
         f x           = x
 
     required s f

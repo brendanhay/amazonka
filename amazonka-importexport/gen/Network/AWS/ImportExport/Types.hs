@@ -93,7 +93,6 @@ instance ToQuery      JobType
 instance FromXML JobType where
     parseXML = parseXMLText "JobType"
 
-
 data Job = Job
     { _jobCreationDate :: RFC822
     , _jobIsCanceled   :: Bool

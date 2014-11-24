@@ -1252,7 +1252,6 @@ instance ToQuery      SourceType
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
 
-
 data DBParameterGroup = DBParameterGroup
     { _dbpgDBParameterGroupFamily :: Maybe Text
     , _dbpgDBParameterGroupName   :: Maybe Text
@@ -1457,7 +1456,6 @@ instance ToQuery      ApplyMethod
 
 instance FromXML ApplyMethod where
     parseXML = parseXMLText "ApplyMethod"
-
 
 data CharacterSet = CharacterSet
     { _csCharacterSetDescription :: Maybe Text

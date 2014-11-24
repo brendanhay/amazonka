@@ -415,7 +415,6 @@ instance ToQuery      IdentityType
 instance FromXML IdentityType where
     parseXML = parseXMLText "IdentityType"
 
-
 data Content = Content
     { _cCharset :: Maybe Text
     , _cData    :: Text
@@ -588,7 +587,6 @@ instance ToQuery      NotificationType
 instance FromXML NotificationType where
     parseXML = parseXMLText "NotificationType"
 
-
 data VerificationStatus
     = Failed           -- ^ Failed
     | NotStarted       -- ^ NotStarted
@@ -623,7 +621,6 @@ instance ToQuery      VerificationStatus
 
 instance FromXML VerificationStatus where
     parseXML = parseXMLText "VerificationStatus"
-
 
 data Message = Message
     { _mBody    :: Body

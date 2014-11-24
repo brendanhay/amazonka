@@ -413,7 +413,6 @@ instance ToQuery      EventSeverity
 instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
 
-
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
@@ -666,7 +665,6 @@ instance ToQuery      ConfigurationDeploymentStatus
 instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
 
-
 data ConfigurationOptionSetting = ConfigurationOptionSetting
     { _cosNamespace  :: Maybe Text
     , _cosOptionName :: Maybe Text
@@ -740,7 +738,6 @@ instance ToQuery      ConfigurationOptionValueType
 
 instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
-
 
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     { _csdApplicationName   :: Maybe Text
@@ -1153,7 +1150,6 @@ instance ToQuery      EnvironmentStatus
 
 instance FromXML EnvironmentStatus where
     parseXML = parseXMLText "EnvironmentStatus"
-
 
 data LoadBalancerDescription = LoadBalancerDescription
     { _lbdDomain           :: Maybe Text
@@ -1767,7 +1763,6 @@ instance ToQuery      ValidationSeverity
 instance FromXML ValidationSeverity where
     parseXML = parseXMLText "ValidationSeverity"
 
-
 newtype Trigger = Trigger
     { _tName :: Maybe Text
     } deriving (Eq, Ord, Show, Monoid)
@@ -1817,7 +1812,6 @@ instance ToQuery      EnvironmentInfoType
 
 instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
-
 
 data EnvironmentDescription = EnvironmentDescription
     { _ed1ApplicationName   :: Maybe Text
@@ -2078,7 +2072,6 @@ instance ToQuery      EnvironmentHealth
 
 instance FromXML EnvironmentHealth where
     parseXML = parseXMLText "EnvironmentHealth"
-
 
 newtype Instance = Instance
     { _iId :: Maybe Text

@@ -854,7 +854,6 @@ instance ToQuery      PendingAutomaticFailoverStatus
 instance FromXML PendingAutomaticFailoverStatus where
     parseXML = parseXMLText "PendingAutomaticFailoverStatus"
 
-
 data NotificationConfiguration = NotificationConfiguration
     { _ncTopicArn    :: Maybe Text
     , _ncTopicStatus :: Maybe Text
@@ -1058,7 +1057,6 @@ instance ToQuery      SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
-
 
 data CacheSubnetGroup = CacheSubnetGroup
     { _csgCacheSubnetGroupDescription :: Maybe Text
@@ -2069,7 +2067,6 @@ instance ToQuery      AutomaticFailoverStatus
 instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
 
-
 data CacheSecurityGroup = CacheSecurityGroup
     { _csgCacheSecurityGroupName :: Maybe Text
     , _csgDescription            :: Maybe Text
@@ -2267,7 +2264,6 @@ instance ToQuery      AZMode
 
 instance FromXML AZMode where
     parseXML = parseXMLText "AZMode"
-
 
 data CacheEngineVersion = CacheEngineVersion
     { _cevCacheEngineDescription        :: Maybe Text

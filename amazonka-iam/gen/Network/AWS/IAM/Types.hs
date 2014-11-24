@@ -231,7 +231,6 @@ instance ToQuery      AssignmentStatusType
 instance FromXML AssignmentStatusType where
     parseXML = parseXMLText "AssignmentStatusType"
 
-
 data PasswordPolicy = PasswordPolicy
     { _ppAllowUsersToChangePassword :: Maybe Bool
     , _ppExpirePasswords            :: Maybe Bool
@@ -605,7 +604,6 @@ instance ToQuery      ReportFormatType
 instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
 
-
 data ServerCertificateMetadata = ServerCertificateMetadata
     { _scmArn                   :: Text
     , _scmExpiration            :: Maybe RFC822
@@ -837,7 +835,6 @@ instance ToQuery      SummaryKeyType
 instance FromXML SummaryKeyType where
     parseXML = parseXMLText "SummaryKeyType"
 
-
 data ReportStateType
     = Complete   -- ^ COMPLETE
     | Inprogress -- ^ INPROGRESS
@@ -866,7 +863,6 @@ instance ToQuery      ReportStateType
 
 instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
-
 
 data User = User
     { _uArn              :: Text
@@ -991,7 +987,6 @@ instance ToQuery      StatusType
 
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
-
 
 data SAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn        :: Maybe Text

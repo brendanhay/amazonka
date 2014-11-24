@@ -186,11 +186,15 @@ module Network.AWS.Route53.Types
     , healthCheckObservation
     , hcoIPAddress
     , hcoStatusReport
+
+    -- * Common
+    , module Network.AWS.Route53.Internal
     ) where
 
 import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V3
+import Network.AWS.Route53.Internal
 import qualified GHC.Exts
 
 -- | Version @2013-04-01@ of the Amazon Route 53 service.

@@ -6,6 +6,9 @@
     "metadata": {
         "serviceAbbreviation": "Route53"
     },
+    "typeModules": [
+        "Network.AWS.Route53.Internal"
+    ],
     "overrides": {
         "ResourceRecordSet": {
             "required": [

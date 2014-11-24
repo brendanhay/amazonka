@@ -1,5 +1,5 @@
 name:                  amazonka-iam
-version:               0.0.1
+version:               0.0.2
 synopsis:              Amazon Identity and Access Management SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -123,5 +123,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.1.*
+          amazonka-core == 0.0.2.*
         , base          >= 4.7     && < 5

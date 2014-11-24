@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds additional customer communication to an AWS Support case. You use the
--- @CaseId@ value to identify the case to add communication to. You can list a
+-- 'CaseId' value to identify the case to add communication to. You can list a
 -- set of email addresses to copy on the communication using the
--- @CcEmailAddresses@ value. The @CommunicationBody@ value contains the text
+-- 'CcEmailAddresses' value. The 'CommunicationBody' value contains the text
 -- of the communication. The response indicates the success or failure of the
 -- request. This operation implements a subset of the behavior on the AWS
 -- Support <https://aws.amazon.com/support Your Support Cases> web form.

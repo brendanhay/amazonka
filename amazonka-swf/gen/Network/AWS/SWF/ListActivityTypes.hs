@@ -24,15 +24,15 @@
 -- that match the specified name and registration status. The result includes
 -- information like creation date, current status of the activity, etc. The
 -- results may be split into multiple pages. To retrieve subsequent pages,
--- make the call again using the @nextPageToken@ returned by the initial call.
+-- make the call again using the 'nextPageToken' returned by the initial call.
 -- Access Control You can use IAM policies to control this action's access to
--- Amazon SWF resources as follows: Use a @Resource@ element with the domain
--- name to limit the action to only specified domains. Use an @Action@ element
+-- Amazon SWF resources as follows: Use a 'Resource' element with the domain
+-- name to limit the action to only specified domains. Use an 'Action' element
 -- to allow or deny permission to call this action. You cannot use an IAM
 -- policy to constrain this action's parameters. If the caller does not have
 -- sufficient permissions to invoke the action, or the parameter values fall
 -- outside the specified constraints, the action fails by throwing
--- @OperationNotPermitted@. For details and example IAM policies, see
+-- 'OperationNotPermitted'. For details and example IAM policies, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
@@ -121,9 +121,9 @@ latMaximumPageSize =
 latName :: Lens' ListActivityTypes (Maybe Text)
 latName = lens _latName (\s a -> s { _latName = a })
 
--- | If on a previous call to this method a @NextResultToken@ was returned,
+-- | If on a previous call to this method a 'NextResultToken' was returned,
 -- the results have more than one page. To get the next page of results,
--- repeat the call with the @nextPageToken@ and keep all other arguments
+-- repeat the call with the 'nextPageToken' and keep all other arguments
 -- unchanged.
 latNextPageToken :: Lens' ListActivityTypes (Maybe Text)
 latNextPageToken = lens _latNextPageToken (\s a -> s { _latNextPageToken = a })
@@ -133,8 +133,8 @@ latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
 latRegistrationStatus =
     lens _latRegistrationStatus (\s a -> s { _latRegistrationStatus = a })
 
--- | When set to @true@, returns the results in reverse order. By default the
--- results are returned in ascending alphabetical order of the @name@ of the
+-- | When set to 'true', returns the results in reverse order. By default the
+-- results are returned in ascending alphabetical order of the 'name' of the
 -- activity types.
 latReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
 latReverseOrder = lens _latReverseOrder (\s a -> s { _latReverseOrder = a })

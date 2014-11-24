@@ -24,7 +24,7 @@
 -- given primary key. If there is no matching item, /GetItem/ does not return
 -- any data. /GetItem/ provides an eventually consistent read by default. If
 -- your application requires a strongly consistent read, set /ConsistentRead/
--- to @true@. Although a strongly consistent read might take more time than an
+-- to 'true'. Although a strongly consistent read might take more time than an
 -- eventually consistent read, it always returns the last updated value.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html>
@@ -114,7 +114,7 @@ giAttributesToGet =
     lens _giAttributesToGet (\s a -> s { _giAttributesToGet = a })
         . _List1
 
--- | A value that if set to @true@, then the operation uses strongly
+-- | A value that if set to 'true', then the operation uses strongly
 -- consistent reads; otherwise, eventually consistent reads are used.
 giConsistentRead :: Lens' GetItem (Maybe Bool)
 giConsistentRead = lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
@@ -126,11 +126,11 @@ giConsistentRead = lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
 -- an expression. To prevent special characters in an attribute name from
 -- being misinterpreted in an expression. Use the # character in an
 -- expression to dereference an attribute name. For example, consider the
--- following expression: @order.customerInfo.LastName = "Smith" OR
--- order.customerInfo.LastName = "Jones"@ Now suppose that you specified the
+-- following expression: 'order.customerInfo.LastName = "Smith" OR
+-- order.customerInfo.LastName = "Jones"' Now suppose that you specified the
 -- following for /ExpressionAttributeNames/:
--- @{"n":"order.customerInfo.LastName"}@ The expression can now be
--- simplified as follows: @#n = "Smith" OR #n = "Jones"@.
+-- '{"n":"order.customerInfo.LastName"}' The expression can now be
+-- simplified as follows: '#n = "Smith" OR #n = "Jones"'.
 giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
 giExpressionAttributeNames =
     lens _giExpressionAttributeNames

@@ -22,7 +22,7 @@
 
 -- | Retrieves the user name and password-creation date for the specified user.
 -- If the user has not been assigned a password, the action returns a 404
--- (@NoSuchEntity@) error.
+-- ('NoSuchEntity') error.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html>
 module Network.AWS.IAM.GetLoginProfile

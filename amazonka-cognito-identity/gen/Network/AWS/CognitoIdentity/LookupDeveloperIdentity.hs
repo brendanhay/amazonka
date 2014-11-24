@@ -20,15 +20,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Retrieves the @IdentityID@ associated with a @DeveloperUserIdentifier@ or
--- the list of @DeveloperUserIdentifier@s associated with an @IdentityId@ for
--- an existing identity. Either @IdentityID@ or @DeveloperUserIdentifier@ must
+-- | Retrieves the 'IdentityID' associated with a 'DeveloperUserIdentifier' or
+-- the list of 'DeveloperUserIdentifier's associated with an 'IdentityId' for
+-- an existing identity. Either 'IdentityID' or 'DeveloperUserIdentifier' must
 -- not be null. If you supply only one of these values, the other value will
 -- be searched in the database and returned as a part of the response. If you
--- supply both, @DeveloperUserIdentifier@ will be matched against
--- @IdentityID@. If the values are verified against the database, the response
+-- supply both, 'DeveloperUserIdentifier' will be matched against
+-- 'IdentityID'. If the values are verified against the database, the response
 -- returns both values and is the same as the request. Otherwise a
--- @ResourceConflictException@ is thrown.
+-- 'ResourceConflictException' is thrown.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_LookupDeveloperIdentity.html>
 module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
@@ -112,9 +112,9 @@ ldiIdentityPoolId =
 ldiMaxResults :: Lens' LookupDeveloperIdentity (Maybe Natural)
 ldiMaxResults = lens _ldiMaxResults (\s a -> s { _ldiMaxResults = a }) . mapping _Nat
 
--- | A pagination token. The first call you make will have @NextToken@ set to
--- null. After that the service will return @NextToken@ values as needed.
--- For example, let's say you make a request with @MaxResults@ set to 10,
+-- | A pagination token. The first call you make will have 'NextToken' set to
+-- null. After that the service will return 'NextToken' values as needed.
+-- For example, let's say you make a request with 'MaxResults' set to 10,
 -- and there are 20 matches in the database. The service will return a
 -- pagination token as a part of the response. This token can be used to
 -- call the API again and get results starting from the 11th match.
@@ -157,9 +157,9 @@ ldirDeveloperUserIdentifierList =
 ldirIdentityId :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
 ldirIdentityId = lens _ldirIdentityId (\s a -> s { _ldirIdentityId = a })
 
--- | A pagination token. The first call you make will have @NextToken@ set to
--- null. After that the service will return @NextToken@ values as needed.
--- For example, let's say you make a request with @MaxResults@ set to 10,
+-- | A pagination token. The first call you make will have 'NextToken' set to
+-- null. After that the service will return 'NextToken' values as needed.
+-- For example, let's say you make a request with 'MaxResults' set to 10,
 -- and there are 20 matches in the database. The service will return a
 -- pagination token as a part of the response. This token can be used to
 -- call the API again and get results starting from the 11th match.

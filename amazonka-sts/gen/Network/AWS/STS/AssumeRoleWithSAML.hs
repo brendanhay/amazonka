@@ -28,8 +28,8 @@
 -- access key ID, a secret access key, and a security token. Applications can
 -- use these temporary security credentials to sign calls to AWS services. The
 -- credentials are valid for the duration that you specified when calling
--- @AssumeRoleWithSAML@, which can be up to 3600 seconds (1 hour) or until the
--- time specified in the SAML authentication response's @NotOnOrAfter@ value,
+-- 'AssumeRoleWithSAML', which can be up to 3600 seconds (1 hour) or until the
+-- time specified in the SAML authentication response's 'NotOnOrAfter' value,
 -- whichever is shorter. Optionally, you can pass an IAM access policy to this
 -- operation. If you choose not to pass a policy, the temporary security
 -- credentials that are returned by the operation have the permissions that
@@ -43,12 +43,12 @@
 -- policy of the role that is being assumed. For more information, see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html
 -- Permissions for AssumeRoleWithSAML> in /Using Temporary Security
--- Credentials/. Before your application can call @AssumeRoleWithSAML@, you
+-- Credentials/. Before your application can call 'AssumeRoleWithSAML', you
 -- must configure your SAML identity provider (IdP) to issue the claims
 -- required by AWS. Additionally, you must use AWS Identity and Access
 -- Management (IAM) to create a SAML provider entity in your AWS account that
 -- represents your identity provider, and create an IAM role that specifies
--- this SAML provider in its trust policy. Calling @AssumeRoleWithSAML@ does
+-- this SAML provider in its trust policy. Calling 'AssumeRoleWithSAML' does
 -- not require the use of AWS security credentials. The identity of the caller
 -- is validated by using keys in the metadata document that is uploaded for
 -- the SAML provider entity for your identity provider. For more information,
@@ -134,7 +134,7 @@ assumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
 -- | The duration, in seconds, of the role session. The value can range from
 -- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value
 -- is set to 3600 seconds. An expiration can also be specified in the SAML
--- authentication response's @NotOnOrAfter@ value. The actual expiration
+-- authentication response's 'NotOnOrAfter' value. The actual expiration
 -- time is whichever value is shorter.
 arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
 arwsamlDurationSeconds =
@@ -221,7 +221,7 @@ arwsamlrAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleUs
 arwsamlrAssumedRoleUser =
     lens _arwsamlrAssumedRoleUser (\s a -> s { _arwsamlrAssumedRoleUser = a })
 
--- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
+-- | The value of the 'Recipient' attribute of the 'SubjectConfirmationData'
 -- element of the SAML assertion.
 arwsamlrAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrAudience = lens _arwsamlrAudience (\s a -> s { _arwsamlrAudience = a })
@@ -230,16 +230,16 @@ arwsamlrCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
 arwsamlrCredentials =
     lens _arwsamlrCredentials (\s a -> s { _arwsamlrCredentials = a })
 
--- | The value of the @Issuer@ element of the SAML assertion.
+-- | The value of the 'Issuer' element of the SAML assertion.
 arwsamlrIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrIssuer = lens _arwsamlrIssuer (\s a -> s { _arwsamlrIssuer = a })
 
--- | A hash value based on the concatenation of the @Issuer@ response value,
+-- | A hash value based on the concatenation of the 'Issuer' response value,
 -- the AWS account ID, and the friendly name (the last part of the ARN) of
--- the SAML provider in IAM. The combination of @NameQualifier@ and
--- @Subject@ can be used to uniquely identify a federated user. The
--- following pseudocode shows how the hash value is calculated: @BASE64 (
--- SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )@.
+-- the SAML provider in IAM. The combination of 'NameQualifier' and
+-- 'Subject' can be used to uniquely identify a federated user. The
+-- following pseudocode shows how the hash value is calculated: 'BASE64 (
+-- SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )'.
 arwsamlrNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrNameQualifier =
     lens _arwsamlrNameQualifier (\s a -> s { _arwsamlrNameQualifier = a })
@@ -253,17 +253,17 @@ arwsamlrPackedPolicySize =
         (\s a -> s { _arwsamlrPackedPolicySize = a })
             . mapping _Nat
 
--- | The value of the @NameID@ element in the @Subject@ element of the SAML
+-- | The value of the 'NameID' element in the 'Subject' element of the SAML
 -- assertion.
 arwsamlrSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrSubject = lens _arwsamlrSubject (\s a -> s { _arwsamlrSubject = a })
 
--- | The format of the name ID, as defined by the @Format@ attribute in the
--- @NameID@ element of the SAML assertion. Typical examples of the format
--- are @transient@ or @persistent@. If the format includes the prefix
--- @urn:oasis:names:tc:SAML:2.0:nameid-format@, that prefix is removed. For
--- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
--- returned as @transient@. If the format includes any other prefix, the
+-- | The format of the name ID, as defined by the 'Format' attribute in the
+-- 'NameID' element of the SAML assertion. Typical examples of the format
+-- are 'transient' or 'persistent'. If the format includes the prefix
+-- 'urn:oasis:names:tc:SAML:2.0:nameid-format', that prefix is removed. For
+-- example, 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' is
+-- returned as 'transient'. If the format includes any other prefix, the
 -- format is returned with no modifications.
 arwsamlrSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrSubjectType =

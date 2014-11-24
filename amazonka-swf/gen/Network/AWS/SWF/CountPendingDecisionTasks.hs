@@ -24,14 +24,14 @@
 -- The count returned is an approximation and is not guaranteed to be exact.
 -- If you specify a task list that no decision task was ever scheduled in then
 -- 0 will be returned. Access Control You can use IAM policies to control this
--- action's access to Amazon SWF resources as follows: Use a @Resource@
+-- action's access to Amazon SWF resources as follows: Use a 'Resource'
 -- element with the domain name to limit the action to only specified domains.
--- Use an @Action@ element to allow or deny permission to call this action.
--- Constrain the @taskList.name@ parameter by using a Condition element with
--- the @swf:taskList.name@ key to allow the action to access only certain task
+-- Use an 'Action' element to allow or deny permission to call this action.
+-- Constrain the 'taskList.name' parameter by using a Condition element with
+-- the 'swf:taskList.name' key to allow the action to access only certain task
 -- lists. If the caller does not have sufficient permissions to invoke the
 -- action, or the parameter values fall outside the specified constraints, the
--- action fails by throwing @OperationNotPermitted@. For details and example
+-- action fails by throwing 'OperationNotPermitted'. For details and example
 -- IAM policies, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.

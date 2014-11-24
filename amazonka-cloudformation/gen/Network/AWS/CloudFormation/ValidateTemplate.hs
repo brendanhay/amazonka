@@ -72,8 +72,8 @@ validateTemplate = ValidateTemplate
 -- and a maximum length of 51,200 bytes. For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 -- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
--- must pass @TemplateURL@ or @TemplateBody@. If both are passed, only
--- @TemplateBody@ is used.
+-- must pass 'TemplateURL' or 'TemplateBody'. If both are passed, only
+-- 'TemplateBody' is used.
 vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateBody = lens _vtTemplateBody (\s a -> s { _vtTemplateBody = a })
 
@@ -82,8 +82,8 @@ vtTemplateBody = lens _vtTemplateBody (\s a -> s { _vtTemplateBody = a })
 -- region as the stack. For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 -- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
--- must pass @TemplateURL@ or @TemplateBody@. If both are passed, only
--- @TemplateBody@ is used.
+-- must pass 'TemplateURL' or 'TemplateBody'. If both are passed, only
+-- 'TemplateBody' is used.
 vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\s a -> s { _vtTemplateURL = a })
 
@@ -132,7 +132,7 @@ vtrCapabilitiesReason =
 vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrDescription = lens _vtrDescription (\s a -> s { _vtrDescription = a })
 
--- | A list of @TemplateParameter@ structures.
+-- | A list of 'TemplateParameter' structures.
 vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
 vtrParameters = lens _vtrParameters (\s a -> s { _vtrParameters = a }) . _List
 

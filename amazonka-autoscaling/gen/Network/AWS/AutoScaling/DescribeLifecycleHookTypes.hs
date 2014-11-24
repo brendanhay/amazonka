@@ -72,8 +72,8 @@ describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     }
 
 -- | One or more of the following notification types:
--- @autoscaling:EC2_INSTANCE_LAUNCHING@
--- @autoscaling:EC2_INSTANCE_TERMINATING@.
+-- 'autoscaling:EC2_INSTANCE_LAUNCHING'
+-- 'autoscaling:EC2_INSTANCE_TERMINATING'.
 dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrLifecycleHookTypes =
     lens _dlhtrLifecycleHookTypes (\s a -> s { _dlhtrLifecycleHookTypes = a })

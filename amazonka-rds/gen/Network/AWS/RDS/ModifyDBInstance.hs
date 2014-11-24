@@ -165,7 +165,7 @@ modifyDBInstance p1 = ModifyDBInstance
 
 -- | The new storage capacity of the RDS instance. Changing this setting does
 -- not result in an outage and the change is applied during the next
--- maintenance window unless @ApplyImmediately@ is set to @true@ for this
+-- maintenance window unless 'ApplyImmediately' is set to 'true' for this
 -- request. MySQL Default: Uses existing setting Valid Values: 5-3072
 -- Constraints: Value supplied must be at least 10% greater than the current
 -- value. Values that are not at least 10% greater than the existing value
@@ -208,16 +208,16 @@ mdbiAllowMajorVersionUpgrade =
 
 -- | Specifies whether the modifications in this request and any pending
 -- modifications are asynchronously applied as soon as possible, regardless
--- of the @PreferredMaintenanceWindow@ setting for the DB instance. If this
--- parameter is set to @false@, changes to the DB instance are applied
+-- of the 'PreferredMaintenanceWindow' setting for the DB instance. If this
+-- parameter is set to 'false', changes to the DB instance are applied
 -- during the next maintenance window. Some parameter changes can cause an
 -- outage and will be applied on the next call to 'RebootDBInstance', or the
 -- next failure reboot. Review the table of parameters in
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying
 -- Modifying a DB Instance and Using the Apply Immediately Parameter> to see
--- the impact that setting @ApplyImmediately@ to @true@ or @false@ has for
+-- the impact that setting 'ApplyImmediately' to 'true' or 'false' has for
 -- each modified parameter and to determine when the changes will be
--- applied. Default: @false@.
+-- applied. Default: 'false'.
 mdbiApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiApplyImmediately =
     lens _mdbiApplyImmediately (\s a -> s { _mdbiApplyImmediately = a })
@@ -226,7 +226,7 @@ mdbiApplyImmediately =
 -- the DB instance during the maintenance window. Changing this parameter
 -- does not result in an outage except in the following case and the change
 -- is asynchronously applied as soon as possible. An outage will result if
--- this parameter is set to @true@ during the maintenance window, and a
+-- this parameter is set to 'true' during the maintenance window, and a
 -- newer minor version is available, and RDS has enabled auto patching for
 -- that engine version.
 mdbiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
@@ -239,7 +239,7 @@ mdbiAutoMinorVersionUpgrade =
 -- automated backups. Changing this parameter can result in an outage if you
 -- change from 0 to a non-zero value or from a non-zero value to 0. These
 -- changes are applied during the next maintenance window unless the
--- @ApplyImmediately@ parameter is set to @true@ for this request. If you
+-- 'ApplyImmediately' parameter is set to 'true' for this request. If you
 -- change the parameter from one non-zero value to another non-zero value,
 -- the change is asynchronously applied as soon as possible. Default: Uses
 -- existing setting Constraints: Must be a value from 0 to 35 Can be
@@ -254,13 +254,13 @@ mdbiBackupRetentionPeriod =
 -- instance classes that are available for a particular DB engine, use the
 -- 'DescribeOrderableDBInstanceOptions' action. Passing a value for this
 -- setting causes an outage during the change and is applied during the next
--- maintenance window, unless @ApplyImmediately@ is specified as @true@ for
--- this request. Default: Uses existing setting Valid Values: @db.t1.micro |
+-- maintenance window, unless 'ApplyImmediately' is specified as 'true' for
+-- this request. Default: Uses existing setting Valid Values: 'db.t1.micro |
 -- db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |
 -- db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge
 -- | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge |
 -- db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small |
--- db.t2.medium@.
+-- db.t2.medium'.
 mdbiDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
 mdbiDBInstanceClass =
     lens _mdbiDBInstanceClass (\s a -> s { _mdbiDBInstanceClass = a })
@@ -300,12 +300,12 @@ mdbiDBSecurityGroups =
 
 -- | The version number of the database engine to upgrade to. Changing this
 -- parameter results in an outage and the change is applied during the next
--- maintenance window unless the @ApplyImmediately@ parameter is set to
--- @true@ for this request. For major version upgrades, if a non-default DB
+-- maintenance window unless the 'ApplyImmediately' parameter is set to
+-- 'true' for this request. For major version upgrades, if a non-default DB
 -- parameter group is currently in use, a new DB parameter group in the DB
 -- parameter group family for the new engine version must be specified. The
 -- new DB parameter group can be the default for that DB parameter group
--- family. Example: @5.1.42@.
+-- family. Example: '5.1.42'.
 mdbiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
 mdbiEngineVersion =
     lens _mdbiEngineVersion (\s a -> s { _mdbiEngineVersion = a })
@@ -313,7 +313,7 @@ mdbiEngineVersion =
 -- | The new Provisioned IOPS (I/O operations per second) value for the RDS
 -- instance. Changing this setting does not result in an outage and the
 -- change is applied during the next maintenance window unless the
--- @ApplyImmediately@ parameter is set to @true@ for this request. Default:
+-- 'ApplyImmediately' parameter is set to 'true' for this request. Default:
 -- Uses existing setting Constraints: Value supplied must be at least 10%
 -- greater than the current value. Values that are not at least 10% greater
 -- than the existing value are rounded up so that they are 10% greater than
@@ -342,8 +342,8 @@ mdbiIops = lens _mdbiIops (\s a -> s { _mdbiIops = a })
 -- ASCII character except "/", """, or "@". Changing this parameter does not
 -- result in an outage and the change is asynchronously applied as soon as
 -- possible. Between the time of the request and the completion of the
--- request, the @MasterUserPassword@ element exists in the
--- @PendingModifiedValues@ element of the operation response. Default: Uses
+-- request, the 'MasterUserPassword' element exists in the
+-- 'PendingModifiedValues' element of the operation response. Default: Uses
 -- existing setting Constraints: Must be 8 to 41 alphanumeric characters
 -- (MySQL), 8 to 30 alphanumeric characters (Oracle), or 8 to 128
 -- alphanumeric characters (SQL Server).
@@ -353,16 +353,16 @@ mdbiMasterUserPassword =
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
 -- parameter does not result in an outage and the change is applied during
--- the next maintenance window unless the @ApplyImmediately@ parameter is
--- set to @true@ for this request. Constraints: Cannot be specified if the
+-- the next maintenance window unless the 'ApplyImmediately' parameter is
+-- set to 'true' for this request. Constraints: Cannot be specified if the
 -- DB instance is a read replica.
 mdbiMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiMultiAZ = lens _mdbiMultiAZ (\s a -> s { _mdbiMultiAZ = a })
 
 -- | The new DB instance identifier for the DB instance when renaming a DB
 -- instance. When you change the DB instance identifier, an instance reboot
--- will occur immediately if you set @Apply Immediately@ to true, or will
--- occur during the next maintenance window if @Apply Immediately@ to false.
+-- will occur immediately if you set 'Apply Immediately' to true, or will
+-- occur during the next maintenance window if 'Apply Immediately' to false.
 -- This value is stored as a lowercase string. Constraints: Must contain
 -- from 1 to 63 alphanumeric characters or hyphens First character must be a
 -- letter Cannot end with a hyphen or contain two consecutive hyphens.
@@ -374,8 +374,8 @@ mdbiNewDBInstanceIdentifier =
 -- | Indicates that the DB instance should be associated with the specified
 -- option group. Changing this parameter does not result in an outage except
 -- in the following case and the change is applied during the next
--- maintenance window unless the @ApplyImmediately@ parameter is set to
--- @true@ for this request. If the parameter change results in an option
+-- maintenance window unless the 'ApplyImmediately' parameter is set to
+-- 'true' for this request. If the parameter change results in an option
 -- group that enables OEM, this change can cause a brief (sub-second) period
 -- during which new connections are rejected but existing connections are
 -- not interrupted. Permanent options, such as the TDE option for Oracle
@@ -388,7 +388,7 @@ mdbiOptionGroupName =
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, as determined by the
--- @BackupRetentionPeriod@. Changing this parameter does not result in an
+-- 'BackupRetentionPeriod'. Changing this parameter does not result in an
 -- outage and the change is asynchronously applied as soon as possible.
 -- Constraints: Must be in the format hh24:mi-hh24:mi Times should be
 -- Universal Time Coordinated (UTC) Must not conflict with the preferred
@@ -415,8 +415,8 @@ mdbiPreferredMaintenanceWindow =
         (\s a -> s { _mdbiPreferredMaintenanceWindow = a })
 
 -- | Specifies storage type to be associated with the DB Instance. Valid
--- values: @standard | gp2 | io1@ If you specify @io1@, you must also
--- include a value for the @Iops@ parameter.
+-- values: 'standard | gp2 | io1' If you specify 'io1', you must also
+-- include a value for the 'Iops' parameter.
 mdbiStorageType :: Lens' ModifyDBInstance (Maybe Text)
 mdbiStorageType = lens _mdbiStorageType (\s a -> s { _mdbiStorageType = a })
 

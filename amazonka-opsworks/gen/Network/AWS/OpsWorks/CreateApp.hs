@@ -120,7 +120,7 @@ createApp p1 p2 p3 = CreateApp
     , _caAttributes       = mempty
     }
 
--- | A @Source@ object that specifies the app repository.
+-- | A 'Source' object that specifies the app repository.
 caAppSource :: Lens' CreateApp (Maybe Source)
 caAppSource = lens _caAppSource (\s a -> s { _caAppSource = a })
 
@@ -138,7 +138,7 @@ caDescription :: Lens' CreateApp (Maybe Text)
 caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 
 -- | The app virtual host settings, with multiple domains separated by commas.
--- For example: @'www.example.com, example.com'@.
+-- For example: ''www.example.com, example.com''.
 caDomains :: Lens' CreateApp [Text]
 caDomains = lens _caDomains (\s a -> s { _caDomains = a }) . _List
 
@@ -154,7 +154,7 @@ caName = lens _caName (\s a -> s { _caName = a })
 caShortname :: Lens' CreateApp (Maybe Text)
 caShortname = lens _caShortname (\s a -> s { _caShortname = a })
 
--- | An @SslConfiguration@ object with the SSL configuration.
+-- | An 'SslConfiguration' object with the SSL configuration.
 caSslConfiguration :: Lens' CreateApp (Maybe SslConfiguration)
 caSslConfiguration =
     lens _caSslConfiguration (\s a -> s { _caSslConfiguration = a })

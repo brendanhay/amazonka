@@ -623,7 +623,7 @@ autoScalingGroup = AutoScalingGroup
     { _asgName = Nothing
     }
 
--- | The name of the @AutoScalingGroup@ .
+-- | The name of the 'AutoScalingGroup' .
 asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName = lens _asgName (\s a -> s { _asgName = a })
 
@@ -800,18 +800,18 @@ csdDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
 csdDateUpdated = lens _csdDateUpdated (\s a -> s { _csdDateUpdated = a }) . mapping _Time
 
 -- | If this configuration set is associated with an environment, the
--- @DeploymentStatus@ parameter indicates the deployment status of this
--- configuration set: @null@: This configuration is not associated with a
--- running environment. @pending@: This is a draft configuration that is not
+-- 'DeploymentStatus' parameter indicates the deployment status of this
+-- configuration set: 'null': This configuration is not associated with a
+-- running environment. 'pending': This is a draft configuration that is not
 -- deployed to the associated environment but is in the process of
--- deploying. @deployed@: This is the configuration that is currently
--- deployed to the associated running environment. @failed@: This is a draft
--- configuration, that failed to successfully deploy. @null@: This
--- configuration is not associated with a running environment. @pending@:
+-- deploying. 'deployed': This is the configuration that is currently
+-- deployed to the associated running environment. 'failed': This is a draft
+-- configuration, that failed to successfully deploy. 'null': This
+-- configuration is not associated with a running environment. 'pending':
 -- This is a draft configuration that is not deployed to the associated
--- environment but is in the process of deploying. @deployed@: This is the
+-- environment but is in the process of deploying. 'deployed': This is the
 -- configuration that is currently deployed to the associated running
--- environment. @failed@: This is a draft configuration that failed to
+-- environment. 'failed': This is a draft configuration that failed to
 -- successfully deploy.
 csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
 csdDeploymentStatus =
@@ -821,7 +821,7 @@ csdDeploymentStatus =
 csdDescription :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdDescription = lens _csdDescription (\s a -> s { _csdDescription = a })
 
--- | If not @null@, the name of the environment for this configuration set.
+-- | If not 'null', the name of the environment for this configuration set.
 csdEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdEnvironmentName =
     lens _csdEnvironmentName (\s a -> s { _csdEnvironmentName = a })
@@ -838,7 +838,7 @@ csdSolutionStackName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdSolutionStackName =
     lens _csdSolutionStackName (\s a -> s { _csdSolutionStackName = a })
 
--- | If not @null@, the name of the configuration template for this
+-- | If not 'null', the name of the configuration template for this
 -- configuration set.
 csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdTemplateName = lens _csdTemplateName (\s a -> s { _csdTemplateName = a })
@@ -1024,7 +1024,7 @@ environmentResourceDescription = EnvironmentResourceDescription
     , _erdQueues               = mempty
     }
 
--- | The @AutoScalingGroups@ used by this environment.
+-- | The 'AutoScalingGroups' used by this environment.
 erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
 erdAutoScalingGroups =
     lens _erdAutoScalingGroups (\s a -> s { _erdAutoScalingGroups = a })
@@ -1053,7 +1053,7 @@ erdLoadBalancers = lens _erdLoadBalancers (\s a -> s { _erdLoadBalancers = a }) 
 erdQueues :: Lens' EnvironmentResourceDescription [Queue]
 erdQueues = lens _erdQueues (\s a -> s { _erdQueues = a }) . _List
 
--- | The @AutoScaling@ triggers in use by this environment.
+-- | The 'AutoScaling' triggers in use by this environment.
 erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
 erdTriggers = lens _erdTriggers (\s a -> s { _erdTriggers = a }) . _List
 
@@ -1433,11 +1433,11 @@ configurationOptionDescription = ConfigurationOptionDescription
 -- and the environment is unavailable during the process.
 -- RestartApplicationServer - The environment is available the entire time.
 -- However, a short application outage occurs when the application servers
--- on the running Amazon EC2 instances are restarted. @NoInterruption@ :
+-- on the running Amazon EC2 instances are restarted. 'NoInterruption' :
 -- There is no interruption to the environment or application availability.
--- @RestartEnvironment@ : The environment is entirely restarted, all AWS
+-- 'RestartEnvironment' : The environment is entirely restarted, all AWS
 -- resources are deleted and recreated, and the environment is unavailable
--- during the process. @RestartApplicationServer@ : The environment is
+-- during the process. 'RestartApplicationServer' : The environment is
 -- available the entire time. However, a short application outage occurs
 -- when the application servers on the running Amazon EC2 instances are
 -- restarted.
@@ -1478,14 +1478,14 @@ codRegex :: Lens' ConfigurationOptionDescription (Maybe OptionRestrictionRegex)
 codRegex = lens _codRegex (\s a -> s { _codRegex = a })
 
 -- | An indication of whether the user defined this configuration option:
--- @true@ : This configuration option was defined by the user. It is a valid
+-- 'true' : This configuration option was defined by the user. It is a valid
 -- choice for specifying this as an Option to Remove when updating
--- configuration settings. @false@ : This configuration was not defined by
--- the user. @true@ : This configuration option was defined by the user. It
--- is a valid choice for specifying if this as an @Option to Remove@ when
--- updating configuration settings. @false@ : This configuration was not
--- defined by the user. Constraint: You can remove only @UserDefined@
--- options from a configuration. Valid Values: @true@ | @false@.
+-- configuration settings. 'false' : This configuration was not defined by
+-- the user. 'true' : This configuration option was defined by the user. It
+-- is a valid choice for specifying if this as an 'Option to Remove' when
+-- updating configuration settings. 'false' : This configuration was not
+-- defined by the user. Constraint: You can remove only 'UserDefined'
+-- options from a configuration. Valid Values: 'true' | 'false'.
 codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
 codUserDefined = lens _codUserDefined (\s a -> s { _codUserDefined = a })
 
@@ -1495,16 +1495,16 @@ codValueOptions :: Lens' ConfigurationOptionDescription [Text]
 codValueOptions = lens _codValueOptions (\s a -> s { _codValueOptions = a }) . _List
 
 -- | An indication of which type of values this option has and whether it is
--- allowable to select one or more than one of the possible values: @Scalar@
+-- allowable to select one or more than one of the possible values: 'Scalar'
 -- : Values for this option are a single selection from the possible values,
 -- or a unformatted string or numeric value governed by the MIN/MAX/Regex
--- constraints: @List@ : Values for this option are multiple selections of
--- the possible values. @Boolean@ : Values for this option are either @true@
--- or @false@ . @Scalar@ : Values for this option are a single selection
+-- constraints: 'List' : Values for this option are multiple selections of
+-- the possible values. 'Boolean' : Values for this option are either 'true'
+-- or 'false' . 'Scalar' : Values for this option are a single selection
 -- from the possible values, or an unformatted string, or numeric value
--- governed by the @MIN/MAX/Regex@ constraints. @List@ : Values for this
--- option are multiple selections from the possible values. @Boolean@ :
--- Values for this option are either @true@ or @false@ .
+-- governed by the 'MIN/MAX/Regex' constraints. 'List' : Values for this
+-- option are multiple selections from the possible values. 'Boolean' :
+-- Values for this option are either 'true' or 'false' .
 codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
 codValueType = lens _codValueType (\s a -> s { _codValueType = a })
 
@@ -1920,18 +1920,18 @@ ed1EnvironmentName =
     lens _ed1EnvironmentName (\s a -> s { _ed1EnvironmentName = a })
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
--- indicates the failure levels for a running environment: @Red@ : Indicates
--- the environment is not working. @Yellow@: Indicates that something is
+-- indicates the failure levels for a running environment: 'Red' : Indicates
+-- the environment is not working. 'Yellow': Indicates that something is
 -- wrong, the application might not be available, but the instances appear
--- running. @Green@: Indicates the environment is healthy and fully
--- functional. @Red@: Indicates the environment is not responsive. Occurs
+-- running. 'Green': Indicates the environment is healthy and fully
+-- functional. 'Red': Indicates the environment is not responsive. Occurs
 -- when three or more consecutive failures occur for an environment.
--- @Yellow@: Indicates that something is wrong. Occurs when two consecutive
--- failures occur for an environment. @Green@: Indicates the environment is
--- healthy and fully functional. @Grey@: Default health for a new
+-- 'Yellow': Indicates that something is wrong. Occurs when two consecutive
+-- failures occur for an environment. 'Green': Indicates the environment is
+-- healthy and fully functional. 'Grey': Default health for a new
 -- environment. The environment is not fully launched and health checks have
--- not started or health checks are suspended during an @UpdateEnvironment@
--- or @RestartEnvironement@ request. Default: @Grey@.
+-- not started or health checks are suspended during an 'UpdateEnvironment'
+-- or 'RestartEnvironement' request. Default: 'Grey'.
 ed1Health :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
 ed1Health = lens _ed1Health (\s a -> s { _ed1Health = a })
 
@@ -1939,17 +1939,17 @@ ed1Health = lens _ed1Health (\s a -> s { _ed1Health = a })
 ed1Resources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
 ed1Resources = lens _ed1Resources (\s a -> s { _ed1Resources = a })
 
--- | The name of the @SolutionStack@ deployed with this environment.
+-- | The name of the 'SolutionStack' deployed with this environment.
 ed1SolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
 ed1SolutionStackName =
     lens _ed1SolutionStackName (\s a -> s { _ed1SolutionStackName = a })
 
--- | The current operational status of the environment: @Launching@:
--- Environment is in the process of initial deployment. @Updating@:
+-- | The current operational status of the environment: 'Launching':
+-- Environment is in the process of initial deployment. 'Updating':
 -- Environment is in the process of updating its configuration settings or
--- application version. @Ready@: Environment is available to have an action
--- performed on it, such as update or terminate. @Terminating@: Environment
--- is in the shut-down process. @Terminated@: Environment is not running.
+-- application version. 'Ready': Environment is available to have an action
+-- performed on it, such as update or terminate. 'Terminating': Environment
+-- is in the shut-down process. 'Terminated': Environment is not running.
 ed1Status :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
 ed1Status = lens _ed1Status (\s a -> s { _ed1Status = a })
 

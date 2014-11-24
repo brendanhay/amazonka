@@ -23,16 +23,16 @@
 -- | Returns the number of open workflow executions within the given domain that
 -- meet the specified filtering criteria. Access Control You can use IAM
 -- policies to control this action's access to Amazon SWF resources as
--- follows: Use a @Resource@ element with the domain name to limit the action
--- to only specified domains. Use an @Action@ element to allow or deny
+-- follows: Use a 'Resource' element with the domain name to limit the action
+-- to only specified domains. Use an 'Action' element to allow or deny
 -- permission to call this action. Constrain the following parameters by using
--- a @Condition@ element with the appropriate keys. @tagFilter.tag@: String
--- constraint. The key is @swf:tagFilter.tag@. @typeFilter.name@: String
--- constraint. The key is @swf:typeFilter.name@. @typeFilter.version@: String
--- constraint. The key is @swf:typeFilter.version@. If the caller does not
+-- a 'Condition' element with the appropriate keys. 'tagFilter.tag': String
+-- constraint. The key is 'swf:tagFilter.tag'. 'typeFilter.name': String
+-- constraint. The key is 'swf:typeFilter.name'. 'typeFilter.version': String
+-- constraint. The key is 'swf:typeFilter.version'. If the caller does not
 -- have sufficient permissions to invoke the action, or the parameter values
 -- fall outside the specified constraints, the action fails by throwing
--- @OperationNotPermitted@. For details and example IAM policies, see
+-- 'OperationNotPermitted'. For details and example IAM policies, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
@@ -101,7 +101,7 @@ countOpenWorkflowExecutions p1 p2 = CountOpenWorkflowExecutions
 coweDomain :: Lens' CountOpenWorkflowExecutions Text
 coweDomain = lens _coweDomain (\s a -> s { _coweDomain = a })
 
--- | If specified, only workflow executions matching the @WorkflowId@ in the
+-- | If specified, only workflow executions matching the 'WorkflowId' in the
 -- filter are counted.
 coweExecutionFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
 coweExecutionFilter =

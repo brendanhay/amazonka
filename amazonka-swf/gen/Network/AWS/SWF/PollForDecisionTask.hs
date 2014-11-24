@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Used by deciders to get a 'DecisionTask' from the specified decision
--- @taskList@. A decision task may be returned for any open workflow execution
+-- 'taskList'. A decision task may be returned for any open workflow execution
 -- that is using the specified task list. The task includes a paginated view
 -- of the history of the workflow execution. The decider should use the
 -- workflow type and the history to determine how to properly handle the task.
@@ -35,18 +35,18 @@
 -- Because the number of workflow history events for a single workflow
 -- execution might be very large, the result returned might be split up across
 -- a number of pages. To retrieve subsequent pages, make additional calls to
--- @PollForDecisionTask@ using the @nextPageToken@ returned by the initial
--- call. Note that you do not call @GetWorkflowExecutionHistory@ with this
--- @nextPageToken@. Instead, call @PollForDecisionTask@ again. Access Control
+-- 'PollForDecisionTask' using the 'nextPageToken' returned by the initial
+-- call. Note that you do not call 'GetWorkflowExecutionHistory' with this
+-- 'nextPageToken'. Instead, call 'PollForDecisionTask' again. Access Control
 -- You can use IAM policies to control this action's access to Amazon SWF
--- resources as follows: Use a @Resource@ element with the domain name to
--- limit the action to only specified domains. Use an @Action@ element to
--- allow or deny permission to call this action. Constrain the @taskList.name@
--- parameter by using a Condition element with the @swf:taskList.name@ key to
+-- resources as follows: Use a 'Resource' element with the domain name to
+-- limit the action to only specified domains. Use an 'Action' element to
+-- allow or deny permission to call this action. Constrain the 'taskList.name'
+-- parameter by using a Condition element with the 'swf:taskList.name' key to
 -- allow the action to access only certain task lists. If the caller does not
 -- have sufficient permissions to invoke the action, or the parameter values
 -- fall outside the specified constraints, the action fails by throwing
--- @OperationNotPermitted@. For details and example IAM policies, see
+-- 'OperationNotPermitted'. For details and example IAM policies, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
@@ -143,22 +143,22 @@ pfdtMaximumPageSize =
     lens _pfdtMaximumPageSize (\s a -> s { _pfdtMaximumPageSize = a })
         . mapping _Nat
 
--- | If on a previous call to this method a @NextPageToken@ was returned, the
+-- | If on a previous call to this method a 'NextPageToken' was returned, the
 -- results are being paginated. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged. .
 pfdtNextPageToken :: Lens' PollForDecisionTask (Maybe Text)
 pfdtNextPageToken =
     lens _pfdtNextPageToken (\s a -> s { _pfdtNextPageToken = a })
 
--- | When set to @true@, returns the events in reverse order. By default the
--- results are returned in ascending order of the @eventTimestamp@ of the
+-- | When set to 'true', returns the events in reverse order. By default the
+-- results are returned in ascending order of the 'eventTimestamp' of the
 -- events.
 pfdtReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
 pfdtReverseOrder = lens _pfdtReverseOrder (\s a -> s { _pfdtReverseOrder = a })
 
 -- | Specifies the task list to poll for decision tasks. The specified string
--- must not start or end with whitespace. It must not contain a @:@ (colon),
--- @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f
+-- must not start or end with whitespace. It must not contain a ':' (colon),
+-- '/' (slash), '|' (vertical bar), or any control characters (\u0000-\u001f
 -- | \u007f - \u009f). Also, it must not contain the literal string "arn".
 pfdtTaskList :: Lens' PollForDecisionTask TaskList
 pfdtTaskList = lens _pfdtTaskList (\s a -> s { _pfdtTaskList = a })
@@ -227,7 +227,7 @@ pfdtrPreviousStartedEventId =
     lens _pfdtrPreviousStartedEventId
         (\s a -> s { _pfdtrPreviousStartedEventId = a })
 
--- | The id of the @DecisionTaskStarted@ event recorded in the history.
+-- | The id of the 'DecisionTaskStarted' event recorded in the history.
 pfdtrStartedEventId :: Lens' PollForDecisionTaskResponse Integer
 pfdtrStartedEventId =
     lens _pfdtrStartedEventId (\s a -> s { _pfdtrStartedEventId = a })

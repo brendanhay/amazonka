@@ -22,8 +22,8 @@
 
 -- | Returns a list of the requester's subscriptions. Each call returns a
 -- limited list of subscriptions, up to 100. If there are more subscriptions,
--- a @NextToken@ is also returned. Use the @NextToken@ parameter in a new
--- @ListSubscriptions@ call to get further results.
+-- a 'NextToken' is also returned. Use the 'NextToken' parameter in a new
+-- 'ListSubscriptions' call to get further results.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html>
 module Network.AWS.SNS.ListSubscriptions
@@ -64,7 +64,7 @@ listSubscriptions = ListSubscriptions
     { _lsNextToken = Nothing
     }
 
--- | Token returned by the previous @ListSubscriptions@ request.
+-- | Token returned by the previous 'ListSubscriptions' request.
 lsNextToken :: Lens' ListSubscriptions (Maybe Text)
 lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 
@@ -87,7 +87,7 @@ listSubscriptionsResponse = ListSubscriptionsResponse
     , _lsrNextToken     = Nothing
     }
 
--- | Token to pass along to the next @ListSubscriptions@ request. This element
+-- | Token to pass along to the next 'ListSubscriptions' request. This element
 -- is returned if there are more subscriptions to retrieve.
 lsrNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })

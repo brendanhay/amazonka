@@ -88,7 +88,7 @@ doEvaluateExpressions =
 
 -- | The starting point for the results to be returned. The first time you
 -- call 'DescribeObjects', this value should be empty. As long as the action
--- returns @HasMoreResults@ as @True@, you can call 'DescribeObjects' again
+-- returns 'HasMoreResults' as 'True', you can call 'DescribeObjects' again
 -- and pass the marker value from the response to retrieve the next set of
 -- results.
 doMarker :: Lens' DescribeObjects (Maybe Text)
@@ -127,7 +127,7 @@ describeObjectsResponse = DescribeObjectsResponse
     , _dorHasMoreResults  = Nothing
     }
 
--- | If @True@, there are more pages of results to return.
+-- | If 'True', there are more pages of results to return.
 dorHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
 dorHasMoreResults =
     lens _dorHasMoreResults (\s a -> s { _dorHasMoreResults = a })

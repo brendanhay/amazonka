@@ -119,7 +119,7 @@ seReplyToAddresses =
 -- when feedback forwarding is enabled. If the message cannot be delivered
 -- to the recipient, then an error message will be returned from the
 -- recipient's ISP; this message will then be forwarded to the email address
--- specified by the @ReturnPath@ parameter.
+-- specified by the 'ReturnPath' parameter.
 seReturnPath :: Lens' SendEmail (Maybe Text)
 seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
 
@@ -127,7 +127,7 @@ seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
 -- If the text must contain any other characters, then you must use MIME
 -- encoded-word syntax (RFC 2047) instead of a literal string. MIME
 -- encoded-word syntax uses the following form:
--- @=?charset?encoding?encoded-text?=@. For more information, see
+-- '=?charset?encoding?encoded-text?='. For more information, see
 -- <http://tools.ietf.org/html/rfc2047 RFC 2047>.
 seSource :: Lens' SendEmail Text
 seSource = lens _seSource (\s a -> s { _seSource = a })
@@ -148,7 +148,7 @@ sendEmailResponse p1 = SendEmailResponse
     { _serMessageId = p1
     }
 
--- | The unique message identifier returned from the @SendEmail@ action.
+-- | The unique message identifier returned from the 'SendEmail' action.
 serMessageId :: Lens' SendEmailResponse Text
 serMessageId = lens _serMessageId (\s a -> s { _serMessageId = a })
 

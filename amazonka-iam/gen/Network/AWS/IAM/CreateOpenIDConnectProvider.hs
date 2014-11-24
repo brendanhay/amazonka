@@ -83,11 +83,11 @@ createOpenIDConnectProvider p1 = CreateOpenIDConnectProvider
 -- | A list of client IDs (also known as audiences). When a mobile or web app
 -- registers with an OpenID Connect provider, they establish a value that
 -- identifies the application. (This is the value that's sent as the
--- @client_id@ parameter on OAuth requests.) You can register multiple
+-- 'client_id' parameter on OAuth requests.) You can register multiple
 -- client IDs with the same provider. For example, you might have multiple
 -- applications that use the same OIDC provider. You cannot register more
 -- than 100 client IDs with a single IAM OIDC provider. There is no defined
--- format for a client ID. The @CreateOpenIDConnectProviderRequest@ action
+-- format for a client ID. The 'CreateOpenIDConnectProviderRequest' action
 -- accepts client IDs up to 255 characters long.
 coidcpClientIDList :: Lens' CreateOpenIDConnectProvider [Text]
 coidcpClientIDList =
@@ -103,7 +103,7 @@ coidcpClientIDList =
 -- used by the domain where the OpenID Connect provider makes its keys
 -- available. It is always a 40-character string. You must provide at least
 -- one thumbprint when creating an IAM OIDC provider. For example, if the
--- OIDC provider is @server.example.com@ and the provider stores its keys at
+-- OIDC provider is 'server.example.com' and the provider stores its keys at
 -- "https://keys.server.example.com/openid-connect", the thumbprint string
 -- would be the hex-encoded SHA-1 hash value of the certificate used by
 -- https://keys.server.example.com.
@@ -113,7 +113,7 @@ coidcpThumbprintList =
         . _List
 
 -- | The URL of the identity provider. The URL must begin with "https://" and
--- should correspond to the @iss@ claim in the provider's OpenID Connect ID
+-- should correspond to the 'iss' claim in the provider's OpenID Connect ID
 -- tokens. Per the OIDC standard, path components are allowed but query
 -- parameters are not. Typically the URL consists of only a host name, like
 -- "https://server.example.org" or "https://example.com". You cannot

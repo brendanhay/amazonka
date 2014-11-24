@@ -23,9 +23,9 @@
 -- | Returns all the log streams that are associated with the specified log
 -- group. The list returned in the response is ASCII-sorted by log stream
 -- name. By default, this operation returns up to 50 log streams. If there are
--- more log streams to list, the response would contain a @nextToken@ value in
+-- more log streams to list, the response would contain a 'nextToken' value in
 -- the response body. You can also limit the number of log streams returned in
--- the response by specifying the @limit@ parameter in the request.
+-- the response by specifying the 'limit' parameter in the request.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html>
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
@@ -96,7 +96,7 @@ dls1LogStreamNamePrefix =
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
--- @DescribeLogStreams@ request.
+-- 'DescribeLogStreams' request.
 dls1NextToken :: Lens' DescribeLogStreams (Maybe Text)
 dls1NextToken = lens _dls1NextToken (\s a -> s { _dls1NextToken = a })
 

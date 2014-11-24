@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of the requester's topics. Each call returns a limited list
--- of topics, up to 100. If there are more topics, a @NextToken@ is also
--- returned. Use the @NextToken@ parameter in a new @ListTopics@ call to get
+-- of topics, up to 100. If there are more topics, a 'NextToken' is also
+-- returned. Use the 'NextToken' parameter in a new 'ListTopics' call to get
 -- further results.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html>
@@ -64,7 +64,7 @@ listTopics = ListTopics
     { _ltNextToken = Nothing
     }
 
--- | Token returned by the previous @ListTopics@ request.
+-- | Token returned by the previous 'ListTopics' request.
 ltNextToken :: Lens' ListTopics (Maybe Text)
 ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 
@@ -87,7 +87,7 @@ listTopicsResponse = ListTopicsResponse
     , _ltrNextToken = Nothing
     }
 
--- | Token to pass along to the next @ListTopics@ request. This element is
+-- | Token to pass along to the next 'ListTopics' request. This element is
 -- returned if there are additional topics to retrieve.
 ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })

@@ -97,17 +97,17 @@ docoClusterVersion =
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
 -- 'DescribeOrderableClusterOptions' request exceed the value specified in
--- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
+-- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
 -- You can retrieve the next set of response records by providing the
--- returned marker value in the @Marker@ parameter and retrying the request.
+-- returned marker value in the 'Marker' parameter and retrying the request.
 docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoMarker = lens _docoMarker (\s a -> s { _docoMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
 -- retrieve the next set of records by retrying the command with the
--- returned marker value. Default: @100@ Constraints: minimum 20, maximum
+-- returned marker value. Default: '100' Constraints: minimum 20, maximum
 -- 100.
 docoMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Int)
 docoMaxRecords = lens _docoMaxRecords (\s a -> s { _docoMaxRecords = a })
@@ -139,8 +139,8 @@ describeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRespons
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
--- marker value in the @Marker@ parameter and retrying the command. If the
--- @Marker@ field is empty, all response records have been retrieved for the
+-- marker value in the 'Marker' parameter and retrying the command. If the
+-- 'Marker' field is empty, all response records have been retrieved for the
 -- request.
 docorMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
 docorMarker = lens _docorMarker (\s a -> s { _docorMarker = a })

@@ -25,7 +25,7 @@
 -- meet Elastic Transcoder requirements and to determine whether they comply
 -- with H.264 standards. If your settings are not valid for Elastic
 -- Transcoder, Elastic Transcoder returns an HTTP 400 response
--- (@ValidationException@) and does not create the preset. If the settings are
+-- ('ValidationException') and does not create the preset. If the settings are
 -- valid for Elastic Transcoder but aren't strictly compliant with the H.264
 -- standard, Elastic Transcoder creates the preset and returns a warning
 -- message in the response. This helps you determine whether your settings
@@ -105,8 +105,8 @@ createPreset p1 p2 = CreatePreset
 cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
 cpAudio = lens _cpAudio (\s a -> s { _cpAudio = a })
 
--- | The container type for the output file. Valid values include @fmp4@,
--- @mp3@, @mp4@, @ogg@, @ts@, and @webm@.
+-- | The container type for the output file. Valid values include 'fmp4',
+-- 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.
 cpContainer :: Lens' CreatePreset Text
 cpContainer = lens _cpContainer (\s a -> s { _cpContainer = a })
 

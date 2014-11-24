@@ -143,14 +143,14 @@ casgAutoScalingGroupName =
         (\s a -> s { _casgAutoScalingGroupName = a })
 
 -- | One or more Availability Zones for the group. This parameter is optional
--- if you specify subnets using the @VPCZoneIdentifier@ parameter.
+-- if you specify subnets using the 'VPCZoneIdentifier' parameter.
 casgAvailabilityZones :: Lens' CreateAutoScalingGroup (NonEmpty Text)
 casgAvailabilityZones =
     lens _casgAvailabilityZones (\s a -> s { _casgAvailabilityZones = a })
         . _List1
 
 -- | The amount of time, in seconds, after a scaling activity completes before
--- another scaling activity can start. If @DefaultCooldown@ is not
+-- another scaling activity can start. If 'DefaultCooldown' is not
 -- specified, the default value is 300. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html
 -- Understanding Auto Scaling Cooldowns> in the /Auto Scaling Developer
@@ -169,7 +169,7 @@ casgDesiredCapacity =
 -- | The amount of time, in seconds, after an EC2 instance comes into service
 -- that Auto Scaling starts checking its health. During this time, any
 -- health check failures for the instance are ignored. This parameter is
--- required if you are adding an @ELB@ health check. Frequently, new
+-- required if you are adding an 'ELB' health check. Frequently, new
 -- instances need to warm up, briefly, before they can pass a health check.
 -- To provide ample warm-up time, set the health check grace period of the
 -- group to match the expected startup period of your application. For more
@@ -182,8 +182,8 @@ casgHealthCheckGracePeriod =
     lens _casgHealthCheckGracePeriod
         (\s a -> s { _casgHealthCheckGracePeriod = a })
 
--- | The service to use for the health checks. The valid values are @EC2@ and
--- @ELB@. By default, health checks use Amazon EC2 instance status checks to
+-- | The service to use for the health checks. The valid values are 'EC2' and
+-- 'ELB'. By default, health checks use Amazon EC2 instance status checks to
 -- determine the health of an instance. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html
 -- Health Checks>.
@@ -192,7 +192,7 @@ casgHealthCheckType =
     lens _casgHealthCheckType (\s a -> s { _casgHealthCheckType = a })
 
 -- | The ID of the EC2 instance used to create a launch configuration for the
--- group. Alternatively, use the @LaunchConfigurationName@ parameter to
+-- group. Alternatively, use the 'LaunchConfigurationName' parameter to
 -- specify a launch configuration instead of an EC2 instance. When you
 -- specify an ID of an instance, Auto Scaling creates a new launch
 -- configuration and associates it with the group. This launch configuration
@@ -204,7 +204,7 @@ casgHealthCheckType =
 casgInstanceId :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgInstanceId = lens _casgInstanceId (\s a -> s { _casgInstanceId = a })
 
--- | The name of the launch configuration. Alternatively, use the @InstanceId@
+-- | The name of the launch configuration. Alternatively, use the 'InstanceId'
 -- parameter to specify an EC2 instance instead of a launch configuration.
 casgLaunchConfigurationName :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgLaunchConfigurationName =

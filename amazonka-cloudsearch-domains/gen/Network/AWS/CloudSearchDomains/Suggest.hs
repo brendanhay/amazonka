@@ -30,10 +30,10 @@
 -- suggesters and retrieving suggestions, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html
 -- Getting Suggestions> in the /Amazon CloudSearch Developer Guide/. The
--- endpoint for submitting @Suggest@ requests is domain-specific. You submit
+-- endpoint for submitting 'Suggest' requests is domain-specific. You submit
 -- suggest requests to a domain's search endpoint. To get the search endpoint
 -- for your domain, use the Amazon CloudSearch configuration service
--- @DescribeDomains@ action. A domain's endpoints are also displayed on the
+-- 'DescribeDomains' action. A domain's endpoints are also displayed on the
 -- domain dashboard in the Amazon CloudSearch console.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Suggest.html>
@@ -118,8 +118,8 @@ suggestResponse = SuggestResponse
     , _srSuggest = Nothing
     }
 
--- | The status of a @SuggestRequest@. Contains the resource ID (@rid@) and
--- how long it took to process the request (@timems@).
+-- | The status of a 'SuggestRequest'. Contains the resource ID ('rid') and
+-- how long it took to process the request ('timems').
 srStatus :: Lens' SuggestResponse (Maybe SuggestStatus)
 srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 

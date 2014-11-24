@@ -25,7 +25,7 @@
 -- instances with a single call. By default, a call returns up to 20
 -- instances. If there are more items to return, the call returns a token. To
 -- get the next set of items, repeat the call with the returned token in the
--- @NextToken@ parameter.
+-- 'NextToken' parameter.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html>
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances

@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | To retrieve a list of the IP ranges used by Amazon Route 53 health checkers
--- to check the health of your resources, send a @GET@ request to the
--- @2013-04-01/checkeripranges@ resource. You can use these IP addresses to
+-- to check the health of your resources, send a 'GET' request to the
+-- '2013-04-01/checkeripranges' resource. You can use these IP addresses to
 -- configure router and firewall rules to allow health checkers to check the
 -- health of your resources.
 --

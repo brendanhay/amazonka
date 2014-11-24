@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | To retrieve a count of all your health checks, send a @GET@ request to the
--- @2013-04-01/healthcheckcount@ resource.
+-- | To retrieve a count of all your health checks, send a 'GET' request to the
+-- '2013-04-01/healthcheckcount' resource.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckCount.html>
 module Network.AWS.Route53.GetHealthCheckCount

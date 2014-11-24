@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes the number of layers and apps in a specified stack, and the
--- number of instances in each state, such as @running_setup@ or @online@.
+-- number of instances in each state, such as 'running_setup' or 'online'.
 -- Required Permissions: To use this action, an IAM user must have a Show,
 -- Deploy, or Manage permissions level for the stack, or an attached policy
 -- that explicitly grants permissions. For more information on user
@@ -87,7 +87,7 @@ describeStackSummaryResponse = DescribeStackSummaryResponse
     { _dssrStackSummary = Nothing
     }
 
--- | A @StackSummary@ object that contains the results.
+-- | A 'StackSummary' object that contains the results.
 dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrStackSummary = lens _dssrStackSummary (\s a -> s { _dssrStackSummary = a })
 

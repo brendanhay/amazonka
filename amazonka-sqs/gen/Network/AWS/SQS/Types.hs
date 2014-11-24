@@ -29,9 +29,6 @@ module Network.AWS.SQS.Types
     -- ** XML
     , ns
 
-    -- * QueueAttributeName
-    , QueueAttributeName (..)
-
     -- * DeleteMessageBatchRequestEntry
     , DeleteMessageBatchRequestEntry
     , deleteMessageBatchRequestEntry
@@ -126,65 +123,6 @@ instance AWSService SQS where
 ns :: Text
 ns = "http://queue.amazonaws.com/doc/2012-11-05/"
 
-data QueueAttributeName
-    = ApproximateNumberOfMessages           -- ^ ApproximateNumberOfMessages
-    | ApproximateNumberOfMessagesDelayed    -- ^ ApproximateNumberOfMessagesDelayed
-    | ApproximateNumberOfMessagesNotVisible -- ^ ApproximateNumberOfMessagesNotVisible
-    | CreatedTimestamp                      -- ^ CreatedTimestamp
-    | DelaySeconds                          -- ^ DelaySeconds
-    | LastModifiedTimestamp                 -- ^ LastModifiedTimestamp
-    | MaximumMessageSize                    -- ^ MaximumMessageSize
-    | MessageRetentionPeriod                -- ^ MessageRetentionPeriod
-    | Policy                                -- ^ Policy
-    | QueueArn                              -- ^ QueueArn
-    | ReceiveMessageWaitTimeSeconds         -- ^ ReceiveMessageWaitTimeSeconds
-    | RedrivePolicy                         -- ^ RedrivePolicy
-    | VisibilityTimeout                     -- ^ VisibilityTimeout
-      deriving (Eq, Ord, Show, Generic, Enum)
-
-instance Hashable QueueAttributeName
-
-instance FromText QueueAttributeName where
-    parser = takeText >>= \case
-        "ApproximateNumberOfMessages"           -> pure ApproximateNumberOfMessages
-        "ApproximateNumberOfMessagesDelayed"    -> pure ApproximateNumberOfMessagesDelayed
-        "ApproximateNumberOfMessagesNotVisible" -> pure ApproximateNumberOfMessagesNotVisible
-        "CreatedTimestamp"                      -> pure CreatedTimestamp
-        "DelaySeconds"                          -> pure DelaySeconds
-        "LastModifiedTimestamp"                 -> pure LastModifiedTimestamp
-        "MaximumMessageSize"                    -> pure MaximumMessageSize
-        "MessageRetentionPeriod"                -> pure MessageRetentionPeriod
-        "Policy"                                -> pure Policy
-        "QueueArn"                              -> pure QueueArn
-        "ReceiveMessageWaitTimeSeconds"         -> pure ReceiveMessageWaitTimeSeconds
-        "RedrivePolicy"                         -> pure RedrivePolicy
-        "VisibilityTimeout"                     -> pure VisibilityTimeout
-        e                                       -> fail $
-            "Failure parsing QueueAttributeName from " ++ show e
-
-instance ToText QueueAttributeName where
-    toText = \case
-        ApproximateNumberOfMessages           -> "ApproximateNumberOfMessages"
-        ApproximateNumberOfMessagesDelayed    -> "ApproximateNumberOfMessagesDelayed"
-        ApproximateNumberOfMessagesNotVisible -> "ApproximateNumberOfMessagesNotVisible"
-        CreatedTimestamp                      -> "CreatedTimestamp"
-        DelaySeconds                          -> "DelaySeconds"
-        LastModifiedTimestamp                 -> "LastModifiedTimestamp"
-        MaximumMessageSize                    -> "MaximumMessageSize"
-        MessageRetentionPeriod                -> "MessageRetentionPeriod"
-        Policy                                -> "Policy"
-        QueueArn                              -> "QueueArn"
-        ReceiveMessageWaitTimeSeconds         -> "ReceiveMessageWaitTimeSeconds"
-        RedrivePolicy                         -> "RedrivePolicy"
-        VisibilityTimeout                     -> "VisibilityTimeout"
-
-instance ToByteString QueueAttributeName
-instance ToHeader     QueueAttributeName
-instance ToQuery      QueueAttributeName
-
-instance FromXML QueueAttributeName where
-    parseXML = parseXMLText "QueueAttributeName"
-
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
     { _dmbreId            :: Text
     , _dmbreReceiptHandle :: Text
@@ -207,7 +145,7 @@ deleteMessageBatchRequestEntry p1 p2 = DeleteMessageBatchRequestEntry
     }
 
 -- | An identifier for this particular receipt handle. This is used to
--- communicate the result. Note that the @Id@s of a batch request need to be
+-- communicate the result. Note that the 'Id's of a batch request need to be
 -- unique within the request.
 dmbreId :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreId = lens _dmbreId (\s a -> s { _dmbreId = a })
@@ -364,7 +302,7 @@ changeMessageVisibilityBatchRequestEntry p1 p2 = ChangeMessageVisibilityBatchReq
     }
 
 -- | An identifier for this particular receipt handle. This is used to
--- communicate the result. Note that the @Id@s of a batch request need to be
+-- communicate the result. Note that the 'Id's of a batch request need to be
 -- unique within the request.
 cmvbre1Id :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cmvbre1Id = lens _cmvbre1Id (\s a -> s { _cmvbre1Id = a })
@@ -423,7 +361,7 @@ instance ToQuery DeleteMessageBatchResultEntry where
         ]
 
 data Message = Message
-    { _mAttributes             :: EMap "Attribute" "Name" "Value" QueueAttributeName Text
+    { _mAttributes             :: EMap "Attribute" "Name" "Value" Text Text
     , _mBody                   :: Maybe Text
     , _mMD5OfBody              :: Maybe Text
     , _mMD5OfMessageAttributes :: Maybe Text
@@ -436,7 +374,7 @@ data Message = Message
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mAttributes' @::@ 'HashMap' 'QueueAttributeName' 'Text'
+-- * 'mAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
 -- * 'mBody' @::@ 'Maybe' 'Text'
 --
@@ -461,12 +399,12 @@ message = Message
     , _mMessageAttributes      = mempty
     }
 
--- | @SenderId@, @SentTimestamp@, @ApproximateReceiveCount@, and/or
--- @ApproximateFirstReceiveTimestamp@. @SentTimestamp@ and
--- @ApproximateFirstReceiveTimestamp@ are each returned as an integer
+-- | 'SenderId', 'SentTimestamp', 'ApproximateReceiveCount', and/or
+-- 'ApproximateFirstReceiveTimestamp'. 'SentTimestamp' and
+-- 'ApproximateFirstReceiveTimestamp' are each returned as an integer
 -- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
 -- milliseconds.
-mAttributes :: Lens' Message (HashMap QueueAttributeName Text)
+mAttributes :: Lens' Message (HashMap Text Text)
 mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a }) . _EMap
 
 -- | The message's contents (not URL-encoded).
@@ -563,7 +501,7 @@ smbreDelaySeconds =
     lens _smbreDelaySeconds (\s a -> s { _smbreDelaySeconds = a })
 
 -- | An identifier for the message in this batch. This is used to communicate
--- the result. Note that the @Id@s of a batch request need to be unique
+-- the result. Note that the 'Id's of a batch request need to be unique
 -- within the request.
 smbreId :: Lens' SendMessageBatchRequestEntry Text
 smbreId = lens _smbreId (\s a -> s { _smbreId = a })

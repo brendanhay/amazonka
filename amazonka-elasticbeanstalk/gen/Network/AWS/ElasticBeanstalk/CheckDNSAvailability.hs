@@ -85,9 +85,9 @@ checkDNSAvailabilityResponse = CheckDNSAvailabilityResponse
     , _cdnsarFullyQualifiedCNAME = Nothing
     }
 
--- | Indicates if the specified CNAME is available: @true@ : The CNAME is
--- available. @true@ : The CNAME is not available. @true@ : The CNAME is
--- available. @false@ : The CNAME is not available.
+-- | Indicates if the specified CNAME is available: 'true' : The CNAME is
+-- available. 'true' : The CNAME is not available. 'true' : The CNAME is
+-- available. 'false' : The CNAME is not available.
 cdnsarAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdnsarAvailable = lens _cdnsarAvailable (\s a -> s { _cdnsarAvailable = a })
 

@@ -24,7 +24,7 @@
 -- your gateway volumes on a scheduled or ad-hoc basis. This API enables you
 -- to delete a snapshot schedule for a volume. For more information, see
 -- <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html
--- Working with Snapshots>. In the @DeleteSnapshotSchedule@ request, you
+-- Working with Snapshots>. In the 'DeleteSnapshotSchedule' request, you
 -- identify the volume by providing its Amazon Resource Name (ARN).
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteSnapshotSchedule.html>

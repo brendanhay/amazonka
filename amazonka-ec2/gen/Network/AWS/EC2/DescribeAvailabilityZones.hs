@@ -80,11 +80,11 @@ describeAvailabilityZones = DescribeAvailabilityZones
 dazDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
 dazDryRun = lens _dazDryRun (\s a -> s { _dazDryRun = a })
 
--- | One or more filters. @message@ - Information about the Availability Zone.
--- @region-name@ - The name of the region for the Availability Zone (for
--- example, @us-east-1@). @state@ - The state of the Availability Zone
--- (@available@ | @impaired@ | @unavailable@). @zone-name@ - The name of the
--- Availability Zone (for example, @us-east-1a@).
+-- | One or more filters. 'message' - Information about the Availability Zone.
+-- 'region-name' - The name of the region for the Availability Zone (for
+-- example, 'us-east-1'). 'state' - The state of the Availability Zone
+-- ('available' | 'impaired' | 'unavailable'). 'zone-name' - The name of the
+-- Availability Zone (for example, 'us-east-1a').
 dazFilters :: Lens' DescribeAvailabilityZones [Filter]
 dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a }) . _List
 

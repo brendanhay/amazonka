@@ -72,7 +72,7 @@ describeStacks = DescribeStacks
     }
 
 -- | An array of stack IDs that specify the stacks to be described. If you
--- omit this parameter, @DescribeStacks@ returns a description of every
+-- omit this parameter, 'DescribeStacks' returns a description of every
 -- stack.
 dsStackIds :: Lens' DescribeStacks [Text]
 dsStackIds = lens _dsStackIds (\s a -> s { _dsStackIds = a }) . _List
@@ -98,7 +98,7 @@ describeStacksResponse = DescribeStacksResponse
     { _dsrStacks = mempty
     }
 
--- | An array of @Stack@ objects that describe the stacks.
+-- | An array of 'Stack' objects that describe the stacks.
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a }) . _List
 

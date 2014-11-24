@@ -69,18 +69,18 @@ createTags p1 = CreateTags
     }
 
 -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
--- For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
+-- For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
 ctResourceName :: Lens' CreateTags Text
 ctResourceName = lens _ctResourceName (\s a -> s { _ctResourceName = a })
 
 -- | One or more name/value pairs to add as tags to the specified resource.
--- Each tag name is passed in with the parameter @tag-key@ and the
--- corresponding value is passed in with the parameter @tag-value@. The
--- @tag-key@ and @tag-value@ parameters are separated by a colon (:).
--- Separate multiple tags with a space. For example, @--tags
+-- Each tag name is passed in with the parameter 'tag-key' and the
+-- corresponding value is passed in with the parameter 'tag-value'. The
+-- 'tag-key' and 'tag-value' parameters are separated by a colon (:).
+-- Separate multiple tags with a space. For example, '--tags
 -- "tag-key"="owner":"tag-value"="admin"
 -- "tag-key"="environment":"tag-value"="test"
--- "tag-key"="version":"tag-value"="1.0"@.
+-- "tag-key"="version":"tag-value"="1.0"'.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\s a -> s { _ctTags = a }) . _List
 

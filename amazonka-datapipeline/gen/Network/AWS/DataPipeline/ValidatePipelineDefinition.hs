@@ -104,7 +104,7 @@ validatePipelineDefinitionResponse p1 = ValidatePipelineDefinitionResponse
     , _vpdrValidationWarnings = mempty
     }
 
--- | If @True@, there were validation errors.
+-- | If 'True', there were validation errors.
 vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
 vpdrErrored = lens _vpdrErrored (\s a -> s { _vpdrErrored = a })
 

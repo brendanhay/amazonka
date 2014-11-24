@@ -127,15 +127,15 @@ registerDomain p1 p2 p3 p4 p5 = RegisterDomain
     }
 
 -- | Provides detailed contact information. Type: Complex Children:
--- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
--- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
--- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@ Required: Yes.
+-- 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName',
+-- 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode',
+-- 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams' Required: Yes.
 rdAdminContact :: Lens' RegisterDomain ContactDetail
 rdAdminContact = lens _rdAdminContact (\s a -> s { _rdAdminContact = a })
 
--- | Indicates whether the domain will be automatically renewed (@true@) or
--- not (@false@). Autorenewal only takes effect after the account is
--- charged. Type: Boolean Valid values: @true@ | @false@ Default: @true@
+-- | Indicates whether the domain will be automatically renewed ('true') or
+-- not ('false'). Autorenewal only takes effect after the account is
+-- charged. Type: Boolean Valid values: 'true' | 'false' Default: 'true'
 -- Required: No.
 rdAutoRenew :: Lens' RegisterDomain (Maybe Bool)
 rdAutoRenew = lens _rdAutoRenew (\s a -> s { _rdAutoRenew = a })
@@ -163,8 +163,8 @@ rdIdnLangCode = lens _rdIdnLangCode (\s a -> s { _rdIdnLangCode = a })
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS ("who is") queries will return contact
 -- information for our registrar partner, Gandi, instead of the contact
--- information that you enter. Type: Boolean Default: @true@ Valid values:
--- @true@ | @false@ Required: No.
+-- information that you enter. Type: Boolean Default: 'true' Valid values:
+-- 'true' | 'false' Required: No.
 rdPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectAdminContact =
     lens _rdPrivacyProtectAdminContact
@@ -173,8 +173,8 @@ rdPrivacyProtectAdminContact =
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS ("who is") queries will return contact
 -- information for our registrar partner, Gandi, instead of the contact
--- information that you enter. Type: Boolean Default: @true@ Valid values:
--- @true@ | @false@ Required: No.
+-- information that you enter. Type: Boolean Default: 'true' Valid values:
+-- 'true' | 'false' Required: No.
 rdPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectRegistrantContact =
     lens _rdPrivacyProtectRegistrantContact
@@ -183,25 +183,25 @@ rdPrivacyProtectRegistrantContact =
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS ("who is") queries will return contact
 -- information for our registrar partner, Gandi, instead of the contact
--- information that you enter. Type: Boolean Default: @true@ Valid values:
--- @true@ | @false@ Required: No.
+-- information that you enter. Type: Boolean Default: 'true' Valid values:
+-- 'true' | 'false' Required: No.
 rdPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectTechContact =
     lens _rdPrivacyProtectTechContact
         (\s a -> s { _rdPrivacyProtectTechContact = a })
 
 -- | Provides detailed contact information. Type: Complex Children:
--- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
--- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
--- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@ Required: Yes.
+-- 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName',
+-- 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode',
+-- 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams' Required: Yes.
 rdRegistrantContact :: Lens' RegisterDomain ContactDetail
 rdRegistrantContact =
     lens _rdRegistrantContact (\s a -> s { _rdRegistrantContact = a })
 
 -- | Provides detailed contact information. Type: Complex Children:
--- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
--- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
--- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@ Required: Yes.
+-- 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName',
+-- 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode',
+-- 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams' Required: Yes.
 rdTechContact :: Lens' RegisterDomain ContactDetail
 rdTechContact = lens _rdTechContact (\s a -> s { _rdTechContact = a })
 

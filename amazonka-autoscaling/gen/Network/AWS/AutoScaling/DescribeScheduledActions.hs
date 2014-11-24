@@ -113,7 +113,7 @@ dsa1NextToken = lens _dsa1NextToken (\s a -> s { _dsa1NextToken = a })
 -- action it is ignored with no error. You can describe up to a maximum of
 -- 50 instances with a single call. If there are more items to return, the
 -- call returns a token. To get the next set of items, repeat the call with
--- the returned token in the @NextToken@ parameter.
+-- the returned token in the 'NextToken' parameter.
 dsa1ScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 dsa1ScheduledActionNames =
     lens _dsa1ScheduledActionNames

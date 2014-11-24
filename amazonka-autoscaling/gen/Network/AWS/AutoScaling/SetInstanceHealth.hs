@@ -72,8 +72,8 @@ setInstanceHealth p1 p2 = SetInstanceHealth
     , _sihShouldRespectGracePeriod = Nothing
     }
 
--- | The health status of the instance. Set to @Healthy@ if you want the
--- instance to remain in service. Set to @Unhealthy@ if you want the
+-- | The health status of the instance. Set to 'Healthy' if you want the
+-- instance to remain in service. Set to 'Unhealthy' if you want the
 -- instance to be out of service. Auto Scaling will terminate and replace
 -- the unhealthy instance.
 sihHealthStatus :: Lens' SetInstanceHealth Text
@@ -84,10 +84,10 @@ sihInstanceId :: Lens' SetInstanceHealth Text
 sihInstanceId = lens _sihInstanceId (\s a -> s { _sihInstanceId = a })
 
 -- | If the Auto Scaling group of the specified instance has a
--- @HealthCheckGracePeriod@ specified for the group, by default, this call
--- will respect the grace period. Set this to @False@, if you do not want
+-- 'HealthCheckGracePeriod' specified for the group, by default, this call
+-- will respect the grace period. Set this to 'False', if you do not want
 -- the call to respect the grace period associated with the group. For more
--- information, see the @HealthCheckGracePeriod@ parameter description for
+-- information, see the 'HealthCheckGracePeriod' parameter description for
 -- 'CreateAutoScalingGroup'.
 sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
 sihShouldRespectGracePeriod =

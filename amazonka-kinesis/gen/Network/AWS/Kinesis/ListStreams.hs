@@ -21,17 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists your streams. The number of streams may be too large to return from a
--- single call to @ListStreams@. You can limit the number of returned streams
--- using the @Limit@ parameter. If you do not specify a value for the @Limit@
+-- single call to 'ListStreams'. You can limit the number of returned streams
+-- using the 'Limit' parameter. If you do not specify a value for the 'Limit'
 -- parameter, Amazon Kinesis uses the default limit, which is currently 10.
 -- You can detect if there are more streams available to list by using the
--- @HasMoreStreams@ flag from the returned output. If there are more streams
+-- 'HasMoreStreams' flag from the returned output. If there are more streams
 -- available, you can request more streams by using the name of the last
--- stream returned by the @ListStreams@ request in the
--- @ExclusiveStartStreamName@ parameter in a subsequent request to
--- @ListStreams@. The group of stream names returned by the subsequent request
+-- stream returned by the 'ListStreams' request in the
+-- 'ExclusiveStartStreamName' parameter in a subsequent request to
+-- 'ListStreams'. The group of stream names returned by the subsequent request
 -- is then added to the list. You can continue this process until all the
--- stream names have been collected in the list. @ListStreams@ has a limit of
+-- stream names have been collected in the list. 'ListStreams' has a limit of
 -- 5 transactions per second per account.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html>
@@ -108,13 +108,13 @@ listStreamsResponse p1 = ListStreamsResponse
     , _lsrStreamNames    = mempty
     }
 
--- | If set to @true@, there are more streams available to list.
+-- | If set to 'true', there are more streams available to list.
 lsrHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrHasMoreStreams =
     lens _lsrHasMoreStreams (\s a -> s { _lsrHasMoreStreams = a })
 
 -- | The names of the streams that are associated with the AWS account making
--- the @ListStreams@ request.
+-- the 'ListStreams' request.
 lsrStreamNames :: Lens' ListStreamsResponse [Text]
 lsrStreamNames = lens _lsrStreamNames (\s a -> s { _lsrStreamNames = a }) . _List
 

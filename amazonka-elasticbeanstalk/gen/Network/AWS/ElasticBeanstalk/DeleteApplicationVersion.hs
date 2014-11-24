@@ -76,10 +76,10 @@ davApplicationName =
     lens _davApplicationName (\s a -> s { _davApplicationName = a })
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
--- @true@: An attempt is made to delete the associated Amazon S3 source
--- bundle specified at time of creation. @false@: No action is taken on the
+-- 'true': An attempt is made to delete the associated Amazon S3 source
+-- bundle specified at time of creation. 'false': No action is taken on the
 -- Amazon S3 source bundle specified at time of creation. Valid Values:
--- @true@ | @false@.
+-- 'true' | 'false'.
 davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
 davDeleteSourceBundle =
     lens _davDeleteSourceBundle (\s a -> s { _davDeleteSourceBundle = a })

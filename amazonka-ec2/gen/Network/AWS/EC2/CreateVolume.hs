@@ -25,7 +25,7 @@
 -- can create a new empty volume or restore a volume from an Amazon EBS
 -- snapshot. Any AWS Marketplace product codes from the snapshot are
 -- propagated to the volume. You can create encrypted volumes with the
--- @Encrypted@ parameter. Encrypted volumes may only be attached to instances
+-- 'Encrypted' parameter. Encrypted volumes may only be attached to instances
 -- that support Amazon EBS encryption. Volumes that are created from encrypted
 -- snapshots are also automatically encrypted. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
@@ -134,7 +134,7 @@ cv1Iops :: Lens' CreateVolume (Maybe Int)
 cv1Iops = lens _cv1Iops (\s a -> s { _cv1Iops = a })
 
 -- | The size of the volume, in GiBs. Constraints: If the volume type is
--- @io1@, the minimum size of the volume is 10 GiB. Default: If you're
+-- 'io1', the minimum size of the volume is 10 GiB. Default: If you're
 -- creating the volume from a snapshot and don't specify a volume size, the
 -- default is the snapshot size.
 cv1Size :: Lens' CreateVolume (Maybe Int)
@@ -144,9 +144,9 @@ cv1Size = lens _cv1Size (\s a -> s { _cv1Size = a })
 cv1SnapshotId :: Lens' CreateVolume (Maybe Text)
 cv1SnapshotId = lens _cv1SnapshotId (\s a -> s { _cv1SnapshotId = a })
 
--- | The volume type. This can be @gp2@ for General Purpose (SSD) volumes,
--- @io1@ for Provisioned IOPS (SSD) volumes, or @standard@ for Magnetic
--- volumes. Default: @standard@.
+-- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes,
+-- 'io1' for Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic
+-- volumes. Default: 'standard'.
 cv1VolumeType :: Lens' CreateVolume (Maybe VolumeType)
 cv1VolumeType = lens _cv1VolumeType (\s a -> s { _cv1VolumeType = a })
 
@@ -232,8 +232,8 @@ cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 -- Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User
 -- Guide/. Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD)
 -- volumes and 3 to 3072 for General Purpose (SSD) volumes. Condition: This
--- parameter is required for requests to create @io1@ volumes; it is not
--- used in requests to create @standard@ or @gp2@ volumes.
+-- parameter is required for requests to create 'io1' volumes; it is not
+-- used in requests to create 'standard' or 'gp2' volumes.
 cvrIops :: Lens' CreateVolumeResponse (Maybe Int)
 cvrIops = lens _cvrIops (\s a -> s { _cvrIops = a })
 
@@ -257,8 +257,8 @@ cvrTags = lens _cvrTags (\s a -> s { _cvrTags = a }) . _List
 cvrVolumeId :: Lens' CreateVolumeResponse (Maybe Text)
 cvrVolumeId = lens _cvrVolumeId (\s a -> s { _cvrVolumeId = a })
 
--- | The volume type. This can be @gp2@ for General Purpose (SSD) volumes,
--- @io1@ for Provisioned IOPS (SSD) volumes, or @standard@ for Magnetic
+-- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes,
+-- 'io1' for Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic
 -- volumes.
 cvrVolumeType :: Lens' CreateVolumeResponse (Maybe VolumeType)
 cvrVolumeType = lens _cvrVolumeType (\s a -> s { _cvrVolumeType = a })

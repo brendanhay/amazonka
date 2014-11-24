@@ -577,9 +577,9 @@ cLogUrl = lens _cLogUrl (\s a -> s { _cLogUrl = a })
 cStatus :: Lens' Command (Maybe Text)
 cStatus = lens _cStatus (\s a -> s { _cStatus = a })
 
--- | The command type: @deploy@ @rollback@ @start@ @stop@ @restart@ @undeploy@
--- @update_dependencies@ @install_dependencies@ @update_custom_cookbooks@
--- @execute_recipes@.
+-- | The command type: 'deploy' 'rollback' 'start' 'stop' 'restart' 'undeploy'
+-- 'update_dependencies' 'install_dependencies' 'update_custom_cookbooks'
+-- 'execute_recipes'.
 cType :: Lens' Command (Maybe Text)
 cType = lens _cType (\s a -> s { _cType = a })
 
@@ -934,9 +934,9 @@ rdiDbUser = lens _rdiDbUser (\s a -> s { _rdiDbUser = a })
 rdiEngine :: Lens' RdsDbInstance (Maybe Text)
 rdiEngine = lens _rdiEngine (\s a -> s { _rdiEngine = a })
 
--- | Set to @true@ if AWS OpsWorks was unable to discover the Amazon RDS
+-- | Set to 'true' if AWS OpsWorks was unable to discover the Amazon RDS
 -- instance. AWS OpsWorks attempts to discover the instance only once. If
--- this value is set to @true@, you must deregister the instance and then
+-- this value is set to 'true', you must deregister the instance and then
 -- register it again.
 rdiMissingOnRds :: Lens' RdsDbInstance (Maybe Bool)
 rdiMissingOnRds = lens _rdiMissingOnRds (\s a -> s { _rdiMissingOnRds = a })
@@ -1132,7 +1132,7 @@ ssAppsCount = lens _ssAppsCount (\s a -> s { _ssAppsCount = a })
 ssArn :: Lens' StackSummary (Maybe Text)
 ssArn = lens _ssArn (\s a -> s { _ssArn = a })
 
--- | An @InstancesCount@ object with the number of instances in each status.
+-- | An 'InstancesCount' object with the number of instances in each status.
 ssInstancesCount :: Lens' StackSummary (Maybe InstancesCount)
 ssInstancesCount = lens _ssInstancesCount (\s a -> s { _ssInstancesCount = a })
 
@@ -1219,7 +1219,7 @@ loadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     , _lbascDownScaling = Nothing
     }
 
--- | A @LoadBasedAutoscalingInstruction@ object that describes the downscaling
+-- | A 'LoadBasedAutoscalingInstruction' object that describes the downscaling
 -- configuration, which defines how and when AWS OpsWorks reduces the number
 -- of instances.
 lbascDownScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
@@ -1233,7 +1233,7 @@ lbascEnable = lens _lbascEnable (\s a -> s { _lbascEnable = a })
 lbascLayerId :: Lens' LoadBasedAutoScalingConfiguration (Maybe Text)
 lbascLayerId = lens _lbascLayerId (\s a -> s { _lbascLayerId = a })
 
--- | A @LoadBasedAutoscalingInstruction@ object that describes the upscaling
+-- | A 'LoadBasedAutoscalingInstruction' object that describes the upscaling
 -- configuration, which defines how and when AWS OpsWorks increases the
 -- number of instances.
 lbascUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
@@ -1579,7 +1579,7 @@ astCpuThreshold = lens _astCpuThreshold (\s a -> s { _astCpuThreshold = a })
 -- upscaling event but the instances won't start reducing the load until
 -- they have been booted and configured. There is no point in raising
 -- additional scaling events during that operation, which typically takes
--- several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks to
+-- several minutes. 'IgnoreMetricsTime' allows you to direct AWS OpsWorks to
 -- not raise any scaling events long enough to get the new instances online.
 astIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astIgnoreMetricsTime =
@@ -1694,7 +1694,7 @@ app = App
 appAppId :: Lens' App (Maybe Text)
 appAppId = lens _appAppId (\s a -> s { _appAppId = a })
 
--- | A @Source@ object that describes the app repository.
+-- | A 'Source' object that describes the app repository.
 appAppSource :: Lens' App (Maybe Source)
 appAppSource = lens _appAppSource (\s a -> s { _appAppSource = a })
 
@@ -1715,7 +1715,7 @@ appDescription :: Lens' App (Maybe Text)
 appDescription = lens _appDescription (\s a -> s { _appDescription = a })
 
 -- | The app vhost settings with multiple domains separated by commas. For
--- example: @'www.example.com, example.com'@.
+-- example: ''www.example.com, example.com''.
 appDomains :: Lens' App [Text]
 appDomains = lens _appDomains (\s a -> s { _appDomains = a }) . _List
 
@@ -1731,7 +1731,7 @@ appName = lens _appName (\s a -> s { _appName = a })
 appShortname :: Lens' App (Maybe Text)
 appShortname = lens _appShortname (\s a -> s { _appShortname = a })
 
--- | An @SslConfiguration@ object with the SSL configuration.
+-- | An 'SslConfiguration' object with the SSL configuration.
 appSslConfiguration :: Lens' App (Maybe SslConfiguration)
 appSslConfiguration =
     lens _appSslConfiguration (\s a -> s { _appSslConfiguration = a })
@@ -1984,8 +1984,8 @@ source = Source
     }
 
 -- | This parameter depends on the repository type. For Amazon S3 bundles, set
--- @Password@ to the appropriate IAM secret access key. For HTTP bundles and
--- Subversion repositories, set @Password@ to the password. For more
+-- 'Password' to the appropriate IAM secret access key. For HTTP bundles and
+-- Subversion repositories, set 'Password' to the password. For more
 -- information on how to safely handle IAM credentials, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html
 -- >.
@@ -2012,8 +2012,8 @@ sUrl :: Lens' Source (Maybe Text)
 sUrl = lens _sUrl (\s a -> s { _sUrl = a })
 
 -- | This parameter depends on the repository type. For Amazon S3 bundles, set
--- @Username@ to the appropriate IAM access key ID. For HTTP bundles, Git
--- repositories, and Subversion repositories, set @Username@ to the user
+-- 'Username' to the appropriate IAM access key ID. For HTTP bundles, Git
+-- repositories, and Subversion repositories, set 'Username' to the user
 -- name.
 sUsername :: Lens' Source (Maybe Text)
 sUsername = lens _sUsername (\s a -> s { _sUsername = a })
@@ -2068,8 +2068,8 @@ dsArn = lens _dsArn (\s a -> s { _dsArn = a })
 dsDatabaseName :: Lens' DataSource (Maybe Text)
 dsDatabaseName = lens _dsDatabaseName (\s a -> s { _dsDatabaseName = a })
 
--- | The data source's type, @AutoSelectOpsworksMysqlInstance@,
--- @OpsworksMysqlInstance@, or @RdsDbInstance@.
+-- | The data source's type, 'AutoSelectOpsworksMysqlInstance',
+-- 'OpsworksMysqlInstance', or 'RdsDbInstance'.
 dsType :: Lens' DataSource (Maybe Text)
 dsType = lens _dsType (\s a -> s { _dsType = a })
 
@@ -2377,8 +2377,8 @@ pAllowSudo = lens _pAllowSudo (\s a -> s { _pAllowSudo = a })
 pIamUserArn :: Lens' Permission (Maybe Text)
 pIamUserArn = lens _pIamUserArn (\s a -> s { _pIamUserArn = a })
 
--- | The user's permission level, which must be the following: @deny@ @show@
--- @deploy@ @manage@ @iam_only@ For more information on the permissions
+-- | The user's permission level, which must be the following: 'deny' 'show'
+-- 'deploy' 'manage' 'iam_only' For more information on the permissions
 -- associated with these levels, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
 -- Managing User Permissions>.
@@ -2527,7 +2527,7 @@ lCustomInstanceProfileArn =
     lens _lCustomInstanceProfileArn
         (\s a -> s { _lCustomInstanceProfileArn = a })
 
--- | A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
+-- | A 'LayerCustomRecipes' object that specifies the layer's custom recipes.
 lCustomRecipes :: Lens' Layer (Maybe Recipes)
 lCustomRecipes = lens _lCustomRecipes (\s a -> s { _lCustomRecipes = a })
 
@@ -2553,10 +2553,10 @@ lEnableAutoHealing =
     lens _lEnableAutoHealing (\s a -> s { _lEnableAutoHealing = a })
 
 -- | Whether to install operating system and package updates when the instance
--- boots. The default value is @true@. If this value is set to @false@, you
+-- boots. The default value is 'true'. If this value is set to 'false', you
 -- must then update your instances manually by using 'CreateDeployment' to
--- run the @update_dependencies@ stack command or manually running @yum@
--- (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
+-- run the 'update_dependencies' stack command or manually running 'yum'
+-- (Amazon Linux) or 'apt-get' (Ubuntu) on the instances.
 lInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 lInstallUpdatesOnBoot =
     lens _lInstallUpdatesOnBoot (\s a -> s { _lInstallUpdatesOnBoot = a })
@@ -2569,7 +2569,7 @@ lLayerId = lens _lLayerId (\s a -> s { _lLayerId = a })
 lName :: Lens' Layer (Maybe Text)
 lName = lens _lName (\s a -> s { _lName = a })
 
--- | An array of @Package@ objects that describe the layer's packages.
+-- | An array of 'Package' objects that describe the layer's packages.
 lPackages :: Lens' Layer [Text]
 lPackages = lens _lPackages (\s a -> s { _lPackages = a }) . _List
 
@@ -2593,7 +2593,7 @@ lUseEbsOptimizedInstances =
     lens _lUseEbsOptimizedInstances
         (\s a -> s { _lUseEbsOptimizedInstances = a })
 
--- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS
+-- | A 'VolumeConfigurations' object that describes the layer's Amazon EBS
 -- volumes.
 lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
 lVolumeConfigurations =
@@ -2676,23 +2676,23 @@ recipes = Recipes
     , _rShutdown  = mempty
     }
 
--- | An array of custom recipe names to be run following a @configure@ event.
+-- | An array of custom recipe names to be run following a 'configure' event.
 rConfigure :: Lens' Recipes [Text]
 rConfigure = lens _rConfigure (\s a -> s { _rConfigure = a }) . _List
 
--- | An array of custom recipe names to be run following a @deploy@ event.
+-- | An array of custom recipe names to be run following a 'deploy' event.
 rDeploy :: Lens' Recipes [Text]
 rDeploy = lens _rDeploy (\s a -> s { _rDeploy = a }) . _List
 
--- | An array of custom recipe names to be run following a @setup@ event.
+-- | An array of custom recipe names to be run following a 'setup' event.
 rSetup :: Lens' Recipes [Text]
 rSetup = lens _rSetup (\s a -> s { _rSetup = a }) . _List
 
--- | An array of custom recipe names to be run following a @shutdown@ event.
+-- | An array of custom recipe names to be run following a 'shutdown' event.
 rShutdown :: Lens' Recipes [Text]
 rShutdown = lens _rShutdown (\s a -> s { _rShutdown = a }) . _List
 
--- | An array of custom recipe names to be run following a @undeploy@ event.
+-- | An array of custom recipe names to be run following a 'undeploy' event.
 rUndeploy :: Lens' Recipes [Text]
 rUndeploy = lens _rUndeploy (\s a -> s { _rUndeploy = a }) . _List
 
@@ -2732,7 +2732,7 @@ timeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     , _tbascAutoScalingSchedule = Nothing
     }
 
--- | A @WeeklyAutoScalingSchedule@ object with the instance schedule.
+-- | A 'WeeklyAutoScalingSchedule' object with the instance schedule.
 tbascAutoScalingSchedule :: Lens' TimeBasedAutoScalingConfiguration (Maybe WeeklyAutoScalingSchedule)
 tbascAutoScalingSchedule =
     lens _tbascAutoScalingSchedule
@@ -2943,7 +2943,7 @@ sArn = lens _sArn (\s a -> s { _sArn = a })
 sAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
 sAttributes = lens _sAttributes (\s a -> s { _sAttributes = a }) . _Map
 
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
 -- and the Berkshelf version. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html
 -- Create a New Stack>.
@@ -2967,7 +2967,7 @@ sCustomCookbooksSource =
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as
--- '"'.: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@ For more
+-- '"'.: '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"' For more
 -- information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html
 -- Use Custom JSON to Modify the Stack Configuration JSON>.
@@ -2991,8 +2991,8 @@ sDefaultInstanceProfileArn =
     lens _sDefaultInstanceProfileArn
         (\s a -> s { _sDefaultInstanceProfileArn = a })
 
--- | The stack's default operating system, which must be set to @Amazon Linux@
--- or @Ubuntu 12.04 LTS@. The default option is @Amazon Linux@.
+-- | The stack's default operating system, which must be set to 'Amazon Linux'
+-- or 'Ubuntu 12.04 LTS'. The default option is 'Amazon Linux'.
 sDefaultOs :: Lens' Stack (Maybe Text)
 sDefaultOs = lens _sDefaultOs (\s a -> s { _sDefaultOs = a })
 
@@ -3123,28 +3123,28 @@ deploymentCommand p1 = DeploymentCommand
     }
 
 -- | The arguments of those commands that take arguments. It should be set to
--- a JSON object with the following format: @{"arg_name":["value1",
--- "value2", ...]}@.
+-- a JSON object with the following format: '{"arg_name":["value1",
+-- "value2", ...]}'.
 dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
 dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a }) . _Map
 
 -- | Specifies the operation. You can specify only one command. For stacks,
--- the following commands are available: @execute_recipes@: Execute one or
--- more recipes. To specify the recipes, set an @Args@ parameter named
--- @recipes@ to the list of recipes to be executed. For example, to execute
--- @phpapp::appsetup@, set @Args@ to @{"recipes":["phpapp::appsetup"]}@.
--- @install_dependencies@: Install the stack's dependencies.
--- @update_custom_cookbooks@: Update the stack's custom cookbooks.
--- @update_dependencies@: Update the stack's dependencies. For apps, the
--- following commands are available: @deploy@: Deploy an app. Rails apps
--- have an optional @Args@ parameter named @migrate@. Set @Args@ to
+-- the following commands are available: 'execute_recipes': Execute one or
+-- more recipes. To specify the recipes, set an 'Args' parameter named
+-- 'recipes' to the list of recipes to be executed. For example, to execute
+-- 'phpapp::appsetup', set 'Args' to '{"recipes":["phpapp::appsetup"]}'.
+-- 'install_dependencies': Install the stack's dependencies.
+-- 'update_custom_cookbooks': Update the stack's custom cookbooks.
+-- 'update_dependencies': Update the stack's dependencies. For apps, the
+-- following commands are available: 'deploy': Deploy an app. Rails apps
+-- have an optional 'Args' parameter named 'migrate'. Set 'Args' to
 -- {"migrate":["true"]} to migrate the database. The default setting is
--- {"migrate":["false"]}. @rollback@ Roll the app back to the previous
+-- {"migrate":["false"]}. 'rollback' Roll the app back to the previous
 -- version. When you update an app, AWS OpsWorks stores the previous
 -- version, up to a maximum of five versions. You can use this command to
--- roll an app back as many as four versions. @start@: Start the app's web
--- or application server. @stop@: Stop the app's web or application server.
--- @restart@: Restart the app's web or application server. @undeploy@:
+-- roll an app back as many as four versions. 'start': Start the app's web
+-- or application server. 'stop': Stop the app's web or application server.
+-- 'restart': Restart the app's web or application server. 'undeploy':
 -- Undeploy the app.
 dcName :: Lens' DeploymentCommand DeploymentCommandName
 dcName = lens _dcName (\s a -> s { _dcName = a })
@@ -3483,10 +3483,10 @@ iHostname :: Lens' Instance (Maybe Text)
 iHostname = lens _iHostname (\s a -> s { _iHostname = a })
 
 -- | Whether to install operating system and package updates when the instance
--- boots. The default value is @true@. If this value is set to @false@, you
+-- boots. The default value is 'true'. If this value is set to 'false', you
 -- must then update your instances manually by using 'CreateDeployment' to
--- run the @update_dependencies@ stack command or manually running @yum@
--- (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
+-- run the 'update_dependencies' stack command or manually running 'yum'
+-- (Amazon Linux) or 'apt-get' (Ubuntu) on the instances.
 iInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
 iInstallUpdatesOnBoot =
     lens _iInstallUpdatesOnBoot (\s a -> s { _iInstallUpdatesOnBoot = a })
@@ -3580,9 +3580,9 @@ iSshKeyName = lens _iSshKeyName (\s a -> s { _iSshKeyName = a })
 iStackId :: Lens' Instance (Maybe Text)
 iStackId = lens _iStackId (\s a -> s { _iStackId = a })
 
--- | The instance status: @requested@ @booting@ @running_setup@ @online@
--- @setup_failed@ @start_failed@ @terminating@ @terminated@ @stopped@
--- @connection_lost@.
+-- | The instance status: 'requested' 'booting' 'running_setup' 'online'
+-- 'setup_failed' 'start_failed' 'terminating' 'terminated' 'stopped'
+-- 'connection_lost'.
 iStatus :: Lens' Instance (Maybe Text)
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 
@@ -3590,7 +3590,7 @@ iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 iSubnetId :: Lens' Instance (Maybe Text)
 iSubnetId = lens _iSubnetId (\s a -> s { _iSubnetId = a })
 
--- | The instance's virtualization type, @paravirtual@ or @hvm@.
+-- | The instance's virtualization type, 'paravirtual' or 'hvm'.
 iVirtualizationType :: Lens' Instance (Maybe Text)
 iVirtualizationType =
     lens _iVirtualizationType (\s a -> s { _iVirtualizationType = a })
@@ -3743,7 +3743,7 @@ dCreatedAt = lens _dCreatedAt (\s a -> s { _dCreatedAt = a })
 -- | A string that contains user-defined custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values for stack. The
 -- string should be in the following format and must escape characters such
--- as '"'.: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@ For more
+-- as '"'.: '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"' For more
 -- information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html
 -- Use Custom JSON to Modify the Stack Configuration JSON>.
@@ -3872,59 +3872,59 @@ instancesCount = InstancesCount
     , _icTerminating    = Nothing
     }
 
--- | The number of instances with @booting@ status.
+-- | The number of instances with 'booting' status.
 icBooting :: Lens' InstancesCount (Maybe Int)
 icBooting = lens _icBooting (\s a -> s { _icBooting = a })
 
--- | The number of instances with @connection_lost@ status.
+-- | The number of instances with 'connection_lost' status.
 icConnectionLost :: Lens' InstancesCount (Maybe Int)
 icConnectionLost = lens _icConnectionLost (\s a -> s { _icConnectionLost = a })
 
--- | The number of instances with @online@ status.
+-- | The number of instances with 'online' status.
 icOnline :: Lens' InstancesCount (Maybe Int)
 icOnline = lens _icOnline (\s a -> s { _icOnline = a })
 
--- | The number of instances with @pending@ status.
+-- | The number of instances with 'pending' status.
 icPending :: Lens' InstancesCount (Maybe Int)
 icPending = lens _icPending (\s a -> s { _icPending = a })
 
--- | The number of instances with @rebooting@ status.
+-- | The number of instances with 'rebooting' status.
 icRebooting :: Lens' InstancesCount (Maybe Int)
 icRebooting = lens _icRebooting (\s a -> s { _icRebooting = a })
 
--- | The number of instances with @requested@ status.
+-- | The number of instances with 'requested' status.
 icRequested :: Lens' InstancesCount (Maybe Int)
 icRequested = lens _icRequested (\s a -> s { _icRequested = a })
 
--- | The number of instances with @running_setup@ status.
+-- | The number of instances with 'running_setup' status.
 icRunningSetup :: Lens' InstancesCount (Maybe Int)
 icRunningSetup = lens _icRunningSetup (\s a -> s { _icRunningSetup = a })
 
--- | The number of instances with @setup_failed@ status.
+-- | The number of instances with 'setup_failed' status.
 icSetupFailed :: Lens' InstancesCount (Maybe Int)
 icSetupFailed = lens _icSetupFailed (\s a -> s { _icSetupFailed = a })
 
--- | The number of instances with @shutting_down@ status.
+-- | The number of instances with 'shutting_down' status.
 icShuttingDown :: Lens' InstancesCount (Maybe Int)
 icShuttingDown = lens _icShuttingDown (\s a -> s { _icShuttingDown = a })
 
--- | The number of instances with @start_failed@ status.
+-- | The number of instances with 'start_failed' status.
 icStartFailed :: Lens' InstancesCount (Maybe Int)
 icStartFailed = lens _icStartFailed (\s a -> s { _icStartFailed = a })
 
--- | The number of instances with @stopped@ status.
+-- | The number of instances with 'stopped' status.
 icStopped :: Lens' InstancesCount (Maybe Int)
 icStopped = lens _icStopped (\s a -> s { _icStopped = a })
 
--- | The number of instances with @stopping@ status.
+-- | The number of instances with 'stopping' status.
 icStopping :: Lens' InstancesCount (Maybe Int)
 icStopping = lens _icStopping (\s a -> s { _icStopping = a })
 
--- | The number of instances with @terminated@ status.
+-- | The number of instances with 'terminated' status.
 icTerminated :: Lens' InstancesCount (Maybe Int)
 icTerminated = lens _icTerminated (\s a -> s { _icTerminated = a })
 
--- | The number of instances with @terminating@ status.
+-- | The number of instances with 'terminating' status.
 icTerminating :: Lens' InstancesCount (Maybe Int)
 icTerminating = lens _icTerminating (\s a -> s { _icTerminating = a })
 

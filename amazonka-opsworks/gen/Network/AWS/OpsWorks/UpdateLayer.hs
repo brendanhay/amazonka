@@ -160,7 +160,7 @@ ulCustomInstanceProfileArn =
     lens _ulCustomInstanceProfileArn
         (\s a -> s { _ulCustomInstanceProfileArn = a })
 
--- | A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
+-- | A 'LayerCustomRecipes' object that specifies the layer's custom recipes.
 ulCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
 ulCustomRecipes = lens _ulCustomRecipes (\s a -> s { _ulCustomRecipes = a })
 
@@ -177,10 +177,10 @@ ulEnableAutoHealing =
     lens _ulEnableAutoHealing (\s a -> s { _ulEnableAutoHealing = a })
 
 -- | Whether to install operating system and package updates when the instance
--- boots. The default value is @true@. To control when updates are
--- installed, set this value to @false@. You must then update your instances
--- manually by using 'CreateDeployment' to run the @update_dependencies@
--- stack command or manually running @yum@ (Amazon Linux) or @apt-get@
+-- boots. The default value is 'true'. To control when updates are
+-- installed, set this value to 'false'. You must then update your instances
+-- manually by using 'CreateDeployment' to run the 'update_dependencies'
+-- stack command or manually running 'yum' (Amazon Linux) or 'apt-get'
 -- (Ubuntu) on the instances.
 ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
 ulInstallUpdatesOnBoot =
@@ -194,7 +194,7 @@ ulLayerId = lens _ulLayerId (\s a -> s { _ulLayerId = a })
 ulName :: Lens' UpdateLayer (Maybe Text)
 ulName = lens _ulName (\s a -> s { _ulName = a })
 
--- | An array of @Package@ objects that describe the layer's packages.
+-- | An array of 'Package' objects that describe the layer's packages.
 ulPackages :: Lens' UpdateLayer [Text]
 ulPackages = lens _ulPackages (\s a -> s { _ulPackages = a }) . _List
 
@@ -211,7 +211,7 @@ ulUseEbsOptimizedInstances =
     lens _ulUseEbsOptimizedInstances
         (\s a -> s { _ulUseEbsOptimizedInstances = a })
 
--- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS
+-- | A 'VolumeConfigurations' object that describes the layer's Amazon EBS
 -- volumes.
 ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
 ulVolumeConfigurations =

@@ -20,12 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Merges two users having different @IdentityId@s, existing in the same
+-- | Merges two users having different 'IdentityId's, existing in the same
 -- identity pool, and identified by the same developer provider. You can use
 -- this action to request that discrete users be merged and identified as a
 -- single user in the Cognito environment. Cognito associates the given source
--- user (@SourceUserIdentifier@) with the @IdentityId@ of the
--- @DestinationUserIdentifier@. Only developer-authenticated users can be
+-- user ('SourceUserIdentifier') with the 'IdentityId' of the
+-- 'DestinationUserIdentifier'. Only developer-authenticated users can be
 -- merged. If the users to be merged are associated with the same public
 -- provider, but as two different users, an exception will be thrown.
 --
@@ -87,7 +87,7 @@ mergeDeveloperIdentities p1 p2 p3 p4 = MergeDeveloperIdentities
     }
 
 -- | User identifier for the destination user. The value should be a
--- @DeveloperUserIdentifier@.
+-- 'DeveloperUserIdentifier'.
 mdiDestinationUserIdentifier :: Lens' MergeDeveloperIdentities Text
 mdiDestinationUserIdentifier =
     lens _mdiDestinationUserIdentifier
@@ -97,7 +97,7 @@ mdiDestinationUserIdentifier =
 -- (pseudo) domain name that you provide while creating an identity pool.
 -- This name acts as a placeholder that allows your backend and the Cognito
 -- service to communicate about the developer provider. For the
--- @DeveloperProviderName@, you can use letters as well as period (.),
+-- 'DeveloperProviderName', you can use letters as well as period (.),
 -- underscore (_), and dash (-).
 mdiDeveloperProviderName :: Lens' MergeDeveloperIdentities Text
 mdiDeveloperProviderName =
@@ -110,7 +110,7 @@ mdiIdentityPoolId =
     lens _mdiIdentityPoolId (\s a -> s { _mdiIdentityPoolId = a })
 
 -- | User identifier for the source user. The value should be a
--- @DeveloperUserIdentifier@.
+-- 'DeveloperUserIdentifier'.
 mdiSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
 mdiSourceUserIdentifier =
     lens _mdiSourceUserIdentifier (\s a -> s { _mdiSourceUserIdentifier = a })

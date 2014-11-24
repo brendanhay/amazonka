@@ -68,7 +68,7 @@ describeLoggingStatus p1 = DescribeLoggingStatus
     }
 
 -- | The identifier of the cluster to get the logging status from. Example:
--- @examplecluster@.
+-- 'examplecluster'.
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
 dlsClusterIdentifier =
     lens _dlsClusterIdentifier (\s a -> s { _dlsClusterIdentifier = a })
@@ -130,7 +130,7 @@ dlsrLastSuccessfulDeliveryTime =
         (\s a -> s { _dlsrLastSuccessfulDeliveryTime = a })
             . mapping _Time
 
--- | @true@ if logging is on, @false@ if logging is off.
+-- | 'true' if logging is on, 'false' if logging is off.
 dlsrLoggingEnabled :: Lens' DescribeLoggingStatusResponse (Maybe Bool)
 dlsrLoggingEnabled =
     lens _dlsrLoggingEnabled (\s a -> s { _dlsrLoggingEnabled = a })

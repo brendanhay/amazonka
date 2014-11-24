@@ -76,7 +76,7 @@ createCacheSecurityGroup p1 p2 = CreateCacheSecurityGroup
 
 -- | A name for the cache security group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric
--- characters. Cannot be the word "Default". Example: @mysecuritygroup@.
+-- characters. Cannot be the word "Default". Example: 'mysecuritygroup'.
 ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
 ccsgCacheSecurityGroupName =
     lens _ccsgCacheSecurityGroupName

@@ -23,6 +23,8 @@
 
 module Network.AWS.Data.Internal.List where
 
+import Debug.Trace
+
 import           Control.Lens                      hiding (coerce, element)
 import           Control.Monad
 import           Data.Aeson

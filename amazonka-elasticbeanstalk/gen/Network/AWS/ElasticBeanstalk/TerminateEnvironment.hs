@@ -86,28 +86,28 @@ terminateEnvironment = TerminateEnvironment
 
 -- | The ID of the environment to terminate. Condition: You must specify
 -- either this or an EnvironmentName, or both. If you do not specify either,
--- AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
 teEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
 teEnvironmentId = lens _teEnvironmentId (\s a -> s { _teEnvironmentId = a })
 
 -- | The name of the environment to terminate. Condition: You must specify
 -- either this or an EnvironmentId, or both. If you do not specify either,
--- AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
 teEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
 teEnvironmentName =
     lens _teEnvironmentName (\s a -> s { _teEnvironmentName = a })
 
 -- | Indicates whether the associated AWS resources should shut down when the
--- environment is terminated: @true@: (default) The user AWS resources (for
+-- environment is terminated: 'true': (default) The user AWS resources (for
 -- example, the Auto Scaling group, LoadBalancer, etc.) are terminated along
--- with the environment. @false@: The environment is removed from the AWS
--- Elastic Beanstalk but the AWS resources continue to operate. @true@: The
+-- with the environment. 'false': The environment is removed from the AWS
+-- Elastic Beanstalk but the AWS resources continue to operate. 'true': The
 -- specified environment as well as the associated AWS resources, such as
--- Auto Scaling group and LoadBalancer, are terminated. @false@: AWS Elastic
+-- Auto Scaling group and LoadBalancer, are terminated. 'false': AWS Elastic
 -- Beanstalk resource management is removed from the environment, but the
 -- AWS resources continue to operate. For more information, see the
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/ AWS Elastic
--- Beanstalk User Guide. > Default: @true@ Valid Values: @true@ | @false@.
+-- Beanstalk User Guide. > Default: 'true' Valid Values: 'true' | 'false'.
 teTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
 teTerminateResources =
     lens _teTerminateResources (\s a -> s { _teTerminateResources = a })
@@ -219,18 +219,18 @@ terEnvironmentName =
     lens _terEnvironmentName (\s a -> s { _terEnvironmentName = a })
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
--- indicates the failure levels for a running environment: @Red@ : Indicates
--- the environment is not working. @Yellow@: Indicates that something is
+-- indicates the failure levels for a running environment: 'Red' : Indicates
+-- the environment is not working. 'Yellow': Indicates that something is
 -- wrong, the application might not be available, but the instances appear
--- running. @Green@: Indicates the environment is healthy and fully
--- functional. @Red@: Indicates the environment is not responsive. Occurs
+-- running. 'Green': Indicates the environment is healthy and fully
+-- functional. 'Red': Indicates the environment is not responsive. Occurs
 -- when three or more consecutive failures occur for an environment.
--- @Yellow@: Indicates that something is wrong. Occurs when two consecutive
--- failures occur for an environment. @Green@: Indicates the environment is
--- healthy and fully functional. @Grey@: Default health for a new
+-- 'Yellow': Indicates that something is wrong. Occurs when two consecutive
+-- failures occur for an environment. 'Green': Indicates the environment is
+-- healthy and fully functional. 'Grey': Default health for a new
 -- environment. The environment is not fully launched and health checks have
--- not started or health checks are suspended during an @UpdateEnvironment@
--- or @RestartEnvironement@ request. Default: @Grey@.
+-- not started or health checks are suspended during an 'UpdateEnvironment'
+-- or 'RestartEnvironement' request. Default: 'Grey'.
 terHealth :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentHealth)
 terHealth = lens _terHealth (\s a -> s { _terHealth = a })
 
@@ -238,17 +238,17 @@ terHealth = lens _terHealth (\s a -> s { _terHealth = a })
 terResources :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
 terResources = lens _terResources (\s a -> s { _terResources = a })
 
--- | The name of the @SolutionStack@ deployed with this environment.
+-- | The name of the 'SolutionStack' deployed with this environment.
 terSolutionStackName :: Lens' TerminateEnvironmentResponse (Maybe Text)
 terSolutionStackName =
     lens _terSolutionStackName (\s a -> s { _terSolutionStackName = a })
 
--- | The current operational status of the environment: @Launching@:
--- Environment is in the process of initial deployment. @Updating@:
+-- | The current operational status of the environment: 'Launching':
+-- Environment is in the process of initial deployment. 'Updating':
 -- Environment is in the process of updating its configuration settings or
--- application version. @Ready@: Environment is available to have an action
--- performed on it, such as update or terminate. @Terminating@: Environment
--- is in the shut-down process. @Terminated@: Environment is not running.
+-- application version. 'Ready': Environment is available to have an action
+-- performed on it, such as update or terminate. 'Terminating': Environment
+-- is in the shut-down process. 'Terminated': Environment is not running.
 terStatus :: Lens' TerminateEnvironmentResponse (Maybe EnvironmentStatus)
 terStatus = lens _terStatus (\s a -> s { _terStatus = a })
 

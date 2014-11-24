@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Submits feedback about the status of an instance. The instance must be in
--- the @running@ state. If your experience with the instance differs from the
+-- the 'running' state. If your experience with the instance differs from the
 -- instance status returned by 'DescribeInstanceStatus', use
 -- 'ReportInstanceStatus' to report your experience with the instance. Amazon
 -- EC2 collects this information to improve the accuracy of status checks. Use
@@ -111,17 +111,17 @@ risInstances :: Lens' ReportInstanceStatus [Text]
 risInstances = lens _risInstances (\s a -> s { _risInstances = a }) . _List
 
 -- | One or more reason codes that describes the health state of your
--- instance. @instance-stuck-in-state@: My instance is stuck in a state.
--- @unresponsive@: My instance is unresponsive. @not-accepting-credentials@:
--- My instance is not accepting my credentials. @password-not-available@: A
--- password is not available for my instance. @performance-network@: My
+-- instance. 'instance-stuck-in-state': My instance is stuck in a state.
+-- 'unresponsive': My instance is unresponsive. 'not-accepting-credentials':
+-- My instance is not accepting my credentials. 'password-not-available': A
+-- password is not available for my instance. 'performance-network': My
 -- instance is experiencing performance problems which I believe are network
--- related. @performance-instance-store@: My instance is experiencing
+-- related. 'performance-instance-store': My instance is experiencing
 -- performance problems which I believe are related to the instance stores.
--- @performance-ebs-volume@: My instance is experiencing performance
+-- 'performance-ebs-volume': My instance is experiencing performance
 -- problems which I believe are related to an EBS volume.
--- @performance-other@: My instance is experiencing performance problems.
--- @other@: [explain using the description parameter].
+-- 'performance-other': My instance is experiencing performance problems.
+-- 'other': [explain using the description parameter].
 risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
 risReasonCodes = lens _risReasonCodes (\s a -> s { _risReasonCodes = a }) . _List
 

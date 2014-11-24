@@ -118,7 +118,7 @@ createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
     }
 
 -- | The network range to allow or deny, in CIDR notation (for example
--- @172.16.0.0/24@).
+-- '172.16.0.0/24').
 cnaeCidrBlock :: Lens' CreateNetworkAclEntry Text
 cnaeCidrBlock = lens _cnaeCidrBlock (\s a -> s { _cnaeCidrBlock = a })
 

@@ -81,7 +81,7 @@ createClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
 -- lowercase string. Constraints: Must contain no more than 255 alphanumeric
 -- characters or hyphens. Must not be "Default". Must be unique for all
 -- security groups that are created by your AWS account. Example:
--- @examplesecuritygroup@.
+-- 'examplesecuritygroup'.
 ccsg1ClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
 ccsg1ClusterSecurityGroupName =
     lens _ccsg1ClusterSecurityGroupName

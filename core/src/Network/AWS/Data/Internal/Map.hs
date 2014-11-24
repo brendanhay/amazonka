@@ -28,6 +28,8 @@ module Network.AWS.Data.Internal.Map
     , _EMap
     ) where
 
+import Debug.Trace
+
 import           Control.Applicative
 import           Control.Lens                         hiding (coerce, element)
 import           Data.Aeson
@@ -141,7 +143,7 @@ instance ( KnownSymbol e
          , FromXML k
          , FromXML v
          ) => FromXML (EMap e i j k v) where
-    parseXML = fmap fromList . traverse (withElement e go . (:[]))
+    parseXML = fmap fromList . traverse go . mapMaybe (childNodes e)
       where
         go ns
             | length ns == 2 =

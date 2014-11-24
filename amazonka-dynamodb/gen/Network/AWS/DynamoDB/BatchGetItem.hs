@@ -49,7 +49,7 @@
 -- Batch Operations and Error Handling> in the /Amazon DynamoDB Developer
 -- Guide/. By default, /BatchGetItem/ performs eventually consistent reads on
 -- every table in the request. If you want strongly consistent reads instead,
--- you can set /ConsistentRead/ to @true@ for any or all tables. In order to
+-- you can set /ConsistentRead/ to 'true' for any or all tables. In order to
 -- minimize response latency, /BatchGetItem/ retrieves items in parallel. When
 -- designing your application, keep in mind that DynamoDB does not return
 -- attributes in any particular order. To help parse the response by item,
@@ -120,7 +120,7 @@ batchGetItem = BatchGetItem
 -- /AttributesToGet/ has no effect on provisioned throughput consumption.
 -- DynamoDB determines capacity units consumed based on item size, not on
 -- the amount of data that is returned to an application. /ConsistentRead/ -
--- If @true@, a strongly consistent read is used; if @false@ (the default),
+-- If 'true', a strongly consistent read is used; if 'false' (the default),
 -- an eventually consistent read is used.
 bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
 bgiRequestItems = lens _bgiRequestItems (\s a -> s { _bgiRequestItems = a }) . _Map
@@ -176,7 +176,7 @@ bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a }) . _Map
 -- /AttributesToGet/ - One or more attributes to be retrieved from the table
 -- or index. By default, all attributes are returned. If a specified
 -- attribute is not found, it does not appear in the result.
--- /ConsistentRead/ - The consistency of a read operation. If set to @true@,
+-- /ConsistentRead/ - The consistency of a read operation. If set to 'true',
 -- then a strongly consistent read is used; otherwise, an eventually
 -- consistent read is used. If there are no unprocessed keys remaining, the
 -- response contains an empty /UnprocessedKeys/ map.

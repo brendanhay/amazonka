@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified set of tags from the specified set of resources. This
--- call is designed to follow a @DescribeTags@ request. For more information
+-- call is designed to follow a 'DescribeTags' request. For more information
 -- about tags, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging
 -- Your Resources> in the /Amazon Elastic Compute Cloud User Guide/.
@@ -80,7 +80,7 @@ dt1DryRun = lens _dt1DryRun (\s a -> s { _dt1DryRun = a })
 dt1Resources :: Lens' DeleteTags [Text]
 dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a }) . _List
 
--- | One or more tags to delete. If you omit the @value@ parameter, we delete
+-- | One or more tags to delete. If you omit the 'value' parameter, we delete
 -- the tag regardless of its value. If you specify this parameter with an
 -- empty string as the value, we delete the key only if its value is an
 -- empty string.

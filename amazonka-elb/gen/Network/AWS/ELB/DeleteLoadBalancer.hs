@@ -28,7 +28,7 @@
 -- back-end instances. To successfully call this API, you must provide the
 -- same account credentials as were used to create the load balancer. By
 -- design, if the load balancer does not exist or has already been deleted, a
--- call to @DeleteLoadBalancer@ action still succeeds.
+-- call to 'DeleteLoadBalancer' action still succeeds.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancer.html>
 module Network.AWS.ELB.DeleteLoadBalancer

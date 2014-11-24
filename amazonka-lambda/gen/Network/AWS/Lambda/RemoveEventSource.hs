@@ -22,7 +22,7 @@
 
 -- | Removes an event source mapping. This means AWS Lambda will no longer
 -- invoke the function for events in the associated source. This operation
--- requires permission for the @lambda:RemoveEventSource@ action.
+-- requires permission for the 'lambda:RemoveEventSource' action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_RemoveEventSource.html>
 module Network.AWS.Lambda.RemoveEventSource

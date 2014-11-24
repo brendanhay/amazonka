@@ -69,10 +69,10 @@ listOperations = ListOperations
 
 -- | For an initial request for a list of operations, omit this element. If
 -- the number of operations that are not yet complete is greater than the
--- value that you specified for @MaxItems@, you can use @Marker@ to return
--- additional operations. Get the value of @NextPageMarker@ from the
+-- value that you specified for 'MaxItems', you can use 'Marker' to return
+-- additional operations. Get the value of 'NextPageMarker' from the
 -- previous response, and submit another request that includes the value of
--- @NextPageMarker@ in the @Marker@ element. Type: String Default: None
+-- 'NextPageMarker' in the 'Marker' element. Type: String Default: None
 -- Required: No.
 loMarker :: Lens' ListOperations (Maybe Text)
 loMarker = lens _loMarker (\s a -> s { _loMarker = a })
@@ -101,16 +101,16 @@ listOperationsResponse = ListOperationsResponse
     , _lorNextPageMarker = Nothing
     }
 
--- | If there are more operations than you specified for @MaxItems@ in the
--- request, submit another request and include the value of @NextPageMarker@
--- in the value of @Marker@. Type: String Parent: @Operations@.
+-- | If there are more operations than you specified for 'MaxItems' in the
+-- request, submit another request and include the value of 'NextPageMarker'
+-- in the value of 'Marker'. Type: String Parent: 'Operations'.
 lorNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorNextPageMarker =
     lens _lorNextPageMarker (\s a -> s { _lorNextPageMarker = a })
 
 -- | Lists summaries of the operations. Type: Complex type containing a list
--- of operation summaries Children: @OperationId@, @Status@,
--- @SubmittedDate@, @Type@.
+-- of operation summaries Children: 'OperationId', 'Status',
+-- 'SubmittedDate', 'Type'.
 lorOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorOperations = lens _lorOperations (\s a -> s { _lorOperations = a }) . _List
 

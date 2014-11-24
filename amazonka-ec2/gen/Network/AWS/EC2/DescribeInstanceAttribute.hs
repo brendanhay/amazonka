@@ -22,10 +22,10 @@
 
 -- | Describes the specified attribute of the specified instance. You can
 -- specify only one attribute at a time. Valid attribute values are:
--- @instanceType@ | @kernel@ | @ramdisk@ | @userData@ |
--- @disableApiTermination@ | @instanceInitiatedShutdownBehavior@ |
--- @rootDeviceName@ | @blockDeviceMapping@ | @productCodes@ |
--- @sourceDestCheck@ | @groupSet@ | @ebsOptimized@ | @sriovNetSupport@.
+-- 'instanceType' | 'kernel' | 'ramdisk' | 'userData' |
+-- 'disableApiTermination' | 'instanceInitiatedShutdownBehavior' |
+-- 'rootDeviceName' | 'blockDeviceMapping' | 'productCodes' |
+-- 'sourceDestCheck' | 'groupSet' | 'ebsOptimized' | 'sriovNetSupport'.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html>
 module Network.AWS.EC2.DescribeInstanceAttribute
@@ -175,7 +175,7 @@ diar1BlockDeviceMappings =
         (\s a -> s { _diar1BlockDeviceMappings = a })
             . _List
 
--- | If the value is @true@, you can't terminate the instance through the
+-- | If the value is 'true', you can't terminate the instance through the
 -- Amazon EC2 console, CLI, or API; otherwise, you can.
 diar1DisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 diar1DisableApiTermination =
@@ -222,14 +222,14 @@ diar1ProductCodes =
 diar1RamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1RamdiskId = lens _diar1RamdiskId (\s a -> s { _diar1RamdiskId = a })
 
--- | The name of the root device (for example, @/dev/sda1@).
+-- | The name of the root device (for example, '/dev/sda1').
 diar1RootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1RootDeviceName =
     lens _diar1RootDeviceName (\s a -> s { _diar1RootDeviceName = a })
 
 -- | Indicates whether source/destination checking is enabled. A value of
--- @true@ means checking is enabled, and @false@ means checking is disabled.
--- This value must be @false@ for a NAT instance to perform NAT.
+-- 'true' means checking is enabled, and 'false' means checking is disabled.
+-- This value must be 'false' for a NAT instance to perform NAT.
 diar1SourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 diar1SourceDestCheck =
     lens _diar1SourceDestCheck (\s a -> s { _diar1SourceDestCheck = a })

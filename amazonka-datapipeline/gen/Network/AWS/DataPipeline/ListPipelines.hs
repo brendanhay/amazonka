@@ -65,7 +65,7 @@ listPipelines = ListPipelines
 
 -- | The starting point for the results to be returned. The first time you
 -- call 'ListPipelines', this value should be empty. As long as the action
--- returns @HasMoreResults@ as @True@, you can call 'ListPipelines' again
+-- returns 'HasMoreResults' as 'True', you can call 'ListPipelines' again
 -- and pass the marker value from the response to retrieve the next set of
 -- results.
 lpMarker :: Lens' ListPipelines (Maybe Text)
@@ -94,7 +94,7 @@ listPipelinesResponse = ListPipelinesResponse
     , _lprHasMoreResults = Nothing
     }
 
--- | If @True@, there are more results that can be obtained by a subsequent
+-- | If 'True', there are more results that can be obtained by a subsequent
 -- call to 'ListPipelines'.
 lprHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
 lprHasMoreResults =

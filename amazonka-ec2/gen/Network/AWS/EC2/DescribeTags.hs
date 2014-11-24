@@ -82,13 +82,13 @@ describeTags = DescribeTags
 dtDryRun :: Lens' DescribeTags (Maybe Bool)
 dtDryRun = lens _dtDryRun (\s a -> s { _dtDryRun = a })
 
--- | One or more filters. @key@ - The tag key. @resource-id@ - The resource
--- ID. @resource-type@ - The resource type (@customer-gateway@ |
--- @dhcp-options@ | @image@ | @instance@ | @internet-gateway@ |
--- @network-acl@ | @network-interface@ | @reserved-instances@ |
--- @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@
--- | @subnet@ | @volume@ | @vpc@ | @vpn-connection@ | @vpn-gateway@).
--- @value@ - The tag value.
+-- | One or more filters. 'key' - The tag key. 'resource-id' - The resource
+-- ID. 'resource-type' - The resource type ('customer-gateway' |
+-- 'dhcp-options' | 'image' | 'instance' | 'internet-gateway' |
+-- 'network-acl' | 'network-interface' | 'reserved-instances' |
+-- 'route-table' | 'security-group' | 'snapshot' | 'spot-instances-request'
+-- | 'subnet' | 'volume' | 'vpc' | 'vpn-connection' | 'vpn-gateway').
+-- 'value' - The tag value.
 dtFilters :: Lens' DescribeTags [Filter]
 dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a }) . _List
 

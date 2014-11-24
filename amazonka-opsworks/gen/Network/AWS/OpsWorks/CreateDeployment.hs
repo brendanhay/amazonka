@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deploys a stack or app. App deployment generates a @deploy@ event, which
+-- | Deploys a stack or app. App deployment generates a 'deploy' event, which
 -- runs the associated recipes and passes them a JSON stack configuration
 -- object that includes information about the app. Stack deployment runs the
--- @deploy@ recipes but does not raise an event. For more information, see
+-- 'deploy' recipes but does not raise an event. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html
 -- Deploying Apps> and
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html
@@ -104,7 +104,7 @@ createDeployment p1 p2 = CreateDeployment
 cdAppId :: Lens' CreateDeployment (Maybe Text)
 cdAppId = lens _cdAppId (\s a -> s { _cdAppId = a })
 
--- | A @DeploymentCommand@ object that specifies the deployment command and
+-- | A 'DeploymentCommand' object that specifies the deployment command and
 -- any associated arguments.
 cdCommand :: Lens' CreateDeployment DeploymentCommand
 cdCommand = lens _cdCommand (\s a -> s { _cdCommand = a })
@@ -116,7 +116,7 @@ cdComment = lens _cdComment (\s a -> s { _cdComment = a })
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as
--- '"'.: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@ For more
+-- '"'.: '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"' For more
 -- information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html
 -- Use Custom JSON to Modify the Stack Configuration JSON>.

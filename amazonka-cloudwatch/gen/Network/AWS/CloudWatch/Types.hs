@@ -316,7 +316,7 @@ maActionsEnabled :: Lens' MetricAlarm (Maybe Bool)
 maActionsEnabled = lens _maActionsEnabled (\s a -> s { _maActionsEnabled = a })
 
 -- | The list of actions to execute when this alarm transitions into an
--- @ALARM@ state from any other state. Each action is specified as an Amazon
+-- 'ALARM' state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
 maAlarmActions :: Lens' MetricAlarm [Text]
@@ -347,8 +347,8 @@ maAlarmDescription =
 maAlarmName :: Lens' MetricAlarm (Maybe Text)
 maAlarmName = lens _maAlarmName (\s a -> s { _maAlarmName = a })
 
--- | The arithmetic operation to use when comparing the specified @Statistic@
--- and @Threshold@. The specified @Statistic@ value is used as the first
+-- | The arithmetic operation to use when comparing the specified 'Statistic'
+-- and 'Threshold'. The specified 'Statistic' value is used as the first
 -- operand.
 maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
 maComparisonOperator =
@@ -366,10 +366,10 @@ maEvaluationPeriods =
         . mapping _Nat
 
 -- | The list of actions to execute when this alarm transitions into an
--- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
+-- 'INSUFFICIENT_DATA' state from any other state. Each action is specified
 -- as an Amazon Resource Number (ARN). Currently the only actions supported
 -- are publishing to an Amazon SNS topic or triggering an Auto Scaling
--- policy. The current WSDL lists this attribute as @UnknownActions@.
+-- policy. The current WSDL lists this attribute as 'UnknownActions'.
 maInsufficientDataActions :: Lens' MetricAlarm [Text]
 maInsufficientDataActions =
     lens _maInsufficientDataActions
@@ -384,7 +384,7 @@ maMetricName = lens _maMetricName (\s a -> s { _maMetricName = a })
 maNamespace :: Lens' MetricAlarm (Maybe Text)
 maNamespace = lens _maNamespace (\s a -> s { _maNamespace = a })
 
--- | The list of actions to execute when this alarm transitions into an @OK@
+-- | The list of actions to execute when this alarm transitions into an 'OK'
 -- state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
@@ -574,8 +574,8 @@ mdTimestamp = lens _mdTimestamp (\s a -> s { _mdTimestamp = a }) . mapping _Time
 mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
 mdUnit = lens _mdUnit (\s a -> s { _mdUnit = a })
 
--- | The value for the metric. Although the @Value@ parameter accepts numbers
--- of type @Double@, Amazon CloudWatch truncates values with very large
+-- | The value for the metric. Although the 'Value' parameter accepts numbers
+-- of type 'Double', Amazon CloudWatch truncates values with very large
 -- exponents. Values with base-10 exponents greater than 126 (1 x 10^126)
 -- are truncated. Likewise, values with base-10 exponents less than -130 (1
 -- x 10^-130) are also truncated.

@@ -345,7 +345,7 @@ smScore :: Lens' SuggestionMatch (Maybe Integer)
 smScore = lens _smScore (\s a -> s { _smScore = a })
 
 -- | The string that matches the query string specified in the
--- @SuggestRequest@.
+-- 'SuggestRequest'.
 smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\s a -> s { _smSuggestion = a })
 

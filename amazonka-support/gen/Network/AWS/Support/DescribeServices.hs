@@ -27,7 +27,7 @@
 -- displayed in the Service and Category drop-down lists on the AWS Support
 -- Center <https://aws.amazon.com/support/createCase Open a new case> page.
 -- The values in those fields, however, do not necessarily match the service
--- codes and categories returned by the @DescribeServices@ request. Always use
+-- codes and categories returned by the 'DescribeServices' request. Always use
 -- the service codes and categories obtained programmatically. This practice
 -- ensures that you always have the most recent set of service and category
 -- codes.

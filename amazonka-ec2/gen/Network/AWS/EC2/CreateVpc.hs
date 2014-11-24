@@ -81,7 +81,7 @@ createVpc p1 = CreateVpc
     }
 
 -- | The network range for the VPC, in CIDR notation. For example,
--- @10.0.0.0/16@.
+-- '10.0.0.0/16'.
 cvCidrBlock :: Lens' CreateVpc Text
 cvCidrBlock = lens _cvCidrBlock (\s a -> s { _cvCidrBlock = a })
 
@@ -89,11 +89,11 @@ cvDryRun :: Lens' CreateVpc (Maybe Bool)
 cvDryRun = lens _cvDryRun (\s a -> s { _cvDryRun = a })
 
 -- | The supported tenancy options for instances launched into the VPC. A
--- value of @default@ means that instances can be launched with any tenancy;
--- a value of @dedicated@ means all instances launched into the VPC are
+-- value of 'default' means that instances can be launched with any tenancy;
+-- a value of 'dedicated' means all instances launched into the VPC are
 -- launched as dedicated tenancy instances regardless of the tenancy
 -- assigned to the instance at launch. Dedicated tenancy instances run on
--- single-tenant hardware. Default: @default@.
+-- single-tenant hardware. Default: 'default'.
 cvInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
 cvInstanceTenancy =
     lens _cvInstanceTenancy (\s a -> s { _cvInstanceTenancy = a })

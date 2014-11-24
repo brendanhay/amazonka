@@ -73,7 +73,7 @@ terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroup
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
 tiiasgInstanceId = lens _tiiasgInstanceId (\s a -> s { _tiiasgInstanceId = a })
 
--- | If @true@, terminating this instance also decrements the size of the Auto
+-- | If 'true', terminating this instance also decrements the size of the Auto
 -- Scaling group.
 tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
 tiiasgShouldDecrementDesiredCapacity =

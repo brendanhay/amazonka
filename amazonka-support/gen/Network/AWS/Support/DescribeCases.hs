@@ -22,12 +22,12 @@
 
 -- | Returns a list of cases that you specify by passing one or more case IDs.
 -- In addition, you can filter the cases by date by setting values for the
--- @AfterTime@ and @BeforeTime@ request parameters. Case data is available for
+-- 'AfterTime' and 'BeforeTime' request parameters. Case data is available for
 -- 12 months after creation. If a case was created more than 12 months ago, a
 -- request for data might cause an error. The response returns the following
 -- in JSON format: One or more 'CaseDetails' data types. One or more
--- @NextToken@ values, which specify where to paginate the returned records
--- represented by the @CaseDetails@ objects.
+-- 'NextToken' values, which specify where to paginate the returned records
+-- represented by the 'CaseDetails' objects.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html>
 module Network.AWS.Support.DescribeCases

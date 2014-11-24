@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | To retrieve the reusable delegation set, send a @GET@ request to the
--- @2013-04-01/delegationset//delegation set ID/ resource.
+-- | To retrieve the reusable delegation set, send a 'GET' request to the
+-- '2013-04-01/delegationset//delegation set ID/ resource.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html>
 module Network.AWS.Route53.GetReusableDelegationSet

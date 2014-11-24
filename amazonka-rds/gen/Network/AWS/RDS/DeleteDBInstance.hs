@@ -26,7 +26,7 @@
 -- instance are deleted and cannot be recovered. Manual DB snapshots of the DB
 -- instance to be deleted are not deleted. If a final DB snapshot is requested
 -- the status of the RDS instance will be "deleting" until the DB snapshot is
--- created. The API action @DescribeDBInstance@ is used to monitor the status
+-- created. The API action 'DescribeDBInstance' is used to monitor the status
 -- of this operation. The action cannot be canceled or reverted once
 -- submitted.
 --
@@ -89,7 +89,7 @@ ddbiDBInstanceIdentifier =
         (\s a -> s { _ddbiDBInstanceIdentifier = a })
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
--- SkipFinalSnapshot is set to @false@. Constraints: Must be 1 to 255
+-- SkipFinalSnapshot is set to 'false'. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with
 -- a hyphen or contain two consecutive hyphens Cannot be specified when
 -- deleting a read replica.
@@ -99,9 +99,9 @@ ddbiFinalDBSnapshotIdentifier =
         (\s a -> s { _ddbiFinalDBSnapshotIdentifier = a })
 
 -- | Determines whether a final DB snapshot is created before the DB instance
--- is deleted. If @true@ is specified, no DBSnapshot is created. If @false@
+-- is deleted. If 'true' is specified, no DBSnapshot is created. If 'false'
 -- is specified, a DB snapshot is created before the DB instance is deleted.
--- Specify @true@ when deleting a read replica. Default: @false@.
+-- Specify 'true' when deleting a read replica. Default: 'false'.
 ddbiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddbiSkipFinalSnapshot =
     lens _ddbiSkipFinalSnapshot (\s a -> s { _ddbiSkipFinalSnapshot = a })

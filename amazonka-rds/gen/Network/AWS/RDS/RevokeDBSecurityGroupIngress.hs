@@ -85,8 +85,8 @@ revokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngress
     }
 
 -- | The IP range to revoke access from. Must be a valid CIDR range. If
--- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
--- @EC2SecurityGroupOwnerId@ cannot be provided.
+-- 'CIDRIP' is specified, 'EC2SecurityGroupName', 'EC2SecurityGroupId' and
+-- 'EC2SecurityGroupOwnerId' cannot be provided.
 rdbsgiCIDRIP :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
 rdbsgiCIDRIP = lens _rdbsgiCIDRIP (\s a -> s { _rdbsgiCIDRIP = a })
 
@@ -97,28 +97,28 @@ rdbsgiDBSecurityGroupName =
         (\s a -> s { _rdbsgiDBSecurityGroupName = a })
 
 -- | The id of the EC2 security group to revoke access from. For VPC DB
--- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
--- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
--- @EC2SecurityGroupId@ must be provided.
+-- security groups, 'EC2SecurityGroupId' must be provided. Otherwise,
+-- EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or
+-- 'EC2SecurityGroupId' must be provided.
 rdbsgiEC2SecurityGroupId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
 rdbsgiEC2SecurityGroupId =
     lens _rdbsgiEC2SecurityGroupId
         (\s a -> s { _rdbsgiEC2SecurityGroupId = a })
 
 -- | The name of the EC2 security group to revoke access from. For VPC DB
--- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
--- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
--- @EC2SecurityGroupId@ must be provided.
+-- security groups, 'EC2SecurityGroupId' must be provided. Otherwise,
+-- EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or
+-- 'EC2SecurityGroupId' must be provided.
 rdbsgiEC2SecurityGroupName :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
 rdbsgiEC2SecurityGroupName =
     lens _rdbsgiEC2SecurityGroupName
         (\s a -> s { _rdbsgiEC2SecurityGroupName = a })
 
 -- | The AWS Account Number of the owner of the EC2 security group specified
--- in the @EC2SecurityGroupName@ parameter. The AWS Access Key ID is not an
--- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
+-- in the 'EC2SecurityGroupName' parameter. The AWS Access Key ID is not an
+-- acceptable value. For VPC DB security groups, 'EC2SecurityGroupId' must
 -- be provided. Otherwise, EC2SecurityGroupOwnerId and either
--- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+-- 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
 rdbsgiEC2SecurityGroupOwnerId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
 rdbsgiEC2SecurityGroupOwnerId =
     lens _rdbsgiEC2SecurityGroupOwnerId

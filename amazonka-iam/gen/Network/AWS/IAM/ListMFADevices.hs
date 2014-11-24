@@ -24,7 +24,7 @@
 -- action lists all the MFA devices associated with the specified user name.
 -- If you do not specify a user name, IAM determines the user name implicitly
 -- based on the AWS access key ID signing the request. You can paginate the
--- results using the @MaxItems@ and @Marker@ parameters.
+-- results using the 'MaxItems' and 'Marker' parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html>
 module Network.AWS.IAM.ListMFADevices
@@ -78,14 +78,14 @@ listMFADevices = ListMFADevices
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it
--- to the value of the @Marker@ element in the response you just received.
+-- to the value of the 'Marker' element in the response you just received.
 lmfadMarker :: Lens' ListMFADevices (Maybe Text)
 lmfadMarker = lens _lmfadMarker (\s a -> s { _lmfadMarker = a })
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- MFA devices you want in the response. If there are additional MFA devices
--- beyond the maximum you specify, the @IsTruncated@ response element is
--- @true@. This parameter is optional. If you do not include it, it defaults
+-- beyond the maximum you specify, the 'IsTruncated' response element is
+-- 'true'. This parameter is optional. If you do not include it, it defaults
 -- to 100.
 lmfadMaxItems :: Lens' ListMFADevices (Maybe Natural)
 lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a }) . mapping _Nat
@@ -119,7 +119,7 @@ listMFADevicesResponse = ListMFADevicesResponse
 
 -- | A flag that indicates whether there are more MFA devices to list. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more MFA devices in the
+-- using the 'Marker' request parameter to retrieve more MFA devices in the
 -- list.
 lmfadrIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
 lmfadrIsTruncated =
@@ -129,8 +129,8 @@ lmfadrIsTruncated =
 lmfadrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
 lmfadrMFADevices = lens _lmfadrMFADevices (\s a -> s { _lmfadrMFADevices = a }) . _List
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | If 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lmfadrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
 lmfadrMarker = lens _lmfadrMarker (\s a -> s { _lmfadrMarker = a })

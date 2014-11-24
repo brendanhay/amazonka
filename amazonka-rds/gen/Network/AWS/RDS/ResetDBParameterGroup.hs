@@ -22,11 +22,11 @@
 
 -- | Modifies the parameters of a DB parameter group to the engine/system
 -- default value. To reset specific parameters submit a list of the following:
--- @ParameterName@ and @ApplyMethod@. To reset the entire DB parameter group,
--- specify the @DBParameterGroup@ name and @ResetAllParameters@ parameters.
+-- 'ParameterName' and 'ApplyMethod'. To reset the entire DB parameter group,
+-- specify the 'DBParameterGroup' name and 'ResetAllParameters' parameters.
 -- When resetting the entire group, dynamic parameters are updated immediately
--- and static parameters are set to @pending-reboot@ to take effect on the
--- next DB instance restart or @RebootDBInstance@ request.
+-- and static parameters are set to 'pending-reboot' to take effect on the
+-- next DB instance restart or 'RebootDBInstance' request.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html>
 module Network.AWS.RDS.ResetDBParameterGroup
@@ -89,16 +89,16 @@ rdbpgDBParameterGroupName =
 -- parameter update. At least one parameter name, value, and apply method
 -- must be supplied; subsequent arguments are optional. A maximum of 20
 -- parameters may be modified in a single request. MySQL Valid Values (for
--- Apply method): @immediate@ | @pending-reboot@ You can use the immediate
--- value with dynamic parameters only. You can use the @pending-reboot@
+-- Apply method): 'immediate' | 'pending-reboot' You can use the immediate
+-- value with dynamic parameters only. You can use the 'pending-reboot'
 -- value for both dynamic and static parameters, and changes are applied
 -- when DB instance reboots. Oracle Valid Values (for Apply method):
--- @pending-reboot@.
+-- 'pending-reboot'.
 rdbpgParameters :: Lens' ResetDBParameterGroup [Parameter]
 rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a }) . _List
 
--- | Specifies whether (@true@) or not (@false@) to reset all parameters in
--- the DB parameter group to default values. Default: @true@.
+-- | Specifies whether ('true') or not ('false') to reset all parameters in
+-- the DB parameter group to default values. Default: 'true'.
 rdbpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
 rdbpgResetAllParameters =
     lens _rdbpgResetAllParameters (\s a -> s { _rdbpgResetAllParameters = a })

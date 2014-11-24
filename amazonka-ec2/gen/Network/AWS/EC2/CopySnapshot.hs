@@ -101,7 +101,7 @@ csDescription :: Lens' CopySnapshot (Maybe Text)
 csDescription = lens _csDescription (\s a -> s { _csDescription = a })
 
 -- | The destination region of the snapshot copy operation. This parameter is
--- required in the @PresignedUrl@.
+-- required in the 'PresignedUrl'.
 csDestinationRegion :: Lens' CopySnapshot (Maybe Text)
 csDestinationRegion =
     lens _csDestinationRegion (\s a -> s { _csDestinationRegion = a })
@@ -112,17 +112,17 @@ csDryRun = lens _csDryRun (\s a -> s { _csDryRun = a })
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This
 -- parameter is only required when copying an encrypted snapshot with the
 -- Amazon EC2 Query API; it is available as an optional parameter in all
--- other cases. The @PresignedUrl@ should use the snapshot source endpoint,
--- the @CopySnapshot@ action, and include the @SourceRegion@,
--- @SourceSnapshotId@, and @DestinationRegion@ parameters. The
--- @PresignedUrl@ must be signed using AWS Signature Version 4. Because
+-- other cases. The 'PresignedUrl' should use the snapshot source endpoint,
+-- the 'CopySnapshot' action, and include the 'SourceRegion',
+-- 'SourceSnapshotId', and 'DestinationRegion' parameters. The
+-- 'PresignedUrl' must be signed using AWS Signature Version 4. Because
 -- Amazon EBS snapshots are stored in Amazon S3, the signing algorithm for
 -- this parameter uses the same logic that is described in
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
 -- Authenticating Requests by Using Query Parameters (AWS Signature Version
 -- 4)> in the /Amazon Simple Storage Service API Reference/. An invalid or
--- improperly signed @PresignedUrl@ will cause the copy operation to fail
--- asynchronously, and the snapshot will move to an @error@ state.
+-- improperly signed 'PresignedUrl' will cause the copy operation to fail
+-- asynchronously, and the snapshot will move to an 'error' state.
 csPresignedUrl :: Lens' CopySnapshot (Maybe Text)
 csPresignedUrl = lens _csPresignedUrl (\s a -> s { _csPresignedUrl = a })
 

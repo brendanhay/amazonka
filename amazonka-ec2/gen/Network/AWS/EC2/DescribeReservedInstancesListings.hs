@@ -87,10 +87,10 @@ describeReservedInstancesListings = DescribeReservedInstancesListings
     , _drilFilters                    = mempty
     }
 
--- | One or more filters. @reserved-instances-id@ - The ID of the Reserved
--- Instances. @reserved-instances-listing-id@ - The ID of the Reserved
--- Instances listing. @status@ - The status of the Reserved Instance listing
--- (@pending@ | @active@ | @cancelled@ | @closed@). @status-message@ - The
+-- | One or more filters. 'reserved-instances-id' - The ID of the Reserved
+-- Instances. 'reserved-instances-listing-id' - The ID of the Reserved
+-- Instances listing. 'status' - The status of the Reserved Instance listing
+-- ('pending' | 'active' | 'cancelled' | 'closed'). 'status-message' - The
 -- reason for the status.
 drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
 drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a }) . _List

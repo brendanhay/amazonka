@@ -22,7 +22,7 @@
 
 -- | Changes the status of the specified access key from Active to Inactive, or
 -- vice versa. This action can be used to disable a user's key as part of a
--- key rotation work flow. If the @UserName@ field is not specified, the
+-- key rotation work flow. If the 'UserName' field is not specified, the
 -- UserName is determined implicitly based on the AWS access key ID used to
 -- sign the request. Because this action works for access keys under the AWS
 -- account, you can use this action to manage root credentials even if the AWS
@@ -82,8 +82,8 @@ updateAccessKey p1 p2 = UpdateAccessKey
 uakAccessKeyId :: Lens' UpdateAccessKey Text
 uakAccessKeyId = lens _uakAccessKeyId (\s a -> s { _uakAccessKeyId = a })
 
--- | The status you want to assign to the secret access key. @Active@ means
--- the key can be used for API calls to AWS, while @Inactive@ means the key
+-- | The status you want to assign to the secret access key. 'Active' means
+-- the key can be used for API calls to AWS, while 'Inactive' means the key
 -- cannot be used.
 uakStatus :: Lens' UpdateAccessKey StatusType
 uakStatus = lens _uakStatus (\s a -> s { _uakStatus = a })

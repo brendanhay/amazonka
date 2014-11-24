@@ -70,7 +70,7 @@ describeMyUserProfileResponse = DescribeMyUserProfileResponse
     { _dmuprUserProfile = Nothing
     }
 
--- | A @UserProfile@ object that describes the user's SSH information.
+-- | A 'UserProfile' object that describes the user's SSH information.
 dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprUserProfile = lens _dmuprUserProfile (\s a -> s { _dmuprUserProfile = a })
 

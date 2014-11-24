@@ -92,12 +92,12 @@ ddbsgFilters = lens _ddbsgFilters (\s a -> s { _ddbsgFilters = a }) . _List
 -- | An optional pagination token provided by a previous
 -- DescribeDBSubnetGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
+-- specified by 'MaxRecords'.
 ddbsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddbsgMarker = lens _ddbsgMarker (\s a -> s { _ddbsgMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified @MaxRecords@ value, a pagination token called a
+-- exist than the specified 'MaxRecords' value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbsgMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Int)
@@ -130,7 +130,7 @@ ddbsgrDBSubnetGroups =
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 ddbsgrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddbsgrMarker = lens _ddbsgrMarker (\s a -> s { _ddbsgrMarker = a })
 

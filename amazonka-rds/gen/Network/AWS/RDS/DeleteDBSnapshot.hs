@@ -63,7 +63,7 @@ deleteDBSnapshot p1 = DeleteDBSnapshot
     }
 
 -- | The DBSnapshot identifier. Constraints: Must be the name of an existing
--- DB snapshot in the @available@ state.
+-- DB snapshot in the 'available' state.
 ddbs1DBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
 ddbs1DBSnapshotIdentifier =
     lens _ddbs1DBSnapshotIdentifier

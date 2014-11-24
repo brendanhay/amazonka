@@ -67,7 +67,7 @@ updateApplication p1 = UpdateApplication
     }
 
 -- | The name of the application to update. If no such application is found,
--- @UpdateApplication@ returns an @InvalidParameterValue@ error.
+-- 'UpdateApplication' returns an 'InvalidParameterValue' error.
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName =
     lens _uaApplicationName (\s a -> s { _uaApplicationName = a })

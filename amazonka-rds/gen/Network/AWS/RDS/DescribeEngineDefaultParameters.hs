@@ -88,14 +88,14 @@ dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
 dedpFilters = lens _dedpFilters (\s a -> s { _dedpFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous
--- @DescribeEngineDefaultParameters@ request. If this parameter is
+-- 'DescribeEngineDefaultParameters' request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
+-- the value specified by 'MaxRecords'.
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified @MaxRecords@ value, a pagination token called a
+-- exist than the specified 'MaxRecords' value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)

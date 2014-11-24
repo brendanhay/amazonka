@@ -35,7 +35,7 @@
 -- default for a new DB instance. This is especially important for parameters
 -- that are critical when creating the default database for a DB instance,
 -- such as the character set for the default database defined by the
--- @character_set_database@ parameter. You can use the /Parameter Groups/
+-- 'character_set_database' parameter. You can use the /Parameter Groups/
 -- option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or
 -- the /DescribeDBParameters/ command to verify that your DB parameter group
 -- has been created or modified.

@@ -373,7 +373,7 @@ grantListEntry = GrantListEntry
     }
 
 -- | Specifies the conditions under which the actions specified by the
--- @Operations@ parameter are allowed.
+-- 'Operations' parameter are allowed.
 gleConstraints :: Lens' GrantListEntry (Maybe GrantConstraints)
 gleConstraints = lens _gleConstraints (\s a -> s { _gleConstraints = a })
 

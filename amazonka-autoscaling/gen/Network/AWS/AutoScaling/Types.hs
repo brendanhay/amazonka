@@ -328,7 +328,7 @@ tdResourceId :: Lens' TagDescription Text
 tdResourceId = lens _tdResourceId (\s a -> s { _tdResourceId = a })
 
 -- | The kind of resource to which the tag is applied. Currently, Auto Scaling
--- supports the @auto-scaling-group@ resource type.
+-- supports the 'auto-scaling-group' resource type.
 tdResourceType :: Lens' TagDescription Text
 tdResourceType = lens _tdResourceType (\s a -> s { _tdResourceType = a })
 
@@ -405,7 +405,7 @@ tagResourceId :: Lens' Tag Text
 tagResourceId = lens _tagResourceId (\s a -> s { _tagResourceId = a })
 
 -- | The kind of resource to which the tag is applied. Currently, Auto Scaling
--- supports the @auto-scaling-group@ resource type.
+-- supports the 'auto-scaling-group' resource type.
 tagResourceType :: Lens' Tag Text
 tagResourceType = lens _tagResourceType (\s a -> s { _tagResourceType = a })
 
@@ -509,8 +509,8 @@ blockDeviceMapping p1 = BlockDeviceMapping
     , _bdmNoDevice    = Nothing
     }
 
--- | The device name exposed to the EC2 instance (for example, @/dev/sdh@ or
--- @xvdh@).
+-- | The device name exposed to the EC2 instance (for example, '/dev/sdh' or
+-- 'xvdh').
 bdmDeviceName :: Lens' BlockDeviceMapping Text
 bdmDeviceName = lens _bdmDeviceName (\s a -> s { _bdmDeviceName = a })
 
@@ -518,13 +518,13 @@ bdmDeviceName = lens _bdmDeviceName (\s a -> s { _bdmDeviceName = a })
 bdmEbs :: Lens' BlockDeviceMapping (Maybe Ebs)
 bdmEbs = lens _bdmEbs (\s a -> s { _bdmEbs = a })
 
--- | Suppresses a device mapping. If @NoDevice@ is set to @true@ for the root
+-- | Suppresses a device mapping. If 'NoDevice' is set to 'true' for the root
 -- device, the instance might fail the EC2 health check. Auto Scaling
 -- launches a replacement instance if the instance fails the health check.
 bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Bool)
 bdmNoDevice = lens _bdmNoDevice (\s a -> s { _bdmNoDevice = a })
 
--- | The name of the virtual device, @ephemeral0@ to @ephemeral3@.
+-- | The name of the virtual device, 'ephemeral0' to 'ephemeral3'.
 bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmVirtualName = lens _bdmVirtualName (\s a -> s { _bdmVirtualName = a })
 
@@ -627,15 +627,15 @@ launchConfiguration p1 p2 p3 p4 = LaunchConfiguration
     }
 
 -- | Specifies whether the EC2 instances are associated with a public IP
--- address (@true@) or not (@false@).
+-- address ('true') or not ('false').
 lcAssociatePublicIpAddress :: Lens' LaunchConfiguration (Maybe Bool)
 lcAssociatePublicIpAddress =
     lens _lcAssociatePublicIpAddress
         (\s a -> s { _lcAssociatePublicIpAddress = a })
 
 -- | A block device mapping that specifies how block devices are exposed to
--- the instance. Each mapping is made up of a @virtualName@ and a
--- @deviceName@.
+-- the instance. Each mapping is made up of a 'virtualName' and a
+-- 'deviceName'.
 lcBlockDeviceMappings :: Lens' LaunchConfiguration [BlockDeviceMapping]
 lcBlockDeviceMappings =
     lens _lcBlockDeviceMappings (\s a -> s { _lcBlockDeviceMappings = a })
@@ -645,8 +645,8 @@ lcBlockDeviceMappings =
 lcCreatedTime :: Lens' LaunchConfiguration UTCTime
 lcCreatedTime = lens _lcCreatedTime (\s a -> s { _lcCreatedTime = a }) . _Time
 
--- | Controls whether the instance is optimized for EBS I/O (@true@) or not
--- (@false@).
+-- | Controls whether the instance is optimized for EBS I/O ('true') or not
+-- ('false').
 lcEbsOptimized :: Lens' LaunchConfiguration (Maybe Bool)
 lcEbsOptimized = lens _lcEbsOptimized (\s a -> s { _lcEbsOptimized = a })
 
@@ -690,8 +690,8 @@ lcLaunchConfigurationName =
     lens _lcLaunchConfigurationName
         (\s a -> s { _lcLaunchConfigurationName = a })
 
--- | The tenancy of the instance, either @default@ or @dedicated@. An instance
--- with @dedicated@ tenancy runs in an isolated, single-tenant hardware and
+-- | The tenancy of the instance, either 'default' or 'dedicated'. An instance
+-- with 'dedicated' tenancy runs in an isolated, single-tenant hardware and
 -- can only be launched in a VPC.
 lcPlacementTenancy :: Lens' LaunchConfiguration (Maybe Text)
 lcPlacementTenancy =
@@ -900,7 +900,7 @@ asgHealthCheckGracePeriod =
         (\s a -> s { _asgHealthCheckGracePeriod = a })
 
 -- | The service of interest for the health status check, which can be either
--- @EC2@ for Amazon EC2 or @ELB@ for Elastic Load Balancing.
+-- 'EC2' for Amazon EC2 or 'ELB' for Elastic Load Balancing.
 asgHealthCheckType :: Lens' AutoScalingGroup Text
 asgHealthCheckType =
     lens _asgHealthCheckType (\s a -> s { _asgHealthCheckType = a })
@@ -959,9 +959,9 @@ asgTerminationPolicies =
         . _List
 
 -- | One or more subnet IDs, if applicable, separated by commas. If you
--- specify @VPCZoneIdentifier@ and @AvailabilityZones@, ensure that the
+-- specify 'VPCZoneIdentifier' and 'AvailabilityZones', ensure that the
 -- Availability Zones of the subnets match the values for
--- @AvailabilityZones@.
+-- 'AvailabilityZones'.
 asgVPCZoneIdentifier :: Lens' AutoScalingGroup (Maybe Text)
 asgVPCZoneIdentifier =
     lens _asgVPCZoneIdentifier (\s a -> s { _asgVPCZoneIdentifier = a })
@@ -1056,9 +1056,9 @@ scalingPolicy = ScalingPolicy
     , _sp1MinAdjustmentStep    = Nothing
     }
 
--- | Specifies whether the @ScalingAdjustment@ is an absolute number or a
--- percentage of the current capacity. Valid values are @ChangeInCapacity@,
--- @ExactCapacity@, and @PercentChangeInCapacity@.
+-- | Specifies whether the 'ScalingAdjustment' is an absolute number or a
+-- percentage of the current capacity. Valid values are 'ChangeInCapacity',
+-- 'ExactCapacity', and 'PercentChangeInCapacity'.
 sp1AdjustmentType :: Lens' ScalingPolicy (Maybe Text)
 sp1AdjustmentType =
     lens _sp1AdjustmentType (\s a -> s { _sp1AdjustmentType = a })
@@ -1077,7 +1077,7 @@ sp1AutoScalingGroupName =
 sp1Cooldown :: Lens' ScalingPolicy (Maybe Int)
 sp1Cooldown = lens _sp1Cooldown (\s a -> s { _sp1Cooldown = a })
 
--- | Changes the @DesiredCapacity@ of the Auto Scaling group by at least the
+-- | Changes the 'DesiredCapacity' of the Auto Scaling group by at least the
 -- specified number of instances.
 sp1MinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
 sp1MinAdjustmentStep =
@@ -1136,7 +1136,7 @@ instanceMonitoring = InstanceMonitoring
     { _imEnabled = Nothing
     }
 
--- | If @True@, instance monitoring is enabled.
+-- | If 'True', instance monitoring is enabled.
 imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
 imEnabled = lens _imEnabled (\s a -> s { _imEnabled = a })
 
@@ -1239,14 +1239,14 @@ sugaScheduledActionName =
     lens _sugaScheduledActionName (\s a -> s { _sugaScheduledActionName = a })
 
 -- | The time that the action is scheduled to begin. This value can be up to
--- one month in the future. When @StartTime@ and @EndTime@ are specified
--- with @Recurrence@, they form the boundaries of when the recurring action
+-- one month in the future. When 'StartTime' and 'EndTime' are specified
+-- with 'Recurrence', they form the boundaries of when the recurring action
 -- will start and stop.
 sugaStartTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaStartTime = lens _sugaStartTime (\s a -> s { _sugaStartTime = a }) . mapping _Time
 
--- | @Time@ is deprecated. The time that the action is scheduled to begin.
--- @Time@ is an alias for @StartTime@.
+-- | 'Time' is deprecated. The time that the action is scheduled to begin.
+-- 'Time' is an alias for 'StartTime'.
 sugaTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaTime = lens _sugaTime (\s a -> s { _sugaTime = a }) . mapping _Time
 
@@ -1353,7 +1353,7 @@ ebs = Ebs
     }
 
 -- | Indicates whether to delete the volume on instance termination. Default:
--- @true@.
+-- 'true'.
 ebsDeleteOnTermination :: Lens' Ebs (Maybe Bool)
 ebsDeleteOnTermination =
     lens _ebsDeleteOnTermination (\s a -> s { _ebsDeleteOnTermination = a })
@@ -1368,17 +1368,17 @@ ebsIops = lens _ebsIops (\s a -> s { _ebsIops = a }) . mapping _Nat
 ebsSnapshotId :: Lens' Ebs (Maybe Text)
 ebsSnapshotId = lens _ebsSnapshotId (\s a -> s { _ebsSnapshotId = a })
 
--- | The volume size, in gigabytes. Valid values: If the volume type is @io1@,
--- the minimum size of the volume is 10 GiB. If you specify @SnapshotId@ and
--- @VolumeSize@, @VolumeSize@ must be equal to or larger than the size of
+-- | The volume size, in gigabytes. Valid values: If the volume type is 'io1',
+-- the minimum size of the volume is 10 GiB. If you specify 'SnapshotId' and
+-- 'VolumeSize', 'VolumeSize' must be equal to or larger than the size of
 -- the snapshot. Default: If you create a volume from a snapshot and you
 -- don't specify a volume size, the default is the size of the snapshot.
--- Required: Required when the volume type is @io1@.
+-- Required: Required when the volume type is 'io1'.
 ebsVolumeSize :: Lens' Ebs (Maybe Natural)
 ebsVolumeSize = lens _ebsVolumeSize (\s a -> s { _ebsVolumeSize = a }) . mapping _Nat
 
--- | The volume type. Valid values: @standard | io1 | gp2@ Default:
--- @standard@.
+-- | The volume type. Valid values: 'standard | io1 | gp2' Default:
+-- 'standard'.
 ebsVolumeType :: Lens' Ebs (Maybe Text)
 ebsVolumeType = lens _ebsVolumeType (\s a -> s { _ebsVolumeType = a })
 
@@ -1414,8 +1414,8 @@ adjustmentType = AdjustmentType
     { _atAdjustmentType = Nothing
     }
 
--- | The policy adjustment type. The valid values are @ChangeInCapacity@,
--- @ExactCapacity@, and @PercentChangeInCapacity@. For more information, see
+-- | The policy adjustment type. The valid values are 'ChangeInCapacity',
+-- 'ExactCapacity', and 'PercentChangeInCapacity'. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html
 -- Dynamic Scaling> in the /Auto Scaling Developer Guide/.
 atAdjustmentType :: Lens' AdjustmentType (Maybe Text)
@@ -1512,18 +1512,18 @@ lhAutoScalingGroupName =
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The valid values
--- are @CONTINUE@ and @ABANDON@. The default value is @CONTINUE@.
+-- are 'CONTINUE' and 'ABANDON'. The default value is 'CONTINUE'.
 lhDefaultResult :: Lens' LifecycleHook (Maybe Text)
 lhDefaultResult = lens _lhDefaultResult (\s a -> s { _lhDefaultResult = a })
 
--- | The maximum length of time an instance can remain in a @Pending:Wait@ or
--- @Terminating:Wait@ state. Currently, this value is set at 48 hours.
+-- | The maximum length of time an instance can remain in a 'Pending:Wait' or
+-- 'Terminating:Wait' state. Currently, this value is set at 48 hours.
 lhGlobalTimeout :: Lens' LifecycleHook (Maybe Int)
 lhGlobalTimeout = lens _lhGlobalTimeout (\s a -> s { _lhGlobalTimeout = a })
 
 -- | The amount of time that can elapse before the lifecycle hook times out.
 -- When the lifecycle hook times out, Auto Scaling performs the action
--- defined in the @DefaultResult@ parameter. You can prevent the lifecycle
+-- defined in the 'DefaultResult' parameter. You can prevent the lifecycle
 -- hook from timing out by calling 'RecordLifecycleActionHeartbeat'.
 lhHeartbeatTimeout :: Lens' LifecycleHook (Maybe Int)
 lhHeartbeatTimeout =
@@ -1797,8 +1797,8 @@ filter' p1 = Filter
     , _fValues = mempty
     }
 
--- | The name of the filter. The valid values are: @"auto-scaling-group"@,
--- @"key"@, @"value"@, and @"propagate-at-launch"@.
+-- | The name of the filter. The valid values are: '"auto-scaling-group"',
+-- '"key"', '"value"', and '"propagate-at-launch"'.
 fName :: Lens' Filter Text
 fName = lens _fName (\s a -> s { _fName = a })
 
@@ -1977,7 +1977,7 @@ iLaunchConfigurationName =
     lens _iLaunchConfigurationName
         (\s a -> s { _iLaunchConfigurationName = a })
 
--- | A description of the current lifecycle state. The @Quarantined@ lifecycle
+-- | A description of the current lifecycle state. The 'Quarantined' lifecycle
 -- state is not used.
 iLifecycleState :: Lens' Instance LifecycleState
 iLifecycleState = lens _iLifecycleState (\s a -> s { _iLifecycleState = a })

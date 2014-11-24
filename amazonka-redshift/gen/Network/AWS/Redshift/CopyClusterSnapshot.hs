@@ -92,7 +92,7 @@ ccsSourceSnapshotClusterIdentifier =
         (\s a -> s { _ccsSourceSnapshotClusterIdentifier = a })
 
 -- | The identifier for the source snapshot. Constraints: Must be the
--- identifier for a valid automated snapshot whose state is @available@.
+-- identifier for a valid automated snapshot whose state is 'available'.
 ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsSourceSnapshotIdentifier =
     lens _ccsSourceSnapshotIdentifier

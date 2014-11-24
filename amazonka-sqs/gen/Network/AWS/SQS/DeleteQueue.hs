@@ -22,7 +22,7 @@
 
 -- | Deletes the queue specified by the queue URL, regardless of whether the
 -- queue is empty. If the specified queue does not exist, Amazon SQS returns a
--- successful response. Use @DeleteQueue@ with care; once you delete your
+-- successful response. Use 'DeleteQueue' with care; once you delete your
 -- queue, any messages in the queue are no longer available. When you delete a
 -- queue, the deletion process takes up to 60 seconds. Requests you send
 -- involving that queue during the 60 seconds might succeed. For example, a

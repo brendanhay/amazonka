@@ -28,7 +28,7 @@
 -- Upon successful detection, Amazon SES will be able to DKIM-sign email
 -- originating from that domain. This action is throttled at one request per
 -- second. To enable or disable Easy DKIM signing for a domain, use the
--- @SetIdentityDkimEnabled@ action. For more information about creating DNS
+-- 'SetIdentityDkimEnabled' action. For more information about creating DNS
 -- records using DKIM tokens, go to the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html
 -- Amazon SES Developer Guide>.

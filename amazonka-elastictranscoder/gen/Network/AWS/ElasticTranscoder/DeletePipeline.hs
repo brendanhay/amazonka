@@ -23,7 +23,7 @@
 -- | The DeletePipeline operation removes a pipeline. You can only delete a
 -- pipeline that has never been used or that is not currently in use (doesn't
 -- contain any active jobs). If the pipeline is currently in use,
--- @DeletePipeline@ returns an error.
+-- 'DeletePipeline' returns an error.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePipeline.html>
 module Network.AWS.ElasticTranscoder.DeletePipeline

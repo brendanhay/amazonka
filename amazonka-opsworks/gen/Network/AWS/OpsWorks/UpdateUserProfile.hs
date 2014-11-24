@@ -96,8 +96,8 @@ uupSshPublicKey = lens _uupSshPublicKey (\s a -> s { _uupSshPublicKey = a })
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z],
 -- [0-9], '-', and '_'. If the specified name includes other punctuation
--- marks, AWS OpsWorks removes them. For example, @my.name@ will be changed
--- to @myname@. If you do not specify an SSH user name, AWS OpsWorks
+-- marks, AWS OpsWorks removes them. For example, 'my.name' will be changed
+-- to 'myname'. If you do not specify an SSH user name, AWS OpsWorks
 -- generates one from the IAM user name.
 uupSshUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSshUsername = lens _uupSshUsername (\s a -> s { _uupSshUsername = a })

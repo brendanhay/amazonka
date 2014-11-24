@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified Lambda function code and configuration. This
--- operation requires permission for the @lambda:DeleteFunction@ action.
+-- operation requires permission for the 'lambda:DeleteFunction' action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunction.html>
 module Network.AWS.Lambda.DeleteFunction

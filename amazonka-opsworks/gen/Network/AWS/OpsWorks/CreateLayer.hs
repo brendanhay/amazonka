@@ -172,7 +172,7 @@ clCustomInstanceProfileArn =
     lens _clCustomInstanceProfileArn
         (\s a -> s { _clCustomInstanceProfileArn = a })
 
--- | A @LayerCustomRecipes@ object that specifies the layer custom recipes.
+-- | A 'LayerCustomRecipes' object that specifies the layer custom recipes.
 clCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
 clCustomRecipes = lens _clCustomRecipes (\s a -> s { _clCustomRecipes = a })
 
@@ -189,10 +189,10 @@ clEnableAutoHealing =
     lens _clEnableAutoHealing (\s a -> s { _clEnableAutoHealing = a })
 
 -- | Whether to install operating system and package updates when the instance
--- boots. The default value is @true@. To control when updates are
--- installed, set this value to @false@. You must then update your instances
--- manually by using 'CreateDeployment' to run the @update_dependencies@
--- stack command or manually running @yum@ (Amazon Linux) or @apt-get@
+-- boots. The default value is 'true'. To control when updates are
+-- installed, set this value to 'false'. You must then update your instances
+-- manually by using 'CreateDeployment' to run the 'update_dependencies'
+-- stack command or manually running 'yum' (Amazon Linux) or 'apt-get'
 -- (Ubuntu) on the instances.
 clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clInstallUpdatesOnBoot =
@@ -202,7 +202,7 @@ clInstallUpdatesOnBoot =
 clName :: Lens' CreateLayer Text
 clName = lens _clName (\s a -> s { _clName = a })
 
--- | An array of @Package@ objects that describe the layer packages.
+-- | An array of 'Package' objects that describe the layer packages.
 clPackages :: Lens' CreateLayer [Text]
 clPackages = lens _clPackages (\s a -> s { _clPackages = a }) . _List
 
@@ -234,7 +234,7 @@ clUseEbsOptimizedInstances =
     lens _clUseEbsOptimizedInstances
         (\s a -> s { _clUseEbsOptimizedInstances = a })
 
--- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS
+-- | A 'VolumeConfigurations' object that describes the layer's Amazon EBS
 -- volumes.
 clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
 clVolumeConfigurations =

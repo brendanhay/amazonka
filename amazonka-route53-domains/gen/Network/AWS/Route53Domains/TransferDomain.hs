@@ -137,9 +137,9 @@ transferDomain p1 p2 p3 p4 p5 = TransferDomain
     }
 
 -- | Provides detailed contact information. Type: Complex Children:
--- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
--- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
--- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@ Required: Yes.
+-- 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName',
+-- 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode',
+-- 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams' Required: Yes.
 tdAdminContact :: Lens' TransferDomain ContactDetail
 tdAdminContact = lens _tdAdminContact (\s a -> s { _tdAdminContact = a })
 
@@ -150,7 +150,7 @@ tdAuthCode = lens _tdAuthCode (\s a -> s { _tdAuthCode = a }) . mapping _Sensiti
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
 -- (false). Autorenewal only takes effect after the account is charged.
--- Type: Boolean Valid values: @true@ | @false@ Default: true Required: No.
+-- Type: Boolean Valid values: 'true' | 'false' Default: true Required: No.
 tdAutoRenew :: Lens' TransferDomain (Maybe Bool)
 tdAutoRenew = lens _tdAutoRenew (\s a -> s { _tdAutoRenew = a })
 
@@ -175,15 +175,15 @@ tdIdnLangCode :: Lens' TransferDomain (Maybe Text)
 tdIdnLangCode = lens _tdIdnLangCode (\s a -> s { _tdIdnLangCode = a })
 
 -- | Contains details for the host and glue IP addresses. Type: Complex
--- Children: @GlueIps@, @Name@.
+-- Children: 'GlueIps', 'Name'.
 tdNameservers :: Lens' TransferDomain [Nameserver]
 tdNameservers = lens _tdNameservers (\s a -> s { _tdNameservers = a }) . _List
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS ("who is") queries will return contact
 -- information for our registrar partner, Gandi, instead of the contact
--- information that you enter. Type: Boolean Default: @true@ Valid values:
--- @true@ | @false@ Required: No.
+-- information that you enter. Type: Boolean Default: 'true' Valid values:
+-- 'true' | 'false' Required: No.
 tdPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectAdminContact =
     lens _tdPrivacyProtectAdminContact
@@ -192,8 +192,8 @@ tdPrivacyProtectAdminContact =
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS ("who is") queries will return contact
 -- information for our registrar partner, Gandi, instead of the contact
--- information that you enter. Type: Boolean Default: @true@ Valid values:
--- @true@ | @false@ Required: No.
+-- information that you enter. Type: Boolean Default: 'true' Valid values:
+-- 'true' | 'false' Required: No.
 tdPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectRegistrantContact =
     lens _tdPrivacyProtectRegistrantContact
@@ -202,25 +202,25 @@ tdPrivacyProtectRegistrantContact =
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS ("who is") queries will return contact
 -- information for our registrar partner, Gandi, instead of the contact
--- information that you enter. Type: Boolean Default: @true@ Valid values:
--- @true@ | @false@ Required: No.
+-- information that you enter. Type: Boolean Default: 'true' Valid values:
+-- 'true' | 'false' Required: No.
 tdPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectTechContact =
     lens _tdPrivacyProtectTechContact
         (\s a -> s { _tdPrivacyProtectTechContact = a })
 
 -- | Provides detailed contact information. Type: Complex Children:
--- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
--- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
--- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@ Required: Yes.
+-- 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName',
+-- 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode',
+-- 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams' Required: Yes.
 tdRegistrantContact :: Lens' TransferDomain ContactDetail
 tdRegistrantContact =
     lens _tdRegistrantContact (\s a -> s { _tdRegistrantContact = a })
 
 -- | Provides detailed contact information. Type: Complex Children:
--- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
--- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
--- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@ Required: Yes.
+-- 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName',
+-- 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode',
+-- 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams' Required: Yes.
 tdTechContact :: Lens' TransferDomain ContactDetail
 tdTechContact = lens _tdTechContact (\s a -> s { _tdTechContact = a })
 

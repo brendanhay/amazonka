@@ -21,19 +21,19 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets statistics for the specified metric. The maximum number of data points
--- returned from a single @GetMetricStatistics@ request is 1,440, wereas the
+-- returned from a single 'GetMetricStatistics' request is 1,440, wereas the
 -- maximum number of data points that can be queried is 50,850. If you make a
 -- request that generates more than 1,440 data points, Amazon CloudWatch
 -- returns an error. In such a case, you can alter the request by narrowing
 -- the specified time range or increasing the specified period. Alternatively,
 -- you can make multiple requests across adjacent time ranges. Amazon
--- CloudWatch aggregates data points based on the length of the @period@ that
+-- CloudWatch aggregates data points based on the length of the 'period' that
 -- you specify. For example, if you request statistics with a one-minute
 -- granularity, Amazon CloudWatch aggregates data points with time stamps that
 -- fall within the same one-minute period. In such a case, the data points
 -- queried can greatly outnumber the data points returned. The following
 -- examples show various statistics allowed by the data point query maximum of
--- 50,850 when you call @GetMetricStatistics@ on Amazon EC2 instances with
+-- 50,850 when you call 'GetMetricStatistics' on Amazon EC2 instances with
 -- detailed (one-minute) monitoring enabled: Statistics for up to 400
 -- instances for a span of one hour Statistics for up to 35 instances over a
 -- span of 24 hours Statistics for up to 2 instances over a span of 2 weeks
@@ -141,7 +141,7 @@ gmsMetricName = lens _gmsMetricName (\s a -> s { _gmsMetricName = a })
 gmsNamespace :: Lens' GetMetricStatistics Text
 gmsNamespace = lens _gmsNamespace (\s a -> s { _gmsNamespace = a })
 
--- | The granularity, in seconds, of the returned datapoints. @Period@ must be
+-- | The granularity, in seconds, of the returned datapoints. 'Period' must be
 -- at least 60 seconds and must be a multiple of 60. The default value is
 -- 60.
 gmsPeriod :: Lens' GetMetricStatistics Natural
@@ -157,7 +157,7 @@ gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a }) . _Time
 -- statistics returned by GetMetricStatistics, go to
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic
 -- Statistics> in the /Amazon CloudWatch Developer Guide/. Valid Values:
--- @Average | Sum | SampleCount | Maximum | Minimum@.
+-- 'Average | Sum | SampleCount | Maximum | Minimum'.
 gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
 gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a }) . _List1
 

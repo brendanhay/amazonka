@@ -101,8 +101,8 @@ adbsgiDBSecurityGroupName =
         (\s a -> s { _adbsgiDBSecurityGroupName = a })
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups,
--- @EC2SecurityGroupId@ must be provided. Otherwise, EC2SecurityGroupOwnerId
--- and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be
+-- 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId
+-- and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be
 -- provided.
 adbsgiEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiEC2SecurityGroupId =
@@ -110,8 +110,8 @@ adbsgiEC2SecurityGroupId =
         (\s a -> s { _adbsgiEC2SecurityGroupId = a })
 
 -- | Name of the EC2 security group to authorize. For VPC DB security groups,
--- @EC2SecurityGroupId@ must be provided. Otherwise, EC2SecurityGroupOwnerId
--- and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be
+-- 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId
+-- and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be
 -- provided.
 adbsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiEC2SecurityGroupName =
@@ -120,9 +120,9 @@ adbsgiEC2SecurityGroupName =
 
 -- | AWS Account Number of the owner of the EC2 security group specified in
 -- the EC2SecurityGroupName parameter. The AWS Access Key ID is not an
--- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
+-- acceptable value. For VPC DB security groups, 'EC2SecurityGroupId' must
 -- be provided. Otherwise, EC2SecurityGroupOwnerId and either
--- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+-- 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
 adbsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiEC2SecurityGroupOwnerId =
     lens _adbsgiEC2SecurityGroupOwnerId

@@ -73,19 +73,19 @@ describeInternetGateways = DescribeInternetGateways
 dig1DryRun :: Lens' DescribeInternetGateways (Maybe Bool)
 dig1DryRun = lens _dig1DryRun (\s a -> s { _dig1DryRun = a })
 
--- | One or more filters. @attachment.state@ - The current state of the
--- attachment between the gateway and the VPC (@available@). Present only if
--- a VPC is attached. @attachment.vpc-id@ - The ID of an attached VPC.
--- @internet-gateway-id@ - The ID of the Internet gateway.
--- @tag@:/key/=/value/ - The key/value combination of a tag assigned to the
--- resource. @tag-key@ - The key of a tag assigned to the resource. This
--- filter is independent of the @tag-value@ filter. For example, if you use
+-- | One or more filters. 'attachment.state' - The current state of the
+-- attachment between the gateway and the VPC ('available'). Present only if
+-- a VPC is attached. 'attachment.vpc-id' - The ID of an attached VPC.
+-- 'internet-gateway-id' - The ID of the Internet gateway.
+-- 'tag':/key/=/value/ - The key/value combination of a tag assigned to the
+-- resource. 'tag-key' - The key of a tag assigned to the resource. This
+-- filter is independent of the 'tag-value' filter. For example, if you use
 -- both the filter "tag-key=Purpose" and the filter "tag-value=X", you get
 -- any resources assigned both the tag key Purpose (regardless of what the
 -- tag's value is), and the tag value X (regardless of what the tag's key
 -- is). If you want to list only resources where Purpose is X, see the
--- @tag@:/key/=/value/ filter. @tag-value@ - The value of a tag assigned to
--- the resource. This filter is independent of the @tag-key@ filter.
+-- 'tag':/key/=/value/ filter. 'tag-value' - The value of a tag assigned to
+-- the resource. This filter is independent of the 'tag-key' filter.
 dig1Filters :: Lens' DescribeInternetGateways [Filter]
 dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a }) . _List
 

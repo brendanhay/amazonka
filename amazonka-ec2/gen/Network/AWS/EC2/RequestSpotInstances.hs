@@ -153,7 +153,7 @@ rsiLaunchSpecification =
 rsiSpotPrice :: Lens' RequestSpotInstances Text
 rsiSpotPrice = lens _rsiSpotPrice (\s a -> s { _rsiSpotPrice = a })
 
--- | The Spot Instance request type. Default: @one-time@.
+-- | The Spot Instance request type. Default: 'one-time'.
 rsiType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
 rsiType = lens _rsiType (\s a -> s { _rsiType = a })
 

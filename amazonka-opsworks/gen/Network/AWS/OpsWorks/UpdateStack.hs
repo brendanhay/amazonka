@@ -149,7 +149,7 @@ updateStack p1 = UpdateStack
 usAttributes :: Lens' UpdateStack (HashMap StackAttributesKeys Text)
 usAttributes = lens _usAttributes (\s a -> s { _usAttributes = a }) . _Map
 
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html
 -- Create a New Stack>.
@@ -171,7 +171,7 @@ usCustomCookbooksSource =
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as
--- '"'.: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@ For more
+-- '"'.: '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"' For more
 -- information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html
 -- Use Custom JSON to Modify the Stack Configuration JSON>.
@@ -181,7 +181,7 @@ usCustomJson = lens _usCustomJson (\s a -> s { _usCustomJson = a })
 -- | The stack's default Availability Zone, which must be in the specified
 -- region. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
--- Endpoints>. If you also specify a value for @DefaultSubnetId@, the subnet
+-- Endpoints>. If you also specify a value for 'DefaultSubnetId', the subnet
 -- must be in the same zone. For more information, see 'CreateStack'.
 usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usDefaultAvailabilityZone =
@@ -197,8 +197,8 @@ usDefaultInstanceProfileArn =
     lens _usDefaultInstanceProfileArn
         (\s a -> s { _usDefaultInstanceProfileArn = a })
 
--- | The stack's default operating system, which must be set to @Amazon Linux@
--- or @Ubuntu 12.04 LTS@. The default option is @Amazon Linux@.
+-- | The stack's default operating system, which must be set to 'Amazon Linux'
+-- or 'Ubuntu 12.04 LTS'. The default option is 'Amazon Linux'.
 usDefaultOs :: Lens' UpdateStack (Maybe Text)
 usDefaultOs = lens _usDefaultOs (\s a -> s { _usDefaultOs = a })
 
@@ -219,7 +219,7 @@ usDefaultSshKeyName =
 
 -- | The stack's default subnet ID. All instances will be launched into this
 -- subnet unless you specify otherwise when you create the instance. If you
--- also specify a value for @DefaultAvailabilityZone@, the subnet must be in
+-- also specify a value for 'DefaultAvailabilityZone', the subnet must be in
 -- that zone. For more information, see 'CreateStack'.
 usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usDefaultSubnetId =
@@ -227,12 +227,12 @@ usDefaultSubnetId =
 
 -- | The stack's new host name theme, with spaces are replaced by underscores.
 -- The theme is used to generate host names for the stack's instances. By
--- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+-- default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host
 -- names by appending integers to the layer's short name. The other themes
--- are: @Baked_Goods@ @Clouds@ @European_Cities@ @Fruits@ @Greek_Deities@
--- @Legendary_Creatures_from_Japan@ @Planets_and_Moons@ @Roman_Deities@
--- @Scottish_Islands@ @US_Cities@ @Wild_Cats@ To obtain a generated host
--- name, call @GetHostNameSuggestion@, which returns a host name based on
+-- are: 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities'
+-- 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities'
+-- 'Scottish_Islands' 'US_Cities' 'Wild_Cats' To obtain a generated host
+-- name, call 'GetHostNameSuggestion', which returns a host name based on
 -- the current theme.
 usHostnameTheme :: Lens' UpdateStack (Maybe Text)
 usHostnameTheme = lens _usHostnameTheme (\s a -> s { _usHostnameTheme = a })
@@ -262,8 +262,8 @@ usUseCustomCookbooks =
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack's layers. AWS OpsWorks provides a standard set of built-in security
 -- groups, one for each layer, which are associated with layers by default.
--- @UseOpsworksSecurityGroups@ allows you to instead provide your own custom
--- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+-- 'UseOpsworksSecurityGroups' allows you to instead provide your own custom
+-- security groups. 'UseOpsworksSecurityGroups' has the following settings:
 -- True - AWS OpsWorks automatically associates the appropriate built-in
 -- security group with each layer (default setting). You can associate
 -- additional security groups with a layer after you create it but you

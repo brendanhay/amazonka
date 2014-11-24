@@ -86,7 +86,7 @@ cdbsg1DBSubnetGroupDescription =
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric
--- characters or hyphens. Must not be "Default". Example: @mySubnetgroup@.
+-- characters or hyphens. Must not be "Default". Example: 'mySubnetgroup'.
 cdbsg1DBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
 cdbsg1DBSubnetGroupName =
     lens _cdbsg1DBSubnetGroupName (\s a -> s { _cdbsg1DBSubnetGroupName = a })

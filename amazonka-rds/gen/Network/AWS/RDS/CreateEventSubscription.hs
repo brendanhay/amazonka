@@ -135,10 +135,10 @@ cesSnsTopicArn = lens _cesSnsTopicArn (\s a -> s { _cesSnsTopicArn = a })
 -- ASCII letters, digits, and hyphens; it cannot end with a hyphen or
 -- contain two consecutive hyphens. Constraints: If SourceIds are supplied,
 -- SourceType must also be provided. If the source type is a DB instance,
--- then a @DBInstanceIdentifier@ must be supplied. If the source type is a
--- DB security group, a @DBSecurityGroupName@ must be supplied. If the
--- source type is a DB parameter group, a @DBParameterGroupName@ must be
--- supplied. If the source type is a DB snapshot, a @DBSnapshotIdentifier@
+-- then a 'DBInstanceIdentifier' must be supplied. If the source type is a
+-- DB security group, a 'DBSecurityGroupName' must be supplied. If the
+-- source type is a DB parameter group, a 'DBParameterGroupName' must be
+-- supplied. If the source type is a DB snapshot, a 'DBSnapshotIdentifier'
 -- must be supplied.
 cesSourceIds :: Lens' CreateEventSubscription [Text]
 cesSourceIds = lens _cesSourceIds (\s a -> s { _cesSourceIds = a }) . _List

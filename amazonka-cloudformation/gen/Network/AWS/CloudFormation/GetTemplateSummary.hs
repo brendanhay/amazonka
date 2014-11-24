@@ -21,13 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns information about a new or existing template. The
--- @GetTemplateSummary@ action is useful for viewing parameter information,
+-- 'GetTemplateSummary' action is useful for viewing parameter information,
 -- such as default parameter values and parameter types, before you create or
--- update a stack. You can use the @GetTemplateSummary@ action when you submit
+-- update a stack. You can use the 'GetTemplateSummary' action when you submit
 -- a template, or you can get template information for a running or deleted
--- stack. For deleted stacks, @GetTemplateSummary@ returns the template
+-- stack. For deleted stacks, 'GetTemplateSummary' returns the template
 -- information for up to 90 days after the stack has been deleted. If the
--- template does not exist, a @ValidationError@ is returned.
+-- template does not exist, a 'ValidationError' is returned.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html>
 module Network.AWS.CloudFormation.GetTemplateSummary
@@ -85,7 +85,7 @@ getTemplateSummary = GetTemplateSummary
 -- not always interchangeable. For running stacks, you can specify either
 -- the stack's name or its unique stack ID. For deleted stack, you must
 -- specify the unique stack ID. Conditional: You must specify only one of
--- the following parameters: @StackName@, @TemplateBody@, or @TemplateURL@.
+-- the following parameters: 'StackName', 'TemplateBody', or 'TemplateURL'.
 gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
 gtsStackName = lens _gtsStackName (\s a -> s { _gtsStackName = a })
 
@@ -94,8 +94,8 @@ gtsStackName = lens _gtsStackName (\s a -> s { _gtsStackName = a })
 -- templates, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 -- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
--- must specify only one of the following parameters: @StackName@,
--- @TemplateBody@, or @TemplateURL@.
+-- must specify only one of the following parameters: 'StackName',
+-- 'TemplateBody', or 'TemplateURL'.
 gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateBody = lens _gtsTemplateBody (\s a -> s { _gtsTemplateBody = a })
 
@@ -104,8 +104,8 @@ gtsTemplateBody = lens _gtsTemplateBody (\s a -> s { _gtsTemplateBody = a })
 -- more information about templates, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 -- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
--- must specify only one of the following parameters: @StackName@,
--- @TemplateBody@, or @TemplateURL@.
+-- must specify only one of the following parameters: 'StackName',
+-- 'TemplateBody', or 'TemplateURL'.
 gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\s a -> s { _gtsTemplateURL = a })
 
@@ -154,7 +154,7 @@ gtsrCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrCapabilitiesReason =
     lens _gtsrCapabilitiesReason (\s a -> s { _gtsrCapabilitiesReason = a })
 
--- | The value that is defined in the @Description@ property of the template.
+-- | The value that is defined in the 'Description' property of the template.
 gtsrDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrDescription = lens _gtsrDescription (\s a -> s { _gtsrDescription = a })
 

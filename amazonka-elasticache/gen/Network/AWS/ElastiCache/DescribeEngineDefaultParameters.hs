@@ -73,7 +73,7 @@ describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     }
 
 -- | The name of the cache parameter group family. Valid values are:
--- @memcached1.4@ | @redis2.6@ | @redis2.8@.
+-- 'memcached1.4' | 'redis2.6' | 'redis2.8'.
 dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpCacheParameterGroupFamily =
     lens _dedpCacheParameterGroupFamily
@@ -87,7 +87,7 @@ dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified @MaxRecords@ value, a marker is included in the
+-- exist than the specified 'MaxRecords' value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)

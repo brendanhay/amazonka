@@ -92,9 +92,9 @@ putScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
     , _pspMinAdjustmentStep    = Nothing
     }
 
--- | Specifies whether the @ScalingAdjustment@ is an absolute number or a
--- percentage of the current capacity. Valid values are @ChangeInCapacity@,
--- @ExactCapacity@, and @PercentChangeInCapacity@. For more information, see
+-- | Specifies whether the 'ScalingAdjustment' is an absolute number or a
+-- percentage of the current capacity. Valid values are 'ChangeInCapacity',
+-- 'ExactCapacity', and 'PercentChangeInCapacity'. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html
 -- Dynamic Scaling> in the /Auto Scaling Developer Guide/.
 pspAdjustmentType :: Lens' PutScalingPolicy Text
@@ -114,11 +114,11 @@ pspAutoScalingGroupName =
 pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
 pspCooldown = lens _pspCooldown (\s a -> s { _pspCooldown = a })
 
--- | Used with @AdjustmentType@ with the value @PercentChangeInCapacity@, the
--- scaling policy changes the @DesiredCapacity@ of the Auto Scaling group by
+-- | Used with 'AdjustmentType' with the value 'PercentChangeInCapacity', the
+-- scaling policy changes the 'DesiredCapacity' of the Auto Scaling group by
 -- at least the number of instances specified in the value. You will get a
--- @ValidationError@ if you use @MinAdjustmentStep@ on a policy with an
--- @AdjustmentType@ other than @PercentChangeInCapacity@.
+-- 'ValidationError' if you use 'MinAdjustmentStep' on a policy with an
+-- 'AdjustmentType' other than 'PercentChangeInCapacity'.
 pspMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Int)
 pspMinAdjustmentStep =
     lens _pspMinAdjustmentStep (\s a -> s { _pspMinAdjustmentStep = a })
@@ -127,7 +127,7 @@ pspMinAdjustmentStep =
 pspPolicyName :: Lens' PutScalingPolicy Text
 pspPolicyName = lens _pspPolicyName (\s a -> s { _pspPolicyName = a })
 
--- | The number of instances by which to scale. @AdjustmentType@ determines
+-- | The number of instances by which to scale. 'AdjustmentType' determines
 -- the interpretation of this number (e.g., as an absolute number or as a
 -- percentage of the existing Auto Scaling group size). A positive increment
 -- adds to the current capacity and a negative value removes from the

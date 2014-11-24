@@ -22,7 +22,7 @@
 
 -- | Lists the names of the policies associated with the specified role. If
 -- there are none, the action returns an empty list. You can paginate the
--- results using the @MaxItems@ and @Marker@ parameters.
+-- results using the 'MaxItems' and 'Marker' parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolePolicies.html>
 module Network.AWS.IAM.ListRolePolicies
@@ -77,15 +77,15 @@ listRolePolicies p1 = ListRolePolicies
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
--- Set it to the value of the @Marker@ element in the response you just
+-- Set it to the value of the 'Marker' element in the response you just
 -- received.
 lrpMarker :: Lens' ListRolePolicies (Maybe Text)
 lrpMarker = lens _lrpMarker (\s a -> s { _lrpMarker = a })
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of role policies you want in the response. If there are additional
--- role policies beyond the maximum you specify, the @IsTruncated@ response
--- element is @true@. This parameter is optional. If you do not include it,
+-- role policies beyond the maximum you specify, the 'IsTruncated' response
+-- element is 'true'. This parameter is optional. If you do not include it,
 -- it defaults to 100.
 lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
 lrpMaxItems = lens _lrpMaxItems (\s a -> s { _lrpMaxItems = a }) . mapping _Nat
@@ -119,13 +119,13 @@ listRolePoliciesResponse = ListRolePoliciesResponse
 
 -- | A flag that indicates whether there are more policy names to list. If
 -- your results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more policy names in the
+-- using the 'Marker' request parameter to retrieve more policy names in the
 -- list.
 lrprIsTruncated :: Lens' ListRolePoliciesResponse (Maybe Bool)
 lrprIsTruncated = lens _lrprIsTruncated (\s a -> s { _lrprIsTruncated = a })
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | If 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lrprMarker :: Lens' ListRolePoliciesResponse (Maybe Text)
 lrprMarker = lens _lrprMarker (\s a -> s { _lrprMarker = a })

@@ -111,8 +111,8 @@ mniaNetworkInterfaceId =
     lens _mniaNetworkInterfaceId (\s a -> s { _mniaNetworkInterfaceId = a })
 
 -- | Indicates whether source/destination checking is enabled. A value of
--- @true@ means checking is enabled, and @false@ means checking is disabled.
--- This value must be @false@ for a NAT instance to perform NAT. For more
+-- 'true' means checking is enabled, and 'false' means checking is disabled.
+-- This value must be 'false' for a NAT instance to perform NAT. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html
 -- NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.

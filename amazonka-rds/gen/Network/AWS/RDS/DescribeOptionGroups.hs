@@ -104,12 +104,12 @@ dogMajorEngineVersion =
 
 -- | An optional pagination token provided by a previous DescribeOptionGroups
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
+-- records beyond the marker, up to the value specified by 'MaxRecords'.
 dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
 dogMarker = lens _dogMarker (\s a -> s { _dogMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified @MaxRecords@ value, a pagination token called a
+-- exist than the specified 'MaxRecords' value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
@@ -142,7 +142,7 @@ describeOptionGroupsResponse = DescribeOptionGroupsResponse
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 dogrMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
 dogrMarker = lens _dogrMarker (\s a -> s { _dogrMarker = a })
 

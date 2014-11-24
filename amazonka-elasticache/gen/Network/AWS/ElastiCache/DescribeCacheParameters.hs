@@ -93,14 +93,14 @@ dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\s a -> s { _dcpMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified @MaxRecords@ value, a marker is included in the
+-- exist than the specified 'MaxRecords' value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 dcpMaxRecords :: Lens' DescribeCacheParameters (Maybe Int)
 dcpMaxRecords = lens _dcpMaxRecords (\s a -> s { _dcpMaxRecords = a })
 
--- | The parameter types to return. Valid values: @user@ | @system@ |
--- @engine-default@.
+-- | The parameter types to return. Valid values: 'user' | 'system' |
+-- 'engine-default'.
 dcpSource :: Lens' DescribeCacheParameters (Maybe Text)
 dcpSource = lens _dcpSource (\s a -> s { _dcpSource = a })
 

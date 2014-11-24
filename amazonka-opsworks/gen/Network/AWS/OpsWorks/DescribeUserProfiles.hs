@@ -95,7 +95,7 @@ describeUserProfilesResponse = DescribeUserProfilesResponse
     { _duprUserProfiles = mempty
     }
 
--- | A @Users@ object that describes the specified users.
+-- | A 'Users' object that describes the specified users.
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprUserProfiles = lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a }) . _List
 

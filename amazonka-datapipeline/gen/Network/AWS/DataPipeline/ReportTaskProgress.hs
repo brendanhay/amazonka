@@ -27,7 +27,7 @@
 -- window, it will assign the task in a subsequent 'PollForTask' call. After
 -- this initial acknowledgement, the task runner only needs to report progress
 -- every 15 minutes to maintain its ownership of the task. You can change this
--- reporting time from 15 minutes by specifying a @reportProgressTimeout@
+-- reporting time from 15 minutes by specifying a 'reportProgressTimeout'
 -- field in your pipeline. If a task runner does not report its status after 5
 -- minutes, AWS Data Pipeline will assume that the task runner is unable to
 -- process the task and will reassign the task in a subsequent response to
@@ -95,7 +95,7 @@ reportTaskProgressResponse p1 = ReportTaskProgressResponse
     { _rtprCanceled = p1
     }
 
--- | If @True@, the calling task runner should cancel processing of the task.
+-- | If 'True', the calling task runner should cancel processing of the task.
 -- The task runner does not need to call 'SetTaskStatus' for canceled tasks.
 rtprCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprCanceled = lens _rtprCanceled (\s a -> s { _rtprCanceled = a })

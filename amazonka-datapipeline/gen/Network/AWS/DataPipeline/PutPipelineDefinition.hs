@@ -111,7 +111,7 @@ putPipelineDefinitionResponse p1 = PutPipelineDefinitionResponse
     , _ppdrValidationWarnings = mempty
     }
 
--- | If @True@, there were validation errors. If errored is @True@, the
+-- | If 'True', there were validation errors. If errored is 'True', the
 -- pipeline definition is stored but cannot be activated until you correct
 -- the pipeline and call 'PutPipelineDefinition' to commit the corrected
 -- pipeline.
@@ -119,14 +119,14 @@ ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrErrored = lens _ppdrErrored (\s a -> s { _ppdrErrored = a })
 
 -- | A list of the validation errors that are associated with the objects
--- defined in @pipelineObjects@.
+-- defined in 'pipelineObjects'.
 ppdrValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
 ppdrValidationErrors =
     lens _ppdrValidationErrors (\s a -> s { _ppdrValidationErrors = a })
         . _List
 
 -- | A list of the validation warnings that are associated with the objects
--- defined in @pipelineObjects@.
+-- defined in 'pipelineObjects'.
 ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
 ppdrValidationWarnings =
     lens _ppdrValidationWarnings (\s a -> s { _ppdrValidationWarnings = a })

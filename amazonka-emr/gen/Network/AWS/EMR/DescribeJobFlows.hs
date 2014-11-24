@@ -30,7 +30,7 @@
 -- supplied, then job flows matching either of the following criteria are
 -- returned: Job flows created and completed in the last two weeks Job flows
 -- created within the last two months that are in one of the following states:
--- @RUNNING@, @WAITING@, @SHUTTING_DOWN@, @STARTING@ Amazon Elastic MapReduce
+-- 'RUNNING', 'WAITING', 'SHUTTING_DOWN', 'STARTING' Amazon Elastic MapReduce
 -- can return a maximum of 512 job flow descriptions.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeJobFlows.html>

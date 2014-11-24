@@ -87,7 +87,7 @@ gaAttributeNames :: Lens' GetAttributes [Text]
 gaAttributeNames = lens _gaAttributeNames (\s a -> s { _gaAttributeNames = a }) . _List
 
 -- | Determines whether or not strong consistency should be enforced when data
--- is read from SimpleDB. If @true@, any data previously written to SimpleDB
+-- is read from SimpleDB. If 'true', any data previously written to SimpleDB
 -- will be returned. Otherwise, results will be consistent eventually, and
 -- the client may not see data that was written immediately before your
 -- read.

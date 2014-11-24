@@ -21,13 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This action disassociates a VPC from an hosted zone. To disassociate a VPC
--- to a hosted zone, send a @POST@ request to the
--- @2013-04-01/hostedzone//hosted zone ID//disassociatevpc resource. The
+-- to a hosted zone, send a 'POST' request to the
+-- '2013-04-01/hostedzone//hosted zone ID//disassociatevpc resource. The
 -- request body must include an XML document with a
--- @DisassociateVPCFromHostedZoneRequest@ element. The response returns the
--- @DisassociateVPCFromHostedZoneResponse@ element that contains @ChangeInfo@
--- for you to track the progress of the @DisassociateVPCFromHostedZoneRequest@
--- you made. See @GetChange@ operation for how to track the progress of your
+-- 'DisassociateVPCFromHostedZoneRequest' element. The response returns the
+-- 'DisassociateVPCFromHostedZoneResponse' element that contains 'ChangeInfo'
+-- for you to track the progress of the 'DisassociateVPCFromHostedZoneRequest'
+-- you made. See 'GetChange' operation for how to track the progress of your
 -- change.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.html>
@@ -81,7 +81,7 @@ disassociateVPCFromHostedZone p1 p2 = DisassociateVPCFromHostedZone
     }
 
 -- | /Optional:/ Any comments you want to include about a
--- @DisassociateVPCFromHostedZoneRequest@.
+-- 'DisassociateVPCFromHostedZoneRequest'.
 dvpcfhzComment :: Lens' DisassociateVPCFromHostedZone (Maybe Text)
 dvpcfhzComment = lens _dvpcfhzComment (\s a -> s { _dvpcfhzComment = a })
 
@@ -112,7 +112,7 @@ disassociateVPCFromHostedZoneResponse p1 = DisassociateVPCFromHostedZoneResponse
     }
 
 -- | A complex type that contains the ID, the status, and the date and time of
--- your @DisassociateVPCFromHostedZoneRequest@.
+-- your 'DisassociateVPCFromHostedZoneRequest'.
 dvpcfhzrChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvpcfhzrChangeInfo =
     lens _dvpcfhzrChangeInfo (\s a -> s { _dvpcfhzrChangeInfo = a })

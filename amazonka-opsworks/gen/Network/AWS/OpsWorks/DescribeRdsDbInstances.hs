@@ -98,7 +98,7 @@ describeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drdirRdsDbInstances = mempty
     }
 
--- | An a array of @RdsDbInstance@ objects that describe the instances.
+-- | An a array of 'RdsDbInstance' objects that describe the instances.
 drdirRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]
 drdirRdsDbInstances =
     lens _drdirRdsDbInstances (\s a -> s { _drdirRdsDbInstances = a })

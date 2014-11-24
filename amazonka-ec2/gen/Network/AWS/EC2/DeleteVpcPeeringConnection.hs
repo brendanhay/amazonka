@@ -22,8 +22,8 @@
 
 -- | Deletes a VPC peering connection. Either the owner of the requester VPC or
 -- the owner of the peer VPC can delete the VPC peering connection if it's in
--- the @active@ state. The owner of the requester VPC can delete a VPC peering
--- connection in the @pending-acceptance@ state.
+-- the 'active' state. The owner of the requester VPC can delete a VPC peering
+-- connection in the 'pending-acceptance' state.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpcPeeringConnection.html>
 module Network.AWS.EC2.DeleteVpcPeeringConnection
@@ -93,7 +93,7 @@ deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn = Nothing
     }
 
--- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- | Returns 'true' if the request succeeds; otherwise, it returns an error.
 dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\s a -> s { _dvpcrReturn = a })
 

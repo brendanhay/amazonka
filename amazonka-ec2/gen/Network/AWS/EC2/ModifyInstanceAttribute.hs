@@ -138,9 +138,9 @@ modifyInstanceAttribute p1 = ModifyInstanceAttribute
 mia1Attribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
 mia1Attribute = lens _mia1Attribute (\s a -> s { _mia1Attribute = a })
 
--- | Modifies the @DeleteOnTermination@ attribute for volumes that are
+-- | Modifies the 'DeleteOnTermination' attribute for volumes that are
 -- currently attached. The volume must be owned by the caller. If no value
--- is specified for @DeleteOnTermination@, the default is @true@ and the
+-- is specified for 'DeleteOnTermination', the default is 'true' and the
 -- volume is deleted when the instance is terminated. To add instance store
 -- volumes to an Amazon EBS-backed instance, you must add them when you
 -- launch the instance. For more information, see
@@ -152,7 +152,7 @@ mia1BlockDeviceMappings =
     lens _mia1BlockDeviceMappings (\s a -> s { _mia1BlockDeviceMappings = a })
         . _List
 
--- | If the value is @true@, you can't terminate the instance using the Amazon
+-- | If the value is 'true', you can't terminate the instance using the Amazon
 -- EC2 console, CLI, or API; otherwise, you can.
 mia1DisableApiTermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mia1DisableApiTermination =
@@ -174,8 +174,8 @@ mia1EbsOptimized = lens _mia1EbsOptimized (\s a -> s { _mia1EbsOptimized = a })
 -- at least one security group, even if it's just the default security group
 -- for the VPC. You must specify the security group ID, not the security
 -- group name. For example, if you want the instance to be in sg-1a1a1a1a
--- and sg-9b9b9b9b, specify @GroupId.1=sg-1a1a1a1a@ and
--- @GroupId.2=sg-9b9b9b9b@.
+-- and sg-9b9b9b9b, specify 'GroupId.1=sg-1a1a1a1a' and
+-- 'GroupId.2=sg-9b9b9b9b'.
 mia1Groups :: Lens' ModifyInstanceAttribute [Text]
 mia1Groups = lens _mia1Groups (\s a -> s { _mia1Groups = a }) . _List
 
@@ -195,7 +195,7 @@ mia1InstanceInitiatedShutdownBehavior =
 -- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
 -- Instance Types>. If the instance type is not valid, the error returned is
--- @InvalidInstanceAttributeValue@.
+-- 'InvalidInstanceAttributeValue'.
 mia1InstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1InstanceType = lens _mia1InstanceType (\s a -> s { _mia1InstanceType = a })
 
@@ -216,13 +216,13 @@ mia1Ramdisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1Ramdisk = lens _mia1Ramdisk (\s a -> s { _mia1Ramdisk = a })
 
 -- | Specifies whether source/destination checking is enabled. A value of
--- @true@ means that checking is enabled, and @false@ means checking is
--- disabled. This value must be @false@ for a NAT instance to perform NAT.
+-- 'true' means that checking is enabled, and 'false' means checking is
+-- disabled. This value must be 'false' for a NAT instance to perform NAT.
 mia1SourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mia1SourceDestCheck =
     lens _mia1SourceDestCheck (\s a -> s { _mia1SourceDestCheck = a })
 
--- | Set to @simple@ to enable enhanced networking for the instance. There is
+-- | Set to 'simple' to enable enhanced networking for the instance. There is
 -- no way to disable enhanced networking at this time. This option is
 -- supported only for HVM instances. Specifying this option with a PV
 -- instance can make it unreachable.
@@ -234,8 +234,8 @@ mia1SriovNetSupport =
 mia1UserData :: Lens' ModifyInstanceAttribute (Maybe BlobAttributeValue)
 mia1UserData = lens _mia1UserData (\s a -> s { _mia1UserData = a })
 
--- | A new value for the attribute. Use only with the @kernel@, @ramdisk@,
--- @userData@, @disableApiTermination@, or @intanceInitiateShutdownBehavior@
+-- | A new value for the attribute. Use only with the 'kernel', 'ramdisk',
+-- 'userData', 'disableApiTermination', or 'intanceInitiateShutdownBehavior'
 -- attribute.
 mia1Value :: Lens' ModifyInstanceAttribute (Maybe Text)
 mia1Value = lens _mia1Value (\s a -> s { _mia1Value = a })

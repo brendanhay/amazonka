@@ -97,7 +97,7 @@ createGrant p1 p2 = CreateGrant
     }
 
 -- | Specifies the conditions under which the actions specified by the
--- @Operations@ parameter are allowed.
+-- 'Operations' parameter are allowed.
 cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
 cgConstraints = lens _cgConstraints (\s a -> s { _cgConstraints = a })
 
@@ -106,7 +106,7 @@ cgGrantTokens :: Lens' CreateGrant [Text]
 cgGrantTokens = lens _cgGrantTokens (\s a -> s { _cgGrantTokens = a }) . _List
 
 -- | Principal given permission by the grant to use the key identified by the
--- @keyId@ parameter.
+-- 'keyId' parameter.
 cgGranteePrincipal :: Lens' CreateGrant Text
 cgGranteePrincipal =
     lens _cgGranteePrincipal (\s a -> s { _cgGranteePrincipal = a })

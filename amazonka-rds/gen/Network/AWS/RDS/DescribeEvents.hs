@@ -129,12 +129,12 @@ deFilters = lens _deFilters (\s a -> s { _deFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeEvents
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
+-- records beyond the marker, up to the value specified by 'MaxRecords'.
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified @MaxRecords@ value, a pagination token called a
+-- exist than the specified 'MaxRecords' value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
@@ -143,11 +143,11 @@ deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
 -- | The identifier of the event source for which events will be returned. If
 -- not specified, then all sources are included in the response.
 -- Constraints: If SourceIdentifier is supplied, SourceType must also be
--- provided. If the source type is @DBInstance@, then a
--- @DBInstanceIdentifier@ must be supplied. If the source type is
--- @DBSecurityGroup@, a @DBSecurityGroupName@ must be supplied. If the
--- source type is @DBParameterGroup@, a @DBParameterGroupName@ must be
--- supplied. If the source type is @DBSnapshot@, a @DBSnapshotIdentifier@
+-- provided. If the source type is 'DBInstance', then a
+-- 'DBInstanceIdentifier' must be supplied. If the source type is
+-- 'DBSecurityGroup', a 'DBSecurityGroupName' must be supplied. If the
+-- source type is 'DBParameterGroup', a 'DBParameterGroupName' must be
+-- supplied. If the source type is 'DBSnapshot', a 'DBSnapshotIdentifier'
 -- must be supplied. Cannot end with a hyphen or contain two consecutive
 -- hyphens.
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
@@ -191,7 +191,7 @@ derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 
 -- | An optional pagination token provided by a previous Events request. If
 -- this parameter is specified, the response includes only records beyond
--- the marker, up to the value specified by @MaxRecords@ .
+-- the marker, up to the value specified by 'MaxRecords' .
 derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 

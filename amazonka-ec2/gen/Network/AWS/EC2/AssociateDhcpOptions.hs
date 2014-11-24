@@ -79,7 +79,7 @@ associateDhcpOptions p1 p2 = AssociateDhcpOptions
     , _adoDryRun        = Nothing
     }
 
--- | The ID of the DHCP options set, or @default@ to associate no DHCP options
+-- | The ID of the DHCP options set, or 'default' to associate no DHCP options
 -- with the VPC.
 adoDhcpOptionsId :: Lens' AssociateDhcpOptions Text
 adoDhcpOptionsId = lens _adoDhcpOptionsId (\s a -> s { _adoDhcpOptionsId = a })

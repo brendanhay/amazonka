@@ -137,20 +137,20 @@ modifyReplicationGroup p1 = ModifyReplicationGroup
     , _mrgSnapshotWindow              = Nothing
     }
 
--- | If @true@, this parameter causes the modifications in this request and
+-- | If 'true', this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
 -- possible, regardless of the /PreferredMaintenanceWindow/ setting for the
--- replication group. If @false@, then changes to the nodes in the
+-- replication group. If 'false', then changes to the nodes in the
 -- replication group are applied on the next maintenance reboot, or the next
--- failure reboot, whichever occurs first. Valid values: @true@ | @false@
--- Default: @false@.
+-- failure reboot, whichever occurs first. Valid values: 'true' | 'false'
+-- Default: 'false'.
 mrgApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgApplyImmediately =
     lens _mrgApplyImmediately (\s a -> s { _mrgApplyImmediately = a })
 
 -- | Determines whether minor engine upgrades will be applied automatically to
 -- all of the clusters in the replication group during the maintenance
--- window. A value of @true@ allows these upgrades to occur; @false@
+-- window. A value of 'true' allows these upgrades to occur; 'false'
 -- disables automatic upgrades.
 mrgAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgAutoMinorVersionUpgrade =
@@ -159,7 +159,7 @@ mrgAutoMinorVersionUpgrade =
 
 -- | Whether a read replica will be automatically promoted to read/write
 -- primary if the existing primary encounters a failure. Valid values:
--- @true@ | @false@.
+-- 'true' | 'false'.
 mrgAutomaticFailoverEnabled :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgAutomaticFailoverEnabled =
     lens _mrgAutomaticFailoverEnabled
@@ -199,7 +199,7 @@ mrgNotificationTopicArn =
 
 -- | The status of the Amazon SNS notification topic for the replication
 -- group. Notifications are sent only if the status is /active/. Valid
--- values: @active@ | @inactive@.
+-- values: 'active' | 'inactive'.
 mrgNotificationTopicStatus :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgNotificationTopicStatus =
     lens _mrgNotificationTopicStatus
@@ -256,7 +256,7 @@ mrgSnapshotRetentionLimit =
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of the node group specified by /SnapshottingClusterId/.
--- Example: @05:00-09:00@ If you do not specify this parameter, then
+-- Example: '05:00-09:00' If you do not specify this parameter, then
 -- ElastiCache will automatically choose an appropriate time range.
 mrgSnapshotWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgSnapshotWindow =

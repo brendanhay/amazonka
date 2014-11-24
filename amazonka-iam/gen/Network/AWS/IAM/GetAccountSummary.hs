@@ -69,28 +69,28 @@ getAccountSummaryResponse = GetAccountSummaryResponse
     }
 
 -- | A set of key value pairs containing account-level information.
--- @SummaryMap@ contains the following keys: @AccessKeysPerUserQuota@ -
+-- 'SummaryMap' contains the following keys: 'AccessKeysPerUserQuota' -
 -- Maximum number of access keys that can be created per user
--- @AccountMFAEnabled@ - 1 if the root account has an MFA device assigned to
--- it, 0 otherwise @AssumeRolePolicySizeQuota@ - Maximum allowed size for
--- assume role policy documents (in kilobytes) @GroupPolicySizeQuota@ -
--- Maximum allowed size for Group policy documents (in kilobytes) @Groups@ -
--- Number of Groups for the AWS account @GroupsPerUserQuota@ - Maximum
--- number of groups an IAM user can belong to @GroupsQuota@ - Maximum groups
--- allowed for the AWS account @InstanceProfiles@ - Number of instance
--- profiles for the AWS account @InstanceProfilesQuota@ - Maximum instance
--- profiles allowed for the AWS account @MFADevices@ - Number of MFA
--- devices, either assigned or unassigned @MFADevicesInUse@ - Number of MFA
+-- 'AccountMFAEnabled' - 1 if the root account has an MFA device assigned to
+-- it, 0 otherwise 'AssumeRolePolicySizeQuota' - Maximum allowed size for
+-- assume role policy documents (in kilobytes) 'GroupPolicySizeQuota' -
+-- Maximum allowed size for Group policy documents (in kilobytes) 'Groups' -
+-- Number of Groups for the AWS account 'GroupsPerUserQuota' - Maximum
+-- number of groups an IAM user can belong to 'GroupsQuota' - Maximum groups
+-- allowed for the AWS account 'InstanceProfiles' - Number of instance
+-- profiles for the AWS account 'InstanceProfilesQuota' - Maximum instance
+-- profiles allowed for the AWS account 'MFADevices' - Number of MFA
+-- devices, either assigned or unassigned 'MFADevicesInUse' - Number of MFA
 -- devices that have been assigned to an IAM user or to the root account
--- @RolePolicySizeQuota@ - Maximum allowed size for role policy documents
--- (in kilobytes) @Roles@ - Number of roles for the AWS account @RolesQuota@
--- - Maximum roles allowed for the AWS account @ServerCertificates@ - Number
--- of server certificates for the AWS account @ServerCertificatesQuota@ -
+-- 'RolePolicySizeQuota' - Maximum allowed size for role policy documents
+-- (in kilobytes) 'Roles' - Number of roles for the AWS account 'RolesQuota'
+-- - Maximum roles allowed for the AWS account 'ServerCertificates' - Number
+-- of server certificates for the AWS account 'ServerCertificatesQuota' -
 -- Maximum server certificates allowed for the AWS account
--- @SigningCertificatesPerUserQuota@ - Maximum number of X509 certificates
--- allowed for a user @UserPolicySizeQuota@ - Maximum allowed size for user
--- policy documents (in kilobytes) @Users@ - Number of users for the AWS
--- account @UsersQuota@ - Maximum users allowed for the AWS account.
+-- 'SigningCertificatesPerUserQuota' - Maximum number of X509 certificates
+-- allowed for a user 'UserPolicySizeQuota' - Maximum allowed size for user
+-- policy documents (in kilobytes) 'Users' - Number of users for the AWS
+-- account 'UsersQuota' - Maximum users allowed for the AWS account.
 gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a }) . _EMap
 

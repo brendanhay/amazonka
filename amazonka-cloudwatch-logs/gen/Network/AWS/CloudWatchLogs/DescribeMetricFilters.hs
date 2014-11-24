@@ -23,9 +23,9 @@
 -- | Returns all the metrics filters associated with the specified log group.
 -- The list returned in the response is ASCII-sorted by filter name. By
 -- default, this operation returns up to 50 metric filters. If there are more
--- metric filters to list, the response would contain a @nextToken@ value in
+-- metric filters to list, the response would contain a 'nextToken' value in
 -- the response body. You can also limit the number of metric filters returned
--- in the response by specifying the @limit@ parameter in the request.
+-- in the response by specifying the 'limit' parameter in the request.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html>
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
@@ -96,7 +96,7 @@ dmfLogGroupName = lens _dmfLogGroupName (\s a -> s { _dmfLogGroupName = a })
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
--- @DescribeMetricFilters@ request.
+-- 'DescribeMetricFilters' request.
 dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
 dmfNextToken = lens _dmfNextToken (\s a -> s { _dmfNextToken = a })
 

@@ -68,18 +68,18 @@ setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributes
     }
 
 -- | A map of the platform application attributes. Attributes in this map
--- include the following: @PlatformCredential@ -- The credential received
+-- include the following: 'PlatformCredential' -- The credential received
 -- from the notification service. For APNS/APNS_SANDBOX, PlatformCredential
 -- is "private key". For GCM, PlatformCredential is "API key". For ADM,
--- PlatformCredential is "client secret". @PlatformPrincipal@ -- The
+-- PlatformCredential is "client secret". 'PlatformPrincipal' -- The
 -- principal received from the notification service. For APNS/APNS_SANDBOX,
 -- PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not
 -- applicable. For ADM, PlatformPrincipal is "client id".
--- @EventEndpointCreated@ -- Topic ARN to which EndpointCreated event
--- notifications should be sent. @EventEndpointDeleted@ -- Topic ARN to
+-- 'EventEndpointCreated' -- Topic ARN to which EndpointCreated event
+-- notifications should be sent. 'EventEndpointDeleted' -- Topic ARN to
 -- which EndpointDeleted event notifications should be sent.
--- @EventEndpointUpdated@ -- Topic ARN to which EndpointUpdate event
--- notifications should be sent. @EventDeliveryFailure@ -- Topic ARN to
+-- 'EventEndpointUpdated' -- Topic ARN to which EndpointUpdate event
+-- notifications should be sent. 'EventDeliveryFailure' -- Topic ARN to
 -- which DeliveryFailure event notifications should be sent upon Direct
 -- Publish delivery failure (permanent) to one of the application's
 -- endpoints.

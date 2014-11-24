@@ -23,7 +23,7 @@
 -- | Returns the template body for a specified stack. You can get the template
 -- for running or deleted stacks. For deleted stacks, GetTemplate returns the
 -- template for up to 90 days after the stack has been deleted. If the
--- template does not exist, a @ValidationError@ is returned.
+-- template does not exist, a 'ValidationError' is returned.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html>
 module Network.AWS.CloudFormation.GetTemplate

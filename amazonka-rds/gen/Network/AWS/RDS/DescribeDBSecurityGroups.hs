@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a list of @DBSecurityGroup@ descriptions. If a
--- @DBSecurityGroupName@ is specified, the list will contain only the
+-- | Returns a list of 'DBSecurityGroup' descriptions. If a
+-- 'DBSecurityGroupName' is specified, the list will contain only the
 -- descriptions of the specified DB security group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSecurityGroups.html>
@@ -91,12 +91,12 @@ ddbsg1Filters = lens _ddbsg1Filters (\s a -> s { _ddbsg1Filters = a }) . _List
 -- | An optional pagination token provided by a previous
 -- DescribeDBSecurityGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
+-- specified by 'MaxRecords'.
 ddbsg1Marker :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsg1Marker = lens _ddbsg1Marker (\s a -> s { _ddbsg1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified @MaxRecords@ value, a pagination token called a
+-- exist than the specified 'MaxRecords' value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbsg1MaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Int)
@@ -129,7 +129,7 @@ ddbsgr1DBSecurityGroups =
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 ddbsgr1Marker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgr1Marker = lens _ddbsgr1Marker (\s a -> s { _ddbsgr1Marker = a })
 

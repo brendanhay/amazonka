@@ -703,9 +703,9 @@ jfdSupportedProducts =
         . _List
 
 -- | Specifies whether the job flow is visible to all IAM users of the AWS
--- account associated with the job flow. If this value is set to @true@, all
+-- account associated with the job flow. If this value is set to 'true', all
 -- IAM users of that AWS account can view and (if they have the proper
--- policy permissions set) manage the job flow. If it is set to @false@,
+-- policy permissions set) manage the job flow. If it is set to 'false',
 -- only the IAM user that created the job flow can view and manage it. This
 -- value can be changed using the 'SetVisibleToAllUsers' action.
 jfdVisibleToAllUsers :: Lens' JobFlowDetail (Maybe Bool)
@@ -1348,9 +1348,9 @@ c1TerminationProtected =
     lens _c1TerminationProtected (\s a -> s { _c1TerminationProtected = a })
 
 -- | Indicates whether the job flow is visible to all IAM users of the AWS
--- account associated with the job flow. If this value is set to @true@, all
+-- account associated with the job flow. If this value is set to 'true', all
 -- IAM users of that AWS account can view and manage the job flow if they
--- have the proper policy permissions set. If this value is @false@, only
+-- have the proper policy permissions set. If this value is 'false', only
 -- the IAM user that created the cluster can view and manage it. This value
 -- can be changed using the 'SetVisibleToAllUsers' action.
 c1VisibleToAllUsers :: Lens' Cluster (Maybe Bool)

@@ -24,7 +24,7 @@
 -- about using an AWS account alias, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an
 -- Alias for Your AWS Account ID> in the /Using IAM/ guide. You can paginate
--- the results using the @MaxItems@ and @Marker@ parameters.
+-- the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html>
 module Network.AWS.IAM.ListAccountAliases
@@ -73,14 +73,14 @@ listAccountAliases = ListAccountAliases
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it
--- to the value of the @Marker@ element in the response you just received.
+-- to the value of the 'Marker' element in the response you just received.
 laaMarker :: Lens' ListAccountAliases (Maybe Text)
 laaMarker = lens _laaMarker (\s a -> s { _laaMarker = a })
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- account aliases you want in the response. If there are additional account
--- aliases beyond the maximum you specify, the @IsTruncated@ response
--- element is @true@. This parameter is optional. If you do not include it,
+-- aliases beyond the maximum you specify, the 'IsTruncated' response
+-- element is 'true'. This parameter is optional. If you do not include it,
 -- it defaults to 100.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a }) . mapping _Nat
@@ -116,14 +116,14 @@ laarAccountAliases =
 
 -- | A flag that indicates whether there are more account aliases to list. If
 -- your results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more account aliases in
+-- using the 'Marker' request parameter to retrieve more account aliases in
 -- the list.
 laarIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
 laarIsTruncated = lens _laarIsTruncated (\s a -> s { _laarIsTruncated = a })
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it
--- to the value of the @Marker@ element in the response you just received.
+-- to the value of the 'Marker' element in the response you just received.
 laarMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laarMarker = lens _laarMarker (\s a -> s { _laarMarker = a })
 

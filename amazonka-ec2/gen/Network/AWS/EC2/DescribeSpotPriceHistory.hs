@@ -131,14 +131,14 @@ dsphDryRun = lens _dsphDryRun (\s a -> s { _dsphDryRun = a })
 dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a }) . mapping _Time
 
--- | One or more filters. @availability-zone@ - The Availability Zone for
--- which prices should be returned. @instance-type@ - The type of instance
--- (for example, @m1.small@). @product-description@ - The product
--- description for the Spot Price (@Linux/UNIX@ | @SUSE Linux@ | @Windows@ |
--- @Linux/UNIX (Amazon VPC)@ | @SUSE Linux (Amazon VPC)@ | @Windows (Amazon
--- VPC)@). @spot-price@ - The Spot Price. The value must match exactly (or
+-- | One or more filters. 'availability-zone' - The Availability Zone for
+-- which prices should be returned. 'instance-type' - The type of instance
+-- (for example, 'm1.small'). 'product-description' - The product
+-- description for the Spot Price ('Linux/UNIX' | 'SUSE Linux' | 'Windows' |
+-- 'Linux/UNIX (Amazon VPC)' | 'SUSE Linux (Amazon VPC)' | 'Windows (Amazon
+-- VPC)'). 'spot-price' - The Spot Price. The value must match exactly (or
 -- use wildcards; greater than or less than comparison is not supported).
--- @timestamp@ - The timestamp of the Spot Price history (for example,
+-- 'timestamp' - The timestamp of the Spot Price history (for example,
 -- 2010-08-16T05:06:11.000Z). You can use wildcards (* and ?). Greater than
 -- or less than comparison is not supported.
 dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]

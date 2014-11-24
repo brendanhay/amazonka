@@ -23,11 +23,11 @@
 -- | Changes the visibility timeout of multiple messages. This is a batch
 -- version of 'ChangeMessageVisibility'. The result of the action on each
 -- message is reported individually in the response. You can send up to 10
--- 'ChangeMessageVisibility' requests with each @ChangeMessageVisibilityBatch@
+-- 'ChangeMessageVisibility' requests with each 'ChangeMessageVisibilityBatch'
 -- action. Because the batch request can result in a combination of successful
 -- and unsuccessful actions, you should check for batch errors even when the
--- call returns an HTTP status code of 200. @&Attribute.1=this@
--- @&Attribute.2=that@.
+-- call returns an HTTP status code of 200. '&Attribute.1=this'
+-- '&Attribute.2=that'.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html>
 module Network.AWS.SQS.ChangeMessageVisibilityBatch

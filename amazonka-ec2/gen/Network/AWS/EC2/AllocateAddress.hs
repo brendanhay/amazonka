@@ -70,7 +70,7 @@ allocateAddress = AllocateAddress
     , _aaDomain = Nothing
     }
 
--- | Set to @vpc@ to allocate the address for use with instances in a VPC.
+-- | Set to 'vpc' to allocate the address for use with instances in a VPC.
 -- Default: The address is for use with instances in EC2-Classic.
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
 aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
@@ -107,7 +107,7 @@ aarAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
 aarAllocationId = lens _aarAllocationId (\s a -> s { _aarAllocationId = a })
 
 -- | Indicates whether this Elastic IP address is for use with instances in
--- EC2-Classic (@standard@) or instances in a VPC (@vpc@).
+-- EC2-Classic ('standard') or instances in a VPC ('vpc').
 aarDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
 aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
 

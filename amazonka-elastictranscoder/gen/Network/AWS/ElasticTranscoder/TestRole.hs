@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The TestRole operation tests the IAM role used to create the pipeline. The
--- @TestRole@ action lets you determine whether the IAM role you are using has
+-- 'TestRole' action lets you determine whether the IAM role you are using has
 -- sufficient permissions to let Elastic Transcoder perform tasks associated
 -- with the transcoding process. The action attempts to assume the specified
 -- IAM role, checks read access to the input and output buckets, and tries to
@@ -123,13 +123,13 @@ testRoleResponse = TestRoleResponse
     , _trrMessages = mempty
     }
 
--- | If the @Success@ element contains @false@, this value is an array of one
+-- | If the 'Success' element contains 'false', this value is an array of one
 -- or more error messages that were generated during the test process.
 trrMessages :: Lens' TestRoleResponse [Text]
 trrMessages = lens _trrMessages (\s a -> s { _trrMessages = a }) . _List
 
--- | If the operation is successful, this value is @true@; otherwise, the
--- value is @false@.
+-- | If the operation is successful, this value is 'true'; otherwise, the
+-- value is 'false'.
 trrSuccess :: Lens' TestRoleResponse (Maybe Text)
 trrSuccess = lens _trrSuccess (\s a -> s { _trrSuccess = a })
 

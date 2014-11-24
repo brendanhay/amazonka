@@ -98,8 +98,8 @@ cipAllowUnauthenticatedIdentities =
 -- | The "domain" by which Cognito will refer to your users. This name acts as
 -- a placeholder that allows your backend and the Cognito service to
 -- communicate about the developer provider. For the
--- @DeveloperProviderName@, you can use letters as well as period (@.@),
--- underscore (@_@), and dash (@-@). Once you have set a developer provider
+-- 'DeveloperProviderName', you can use letters as well as period ('.'),
+-- underscore ('_'), and dash ('-'). Once you have set a developer provider
 -- name, you cannot change it. Please take care in setting this parameter.
 cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
 cipDeveloperProviderName =

@@ -91,7 +91,7 @@ modifyEventSubscription p1 = ModifyEventSubscription
     , _mesEnabled          = Nothing
     }
 
--- | A Boolean value indicating if the subscription is enabled. @true@
+-- | A Boolean value indicating if the subscription is enabled. 'true'
 -- indicates the subscription is enabled.
 mesEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
 mesEnabled = lens _mesEnabled (\s a -> s { _mesEnabled = a })

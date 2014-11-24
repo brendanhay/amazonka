@@ -141,8 +141,8 @@ modifyCluster p1 = ModifyCluster
     , _mcNewClusterIdentifier             = Nothing
     }
 
--- | If @true@, major version upgrades will be applied automatically to the
--- cluster during the maintenance window. Default: @false@.
+-- | If 'true', major version upgrades will be applied automatically to the
+-- cluster during the maintenance window. Default: 'false'.
 mcAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
 mcAllowVersionUpgrade =
     lens _mcAllowVersionUpgrade (\s a -> s { _mcAllowVersionUpgrade = a })
@@ -160,7 +160,7 @@ mcAutomatedSnapshotRetentionPeriod =
         (\s a -> s { _mcAutomatedSnapshotRetentionPeriod = a })
 
 -- | The unique identifier of the cluster to be modified. Example:
--- @examplecluster@.
+-- 'examplecluster'.
 mcClusterIdentifier :: Lens' ModifyCluster Text
 mcClusterIdentifier =
     lens _mcClusterIdentifier (\s a -> s { _mcClusterIdentifier = a })
@@ -191,8 +191,8 @@ mcClusterSecurityGroups =
 -- provisions a new cluster based on your resize requirements, there will be
 -- outage for a period while the old cluster is deleted and your connection
 -- is switched to the new cluster. You can use 'DescribeResize' to track the
--- progress of the resize request. Valid Values: @ multi-node | single-node
--- @.
+-- progress of the resize request. Valid Values: ' multi-node | single-node
+-- '.
 mcClusterType :: Lens' ModifyCluster (Maybe Text)
 mcClusterType = lens _mcClusterType (\s a -> s { _mcClusterType = a })
 
@@ -204,7 +204,7 @@ mcClusterType = lens _mcClusterType (\s a -> s { _mcClusterType = a })
 -- family. For more information about managing parameter groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
 -- Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster
--- Management Guide/. Example: @1.0@.
+-- Management Guide/. Example: '1.0'.
 mcClusterVersion :: Lens' ModifyCluster (Maybe Text)
 mcClusterVersion = lens _mcClusterVersion (\s a -> s { _mcClusterVersion = a })
 
@@ -224,8 +224,8 @@ mcHsmConfigurationIdentifier =
 
 -- | The new password for the cluster master user. This change is
 -- asynchronously applied as soon as possible. Between the time of the
--- request and the completion of the request, the @MasterUserPassword@
--- element exists in the @PendingModifiedValues@ element of the operation
+-- request and the completion of the request, the 'MasterUserPassword'
+-- element exists in the 'PendingModifiedValues' element of the operation
 -- response. Operations never return the password, so this operation
 -- provides a way to regain access to the master user account for a cluster
 -- if the password is lost. Default: Uses existing setting. Constraints:
@@ -241,7 +241,7 @@ mcMasterUserPassword =
 -- 63 alphanumeric characters or hyphens. Alphabetic characters must be
 -- lowercase. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens. Must be unique for all clusters within
--- an AWS account. Example: @examplecluster@.
+-- an AWS account. Example: 'examplecluster'.
 mcNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcNewClusterIdentifier =
     lens _mcNewClusterIdentifier (\s a -> s { _mcNewClusterIdentifier = a })
@@ -254,8 +254,8 @@ mcNewClusterIdentifier =
 -- while the old cluster is deleted and your connection is switched to the
 -- new cluster. When the new connection is complete, the original access
 -- permissions for the cluster are restored. You can use 'DescribeResize' to
--- track the progress of the resize request. Valid Values: @ dw1.xlarge@ |
--- @dw1.8xlarge@ | @dw2.large@ | @dw2.8xlarge@.
+-- track the progress of the resize request. Valid Values: ' dw1.xlarge' |
+-- 'dw1.8xlarge' | 'dw2.large' | 'dw2.8xlarge'.
 mcNodeType :: Lens' ModifyCluster (Maybe Text)
 mcNodeType = lens _mcNodeType (\s a -> s { _mcNodeType = a })
 
@@ -268,7 +268,7 @@ mcNodeType = lens _mcNodeType (\s a -> s { _mcNodeType = a })
 -- to the new cluster. When the new connection is complete, the original
 -- access permissions for the cluster are restored. You can use
 -- 'DescribeResize' to track the progress of the resize request. Valid
--- Values: Integer greater than @0@.
+-- Values: Integer greater than '0'.
 mcNumberOfNodes :: Lens' ModifyCluster (Maybe Int)
 mcNumberOfNodes = lens _mcNumberOfNodes (\s a -> s { _mcNumberOfNodes = a })
 
@@ -279,7 +279,7 @@ mcNumberOfNodes = lens _mcNumberOfNodes (\s a -> s { _mcNumberOfNodes = a })
 -- there must be at least 120 minutes between the current time and end of
 -- the window in order to ensure that pending changes are applied. Default:
 -- Uses existing setting. Format: ddd:hh24:mi-ddd:hh24:mi, for example
--- @wed:07:30-wed:08:00@. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat |
+-- 'wed:07:30-wed:08:00'. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat |
 -- Sun Constraints: Must be at least 30 minutes.
 mcPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
 mcPreferredMaintenanceWindow =

@@ -76,13 +76,13 @@ listJobsByPipeline p1 = ListJobsByPipeline
     }
 
 -- | To list jobs in chronological order by the date and time that they were
--- submitted, enter @true@. To list jobs in reverse chronological order,
--- enter @false@.
+-- submitted, enter 'true'. To list jobs in reverse chronological order,
+-- enter 'false'.
 ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpAscending = lens _ljbpAscending (\s a -> s { _ljbpAscending = a })
 
 -- | When Elastic Transcoder returns more than one page of results, use
--- @pageToken@ in subsequent @GET@ requests to get each successive page of
+-- 'pageToken' in subsequent 'GET' requests to get each successive page of
 -- results.
 ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpPageToken = lens _ljbpPageToken (\s a -> s { _ljbpPageToken = a })
@@ -110,14 +110,14 @@ listJobsByPipelineResponse = ListJobsByPipelineResponse
     , _ljbprNextPageToken = Nothing
     }
 
--- | An array of @Job@ objects that are in the specified pipeline.
+-- | An array of 'Job' objects that are in the specified pipeline.
 ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
 ljbprJobs = lens _ljbprJobs (\s a -> s { _ljbprJobs = a }) . _List
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
 -- or when you've reached the last page of results, the value of
--- @NextPageToken@ is @null@.
+-- 'NextPageToken' is 'null'.
 ljbprNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
 ljbprNextPageToken =
     lens _ljbprNextPageToken (\s a -> s { _ljbprNextPageToken = a })

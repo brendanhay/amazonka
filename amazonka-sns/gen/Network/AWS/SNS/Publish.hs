@@ -21,13 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sends a message to all of a topic's subscribed endpoints. When a
--- @messageId@ is returned, the message has been saved and Amazon SNS will
+-- 'messageId' is returned, the message has been saved and Amazon SNS will
 -- attempt to deliver it to the topic's subscribers shortly. The format of the
 -- outgoing message to each subscribed endpoint depends on the notification
--- protocol selected. To use the @Publish@ action for sending a message to a
+-- protocol selected. To use the 'Publish' action for sending a message to a
 -- mobile endpoint, such as an app on a Kindle device or mobile phone, you
 -- must specify the EndpointArn. The EndpointArn is returned when making a
--- call with the @CreatePlatformEndpoint@ action. The second example below
+-- call with the 'CreatePlatformEndpoint' action. The second example below
 -- shows a request and response for publishing to a mobile endpoint.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html>
@@ -97,8 +97,8 @@ publish p1 = Publish
 -- | The message you want to send to the topic. If you want to send the same
 -- message to all transport protocols, include the text of the message as a
 -- String value. If you want to send different messages for each transport
--- protocol, set the value of the @MessageStructure@ parameter to @json@ and
--- use a JSON object for the @Message@ parameter. See the Examples section
+-- protocol, set the value of the 'MessageStructure' parameter to 'json' and
+-- use a JSON object for the 'Message' parameter. See the Examples section
 -- for the format of the JSON object. Constraints: Messages must be UTF-8
 -- encoded strings at most 256 KB in size (262144 bytes, not 262144
 -- characters). JSON-specific constraints: Keys in the JSON object that
@@ -111,7 +111,7 @@ publish p1 = Publish
 -- protocols may limit message sizes). Non-string values will cause the key
 -- to be ignored. Keys that do not correspond to supported transport
 -- protocols are ignored. Duplicate keys are not allowed. Failure to parse
--- or validate any key or value in the message will cause the @Publish@ call
+-- or validate any key or value in the message will cause the 'Publish' call
 -- to return an error (no partial delivery).
 pMessage :: Lens' Publish Text
 pMessage = lens _pMessage (\s a -> s { _pMessage = a })
@@ -122,11 +122,11 @@ pMessageAttributes =
     lens _pMessageAttributes (\s a -> s { _pMessageAttributes = a })
         . _EMap
 
--- | Set @MessageStructure@ to @json@ if you want to send a different message
+-- | Set 'MessageStructure' to 'json' if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
 -- short message to your SMS subscribers and a longer message to your email
--- subscribers. If you set @MessageStructure@ to @json@, the value of the
--- @Message@ parameter must: be a syntactically valid JSON object; and
+-- subscribers. If you set 'MessageStructure' to 'json', the value of the
+-- 'Message' parameter must: be a syntactically valid JSON object; and
 -- contain at least a top-level JSON key of "default" with a value that is a
 -- string. You can define other top-level keys that define the message you
 -- want to send to a specific transport protocol (e.g., "http"). For
@@ -134,7 +134,7 @@ pMessageAttributes =
 -- AWS Management Console, go to
 -- <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol
 -- Create Different Messages for Each Protocol> in the /Amazon Simple
--- Notification Service Getting Started Guide/. Valid value: @json@.
+-- Notification Service Getting Started Guide/. Valid value: 'json'.
 pMessageStructure :: Lens' Publish (Maybe Text)
 pMessageStructure =
     lens _pMessageStructure (\s a -> s { _pMessageStructure = a })

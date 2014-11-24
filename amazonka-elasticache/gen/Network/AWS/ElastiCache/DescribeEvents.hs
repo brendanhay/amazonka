@@ -113,7 +113,7 @@ deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified @MaxRecords@ value, a marker is included in the
+-- exist than the specified 'MaxRecords' value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
@@ -126,8 +126,8 @@ deSourceIdentifier =
     lens _deSourceIdentifier (\s a -> s { _deSourceIdentifier = a })
 
 -- | The event source to retrieve events for. If no value is specified, all
--- events are returned. Valid values are: @cache-cluster@ |
--- @cache-parameter-group@ | @cache-security-group@ | @cache-subnet-group@.
+-- events are returned. Valid values are: 'cache-cluster' |
+-- 'cache-parameter-group' | 'cache-security-group' | 'cache-subnet-group'.
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 

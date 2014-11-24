@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This action returns the current status of a change batch request. The
--- status is one of the following values: - @PENDING@ indicates that the
+-- status is one of the following values: - 'PENDING' indicates that the
 -- changes in this request have not replicated to all Route 53 DNS servers.
--- This is the initial status of all change batch requests. - @INSYNC@
+-- This is the initial status of all change batch requests. - 'INSYNC'
 -- indicates that the changes have replicated to all Amazon Route 53 DNS
 -- servers.
 --
@@ -67,7 +67,7 @@ getChange p1 = GetChange
     }
 
 -- | The ID of the change batch request. The value that you specify here is
--- the value that @ChangeResourceRecordSets@ returned in the Id element when
+-- the value that 'ChangeResourceRecordSets' returned in the Id element when
 -- you submitted the request.
 gcId :: Lens' GetChange Text
 gcId = lens _gcId (\s a -> s { _gcId = a })

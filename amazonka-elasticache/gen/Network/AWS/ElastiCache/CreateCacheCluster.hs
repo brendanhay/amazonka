@@ -166,15 +166,15 @@ createCacheCluster p1 = CreateCacheCluster
 -- | Specifies whether the nodes in this Memcached node group are created in a
 -- single Availability Zone or created across multiple Availability Zones in
 -- the cluster's region. This parameter is only supported for Memcached
--- cache clusters. If the @AZMode@ and @PreferredAvailabilityZones@ are not
--- specified, ElastiCache assumes @single-az@ mode.
+-- cache clusters. If the 'AZMode' and 'PreferredAvailabilityZones' are not
+-- specified, ElastiCache assumes 'single-az' mode.
 cccAZMode :: Lens' CreateCacheCluster (Maybe AZMode)
 cccAZMode = lens _cccAZMode (\s a -> s { _cccAZMode = a })
 
 -- | Determines whether minor engine upgrades will be applied automatically to
--- the node group during the maintenance window. A value of @true@ allows
--- these upgrades to occur; @false@ disables automatic upgrades. Default:
--- @true@.
+-- the node group during the maintenance window. A value of 'true' allows
+-- these upgrades to occur; 'false' disables automatic upgrades. Default:
+-- 'true'.
 cccAutoMinorVersionUpgrade :: Lens' CreateCacheCluster (Maybe Bool)
 cccAutoMinorVersionUpgrade =
     lens _cccAutoMinorVersionUpgrade
@@ -190,13 +190,13 @@ cccCacheClusterId =
 
 -- | The compute and memory capacity of the nodes in the node group. Valid
 -- node types are as follows: General purpose: Current generation:
--- @cache.t2.micro@, @cache.t2.small@, @cache.t2.medium@, @cache.m3.medium@,
--- @cache.m3.large@, @cache.m3.xlarge@, @cache.m3.2xlarge@ Previous
--- generation: @cache.t1.micro@, @cache.m1.small@, @cache.m1.medium@,
--- @cache.m1.large@, @cache.m1.xlarge@ Compute optimized: @cache.c1.xlarge@
--- Memory optimized Current generation: @cache.r3.large@, @cache.r3.xlarge@,
--- @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@ Previous
--- generation: @cache.m2.xlarge@, @cache.m2.2xlarge@, @cache.m2.4xlarge@
+-- 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium',
+-- 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge' Previous
+-- generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium',
+-- 'cache.m1.large', 'cache.m1.xlarge' Compute optimized: 'cache.c1.xlarge'
+-- Memory optimized Current generation: 'cache.r3.large', 'cache.r3.xlarge',
+-- 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge' Previous
+-- generation: 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'
 -- Notes: All t2 instances are created in an Amazon Virtual Private Cloud
 -- (VPC). Redis backup/restore is not supported for t2 instances. Redis
 -- Append-only files (AOF) functionality is not supported for t1 or t2
@@ -235,7 +235,7 @@ cccCacheSubnetGroupName =
     lens _cccCacheSubnetGroupName (\s a -> s { _cccCacheSubnetGroupName = a })
 
 -- | The name of the cache engine to be used for this cache cluster. Valid
--- values for this parameter are: @memcached@ | @redis@.
+-- values for this parameter are: 'memcached' | 'redis'.
 cccEngine :: Lens' CreateCacheCluster (Maybe Text)
 cccEngine = lens _cccEngine (\s a -> s { _cccEngine = a })
 
@@ -268,7 +268,7 @@ cccPort = lens _cccPort (\s a -> s { _cccPort = a })
 -- | The EC2 Availability Zone in which the cache cluster will be created. All
 -- nodes belonging to this Memcached cache cluster are placed in the
 -- preferred Availability Zone. If you want to create your nodes across
--- multiple Availability Zones, use @PreferredAvailabilityZones@. Default:
+-- multiple Availability Zones, use 'PreferredAvailabilityZones'. Default:
 -- System chosen Availability Zone.
 cccPreferredAvailabilityZone :: Lens' CreateCacheCluster (Maybe Text)
 cccPreferredAvailabilityZone =
@@ -278,13 +278,13 @@ cccPreferredAvailabilityZone =
 -- | A list of the Availability Zones in which cache nodes will be created.
 -- The order of the zones in the list is not important. This option is only
 -- supported on Memcached. If you want all the nodes in the same
--- Availability Zone, use @PreferredAvailabilityZone@ instead, or repeat the
+-- Availability Zone, use 'PreferredAvailabilityZone' instead, or repeat the
 -- Availability Zone multiple times in the list. Default: System chosen
 -- Availability Zones. Example: One Memcached node in each of three
 -- different Availability Zones:
--- @PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1b&PreferredAvailabilityZones.member.3=us-east-1d@
+-- 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1b&PreferredAvailabilityZones.member.3=us-east-1d'
 -- Example: All three Memcached nodes in one Availability Zone:
--- @PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1a&PreferredAvailabilityZones.member.3=us-east-1a@.
+-- 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1a&PreferredAvailabilityZones.member.3=us-east-1a'.
 -- 
 cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
 cccPreferredAvailabilityZones =
@@ -293,7 +293,7 @@ cccPreferredAvailabilityZones =
             . _List
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
--- Example: @sun:05:00-sun:09:00@.
+-- Example: 'sun:05:00-sun:09:00'.
 cccPreferredMaintenanceWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccPreferredMaintenanceWindow =
     lens _cccPreferredMaintenanceWindow
@@ -307,7 +307,7 @@ cccPreferredMaintenanceWindow =
 -- Failover enabled and the availability zone is not specified, the cache
 -- cluster will be created in availability zones that provide the best
 -- spread of read replicas across availability zones. Note: This parameter
--- is only valid if the @Engine@ parameter is @redis@.
+-- is only valid if the 'Engine' parameter is 'redis'.
 cccReplicationGroupId :: Lens' CreateCacheCluster (Maybe Text)
 cccReplicationGroupId =
     lens _cccReplicationGroupId (\s a -> s { _cccReplicationGroupId = a })
@@ -324,23 +324,23 @@ cccSecurityGroupIds =
 -- that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
 -- The snapshot file will be used to populate the node group. The Amazon S3
 -- object name in the ARN cannot contain any commas. Note: This parameter is
--- only valid if the @Engine@ parameter is @redis@. Example of an Amazon S3
--- ARN: @arn:aws:s3:::my_bucket/snapshot1.rdb@.
+-- only valid if the 'Engine' parameter is 'redis'. Example of an Amazon S3
+-- ARN: 'arn:aws:s3:::my_bucket/snapshot1.rdb'.
 cccSnapshotArns :: Lens' CreateCacheCluster [Text]
 cccSnapshotArns = lens _cccSnapshotArns (\s a -> s { _cccSnapshotArns = a }) . _List
 
 -- | The name of a snapshot from which to restore data into the new node
--- group. The snapshot status changes to @restoring@ while the new node
+-- group. The snapshot status changes to 'restoring' while the new node
 -- group is being created. Note: This parameter is only valid if the
--- @Engine@ parameter is @redis@.
+-- 'Engine' parameter is 'redis'.
 cccSnapshotName :: Lens' CreateCacheCluster (Maybe Text)
 cccSnapshotName = lens _cccSnapshotName (\s a -> s { _cccSnapshotName = a })
 
 -- | The number of days for which ElastiCache will retain automatic snapshots
--- before deleting them. For example, if you set @SnapshotRetentionLimit@ to
+-- before deleting them. For example, if you set 'SnapshotRetentionLimit' to
 -- 5, then a snapshot that was taken today will be retained for 5 days
--- before being deleted. Note: This parameter is only valid if the @Engine@
--- parameter is @redis@. Default: 0 (i.e., automatic backups are disabled
+-- before being deleted. Note: This parameter is only valid if the 'Engine'
+-- parameter is 'redis'. Default: 0 (i.e., automatic backups are disabled
 -- for this cache cluster).
 cccSnapshotRetentionLimit :: Lens' CreateCacheCluster (Maybe Int)
 cccSnapshotRetentionLimit =
@@ -348,10 +348,10 @@ cccSnapshotRetentionLimit =
         (\s a -> s { _cccSnapshotRetentionLimit = a })
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
--- a daily snapshot of your node group. Example: @05:00-09:00@ If you do not
+-- a daily snapshot of your node group. Example: '05:00-09:00' If you do not
 -- specify this parameter, then ElastiCache will automatically choose an
 -- appropriate time range. Note: This parameter is only valid if the
--- @Engine@ parameter is @redis@.
+-- 'Engine' parameter is 'redis'.
 cccSnapshotWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccSnapshotWindow =
     lens _cccSnapshotWindow (\s a -> s { _cccSnapshotWindow = a })

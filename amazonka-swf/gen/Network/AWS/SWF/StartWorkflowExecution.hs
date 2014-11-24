@@ -21,23 +21,23 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Starts an execution of the workflow type in the specified domain using the
--- provided @workflowId@ and input data. This action returns the newly started
+-- provided 'workflowId' and input data. This action returns the newly started
 -- workflow execution. Access Control You can use IAM policies to control this
--- action's access to Amazon SWF resources as follows: Use a @Resource@
+-- action's access to Amazon SWF resources as follows: Use a 'Resource'
 -- element with the domain name to limit the action to only specified domains.
--- Use an @Action@ element to allow or deny permission to call this action.
--- Constrain the following parameters by using a @Condition@ element with the
--- appropriate keys. @tagList.member.0@: The key is @swf:tagList.member.0@.
--- @tagList.member.1@: The key is @swf:tagList.member.1@. @tagList.member.2@:
--- The key is @swf:tagList.member.2@. @tagList.member.3@: The key is
--- @swf:tagList.member.3@. @tagList.member.4@: The key is
--- @swf:tagList.member.4@. @taskList@: String constraint. The key is
--- @swf:taskList.name@. @name@: String constraint. The key is
--- @swf:workflowType.name@. @version@: String constraint. The key is
--- @swf:workflowType.version@. If the caller does not have sufficient
+-- Use an 'Action' element to allow or deny permission to call this action.
+-- Constrain the following parameters by using a 'Condition' element with the
+-- appropriate keys. 'tagList.member.0': The key is 'swf:tagList.member.0'.
+-- 'tagList.member.1': The key is 'swf:tagList.member.1'. 'tagList.member.2':
+-- The key is 'swf:tagList.member.2'. 'tagList.member.3': The key is
+-- 'swf:tagList.member.3'. 'tagList.member.4': The key is
+-- 'swf:tagList.member.4'. 'taskList': String constraint. The key is
+-- 'swf:taskList.name'. 'name': String constraint. The key is
+-- 'swf:workflowType.name'. 'version': String constraint. The key is
+-- 'swf:workflowType.version'. If the caller does not have sufficient
 -- permissions to invoke the action, or the parameter values fall outside the
 -- specified constraints, the action fails by throwing
--- @OperationNotPermitted@. For details and example IAM policies, see
+-- 'OperationNotPermitted'. For details and example IAM policies, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
@@ -129,7 +129,7 @@ startWorkflowExecution p1 p2 p3 = StartWorkflowExecution
 -- registering the workflow type using 'RegisterWorkflowType'. The supported
 -- child policies are: TERMINATE: the child executions will be terminated.
 -- REQUEST_CANCEL: a request to cancel will be attempted for each child
--- execution by recording a @WorkflowExecutionCancelRequested@ event in its
+-- execution by recording a 'WorkflowExecutionCancelRequested' event in its
 -- history. It is up to the decider to take appropriate actions when it
 -- receives an execution history with this event. ABANDON: no action will be
 -- taken. The child executions will continue to run.
@@ -154,9 +154,9 @@ swe1ExecutionStartToCloseTimeout =
         (\s a -> s { _swe1ExecutionStartToCloseTimeout = a })
 
 -- | The input for the workflow execution. This is a free form string which
--- should be meaningful to the workflow you are starting. This @input@ is
+-- should be meaningful to the workflow you are starting. This 'input' is
 -- made available to the new workflow execution in the
--- @WorkflowExecutionStarted@ history event.
+-- 'WorkflowExecutionStarted' history event.
 swe1Input :: Lens' StartWorkflowExecution (Maybe Text)
 swe1Input = lens _swe1Input (\s a -> s { _swe1Input = a })
 
@@ -168,20 +168,20 @@ swe1TagList :: Lens' StartWorkflowExecution [Text]
 swe1TagList = lens _swe1TagList (\s a -> s { _swe1TagList = a }) . _List
 
 -- | The task list to use for the decision tasks generated for this workflow
--- execution. This overrides the @defaultTaskList@ specified when
+-- execution. This overrides the 'defaultTaskList' specified when
 -- registering the workflow type. The specified string must not start or end
--- with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@
+-- with whitespace. It must not contain a ':' (colon), '/' (slash), '|'
 -- (vertical bar), or any control characters (\u0000-\u001f | \u007f -
 -- \u009f). Also, it must not contain the literal string "arn".
 swe1TaskList :: Lens' StartWorkflowExecution (Maybe TaskList)
 swe1TaskList = lens _swe1TaskList (\s a -> s { _swe1TaskList = a })
 
 -- | Specifies the maximum duration of decision tasks for this workflow
--- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
+-- execution. This parameter overrides the 'defaultTaskStartToCloseTimout'
 -- specified when registering the workflow type using
 -- 'RegisterWorkflowType'. The valid values are integers greater than or
--- equal to @0@. An integer value can be used to specify the duration in
--- seconds while @NONE@ can be used to specify unlimited duration.
+-- equal to '0'. An integer value can be used to specify the duration in
+-- seconds while 'NONE' can be used to specify unlimited duration.
 swe1TaskStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
 swe1TaskStartToCloseTimeout =
     lens _swe1TaskStartToCloseTimeout
@@ -191,9 +191,9 @@ swe1TaskStartToCloseTimeout =
 -- can use this to associate a custom identifier with the workflow
 -- execution. You may specify the same identifier if a workflow execution is
 -- logically a /restart/ of a previous execution. You cannot have two open
--- workflow executions with the same @workflowId@ at the same time. The
+-- workflow executions with the same 'workflowId' at the same time. The
 -- specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control
+-- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control
 -- characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain
 -- the literal string "arn".
 swe1WorkflowId :: Lens' StartWorkflowExecution Text
@@ -218,7 +218,7 @@ startWorkflowExecutionResponse = StartWorkflowExecutionResponse
     { _swerRunId = Nothing
     }
 
--- | The @runId@ of a workflow execution. This Id is generated by the service
+-- | The 'runId' of a workflow execution. This Id is generated by the service
 -- and can be used to uniquely identify the workflow execution within a
 -- domain.
 swerRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)

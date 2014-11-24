@@ -287,16 +287,16 @@ operator = Operator
     , _oValues = mempty
     }
 
--- | The logical operation to be performed: equal (@EQ@), equal reference
--- (@REF_EQ@), less than or equal (@LE@), greater than or equal (@GE@), or
--- between (@BETWEEN@). Equal reference (@REF_EQ@) can be used only with
+-- | The logical operation to be performed: equal ('EQ'), equal reference
+-- ('REF_EQ'), less than or equal ('LE'), greater than or equal ('GE'), or
+-- between ('BETWEEN'). Equal reference ('REF_EQ') can be used only with
 -- reference fields. The other comparison types can be used only with String
 -- fields. The comparison types you can use apply only to certain object
 -- fields, as detailed below. The comparison operators EQ and REF_EQ act on
 -- the following fields: name @sphere parent @componentParent
 -- @instanceParent @status @scheduledStartTime @scheduledEndTime
--- @actualStartTime @actualEndTime The comparison operators @GE@, @LE@, and
--- @BETWEEN@ act on the following fields: @scheduledStartTime
+-- @actualStartTime @actualEndTime The comparison operators 'GE', 'LE', and
+-- 'BETWEEN' act on the following fields: @scheduledStartTime
 -- @scheduledEndTime @actualStartTime @actualEndTime Note that fields
 -- beginning with the at sign (@) are read-only and set by the web service.
 -- When you name fields, you should choose names containing only
@@ -463,7 +463,7 @@ pdName :: Lens' PipelineDescription Text
 pdName = lens _pdName (\s a -> s { _pdName = a })
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a
--- string of the form @df-297EG78HU43EEXAMPLE@.
+-- string of the form 'df-297EG78HU43EEXAMPLE'.
 pdPipelineId :: Lens' PipelineDescription Text
 pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 
@@ -616,7 +616,7 @@ pipelineIdName = PipelineIdName
     }
 
 -- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This
--- is a string of the form @df-297EG78HU43EEXAMPLE@.
+-- is a string of the form 'df-297EG78HU43EEXAMPLE'.
 pinId :: Lens' PipelineIdName (Maybe Text)
 pinId = lens _pinId (\s a -> s { _pinId = a })
 

@@ -97,7 +97,7 @@ describeStackResourceResponse = DescribeStackResourceResponse
     { _dsrrStackResourceDetail = Nothing
     }
 
--- | A @StackResourceDetail@ structure containing the description of the
+-- | A 'StackResourceDetail' structure containing the description of the
 -- specified resource in the specified stack.
 dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsrrStackResourceDetail =

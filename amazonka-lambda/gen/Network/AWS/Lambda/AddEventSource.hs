@@ -30,8 +30,8 @@
 -- event source mapping. You provide the configuration information (for
 -- example, which stream to read from and which AWS Lambda function to invoke)
 -- for the event source mapping in the request body. This operation requires
--- permission for the @iam:PassRole@ action for the IAM role. It also requires
--- permission for the @lambda:AddEventSource@ action.
+-- permission for the 'iam:PassRole' action for the IAM role. It also requires
+-- permission for the 'lambda:AddEventSource' action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_AddEventSource.html>
 module Network.AWS.Lambda.AddEventSource
@@ -121,7 +121,7 @@ aesFunctionName = lens _aesFunctionName (\s a -> s { _aesFunctionName = a })
 
 -- | A map (key-value pairs) defining the configuration for AWS Lambda to use
 -- when reading the event source. Currently, AWS Lambda supports only the
--- @InitialPositionInStream@ key. The valid values are: "TRIM_HORIZON" and
+-- 'InitialPositionInStream' key. The valid values are: "TRIM_HORIZON" and
 -- "LATEST". The default value is "TRIM_HORIZON". For more information, go
 -- to
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType

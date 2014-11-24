@@ -119,9 +119,9 @@ deleteItem p1 = DeleteItem
 
 -- | A condition that must be satisfied in order for a conditional
 -- /DeleteItem/ to succeed. An expression can contain any of the following:
--- Boolean functions: @ATTRIBUTE_EXIST | CONTAINS | BEGINS_WITH@ Comparison
--- operators: @ = | <> | < | > | <= | >= | BETWEEN | IN@ Logical operators:
--- @NOT | AND | OR@.
+-- Boolean functions: 'ATTRIBUTE_EXIST | CONTAINS | BEGINS_WITH' Comparison
+-- operators: ' = | <> | < | > | <= | >= | BETWEEN | IN' Logical operators:
+-- 'NOT | AND | OR'.
 diConditionExpression :: Lens' DeleteItem (Maybe Text)
 diConditionExpression =
     lens _diConditionExpression (\s a -> s { _diConditionExpression = a })
@@ -130,10 +130,10 @@ diConditionExpression =
 -- Note that if you use /ConditionalOperator/ and / ConditionExpression / at
 -- the same time, DynamoDB will return a /ValidationException/ exception.
 -- This parameter does not support lists or maps. A logical operator to
--- apply to the conditions in the /Expected/ map: @AND@ - If all of the
--- conditions evaluate to true, then the entire map evaluates to true. @OR@
+-- apply to the conditions in the /Expected/ map: 'AND' - If all of the
+-- conditions evaluate to true, then the entire map evaluates to true. 'OR'
 -- - If at least one of the conditions evaluate to true, then the entire map
--- evaluates to true. If you omit /ConditionalOperator/, then @AND@ is the
+-- evaluates to true. If you omit /ConditionalOperator/, then 'AND' is the
 -- default. The operation will succeed only if the entire map evaluates to
 -- true.
 diConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
@@ -161,7 +161,7 @@ diConditionalOperator =
 -- on the /ComparisonOperator/ being used. For type Number, value
 -- comparisons are numeric. String value comparisons for greater than,
 -- equals, or less than are based on ASCII character code values. For
--- example, @a@ is greater than @A@, and @aa@ is greater than @B@. For a
+-- example, 'a' is greater than 'A', and 'aa' is greater than 'B'. For a
 -- list of code values, see
 -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
 -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>. For type
@@ -170,57 +170,57 @@ diConditionalOperator =
 -- /ComparisonOperator/ - A comparator for evaluating attributes in the
 -- /AttributeValueList/. When performing the comparison, DynamoDB uses
 -- strongly consistent reads. The following comparison operators are
--- available: @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS |
--- NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@ The following are descriptions
--- of each comparison operator. @EQ@ : Equal. @EQ@ is supported for all
+-- available: 'EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS |
+-- NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN' The following are descriptions
+-- of each comparison operator. 'EQ' : Equal. 'EQ' is supported for all
 -- datatypes, including lists and maps. /AttributeValueList/ can contain
 -- only one /AttributeValue/ element of type String, Number, Binary, String
 -- Set, Number Set, or Binary Set. If an item contains an /AttributeValue/
 -- element of a different type than the one specified in the request, the
--- value does not match. For example, @{"S":"6"}@ does not equal
--- @{"N":"6"}@. Also, @{"N":"6"}@ does not equal @{"NS":["6", "2", "1"]}@.
--- @NE@ : Not equal. @NE@ is supported for all datatypes, including lists
+-- value does not match. For example, '{"S":"6"}' does not equal
+-- '{"N":"6"}'. Also, '{"N":"6"}' does not equal '{"NS":["6", "2", "1"]}'.
+-- 'NE' : Not equal. 'NE' is supported for all datatypes, including lists
 -- and maps. /AttributeValueList/ can contain only one /AttributeValue/ of
 -- type String, Number, Binary, String Set, Number Set, or Binary Set. If an
 -- item contains an /AttributeValue/ of a different type than the one
 -- specified in the request, the value does not match. For example,
--- @{"S":"6"}@ does not equal @{"N":"6"}@. Also, @{"N":"6"}@ does not equal
--- @{"NS":["6", "2", "1"]}@. @LE@ : Less than or equal. /AttributeValueList/
+-- '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not equal
+-- '{"NS":["6", "2", "1"]}'. 'LE' : Less than or equal. /AttributeValueList/
 -- can contain only one /AttributeValue/ element of type String, Number, or
 -- Binary (not a set type). If an item contains an /AttributeValue/ element
 -- of a different type than the one specified in the request, the value does
--- not match. For example, @{"S":"6"}@ does not equal @{"N":"6"}@. Also,
--- @{"N":"6"}@ does not compare to @{"NS":["6", "2", "1"]}@. @LT@ : Less
+-- not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also,
+-- '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'. 'LT' : Less
 -- than. /AttributeValueList/ can contain only one /AttributeValue/ of type
 -- String, Number, or Binary (not a set type). If an item contains an
 -- /AttributeValue/ element of a different type than the one specified in
--- the request, the value does not match. For example, @{"S":"6"}@ does not
--- equal @{"N":"6"}@. Also, @{"N":"6"}@ does not compare to @{"NS":["6",
--- "2", "1"]}@. @GE@ : Greater than or equal. /AttributeValueList/ can
+-- the request, the value does not match. For example, '{"S":"6"}' does not
+-- equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6",
+-- "2", "1"]}'. 'GE' : Greater than or equal. /AttributeValueList/ can
 -- contain only one /AttributeValue/ element of type String, Number, or
 -- Binary (not a set type). If an item contains an /AttributeValue/ element
 -- of a different type than the one specified in the request, the value does
--- not match. For example, @{"S":"6"}@ does not equal @{"N":"6"}@. Also,
--- @{"N":"6"}@ does not compare to @{"NS":["6", "2", "1"]}@. @GT@ : Greater
+-- not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also,
+-- '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'. 'GT' : Greater
 -- than. /AttributeValueList/ can contain only one /AttributeValue/ element
 -- of type String, Number, or Binary (not a set type). If an item contains
 -- an /AttributeValue/ element of a different type than the one specified in
--- the request, the value does not match. For example, @{"S":"6"}@ does not
--- equal @{"N":"6"}@. Also, @{"N":"6"}@ does not compare to @{"NS":["6",
--- "2", "1"]}@. @NOT_NULL@ : The attribute exists. @NOT_NULL@ is supported
--- for all datatypes, including lists and maps. @NULL@ : The attribute does
--- not exist. @NULL@ is supported for all datatypes, including lists and
--- maps. @CONTAINS@ : Checks for a subsequence, or value in a set.
+-- the request, the value does not match. For example, '{"S":"6"}' does not
+-- equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6",
+-- "2", "1"]}'. 'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported
+-- for all datatypes, including lists and maps. 'NULL' : The attribute does
+-- not exist. 'NULL' is supported for all datatypes, including lists and
+-- maps. 'CONTAINS' : Checks for a subsequence, or value in a set.
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of
 -- type String, Number, or Binary (not a set type). If the target attribute
 -- of the comparison is of type String, then the operator checks for a
 -- substring match. If the target attribute of the comparison is of type
 -- Binary, then the operator looks for a subsequence of the target that
 -- matches the input. If the target attribute of the comparison is a set
--- ("@SS@", "@NS@", or "@BS@"), then the operator evaluates to true if it
+-- ("'SS'", "'NS'", or "'BS'"), then the operator evaluates to true if it
 -- finds an exact match with any member of the set. CONTAINS is supported
--- for lists: When evaluating "@a CONTAINS b@", "@a@" can be a list;
--- however, "@b@" cannot be a set, a map, or a list. @NOT_CONTAINS@ : Checks
+-- for lists: When evaluating "'a CONTAINS b'", "'a'" can be a list;
+-- however, "'b'" cannot be a set, a map, or a list. 'NOT_CONTAINS' : Checks
 -- for absence of a subsequence, or absence of a value in a set.
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of
 -- type String, Number, or Binary (not a set type). If the target attribute
@@ -228,19 +228,19 @@ diConditionalOperator =
 -- of a substring match. If the target attribute of the comparison is
 -- Binary, then the operator checks for the absence of a subsequence of the
 -- target that matches the input. If the target attribute of the comparison
--- is a set ("@SS@", "@NS@", or "@BS@"), then the operator evaluates to true
+-- is a set ("'SS'", "'NS'", or "'BS'"), then the operator evaluates to true
 -- if it /does not/ find an exact match with any member of the set.
--- NOT_CONTAINS is supported for lists: When evaluating "@a NOT CONTAINS
--- b@", "@a@" can be a list; however, "@b@" cannot be a set, a map, or a
--- list. @BEGINS_WITH@ : Checks for a prefix. /AttributeValueList/ can
+-- NOT_CONTAINS is supported for lists: When evaluating "'a NOT CONTAINS
+-- b'", "'a'" can be a list; however, "'b'" cannot be a set, a map, or a
+-- list. 'BEGINS_WITH' : Checks for a prefix. /AttributeValueList/ can
 -- contain only one /AttributeValue/ of type String or Binary (not a Number
 -- or a set type). The target attribute of the comparison must be of type
--- String or Binary (not a Number or a set type). @IN@ : Checks for matching
+-- String or Binary (not a Number or a set type). 'IN' : Checks for matching
 -- elements within two sets. /AttributeValueList/ can contain one or more
 -- /AttributeValue/ elements of type String, Number, or Binary (not a set
 -- type). These attributes are compared against an existing set type
 -- attribute of an item. If any elements of the input set are present in the
--- item attribute, the expression evaluates to true. @BETWEEN@ : Greater
+-- item attribute, the expression evaluates to true. 'BETWEEN' : Greater
 -- than or equal to the first value, and less than or equal to the second
 -- value. /AttributeValueList/ must contain two /AttributeValue/ elements of
 -- the same type, either String, Number, or Binary (not a set type). A
@@ -248,8 +248,8 @@ diConditionalOperator =
 -- to, the first element and less than, or equal to, the second element. If
 -- an item contains an /AttributeValue/ element of a different type than the
 -- one specified in the request, the value does not match. For example,
--- @{"S":"6"}@ does not compare to @{"N":"6"}@. Also, @{"N":"6"}@ does not
--- compare to @{"NS":["6", "2", "1"]}@ For usage examples of
+-- '{"S":"6"}' does not compare to '{"N":"6"}'. Also, '{"N":"6"}' does not
+-- compare to '{"NS":["6", "2", "1"]}' For usage examples of
 -- /AttributeValueList/ and /ComparisonOperator/, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html
 -- Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/.
@@ -258,9 +258,9 @@ diConditionalOperator =
 -- /ComparisonOperator/: /Value/ - A value for DynamoDB to compare with an
 -- attribute. /Exists/ - A Boolean value that causes DynamoDB to evaluate
 -- the value before attempting the conditional operation: If /Exists/ is
--- @true@, DynamoDB will check to see if that attribute value already exists
+-- 'true', DynamoDB will check to see if that attribute value already exists
 -- in the table. If it is found, then the condition evaluates to true;
--- otherwise the condition evaluate to false. If /Exists/ is @false@,
+-- otherwise the condition evaluate to false. If /Exists/ is 'false',
 -- DynamoDB assumes that the attribute value does /not/ exist in the table.
 -- If in fact the value does not exist, then the assumption is valid and the
 -- condition evaluates to true. If the value is found, despite the
@@ -279,11 +279,11 @@ diExpected = lens _diExpected (\s a -> s { _diExpected = a }) . _Map
 -- an expression. To prevent special characters in an attribute name from
 -- being misinterpreted in an expression. Use the # character in an
 -- expression to dereference an attribute name. For example, consider the
--- following expression: @order.customerInfo.LastName = "Smith" OR
--- order.customerInfo.LastName = "Jones"@ Now suppose that you specified the
+-- following expression: 'order.customerInfo.LastName = "Smith" OR
+-- order.customerInfo.LastName = "Jones"' Now suppose that you specified the
 -- following for /ExpressionAttributeNames/:
--- @{"n":"order.customerInfo.LastName"}@ The expression can now be
--- simplified as follows: @#n = "Smith" OR #n = "Jones"@.
+-- '{"n":"order.customerInfo.LastName"}' The expression can now be
+-- simplified as follows: '#n = "Smith" OR #n = "Jones"'.
 diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
 diExpressionAttributeNames =
     lens _diExpressionAttributeNames
@@ -292,12 +292,12 @@ diExpressionAttributeNames =
 
 -- | One or more values that can be substituted in an expression. Use the :
 -- character in an expression to dereference an attribute value. For
--- example, consider the following expression: @ProductStatus IN
--- ("Available","Backordered","Discontinued")@ Now suppose that you
--- specified the following for /ExpressionAttributeValues/: @{
+-- example, consider the following expression: 'ProductStatus IN
+-- ("Available","Backordered","Discontinued")' Now suppose that you
+-- specified the following for /ExpressionAttributeValues/: '{
 -- "a":{"S":"Available"}, "b":{"S":"Backordered"}, "d":{"S":"Discontinued"}
--- }@ The expression can now be simplified as follows: @ProductStatus IN
--- (:a,:b,:c)@.
+-- }' The expression can now be simplified as follows: 'ProductStatus IN
+-- (:a,:b,:c)'.
 diExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
 diExpressionAttributeValues =
     lens _diExpressionAttributeValues
@@ -318,9 +318,9 @@ diReturnConsumedCapacity =
     lens _diReturnConsumedCapacity
         (\s a -> s { _diReturnConsumedCapacity = a })
 
--- | A value that if set to @SIZE@, the response includes statistics about
+-- | A value that if set to 'SIZE', the response includes statistics about
 -- item collections, if any, that were modified during the operation are
--- returned in the response. If set to @NONE@ (the default), no statistics
+-- returned in the response. If set to 'NONE' (the default), no statistics
 -- are returned.
 diReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
 diReturnItemCollectionMetrics =
@@ -329,9 +329,9 @@ diReturnItemCollectionMetrics =
 
 -- | Use /ReturnValues/ if you want to get the item attributes as they
 -- appeared before they were deleted. For /DeleteItem/, the valid values
--- are: @NONE@ - If /ReturnValues/ is not specified, or if its value is
--- @NONE@, then nothing is returned. (This setting is the default for
--- /ReturnValues/.) @ALL_OLD@ - The content of the old item is returned.
+-- are: 'NONE' - If /ReturnValues/ is not specified, or if its value is
+-- 'NONE', then nothing is returned. (This setting is the default for
+-- /ReturnValues/.) 'ALL_OLD' - The content of the old item is returned.
 diReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
 diReturnValues = lens _diReturnValues (\s a -> s { _diReturnValues = a })
 
@@ -364,7 +364,7 @@ deleteItemResponse = DeleteItemResponse
 
 -- | A map of attribute names to /AttributeValue/ objects, representing the
 -- item as it appeared before the /DeleteItem/ operation. This map appears
--- in the response only if /ReturnValues/ was specified as @ALL_OLD@ in the
+-- in the response only if /ReturnValues/ was specified as 'ALL_OLD' in the
 -- request.
 dirAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
 dirAttributes = lens _dirAttributes (\s a -> s { _dirAttributes = a }) . _Map

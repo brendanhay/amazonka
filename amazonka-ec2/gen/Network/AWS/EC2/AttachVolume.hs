@@ -111,8 +111,8 @@ attachVolume p1 p2 p3 = AttachVolume
     , _avDryRun     = Nothing
     }
 
--- | The device name to expose to the instance (for example, @/dev/sdh@ or
--- @xvdh@).
+-- | The device name to expose to the instance (for example, '/dev/sdh' or
+-- 'xvdh').
 avDevice :: Lens' AttachVolume Text
 avDevice = lens _avDevice (\s a -> s { _avDevice = a })
 

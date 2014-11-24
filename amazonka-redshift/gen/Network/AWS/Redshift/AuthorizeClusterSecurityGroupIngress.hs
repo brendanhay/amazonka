@@ -109,7 +109,7 @@ acsgiEC2SecurityGroupName =
 
 -- | The AWS account number of the owner of the security group specified by
 -- the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an
--- acceptable value. Example: @111122223333@.
+-- acceptable value. Example: '111122223333'.
 acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiEC2SecurityGroupOwnerId =
     lens _acsgiEC2SecurityGroupOwnerId

@@ -31,7 +31,7 @@
 -- explicitly removed or expires, the session stops being sticky until a new
 -- application cookie is issued. An application client must receive and send
 -- two cookies: the application-generated cookie and the special Elastic Load
--- Balancing cookie named @AWSELB@. This is the default behavior for many
+-- Balancing cookie named 'AWSELB'. This is the default behavior for many
 -- common web browsers. For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsAppCookies
 -- Enabling Application-Controlled Session Stickiness> in the /Elastic Load

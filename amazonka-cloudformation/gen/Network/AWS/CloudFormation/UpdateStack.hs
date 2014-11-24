@@ -25,7 +25,7 @@
 -- stack via the 'DescribeStacks' action. To get a copy of the template for an
 -- existing stack, you can use the 'GetTemplate' action. Tags that were
 -- associated with this stack during creation time will still be associated
--- with the stack after an @UpdateStack@ operation. For more information about
+-- with the stack after an 'UpdateStack' operation. For more information about
 -- creating an update template, updating a stack, and monitoring the progress
 -- of the update, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html
@@ -124,7 +124,7 @@ updateStack p1 = UpdateStack
 -- can create or update certain stacks. Some stack templates might include
 -- resources that can affect permissions in your AWS account. For those
 -- stacks, you must explicitly acknowledge their capabilities by specifying
--- this parameter. Currently, the only valid value is @CAPABILITY_IAM@,
+-- this parameter. Currently, the only valid value is 'CAPABILITY_IAM',
 -- which is required for the following resources:
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
 -- AWS::CloudFormation::Stack>,
@@ -155,7 +155,7 @@ usNotificationARNs =
     lens _usNotificationARNs (\s a -> s { _usNotificationARNs = a })
         . _List
 
--- | A list of @Parameter@ structures that specify input parameters for the
+-- | A list of 'Parameter' structures that specify input parameters for the
 -- stack.
 usParameters :: Lens' UpdateStack [Parameter]
 usParameters = lens _usParameters (\s a -> s { _usParameters = a }) . _List
@@ -167,7 +167,7 @@ usStackName :: Lens' UpdateStack Text
 usStackName = lens _usStackName (\s a -> s { _usStackName = a })
 
 -- | Structure containing a new stack policy body. You can specify either the
--- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both. You
+-- 'StackPolicyBody' or the 'StackPolicyURL' parameter, but not both. You
 -- might update the stack policy, for example, in order to protect a new
 -- resource that you created during a stack update. If you do not specify a
 -- stack policy, the current policy that is associated with the stack is
@@ -177,8 +177,8 @@ usStackPolicyBody =
     lens _usStackPolicyBody (\s a -> s { _usStackPolicyBody = a })
 
 -- | Structure containing the temporary overriding stack policy body. You can
--- specify either the @StackPolicyDuringUpdateBody@ or the
--- @StackPolicyDuringUpdateURL@ parameter, but not both. If you want to
+-- specify either the 'StackPolicyDuringUpdateBody' or the
+-- 'StackPolicyDuringUpdateURL' parameter, but not both. If you want to
 -- update protected resources, specify a temporary overriding stack policy
 -- during this update. If you do not specify a stack policy, the current
 -- policy that is associated with the stack will be used.
@@ -190,7 +190,7 @@ usStackPolicyDuringUpdateBody =
 -- | Location of a file containing the temporary overriding stack policy. The
 -- URL must point to a policy (max size: 16KB) located in an S3 bucket in
 -- the same region as the stack. You can specify either the
--- @StackPolicyDuringUpdateBody@ or the @StackPolicyDuringUpdateURL@
+-- 'StackPolicyDuringUpdateBody' or the 'StackPolicyDuringUpdateURL'
 -- parameter, but not both. If you want to update protected resources,
 -- specify a temporary overriding stack policy during this update. If you do
 -- not specify a stack policy, the current policy that is associated with
@@ -202,8 +202,8 @@ usStackPolicyDuringUpdateURL =
 
 -- | Location of a file containing the updated stack policy. The URL must
 -- point to a policy (max size: 16KB) located in an S3 bucket in the same
--- region as the stack. You can specify either the @StackPolicyBody@ or the
--- @StackPolicyURL@ parameter, but not both. You might update the stack
+-- region as the stack. You can specify either the 'StackPolicyBody' or the
+-- 'StackPolicyURL' parameter, but not both. You might update the stack
 -- policy, for example, in order to protect a new resource that you created
 -- during a stack update. If you do not specify a stack policy, the current
 -- policy that is associated with the stack is unchanged.
@@ -214,7 +214,7 @@ usStackPolicyURL = lens _usStackPolicyURL (\s a -> s { _usStackPolicyURL = a })
 -- and a maximum length of 51,200 bytes. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 -- Template Anatomy> in the AWS CloudFormation User Guide.) Conditional: You
--- must specify either the @TemplateBody@ or the @TemplateURL@ parameter,
+-- must specify either the 'TemplateBody' or the 'TemplateURL' parameter,
 -- but not both.
 usTemplateBody :: Lens' UpdateStack (Maybe Text)
 usTemplateBody = lens _usTemplateBody (\s a -> s { _usTemplateBody = a })
@@ -224,7 +224,7 @@ usTemplateBody = lens _usTemplateBody (\s a -> s { _usTemplateBody = a })
 -- more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 -- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
--- must specify either the @TemplateBody@ or the @TemplateURL@ parameter,
+-- must specify either the 'TemplateBody' or the 'TemplateURL' parameter,
 -- but not both.
 usTemplateURL :: Lens' UpdateStack (Maybe Text)
 usTemplateURL = lens _usTemplateURL (\s a -> s { _usTemplateURL = a })

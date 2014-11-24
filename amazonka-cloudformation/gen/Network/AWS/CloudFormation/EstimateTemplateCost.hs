@@ -72,7 +72,7 @@ estimateTemplateCost = EstimateTemplateCost
     , _etcParameters   = mempty
     }
 
--- | A list of @Parameter@ structures that specify input parameters.
+-- | A list of 'Parameter' structures that specify input parameters.
 etcParameters :: Lens' EstimateTemplateCost [Parameter]
 etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a }) . _List
 
@@ -80,8 +80,8 @@ etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a }) . _List
 -- and a maximum length of 51,200 bytes. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 -- Template Anatomy> in the AWS CloudFormation User Guide.) Conditional: You
--- must pass @TemplateBody@ or @TemplateURL@. If both are passed, only
--- @TemplateBody@ is used.
+-- must pass 'TemplateBody' or 'TemplateURL'. If both are passed, only
+-- 'TemplateBody' is used.
 etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
 
@@ -90,8 +90,8 @@ etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
 -- more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 -- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
--- must pass @TemplateURL@ or @TemplateBody@. If both are passed, only
--- @TemplateBody@ is used.
+-- must pass 'TemplateURL' or 'TemplateBody'. If both are passed, only
+-- 'TemplateBody' is used.
 etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateURL = lens _etcTemplateURL (\s a -> s { _etcTemplateURL = a })
 

@@ -27,12 +27,12 @@
 -- listed in the
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html
 -- Limits> section in the /Amazon DynamoDB Developer Guide/. The table must be
--- in the @ACTIVE@ state for this operation to succeed. /UpdateTable/ is an
+-- in the 'ACTIVE' state for this operation to succeed. /UpdateTable/ is an
 -- asynchronous operation; while executing the operation, the table is in the
--- @UPDATING@ state. While the table is in the @UPDATING@ state, the table
+-- 'UPDATING' state. While the table is in the 'UPDATING' state, the table
 -- still has the provisioned throughput from before the call. The new
 -- provisioned throughput setting is in effect only when the table returns to
--- the @ACTIVE@ state after the /UpdateTable/ operation. You cannot add,
+-- the 'ACTIVE' state after the /UpdateTable/ operation. You cannot add,
 -- modify or delete indexes using /UpdateTable/. Indexes can only be defined
 -- at table creation time.
 --

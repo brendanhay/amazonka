@@ -160,7 +160,7 @@ createStack p1 p2 p3 p4 = CreateStack
 csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
 csAttributes = lens _csAttributes (\s a -> s { _csAttributes = a }) . _Map
 
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html
 -- Create a New Stack>.
@@ -182,7 +182,7 @@ csCustomCookbooksSource =
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as
--- '"'.: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@ For more
+-- '"'.: '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"' For more
 -- information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html
 -- Use Custom JSON to Modify the Stack Configuration JSON>.
@@ -192,8 +192,8 @@ csCustomJson = lens _csCustomJson (\s a -> s { _csCustomJson = a })
 -- | The stack's default Availability Zone, which must be in the specified
 -- region. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
--- Endpoints>. If you also specify a value for @DefaultSubnetId@, the subnet
--- must be in the same zone. For more information, see the @VpcId@ parameter
+-- Endpoints>. If you also specify a value for 'DefaultSubnetId', the subnet
+-- must be in the same zone. For more information, see the 'VpcId' parameter
 -- description.
 csDefaultAvailabilityZone :: Lens' CreateStack (Maybe Text)
 csDefaultAvailabilityZone =
@@ -209,14 +209,14 @@ csDefaultInstanceProfileArn =
     lens _csDefaultInstanceProfileArn
         (\s a -> s { _csDefaultInstanceProfileArn = a })
 
--- | The stack's default operating system, which must be set to @Amazon Linux@
--- or @Ubuntu 12.04 LTS@. The default option is @Amazon Linux@.
+-- | The stack's default operating system, which must be set to 'Amazon Linux'
+-- or 'Ubuntu 12.04 LTS'. The default option is 'Amazon Linux'.
 csDefaultOs :: Lens' CreateStack (Maybe Text)
 csDefaultOs = lens _csDefaultOs (\s a -> s { _csDefaultOs = a })
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
--- instance. The default option is @instance-store@. For more information,
+-- instance. The default option is 'instance-store'. For more information,
 -- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device
 -- Storage for the Root Device>.
@@ -232,21 +232,21 @@ csDefaultSshKeyName =
 
 -- | The stack's default subnet ID. All instances will be launched into this
 -- subnet unless you specify otherwise when you create the instance. If you
--- also specify a value for @DefaultAvailabilityZone@, the subnet must be in
+-- also specify a value for 'DefaultAvailabilityZone', the subnet must be in
 -- that zone. For information on default values and when this parameter is
--- required, see the @VpcId@ parameter description.
+-- required, see the 'VpcId' parameter description.
 csDefaultSubnetId :: Lens' CreateStack (Maybe Text)
 csDefaultSubnetId =
     lens _csDefaultSubnetId (\s a -> s { _csDefaultSubnetId = a })
 
 -- | The stack's host name theme, with spaces are replaced by underscores. The
 -- theme is used to generate host names for the stack's instances. By
--- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+-- default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host
 -- names by appending integers to the layer's short name. The other themes
--- are: @Baked_Goods@ @Clouds@ @European_Cities@ @Fruits@ @Greek_Deities@
--- @Legendary_Creatures_from_Japan@ @Planets_and_Moons@ @Roman_Deities@
--- @Scottish_Islands@ @US_Cities@ @Wild_Cats@ To obtain a generated host
--- name, call @GetHostNameSuggestion@, which returns a host name based on
+-- are: 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities'
+-- 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities'
+-- 'Scottish_Islands' 'US_Cities' 'Wild_Cats' To obtain a generated host
+-- name, call 'GetHostNameSuggestion', which returns a host name based on
 -- the current theme.
 csHostnameTheme :: Lens' CreateStack (Maybe Text)
 csHostnameTheme = lens _csHostnameTheme (\s a -> s { _csHostnameTheme = a })
@@ -279,8 +279,8 @@ csUseCustomCookbooks =
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack's layers. AWS OpsWorks provides a standard set of built-in security
 -- groups, one for each layer, which are associated with layers by default.
--- With @UseOpsworksSecurityGroups@ you can instead provide your own custom
--- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+-- With 'UseOpsworksSecurityGroups' you can instead provide your own custom
+-- security groups. 'UseOpsworksSecurityGroups' has the following settings:
 -- True - AWS OpsWorks automatically associates the appropriate built-in
 -- security group with each layer (default setting). You can associate
 -- additional security groups with a layer after you create it but you
@@ -304,13 +304,13 @@ csUseOpsworksSecurityGroups =
 -- default value is no VPC. If your account does not support EC2 Classic,
 -- the default value is the default VPC for the specified region. If the VPC
 -- ID corresponds to a default VPC and you have specified either the
--- @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only, AWS
+-- 'DefaultAvailabilityZone' or the 'DefaultSubnetId' parameter only, AWS
 -- OpsWorks infers the value of the other parameter. If you specify neither
 -- parameter, AWS OpsWorks sets these parameters to the first valid
 -- Availability Zone for the specified region and the corresponding default
 -- VPC subnet ID, respectively. If you specify a nondefault VPC ID, note the
 -- following: It must belong to a VPC in your account that is in the
--- specified region. You must specify a value for @DefaultSubnetId@. For
+-- specified region. You must specify a value for 'DefaultSubnetId'. For
 -- more information on how to use AWS OpsWorks with a VPC, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html
 -- Running a Stack in a VPC>. For more information on default VPC and EC2
@@ -336,7 +336,7 @@ createStackResponse = CreateStackResponse
     }
 
 -- | The stack ID, which is an opaque string that you use to identify the
--- stack when performing actions such as @DescribeStacks@.
+-- stack when performing actions such as 'DescribeStacks'.
 csr1StackId :: Lens' CreateStackResponse (Maybe Text)
 csr1StackId = lens _csr1StackId (\s a -> s { _csr1StackId = a })
 

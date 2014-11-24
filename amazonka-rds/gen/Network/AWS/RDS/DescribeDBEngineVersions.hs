@@ -114,7 +114,7 @@ ddbevDefaultOnly = lens _ddbevDefaultOnly (\s a -> s { _ddbevDefaultOnly = a })
 ddbevEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevEngine = lens _ddbevEngine (\s a -> s { _ddbevEngine = a })
 
--- | The database engine version to return. Example: @5.1.49@.
+-- | The database engine version to return. Example: '5.1.49'.
 ddbevEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevEngineVersion =
     lens _ddbevEngineVersion (\s a -> s { _ddbevEngineVersion = a })
@@ -133,12 +133,12 @@ ddbevListSupportedCharacterSets =
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 ddbevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddbevMarker = lens _ddbevMarker (\s a -> s { _ddbevMarker = a })
 
 -- | The maximum number of records to include in the response. If more than
--- the @MaxRecords@ value is available, a pagination token called a marker
+-- the 'MaxRecords' value is available, a pagination token called a marker
 -- is included in the response so that the following results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbevMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Int)
@@ -163,7 +163,7 @@ describeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     , _ddbevrDBEngineVersions = mempty
     }
 
--- | A list of @DBEngineVersion@ elements.
+-- | A list of 'DBEngineVersion' elements.
 ddbevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
 ddbevrDBEngineVersions =
     lens _ddbevrDBEngineVersions (\s a -> s { _ddbevrDBEngineVersions = a })
@@ -171,7 +171,7 @@ ddbevrDBEngineVersions =
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 ddbevrMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 ddbevrMarker = lens _ddbevrMarker (\s a -> s { _ddbevrMarker = a })
 

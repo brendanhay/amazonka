@@ -27,29 +27,29 @@
 -- in a shard. A sequence number is the identifier associated with every
 -- record ingested in the Amazon Kinesis stream. The sequence number is
 -- assigned when a record is put into the stream. You must specify the shard
--- iterator type. For example, you can set the @ShardIteratorType@ parameter
+-- iterator type. For example, you can set the 'ShardIteratorType' parameter
 -- to read exactly from the position denoted by a specific sequence number by
--- using the @AT_SEQUENCE_NUMBER@ shard iterator type, or right after the
--- sequence number by using the @AFTER_SEQUENCE_NUMBER@ shard iterator type,
+-- using the 'AT_SEQUENCE_NUMBER' shard iterator type, or right after the
+-- sequence number by using the 'AFTER_SEQUENCE_NUMBER' shard iterator type,
 -- using sequence numbers returned by earlier calls to 'PutRecord',
 -- 'GetRecords', or 'DescribeStream'. You can specify the shard iterator type
--- @TRIM_HORIZON@ in the request to cause @ShardIterator@ to point to the last
+-- 'TRIM_HORIZON' in the request to cause 'ShardIterator' to point to the last
 -- untrimmed record in the shard in the system, which is the oldest data
 -- record in the shard. Or you can point to just after the most recent record
--- in the shard, by using the shard iterator type @LATEST@, so that you always
+-- in the shard, by using the shard iterator type 'LATEST', so that you always
 -- read the most recent data in the shard. When you repeatedly read from an
 -- Amazon Kinesis stream use a 'GetShardIterator' request to get the first
--- shard iterator to to use in your first @GetRecords@ request and then use
--- the shard iterator returned by the @GetRecords@ request in
--- @NextShardIterator@ for subsequent reads. A new shard iterator is returned
--- by every @GetRecords@ request in @NextShardIterator@, which you use in the
--- @ShardIterator@ parameter of the next @GetRecords@ request. If a
--- @GetShardIterator@ request is made too often, you receive a
--- @ProvisionedThroughputExceededException@. For more information about
+-- shard iterator to to use in your first 'GetRecords' request and then use
+-- the shard iterator returned by the 'GetRecords' request in
+-- 'NextShardIterator' for subsequent reads. A new shard iterator is returned
+-- by every 'GetRecords' request in 'NextShardIterator', which you use in the
+-- 'ShardIterator' parameter of the next 'GetRecords' request. If a
+-- 'GetShardIterator' request is made too often, you receive a
+-- 'ProvisionedThroughputExceededException'. For more information about
 -- throughput limits, see 'GetRecords'. If the shard is closed, the iterator
--- can't return more data, and @GetShardIterator@ returns @null@ for its
--- @ShardIterator@. A shard can be closed using 'SplitShard' or 'MergeShards'.
--- @GetShardIterator@ has a limit of 5 transactions per second per account per
+-- can't return more data, and 'GetShardIterator' returns 'null' for its
+-- 'ShardIterator'. A shard can be closed using 'SplitShard' or 'MergeShards'.
+-- 'GetShardIterator' has a limit of 5 transactions per second per account per
 -- open shard.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html>

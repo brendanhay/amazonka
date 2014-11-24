@@ -76,7 +76,7 @@ purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
     , _prdbioTags                          = mempty
     }
 
--- | The number of instances to reserve. Default: @1@.
+-- | The number of instances to reserve. Default: '1'.
 prdbioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
 prdbioDBInstanceCount =
     lens _prdbioDBInstanceCount (\s a -> s { _prdbioDBInstanceCount = a })

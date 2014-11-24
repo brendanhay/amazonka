@@ -132,17 +132,17 @@ cdbirrAutoMinorVersionUpgrade =
 
 -- | The Amazon EC2 Availability Zone that the read replica will be created
 -- in. Default: A random, system-chosen Availability Zone in the endpoint's
--- region. Example: @us-east-1d@.
+-- region. Example: 'us-east-1d'.
 cdbirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrAvailabilityZone =
     lens _cdbirrAvailabilityZone (\s a -> s { _cdbirrAvailabilityZone = a })
 
 -- | The compute and memory capacity of the read replica. Valid Values:
--- @db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge
+-- 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge
 -- |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large |
 -- db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge
 -- | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small |
--- db.t2.medium@ Default: Inherits from the source DB instance.
+-- db.t2.medium' Default: Inherits from the source DB instance.
 cdbirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrDBInstanceClass =
     lens _cdbirrDBInstanceClass (\s a -> s { _cdbirrDBInstanceClass = a })
@@ -182,7 +182,7 @@ cdbirrOptionGroupName =
     lens _cdbirrOptionGroupName (\s a -> s { _cdbirrOptionGroupName = a })
 
 -- | The port number that the DB instance uses for connections. Default:
--- Inherits from the source DB instance Valid Values: @1150-65535@.
+-- Inherits from the source DB instance Valid Values: '1150-65535'.
 cdbirrPort :: Lens' CreateDBInstanceReadReplica (Maybe Int)
 cdbirrPort = lens _cdbirrPort (\s a -> s { _cdbirrPort = a })
 
@@ -221,8 +221,8 @@ cdbirrSourceDBInstanceIdentifier =
         (\s a -> s { _cdbirrSourceDBInstanceIdentifier = a })
 
 -- | Specifies storage type to be associated with the DB Instance read
--- replica. Valid values: @standard | gp2 | io1@ If you specify @io1@, you
--- must also include a value for the @Iops@ parameter.
+-- replica. Valid values: 'standard | gp2 | io1' If you specify 'io1', you
+-- must also include a value for the 'Iops' parameter.
 cdbirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrStorageType =
     lens _cdbirrStorageType (\s a -> s { _cdbirrStorageType = a })

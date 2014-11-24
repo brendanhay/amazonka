@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This action creates a reusable delegationSet. To create a new reusable
--- delegationSet, send a @POST@ request to the @2013-04-01/delegationset@
+-- delegationSet, send a 'POST' request to the '2013-04-01/delegationset'
 -- resource. The request body must include an XML document with a
--- @CreateReusableDelegationSetRequest@ element. The response returns the
--- @CreateReusableDelegationSetResponse@ element that contains metadata about
+-- 'CreateReusableDelegationSetRequest' element. The response returns the
+-- 'CreateReusableDelegationSetResponse' element that contains metadata about
 -- the delegationSet. If the optional parameter HostedZoneId is specified, it
 -- marks the delegationSet associated with that particular hosted zone as
 -- reusable.
@@ -75,11 +75,11 @@ createReusableDelegationSet p1 = CreateReusableDelegationSet
     }
 
 -- | A unique string that identifies the request and that allows failed
--- @CreateReusableDelegationSet@ requests to be retried without the risk of
--- executing the operation twice. You must use a unique @CallerReference@
--- string every time you create a reusable delegation set. @CallerReference@
+-- 'CreateReusableDelegationSet' requests to be retried without the risk of
+-- executing the operation twice. You must use a unique 'CallerReference'
+-- string every time you create a reusable delegation set. 'CallerReference'
 -- can be any unique string; you might choose to use a string that
--- identifies your project, such as @DNSMigration_01@. Valid characters are
+-- identifies your project, such as 'DNSMigration_01'. Valid characters are
 -- any Unicode code points that are legal in an XML 1.0 document. The UTF-8
 -- encoding of the value must be less than 128 bytes.
 crdsCallerReference :: Lens' CreateReusableDelegationSet Text

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of your queues. The maximum number of queues that can be
--- returned is 1000. If you specify a value for the optional @QueueNamePrefix@
+-- returned is 1000. If you specify a value for the optional 'QueueNamePrefix'
 -- parameter, only queues with a name beginning with the specified value are
 -- returned.
 --

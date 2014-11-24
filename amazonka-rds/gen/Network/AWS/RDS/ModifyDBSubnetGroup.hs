@@ -80,7 +80,7 @@ mdbsgDBSubnetGroupDescription =
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric
--- characters or hyphens. Must not be "Default". Example: @mySubnetgroup@.
+-- characters or hyphens. Must not be "Default". Example: 'mySubnetgroup'.
 mdbsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
 mdbsgDBSubnetGroupName =
     lens _mdbsgDBSubnetGroupName (\s a -> s { _mdbsgDBSubnetGroupName = a })

@@ -94,7 +94,7 @@ updateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
 
 -- | The name of the application associated with the configuration template to
 -- update. If no application is found with this name,
--- @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
+-- 'UpdateConfigurationTemplate' returns an 'InvalidParameterValue' error.
 uctApplicationName :: Lens' UpdateConfigurationTemplate Text
 uctApplicationName =
     lens _uctApplicationName (\s a -> s { _uctApplicationName = a })
@@ -111,15 +111,15 @@ uctOptionSettings =
         . _List
 
 -- | A list of configuration options to remove from the configuration set.
--- Constraint: You can remove only @UserDefined@ configuration options.
+-- Constraint: You can remove only 'UserDefined' configuration options.
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
 uctOptionsToRemove =
     lens _uctOptionsToRemove (\s a -> s { _uctOptionsToRemove = a })
         . _List
 
 -- | The name of the configuration template to update. If no configuration
--- template is found with this name, @UpdateConfigurationTemplate@ returns
--- an @InvalidParameterValue@ error.
+-- template is found with this name, 'UpdateConfigurationTemplate' returns
+-- an 'InvalidParameterValue' error.
 uctTemplateName :: Lens' UpdateConfigurationTemplate Text
 uctTemplateName = lens _uctTemplateName (\s a -> s { _uctTemplateName = a })
 
@@ -184,18 +184,18 @@ uctrDateUpdated :: Lens' UpdateConfigurationTemplateResponse (Maybe UTCTime)
 uctrDateUpdated = lens _uctrDateUpdated (\s a -> s { _uctrDateUpdated = a }) . mapping _Time
 
 -- | If this configuration set is associated with an environment, the
--- @DeploymentStatus@ parameter indicates the deployment status of this
--- configuration set: @null@: This configuration is not associated with a
--- running environment. @pending@: This is a draft configuration that is not
+-- 'DeploymentStatus' parameter indicates the deployment status of this
+-- configuration set: 'null': This configuration is not associated with a
+-- running environment. 'pending': This is a draft configuration that is not
 -- deployed to the associated environment but is in the process of
--- deploying. @deployed@: This is the configuration that is currently
--- deployed to the associated running environment. @failed@: This is a draft
--- configuration, that failed to successfully deploy. @null@: This
--- configuration is not associated with a running environment. @pending@:
+-- deploying. 'deployed': This is the configuration that is currently
+-- deployed to the associated running environment. 'failed': This is a draft
+-- configuration, that failed to successfully deploy. 'null': This
+-- configuration is not associated with a running environment. 'pending':
 -- This is a draft configuration that is not deployed to the associated
--- environment but is in the process of deploying. @deployed@: This is the
+-- environment but is in the process of deploying. 'deployed': This is the
 -- configuration that is currently deployed to the associated running
--- environment. @failed@: This is a draft configuration that failed to
+-- environment. 'failed': This is a draft configuration that failed to
 -- successfully deploy.
 uctrDeploymentStatus :: Lens' UpdateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
 uctrDeploymentStatus =
@@ -205,7 +205,7 @@ uctrDeploymentStatus =
 uctrDescription :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrDescription = lens _uctrDescription (\s a -> s { _uctrDescription = a })
 
--- | If not @null@, the name of the environment for this configuration set.
+-- | If not 'null', the name of the environment for this configuration set.
 uctrEnvironmentName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrEnvironmentName =
     lens _uctrEnvironmentName (\s a -> s { _uctrEnvironmentName = a })
@@ -222,7 +222,7 @@ uctrSolutionStackName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrSolutionStackName =
     lens _uctrSolutionStackName (\s a -> s { _uctrSolutionStackName = a })
 
--- | If not @null@, the name of the configuration template for this
+-- | If not 'null', the name of the configuration template for this
 -- configuration set.
 uctrTemplateName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrTemplateName = lens _uctrTemplateName (\s a -> s { _uctrTemplateName = a })

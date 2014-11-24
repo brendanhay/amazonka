@@ -21,12 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more scaling activities for the specified Auto Scaling
--- group. If you omit the @ActivityIds@, the call returns all activities from
+-- group. If you omit the 'ActivityIds', the call returns all activities from
 -- the past six weeks. Activities are sorted by the start time. Activities
 -- still in progress appear first on the list. You can specify a maximum
 -- number of items to be returned with a single call. If there are more items
 -- to return, the call returns a token. To get the next set of items, repeat
--- the call with the returned token in the @NextToken@ parameter.
+-- the call with the returned token in the 'NextToken' parameter.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html>
 module Network.AWS.AutoScaling.DescribeScalingActivities
@@ -84,7 +84,7 @@ describeScalingActivities = DescribeScalingActivities
 
 -- | A list containing the activity IDs of the desired scaling activities. If
 -- this list is omitted, all activities are described. If an
--- @AutoScalingGroupName@ is provided, the results are limited to that
+-- 'AutoScalingGroupName' is provided, the results are limited to that
 -- group. The list of requested activities cannot contain more than 50
 -- items. If unknown activities are requested, they are ignored with no
 -- error.

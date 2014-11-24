@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Enables monitoring of the specified metrics for the specified Auto Scaling
--- group. You can only enable metrics collection if @InstanceMonitoring@ in
--- the launch configuration for the group is set to @True@.
+-- group. You can only enable metrics collection if 'InstanceMonitoring' in
+-- the launch configuration for the group is set to 'True'.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html>
 module Network.AWS.AutoScaling.EnableMetricsCollection
@@ -86,7 +86,7 @@ emcGranularity = lens _emcGranularity (\s a -> s { _emcGranularity = a })
 -- GroupDesiredCapacity GroupInServiceInstances GroupPendingInstances
 -- GroupStandbyInstances GroupTerminatingInstances GroupTotalInstances If
 -- you omit this parameter, all metrics are enabled. The
--- @GroupStandbyInstances@ metric is not returned by default. You must
+-- 'GroupStandbyInstances' metric is not returned by default. You must
 -- explicitly request it when calling 'EnableMetricsCollection'.
 emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a }) . _List

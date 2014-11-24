@@ -83,8 +83,8 @@ copyDBParameterGroup p1 p2 p3 = CopyDBParameterGroup
 -- is in the same region as the copy, specify a valid DB Parameter Group
 -- identifier, or a valid ARN. If the source DB Parameter Group is in a
 -- different region than the copy, specify a valid DB parameter group ARN.
--- Example: @my-db-param-group@ Example:
--- @arn:aws:rds:us-west-2:123456789012:pg:special-parameters@.
+-- Example: 'my-db-param-group' Example:
+-- 'arn:aws:rds:us-west-2:123456789012:pg:special-parameters'.
 cdbpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdbpgSourceDBParameterGroupIdentifier =
     lens _cdbpgSourceDBParameterGroupIdentifier
@@ -102,7 +102,7 @@ cdbpgTargetDBParameterGroupDescription =
 -- | The identifier for the copied DB Parameter Group. Constraints: Cannot be
 -- null, empty, or blank Must contain from 1 to 255 alphanumeric characters
 -- or hyphens First character must be a letter Cannot end with a hyphen or
--- contain two consecutive hyphens Example: @my-db-parameter-group@.
+-- contain two consecutive hyphens Example: 'my-db-parameter-group'.
 cdbpgTargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdbpgTargetDBParameterGroupIdentifier =
     lens _cdbpgTargetDBParameterGroupIdentifier

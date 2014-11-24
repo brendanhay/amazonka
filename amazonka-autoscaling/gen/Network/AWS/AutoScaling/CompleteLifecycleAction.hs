@@ -95,8 +95,8 @@ claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
 claAutoScalingGroupName =
     lens _claAutoScalingGroupName (\s a -> s { _claAutoScalingGroupName = a })
 
--- | The action for the group to take. This parameter can be either @CONTINUE@
--- or @ABANDON@.
+-- | The action for the group to take. This parameter can be either 'CONTINUE'
+-- or 'ABANDON'.
 claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
 claLifecycleActionResult =
     lens _claLifecycleActionResult

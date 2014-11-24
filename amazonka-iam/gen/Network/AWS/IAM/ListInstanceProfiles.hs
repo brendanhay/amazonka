@@ -24,8 +24,8 @@
 -- are none, the action returns an empty list. For more information about
 -- instance profiles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html
--- About Instance Profiles>. You can paginate the results using the @MaxItems@
--- and @Marker@ parameters.
+-- About Instance Profiles>. You can paginate the results using the 'MaxItems'
+-- and 'Marker' parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html>
 module Network.AWS.IAM.ListInstanceProfiles
@@ -79,7 +79,7 @@ listInstanceProfiles = ListInstanceProfiles
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
--- Set it to the value of the @Marker@ element in the response you just
+-- Set it to the value of the 'Marker' element in the response you just
 -- received.
 lipMarker :: Lens' ListInstanceProfiles (Maybe Text)
 lipMarker = lens _lipMarker (\s a -> s { _lipMarker = a })
@@ -87,14 +87,14 @@ lipMarker = lens _lipMarker (\s a -> s { _lipMarker = a })
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of instance profiles you want in the response. If there are
 -- additional instance profiles beyond the maximum you specify, the
--- @IsTruncated@ response element is @true@. This parameter is optional. If
+-- 'IsTruncated' response element is 'true'. This parameter is optional. If
 -- you do not include it, it defaults to 100.
 lipMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
 lipMaxItems = lens _lipMaxItems (\s a -> s { _lipMaxItems = a }) . mapping _Nat
 
 -- | The path prefix for filtering the results. For example, the prefix
--- @/application_abc/component_xyz/@ gets all instance profiles whose path
--- starts with @/application_abc/component_xyz/@. This parameter is
+-- '/application_abc/component_xyz/' gets all instance profiles whose path
+-- starts with '/application_abc/component_xyz/'. This parameter is
 -- optional. If it is not included, it defaults to a slash (/), listing all
 -- instance profiles.
 lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
@@ -131,13 +131,13 @@ liprInstanceProfiles =
 
 -- | A flag that indicates whether there are more instance profiles to list.
 -- If your results were truncated, you can make a subsequent pagination
--- request using the @Marker@ request parameter to retrieve more instance
+-- request using the 'Marker' request parameter to retrieve more instance
 -- profiles in the list.
 liprIsTruncated :: Lens' ListInstanceProfilesResponse (Maybe Bool)
 liprIsTruncated = lens _liprIsTruncated (\s a -> s { _liprIsTruncated = a })
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | If 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 liprMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
 liprMarker = lens _liprMarker (\s a -> s { _liprMarker = a })

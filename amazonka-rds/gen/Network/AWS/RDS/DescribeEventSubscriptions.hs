@@ -86,12 +86,12 @@ des1Filters = lens _des1Filters (\s a -> s { _des1Filters = a }) . _List
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@ .
+-- the value specified by 'MaxRecords' .
 des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified @MaxRecords@ value, a pagination token called a
+-- exist than the specified 'MaxRecords' value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
@@ -131,7 +131,7 @@ desrEventSubscriptionsList =
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
+-- the value specified by 'MaxRecords'.
 desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
 

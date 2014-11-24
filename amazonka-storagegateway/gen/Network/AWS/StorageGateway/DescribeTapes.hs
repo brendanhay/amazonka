@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a description of the specified Amazon Resource Name (ARN) of
--- virtual tapes. If a @TapeARN@ is not specified, returns a description of
+-- virtual tapes. If a 'TapeARN' is not specified, returns a description of
 -- all virtual tapes associated with the specified gateway.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapes.html>
@@ -87,7 +87,7 @@ dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
 dtLimit :: Lens' DescribeTapes (Maybe Natural)
 dtLimit = lens _dtLimit (\s a -> s { _dtLimit = a }) . mapping _Nat
 
--- | A marker value, obtained in a previous call to @DescribeTapes@. This
+-- | A marker value, obtained in a previous call to 'DescribeTapes'. This
 -- marker indicates which page of results to retrieve. If not specified, the
 -- first page of results is retrieved.
 dtMarker :: Lens' DescribeTapes (Maybe Text)

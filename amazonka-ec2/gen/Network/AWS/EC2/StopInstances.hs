@@ -101,7 +101,7 @@ siDryRun = lens _siDryRun (\s a -> s { _siDryRun = a })
 -- | Forces the instances to stop. The instances do not have an opportunity to
 -- flush file system caches or file system metadata. If you use this option,
 -- you must perform file system check and repair procedures. This option is
--- not recommended for Windows instances. Default: @false@.
+-- not recommended for Windows instances. Default: 'false'.
 siForce :: Lens' StopInstances (Maybe Bool)
 siForce = lens _siForce (\s a -> s { _siForce = a })
 

@@ -17,7 +17,25 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Error where
+module Network.AWS.Error
+    (
+    -- * Status Checks
+      statusSuccess
+
+    -- * REST
+    , ErrorType (..)
+    , RESTError
+    , restRequestId
+    , restType
+    , restMessage
+    , restError
+
+    -- * JSON
+    , JSONError
+    , jsonType
+    , jsonMessage
+    , jsonError
+    ) where
 
 import           Control.Applicative
 import           Control.Lens
@@ -43,37 +61,28 @@ instance FromText ErrorType where
     parser = takeText >>= \case
         "Receiver" -> pure Receiver
         "Sender"   -> pure Sender
-        e          -> fail $
-            "Failure parsing ErrorType from " ++ show e
+        e          -> fail $ "Failure parsing ErrorType from " ++ show e
 
 instance FromXML ErrorType where
     parseXML = parseXMLText "Type"
 
-data RESTMessage = RESTMessage
-    { _msgType    :: !ErrorType
-    , _msgCode    :: Text
-    , _msgRESTMessage :: Text
-    } deriving (Eq, Ord, Show, Generic)
-
-makeLenses ''RESTMessage
-
-instance FromXML RESTMessage where
-    parseXML x = RESTMessage
-        <$> x .@ "Type"
-        <*> x .@ "Code"
-        <*> x .@ "Message"
-
 data RESTError = RESTError
-    { _errError     :: RESTMessage
-    , _errRequestId :: Text
+    { _restType      :: !ErrorType
+    , _restCode      :: Text
+    , _restMessage   :: Text
+    , _restRequestId :: Text
     } deriving (Eq, Show, Generic)
 
 makeLenses ''RESTError
 
 instance FromXML RESTError where
-    parseXML x = RESTError
-        <$> x .@ "Error"
-        <*> x .@ "RequestId"
+    parseXML x = withElement "Error" f x
+      where
+        f y = RESTError
+            <$> y .@ "Type"
+            <*> y .@ "Code"
+            <*> y .@ "Message"
+            <*> x .@ "RequestId"
 
 restError :: FromXML (Er a)
           => (Status -> Bool)
@@ -90,8 +99,8 @@ restError f Service{..} s
         success   = ServiceError _svcAbbrev s
 
 data JSONError = JSONError
-    { _errType    :: Maybe Text
-    , _errMessage :: Text
+    { _jsonType    :: Maybe Text
+    , _jsonMessage :: Text
     } deriving (Eq, Show, Generic)
 
 makeLenses ''JSONError

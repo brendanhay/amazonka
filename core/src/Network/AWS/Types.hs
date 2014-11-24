@@ -373,6 +373,7 @@ instance ToText (Request a) where
 -- | The sum of available AWS regions.
 data Region
     = Ireland         -- ^ Europe / eu-west-1
+    | Frankfurt       -- ^ Europe / eu-central-1
     | Tokyo           -- ^ Asia Pacific / ap-northeast-1
     | Singapore       -- ^ Asia Pacific / ap-southeast-1
     | Sydney          -- ^ Asia Pacific / ap-southeast-2
@@ -391,6 +392,7 @@ instance Default Region where
 instance FromText Region where
     parser = takeText >>= \case
         "eu-west-1"          -> pure Ireland
+        "eu-central-1"       -> pure Frankfurt
         "ap-northeast-1"     -> pure Tokyo
         "ap-southeast-1"     -> pure Singapore
         "ap-southeast-2"     -> pure Sydney
@@ -407,6 +409,7 @@ instance FromText Region where
 instance ToText Region where
     toText r = case r of
         Ireland         -> "eu-west-1"
+        Frankfurt       -> "eu-central-1"
         Tokyo           -> "ap-northeast-1"
         Singapore       -> "ap-southeast-1"
         Sydney          -> "ap-southeast-2"

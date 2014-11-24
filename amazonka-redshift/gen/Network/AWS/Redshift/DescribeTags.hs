@@ -125,8 +125,10 @@ dtResourceName = lens _dtResourceName (\s a -> s { _dtResourceName = a })
 -- types are: Cluster CIDR/IP EC2 security group Snapshot Cluster security
 -- group Subnet group HSM connection HSM certificate Parameter group For
 -- more information about Amazon Redshift resource types and constructing
--- ARNs, go to Constructing an Amazon Redshift Amazon Resource Name (ARN) in
--- the Amazon Redshift Cluster Management Guide.
+-- ARNs, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html
+-- Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon
+-- Redshift Cluster Management Guide.
 dtResourceType :: Lens' DescribeTags (Maybe Text)
 dtResourceType = lens _dtResourceType (\s a -> s { _dtResourceType = a })
 

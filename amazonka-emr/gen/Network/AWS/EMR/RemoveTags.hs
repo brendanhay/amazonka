@@ -22,9 +22,10 @@
 
 -- | Removes tags from an Amazon EMR resource. Tags make it easier to associate
 -- clusters in various ways, such as grouping clusters to track your Amazon
--- EMR resource allocation costs. For more information, see Tagging Amazon EMR
--- Resources. The following example removes the stack tag with value Prod from
--- a cluster:.
+-- EMR resource allocation costs. For more information, see
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html
+-- Tagging Amazon EMR Resources>. The following example removes the stack tag
+-- with value Prod from a cluster:.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RemoveTags.html>
 module Network.AWS.EMR.RemoveTags

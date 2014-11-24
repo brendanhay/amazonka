@@ -21,10 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds (or updates) a policy document associated with the specified group.
--- For information about policies, refer to Overview of Policies in the Using
--- IAM guide. For information about limits on the number of policies you can
--- associate with a group, see Limitations on IAM Entities in the Using IAM
--- guide.
+-- For information about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html
+-- Overview of Policies> in the /Using IAM/ guide. For information about
+-- limits on the number of policies you can associate with a group, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html
+-- Limitations on IAM Entities> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html>
 module Network.AWS.IAM.PutGroupPolicy

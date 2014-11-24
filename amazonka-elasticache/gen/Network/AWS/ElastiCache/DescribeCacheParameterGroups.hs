@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DescribeCacheParameterGroups operation returns a list of cache
+-- | The /DescribeCacheParameterGroups/ operation returns a list of cache
 -- parameter group descriptions. If a cache parameter group name is specified,
 -- the list will contain only the descriptions for that group.
 --
@@ -82,7 +82,7 @@ dcpgCacheParameterGroupName =
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords.
+-- the value specified by /MaxRecords/.
 dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 

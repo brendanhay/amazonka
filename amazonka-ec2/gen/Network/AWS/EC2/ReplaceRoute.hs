@@ -23,8 +23,9 @@
 -- | Replaces an existing route within a route table in a VPC. You must provide
 -- only one of the following: Internet gateway or virtual private gateway, NAT
 -- instance, VPC peering connection, or network interface. For more
--- information about route tables, see Route Tables in the Amazon Virtual
--- Private Cloud User Guide.
+-- information about route tables, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
+-- Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRoute.html>
 module Network.AWS.EC2.ReplaceRoute

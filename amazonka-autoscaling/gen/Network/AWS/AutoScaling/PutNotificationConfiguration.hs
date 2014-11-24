@@ -23,9 +23,11 @@
 -- | Configures an Auto Scaling group to send notifications when specified
 -- events take place. Subscribers to this topic can have messages for events
 -- delivered to an endpoint such as a web server or email address. For more
--- information see Getting Notifications When Your Auto Scaling Group Changes
--- in the Auto Scaling Developer Guide. This configuration overwrites an
--- existing configuration.
+-- information see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html
+-- Getting Notifications When Your Auto Scaling Group Changes> in the /Auto
+-- Scaling Developer Guide/. This configuration overwrites an existing
+-- configuration.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutNotificationConfiguration.html>
 module Network.AWS.AutoScaling.PutNotificationConfiguration
@@ -82,7 +84,7 @@ pncAutoScalingGroupName =
 
 -- | The type of event that will cause the notification to be sent. For
 -- details about notification types supported by Auto Scaling, see
--- DescribeAutoScalingNotificationTypes.
+-- DescribeAutoScalingNotificationTypes>.
 pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
 pncNotificationTypes =
     lens _pncNotificationTypes (\s a -> s { _pncNotificationTypes = a })

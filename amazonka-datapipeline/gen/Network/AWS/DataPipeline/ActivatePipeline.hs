@@ -22,8 +22,8 @@
 
 -- | Validates a pipeline and initiates processing. If the pipeline does not
 -- pass validation, activation fails. Call this action to start processing
--- pipeline tasks of a pipeline you've created using the CreatePipeline and
--- PutPipelineDefinition actions. A pipeline cannot be modified after it has
+-- pipeline tasks of a pipeline you've created using the CreatePipeline> and
+-- PutPipelineDefinition> actions. A pipeline cannot be modified after it has
 -- been successfully activated.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html>

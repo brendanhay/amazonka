@@ -22,10 +22,12 @@
 
 -- | Lists the roles that have the specified path prefix. If there are none, the
 -- action returns an empty list. For more information about roles, go to
--- Working with Roles. You can paginate the results using the MaxItems and
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
+-- Working with Roles>. You can paginate the results using the MaxItems and
 -- Marker parameters. The returned policy is URL-encoded according to RFC
 -- 3986. For more information about RFC 3986, go to
--- http://www.faqs.org/rfcs/rfc3986.html.
+-- <http://www.faqs.org/rfcs/rfc3986.html
+-- http://www.faqs.org/rfcs/rfc3986.html>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html>
 module Network.AWS.IAM.ListRoles

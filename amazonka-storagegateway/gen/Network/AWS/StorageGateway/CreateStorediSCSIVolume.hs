@@ -103,7 +103,9 @@ createStorediSCSIVolume p1 p2 p3 p4 p5 = CreateStorediSCSIVolume
     }
 
 -- | The unique identifier for the gateway local disk that is configured as a
--- stored volume. Use ListLocalDisks to list disk IDs for a gateway.
+-- stored volume. Use
+-- <http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html
+-- ListLocalDisks> to list disk IDs for a gateway.
 csscsivDiskId :: Lens' CreateStorediSCSIVolume Text
 csscsivDiskId = lens _csscsivDiskId (\s a -> s { _csscsivDiskId = a })
 
@@ -112,9 +114,9 @@ csscsivGatewayARN =
     lens _csscsivGatewayARN (\s a -> s { _csscsivGatewayARN = a })
 
 -- | The network interface of the gateway on which to expose the iSCSI target.
--- Only IPv4 addresses are accepted. Use DescribeGatewayInformation to get a
--- list of the network interfaces available on a gateway. Valid Values: A
--- valid IP address.
+-- Only IPv4 addresses are accepted. Use DescribeGatewayInformation> to get
+-- a list of the network interfaces available on a gateway. /Valid Values/:
+-- A valid IP address.
 csscsivNetworkInterfaceId :: Lens' CreateStorediSCSIVolume Text
 csscsivNetworkInterfaceId =
     lens _csscsivNetworkInterfaceId
@@ -122,7 +124,7 @@ csscsivNetworkInterfaceId =
 
 -- | Specify this field as true if you want to preserve the data on the local
 -- disk. Otherwise, specifying this field as false creates an empty volume.
--- Valid Values: true, false.
+-- /Valid Values/: true, false.
 csscsivPreserveExistingData :: Lens' CreateStorediSCSIVolume Bool
 csscsivPreserveExistingData =
     lens _csscsivPreserveExistingData
@@ -131,15 +133,16 @@ csscsivPreserveExistingData =
 -- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the
 -- new stored volume. Specify this field if you want to create the iSCSI
 -- storage volume from a snapshot otherwise do not include this field. To
--- list snapshots for your account use DescribeSnapshots in the Amazon
--- Elastic Compute Cloud API Reference.
+-- list snapshots for your account use
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html
+-- DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/.
 csscsivSnapshotId :: Lens' CreateStorediSCSIVolume (Maybe Text)
 csscsivSnapshotId =
     lens _csscsivSnapshotId (\s a -> s { _csscsivSnapshotId = a })
 
 -- | The name of the iSCSI target used by initiators to connect to the target
 -- and as a suffix for the target ARN. For example, specifying TargetName as
--- myvolume results in the target ARN of
+-- /myvolume/ results in the target ARN of
 -- arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume.
 -- The target name must be unique across all volumes of a gateway.
 csscsivTargetName :: Lens' CreateStorediSCSIVolume Text

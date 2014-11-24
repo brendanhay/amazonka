@@ -99,7 +99,7 @@ describeApplicationVersionsResponse = DescribeApplicationVersionsResponse
     { _davrApplicationVersions = mempty
     }
 
--- | A list of ApplicationVersionDescription .
+-- | A list of ApplicationVersionDescription> .
 davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrApplicationVersions =
     lens _davrApplicationVersions (\s a -> s { _davrApplicationVersions = a })

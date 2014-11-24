@@ -89,14 +89,14 @@ umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
 umstGatewayARN = lens _umstGatewayARN (\s a -> s { _umstGatewayARN = a })
 
 -- | The hour component of the maintenance start time represented as hh, where
--- hh is the hour (00 to 23). The hour of the day is in the time zone of the
--- gateway.
+-- /hh/ is the hour (00 to 23). The hour of the day is in the time zone of
+-- the gateway.
 umstHourOfDay :: Lens' UpdateMaintenanceStartTime Natural
 umstHourOfDay = lens _umstHourOfDay (\s a -> s { _umstHourOfDay = a }) . _Nat
 
--- | The minute component of the maintenance start time represented as mm,
--- where mm is the minute (00 to 59). The minute of the hour is in the time
--- zone of the gateway.
+-- | The minute component of the maintenance start time represented as /mm/,
+-- where /mm/ is the minute (00 to 59). The minute of the hour is in the
+-- time zone of the gateway.
 umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
 umstMinuteOfHour = lens _umstMinuteOfHour (\s a -> s { _umstMinuteOfHour = a }) . _Nat
 

@@ -23,8 +23,10 @@
 -- | Creates one or more listeners on a load balancer for the specified port. If
 -- a listener with the given port does not already exist, it will be created;
 -- otherwise, the properties of the new listener must match the properties of
--- the existing listener. For more information, see Add a Listener to Your
--- Load Balancer in the Elastic Load Balancing Developer Guide.
+-- the existing listener. For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html
+-- Add a Listener to Your Load Balancer> in the /Elastic Load Balancing
+-- Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerListeners.html>
 module Network.AWS.ELB.CreateLoadBalancerListeners

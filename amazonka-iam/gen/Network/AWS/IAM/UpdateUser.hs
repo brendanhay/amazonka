@@ -22,7 +22,9 @@
 
 -- | Updates the name and/or the path of the specified user. You should
 -- understand the implications of changing a user's path or name. For more
--- information, see Renaming Users and Groups in the Using IAM guide.
+-- information, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html
+-- Renaming Users and Groups> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateUser.html>
 module Network.AWS.IAM.UpdateUser

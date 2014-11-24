@@ -20,11 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates an instance in a specified stack. For more information, see Adding
--- an Instance to a Layer. Required Permissions: To use this action, an IAM
--- user must have a Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see Managing User Permissions.
+-- | Creates an instance in a specified stack. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html
+-- Adding an Instance to a Layer>. Required Permissions: To use this action,
+-- an IAM user must have a Manage permissions level for the stack, or an
+-- attached policy that explicitly grants permissions. For more information on
+-- user permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateInstance.html>
 module Network.AWS.OpsWorks.CreateInstance
@@ -138,14 +141,17 @@ createInstance p1 p2 = CreateInstance
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be
 -- based on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu
--- 12.04 LTS. For more information, see Instances.
+-- 12.04 LTS. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html
+-- Instances>.
 ciAmiId :: Lens' CreateInstance (Maybe Text)
 ciAmiId = lens _ciAmiId (\s a -> s { _ciAmiId = a })
 
 -- | The instance architecture. The default option is x86_64. Instance types
 -- do not necessarily support both architectures. For a list of the
 -- architectures that are supported by the different instance types, see
--- Instance Families and Types.
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+-- Instance Families and Types>.
 ciArchitecture :: Lens' CreateInstance (Maybe Architecture)
 ciArchitecture = lens _ciArchitecture (\s a -> s { _ciArchitecture = a })
 
@@ -153,17 +159,18 @@ ciArchitecture = lens _ciArchitecture (\s a -> s { _ciArchitecture = a })
 -- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.
 -- TimeBasedAutoScaling: A time-based auto scaling instance, which is
 -- started and stopped based on a specified schedule. To specify the
--- schedule, call SetTimeBasedAutoScaling. LoadBasedAutoScaling: A
+-- schedule, call SetTimeBasedAutoScaling>. LoadBasedAutoScaling: A
 -- load-based auto scaling instance, which is started and stopped based on
 -- load metrics. To use load-based auto scaling, you must enable it for the
 -- instance layer and configure the thresholds by calling
--- SetLoadBasedAutoScaling.
+-- SetLoadBasedAutoScaling>.
 ciAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
 ciAutoScalingType =
     lens _ciAutoScalingType (\s a -> s { _ciAutoScalingType = a })
 
--- | The instance Availability Zone. For more information, see Regions and
--- Endpoints.
+-- | The instance Availability Zone. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>.
 ciAvailabilityZone :: Lens' CreateInstance (Maybe Text)
 ciAvailabilityZone =
     lens _ciAvailabilityZone (\s a -> s { _ciAvailabilityZone = a })
@@ -179,7 +186,7 @@ ciHostname = lens _ciHostname (\s a -> s { _ciHostname = a })
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is true. To control when updates are installed,
 -- set this value to false. You must then update your instances manually by
--- using CreateDeployment to run the update_dependencies stack command or
+-- using CreateDeployment> to run the update_dependencies stack command or
 -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
 ciInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
 ciInstallUpdatesOnBoot =
@@ -187,9 +194,11 @@ ciInstallUpdatesOnBoot =
 
 -- | The instance type. AWS OpsWorks supports all instance types except
 -- Cluster Compute, Cluster GPU, and High Memory Cluster. For more
--- information, see Instance Families and Types. The parameter values that
--- you use to specify the various types are in the API Name column of the
--- Available Instance Types table.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+-- Instance Families and Types>. The parameter values that you use to
+-- specify the various types are in the API Name column of the Available
+-- Instance Types table.
 ciInstanceType :: Lens' CreateInstance Text
 ciInstanceType = lens _ciInstanceType (\s a -> s { _ciInstanceType = a })
 
@@ -200,15 +209,20 @@ ciLayerIds = lens _ciLayerIds (\s a -> s { _ciLayerIds = a }) . _List
 -- | The instance operating system, which must be set to one of the following.
 -- Standard operating systems: Amazon Linux or Ubuntu 12.04 LTS Custom AMIs:
 -- Custom The default option is Amazon Linux. If you set this parameter to
--- Custom, you must use the CreateInstance action's AmiId parameter to
+-- Custom, you must use the CreateInstance> action's AmiId parameter to
 -- specify the custom AMI that you want to use. For more information on the
--- standard operating systems, see Operating SystemsFor more information on
--- how to use custom AMIs with OpsWorks, see Using Custom AMIs.
+-- standard operating systems, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html
+-- Operating Systems>For more information on how to use custom AMIs with
+-- OpsWorks, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html
+-- Using Custom AMIs>.
 ciOs :: Lens' CreateInstance (Maybe Text)
 ciOs = lens _ciOs (\s a -> s { _ciOs = a })
 
--- | The instance root device type. For more information, see Storage for the
--- Root Device.
+-- | The instance root device type. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device
+-- Storage for the Root Device>.
 ciRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
 ciRootDeviceType = lens _ciRootDeviceType (\s a -> s { _ciRootDeviceType = a })
 

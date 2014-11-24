@@ -26,7 +26,7 @@
 -- CcEmailAddresses value. The CommunicationBody value contains the text of
 -- the communication. The response indicates the success or failure of the
 -- request. This operation implements a subset of the behavior on the AWS
--- Support Your Support Cases web form.
+-- Support <https://aws.amazon.com/support Your Support Cases> web form.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html>
 module Network.AWS.Support.AddCommunicationToCase
@@ -83,14 +83,14 @@ addCommunicationToCase p1 = AddCommunicationToCase
     }
 
 -- | The ID of a set of one or more attachments for the communication to add
--- to the case. Create the set by calling AddAttachmentsToSet.
+-- to the case. Create the set by calling AddAttachmentsToSet>.
 actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
 actcAttachmentSetId =
     lens _actcAttachmentSetId (\s a -> s { _actcAttachmentSetId = a })
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
--- case-12345678910-2013-c4c1d2bf33c5cf47.
+-- case-/12345678910-2013-c4c1d2bf33c5cf47/.
 actcCaseId :: Lens' AddCommunicationToCase (Maybe Text)
 actcCaseId = lens _actcCaseId (\s a -> s { _actcCaseId = a })
 
@@ -121,7 +121,7 @@ addCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult = Nothing
     }
 
--- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
+-- | True if AddCommunicationToCase> succeeds. Otherwise, returns an error.
 actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrResult = lens _actcrResult (\s a -> s { _actcrResult = a })
 

@@ -20,10 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a clone of a specified stack. For more information, see Clone a
--- Stack. Required Permissions: To use this action, an IAM user must have an
--- attached policy that explicitly grants permissions. For more information on
--- user permissions, see Managing User Permissions.
+-- | Creates a clone of a specified stack. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html
+-- Clone a Stack>. Required Permissions: To use this action, an IAM user must
+-- have an attached policy that explicitly grants permissions. For more
+-- information on user permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CloneStack.html>
 module Network.AWS.OpsWorks.CloneStack
@@ -172,7 +175,8 @@ cs1Attributes = lens _cs1Attributes (\s a -> s { _cs1Attributes = a }) . _Map
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
--- Create a New Stack.
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html
+-- Create a New Stack>.
 cs1ChefConfiguration :: Lens' CloneStack (Maybe ChefConfiguration)
 cs1ChefConfiguration =
     lens _cs1ChefConfiguration (\s a -> s { _cs1ChefConfiguration = a })
@@ -202,23 +206,27 @@ cs1CustomCookbooksSource =
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as
 -- '"'.: "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more
--- information on custom JSON, see Use Custom JSON to Modify the Stack
--- Configuration JSON.
+-- information on custom JSON, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html
+-- Use Custom JSON to Modify the Stack Configuration JSON>.
 cs1CustomJson :: Lens' CloneStack (Maybe Text)
 cs1CustomJson = lens _cs1CustomJson (\s a -> s { _cs1CustomJson = a })
 
 -- | The cloned stack's default Availability Zone, which must be in the
--- specified region. For more information, see Regions and Endpoints. If you
--- also specify a value for DefaultSubnetId, the subnet must be in the same
--- zone. For more information, see the VpcId parameter description.
+-- specified region. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>. If you also specify a value for DefaultSubnetId, the subnet
+-- must be in the same zone. For more information, see the VpcId parameter
+-- description.
 cs1DefaultAvailabilityZone :: Lens' CloneStack (Maybe Text)
 cs1DefaultAvailabilityZone =
     lens _cs1DefaultAvailabilityZone
         (\s a -> s { _cs1DefaultAvailabilityZone = a })
 
 -- | The ARN of an IAM profile that is the default profile for all of the
--- stack's EC2 instances. For more information about IAM ARNs, see Using
--- Identifiers.
+-- stack's EC2 instances. For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 cs1DefaultInstanceProfileArn :: Lens' CloneStack (Maybe Text)
 cs1DefaultInstanceProfileArn =
     lens _cs1DefaultInstanceProfileArn
@@ -231,7 +239,9 @@ cs1DefaultOs = lens _cs1DefaultOs (\s a -> s { _cs1DefaultOs = a })
 
 -- | The default root device type. This value is used by default for all
 -- instances in the cloned stack, but you can override it when you create an
--- instance. For more information, see Storage for the Root Device.
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device
+-- Storage for the Root Device>.
 cs1DefaultRootDeviceType :: Lens' CloneStack (Maybe RootDeviceType)
 cs1DefaultRootDeviceType =
     lens _cs1DefaultRootDeviceType
@@ -269,7 +279,9 @@ cs1Name :: Lens' CloneStack (Maybe Text)
 cs1Name = lens _cs1Name (\s a -> s { _cs1Name = a })
 
 -- | The cloned stack AWS region, such as "us-east-1". For more information
--- about AWS regions, see Regions and Endpoints.
+-- about AWS regions, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>.
 cs1Region :: Lens' CloneStack (Maybe Text)
 cs1Region = lens _cs1Region (\s a -> s { _cs1Region = a })
 
@@ -278,8 +290,9 @@ cs1Region = lens _cs1Region (\s a -> s { _cs1Region = a })
 -- parameter to the Amazon Resource Name (ARN) for an existing IAM role. If
 -- you create a stack by using the AWS OpsWorks console, it creates the role
 -- for you. You can obtain an existing stack's IAM ARN programmatically by
--- calling DescribePermissions. For more information about IAM ARNs, see
--- Using Identifiers.
+-- calling DescribePermissions>. For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 cs1ServiceRoleArn :: Lens' CloneStack Text
 cs1ServiceRoleArn =
     lens _cs1ServiceRoleArn (\s a -> s { _cs1ServiceRoleArn = a })
@@ -307,7 +320,9 @@ cs1UseCustomCookbooks =
 -- layer that you create. However, you can still manually associate a
 -- built-in security group with a layer on creation; custom security groups
 -- are required only for those layers that need custom settings. For more
--- information, see Create a New Stack.
+-- information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html
+-- Create a New Stack>.
 cs1UseOpsworksSecurityGroups :: Lens' CloneStack (Maybe Bool)
 cs1UseOpsworksSecurityGroups =
     lens _cs1UseOpsworksSecurityGroups
@@ -326,9 +341,12 @@ cs1UseOpsworksSecurityGroups =
 -- VPC subnet ID, respectively. If you specify a nondefault VPC ID, note the
 -- following: It must belong to a VPC in your account that is in the
 -- specified region. You must specify a value for DefaultSubnetId. For more
--- information on how to use AWS OpsWorks with a VPC, see Running a Stack in
--- a VPC. For more information on default VPC and EC2 Classic, see Supported
--- Platforms.
+-- information on how to use AWS OpsWorks with a VPC, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html
+-- Running a Stack in a VPC>. For more information on default VPC and EC2
+-- Classic, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html
+-- Supported Platforms>.
 cs1VpcId :: Lens' CloneStack (Maybe Text)
 cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
 

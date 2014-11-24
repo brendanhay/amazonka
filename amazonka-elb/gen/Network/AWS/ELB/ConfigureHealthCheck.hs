@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Specifies the health check settings to use for evaluating the health state
--- of your back-end instances. For more information, see Health Check in the
--- Elastic Load Balancing Developer Guide.
+-- of your back-end instances. For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck
+-- Health Check> in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ConfigureHealthCheck.html>
 module Network.AWS.ELB.ConfigureHealthCheck

@@ -23,9 +23,10 @@
 -- | Creates a static route associated with a VPN connection between an existing
 -- virtual private gateway and a VPN customer gateway. The static route allows
 -- traffic to be routed from the virtual private gateway to the VPN customer
--- gateway. For more information about VPN connections, see Adding a Hardware
--- Virtual Private Gateway to Your VPC in the Amazon Virtual Private Cloud
--- User Guide.
+-- gateway. For more information about VPN connections, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding
+-- a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual
+-- Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnConnectionRoute.html>
 module Network.AWS.EC2.CreateVpnConnectionRoute

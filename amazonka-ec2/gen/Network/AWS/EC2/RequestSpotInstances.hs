@@ -24,9 +24,11 @@
 -- EC2 starts on your behalf when the maximum price that you specify exceeds
 -- the current Spot Price. Amazon EC2 periodically sets the Spot Price based
 -- on available Spot Instance capacity and current Spot Instance requests. For
--- more information about Spot Instances, see Spot Instances in the Amazon
--- Elastic Compute Cloud User Guide. Users must be subscribed to the required
--- product to run an instance with AWS Marketplace product codes.
+-- more information about Spot Instances, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
+-- Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/. Users
+-- must be subscribed to the required product to run an instance with AWS
+-- Marketplace product codes.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html>
 module Network.AWS.EC2.RequestSpotInstances

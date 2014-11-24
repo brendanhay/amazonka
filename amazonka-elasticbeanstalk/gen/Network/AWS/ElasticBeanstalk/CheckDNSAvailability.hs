@@ -91,7 +91,7 @@ checkDNSAvailabilityResponse = CheckDNSAvailabilityResponse
 cdnsarAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdnsarAvailable = lens _cdnsarAvailable (\s a -> s { _cdnsarAvailable = a })
 
--- | The fully qualified CNAME to reserve when CreateEnvironment is called
+-- | The fully qualified CNAME to reserve when CreateEnvironment> is called
 -- with the provided prefix.
 cdnsarFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdnsarFullyQualifiedCNAME =

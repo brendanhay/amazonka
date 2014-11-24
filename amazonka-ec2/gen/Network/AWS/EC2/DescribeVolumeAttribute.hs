@@ -22,8 +22,9 @@
 
 -- | Describes the specified attribute of the specified volume. You can specify
 -- only one attribute at a time. For more information about Amazon EBS
--- volumes, see Amazon EBS Volumes in the Amazon Elastic Compute Cloud User
--- Guide.
+-- volumes, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon
+-- EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeAttribute.html>
 module Network.AWS.EC2.DescribeVolumeAttribute

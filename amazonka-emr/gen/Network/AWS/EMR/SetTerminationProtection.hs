@@ -31,8 +31,10 @@
 -- their ephemeral instance storage. To terminate a job flow that has been
 -- locked by setting SetTerminationProtection to true, you must first unlock
 -- the job flow by a subsequent call to SetTerminationProtection in which you
--- set the value to false. For more information, go to Protecting a Job Flow
--- from Termination in the Amazon Elastic MapReduce Developer's Guide.
+-- set the value to false. For more information, go to
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html
+-- Protecting a Job Flow from Termination> in the /Amazon Elastic MapReduce
+-- Developer's Guide./.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetTerminationProtection.html>
 module Network.AWS.EMR.SetTerminationProtection
@@ -77,8 +79,8 @@ setTerminationProtection p1 = SetTerminationProtection
     }
 
 -- | A list of strings that uniquely identify the job flows to protect. This
--- identifier is returned by RunJobFlow and can also be obtained from
--- DescribeJobFlows .
+-- identifier is returned by RunJobFlow> and can also be obtained from
+-- DescribeJobFlows> .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
 stpJobFlowIds = lens _stpJobFlowIds (\s a -> s { _stpJobFlowIds = a }) . _List
 

@@ -22,7 +22,7 @@
 
 -- | Tells the search domain to start indexing its documents using the latest
 -- indexing options. This operation must be invoked to activate options whose
--- OptionStatus is RequiresIndexDocuments.
+-- OptionStatus> is RequiresIndexDocuments.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexDocuments.html>
 module Network.AWS.CloudSearch.IndexDocuments

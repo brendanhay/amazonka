@@ -42,31 +42,33 @@
 -- assumed. If you pass a policy to this operation, the temporary security
 -- credentials that are returned by the operation have the permissions that
 -- are allowed by both the access policy of the role that is being assumed,
--- and the policy that you pass. This gives you a way to further restrict the
--- permissions for the resulting temporary security credentials. You cannot
--- use the passed policy to grant permissions that are in excess of those
--- allowed by the access policy of the role that is being assumed. For more
--- information, see Permissions for AssumeRoleWithWebIdentity in Using
--- Temporary Security Credentials. Before your application can call
--- AssumeRoleWithWebIdentity, you must have an identity token from a supported
--- identity provider and create a role that the application can assume. The
--- role that your application assumes must trust the identity provider that is
--- associated with the identity token. In other words, the identity provider
--- must be specified in the role's trust policy. For more information about
--- how to use web identity federation and the AssumeRoleWithWebIdentity, see
--- the following resources: Creating a Mobile Application with Third-Party
--- Sign-In and Creating Temporary Security Credentials for Mobile Apps Using
--- Third-Party Identity Providers in Using Temporary Security Credentials. Web
--- Identity Federation Playground. This interactive website lets you walk
+-- /and/ the policy that you pass. This gives you a way to further restrict
+-- the permissions for the resulting temporary security credentials. You
+-- cannot use the passed policy to grant permissions that are in excess of
+-- those allowed by the access policy of the role that is being assumed. For
+-- more information, see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html
+-- Permissions for AssumeRoleWithWebIdentity> in /Using Temporary Security
+-- Credentials/. Before your application can call AssumeRoleWithWebIdentity,
+-- you must have an identity token from a supported identity provider and
+-- create a role that the application can assume. The role that your
+-- application assumes must trust the identity provider that is associated
+-- with the identity token. In other words, the identity provider must be
+-- specified in the role's trust policy. For more information about how to use
+-- web identity federation and the AssumeRoleWithWebIdentity, see the
+-- following resources: Creating a Mobile Application with Third-Party
+-- Sign-In> and Creating Temporary Security Credentials for Mobile Apps Using
+-- Third-Party Identity Providers> in /Using Temporary Security Credentials/.
+-- Web Identity Federation Playground>. This interactive website lets you walk
 -- through the process of authenticating via Login with Amazon, Facebook, or
 -- Google, getting temporary security credentials, and then using those
--- credentials to make a request to AWS. AWS SDK for iOS and AWS SDK for
--- Android. These toolkits contain sample apps that show how to invoke the
--- identity providers, and then how to use the information from these
--- providers to get and use temporary security credentials. Web Identity
--- Federation with Mobile Applications. This article discusses web identity
--- federation and shows an example of how to use web identity federation to
--- get access to content in Amazon S3.
+-- credentials to make a request to AWS. <http://aws.amazon.com/sdkforios/ AWS
+-- SDK for iOS> and AWS SDK for Android>. These toolkits contain sample apps
+-- that show how to invoke the identity providers, and then how to use the
+-- information from these providers to get and use temporary security
+-- credentials. Web Identity Federation with Mobile Applications>. This
+-- article discusses web identity federation and shows an example of how to
+-- use web identity federation to get access to content in Amazon S3.
 --
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html>
 module Network.AWS.STS.AssumeRoleWithWebIdentity
@@ -150,13 +152,15 @@ arwwiDurationSeconds =
 -- | An IAM policy in JSON format. The policy parameter is optional. If you
 -- pass a policy, the temporary security credentials that are returned by
 -- the operation have the permissions that are allowed by both the access
--- policy of the role that is being assumed, and the policy that you pass.
+-- policy of the role that is being assumed, /and/ the policy that you pass.
 -- This gives you a way to further restrict the permissions for the
 -- resulting temporary security credentials. You cannot use the passed
 -- policy to grant permissions that are in excess of those allowed by the
 -- access policy of the role that is being assumed. For more information,
--- see Permissions for AssumeRoleWithWebIdentity in Using Temporary Security
--- Credentials.
+-- see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html
+-- Permissions for AssumeRoleWithWebIdentity> in /Using Temporary Security
+-- Credentials/.
 arwwiPolicy :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
 arwwiPolicy = lens _arwwiPolicy (\s a -> s { _arwwiPolicy = a })
 

@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Authorizes the specified AWS customer account to restore the specified
--- snapshot. For more information about working with snapshots, go to Amazon
--- Redshift Snapshots in the Amazon Redshift Cluster Management Guide.
+-- snapshot. For more information about working with snapshots, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+-- Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeSnapshotAccess.html>
 module Network.AWS.Redshift.AuthorizeSnapshotAccess

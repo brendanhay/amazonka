@@ -22,8 +22,11 @@
 
 -- | Retrieves information about the specified instance profile, including the
 -- instance profile's path, GUID, ARN, and role. For more information about
--- instance profiles, go to About Instance Profiles. For more information
--- about ARNs, go to ARNs.
+-- instance profiles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html
+-- About Instance Profiles>. For more information about ARNs, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs
+-- ARNs>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html>
 module Network.AWS.IAM.GetInstanceProfile

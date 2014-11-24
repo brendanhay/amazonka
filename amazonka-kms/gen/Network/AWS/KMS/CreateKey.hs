@@ -23,8 +23,8 @@
 -- | Creates a customer master key. Customer master keys can be used to encrypt
 -- small amounts of data (less than 4K) directly, but they are most commonly
 -- used to encrypt or envelope data keys that are then used to encrypt
--- customer data. For more information about data keys, see GenerateDataKey
--- and GenerateDataKeyWithoutPlaintext.
+-- customer data. For more information about data keys, see GenerateDataKey>
+-- and GenerateDataKeyWithoutPlaintext>.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html>
 module Network.AWS.KMS.CreateKey

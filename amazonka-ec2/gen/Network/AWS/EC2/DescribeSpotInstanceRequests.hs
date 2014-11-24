@@ -25,12 +25,14 @@
 -- maximum price that you specify exceeds the current Spot Price. Amazon EC2
 -- periodically sets the Spot Price based on available Spot Instance capacity
 -- and current Spot Instance requests. For more information about Spot
--- Instances, see Spot Instances in the Amazon Elastic Compute Cloud User
--- Guide. You can use DescribeSpotInstanceRequests to find a running Spot
--- Instance by examining the response. If the status of the Spot Instance is
--- fulfilled, the instance ID appears in the response and contains the
--- identifier of the instance. Alternatively, you can use DescribeInstances
--- with a filter to look for instances where the instance lifecycle is spot.
+-- Instances, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
+-- Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/. You can
+-- use DescribeSpotInstanceRequests to find a running Spot Instance by
+-- examining the response. If the status of the Spot Instance is fulfilled,
+-- the instance ID appears in the response and contains the identifier of the
+-- instance. Alternatively, you can use DescribeInstances> with a filter to
+-- look for instances where the instance lifecycle is spot.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotInstanceRequests.html>
 module Network.AWS.EC2.DescribeSpotInstanceRequests
@@ -122,18 +124,19 @@ dsirDryRun = lens _dsirDryRun (\s a -> s { _dsirDryRun = a })
 -- request. state - The state of the Spot Instance request (open | active |
 -- closed | cancelled | failed). Spot bid status information can help you
 -- track your Amazon EC2 Spot Instance requests. For information, see
--- Tracking Spot Requests with Bid Status Codes in the Amazon Elastic
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html
+-- Tracking Spot Requests with Bid Status Codes> in the Amazon Elastic
 -- Compute Cloud User Guide. status-code - The short code describing the
 -- most recent evaluation of your Spot Instance request. status-message -
 -- The message explaining the status of the Spot Instance request.
--- tag:key=value - The key/value combination of a tag assigned to the
+-- tag:/key/=/value/ - The key/value combination of a tag assigned to the
 -- resource. tag-key - The key of a tag assigned to the resource. This
 -- filter is independent of the tag-value filter. For example, if you use
 -- both the filter "tag-key=Purpose" and the filter "tag-value=X", you get
 -- any resources assigned both the tag key Purpose (regardless of what the
 -- tag's value is), and the tag value X (regardless of what the tag's key
 -- is). If you want to list only resources where Purpose is X, see the
--- tag:key=value filter. tag-value - The value of a tag assigned to the
+-- tag:/key/=/value/ filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter. type - The
 -- type of Spot Instance request (one-time | persistent).
 -- launched-availability-zone - The Availability Zone in which the bid is

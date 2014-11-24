@@ -23,22 +23,30 @@
 -- | Launches the specified number of instances using an AMI for which you have
 -- permissions. When you launch an instance, it enters the pending state.
 -- After the instance is ready for you, it enters the running state. To check
--- the state of your instance, call DescribeInstances. If you don't specify a
+-- the state of your instance, call DescribeInstances>. If you don't specify a
 -- security group when launching an instance, Amazon EC2 uses the default
--- security group. For more information, see Security Groups in the Amazon
--- Elastic Compute Cloud User Guide. Linux instances have access to the public
--- key of the key pair at boot. You can use this key to provide secure access
--- to the instance. Amazon EC2 public images use this feature to provide
--- secure access without passwords. For more information, see Key Pairs in the
--- Amazon Elastic Compute Cloud User Guide. You can provide optional user data
--- when launching an instance. For more information, see Instance Metadata in
--- the Amazon Elastic Compute Cloud User Guide. If any of the AMIs have a
--- product code attached for which the user has not subscribed, RunInstances
--- fails. T2 instance types can only be launched into a VPC. If you do not
--- have a default VPC, or if you do not specify a subnet ID in the request,
--- RunInstances fails. For more information about troubleshooting, see What To
--- Do If An Instance Immediately Terminates, and Troubleshooting Connecting to
--- Your Instance in the Amazon Elastic Compute Cloud User Guide.
+-- security group. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html
+-- Security Groups> in the /Amazon Elastic Compute Cloud User Guide/. Linux
+-- instances have access to the public key of the key pair at boot. You can
+-- use this key to provide secure access to the instance. Amazon EC2 public
+-- images use this feature to provide secure access without passwords. For
+-- more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key
+-- Pairs> in the /Amazon Elastic Compute Cloud User Guide/. You can provide
+-- optional user data when launching an instance. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html
+-- Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide/. If any
+-- of the AMIs have a product code attached for which the user has not
+-- subscribed, RunInstances fails. T2 instance types can only be launched into
+-- a VPC. If you do not have a default VPC, or if you do not specify a subnet
+-- ID in the request, RunInstances fails. For more information about
+-- troubleshooting, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html
+-- What To Do If An Instance Immediately Terminates>, and
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html
+-- Troubleshooting Connecting to Your Instance> in the /Amazon Elastic Compute
+-- Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html>
 module Network.AWS.EC2.RunInstances
@@ -206,9 +214,10 @@ riBlockDeviceMappings =
         . _List
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request. For more information, see How to Ensure Idempotency in
--- the Amazon Elastic Compute Cloud User Guide. Constraints: Maximum 64
--- ASCII characters.
+-- of the request. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html
+-- How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User
+-- Guide/. Constraints: Maximum 64 ASCII characters.
 riClientToken :: Lens' RunInstances (Maybe Text)
 riClientToken = lens _riClientToken (\s a -> s { _riClientToken = a })
 
@@ -216,7 +225,7 @@ riClientToken = lens _riClientToken (\s a -> s { _riClientToken = a })
 -- the Amazon EC2 console, CLI, or API; otherwise, you can. If you set this
 -- parameter to true and then later want to be able to terminate the
 -- instance, you must first change the value of the disableApiTermination
--- attribute to false using ModifyInstanceAttribute. Alternatively, if you
+-- attribute to false using ModifyInstanceAttribute>. Alternatively, if you
 -- set InstanceInitiatedShutdownBehavior to terminate, you can terminate the
 -- instance by running the shutdown command from the instance. Default:
 -- false.
@@ -240,7 +249,7 @@ riIamInstanceProfile :: Lens' RunInstances (Maybe IamInstanceProfileSpecificatio
 riIamInstanceProfile =
     lens _riIamInstanceProfile (\s a -> s { _riIamInstanceProfile = a })
 
--- | The ID of the AMI, which you can get by calling DescribeImages.
+-- | The ID of the AMI, which you can get by calling DescribeImages>.
 riImageId :: Lens' RunInstances Text
 riImageId = lens _riImageId (\s a -> s { _riImageId = a })
 
@@ -252,19 +261,22 @@ riInstanceInitiatedShutdownBehavior =
     lens _riInstanceInitiatedShutdownBehavior
         (\s a -> s { _riInstanceInitiatedShutdownBehavior = a })
 
--- | The instance type. For more information, see Instance Types in the Amazon
--- Elastic Compute Cloud User Guide. Default: m1.small.
+-- | The instance type. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+-- Instance Types> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Default: m1.small.
 riInstanceType :: Lens' RunInstances (Maybe InstanceType)
 riInstanceType = lens _riInstanceType (\s a -> s { _riInstanceType = a })
 
 -- | The ID of the kernel. We recommend that you use PV-GRUB instead of
--- kernels and RAM disks. For more information, see PV-GRUB in the Amazon
--- Elastic Compute Cloud User Guide.
+-- kernels and RAM disks. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html
+-- PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/.
 riKernelId :: Lens' RunInstances (Maybe Text)
 riKernelId = lens _riKernelId (\s a -> s { _riKernelId = a })
 
--- | The name of the key pair. You can create a key pair using CreateKeyPair
--- or ImportKeyPair. If you launch an instance without specifying a key
+-- | The name of the key pair. You can create a key pair using CreateKeyPair>
+-- or ImportKeyPair>. If you launch an instance without specifying a key
 -- pair, you can't connect to the instance.
 riKeyName :: Lens' RunInstances (Maybe Text)
 riKeyName = lens _riKeyName (\s a -> s { _riKeyName = a })
@@ -274,8 +286,10 @@ riKeyName = lens _riKeyName (\s a -> s { _riKeyName = a })
 -- launches the largest possible number of instances above MinCount.
 -- Constraints: Between 1 and the maximum number you're allowed for the
 -- specified instance type. For more information about the default limits,
--- and how to request an increase, see How many instances can I run in
--- Amazon EC2 in the Amazon EC2 General FAQ.
+-- and how to request an increase, see
+-- <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2
+-- How many instances can I run in Amazon EC2> in the Amazon EC2 General
+-- FAQ.
 riMaxCount :: Lens' RunInstances Int
 riMaxCount = lens _riMaxCount (\s a -> s { _riMaxCount = a })
 
@@ -284,7 +298,9 @@ riMaxCount = lens _riMaxCount (\s a -> s { _riMaxCount = a })
 -- Zone, Amazon EC2 launches no instances. Constraints: Between 1 and the
 -- maximum number you're allowed for the specified instance type. For more
 -- information about the default limits, and how to request an increase, see
--- How many instances can I run in Amazon EC2 in the Amazon EC2 General FAQ.
+-- <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2
+-- How many instances can I run in Amazon EC2> in the Amazon EC2 General
+-- FAQ.
 riMinCount :: Lens' RunInstances Int
 riMinCount = lens _riMinCount (\s a -> s { _riMinCount = a })
 
@@ -313,13 +329,15 @@ riPrivateIpAddress =
     lens _riPrivateIpAddress (\s a -> s { _riPrivateIpAddress = a })
 
 -- | The ID of the RAM disk. We recommend that you use PV-GRUB instead of
--- kernels and RAM disks. For more information, see PV-GRUB in the Amazon
--- Elastic Compute Cloud User Guide.
+-- kernels and RAM disks. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html
+-- PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/.
 riRamdiskId :: Lens' RunInstances (Maybe Text)
 riRamdiskId = lens _riRamdiskId (\s a -> s { _riRamdiskId = a })
 
 -- | One or more security group IDs. You can create a security group using
--- CreateSecurityGroup. Default: Amazon EC2 uses the default security group.
+-- CreateSecurityGroup>. Default: Amazon EC2 uses the default security
+-- group.
 riSecurityGroupIds :: Lens' RunInstances [Text]
 riSecurityGroupIds =
     lens _riSecurityGroupIds (\s a -> s { _riSecurityGroupIds = a })

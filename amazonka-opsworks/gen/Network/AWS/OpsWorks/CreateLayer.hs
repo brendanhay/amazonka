@@ -20,11 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a layer. For more information, see How to Create a Layer. Required
--- Permissions: To use this action, an IAM user must have a Manage permissions
--- level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see Managing User
--- Permissions.
+-- | Creates a layer. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html
+-- How to Create a Layer>. Required Permissions: To use this action, an IAM
+-- user must have a Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html>
 module Network.AWS.OpsWorks.CreateLayer
@@ -143,21 +146,27 @@ createLayer p1 p2 p3 p4 = CreateLayer
 clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys Text)
 clAttributes = lens _clAttributes (\s a -> s { _clAttributes = a }) . _Map
 
--- | Whether to automatically assign an Elastic IP address to the layer's
--- instances. For more information, see How to Edit a Layer.
+-- | Whether to automatically assign an
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+-- Elastic IP address> to the layer's instances. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html
+-- How to Edit a Layer>.
 clAutoAssignElasticIps :: Lens' CreateLayer (Maybe Bool)
 clAutoAssignElasticIps =
     lens _clAutoAssignElasticIps (\s a -> s { _clAutoAssignElasticIps = a })
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
--- public IP address to the layer's instances. For more information, see How
--- to Edit a Layer.
+-- public IP address to the layer's instances. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html
+-- How to Edit a Layer>.
 clAutoAssignPublicIps :: Lens' CreateLayer (Maybe Bool)
 clAutoAssignPublicIps =
     lens _clAutoAssignPublicIps (\s a -> s { _clAutoAssignPublicIps = a })
 
 -- | The ARN of an IAM profile that to be used for the layer's EC2 instances.
--- For more information about IAM ARNs, see Using Identifiers.
+-- For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 clCustomInstanceProfileArn :: Lens' CreateLayer (Maybe Text)
 clCustomInstanceProfileArn =
     lens _clCustomInstanceProfileArn
@@ -182,7 +191,7 @@ clEnableAutoHealing =
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is true. To control when updates are installed,
 -- set this value to false. You must then update your instances manually by
--- using CreateDeployment to run the update_dependencies stack command or
+-- using CreateDeployment> to run the update_dependencies stack command or
 -- manually running yum (Amazon Linux) or apt-get (Ubuntu) on the instances.
 clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clInstallUpdatesOnBoot =

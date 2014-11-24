@@ -21,9 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new instance profile. For information about instance profiles, go
--- to About Instance Profiles. For information about the number of instance
--- profiles you can create, see Limitations on IAM Entities in the Using IAM
--- guide.
+-- to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html
+-- About Instance Profiles>. For information about the number of instance
+-- profiles you can create, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html
+-- Limitations on IAM Entities> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html>
 module Network.AWS.IAM.CreateInstanceProfile
@@ -75,8 +78,9 @@ cipInstanceProfileName =
     lens _cipInstanceProfileName (\s a -> s { _cipInstanceProfileName = a })
 
 -- | The path to the instance profile. For more information about paths, see
--- IAM Identifiers in the Using IAM guide. This parameter is optional. If it
--- is not included, it defaults to a slash (/).
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide. This parameter is optional. If
+-- it is not included, it defaults to a slash (/).
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\s a -> s { _cipPath = a })
 

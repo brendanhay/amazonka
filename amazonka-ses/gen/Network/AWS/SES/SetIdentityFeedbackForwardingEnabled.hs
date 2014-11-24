@@ -25,7 +25,9 @@
 -- forwarding can only be disabled when Amazon Simple Notification Service
 -- (Amazon SNS) topics are specified for both bounces and complaints. This
 -- action is throttled at one request per second. For more information about
--- using notifications with Amazon SES, see the Amazon SES Developer Guide.
+-- using notifications with Amazon SES, see the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html
+-- Amazon SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.html>
 module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled

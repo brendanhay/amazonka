@@ -211,7 +211,8 @@ idaDkimEnabled = lens _idaDkimEnabled (\s a -> s { _idaDkimEnabled = a })
 -- will be able to DKIM-sign email originating from that domain. (This only
 -- applies to domain identities, not email address identities.) For more
 -- information about creating DNS records using DKIM tokens, go to the
--- Amazon SES Developer Guide.
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html
+-- Amazon SES Developer Guide>.
 idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
 idaDkimTokens = lens _idaDkimTokens (\s a -> s { _idaDkimTokens = a }) . _List
 
@@ -545,7 +546,9 @@ rawMessage p1 = RawMessage
 -- format complies with Internet email standards regarding email header
 -- fields, MIME types, MIME encoding, and base64 encoding (if necessary).
 -- The To:, CC:, and BCC: headers in the raw message can contain a group
--- list. For more information, go to the Amazon SES Developer Guide.
+-- list. For more information, go to the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html
+-- Amazon SES Developer Guide>.
 rmData :: Lens' RawMessage Base64
 rmData = lens _rmData (\s a -> s { _rmData = a })
 

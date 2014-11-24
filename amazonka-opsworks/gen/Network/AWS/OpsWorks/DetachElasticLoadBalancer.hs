@@ -23,8 +23,9 @@
 -- | Detaches a specified Elastic Load Balancing instance from its layer.
 -- Required Permissions: To use this action, an IAM user must have a Manage
 -- permissions level for the stack, or an attached policy that explicitly
--- grants permissions. For more information on user permissions, see Managing
--- User Permissions.
+-- grants permissions. For more information on user permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DetachElasticLoadBalancer.html>
 module Network.AWS.OpsWorks.DetachElasticLoadBalancer

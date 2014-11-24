@@ -25,8 +25,8 @@
 -- limited to specific analysis schemes by name. By default, shows all
 -- analysis schemes and includes any pending changes to the configuration. Set
 -- the Deployed option to true to show the active configuration and exclude
--- pending changes. For more information, see Configuring Analysis Schemes in
--- the Amazon CloudSearch Developer Guide.
+-- pending changes. For more information, see Configuring Analysis Schemes> in
+-- the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAnalysisSchemes.html>
 module Network.AWS.CloudSearch.DescribeAnalysisSchemes

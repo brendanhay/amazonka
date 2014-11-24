@@ -33,7 +33,7 @@
 -- remaining Amazon EBS snapshots by canceling your Amazon EC2 subscription.
 -- If you prefer not to cancel your Amazon EC2 subscription, you can delete
 -- your snapshots using the Amazon EC2 console. For more information, see the
--- AWS Storage Gateway Detail Page.
+-- <http://aws.amazon.com/storagegateway AWS Storage Gateway Detail Page>.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteGateway.html>
 module Network.AWS.StorageGateway.DeleteGateway

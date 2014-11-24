@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Resets permission settings for the specified snapshot. For more information
--- on modifying snapshot permissions, see Sharing Snapshots in the Amazon
--- Elastic Compute Cloud User Guide.
+-- on modifying snapshot permissions, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html
+-- Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetSnapshotAttribute.html>
 module Network.AWS.EC2.ResetSnapshotAttribute

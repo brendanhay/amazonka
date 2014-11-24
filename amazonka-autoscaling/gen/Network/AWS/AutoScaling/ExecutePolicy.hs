@@ -78,8 +78,10 @@ epAutoScalingGroupName =
 -- associated with the Auto Scaling group to complete before executing the
 -- policy. Set to False if you want Auto Scaling to circumvent the cooldown
 -- period associated with the Auto Scaling group and execute the policy
--- before the cooldown period ends. For more information, see Understanding
--- Auto Scaling Cooldowns in the Auto Scaling Developer Guide.
+-- before the cooldown period ends. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html
+-- Understanding Auto Scaling Cooldowns> in the /Auto Scaling Developer
+-- Guide/.
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
 epHonorCooldown = lens _epHonorCooldown (\s a -> s { _epHonorCooldown = a })
 

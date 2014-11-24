@@ -71,7 +71,7 @@ describeStorediSCSIVolumes = DescribeStorediSCSIVolumes
 
 -- | An array of strings where each string represents the Amazon Resource Name
 -- (ARN) of a stored volume. All of the specified stored volumes must from
--- the same gateway. Use ListVolumes to get volume ARNs for a gateway.
+-- the same gateway. Use ListVolumes> to get volume ARNs for a gateway.
 dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
 dsscsivVolumeARNs =
     lens _dsscsivVolumeARNs (\s a -> s { _dsscsivVolumeARNs = a })

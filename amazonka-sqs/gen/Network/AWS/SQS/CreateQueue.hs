@@ -26,11 +26,12 @@
 -- of your own queues. You may pass one or more attributes in the request. If
 -- you do not provide a value for any attribute, the queue will have the
 -- default value for that attribute. Permitted attributes are the same that
--- can be set using SetQueueAttributes. If you provide the name of an existing
--- queue, along with the exact names and values of all the queue's attributes,
--- CreateQueue returns the queue URL for the existing queue. If the queue
--- name, attribute names, or attribute values do not match an existing queue,
--- CreateQueue returns an error. &amp;Attribute.1=this &amp;Attribute.2=that.
+-- can be set using SetQueueAttributes>. If you provide the name of an
+-- existing queue, along with the exact names and values of all the queue's
+-- attributes, CreateQueue returns the queue URL for the existing queue. If
+-- the queue name, attribute names, or attribute values do not match an
+-- existing queue, CreateQueue returns an error. &Attribute.1=this
+-- &Attribute.2=that.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html>
 module Network.AWS.SQS.CreateQueue
@@ -88,15 +89,20 @@ createQueue p1 = CreateQueue
 -- message. Integer representing seconds, from 60 (1 minute) to 1209600 (14
 -- days). The default for this attribute is 345600 (4 days). Policy - The
 -- queue's policy. A valid form-url-encoded policy. For more information
--- about policy structure, see Basic Policy Structure in the Amazon SQS
--- Developer Guide. For more information about form-url-encoding, see
--- http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1.
--- ReceiveMessageWaitTimeSeconds - The time for which a ReceiveMessage call
+-- about policy structure, see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html
+-- Basic Policy Structure> in the /Amazon SQS Developer Guide/. For more
+-- information about form-url-encoding, see
+-- <http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1
+-- http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1>.
+-- ReceiveMessageWaitTimeSeconds - The time for which a ReceiveMessage> call
 -- will wait for a message to arrive. An integer from 0 to 20 (seconds). The
 -- default for this attribute is 0. VisibilityTimeout - The visibility
 -- timeout for the queue. An integer from 0 to 43200 (12 hours). The default
 -- for this attribute is 30. For more information about visibility timeout,
--- see Visibility Timeout in the Amazon SQS Developer Guide.
+-- see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html
+-- Visibility Timeout> in the /Amazon SQS Developer Guide/.
 cqAttributes :: Lens' CreateQueue (HashMap QueueAttributeName Text)
 cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a }) . _EMap
 

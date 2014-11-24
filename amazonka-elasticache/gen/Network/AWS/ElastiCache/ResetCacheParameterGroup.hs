@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The ResetCacheParameterGroup operation modifies the parameters of a cache
+-- | The /ResetCacheParameterGroup/ operation modifies the parameters of a cache
 -- parameter group to the engine or system default value. You can reset
 -- specific parameters by submitting a list of parameter names. To reset the
--- entire cache parameter group, specify the ResetAllParameters and
--- CacheParameterGroupName parameters.
+-- entire cache parameter group, specify the /ResetAllParameters/ and
+-- /CacheParameterGroupName/ parameters.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html>
 module Network.AWS.ElastiCache.ResetCacheParameterGroup
@@ -89,8 +89,8 @@ rcpgParameterNameValues =
     lens _rcpgParameterNameValues (\s a -> s { _rcpgParameterNameValues = a })
         . _List
 
--- | If true, all parameters in the cache parameter group will be reset to
--- default values. If false, no such action occurs. Valid values: true |
+-- | If /true/, all parameters in the cache parameter group will be reset to
+-- default values. If /false/, no such action occurs. Valid values: true |
 -- false.
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgResetAllParameters =

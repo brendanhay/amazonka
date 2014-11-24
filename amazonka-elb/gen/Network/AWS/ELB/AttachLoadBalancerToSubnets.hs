@@ -23,8 +23,10 @@
 -- | Adds one or more subnets to the set of configured subnets in the Amazon
 -- Virtual Private Cloud (Amazon VPC) for the load balancer. The load
 -- balancers evenly distribute requests across all of the registered subnets.
--- For more information, see Deploy Elastic Load Balancing in Amazon VPC in
--- the Elastic Load Balancing Developer Guide.
+-- For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html
+-- Deploy Elastic Load Balancing in Amazon VPC> in the /Elastic Load Balancing
+-- Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AttachLoadBalancerToSubnets.html>
 module Network.AWS.ELB.AttachLoadBalancerToSubnets

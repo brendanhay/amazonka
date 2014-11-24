@@ -32,8 +32,9 @@
 -- constraint. The key is swf:typeFilter.version. If the caller does not have
 -- sufficient permissions to invoke the action, or the parameter values fall
 -- outside the specified constraints, the action fails by throwing
--- OperationNotPermitted. For details and example IAM policies, see Using IAM
--- to Manage Access to Amazon SWF Workflows.
+-- OperationNotPermitted. For details and example IAM policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
+-- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountClosedWorkflowExecutions.html>
 module Network.AWS.SWF.CountClosedWorkflowExecutions

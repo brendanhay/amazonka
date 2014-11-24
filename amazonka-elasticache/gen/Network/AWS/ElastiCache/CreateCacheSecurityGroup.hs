@@ -20,12 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The CreateCacheSecurityGroup operation creates a new cache security group.
--- Use a cache security group to control access to one or more cache clusters.
--- Cache security groups are only used when you are creating a cache cluster
--- outside of an Amazon Virtual Private Cloud (VPC). If you are creating a
--- cache cluster inside of a VPC, use a cache subnet group instead. For more
--- information, see CreateCacheSubnetGroup.
+-- | The /CreateCacheSecurityGroup/ operation creates a new cache security
+-- group. Use a cache security group to control access to one or more cache
+-- clusters. Cache security groups are only used when you are creating a cache
+-- cluster outside of an Amazon Virtual Private Cloud (VPC). If you are
+-- creating a cache cluster inside of a VPC, use a cache subnet group instead.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html
+-- CreateCacheSubnetGroup>.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSecurityGroup.html>
 module Network.AWS.ElastiCache.CreateCacheSecurityGroup

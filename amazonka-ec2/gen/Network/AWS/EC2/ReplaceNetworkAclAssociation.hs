@@ -22,8 +22,9 @@
 
 -- | Changes which network ACL a subnet is associated with. By default when you
 -- create a subnet, it's automatically associated with the default network
--- ACL. For more information about network ACLs, see Network ACLs in the
--- Amazon Virtual Private Cloud User Guide.
+-- ACL. For more information about network ACLs, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
+-- Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkAclAssociation.html>
 module Network.AWS.EC2.ReplaceNetworkAclAssociation

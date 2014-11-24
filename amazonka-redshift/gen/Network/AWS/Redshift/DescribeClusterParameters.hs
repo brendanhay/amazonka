@@ -23,12 +23,14 @@
 -- | Returns a detailed list of parameters contained within the specified Amazon
 -- Redshift parameter group. For each parameter the response includes
 -- information such as parameter name, description, data type, value, whether
--- the parameter value is modifiable, and so on. You can specify source filter
--- to retrieve parameters of only specific type. For example, to retrieve
--- parameters that were modified by a user action such as from
--- ModifyClusterParameterGroup, you can specify source equal to user. For more
--- information about managing parameter groups, go to Amazon Redshift
--- Parameter Groups in the Amazon Redshift Cluster Management Guide.
+-- the parameter value is modifiable, and so on. You can specify /source/
+-- filter to retrieve parameters of only specific type. For example, to
+-- retrieve parameters that were modified by a user action such as from
+-- ModifyClusterParameterGroup>, you can specify /source/ equal to /user/. For
+-- more information about managing parameter groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
+-- Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster
+-- Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html>
 module Network.AWS.Redshift.DescribeClusterParameters
@@ -86,7 +88,7 @@ describeClusterParameters p1 = DescribeClusterParameters
     }
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterParameters
+-- of response records. When the results of a DescribeClusterParameters>
 -- request exceed the value specified in MaxRecords, AWS returns a value in
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker
@@ -142,7 +144,7 @@ describeClusterParametersResponse = DescribeClusterParametersResponse
 dcprMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 
--- | A list of Parameter instances. Each instance lists the parameters of one
+-- | A list of Parameter> instances. Each instance lists the parameters of one
 -- cluster parameter group.
 dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
 dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a }) . _List

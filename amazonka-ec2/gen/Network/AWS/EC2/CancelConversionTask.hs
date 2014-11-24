@@ -24,9 +24,10 @@
 -- instance or volume. The action removes all artifacts of the conversion,
 -- including a partially uploaded volume or instance. If the conversion is
 -- complete or is in the process of transferring the final disk image, the
--- command fails and returns an exception. For more information, see Using the
--- Command Line Tools to Import Your Virtual Machine to Amazon EC2 in the
--- Amazon Elastic Compute Cloud User Guide.
+-- command fails and returns an exception. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html
+-- Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html>
 module Network.AWS.EC2.CancelConversionTask

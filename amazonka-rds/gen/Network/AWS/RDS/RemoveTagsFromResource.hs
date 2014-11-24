@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Removes metadata tags from an Amazon RDS resource. For an overview on
--- tagging an Amazon RDS resource, see Tagging Amazon RDS Resources.
+-- tagging an Amazon RDS resource, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html
+-- Tagging Amazon RDS Resources>.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveTagsFromResource.html>
 module Network.AWS.RDS.RemoveTagsFromResource
@@ -67,7 +69,8 @@ removeTagsFromResource p1 = RemoveTagsFromResource
 
 -- | The Amazon RDS resource the tags will be removed from. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
--- Constructing an RDS Amazon Resource Name (ARN).
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN
+-- Constructing an RDS Amazon Resource Name (ARN)>.
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
 rtfrResourceName = lens _rtfrResourceName (\s a -> s { _rtfrResourceName = a })
 

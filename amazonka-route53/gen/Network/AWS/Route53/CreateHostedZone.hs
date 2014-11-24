@@ -27,15 +27,16 @@
 -- metadata about the hosted zone. Route 53 automatically creates a default
 -- SOA record and four NS records for the zone. The NS records in the hosted
 -- zone are the name servers you give your registrar to delegate your domain
--- to. For more information about SOA and NS records, see NS and SOA Records
--- that Route 53 Creates for a Hosted Zone in the Amazon Route 53 Developer
--- Guide. When you create a zone, its initial status is PENDING. This means
--- that it is not yet available on all DNS servers. The status of the zone
--- changes to INSYNC when the NS and SOA records are available on all Route 53
--- DNS servers. When trying to create a hosted zone using a reusable
--- delegation set, you could specify an optional DelegationSetId, and Route53
--- would assign those 4 NS records for the zone, instead of alloting a new
--- one.
+-- to. For more information about SOA and NS records, see
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html
+-- NS and SOA Records that Route 53 Creates for a Hosted Zone> in the /Amazon
+-- Route 53 Developer Guide/. When you create a zone, its initial status is
+-- PENDING. This means that it is not yet available on all DNS servers. The
+-- status of the zone changes to INSYNC when the NS and SOA records are
+-- available on all Route 53 DNS servers. When trying to create a hosted zone
+-- using a reusable delegation set, you could specify an optional
+-- DelegationSetId, and Route53 would assign those 4 NS records for the zone,
+-- instead of alloting a new one.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html>
 module Network.AWS.Route53.CreateHostedZone
@@ -177,8 +178,8 @@ createHostedZoneResponse p1 p2 p3 p4 = CreateHostedZoneResponse
     }
 
 -- | A complex type that contains information about the request to create a
--- hosted zone. This includes an ID that you use when you call the GetChange
--- action to get the current status of the change request.
+-- hosted zone. This includes an ID that you use when you call the
+-- GetChange> action to get the current status of the change request.
 chzrChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
 chzrChangeInfo = lens _chzrChangeInfo (\s a -> s { _chzrChangeInfo = a })
 

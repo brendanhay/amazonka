@@ -157,42 +157,43 @@ di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 -- VPC. spot-instance-request-id - The ID of the Spot Instance request.
 -- state-reason-code - The reason code for the state change.
 -- state-reason-message - A message that describes the state change.
--- subnet-id - The ID of the subnet for the instance. tag:key=value - The
--- key/value combination of a tag assigned to the resource, where tag:key is
--- the tag's key. tag-key - The key of a tag assigned to the resource. This
--- filter is independent of the tag-value filter. For example, if you use
--- both the filter "tag-key=Purpose" and the filter "tag-value=X", you get
--- any resources assigned both the tag key Purpose (regardless of what the
--- tag's value is), and the tag value X (regardless of what the tag's key
--- is). If you want to list only resources where Purpose is X, see the
--- tag:key=value filter. tag-value - The value of a tag assigned to the
--- resource. This filter is independent of the tag-key filter. tenancy - The
--- tenancy of an instance (dedicated | default). virtualization-type - The
--- virtualization type of the instance (paravirtual | hvm). vpc-id - The ID
--- of the VPC that the instance is running in. network-interface.description
--- - The description of the network interface. network-interface.subnet-id -
--- The ID of the subnet for the network interface. network-interface.vpc-id
--- - The ID of the VPC for the network interface.
--- network-interface.network-interface.id - The ID of the network interface.
--- network-interface.owner-id - The ID of the owner of the network
--- interface. network-interface.availability-zone - The Availability Zone
--- for the network interface. network-interface.requester-id - The requester
--- ID for the network interface. network-interface.requester-managed -
--- Indicates whether the network interface is being managed by AWS.
--- network-interface.status - The status of the network interface
--- (available) | in-use). network-interface.mac-address - The MAC address of
--- the network interface. network-interface-private-dns-name - The private
--- DNS name of the network interface.
--- network-interface.source-destination-check - Whether the network
--- interface performs source/destination checking. A value of true means
--- checking is enabled, and false means checking is disabled. The value must
--- be false for the network interface to perform network address translation
--- (NAT) in your VPC. network-interface.group-id - The ID of a security
--- group associated with the network interface. network-interface.group-name
--- - The name of a security group associated with the network interface.
--- network-interface.attachment.attachment-id - The ID of the interface
--- attachment. network-interface.attachment.instance-id - The ID of the
--- instance to which the network interface is attached.
+-- subnet-id - The ID of the subnet for the instance. tag:/key/=/value/ -
+-- The key/value combination of a tag assigned to the resource, where
+-- tag:/key/ is the tag's key. tag-key - The key of a tag assigned to the
+-- resource. This filter is independent of the tag-value filter. For
+-- example, if you use both the filter "tag-key=Purpose" and the filter
+-- "tag-value=X", you get any resources assigned both the tag key Purpose
+-- (regardless of what the tag's value is), and the tag value X (regardless
+-- of what the tag's key is). If you want to list only resources where
+-- Purpose is X, see the tag:/key/=/value/ filter. tag-value - The value of
+-- a tag assigned to the resource. This filter is independent of the tag-key
+-- filter. tenancy - The tenancy of an instance (dedicated | default).
+-- virtualization-type - The virtualization type of the instance
+-- (paravirtual | hvm). vpc-id - The ID of the VPC that the instance is
+-- running in. network-interface.description - The description of the
+-- network interface. network-interface.subnet-id - The ID of the subnet for
+-- the network interface. network-interface.vpc-id - The ID of the VPC for
+-- the network interface. network-interface.network-interface.id - The ID of
+-- the network interface. network-interface.owner-id - The ID of the owner
+-- of the network interface. network-interface.availability-zone - The
+-- Availability Zone for the network interface.
+-- network-interface.requester-id - The requester ID for the network
+-- interface. network-interface.requester-managed - Indicates whether the
+-- network interface is being managed by AWS. network-interface.status - The
+-- status of the network interface (available) | in-use).
+-- network-interface.mac-address - The MAC address of the network interface.
+-- network-interface-private-dns-name - The private DNS name of the network
+-- interface. network-interface.source-destination-check - Whether the
+-- network interface performs source/destination checking. A value of true
+-- means checking is enabled, and false means checking is disabled. The
+-- value must be false for the network interface to perform network address
+-- translation (NAT) in your VPC. network-interface.group-id - The ID of a
+-- security group associated with the network interface.
+-- network-interface.group-name - The name of a security group associated
+-- with the network interface. network-interface.attachment.attachment-id -
+-- The ID of the interface attachment.
+-- network-interface.attachment.instance-id - The ID of the instance to
+-- which the network interface is attached.
 -- network-interface.attachment.instance-owner-id - The owner ID of the
 -- instance to which the network interface is attached.
 -- network-interface.addresses.private-ip-address - The private IP address

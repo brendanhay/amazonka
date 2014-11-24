@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The CreateCacheCluster operation creates a cache cluster. All nodes in the
--- cache cluster run the same protocol-compliant cache engine software, either
--- Memcached or Redis.
+-- | The /CreateCacheCluster/ operation creates a cache cluster. All nodes in
+-- the cache cluster run the same protocol-compliant cache engine software,
+-- either Memcached or Redis.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html>
 module Network.AWS.ElastiCache.CreateCacheCluster
@@ -200,9 +200,13 @@ cccCacheClusterId =
 -- an Amazon Virtual Private Cloud (VPC). Redis backup/restore is not
 -- supported for t2 instances. Redis Append-only files (AOF) functionality
 -- is not supported for t1 or t2 instances. For a complete listing of cache
--- node types and specifications, see Amazon ElastiCache Product Features
--- and Details and Cache Node Type-Specific Parameters for Memcached or
--- Cache Node Type-Specific Parameters for Redis.
+-- node types and specifications, see
+-- <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product
+-- Features and Details> and
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific
+-- Cache Node Type-Specific Parameters for Memcached> or
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific
+-- Cache Node Type-Specific Parameters for Redis>.
 cccCacheNodeType :: Lens' CreateCacheCluster (Maybe Text)
 cccCacheNodeType = lens _cccCacheNodeType (\s a -> s { _cccCacheNodeType = a })
 
@@ -237,7 +241,7 @@ cccEngine = lens _cccEngine (\s a -> s { _cccEngine = a })
 
 -- | The version number of the cache engine to be used for this cache cluster.
 -- To view the supported cache engine versions, use the
--- DescribeCacheEngineVersions operation.
+-- /DescribeCacheEngineVersions/ operation.
 cccEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
 cccEngineVersion = lens _cccEngineVersion (\s a -> s { _cccEngineVersion = a })
 
@@ -250,7 +254,8 @@ cccNotificationTopicArn =
 -- | The initial number of cache nodes that the cache cluster will have. For
 -- Memcached, valid values are between 1 and 20. If you need to exceed this
 -- limit, please fill out the ElastiCache Limit Increase Request form at
--- http://aws.amazon.com/contact-us/elasticache-node-limit-request/. For
+-- <http://aws.amazon.com/contact-us/elasticache-node-limit-request/
+-- http://aws.amazon.com/contact-us/elasticache-node-limit-request/>. For
 -- Redis, only single-node cache cluster are supported at this time, so the
 -- value for this parameter must be 1.
 cccNumCacheNodes :: Lens' CreateCacheCluster (Maybe Int)
@@ -277,9 +282,9 @@ cccPreferredAvailabilityZone =
 -- Availability Zone multiple times in the list. Default: System chosen
 -- Availability Zones. Example: One Memcached node in each of three
 -- different Availability Zones:
--- PreferredAvailabilityZones.member.1=us-east-1a&amp;PreferredAvailabilityZones.member.2=us-east-1b&amp;PreferredAvailabilityZones.member.3=us-east-1d
+-- PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1b&PreferredAvailabilityZones.member.3=us-east-1d
 -- Example: All three Memcached nodes in one Availability Zone:
--- PreferredAvailabilityZones.member.1=us-east-1a&amp;PreferredAvailabilityZones.member.2=us-east-1a&amp;PreferredAvailabilityZones.member.3=us-east-1a.
+-- PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1a&PreferredAvailabilityZones.member.3=us-east-1a.
 -- 
 cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
 cccPreferredAvailabilityZones =

@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Cancels the specified Reserved Instance listing in the Reserved Instance
--- Marketplace. For more information, see Reserved Instance Marketplace in the
--- Amazon Elastic Compute Cloud User Guide.
+-- Marketplace. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html
+-- Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html>
 module Network.AWS.EC2.CancelReservedInstancesListing

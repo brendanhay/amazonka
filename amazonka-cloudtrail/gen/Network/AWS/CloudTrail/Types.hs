@@ -122,7 +122,7 @@ tIncludeGlobalServiceEvents =
     lens _tIncludeGlobalServiceEvents
         (\s a -> s { _tIncludeGlobalServiceEvents = a })
 
--- | Name of the trail set by calling CreateTrail.
+-- | Name of the trail set by calling CreateTrail>.
 tName :: Lens' Trail (Maybe Text)
 tName = lens _tName (\s a -> s { _tName = a })
 

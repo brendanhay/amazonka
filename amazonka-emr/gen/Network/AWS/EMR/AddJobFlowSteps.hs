@@ -26,9 +26,10 @@
 -- to process your data. You can bypass the 256-step limitation in various
 -- ways, including using the SSH shell to connect to the master node and
 -- submitting queries directly to the software running on the master node,
--- such as Hive and Hadoop. For more information on how to do this, go to Add
--- More than 256 Steps to a Job Flow in the Amazon Elastic MapReduce
--- Developer's Guide. A step specifies the location of a JAR file stored
+-- such as Hive and Hadoop. For more information on how to do this, go to
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html
+-- Add More than 256 Steps to a Job Flow> in the /Amazon Elastic MapReduce
+-- Developer's Guide/. A step specifies the location of a JAR file stored
 -- either on the master node of the job flow or in Amazon S3. Each step is
 -- performed by the main function of the main class of the JAR file. The main
 -- class can be specified either in the manifest of the JAR or by using the
@@ -84,11 +85,11 @@ addJobFlowSteps p1 = AddJobFlowSteps
     }
 
 -- | A string that uniquely identifies the job flow. This identifier is
--- returned by RunJobFlow and can also be obtained from ListClusters.
+-- returned by RunJobFlow> and can also be obtained from ListClusters>.
 ajfsJobFlowId :: Lens' AddJobFlowSteps Text
 ajfsJobFlowId = lens _ajfsJobFlowId (\s a -> s { _ajfsJobFlowId = a })
 
--- | A list of StepConfig to be executed by the job flow.
+-- | A list of StepConfig> to be executed by the job flow.
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
 ajfsSteps = lens _ajfsSteps (\s a -> s { _ajfsSteps = a }) . _List
 

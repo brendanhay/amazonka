@@ -23,7 +23,9 @@
 -- | Describes the permissions for a specified stack. Required Permissions: To
 -- use this action, an IAM user must have a Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see Managing User Permissions.
+-- information on user permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribePermissions.html>
 module Network.AWS.OpsWorks.DescribePermissions
@@ -68,8 +70,9 @@ describePermissions = DescribePermissions
     , _dpStackId    = Nothing
     }
 
--- | The user's IAM ARN. For more information about IAM ARNs, see Using
--- Identifiers.
+-- | The user's IAM ARN. For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 dpIamUserArn :: Lens' DescribePermissions (Maybe Text)
 dpIamUserArn = lens _dpIamUserArn (\s a -> s { _dpIamUserArn = a })
 

@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DescribeCacheParameters operation returns the detailed parameter list
+-- | The /DescribeCacheParameters/ operation returns the detailed parameter list
 -- for a particular cache parameter group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html>
@@ -88,7 +88,7 @@ dcpCacheParameterGroupName =
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords.
+-- the value specified by /MaxRecords/.
 dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\s a -> s { _dcpMarker = a })
 
@@ -139,7 +139,7 @@ dcprCacheNodeTypeSpecificParameters =
 dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 
--- | A list of Parameter instances.
+-- | A list of Parameter> instances.
 dcprParameters :: Lens' DescribeCacheParametersResponse [Parameter]
 dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a }) . _List
 

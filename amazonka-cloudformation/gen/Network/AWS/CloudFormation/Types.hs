@@ -208,13 +208,13 @@ tag = Tag
     , _tagValue = Nothing
     }
 
--- | Required. A string used to identify this tag. You can specify a maximum
+-- | /Required/. A string used to identify this tag. You can specify a maximum
 -- of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS)
 -- have the reserved prefix: aws:.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
--- | Required. A string containing the value for this tag. You can specify a
+-- | /Required/. A string containing the value for this tag. You can specify a
 -- maximum of 256 characters for a tag value.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
@@ -382,8 +382,9 @@ seResourceStatusReason :: Lens' StackEvent (Maybe Text)
 seResourceStatusReason =
     lens _seResourceStatusReason (\s a -> s { _seResourceStatusReason = a })
 
--- | Type of resource. (For more information, go to AWS Resource Types
--- Reference in the AWS CloudFormation User Guide.).
+-- | Type of resource. (For more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+-- AWS Resource Types Reference> in the AWS CloudFormation User Guide.).
 seResourceType :: Lens' StackEvent (Maybe Text)
 seResourceType = lens _seResourceType (\s a -> s { _seResourceType = a })
 
@@ -603,8 +604,9 @@ srdLogicalResourceId =
     lens _srdLogicalResourceId (\s a -> s { _srdLogicalResourceId = a })
 
 -- | The JSON format content of the Metadata attribute declared for the
--- resource. For more information, see Metadata Attribute in the AWS
--- CloudFormation User Guide.
+-- resource. For more information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
+-- Metadata Attribute> in the AWS CloudFormation User Guide.
 srdMetadata :: Lens' StackResourceDetail (Maybe Text)
 srdMetadata = lens _srdMetadata (\s a -> s { _srdMetadata = a })
 
@@ -624,8 +626,9 @@ srdResourceStatusReason :: Lens' StackResourceDetail (Maybe Text)
 srdResourceStatusReason =
     lens _srdResourceStatusReason (\s a -> s { _srdResourceStatusReason = a })
 
--- | Type of resource. ((For more information, go to AWS Resource Types
--- Reference in the AWS CloudFormation User Guide.).
+-- | Type of resource. ((For more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+-- AWS Resource Types Reference> in the AWS CloudFormation User Guide.).
 srdResourceType :: Lens' StackResourceDetail Text
 srdResourceType = lens _srdResourceType (\s a -> s { _srdResourceType = a })
 
@@ -918,8 +921,9 @@ sr1ResourceStatusReason :: Lens' StackResource (Maybe Text)
 sr1ResourceStatusReason =
     lens _sr1ResourceStatusReason (\s a -> s { _sr1ResourceStatusReason = a })
 
--- | Type of resource. (For more information, go to AWS Resource Types
--- Reference in the AWS CloudFormation User Guide.).
+-- | Type of resource. (For more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+-- AWS Resource Types Reference> in the AWS CloudFormation User Guide.).
 sr1ResourceType :: Lens' StackResource Text
 sr1ResourceType = lens _sr1ResourceType (\s a -> s { _sr1ResourceType = a })
 
@@ -1074,8 +1078,9 @@ srsResourceStatusReason :: Lens' StackResourceSummary (Maybe Text)
 srsResourceStatusReason =
     lens _srsResourceStatusReason (\s a -> s { _srsResourceStatusReason = a })
 
--- | Type of resource. (For more information, go to AWS Resource Types
--- Reference in the AWS CloudFormation User Guide.).
+-- | Type of resource. (For more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+-- AWS Resource Types Reference> in the AWS CloudFormation User Guide.).
 srsResourceType :: Lens' StackResourceSummary Text
 srsResourceType = lens _srsResourceType (\s a -> s { _srsResourceType = a })
 

@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of your network ACLs. For more information about
--- network ACLs, see Network ACLs in the Amazon Virtual Private Cloud User
--- Guide.
+-- network ACLs, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
+-- Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkAcls.html>
 module Network.AWS.EC2.DescribeNetworkAcls
@@ -89,16 +90,17 @@ dna1DryRun = lens _dna1DryRun (\s a -> s { _dna1DryRun = a })
 -- entry (tcp | udp | icmp or a protocol number). entry.rule-action - Allows
 -- or denies the matching traffic (allow | deny). entry.rule-number - The
 -- number of an entry (in other words, rule) in the ACL's set of entries.
--- network-acl-id - The ID of the network ACL. tag:key=value - The key/value
--- combination of a tag assigned to the resource. tag-key - The key of a tag
--- assigned to the resource. This filter is independent of the tag-value
--- filter. For example, if you use both the filter "tag-key=Purpose" and the
--- filter "tag-value=X", you get any resources assigned both the tag key
--- Purpose (regardless of what the tag's value is), and the tag value X
--- (regardless of what the tag's key is). If you want to list only resources
--- where Purpose is X, see the tag:key=value filter. tag-value - The value
--- of a tag assigned to the resource. This filter is independent of the
--- tag-key filter. vpc-id - The ID of the VPC for the network ACL.
+-- network-acl-id - The ID of the network ACL. tag:/key/=/value/ - The
+-- key/value combination of a tag assigned to the resource. tag-key - The
+-- key of a tag assigned to the resource. This filter is independent of the
+-- tag-value filter. For example, if you use both the filter
+-- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
+-- assigned both the tag key Purpose (regardless of what the tag's value
+-- is), and the tag value X (regardless of what the tag's key is). If you
+-- want to list only resources where Purpose is X, see the tag:/key/=/value/
+-- filter. tag-value - The value of a tag assigned to the resource. This
+-- filter is independent of the tag-key filter. vpc-id - The ID of the VPC
+-- for the network ACL.
 dna1Filters :: Lens' DescribeNetworkAcls [Filter]
 dna1Filters = lens _dna1Filters (\s a -> s { _dna1Filters = a }) . _List
 

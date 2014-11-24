@@ -26,8 +26,10 @@
 -- Amazon Machine Images (AMIs). The snapshot is copied to the regional
 -- endpoint that you send the HTTP request to. Copies of encrypted Amazon EBS
 -- snapshots remain encrypted. Copies of unencrypted snapshots remain
--- unencrypted. For more information, see Copying an Amazon EBS Snapshot in
--- the Amazon Elastic Compute Cloud User Guide.
+-- unencrypted. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html
+-- Copying an Amazon EBS Snapshot> in the /Amazon Elastic Compute Cloud User
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopySnapshot.html>
 module Network.AWS.EC2.CopySnapshot
@@ -115,11 +117,12 @@ csDryRun = lens _csDryRun (\s a -> s { _csDryRun = a })
 -- and DestinationRegion parameters. The PresignedUrl must be signed using
 -- AWS Signature Version 4. Because Amazon EBS snapshots are stored in
 -- Amazon S3, the signing algorithm for this parameter uses the same logic
--- that is described in Authenticating Requests by Using Query Parameters
--- (AWS Signature Version 4) in the Amazon Simple Storage Service API
--- Reference. An invalid or improperly signed PresignedUrl will cause the
--- copy operation to fail asynchronously, and the snapshot will move to an
--- error state.
+-- that is described in
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
+-- Authenticating Requests by Using Query Parameters (AWS Signature Version
+-- 4)> in the /Amazon Simple Storage Service API Reference/. An invalid or
+-- improperly signed PresignedUrl will cause the copy operation to fail
+-- asynchronously, and the snapshot will move to an error state.
 csPresignedUrl :: Lens' CopySnapshot (Maybe Text)
 csPresignedUrl = lens _csPresignedUrl (\s a -> s { _csPresignedUrl = a })
 

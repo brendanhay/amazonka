@@ -27,8 +27,9 @@
 -- first page results, then a NextToken string will be returned. To receive
 -- the next page, you call ListEndpointsByPlatformApplication again using the
 -- NextToken string received from the previous call. When there are no more
--- records to return, NextToken will be null. For more information, see Using
--- Amazon SNS Mobile Push Notifications.
+-- records to return, NextToken will be null. For more information, see
+-- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
+-- SNS Mobile Push Notifications>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_ListEndpointsByPlatformApplication.html>
 module Network.AWS.SNS.ListEndpointsByPlatformApplication

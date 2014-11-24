@@ -25,8 +25,15 @@
 -- CrossZoneLoadBalancing by either enabling or disabling them. Or, you can
 -- modify the load balancer attribute ConnectionSettings by specifying an idle
 -- connection timeout value for your load balancer. For more information, see
--- the following: Cross-Zone Load Balancing Connection Draining Access Logs
--- Idle Connection Timeout.
+-- the following:
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing
+-- Cross-Zone Load Balancing>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain
+-- Connection Draining>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html
+-- Access Logs>
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout
+-- Idle Connection Timeout>.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ModifyLoadBalancerAttributes.html>
 module Network.AWS.ELB.ModifyLoadBalancerAttributes

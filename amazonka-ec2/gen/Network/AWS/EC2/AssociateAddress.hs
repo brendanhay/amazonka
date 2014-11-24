@@ -22,16 +22,18 @@
 
 -- | Associates an Elastic IP address with an instance or a network interface.
 -- An Elastic IP address is for use in either the EC2-Classic platform or in a
--- VPC. For more information, see Elastic IP Addresses in the Amazon Elastic
--- Compute Cloud User Guide. [EC2-Classic, VPC in an EC2-VPC-only account] If
--- the Elastic IP address is already associated with a different instance, it
--- is disassociated from that instance and associated with the specified
--- instance. [VPC in an EC2-Classic account] If you don't specify a private IP
--- address, the Elastic IP address is associated with the primary IP address.
--- If the Elastic IP address is already associated with a different instance
--- or a network interface, you get an error unless you allow reassociation.
--- This is an idempotent operation. If you perform the operation more than
--- once, Amazon EC2 doesn't return an error.
+-- VPC. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+-- Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
+-- [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is
+-- already associated with a different instance, it is disassociated from that
+-- instance and associated with the specified instance. [VPC in an EC2-Classic
+-- account] If you don't specify a private IP address, the Elastic IP address
+-- is associated with the primary IP address. If the Elastic IP address is
+-- already associated with a different instance or a network interface, you
+-- get an error unless you allow reassociation. This is an idempotent
+-- operation. If you perform the operation more than once, Amazon EC2 doesn't
+-- return an error.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateAddress.html>
 module Network.AWS.EC2.AssociateAddress

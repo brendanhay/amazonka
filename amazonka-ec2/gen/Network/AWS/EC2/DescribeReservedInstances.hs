@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of the Reserved Instances that you purchased. For
--- more information about Reserved Instances, see Reserved Instances in the
--- Amazon Elastic Compute Cloud User Guide.
+-- more information about Reserved Instances, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html
+-- Reserved Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstances.html>
 module Network.AWS.EC2.DescribeReservedInstances
@@ -92,14 +93,14 @@ driDryRun = lens _driDryRun (\s a -> s { _driDryRun = a })
 -- The ID of the Reserved Instance. start - The time at which the Reserved
 -- Instance purchase request was placed (for example,
 -- 2014-08-07T11:54:42.000Z). state - The state of the Reserved Instance
--- (pending-payment | active | payment-failed | retired). tag:key=value -
--- The key/value combination of a tag assigned to the resource. tag-key -
+-- (pending-payment | active | payment-failed | retired). tag:/key/=/value/
+-- - The key/value combination of a tag assigned to the resource. tag-key -
 -- The key of a tag assigned to the resource. This filter is independent of
 -- the tag-value filter. For example, if you use both the filter
 -- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
 -- assigned both the tag key Purpose (regardless of what the tag's value
 -- is), and the tag value X (regardless of what the tag's key is). If you
--- want to list only resources where Purpose is X, see the tag:key=value
+-- want to list only resources where Purpose is X, see the tag:/key/=/value/
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. usage-price - The usage
 -- price of the Reserved Instance, per hour (for example, 0.84).

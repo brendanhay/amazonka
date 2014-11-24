@@ -84,14 +84,14 @@ dvpc1DryRun = lens _dvpc1DryRun (\s a -> s { _dvpc1DryRun = a })
 -- (pending-acceptance | failed | expired | provisioning | active | deleted
 -- | rejected). status-message - A message that provides more information
 -- about the status of the VPC peering connection, if applicable.
--- tag:key=value - The key/value combination of a tag assigned to the
+-- tag:/key/=/value/ - The key/value combination of a tag assigned to the
 -- resource. tag-key - The key of a tag assigned to the resource. This
 -- filter is independent of the tag-value filter. For example, if you use
 -- both the filter "tag-key=Purpose" and the filter "tag-value=X", you get
 -- any resources assigned both the tag key Purpose (regardless of what the
 -- tag's value is), and the tag value X (regardless of what the tag's key
 -- is). If you want to list only resources where Purpose is X, see the
--- tag:key=value filter. tag-value - The value of a tag assigned to the
+-- tag:/key/=/value/ filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
 -- vpc-peering-connection-id - The ID of the VPC peering connection.
 dvpc1Filters :: Lens' DescribeVpcPeeringConnections [Filter]

@@ -21,12 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Imports the public key from an RSA key pair that you created with a
--- third-party tool. Compare this with CreateKeyPair, in which AWS creates the
--- key pair and gives the keys to you (AWS keeps a copy of the public key).
--- With ImportKeyPair, you create the key pair and give AWS just the public
--- key. The private key is never transferred between you and AWS. For more
--- information about key pairs, see Key Pairs in the Amazon Elastic Compute
--- Cloud User Guide.
+-- third-party tool. Compare this with CreateKeyPair>, in which AWS creates
+-- the key pair and gives the keys to you (AWS keeps a copy of the public
+-- key). With ImportKeyPair, you create the key pair and give AWS just the
+-- public key. The private key is never transferred between you and AWS. For
+-- more information about key pairs, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key
+-- Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportKeyPair.html>
 module Network.AWS.EC2.ImportKeyPair

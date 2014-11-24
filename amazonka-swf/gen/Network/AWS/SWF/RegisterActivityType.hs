@@ -20,22 +20,23 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Registers a new activity type along with its configuration settings in the
--- specified domain. A TypeAlreadyExists fault is returned if the type already
--- exists in the domain. You cannot change any configuration settings of the
--- type after its registration, and it must be registered as a new version.
--- Access Control You can use IAM policies to control this action's access to
--- Amazon SWF resources as follows: Use a Resource element with the domain
--- name to limit the action to only specified domains. Use an Action element
--- to allow or deny permission to call this action. Constrain the following
--- parameters by using a Condition element with the appropriate keys.
--- defaultTaskList.name: String constraint. The key is
+-- | Registers a new /activity type/ along with its configuration settings in
+-- the specified domain. A TypeAlreadyExists fault is returned if the type
+-- already exists in the domain. You cannot change any configuration settings
+-- of the type after its registration, and it must be registered as a new
+-- version. Access Control You can use IAM policies to control this action's
+-- access to Amazon SWF resources as follows: Use a Resource element with the
+-- domain name to limit the action to only specified domains. Use an Action
+-- element to allow or deny permission to call this action. Constrain the
+-- following parameters by using a Condition element with the appropriate
+-- keys. defaultTaskList.name: String constraint. The key is
 -- swf:defaultTaskList.name. name: String constraint. The key is swf:name.
 -- version: String constraint. The key is swf:version. If the caller does not
 -- have sufficient permissions to invoke the action, or the parameter values
 -- fall outside the specified constraints, the action fails by throwing
--- OperationNotPermitted. For details and example IAM policies, see Using IAM
--- to Manage Access to Amazon SWF Workflows.
+-- OperationNotPermitted. For details and example IAM policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
+-- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterActivityType.html>
 module Network.AWS.SWF.RegisterActivityType
@@ -118,9 +119,9 @@ registerActivityType p1 p2 p3 = RegisterActivityType
 
 -- | If set, specifies the default maximum time before which a worker
 -- processing a task of this type must report progress by calling
--- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
+-- RecordActivityTaskHeartbeat>. If the timeout is exceeded, the activity
 -- task is automatically timed out. This default can be overridden when
--- scheduling an activity task using the ScheduleActivityTask Decision. If
+-- scheduling an activity task using the ScheduleActivityTask Decision>. If
 -- the activity worker subsequently attempts to record a heartbeat or
 -- returns a result, the activity worker receives an UnknownResource fault.
 -- In this case, Amazon SWF no longer considers the activity task to be
@@ -136,14 +137,14 @@ ratDefaultTaskHeartbeatTimeout =
 -- | If set, specifies the default task list to use for scheduling tasks of
 -- this activity type. This default task list is used if a task list is not
 -- provided when a task is scheduled through the ScheduleActivityTask
--- Decision.
+-- Decision>.
 ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
 ratDefaultTaskList =
     lens _ratDefaultTaskList (\s a -> s { _ratDefaultTaskList = a })
 
 -- | If set, specifies the default maximum duration for a task of this
 -- activity type. This default can be overridden when scheduling an activity
--- task using the ScheduleActivityTask Decision. The valid values are
+-- task using the ScheduleActivityTask Decision>. The valid values are
 -- integers greater than or equal to 0. An integer value can be used to
 -- specify the duration in seconds while NONE can be used to specify
 -- unlimited duration.
@@ -155,9 +156,9 @@ ratDefaultTaskScheduleToCloseTimeout =
 -- | If set, specifies the default maximum duration that a task of this
 -- activity type can wait before being assigned to a worker. This default
 -- can be overridden when scheduling an activity task using the
--- ScheduleActivityTask Decision. The valid values are integers greater than
--- or equal to 0. An integer value can be used to specify the duration in
--- seconds while NONE can be used to specify unlimited duration.
+-- ScheduleActivityTask Decision>. The valid values are integers greater
+-- than or equal to 0. An integer value can be used to specify the duration
+-- in seconds while NONE can be used to specify unlimited duration.
 ratDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskScheduleToStartTimeout =
     lens _ratDefaultTaskScheduleToStartTimeout
@@ -165,7 +166,7 @@ ratDefaultTaskScheduleToStartTimeout =
 
 -- | If set, specifies the default maximum duration that a worker can take to
 -- process tasks of this activity type. This default can be overridden when
--- scheduling an activity task using the ScheduleActivityTask Decision. The
+-- scheduling an activity task using the ScheduleActivityTask Decision>. The
 -- valid values are integers greater than or equal to 0. An integer value
 -- can be used to specify the duration in seconds while NONE can be used to
 -- specify unlimited duration.
@@ -185,15 +186,14 @@ ratDomain = lens _ratDomain (\s a -> s { _ratDomain = a })
 -- | The name of the activity type within the domain. The specified string
 -- must not start or end with whitespace. It must not contain a : (colon), /
 -- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
--- \u007f - \u009f). Also, it must not contain the literal string
--- &quot;arn&quot;.
+-- \u007f - \u009f). Also, it must not contain the literal string "arn".
 ratName :: Lens' RegisterActivityType Text
 ratName = lens _ratName (\s a -> s { _ratName = a })
 
 -- | The version of the activity type. The specified string must not start or
 -- end with whitespace. It must not contain a : (colon), / (slash), |
 -- (vertical bar), or any control characters (\u0000-\u001f | \u007f -
--- \u009f). Also, it must not contain the literal string &quot;arn&quot;.
+-- \u009f). Also, it must not contain the literal string "arn".
 ratVersion :: Lens' RegisterActivityType Text
 ratVersion = lens _ratVersion (\s a -> s { _ratVersion = a })
 

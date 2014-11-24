@@ -97,7 +97,7 @@ dcsg1ClusterSubnetGroupName =
         (\s a -> s { _dcsg1ClusterSubnetGroupName = a })
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSubnetGroups
+-- of response records. When the results of a DescribeClusterSubnetGroups>
 -- request exceed the value specified in MaxRecords, AWS returns a value in
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker
@@ -150,7 +150,7 @@ describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     , _dcsgrClusterSubnetGroups = mempty
     }
 
--- | A list of ClusterSubnetGroup instances.
+-- | A list of ClusterSubnetGroup> instances.
 dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
 dcsgrClusterSubnetGroups =
     lens _dcsgrClusterSubnetGroups

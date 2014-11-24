@@ -466,7 +466,7 @@ healthCheck p1 p2 p3 p4 p5 = HealthCheck
     }
 
 -- | Specifies the number of consecutive health probe successes required
--- before moving the instance to the Healthy state.
+-- before moving the instance to the /Healthy/ state.
 hcHealthyThreshold :: Lens' HealthCheck Natural
 hcHealthyThreshold =
     lens _hcHealthyThreshold (\s a -> s { _hcHealthyThreshold = a })
@@ -495,12 +495,12 @@ hcTarget :: Lens' HealthCheck Text
 hcTarget = lens _hcTarget (\s a -> s { _hcTarget = a })
 
 -- | Specifies the amount of time, in seconds, during which no response means
--- a failed health probe. This value must be less than the Interval value.
+-- a failed health probe. This value must be less than the /Interval/ value.
 hcTimeout :: Lens' HealthCheck Natural
 hcTimeout = lens _hcTimeout (\s a -> s { _hcTimeout = a }) . _Nat
 
 -- | Specifies the number of consecutive health probe failures required before
--- moving the instance to the Unhealthy state.
+-- moving the instance to the /Unhealthy/ state.
 hcUnhealthyThreshold :: Lens' HealthCheck Natural
 hcUnhealthyThreshold =
     lens _hcUnhealthyThreshold (\s a -> s { _hcUnhealthyThreshold = a })
@@ -587,7 +587,9 @@ loadBalancerAttributes = LoadBalancerAttributes
 -- | The name of the load balancer attribute. If enabled, the load balancer
 -- captures detailed information of all the requests and delivers the
 -- information to the Amazon S3 bucket that you specify. For more
--- information, see Enable Access Logs.
+-- information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html
+-- Enable Access Logs>.
 lbaAccessLog :: Lens' LoadBalancerAttributes (Maybe AccessLog)
 lbaAccessLog = lens _lbaAccessLog (\s a -> s { _lbaAccessLog = a })
 
@@ -599,7 +601,9 @@ lbaAdditionalAttributes =
 -- | The name of the load balancer attribute. If enabled, the load balancer
 -- allows existing requests to complete before the load balancer shifts
 -- traffic away from a deregistered or unhealthy back-end instance. For more
--- information, see Enable Connection Draining.
+-- information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html
+-- Enable Connection Draining>.
 lbaConnectionDraining :: Lens' LoadBalancerAttributes (Maybe ConnectionDraining)
 lbaConnectionDraining =
     lens _lbaConnectionDraining (\s a -> s { _lbaConnectionDraining = a })
@@ -609,16 +613,18 @@ lbaConnectionDraining =
 -- front-end and back-end connections of your load balancer. If the
 -- ConnectionSettings attribute is set, Elastic Load Balancing will allow
 -- the connections to remain idle (no data is sent over the connection) for
--- the specified duration. For more information, see Configure Idle
--- Connection Timeout.
+-- the specified duration. For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html
+-- Configure Idle Connection Timeout>.
 lbaConnectionSettings :: Lens' LoadBalancerAttributes (Maybe ConnectionSettings)
 lbaConnectionSettings =
     lens _lbaConnectionSettings (\s a -> s { _lbaConnectionSettings = a })
 
 -- | The name of the load balancer attribute. If enabled, the load balancer
 -- routes the request traffic evenly across all back-end instances
--- regardless of the Availability Zones. For more information, see Enable
--- Cross-Zone Load Balancing.
+-- regardless of the Availability Zones. For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html
+-- Enable Cross-Zone Load Balancing>.
 lbaCrossZoneLoadBalancing :: Lens' LoadBalancerAttributes (Maybe CrossZoneLoadBalancing)
 lbaCrossZoneLoadBalancing =
     lens _lbaCrossZoneLoadBalancing
@@ -1002,8 +1008,10 @@ lbdBackendServerDescriptions =
 
 -- | Provides the name of the Amazon Route 53 hosted zone that is associated
 -- with the load balancer. For information on how to associate your load
--- balancer with a hosted zone, go to Using Domain Names With Elastic Load
--- Balancing in the Elastic Load Balancing Developer Guide.
+-- balancer with a hosted zone, go to
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html
+-- Using Domain Names With Elastic Load Balancing> in the /Elastic Load
+-- Balancing Developer Guide/.
 lbdCanonicalHostedZoneName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneName =
     lens _lbdCanonicalHostedZoneName
@@ -1011,9 +1019,10 @@ lbdCanonicalHostedZoneName =
 
 -- | Provides the ID of the Amazon Route 53 hosted zone name that is
 -- associated with the load balancer. For information on how to associate or
--- disassociate your load balancer with a hosted zone, go to Using Domain
--- Names With Elastic Load Balancing in the Elastic Load Balancing Developer
--- Guide.
+-- disassociate your load balancer with a hosted zone, go to
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html
+-- Using Domain Names With Elastic Load Balancing> in the /Elastic Load
+-- Balancing Developer Guide/.
 lbdCanonicalHostedZoneNameID :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneNameID =
     lens _lbdCanonicalHostedZoneNameID
@@ -1343,16 +1352,16 @@ policies = Policies
     , _pOtherPolicies               = mempty
     }
 
--- | A list of the AppCookieStickinessPolicy objects created with
--- CreateAppCookieStickinessPolicy.
+-- | A list of the AppCookieStickinessPolicy> objects created with
+-- CreateAppCookieStickinessPolicy>.
 pAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
 pAppCookieStickinessPolicies =
     lens _pAppCookieStickinessPolicies
         (\s a -> s { _pAppCookieStickinessPolicies = a })
             . _List
 
--- | A list of LBCookieStickinessPolicy objects created with
--- CreateAppCookieStickinessPolicy.
+-- | A list of LBCookieStickinessPolicy> objects created with
+-- CreateAppCookieStickinessPolicy>.
 pLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
 pLBCookieStickinessPolicies =
     lens _pLBCookieStickinessPolicies
@@ -1444,7 +1453,8 @@ lProtocol = lens _lProtocol (\s a -> s { _lProtocol = a })
 
 -- | The ARN string of the server certificate. To get the ARN of the server
 -- certificate, call the AWS Identity and Access Management
--- UploadServerCertificate API.
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/index.html?API_UploadServerCertificate.html
+-- UploadServerCertificate > API.
 lSSLCertificateId :: Lens' Listener (Maybe Text)
 lSSLCertificateId =
     lens _lSSLCertificateId (\s a -> s { _lSSLCertificateId = a })
@@ -1541,7 +1551,7 @@ isDescription = lens _isDescription (\s a -> s { _isDescription = a })
 isInstanceId :: Lens' InstanceState (Maybe Text)
 isInstanceId = lens _isInstanceId (\s a -> s { _isInstanceId = a })
 
--- | Provides information about the cause of OutOfService instances.
+-- | Provides information about the cause of /OutOfService/ instances.
 -- Specifically, it indicates whether the cause is Elastic Load Balancing or
 -- the instance behind the load balancer. Valid value: ELB|Instance|N/A.
 isReasonCode :: Lens' InstanceState (Maybe Text)

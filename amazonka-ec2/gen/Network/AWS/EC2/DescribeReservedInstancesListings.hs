@@ -34,8 +34,10 @@
 -- first sells the lowest priced Reserved Instances to you, and continues to
 -- sell available Reserved Instance listings to you until your demand is met.
 -- You are charged based on the total price of all of the listings that you
--- purchase. For more information, see Reserved Instance Marketplace in the
--- Amazon Elastic Compute Cloud User Guide.
+-- purchase. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html
+-- Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesListings.html>
 module Network.AWS.EC2.DescribeReservedInstancesListings

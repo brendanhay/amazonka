@@ -24,9 +24,10 @@
 -- balancer evenly distributes requests across all its registered Availability
 -- Zones that contain instances. The new EC2 Availability Zones to be added
 -- must be in the same EC2 Region as the Availability Zones for which the load
--- balancer was created. For more information, see Expand a Load Balanced
--- Application to an Additional Availability Zone in the Elastic Load
--- Balancing Developer Guide.
+-- balancer was created. For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html
+-- Expand a Load Balanced Application to an Additional Availability Zone> in
+-- the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancer.html>
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer

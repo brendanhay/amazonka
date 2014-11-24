@@ -22,8 +22,10 @@
 
 -- | Changes the password of the IAM user who is calling this action. The root
 -- account password is not affected by this action. To change the password for
--- a different user, see UpdateLoginProfile. For more information about
--- modifying passwords, see Managing Passwords in the Using IAM guide.
+-- a different user, see UpdateLoginProfile>. For more information about
+-- modifying passwords, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html
+-- Managing Passwords> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html>
 module Network.AWS.IAM.ChangePassword

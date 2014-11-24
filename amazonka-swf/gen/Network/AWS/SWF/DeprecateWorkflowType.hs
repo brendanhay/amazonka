@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deprecates the specified workflow type. After a workflow type has been
+-- | Deprecates the specified /workflow type/. After a workflow type has been
 -- deprecated, you cannot create new executions of that type. Executions that
 -- were started before the type was deprecated will continue to run. A
 -- deprecated workflow type may still be used when calling visibility actions.
@@ -34,8 +34,9 @@
 -- swf:workflowType.version. If the caller does not have sufficient
 -- permissions to invoke the action, or the parameter values fall outside the
 -- specified constraints, the action fails by throwing OperationNotPermitted.
--- For details and example IAM policies, see Using IAM to Manage Access to
--- Amazon SWF Workflows.
+-- For details and example IAM policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
+-- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateWorkflowType.html>
 module Network.AWS.SWF.DeprecateWorkflowType

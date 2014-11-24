@@ -645,8 +645,8 @@ sSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
 sSnapshotIdentifier =
     lens _sSnapshotIdentifier (\s a -> s { _sSnapshotIdentifier = a })
 
--- | The snapshot type. Snapshots created using CreateClusterSnapshot and
--- CopyClusterSnapshot will be of type "manual".
+-- | The snapshot type. Snapshots created using CreateClusterSnapshot> and
+-- CopyClusterSnapshot> will be of type "manual".
 sSnapshotType :: Lens' Snapshot (Maybe Text)
 sSnapshotType = lens _sSnapshotType (\s a -> s { _sSnapshotType = a })
 
@@ -655,10 +655,10 @@ sSourceRegion :: Lens' Snapshot (Maybe Text)
 sSourceRegion = lens _sSourceRegion (\s a -> s { _sSourceRegion = a })
 
 -- | The snapshot status. The value of the status depends on the API operation
--- used. CreateClusterSnapshot and CopyClusterSnapshot returns status as
--- "creating". DescribeClusterSnapshots returns status as "creating",
--- "available", "final snapshot", or "failed". DeleteClusterSnapshot returns
--- status as "deleted".
+-- used. CreateClusterSnapshot> and CopyClusterSnapshot> returns status as
+-- "creating". DescribeClusterSnapshots> returns status as "creating",
+-- "available", "final snapshot", or "failed". DeleteClusterSnapshot>
+-- returns status as "deleted".
 sStatus :: Lens' Snapshot (Maybe Text)
 sStatus = lens _sStatus (\s a -> s { _sStatus = a })
 
@@ -1961,7 +1961,7 @@ csg1SubnetGroupStatus :: Lens' ClusterSubnetGroup (Maybe Text)
 csg1SubnetGroupStatus =
     lens _csg1SubnetGroupStatus (\s a -> s { _csg1SubnetGroupStatus = a })
 
--- | A list of the VPC Subnet elements.
+-- | A list of the VPC Subnet> elements.
 csg1Subnets :: Lens' ClusterSubnetGroup [Subnet]
 csg1Subnets = lens _csg1Subnets (\s a -> s { _csg1Subnets = a }) . _List
 
@@ -2984,8 +2984,10 @@ trResourceName = lens _trResourceName (\s a -> s { _trResourceName = a })
 -- types are: Cluster CIDR/IP EC2 security group Snapshot Cluster security
 -- group Subnet group HSM connection HSM certificate Parameter group For
 -- more information about Amazon Redshift resource types and constructing
--- ARNs, go to Constructing an Amazon Redshift Amazon Resource Name (ARN) in
--- the Amazon Redshift Cluster Management Guide.
+-- ARNs, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html
+-- Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon
+-- Redshift Cluster Management Guide.
 trResourceType :: Lens' TaggedResource (Maybe Text)
 trResourceType = lens _trResourceType (\s a -> s { _trResourceType = a })
 

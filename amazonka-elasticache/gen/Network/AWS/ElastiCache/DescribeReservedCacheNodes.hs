@@ -20,8 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DescribeReservedCacheNodes operation returns information about reserved
--- cache nodes for this account, or about a specified reserved cache node.
+-- | The /DescribeReservedCacheNodes/ operation returns information about
+-- reserved cache nodes for this account, or about a specified reserved cache
+-- node.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodes.html>
 module Network.AWS.ElastiCache.DescribeReservedCacheNodes
@@ -112,7 +113,7 @@ drcnDuration = lens _drcnDuration (\s a -> s { _drcnDuration = a })
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords.
+-- the value specified by /MaxRecords/.
 drcnMarker :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnMarker = lens _drcnMarker (\s a -> s { _drcnMarker = a })
 

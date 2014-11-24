@@ -25,9 +25,11 @@
 -- parameter. To suspend all processes, omit the ScalingProcesses parameter.
 -- Note that if you suspend either the Launch or Terminate process types, it
 -- can prevent other process types from functioning properly. To resume
--- processes that have been suspended, use ResumeProcesses. For more
--- information, see Suspend and Resume Auto Scaling Processes in the Auto
--- Scaling Developer Guide.
+-- processes that have been suspended, use ResumeProcesses>. For more
+-- information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html
+-- Suspend and Resume Auto Scaling Processes> in the /Auto Scaling Developer
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SuspendProcesses.html>
 module Network.AWS.AutoScaling.SuspendProcesses

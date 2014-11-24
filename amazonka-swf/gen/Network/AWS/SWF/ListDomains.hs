@@ -32,7 +32,9 @@
 -- If the caller does not have sufficient permissions to invoke the action, or
 -- the parameter values fall outside the specified constraints, the action
 -- fails by throwing OperationNotPermitted. For details and example IAM
--- policies, see Using IAM to Manage Access to Amazon SWF Workflows.
+-- policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
+-- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListDomains.html>
 module Network.AWS.SWF.ListDomains
@@ -90,7 +92,7 @@ listDomains p1 = ListDomains
     }
 
 -- | The maximum number of results returned in each page. The default is 100,
--- but the caller can override this value to a page size smaller than the
+-- but the caller can override this value to a page size /smaller/ than the
 -- default. You cannot specify a page size greater than 100. Note that the
 -- number of domains may be less than the maxiumum page size, in which case,
 -- the returned page will have fewer results than the maximumPageSize

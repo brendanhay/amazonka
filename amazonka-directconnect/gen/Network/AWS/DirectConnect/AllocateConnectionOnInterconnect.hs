@@ -95,11 +95,11 @@ allocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnInterconne
     , _acoiVlan           = p5
     }
 
--- | Bandwidth of the connection. Example: "500Mbps" Default: None.
+-- | Bandwidth of the connection. Example: "/500Mbps/" Default: None.
 acoiBandwidth :: Lens' AllocateConnectionOnInterconnect Text
 acoiBandwidth = lens _acoiBandwidth (\s a -> s { _acoiBandwidth = a })
 
--- | Name of the provisioned connection. Example: "500M Connection to AWS"
+-- | Name of the provisioned connection. Example: "/500M Connection to AWS/"
 -- Default: None.
 acoiConnectionName :: Lens' AllocateConnectionOnInterconnect Text
 acoiConnectionName =

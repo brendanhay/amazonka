@@ -95,8 +95,8 @@ createInterconnect p1 p2 p3 = CreateInterconnect
 ciBandwidth :: Lens' CreateInterconnect Text
 ciBandwidth = lens _ciBandwidth (\s a -> s { _ciBandwidth = a })
 
--- | The name of the interconnect. Example: "1G Interconnect to AWS" Default:
--- None.
+-- | The name of the interconnect. Example: "/1G Interconnect to AWS/"
+-- Default: None.
 ciInterconnectName :: Lens' CreateInterconnect Text
 ciInterconnectName =
     lens _ciInterconnectName (\s a -> s { _ciInterconnectName = a })

@@ -81,8 +81,9 @@ escClusterIdentifier =
     lens _escClusterIdentifier (\s a -> s { _escClusterIdentifier = a })
 
 -- | The destination region that you want to copy snapshots to. Constraints:
--- Must be the name of a valid region. For more information, see Regions and
--- Endpoints in the Amazon Web Services General Reference.
+-- Must be the name of a valid region. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region
+-- Regions and Endpoints> in the Amazon Web Services General Reference.
 escDestinationRegion :: Lens' EnableSnapshotCopy Text
 escDestinationRegion =
     lens _escDestinationRegion (\s a -> s { _escDestinationRegion = a })

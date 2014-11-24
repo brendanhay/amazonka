@@ -27,14 +27,16 @@
 -- (covering both ingress and egress rules). A security group is for use with
 -- instances either in the EC2-Classic platform or in a specific VPC. This
 -- action doesn't apply to security groups for use in EC2-Classic. For more
--- information, see Security Groups for Your VPC in the Amazon Virtual Private
--- Cloud User Guide. Each rule consists of the protocol (for example, TCP),
--- plus either a CIDR range or a source group. For the TCP and UDP protocols,
--- you must also specify the destination port or port range. For the ICMP
--- protocol, you must also specify the ICMP type and code. You can use -1 for
--- the type or code to mean all types or all codes. Rule changes are
--- propagated to affected instances as quickly as possible. However, a small
--- delay might occur.
+-- information, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html
+-- Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User
+-- Guide/. Each rule consists of the protocol (for example, TCP), plus either
+-- a CIDR range or a source group. For the TCP and UDP protocols, you must
+-- also specify the destination port or port range. For the ICMP protocol, you
+-- must also specify the ICMP type and code. You can use -1 for the type or
+-- code to mean all types or all codes. Rule changes are propagated to
+-- affected instances as quickly as possible. However, a small delay might
+-- occur.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html>
 module Network.AWS.EC2.AuthorizeSecurityGroupEgress
@@ -137,8 +139,9 @@ asgeIpPermissions =
     lens _asgeIpPermissions (\s a -> s { _asgeIpPermissions = a })
         . _List
 
--- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
--- Use -1 to specify all.
+-- | The IP protocol name (tcp, udp, icmp) or number (see
+-- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
+-- Protocol Numbers>). Use -1 to specify all.
 asgeIpProtocol :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeIpProtocol = lens _asgeIpProtocol (\s a -> s { _asgeIpProtocol = a })
 

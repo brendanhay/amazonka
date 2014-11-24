@@ -21,20 +21,20 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Delivers up to ten messages to the specified queue. This is a batch version
--- of SendMessage. The result of the send action on each message is reported
+-- of SendMessage>. The result of the send action on each message is reported
 -- individually in the response. The maximum allowed individual message size
 -- is 256 KB (262,144 bytes). The maximum total payload size (i.e., the sum of
 -- all a batch's individual message lengths) is also 256 KB (262,144 bytes).
 -- If the DelaySeconds parameter is not specified for an entry, the default
 -- for the queue is used. The following list shows the characters (in Unicode)
 -- that are allowed in your message, according to the W3C XML specification.
--- For more information, go to http://www.faqs.org/rfcs/rfc1321.html. If you
--- send any characters that are not included in the list, your request will be
--- rejected. #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] |
--- [#x10000 to #x10FFFF] Because the batch request can result in a combination
--- of successful and unsuccessful actions, you should check for batch errors
--- even when the call returns an HTTP status code of 200.
--- &amp;Attribute.1=this &amp;Attribute.2=that.
+-- For more information, go to <http://www.faqs.org/rfcs/rfc1321.html
+-- http://www.faqs.org/rfcs/rfc1321.html>. If you send any characters that are
+-- not included in the list, your request will be rejected. #x9 | #xA | #xD |
+-- [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF] Because the
+-- batch request can result in a combination of successful and unsuccessful
+-- actions, you should check for batch errors even when the call returns an
+-- HTTP status code of 200. &Attribute.1=this &Attribute.2=that.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html>
 module Network.AWS.SQS.SendMessageBatch
@@ -81,7 +81,7 @@ sendMessageBatch p1 = SendMessageBatch
     , _smbEntries  = mempty
     }
 
--- | A list of SendMessageBatchRequestEntry items.
+-- | A list of SendMessageBatchRequestEntry> items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a }) . _List
 
@@ -108,12 +108,12 @@ sendMessageBatchResponse = SendMessageBatchResponse
     , _smbrFailed     = mempty
     }
 
--- | A list of BatchResultErrorEntry items with the error detail about each
+-- | A list of BatchResultErrorEntry> items with the error detail about each
 -- message that could not be enqueued.
 smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a }) . _List
 
--- | A list of SendMessageBatchResultEntry items.
+-- | A list of SendMessageBatchResultEntry> items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a }) . _List
 

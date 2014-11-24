@@ -20,12 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes multiple messages. This is a batch version of DeleteMessage. The
+-- | Deletes multiple messages. This is a batch version of DeleteMessage>. The
 -- result of the delete action on each message is reported individually in the
 -- response. Because the batch request can result in a combination of
 -- successful and unsuccessful actions, you should check for batch errors even
--- when the call returns an HTTP status code of 200. &amp;Attribute.1=this
--- &amp;Attribute.2=that.
+-- when the call returns an HTTP status code of 200. &Attribute.1=this
+-- &Attribute.2=that.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html>
 module Network.AWS.SQS.DeleteMessageBatch
@@ -99,11 +99,11 @@ deleteMessageBatchResponse = DeleteMessageBatchResponse
     , _dmbrFailed     = mempty
     }
 
--- | A list of BatchResultErrorEntry items.
+-- | A list of BatchResultErrorEntry> items.
 dmbrFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a }) . _List
 
--- | A list of DeleteMessageBatchResultEntry items.
+-- | A list of DeleteMessageBatchResultEntry> items.
 dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a }) . _List
 

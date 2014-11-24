@@ -123,7 +123,7 @@ describeDBInstancesResponse = DescribeDBInstancesResponse
     , _ddbirDBInstances = mempty
     }
 
--- | A list of DBInstance instances.
+-- | A list of DBInstance> instances.
 ddbirDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
 ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a }) . _List
 

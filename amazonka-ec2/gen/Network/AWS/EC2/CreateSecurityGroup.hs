@@ -22,9 +22,12 @@
 
 -- | Creates a security group. A security group is for use with instances either
 -- in the EC2-Classic platform or in a specific VPC. For more information, see
--- Amazon EC2 Security Groups in the Amazon Elastic Compute Cloud User Guide
--- and Security Groups for Your VPC in the Amazon Virtual Private Cloud User
--- Guide. EC2-Classic: You can have up to 500 security groups. EC2-VPC: You
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html
+-- Amazon EC2 Security Groups> in the /Amazon Elastic Compute Cloud User
+-- Guide/ and
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html
+-- Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User
+-- Guide/. EC2-Classic: You can have up to 500 security groups. EC2-VPC: You
 -- can create up to 100 security groups per VPC. When you create a security
 -- group, you specify a friendly name of your choice. You can have a security
 -- group for use in EC2-Classic with the same name as a security group for use
@@ -36,8 +39,8 @@
 -- the appropriate default security group. A default security group includes a
 -- default rule that grants instances unrestricted network access to each
 -- other. You can add or remove rules from your security groups using
--- AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress,
--- RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
+-- AuthorizeSecurityGroupIngress>, AuthorizeSecurityGroupEgress>,
+-- RevokeSecurityGroupIngress>, and RevokeSecurityGroupEgress>.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html>
 module Network.AWS.EC2.CreateSecurityGroup
@@ -97,7 +100,7 @@ createSecurityGroup p1 p2 = CreateSecurityGroup
 -- | A description for the security group. This is informational only.
 -- Constraints: Up to 255 characters in length Constraints for EC2-Classic:
 -- ASCII characters Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
--- ._-:/()#,@[]+=&amp;;{}!$*.
+-- ._-:/()#,@[]+=&;{}!$*.
 csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 
@@ -106,7 +109,7 @@ csgDryRun = lens _csgDryRun (\s a -> s { _csgDryRun = a })
 
 -- | The name of the security group. Constraints: Up to 255 characters in
 -- length Constraints for EC2-Classic: ASCII characters Constraints for
--- EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*.
+-- EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*.
 csgGroupName :: Lens' CreateSecurityGroup Text
 csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
 

@@ -22,8 +22,8 @@
 
 -- | Requests a refresh of the Trusted Advisor check that has the specified
 -- check ID. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks. The response contains a
--- RefreshTrustedAdvisorCheckResult object, which contains these fields:
+-- DescribeTrustedAdvisorChecks>. The response contains a
+-- RefreshTrustedAdvisorCheckResult> object, which contains these fields:
 -- Status. The refresh status of the check: "none", "enqueued", "processing",
 -- "success", or "abandoned". MillisUntilNextRefreshable. The amount of time,
 -- in milliseconds, until the check is eligible for refresh. CheckId. The

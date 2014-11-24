@@ -351,7 +351,7 @@ coSSECustomerAlgorithm =
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
--- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+-- x-amz-server-side​-encryption​-customer-algorithm header.
 coSSECustomerKey :: Lens' CopyObject (Maybe Text)
 coSSECustomerKey = lens _coSSECustomerKey (\s a -> s { _coSSECustomerKey = a }) . mapping _Sensitive
 

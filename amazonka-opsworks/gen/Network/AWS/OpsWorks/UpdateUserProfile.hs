@@ -22,8 +22,9 @@
 
 -- | Updates a specified user profile. Required Permissions: To use this action,
 -- an IAM user must have an attached policy that explicitly grants
--- permissions. For more information on user permissions, see Managing User
--- Permissions.
+-- permissions. For more information on user permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateUserProfile.html>
 module Network.AWS.OpsWorks.UpdateUserProfile
@@ -78,7 +79,9 @@ updateUserProfile p1 = UpdateUserProfile
     }
 
 -- | Whether users can specify their own SSH public key through the My
--- Settings page. For more information, see Managing User Permissions.
+-- Settings page. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html
+-- Managing User Permissions>.
 uupAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
 uupAllowSelfManagement =
     lens _uupAllowSelfManagement (\s a -> s { _uupAllowSelfManagement = a })

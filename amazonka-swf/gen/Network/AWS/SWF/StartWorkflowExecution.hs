@@ -36,8 +36,9 @@
 -- swf:workflowType.version. If the caller does not have sufficient
 -- permissions to invoke the action, or the parameter values fall outside the
 -- specified constraints, the action fails by throwing OperationNotPermitted.
--- For details and example IAM policies, see Using IAM to Manage Access to
--- Amazon SWF Workflows.
+-- For details and example IAM policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
+-- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_StartWorkflowExecution.html>
 module Network.AWS.SWF.StartWorkflowExecution
@@ -122,9 +123,9 @@ startWorkflowExecution p1 p2 p3 = StartWorkflowExecution
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- this workflow execution if it is terminated, by calling the
--- TerminateWorkflowExecution action explicitly or due to an expired
+-- TerminateWorkflowExecution> action explicitly or due to an expired
 -- timeout. This policy overrides the default child policy specified when
--- registering the workflow type using RegisterWorkflowType. The supported
+-- registering the workflow type using RegisterWorkflowType>. The supported
 -- child policies are: TERMINATE: the child executions will be terminated.
 -- REQUEST_CANCEL: a request to cancel will be attempted for each child
 -- execution by recording a WorkflowExecutionCancelRequested event in its
@@ -160,8 +161,8 @@ swe1Input = lens _swe1Input (\s a -> s { _swe1Input = a })
 
 -- | The list of tags to associate with the workflow execution. You can
 -- specify a maximum of 5 tags. You can list workflow executions with a
--- specific tag by calling ListOpenWorkflowExecutions or
--- ListClosedWorkflowExecutions and specifying a TagFilter.
+-- specific tag by calling ListOpenWorkflowExecutions> or
+-- ListClosedWorkflowExecutions> and specifying a TagFilter>.
 swe1TagList :: Lens' StartWorkflowExecution [Text]
 swe1TagList = lens _swe1TagList (\s a -> s { _swe1TagList = a }) . _List
 
@@ -170,13 +171,13 @@ swe1TagList = lens _swe1TagList (\s a -> s { _swe1TagList = a }) . _List
 -- the workflow type. The specified string must not start or end with
 -- whitespace. It must not contain a : (colon), / (slash), | (vertical bar),
 -- or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it
--- must not contain the literal string &quot;arn&quot;.
+-- must not contain the literal string "arn".
 swe1TaskList :: Lens' StartWorkflowExecution (Maybe TaskList)
 swe1TaskList = lens _swe1TaskList (\s a -> s { _swe1TaskList = a })
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the defaultTaskStartToCloseTimout
--- specified when registering the workflow type using RegisterWorkflowType.
+-- specified when registering the workflow type using RegisterWorkflowType>.
 -- The valid values are integers greater than or equal to 0. An integer
 -- value can be used to specify the duration in seconds while NONE can be
 -- used to specify unlimited duration.
@@ -188,12 +189,12 @@ swe1TaskStartToCloseTimeout =
 -- | The user defined identifier associated with the workflow execution. You
 -- can use this to associate a custom identifier with the workflow
 -- execution. You may specify the same identifier if a workflow execution is
--- logically a restart of a previous execution. You cannot have two open
+-- logically a /restart/ of a previous execution. You cannot have two open
 -- workflow executions with the same workflowId at the same time. The
 -- specified string must not start or end with whitespace. It must not
 -- contain a : (colon), / (slash), | (vertical bar), or any control
 -- characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain
--- the literal string &quot;arn&quot;.
+-- the literal string "arn".
 swe1WorkflowId :: Lens' StartWorkflowExecution Text
 swe1WorkflowId = lens _swe1WorkflowId (\s a -> s { _swe1WorkflowId = a })
 

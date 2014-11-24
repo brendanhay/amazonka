@@ -26,11 +26,11 @@
 -- to instances within the security group as quickly as possible. However, a
 -- small delay might occur. [EC2-Classic] This action gives one or more CIDR
 -- IP address ranges permission to access a security group in your account, or
--- gives one or more security groups (called the source groups) permission to
--- access a security group for your account. A source group can be for your
+-- gives one or more security groups (called the /source groups/) permission
+-- to access a security group for your account. A source group can be for your
 -- own AWS account, or another. [EC2-VPC] This action gives one or more CIDR
 -- IP address ranges permission to access a security group in your VPC, or
--- gives one or more other security groups (called the source groups)
+-- gives one or more other security groups (called the /source groups/)
 -- permission to access a security group for your VPC. The security groups
 -- must all be for the same VPC.
 --
@@ -143,8 +143,9 @@ asgiIpPermissions =
     lens _asgiIpPermissions (\s a -> s { _asgiIpPermissions = a })
         . _List
 
--- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
--- Use -1 to specify all.
+-- | The IP protocol name (tcp, udp, icmp) or number (see
+-- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
+-- Protocol Numbers>). Use -1 to specify all.
 asgiIpProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiIpProtocol = lens _asgiIpProtocol (\s a -> s { _asgiIpProtocol = a })
 

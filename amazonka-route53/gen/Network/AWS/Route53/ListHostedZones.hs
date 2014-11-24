@@ -150,15 +150,15 @@ lhzrMarker = lens _lhzrMarker (\s a -> s { _lhzrMarker = a })
 
 -- | The maximum number of hosted zones to be included in the response body.
 -- If the number of hosted zones associated with this AWS account exceeds
--- MaxItems, the value of ListHostedZonesResponse$IsTruncated in the
+-- MaxItems, the value of ListHostedZonesResponse$IsTruncated> in the
 -- response is true. Call ListHostedZones again and specify the value of
--- ListHostedZonesResponse$NextMarker in the ListHostedZonesRequest$Marker
+-- ListHostedZonesResponse$NextMarker> in the ListHostedZonesRequest$Marker>
 -- element to get the next page of results.
 lhzrMaxItems :: Lens' ListHostedZonesResponse Text
 lhzrMaxItems = lens _lhzrMaxItems (\s a -> s { _lhzrMaxItems = a })
 
 -- | Indicates where to continue listing hosted zones. If
--- ListHostedZonesResponse$IsTruncated is true, make another request to
+-- ListHostedZonesResponse$IsTruncated> is true, make another request to
 -- ListHostedZones and include the value of the NextMarker element in the
 -- Marker element to get the next page of results.
 lhzrNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)

@@ -117,16 +117,16 @@ dni1DryRun = lens _dni1DryRun (\s a -> s { _dni1DryRun = a })
 -- interface. If the network interface is not attached to an instance, the
 -- status is available; if a network interface is attached to an instance
 -- the status is in-use. subnet-id - The ID of the subnet for the network
--- interface. tag:key=value - The key/value combination of a tag assigned to
--- the resource. tag-key - The key of a tag assigned to the resource. This
--- filter is independent of the tag-value filter. For example, if you use
--- both the filter "tag-key=Purpose" and the filter "tag-value=X", you get
--- any resources assigned both the tag key Purpose (regardless of what the
--- tag's value is), and the tag value X (regardless of what the tag's key
--- is). If you want to list only resources where Purpose is X, see the
--- tag:key=value filter. tag-value - The value of a tag assigned to the
--- resource. This filter is independent of the tag-key filter. vpc-id - The
--- ID of the VPC for the network interface.
+-- interface. tag:/key/=/value/ - The key/value combination of a tag
+-- assigned to the resource. tag-key - The key of a tag assigned to the
+-- resource. This filter is independent of the tag-value filter. For
+-- example, if you use both the filter "tag-key=Purpose" and the filter
+-- "tag-value=X", you get any resources assigned both the tag key Purpose
+-- (regardless of what the tag's value is), and the tag value X (regardless
+-- of what the tag's key is). If you want to list only resources where
+-- Purpose is X, see the tag:/key/=/value/ filter. tag-value - The value of
+-- a tag assigned to the resource. This filter is independent of the tag-key
+-- filter. vpc-id - The ID of the VPC for the network interface.
 dni1Filters :: Lens' DescribeNetworkInterfaces [Filter]
 dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a }) . _List
 

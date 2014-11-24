@@ -22,9 +22,13 @@
 
 -- | Describes one or more of your security groups. A security group is for use
 -- with instances either in the EC2-Classic platform or in a specific VPC. For
--- more information, see Amazon EC2 Security Groups in the Amazon Elastic
--- Compute Cloud User Guide and Security Groups for Your VPC in the Amazon
--- Virtual Private Cloud User Guide.
+-- more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html
+-- Amazon EC2 Security Groups> in the /Amazon Elastic Compute Cloud User
+-- Guide/ and
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html
+-- Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html>
 module Network.AWS.EC2.DescribeSecurityGroups

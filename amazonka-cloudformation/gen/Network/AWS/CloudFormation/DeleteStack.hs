@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a specified stack. Once the call completes successfully, stack
--- deletion starts. Deleted stacks do not show up in the DescribeStacks API if
--- the deletion has been completed successfully.
+-- deletion starts. Deleted stacks do not show up in the DescribeStacks> API
+-- if the deletion has been completed successfully.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStack.html>
 module Network.AWS.CloudFormation.DeleteStack

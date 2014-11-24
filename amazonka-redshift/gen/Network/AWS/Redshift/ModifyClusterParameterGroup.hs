@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Modifies the parameters of a parameter group. For more information about
--- managing parameter groups, go to Amazon Redshift Parameter Groups in the
--- Amazon Redshift Cluster Management Guide.
+-- managing parameter groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
+-- Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster
+-- Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterParameterGroup.html>
 module Network.AWS.Redshift.ModifyClusterParameterGroup

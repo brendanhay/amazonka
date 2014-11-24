@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a topic to which notifications can be published. Users can create
--- at most 3000 topics. For more information, see http://aws.amazon.com/sns.
--- This action is idempotent, so if the requester already owns a topic with
--- the specified name, that topic's ARN is returned without creating a new
--- topic.
+-- at most 3000 topics. For more information, see <http://aws.amazon.com/sns/
+-- http://aws.amazon.com/sns>. This action is idempotent, so if the requester
+-- already owns a topic with the specified name, that topic's ARN is returned
+-- without creating a new topic.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html>
 module Network.AWS.SNS.CreateTopic

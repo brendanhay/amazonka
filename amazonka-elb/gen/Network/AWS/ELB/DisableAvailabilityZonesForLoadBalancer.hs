@@ -24,13 +24,14 @@
 -- Availability Zones for the load balancer. There must be at least one
 -- Availability Zone registered with a load balancer at all times. Once an
 -- Availability Zone is removed, all the instances registered with the load
--- balancer that are in the removed Availability Zone go into the OutOfService
--- state. Upon Availability Zone removal, the load balancer attempts to
--- equally balance the traffic among its remaining usable Availability Zones.
--- Trying to remove an Availability Zone that was not associated with the load
--- balancer does nothing. For more information, see Disable an Availability
--- Zone from a Load-Balanced Application in the Elastic Load Balancing
--- Developer Guide.
+-- balancer that are in the removed Availability Zone go into the
+-- /OutOfService/ state. Upon Availability Zone removal, the load balancer
+-- attempts to equally balance the traffic among its remaining usable
+-- Availability Zones. Trying to remove an Availability Zone that was not
+-- associated with the load balancer does nothing. For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html
+-- Disable an Availability Zone from a Load-Balanced Application> in the
+-- /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DisableAvailabilityZonesForLoadBalancer.html>
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer

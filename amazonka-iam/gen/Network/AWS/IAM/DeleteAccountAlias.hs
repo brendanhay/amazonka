@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified AWS account alias. For information about using an AWS
--- account alias, see Using an Alias for Your AWS Account ID in the Using IAM
--- guide.
+-- account alias, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an
+-- Alias for Your AWS Account ID> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountAlias.html>
 module Network.AWS.IAM.DeleteAccountAlias

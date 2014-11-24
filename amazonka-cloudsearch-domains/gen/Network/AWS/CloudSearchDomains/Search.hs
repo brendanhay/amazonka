@@ -29,13 +29,14 @@
 -- boosting and proximity searching. lucene: specify search criteria using the
 -- Apache Lucene query parser syntax. dismax: specify search criteria using
 -- the simplified subset of the Apache Lucene query parser syntax defined by
--- the DisMax query parser. For more information, see Searching Your Data in
--- the Amazon CloudSearch Developer Guide. The endpoint for submitting Search
--- requests is domain-specific. You submit search requests to a domain's
--- search endpoint. To get the search endpoint for your domain, use the Amazon
--- CloudSearch configuration service DescribeDomains action. A domain's
--- endpoints are also displayed on the domain dashboard in the Amazon
--- CloudSearch console.
+-- the DisMax query parser. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html
+-- Searching Your Data> in the /Amazon CloudSearch Developer Guide/. The
+-- endpoint for submitting Search requests is domain-specific. You submit
+-- search requests to a domain's search endpoint. To get the search endpoint
+-- for your domain, use the Amazon CloudSearch configuration service
+-- DescribeDomains action. A domain's endpoints are also displayed on the
+-- domain dashboard in the Amazon CloudSearch console.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Search.html>
 module Network.AWS.CloudSearchDomains.Search
@@ -144,14 +145,17 @@ search p1 = Search
 -- request; they are mutually exclusive. To get the first cursor, set the
 -- cursor value to initial. In subsequent requests, specify the cursor value
 -- returned in the hits section of the response. For more information, see
--- Paginating Results in the Amazon CloudSearch Developer Guide.
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html
+-- Paginating Results> in the /Amazon CloudSearch Developer Guide/.
 s1Cursor :: Lens' Search (Maybe Text)
 s1Cursor = lens _s1Cursor (\s a -> s { _s1Cursor = a })
 
 -- | Defines one or more numeric expressions that can be used to sort results
 -- or specify search or filter criteria. You can also specify expressions as
 -- return fields. For more information about defining and using expressions,
--- see Configuring Expressions in the Amazon CloudSearch Developer Guide.
+-- see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html
+-- Configuring Expressions> in the /Amazon CloudSearch Developer Guide/.
 s1Expr :: Lens' Search (Maybe Text)
 s1Expr = lens _s1Expr (\s a -> s { _s1Expr = a })
 
@@ -163,22 +167,26 @@ s1Expr = lens _s1Expr (\s a -> s { _s1Expr = a })
 -- You can specify the following faceting options: buckets specifies an
 -- array of the facet values or ranges to count. Ranges are specified using
 -- the same syntax that you use to search for a range of values. For more
--- information, see Searching for a Range of Values in the Amazon
--- CloudSearch Developer Guide. Buckets are returned in the order they are
--- specified in the request. The sort and size options are not valid if you
--- specify buckets. size specifies the maximum number of facets to include
--- in the results. By default, Amazon CloudSearch returns counts for the top
--- 10. The size parameter is only valid when you specify the sort option; it
--- cannot be used in conjunction with buckets. sort specifies how you want
--- to sort the facets in the results: bucket or count. Specify bucket to
--- sort alphabetically or numerically by facet value (in ascending order).
+-- information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-ranges.html
+-- Searching for a Range of Values> in the /Amazon CloudSearch Developer
+-- Guide/. Buckets are returned in the order they are specified in the
+-- request. The sort and size options are not valid if you specify buckets.
+-- size specifies the maximum number of facets to include in the results. By
+-- default, Amazon CloudSearch returns counts for the top 10. The size
+-- parameter is only valid when you specify the sort option; it cannot be
+-- used in conjunction with buckets. sort specifies how you want to sort the
+-- facets in the results: bucket or count. Specify bucket to sort
+-- alphabetically or numerically by facet value (in ascending order).
 -- Specify count to sort by the facet counts computed for each facet value
 -- (in descending order). To retrieve facet counts for particular values or
 -- ranges of values, use the buckets option instead of sort. If no facet
 -- options are specified, facet counts are computed for all field values,
 -- the facets are sorted by facet count, and the top 10 facets are returned
--- in the results. For more information, see Getting and Using Facet
--- Information in the Amazon CloudSearch Developer Guide.
+-- in the results. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/faceting.html
+-- Getting and Using Facet Information> in the /Amazon CloudSearch Developer
+-- Guide/.
 s1Facet :: Lens' Search (Maybe Text)
 s1Facet = lens _s1Facet (\s a -> s { _s1Facet = a })
 
@@ -189,8 +197,10 @@ s1Facet = lens _s1Facet (\s a -> s { _s1Facet = a })
 -- controls only which matching documents are included in the results, it
 -- has no effect on how they are scored and sorted. The filterQuery
 -- parameter supports the full structured query syntax. For more information
--- about using filters, see Filtering Matching Documents in the Amazon
--- CloudSearch Developer Guide.
+-- about using filters, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html
+-- Filtering Matching Documents> in the /Amazon CloudSearch Developer
+-- Guide/.
 s1FilterQuery :: Lens' Search (Maybe Text)
 s1FilterQuery = lens _s1FilterQuery (\s a -> s { _s1FilterQuery = a })
 
@@ -205,13 +215,13 @@ s1FilterQuery = lens _s1FilterQuery (\s a -> s { _s1FilterQuery = a })
 -- html. max_phrases: specifies the maximum number of occurrences of the
 -- search term(s) you want to highlight. By default, the first occurrence is
 -- highlighted. pre_tag: specifies the string to prepend to an occurrence of
--- a search term. The default for HTML highlights is &amp;lt;em&amp;gt;. The
--- default for text highlights is *. post_tag: specifies the string to
--- append to an occurrence of a search term. The default for HTML highlights
--- is &amp;lt;/em&amp;gt;. The default for text highlights is *. If no
--- highlight options are specified for a field, the returned field text is
--- treated as HTML and the first match is highlighted with emphasis tags:
--- &amp;lt;em&gt;search-term&amp;lt;/em&amp;gt;.
+-- a search term. The default for HTML highlights is &lt;em&gt;. The default
+-- for text highlights is *. post_tag: specifies the string to append to an
+-- occurrence of a search term. The default for HTML highlights is
+-- &lt;/em&gt;. The default for text highlights is *. If no highlight
+-- options are specified for a field, the returned field text is treated as
+-- HTML and the first match is highlighted with emphasis tags:
+-- &lt;em>search-term&lt;/em&gt;.
 s1Highlight :: Lens' Search (Maybe Text)
 s1Highlight = lens _s1Highlight (\s a -> s { _s1Highlight = a })
 
@@ -234,8 +244,9 @@ s1Partial = lens _s1Partial (\s a -> s { _s1Partial = a })
 -- options specified in the queryOptions parameter. By default, the simple
 -- query parser is used to process requests. To use the structured, lucene,
 -- or dismax query parser, you must also specify the queryParser parameter.
--- For more information about specifying search criteria, see Searching Your
--- Data in the Amazon CloudSearch Developer Guide.
+-- For more information about specifying search criteria, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html
+-- Searching Your Data> in the /Amazon CloudSearch Developer Guide/.
 s1Query :: Lens' Search Text
 s1Query = lens _s1Query (\s a -> s { _s1Query = a })
 
@@ -333,17 +344,23 @@ s1QueryOptions = lens _s1QueryOptions (\s a -> s { _s1QueryOptions = a })
 -- (NOT), | (OR), and * (wildcard) operators to exclude particular terms,
 -- find results that match any of the specified terms, or search for a
 -- prefix. To search for a phrase rather than individual terms, enclose the
--- phrase in double quotes. For more information, see Searching for Text in
--- the Amazon CloudSearch Developer Guide. structured: perform advanced
--- searches by combining multiple expressions to define the search criteria.
--- You can also search within particular fields, search for values and
--- ranges of values, and use advanced options such as term boosting,
--- matchall, and near. For more information, see Constructing Compound
--- Queries in the Amazon CloudSearch Developer Guide. lucene: search using
--- the Apache Lucene query parser syntax. For more information, see Apache
--- Lucene Query Parser Syntax. dismax: search using the simplified subset of
--- the Apache Lucene query parser syntax defined by the DisMax query parser.
--- For more information, see DisMax Query Parser Syntax.
+-- phrase in double quotes. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-text.html
+-- Searching for Text> in the /Amazon CloudSearch Developer Guide/.
+-- structured: perform advanced searches by combining multiple expressions
+-- to define the search criteria. You can also search within particular
+-- fields, search for values and ranges of values, and use advanced options
+-- such as term boosting, matchall, and near. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-compound-queries.html
+-- Constructing Compound Queries> in the /Amazon CloudSearch Developer
+-- Guide/. lucene: search using the Apache Lucene query parser syntax. For
+-- more information, see
+-- <http://lucene.apache.org/core/4_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description
+-- Apache Lucene Query Parser Syntax>. dismax: search using the simplified
+-- subset of the Apache Lucene query parser syntax defined by the DisMax
+-- query parser. For more information, see
+-- <http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax DisMax
+-- Query Parser Syntax>.
 s1QueryParser :: Lens' Search (Maybe QueryParser)
 s1QueryParser = lens _s1QueryParser (\s a -> s { _s1QueryParser = a })
 
@@ -368,16 +385,18 @@ s1Size = lens _s1Size (\s a -> s { _s1Size = a })
 -- Array type fields cannot be used for sorting. If no sort parameter is
 -- specified, results are sorted by their default relevance scores in
 -- descending order: _score desc. You can also sort by document ID (_id asc)
--- and version (_version desc). For more information, see Sorting Results in
--- the Amazon CloudSearch Developer Guide.
+-- and version (_version desc). For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html
+-- Sorting Results> in the /Amazon CloudSearch Developer Guide/.
 s1Sort :: Lens' Search (Maybe Text)
 s1Sort = lens _s1Sort (\s a -> s { _s1Sort = a })
 
 -- | Specifies the offset of the first search hit you want to return. Note
 -- that the result set is zero-based; the first result is at index 0. You
 -- can specify either the start or cursor parameter in a request, they are
--- mutually exclusive. For more information, see Paginating Results in the
--- Amazon CloudSearch Developer Guide.
+-- mutually exclusive. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html
+-- Paginating Results> in the /Amazon CloudSearch Developer Guide/.
 s1Start :: Lens' Search (Maybe Integer)
 s1Start = lens _s1Start (\s a -> s { _s1Start = a })
 

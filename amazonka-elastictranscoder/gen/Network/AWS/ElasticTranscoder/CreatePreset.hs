@@ -32,8 +32,8 @@
 -- comply with the H.264 standard while giving you greater flexibility with
 -- respect to the video that Elastic Transcoder produces. Elastic Transcoder
 -- uses the H.264 video-compression format. For more information, see the
--- International Telecommunication Union publication Recommendation ITU-T
--- H.264: Advanced video coding for generic audiovisual services.
+-- International Telecommunication Union publication /Recommendation ITU-T
+-- H.264: Advanced video coding for generic audiovisual services/.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePreset.html>
 module Network.AWS.ElasticTranscoder.CreatePreset

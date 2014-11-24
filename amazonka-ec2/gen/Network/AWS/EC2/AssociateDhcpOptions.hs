@@ -27,8 +27,9 @@
 -- restart or relaunch the instances. They automatically pick up the changes
 -- within a few hours, depending on how frequently the instance renews its
 -- DHCP lease. You can explicitly renew the lease using the operating system
--- on the instance. For more information, see DHCP Options Sets in the Amazon
--- Virtual Private Cloud User Guide.
+-- on the instance. For more information, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html
+-- DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html>
 module Network.AWS.EC2.AssociateDhcpOptions

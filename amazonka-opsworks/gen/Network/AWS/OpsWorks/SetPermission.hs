@@ -20,11 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Specifies a user's permissions. For more information, see Security and
--- Permissions. Required Permissions: To use this action, an IAM user must
--- have a Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions,
--- see Managing User Permissions.
+-- | Specifies a user's permissions. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html
+-- Security and Permissions>. Required Permissions: To use this action, an IAM
+-- user must have a Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetPermission.html>
 module Network.AWS.OpsWorks.SetPermission
@@ -99,7 +102,9 @@ spIamUserArn = lens _spIamUserArn (\s a -> s { _spIamUserArn = a })
 -- | The user's permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level. deny show deploy
 -- manage iam_only For more information on the permissions associated with
--- these levels, see Managing User Permissions.
+-- these levels, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 spLevel :: Lens' SetPermission (Maybe Text)
 spLevel = lens _spLevel (\s a -> s { _spLevel = a })
 

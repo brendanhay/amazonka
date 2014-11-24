@@ -27,11 +27,13 @@
 -- access keys under the AWS account, you can use this action to manage root
 -- credentials even if the AWS account has no associated users. For
 -- information about limits on the number of keys you can create, see
--- Limitations on IAM Entities in the Using IAM guide. To ensure the security
--- of your AWS account, the secret access key is accessible only during key
--- and user creation. You must save the key (for example, in a text file) if
--- you want to be able to access it again. If a secret key is lost, you can
--- delete the access keys for the associated user and then create new keys.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html
+-- Limitations on IAM Entities> in the /Using IAM/ guide. To ensure the
+-- security of your AWS account, the secret access key is accessible only
+-- during key and user creation. You must save the key (for example, in a text
+-- file) if you want to be able to access it again. If a secret key is lost,
+-- you can delete the access keys for the associated user and then create new
+-- keys.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html>
 module Network.AWS.IAM.CreateAccessKey

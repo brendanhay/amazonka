@@ -387,9 +387,11 @@ cdbiPreferredBackupWindow =
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Format: ddd:hh24:mi-ddd:hh24:mi Default: A 30-minute window selected at
 -- random from an 8-hour block of time per region, occurring on a random day
--- of the week. To see the time blocks available, see Adjusting the
--- Preferred Maintenance Window in the Amazon RDS User Guide. Valid Days:
--- Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
+-- of the week. To see the time blocks available, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html
+-- Adjusting the Preferred Maintenance Window> in the Amazon RDS User Guide.
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum
+-- 30-minute window.
 cdbiPreferredMaintenanceWindow :: Lens' CreateDBInstance (Maybe Text)
 cdbiPreferredMaintenanceWindow =
     lens _cdbiPreferredMaintenanceWindow

@@ -24,20 +24,21 @@
 -- EC2 starts on your behalf when the maximum price that you specify exceeds
 -- the current Spot Price. Amazon EC2 periodically sets the Spot Price based
 -- on available Spot Instance capacity and current Spot Instance requests. For
--- more information about Spot Instances, see Spot Instances in the Amazon
--- Elastic Compute Cloud User Guide. When you specify an Availability Zone,
--- this operation describes the price history for the specified Availability
--- Zone with the most recent set of prices listed first. If you don't specify
--- an Availability Zone, you get the prices across all Availability Zones,
--- starting with the most recent set. However, if you're using an API version
--- earlier than 2011-05-15, you get the lowest price across the region for the
--- specified time period. The prices returned are listed in chronological
--- order, from the oldest to the most recent. When you specify the start and
--- end time options, this operation returns two pieces of data: the prices of
--- the instance types within the time range that you specified and the time
--- when the price changed. The price is valid within the time period that you
--- specified; the response merely indicates the last time that the price
--- changed.
+-- more information about Spot Instances, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
+-- Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/. When you
+-- specify an Availability Zone, this operation describes the price history
+-- for the specified Availability Zone with the most recent set of prices
+-- listed first. If you don't specify an Availability Zone, you get the prices
+-- across all Availability Zones, starting with the most recent set. However,
+-- if you're using an API version earlier than 2011-05-15, you get the lowest
+-- price across the region for the specified time period. The prices returned
+-- are listed in chronological order, from the oldest to the most recent. When
+-- you specify the start and end time options, this operation returns two
+-- pieces of data: the prices of the instance types within the time range that
+-- you specified and the time when the price changed. The price is valid
+-- within the time period that you specified; the response merely indicates
+-- the last time that the price changed.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotPriceHistory.html>
 module Network.AWS.EC2.DescribeSpotPriceHistory

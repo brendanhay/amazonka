@@ -498,8 +498,9 @@ noncurrentVersionExpiration p1 = NoncurrentVersionExpiration
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3 can
 -- perform the associated action. For information about the noncurrent days
--- calculations, see How Amazon S3 Calculates When an Object Became
--- Noncurrent in the Amazon Simple Storage Service Developer Guide.
+-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon
+-- S3 Calculates When an Object Became Noncurrent> in the Amazon Simple
+-- Storage Service Developer Guide.
 nveNoncurrentDays :: Lens' NoncurrentVersionExpiration Int
 nveNoncurrentDays =
     lens _nveNoncurrentDays (\s a -> s { _nveNoncurrentDays = a })
@@ -1451,8 +1452,9 @@ noncurrentVersionTransition p1 p2 = NoncurrentVersionTransition
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3 can
 -- perform the associated action. For information about the noncurrent days
--- calculations, see How Amazon S3 Calculates When an Object Became
--- Noncurrent in the Amazon Simple Storage Service Developer Guide.
+-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon
+-- S3 Calculates When an Object Became Noncurrent> in the Amazon Simple
+-- Storage Service Developer Guide.
 nvtNoncurrentDays :: Lens' NoncurrentVersionTransition Int
 nvtNoncurrentDays =
     lens _nvtNoncurrentDays (\s a -> s { _nvtNoncurrentDays = a })

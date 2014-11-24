@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Moves the specified instances out of Standby mode. For more information,
--- see Auto Scaling InService State in the Auto Scaling Developer Guide.
+-- see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html
+-- Auto Scaling InService State> in the /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExitStandby.html>
 module Network.AWS.AutoScaling.ExitStandby

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of your Lambda functions. For each function, the response
--- includes the function configuration information. You must use GetFunction
+-- includes the function configuration information. You must use GetFunction>
 -- to retrieve the code for your function. This operation requires permission
 -- for the lambda:ListFunctions action.
 --

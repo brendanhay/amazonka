@@ -62,11 +62,14 @@
 -- also avoid retirement of EBS-backed instances by manually restarting your
 -- instance when its event code is instance-retirement. This ensures that your
 -- instance is started on a different underlying host. For more information
--- about failed status checks, see Troubleshooting Instances with Failed
--- Status Checks in the Amazon Elastic Compute Cloud User Guide. For more
--- information about working with scheduled events, see Working with an
--- Instance That Has a Scheduled Event in the Amazon Elastic Compute Cloud
--- User Guide.
+-- about failed status checks, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html
+-- Troubleshooting Instances with Failed Status Checks> in the /Amazon Elastic
+-- Compute Cloud User Guide/. For more information about working with
+-- scheduled events, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#schedevents_actions
+-- Working with an Instance That Has a Scheduled Event> in the /Amazon Elastic
+-- Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html>
 module Network.AWS.EC2.DescribeInstanceStatus

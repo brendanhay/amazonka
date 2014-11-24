@@ -23,7 +23,7 @@
 -- | Removes subnets from the set of configured subnets in the Amazon Virtual
 -- Private Cloud (Amazon VPC) for the load balancer. After a subnet is removed
 -- all of the EC2 instances registered with the load balancer that are in the
--- removed subnet will go into the OutOfService state. When a subnet is
+-- removed subnet will go into the /OutOfService/ state. When a subnet is
 -- removed, the load balancer will balance the traffic among the remaining
 -- routable subnets for the load balancer.
 --

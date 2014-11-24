@@ -24,8 +24,10 @@
 -- deregistered, it will stop receiving traffic from the load balancer. In
 -- order to successfully call this API, the same account credentials as those
 -- used to create the load balancer must be provided. For more information,
--- see De-register and Register Amazon EC2 Instances in the Elastic Load
--- Balancing Developer Guide. You can use DescribeLoadBalancers to verify if
+-- see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html
+-- De-register and Register Amazon EC2 Instances> in the /Elastic Load
+-- Balancing Developer Guide/. You can use DescribeLoadBalancers> to verify if
 -- the instance is deregistered from the load balancer.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeregisterInstancesFromLoadBalancer.html>

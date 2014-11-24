@@ -74,7 +74,8 @@ sspStackName :: Lens' SetStackPolicy Text
 sspStackName = lens _sspStackName (\s a -> s { _sspStackName = a })
 
 -- | Structure containing the stack policy body. For more information, go to
--- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html
+-- Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.
 -- You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
 sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)

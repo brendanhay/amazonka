@@ -401,8 +401,9 @@ group p1 p2 p3 p4 p5 = Group
     }
 
 -- | The Amazon Resource Name (ARN) specifying the group. For more information
--- about ARNs and how to use them in policies, see IAM Identifiers in the
--- Using IAM guide.
+-- about ARNs and how to use them in policies, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 gArn :: Lens' Group Text
 gArn = lens _gArn (\s a -> s { _gArn = a })
 
@@ -411,7 +412,9 @@ gCreateDate :: Lens' Group UTCTime
 gCreateDate = lens _gCreateDate (\s a -> s { _gCreateDate = a }) . _Time
 
 -- | The stable and unique string identifying the group. For more information
--- about IDs, see IAM Identifiers in the Using IAM guide.
+-- about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 gGroupId :: Lens' Group Text
 gGroupId = lens _gGroupId (\s a -> s { _gGroupId = a })
 
@@ -419,8 +422,9 @@ gGroupId = lens _gGroupId (\s a -> s { _gGroupId = a })
 gGroupName :: Lens' Group Text
 gGroupName = lens _gGroupName (\s a -> s { _gGroupName = a })
 
--- | The path to the group. For more information about paths, see IAM
--- Identifiers in the Using IAM guide.
+-- | The path to the group. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 gPath :: Lens' Group Text
 gPath = lens _gPath (\s a -> s { _gPath = a })
 
@@ -534,8 +538,9 @@ instanceProfile p1 p2 p3 p4 p5 = InstanceProfile
     }
 
 -- | The Amazon Resource Name (ARN) specifying the instance profile. For more
--- information about ARNs and how to use them in policies, see IAM
--- Identifiers in the Using IAM guide.
+-- information about ARNs and how to use them in policies, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 ipArn :: Lens' InstanceProfile Text
 ipArn = lens _ipArn (\s a -> s { _ipArn = a })
 
@@ -544,7 +549,9 @@ ipCreateDate :: Lens' InstanceProfile UTCTime
 ipCreateDate = lens _ipCreateDate (\s a -> s { _ipCreateDate = a }) . _Time
 
 -- | The stable and unique string identifying the instance profile. For more
--- information about IDs, see IAM Identifiers in the Using IAM guide.
+-- information about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 ipInstanceProfileId :: Lens' InstanceProfile Text
 ipInstanceProfileId =
     lens _ipInstanceProfileId (\s a -> s { _ipInstanceProfileId = a })
@@ -555,7 +562,8 @@ ipInstanceProfileName =
     lens _ipInstanceProfileName (\s a -> s { _ipInstanceProfileName = a })
 
 -- | The path to the instance profile. For more information about paths, see
--- IAM Identifiers in the Using IAM guide.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 ipPath :: Lens' InstanceProfile Text
 ipPath = lens _ipPath (\s a -> s { _ipPath = a })
 
@@ -644,8 +652,9 @@ serverCertificateMetadata p1 p2 p3 p4 = ServerCertificateMetadata
     }
 
 -- | The Amazon Resource Name (ARN) specifying the server certificate. For
--- more information about ARNs and how to use them in policies, see IAM
--- Identifiers in the Using IAM guide.
+-- more information about ARNs and how to use them in policies, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 scmArn :: Lens' ServerCertificateMetadata Text
 scmArn = lens _scmArn (\s a -> s { _scmArn = a })
 
@@ -654,12 +663,15 @@ scmExpiration :: Lens' ServerCertificateMetadata (Maybe UTCTime)
 scmExpiration = lens _scmExpiration (\s a -> s { _scmExpiration = a }) . mapping _Time
 
 -- | The path to the server certificate. For more information about paths, see
--- IAM Identifiers in the Using IAM guide.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 scmPath :: Lens' ServerCertificateMetadata Text
 scmPath = lens _scmPath (\s a -> s { _scmPath = a })
 
 -- | The stable and unique string identifying the server certificate. For more
--- information about IDs, see IAM Identifiers in the Using IAM guide.
+-- information about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 scmServerCertificateId :: Lens' ServerCertificateMetadata Text
 scmServerCertificateId =
     lens _scmServerCertificateId (\s a -> s { _scmServerCertificateId = a })
@@ -905,37 +917,44 @@ user p1 p2 p3 p4 p5 = User
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the user. For more
--- information about ARNs and how to use ARNs in policies, see IAM
--- Identifiers in the Using IAM guide.
+-- information about ARNs and how to use ARNs in policies, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 uArn :: Lens' User Text
 uArn = lens _uArn (\s a -> s { _uArn = a })
 
--- | The date and time, in ISO 8601 date-time format, when the user was
--- created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time
+-- format>, when the user was created.
 uCreateDate :: Lens' User UTCTime
 uCreateDate = lens _uCreateDate (\s a -> s { _uCreateDate = a }) . _Time
 
--- | The date and time, in ISO 8601 date-time format, when the user's password
--- was last used to sign in to an AWS website. For a list of AWS websites
--- that capture a user's last sign-in time, see the Credential Reports topic
--- in the Using IAM guide. If a password is used more than once in a
--- five-minute span, only the first use is returned in this field. When the
--- user does not have a password, this field is null (not present). When a
--- user's password exists but has never been used, or when there is no
--- sign-in data associated with the user, this field is null (not present).
--- This value is returned only in the GetUser and ListUsers actions.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time
+-- format>, when the user's password was last used to sign in to an AWS
+-- website. For a list of AWS websites that capture a user's last sign-in
+-- time, see the
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html
+-- Credential Reports> topic in the /Using IAM/ guide. If a password is used
+-- more than once in a five-minute span, only the first use is returned in
+-- this field. When the user does not have a password, this field is null
+-- (not present). When a user's password exists but has never been used, or
+-- when there is no sign-in data associated with the user, this field is
+-- null (not present). This value is returned only in the GetUser> and
+-- ListUsers> actions.
 uPasswordLastUsed :: Lens' User (Maybe UTCTime)
 uPasswordLastUsed =
     lens _uPasswordLastUsed (\s a -> s { _uPasswordLastUsed = a })
         . mapping _Time
 
--- | The path to the user. For more information about paths, see IAM
--- Identifiers in the Using IAM guide.
+-- | The path to the user. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 uPath :: Lens' User Text
 uPath = lens _uPath (\s a -> s { _uPath = a })
 
 -- | The stable and unique string identifying the user. For more information
--- about IDs, see IAM Identifiers in the Using IAM guide.
+-- about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 uUserId :: Lens' User Text
 uUserId = lens _uUserId (\s a -> s { _uUserId = a })
 
@@ -1081,14 +1100,16 @@ role p1 p2 p3 p4 p5 = Role
     }
 
 -- | The Amazon Resource Name (ARN) specifying the role. For more information
--- about ARNs and how to use them in policies, see IAM Identifiers in the
--- Using IAM guide.
+-- about ARNs and how to use them in policies, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 rArn :: Lens' Role Text
 rArn = lens _rArn (\s a -> s { _rArn = a })
 
 -- | The policy that grants an entity permission to assume the role. The
 -- returned policy is URL-encoded according to RFC 3986. For more
--- information about RFC 3986, go to http://www.faqs.org/rfcs/rfc3986.html.
+-- information about RFC 3986, go to <http://www.faqs.org/rfcs/rfc3986.html
+-- http://www.faqs.org/rfcs/rfc3986.html>.
 rAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
 rAssumeRolePolicyDocument =
     lens _rAssumeRolePolicyDocument
@@ -1098,13 +1119,16 @@ rAssumeRolePolicyDocument =
 rCreateDate :: Lens' Role UTCTime
 rCreateDate = lens _rCreateDate (\s a -> s { _rCreateDate = a }) . _Time
 
--- | The path to the role. For more information about paths, see IAM
--- Identifiers in the Using IAM guide.
+-- | The path to the role. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 rPath :: Lens' Role Text
 rPath = lens _rPath (\s a -> s { _rPath = a })
 
 -- | The stable and unique string identifying the role. For more information
--- about IDs, see IAM Identifiers in the Using IAM guide.
+-- about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide.
 rRoleId :: Lens' Role Text
 rRoleId = lens _rRoleId (\s a -> s { _rRoleId = a })
 
@@ -1293,7 +1317,8 @@ virtualMFADevice p1 = VirtualMFADevice
     , _vmfadEnableDate       = Nothing
     }
 
--- | The Base32 seed defined as specified in RFC3548. The Base32StringSeed is
+-- | The Base32 seed defined as specified in
+-- <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The Base32StringSeed is
 -- Base64-encoded.
 vmfadBase32StringSeed :: Lens' VirtualMFADevice (Maybe Base64)
 vmfadBase32StringSeed =

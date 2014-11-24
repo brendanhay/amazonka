@@ -23,8 +23,9 @@
 -- | Associates one or more security groups with your load balancer in Amazon
 -- Virtual Private Cloud (Amazon VPC). The provided security group IDs will
 -- override any currently applied security groups. For more information, see
--- Manage Security Groups in Amazon VPC in the Elastic Load Balancing
--- Developer Guide.
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html
+-- Manage Security Groups in Amazon VPC> in the /Elastic Load Balancing
+-- Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancer.html>
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer

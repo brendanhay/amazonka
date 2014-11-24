@@ -26,8 +26,9 @@
 -- you must store in the HSM. In addition to creating the HSM certificate, you
 -- must create an Amazon Redshift HSM configuration that provides a cluster
 -- the information needed to store and use encryption keys in the HSM. For
--- more information, go to Hardware Security Modules in the Amazon Redshift
--- Cluster Management Guide.
+-- more information, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html
+-- Hardware Security Modules> in the Amazon Redshift Cluster Management Guide.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmClientCertificate.html>
 module Network.AWS.Redshift.CreateHsmClientCertificate

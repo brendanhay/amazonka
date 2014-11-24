@@ -23,15 +23,17 @@
 -- | Returns information about Amazon Redshift security groups. If the name of a
 -- security group is specified, the response will contain only information
 -- about only that security group. For information about managing security
--- groups, go to Amazon Redshift Cluster Security Groups in the Amazon
--- Redshift Cluster Management Guide. If you specify both tag keys and tag
--- values in the same request, Amazon Redshift returns all security groups
--- that match any combination of the specified keys and values. For example,
--- if you have owner and environment for tag keys, and admin and test for tag
--- values, all security groups that have any combination of those values are
--- returned. If both tag keys and values are omitted from the request,
--- security groups are returned regardless of whether they have tag keys or
--- values associated with them.
+-- groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html
+-- Amazon Redshift Cluster Security Groups> in the /Amazon Redshift Cluster
+-- Management Guide/. If you specify both tag keys and tag values in the same
+-- request, Amazon Redshift returns all security groups that match any
+-- combination of the specified keys and values. For example, if you have
+-- owner and environment for tag keys, and admin and test for tag values, all
+-- security groups that have any combination of those values are returned. If
+-- both tag keys and values are omitted from the request, security groups are
+-- returned regardless of whether they have tag keys or values associated with
+-- them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html>
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
@@ -102,7 +104,7 @@ dcsgClusterSecurityGroupName =
         (\s a -> s { _dcsgClusterSecurityGroupName = a })
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSecurityGroups
+-- of response records. When the results of a DescribeClusterSecurityGroups>
 -- request exceed the value specified in MaxRecords, AWS returns a value in
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker
@@ -158,7 +160,7 @@ describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     , _dcsgr1ClusterSecurityGroups = mempty
     }
 
--- | A list of ClusterSecurityGroup instances.
+-- | A list of ClusterSecurityGroup> instances.
 dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
 dcsgr1ClusterSecurityGroups =
     lens _dcsgr1ClusterSecurityGroups

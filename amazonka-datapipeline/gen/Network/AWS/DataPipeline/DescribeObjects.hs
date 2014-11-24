@@ -87,8 +87,8 @@ doEvaluateExpressions =
     lens _doEvaluateExpressions (\s a -> s { _doEvaluateExpressions = a })
 
 -- | The starting point for the results to be returned. The first time you
--- call DescribeObjects, this value should be empty. As long as the action
--- returns HasMoreResults as True, you can call DescribeObjects again and
+-- call DescribeObjects>, this value should be empty. As long as the action
+-- returns HasMoreResults as True, you can call DescribeObjects> again and
 -- pass the marker value from the response to retrieve the next set of
 -- results.
 doMarker :: Lens' DescribeObjects (Maybe Text)
@@ -133,12 +133,12 @@ dorHasMoreResults =
     lens _dorHasMoreResults (\s a -> s { _dorHasMoreResults = a })
 
 -- | The starting point for the next page of results. To view the next page of
--- results, call DescribeObjects again with this marker value.
+-- results, call DescribeObjects> again with this marker value.
 dorMarker :: Lens' DescribeObjectsResponse (Maybe Text)
 dorMarker = lens _dorMarker (\s a -> s { _dorMarker = a })
 
 -- | An array of object definitions that are returned by the call to
--- DescribeObjects.
+-- DescribeObjects>.
 dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorPipelineObjects =
     lens _dorPipelineObjects (\s a -> s { _dorPipelineObjects = a })

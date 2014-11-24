@@ -319,7 +319,7 @@ cBody = lens _cBody (\s a -> s { _cBody = a })
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
--- case-12345678910-2013-c4c1d2bf33c5cf47.
+-- case-/12345678910-2013-c4c1d2bf33c5cf47/.
 cCaseId :: Lens' Communication (Maybe Text)
 cCaseId = lens _cCaseId (\s a -> s { _cCaseId = a })
 
@@ -651,7 +651,7 @@ tacdId = lens _tacdId (\s a -> s { _tacdId = a })
 
 -- | The column headings for the data returned by the Trusted Advisor check.
 -- The order of the headings corresponds to the order of the data in the
--- Metadata element of the TrustedAdvisorResourceDetail for the check.
+-- Metadata element of the TrustedAdvisorResourceDetail> for the check.
 -- Metadata contains all the data that is shown in the Excel download, even
 -- in those cases where the UI shows just summary data.
 tacdMetadata :: Lens' TrustedAdvisorCheckDescription [Text]
@@ -782,11 +782,11 @@ supportService = SupportService
 -- | A list of categories that describe the type of support issue a case
 -- describes. Categories consist of a category name and a category code.
 -- Category names and codes are passed to AWS Support when you call
--- CreateCase.
+-- CreateCase>.
 ssCategories :: Lens' SupportService [Category]
 ssCategories = lens _ssCategories (\s a -> s { _ssCategories = a }) . _List
 
--- | The code for an AWS service returned by the DescribeServices response.
+-- | The code for an AWS service returned by the DescribeServices> response.
 -- The Name element contains the corresponding friendly name.
 ssCode :: Lens' SupportService (Maybe Text)
 ssCode = lens _ssCode (\s a -> s { _ssCode = a })
@@ -850,8 +850,8 @@ tardIsSuppressed = lens _tardIsSuppressed (\s a -> s { _tardIsSuppressed = a })
 
 -- | Additional information about the identified resource. The exact metadata
 -- and its order can be obtained by inspecting the
--- TrustedAdvisorCheckDescription object returned by the call to
--- DescribeTrustedAdvisorChecks. Metadata contains all the data that is
+-- TrustedAdvisorCheckDescription> object returned by the call to
+-- DescribeTrustedAdvisorChecks>. Metadata contains all the data that is
 -- shown in the Excel download, even in those cases where the UI shows just
 -- summary data.
 tardMetadata :: Lens' TrustedAdvisorResourceDetail [Text]
@@ -1034,7 +1034,7 @@ caseDetails = CaseDetails
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
--- case-12345678910-2013-c4c1d2bf33c5cf47.
+-- case-/12345678910-2013-c4c1d2bf33c5cf47/.
 cdCaseId :: Lens' CaseDetails (Maybe Text)
 cdCaseId = lens _cdCaseId (\s a -> s { _cdCaseId = a })
 
@@ -1066,12 +1066,12 @@ cdRecentCommunications :: Lens' CaseDetails (Maybe RecentCaseCommunications)
 cdRecentCommunications =
     lens _cdRecentCommunications (\s a -> s { _cdRecentCommunications = a })
 
--- | The code for the AWS service returned by the call to DescribeServices.
+-- | The code for the AWS service returned by the call to DescribeServices>.
 cdServiceCode :: Lens' CaseDetails (Maybe Text)
 cdServiceCode = lens _cdServiceCode (\s a -> s { _cdServiceCode = a })
 
 -- | The code for the severity level returned by the call to
--- DescribeSeverityLevels.
+-- DescribeSeverityLevels>.
 cdSeverityCode :: Lens' CaseDetails (Maybe Text)
 cdSeverityCode = lens _cdSeverityCode (\s a -> s { _cdSeverityCode = a })
 

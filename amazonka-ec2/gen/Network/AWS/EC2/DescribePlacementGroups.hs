@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of your placement groups. For more information about
--- placement groups and cluster instances, see Cluster Instances in the Amazon
--- Elastic Compute Cloud User Guide.
+-- placement groups and cluster instances, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html
+-- Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html>
 module Network.AWS.EC2.DescribePlacementGroups

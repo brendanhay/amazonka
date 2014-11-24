@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DeleteCacheSubnetGroup operation deletes a cache subnet group.
+-- | The /DeleteCacheSubnetGroup/ operation deletes a cache subnet group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup

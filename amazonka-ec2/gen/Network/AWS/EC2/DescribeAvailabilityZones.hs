@@ -24,8 +24,10 @@
 -- The results include zones only for the region you're currently using. If
 -- there is an event impacting an Availability Zone, you can use this request
 -- to view the state and any provided message for that Availability Zone. For
--- more information, see Regions and Availability Zones in the Amazon Elastic
--- Compute Cloud User Guide.
+-- more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
+-- Regions and Availability Zones> in the /Amazon Elastic Compute Cloud User
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html>
 module Network.AWS.EC2.DescribeAvailabilityZones

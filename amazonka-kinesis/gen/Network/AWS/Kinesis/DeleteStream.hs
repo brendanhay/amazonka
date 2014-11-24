@@ -27,10 +27,10 @@
 -- state, you can delete it. After a DeleteStream request, the specified
 -- stream is in the DELETING state until Amazon Kinesis completes the
 -- deletion. Note: Amazon Kinesis might continue to accept data read and write
--- operations, such as PutRecord and GetRecords, on a stream in the DELETING
+-- operations, such as PutRecord> and GetRecords>, on a stream in the DELETING
 -- state until the stream deletion is complete. When you delete a stream, any
 -- shards in that stream are also deleted, and any tags are dissociated from
--- the stream. You can use the DescribeStream operation to check the state of
+-- the stream. You can use the DescribeStream> operation to check the state of
 -- the stream, which is returned in StreamStatus. DeleteStream has a limit of
 -- 5 transactions per second per account.
 --

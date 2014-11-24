@@ -541,7 +541,7 @@ sCacheSubnetGroupName :: Lens' Snapshot (Maybe Text)
 sCacheSubnetGroupName =
     lens _sCacheSubnetGroupName (\s a -> s { _sCacheSubnetGroupName = a })
 
--- | The name of the cache engine (memcached or redis) used by the source
+-- | The name of the cache engine (/memcached/ or /redis/) used by the source
 -- cache cluster.
 sEngine :: Lens' Snapshot (Maybe Text)
 sEngine = lens _sEngine (\s a -> s { _sEngine = a })
@@ -584,11 +584,11 @@ sSnapshotName = lens _sSnapshotName (\s a -> s { _sSnapshotName = a })
 
 -- | For an automatic snapshot, the number of days for which ElastiCache will
 -- retain the snapshot before deleting it. For manual snapshots, this field
--- reflects the SnapshotRetentionLimit for the source cache cluster when the
--- snapshot was created. This field is otherwise ignored: Manual snapshots
--- do not expire, and can only be deleted using the DeleteSnapshot action.
--- ImportantIf the value of SnapshotRetentionLimit is set to zero (0),
--- backups are turned off.
+-- reflects the /SnapshotRetentionLimit/ for the source cache cluster when
+-- the snapshot was created. This field is otherwise ignored: Manual
+-- snapshots do not expire, and can only be deleted using the
+-- /DeleteSnapshot/ action. ImportantIf the value of SnapshotRetentionLimit
+-- is set to zero (0), backups are turned off.
 sSnapshotRetentionLimit :: Lens' Snapshot (Maybe Int)
 sSnapshotRetentionLimit =
     lens _sSnapshotRetentionLimit (\s a -> s { _sSnapshotRetentionLimit = a })
@@ -770,7 +770,8 @@ ngPrimaryEndpoint :: Lens' NodeGroup (Maybe Endpoint)
 ngPrimaryEndpoint =
     lens _ngPrimaryEndpoint (\s a -> s { _ngPrimaryEndpoint = a })
 
--- | The current state of this replication group - creating, available, etc.
+-- | The current state of this replication group - /creating/, /available/,
+-- etc.
 ngStatus :: Lens' NodeGroup (Maybe Text)
 ngStatus = lens _ngStatus (\s a -> s { _ngStatus = a })
 
@@ -1465,8 +1466,9 @@ ccCacheClusterId :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterId = lens _ccCacheClusterId (\s a -> s { _ccCacheClusterId = a })
 
 -- | The current state of this cache cluster, one of the following values:
--- available, creating, deleted, deleting, incompatible-network, modifying,
--- rebooting cache cluster nodes, restore-failed, or snapshotting.
+-- /available/, /creating/, /deleted/, /deleting/, /incompatible-network/,
+-- /modifying/, /rebooting cache cluster nodes/, /restore-failed/, or
+-- /snapshotting/.
 ccCacheClusterStatus :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterStatus =
     lens _ccCacheClusterStatus (\s a -> s { _ccCacheClusterStatus = a })
@@ -1507,7 +1509,7 @@ ccConfigurationEndpoint :: Lens' CacheCluster (Maybe Endpoint)
 ccConfigurationEndpoint =
     lens _ccConfigurationEndpoint (\s a -> s { _ccConfigurationEndpoint = a })
 
--- | The name of the cache engine (memcached or redis) to be used for this
+-- | The name of the cache engine (/memcached/ or /redis/) to be used for this
 -- cache cluster.
 ccEngine :: Lens' CacheCluster (Maybe Text)
 ccEngine = lens _ccEngine (\s a -> s { _ccEngine = a })
@@ -1556,8 +1558,8 @@ ccSecurityGroups = lens _ccSecurityGroups (\s a -> s { _ccSecurityGroups = a }) 
 
 -- | The number of days for which ElastiCache will retain automatic cache
 -- cluster snapshots before deleting them. For example, if you set
--- SnapshotRetentionLimit to 5, then a snapshot that was taken today will be
--- retained for 5 days before being deleted. ImportantIf the value of
+-- /SnapshotRetentionLimit/ to 5, then a snapshot that was taken today will
+-- be retained for 5 days before being deleted. ImportantIf the value of
 -- SnapshotRetentionLimit is set to zero (0), backups are turned off.
 ccSnapshotRetentionLimit :: Lens' CacheCluster (Maybe Int)
 ccSnapshotRetentionLimit =
@@ -1952,7 +1954,7 @@ ngmCacheClusterId =
 ngmCacheNodeId :: Lens' NodeGroupMember (Maybe Text)
 ngmCacheNodeId = lens _ngmCacheNodeId (\s a -> s { _ngmCacheNodeId = a })
 
--- | The role that is currently assigned to the node - primary or replica.
+-- | The role that is currently assigned to the node - /primary/ or /replica/.
 ngmCurrentRole :: Lens' NodeGroupMember (Maybe Text)
 ngmCurrentRole = lens _ngmCurrentRole (\s a -> s { _ngmCurrentRole = a })
 
@@ -2419,7 +2421,8 @@ rgSnapshottingClusterId :: Lens' ReplicationGroup (Maybe Text)
 rgSnapshottingClusterId =
     lens _rgSnapshottingClusterId (\s a -> s { _rgSnapshottingClusterId = a })
 
--- | The current state of this replication group - creating, available, etc.
+-- | The current state of this replication group - /creating/, /available/,
+-- etc.
 rgStatus :: Lens' ReplicationGroup (Maybe Text)
 rgStatus = lens _rgStatus (\s a -> s { _rgStatus = a })
 

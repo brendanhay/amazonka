@@ -30,8 +30,9 @@
 -- destined for 192.0.2.3. However, the second route in the list covers a
 -- smaller number of IP addresses and is therefore more specific, so we use
 -- that route to determine where to target the traffic. For more information
--- about route tables, see Route Tables in the Amazon Virtual Private Cloud
--- User Guide.
+-- about route tables, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
+-- Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html>
 module Network.AWS.EC2.CreateRoute

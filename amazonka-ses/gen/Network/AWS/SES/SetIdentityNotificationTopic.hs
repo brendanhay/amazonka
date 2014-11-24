@@ -24,8 +24,9 @@
 -- Notification Service (Amazon SNS) topic to which Amazon SES will publish
 -- bounce, complaint, and/or delivery notifications for emails sent with that
 -- identity as the Source. This action is throttled at one request per second.
--- For more information about feedback notification, see the Amazon SES
--- Developer Guide.
+-- For more information about feedback notification, see the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html
+-- Amazon SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityNotificationTopic.html>
 module Network.AWS.SES.SetIdentityNotificationTopic

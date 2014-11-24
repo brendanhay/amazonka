@@ -29,10 +29,13 @@
 -- topic. The CreatePlatformEndpoint action is idempotent, so if the requester
 -- already owns an endpoint with the same device token and attributes, that
 -- endpoint's ARN is returned without creating a new endpoint. For more
--- information, see Using Amazon SNS Mobile Push Notifications. When using
--- CreatePlatformEndpoint with Baidu, two attributes must be provided:
--- ChannelId and UserId. The token field must also contain the ChannelId. For
--- more information, see Creating an Amazon SNS Endpoint for Baidu.
+-- information, see
+-- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
+-- SNS Mobile Push Notifications>. When using CreatePlatformEndpoint with
+-- Baidu, two attributes must be provided: ChannelId and UserId. The token
+-- field must also contain the ChannelId. For more information, see
+-- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html
+-- Creating an Amazon SNS Endpoint for Baidu>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformEndpoint.html>
 module Network.AWS.SNS.CreatePlatformEndpoint
@@ -89,7 +92,9 @@ createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
     , _cpeAttributes             = mempty
     }
 
--- | For a list of attributes, see SetEndpointAttributes.
+-- | For a list of attributes, see
+-- <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html
+-- SetEndpointAttributes>.
 cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
 cpeAttributes = lens _cpeAttributes (\s a -> s { _cpeAttributes = a }) . _EMap
 

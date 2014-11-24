@@ -22,7 +22,9 @@
 
 -- | Retrieves the attributes of the platform application object for the
 -- supported push notification services, such as APNS and GCM. For more
--- information, see Using Amazon SNS Mobile Push Notifications.
+-- information, see
+-- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
+-- SNS Mobile Push Notifications>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_GetPlatformApplicationAttributes.html>
 module Network.AWS.SNS.GetPlatformApplicationAttributes

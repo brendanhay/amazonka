@@ -24,12 +24,12 @@
 -- use the Amazon Resource Name (ARN) of the gateway in the body of your
 -- request. The operation shuts down the gateway service component running in
 -- the storage gateway's virtual machine (VM) and not the VM. After the
--- gateway is shutdown, you cannot call any other API except StartGateway,
--- DescribeGatewayInformation, and ListGateways. For more information, see
--- ActivateGateway. Your applications cannot read from or write to the
+-- gateway is shutdown, you cannot call any other API except StartGateway>,
+-- DescribeGatewayInformation>, and ListGateways>. For more information, see
+-- ActivateGateway>. Your applications cannot read from or write to the
 -- gateway's storage volumes, and there are no snapshots taken. If do not
 -- intend to use the gateway again, you must delete the gateway (using
--- DeleteGateway) to no longer pay software charges associated with the
+-- DeleteGateway>) to no longer pay software charges associated with the
 -- gateway.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html>

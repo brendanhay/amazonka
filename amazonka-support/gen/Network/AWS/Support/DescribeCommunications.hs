@@ -101,7 +101,7 @@ dc1BeforeTime = lens _dc1BeforeTime (\s a -> s { _dc1BeforeTime = a })
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is
 -- an alphanumeric string formatted as shown in this example:
--- case-12345678910-2013-c4c1d2bf33c5cf47.
+-- case-/12345678910-2013-c4c1d2bf33c5cf47/.
 dc1CaseId :: Lens' DescribeCommunications Text
 dc1CaseId = lens _dc1CaseId (\s a -> s { _dc1CaseId = a })
 

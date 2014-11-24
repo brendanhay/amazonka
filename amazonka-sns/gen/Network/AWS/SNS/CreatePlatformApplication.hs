@@ -32,8 +32,9 @@
 -- PlatformCredential is "API key". For ADM, PlatformCredential is "client
 -- secret". The PlatformApplicationArn that is returned when using
 -- CreatePlatformApplication is then used as an attribute for the
--- CreatePlatformEndpoint action. For more information, see Using Amazon SNS
--- Mobile Push Notifications.
+-- CreatePlatformEndpoint action. For more information, see
+-- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
+-- SNS Mobile Push Notifications>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html>
 module Network.AWS.SNS.CreatePlatformApplication
@@ -85,7 +86,9 @@ createPlatformApplication p1 p2 = CreatePlatformApplication
     , _cpaAttributes = mempty
     }
 
--- | For a list of attributes, see SetPlatformApplicationAttributes.
+-- | For a list of attributes, see
+-- <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html
+-- SetPlatformApplicationAttributes>.
 cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
 cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a }) . _EMap
 

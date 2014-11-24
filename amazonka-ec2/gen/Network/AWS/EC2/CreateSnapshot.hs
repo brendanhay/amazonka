@@ -39,8 +39,11 @@
 -- encrypted volumes are automatically encrypted. Volumes that are created
 -- from encrypted snapshots are also automatically encrypted. Your encrypted
 -- volumes and any associated snapshots always remain protected. For more
--- information, see Amazon Elastic Block Store and Amazon EBS Encryption in
--- the Amazon Elastic Compute Cloud User Guide.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html Amazon
+-- Elastic Block Store> and
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
+-- Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html>
 module Network.AWS.EC2.CreateSnapshot

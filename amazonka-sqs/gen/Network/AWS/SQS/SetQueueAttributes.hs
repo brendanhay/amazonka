@@ -79,18 +79,21 @@ setQueueAttributes p1 = SetQueueAttributes
 -- message. Integer representing seconds, from 60 (1 minute) to 1209600 (14
 -- days). The default for this attribute is 345600 (4 days). Policy - The
 -- queue's policy. A valid form-url-encoded policy. For more information
--- about policy structure, see Basic Policy Structure in the Amazon SQS
--- Developer Guide. For more information about form-url-encoding, see
--- http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1.
+-- about policy structure, see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html
+-- Basic Policy Structure> in the /Amazon SQS Developer Guide/. For more
+-- information about form-url-encoding, see
+-- <http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1
+-- http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1>.
 -- ReceiveMessageWaitTimeSeconds - The time for which a ReceiveMessage call
 -- will wait for a message to arrive. An integer from 0 to 20 (seconds). The
 -- default for this attribute is 0. VisibilityTimeout - The visibility
 -- timeout for the queue. An integer from 0 to 43200 (12 hours). The default
 -- for this attribute is 30. For more information about visibility timeout,
--- see Visibility Timeout in the Amazon SQS Developer Guide. RedrivePolicy -
--- The parameters for dead letter queue functionality of the source queue.
+-- see Visibility Timeout in the /Amazon SQS Developer Guide/. RedrivePolicy
+-- - The parameters for dead letter queue functionality of the source queue.
 -- For more information about RedrivePolicy and dead letter queues, see
--- Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
+-- Using Amazon SQS Dead Letter Queues in the /Amazon SQS Developer Guide/.
 sqaAttributes :: Lens' SetQueueAttributes (HashMap QueueAttributeName Text)
 sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a }) . _EMap
 

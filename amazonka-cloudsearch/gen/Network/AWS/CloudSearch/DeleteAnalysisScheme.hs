@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes an analysis scheme. For more information, see Configuring Analysis
--- Schemes in the Amazon CloudSearch Developer Guide.
+-- Schemes> in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteAnalysisScheme.html>
 module Network.AWS.CloudSearch.DeleteAnalysisScheme

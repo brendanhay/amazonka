@@ -26,8 +26,9 @@
 -- SourceDestCheck attribute controls whether source/destination checking is
 -- enabled. The default value is true, which means checking is enabled. This
 -- value must be false for a NAT instance to perform NAT. For more
--- information, see NAT Instances in the Amazon Virtual Private Cloud User
--- Guide.
+-- information, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html
+-- NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html>
 module Network.AWS.EC2.ResetInstanceAttribute

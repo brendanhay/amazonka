@@ -22,11 +22,13 @@
 
 -- | Allows you to purchase reserved nodes. Amazon Redshift offers a predefined
 -- set of reserved node offerings. You can purchase one of the offerings. You
--- can call the DescribeReservedNodeOfferings API to obtain the available
+-- can call the DescribeReservedNodeOfferings> API to obtain the available
 -- reserved node offerings. You can call this API by providing a specific
 -- reserved node offering and the number of nodes you want to reserve. For
--- more information about managing parameter groups, go to Purchasing Reserved
--- Nodes in the Amazon Redshift Cluster Management Guide.
+-- more information about managing parameter groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html
+-- Purchasing Reserved Nodes> in the /Amazon Redshift Cluster Management
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html>
 module Network.AWS.Redshift.PurchaseReservedNodeOffering

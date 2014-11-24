@@ -22,8 +22,10 @@
 
 -- | Removes one or more instances from the specified Auto Scaling group. After
 -- the instances are detached, you can manage them independently from the rest
--- of the Auto Scaling group. For more information, see Detach EC2 Instances
--- from Your Auto Scaling Group in the Auto Scaling Developer Guide.
+-- of the Auto Scaling group. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html
+-- Detach EC2 Instances from Your Auto Scaling Group> in the /Auto Scaling
+-- Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html>
 module Network.AWS.AutoScaling.DetachInstances

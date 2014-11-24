@@ -64,7 +64,7 @@ describeChapCredentials p1 = DescribeChapCredentials
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
+-- DescribeStorediSCSIVolumes> operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
 dccTargetARN :: Lens' DescribeChapCredentials Text
 dccTargetARN = lens _dccTargetARN (\s a -> s { _dccTargetARN = a })
@@ -90,8 +90,8 @@ describeChapCredentialsResponse = DescribeChapCredentialsResponse
     { _dccrChapCredentials = mempty
     }
 
--- | An array of ChapInfo objects that represent CHAP credentials. Each object
--- in the array contains CHAP credential information for one
+-- | An array of ChapInfo> objects that represent CHAP credentials. Each
+-- object in the array contains CHAP credential information for one
 -- target-initiator pair. If no CHAP credentials are set, an empty array is
 -- returned. CHAP credential information is provided in a JSON object with
 -- the following fields: InitiatorName: The iSCSI initiator that connects to

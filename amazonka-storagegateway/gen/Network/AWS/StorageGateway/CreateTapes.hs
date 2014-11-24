@@ -92,7 +92,7 @@ ctClientToken :: Lens' CreateTapes Text
 ctClientToken = lens _ctClientToken (\s a -> s { _ctClientToken = a })
 
 -- | The unique Amazon Resource Name(ARN) that represents the gateway to
--- associate the virtual tapes with. Use the ListGateways operation to
+-- associate the virtual tapes with. Use the ListGateways> operation to
 -- return a list of gateways for your account and region.
 ctGatewayARN :: Lens' CreateTapes Text
 ctGatewayARN = lens _ctGatewayARN (\s a -> s { _ctGatewayARN = a })

@@ -72,8 +72,9 @@ confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
 
 -- | ID of the virtual private gateway that will be attached to the virtual
 -- interface. A virtual private gateway can be managed via the Amazon
--- Virtual Private Cloud (VPC) console or the EC2 CreateVpnGateway action.
--- Default: None.
+-- Virtual Private Cloud (VPC) console or the
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html
+-- EC2 CreateVpnGateway> action. Default: None.
 cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualGatewayId =
     lens _cpviVirtualGatewayId (\s a -> s { _cpviVirtualGatewayId = a })

@@ -21,9 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds (or updates) a policy document associated with the specified role. For
--- information about policies, go to Overview of Policies in the Using IAM
--- guide. For information about limits on the policies you can associate with
--- a role, see Limitations on IAM Entities in the Using IAM guide.
+-- information about policies, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html
+-- Overview of Policies> in the /Using IAM/ guide. For information about
+-- limits on the policies you can associate with a role, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html
+-- Limitations on IAM Entities> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html>
 module Network.AWS.IAM.PutRolePolicy

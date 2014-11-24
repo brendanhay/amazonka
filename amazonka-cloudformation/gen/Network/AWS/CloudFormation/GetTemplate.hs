@@ -87,7 +87,8 @@ getTemplateResponse = GetTemplateResponse
     }
 
 -- | Structure containing the template body. (For more information, go to
--- Template Anatomy in the AWS CloudFormation User Guide.).
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+-- Template Anatomy> in the AWS CloudFormation User Guide.).
 gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrTemplateBody = lens _gtrTemplateBody (\s a -> s { _gtrTemplateBody = a })
 

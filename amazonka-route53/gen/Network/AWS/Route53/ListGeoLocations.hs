@@ -27,9 +27,9 @@
 -- then subdivision code, followed by continents at the end of the list. By
 -- default, the list of geo locations is displayed on a single page. You can
 -- control the length of the page that is displayed by using the MaxItems
--- parameter. If the list is truncated, IsTruncated will be set to true and a
--- combination of NextContinentCode, NextCountryCode, NextSubdivisionCode will
--- be populated. You can pass these as parameters to StartContinentCode,
+-- parameter. If the list is truncated, IsTruncated will be set to /true/ and
+-- a combination of NextContinentCode, NextCountryCode, NextSubdivisionCode
+-- will be populated. You can pass these as parameters to StartContinentCode,
 -- StartCountryCode, StartSubdivisionCode to control the geo location that the
 -- list begins with.
 --
@@ -99,7 +99,7 @@ lglMaxItems = lens _lglMaxItems (\s a -> s { _lglMaxItems = a })
 -- that you want the ListGeoLocations request to list. For non-continent geo
 -- locations, this should be null. Valid values: AF | AN | AS | EU | OC | NA
 -- | SA Constraint: Specifying ContinentCode with either CountryCode or
--- SubdivisionCode returns an InvalidInput error.
+-- SubdivisionCode returns an InvalidInput> error.
 lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode =
     lens _lglStartContinentCode (\s a -> s { _lglStartContinentCode = a })
@@ -114,7 +114,7 @@ lglStartCountryCode =
 
 -- | The first subdivision code in the lexicographic ordering of geo locations
 -- that you want the ListGeoLocations request to list. Constraint:
--- Specifying SubdivisionCode without CountryCode returns an InvalidInput
+-- Specifying SubdivisionCode without CountryCode returns an InvalidInput>
 -- error.
 lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartSubdivisionCode =
@@ -168,10 +168,10 @@ lglrGeoLocationDetailsList =
 -- | A flag that indicates whether there are more geo locations to be listed.
 -- If your results were truncated, you can make a follow-up request for the
 -- next page of results by using the values included in the
--- ListGeoLocationsResponse$NextContinentCode,
--- ListGeoLocationsResponse$NextCountryCode and
--- ListGeoLocationsResponse$NextSubdivisionCode elements. Valid Values: true
--- | false.
+-- ListGeoLocationsResponse$NextContinentCode>,
+-- ListGeoLocationsResponse$NextCountryCode> and
+-- ListGeoLocationsResponse$NextSubdivisionCode> elements. Valid Values:
+-- true | false.
 lglrIsTruncated :: Lens' ListGeoLocationsResponse Bool
 lglrIsTruncated = lens _lglrIsTruncated (\s a -> s { _lglrIsTruncated = a })
 
@@ -182,23 +182,23 @@ lglrMaxItems = lens _lglrMaxItems (\s a -> s { _lglrMaxItems = a })
 
 -- | If the results were truncated, the continent code of the next geo
 -- location in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated is true and the next geo location to
--- list is a continent location.
+-- ListGeoLocationsResponse$IsTruncated> is true and the next geo location
+-- to list is a continent location.
 lglrNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextContinentCode =
     lens _lglrNextContinentCode (\s a -> s { _lglrNextContinentCode = a })
 
 -- | If the results were truncated, the country code of the next geo location
 -- in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated is true and the next geo location to
--- list is not a continent location.
+-- ListGeoLocationsResponse$IsTruncated> is true and the next geo location
+-- to list is not a continent location.
 lglrNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextCountryCode =
     lens _lglrNextCountryCode (\s a -> s { _lglrNextCountryCode = a })
 
 -- | If the results were truncated, the subdivision code of the next geo
 -- location in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated is true and the next geo location
+-- ListGeoLocationsResponse$IsTruncated> is true and the next geo location
 -- has a subdivision.
 lglrNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextSubdivisionCode =

@@ -25,8 +25,8 @@
 -- limited to specific suggesters by name. By default, shows all suggesters
 -- and includes any pending changes to the configuration. Set the Deployed
 -- option to true to show the active configuration and exclude pending
--- changes. For more information, see Getting Search Suggestions in the Amazon
--- CloudSearch Developer Guide.
+-- changes. For more information, see Getting Search Suggestions> in the
+-- /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeSuggesters.html>
 module Network.AWS.CloudSearch.DescribeSuggesters

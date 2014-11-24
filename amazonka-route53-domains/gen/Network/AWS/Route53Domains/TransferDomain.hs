@@ -35,7 +35,8 @@
 -- and completion of the action. If the request is not completed successfully,
 -- the domain registrant will be notified by email. Transferring domains
 -- charges your AWS account an amount based on the top-level domain. For more
--- information, see Amazon Route 53 Pricing.
+-- information, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53
+-- Pricing>.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-TransferDomain.html>
 module Network.AWS.Route53Domains.TransferDomain

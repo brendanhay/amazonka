@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The RevokeCacheSecurityGroupIngress operation revokes ingress from a cache
--- security group. Use this operation to disallow access from an Amazon EC2
--- security group that had been previously authorized.
+-- | The /RevokeCacheSecurityGroupIngress/ operation revokes ingress from a
+-- cache security group. Use this operation to disallow access from an Amazon
+-- EC2 security group that had been previously authorized.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RevokeCacheSecurityGroupIngress.html>
 module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress

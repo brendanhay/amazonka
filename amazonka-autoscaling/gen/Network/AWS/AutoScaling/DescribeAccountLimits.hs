@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes the current Auto Scaling resource limits for your AWS account.
--- For information about requesting an increase in these limits, see AWS
--- Service Limits.
+-- For information about requesting an increase in these limits, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS
+-- Service Limits>.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAccountLimits.html>
 module Network.AWS.AutoScaling.DescribeAccountLimits

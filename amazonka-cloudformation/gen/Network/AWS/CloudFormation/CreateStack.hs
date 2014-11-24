@@ -22,7 +22,7 @@
 
 -- | Creates a stack as specified in the template. After the call completes
 -- successfully, the stack creation starts. You can check the status of the
--- stack via the DescribeStacks API.
+-- stack via the DescribeStacks> API.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html>
 module Network.AWS.CloudFormation.CreateStack
@@ -123,10 +123,23 @@ createStack p1 = CreateStack
 -- resources that can affect permissions in your AWS account. For those
 -- stacks, you must explicitly acknowledge their capabilities by specifying
 -- this parameter. Currently, the only valid value is CAPABILITY_IAM, which
--- is required for the following resources: AWS::CloudFormation::Stack,
--- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::InstanceProfile,
--- AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, and
--- AWS::IAM::UserToGroupAddition. If your stack template contains these
+-- is required for the following resources:
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
+-- AWS::CloudFormation::Stack>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
+-- AWS::IAM::AccessKey>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html
+-- AWS::IAM::Group>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
+-- AWS::IAM::InstanceProfile>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html
+-- AWS::IAM::Policy>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
+-- AWS::IAM::Role>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
+-- AWS::IAM::User>, and
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
+-- AWS::IAM::UserToGroupAddition>. If your stack template contains these
 -- resources, we recommend that you review any permissions associated with
 -- them. If you don't specify this parameter, this action returns an
 -- InsufficientCapabilities error.
@@ -141,8 +154,9 @@ csDisableRollback =
     lens _csDisableRollback (\s a -> s { _csDisableRollback = a })
 
 -- | The Simple Notification Service (SNS) topic ARNs to publish stack related
--- events. You can find your SNS topic ARNs using the SNS console or your
--- Command Line Interface (CLI).
+-- events. You can find your SNS topic ARNs using the
+-- <http://console.aws.amazon.com/sns SNS console> or your Command Line
+-- Interface (CLI).
 csNotificationARNs :: Lens' CreateStack [Text]
 csNotificationARNs =
     lens _csNotificationARNs (\s a -> s { _csNotificationARNs = a })
@@ -167,7 +181,8 @@ csStackName :: Lens' CreateStack Text
 csStackName = lens _csStackName (\s a -> s { _csStackName = a })
 
 -- | Structure containing the stack policy body. For more information, go to
--- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html
+-- Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.
 -- You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
 csStackPolicyBody :: Lens' CreateStack (Maybe Text)
@@ -190,7 +205,8 @@ csTags = lens _csTags (\s a -> s { _csTags = a }) . _List
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information, go to
--- Template Anatomy in the AWS CloudFormation User Guide. Conditional: You
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+-- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
 -- must specify either the TemplateBody or the TemplateURL parameter, but
 -- not both.
 csTemplateBody :: Lens' CreateStack (Maybe Text)
@@ -198,9 +214,11 @@ csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 307,200 bytes) located in an S3 bucket in the same
--- region as the stack. For more information, go to the Template Anatomy in
--- the AWS CloudFormation User Guide. Conditional: You must specify either
--- the TemplateBody or the TemplateURL parameter, but not both.
+-- region as the stack. For more information, go to the
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+-- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
+-- must specify either the TemplateBody or the TemplateURL parameter, but
+-- not both.
 csTemplateURL :: Lens' CreateStack (Maybe Text)
 csTemplateURL = lens _csTemplateURL (\s a -> s { _csTemplateURL = a })
 

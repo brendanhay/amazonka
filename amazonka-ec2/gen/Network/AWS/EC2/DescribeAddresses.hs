@@ -22,8 +22,9 @@
 
 -- | Describes one or more of your Elastic IP addresses. An Elastic IP address
 -- is for use in either the EC2-Classic platform or in a VPC. For more
--- information, see Elastic IP Addresses in the Amazon Elastic Compute Cloud
--- User Guide.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+-- Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html>
 module Network.AWS.EC2.DescribeAddresses

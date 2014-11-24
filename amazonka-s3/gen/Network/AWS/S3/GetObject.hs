@@ -248,7 +248,7 @@ goSSECustomerAlgorithm =
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
--- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
+-- x-amz-server-side​-encryption​-customer-algorithm header.
 goSSECustomerKey :: Lens' GetObject (Maybe Text)
 goSSECustomerKey = lens _goSSECustomerKey (\s a -> s { _goSSECustomerKey = a }) . mapping _Sensitive
 

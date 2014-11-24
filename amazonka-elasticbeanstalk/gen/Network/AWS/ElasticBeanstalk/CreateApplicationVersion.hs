@@ -139,7 +139,7 @@ createApplicationVersionResponse = CreateApplicationVersionResponse
     { _cavrApplicationVersion = Nothing
     }
 
--- | The ApplicationVersionDescription of the application version.
+-- | The ApplicationVersionDescription> of the application version.
 cavrApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe ApplicationVersionDescription)
 cavrApplicationVersion =
     lens _cavrApplicationVersion (\s a -> s { _cavrApplicationVersion = a })

@@ -36,25 +36,32 @@
 -- are defined in the access policy of the role that is being assumed. If you
 -- pass a policy to this operation, the temporary security credentials that
 -- are returned by the operation have the permissions that are allowed by both
--- the access policy of the role that is being assumed, and the policy that
+-- the access policy of the role that is being assumed, /and/ the policy that
 -- you pass. This gives you a way to further restrict the permissions for the
 -- resulting temporary security credentials. You cannot use the passed policy
 -- to grant permissions that are in excess of those allowed by the access
 -- policy of the role that is being assumed. For more information, see
--- Permissions for AssumeRoleWithSAML in Using Temporary Security Credentials.
--- Before your application can call AssumeRoleWithSAML, you must configure
--- your SAML identity provider (IdP) to issue the claims required by AWS.
--- Additionally, you must use AWS Identity and Access Management (IAM) to
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html
+-- Permissions for AssumeRoleWithSAML> in /Using Temporary Security
+-- Credentials/. Before your application can call AssumeRoleWithSAML, you must
+-- configure your SAML identity provider (IdP) to issue the claims required by
+-- AWS. Additionally, you must use AWS Identity and Access Management (IAM) to
 -- create a SAML provider entity in your AWS account that represents your
 -- identity provider, and create an IAM role that specifies this SAML provider
 -- in its trust policy. Calling AssumeRoleWithSAML does not require the use of
 -- AWS security credentials. The identity of the caller is validated by using
 -- keys in the metadata document that is uploaded for the SAML provider entity
 -- for your identity provider. For more information, see the following
--- resources: Creating Temporary Security Credentials for SAML Federation in
--- Using Temporary Security Credentials. SAML Providers in Using IAM.
--- Configuring a Relying Party and Claims in Using IAM. Creating a Role for
--- SAML-Based Federation in Using IAM.
+-- resources:
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating
+-- Temporary Security Credentials for SAML Federation> in /Using Temporary
+-- Security Credentials/.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/idp-managing-identityproviders.html
+-- SAML Providers> in /Using IAM/.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html
+-- Configuring a Relying Party and Claims> in /Using IAM/.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml.html
+-- Creating a Role for SAML-Based Federation> in /Using IAM/.
 --
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html>
 module Network.AWS.STS.AssumeRoleWithSAML
@@ -137,13 +144,15 @@ arwsamlDurationSeconds =
 -- | An IAM policy in JSON format. The policy parameter is optional. If you
 -- pass a policy, the temporary security credentials that are returned by
 -- the operation have the permissions that are allowed by both the access
--- policy of the role that is being assumed, and the policy that you pass.
+-- policy of the role that is being assumed, /and/ the policy that you pass.
 -- This gives you a way to further restrict the permissions for the
 -- resulting temporary security credentials. You cannot use the passed
 -- policy to grant permissions that are in excess of those allowed by the
 -- access policy of the role that is being assumed. For more information,
--- see Permissions for AssumeRoleWithSAML in Using Temporary Security
--- Credentials.
+-- see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html
+-- Permissions for AssumeRoleWithSAML> in /Using Temporary Security
+-- Credentials/.
 arwsamlPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
 arwsamlPolicy = lens _arwsamlPolicy (\s a -> s { _arwsamlPolicy = a })
 
@@ -158,8 +167,9 @@ arwsamlRoleArn :: Lens' AssumeRoleWithSAML Text
 arwsamlRoleArn = lens _arwsamlRoleArn (\s a -> s { _arwsamlRoleArn = a })
 
 -- | The base-64 encoded SAML authentication response provided by the IdP. For
--- more information, see Configuring a Relying Party and Adding Claims in
--- the Using IAM guide.
+-- more information, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html
+-- Configuring a Relying Party and Adding Claims> in the /Using IAM/ guide.
 arwsamlSAMLAssertion :: Lens' AssumeRoleWithSAML Text
 arwsamlSAMLAssertion =
     lens _arwsamlSAMLAssertion (\s a -> s { _arwsamlSAMLAssertion = a })

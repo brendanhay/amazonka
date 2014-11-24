@@ -23,7 +23,7 @@
 -- | Creates a launch configuration. If you exceed your maximum limit of launch
 -- configurations, which by default is 100 per region, the call fails. For
 -- information about viewing and updating these limits, see
--- DescribeAccountLimits.
+-- DescribeAccountLimits>.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html>
 module Network.AWS.AutoScaling.CreateLaunchConfiguration
@@ -139,21 +139,25 @@ createLaunchConfiguration p1 = CreateLaunchConfiguration
 
 -- | Used for groups that launch instances into a virtual private cloud (VPC).
 -- Specifies whether to assign a public IP address to each instance. For
--- more information, see Auto Scaling and Amazon VPC in the Auto Scaling
--- Developer Guide. If you specify a value for this parameter, be sure to
--- specify at least one subnet using the VPCZoneIdentifier parameter when
--- you create your group. Default: If the instance is launched into a
--- default subnet, the default is true. If the instance is launched into a
--- nondefault subnet, the default is false. For more information, see
--- Supported Platforms in the Amazon Elastic Compute Cloud User Guide.
+-- more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html
+-- Auto Scaling and Amazon VPC> in the /Auto Scaling Developer Guide/. If
+-- you specify a value for this parameter, be sure to specify at least one
+-- subnet using the /VPCZoneIdentifier/ parameter when you create your
+-- group. Default: If the instance is launched into a default subnet, the
+-- default is true. If the instance is launched into a nondefault subnet,
+-- the default is false. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide//as-supported-platforms.html
+-- Supported Platforms> in the /Amazon Elastic Compute Cloud User Guide/.
 clcAssociatePublicIpAddress :: Lens' CreateLaunchConfiguration (Maybe Bool)
 clcAssociatePublicIpAddress =
     lens _clcAssociatePublicIpAddress
         (\s a -> s { _clcAssociatePublicIpAddress = a })
 
 -- | One or more mappings that specify how block devices are exposed to the
--- instance. For more information, see Block Device Mapping in the Amazon
--- Elastic Compute Cloud User Guide.
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
+-- Block Device Mapping> in the /Amazon Elastic Compute Cloud User Guide/.
 clcBlockDeviceMappings :: Lens' CreateLaunchConfiguration [BlockDeviceMapping]
 clcBlockDeviceMappings =
     lens _clcBlockDeviceMappings (\s a -> s { _clcBlockDeviceMappings = a })
@@ -164,8 +168,10 @@ clcBlockDeviceMappings =
 -- provides dedicated throughput to Amazon EBS and an optimized
 -- configuration stack to provide optimal I/O performance. This optimization
 -- is not available with all instance types. Additional usage charges apply.
--- For more information, see Amazon EBS-Optimized Instances in the Amazon
--- Elastic Compute Cloud User Guide.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html
+-- Amazon EBS-Optimized Instances> in the /Amazon Elastic Compute Cloud User
+-- Guide/.
 clcEbsOptimized :: Lens' CreateLaunchConfiguration (Maybe Bool)
 clcEbsOptimized = lens _clcEbsOptimized (\s a -> s { _clcEbsOptimized = a })
 
@@ -174,16 +180,18 @@ clcEbsOptimized = lens _clcEbsOptimized (\s a -> s { _clcEbsOptimized = a })
 -- launched with an IAM role will automatically have AWS security
 -- credentials available. You can use IAM roles with Auto Scaling to
 -- automatically enable applications running on your Amazon EC2 instances to
--- securely access other AWS resources. For more information, see Launch
--- Auto Scaling Instances with an IAM Role in the Auto Scaling Developer
--- Guide.
+-- securely access other AWS resources. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html
+-- Launch Auto Scaling Instances with an IAM Role> in the /Auto Scaling
+-- Developer Guide/.
 clcIamInstanceProfile :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcIamInstanceProfile =
     lens _clcIamInstanceProfile (\s a -> s { _clcIamInstanceProfile = a })
 
 -- | The ID of the Amazon Machine Image (AMI) to use to launch your EC2
--- instances. For more information, see Finding an AMI in the Amazon Elastic
--- Compute Cloud User Guide.
+-- instances. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html
+-- Finding an AMI> in the /Amazon Elastic Compute Cloud User Guide/.
 clcImageId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcImageId = lens _clcImageId (\s a -> s { _clcImageId = a })
 
@@ -192,8 +200,9 @@ clcImageId = lens _clcImageId (\s a -> s { _clcImageId = a })
 -- exception of the block device mapping. To create a launch configuration
 -- with a block device mapping or override any other instance attributes,
 -- specify them as part of the same request. For more information, see
--- Create a Launch Configuration Using an EC2 Instance in the Auto Scaling
--- Developer Guide.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html
+-- Create a Launch Configuration Using an EC2 Instance> in the /Auto Scaling
+-- Developer Guide/.
 clcInstanceId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcInstanceId = lens _clcInstanceId (\s a -> s { _clcInstanceId = a })
 
@@ -202,14 +211,18 @@ clcInstanceId = lens _clcInstanceId (\s a -> s { _clcInstanceId = a })
 -- Cloudwatch generates metrics every minute and your account is charged a
 -- fee. When you disable detailed monitoring, by specifying False,
 -- Cloudwatch generates metrics every 5 minutes. For more information, see
--- Monitor Your Auto Scaling Instances in the Auto Scaling Developer Guide.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html
+-- Monitor Your Auto Scaling Instances> in the /Auto Scaling Developer
+-- Guide/.
 clcInstanceMonitoring :: Lens' CreateLaunchConfiguration (Maybe InstanceMonitoring)
 clcInstanceMonitoring =
     lens _clcInstanceMonitoring (\s a -> s { _clcInstanceMonitoring = a })
 
 -- | The instance type of the Amazon EC2 instance. For information about
--- available Amazon EC2 instance types, see Available Instance Types in the
--- Amazon Elastic Cloud Compute User Guide.
+-- available Amazon EC2 instance types, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes
+-- Available Instance Types> in the /Amazon Elastic Cloud Compute User
+-- Guide./.
 clcInstanceType :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcInstanceType = lens _clcInstanceType (\s a -> s { _clcInstanceType = a })
 
@@ -217,8 +230,9 @@ clcInstanceType = lens _clcInstanceType (\s a -> s { _clcInstanceType = a })
 clcKernelId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcKernelId = lens _clcKernelId (\s a -> s { _clcKernelId = a })
 
--- | The name of the key pair. For more information, see Amazon EC2 Key Pairs
--- in the Amazon Elastic Compute Cloud User Guide.
+-- | The name of the key pair. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
+-- Amazon EC2 Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
 clcKeyName :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcKeyName = lens _clcKeyName (\s a -> s { _clcKeyName = a })
 
@@ -234,10 +248,11 @@ clcLaunchConfigurationName =
 -- the value of this parameter to dedicated if want to launch Dedicated
 -- Instances in a shared tenancy VPC (VPC with instance placement tenancy
 -- attribute set to default). If you specify a value for this parameter, be
--- sure to specify at least one VPC subnet using the VPCZoneIdentifier
--- parameter when you create your group. For more information, see Auto
--- Scaling and Amazon VPC in the Auto Scaling Developer Guide. Valid values:
--- default | dedicated.
+-- sure to specify at least one VPC subnet using the /VPCZoneIdentifier/
+-- parameter when you create your group. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html
+-- Auto Scaling and Amazon VPC> in the /Auto Scaling Developer Guide/. Valid
+-- values: default | dedicated.
 clcPlacementTenancy :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcPlacementTenancy =
     lens _clcPlacementTenancy (\s a -> s { _clcPlacementTenancy = a })
@@ -249,11 +264,14 @@ clcRamdiskId = lens _clcRamdiskId (\s a -> s { _clcRamdiskId = a })
 -- | One or more security groups with which to associate the instances. If
 -- your instances are launched in EC2-Classic, you can either specify
 -- security group names or the security group IDs. For more information
--- about security groups for EC2-Classic, see Amazon EC2 Security Groups in
--- the Amazon Elastic Compute Cloud User Guide. If your instances are
--- launched in a VPC, specify security group IDs. For more information, see
--- Security Groups for Your VPC in the Amazon Virtual Private Cloud User
--- Guide.
+-- about security groups for EC2-Classic, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html
+-- Amazon EC2 Security Groups> in the /Amazon Elastic Compute Cloud User
+-- Guide/. If your instances are launched in a VPC, specify security group
+-- IDs. For more information, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html
+-- Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User
+-- Guide/.
 clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
 clcSecurityGroups =
     lens _clcSecurityGroups (\s a -> s { _clcSecurityGroups = a })
@@ -262,15 +280,18 @@ clcSecurityGroups =
 -- | The maximum hourly price to be paid for any Spot Instance launched to
 -- fulfill the request. Spot Instances are launched when the price you
 -- specify exceeds the current Spot market price. For more information, see
--- Launch Spot Instances in Your Auto Scaling Group in the Auto Scaling
--- Developer Guide.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html
+-- Launch Spot Instances in Your Auto Scaling Group> in the /Auto Scaling
+-- Developer Guide/.
 clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcSpotPrice = lens _clcSpotPrice (\s a -> s { _clcSpotPrice = a })
 
 -- | The user data to make available to the launched EC2 instances. For more
--- information, see Instance Metadata and User Data in the Amazon Elastic
--- Compute Cloud User Guide. At this time, launch configurations don't
--- support compressed (zipped) user data files.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
+-- Instance Metadata and User Data> in the /Amazon Elastic Compute Cloud
+-- User Guide/. At this time, launch configurations don't support compressed
+-- (zipped) user data files.
 clcUserData :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcUserData = lens _clcUserData (\s a -> s { _clcUserData = a })
 

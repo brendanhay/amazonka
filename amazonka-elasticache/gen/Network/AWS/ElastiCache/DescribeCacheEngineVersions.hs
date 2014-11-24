@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DescribeCacheEngineVersions operation returns a list of the available
+-- | The /DescribeCacheEngineVersions/ operation returns a list of the available
 -- cache engines and their versions.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html>
@@ -96,8 +96,8 @@ dcevCacheParameterGroupFamily =
     lens _dcevCacheParameterGroupFamily
         (\s a -> s { _dcevCacheParameterGroupFamily = a })
 
--- | If true, specifies that only the default version of the specified engine
--- or engine and major version combination is to be returned.
+-- | If /true/, specifies that only the default version of the specified
+-- engine or engine and major version combination is to be returned.
 dcevDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
 dcevDefaultOnly = lens _dcevDefaultOnly (\s a -> s { _dcevDefaultOnly = a })
 
@@ -113,7 +113,7 @@ dcevEngineVersion =
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords.
+-- the value specified by /MaxRecords/.
 dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevMarker = lens _dcevMarker (\s a -> s { _dcevMarker = a })
 

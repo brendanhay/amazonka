@@ -22,18 +22,21 @@
 
 -- | Deletes a previously provisioned cluster. A successful response from the
 -- web service indicates that the request was received correctly. Use
--- DescribeClusters to monitor the status of the deletion. The delete
+-- DescribeClusters> to monitor the status of the deletion. The delete
 -- operation cannot be canceled or reverted once submitted. For more
--- information about managing clusters, go to Amazon Redshift Clusters in the
--- Amazon Redshift Cluster Management Guide . If you want to shut down the
--- cluster and retain it for future use, set SkipFinalClusterSnapshot to false
--- and specify a name for FinalClusterSnapshotIdentifier. You can later
--- restore this snapshot to resume using the cluster. If a final cluster
--- snapshot is requested, the status of the cluster will be "final-snapshot"
--- while the snapshot is being taken, then it's "deleting" once Amazon
--- Redshift begins deleting the cluster. For more information about managing
--- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Cluster
--- Management Guide .
+-- information about managing clusters, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html
+-- Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
+-- . If you want to shut down the cluster and retain it for future use, set
+-- /SkipFinalClusterSnapshot/ to false and specify a name for
+-- /FinalClusterSnapshotIdentifier/. You can later restore this snapshot to
+-- resume using the cluster. If a final cluster snapshot is requested, the
+-- status of the cluster will be "final-snapshot" while the snapshot is being
+-- taken, then it's "deleting" once Amazon Redshift begins deleting the
+-- cluster. For more information about managing clusters, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html
+-- Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
+-- .
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html>
 module Network.AWS.Redshift.DeleteCluster
@@ -94,7 +97,7 @@ dc1ClusterIdentifier =
 
 -- | The identifier of the final snapshot that is to be created immediately
 -- before deleting the cluster. If this parameter is provided,
--- SkipFinalClusterSnapshot must be false. Constraints: Must be 1 to 255
+-- /SkipFinalClusterSnapshot/ must be false. Constraints: Must be 1 to 255
 -- alphanumeric characters. First character must be a letter. Cannot end
 -- with a hyphen or contain two consecutive hyphens.
 dc1FinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
@@ -105,8 +108,8 @@ dc1FinalClusterSnapshotIdentifier =
 -- | Determines whether a final snapshot of the cluster is created before
 -- Amazon Redshift deletes the cluster. If true, a final cluster snapshot is
 -- not created. If false, a final cluster snapshot is created before the
--- cluster is deleted. The FinalClusterSnapshotIdentifier parameter must be
--- specified if SkipFinalClusterSnapshot is false. Default: false.
+-- cluster is deleted. The /FinalClusterSnapshotIdentifier/ parameter must
+-- be specified if /SkipFinalClusterSnapshot/ is false. Default: false.
 dc1SkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 dc1SkipFinalClusterSnapshot =
     lens _dc1SkipFinalClusterSnapshot

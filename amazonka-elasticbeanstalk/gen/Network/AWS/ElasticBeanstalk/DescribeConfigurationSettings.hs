@@ -27,7 +27,7 @@
 -- receive two sets of setting descriptions. One is the deployed configuration
 -- set, and the other is a draft configuration of an environment that is
 -- either in the process of deployment or that failed to deploy. Related
--- Topics DeleteEnvironmentConfiguration.
+-- Topics DeleteEnvironmentConfiguration>.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html>
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
@@ -121,7 +121,7 @@ describeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     { _dcsrConfigurationSettings = mempty
     }
 
--- | A list of ConfigurationSettingsDescription.
+-- | A list of ConfigurationSettingsDescription>.
 dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
 dcsrConfigurationSettings =
     lens _dcsrConfigurationSettings

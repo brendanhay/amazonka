@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Attaches a virtual private gateway to a VPC. For more information, see
--- Adding a Hardware Virtual Private Gateway to Your VPC in the Amazon Virtual
--- Private Cloud User Guide.
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding
+-- a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual
+-- Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVpnGateway.html>
 module Network.AWS.EC2.AttachVpnGateway

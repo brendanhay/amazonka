@@ -22,8 +22,9 @@
 
 -- | Creates a route table for the specified VPC. After you create a route
 -- table, you can add routes and associate the table with a subnet. For more
--- information about route tables, see Route Tables in the Amazon Virtual
--- Private Cloud User Guide.
+-- information about route tables, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
+-- Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html>
 module Network.AWS.EC2.CreateRouteTable

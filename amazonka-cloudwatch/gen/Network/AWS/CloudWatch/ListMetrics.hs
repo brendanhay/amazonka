@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of valid metrics stored for the AWS account owner. Returned
--- metrics can be used with GetMetricStatistics to obtain statistical data for
--- a given metric.
+-- metrics can be used with GetMetricStatistics> to obtain statistical data
+-- for a given metric.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html>
 module Network.AWS.CloudWatch.ListMetrics

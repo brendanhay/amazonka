@@ -25,7 +25,8 @@
 -- request. The CreateDomain operation may take 10 or more seconds to
 -- complete. The client can create up to 100 domains per account. If the
 -- client requires additional domains, go to
--- http://aws.amazon.com/contact-us/simpledb-limit-request/.
+-- <http://aws.amazon.com/contact-us/simpledb-limit-request/
+-- http://aws.amazon.com/contact-us/simpledb-limit-request/>.
 --
 -- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_CreateDomain.html>
 module Network.AWS.SDB.CreateDomain

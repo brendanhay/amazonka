@@ -24,12 +24,14 @@
 -- resulting cluster with the same configuration as the original cluster from
 -- which the snapshot was created, except that the new cluster is created with
 -- the default cluster security and parameter group. After Amazon Redshift
--- creates the cluster you can use the ModifyCluster API to associate a
+-- creates the cluster you can use the ModifyCluster> API to associate a
 -- different security group and different parameter group with the restored
 -- cluster. If you restore a cluster into a VPC, you must provide a cluster
 -- subnet group where you want the cluster restored. For more information
--- about working with snapshots, go to Amazon Redshift Snapshots in the Amazon
--- Redshift Cluster Management Guide.
+-- about working with snapshots, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+-- Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreFromClusterSnapshot.html>
 module Network.AWS.Redshift.RestoreFromClusterSnapshot
@@ -166,7 +168,7 @@ rfcsAllowVersionUpgrade =
 -- | The number of days that automated snapshots are retained. If the value is
 -- 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot. Default: The value selected for the cluster from
+-- CreateClusterSnapshot>. Default: The value selected for the cluster from
 -- which the snapshot was taken. Constraints: Must be a value from 0 to 35.
 rfcsAutomatedSnapshotRetentionPeriod :: Lens' RestoreFromClusterSnapshot (Maybe Int)
 rfcsAutomatedSnapshotRetentionPeriod =
@@ -190,10 +192,11 @@ rfcsClusterIdentifier =
 
 -- | The name of the parameter group to be associated with this cluster.
 -- Default: The default Amazon Redshift cluster parameter group. For
--- information about the default parameter group, go to Working with Amazon
--- Redshift Parameter Groups. Constraints: Must be 1 to 255 alphanumeric
--- characters or hyphens. First character must be a letter. Cannot end with
--- a hyphen or contain two consecutive hyphens.
+-- information about the default parameter group, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
+-- Working with Amazon Redshift Parameter Groups>. Constraints: Must be 1 to
+-- 255 alphanumeric characters or hyphens. First character must be a letter.
+-- Cannot end with a hyphen or contain two consecutive hyphens.
 rfcsClusterParameterGroupName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsClusterParameterGroupName =
     lens _rfcsClusterParameterGroupName
@@ -255,9 +258,11 @@ rfcsPort = lens _rfcsPort (\s a -> s { _rfcsPort = a })
 -- | The weekly time range (in UTC) during which automated cluster maintenance
 -- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: The value selected
 -- for the cluster from which the snapshot was taken. For more information
--- about the time blocks for each region, see Maintenance Windows in Amazon
--- Redshift Cluster Management Guide. Valid Days: Mon | Tue | Wed | Thu |
--- Fri | Sat | Sun Constraints: Minimum 30-minute window.
+-- about the time blocks for each region, see
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows
+-- Maintenance Windows> in Amazon Redshift Cluster Management Guide. Valid
+-- Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum
+-- 30-minute window.
 rfcsPreferredMaintenanceWindow :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsPreferredMaintenanceWindow =
     lens _rfcsPreferredMaintenanceWindow

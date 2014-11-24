@@ -31,9 +31,11 @@
 -- SNS topic. Create the lifecycle hook. You can create a hook that acts when
 -- instances launch or when instances terminate. If necessary, record the
 -- lifecycle action heartbeat to keep the instance in a pending state.
--- Complete the lifecycle action. For more information, see Auto Scaling
--- Pending State and Auto Scaling Terminating State in the Auto Scaling
--- Developer Guide.
+-- Complete the lifecycle action. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html
+-- Auto Scaling Pending State> and
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html
+-- Auto Scaling Terminating State> in the /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutLifecycleHook.html>
 module Network.AWS.AutoScaling.PutLifecycleHook
@@ -125,7 +127,7 @@ plhDefaultResult = lens _plhDefaultResult (\s a -> s { _plhDefaultResult = a })
 -- lifecycle hook times out. When the lifecycle hook times out, Auto Scaling
 -- performs the action defined in the DefaultResult parameter. You can
 -- prevent the lifecycle hook from timing out by calling
--- RecordLifecycleActionHeartbeat. The default value for this parameter is
+-- RecordLifecycleActionHeartbeat>. The default value for this parameter is
 -- 3600 seconds (1 hour).
 plhHeartbeatTimeout :: Lens' PutLifecycleHook (Maybe Int)
 plhHeartbeatTimeout =
@@ -137,7 +139,7 @@ plhLifecycleHookName =
     lens _plhLifecycleHookName (\s a -> s { _plhLifecycleHookName = a })
 
 -- | The Amazon EC2 instance state to which you want to attach the lifecycle
--- hook. See DescribeLifecycleHookTypes for a list of available lifecycle
+-- hook. See DescribeLifecycleHookTypes> for a list of available lifecycle
 -- hook types. This parameter is required for new lifecycle hooks, but
 -- optional when updating existing hooks.
 plhLifecycleTransition :: Lens' PutLifecycleHook (Maybe Text)

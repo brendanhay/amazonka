@@ -32,8 +32,10 @@
 -- A cookie is inserted into the response for binding subsequent requests from
 -- the same user to that server. The validity of the cookie is based on the
 -- cookie expiration time, which is specified in the policy configuration. For
--- more information, see Enabling Duration-Based Session Stickiness in the
--- Elastic Load Balancing Developer Guide.
+-- more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsLBCookies
+-- Enabling Duration-Based Session Stickiness> in the /Elastic Load Balancing
+-- Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLBCookieStickinessPolicy.html>
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy

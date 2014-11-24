@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the definition of the specified pipeline. You can call
--- GetPipelineDefinition to retrieve the pipeline definition you provided
--- using PutPipelineDefinition.
+-- GetPipelineDefinition> to retrieve the pipeline definition you provided
+-- using PutPipelineDefinition>.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html>
 module Network.AWS.DataPipeline.GetPipelineDefinition

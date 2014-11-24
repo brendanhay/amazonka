@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DescribeSnapshots operation returns information about cache cluster
--- snapshots. By default, DescribeSnapshots lists all of your snapshots; it
+-- | The /DescribeSnapshots/ operation returns information about cache cluster
+-- snapshots. By default, /DescribeSnapshots/ lists all of your snapshots; it
 -- can optionally describe a single snapshot, or just the snapshots associated
 -- with a particular cache cluster.
 --
@@ -92,7 +92,7 @@ dsCacheClusterId = lens _dsCacheClusterId (\s a -> s { _dsCacheClusterId = a })
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords.
+-- the value specified by /MaxRecords/.
 dsMarker :: Lens' DescribeSnapshots (Maybe Text)
 dsMarker = lens _dsMarker (\s a -> s { _dsMarker = a })
 
@@ -137,7 +137,7 @@ describeSnapshotsResponse = DescribeSnapshotsResponse
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords.
+-- the value specified by /MaxRecords/.
 dsrMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dsrMarker = lens _dsrMarker (\s a -> s { _dsrMarker = a })
 

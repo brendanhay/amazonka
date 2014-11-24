@@ -412,7 +412,7 @@ escRole :: Lens' EventSourceConfiguration (Maybe Text)
 escRole = lens _escRole (\s a -> s { _escRole = a })
 
 -- | The description of the health of the event source mapping. Valid values
--- are: "PENDING", "OK", and "PROBLEM:message". Initially this staus is
+-- are: "PENDING", "OK", and "PROBLEM:/message/". Initially this staus is
 -- "PENDING". When AWS Lambda begins processing events, it changes the
 -- status to "OK".
 escStatus :: Lens' EventSourceConfiguration (Maybe Text)

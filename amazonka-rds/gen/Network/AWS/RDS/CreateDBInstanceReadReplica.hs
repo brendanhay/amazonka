@@ -212,7 +212,9 @@ cdbirrPubliclyAccessible =
 -- source DB instance is in the same region as the read replica, specify a
 -- valid DB instance identifier. If the source DB instance is in a different
 -- region than the read replica, specify a valid DB instance ARN. For more
--- information, go to Constructing a Amazon RDS Amazon Resource Name (ARN).
+-- information, go to
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN
+-- Constructing a Amazon RDS Amazon Resource Name (ARN)>.
 cdbirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdbirrSourceDBInstanceIdentifier =
     lens _cdbirrSourceDBInstanceIdentifier

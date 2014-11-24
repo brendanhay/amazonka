@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DescribeEvents operation returns events related to cache clusters,
+-- | The /DescribeEvents/ operation returns events related to cache clusters,
 -- cache security groups, and cache parameter groups. You can obtain events
 -- specific to a particular cache cluster, cache security group, or cache
 -- parameter group by providing the name as a parameter. By default, only the
@@ -108,7 +108,7 @@ deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords.
+-- the value specified by /MaxRecords/.
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 

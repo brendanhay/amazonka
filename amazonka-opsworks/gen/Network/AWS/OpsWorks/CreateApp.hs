@@ -20,11 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates an app for a specified stack. For more information, see Creating
--- Apps. Required Permissions: To use this action, an IAM user must have a
--- Manage permissions level for the stack, or an attached policy that
+-- | Creates an app for a specified stack. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html
+-- Creating Apps>. Required Permissions: To use this action, an IAM user must
+-- have a Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
--- see Managing User Permissions.
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateApp.html>
 module Network.AWS.OpsWorks.CreateApp

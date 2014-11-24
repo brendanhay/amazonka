@@ -126,8 +126,8 @@ lrrsHostedZoneId = lens _lrrsHostedZoneId (\s a -> s { _lrrsHostedZoneId = a })
 lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsMaxItems = lens _lrrsMaxItems (\s a -> s { _lrrsMaxItems = a })
 
--- | Weighted resource record sets only: If results were truncated for a given
--- DNS name and type, specify the value of
+-- | /Weighted resource record sets only:/ If results were truncated for a
+-- given DNS name and type, specify the value of
 -- ListResourceRecordSetsResponse$NextRecordIdentifier from the previous
 -- response to get the next resource record set that has the current DNS
 -- name and type.
@@ -147,7 +147,7 @@ lrrsStartRecordName =
 -- for Weighted Resource Record Sets: A | AAAA | CNAME | TXT Values for
 -- Regional Resource Record Sets: A | AAAA | CNAME | TXT Values for Alias
 -- Resource Record Sets: A | AAAA Constraint: Specifying type without
--- specifying name returns an InvalidInput error.
+-- specifying name returns an InvalidInput> error.
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType =
     lens _lrrsStartRecordType (\s a -> s { _lrrsStartRecordType = a })
@@ -192,8 +192,8 @@ listResourceRecordSetsResponse p1 p2 = ListResourceRecordSetsResponse
 -- | A flag that indicates whether there are more resource record sets to be
 -- listed. If your results were truncated, you can make a follow-up request
 -- for the next page of results by using the
--- ListResourceRecordSetsResponse$NextRecordName element. Valid Values: true
--- | false.
+-- ListResourceRecordSetsResponse$NextRecordName> element. Valid Values:
+-- true | false.
 lrrsrIsTruncated :: Lens' ListResourceRecordSetsResponse Bool
 lrrsrIsTruncated = lens _lrrsrIsTruncated (\s a -> s { _lrrsrIsTruncated = a })
 
@@ -202,8 +202,8 @@ lrrsrIsTruncated = lens _lrrsrIsTruncated (\s a -> s { _lrrsrIsTruncated = a })
 lrrsrMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrMaxItems = lens _lrrsrMaxItems (\s a -> s { _lrrsrMaxItems = a })
 
--- | Weighted resource record sets only: If results were truncated for a given
--- DNS name and type, the value of SetIdentifier for the next resource
+-- | /Weighted resource record sets only:/ If results were truncated for a
+-- given DNS name and type, the value of SetIdentifier for the next resource
 -- record set that has the current DNS name and type.
 lrrsrNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrNextRecordIdentifier =
@@ -212,14 +212,14 @@ lrrsrNextRecordIdentifier =
 
 -- | If the results were truncated, the name of the next record in the list.
 -- This element is present only if
--- ListResourceRecordSetsResponse$IsTruncated is true.
+-- ListResourceRecordSetsResponse$IsTruncated> is true.
 lrrsrNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrNextRecordName =
     lens _lrrsrNextRecordName (\s a -> s { _lrrsrNextRecordName = a })
 
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if
--- ListResourceRecordSetsResponse$IsTruncated is true.
+-- ListResourceRecordSetsResponse$IsTruncated> is true.
 lrrsrNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrsrNextRecordType =
     lens _lrrsrNextRecordType (\s a -> s { _lrrsrNextRecordType = a })

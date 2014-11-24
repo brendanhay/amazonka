@@ -20,10 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes Elastic IP addresses. Required Permissions: To use this action,
--- an IAM user must have a Show, Deploy, or Manage permissions level for the
--- stack, or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see Managing User Permissions.
+-- | Describes
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+-- Elastic IP addresses>. Required Permissions: To use this action, an IAM
+-- user must have a Show, Deploy, or Manage permissions level for the stack,
+-- or an attached policy that explicitly grants permissions. For more
+-- information on user permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticIps.html>
 module Network.AWS.OpsWorks.DescribeElasticIps

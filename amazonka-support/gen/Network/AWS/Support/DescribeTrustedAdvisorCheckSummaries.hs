@@ -22,8 +22,8 @@
 
 -- | Returns the summaries of the results of the Trusted Advisor checks that
 -- have the specified check IDs. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks. The response contains an array of
--- TrustedAdvisorCheckSummary objects.
+-- DescribeTrustedAdvisorChecks>. The response contains an array of
+-- TrustedAdvisorCheckSummary> objects.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html>
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries

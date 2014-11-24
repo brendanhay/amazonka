@@ -95,7 +95,7 @@ describeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources = Nothing
     }
 
--- | A list of EnvironmentResourceDescription.
+-- | A list of EnvironmentResourceDescription>.
 derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 derrEnvironmentResources =
     lens _derrEnvironmentResources

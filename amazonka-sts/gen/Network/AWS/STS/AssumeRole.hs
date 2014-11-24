@@ -33,48 +33,54 @@
 -- account can be time consuming. Instead, you can create one set of long-term
 -- credentials in one account and then use temporary security credentials to
 -- access all the other accounts by assuming roles in those accounts. For more
--- information about roles, see Roles in Using IAM. For federation, you can,
--- for example, grant single sign-on access to the AWS Management Console. If
--- you already have an identity and authentication system in your corporate
--- network, you don't have to recreate user identities in AWS in order to
--- grant those user identities access to AWS. Instead, after a user has been
--- authenticated, you call AssumeRole (and specify the role with the
--- appropriate permissions) to get temporary security credentials for that
--- user. With those temporary security credentials, you construct a sign-in
--- URL that users can use to access the console. For more information, see
--- Scenarios for Granting Temporary Access in Using Temporary Security
--- Credentials. The temporary security credentials are valid for the duration
--- that you specified when calling AssumeRole, which can be from 900 seconds
--- (15 minutes) to 3600 seconds (1 hour). The default is 1 hour. Optionally,
--- you can pass an IAM access policy to this operation. If you choose not to
--- pass a policy, the temporary security credentials that are returned by the
+-- information about roles, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
+-- Roles> in /Using IAM/. For federation, you can, for example, grant single
+-- sign-on access to the AWS Management Console. If you already have an
+-- identity and authentication system in your corporate network, you don't
+-- have to recreate user identities in AWS in order to grant those user
+-- identities access to AWS. Instead, after a user has been authenticated, you
+-- call AssumeRole (and specify the role with the appropriate permissions) to
+-- get temporary security credentials for that user. With those temporary
+-- security credentials, you construct a sign-in URL that users can use to
+-- access the console. For more information, see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html Scenarios
+-- for Granting Temporary Access> in /Using Temporary Security Credentials/.
+-- The temporary security credentials are valid for the duration that you
+-- specified when calling AssumeRole, which can be from 900 seconds (15
+-- minutes) to 3600 seconds (1 hour). The default is 1 hour. Optionally, you
+-- can pass an IAM access policy to this operation. If you choose not to pass
+-- a policy, the temporary security credentials that are returned by the
 -- operation have the permissions that are defined in the access policy of the
 -- role that is being assumed. If you pass a policy to this operation, the
 -- temporary security credentials that are returned by the operation have the
 -- permissions that are allowed by both the access policy of the role that is
--- being assumed, and the policy that you pass. This gives you a way to
+-- being assumed, /and/ the policy that you pass. This gives you a way to
 -- further restrict the permissions for the resulting temporary security
 -- credentials. You cannot use the passed policy to grant permissions that are
 -- in excess of those allowed by the access policy of the role that is being
--- assumed. For more information, see Permissions for AssumeRole in Using
--- Temporary Security Credentials. To assume a role, your AWS account must be
--- trusted by the role. The trust relationship is defined in the role's trust
--- policy when the role is created. You must also have a policy that allows
--- you to call sts:AssumeRole. Using MFA with AssumeRole You can optionally
--- include multi-factor authentication (MFA) information when you call
--- AssumeRole. This is useful for cross-account scenarios in which you want to
--- make sure that the user who is assuming the role has been authenticated
--- using an AWS MFA device. In that scenario, the trust policy of the role
--- being assumed includes a condition that tests for MFA authentication; if
--- the caller does not include valid MFA information, the request to assume
--- the role is denied. The condition in a trust policy that tests for MFA
--- authentication might look like the following example. "Condition": {"Null":
--- {"aws:MultiFactorAuthAge": false}} For more information, see Configuring
--- MFA-Protected API Access in the Using IAM guide. To use MFA with
--- AssumeRole, you pass values for the SerialNumber and TokenCode parameters.
--- The SerialNumber value identifies the user's hardware or virtual MFA
--- device. The TokenCode is the time-based one-time password (TOTP) that the
--- MFA devices produces.
+-- assumed. For more information, see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html
+-- Permissions for AssumeRole> in /Using Temporary Security Credentials/. To
+-- assume a role, your AWS account must be trusted by the role. The trust
+-- relationship is defined in the role's trust policy when the role is
+-- created. You must also have a policy that allows you to call
+-- sts:AssumeRole. Using MFA with AssumeRole You can optionally include
+-- multi-factor authentication (MFA) information when you call AssumeRole.
+-- This is useful for cross-account scenarios in which you want to make sure
+-- that the user who is assuming the role has been authenticated using an AWS
+-- MFA device. In that scenario, the trust policy of the role being assumed
+-- includes a condition that tests for MFA authentication; if the caller does
+-- not include valid MFA information, the request to assume the role is
+-- denied. The condition in a trust policy that tests for MFA authentication
+-- might look like the following example. "Condition": {"Null":
+-- {"aws:MultiFactorAuthAge": false}} For more information, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html
+-- Configuring MFA-Protected API Access> in the /Using IAM/ guide. To use MFA
+-- with AssumeRole, you pass values for the SerialNumber and TokenCode
+-- parameters. The SerialNumber value identifies the user's hardware or
+-- virtual MFA device. The TokenCode is the time-based one-time password
+-- (TOTP) that the MFA devices produces.
 --
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html>
 module Network.AWS.STS.AssumeRole
@@ -163,19 +169,21 @@ arDurationSeconds =
 -- role, they must pass the customer's external ID. The external ID is
 -- useful in order to help third parties bind a role to the customer who
 -- created it. For more information about the external ID, see About the
--- External ID in Using Temporary Security Credentials.
+-- External ID> in /Using Temporary Security Credentials/.
 arExternalId :: Lens' AssumeRole (Maybe Text)
 arExternalId = lens _arExternalId (\s a -> s { _arExternalId = a })
 
 -- | An IAM policy in JSON format. The policy parameter is optional. If you
 -- pass a policy, the temporary security credentials that are returned by
 -- the operation have the permissions that are allowed by both the access
--- policy of the role that is being assumed, and the policy that you pass.
+-- policy of the role that is being assumed, /and/ the policy that you pass.
 -- This gives you a way to further restrict the permissions for the
 -- resulting temporary security credentials. You cannot use the passed
 -- policy to grant permissions that are in excess of those allowed by the
 -- access policy of the role that is being assumed. For more information,
--- see Permissions for AssumeRole in Using Temporary Security Credentials.
+-- see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html
+-- Permissions for AssumeRole> in /Using Temporary Security Credentials/.
 arPolicy :: Lens' AssumeRole (Maybe Text)
 arPolicy = lens _arPolicy (\s a -> s { _arPolicy = a })
 

@@ -25,10 +25,12 @@
 -- costs of reserving the node and duration the node will be reserved for you.
 -- These descriptions help you determine which reserve node offering you want
 -- to purchase. You then use the unique offering ID in you call to
--- PurchaseReservedNodeOffering to reserve one or more nodes for your Amazon
+-- PurchaseReservedNodeOffering> to reserve one or more nodes for your Amazon
 -- Redshift cluster. For more information about managing parameter groups, go
--- to Purchasing Reserved Nodes in the Amazon Redshift Cluster Management
--- Guide.
+-- to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html
+-- Purchasing Reserved Nodes> in the /Amazon Redshift Cluster Management
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html>
 module Network.AWS.Redshift.DescribeReservedNodeOfferings
@@ -80,7 +82,7 @@ describeReservedNodeOfferings = DescribeReservedNodeOfferings
     }
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeReservedNodeOfferings
+-- of response records. When the results of a DescribeReservedNodeOfferings>
 -- request exceed the value specified in MaxRecords, AWS returns a value in
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker

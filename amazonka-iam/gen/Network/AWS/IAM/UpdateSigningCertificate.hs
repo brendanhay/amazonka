@@ -27,8 +27,9 @@
 -- based on the AWS access key ID used to sign the request. Because this
 -- action works for access keys under the AWS account, you can use this action
 -- to manage root credentials even if the AWS account has no associated users.
--- For information about rotating certificates, see Managing Keys and
--- Certificates in the Using IAM guide.
+-- For information about rotating certificates, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html
+-- Managing Keys and Certificates> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSigningCertificate.html>
 module Network.AWS.IAM.UpdateSigningCertificate

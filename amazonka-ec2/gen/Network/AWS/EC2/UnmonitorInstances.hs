@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Disables monitoring for a running instance. For more information about
--- monitoring instances, see Monitoring Your Instances and Volumes in the
--- Amazon Elastic Compute Cloud User Guide.
+-- monitoring instances, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html
+-- Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud
+-- User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnmonitorInstances.html>
 module Network.AWS.EC2.UnmonitorInstances

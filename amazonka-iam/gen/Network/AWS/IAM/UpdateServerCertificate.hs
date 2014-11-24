@@ -22,8 +22,9 @@
 
 -- | Updates the name and/or the path of the specified server certificate. You
 -- should understand the implications of changing a server certificate's path
--- or name. For more information, see Managing Server Certificates in the
--- Using IAM guide.
+-- or name. For more information, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+-- Managing Server Certificates> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html>
 module Network.AWS.IAM.UpdateServerCertificate

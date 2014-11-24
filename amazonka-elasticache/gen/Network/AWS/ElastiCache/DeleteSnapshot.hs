@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DeleteSnapshot operation deletes an existing snapshot. When you receive
--- a successful response from this operation, ElastiCache immediately begins
--- deleting the snapshot; you cannot cancel or revert this operation.
+-- | The /DeleteSnapshot/ operation deletes an existing snapshot. When you
+-- receive a successful response from this operation, ElastiCache immediately
+-- begins deleting the snapshot; you cannot cancel or revert this operation.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html>
 module Network.AWS.ElastiCache.DeleteSnapshot

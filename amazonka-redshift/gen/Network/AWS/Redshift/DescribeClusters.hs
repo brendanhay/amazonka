@@ -23,15 +23,16 @@
 -- | Returns properties of provisioned clusters including general cluster
 -- properties, cluster database properties, maintenance and backup properties,
 -- and security and access properties. This operation supports pagination. For
--- more information about managing clusters, go to Amazon Redshift Clusters in
--- the Amazon Redshift Cluster Management Guide . If you specify both tag keys
--- and tag values in the same request, Amazon Redshift returns all clusters
--- that match any combination of the specified keys and values. For example,
--- if you have owner and environment for tag keys, and admin and test for tag
--- values, all clusters that have any combination of those values are
--- returned. If both tag keys and values are omitted from the request,
--- clusters are returned regardless of whether they have tag keys or values
--- associated with them.
+-- more information about managing clusters, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html
+-- Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
+-- . If you specify both tag keys and tag values in the same request, Amazon
+-- Redshift returns all clusters that match any combination of the specified
+-- keys and values. For example, if you have owner and environment for tag
+-- keys, and admin and test for tag values, all clusters that have any
+-- combination of those values are returned. If both tag keys and values are
+-- omitted from the request, clusters are returned regardless of whether they
+-- have tag keys or values associated with them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html>
 module Network.AWS.Redshift.DescribeClusters
@@ -100,7 +101,7 @@ dcClusterIdentifier =
     lens _dcClusterIdentifier (\s a -> s { _dcClusterIdentifier = a })
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusters request
+-- of response records. When the results of a DescribeClusters> request
 -- exceed the value specified in MaxRecords, AWS returns a value in the
 -- Marker field of the response. You can retrieve the next set of response
 -- records by providing the returned marker value in the Marker parameter
@@ -154,7 +155,7 @@ describeClustersResponse = DescribeClustersResponse
     , _dcrClusters = mempty
     }
 
--- | A list of Cluster objects, where each object describes one cluster.
+-- | A list of Cluster> objects, where each object describes one cluster.
 dcrClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrClusters = lens _dcrClusters (\s a -> s { _dcrClusters = a }) . _List
 

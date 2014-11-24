@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more regions that are currently available to you. For a
--- list of the regions supported by Amazon EC2, see Regions and Endpoints.
+-- list of the regions supported by Amazon EC2, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions
+-- and Endpoints>.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html>
 module Network.AWS.EC2.DescribeRegions

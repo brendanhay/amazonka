@@ -232,7 +232,7 @@ ciSecretToAuthenticateTarget =
     lens _ciSecretToAuthenticateTarget
         (\s a -> s { _ciSecretToAuthenticateTarget = a })
 
--- | The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to 500
+-- | The Amazon Resource Name (ARN) of the volume. /Valid Values/: 50 to 500
 -- lowercase letters, numbers, periods (.), and hyphens (-).
 ciTargetARN :: Lens' ChapInfo (Maybe Text)
 ciTargetARN = lens _ciTargetARN (\s a -> s { _ciTargetARN = a })
@@ -610,7 +610,7 @@ niIpv4Address :: Lens' NetworkInterface (Maybe Text)
 niIpv4Address = lens _niIpv4Address (\s a -> s { _niIpv4Address = a })
 
 -- | The Internet Protocol version 6 (IPv6) address of the interface.
--- Currently not supported.
+-- /Currently not supported/.
 niIpv6Address :: Lens' NetworkInterface (Maybe Text)
 niIpv6Address = lens _niIpv6Address (\s a -> s { _niIpv6Address = a })
 

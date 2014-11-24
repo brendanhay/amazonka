@@ -21,11 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a specified layer. You must first stop and then delete all
--- associated instances. For more information, see How to Delete a Layer.
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly
--- grants permissions. For more information on user permissions, see Managing
--- User Permissions.
+-- associated instances. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html
+-- How to Delete a Layer>. Required Permissions: To use this action, an IAM
+-- user must have a Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteLayer.html>
 module Network.AWS.OpsWorks.DeleteLayer

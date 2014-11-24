@@ -22,8 +22,9 @@
 
 -- | Creates a network ACL in a VPC. Network ACLs provide an optional layer of
 -- security (in addition to security groups) for the instances in your VPC.
--- For more information about network ACLs, see Network ACLs in the Amazon
--- Virtual Private Cloud User Guide.
+-- For more information about network ACLs, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
+-- Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkAcl.html>
 module Network.AWS.EC2.CreateNetworkAcl

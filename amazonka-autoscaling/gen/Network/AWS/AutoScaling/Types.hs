@@ -929,13 +929,15 @@ asgMinSize :: Lens' AutoScalingGroup Int
 asgMinSize = lens _asgMinSize (\s a -> s { _asgMinSize = a })
 
 -- | The name of the placement group into which you'll launch your instances,
--- if any. For more information, see Placement Groups.
+-- if any. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+-- Placement Groups>.
 asgPlacementGroup :: Lens' AutoScalingGroup (Maybe Text)
 asgPlacementGroup =
     lens _asgPlacementGroup (\s a -> s { _asgPlacementGroup = a })
 
--- | The current state of the Auto Scaling group when a DeleteAutoScalingGroup
--- action is in progress.
+-- | The current state of the Auto Scaling group when a
+-- DeleteAutoScalingGroup> action is in progress.
 asgStatus :: Lens' AutoScalingGroup (Maybe Text)
 asgStatus = lens _asgStatus (\s a -> s { _asgStatus = a })
 
@@ -1411,7 +1413,8 @@ adjustmentType = AdjustmentType
 
 -- | The policy adjustment type. The valid values are ChangeInCapacity,
 -- ExactCapacity, and PercentChangeInCapacity. For more information, see
--- Dynamic Scaling in the Auto Scaling Developer Guide.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html
+-- Dynamic Scaling> in the /Auto Scaling Developer Guide/.
 atAdjustmentType :: Lens' AdjustmentType (Maybe Text)
 atAdjustmentType = lens _atAdjustmentType (\s a -> s { _atAdjustmentType = a })
 
@@ -1518,7 +1521,7 @@ lhGlobalTimeout = lens _lhGlobalTimeout (\s a -> s { _lhGlobalTimeout = a })
 -- | The amount of time that can elapse before the lifecycle hook times out.
 -- When the lifecycle hook times out, Auto Scaling performs the action
 -- defined in the DefaultResult parameter. You can prevent the lifecycle
--- hook from timing out by calling RecordLifecycleActionHeartbeat.
+-- hook from timing out by calling RecordLifecycleActionHeartbeat>.
 lhHeartbeatTimeout :: Lens' LifecycleHook (Maybe Int)
 lhHeartbeatTimeout =
     lens _lhHeartbeatTimeout (\s a -> s { _lhHeartbeatTimeout = a })
@@ -1529,7 +1532,7 @@ lhLifecycleHookName =
     lens _lhLifecycleHookName (\s a -> s { _lhLifecycleHookName = a })
 
 -- | The state of the EC2 instance to which you want to attach the lifecycle
--- hook. For a list of lifecycle hook types, see DescribeLifecycleHooks.
+-- hook. For a list of lifecycle hook types, see DescribeLifecycleHooks>.
 lhLifecycleTransition :: Lens' LifecycleHook (Maybe Text)
 lhLifecycleTransition =
     lens _lhLifecycleTransition (\s a -> s { _lhLifecycleTransition = a })
@@ -2120,8 +2123,9 @@ asidLaunchConfigurationName =
     lens _asidLaunchConfigurationName
         (\s a -> s { _asidLaunchConfigurationName = a })
 
--- | The lifecycle state for the instance. For more information, see Auto
--- Scaling Instance States in the Auto Scaling Developer Guide.
+-- | The lifecycle state for the instance. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html#AutoScalingStates
+-- Auto Scaling Instance States> in the /Auto Scaling Developer Guide/.
 asidLifecycleState :: Lens' AutoScalingInstanceDetails Text
 asidLifecycleState =
     lens _asidLifecycleState (\s a -> s { _asidLifecycleState = a })

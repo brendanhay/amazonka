@@ -22,10 +22,14 @@
 
 -- | Retrieves information about the specified role, including the role's path,
 -- GUID, ARN, and the policy granting permission to assume the role. For more
--- information about ARNs, go to ARNs. For more information about roles, go to
--- Working with Roles. The returned policy is URL-encoded according to RFC
+-- information about ARNs, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs
+-- ARNs>. For more information about roles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
+-- Working with Roles>. The returned policy is URL-encoded according to RFC
 -- 3986. For more information about RFC 3986, go to
--- http://www.faqs.org/rfcs/rfc3986.html.
+-- <http://www.faqs.org/rfcs/rfc3986.html
+-- http://www.faqs.org/rfcs/rfc3986.html>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html>
 module Network.AWS.IAM.GetRole

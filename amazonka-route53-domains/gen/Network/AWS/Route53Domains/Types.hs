@@ -1361,8 +1361,8 @@ cdOrganizationName =
 
 -- | The phone number of the contact. Type: String Default: None Constraints:
 -- Phone number must be specified in the format "+[country dialing
--- code].[number including any area code&gt;]". For example, a US phone
--- number might appear as "+1.1234567890". Parents: RegistrantContact,
+-- code].[number including any area code>]". For example, a US phone number
+-- might appear as "+1.1234567890". Parents: RegistrantContact,
 -- AdminContact, TechContact Required: Yes.
 cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
 cdPhoneNumber = lens _cdPhoneNumber (\s a -> s { _cdPhoneNumber = a })

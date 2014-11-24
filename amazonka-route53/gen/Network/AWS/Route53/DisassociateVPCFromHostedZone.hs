@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This action disassociates a VPC from an hosted zone. To disassociate a VPC
--- to a hosted zone, send a POST request to the 2013-04-01/hostedzone/hosted
--- zone ID/disassociatevpc resource. The request body must include an XML
+-- to a hosted zone, send a POST request to the 2013-04-01/hostedzone//hosted
+-- zone ID//disassociatevpc resource. The request body must include an XML
 -- document with a DisassociateVPCFromHostedZoneRequest element. The response
 -- returns the DisassociateVPCFromHostedZoneResponse element that contains
 -- ChangeInfo for you to track the progress of the
@@ -79,7 +79,7 @@ disassociateVPCFromHostedZone p1 p2 = DisassociateVPCFromHostedZone
     , _dvpcfhzComment      = Nothing
     }
 
--- | Optional: Any comments you want to include about a
+-- | /Optional:/ Any comments you want to include about a
 -- DisassociateVPCFromHostedZoneRequest.
 dvpcfhzComment :: Lens' DisassociateVPCFromHostedZone (Maybe Text)
 dvpcfhzComment = lens _dvpcfhzComment (\s a -> s { _dvpcfhzComment = a })

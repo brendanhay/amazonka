@@ -21,15 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates an IAM entity to describe an identity provider (IdP) that supports
--- OpenID Connect (OIDC). The OIDC provider that you create with this
--- operation can be used as a principal in a role's trust policy to establish
--- a trust relationship between AWS and the OIDC provider. When you create the
--- IAM OIDC provider, you specify the URL of the OIDC identity provider (IdP)
--- to trust, a list of client IDs (also known as audiences) that identify the
--- application or applications that are allowed to authenticate using the OIDC
--- provider, and a list of thumbprints of the server certificate(s) that the
--- IdP uses. You get all of this information from the OIDC IdP that you want
--- to use for access to AWS.
+-- <http://openid.net/connect/ OpenID Connect (OIDC)>. The OIDC provider that
+-- you create with this operation can be used as a principal in a role's trust
+-- policy to establish a trust relationship between AWS and the OIDC provider.
+-- When you create the IAM OIDC provider, you specify the URL of the OIDC
+-- identity provider (IdP) to trust, a list of client IDs (also known as
+-- audiences) that identify the application or applications that are allowed
+-- to authenticate using the OIDC provider, and a list of thumbprints of the
+-- server certificate(s) that the IdP uses. You get all of this information
+-- from the OIDC IdP that you want to use for access to AWS.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html>
 module Network.AWS.IAM.CreateOpenIDConnectProvider
@@ -139,7 +139,7 @@ createOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
--- was created. For more information, see OpenIDConnectProviderListEntry.
+-- was created. For more information, see OpenIDConnectProviderListEntry>.
 coidcprOpenIDConnectProviderArn :: Lens' CreateOpenIDConnectProviderResponse (Maybe Text)
 coidcprOpenIDConnectProviderArn =
     lens _coidcprOpenIDConnectProviderArn

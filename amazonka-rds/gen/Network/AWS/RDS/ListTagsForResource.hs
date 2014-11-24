@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists all tags on an Amazon RDS resource. For an overview on tagging an
--- Amazon RDS resource, see Tagging Amazon RDS Resources.
+-- Amazon RDS resource, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html
+-- Tagging Amazon RDS Resources>.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ListTagsForResource.html>
 module Network.AWS.RDS.ListTagsForResource
@@ -73,7 +75,8 @@ ltfrFilters = lens _ltfrFilters (\s a -> s { _ltfrFilters = a }) . _List
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
--- Constructing an RDS Amazon Resource Name (ARN).
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN
+-- Constructing an RDS Amazon Resource Name (ARN)>.
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 

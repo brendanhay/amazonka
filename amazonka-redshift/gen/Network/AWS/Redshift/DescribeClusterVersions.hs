@@ -23,8 +23,10 @@
 -- | Returns descriptions of the available Amazon Redshift cluster versions. You
 -- can call this operation even before creating any clusters to learn more
 -- about the Amazon Redshift versions. For more information about managing
--- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Cluster
--- Management Guide.
+-- clusters, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html
+-- Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterVersions.html>
 module Network.AWS.Redshift.DescribeClusterVersions
@@ -95,7 +97,7 @@ dcvClusterVersion =
     lens _dcvClusterVersion (\s a -> s { _dcvClusterVersion = a })
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterVersions
+-- of response records. When the results of a DescribeClusterVersions>
 -- request exceed the value specified in MaxRecords, AWS returns a value in
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker

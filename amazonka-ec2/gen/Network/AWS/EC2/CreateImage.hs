@@ -25,8 +25,10 @@
 -- store volumes or EBS volumes in addition to the root device volume, the new
 -- AMI contains block device mapping information for those volumes. When you
 -- launch an instance from this new AMI, the instance automatically launches
--- with those additional volumes. For more information, see Creating Amazon
--- EBS-Backed Linux AMIs in the Amazon Elastic Compute Cloud User Guide.
+-- with those additional volumes. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html
+-- Creating Amazon EBS-Backed Linux AMIs> in the /Amazon Elastic Compute Cloud
+-- User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html>
 module Network.AWS.EC2.CreateImage

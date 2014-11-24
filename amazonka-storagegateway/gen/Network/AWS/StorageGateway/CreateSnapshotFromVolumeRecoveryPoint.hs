@@ -25,7 +25,7 @@
 -- architecture (see ). A volume recovery point is a point in time at which
 -- all data of the volume is consistent and from which you can create a
 -- snapshot. To get a list of volume recovery point for gateway-cached
--- volumes, use ListVolumeRecoveryPoints. In the
+-- volumes, use ListVolumeRecoveryPoints>. In the
 -- CreateSnapshotFromVolumeRecoveryPoint request, you identify the volume by
 -- providing its Amazon Resource Name (ARN). You must also provide a
 -- description for the snapshot. When AWS Storage Gateway takes a snapshot of

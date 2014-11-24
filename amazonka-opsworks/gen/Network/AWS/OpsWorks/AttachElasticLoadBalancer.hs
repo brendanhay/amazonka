@@ -21,10 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Attaches an Elastic Load Balancing load balancer to a specified layer. For
--- more information, see Elastic Load Balancing. Required Permissions: To use
--- this action, an IAM user must have a Manage permissions level for the
--- stack, or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see Managing User Permissions.
+-- more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/load-balancer-elb.html
+-- Elastic Load Balancing>. Required Permissions: To use this action, an IAM
+-- user must have a Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AttachElasticLoadBalancer.html>
 module Network.AWS.OpsWorks.AttachElasticLoadBalancer

@@ -24,10 +24,10 @@
 -- the steps specified. Once the job flow completes, the cluster is stopped
 -- and the HDFS partition is lost. To prevent loss of data, configure the last
 -- step of the job flow to store results in Amazon S3. If the
--- JobFlowInstancesConfig KeepJobFlowAliveWhenNoSteps parameter is set to
+-- JobFlowInstancesConfig> KeepJobFlowAliveWhenNoSteps parameter is set to
 -- TRUE, the job flow will transition to the WAITING state rather than
 -- shutting down once the steps have completed. For additional protection, you
--- can set the JobFlowInstancesConfig TerminationProtected parameter to TRUE
+-- can set the JobFlowInstancesConfig> TerminationProtected parameter to TRUE
 -- to lock the job flow and prevent it from being terminated by API call, user
 -- intervention, or in the event of a job flow error. A maximum of 256 steps
 -- are allowed in each job flow. If your job flow is long-running (such as a
@@ -35,10 +35,11 @@
 -- process your data. You can bypass the 256-step limitation in various ways,
 -- including using the SSH shell to connect to the master node and submitting
 -- queries directly to the software running on the master node, such as Hive
--- and Hadoop. For more information on how to do this, go to Add More than 256
--- Steps to a Job Flow in the Amazon Elastic MapReduce Developer's Guide. For
--- long running job flows, we recommend that you periodically store your
--- results.
+-- and Hadoop. For more information on how to do this, go to
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html
+-- Add More than 256 Steps to a Job Flow> in the /Amazon Elastic MapReduce
+-- Developer's Guide/. For long running job flows, we recommend that you
+-- periodically store your results.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RunJobFlow.html>
 module Network.AWS.EMR.RunJobFlow
@@ -150,11 +151,12 @@ rjfAdditionalInfo =
 -- "latest" (uses the latest AMI) The version number of the AMI to use, for
 -- example, "2.0" If the AMI supports multiple versions of Hadoop (for
 -- example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the
--- JobFlowInstancesConfig HadoopVersion parameter to modify the version of
+-- JobFlowInstancesConfig> HadoopVersion parameter to modify the version of
 -- Hadoop from the defaults shown above. For details about the AMI versions
--- currently supported by Amazon Elastic MapReduce, go to AMI Versions
--- Supported in Elastic MapReduce in the Amazon Elastic MapReduce
--- Developer's Guide.
+-- currently supported by Amazon Elastic MapReduce, go to
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported
+-- AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic
+-- MapReduce Developer's Guide./.
 rjfAmiVersion :: Lens' RunJobFlow (Maybe Text)
 rjfAmiVersion = lens _rjfAmiVersion (\s a -> s { _rjfAmiVersion = a })
 
@@ -188,12 +190,13 @@ rjfName = lens _rjfName (\s a -> s { _rjfName = a })
 -- | A list of strings that indicates third-party software to use with the job
 -- flow that accepts a user argument list. EMR accepts and forwards the
 -- argument list to the corresponding installation script as bootstrap
--- action arguments. For more information, see Launch a Job Flow on the MapR
--- Distribution for Hadoop. Currently supported values are: "mapr-m3" -
--- launch the job flow using MapR M3 Edition. "mapr-m5" - launch the job
--- flow using MapR M5 Edition. "mapr" with the user arguments specifying
--- "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or
--- M5 Edition respectively.
+-- action arguments. For more information, see
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html
+-- Launch a Job Flow on the MapR Distribution for Hadoop>. Currently
+-- supported values are: "mapr-m3" - launch the job flow using MapR M3
+-- Edition. "mapr-m5" - launch the job flow using MapR M5 Edition. "mapr"
+-- with the user arguments specifying "--edition,m3" or "--edition,m5" -
+-- launch the job flow using MapR M3 or M5 Edition respectively.
 rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
 rjfNewSupportedProducts =
     lens _rjfNewSupportedProducts (\s a -> s { _rjfNewSupportedProducts = a })
@@ -209,10 +212,11 @@ rjfSteps :: Lens' RunJobFlow [StepConfig]
 rjfSteps = lens _rjfSteps (\s a -> s { _rjfSteps = a }) . _List
 
 -- | A list of strings that indicates third-party software to use with the job
--- flow. For more information, go to Use Third Party Applications with
--- Amazon EMR. Currently supported values are: "mapr-m3" - launch the job
--- flow using MapR M3 Edition. "mapr-m5" - launch the job flow using MapR M5
--- Edition.
+-- flow. For more information, go to
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html
+-- Use Third Party Applications with Amazon EMR>. Currently supported values
+-- are: "mapr-m3" - launch the job flow using MapR M3 Edition. "mapr-m5" -
+-- launch the job flow using MapR M5 Edition.
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts =
     lens _rjfSupportedProducts (\s a -> s { _rjfSupportedProducts = a })

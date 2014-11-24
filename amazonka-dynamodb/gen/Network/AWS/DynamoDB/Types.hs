@@ -279,11 +279,11 @@ writeRequest = WriteRequest
     , _wDeleteRequest = Nothing
     }
 
--- | A request to perform a DeleteItem operation.
+-- | A request to perform a /DeleteItem/ operation.
 wDeleteRequest :: Lens' WriteRequest (Maybe DeleteRequest)
 wDeleteRequest = lens _wDeleteRequest (\s a -> s { _wDeleteRequest = a })
 
--- | A request to perform a PutItem operation.
+-- | A request to perform a /PutItem/ operation.
 wPutRequest :: Lens' WriteRequest (Maybe PutRequest)
 wPutRequest = lens _wPutRequest (\s a -> s { _wPutRequest = a })
 
@@ -345,7 +345,9 @@ ptdLastIncreaseDateTime =
 
 -- | The number of provisioned throughput decreases for this table during this
 -- UTC calendar day. For current maximums on provisioned throughput
--- decreases, see Limits in the Amazon DynamoDB Developer Guide.
+-- decreases, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html
+-- Limits> in the /Amazon DynamoDB Developer Guide/.
 ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdNumberOfDecreasesToday =
     lens _ptdNumberOfDecreasesToday
@@ -353,17 +355,17 @@ ptdNumberOfDecreasesToday =
             . mapping _Nat
 
 -- | The maximum number of strongly consistent reads consumed per second
--- before DynamoDB returns a ThrottlingException. Eventually consistent
+-- before DynamoDB returns a /ThrottlingException/. Eventually consistent
 -- reads require less effort than strongly consistent reads, so a setting of
--- 50 ReadCapacityUnits per second provides 100 eventually consistent
--- ReadCapacityUnits per second.
+-- 50 /ReadCapacityUnits/ per second provides 100 eventually consistent
+-- /ReadCapacityUnits/ per second.
 ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdReadCapacityUnits =
     lens _ptdReadCapacityUnits (\s a -> s { _ptdReadCapacityUnits = a })
         . mapping _Nat
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
--- a ThrottlingException.
+-- a /ThrottlingException/.
 ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdWriteCapacityUnits =
     lens _ptdWriteCapacityUnits (\s a -> s { _ptdWriteCapacityUnits = a })
@@ -590,17 +592,21 @@ provisionedThroughput p1 p2 = ProvisionedThroughput
     }
 
 -- | The maximum number of strongly consistent reads consumed per second
--- before DynamoDB returns a ThrottlingException. For more information, see
--- Specifying Read and Write Requirements in the Amazon DynamoDB Developer
--- Guide.
+-- before DynamoDB returns a /ThrottlingException/. For more information,
+-- see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput
+-- Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer
+-- Guide/.
 ptReadCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptReadCapacityUnits =
     lens _ptReadCapacityUnits (\s a -> s { _ptReadCapacityUnits = a })
         . _Nat
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
--- a ThrottlingException. For more information, see Specifying Read and
--- Write Requirements in the Amazon DynamoDB Developer Guide.
+-- a /ThrottlingException/. For more information, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput
+-- Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer
+-- Guide/.
 ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits =
     lens _ptWriteCapacityUnits (\s a -> s { _ptWriteCapacityUnits = a })
@@ -736,53 +742,55 @@ tableDescription p1 = TableDescription
     , _tdGlobalSecondaryIndexes = mempty
     }
 
--- | An array of AttributeDefinition objects. Each of these objects describes
--- one attribute in the table and index key schema. Each AttributeDefinition
--- object in this array is composed of: AttributeName - The name of the
--- attribute. AttributeType - The data type for the attribute.
+-- | An array of /AttributeDefinition/ objects. Each of these objects
+-- describes one attribute in the table and index key schema. Each
+-- /AttributeDefinition/ object in this array is composed of:
+-- /AttributeName/ - The name of the attribute. /AttributeType/ - The data
+-- type for the attribute.
 tdAttributeDefinitions :: Lens' TableDescription [AttributeDefinition]
 tdAttributeDefinitions =
     lens _tdAttributeDefinitions (\s a -> s { _tdAttributeDefinitions = a })
         . _List
 
--- | The date and time when the table was created, in UNIX epoch time format.
+-- | The date and time when the table was created, in
+-- <http://www.epochconverter.com/ UNIX epoch time> format.
 tdCreationDateTime :: Lens' TableDescription (Maybe UTCTime)
 tdCreationDateTime =
     lens _tdCreationDateTime (\s a -> s { _tdCreationDateTime = a })
         . mapping _Time
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped
--- to a given hash key value. Each element is composed of: IndexName - The
--- name of the global secondary index. IndexSizeBytes - The total size of
+-- to a given hash key value. Each element is composed of: /IndexName/ - The
+-- name of the global secondary index. /IndexSizeBytes/ - The total size of
 -- the global secondary index, in bytes. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
--- this value. IndexStatus - The current status of the global secondary
--- index: CREATING - The index is being created. UPDATING - The index is
--- being updated. DELETING - The index is being deleted. ACTIVE - The index
--- is ready for use. ItemCount - The number of items in the global secondary
--- index. DynamoDB updates this value approximately every six hours. Recent
--- changes might not be reflected in this value. KeySchema - Specifies the
--- complete index key schema. The attribute names in the key schema must be
--- between 1 and 255 characters (inclusive). The key schema must begin with
--- the same hash key attribute as the table. Projection - Specifies
--- attributes that are copied (projected) from the table into the index.
--- These are in addition to the primary key attributes and index key
+-- this value. /IndexStatus/ - The current status of the global secondary
+-- index: /CREATING/ - The index is being created. /UPDATING/ - The index is
+-- being updated. /DELETING/ - The index is being deleted. /ACTIVE/ - The
+-- index is ready for use. /ItemCount/ - The number of items in the global
+-- secondary index. DynamoDB updates this value approximately every six
+-- hours. Recent changes might not be reflected in this value. /KeySchema/ -
+-- Specifies the complete index key schema. The attribute names in the key
+-- schema must be between 1 and 255 characters (inclusive). The key schema
+-- must begin with the same hash key attribute as the table. /Projection/ -
+-- Specifies attributes that are copied (projected) from the table into the
+-- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected. Each attribute
--- specification is composed of: ProjectionType - One of the following:
+-- specification is composed of: /ProjectionType/ - One of the following:
 -- KEYS_ONLY - Only the index and primary keys are projected into the index.
 -- INCLUDE - Only the specified table attributes are projected into the
--- index. The list of projected attributes are in NonKeyAttributes. ALL -
+-- index. The list of projected attributes are in /NonKeyAttributes/. ALL -
 -- All of the table attributes are projected into the index.
--- NonKeyAttributes - A list of one or more non-key attribute names that are
--- projected into the secondary index. The total count of attributes
--- specified in NonKeyAttributes, summed across all of the secondary
+-- /NonKeyAttributes/ - A list of one or more non-key attribute names that
+-- are projected into the secondary index. The total count of attributes
+-- specified in /NonKeyAttributes/, summed across all of the secondary
 -- indexes, must not exceed 20. If you project the same attribute into two
 -- different indexes, this counts as two distinct attributes when
--- determining the total. ProvisionedThroughput - The provisioned throughput
--- settings for the global secondary index, consisting of read and write
--- capacity units, along with data about increases and decreases. If the
--- table is in the DELETING state, no information about indexes will be
--- returned.
+-- determining the total. /ProvisionedThroughput/ - The provisioned
+-- throughput settings for the global secondary index, consisting of read
+-- and write capacity units, along with data about increases and decreases.
+-- If the table is in the DELETING state, no information about indexes will
+-- be returned.
 tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescription]
 tdGlobalSecondaryIndexes =
     lens _tdGlobalSecondaryIndexes
@@ -795,10 +803,12 @@ tdGlobalSecondaryIndexes =
 tdItemCount :: Lens' TableDescription (Maybe Integer)
 tdItemCount = lens _tdItemCount (\s a -> s { _tdItemCount = a })
 
--- | The primary key structure for the table. Each KeySchemaElement consists
--- of: AttributeName - The name of the attribute. KeyType - The key type for
--- the attribute. Can be either HASH or RANGE. For more information about
--- primary keys, see Primary Key in the Amazon DynamoDB Developer Guide.
+-- | The primary key structure for the table. Each /KeySchemaElement/ consists
+-- of: /AttributeName/ - The name of the attribute. /KeyType/ - The key type
+-- for the attribute. Can be either HASH or RANGE. For more information
+-- about primary keys, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey
+-- Primary Key> in the /Amazon DynamoDB Developer Guide/.
 tdKeySchema :: Lens' TableDescription (NonEmpty KeySchemaElement)
 tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a }) . _List1
 
@@ -806,26 +816,26 @@ tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a }) . _List1
 -- is scoped to a given hash key value. Tables with one or more local
 -- secondary indexes are subject to an item collection size limit, where the
 -- amount of data within a given item collection cannot exceed 10 GB. Each
--- element is composed of: IndexName - The name of the local secondary
--- index. KeySchema - Specifies the complete index key schema. The attribute
--- names in the key schema must be between 1 and 255 characters (inclusive).
--- The key schema must begin with the same hash key attribute as the table.
--- Projection - Specifies attributes that are copied (projected) from the
--- table into the index. These are in addition to the primary key attributes
--- and index key attributes, which are automatically projected. Each
--- attribute specification is composed of: ProjectionType - One of the
--- following: KEYS_ONLY - Only the index and primary keys are projected into
--- the index. INCLUDE - Only the specified table attributes are projected
--- into the index. The list of projected attributes are in NonKeyAttributes.
--- ALL - All of the table attributes are projected into the index.
--- NonKeyAttributes - A list of one or more non-key attribute names that are
--- projected into the secondary index. The total count of attributes
--- specified in NonKeyAttributes, summed across all of the secondary
--- indexes, must not exceed 20. If you project the same attribute into two
--- different indexes, this counts as two distinct attributes when
--- determining the total. IndexSizeBytes - Represents the total size of the
--- index, in bytes. DynamoDB updates this value approximately every six
--- hours. Recent changes might not be reflected in this value. ItemCount -
+-- element is composed of: /IndexName/ - The name of the local secondary
+-- index. /KeySchema/ - Specifies the complete index key schema. The
+-- attribute names in the key schema must be between 1 and 255 characters
+-- (inclusive). The key schema must begin with the same hash key attribute
+-- as the table. /Projection/ - Specifies attributes that are copied
+-- (projected) from the table into the index. These are in addition to the
+-- primary key attributes and index key attributes, which are automatically
+-- projected. Each attribute specification is composed of: /ProjectionType/
+-- - One of the following: KEYS_ONLY - Only the index and primary keys are
+-- projected into the index. INCLUDE - Only the specified table attributes
+-- are projected into the index. The list of projected attributes are in
+-- /NonKeyAttributes/. ALL - All of the table attributes are projected into
+-- the index. /NonKeyAttributes/ - A list of one or more non-key attribute
+-- names that are projected into the secondary index. The total count of
+-- attributes specified in /NonKeyAttributes/, summed across all of the
+-- secondary indexes, must not exceed 20. If you project the same attribute
+-- into two different indexes, this counts as two distinct attributes when
+-- determining the total. /IndexSizeBytes/ - Represents the total size of
+-- the index, in bytes. DynamoDB updates this value approximately every six
+-- hours. Recent changes might not be reflected in this value. /ItemCount/ -
 -- Represents the number of items in the index. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value. If the table is in the DELETING state, no information about
@@ -851,11 +861,11 @@ tdTableName = lens _tdTableName (\s a -> s { _tdTableName = a })
 tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
 tdTableSizeBytes = lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
 
--- | The current state of the table: CREATING - The table is being created, as
--- the result of a CreateTable operation. UPDATING - The table is being
--- updated, as the result of an UpdateTable operation. DELETING - The table
--- is being deleted, as the result of a DeleteTable operation. ACTIVE - The
--- table is ready for use.
+-- | The current state of the table: /CREATING/ - The table is being created,
+-- as the result of a /CreateTable/ operation. /UPDATING/ - The table is
+-- being updated, as the result of an /UpdateTable/ operation. /DELETING/ -
+-- The table is being deleted, as the result of a /DeleteTable/ operation.
+-- /ACTIVE/ - The table is ready for use.
 tdTableStatus :: Lens' TableDescription (Maybe TableStatus)
 tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 
@@ -936,7 +946,7 @@ kaaConsistentRead =
     lens _kaaConsistentRead (\s a -> s { _kaaConsistentRead = a })
 
 -- | One or more substitution tokens for simplifying complex expressions. The
--- following are some use cases for an ExpressionAttributeNames value: To
+-- following are some use cases for an /ExpressionAttributeNames/ value: To
 -- shorten an attribute name that is very long or unwieldy in an expression.
 -- To create a placeholder for repeating occurrences of an attribute name in
 -- an expression. To prevent special characters in an attribute name from
@@ -944,7 +954,7 @@ kaaConsistentRead =
 -- expression to dereference an attribute name. For example, consider the
 -- following expression: order.customerInfo.LastName = "Smith" OR
 -- order.customerInfo.LastName = "Jones" Now suppose that you specified the
--- following for ExpressionAttributeNames:
+-- following for /ExpressionAttributeNames/:
 -- {"n":"order.customerInfo.LastName"} The expression can now be simplified
 -- as follows: #n = "Smith" OR #n = "Jones".
 kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
@@ -1066,33 +1076,33 @@ attributeValueUpdate = AttributeValueUpdate
 
 -- | Specifies how to perform the update. Valid values are PUT (default),
 -- DELETE, and ADD. The behavior depends on whether the specified primary
--- key already exists in the table. If an item with the specified Key is
+-- key already exists in the table. If an item with the specified /Key/ is
 -- found in the table: PUT - Adds the specified attribute to the item. If
 -- the attribute already exists, it is replaced by the new value. DELETE -
 -- If no value is specified, the attribute and its value are removed from
 -- the item. The data type of the specified value must match the existing
--- value's data type. If a set of values is specified, then those values are
--- subtracted from the old set. For example, if the attribute value was the
--- set [a,b,c] and the DELETE action specified [a,c], then the final
+-- value's data type. If a /set/ of values is specified, then those values
+-- are subtracted from the old set. For example, if the attribute value was
+-- the set [a,b,c] and the /DELETE/ action specified [a,c], then the final
 -- attribute value would be [b]. Specifying an empty set is an error. ADD -
 -- If the attribute does not already exist, then the attribute and its
 -- values are added to the item. If the attribute does exist, then the
 -- behavior of ADD depends on the data type of the attribute: If the
--- existing attribute is a number, and if Value is also a number, then the
--- Value is mathematically added to the existing attribute. If Value is a
--- negative number, then it is subtracted from the existing attribute. If
--- the existing data type is a set, and if the Value is also a set, then the
--- Value is added to the existing set. (This is a set operation, not
+-- existing attribute is a number, and if /Value/ is also a number, then the
+-- /Value/ is mathematically added to the existing attribute. If /Value/ is
+-- a negative number, then it is subtracted from the existing attribute. If
+-- the existing data type is a set, and if the /Value/ is also a set, then
+-- the /Value/ is added to the existing set. (This is a /set/ operation, not
 -- mathematical addition.) For example, if the attribute value was the set
 -- [1,2], and the ADD action specified [3], then the final attribute value
 -- would be [1,2,3]. An error occurs if an Add action is specified for a set
 -- attribute and the attribute type specified does not match the existing
 -- set type. Both sets must have the same primitive data type. For example,
--- if the existing data type is a set of strings, the Value must also be a
+-- if the existing data type is a set of strings, the /Value/ must also be a
 -- set of strings. The same holds true for number sets and binary sets. This
 -- action is only valid for an existing attribute whose data type is number
 -- or is a set. Do not use ADD for any other data types. If no item with the
--- specified Key is found: PUT - DynamoDB creates a new item with the
+-- specified /Key/ is found: PUT - DynamoDB creates a new item with the
 -- specified primary key, and then adds the attribute. DELETE - Nothing
 -- happens; there is no attribute to delete. ADD - DynamoDB creates an item
 -- with the supplied primary key and number (or set of numbers) for the
@@ -1143,99 +1153,101 @@ expectedAttributeValue = ExpectedAttributeValue
     }
 
 -- | One or more values to evaluate against the supplied attribute. The number
--- of values in the list depends on the ComparisonOperator being used. For
+-- of values in the list depends on the /ComparisonOperator/ being used. For
 -- type Number, value comparisons are numeric. String value comparisons for
 -- greater than, equals, or less than are based on ASCII character code
 -- values. For example, a is greater than A, and aa is greater than B. For a
 -- list of code values, see
--- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters. For
+-- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
+-- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>. For
 -- Binary, DynamoDB treats each byte of the binary data as unsigned when it
 -- compares binary values, for example when evaluating query expressions.
--- For information on specifying data types in JSON, see JSON Data Format in
--- the Amazon DynamoDB Developer Guide.
+-- For information on specifying data types in JSON, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html
+-- JSON Data Format> in the /Amazon DynamoDB Developer Guide/.
 eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
 eavAttributeValueList =
     lens _eavAttributeValueList (\s a -> s { _eavAttributeValueList = a })
         . _List
 
--- | A comparator for evaluating attributes in the AttributeValueList. For
+-- | A comparator for evaluating attributes in the /AttributeValueList/. For
 -- example, equals, greater than, less than, etc. The following comparison
 -- operators are available: EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL |
 -- CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN The following are
 -- descriptions of each comparison operator. EQ : Equal. EQ is supported for
--- all datatypes, including lists and maps. AttributeValueList can contain
--- only one AttributeValue element of type String, Number, Binary, String
--- Set, Number Set, or Binary Set. If an item contains an AttributeValue
+-- all datatypes, including lists and maps. /AttributeValueList/ can contain
+-- only one /AttributeValue/ element of type String, Number, Binary, String
+-- Set, Number Set, or Binary Set. If an item contains an /AttributeValue/
 -- element of a different type than the one specified in the request, the
 -- value does not match. For example, {"S":"6"} does not equal {"N":"6"}.
 -- Also, {"N":"6"} does not equal {"NS":["6", "2", "1"]}. NE : Not equal. NE
 -- is supported for all datatypes, including lists and maps.
--- AttributeValueList can contain only one AttributeValue of type String,
--- Number, Binary, String Set, Number Set, or Binary Set. If an item
--- contains an AttributeValue of a different type than the one specified in
--- the request, the value does not match. For example, {"S":"6"} does not
+-- /AttributeValueList/ can contain only one /AttributeValue/ of type
+-- String, Number, Binary, String Set, Number Set, or Binary Set. If an item
+-- contains an /AttributeValue/ of a different type than the one specified
+-- in the request, the value does not match. For example, {"S":"6"} does not
 -- equal {"N":"6"}. Also, {"N":"6"} does not equal {"NS":["6", "2", "1"]}.
--- LE : Less than or equal. AttributeValueList can contain only one
--- AttributeValue element of type String, Number, or Binary (not a set
--- type). If an item contains an AttributeValue element of a different type
--- than the one specified in the request, the value does not match. For
--- example, {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not
--- compare to {"NS":["6", "2", "1"]}. LT : Less than. AttributeValueList can
--- contain only one AttributeValue of type String, Number, or Binary (not a
--- set type). If an item contains an AttributeValue element of a different
+-- LE : Less than or equal. /AttributeValueList/ can contain only one
+-- /AttributeValue/ element of type String, Number, or Binary (not a set
+-- type). If an item contains an /AttributeValue/ element of a different
 -- type than the one specified in the request, the value does not match. For
 -- example, {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not
--- compare to {"NS":["6", "2", "1"]}. GE : Greater than or equal.
--- AttributeValueList can contain only one AttributeValue element of type
--- String, Number, or Binary (not a set type). If an item contains an
--- AttributeValue element of a different type than the one specified in the
--- request, the value does not match. For example, {"S":"6"} does not equal
--- {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2", "1"]}. GT
--- : Greater than. AttributeValueList can contain only one AttributeValue
--- element of type String, Number, or Binary (not a set type). If an item
--- contains an AttributeValue element of a different type than the one
--- specified in the request, the value does not match. For example,
--- {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not compare to
--- {"NS":["6", "2", "1"]}. NOT_NULL : The attribute exists. NOT_NULL is
--- supported for all datatypes, including lists and maps. NULL : The
--- attribute does not exist. NULL is supported for all datatypes, including
--- lists and maps. CONTAINS : Checks for a subsequence, or value in a set.
--- AttributeValueList can contain only one AttributeValue element of type
--- String, Number, or Binary (not a set type). If the target attribute of
--- the comparison is of type String, then the operator checks for a
--- substring match. If the target attribute of the comparison is of type
--- Binary, then the operator looks for a subsequence of the target that
+-- compare to {"NS":["6", "2", "1"]}. LT : Less than. /AttributeValueList/
+-- can contain only one /AttributeValue/ of type String, Number, or Binary
+-- (not a set type). If an item contains an /AttributeValue/ element of a
+-- different type than the one specified in the request, the value does not
+-- match. For example, {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"}
+-- does not compare to {"NS":["6", "2", "1"]}. GE : Greater than or equal.
+-- /AttributeValueList/ can contain only one /AttributeValue/ element of
+-- type String, Number, or Binary (not a set type). If an item contains an
+-- /AttributeValue/ element of a different type than the one specified in
+-- the request, the value does not match. For example, {"S":"6"} does not
+-- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
+-- "1"]}. GT : Greater than. /AttributeValueList/ can contain only one
+-- /AttributeValue/ element of type String, Number, or Binary (not a set
+-- type). If an item contains an /AttributeValue/ element of a different
+-- type than the one specified in the request, the value does not match. For
+-- example, {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not
+-- compare to {"NS":["6", "2", "1"]}. NOT_NULL : The attribute exists.
+-- NOT_NULL is supported for all datatypes, including lists and maps. NULL :
+-- The attribute does not exist. NULL is supported for all datatypes,
+-- including lists and maps. CONTAINS : Checks for a subsequence, or value
+-- in a set. /AttributeValueList/ can contain only one /AttributeValue/
+-- element of type String, Number, or Binary (not a set type). If the target
+-- attribute of the comparison is of type String, then the operator checks
+-- for a substring match. If the target attribute of the comparison is of
+-- type Binary, then the operator looks for a subsequence of the target that
 -- matches the input. If the target attribute of the comparison is a set
 -- ("SS", "NS", or "BS"), then the operator evaluates to true if it finds an
 -- exact match with any member of the set. CONTAINS is supported for lists:
 -- When evaluating "a CONTAINS b", "a" can be a list; however, "b" cannot be
 -- a set, a map, or a list. NOT_CONTAINS : Checks for absence of a
--- subsequence, or absence of a value in a set. AttributeValueList can
--- contain only one AttributeValue element of type String, Number, or Binary
--- (not a set type). If the target attribute of the comparison is a String,
--- then the operator checks for the absence of a substring match. If the
--- target attribute of the comparison is Binary, then the operator checks
--- for the absence of a subsequence of the target that matches the input. If
--- the target attribute of the comparison is a set ("SS", "NS", or "BS"),
--- then the operator evaluates to true if it does not find an exact match
--- with any member of the set. NOT_CONTAINS is supported for lists: When
--- evaluating "a NOT CONTAINS b", "a" can be a list; however, "b" cannot be
--- a set, a map, or a list. BEGINS_WITH : Checks for a prefix.
--- AttributeValueList can contain only one AttributeValue of type String or
--- Binary (not a Number or a set type). The target attribute of the
+-- subsequence, or absence of a value in a set. /AttributeValueList/ can
+-- contain only one /AttributeValue/ element of type String, Number, or
+-- Binary (not a set type). If the target attribute of the comparison is a
+-- String, then the operator checks for the absence of a substring match. If
+-- the target attribute of the comparison is Binary, then the operator
+-- checks for the absence of a subsequence of the target that matches the
+-- input. If the target attribute of the comparison is a set ("SS", "NS", or
+-- "BS"), then the operator evaluates to true if it /does not/ find an exact
+-- match with any member of the set. NOT_CONTAINS is supported for lists:
+-- When evaluating "a NOT CONTAINS b", "a" can be a list; however, "b"
+-- cannot be a set, a map, or a list. BEGINS_WITH : Checks for a prefix.
+-- /AttributeValueList/ can contain only one /AttributeValue/ of type String
+-- or Binary (not a Number or a set type). The target attribute of the
 -- comparison must be of type String or Binary (not a Number or a set type).
--- IN : Checks for matching elements within two sets. AttributeValueList can
--- contain one or more AttributeValue elements of type String, Number, or
--- Binary (not a set type). These attributes are compared against an
+-- IN : Checks for matching elements within two sets. /AttributeValueList/
+-- can contain one or more /AttributeValue/ elements of type String, Number,
+-- or Binary (not a set type). These attributes are compared against an
 -- existing set type attribute of an item. If any elements of the input set
 -- are present in the item attribute, the expression evaluates to true.
 -- BETWEEN : Greater than or equal to the first value, and less than or
--- equal to the second value. AttributeValueList must contain two
--- AttributeValue elements of the same type, either String, Number, or
+-- equal to the second value. /AttributeValueList/ must contain two
+-- /AttributeValue/ elements of the same type, either String, Number, or
 -- Binary (not a set type). A target attribute matches if the target value
 -- is greater than, or equal to, the first element and less than, or equal
--- to, the second element. If an item contains an AttributeValue element of
--- a different type than the one specified in the request, the value does
+-- to, the second element. If an item contains an /AttributeValue/ element
+-- of a different type than the one specified in the request, the value does
 -- not match. For example, {"S":"6"} does not compare to {"N":"6"}. Also,
 -- {"N":"6"} does not compare to {"NS":["6", "2", "1"]}.
 eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
@@ -1243,21 +1255,21 @@ eavComparisonOperator =
     lens _eavComparisonOperator (\s a -> s { _eavComparisonOperator = a })
 
 -- | Causes DynamoDB to evaluate the value before attempting a conditional
--- operation: If Exists is true, DynamoDB will check to see if that
+-- operation: If /Exists/ is true, DynamoDB will check to see if that
 -- attribute value already exists in the table. If it is found, then the
 -- operation succeeds. If it is not found, the operation fails with a
--- ConditionalCheckFailedException. If Exists is false, DynamoDB assumes
+-- /ConditionalCheckFailedException/. If /Exists/ is false, DynamoDB assumes
 -- that the attribute value does not exist in the table. If in fact the
 -- value does not exist, then the assumption is valid and the operation
 -- succeeds. If the value is found, despite the assumption that it does not
--- exist, the operation fails with a ConditionalCheckFailedException. The
--- default setting for Exists is true. If you supply a Value all by itself,
--- DynamoDB assumes the attribute exists: You don't have to set Exists to
--- true, because it is implied. DynamoDB returns a ValidationException if:
--- Exists is true but there is no Value to check. (You expect a value to
--- exist, but don't specify what that value is.) Exists is false but you
--- also specify a Value. (You cannot expect an attribute to have a value,
--- while also expecting it not to exist.).
+-- exist, the operation fails with a /ConditionalCheckFailedException/. The
+-- default setting for /Exists/ is true. If you supply a /Value/ all by
+-- itself, DynamoDB assumes the attribute exists: You don't have to set
+-- /Exists/ to true, because it is implied. DynamoDB returns a
+-- /ValidationException/ if: /Exists/ is true but there is no /Value/ to
+-- check. (You expect a value to exist, but don't specify what that value
+-- is.) /Exists/ is false but you also specify a /Value/. (You cannot expect
+-- an attribute to have a value, while also expecting it not to exist.).
 eavExists :: Lens' ExpectedAttributeValue (Maybe Bool)
 eavExists = lens _eavExists (\s a -> s { _eavExists = a })
 
@@ -1522,11 +1534,12 @@ gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidIndexSizeBytes =
     lens _gsidIndexSizeBytes (\s a -> s { _gsidIndexSizeBytes = a })
 
--- | The current state of the global secondary index: CREATING - The index is
--- being created, as the result of a CreateTable or UpdateTable operation.
--- UPDATING - The index is being updated, as the result of a CreateTable or
--- UpdateTable operation. DELETING - The index is being deleted, as the
--- result of a DeleteTable operation. ACTIVE - The index is ready for use.
+-- | The current state of the global secondary index: /CREATING/ - The index
+-- is being created, as the result of a /CreateTable/ or /UpdateTable/
+-- operation. /UPDATING/ - The index is being updated, as the result of a
+-- /CreateTable/ or /UpdateTable/ operation. /DELETING/ - The index is being
+-- deleted, as the result of a /DeleteTable/ operation. /ACTIVE/ - The index
+-- is ready for use.
 gsidIndexStatus :: Lens' GlobalSecondaryIndexDescription (Maybe IndexStatus)
 gsidIndexStatus = lens _gsidIndexStatus (\s a -> s { _gsidIndexStatus = a })
 
@@ -1946,7 +1959,7 @@ projection p1 = Projection
     }
 
 -- | Represents the non-key attribute names which will be projected into the
--- index. For local secondary indexes, the total count of NonKeyAttributes
+-- index. For local secondary indexes, the total count of /NonKeyAttributes/
 -- summed across all of the local secondary indexes, must not exceed 20. If
 -- you project the same attribute into two different indexes, this counts as
 -- two distinct attributes when determining the total.
@@ -1958,7 +1971,7 @@ pNonKeyAttributes =
 -- | The set of attributes that are projected into the index: KEYS_ONLY - Only
 -- the index and primary keys are projected into the index. INCLUDE - Only
 -- the specified table attributes are projected into the index. The list of
--- projected attributes are in NonKeyAttributes. ALL - All of the table
+-- projected attributes are in /NonKeyAttributes/. ALL - All of the table
 -- attributes are projected into the index.
 pProjectionType :: Lens' Projection (Maybe ProjectionType)
 pProjectionType = lens _pProjectionType (\s a -> s { _pProjectionType = a })
@@ -2138,7 +2151,7 @@ putRequest = PutRequest
     }
 
 -- | A map of attribute name to attribute values, representing the primary key
--- of an item to be processed by PutItem. All of the table's primary key
+-- of an item to be processed by /PutItem/. All of the table's primary key
 -- attributes must be specified, and their data types must match those of
 -- the table's key schema. If any attributes are present in the item which
 -- are part of an index key schema for the table, their types must match the
@@ -2176,12 +2189,13 @@ condition p1 = Condition
     }
 
 -- | One or more values to evaluate against the supplied attribute. The number
--- of values in the list depends on the ComparisonOperator being used. For
+-- of values in the list depends on the /ComparisonOperator/ being used. For
 -- type Number, value comparisons are numeric. String value comparisons for
 -- greater than, equals, or less than are based on ASCII character code
 -- values. For example, a is greater than A, and aa is greater than B. For a
 -- list of code values, see
--- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters. For
+-- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
+-- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>. For
 -- Binary, DynamoDB treats each byte of the binary data as unsigned when it
 -- compares binary values, for example when evaluating query expressions.
 cAttributeValueList :: Lens' Condition [AttributeValue]
@@ -2194,83 +2208,84 @@ cAttributeValueList =
 -- EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS |
 -- BEGINS_WITH | IN | BETWEEN The following are descriptions of each
 -- comparison operator. EQ : Equal. EQ is supported for all datatypes,
--- including lists and maps. AttributeValueList can contain only one
--- AttributeValue element of type String, Number, Binary, String Set, Number
--- Set, or Binary Set. If an item contains an AttributeValue element of a
+-- including lists and maps. /AttributeValueList/ can contain only one
+-- /AttributeValue/ element of type String, Number, Binary, String Set,
+-- Number Set, or Binary Set. If an item contains an /AttributeValue/
+-- element of a different type than the one specified in the request, the
+-- value does not match. For example, {"S":"6"} does not equal {"N":"6"}.
+-- Also, {"N":"6"} does not equal {"NS":["6", "2", "1"]}. NE : Not equal. NE
+-- is supported for all datatypes, including lists and maps.
+-- /AttributeValueList/ can contain only one /AttributeValue/ of type
+-- String, Number, Binary, String Set, Number Set, or Binary Set. If an item
+-- contains an /AttributeValue/ of a different type than the one specified
+-- in the request, the value does not match. For example, {"S":"6"} does not
+-- equal {"N":"6"}. Also, {"N":"6"} does not equal {"NS":["6", "2", "1"]}.
+-- LE : Less than or equal. /AttributeValueList/ can contain only one
+-- /AttributeValue/ element of type String, Number, or Binary (not a set
+-- type). If an item contains an /AttributeValue/ element of a different
+-- type than the one specified in the request, the value does not match. For
+-- example, {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not
+-- compare to {"NS":["6", "2", "1"]}. LT : Less than. /AttributeValueList/
+-- can contain only one /AttributeValue/ of type String, Number, or Binary
+-- (not a set type). If an item contains an /AttributeValue/ element of a
 -- different type than the one specified in the request, the value does not
 -- match. For example, {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"}
--- does not equal {"NS":["6", "2", "1"]}. NE : Not equal. NE is supported
--- for all datatypes, including lists and maps. AttributeValueList can
--- contain only one AttributeValue of type String, Number, Binary, String
--- Set, Number Set, or Binary Set. If an item contains an AttributeValue of
--- a different type than the one specified in the request, the value does
--- not match. For example, {"S":"6"} does not equal {"N":"6"}. Also,
--- {"N":"6"} does not equal {"NS":["6", "2", "1"]}. LE : Less than or equal.
--- AttributeValueList can contain only one AttributeValue element of type
--- String, Number, or Binary (not a set type). If an item contains an
--- AttributeValue element of a different type than the one specified in the
--- request, the value does not match. For example, {"S":"6"} does not equal
--- {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2", "1"]}. LT
--- : Less than. AttributeValueList can contain only one AttributeValue of
+-- does not compare to {"NS":["6", "2", "1"]}. GE : Greater than or equal.
+-- /AttributeValueList/ can contain only one /AttributeValue/ element of
 -- type String, Number, or Binary (not a set type). If an item contains an
--- AttributeValue element of a different type than the one specified in the
--- request, the value does not match. For example, {"S":"6"} does not equal
--- {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2", "1"]}. GE
--- : Greater than or equal. AttributeValueList can contain only one
--- AttributeValue element of type String, Number, or Binary (not a set
--- type). If an item contains an AttributeValue element of a different type
--- than the one specified in the request, the value does not match. For
+-- /AttributeValue/ element of a different type than the one specified in
+-- the request, the value does not match. For example, {"S":"6"} does not
+-- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
+-- "1"]}. GT : Greater than. /AttributeValueList/ can contain only one
+-- /AttributeValue/ element of type String, Number, or Binary (not a set
+-- type). If an item contains an /AttributeValue/ element of a different
+-- type than the one specified in the request, the value does not match. For
 -- example, {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not
--- compare to {"NS":["6", "2", "1"]}. GT : Greater than. AttributeValueList
--- can contain only one AttributeValue element of type String, Number, or
--- Binary (not a set type). If an item contains an AttributeValue element of
--- a different type than the one specified in the request, the value does
--- not match. For example, {"S":"6"} does not equal {"N":"6"}. Also,
--- {"N":"6"} does not compare to {"NS":["6", "2", "1"]}. NOT_NULL : The
--- attribute exists. NOT_NULL is supported for all datatypes, including
--- lists and maps. NULL : The attribute does not exist. NULL is supported
--- for all datatypes, including lists and maps. CONTAINS : Checks for a
--- subsequence, or value in a set. AttributeValueList can contain only one
--- AttributeValue element of type String, Number, or Binary (not a set
--- type). If the target attribute of the comparison is of type String, then
--- the operator checks for a substring match. If the target attribute of the
--- comparison is of type Binary, then the operator looks for a subsequence
--- of the target that matches the input. If the target attribute of the
--- comparison is a set ("SS", "NS", or "BS"), then the operator evaluates to
--- true if it finds an exact match with any member of the set. CONTAINS is
--- supported for lists: When evaluating "a CONTAINS b", "a" can be a list;
--- however, "b" cannot be a set, a map, or a list. NOT_CONTAINS : Checks for
--- absence of a subsequence, or absence of a value in a set.
--- AttributeValueList can contain only one AttributeValue element of type
--- String, Number, or Binary (not a set type). If the target attribute of
--- the comparison is a String, then the operator checks for the absence of a
--- substring match. If the target attribute of the comparison is Binary,
--- then the operator checks for the absence of a subsequence of the target
--- that matches the input. If the target attribute of the comparison is a
--- set ("SS", "NS", or "BS"), then the operator evaluates to true if it does
--- not find an exact match with any member of the set. NOT_CONTAINS is
--- supported for lists: When evaluating "a NOT CONTAINS b", "a" can be a
--- list; however, "b" cannot be a set, a map, or a list. BEGINS_WITH :
--- Checks for a prefix. AttributeValueList can contain only one
--- AttributeValue of type String or Binary (not a Number or a set type). The
--- target attribute of the comparison must be of type String or Binary (not
--- a Number or a set type). IN : Checks for matching elements within two
--- sets. AttributeValueList can contain one or more AttributeValue elements
--- of type String, Number, or Binary (not a set type). These attributes are
--- compared against an existing set type attribute of an item. If any
--- elements of the input set are present in the item attribute, the
--- expression evaluates to true. BETWEEN : Greater than or equal to the
--- first value, and less than or equal to the second value.
--- AttributeValueList must contain two AttributeValue elements of the same
--- type, either String, Number, or Binary (not a set type). A target
--- attribute matches if the target value is greater than, or equal to, the
--- first element and less than, or equal to, the second element. If an item
--- contains an AttributeValue element of a different type than the one
--- specified in the request, the value does not match. For example,
--- {"S":"6"} does not compare to {"N":"6"}. Also, {"N":"6"} does not compare
--- to {"NS":["6", "2", "1"]} For usage examples of AttributeValueList and
--- ComparisonOperator, see Legacy Conditional Parameters in the Amazon
--- DynamoDB Developer Guide.
+-- compare to {"NS":["6", "2", "1"]}. NOT_NULL : The attribute exists.
+-- NOT_NULL is supported for all datatypes, including lists and maps. NULL :
+-- The attribute does not exist. NULL is supported for all datatypes,
+-- including lists and maps. CONTAINS : Checks for a subsequence, or value
+-- in a set. /AttributeValueList/ can contain only one /AttributeValue/
+-- element of type String, Number, or Binary (not a set type). If the target
+-- attribute of the comparison is of type String, then the operator checks
+-- for a substring match. If the target attribute of the comparison is of
+-- type Binary, then the operator looks for a subsequence of the target that
+-- matches the input. If the target attribute of the comparison is a set
+-- ("SS", "NS", or "BS"), then the operator evaluates to true if it finds an
+-- exact match with any member of the set. CONTAINS is supported for lists:
+-- When evaluating "a CONTAINS b", "a" can be a list; however, "b" cannot be
+-- a set, a map, or a list. NOT_CONTAINS : Checks for absence of a
+-- subsequence, or absence of a value in a set. /AttributeValueList/ can
+-- contain only one /AttributeValue/ element of type String, Number, or
+-- Binary (not a set type). If the target attribute of the comparison is a
+-- String, then the operator checks for the absence of a substring match. If
+-- the target attribute of the comparison is Binary, then the operator
+-- checks for the absence of a subsequence of the target that matches the
+-- input. If the target attribute of the comparison is a set ("SS", "NS", or
+-- "BS"), then the operator evaluates to true if it /does not/ find an exact
+-- match with any member of the set. NOT_CONTAINS is supported for lists:
+-- When evaluating "a NOT CONTAINS b", "a" can be a list; however, "b"
+-- cannot be a set, a map, or a list. BEGINS_WITH : Checks for a prefix.
+-- /AttributeValueList/ can contain only one /AttributeValue/ of type String
+-- or Binary (not a Number or a set type). The target attribute of the
+-- comparison must be of type String or Binary (not a Number or a set type).
+-- IN : Checks for matching elements within two sets. /AttributeValueList/
+-- can contain one or more /AttributeValue/ elements of type String, Number,
+-- or Binary (not a set type). These attributes are compared against an
+-- existing set type attribute of an item. If any elements of the input set
+-- are present in the item attribute, the expression evaluates to true.
+-- BETWEEN : Greater than or equal to the first value, and less than or
+-- equal to the second value. /AttributeValueList/ must contain two
+-- /AttributeValue/ elements of the same type, either String, Number, or
+-- Binary (not a set type). A target attribute matches if the target value
+-- is greater than, or equal to, the first element and less than, or equal
+-- to, the second element. If an item contains an /AttributeValue/ element
+-- of a different type than the one specified in the request, the value does
+-- not match. For example, {"S":"6"} does not compare to {"N":"6"}. Also,
+-- {"N":"6"} does not compare to {"NS":["6", "2", "1"]} For usage examples
+-- of /AttributeValueList/ and /ComparisonOperator/, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html
+-- Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/.
 cComparisonOperator :: Lens' Condition ComparisonOperator
 cComparisonOperator =
     lens _cComparisonOperator (\s a -> s { _cComparisonOperator = a })

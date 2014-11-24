@@ -126,13 +126,14 @@ dcs1ClusterIdentifier =
 
 -- | A time value that requests only snapshots created at or before the
 -- specified time. The time value is specified in ISO 8601 format. For more
--- information about ISO 8601, go to the ISO8601 Wikipedia page. Example:
+-- information about ISO 8601, go to the
+-- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.> Example:
 -- 2012-07-16T18:00:00Z.
 dcs1EndTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
 dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a }) . mapping _Time
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSnapshots
+-- of response records. When the results of a DescribeClusterSnapshots>
 -- request exceed the value specified in MaxRecords, AWS returns a value in
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker
@@ -169,7 +170,8 @@ dcs1SnapshotType = lens _dcs1SnapshotType (\s a -> s { _dcs1SnapshotType = a })
 
 -- | A value that requests only snapshots created at or after the specified
 -- time. The time value is specified in ISO 8601 format. For more
--- information about ISO 8601, go to the ISO8601 Wikipedia page. Example:
+-- information about ISO 8601, go to the
+-- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.> Example:
 -- 2012-07-16T18:00:00Z.
 dcs1StartTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
 dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a }) . mapping _Time
@@ -220,7 +222,7 @@ describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
 dcsrMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 dcsrMarker = lens _dcsrMarker (\s a -> s { _dcsrMarker = a })
 
--- | A list of Snapshot instances.
+-- | A list of Snapshot> instances.
 dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
 dcsrSnapshots = lens _dcsrSnapshots (\s a -> s { _dcsrSnapshots = a }) . _List
 

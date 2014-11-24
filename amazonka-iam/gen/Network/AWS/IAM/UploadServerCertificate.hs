@@ -24,7 +24,8 @@
 -- certificate entity includes a public key certificate, a private key, and an
 -- optional certificate chain, which should all be PEM-encoded. For
 -- information about the number of server certificates you can upload, see
--- Limitations on IAM Entities in the Using IAM guide.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html
+-- Limitations on IAM Entities> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html>
 module Network.AWS.IAM.UploadServerCertificate
@@ -99,8 +100,10 @@ uscCertificateChain =
     lens _uscCertificateChain (\s a -> s { _uscCertificateChain = a })
 
 -- | The path for the server certificate. For more information about paths,
--- see IAM Identifiers in the Using IAM guide. This parameter is optional.
--- If it is not included, it defaults to a slash (/).
+-- see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- IAM Identifiers> in the /Using IAM/ guide. This parameter is optional. If
+-- it is not included, it defaults to a slash (/).
 uscPath :: Lens' UploadServerCertificate (Maybe Text)
 uscPath = lens _uscPath (\s a -> s { _uscPath = a })
 

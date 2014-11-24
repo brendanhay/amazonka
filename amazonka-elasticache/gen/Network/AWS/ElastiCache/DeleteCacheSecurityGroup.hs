@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DeleteCacheSecurityGroup operation deletes a cache security group.
+-- | The /DeleteCacheSecurityGroup/ operation deletes a cache security group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSecurityGroup.html>
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup

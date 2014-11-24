@@ -22,10 +22,12 @@
 
 -- | Modifies an existing RDS event notification subscription. Note that you
 -- cannot modify the source identifiers using this call; to change source
--- identifiers for a subscription, use the AddSourceIdentifierToSubscription
--- and RemoveSourceIdentifierFromSubscription calls. You can see a list of the
--- event categories for a given SourceType in the Events topic in the Amazon
--- RDS User Guide or by using the DescribeEventCategories action.
+-- identifiers for a subscription, use the AddSourceIdentifierToSubscription>
+-- and RemoveSourceIdentifierFromSubscription> calls. You can see a list of
+-- the event categories for a given SourceType in the
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html
+-- Events> topic in the Amazon RDS User Guide or by using the
+-- DescribeEventCategories action.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyEventSubscription.html>
 module Network.AWS.RDS.ModifyEventSubscription
@@ -92,7 +94,8 @@ mesEnabled = lens _mesEnabled (\s a -> s { _mesEnabled = a })
 
 -- | A list of event categories for a SourceType that you want to subscribe
 -- to. You can see a list of the categories for a given SourceType in the
--- Events topic in the Amazon RDS User Guide or by using the
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html
+-- Events> topic in the Amazon RDS User Guide or by using the
 -- DescribeEventCategories action.
 mesEventCategories :: Lens' ModifyEventSubscription [Text]
 mesEventCategories =

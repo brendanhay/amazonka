@@ -143,7 +143,9 @@ gtsrLatestCloudWatchLogsDeliveryTime =
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
 -- to deliver log files to the designated bucket. For more information see
--- the topic Error Responses in the Amazon S3 API Reference.
+-- the topic
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error
+-- Responses> in the Amazon S3 API Reference.
 gtsrLatestDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
 gtsrLatestDeliveryError =
     lens _gtsrLatestDeliveryError (\s a -> s { _gtsrLatestDeliveryError = a })
@@ -157,7 +159,8 @@ gtsrLatestDeliveryTime =
 
 -- | Displays any Amazon SNS error that CloudTrail encountered when attempting
 -- to send a notification. For more information about Amazon SNS errors, see
--- the Amazon SNS Developer Guide.
+-- the <http://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS
+-- Developer Guide>.
 gtsrLatestNotificationError :: Lens' GetTrailStatusResponse (Maybe Text)
 gtsrLatestNotificationError =
     lens _gtsrLatestNotificationError

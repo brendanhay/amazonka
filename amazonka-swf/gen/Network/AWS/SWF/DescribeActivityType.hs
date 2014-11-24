@@ -32,8 +32,9 @@
 -- swf:activityType.version. If the caller does not have sufficient
 -- permissions to invoke the action, or the parameter values fall outside the
 -- specified constraints, the action fails by throwing OperationNotPermitted.
--- For details and example IAM policies, see Using IAM to Manage Access to
--- Amazon SWF Workflows.
+-- For details and example IAM policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
+-- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeActivityType.html>
 module Network.AWS.SWF.DescribeActivityType
@@ -119,7 +120,7 @@ datrConfiguration =
 -- (returned in the ActivityTypeInfo structure) can be one of the following.
 -- REGISTERED: The type is registered and available. Workers supporting this
 -- type should be running. DEPRECATED: The type was deprecated using
--- DeprecateActivityType, but is still in use. You should keep workers
+-- DeprecateActivityType>, but is still in use. You should keep workers
 -- supporting this type running. You cannot create new tasks of this type.
 datrTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
 datrTypeInfo = lens _datrTypeInfo (\s a -> s { _datrTypeInfo = a })

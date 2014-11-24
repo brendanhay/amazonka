@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Acquires an Elastic IP address. An Elastic IP address is for use either in
--- the EC2-Classic platform or in a VPC. For more information, see Elastic IP
--- Addresses in the Amazon Elastic Compute Cloud User Guide.
+-- the EC2-Classic platform or in a VPC. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+-- Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html>
 module Network.AWS.EC2.AllocateAddress

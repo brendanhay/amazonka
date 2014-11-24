@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DescribeEngineDefaultParameters operation returns the default engine
+-- | The /DescribeEngineDefaultParameters/ operation returns the default engine
 -- and system parameter information for the specified cache engine.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEngineDefaultParameters.html>
@@ -82,7 +82,7 @@ dedpCacheParameterGroupFamily =
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords.
+-- the value specified by /MaxRecords/.
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
 

@@ -117,14 +117,14 @@ di2ExecutableUsers =
 -- the root device volume (ebs | instance-store). state - The state of the
 -- image (available | pending | failed). state-reason-code - The reason code
 -- for the state change. state-reason-message - The message for the state
--- change. tag:key=value - The key/value combination of a tag assigned to
--- the resource. tag-key - The key of a tag assigned to the resource. This
--- filter is independent of the tag-value filter. For example, if you use
--- both the filter "tag-key=Purpose" and the filter "tag-value=X", you get
--- any resources assigned both the tag key Purpose (regardless of what the
--- tag's value is), and the tag value X (regardless of what the tag's key
--- is). If you want to list only resources where Purpose is X, see the
--- tag:key=value filter. tag-value - The value of a tag assigned to the
+-- change. tag:/key/=/value/ - The key/value combination of a tag assigned
+-- to the resource. tag-key - The key of a tag assigned to the resource.
+-- This filter is independent of the tag-value filter. For example, if you
+-- use both the filter "tag-key=Purpose" and the filter "tag-value=X", you
+-- get any resources assigned both the tag key Purpose (regardless of what
+-- the tag's value is), and the tag value X (regardless of what the tag's
+-- key is). If you want to list only resources where Purpose is X, see the
+-- tag:/key/=/value/ filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
 -- virtualization-type - The virtualization type (paravirtual | hvm).
 di2Filters :: Lens' DescribeImages [Filter]

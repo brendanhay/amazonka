@@ -22,7 +22,7 @@
 
 -- | Creates a Amazon Kinesis stream. A stream captures and transports data
 -- records that are continuously emitted from different data sources or
--- producers. Scale-out within an Amazon Kinesis stream is explicitly
+-- /producers/. Scale-out within an Amazon Kinesis stream is explicitly
 -- supported by means of shards, which are uniquely identified groups of data
 -- records in an Amazon Kinesis stream. You specify and control the number of
 -- shards that a stream is composed of. Each open shard can support up to 5
@@ -43,10 +43,12 @@
 -- try to do one of the following: Have more than five streams in the CREATING
 -- state at any point in time. Create more shards than are authorized for your
 -- account. The default limit for an AWS account is 10 shards per stream. If
--- you need to create a stream with more than 10 shards, contact AWS Support
--- to increase the limit on your account. You can use DescribeStream to check
--- the stream status, which is returned in StreamStatus. CreateStream has a
--- limit of 5 transactions per second per account.
+-- you need to create a stream with more than 10 shards,
+-- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html
+-- contact AWS Support> to increase the limit on your account. You can use
+-- DescribeStream to check the stream status, which is returned in
+-- StreamStatus. CreateStream has a limit of 5 transactions per second per
+-- account.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html>
 module Network.AWS.Kinesis.CreateStream
@@ -95,8 +97,9 @@ createStream p1 p2 = CreateStream
 -- stream is a function of the number of shards; more shards are required
 -- for greater provisioned throughput. Note: The default limit for an AWS
 -- account is 10 shards per stream. If you need to create a stream with more
--- than 10 shards, contact AWS Support to increase the limit on your
--- account.
+-- than 10 shards,
+-- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html
+-- contact AWS Support> to increase the limit on your account.
 csShardCount :: Lens' CreateStream Natural
 csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a }) . _Nat
 

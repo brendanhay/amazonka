@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a set of DKIM tokens for a domain. DKIM tokens are character
+-- | Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character
 -- strings that represent your domain's identity. Using these tokens, you will
 -- need to create DNS CNAME records that point to DKIM public keys hosted by
 -- Amazon SES. Amazon Web Services will eventually detect that you have
@@ -29,7 +29,9 @@
 -- originating from that domain. This action is throttled at one request per
 -- second. To enable or disable Easy DKIM signing for a domain, use the
 -- SetIdentityDkimEnabled action. For more information about creating DNS
--- records using DKIM tokens, go to the Amazon SES Developer Guide.
+-- records using DKIM tokens, go to the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html
+-- Amazon SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainDkim.html>
 module Network.AWS.SES.VerifyDomainDkim
@@ -103,7 +105,9 @@ verifyDomainDkimResponse = VerifyDomainDkimResponse
 -- detection process may take up to 72 hours. Upon successful detection,
 -- Amazon SES will be able to DKIM-sign emails originating from that domain.
 -- For more information about creating DNS records using DKIM tokens, go to
--- the Amazon SES Developer Guide.
+-- the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html
+-- Amazon SES Developer Guide>.
 vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrDkimTokens = lens _vddrDkimTokens (\s a -> s { _vddrDkimTokens = a }) . _List
 

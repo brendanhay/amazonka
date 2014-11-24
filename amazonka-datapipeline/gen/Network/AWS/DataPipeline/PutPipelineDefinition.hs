@@ -22,13 +22,13 @@
 
 -- | Adds tasks, schedules, and preconditions that control the behavior of the
 -- pipeline. You can use PutPipelineDefinition to populate a new pipeline.
--- PutPipelineDefinition also validates the configuration as it adds it to the
--- pipeline. Changes to the pipeline are saved unless one of the following
+-- PutPipelineDefinition> also validates the configuration as it adds it to
+-- the pipeline. Changes to the pipeline are saved unless one of the following
 -- three validation errors exists in the pipeline. An object is missing a name
 -- or identifier field. A string or reference field is empty. The number of
 -- objects in the pipeline exceeds the maximum allowed objects. Pipeline
--- object definitions are passed to the PutPipelineDefinition action and
--- returned by the GetPipelineDefinition action.
+-- object definitions are passed to the PutPipelineDefinition> action and
+-- returned by the GetPipelineDefinition> action.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html>
 module Network.AWS.DataPipeline.PutPipelineDefinition
@@ -113,7 +113,8 @@ putPipelineDefinitionResponse p1 = PutPipelineDefinitionResponse
 
 -- | If True, there were validation errors. If errored is True, the pipeline
 -- definition is stored but cannot be activated until you correct the
--- pipeline and call PutPipelineDefinition to commit the corrected pipeline.
+-- pipeline and call PutPipelineDefinition> to commit the corrected
+-- pipeline.
 ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrErrored = lens _ppdrErrored (\s a -> s { _ppdrErrored = a })
 

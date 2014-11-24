@@ -27,7 +27,8 @@
 -- value, then that number of results is returned along with a NextToken value
 -- that can be passed to a subsequent DescribeVolumes request to retrieve the
 -- remaining results. For more information about Amazon EBS volumes, see
--- Amazon EBS Volumes in the Amazon Elastic Compute Cloud User Guide.
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon
+-- EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html>
 module Network.AWS.EC2.DescribeVolumes
@@ -102,18 +103,18 @@ dv2DryRun = lens _dv2DryRun (\s a -> s { _dv2DryRun = a })
 -- created. encrypted - The encryption status of the volume. size - The size
 -- of the volume, in GiB. snapshot-id - The snapshot from which the volume
 -- was created. status - The status of the volume (creating | available |
--- in-use | deleting | deleted | error). tag:key=value - The key/value
+-- in-use | deleting | deleted | error). tag:/key/=/value/ - The key/value
 -- combination of a tag assigned to the resource. tag-key - The key of a tag
 -- assigned to the resource. This filter is independent of the tag-value
 -- filter. For example, if you use both the filter "tag-key=Purpose" and the
 -- filter "tag-value=X", you get any resources assigned both the tag key
 -- Purpose (regardless of what the tag's value is), and the tag value X
 -- (regardless of what the tag's key is). If you want to list only resources
--- where Purpose is X, see the tag:key=value filter. tag-value - The value
--- of a tag assigned to the resource. This filter is independent of the
--- tag-key filter. volume-id - The volume ID. volume-type - The Amazon EBS
--- volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
--- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
+-- where Purpose is X, see the tag:/key/=/value/ filter. tag-value - The
+-- value of a tag assigned to the resource. This filter is independent of
+-- the tag-key filter. volume-id - The volume ID. volume-type - The Amazon
+-- EBS volume type. This can be gp2 for General Purpose (SSD) volumes, io1
+-- for Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
 dv2Filters :: Lens' DescribeVolumes [Filter]
 dv2Filters = lens _dv2Filters (\s a -> s { _dv2Filters = a }) . _List
 

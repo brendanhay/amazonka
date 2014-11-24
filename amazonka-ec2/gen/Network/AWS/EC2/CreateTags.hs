@@ -23,8 +23,9 @@
 -- | Adds or overwrites one or more tags for the specified EC2 resource or
 -- resources. Each resource can have a maximum of 10 tags. Each tag consists
 -- of a key and optional value. Tag keys must be unique per resource. For more
--- information about tags, see Tagging Your Resources in the Amazon Elastic
--- Compute Cloud User Guide.
+-- information about tags, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging
+-- Your Resources> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html>
 module Network.AWS.EC2.CreateTags

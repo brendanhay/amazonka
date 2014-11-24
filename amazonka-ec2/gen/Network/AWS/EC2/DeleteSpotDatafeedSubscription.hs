@@ -20,8 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the datafeed for Spot Instances. For more information, see Spot
--- Instances in the Amazon Elastic Compute Cloud User Guide.
+-- | Deletes the datafeed for Spot Instances. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
+-- Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSpotDatafeedSubscription.html>
 module Network.AWS.EC2.DeleteSpotDatafeedSubscription

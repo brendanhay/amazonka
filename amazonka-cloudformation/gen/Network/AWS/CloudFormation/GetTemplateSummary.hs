@@ -91,17 +91,21 @@ gtsStackName = lens _gtsStackName (\s a -> s { _gtsStackName = a })
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information about
--- templates, see Template Anatomy in the AWS CloudFormation User Guide.
--- Conditional: You must specify only one of the following parameters:
--- StackName, TemplateBody, or TemplateURL.
+-- templates, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+-- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
+-- must specify only one of the following parameters: StackName,
+-- TemplateBody, or TemplateURL.
 gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateBody = lens _gtsTemplateBody (\s a -> s { _gtsTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 307,200 bytes) located in an Amazon S3 bucket. For
--- more information about templates, see Template Anatomy in the AWS
--- CloudFormation User Guide. Conditional: You must specify only one of the
--- following parameters: StackName, TemplateBody, or TemplateURL.
+-- more information about templates, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+-- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
+-- must specify only one of the following parameters: StackName,
+-- TemplateBody, or TemplateURL.
 gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\s a -> s { _gtsTemplateURL = a })
 
@@ -139,7 +143,7 @@ getTemplateSummaryResponse = GetTemplateSummaryResponse
 -- | The capabilities found within the template. Currently, AWS CloudFormation
 -- supports only the CAPABILITY_IAM capability. If your template contains
 -- IAM resources, you must specify the CAPABILITY_IAM value for this
--- parameter when you use the CreateStack or UpdateStack actions with your
+-- parameter when you use the CreateStack> or UpdateStack> actions with your
 -- template; otherwise, those actions return an InsufficientCapabilities
 -- error.
 gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Capability]

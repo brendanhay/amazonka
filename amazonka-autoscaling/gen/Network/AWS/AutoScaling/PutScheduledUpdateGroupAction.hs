@@ -23,9 +23,11 @@
 -- | Creates or updates a scheduled scaling action for an Auto Scaling group.
 -- When updating a scheduled scaling action, if you leave a parameter
 -- unspecified, the corresponding value remains unchanged in the affected Auto
--- Scaling group. For more information, see Scheduled Scaling in the Auto
--- Scaling Developer Guide. Auto Scaling supports the date and time expressed
--- in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only.
+-- Scaling group. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html
+-- Scheduled Scaling> in the /Auto Scaling Developer Guide/. Auto Scaling
+-- supports the date and time expressed in "YYYY-MM-DDThh:mm:ssZ" format in
+-- UTC/GMT only.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html>
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
@@ -130,9 +132,10 @@ psugaMinSize = lens _psugaMinSize (\s a -> s { _psugaMinSize = a })
 
 -- | The time when recurring future actions will start. Start time is
 -- specified by the user following the Unix cron syntax format. For
--- information about cron syntax, go to Wikipedia, The Free Encyclopedia.
--- When StartTime and EndTime are specified with Recurrence, they form the
--- boundaries of when the recurring action will start and stop.
+-- information about cron syntax, go to <http://en.wikipedia.org/wiki/Cron
+-- Wikipedia, The Free Encyclopedia>. When StartTime and EndTime are
+-- specified with Recurrence, they form the boundaries of when the recurring
+-- action will start and stop.
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugaRecurrence = lens _psugaRecurrence (\s a -> s { _psugaRecurrence = a })
 

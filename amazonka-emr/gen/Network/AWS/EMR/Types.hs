@@ -645,8 +645,10 @@ jobFlowDetail p1 p2 p3 p4 = JobFlowDetail
 
 -- | The version of the AMI used to initialize Amazon EC2 instances in the job
 -- flow. For a list of AMI versions currently supported by Amazon
--- ElasticMapReduce, go to AMI Versions Supported in Elastic MapReduce in
--- the Amazon Elastic MapReduce Developer's Guide.
+-- ElasticMapReduce, go to
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported
+-- AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic
+-- MapReduce Developer's Guide./.
 jfdAmiVersion :: Lens' JobFlowDetail (Maybe Text)
 jfdAmiVersion = lens _jfdAmiVersion (\s a -> s { _jfdAmiVersion = a })
 
@@ -705,7 +707,7 @@ jfdSupportedProducts =
 -- IAM users of that AWS account can view and (if they have the proper
 -- policy permissions set) manage the job flow. If it is set to false, only
 -- the IAM user that created the job flow can view and manage it. This value
--- can be changed using the SetVisibleToAllUsers action.
+-- can be changed using the SetVisibleToAllUsers> action.
 jfdVisibleToAllUsers :: Lens' JobFlowDetail (Maybe Bool)
 jfdVisibleToAllUsers =
     lens _jfdVisibleToAllUsers (\s a -> s { _jfdVisibleToAllUsers = a })
@@ -1002,12 +1004,16 @@ tag = Tag
     }
 
 -- | A user-defined key, which is the minimum required information for a valid
--- tag. For more information, see Tagging Amazon EMR Resources.
+-- tag. For more information, see
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html
+-- Tagging Amazon EMR Resources>.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
 -- | A user-defined value, which is optional in a tag. For more information,
--- see Tagging Amazon EMR Resources.
+-- see
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html
+-- Tagging Amazon EMR Resources>.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
@@ -1346,7 +1352,7 @@ c1TerminationProtected =
 -- IAM users of that AWS account can view and manage the job flow if they
 -- have the proper policy permissions set. If this value is false, only the
 -- IAM user that created the cluster can view and manage it. This value can
--- be changed using the SetVisibleToAllUsers action.
+-- be changed using the SetVisibleToAllUsers> action.
 c1VisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 c1VisibleToAllUsers =
     lens _c1VisibleToAllUsers (\s a -> s { _c1VisibleToAllUsers = a })

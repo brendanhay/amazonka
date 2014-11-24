@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Updates the password policy settings for the AWS account. For more
--- information about using a password policy, see Managing an IAM Password
--- Policy in the Using IAM guide.
+-- information about using a password policy, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html
+-- Managing an IAM Password Policy> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html>
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
@@ -101,8 +102,10 @@ updateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     }
 
 -- | Allows all IAM users in your account to use the AWS Management Console to
--- change their own passwords. For more information, see Letting IAM Users
--- Change Their Own Passwords in the Using IAM guide. Default value: false.
+-- change their own passwords. For more information, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html
+-- Letting IAM Users Change Their Own Passwords> in the /Using IAM/ guide.
+-- Default value: false.
 uappAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappAllowUsersToChangePassword =
     lens _uappAllowUsersToChangePassword
@@ -152,8 +155,8 @@ uappRequireNumbers =
     lens _uappRequireNumbers (\s a -> s { _uappRequireNumbers = a })
 
 -- | Specifies whether IAM user passwords must contain at least one of the
--- following non-alphanumeric characters: ! @ # $ % ^ &amp;amp; * ( ) _ + -
--- = [ ] { } | ' Default value: false.
+-- following non-alphanumeric characters: ! @ # $ % ^ &amp; * ( ) _ + - = [
+-- ] { } | ' Default value: false.
 uappRequireSymbols :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireSymbols =
     lens _uappRequireSymbols (\s a -> s { _uappRequireSymbols = a })

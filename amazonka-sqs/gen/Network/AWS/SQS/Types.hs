@@ -273,7 +273,9 @@ mavBinaryValue = lens _mavBinaryValue (\s a -> s { _mavBinaryValue = a })
 
 -- | Amazon SQS supports the following logical data types: String, Number, and
 -- Binary. In addition, you can append your own custom labels. For more
--- information, see Message Attribute Data Types.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes
+-- Message Attribute Data Types>.
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\s a -> s { _mavDataType = a })
 
@@ -284,7 +286,8 @@ mavStringListValues =
         . _List
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code values,
--- see http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
+-- see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
+-- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
@@ -461,7 +464,8 @@ message = Message
 -- | SenderId, SentTimestamp, ApproximateReceiveCount, and/or
 -- ApproximateFirstReceiveTimestamp. SentTimestamp and
 -- ApproximateFirstReceiveTimestamp are each returned as an integer
--- representing the epoch time in milliseconds.
+-- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
+-- milliseconds.
 mAttributes :: Lens' Message (HashMap QueueAttributeName Text)
 mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a }) . _EMap
 
@@ -476,13 +480,16 @@ mMD5OfBody = lens _mMD5OfBody (\s a -> s { _mMD5OfBody = a })
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can
 -- be used to verify that Amazon SQS received the message correctly. Amazon
 -- SQS first URL decodes the message before creating the MD5 digest. For
--- information about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
+-- information about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html
+-- http://www.faqs.org/rfcs/rfc1321.html>.
 mMD5OfMessageAttributes :: Lens' Message (Maybe Text)
 mMD5OfMessageAttributes =
     lens _mMD5OfMessageAttributes (\s a -> s { _mMD5OfMessageAttributes = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
--- information, see Message Attribute Items.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV
+-- Message Attribute Items>.
 mMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
 mMessageAttributes =
     lens _mMessageAttributes (\s a -> s { _mMessageAttributes = a })
@@ -562,7 +569,9 @@ smbreId :: Lens' SendMessageBatchRequestEntry Text
 smbreId = lens _smbreId (\s a -> s { _smbreId = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
--- information, see Message Attribute Items.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV
+-- Message Attribute Items>.
 smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
 smbreMessageAttributes =
     lens _smbreMessageAttributes (\s a -> s { _smbreMessageAttributes = a })
@@ -624,7 +633,8 @@ smbre1Id = lens _smbre1Id (\s a -> s { _smbre1Id = a })
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can
 -- be used to verify that Amazon SQS received the message batch correctly.
 -- Amazon SQS first URL decodes the message before creating the MD5 digest.
--- For information about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
+-- For information about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html
+-- http://www.faqs.org/rfcs/rfc1321.html>.
 smbre1MD5OfMessageAttributes :: Lens' SendMessageBatchResultEntry (Maybe Text)
 smbre1MD5OfMessageAttributes =
     lens _smbre1MD5OfMessageAttributes
@@ -633,7 +643,8 @@ smbre1MD5OfMessageAttributes =
 -- | An MD5 digest of the non-URL-encoded message body string. This can be
 -- used to verify that Amazon SQS received the message correctly. Amazon SQS
 -- first URL decodes the message before creating the MD5 digest. For
--- information about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
+-- information about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html
+-- http://www.faqs.org/rfcs/rfc1321.html>.
 smbre1MD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
 smbre1MD5OfMessageBody =
     lens _smbre1MD5OfMessageBody (\s a -> s { _smbre1MD5OfMessageBody = a })

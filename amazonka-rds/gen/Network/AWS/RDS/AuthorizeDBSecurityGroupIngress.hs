@@ -28,7 +28,8 @@
 -- are one of CIDR range, EC2SecurityGroupId for VPC, or
 -- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId for non-VPC). For an overview of CIDR ranges, go to the
--- Wikipedia Tutorial.
+-- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia
+-- Tutorial>.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html>
 module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress

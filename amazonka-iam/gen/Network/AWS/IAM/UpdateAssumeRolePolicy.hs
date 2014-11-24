@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Updates the policy that grants an entity permission to assume a role. For
--- more information about roles, go to Working with Roles.
+-- more information about roles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
+-- Working with Roles>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html>
 module Network.AWS.IAM.UpdateAssumeRolePolicy

@@ -22,8 +22,9 @@
 
 -- | Creates a datafeed for Spot Instances, enabling you to view Spot Instance
 -- usage logs. You can create one data feed per AWS account. For more
--- information, see Spot Instances in the Amazon Elastic Compute Cloud User
--- Guide.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
+-- Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSpotDatafeedSubscription.html>
 module Network.AWS.EC2.CreateSpotDatafeedSubscription

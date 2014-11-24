@@ -31,9 +31,12 @@
 -- used to validate the SAML authentication response (assertions) that are
 -- received from the IdP. You must generate the metadata document using the
 -- identity management software that is used as your organization's IdP. For
--- more information, see Giving Console Access Using SAML and Creating
--- Temporary Security Credentials for SAML Federation in the Using Temporary
--- Credentials guide.
+-- more information, see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html
+-- Giving Console Access Using SAML> and
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating
+-- Temporary Security Credentials for SAML Federation> in the /Using Temporary
+-- Credentials/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html>
 module Network.AWS.IAM.CreateSAMLProvider
@@ -90,8 +93,9 @@ csamlpName = lens _csamlpName (\s a -> s { _csamlpName = a })
 -- authentication response (assertions) that are received from the IdP. You
 -- must generate the metadata document using the identity management
 -- software that is used as your organization's IdP. For more information,
--- see Creating Temporary Security Credentials for SAML Federation in the
--- Using Temporary Security Credentials guide.
+-- see <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html
+-- Creating Temporary Security Credentials for SAML Federation> in the
+-- /Using Temporary Security Credentials/ guide.
 csamlpSAMLMetadataDocument :: Lens' CreateSAMLProvider Text
 csamlpSAMLMetadataDocument =
     lens _csamlpSAMLMetadataDocument

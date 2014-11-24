@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves account level information about account entity usage and IAM
--- quotas. For information about limitations on IAM entities, see Limitations
--- on IAM Entities in the Using IAM guide.
+-- quotas. For information about limitations on IAM entities, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html
+-- Limitations on IAM Entities> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html>
 module Network.AWS.IAM.GetAccountSummary

@@ -22,14 +22,17 @@
 
 -- | Registers an AMI. When you're creating an AMI, this is the final step you
 -- must complete before you can launch an instance from the AMI. For more
--- information about creating AMIs, see Creating Your Own AMIs in the Amazon
--- Elastic Compute Cloud User Guide. You can also use RegisterImage to create
--- an Amazon EBS-backed AMI from a snapshot of a root device volume. For more
--- information, see Launching an Instance from a Snapshot in the Amazon
--- Elastic Compute Cloud User Guide. If needed, you can deregister an AMI at
--- any time. Any modifications you make to an AMI backed by an instance store
--- volume invalidates its registration. If you make changes to an image,
--- deregister the previous image and register the new image.
+-- information about creating AMIs, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html
+-- Creating Your Own AMIs> in the /Amazon Elastic Compute Cloud User Guide/.
+-- You can also use RegisterImage to create an Amazon EBS-backed AMI from a
+-- snapshot of a root device volume. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html
+-- Launching an Instance from a Snapshot> in the /Amazon Elastic Compute Cloud
+-- User Guide/. If needed, you can deregister an AMI at any time. Any
+-- modifications you make to an AMI backed by an instance store volume
+-- invalidates its registration. If you make changes to an image, deregister
+-- the previous image and register the new image.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html>
 module Network.AWS.EC2.RegisterImage

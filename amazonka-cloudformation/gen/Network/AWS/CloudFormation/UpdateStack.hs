@@ -22,12 +22,14 @@
 
 -- | Updates a stack as specified in the template. After the call completes
 -- successfully, the stack update starts. You can check the status of the
--- stack via the DescribeStacks action. To get a copy of the template for an
--- existing stack, you can use the GetTemplate action. Tags that were
+-- stack via the DescribeStacks> action. To get a copy of the template for an
+-- existing stack, you can use the GetTemplate> action. Tags that were
 -- associated with this stack during creation time will still be associated
 -- with the stack after an UpdateStack operation. For more information about
 -- creating an update template, updating a stack, and monitoring the progress
--- of the update, see Updating a Stack.
+-- of the update, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html
+-- Updating a Stack>.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html>
 module Network.AWS.CloudFormation.UpdateStack
@@ -123,10 +125,23 @@ updateStack p1 = UpdateStack
 -- resources that can affect permissions in your AWS account. For those
 -- stacks, you must explicitly acknowledge their capabilities by specifying
 -- this parameter. Currently, the only valid value is CAPABILITY_IAM, which
--- is required for the following resources: AWS::CloudFormation::Stack,
--- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::InstanceProfile,
--- AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, and
--- AWS::IAM::UserToGroupAddition. If your stack template contains these
+-- is required for the following resources:
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
+-- AWS::CloudFormation::Stack>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
+-- AWS::IAM::AccessKey>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html
+-- AWS::IAM::Group>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
+-- AWS::IAM::InstanceProfile>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html
+-- AWS::IAM::Policy>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
+-- AWS::IAM::Role>,
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
+-- AWS::IAM::User>, and
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
+-- AWS::IAM::UserToGroupAddition>. If your stack template contains these
 -- resources, we recommend that you review any permissions associated with
 -- them. If you don't specify this parameter, this action returns an
 -- InsufficientCapabilities error.
@@ -197,7 +212,8 @@ usStackPolicyURL = lens _usStackPolicyURL (\s a -> s { _usStackPolicyURL = a })
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to
--- Template Anatomy in the AWS CloudFormation User Guide.) Conditional: You
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+-- Template Anatomy> in the AWS CloudFormation User Guide.) Conditional: You
 -- must specify either the TemplateBody or the TemplateURL parameter, but
 -- not both.
 usTemplateBody :: Lens' UpdateStack (Maybe Text)
@@ -205,9 +221,11 @@ usTemplateBody = lens _usTemplateBody (\s a -> s { _usTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For
--- more information, go to Template Anatomy in the AWS CloudFormation User
--- Guide. Conditional: You must specify either the TemplateBody or the
--- TemplateURL parameter, but not both.
+-- more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+-- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
+-- must specify either the TemplateBody or the TemplateURL parameter, but
+-- not both.
 usTemplateURL :: Lens' UpdateStack (Maybe Text)
 usTemplateURL = lens _usTemplateURL (\s a -> s { _usTemplateURL = a })
 

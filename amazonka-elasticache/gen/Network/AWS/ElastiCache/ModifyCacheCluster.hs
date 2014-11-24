@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The ModifyCacheCluster operation modifies the settings for a cache cluster.
--- You can use this operation to change one or more cluster configuration
--- parameters by specifying the parameters and the new values.
+-- | The /ModifyCacheCluster/ operation modifies the settings for a cache
+-- cluster. You can use this operation to change one or more cluster
+-- configuration parameters by specifying the parameters and the new values.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html>
 module Network.AWS.ElastiCache.ModifyCacheCluster
@@ -147,7 +147,7 @@ mccAZMode = lens _mccAZMode (\s a -> s { _mccAZMode = a })
 
 -- | If true, this parameter causes the modifications in this request and any
 -- pending modifications to be applied, asynchronously and as soon as
--- possible, regardless of the PreferredMaintenanceWindow setting for the
+-- possible, regardless of the /PreferredMaintenanceWindow/ setting for the
 -- cache cluster. If false, then changes to the cache cluster are applied on
 -- the next maintenance reboot, or the next failure reboot, whichever occurs
 -- first. If you perform a ModifyCacheCluster before a pending modification
@@ -175,10 +175,10 @@ mccCacheClusterId =
 -- less than the existing number of cache nodes. The number of cache node
 -- IDs supplied in this parameter must match the difference between the
 -- existing number of cache nodes in the cluster or pending cache nodes,
--- whichever is greater, and the value of NumCacheNodes in the request. For
--- example: If you have 3 active cache nodes, 7 pending cache nodes, and the
--- number of cache nodes in this ModifyCacheCluser call is 5, you must list
--- 2 (7 - 5) cache node IDs to remove.
+-- whichever is greater, and the value of /NumCacheNodes/ in the request.
+-- For example: If you have 3 active cache nodes, 7 pending cache nodes, and
+-- the number of cache nodes in this ModifyCacheCluser call is 5, you must
+-- list 2 (7 - 5) cache node IDs to remove.
 mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
 mccCacheNodeIdsToRemove =
     lens _mccCacheNodeIdsToRemove (\s a -> s { _mccCacheNodeIdsToRemove = a })
@@ -186,7 +186,7 @@ mccCacheNodeIdsToRemove =
 
 -- | The name of the cache parameter group to apply to this cache cluster.
 -- This change is asynchronously applied as soon as possible for parameters
--- when the ApplyImmediately parameter is specified as true for this
+-- when the /ApplyImmediately/ parameter is specified as /true/ for this
 -- request.
 mccCacheParameterGroupName :: Lens' ModifyCacheCluster (Maybe Text)
 mccCacheParameterGroupName =
@@ -228,18 +228,19 @@ mccEngineVersion = lens _mccEngineVersion (\s a -> s { _mccEngineVersion = a })
 -- current Availability Zone. Only newly created nodes can be located in
 -- different Availability Zones. For guidance on how to move existing
 -- Memcached nodes to different Availability Zones, see the Availability
--- Zone Considerations section of Cache Node Considerations for Memcached.
--- Impact of new add/remove requests upon pending requests Scenarios Pending
--- Operation New Request Results Scenario-1 Delete Delete The new delete,
--- pending or immediate, replaces the pending delete. Scenario-2 Delete
--- Create The new create, pending or immediate, replaces the pending delete.
--- Scenario-3 Create Delete The new delete, pending or immediate, replaces
--- the pending create. Scenario-4 Create Create The new create is added to
--- the pending create. Important:If the new create request is Apply
--- Immediately - Yes, all creates are performed immediately. If the new
--- create request is Apply Immediately - No, all creates are pending.
--- Example:
--- NewAvailabilityZones.member.1=us-east-1a&amp;NewAvailabilityZones.member.2=us-east-1b&amp;NewAvailabilityZones.member.3=us-east-1d.
+-- Zone Considerations section of
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html
+-- Cache Node Considerations for Memcached>. Impact of new add/remove
+-- requests upon pending requests Scenarios Pending Operation New Request
+-- Results Scenario-1 Delete Delete The new delete, pending or immediate,
+-- replaces the pending delete. Scenario-2 Delete Create The new create,
+-- pending or immediate, replaces the pending delete. Scenario-3 Create
+-- Delete The new delete, pending or immediate, replaces the pending create.
+-- Scenario-4 Create Create The new create is added to the pending create.
+-- Important:If the new create request is Apply Immediately - Yes, all
+-- creates are performed immediately. If the new create request is Apply
+-- Immediately - No, all creates are pending. Example:
+-- NewAvailabilityZones.member.1=us-east-1a&NewAvailabilityZones.member.2=us-east-1b&NewAvailabilityZones.member.3=us-east-1d.
 -- 
 mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
 mccNewAvailabilityZones =
@@ -253,7 +254,7 @@ mccNotificationTopicArn =
     lens _mccNotificationTopicArn (\s a -> s { _mccNotificationTopicArn = a })
 
 -- | The status of the Amazon SNS notification topic. Notifications are sent
--- only if the status is active. Valid values: active | inactive.
+-- only if the status is /active/. Valid values: active | inactive.
 mccNotificationTopicStatus :: Lens' ModifyCacheCluster (Maybe Text)
 mccNotificationTopicStatus =
     lens _mccNotificationTopicStatus
@@ -309,8 +310,8 @@ mccSecurityGroupIds =
 
 -- | The number of days for which ElastiCache will retain automatic cache
 -- cluster snapshots before deleting them. For example, if you set
--- SnapshotRetentionLimit to 5, then a snapshot that was taken today will be
--- retained for 5 days before being deleted. ImportantIf the value of
+-- /SnapshotRetentionLimit/ to 5, then a snapshot that was taken today will
+-- be retained for 5 days before being deleted. ImportantIf the value of
 -- SnapshotRetentionLimit is set to zero (0), backups are turned off.
 mccSnapshotRetentionLimit :: Lens' ModifyCacheCluster (Maybe Int)
 mccSnapshotRetentionLimit =

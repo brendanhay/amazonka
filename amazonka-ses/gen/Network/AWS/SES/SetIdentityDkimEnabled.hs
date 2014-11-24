@@ -29,8 +29,9 @@
 -- can only enable Easy DKIM signing if the corresponding domain (e.g.,
 -- example.com) has been set up for Easy DKIM using the AWS Console or the
 -- VerifyDomainDkim action. This action is throttled at one request per
--- second. For more information about Easy DKIM signing, go to the Amazon SES
--- Developer Guide.
+-- second. For more information about Easy DKIM signing, go to the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon
+-- SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html>
 module Network.AWS.SES.SetIdentityDkimEnabled

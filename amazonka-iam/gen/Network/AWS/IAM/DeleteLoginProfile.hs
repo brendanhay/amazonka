@@ -25,8 +25,8 @@
 -- a user's password does not prevent a user from accessing IAM through the
 -- command line interface or the API. To prevent all user access you must also
 -- either make the access key inactive or delete it. For more information
--- about making keys inactive or deleting them, see UpdateAccessKey and
--- DeleteAccessKey.
+-- about making keys inactive or deleting them, see UpdateAccessKey> and
+-- DeleteAccessKey>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html>
 module Network.AWS.IAM.DeleteLoginProfile

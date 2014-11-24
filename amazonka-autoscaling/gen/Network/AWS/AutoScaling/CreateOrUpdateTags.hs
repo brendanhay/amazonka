@@ -24,8 +24,9 @@
 -- definition is composed of a resource ID, resource type, key and value, and
 -- the propagate flag. Value and the propagate flag are optional parameters.
 -- See the Request Parameters for more information. For more information, see
--- Add, Modify, or Remove Auto Scaling Group Tags in the Auto Scaling
--- Developer Guide.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html
+-- Add, Modify, or Remove Auto Scaling Group Tags> in the /Auto Scaling
+-- Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
 module Network.AWS.AutoScaling.CreateOrUpdateTags
@@ -74,8 +75,8 @@ createOrUpdateTags = CreateOrUpdateTags
 -- resource type and resource ID identify the type and name of resource for
 -- which the tag is created. Currently, auto-scaling-group is the only
 -- supported resource type. The valid value for the resource ID is
--- groupname. The PropagateAtLaunch flag defines whether the new tag will be
--- applied to instances launched by the group. Valid values are true or
+-- /groupname/. The PropagateAtLaunch flag defines whether the new tag will
+-- be applied to instances launched by the group. Valid values are true or
 -- false. However, instances that are already running will not get the new
 -- or updated tag. Likewise, when you modify a tag, the updated version will
 -- be applied only to new instances launched by the group after the change.

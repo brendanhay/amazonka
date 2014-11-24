@@ -23,14 +23,15 @@
 -- | Identifies an Amazon Kinesis stream as the event source for an AWS Lambda
 -- function. AWS Lambda invokes the specified function when records are posted
 -- to the stream. This is the pull model, where AWS Lambda invokes the
--- function. For more information, go to AWS LambdaL How it Works in the AWS
--- Lambda Developer Guide. This association between an Amazon Kinesis stream
--- and an AWS Lambda function is called the event source mapping. You provide
--- the configuration information (for example, which stream to read from and
--- which AWS Lambda function to invoke) for the event source mapping in the
--- request body. This operation requires permission for the iam:PassRole
--- action for the IAM role. It also requires permission for the
--- lambda:AddEventSource action.
+-- function. For more information, go to
+-- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS
+-- LambdaL How it Works> in the AWS Lambda Developer Guide. This association
+-- between an Amazon Kinesis stream and an AWS Lambda function is called the
+-- event source mapping. You provide the configuration information (for
+-- example, which stream to read from and which AWS Lambda function to invoke)
+-- for the event source mapping in the request body. This operation requires
+-- permission for the iam:PassRole action for the IAM role. It also requires
+-- permission for the lambda:AddEventSource action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_AddEventSource.html>
 module Network.AWS.Lambda.AddEventSource
@@ -122,7 +123,9 @@ aesFunctionName = lens _aesFunctionName (\s a -> s { _aesFunctionName = a })
 -- when reading the event source. Currently, AWS Lambda supports only the
 -- InitialPositionInStream key. The valid values are: "TRIM_HORIZON" and
 -- "LATEST". The default value is "TRIM_HORIZON". For more information, go
--- to ShardIteratorType in the Amazon Kinesis Service API Reference.
+-- to
+-- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType
+-- ShardIteratorType> in the Amazon Kinesis Service API Reference.
 aesParameters :: Lens' AddEventSource (HashMap Text Text)
 aesParameters = lens _aesParameters (\s a -> s { _aesParameters = a }) . _Map
 
@@ -214,7 +217,7 @@ aesrRole :: Lens' AddEventSourceResponse (Maybe Text)
 aesrRole = lens _aesrRole (\s a -> s { _aesrRole = a })
 
 -- | The description of the health of the event source mapping. Valid values
--- are: "PENDING", "OK", and "PROBLEM:message". Initially this staus is
+-- are: "PENDING", "OK", and "PROBLEM:/message/". Initially this staus is
 -- "PENDING". When AWS Lambda begins processing events, it changes the
 -- status to "OK".
 aesrStatus :: Lens' AddEventSourceResponse (Maybe Text)

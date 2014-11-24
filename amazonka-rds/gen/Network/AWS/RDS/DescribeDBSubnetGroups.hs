@@ -22,8 +22,9 @@
 
 -- | Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is
 -- specified, the list will contain only the descriptions of the specified
--- DBSubnetGroup. For an overview of CIDR ranges, go to the Wikipedia
--- Tutorial.
+-- DBSubnetGroup. For an overview of CIDR ranges, go to the
+-- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia
+-- Tutorial>.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.html>
 module Network.AWS.RDS.DescribeDBSubnetGroups
@@ -121,7 +122,7 @@ describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     , _ddbsgrDBSubnetGroups = mempty
     }
 
--- | A list of DBSubnetGroup instances.
+-- | A list of DBSubnetGroup> instances.
 ddbsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
 ddbsgrDBSubnetGroups =
     lens _ddbsgrDBSubnetGroups (\s a -> s { _ddbsgrDBSubnetGroups = a })

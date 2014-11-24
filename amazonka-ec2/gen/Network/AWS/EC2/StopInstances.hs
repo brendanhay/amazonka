@@ -39,9 +39,13 @@
 -- persist. When you terminate an instance, the root device and any other
 -- devices attached during the instance launch are automatically deleted. For
 -- more information about the differences between stopping and terminating
--- instances, see Instance Lifecycle in the Amazon Elastic Compute Cloud User
--- Guide. For more information about troubleshooting, see Troubleshooting
--- Stopping Your Instance in the Amazon Elastic Compute Cloud User Guide.
+-- instances, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
+-- Instance Lifecycle> in the /Amazon Elastic Compute Cloud User Guide/. For
+-- more information about troubleshooting, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html
+-- Troubleshooting Stopping Your Instance> in the /Amazon Elastic Compute
+-- Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StopInstances.html>
 module Network.AWS.EC2.StopInstances

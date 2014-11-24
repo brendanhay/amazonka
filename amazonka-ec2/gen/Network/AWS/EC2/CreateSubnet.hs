@@ -36,8 +36,9 @@
 -- similar instance launched outside a VPC, which gets a new IP address when
 -- restarted). It's therefore possible to have a subnet with no running
 -- instances (they're all stopped), but no remaining IP addresses available.
--- For more information about subnets, see Your VPC and Subnets in the Amazon
--- Virtual Private Cloud User Guide.
+-- For more information about subnets, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
+-- Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSubnet.html>
 module Network.AWS.EC2.CreateSubnet

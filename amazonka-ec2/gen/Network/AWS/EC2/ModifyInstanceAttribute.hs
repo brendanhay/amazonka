@@ -22,8 +22,10 @@
 
 -- | Modifies the specified attribute of the specified instance. You can specify
 -- only one attribute at a time. To modify some attributes, the instance must
--- be stopped. For more information, see Modifying Attributes of a Stopped
--- Instance in the Amazon Elastic Compute Cloud User Guide.
+-- be stopped. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html
+-- Modifying Attributes of a Stopped Instance> in the /Amazon Elastic Compute
+-- Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html>
 module Network.AWS.EC2.ModifyInstanceAttribute
@@ -141,9 +143,10 @@ mia1Attribute = lens _mia1Attribute (\s a -> s { _mia1Attribute = a })
 -- specified for DeleteOnTermination, the default is true and the volume is
 -- deleted when the instance is terminated. To add instance store volumes to
 -- an Amazon EBS-backed instance, you must add them when you launch the
--- instance. For more information, see Updating the Block Device Mapping
--- when Launching an Instance in the Amazon Elastic Compute Cloud User
--- Guide.
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM
+-- Updating the Block Device Mapping when Launching an Instance> in the
+-- /Amazon Elastic Compute Cloud User Guide/.
 mia1BlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
 mia1BlockDeviceMappings =
     lens _mia1BlockDeviceMappings (\s a -> s { _mia1BlockDeviceMappings = a })
@@ -188,20 +191,26 @@ mia1InstanceInitiatedShutdownBehavior =
         (\s a -> s { _mia1InstanceInitiatedShutdownBehavior = a })
 
 -- | Changes the instance type to the specified value. For more information,
--- see Instance Types. If the instance type is not valid, the error returned
--- is InvalidInstanceAttributeValue.
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+-- Instance Types>. If the instance type is not valid, the error returned is
+-- InvalidInstanceAttributeValue.
 mia1InstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1InstanceType = lens _mia1InstanceType (\s a -> s { _mia1InstanceType = a })
 
 -- | Changes the instance's kernel to the specified value. We recommend that
 -- you use PV-GRUB instead of kernels and RAM disks. For more information,
--- see PV-GRUB.
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html
+-- PV-GRUB>.
 mia1Kernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1Kernel = lens _mia1Kernel (\s a -> s { _mia1Kernel = a })
 
 -- | Changes the instance's RAM disk to the specified value. We recommend that
 -- you use PV-GRUB instead of kernels and RAM disks. For more information,
--- see PV-GRUB.
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html
+-- PV-GRUB>.
 mia1Ramdisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1Ramdisk = lens _mia1Ramdisk (\s a -> s { _mia1Ramdisk = a })
 

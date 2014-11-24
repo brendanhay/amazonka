@@ -35,8 +35,8 @@
 -- returns an operation ID that you can use to track the progress and
 -- completion of the action. If the request is not completed successfully, the
 -- domain registrant is notified by email. Charges your AWS account an amount
--- based on the top-level domain. For more information, see Amazon Route 53
--- Pricing.
+-- based on the top-level domain. For more information, see
+-- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RegisterDomain.html>
 module Network.AWS.Route53Domains.RegisterDomain

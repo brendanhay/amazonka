@@ -289,9 +289,10 @@ gddrReseller = lens _gddrReseller (\s a -> s { _gddrReseller = a })
 -- transferring a domain name to another registrar, renewing the
 -- registration for a domain name, and so on. All registrars use this same
 -- set of status codes. For a current list of domain name status codes and
--- an explanation of what each code means, go to the ICANN website and
--- search for epp status codes. (Search on the ICANN website; web searches
--- sometimes return an old version of the document.) Type: Array of String.
+-- an explanation of what each code means, go to the <https://www.icann.org/
+-- ICANN website> and search for epp status codes. (Search on the ICANN
+-- website; web searches sometimes return an old version of the document.)
+-- Type: Array of String.
 gddrStatusList :: Lens' GetDomainDetailResponse [Text]
 gddrStatusList = lens _gddrStatusList (\s a -> s { _gddrStatusList = a }) . _List
 

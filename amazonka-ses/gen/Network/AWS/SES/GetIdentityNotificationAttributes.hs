@@ -23,7 +23,9 @@
 -- | Given a list of verified identities (email addresses and/or domains),
 -- returns a structure describing identity notification attributes. This
 -- action is throttled at one request per second. For more information about
--- using notifications with Amazon SES, see the Amazon SES Developer Guide.
+-- using notifications with Amazon SES, see the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html
+-- Amazon SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html>
 module Network.AWS.SES.GetIdentityNotificationAttributes

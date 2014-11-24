@@ -95,7 +95,8 @@ putScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
 -- | Specifies whether the ScalingAdjustment is an absolute number or a
 -- percentage of the current capacity. Valid values are ChangeInCapacity,
 -- ExactCapacity, and PercentChangeInCapacity. For more information, see
--- Dynamic Scaling in the Auto Scaling Developer Guide.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html
+-- Dynamic Scaling> in the /Auto Scaling Developer Guide/.
 pspAdjustmentType :: Lens' PutScalingPolicy Text
 pspAdjustmentType =
     lens _pspAdjustmentType (\s a -> s { _pspAdjustmentType = a })
@@ -107,7 +108,9 @@ pspAutoScalingGroupName =
 
 -- | The amount of time, in seconds, after a scaling activity completes and
 -- before the next scaling activity can start. For more information, see
--- Understanding Auto Scaling Cooldowns in the Auto Scaling Developer Guide.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html
+-- Understanding Auto Scaling Cooldowns> in the /Auto Scaling Developer
+-- Guide/.
 pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
 pspCooldown = lens _pspCooldown (\s a -> s { _pspCooldown = a })
 

@@ -22,11 +22,14 @@
 
 -- | Assigns one of the stack's registered Amazon EBS volumes to a specified
 -- instance. The volume must first be registered with the stack by calling
--- RegisterVolume. For more information, see Resource Management. Required
--- Permissions: To use this action, an IAM user must have a Manage permissions
--- level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see Managing User
--- Permissions.
+-- RegisterVolume>. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html
+-- Resource Management>. Required Permissions: To use this action, an IAM user
+-- must have a Manage permissions level for the stack, or an attached policy
+-- that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignVolume.html>
 module Network.AWS.OpsWorks.AssignVolume

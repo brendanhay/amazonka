@@ -78,7 +78,8 @@ etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a }) . _List
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to
--- Template Anatomy in the AWS CloudFormation User Guide.) Conditional: You
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+-- Template Anatomy> in the AWS CloudFormation User Guide.) Conditional: You
 -- must pass TemplateBody or TemplateURL. If both are passed, only
 -- TemplateBody is used.
 etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
@@ -86,9 +87,11 @@ etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For
--- more information, go to Template Anatomy in the AWS CloudFormation User
--- Guide. Conditional: You must pass TemplateURL or TemplateBody. If both
--- are passed, only TemplateBody is used.
+-- more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+-- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
+-- must pass TemplateURL or TemplateBody. If both are passed, only
+-- TemplateBody is used.
 etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateURL = lens _etcTemplateURL (\s a -> s { _etcTemplateURL = a })
 

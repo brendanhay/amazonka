@@ -21,16 +21,18 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation delete the specified gateway volume that you previously
--- created using the CreateStorediSCSIVolume API. For gateway-stored volumes,
+-- created using the CreateStorediSCSIVolume> API. For gateway-stored volumes,
 -- the local disk that was configured as the storage volume is not deleted.
 -- You can reuse the local disk to create another storage volume. Before you
 -- delete a gateway volume, make sure there are no iSCSI connections to the
 -- volume you are deleting. You should also make sure there is no snapshot in
 -- progress. You can use the Amazon Elastic Compute Cloud (Amazon EC2) API to
 -- query snapshots on the volume you are deleting and check the snapshot
--- status. For more information, go to DescribeSnapshots in the Amazon Elastic
--- Compute Cloud API Reference. In the request, you must provide the Amazon
--- Resource Name (ARN) of the storage volume you want to delete.
+-- status. For more information, go to
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html
+-- DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/. In
+-- the request, you must provide the Amazon Resource Name (ARN) of the storage
+-- volume you want to delete.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteVolume.html>
 module Network.AWS.StorageGateway.DeleteVolume
@@ -71,7 +73,7 @@ deleteVolume p1 = DeleteVolume
     { _dvVolumeARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes>
 -- operation to return a list of gateway volumes.
 dvVolumeARN :: Lens' DeleteVolume Text
 dvVolumeARN = lens _dvVolumeARN (\s a -> s { _dvVolumeARN = a })

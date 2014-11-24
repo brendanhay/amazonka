@@ -603,9 +603,10 @@ ciConfigurationStateId =
 
 -- | A list of CloudTrail event IDs. A populated field indicates that the
 -- current configuration was initiated by the events recorded in the
--- CloudTrail log. For more information about CloudTrail, see What is AWS
--- CloudTrail?. An empty field indicates that the current configuration was
--- not initiated by any event.
+-- CloudTrail log. For more information about CloudTrail, see
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html
+-- What is AWS CloudTrail?>. An empty field indicates that the current
+-- configuration was not initiated by any event.
 ciRelatedEvents :: Lens' ConfigurationItem [Text]
 ciRelatedEvents = lens _ciRelatedEvents (\s a -> s { _ciRelatedEvents = a }) . _List
 

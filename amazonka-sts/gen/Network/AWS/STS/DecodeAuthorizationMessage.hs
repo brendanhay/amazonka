@@ -33,10 +33,12 @@
 -- DecodeAuthorizationMessage (sts:DecodeAuthorizationMessage) action. The
 -- decoded message includes the following type of information: Whether the
 -- request was denied due to an explicit deny or due to the absence of an
--- explicit allow. For more information, see Determining Whether a Request is
--- Allowed or Denied in Using IAM. The principal who made the request. The
--- requested action. The requested resource. The values of condition keys in
--- the context of the user's request.
+-- explicit allow. For more information, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccessPolicyLanguage_EvaluationLogic.html#policy-eval-denyallow
+-- Determining Whether a Request is Allowed or Denied> in /Using IAM/. The
+-- principal who made the request. The requested action. The requested
+-- resource. The values of condition keys in the context of the user's
+-- request.
 --
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_DecodeAuthorizationMessage.html>
 module Network.AWS.STS.DecodeAuthorizationMessage

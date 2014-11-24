@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of parameter settings for the specified parameter group
--- family. For more information about managing parameter groups, go to Amazon
--- Redshift Parameter Groups in the Amazon Redshift Cluster Management Guide.
+-- family. For more information about managing parameter groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
+-- Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster
+-- Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDefaultClusterParameters.html>
 module Network.AWS.Redshift.DescribeDefaultClusterParameters
@@ -75,7 +77,7 @@ describeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
--- DescribeDefaultClusterParameters request exceed the value specified in
+-- DescribeDefaultClusterParameters> request exceed the value specified in
 -- MaxRecords, AWS returns a value in the Marker field of the response. You
 -- can retrieve the next set of response records by providing the returned
 -- marker value in the Marker parameter and retrying the request.

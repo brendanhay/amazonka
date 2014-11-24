@@ -31,8 +31,9 @@
 -- 103, ...). This makes it easier to add a rule between existing ones without
 -- having to renumber the rules. After you add an entry, you can't modify it;
 -- you must either replace it, or create an entry and delete the old one. For
--- more information about network ACLs, see Network ACLs in the Amazon Virtual
--- Private Cloud User Guide.
+-- more information about network ACLs, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
+-- Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkAclEntry.html>
 module Network.AWS.EC2.CreateNetworkAclEntry

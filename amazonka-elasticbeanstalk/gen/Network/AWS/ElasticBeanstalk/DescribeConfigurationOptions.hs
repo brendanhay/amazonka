@@ -132,7 +132,7 @@ describeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     , _dcorOptions           = mempty
     }
 
--- | A list of ConfigurationOptionDescription.
+-- | A list of ConfigurationOptionDescription>.
 dcorOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
 dcorOptions = lens _dcorOptions (\s a -> s { _dcorOptions = a }) . _List
 

@@ -28,7 +28,7 @@
 -- take multiple calls to get to a portion of the shard that contains records.
 -- You can scale by provisioning multiple shards. Your application should have
 -- one thread per shard, each reading continuously from its stream. To read
--- from a stream continually, call GetRecords in a loop. Use GetShardIterator
+-- from a stream continually, call GetRecords in a loop. Use GetShardIterator>
 -- to get the shard iterator to specify in the first GetRecords call.
 -- GetRecords returns a new shard iterator in NextShardIterator. Specify the
 -- shard iterator returned in NextShardIterator in subsequent calls to
@@ -56,8 +56,9 @@
 -- behind in processing, add a timestamp to your records and note how long it
 -- takes to process them. You can also monitor how much data is in a stream
 -- using the CloudWatch metrics for PutRecord. For more information, see
--- Monitoring Amazon Kinesis with Amazon CloudWatch in the Amazon Kinesis
--- Developer Guide.
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html
+-- Monitoring Amazon Kinesis with Amazon CloudWatch> in the /Amazon Kinesis
+-- Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html>
 module Network.AWS.Kinesis.GetRecords

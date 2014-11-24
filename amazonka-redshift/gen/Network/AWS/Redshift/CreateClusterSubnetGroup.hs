@@ -23,8 +23,10 @@
 -- | Creates a new Amazon Redshift subnet group. You must provide a list of one
 -- or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC)
 -- when creating Amazon Redshift subnet group. For information about subnet
--- groups, go to Amazon Redshift Cluster Subnet Groups in the Amazon Redshift
--- Cluster Management Guide.
+-- groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html
+-- Amazon Redshift Cluster Subnet Groups> in the /Amazon Redshift Cluster
+-- Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSubnetGroup.html>
 module Network.AWS.Redshift.CreateClusterSubnetGroup

@@ -25,9 +25,12 @@
 -- you can specify the number of secondary IP addresses to be automatically
 -- assigned within the subnet's CIDR block range. The number of secondary IP
 -- addresses that you can assign to an instance varies by instance type. For
--- information about instance types, see Instance Types in the Amazon Elastic
--- Compute Cloud User Guide. For more information about Elastic IP addresses,
--- see Elastic IP Addresses in the Amazon Elastic Compute Cloud User Guide.
+-- information about instance types, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+-- Instance Types> in the /Amazon Elastic Compute Cloud User Guide/. For more
+-- information about Elastic IP addresses, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+-- Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
 -- AssignPrivateIpAddresses is available only in EC2-VPC.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssignPrivateIpAddresses.html>

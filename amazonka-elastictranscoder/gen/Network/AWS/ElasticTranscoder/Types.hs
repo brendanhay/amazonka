@@ -755,12 +755,12 @@ joThumbnailPattern =
 -- for each output. Settings for each watermark must be defined in the
 -- preset that you specify in Preset for the current output. Watermarks are
 -- added to the output video in the sequence in which you list them in the
--- job output&#x2014;the first watermark in the list is added to the output
--- video first, the second watermark in the list is added next, and so on.
--- As a result, if the settings in a preset cause Elastic Transcoder to
--- place all watermarks in the same location, the second watermark that you
--- add will cover the first one, the third one will cover the second, and
--- the fourth one will cover the third.
+-- job output—the first watermark in the list is added to the output video
+-- first, the second watermark in the list is added next, and so on. As a
+-- result, if the settings in a preset cause Elastic Transcoder to place all
+-- watermarks in the same location, the second watermark that you add will
+-- cover the first one, the third one will cover the second, and the fourth
+-- one will cover the third.
 joWatermarks :: Lens' JobOutput [JobWatermark]
 joWatermarks = lens _joWatermarks (\s a -> s { _joWatermarks = a }) . _List
 
@@ -1515,9 +1515,10 @@ tPaddingPolicy = lens _tPaddingPolicy (\s a -> s { _tPaddingPolicy = a })
 -- that you use the values MaxWidth, MaxHeight, SizingPolicy, and
 -- PaddingPolicy instead of Resolution and AspectRatio. The two groups of
 -- settings are mutually exclusive. Do not use them together. The width and
--- height of thumbnail files in pixels. Specify a value in the format width
--- x height where both values are even integers. The values cannot exceed
--- the width and height that you specified in the Video:Resolution object.
+-- height of thumbnail files in pixels. Specify a value in the format
+-- /width/ x /height/ where both values are even integers. The values cannot
+-- exceed the width and height that you specified in the Video:Resolution
+-- object.
 tResolution :: Lens' Thumbnails (Maybe Text)
 tResolution = lens _tResolution (\s a -> s { _tResolution = a })
 
@@ -1995,17 +1996,18 @@ captionFormat = CaptionFormat
 cfFormat :: Lens' CaptionFormat (Maybe Text)
 cfFormat = lens _cfFormat (\s a -> s { _cfFormat = a })
 
--- | The prefix for caption filenames, in the form description-{language},
--- where: description is a description of the video. {language} is a literal
--- value that Elastic Transcoder replaces with the two- or three-letter code
--- for the language of the caption in the output file names. If you don't
--- include {language} in the file name pattern, Elastic Transcoder
--- automatically appends "{language}" to the value that you specify for the
--- description. In addition, Elastic Transcoder automatically appends the
--- count to the end of the segment files. For example, suppose you're
--- transcoding into srt format. When you enter "Sydney-{language}-sunrise",
--- and the language of the captions is English (en), the name of the first
--- caption file will be Sydney-en-sunrise00000.srt.
+-- | The prefix for caption filenames, in the form /description/-{language},
+-- where: /description/ is a description of the video. {language} is a
+-- literal value that Elastic Transcoder replaces with the two- or
+-- three-letter code for the language of the caption in the output file
+-- names. If you don't include {language} in the file name pattern, Elastic
+-- Transcoder automatically appends "{language}" to the value that you
+-- specify for the description. In addition, Elastic Transcoder
+-- automatically appends the count to the end of the segment files. For
+-- example, suppose you're transcoding into srt format. When you enter
+-- "Sydney-{language}-sunrise", and the language of the captions is English
+-- (en), the name of the first caption file will be
+-- Sydney-en-sunrise00000.srt.
 cfPattern :: Lens' CaptionFormat (Maybe Text)
 cfPattern = lens _cfPattern (\s a -> s { _cfPattern = a })
 
@@ -2371,11 +2373,12 @@ vpAspectRatio = lens _vpAspectRatio (\s a -> s { _vpAspectRatio = a })
 -- auto, Elastic Transcoder uses the detected bit rate of the input source.
 -- If you specify a value other than auto, we recommend that you specify a
 -- value less than or equal to the maximum H.264-compliant value listed for
--- your level and profile: Level - Maximum video bit rate in kilobits/second
--- (baseline and main Profile) : maximum video bit rate in kilobits/second
--- (high Profile) 1 - 64 : 80 1b - 128 : 160 1.1 - 192 : 240 1.2 - 384 : 480
--- 1.3 - 768 : 960 2 - 2000 : 2500 3 - 10000 : 12500 3.1 - 14000 : 17500 3.2
--- - 20000 : 25000 4 - 20000 : 25000 4.1 - 50000 : 62500.
+-- your level and profile: /Level - Maximum video bit rate in
+-- kilobits/second (baseline and main Profile) : maximum video bit rate in
+-- kilobits/second (high Profile)/ 1 - 64 : 80 1b - 128 : 160 1.1 - 192 :
+-- 240 1.2 - 384 : 480 1.3 - 768 : 960 2 - 2000 : 2500 3 - 10000 : 12500 3.1
+-- - 14000 : 17500 3.2 - 20000 : 25000 4 - 20000 : 25000 4.1 - 50000 :
+-- 62500.
 vpBitRate :: Lens' VideoParameters (Maybe Text)
 vpBitRate = lens _vpBitRate (\s a -> s { _vpBitRate = a })
 
@@ -2397,9 +2400,9 @@ vpCodec = lens _vpCodec (\s a -> s { _vpCodec = a })
 -- decoding future frames. Valid values are integers 0 through 16, but we
 -- recommend that you not use a value greater than the following:
 -- Min(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width in
--- pixels * Height in pixels)), 16) where Width in pixels and Height in
--- pixels represent either MaxWidth and MaxHeight, or Resolution. Maximum
--- decoded picture buffer in macroblocks depends on the value of the Level
+-- pixels * Height in pixels)), 16) where /Width in pixels/ and /Height in
+-- pixels/ represent either MaxWidth and MaxHeight, or Resolution. /Maximum
+-- decoded picture buffer in macroblocks/ depends on the value of the Level
 -- object. See the list below. (A macroblock is a block of pixels measuring
 -- 16x16.) 1 - 396 1b - 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 -
 -- 4752 2.2 - 8100 3 - 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768
@@ -2435,13 +2438,13 @@ vpFixedGOP = lens _vpFixedGOP (\s a -> s { _vpFixedGOP = a })
 -- auto, Elastic Transcoder uses the detected frame rate of the input
 -- source. If you specify a frame rate, we recommend that you perform the
 -- following calculation: Frame rate = maximum recommended decoding speed in
--- luma samples/second / (width in pixels * height in pixels) where: width
--- in pixels and height in pixels represent the Resolution of the output
--- video. maximum recommended decoding speed in Luma samples/second is less
--- than or equal to the maximum value listed in the following table, based
--- on the value that you specified for Level. The maximum recommended
+-- luma samples/second / (width in pixels * height in pixels) where: /width
+-- in pixels/ and /height in pixels/ represent the Resolution of the output
+-- video. /maximum recommended decoding speed in Luma samples/second/ is
+-- less than or equal to the maximum value listed in the following table,
+-- based on the value that you specified for Level. The maximum recommended
 -- decoding speed in Luma samples/second for each level is described in the
--- following list (Level - Decoding speed): 1 - 380160 1b - 380160 1.1 -
+-- following list (/Level - Decoding speed/): 1 - 380160 1b - 380160 1.1 -
 -- 76800 1.2 - 1536000 1.3 - 3041280 2 - 3041280 2.1 - 5068800 2.2 - 5184000
 -- 3 - 10368000 3.1 - 27648000 3.2 - 55296000 4 - 62914560 4.1 - 62914560.
 vpFrameRate :: Lens' VideoParameters (Maybe Text)
@@ -2498,11 +2501,11 @@ vpPaddingPolicy = lens _vpPaddingPolicy (\s a -> s { _vpPaddingPolicy = a })
 -- PaddingPolicy, and DisplayAspectRatio instead of Resolution and
 -- AspectRatio. The two groups of settings are mutually exclusive. Do not
 -- use them together. The width and height of the video in the output file,
--- in pixels. Valid values are auto and width x height: auto: Elastic
+-- in pixels. Valid values are auto and /width/ x /height/: auto: Elastic
 -- Transcoder attempts to preserve the width and height of the input file,
--- subject to the following rules. width x height: The width and height of
--- the output video in pixels. Note the following about specifying the width
--- and height: The width must be an even integer between 128 and 4096,
+-- subject to the following rules. /width/ x /height/: The width and height
+-- of the output video in pixels. Note the following about specifying the
+-- width and height: The width must be an even integer between 128 and 4096,
 -- inclusive. The height must be an even integer between 96 and 3072,
 -- inclusive. If you specify a resolution that is less than the resolution
 -- of the input file, Elastic Transcoder rescales the output file to the
@@ -2510,10 +2513,10 @@ vpPaddingPolicy = lens _vpPaddingPolicy (\s a -> s { _vpPaddingPolicy = a })
 -- resolution of the input file, Elastic Transcoder rescales the output to
 -- the higher resolution. We recommend that you specify a resolution for
 -- which the product of width and height is less than or equal to the
--- applicable value in the following list (List - Max width x height value):
--- 1 - 25344 1b - 25344 1.1 - 101376 1.2 - 101376 1.3 - 101376 2 - 101376
--- 2.1 - 202752 2.2 - 404720 3 - 404720 3.1 - 921600 3.2 - 1310720 4 -
--- 2097152 4.1 - 2097152.
+-- applicable value in the following list (/List - Max width x height
+-- value/): 1 - 25344 1b - 25344 1.1 - 101376 1.2 - 101376 1.3 - 101376 2 -
+-- 101376 2.1 - 202752 2.2 - 404720 3 - 404720 3.1 - 921600 3.2 - 1310720 4
+-- - 2097152 4.1 - 2097152.
 vpResolution :: Lens' VideoParameters (Maybe Text)
 vpResolution = lens _vpResolution (\s a -> s { _vpResolution = a })
 

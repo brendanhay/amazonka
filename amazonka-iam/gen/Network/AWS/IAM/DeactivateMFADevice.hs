@@ -22,8 +22,9 @@
 
 -- | Deactivates the specified MFA device and removes it from association with
 -- the user name for which it was originally enabled. For more information
--- about creating and working with virtual MFA devices, go to Using a Virtual
--- MFA Device in the Using IAM guide.
+-- about creating and working with virtual MFA devices, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html
+-- Using a Virtual MFA Device> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html>
 module Network.AWS.IAM.DeactivateMFADevice

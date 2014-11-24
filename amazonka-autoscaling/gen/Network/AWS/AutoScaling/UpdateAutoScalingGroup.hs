@@ -20,24 +20,24 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Updates the configuration for the specified AutoScalingGroup. To update an
+-- | Updates the configuration for the specified AutoScalingGroup>. To update an
 -- Auto Scaling group with a launch configuration that has the
 -- InstanceMonitoring flag set to False, you must first ensure that collection
--- of group metrics is disabled. Otherwise, calls to UpdateAutoScalingGroup
+-- of group metrics is disabled. Otherwise, calls to UpdateAutoScalingGroup>
 -- will fail. If you have previously enabled group metrics collection, you can
 -- disable collection of all group metrics by calling
--- DisableMetricsCollection. The new settings are registered upon the
+-- DisableMetricsCollection>. The new settings are registered upon the
 -- completion of this call. Any launch configuration settings take effect on
 -- any triggers after this call returns. Scaling activities that are currently
--- in progress aren't affected. If a new value is specified for MinSize
--- without specifying the value for DesiredCapacity, and if the new MinSize is
--- larger than the current size of the Auto Scaling group, there will be an
--- implicit call to SetDesiredCapacity to set the group to the new MinSize. If
--- a new value is specified for MaxSize without specifying the value for
--- DesiredCapacity, and the new MaxSize is smaller than the current size of
--- the Auto Scaling group, there will be an implicit call to
--- SetDesiredCapacity to set the group to the new MaxSize. All other optional
--- parameters are left unchanged if not passed in the request.
+-- in progress aren't affected. If a new value is specified for /MinSize/
+-- without specifying the value for /DesiredCapacity/, and if the new
+-- /MinSize/ is larger than the current size of the Auto Scaling group, there
+-- will be an implicit call to SetDesiredCapacity> to set the group to the new
+-- /MinSize/. If a new value is specified for /MaxSize/ without specifying the
+-- value for /DesiredCapacity/, and the new /MaxSize/ is smaller than the
+-- current size of the Auto Scaling group, there will be an implicit call to
+-- SetDesiredCapacity> to set the group to the new /MaxSize/. All other
+-- optional parameters are left unchanged if not passed in the request.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html>
 module Network.AWS.AutoScaling.UpdateAutoScalingGroup
@@ -146,7 +146,8 @@ uasgAvailabilityZones =
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- another scaling activity can start. For more information, see
--- Understanding Auto Scaling Cooldowns.
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html
+-- Understanding Auto Scaling Cooldowns>.
 uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDefaultCooldown =
     lens _uasgDefaultCooldown (\s a -> s { _uasgDefaultCooldown = a })
@@ -161,7 +162,9 @@ uasgDesiredCapacity =
 -- | The amount of time, in second, that Auto Scaling waits before checking
 -- the health status of an instance. The grace period begins when the
 -- instance passes System Status and the Instance Status checks from Amazon
--- EC2. For more information, see DescribeInstanceStatus.
+-- EC2. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html
+-- DescribeInstanceStatus>.
 uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgHealthCheckGracePeriod =
     lens _uasgHealthCheckGracePeriod
@@ -189,15 +192,19 @@ uasgMinSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgMinSize = lens _uasgMinSize (\s a -> s { _uasgMinSize = a })
 
 -- | The name of the placement group into which you'll launch your instances,
--- if any. For more information, see Placement Groups.
+-- if any. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html
+-- Placement Groups>.
 uasgPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgPlacementGroup =
     lens _uasgPlacementGroup (\s a -> s { _uasgPlacementGroup = a })
 
 -- | A standalone termination policy or a list of termination policies used to
 -- select the instance to terminate. The policies are executed in the order
--- that they are listed. For more information, see Choosing a Termination
--- Policy for Your Auto Scaling Group in the Auto Scaling Developer Guide.
+-- that they are listed. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html
+-- Choosing a Termination Policy for Your Auto Scaling Group> in the /Auto
+-- Scaling Developer Guide/.
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies =
     lens _uasgTerminationPolicies (\s a -> s { _uasgTerminationPolicies = a })
@@ -207,8 +214,9 @@ uasgTerminationPolicies =
 -- can specify several subnets in a comma-separated list. When you specify
 -- VPCZoneIdentifier with AvailabilityZones, ensure that the subnets'
 -- Availability Zones match the values you specify for AvailabilityZones.
--- For more information, see Auto Scaling and Amazon VPC in the Auto Scaling
--- Developer Guide.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html
+-- Auto Scaling and Amazon VPC> in the /Auto Scaling Developer Guide/.
 uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier =
     lens _uasgVPCZoneIdentifier (\s a -> s { _uasgVPCZoneIdentifier = a })

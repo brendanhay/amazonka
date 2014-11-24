@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The ModifyReplicationGroup operation modifies the settings for a
+-- | The /ModifyReplicationGroup/ operation modifies the settings for a
 -- replication group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html>
@@ -139,7 +139,7 @@ modifyReplicationGroup p1 = ModifyReplicationGroup
 
 -- | If true, this parameter causes the modifications in this request and any
 -- pending modifications to be applied, asynchronously and as soon as
--- possible, regardless of the PreferredMaintenanceWindow setting for the
+-- possible, regardless of the /PreferredMaintenanceWindow/ setting for the
 -- replication group. If false, then changes to the nodes in the replication
 -- group are applied on the next maintenance reboot, or the next failure
 -- reboot, whichever occurs first. Valid values: true | false Default:
@@ -167,8 +167,8 @@ mrgAutomaticFailoverEnabled =
 
 -- | The name of the cache parameter group to apply to all of the clusters in
 -- this replication group. This change is asynchronously applied as soon as
--- possible for parameters when the ApplyImmediately parameter is specified
--- as true for this request.
+-- possible for parameters when the /ApplyImmediately/ parameter is
+-- specified as /true/ for this request.
 mrgCacheParameterGroupName :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgCacheParameterGroupName =
     lens _mrgCacheParameterGroupName
@@ -198,8 +198,8 @@ mrgNotificationTopicArn =
     lens _mrgNotificationTopicArn (\s a -> s { _mrgNotificationTopicArn = a })
 
 -- | The status of the Amazon SNS notification topic for the replication
--- group. Notifications are sent only if the status is active. Valid values:
--- active | inactive.
+-- group. Notifications are sent only if the status is /active/. Valid
+-- values: active | inactive.
 mrgNotificationTopicStatus :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgNotificationTopicStatus =
     lens _mrgNotificationTopicStatus
@@ -246,8 +246,8 @@ mrgSecurityGroupIds =
 
 -- | The number of days for which ElastiCache will retain automatic node group
 -- snapshots before deleting them. For example, if you set
--- SnapshotRetentionLimit to 5, then a snapshot that was taken today will be
--- retained for 5 days before being deleted. ImportantIf the value of
+-- /SnapshotRetentionLimit/ to 5, then a snapshot that was taken today will
+-- be retained for 5 days before being deleted. ImportantIf the value of
 -- SnapshotRetentionLimit is set to zero (0), backups are turned off.
 mrgSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Int)
 mrgSnapshotRetentionLimit =
@@ -255,7 +255,7 @@ mrgSnapshotRetentionLimit =
         (\s a -> s { _mrgSnapshotRetentionLimit = a })
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
--- a daily snapshot of the node group specified by SnapshottingClusterId.
+-- a daily snapshot of the node group specified by /SnapshottingClusterId/.
 -- Example: 05:00-09:00 If you do not specify this parameter, then
 -- ElastiCache will automatically choose an appropriate time range.
 mrgSnapshotWindow :: Lens' ModifyReplicationGroup (Maybe Text)

@@ -25,8 +25,10 @@
 -- cluster subnet group name or the cluster security group parameter, Amazon
 -- Redshift creates a non-VPC cluster, it associates the default cluster
 -- security group with the cluster. For more information about managing
--- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Cluster
--- Management Guide .
+-- clusters, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html
+-- Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
+-- .
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateCluster.html>
 module Network.AWS.Redshift.CreateCluster
@@ -198,7 +200,7 @@ ccAllowVersionUpgrade =
 -- | The number of days that automated snapshots are retained. If the value is
 -- 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot. Default: 1 Constraints: Must be a value from 0 to
+-- CreateClusterSnapshot>. Default: 1 Constraints: Must be a value from 0 to
 -- 35.
 ccAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
 ccAutomatedSnapshotRetentionPeriod =
@@ -230,10 +232,11 @@ ccClusterIdentifier =
 
 -- | The name of the parameter group to be associated with this cluster.
 -- Default: The default Amazon Redshift cluster parameter group. For
--- information about the default parameter group, go to Working with Amazon
--- Redshift Parameter Groups Constraints: Must be 1 to 255 alphanumeric
--- characters or hyphens. First character must be a letter. Cannot end with
--- a hyphen or contain two consecutive hyphens.
+-- information about the default parameter group, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
+-- Working with Amazon Redshift Parameter Groups> Constraints: Must be 1 to
+-- 255 alphanumeric characters or hyphens. First character must be a letter.
+-- Cannot end with a hyphen or contain two consecutive hyphens.
 ccClusterParameterGroupName :: Lens' CreateCluster (Maybe Text)
 ccClusterParameterGroupName =
     lens _ccClusterParameterGroupName
@@ -271,19 +274,24 @@ ccClusterVersion = lens _ccClusterVersion (\s a -> s { _ccClusterVersion = a })
 -- | The name of the first database to be created when the cluster is created.
 -- To create additional databases after the cluster is created, connect to
 -- the cluster with a SQL client and use SQL commands to create a database.
--- For more information, go to Create a Database in the Amazon Redshift
--- Database Developer Guide. Default: dev Constraints: Must contain 1 to 64
--- alphanumeric characters. Must contain only lowercase letters. Cannot be a
--- word that is reserved by the service. A list of reserved words can be
--- found in Reserved Words in the Amazon Redshift Database Developer Guide.
+-- For more information, go to
+-- <http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html
+-- Create a Database> in the Amazon Redshift Database Developer Guide.
+-- Default: dev Constraints: Must contain 1 to 64 alphanumeric characters.
+-- Must contain only lowercase letters. Cannot be a word that is reserved by
+-- the service. A list of reserved words can be found in
+-- <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html
+-- Reserved Words> in the Amazon Redshift Database Developer Guide.
 ccDBName :: Lens' CreateCluster (Maybe Text)
 ccDBName = lens _ccDBName (\s a -> s { _ccDBName = a })
 
 -- | The Elastic IP (EIP) address for the cluster. Constraints: The cluster
 -- must be provisioned in EC2-VPC and publicly-accessible through an
 -- Internet gateway. For more information about provisioning clusters in
--- EC2-VPC, go to Supported Platforms to Launch Your Cluster in the Amazon
--- Redshift Cluster Management Guide.
+-- EC2-VPC, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms
+-- Supported Platforms to Launch Your Cluster> in the Amazon Redshift
+-- Cluster Management Guide.
 ccElasticIp :: Lens' CreateCluster (Maybe Text)
 ccElasticIp = lens _ccElasticIp (\s a -> s { _ccElasticIp = a })
 
@@ -323,26 +331,29 @@ ccMasterUserPassword =
 -- | The user name associated with the master user account for the cluster
 -- that is being created. Constraints: Must be 1 - 128 alphanumeric
 -- characters. First character must be a letter. Cannot be a reserved word.
--- A list of reserved words can be found in Reserved Words in the Amazon
--- Redshift Database Developer Guide.
+-- A list of reserved words can be found in
+-- <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html
+-- Reserved Words> in the Amazon Redshift Database Developer Guide.
 ccMasterUsername :: Lens' CreateCluster Text
 ccMasterUsername = lens _ccMasterUsername (\s a -> s { _ccMasterUsername = a })
 
 -- | The node type to be provisioned for the cluster. For information about
--- node types, go to Working with Clusters in the Amazon Redshift Cluster
--- Management Guide. Valid Values: dw1.xlarge | dw1.8xlarge | dw2.large |
--- dw2.8xlarge.
+-- node types, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes
+-- Working with Clusters> in the /Amazon Redshift Cluster Management Guide/.
+-- Valid Values: dw1.xlarge | dw1.8xlarge | dw2.large | dw2.8xlarge.
 ccNodeType :: Lens' CreateCluster Text
 ccNodeType = lens _ccNodeType (\s a -> s { _ccNodeType = a })
 
 -- | The number of compute nodes in the cluster. This parameter is required
 -- when the ClusterType parameter is specified as multi-node. For
--- information about determining how many nodes you need, go to Working with
--- Clusters in the Amazon Redshift Cluster Management Guide. If you don't
--- specify this parameter, you get a single-node cluster. When requesting a
--- multi-node cluster, you must specify the number of nodes that you want in
--- the cluster. Default: 1 Constraints: Value must be at least 1 and no more
--- than 100.
+-- information about determining how many nodes you need, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes
+-- Working with Clusters> in the /Amazon Redshift Cluster Management Guide/.
+-- If you don't specify this parameter, you get a single-node cluster. When
+-- requesting a multi-node cluster, you must specify the number of nodes
+-- that you want in the cluster. Default: 1 Constraints: Value must be at
+-- least 1 and no more than 100.
 ccNumberOfNodes :: Lens' CreateCluster (Maybe Int)
 ccNumberOfNodes = lens _ccNumberOfNodes (\s a -> s { _ccNumberOfNodes = a })
 
@@ -357,9 +368,11 @@ ccPort = lens _ccPort (\s a -> s { _ccPort = a })
 -- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: A 30-minute window
 -- selected at random from an 8-hour block of time per region, occurring on
 -- a random day of the week. For more information about the time blocks for
--- each region, see Maintenance Windows in Amazon Redshift Cluster
--- Management Guide. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
--- Constraints: Minimum 30-minute window.
+-- each region, see
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows
+-- Maintenance Windows> in Amazon Redshift Cluster Management Guide. Valid
+-- Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum
+-- 30-minute window.
 ccPreferredMaintenanceWindow :: Lens' CreateCluster (Maybe Text)
 ccPreferredMaintenanceWindow =
     lens _ccPreferredMaintenanceWindow

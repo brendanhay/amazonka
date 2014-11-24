@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of event source mappings. For each mapping, the API returns
--- configuration information (see AddEventSource). You can optionally specify
+-- configuration information (see AddEventSource>). You can optionally specify
 -- filters to retrieve specific event source mappings. This operation requires
 -- permission for the lambda:ListEventSources action.
 --

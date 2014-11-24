@@ -22,8 +22,10 @@
 
 -- | Lists the instance profiles that have the specified path prefix. If there
 -- are none, the action returns an empty list. For more information about
--- instance profiles, go to About Instance Profiles. You can paginate the
--- results using the MaxItems and Marker parameters.
+-- instance profiles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html
+-- About Instance Profiles>. You can paginate the results using the MaxItems
+-- and Marker parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html>
 module Network.AWS.IAM.ListInstanceProfiles

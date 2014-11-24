@@ -29,8 +29,11 @@
 -- Create the lifecycle hook. You can create a hook that acts when instances
 -- launch or when instances terminate. If necessary, record the lifecycle
 -- action heartbeat to keep the instance in a pending state. Complete the
--- lifecycle action. For more information, see Auto Scaling Pending State and
--- Auto Scaling Terminating State in the Auto Scaling Developer Guide.
+-- lifecycle action. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html
+-- Auto Scaling Pending State> and
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html
+-- Auto Scaling Terminating State> in the /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CompleteLifecycleAction.html>
 module Network.AWS.AutoScaling.CompleteLifecycleAction

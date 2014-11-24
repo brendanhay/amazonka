@@ -24,8 +24,9 @@
 -- can have a maximum of 10 tags. Each tag consists of a key and an optional
 -- value. Tag keys must be unique for each load balancer. If a tag with the
 -- same key is already associated with the load balancer, this action will
--- update the value of the key. For more information, see Tagging in the
--- Elastic Load Balancing Developer Guide.
+-- update the value of the key. For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb
+-- Tagging> in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AddTags.html>
 module Network.AWS.ELB.AddTags

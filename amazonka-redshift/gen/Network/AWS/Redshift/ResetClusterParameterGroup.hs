@@ -23,8 +23,8 @@
 -- | Sets one or more parameters of the specified parameter group to their
 -- default values and sets the source values of the parameters to
 -- "engine-default". To reset the entire parameter group specify the
--- ResetAllParameters parameter. For parameter changes to take effect you must
--- reboot any associated clusters.
+-- /ResetAllParameters/ parameter. For parameter changes to take effect you
+-- must reboot any associated clusters.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html>
 module Network.AWS.Redshift.ResetClusterParameterGroup
@@ -81,8 +81,8 @@ rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text
 rcpgParameterGroupName =
     lens _rcpgParameterGroupName (\s a -> s { _rcpgParameterGroupName = a })
 
--- | An array of names of parameters to be reset. If ResetAllParameters option
--- is not used, then at least one parameter name must be supplied.
+-- | An array of names of parameters to be reset. If /ResetAllParameters/
+-- option is not used, then at least one parameter name must be supplied.
 -- Constraints: A maximum of 20 parameters can be reset in a single request.
 rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
 rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a }) . _List

@@ -109,14 +109,14 @@ vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
 vpdrErrored = lens _vpdrErrored (\s a -> s { _vpdrErrored = a })
 
 -- | Lists the validation errors that were found by
--- ValidatePipelineDefinition.
+-- ValidatePipelineDefinition>.
 vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
 vpdrValidationErrors =
     lens _vpdrValidationErrors (\s a -> s { _vpdrValidationErrors = a })
         . _List
 
 -- | Lists the validation warnings that were found by
--- ValidatePipelineDefinition.
+-- ValidatePipelineDefinition>.
 vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
 vpdrValidationWarnings =
     lens _vpdrValidationWarnings (\s a -> s { _vpdrValidationWarnings = a })

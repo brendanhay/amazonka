@@ -131,9 +131,10 @@ pMessageAttributes =
 -- You can define other top-level keys that define the message you want to
 -- send to a specific transport protocol (e.g., "http"). For information
 -- about sending different messages for each protocol using the AWS
--- Management Console, go to Create Different Messages for Each Protocol in
--- the Amazon Simple Notification Service Getting Started Guide. Valid
--- value: json.
+-- Management Console, go to
+-- <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol
+-- Create Different Messages for Each Protocol> in the /Amazon Simple
+-- Notification Service Getting Started Guide/. Valid value: json.
 pMessageStructure :: Lens' Publish (Maybe Text)
 pMessageStructure =
     lens _pMessageStructure (\s a -> s { _pMessageStructure = a })

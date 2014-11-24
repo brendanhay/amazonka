@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The CreateReplicationGroup operation creates a replication group. A
+-- | The /CreateReplicationGroup/ operation creates a replication group. A
 -- replication group is a collection of cache clusters, where one of the cache
 -- clusters is a read/write primary and the others are read-only replicas.
 -- Writes to the primary are automatically propagated to the replicas. When
@@ -200,9 +200,13 @@ crgAutomaticFailoverEnabled =
 -- an Amazon Virtual Private Cloud (VPC). Redis backup/restore is not
 -- supported for t2 instances. Redis Append-only files (AOF) functionality
 -- is not supported for t1 or t2 instances. For a complete listing of cache
--- node types and specifications, see Amazon ElastiCache Product Features
--- and Details and Cache Node Type-Specific Parameters for Memcached or
--- Cache Node Type-Specific Parameters for Redis.
+-- node types and specifications, see
+-- <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product
+-- Features and Details> and
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific
+-- Cache Node Type-Specific Parameters for Memcached> or
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific
+-- Cache Node Type-Specific Parameters for Redis>.
 crgCacheNodeType :: Lens' CreateReplicationGroup (Maybe Text)
 crgCacheNodeType = lens _crgCacheNodeType (\s a -> s { _crgCacheNodeType = a })
 
@@ -234,7 +238,7 @@ crgEngine = lens _crgEngine (\s a -> s { _crgEngine = a })
 
 -- | The version number of the cach engine to be used for the cache clusters
 -- in this replication group. To view the supported cache engine versions,
--- use the DescribeCacheEngineVersions operation.
+-- use the /DescribeCacheEngineVersions/ operation.
 crgEngineVersion :: Lens' CreateReplicationGroup (Maybe Text)
 crgEngineVersion = lens _crgEngineVersion (\s a -> s { _crgEngineVersion = a })
 
@@ -245,11 +249,12 @@ crgNotificationTopicArn =
     lens _crgNotificationTopicArn (\s a -> s { _crgNotificationTopicArn = a })
 
 -- | The number of cache clusters this replication group will initially have.
--- If AutomaticFailover is enabled, the value of this parameter must be at
--- least 2. The maximum permitted value for NumCacheClusters is 6 (primary
+-- If /AutomaticFailover/ is enabled, the value of this parameter must be at
+-- least 2. The maximum permitted value for /NumCacheClusters/ is 6 (primary
 -- plus 5 replicas). If you need to exceed this limit, please fill out the
 -- ElastiCache Limit Increase Request forrm at
--- http://aws.amazon.com/contact-us/elasticache-node-limit-request.
+-- <http://aws.amazon.com/contact-us/elasticache-node-limit-request
+-- http://aws.amazon.com/contact-us/elasticache-node-limit-request>.
 crgNumCacheClusters :: Lens' CreateReplicationGroup (Maybe Int)
 crgNumCacheClusters =
     lens _crgNumCacheClusters (\s a -> s { _crgNumCacheClusters = a })
@@ -281,8 +286,8 @@ crgPreferredMaintenanceWindow =
 
 -- | The identifier of the cache cluster that will serve as the primary for
 -- this replication group. This cache cluster must already exist and have a
--- status of available. This parameter is not required if NumCacheClusters
--- is specified.
+-- status of /available/. This parameter is not required if
+-- /NumCacheClusters/ is specified.
 crgPrimaryClusterId :: Lens' CreateReplicationGroup (Maybe Text)
 crgPrimaryClusterId =
     lens _crgPrimaryClusterId (\s a -> s { _crgPrimaryClusterId = a })

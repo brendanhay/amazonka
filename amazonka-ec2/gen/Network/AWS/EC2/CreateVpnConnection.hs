@@ -29,8 +29,10 @@
 -- gateway. If you decide to shut down your VPN connection for any reason and
 -- later create a new VPN connection, you must reconfigure your customer
 -- gateway with the new information returned from this call. For more
--- information about VPN connections, see Adding a Hardware Virtual Private
--- Gateway to Your VPC in the Amazon Virtual Private Cloud User Guide.
+-- information about VPN connections, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding
+-- a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual
+-- Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnConnection.html>
 module Network.AWS.EC2.CreateVpnConnection

@@ -669,8 +669,9 @@ raidArray = RaidArray
     , _raIops             = Nothing
     }
 
--- | The array's Availability Zone. For more information, see Regions and
--- Endpoints.
+-- | The array's Availability Zone. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>.
 raAvailabilityZone :: Lens' RaidArray (Maybe Text)
 raAvailabilityZone =
     lens _raAvailabilityZone (\s a -> s { _raAvailabilityZone = a })
@@ -707,7 +708,7 @@ raNumberOfDisks = lens _raNumberOfDisks (\s a -> s { _raNumberOfDisks = a })
 raRaidArrayId :: Lens' RaidArray (Maybe Text)
 raRaidArrayId = lens _raRaidArrayId (\s a -> s { _raRaidArrayId = a })
 
--- | The RAID level.
+-- | The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
 raRaidLevel :: Lens' RaidArray (Maybe Int)
 raRaidLevel = lens _raRaidLevel (\s a -> s { _raRaidLevel = a })
 
@@ -1351,8 +1352,9 @@ volume = Volume
     , _vIops             = Nothing
     }
 
--- | The volume Availability Zone. For more information, see Regions and
--- Endpoints.
+-- | The volume Availability Zone. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>.
 vAvailabilityZone :: Lens' Volume (Maybe Text)
 vAvailabilityZone =
     lens _vAvailabilityZone (\s a -> s { _vAvailabilityZone = a })
@@ -1385,8 +1387,9 @@ vName = lens _vName (\s a -> s { _vName = a })
 vRaidArrayId :: Lens' Volume (Maybe Text)
 vRaidArrayId = lens _vRaidArrayId (\s a -> s { _vRaidArrayId = a })
 
--- | The AWS region. For more information about AWS regions, see Regions and
--- Endpoints.
+-- | The AWS region. For more information about AWS regions, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>.
 vRegion :: Lens' Volume (Maybe Text)
 vRegion = lens _vRegion (\s a -> s { _vRegion = a })
 
@@ -1394,7 +1397,9 @@ vRegion = lens _vRegion (\s a -> s { _vRegion = a })
 vSize :: Lens' Volume (Maybe Int)
 vSize = lens _vSize (\s a -> s { _vSize = a })
 
--- | The value returned by DescribeVolumes.
+-- | The value returned by
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html
+-- DescribeVolumes>.
 vStatus :: Lens' Volume (Maybe Text)
 vStatus = lens _vStatus (\s a -> s { _vStatus = a })
 
@@ -1587,7 +1592,7 @@ astInstanceCount :: Lens' AutoScalingThresholds (Maybe Int)
 astInstanceCount = lens _astInstanceCount (\s a -> s { _astInstanceCount = a })
 
 -- | The load threshold. For more information about how load is computed, see
--- Load (computing).
+-- <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
 astLoadThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astLoadThreshold = lens _astLoadThreshold (\s a -> s { _astLoadThreshold = a })
 
@@ -1819,7 +1824,9 @@ eiIp = lens _eiIp (\s a -> s { _eiIp = a })
 eiName :: Lens' ElasticIp (Maybe Text)
 eiName = lens _eiName (\s a -> s { _eiName = a })
 
--- | The AWS region. For more information, see Regions and Endpoints.
+-- | The AWS region. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>.
 eiRegion :: Lens' ElasticIp (Maybe Text)
 eiRegion = lens _eiRegion (\s a -> s { _eiRegion = a })
 
@@ -1872,7 +1879,9 @@ userProfile = UserProfile
     }
 
 -- | Whether users can specify their own SSH public key through the My
--- Settings page. For more information, see Managing User Permissions.
+-- Settings page. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html
+-- Managing User Permissions>.
 upAllowSelfManagement :: Lens' UserProfile (Maybe Bool)
 upAllowSelfManagement =
     lens _upAllowSelfManagement (\s a -> s { _upAllowSelfManagement = a })
@@ -1977,7 +1986,9 @@ source = Source
 -- | This parameter depends on the repository type. For Amazon S3 bundles, set
 -- Password to the appropriate IAM secret access key. For HTTP bundles and
 -- Subversion repositories, set Password to the password. For more
--- information on how to safely handle IAM credentials, see .
+-- information on how to safely handle IAM credentials, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html
+-- >.
 sPassword :: Lens' Source (Maybe Text)
 sPassword = lens _sPassword (\s a -> s { _sPassword = a })
 
@@ -2287,7 +2298,8 @@ vcMountPoint = lens _vcMountPoint (\s a -> s { _vcMountPoint = a })
 vcNumberOfDisks :: Lens' VolumeConfiguration Int
 vcNumberOfDisks = lens _vcNumberOfDisks (\s a -> s { _vcNumberOfDisks = a })
 
--- | The volume RAID level.
+-- | The volume <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID
+-- level>.
 vcRaidLevel :: Lens' VolumeConfiguration (Maybe Int)
 vcRaidLevel = lens _vcRaidLevel (\s a -> s { _vcRaidLevel = a })
 
@@ -2358,13 +2370,17 @@ pAllowSudo :: Lens' Permission (Maybe Bool)
 pAllowSudo = lens _pAllowSudo (\s a -> s { _pAllowSudo = a })
 
 -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management
--- (IAM) role. For more information about IAM ARNs, see Using Identifiers.
+-- (IAM) role. For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 pIamUserArn :: Lens' Permission (Maybe Text)
 pIamUserArn = lens _pIamUserArn (\s a -> s { _pIamUserArn = a })
 
 -- | The user's permission level, which must be the following: deny show
 -- deploy manage iam_only For more information on the permissions associated
--- with these levels, see Managing User Permissions.
+-- with these levels, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 pLevel :: Lens' Permission (Maybe Text)
 pLevel = lens _pLevel (\s a -> s { _pLevel = a })
 
@@ -2480,15 +2496,19 @@ layer = Layer
 lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
 lAttributes = lens _lAttributes (\s a -> s { _lAttributes = a }) . _Map
 
--- | Whether to automatically assign an Elastic IP address to the layer's
--- instances. For more information, see How to Edit a Layer.
+-- | Whether to automatically assign an
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+-- Elastic IP address> to the layer's instances. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html
+-- How to Edit a Layer>.
 lAutoAssignElasticIps :: Lens' Layer (Maybe Bool)
 lAutoAssignElasticIps =
     lens _lAutoAssignElasticIps (\s a -> s { _lAutoAssignElasticIps = a })
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
--- public IP address to the layer's instances. For more information, see How
--- to Edit a Layer.
+-- public IP address to the layer's instances. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html
+-- How to Edit a Layer>.
 lAutoAssignPublicIps :: Lens' Layer (Maybe Bool)
 lAutoAssignPublicIps =
     lens _lAutoAssignPublicIps (\s a -> s { _lAutoAssignPublicIps = a })
@@ -2498,7 +2518,9 @@ lCreatedAt :: Lens' Layer (Maybe Text)
 lCreatedAt = lens _lCreatedAt (\s a -> s { _lCreatedAt = a })
 
 -- | The ARN of the default IAM profile to be used for the layer's EC2
--- instances. For more information about IAM ARNs, see Using Identifiers.
+-- instances. For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 lCustomInstanceProfileArn :: Lens' Layer (Maybe Text)
 lCustomInstanceProfileArn =
     lens _lCustomInstanceProfileArn
@@ -2531,7 +2553,7 @@ lEnableAutoHealing =
 
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is true. If this value is set to false, you must
--- then update your instances manually by using CreateDeployment to run the
+-- then update your instances manually by using CreateDeployment> to run the
 -- update_dependencies stack command or manually running yum (Amazon Linux)
 -- or apt-get (Ubuntu) on the instances.
 lInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
@@ -2921,7 +2943,9 @@ sAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
 sAttributes = lens _sAttributes (\s a -> s { _sAttributes = a }) . _Map
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
--- the Berkshelf version. For more information, see Create a New Stack.
+-- the Berkshelf version. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html
+-- Create a New Stack>.
 sChefConfiguration :: Lens' Stack (Maybe ChefConfiguration)
 sChefConfiguration =
     lens _sChefConfiguration (\s a -> s { _sChefConfiguration = a })
@@ -2943,21 +2967,24 @@ sCustomCookbooksSource =
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as
 -- '"'.: "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more
--- information on custom JSON, see Use Custom JSON to Modify the Stack
--- Configuration JSON.
+-- information on custom JSON, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html
+-- Use Custom JSON to Modify the Stack Configuration JSON>.
 sCustomJson :: Lens' Stack (Maybe Text)
 sCustomJson = lens _sCustomJson (\s a -> s { _sCustomJson = a })
 
--- | The stack's default Availability Zone. For more information, see Regions
--- and Endpoints.
+-- | The stack's default Availability Zone. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>.
 sDefaultAvailabilityZone :: Lens' Stack (Maybe Text)
 sDefaultAvailabilityZone =
     lens _sDefaultAvailabilityZone
         (\s a -> s { _sDefaultAvailabilityZone = a })
 
 -- | The ARN of an IAM profile that is the default profile for all of the
--- stack's EC2 instances. For more information about IAM ARNs, see Using
--- Identifiers.
+-- stack's EC2 instances. For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 sDefaultInstanceProfileArn :: Lens' Stack (Maybe Text)
 sDefaultInstanceProfileArn =
     lens _sDefaultInstanceProfileArn
@@ -2970,7 +2997,9 @@ sDefaultOs = lens _sDefaultOs (\s a -> s { _sDefaultOs = a })
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
--- instance. For more information, see Storage for the Root Device.
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device
+-- Storage for the Root Device>.
 sDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
 sDefaultRootDeviceType =
     lens _sDefaultRootDeviceType (\s a -> s { _sDefaultRootDeviceType = a })
@@ -2994,7 +3023,8 @@ sName :: Lens' Stack (Maybe Text)
 sName = lens _sName (\s a -> s { _sName = a })
 
 -- | The stack AWS region, such as "us-east-1". For more information about AWS
--- regions, see Regions and Endpoints.
+-- regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html
+-- Regions and Endpoints>.
 sRegion :: Lens' Stack (Maybe Text)
 sRegion = lens _sRegion (\s a -> s { _sRegion = a })
 
@@ -3403,7 +3433,9 @@ instance' = Instance
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be
 -- based on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu
--- 12.04 LTS. For more information, see Instances.
+-- 12.04 LTS. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html
+-- Instances>.
 iAmiId :: Lens' Instance (Maybe Text)
 iAmiId = lens _iAmiId (\s a -> s { _iAmiId = a })
 
@@ -3420,8 +3452,9 @@ iArchitecture = lens _iArchitecture (\s a -> s { _iArchitecture = a })
 iAutoScalingType :: Lens' Instance (Maybe AutoScalingType)
 iAutoScalingType = lens _iAutoScalingType (\s a -> s { _iAutoScalingType = a })
 
--- | The instance Availability Zone. For more information, see Regions and
--- Endpoints.
+-- | The instance Availability Zone. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>.
 iAvailabilityZone :: Lens' Instance (Maybe Text)
 iAvailabilityZone =
     lens _iAvailabilityZone (\s a -> s { _iAvailabilityZone = a })
@@ -3438,7 +3471,9 @@ iEbsOptimized = lens _iEbsOptimized (\s a -> s { _iEbsOptimized = a })
 iEc2InstanceId :: Lens' Instance (Maybe Text)
 iEc2InstanceId = lens _iEc2InstanceId (\s a -> s { _iEc2InstanceId = a })
 
--- | The instance Elastic IP address .
+-- | The instance
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+-- Elastic IP address >.
 iElasticIp :: Lens' Instance (Maybe Text)
 iElasticIp = lens _iElasticIp (\s a -> s { _iElasticIp = a })
 
@@ -3448,7 +3483,7 @@ iHostname = lens _iHostname (\s a -> s { _iHostname = a })
 
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is true. If this value is set to false, you must
--- then update your instances manually by using CreateDeployment to run the
+-- then update your instances manually by using CreateDeployment> to run the
 -- update_dependencies stack command or manually running yum (Amazon Linux)
 -- or apt-get (Ubuntu) on the instances.
 iInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
@@ -3460,21 +3495,25 @@ iInstanceId :: Lens' Instance (Maybe Text)
 iInstanceId = lens _iInstanceId (\s a -> s { _iInstanceId = a })
 
 -- | The ARN of the instance's IAM profile. For more information about IAM
--- ARNs, see Using Identifiers.
+-- ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 iInstanceProfileArn :: Lens' Instance (Maybe Text)
 iInstanceProfileArn =
     lens _iInstanceProfileArn (\s a -> s { _iInstanceProfileArn = a })
 
 -- | The instance type. AWS OpsWorks supports all instance types except
 -- Cluster Compute, Cluster GPU, and High Memory Cluster. For more
--- information, see Instance Families and Types. The parameter values that
--- specify the various types are in the API Name column of the Available
--- Instance Types table.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+-- Instance Families and Types>. The parameter values that specify the
+-- various types are in the API Name column of the Available Instance Types
+-- table.
 iInstanceType :: Lens' Instance (Maybe Text)
 iInstanceType = lens _iInstanceType (\s a -> s { _iInstanceType = a })
 
 -- | The ID of the last service error. For more information, call
--- DescribeServiceErrors.
+-- DescribeServiceErrors>.
 iLastServiceErrorId :: Lens' Instance (Maybe Text)
 iLastServiceErrorId =
     lens _iLastServiceErrorId (\s a -> s { _iLastServiceErrorId = a })
@@ -3503,8 +3542,9 @@ iPublicDns = lens _iPublicDns (\s a -> s { _iPublicDns = a })
 iPublicIp :: Lens' Instance (Maybe Text)
 iPublicIp = lens _iPublicIp (\s a -> s { _iPublicIp = a })
 
--- | The instance root device type. For more information, see Storage for the
--- Root Device.
+-- | The instance root device type. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device
+-- Storage for the Root Device>.
 iRootDeviceType :: Lens' Instance (Maybe RootDeviceType)
 iRootDeviceType = lens _iRootDeviceType (\s a -> s { _iRootDeviceType = a })
 
@@ -3702,8 +3742,9 @@ dCreatedAt = lens _dCreatedAt (\s a -> s { _dCreatedAt = a })
 -- the corresponding default stack configuration JSON values for stack. The
 -- string should be in the following format and must escape characters such
 -- as '"'.: "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more
--- information on custom JSON, see Use Custom JSON to Modify the Stack
--- Configuration JSON.
+-- information on custom JSON, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html
+-- Use Custom JSON to Modify the Stack Configuration JSON>.
 dCustomJson :: Lens' Deployment (Maybe Text)
 dCustomJson = lens _dCustomJson (\s a -> s { _dCustomJson = a })
 

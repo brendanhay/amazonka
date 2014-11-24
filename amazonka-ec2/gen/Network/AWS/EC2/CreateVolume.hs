@@ -28,9 +28,12 @@
 -- Encrypted parameter. Encrypted volumes may only be attached to instances
 -- that support Amazon EBS encryption. Volumes that are created from encrypted
 -- snapshots are also automatically encrypted. For more information, see
--- Amazon EBS Encryption in the Amazon Elastic Compute Cloud User Guide. For
--- more information, see Creating or Restoring an Amazon EBS Volume in the
--- Amazon Elastic Compute Cloud User Guide.
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
+-- Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html
+-- Creating or Restoring an Amazon EBS Volume> in the /Amazon Elastic Compute
+-- Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html>
 module Network.AWS.EC2.CreateVolume
@@ -112,7 +115,7 @@ createVolume p1 = CreateVolume
     }
 
 -- | The Availability Zone in which to create the volume. Use
--- DescribeAvailabilityZones to list the Availability Zones that are
+-- DescribeAvailabilityZones> to list the Availability Zones that are
 -- currently available to you.
 cv1AvailabilityZone :: Lens' CreateVolume Text
 cv1AvailabilityZone =
@@ -224,11 +227,13 @@ cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 -- this represents the baseline performance of the volume and the rate at
 -- which the volume accumulates I/O credits for bursting. For more
 -- information on General Purpose (SSD) baseline performance, I/O credits,
--- and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute
--- Cloud User Guide. Constraint: Range is 100 to 4000 for Provisioned IOPS
--- (SSD) volumes and 3 to 3072 for General Purpose (SSD) volumes. Condition:
--- This parameter is required for requests to create io1 volumes; it is not
--- used in requests to create standard or gp2 volumes.
+-- and bursting, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+-- Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User
+-- Guide/. Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD)
+-- volumes and 3 to 3072 for General Purpose (SSD) volumes. Condition: This
+-- parameter is required for requests to create io1 volumes; it is not used
+-- in requests to create standard or gp2 volumes.
 cvrIops :: Lens' CreateVolumeResponse (Maybe Int)
 cvrIops = lens _cvrIops (\s a -> s { _cvrIops = a })
 

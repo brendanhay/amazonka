@@ -83,7 +83,8 @@ getStackPolicyResponse = GetStackPolicyResponse
     }
 
 -- | Structure containing the stack policy body. (For more information, go to
--- Prevent Updates to Stack Resources in the AWS CloudFormation User
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html
+-- Prevent Updates to Stack Resources> in the AWS CloudFormation User
 -- Guide.).
 gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprStackPolicyBody =

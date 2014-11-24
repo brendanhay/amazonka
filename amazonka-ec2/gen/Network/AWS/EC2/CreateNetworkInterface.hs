@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a network interface in the specified subnet. For more information
--- about network interfaces, see Elastic Network Interfaces in the Amazon
--- Elastic Compute Cloud User Guide.
+-- about network interfaces, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic
+-- Network Interfaces> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkInterface.html>
 module Network.AWS.EC2.CreateNetworkInterface
@@ -125,8 +126,9 @@ cniPrivateIpAddresses =
 -- this option and specify more than one private IP address using
 -- privateIpAddresses. The number of IP addresses you can assign to a
 -- network interface varies by instance type. For more information, see
--- Private IP Addresses Per ENI Per Instance Type in the Amazon Elastic
--- Compute Cloud User Guide.
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI
+-- Private IP Addresses Per ENI Per Instance Type> in the /Amazon Elastic
+-- Compute Cloud User Guide/.
 cniSecondaryPrivateIpAddressCount :: Lens' CreateNetworkInterface (Maybe Int)
 cniSecondaryPrivateIpAddressCount =
     lens _cniSecondaryPrivateIpAddressCount

@@ -25,8 +25,9 @@
 -- subnet to be routed according to the routes in the route table. The action
 -- returns an association ID, which you need in order to disassociate the
 -- route table from the subnet later. A route table can be associated with
--- multiple subnets. For more information about route tables, see Route Tables
--- in the Amazon Virtual Private Cloud User Guide.
+-- multiple subnets. For more information about route tables, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
+-- Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html>
 module Network.AWS.EC2.AssociateRouteTable

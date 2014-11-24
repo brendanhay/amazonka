@@ -1676,8 +1676,9 @@ iilsInstanceInitiatedShutdownBehavior =
     lens _iilsInstanceInitiatedShutdownBehavior
         (\s a -> s { _iilsInstanceInitiatedShutdownBehavior = a })
 
--- | The instance type. For more information, see Instance Types in the Amazon
--- Elastic Compute Cloud User Guide.
+-- | The instance type. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
+-- Instance Types> in the /Amazon Elastic Compute Cloud User Guide/.
 iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\s a -> s { _iilsInstanceType = a })
 
@@ -2474,7 +2475,7 @@ inisDescription :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisDescription = lens _inisDescription (\s a -> s { _inisDescription = a })
 
 -- | The index of the device on the instance for the network interface
--- attachment. If you are specifying a network interface in a RunInstances
+-- attachment. If you are specifying a network interface in a RunInstances>
 -- request, you must provide the device index.
 inisDeviceIndex :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisDeviceIndex = lens _inisDeviceIndex (\s a -> s { _inisDeviceIndex = a })
@@ -4170,9 +4171,10 @@ siSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
 siSpotPrice = lens _siSpotPrice (\s a -> s { _siSpotPrice = a })
 
 -- | The state of the Spot Instance request. Spot bid status information can
--- help you track your Spot Instance requests. For information, see Tracking
--- Spot Requests with Bid Status Codes in the Amazon Elastic Compute Cloud
--- User Guide.
+-- help you track your Spot Instance requests. For information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html
+-- Tracking Spot Requests with Bid Status Codes> in the /Amazon Elastic
+-- Compute Cloud User Guide/.
 siState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 siState = lens _siState (\s a -> s { _siState = a })
 
@@ -4566,11 +4568,13 @@ vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 -- this represents the baseline performance of the volume and the rate at
 -- which the volume accumulates I/O credits for bursting. For more
 -- information on General Purpose (SSD) baseline performance, I/O credits,
--- and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute
--- Cloud User Guide. Constraint: Range is 100 to 4000 for Provisioned IOPS
--- (SSD) volumes and 3 to 3072 for General Purpose (SSD) volumes. Condition:
--- This parameter is required for requests to create io1 volumes; it is not
--- used in requests to create standard or gp2 volumes.
+-- and bursting, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+-- Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User
+-- Guide/. Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD)
+-- volumes and 3 to 3072 for General Purpose (SSD) volumes. Condition: This
+-- parameter is required for requests to create io1 volumes; it is not used
+-- in requests to create standard or gp2 volumes.
 vIops :: Lens' Volume (Maybe Int)
 vIops = lens _vIops (\s a -> s { _vIops = a })
 
@@ -5332,8 +5336,8 @@ keyPairInfo = KeyPairInfo
     , _kpiKeyFingerprint = Nothing
     }
 
--- | If you used CreateKeyPair to create the key pair, this is the SHA-1
--- digest of the DER encoded private key. If you used ImportKeyPair to
+-- | If you used CreateKeyPair> to create the key pair, this is the SHA-1
+-- digest of the DER encoded private key. If you used ImportKeyPair> to
 -- provide AWS the public key, this is the MD5 public key fingerprint as
 -- specified in section 4 of RFC4716.
 kpiKeyFingerprint :: Lens' KeyPairInfo (Maybe Text)
@@ -5509,8 +5513,9 @@ didFormat = lens _didFormat (\s a -> s { _didFormat = a })
 -- | A presigned URL for the import manifest stored in Amazon S3. For
 -- information about creating a presigned URL for an Amazon S3 object, read
 -- the "Query String Request Authentication Alternative" section of the
--- Authenticating REST Requests topic in the Amazon Simple Storage Service
--- Developer Guide.
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html
+-- Authenticating REST Requests> topic in the /Amazon Simple Storage Service
+-- Developer Guide/.
 didImportManifestUrl :: Lens' DiskImageDetail Text
 didImportManifestUrl =
     lens _didImportManifestUrl (\s a -> s { _didImportManifestUrl = a })
@@ -7487,8 +7492,9 @@ did1Format = lens _did1Format (\s a -> s { _did1Format = a })
 -- | A presigned URL for the import manifest stored in Amazon S3. For
 -- information about creating a presigned URL for an Amazon S3 object, read
 -- the "Query String Request Authentication Alternative" section of the
--- Authenticating REST Requests topic in the Amazon Simple Storage Service
--- Developer Guide.
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html
+-- Authenticating REST Requests> topic in the /Amazon Simple Storage Service
+-- Developer Guide/.
 did1ImportManifestUrl :: Lens' DiskImageDescription Text
 did1ImportManifestUrl =
     lens _did1ImportManifestUrl (\s a -> s { _did1ImportManifestUrl = a })
@@ -8398,10 +8404,12 @@ ipPermission p1 p2 p3 = IpPermission
 ipFromPort :: Lens' IpPermission Int
 ipFromPort = lens _ipFromPort (\s a -> s { _ipFromPort = a })
 
--- | The protocol. When you call DescribeSecurityGroups, the protocol value
+-- | The protocol. When you call DescribeSecurityGroups>, the protocol value
 -- returned is the number. Exception: For TCP, UDP, and ICMP, the value
 -- returned is the name (for example, tcp, udp, or icmp). For a list of
--- protocol numbers, see Protocol Numbers.
+-- protocol numbers, see
+-- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
+-- Protocol Numbers>.
 ipIpProtocol :: Lens' IpPermission Text
 ipIpProtocol = lens _ipIpProtocol (\s a -> s { _ipIpProtocol = a })
 
@@ -9162,7 +9170,7 @@ isEvents = lens _isEvents (\s a -> s { _isEvents = a }) . _List
 isInstanceId :: Lens' InstanceStatus (Maybe Text)
 isInstanceId = lens _isInstanceId (\s a -> s { _isInstanceId = a })
 
--- | The intended state of the instance. DescribeInstanceStatus requires that
+-- | The intended state of the instance. DescribeInstanceStatus> requires that
 -- an instance be in the running state.
 isInstanceState :: Lens' InstanceStatus (Maybe InstanceState)
 isInstanceState = lens _isInstanceState (\s a -> s { _isInstanceState = a })
@@ -9323,11 +9331,13 @@ ebdEncrypted = lens _ebdEncrypted (\s a -> s { _ebdEncrypted = a })
 -- this represents the baseline performance of the volume and the rate at
 -- which the volume accumulates I/O credits for bursting. For more
 -- information on General Purpose (SSD) baseline performance, I/O credits,
--- and bursting, see Amazon EBS Volume Types in the Amazon Elastic Compute
--- Cloud User Guide. Constraint: Range is 100 to 4000 for Provisioned IOPS
--- (SSD) volumes and 3 to 3072 for General Purpose (SSD) volumes. Condition:
--- This parameter is required for requests to create io1 volumes; it is not
--- used in requests to create standard or gp2 volumes.
+-- and bursting, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+-- Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User
+-- Guide/. Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD)
+-- volumes and 3 to 3072 for General Purpose (SSD) volumes. Condition: This
+-- parameter is required for requests to create io1 volumes; it is not used
+-- in requests to create standard or gp2 volumes.
 ebdIops :: Lens' EbsBlockDevice (Maybe Int)
 ebdIops = lens _ebdIops (\s a -> s { _ebdIops = a })
 
@@ -11125,8 +11135,8 @@ vpnConnection = VpnConnection
 
 -- | The configuration information for the VPN connection's customer gateway
 -- (in the native XML format). This element is always present in the
--- CreateVpnConnection response; however, it's present in the
--- DescribeVpnConnections response only if the VPN connection is in the
+-- CreateVpnConnection> response; however, it's present in the
+-- DescribeVpnConnections> response only if the VPN connection is in the
 -- pending or available state.
 vcCustomerGatewayConfiguration :: Lens' VpnConnection (Maybe Text)
 vcCustomerGatewayConfiguration =
@@ -11469,8 +11479,9 @@ s3Storage = S3Storage
     }
 
 -- | The access key ID of the owner of the bucket. Before you specify a value
--- for your access key ID, review and follow the guidance in Best Practices
--- for Managing AWS Access Keys.
+-- for your access key ID, review and follow the guidance in
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html
+-- Best Practices for Managing AWS Access Keys>.
 ssAWSAccessKeyId :: Lens' S3Storage (Maybe Text)
 ssAWSAccessKeyId = lens _ssAWSAccessKeyId (\s a -> s { _ssAWSAccessKeyId = a })
 
@@ -11962,8 +11973,9 @@ i1SecurityGroups = lens _i1SecurityGroups (\s a -> s { _i1SecurityGroups = a }) 
 -- This controls whether source/destination checking is enabled on the
 -- instance. A value of true means checking is enabled, and false means
 -- checking is disabled. The value must be false for the instance to perform
--- NAT. For more information, see NAT Instances in the Amazon Virtual
--- Private Cloud User Guide.
+-- NAT. For more information, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html
+-- NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
 i1SourceDestCheck :: Lens' Instance (Maybe Bool)
 i1SourceDestCheck =
     lens _i1SourceDestCheck (\s a -> s { _i1SourceDestCheck = a })

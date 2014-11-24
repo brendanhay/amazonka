@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Lists the policy adjustment types for use with PutScalingPolicy.
+-- | Lists the policy adjustment types for use with PutScalingPolicy>.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAdjustmentTypes.html>
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes

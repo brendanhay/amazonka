@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DescribeCacheSubnetGroups operation returns a list of cache subnet
+-- | The /DescribeCacheSubnetGroups/ operation returns a list of cache subnet
 -- group descriptions. If a subnet group name is specified, the list will
 -- contain only the description of that group.
 --
@@ -82,7 +82,7 @@ dcsgCacheSubnetGroupName =
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords.
+-- the value specified by /MaxRecords/.
 dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 

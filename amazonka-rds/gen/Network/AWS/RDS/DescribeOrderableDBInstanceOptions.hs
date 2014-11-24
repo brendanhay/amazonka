@@ -168,7 +168,7 @@ describeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsR
 dodbiorMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodbiorMarker = lens _dodbiorMarker (\s a -> s { _dodbiorMarker = a })
 
--- | An OrderableDBInstanceOption structure containing information about
+-- | An OrderableDBInstanceOption> structure containing information about
 -- orderable options for the DB instance.
 dodbiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
 dodbiorOrderableDBInstanceOptions =

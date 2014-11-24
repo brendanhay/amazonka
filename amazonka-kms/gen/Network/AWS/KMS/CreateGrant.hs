@@ -26,8 +26,9 @@
 -- the user. By default, grants do not expire. Grants can be listed, retired,
 -- or revoked as indicated by the following APIs. Typically, when you are
 -- finished using a grant, you retire it. When you want to end a grant
--- immediately, revoke it. For more information about grants, see Grants.
--- ListGrants RetireGrant RevokeGrant.
+-- immediately, revoke it. For more information about grants, see
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants>.
+-- ListGrants> RetireGrant> RevokeGrant>.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html>
 module Network.AWS.KMS.CreateGrant
@@ -122,7 +123,7 @@ cgOperations :: Lens' CreateGrant [GrantOperation]
 cgOperations = lens _cgOperations (\s a -> s { _cgOperations = a }) . _List
 
 -- | Principal given permission to retire the grant. For more information, see
--- RetireGrant.
+-- RetireGrant>.
 cgRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
 cgRetiringPrincipal =
     lens _cgRetiringPrincipal (\s a -> s { _cgRetiringPrincipal = a })
@@ -146,7 +147,8 @@ createGrantResponse = CreateGrantResponse
     , _cgrGrantId    = Nothing
     }
 
--- | Unique grant identifier. You can use the GrantId value to revoke a grant.
+-- | Unique grant identifier. You can use the /GrantId/ value to revoke a
+-- grant.
 cgrGrantId :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantId = lens _cgrGrantId (\s a -> s { _cgrGrantId = a })
 

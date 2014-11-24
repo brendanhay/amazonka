@@ -26,7 +26,7 @@
 -- of data and traffic, but not below the desired instance type and
 -- replication count. If the Multi-AZ option is enabled, these values control
 -- the resources used per Availability Zone. For more information, see
--- Configuring Scaling Options in the Amazon CloudSearch Developer Guide.
+-- Configuring Scaling Options> in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateScalingParameters.html>
 module Network.AWS.CloudSearch.UpdateScalingParameters

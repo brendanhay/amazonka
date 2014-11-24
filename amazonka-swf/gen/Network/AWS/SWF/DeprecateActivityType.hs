@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deprecates the specified activity type. After an activity type has been
+-- | Deprecates the specified /activity type/. After an activity type has been
 -- deprecated, you cannot create new tasks of that activity type. Tasks of
 -- this type that were scheduled before the type was deprecated will continue
 -- to run. Access Control You can use IAM policies to control this action's
@@ -33,8 +33,9 @@
 -- swf:activityType.version. If the caller does not have sufficient
 -- permissions to invoke the action, or the parameter values fall outside the
 -- specified constraints, the action fails by throwing OperationNotPermitted.
--- For details and example IAM policies, see Using IAM to Manage Access to
--- Amazon SWF Workflows.
+-- For details and example IAM policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
+-- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateActivityType.html>
 module Network.AWS.SWF.DeprecateActivityType

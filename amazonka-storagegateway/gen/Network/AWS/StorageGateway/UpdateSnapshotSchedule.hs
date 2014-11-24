@@ -96,12 +96,12 @@ ussRecurrenceInHours =
         . _Nat
 
 -- | The hour of the day at which the snapshot schedule begins represented as
--- hh, where hh is the hour (0 to 23). The hour of the day is in the time
--- zone of the gateway.
+-- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
+-- time zone of the gateway.
 ussStartAt :: Lens' UpdateSnapshotSchedule Natural
 ussStartAt = lens _ussStartAt (\s a -> s { _ussStartAt = a }) . _Nat
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes>
 -- operation to return a list of gateway volumes.
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
 ussVolumeARN = lens _ussVolumeARN (\s a -> s { _ussVolumeARN = a })

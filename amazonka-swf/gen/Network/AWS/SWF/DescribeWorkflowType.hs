@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns information about the specified workflow type. This includes
+-- | Returns information about the specified /workflow type/. This includes
 -- configuration settings specified when the type was registered and other
 -- information such as creation date, current status, etc. Access Control You
 -- can use IAM policies to control this action's access to Amazon SWF
@@ -32,8 +32,9 @@
 -- String constraint. The key is swf:workflowType.version. If the caller does
 -- not have sufficient permissions to invoke the action, or the parameter
 -- values fall outside the specified constraints, the action fails by throwing
--- OperationNotPermitted. For details and example IAM policies, see Using IAM
--- to Manage Access to Amazon SWF Workflows.
+-- OperationNotPermitted. For details and example IAM policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
+-- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowType.html>
 module Network.AWS.SWF.DescribeWorkflowType
@@ -111,7 +112,7 @@ describeWorkflowTypeResponse p1 p2 = DescribeWorkflowTypeResponse
     }
 
 -- | Configuration settings of the workflow type registered through
--- RegisterWorkflowType.
+-- RegisterWorkflowType>.
 dwtrConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrConfiguration =
     lens _dwtrConfiguration (\s a -> s { _dwtrConfiguration = a })
@@ -120,7 +121,7 @@ dwtrConfiguration =
 -- type (returned in the WorkflowTypeInfo structure) can be one of the
 -- following. REGISTERED: The type is registered and available. Workers
 -- supporting this type should be running. DEPRECATED: The type was
--- deprecated using DeprecateWorkflowType, but is still in use. You should
+-- deprecated using DeprecateWorkflowType>, but is still in use. You should
 -- keep workers supporting this type running. You cannot create new workflow
 -- executions of this type.
 dwtrTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo

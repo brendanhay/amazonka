@@ -36,9 +36,12 @@
 -- Amazon CloudSearch configuration service DescribeDomains action. A domain's
 -- endpoints are also displayed on the domain dashboard in the Amazon
 -- CloudSearch console. For more information about formatting your data for
--- Amazon CloudSearch, see Preparing Your Data in the Amazon CloudSearch
--- Developer Guide. For more information about uploading data for indexing,
--- see Uploading Data in the Amazon CloudSearch Developer Guide.
+-- Amazon CloudSearch, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/preparing-data.html
+-- Preparing Your Data> in the /Amazon CloudSearch Developer Guide/. For more
+-- information about uploading data for indexing, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html
+-- Uploading Data> in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UploadDocuments.html>
 module Network.AWS.CloudSearchDomains.UploadDocuments

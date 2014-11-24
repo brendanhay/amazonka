@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The GetItem operation returns a set of attributes for the item with the
--- given primary key. If there is no matching item, GetItem does not return
--- any data. GetItem provides an eventually consistent read by default. If
--- your application requires a strongly consistent read, set ConsistentRead to
--- true. Although a strongly consistent read might take more time than an
+-- | The /GetItem/ operation returns a set of attributes for the item with the
+-- given primary key. If there is no matching item, /GetItem/ does not return
+-- any data. /GetItem/ provides an eventually consistent read by default. If
+-- your application requires a strongly consistent read, set /ConsistentRead/
+-- to true. Although a strongly consistent read might take more time than an
 -- eventually consistent read, it always returns the last updated value.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html>
@@ -98,15 +98,15 @@ getItem p1 p2 = GetItem
     , _giExpressionAttributeNames = mempty
     }
 
--- | There is a newer parameter available. Use ProjectionExpression instead.
--- Note that if you use AttributesToGet and ProjectionExpression at the same
--- time, DynamoDB will return a ValidationException exception. This
+-- | There is a newer parameter available. Use /ProjectionExpression/ instead.
+-- Note that if you use /AttributesToGet/ and /ProjectionExpression/ at the
+-- same time, DynamoDB will return a /ValidationException/ exception. This
 -- parameter allows you to retrieve lists or maps; however, it cannot
 -- retrieve individual list or map elements. The names of one or more
 -- attributes to retrieve. If no attribute names are specified, then all
 -- attributes will be returned. If any of the requested attributes are not
--- found, they will not appear in the result. Note that AttributesToGet has
--- no effect on provisioned throughput consumption. DynamoDB determines
+-- found, they will not appear in the result. Note that /AttributesToGet/
+-- has no effect on provisioned throughput consumption. DynamoDB determines
 -- capacity units consumed based on item size, not on the amount of data
 -- that is returned to an application.
 giAttributesToGet :: Lens' GetItem (NonEmpty Text)
@@ -120,7 +120,7 @@ giConsistentRead :: Lens' GetItem (Maybe Bool)
 giConsistentRead = lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
 
 -- | One or more substitution tokens for simplifying complex expressions. The
--- following are some use cases for an ExpressionAttributeNames value: To
+-- following are some use cases for an /ExpressionAttributeNames/ value: To
 -- shorten an attribute name that is very long or unwieldy in an expression.
 -- To create a placeholder for repeating occurrences of an attribute name in
 -- an expression. To prevent special characters in an attribute name from
@@ -128,7 +128,7 @@ giConsistentRead = lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
 -- expression to dereference an attribute name. For example, consider the
 -- following expression: order.customerInfo.LastName = "Smith" OR
 -- order.customerInfo.LastName = "Jones" Now suppose that you specified the
--- following for ExpressionAttributeNames:
+-- following for /ExpressionAttributeNames/:
 -- {"n":"order.customerInfo.LastName"} The expression can now be simplified
 -- as follows: #n = "Smith" OR #n = "Jones".
 giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
@@ -137,7 +137,7 @@ giExpressionAttributeNames =
         (\s a -> s { _giExpressionAttributeNames = a })
             . _Map
 
--- | A map of attribute names to AttributeValue objects, representing the
+-- | A map of attribute names to /AttributeValue/ objects, representing the
 -- primary key of the item to retrieve. For the primary key, you must
 -- provide all of the attributes. For example, with a hash type primary key,
 -- you only need to specify the hash attribute. For a hash-and-range type
@@ -187,8 +187,8 @@ girConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
 girConsumedCapacity =
     lens _girConsumedCapacity (\s a -> s { _girConsumedCapacity = a })
 
--- | A map of attribute names to AttributeValue objects, as specified by
--- AttributesToGet.
+-- | A map of attribute names to /AttributeValue/ objects, as specified by
+-- /AttributesToGet/.
 girItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
 girItem = lens _girItem (\s a -> s { _girItem = a }) . _Map
 

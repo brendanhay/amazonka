@@ -25,8 +25,10 @@
 -- about to remove from the instance profile. Removing a role from an instance
 -- profile that is associated with a running instance will break any
 -- applications running on the instance. For more information about roles, go
--- to Working with Roles. For more information about instance profiles, go to
--- About Instance Profiles.
+-- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
+-- Working with Roles>. For more information about instance profiles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html
+-- About Instance Profiles>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html>
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile

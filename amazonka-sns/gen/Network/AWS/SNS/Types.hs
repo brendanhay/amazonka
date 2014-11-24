@@ -147,12 +147,15 @@ mavBinaryValue :: Lens' MessageAttributeValue (Maybe Base64)
 mavBinaryValue = lens _mavBinaryValue (\s a -> s { _mavBinaryValue = a })
 
 -- | Amazon SNS supports the following logical data types: String, Number, and
--- Binary. For more information, see Message Attribute Data Types.
+-- Binary. For more information, see
+-- <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes
+-- Message Attribute Data Types>.
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\s a -> s { _mavDataType = a })
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code values,
--- see http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters.
+-- see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
+-- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 

@@ -21,10 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns all stack related events for a specified stack. For more
--- information about a stack's event history, go to Stacks in the AWS
--- CloudFormation User Guide. You can list events for stacks that have failed
--- to create or have been deleted by specifying the unique stack identifier
--- (stack ID).
+-- information about a stack's event history, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html
+-- Stacks> in the AWS CloudFormation User Guide. You can list events for
+-- stacks that have failed to create or have been deleted by specifying the
+-- unique stack identifier (stack ID).
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html>
 module Network.AWS.CloudFormation.DescribeStackEvents

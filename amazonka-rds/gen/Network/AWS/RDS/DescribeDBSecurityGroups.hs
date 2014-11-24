@@ -121,7 +121,7 @@ describeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     , _ddbsgr1DBSecurityGroups = mempty
     }
 
--- | A list of DBSecurityGroup instances.
+-- | A list of DBSecurityGroup> instances.
 ddbsgr1DBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
 ddbsgr1DBSecurityGroups =
     lens _ddbsgr1DBSecurityGroups (\s a -> s { _ddbsgr1DBSecurityGroups = a })

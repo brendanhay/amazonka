@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The RebootCacheCluster operation reboots some, or all, of the cache nodes
+-- | The /RebootCacheCluster/ operation reboots some, or all, of the cache nodes
 -- within a provisioned cache cluster. This API will apply any modified cache
 -- parameter groups to the cache cluster. The reboot action takes place as
 -- soon as possible, and results in a momentary outage to the cache cluster.

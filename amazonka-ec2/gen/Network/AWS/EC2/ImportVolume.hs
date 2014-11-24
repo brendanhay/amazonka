@@ -23,8 +23,10 @@
 -- | Creates an import volume task using metadata from the specified disk image.
 -- After importing the image, you then upload it using the ec2-import-volume
 -- command in the Amazon EC2 command-line interface (CLI) tools. For more
--- information, see Using the Command Line Tools to Import Your Virtual
--- Machine to Amazon EC2 in the Amazon Elastic Compute Cloud User Guide.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html
+-- Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportVolume.html>
 module Network.AWS.EC2.ImportVolume

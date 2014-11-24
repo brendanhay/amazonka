@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of your subnets. For more information about subnets,
--- see Your VPC and Subnets in the Amazon Virtual Private Cloud User Guide.
+-- see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
+-- Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSubnets.html>
 module Network.AWS.EC2.DescribeSubnets
@@ -83,17 +84,17 @@ dsDryRun = lens _dsDryRun (\s a -> s { _dsDryRun = a })
 -- cidr-block as the filter names. defaultForAz - Indicates whether this is
 -- the default subnet for the Availability Zone. You can also use
 -- default-for-az as the filter name. state - The state of the subnet
--- (pending | available). subnet-id - The ID of the subnet. tag:key=value -
--- The key/value combination of a tag assigned to the resource. tag-key -
--- The key of a tag assigned to the resource. This filter is independent of
--- the tag-value filter. For example, if you use both the filter
--- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
--- assigned both the tag key Purpose (regardless of what the tag's value
--- is), and the tag value X (regardless of what the tag's key is). If you
--- want to list only resources where Purpose is X, see the tag:key=value
--- filter. tag-value - The value of a tag assigned to the resource. This
--- filter is independent of the tag-key filter. vpc-id - The ID of the VPC
--- for the subnet.
+-- (pending | available). subnet-id - The ID of the subnet.
+-- tag:/key/=/value/ - The key/value combination of a tag assigned to the
+-- resource. tag-key - The key of a tag assigned to the resource. This
+-- filter is independent of the tag-value filter. For example, if you use
+-- both the filter "tag-key=Purpose" and the filter "tag-value=X", you get
+-- any resources assigned both the tag key Purpose (regardless of what the
+-- tag's value is), and the tag value X (regardless of what the tag's key
+-- is). If you want to list only resources where Purpose is X, see the
+-- tag:/key/=/value/ filter. tag-value - The value of a tag assigned to the
+-- resource. This filter is independent of the tag-key filter. vpc-id - The
+-- ID of the VPC for the subnet.
 dsFilters :: Lens' DescribeSubnets [Filter]
 dsFilters = lens _dsFilters (\s a -> s { _dsFilters = a }) . _List
 

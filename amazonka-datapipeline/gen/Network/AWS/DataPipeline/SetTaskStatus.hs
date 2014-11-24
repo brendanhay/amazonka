@@ -23,8 +23,8 @@
 -- | Notifies AWS Data Pipeline that a task is completed and provides
 -- information about the final status. The task runner calls this action
 -- regardless of whether the task was sucessful. The task runner does not need
--- to call SetTaskStatus for tasks that are canceled by the web service during
--- a call to ReportTaskProgress.
+-- to call SetTaskStatus> for tasks that are canceled by the web service
+-- during a call to ReportTaskProgress>.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetTaskStatus.html>
 module Network.AWS.DataPipeline.SetTaskStatus
@@ -107,7 +107,7 @@ stsErrorStackTrace =
     lens _stsErrorStackTrace (\s a -> s { _stsErrorStackTrace = a })
 
 -- | Identifies the task assigned to the task runner. This value is set in the
--- TaskObject that is returned by the PollForTask action.
+-- TaskObject> that is returned by the PollForTask> action.
 stsTaskId :: Lens' SetTaskStatus Text
 stsTaskId = lens _stsTaskId (\s a -> s { _stsTaskId = a })
 

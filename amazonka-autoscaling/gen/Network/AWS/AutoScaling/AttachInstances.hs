@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Attaches one or more EC2 instances to the specified Auto Scaling group. For
--- more information, see Attach Amazon EC2 Instances to Your Existing Auto
--- Scaling Group in the Auto Scaling Developer Guide.
+-- more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html
+-- Attach Amazon EC2 Instances to Your Existing Auto Scaling Group> in the
+-- /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html>
 module Network.AWS.AutoScaling.AttachInstances

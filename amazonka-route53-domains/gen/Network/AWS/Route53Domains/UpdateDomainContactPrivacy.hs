@@ -24,11 +24,12 @@
 -- the privacy option is enabled, personal information such as postal or email
 -- address is hidden from the results of a public WHOIS query. The privacy
 -- services are provided by the AWS registrar, Gandi. For more information,
--- see the Gandi privacy features. This operation only affects the privacy of
--- the specified contact type (registrant, administrator, or tech). Successful
--- acceptance returns an operation ID that you can use with GetOperationDetail
--- to track the progress and completion of the action. If the request is not
--- completed successfully, the domain registrant will be notified by email.
+-- see the <http://www.gandi.net/domain/whois/?currency=USD&amp;lang=en Gandi
+-- privacy features>. This operation only affects the privacy of the specified
+-- contact type (registrant, administrator, or tech). Successful acceptance
+-- returns an operation ID that you can use with GetOperationDetail to track
+-- the progress and completion of the action. If the request is not completed
+-- successfully, the domain registrant will be notified by email.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContactPrivacy.html>
 module Network.AWS.Route53Domains.UpdateDomainContactPrivacy

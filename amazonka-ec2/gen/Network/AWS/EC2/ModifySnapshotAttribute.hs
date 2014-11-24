@@ -24,8 +24,9 @@
 -- or remove specified AWS account IDs from a snapshot's list of create volume
 -- permissions, but you cannot do both in a single API call. If you need to
 -- both add and remove account IDs for a snapshot, you must use multiple API
--- calls. For more information on modifying snapshot permissions, see Sharing
--- Snapshots in the Amazon Elastic Compute Cloud User Guide.
+-- calls. For more information on modifying snapshot permissions, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html
+-- Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySnapshotAttribute.html>
 module Network.AWS.EC2.ModifySnapshotAttribute

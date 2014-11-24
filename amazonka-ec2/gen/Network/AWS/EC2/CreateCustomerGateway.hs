@@ -30,8 +30,10 @@
 -- BGP Autonomous System Number (ASN). You can use an existing ASN assigned to
 -- your network. If you don't have an ASN already, you can use a private ASN
 -- (in the 64512 - 65534 range). For more information about VPN customer
--- gateways, see Adding a Hardware Virtual Private Gateway to Your VPC in the
--- Amazon Virtual Private Cloud User Guide.
+-- gateways, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding
+-- a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual
+-- Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html>
 module Network.AWS.EC2.CreateCustomerGateway

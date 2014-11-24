@@ -22,8 +22,9 @@
 
 -- | Returns meta-information on the specified load balancer policies defined by
 -- the Elastic Load Balancing service. The policy types that are returned from
--- this action can be used in a CreateLoadBalancerPolicy action to instantiate
--- specific policy configurations that will be applied to a load balancer.
+-- this action can be used in a CreateLoadBalancerPolicy> action to
+-- instantiate specific policy configurations that will be applied to a load
+-- balancer.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html>
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes

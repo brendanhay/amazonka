@@ -23,7 +23,9 @@
 -- | Updates a specified stack. Required Permissions: To use this action, an IAM
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
--- permissions, see Managing User Permissions.
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+-- Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateStack.html>
 module Network.AWS.OpsWorks.UpdateStack
@@ -149,7 +151,8 @@ usAttributes = lens _usAttributes (\s a -> s { _usAttributes = a }) . _Map
 
 -- | A ChefConfiguration object that specifies whether to enable Berkshelf and
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
--- Create a New Stack.
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html
+-- Create a New Stack>.
 usChefConfiguration :: Lens' UpdateStack (Maybe ChefConfiguration)
 usChefConfiguration =
     lens _usChefConfiguration (\s a -> s { _usChefConfiguration = a })
@@ -169,23 +172,26 @@ usCustomCookbooksSource =
 -- the corresponding default stack configuration JSON values. The string
 -- should be in the following format and must escape characters such as
 -- '"'.: "{\"key1\": \"value1\", \"key2\": \"value2\",...}" For more
--- information on custom JSON, see Use Custom JSON to Modify the Stack
--- Configuration JSON.
+-- information on custom JSON, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html
+-- Use Custom JSON to Modify the Stack Configuration JSON>.
 usCustomJson :: Lens' UpdateStack (Maybe Text)
 usCustomJson = lens _usCustomJson (\s a -> s { _usCustomJson = a })
 
 -- | The stack's default Availability Zone, which must be in the specified
--- region. For more information, see Regions and Endpoints. If you also
--- specify a value for DefaultSubnetId, the subnet must be in the same zone.
--- For more information, see CreateStack.
+-- region. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
+-- Endpoints>. If you also specify a value for DefaultSubnetId, the subnet
+-- must be in the same zone. For more information, see CreateStack>.
 usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usDefaultAvailabilityZone =
     lens _usDefaultAvailabilityZone
         (\s a -> s { _usDefaultAvailabilityZone = a })
 
 -- | The ARN of an IAM profile that is the default profile for all of the
--- stack's EC2 instances. For more information about IAM ARNs, see Using
--- Identifiers.
+-- stack's EC2 instances. For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 usDefaultInstanceProfileArn :: Lens' UpdateStack (Maybe Text)
 usDefaultInstanceProfileArn =
     lens _usDefaultInstanceProfileArn
@@ -198,7 +204,9 @@ usDefaultOs = lens _usDefaultOs (\s a -> s { _usDefaultOs = a })
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
--- instance. For more information, see Storage for the Root Device.
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device
+-- Storage for the Root Device>.
 usDefaultRootDeviceType :: Lens' UpdateStack (Maybe RootDeviceType)
 usDefaultRootDeviceType =
     lens _usDefaultRootDeviceType (\s a -> s { _usDefaultRootDeviceType = a })
@@ -212,7 +220,7 @@ usDefaultSshKeyName =
 -- | The stack's default subnet ID. All instances will be launched into this
 -- subnet unless you specify otherwise when you create the instance. If you
 -- also specify a value for DefaultAvailabilityZone, the subnet must be in
--- that zone. For more information, see CreateStack.
+-- that zone. For more information, see CreateStack>.
 usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usDefaultSubnetId =
     lens _usDefaultSubnetId (\s a -> s { _usDefaultSubnetId = a })
@@ -236,7 +244,9 @@ usName = lens _usName (\s a -> s { _usName = a })
 -- | The stack AWS Identity and Access Management (IAM) role, which allows AWS
 -- OpsWorks to work with AWS resources on your behalf. You must set this
 -- parameter to the Amazon Resource Name (ARN) for an existing IAM role. For
--- more information about IAM ARNs, see Using Identifiers.
+-- more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+-- Using Identifiers>.
 usServiceRoleArn :: Lens' UpdateStack (Maybe Text)
 usServiceRoleArn = lens _usServiceRoleArn (\s a -> s { _usServiceRoleArn = a })
 
@@ -263,7 +273,9 @@ usUseCustomCookbooks =
 -- layer that you create. However, you can still manually associate a
 -- built-in security group with a layer on creation; custom security groups
 -- are required only for those layers that need custom settings. For more
--- information, see Create a New Stack.
+-- information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html
+-- Create a New Stack>.
 usUseOpsworksSecurityGroups :: Lens' UpdateStack (Maybe Bool)
 usUseOpsworksSecurityGroups =
     lens _usUseOpsworksSecurityGroups

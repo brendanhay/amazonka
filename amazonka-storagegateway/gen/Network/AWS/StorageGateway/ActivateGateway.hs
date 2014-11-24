@@ -21,12 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation activates the gateway you previously deployed on your host.
--- For more information, see Activate the AWS Storage Gateway. In the
--- activation process, you specify information such as the region you want to
--- use for storing snapshots, the time zone for scheduled snapshots the
--- gateway snapshot schedule window, an activation key, and a name for your
--- gateway. The activation process also associates your gateway with your
--- account; for more information, see UpdateGatewayInformation.
+-- For more information, see
+-- <http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html
+-- Activate the AWS Storage Gateway>. In the activation process, you specify
+-- information such as the region you want to use for storing snapshots, the
+-- time zone for scheduled snapshots the gateway snapshot schedule window, an
+-- activation key, and a name for your gateway. The activation process also
+-- associates your gateway with your account; for more information, see
+-- UpdateGatewayInformation>.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html>
 module Network.AWS.StorageGateway.ActivateGateway
@@ -117,10 +119,12 @@ agGatewayName = lens _agGatewayName (\s a -> s { _agGatewayName = a })
 -- | One of the values that indicates the region where you want to store the
 -- snapshot backups. The gateway region specified must be the same region as
 -- the region in your Host header in the request. For more information about
--- available regions and endpoints for AWS Storage Gateway, see Regions and
--- Endpoints in the Amazon Web Services Glossary. Valid Values: "us-east-1",
--- "us-west-1", "us-west-2", "eu-west-1", "eu-central-1", "ap-northeast-1",
--- "ap-southeast-1", "ap-southeast-2", "sa-east-1".
+-- available regions and endpoints for AWS Storage Gateway, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region
+-- Regions and Endpoints> in the /Amazon Web Services Glossary/. /Valid
+-- Values/: "us-east-1", "us-west-1", "us-west-2", "eu-west-1",
+-- "eu-central-1", "ap-northeast-1", "ap-southeast-1", "ap-southeast-2",
+-- "sa-east-1".
 agGatewayRegion :: Lens' ActivateGateway Text
 agGatewayRegion = lens _agGatewayRegion (\s a -> s { _agGatewayRegion = a })
 
@@ -138,13 +142,13 @@ agGatewayType :: Lens' ActivateGateway (Maybe Text)
 agGatewayType = lens _agGatewayType (\s a -> s { _agGatewayType = a })
 
 -- | The value that indicates the type of medium changer to use for
--- gateway-VTL. This field is optional. Valid Values: "STK-L700".
+-- gateway-VTL. This field is optional. /Valid Values/: "STK-L700".
 agMediumChangerType :: Lens' ActivateGateway (Maybe Text)
 agMediumChangerType =
     lens _agMediumChangerType (\s a -> s { _agMediumChangerType = a })
 
 -- | The value that indicates the type of tape drive to use for gateway-VTL.
--- This field is optional. Valid Values: "IBM-ULT3580-TD5".
+-- This field is optional. /Valid Values/: "IBM-ULT3580-TD5".
 agTapeDriveType :: Lens' ActivateGateway (Maybe Text)
 agTapeDriveType = lens _agTapeDriveType (\s a -> s { _agTapeDriveType = a })
 

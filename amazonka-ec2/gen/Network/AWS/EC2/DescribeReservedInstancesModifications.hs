@@ -24,8 +24,10 @@
 -- parameter is specified, information about all your Reserved Instances
 -- modification requests is returned. If a modification ID is specified, only
 -- information about the specific modification is returned. For more
--- information, see Modifying Reserved Instances in the Amazon Elastic Compute
--- Cloud User Guide.
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html
+-- Modifying Reserved Instances> in the Amazon Elastic Compute Cloud User
+-- Guide.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesModifications.html>
 module Network.AWS.EC2.DescribeReservedInstancesModifications

@@ -32,8 +32,9 @@
 -- make sure it is in a state from which it can be restarted. Stopping an
 -- instance does not preserve data stored in RAM. Performing this operation on
 -- an instance that uses an instance store as its root device returns an
--- error. For more information, see Stopping Instances in the Amazon Elastic
--- Compute Cloud User Guide.
+-- error. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+-- Stopping Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StartInstances.html>
 module Network.AWS.EC2.StartInstances

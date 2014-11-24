@@ -241,24 +241,30 @@ aliasTarget p1 p2 p3 = AliasTarget
     , _atEvaluateTargetHealth = p3
     }
 
--- | Alias resource record sets only: The external DNS name associated with
--- the AWS Resource. For more information and an example, see Creating Alias
--- Resource Record Sets in the Amazon Route 53 Developer Guide.
+-- | /Alias resource record sets only:/ The external DNS name associated with
+-- the AWS Resource. For more information and an example, see
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html
+-- Creating Alias Resource Record Sets> in the /Amazon Route 53 Developer
+-- Guide/ .
 atDNSName :: Lens' AliasTarget Text
 atDNSName = lens _atDNSName (\s a -> s { _atDNSName = a })
 
--- | Alias resource record sets only: A boolean value that indicates whether
+-- | /Alias resource record sets only:/ A boolean value that indicates whether
 -- this Resource Record Set should respect the health status of any health
 -- checks associated with the ALIAS target record which it is linked to. For
--- more information and an example, see Creating Alias Resource Record Sets
--- in the Amazon Route 53 Developer Guide.
+-- more information and an example, see
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html
+-- Creating Alias Resource Record Sets> in the /Amazon Route 53 Developer
+-- Guide/ .
 atEvaluateTargetHealth :: Lens' AliasTarget Bool
 atEvaluateTargetHealth =
     lens _atEvaluateTargetHealth (\s a -> s { _atEvaluateTargetHealth = a })
 
--- | Alias resource record sets only: The value of the hosted zone ID for the
--- AWS resource. For more information and an example, see Creating Alias
--- Resource Record Sets in the Amazon Route 53 Developer Guide.
+-- | /Alias resource record sets only:/ The value of the hosted zone ID for
+-- the AWS resource. For more information and an example, see
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html
+-- Creating Alias Resource Record Sets> in the /Amazon Route 53 Developer
+-- Guide/ .
 atHostedZoneId :: Lens' AliasTarget Text
 atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
 
@@ -982,7 +988,8 @@ changeBatch p1 = ChangeBatch
 cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a }) . _List1
 
--- | Optional: Any comments you want to include about a change batch request.
+-- | /Optional:/ Any comments you want to include about a change batch
+-- request.
 cbComment :: Lens' ChangeBatch (Maybe Text)
 cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 
@@ -1214,37 +1221,37 @@ resourceRecordSet p1 p2 p3 = ResourceRecordSet
     , _rrsHealthCheckId   = Nothing
     }
 
--- | Alias resource record sets only: Information about the AWS resource to
+-- | /Alias resource record sets only:/ Information about the AWS resource to
 -- which you are redirecting traffic.
 rrsAliasTarget :: Lens' ResourceRecordSet (Maybe AliasTarget)
 rrsAliasTarget = lens _rrsAliasTarget (\s a -> s { _rrsAliasTarget = a })
 
--- | Failover resource record sets only: Among resource record sets that have
--- the same combination of DNS name and type, a value that indicates whether
--- the current resource record set is a primary or secondary resource record
--- set. A failover set may contain at most one resource record set marked as
--- primary and one resource record set marked as secondary. A resource
--- record set marked as primary will be returned if any of the following are
--- true: (1) an associated health check is passing, (2) if the resource
--- record set is an alias with the evaluate target health and at least one
--- target resource record set is healthy, (3) both the primary and secondary
--- resource record set are failing health checks or (4) there is no
--- secondary resource record set. A secondary resource record set will be
--- returned if: (1) the primary is failing a health check and either the
--- secondary is passing a health check or has no associated health check, or
--- (2) there is no primary resource record set. Valid values: PRIMARY |
--- SECONDARY.
+-- | /Failover resource record sets only:/ Among resource record sets that
+-- have the same combination of DNS name and type, a value that indicates
+-- whether the current resource record set is a primary or secondary
+-- resource record set. A failover set may contain at most one resource
+-- record set marked as primary and one resource record set marked as
+-- secondary. A resource record set marked as primary will be returned if
+-- any of the following are true: (1) an associated health check is passing,
+-- (2) if the resource record set is an alias with the evaluate target
+-- health and at least one target resource record set is healthy, (3) both
+-- the primary and secondary resource record set are failing health checks
+-- or (4) there is no secondary resource record set. A secondary resource
+-- record set will be returned if: (1) the primary is failing a health check
+-- and either the secondary is passing a health check or has no associated
+-- health check, or (2) there is no primary resource record set. Valid
+-- values: PRIMARY | SECONDARY.
 rrsFailover :: Lens' ResourceRecordSet (Maybe Failover)
 rrsFailover = lens _rrsFailover (\s a -> s { _rrsFailover = a })
 
--- | Geo location resource record sets only: Among resource record sets that
+-- | /Geo location resource record sets only:/ Among resource record sets that
 -- have the same combination of DNS name and type, a value that specifies
 -- the geo location for the current resource record set.
 rrsGeoLocation :: Lens' ResourceRecordSet (Maybe GeoLocation)
 rrsGeoLocation = lens _rrsGeoLocation (\s a -> s { _rrsGeoLocation = a })
 
--- | Health Check resource record sets only, not required for alias resource
--- record sets: An identifier that is used to identify health check
+-- | /Health Check resource record sets only, not required for alias resource
+-- record sets:/ An identifier that is used to identify health check
 -- associated with the resource record set.
 rrsHealthCheckId :: Lens' ResourceRecordSet (Maybe Text)
 rrsHealthCheckId = lens _rrsHealthCheckId (\s a -> s { _rrsHealthCheckId = a })
@@ -1253,9 +1260,9 @@ rrsHealthCheckId = lens _rrsHealthCheckId (\s a -> s { _rrsHealthCheckId = a })
 rrsName :: Lens' ResourceRecordSet Text
 rrsName = lens _rrsName (\s a -> s { _rrsName = a })
 
--- | Latency-based resource record sets only: Among resource record sets that
--- have the same combination of DNS name and type, a value that specifies
--- the AWS region for the current resource record set.
+-- | /Latency-based resource record sets only:/ Among resource record sets
+-- that have the same combination of DNS name and type, a value that
+-- specifies the AWS region for the current resource record set.
 rrsRegion :: Lens' ResourceRecordSet (Maybe Region)
 rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
 
@@ -1266,7 +1273,7 @@ rrsResourceRecords =
     lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
         . _List1
 
--- | Weighted, Latency, Geo, and Failover resource record sets only: An
+-- | /Weighted, Latency, Geo, and Failover resource record sets only:/ An
 -- identifier that differentiates among multiple resource record sets that
 -- have the same combination of DNS name and type.
 rrsSetIdentifier :: Lens' ResourceRecordSet (Maybe Text)
@@ -1280,10 +1287,10 @@ rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a }) . mapping _Nat
 rrsType :: Lens' ResourceRecordSet RecordType
 rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 
--- | Weighted resource record sets only: Among resource record sets that have
--- the same combination of DNS name and type, a value that determines what
--- portion of traffic for the current resource record set is routed to the
--- associated location.
+-- | /Weighted resource record sets only:/ Among resource record sets that
+-- have the same combination of DNS name and type, a value that determines
+-- what portion of traffic for the current resource record set is routed to
+-- the associated location.
 rrsWeight :: Lens' ResourceRecordSet (Maybe Natural)
 rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a }) . mapping _Nat
 
@@ -1401,7 +1408,7 @@ changeInfo p1 p2 p3 = ChangeInfo
 
 -- | A complex type that describes change information about changes made to
 -- your hosted zone. This element contains an ID that you use when
--- performing a GetChange action to get detailed information about the
+-- performing a GetChange> action to get detailed information about the
 -- change.
 ciComment :: Lens' ChangeInfo (Maybe Text)
 ciComment = lens _ciComment (\s a -> s { _ciComment = a })
@@ -1466,7 +1473,7 @@ geoLocation = GeoLocation
 -- | The code for a continent geo location. Note: only continent locations
 -- have a continent code. Valid values: AF | AN | AS | EU | OC | NA | SA
 -- Constraint: Specifying ContinentCode with either CountryCode or
--- SubdivisionCode returns an InvalidInput error.
+-- SubdivisionCode returns an InvalidInput> error.
 glContinentCode :: Lens' GeoLocation (Maybe Text)
 glContinentCode = lens _glContinentCode (\s a -> s { _glContinentCode = a })
 
@@ -1480,7 +1487,7 @@ glCountryCode = lens _glCountryCode (\s a -> s { _glCountryCode = a })
 -- | The code for a country's subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
 -- Constraint: Specifying SubdivisionCode without CountryCode returns an
--- InvalidInput error.
+-- InvalidInput> error.
 glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
 glSubdivisionCode =
     lens _glSubdivisionCode (\s a -> s { _glSubdivisionCode = a })

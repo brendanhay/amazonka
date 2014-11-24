@@ -28,8 +28,9 @@
 -- IAM policy to constrain this action's parameters. If the caller does not
 -- have sufficient permissions to invoke the action, or the parameter values
 -- fall outside the specified constraints, the action fails by throwing
--- OperationNotPermitted. For details and example IAM policies, see Using IAM
--- to Manage Access to Amazon SWF Workflows.
+-- OperationNotPermitted. For details and example IAM policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
+-- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterDomain.html>
 module Network.AWS.SWF.RegisterDomain
@@ -87,11 +88,11 @@ rdDescription = lens _rdDescription (\s a -> s { _rdDescription = a })
 -- string must not start or end with whitespace. It must not contain a :
 -- (colon), / (slash), | (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string &quot;arn&quot;.
+-- string "arn".
 rdName :: Lens' RegisterDomain Text
 rdName = lens _rdName (\s a -> s { _rdName = a })
 
--- | Specifies the duration--in days--for which the record (including the
+-- | Specifies the duration--/in days/--for which the record (including the
 -- history) of workflow executions in this domain should be kept by the
 -- service. After the retention period, the workflow execution will not be
 -- available in the results of visibility calls. If a duration of NONE is

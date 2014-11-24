@@ -22,7 +22,9 @@
 
 -- | Returns a list of your queues that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue. For more information about using dead
--- letter queues, see Using Amazon SQS Dead Letter Queues.
+-- letter queues, see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html
+-- Using Amazon SQS Dead Letter Queues>.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html>
 module Network.AWS.SQS.ListDeadLetterSourceQueues

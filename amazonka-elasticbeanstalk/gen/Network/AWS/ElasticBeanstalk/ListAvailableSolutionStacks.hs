@@ -70,7 +70,7 @@ listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
     , _lassrSolutionStackDetails = mempty
     }
 
--- | A list of available solution stacks and their SolutionStackDescription.
+-- | A list of available solution stacks and their SolutionStackDescription>.
 lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrSolutionStackDetails =
     lens _lassrSolutionStackDetails

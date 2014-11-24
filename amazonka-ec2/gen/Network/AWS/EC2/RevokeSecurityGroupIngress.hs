@@ -138,8 +138,9 @@ rsgiIpPermissions =
     lens _rsgiIpPermissions (\s a -> s { _rsgiIpPermissions = a })
         . _List
 
--- | The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
--- Use -1 to specify all.
+-- | The IP protocol name (tcp, udp, icmp) or number (see
+-- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
+-- Protocol Numbers>). Use -1 to specify all.
 rsgiIpProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiIpProtocol = lens _rsgiIpProtocol (\s a -> s { _rsgiIpProtocol = a })
 

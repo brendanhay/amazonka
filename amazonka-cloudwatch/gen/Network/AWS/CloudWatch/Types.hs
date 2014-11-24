@@ -329,8 +329,9 @@ maAlarmArn = lens _maAlarmArn (\s a -> s { _maAlarmArn = a })
 -- | The time stamp of the last update to the alarm configuration. Amazon
 -- CloudWatch uses Coordinated Universal Time (UTC) when returning time
 -- stamps, which do not accommodate seasonal adjustments such as daylight
--- savings time. For more information, see Time stamps in the Amazon
--- CloudWatch Developer Guide.
+-- savings time. For more information, see
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp
+-- Time stamps> in the /Amazon CloudWatch Developer Guide/.
 maAlarmConfigurationUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maAlarmConfigurationUpdatedTimestamp =
     lens _maAlarmConfigurationUpdatedTimestamp
@@ -406,8 +407,9 @@ maStateReasonData =
 -- | The time stamp of the last update to the alarm's state. Amazon CloudWatch
 -- uses Coordinated Universal Time (UTC) when returning time stamps, which
 -- do not accommodate seasonal adjustments such as daylight savings time.
--- For more information, see Time stamps in the Amazon CloudWatch Developer
--- Guide.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp
+-- Time stamps> in the /Amazon CloudWatch Developer Guide/.
 maStateUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maStateUpdatedTimestamp =
     lens _maStateUpdatedTimestamp (\s a -> s { _maStateUpdatedTimestamp = a })
@@ -562,7 +564,9 @@ mdStatisticValues =
 -- is set to the time the metric data was received. Amazon CloudWatch uses
 -- Coordinated Universal Time (UTC) when returning time stamps, which do not
 -- accommodate seasonal adjustments such as daylight savings time. For more
--- information, see Time stamps in the Amazon CloudWatch Developer Guide.
+-- information, see
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp
+-- Time stamps> in the /Amazon CloudWatch Developer Guide/.
 mdTimestamp :: Lens' MetricDatum (Maybe UTCTime)
 mdTimestamp = lens _mdTimestamp (\s a -> s { _mdTimestamp = a }) . mapping _Time
 
@@ -822,7 +826,9 @@ ahiHistorySummary =
 -- | The time stamp for the alarm history item. Amazon CloudWatch uses
 -- Coordinated Universal Time (UTC) when returning time stamps, which do not
 -- accommodate seasonal adjustments such as daylight savings time. For more
--- information, see Time stamps in the Amazon CloudWatch Developer Guide.
+-- information, see
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp
+-- Time stamps> in the /Amazon CloudWatch Developer Guide/.
 ahiTimestamp :: Lens' AlarmHistoryItem (Maybe UTCTime)
 ahiTimestamp = lens _ahiTimestamp (\s a -> s { _ahiTimestamp = a }) . mapping _Time
 
@@ -983,7 +989,9 @@ dSum = lens _dSum (\s a -> s { _dSum = a })
 -- | The time stamp used for the datapoint. Amazon CloudWatch uses Coordinated
 -- Universal Time (UTC) when returning time stamps, which do not accommodate
 -- seasonal adjustments such as daylight savings time. For more information,
--- see Time stamps in the Amazon CloudWatch Developer Guide.
+-- see
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp
+-- Time stamps> in the /Amazon CloudWatch Developer Guide/.
 dTimestamp :: Lens' Datapoint (Maybe UTCTime)
 dTimestamp = lens _dTimestamp (\s a -> s { _dTimestamp = a }) . mapping _Time
 

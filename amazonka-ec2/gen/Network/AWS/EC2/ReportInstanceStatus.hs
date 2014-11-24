@@ -22,11 +22,11 @@
 
 -- | Submits feedback about the status of an instance. The instance must be in
 -- the running state. If your experience with the instance differs from the
--- instance status returned by DescribeInstanceStatus, use
--- ReportInstanceStatus to report your experience with the instance. Amazon
+-- instance status returned by DescribeInstanceStatus>, use
+-- ReportInstanceStatus> to report your experience with the instance. Amazon
 -- EC2 collects this information to improve the accuracy of status checks. Use
 -- of this action does not change the value returned by
--- DescribeInstanceStatus.
+-- DescribeInstanceStatus>.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReportInstanceStatus.html>
 module Network.AWS.EC2.ReportInstanceStatus

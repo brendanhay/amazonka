@@ -22,7 +22,8 @@
 
 -- | Synchronizes the specified MFA device with AWS servers. For more
 -- information about creating and working with virtual MFA devices, go to
--- Using a Virtual MFA Device in the Using IAM guide.
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html
+-- Using a Virtual MFA Device> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ResyncMFADevice.html>
 module Network.AWS.IAM.ResyncMFADevice

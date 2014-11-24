@@ -27,8 +27,10 @@
 -- snapshot expires, Amazon Redshift automatically deletes it. If you want to
 -- keep an automated snapshot for a longer period, you can make a manual copy
 -- of the snapshot. Manual snapshots are retained until you delete them. For
--- more information about working with snapshots, go to Amazon Redshift
--- Snapshots in the Amazon Redshift Cluster Management Guide.
+-- more information about working with snapshots, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+-- Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CopyClusterSnapshot.html>
 module Network.AWS.Redshift.CopyClusterSnapshot

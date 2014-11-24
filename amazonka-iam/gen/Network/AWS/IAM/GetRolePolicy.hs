@@ -21,9 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves the specified policy document for the specified role. For more
--- information about roles, go to Working with Roles. The returned policy is
--- URL-encoded according to RFC 3986. For more information about RFC 3986, go
--- to http://www.faqs.org/rfcs/rfc3986.html.
+-- information about roles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
+-- Working with Roles>. The returned policy is URL-encoded according to RFC
+-- 3986. For more information about RFC 3986, go to
+-- <http://www.faqs.org/rfcs/rfc3986.html
+-- http://www.faqs.org/rfcs/rfc3986.html>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html>
 module Network.AWS.IAM.GetRolePolicy

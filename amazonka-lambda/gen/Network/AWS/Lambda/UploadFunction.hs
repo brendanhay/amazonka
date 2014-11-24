@@ -129,19 +129,20 @@ ufDescription = lens _ufDescription (\s a -> s { _ufDescription = a })
 
 -- | The name you want to assign to the function you are uploading. The
 -- function names appear in the console and are returned in the
--- ListFunctions API. Function names are used to specify functions to other
--- AWS Lambda APIs, such as InvokeAsync.
+-- ListFunctions> API. Function names are used to specify functions to other
+-- AWS Lambda APIs, such as InvokeAsync>.
 ufFunctionName :: Lens' UploadFunction Text
 ufFunctionName = lens _ufFunctionName (\s a -> s { _ufFunctionName = a })
 
 -- | A .zip file containing your packaged source code. For more information
--- about creating a .zip file, go to AWS LambdaL How it Works in the AWS
--- Lambda Developer Guide.
+-- about creating a .zip file, go to
+-- <http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events.html
+-- AWS LambdaL How it Works> in the AWS Lambda Developer Guide.
 ufFunctionZip :: Lens' UploadFunction Base64
 ufFunctionZip = lens _ufFunctionZip (\s a -> s { _ufFunctionZip = a })
 
 -- | The function that Lambda calls to begin execution. For Node.js, it is the
--- module-name.export value in your function.
+-- /module-name/./export/ value in your function.
 ufHandler :: Lens' UploadFunction Text
 ufHandler = lens _ufHandler (\s a -> s { _ufHandler = a })
 

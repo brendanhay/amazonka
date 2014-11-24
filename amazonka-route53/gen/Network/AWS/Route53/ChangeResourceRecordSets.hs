@@ -21,21 +21,22 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Use this action to create or change your authoritative DNS information. To
--- use this action, send a POST request to the 2013-04-01/hostedzone/hosted
--- Zone ID/rrset resource. The request body must include an XML document with
+-- use this action, send a POST request to the 2013-04-01/hostedzone//hosted
+-- Zone ID//rrset resource. The request body must include an XML document with
 -- a ChangeResourceRecordSetsRequest element. Changes are a list of change
 -- items and are considered transactional. For more information on
--- transactional changes, also known as change batches, see Creating,
--- Changing, and Deleting Resource Record Sets Using the Route 53 API in the
--- Amazon Route 53 Developer Guide. Due to the nature of transactional
--- changes, you cannot delete the same resource record set more than once in a
--- single change batch. If you attempt to delete the same change batch more
--- than once, Route 53 returns an InvalidChangeBatch error. In response to a
--- ChangeResourceRecordSets request, your DNS data is changed on all Route 53
--- DNS servers. Initially, the status of a change is PENDING. This means the
--- change has not yet propagated to all the authoritative Route 53 DNS
--- servers. When the change is propagated to all hosts, the change returns a
--- status of INSYNC. Note the following limitations on a
+-- transactional changes, also known as change batches, see
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/RRSchanges.html#RRSchanges_API
+-- Creating, Changing, and Deleting Resource Record Sets Using the Route 53
+-- API> in the /Amazon Route 53 Developer Guide/. Due to the nature of
+-- transactional changes, you cannot delete the same resource record set more
+-- than once in a single change batch. If you attempt to delete the same
+-- change batch more than once, Route 53 returns an InvalidChangeBatch error.
+-- In response to a ChangeResourceRecordSets request, your DNS data is changed
+-- on all Route 53 DNS servers. Initially, the status of a change is PENDING.
+-- This means the change has not yet propagated to all the authoritative Route
+-- 53 DNS servers. When the change is propagated to all hosts, the change
+-- returns a status of INSYNC. Note the following limitations on a
 -- ChangeResourceRecordSets request: - A request cannot contain more than 100
 -- Change elements. - A request cannot contain more than 1000 ResourceRecord
 -- elements. The sum of the number of characters (including spaces) in all
@@ -113,7 +114,7 @@ changeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse
 
 -- | A complex type that contains information about changes made to your
 -- hosted zone. This element contains an ID that you use when performing a
--- GetChange action to get detailed information about the change.
+-- GetChange> action to get detailed information about the change.
 crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\s a -> s { _crrsrChangeInfo = a })
 

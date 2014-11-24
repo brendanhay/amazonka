@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns an array of table names associated with the current account and
--- endpoint. The output from ListTables is paginated, with each page returning
--- a maximum of 100 table names.
+-- endpoint. The output from /ListTables/ is paginated, with each page
+-- returning a maximum of 100 table names.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html>
 module Network.AWS.DynamoDB.ListTables
@@ -69,8 +69,8 @@ listTables = ListTables
     }
 
 -- | The first table name that this operation will evaluate. Use the value
--- that was returned for LastEvaluatedTableName in a previous operation, so
--- that you can obtain the next page of results.
+-- that was returned for /LastEvaluatedTableName/ in a previous operation,
+-- so that you can obtain the next page of results.
 ltExclusiveStartTableName :: Lens' ListTables (Maybe Text)
 ltExclusiveStartTableName =
     lens _ltExclusiveStartTableName
@@ -101,10 +101,10 @@ listTablesResponse = ListTablesResponse
     }
 
 -- | The name of the last table in the current page of results. Use this value
--- as the ExclusiveStartTableName in a new request to obtain the next page
+-- as the /ExclusiveStartTableName/ in a new request to obtain the next page
 -- of results, until all the table names are returned. If you do not receive
--- a LastEvaluatedTableName value in the response, this means that there are
--- no more table names to be retrieved.
+-- a /LastEvaluatedTableName/ value in the response, this means that there
+-- are no more table names to be retrieved.
 ltrLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
 ltrLastEvaluatedTableName =
     lens _ltrLastEvaluatedTableName
@@ -112,9 +112,9 @@ ltrLastEvaluatedTableName =
 
 -- | The names of the tables associated with the current account at the
 -- current endpoint. The maximum size of this array is 100. If
--- LastEvaluatedTableName also appears in the output, you can use this value
--- as the ExclusiveStartTableName parameter in a subsequent ListTables
--- request and obtain the next page of results.
+-- /LastEvaluatedTableName/ also appears in the output, you can use this
+-- value as the /ExclusiveStartTableName/ parameter in a subsequent
+-- /ListTables/ request and obtain the next page of results.
 ltrTableNames :: Lens' ListTablesResponse [Text]
 ltrTableNames = lens _ltrTableNames (\s a -> s { _ltrTableNames = a }) . _List
 

@@ -35,16 +35,19 @@
 -- integer values and to map associated data records to shards using the hash
 -- key ranges of the shards. You can override hashing the partition key to
 -- determine the shard by explicitly specifying a hash value using the
--- ExplicitHashKey parameter. For more information, see Partition Key in the
--- Amazon Kinesis Developer Guide. PutRecord returns the shard ID of where the
--- data record was placed and the sequence number that was assigned to the
--- data record. Sequence numbers generally increase over time. To guarantee
--- strictly increasing ordering, use the SequenceNumberForOrdering parameter.
--- For more information, see Sequence Number in the Amazon Kinesis Developer
--- Guide. If a PutRecord request cannot be processed because of insufficient
--- provisioned throughput on the shard involved in the request, PutRecord
--- throws ProvisionedThroughputExceededException. Data records are accessible
--- for only 24 hours from the time that they are added to an Amazon Kinesis
+-- ExplicitHashKey parameter. For more information, see
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key
+-- Partition Key> in the /Amazon Kinesis Developer Guide/. PutRecord returns
+-- the shard ID of where the data record was placed and the sequence number
+-- that was assigned to the data record. Sequence numbers generally increase
+-- over time. To guarantee strictly increasing ordering, use the
+-- SequenceNumberForOrdering parameter. For more information, see
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-sequence-number
+-- Sequence Number> in the /Amazon Kinesis Developer Guide/. If a PutRecord
+-- request cannot be processed because of insufficient provisioned throughput
+-- on the shard involved in the request, PutRecord throws
+-- ProvisionedThroughputExceededException. Data records are accessible for
+-- only 24 hours from the time that they are added to an Amazon Kinesis
 -- stream.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html>
@@ -134,10 +137,10 @@ prPartitionKey = lens _prPartitionKey (\s a -> s { _prPartitionKey = a })
 
 -- | Guarantees strictly increasing sequence numbers, for puts from the same
 -- client and to the same partition key. Usage: set the
--- SequenceNumberForOrdering of record n to the sequence number of record
--- n-1 (as returned in the PutRecordResult when putting record n-1). If this
--- parameter is not set, records will be coarsely ordered based on arrival
--- time.
+-- SequenceNumberForOrdering of record /n/ to the sequence number of record
+-- /n-1/ (as returned in the PutRecordResult> when putting record /n-1/). If
+-- this parameter is not set, records will be coarsely ordered based on
+-- arrival time.
 prSequenceNumberForOrdering :: Lens' PutRecord (Maybe Text)
 prSequenceNumberForOrdering =
     lens _prSequenceNumberForOrdering

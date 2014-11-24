@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The ModifyCacheParameterGroup operation modifies the parameters of a cache
--- parameter group. You can modify up to 20 parameters in a single request by
--- submitting a list parameter name and value pairs.
+-- | The /ModifyCacheParameterGroup/ operation modifies the parameters of a
+-- cache parameter group. You can modify up to 20 parameters in a single
+-- request by submitting a list parameter name and value pairs.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html>
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup

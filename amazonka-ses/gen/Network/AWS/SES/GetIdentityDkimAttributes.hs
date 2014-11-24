@@ -31,8 +31,9 @@
 -- verified the DKIM tokens published in the domain's DNS. This information is
 -- only returned for domain name identities, not for email addresses. This
 -- action is throttled at one request per second. For more information about
--- creating DNS records using DKIM tokens, go to the Amazon SES Developer
--- Guide.
+-- creating DNS records using DKIM tokens, go to the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html
+-- Amazon SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityDkimAttributes.html>
 module Network.AWS.SES.GetIdentityDkimAttributes

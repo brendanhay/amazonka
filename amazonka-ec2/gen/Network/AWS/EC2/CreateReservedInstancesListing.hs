@@ -23,7 +23,7 @@
 -- | Creates a listing for Amazon EC2 Reserved Instances to be sold in the
 -- Reserved Instance Marketplace. You can submit one Reserved Instance listing
 -- at a time. To get a list of your Reserved Instances, you can use the
--- DescribeReservedInstances operation. The Reserved Instance Marketplace
+-- DescribeReservedInstances> operation. The Reserved Instance Marketplace
 -- matches sellers who want to resell Reserved Instance capacity that they no
 -- longer need with buyers who want to purchase additional capacity. Reserved
 -- Instances bought and sold through the Reserved Instance Marketplace work
@@ -33,9 +33,11 @@
 -- Marketplace listing of some or all of your Reserved Instances, and specify
 -- the upfront price to receive for them. Your Reserved Instance listings then
 -- become available for purchase. To view the details of your Reserved
--- Instance listing, you can use the DescribeReservedInstancesListings
--- operation. For more information, see Reserved Instance Marketplace in the
--- Amazon Elastic Compute Cloud User Guide.
+-- Instance listing, you can use the DescribeReservedInstancesListings>
+-- operation. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html
+-- Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateReservedInstancesListing.html>
 module Network.AWS.EC2.CreateReservedInstancesListing
@@ -95,7 +97,9 @@ createReservedInstancesListing p1 p2 p3 = CreateReservedInstancesListing
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of
 -- your listings. This helps avoid duplicate listings. For more information,
--- see Ensuring Idempotency in the Amazon Elastic Compute Cloud User Guide.
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html
+-- Ensuring Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
 crilClientToken :: Lens' CreateReservedInstancesListing Text
 crilClientToken = lens _crilClientToken (\s a -> s { _crilClientToken = a })
 

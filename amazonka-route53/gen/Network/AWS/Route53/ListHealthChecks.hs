@@ -142,15 +142,15 @@ lhcrMarker = lens _lhcrMarker (\s a -> s { _lhcrMarker = a })
 
 -- | The maximum number of health checks to be included in the response body.
 -- If the number of health checks associated with this AWS account exceeds
--- MaxItems, the value of ListHealthChecksResponse$IsTruncated in the
+-- MaxItems, the value of ListHealthChecksResponse$IsTruncated> in the
 -- response is true. Call ListHealthChecks again and specify the value of
--- ListHealthChecksResponse$NextMarker in the ListHostedZonesRequest$Marker
--- element to get the next page of results.
+-- ListHealthChecksResponse$NextMarker> in the
+-- ListHostedZonesRequest$Marker> element to get the next page of results.
 lhcrMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrMaxItems = lens _lhcrMaxItems (\s a -> s { _lhcrMaxItems = a })
 
 -- | Indicates where to continue listing health checks. If
--- ListHealthChecksResponse$IsTruncated is true, make another request to
+-- ListHealthChecksResponse$IsTruncated> is true, make another request to
 -- ListHealthChecks and include the value of the NextMarker element in the
 -- Marker element to get the next page of results.
 lhcrNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)

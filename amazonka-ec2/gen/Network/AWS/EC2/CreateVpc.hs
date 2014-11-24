@@ -23,11 +23,13 @@
 -- | Creates a VPC with the specified CIDR block. The smallest VPC you can
 -- create uses a /28 netmask (16 IP addresses), and the largest uses a /16
 -- netmask (65,536 IP addresses). To help you decide how big to make your VPC,
--- see Your VPC and Subnets in the Amazon Virtual Private Cloud User Guide. By
+-- see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
+-- Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/. By
 -- default, each instance you launch in the VPC has the default DHCP options,
 -- which includes only a default DNS server that we provide
--- (AmazonProvidedDNS). For more information about DHCP options, see DHCP
--- Options Sets in the Amazon Virtual Private Cloud User Guide.
+-- (AmazonProvidedDNS). For more information about DHCP options, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html
+-- DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpc.html>
 module Network.AWS.EC2.CreateVpc

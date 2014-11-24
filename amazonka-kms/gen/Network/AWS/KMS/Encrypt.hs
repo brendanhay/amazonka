@@ -79,8 +79,9 @@ encrypt p1 p2 = Encrypt
     }
 
 -- | Name:value pair that specifies the encryption context to be used for
--- authenticated encryption. For more information, see Authenticated
--- Encryption.
+-- authenticated encryption. For more information, see
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html
+-- Authenticated Encryption>.
 eEncryptionContext :: Lens' Encrypt (HashMap Text Text)
 eEncryptionContext =
     lens _eEncryptionContext (\s a -> s { _eEncryptionContext = a })

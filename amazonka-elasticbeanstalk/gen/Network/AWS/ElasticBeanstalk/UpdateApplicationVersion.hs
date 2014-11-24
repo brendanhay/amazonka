@@ -104,7 +104,7 @@ updateApplicationVersionResponse = UpdateApplicationVersionResponse
     { _uavrApplicationVersion = Nothing
     }
 
--- | The ApplicationVersionDescription of the application version.
+-- | The ApplicationVersionDescription> of the application version.
 uavrApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)
 uavrApplicationVersion =
     lens _uavrApplicationVersion (\s a -> s { _uavrApplicationVersion = a })

@@ -115,7 +115,8 @@ cesEnabled = lens _cesEnabled (\s a -> s { _cesEnabled = a })
 
 -- | A list of event categories for a SourceType that you want to subscribe
 -- to. You can see a list of the categories for a given SourceType in the
--- Events topic in the Amazon RDS User Guide or by using the
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html
+-- Events> topic in the Amazon RDS User Guide or by using the
 -- DescribeEventCategories action.
 cesEventCategories :: Lens' CreateEventSubscription [Text]
 cesEventCategories =

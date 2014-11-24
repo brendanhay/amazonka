@@ -24,12 +24,15 @@
 -- Reserved Instances, you obtain a capacity reservation for a certain
 -- instance configuration over a specified period of time. You pay a lower
 -- usage rate than with On-Demand instances for the time that you actually use
--- the capacity reservation. Use DescribeReservedInstancesOfferings to get a
+-- the capacity reservation. Use DescribeReservedInstancesOfferings> to get a
 -- list of Reserved Instance offerings that match your specifications. After
 -- you've purchased a Reserved Instance, you can check for your new Reserved
--- Instance with DescribeReservedInstances. For more information, see Reserved
--- Instances and Reserved Instance Marketplace in the Amazon Elastic Compute
--- Cloud User Guide.
+-- Instance with DescribeReservedInstances>. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html
+-- Reserved Instances> and
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html
+-- Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User
+-- Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-PurchaseReservedInstancesOffering.html>
 module Network.AWS.EC2.PurchaseReservedInstancesOffering

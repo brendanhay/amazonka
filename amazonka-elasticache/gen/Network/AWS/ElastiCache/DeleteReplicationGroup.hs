@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DeleteReplicationGroup operation deletes an existing cluster. By
+-- | The /DeleteReplicationGroup/ operation deletes an existing cluster. By
 -- default, this operation deletes the entire cluster, including the primary
 -- node group and all of the read replicas. You can optionally delete only the
 -- read replicas, while retaining the primary node group. When you receive a
@@ -92,8 +92,8 @@ drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
 drgReplicationGroupId =
     lens _drgReplicationGroupId (\s a -> s { _drgReplicationGroupId = a })
 
--- | If set to true, all of the read replicas will be deleted, but the primary
--- node will be retained.
+-- | If set to /true/, all of the read replicas will be deleted, but the
+-- primary node will be retained.
 drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
 drgRetainPrimaryCluster =
     lens _drgRetainPrimaryCluster (\s a -> s { _drgRetainPrimaryCluster = a })

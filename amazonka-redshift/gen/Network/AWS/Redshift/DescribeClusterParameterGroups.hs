@@ -25,15 +25,17 @@
 -- group, the response includes the parameter group name, description, and
 -- parameter group family name. You can optionally specify a name to retrieve
 -- the description of a specific parameter group. For more information about
--- managing parameter groups, go to Amazon Redshift Parameter Groups in the
--- Amazon Redshift Cluster Management Guide. If you specify both tag keys and
--- tag values in the same request, Amazon Redshift returns all parameter
--- groups that match any combination of the specified keys and values. For
--- example, if you have owner and environment for tag keys, and admin and test
--- for tag values, all parameter groups that have any combination of those
--- values are returned. If both tag keys and values are omitted from the
--- request, parameter groups are returned regardless of whether they have tag
--- keys or values associated with them.
+-- managing parameter groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
+-- Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster
+-- Management Guide/. If you specify both tag keys and tag values in the same
+-- request, Amazon Redshift returns all parameter groups that match any
+-- combination of the specified keys and values. For example, if you have
+-- owner and environment for tag keys, and admin and test for tag values, all
+-- parameter groups that have any combination of those values are returned. If
+-- both tag keys and values are omitted from the request, parameter groups are
+-- returned regardless of whether they have tag keys or values associated with
+-- them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameterGroups.html>
 module Network.AWS.Redshift.DescribeClusterParameterGroups
@@ -95,11 +97,11 @@ describeClusterParameterGroups = DescribeClusterParameterGroups
     }
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterParameterGroups
--- request exceed the value specified in MaxRecords, AWS returns a value in
--- the Marker field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the Marker
--- parameter and retrying the request.
+-- of response records. When the results of a
+-- DescribeClusterParameterGroups> request exceed the value specified in
+-- MaxRecords, AWS returns a value in the Marker field of the response. You
+-- can retrieve the next set of response records by providing the returned
+-- marker value in the Marker parameter and retrying the request.
 dcpgMarker :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 
@@ -165,7 +167,7 @@ describeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
 dcpgrMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
 dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
--- | A list of ClusterParameterGroup instances. Each instance describes one
+-- | A list of ClusterParameterGroup> instances. Each instance describes one
 -- cluster parameter group.
 dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrParameterGroups =

@@ -39,8 +39,9 @@
 -- span of 24 hours Statistics for up to 2 instances over a span of 2 weeks
 -- For information about the namespace, metric names, and dimensions that
 -- other Amazon Web Services products use to send metrics to Cloudwatch, go to
--- Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference in the
--- Amazon CloudWatch Developer Guide.
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html
+-- Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference> in the
+-- /Amazon CloudWatch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html>
 module Network.AWS.CloudWatch.GetMetricStatistics
@@ -153,9 +154,10 @@ gmsStartTime :: Lens' GetMetricStatistics UTCTime
 gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a }) . _Time
 
 -- | The metric statistics to return. For information about specific
--- statistics returned by GetMetricStatistics, go to Statistics in the
--- Amazon CloudWatch Developer Guide. Valid Values: Average | Sum |
--- SampleCount | Maximum | Minimum.
+-- statistics returned by GetMetricStatistics, go to
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic
+-- Statistics> in the /Amazon CloudWatch Developer Guide/. Valid Values:
+-- Average | Sum | SampleCount | Maximum | Minimum.
 gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
 gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a }) . _List1
 

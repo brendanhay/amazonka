@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of your DHCP options sets. For more information about
--- DHCP options sets, see DHCP Options Sets in the Amazon Virtual Private
--- Cloud User Guide.
+-- DHCP options sets, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html
+-- DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeDhcpOptions.html>
 module Network.AWS.EC2.DescribeDhcpOptions
@@ -84,16 +85,16 @@ ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
 
 -- | One or more filters. dhcp-options-id - The ID of a set of DHCP options.
 -- key - The key for one of the options (for example, domain-name). value -
--- The value for one of the options. tag:key=value - The key/value
+-- The value for one of the options. tag:/key/=/value/ - The key/value
 -- combination of a tag assigned to the resource. tag-key - The key of a tag
 -- assigned to the resource. This filter is independent of the tag-value
 -- filter. For example, if you use both the filter "tag-key=Purpose" and the
 -- filter "tag-value=X", you get any resources assigned both the tag key
 -- Purpose (regardless of what the tag's value is), and the tag value X
 -- (regardless of what the tag's key is). If you want to list only resources
--- where Purpose is X, see the tag:key=value filter. tag-value - The value
--- of a tag assigned to the resource. This filter is independent of the
--- tag-key filter.
+-- where Purpose is X, see the tag:/key/=/value/ filter. tag-value - The
+-- value of a tag assigned to the resource. This filter is independent of
+-- the tag-key filter.
 ddoFilters :: Lens' DescribeDhcpOptions [Filter]
 ddoFilters = lens _ddoFilters (\s a -> s { _ddoFilters = a }) . _List
 

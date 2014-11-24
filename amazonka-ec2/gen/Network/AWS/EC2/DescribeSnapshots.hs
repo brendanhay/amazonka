@@ -25,28 +25,29 @@
 -- to launch, private snapshots that you own, and private snapshots owned by
 -- another AWS account but for which you've been given explicit create volume
 -- permissions. The create volume permissions fall into the following
--- categories: public: The owner of the snapshot granted create volume
+-- categories: /public/: The owner of the snapshot granted create volume
 -- permissions for the snapshot to the all group. All AWS accounts have create
--- volume permissions for these snapshots. explicit: The owner of the snapshot
--- granted create volume permissions to a specific AWS account. implicit: An
--- AWS account has implicit create volume permissions for all snapshots it
--- owns. The list of snapshots returned can be modified by specifying snapshot
--- IDs, snapshot owners, or AWS accounts with create volume permissions. If no
--- options are specified, Amazon EC2 returns all snapshots for which you have
--- create volume permissions. If you specify one or more snapshot IDs, only
--- snapshots that have the specified IDs are returned. If you specify an
--- invalid snapshot ID, an error is returned. If you specify a snapshot ID for
--- which you do not have access, it is not included in the returned results.
--- If you specify one or more snapshot owners, only snapshots from the
--- specified owners and for which you have access are returned. The results
--- can include the AWS account IDs of the specified owners, amazon for
--- snapshots owned by Amazon, or self for snapshots that you own. If you
--- specify a list of restorable users, only snapshots with create snapshot
--- permissions for those users are returned. You can specify AWS account IDs
--- (if you own the snapshots), self for snapshots for which you own or have
--- explicit permissions, or all for public snapshots. For more information
--- about Amazon EBS snapshots, see Amazon EBS Snapshots in the Amazon Elastic
--- Compute Cloud User Guide.
+-- volume permissions for these snapshots. /explicit/: The owner of the
+-- snapshot granted create volume permissions to a specific AWS account.
+-- /implicit/: An AWS account has implicit create volume permissions for all
+-- snapshots it owns. The list of snapshots returned can be modified by
+-- specifying snapshot IDs, snapshot owners, or AWS accounts with create
+-- volume permissions. If no options are specified, Amazon EC2 returns all
+-- snapshots for which you have create volume permissions. If you specify one
+-- or more snapshot IDs, only snapshots that have the specified IDs are
+-- returned. If you specify an invalid snapshot ID, an error is returned. If
+-- you specify a snapshot ID for which you do not have access, it is not
+-- included in the returned results. If you specify one or more snapshot
+-- owners, only snapshots from the specified owners and for which you have
+-- access are returned. The results can include the AWS account IDs of the
+-- specified owners, amazon for snapshots owned by Amazon, or self for
+-- snapshots that you own. If you specify a list of restorable users, only
+-- snapshots with create snapshot permissions for those users are returned.
+-- You can specify AWS account IDs (if you own the snapshots), self for
+-- snapshots for which you own or have explicit permissions, or all for public
+-- snapshots. For more information about Amazon EBS snapshots, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html
+-- Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>
 module Network.AWS.EC2.DescribeSnapshots
@@ -115,15 +116,15 @@ ds1DryRun = lens _ds1DryRun (\s a -> s { _ds1DryRun = a })
 -- progress - The progress of the snapshot, as a percentage (for example,
 -- 80%). snapshot-id - The snapshot ID. start-time - The time stamp when the
 -- snapshot was initiated. status - The status of the snapshot (pending |
--- completed | error). tag:key=value - The key/value combination of a tag
--- assigned to the resource. tag-key - The key of a tag assigned to the
+-- completed | error). tag:/key/=/value/ - The key/value combination of a
+-- tag assigned to the resource. tag-key - The key of a tag assigned to the
 -- resource. This filter is independent of the tag-value filter. For
 -- example, if you use both the filter "tag-key=Purpose" and the filter
 -- "tag-value=X", you get any resources assigned both the tag key Purpose
 -- (regardless of what the tag's value is), and the tag value X (regardless
 -- of what the tag's key is). If you want to list only resources where
--- Purpose is X, see the tag:key=value filter. tag-value - The value of a
--- tag assigned to the resource. This filter is independent of the tag-key
+-- Purpose is X, see the tag:/key/=/value/ filter. tag-value - The value of
+-- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. volume-id - The ID of the volume the snapshot is for. volume-size
 -- - The size of the volume, in GiB.
 ds1Filters :: Lens' DescribeSnapshots [Filter]

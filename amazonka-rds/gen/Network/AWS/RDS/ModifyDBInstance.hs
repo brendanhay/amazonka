@@ -211,11 +211,13 @@ mdbiAllowMajorVersionUpgrade =
 -- of the PreferredMaintenanceWindow setting for the DB instance. If this
 -- parameter is set to false, changes to the DB instance are applied during
 -- the next maintenance window. Some parameter changes can cause an outage
--- and will be applied on the next call to RebootDBInstance, or the next
--- failure reboot. Review the table of parameters in Modifying a DB Instance
--- and Using the Apply Immediately Parameter to see the impact that setting
--- ApplyImmediately to true or false has for each modified parameter and to
--- determine when the changes will be applied. Default: false.
+-- and will be applied on the next call to RebootDBInstance>, or the next
+-- failure reboot. Review the table of parameters in
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying
+-- Modifying a DB Instance and Using the Apply Immediately Parameter> to see
+-- the impact that setting ApplyImmediately to true or false has for each
+-- modified parameter and to determine when the changes will be applied.
+-- Default: false.
 mdbiApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiApplyImmediately =
     lens _mdbiApplyImmediately (\s a -> s { _mdbiApplyImmediately = a })
@@ -250,7 +252,7 @@ mdbiBackupRetentionPeriod =
 
 -- | The new compute and memory capacity of the DB instance. To determine the
 -- instance classes that are available for a particular DB engine, use the
--- DescribeOrderableDBInstanceOptions action. Passing a value for this
+-- DescribeOrderableDBInstanceOptions> action. Passing a value for this
 -- setting causes an outage during the change and is applied during the next
 -- maintenance window, unless ApplyImmediately is specified as true for this
 -- request. Default: Uses existing setting Valid Values: db.t1.micro |

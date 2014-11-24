@@ -111,7 +111,7 @@ ufcFunctionName :: Lens' UpdateFunctionConfiguration Text
 ufcFunctionName = lens _ufcFunctionName (\s a -> s { _ufcFunctionName = a })
 
 -- | The function that Lambda calls to begin executing your function. For
--- Node.js, it is the module-name.export value in your function.
+-- Node.js, it is the /module-name.export/ value in your function.
 ufcHandler :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcHandler = lens _ufcHandler (\s a -> s { _ufcHandler = a })
 
